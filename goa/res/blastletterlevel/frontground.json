@@ -1,0 +1,1057 @@
+{
+  "ID": "4b5ed0f8-98c6-4438-8f76-65cadd335c86",
+  "Version": "3.10.0.0",
+  "Name": "frontground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 250,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "blastletterlevel/bomb.png",
+              "Plist": "blastletterlevel/blastletterlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 944.4672,
+              "Y": 268.9468
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -31.7566,
+            "RotationSkewY": -31.7518,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3689,
+              "Y": 0.1494
+            },
+            "PreSize": {
+              "X": 0.1824,
+              "Y": 0.4433
+            },
+            "LeftMargin": 710.9672,
+            "RightMargin": 1382.0327,
+            "TopMargin": 1132.0532,
+            "BottomMargin": -130.0532,
+            "Tag": 251,
+            "ActionTag": 1443397982,
+            "Size": {
+              "X": 467.0,
+              "Y": 798.0
+            },
+            "Name": "bomb_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "blastletterlevel/bomb3.png",
+              "Plist": "blastletterlevel/blastletterlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3432.3696,
+              "Y": 86.9831
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3408,
+              "Y": 0.0483
+            },
+            "PreSize": {
+              "X": 0.0871,
+              "Y": 0.1072
+            },
+            "LeftMargin": 3320.8696,
+            "RightMargin": -983.8696,
+            "TopMargin": 1616.5168,
+            "BottomMargin": -9.5169,
+            "Tag": 252,
+            "ActionTag": 261121547,
+            "Size": {
+              "X": 223.0,
+              "Y": 193.0
+            },
+            "Name": "bomb3_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "blastletterlevel/rocket.png",
+              "Plist": "blastletterlevel/blastletterlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2561.8306,
+              "Y": 1476.9791
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -43.1996,
+            "RotationSkewY": -43.1747,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0007,
+              "Y": 0.8205
+            },
+            "PreSize": {
+              "X": 0.1539,
+              "Y": 0.0367
+            },
+            "LeftMargin": 2364.8306,
+            "RightMargin": -198.8306,
+            "TopMargin": 290.0209,
+            "BottomMargin": 1443.9791,
+            "Tag": 253,
+            "ActionTag": -455347460,
+            "Size": {
+              "X": 394.0,
+              "Y": 66.0
+            },
+            "Name": "rocket_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "blastletterlevel/bomb.png",
+              "Plist": "blastletterlevel/blastletterlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5934.4326,
+              "Y": 268.9373
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 23.6635,
+            "RotationSkewY": 23.5845,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.3181,
+              "Y": 0.1494
+            },
+            "PreSize": {
+              "X": 0.1824,
+              "Y": 0.4433
+            },
+            "LeftMargin": 5700.9326,
+            "RightMargin": -3607.9326,
+            "TopMargin": 1132.0627,
+            "BottomMargin": -130.0627,
+            "Tag": 254,
+            "ActionTag": -1467236259,
+            "Size": {
+              "X": 467.0,
+              "Y": 798.0
+            },
+            "Name": "bomb_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "blastletterlevel/bomb4.png",
+              "Plist": "blastletterlevel/blastletterlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 8471.833,
+              "Y": 63.2486
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.3093,
+              "Y": 0.0351
+            },
+            "PreSize": {
+              "X": 0.0594,
+              "Y": 0.0711
+            },
+            "LeftMargin": 8395.833,
+            "RightMargin": -5987.833,
+            "TopMargin": 1672.7515,
+            "BottomMargin": -0.7514,
+            "Tag": 255,
+            "ActionTag": 1111619141,
+            "Size": {
+              "X": 152.0,
+              "Y": 128.0
+            },
+            "Name": "bomb4_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "blastletterlevel/rocket.png",
+              "Plist": "blastletterlevel/blastletterlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5253.3174,
+              "Y": 1143.5271
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -126.7524,
+            "RotationSkewY": -126.737,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.0521,
+              "Y": 0.6353
+            },
+            "PreSize": {
+              "X": 0.1539,
+              "Y": 0.0367
+            },
+            "LeftMargin": 5056.3174,
+            "RightMargin": -2890.3174,
+            "TopMargin": 623.4729,
+            "BottomMargin": 1110.5271,
+            "Tag": 256,
+            "ActionTag": -1990508853,
+            "Size": {
+              "X": 394.0,
+              "Y": 66.0
+            },
+            "Name": "rocket_3_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "blastletterlevel/bomb.png",
+              "Plist": "blastletterlevel/blastletterlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 9974.4248,
+              "Y": 278.9458
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -31.7605,
+            "RotationSkewY": -31.7251,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.8963,
+              "Y": 0.155
+            },
+            "PreSize": {
+              "X": 0.1824,
+              "Y": 0.4433
+            },
+            "LeftMargin": 9740.9248,
+            "RightMargin": -7647.9248,
+            "TopMargin": 1122.0542,
+            "BottomMargin": -120.0542,
+            "Tag": 257,
+            "ActionTag": 1399711515,
+            "Size": {
+              "X": 467.0,
+              "Y": 798.0
+            },
+            "Name": "bomb_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "blastletterlevel/bomb3.png",
+              "Plist": "blastletterlevel/blastletterlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 12462.3262,
+              "Y": 96.9862
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 4.8681,
+              "Y": 0.0539
+            },
+            "PreSize": {
+              "X": 0.0871,
+              "Y": 0.1072
+            },
+            "LeftMargin": 12350.8262,
+            "RightMargin": -10013.8262,
+            "TopMargin": 1606.5138,
+            "BottomMargin": 0.4862,
+            "Tag": 258,
+            "ActionTag": 1613690551,
+            "Size": {
+              "X": 223.0,
+              "Y": 193.0
+            },
+            "Name": "bomb3_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "blastletterlevel/rocket.png",
+              "Plist": "blastletterlevel/blastletterlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 11591.7705,
+              "Y": 1486.9695
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -43.1996,
+            "RotationSkewY": -43.1549,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 4.528,
+              "Y": 0.8261
+            },
+            "PreSize": {
+              "X": 0.1539,
+              "Y": 0.0367
+            },
+            "LeftMargin": 11394.7705,
+            "RightMargin": -9228.7705,
+            "TopMargin": 280.0305,
+            "BottomMargin": 1453.9695,
+            "Tag": 259,
+            "ActionTag": 1717733480,
+            "Size": {
+              "X": 394.0,
+              "Y": 66.0
+            },
+            "Name": "rocket_3_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "blastletterlevel/bomb3.png",
+              "Plist": "blastletterlevel/blastletterlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 15902.2637,
+              "Y": 86.9548
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 6.2118,
+              "Y": 0.0483
+            },
+            "PreSize": {
+              "X": 0.0871,
+              "Y": 0.1072
+            },
+            "LeftMargin": 15790.7637,
+            "RightMargin": -13453.7637,
+            "TopMargin": 1616.5452,
+            "BottomMargin": -9.5452,
+            "Tag": 260,
+            "ActionTag": 130409074,
+            "Size": {
+              "X": 223.0,
+              "Y": 193.0
+            },
+            "Name": "bomb3_2_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "blastletterlevel/bomb.png",
+              "Plist": "blastletterlevel/blastletterlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 18404.332,
+              "Y": 268.9192
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 23.7246,
+            "RotationSkewY": 23.6502,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 7.1892,
+              "Y": 0.1494
+            },
+            "PreSize": {
+              "X": 0.1824,
+              "Y": 0.4433
+            },
+            "LeftMargin": 18170.832,
+            "RightMargin": -16077.832,
+            "TopMargin": 1132.0808,
+            "BottomMargin": -130.0808,
+            "Tag": 261,
+            "ActionTag": 404517001,
+            "Size": {
+              "X": 467.0,
+              "Y": 798.0
+            },
+            "Name": "bomb_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "blastletterlevel/bomb4.png",
+              "Plist": "blastletterlevel/blastletterlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 20941.707,
+              "Y": 63.2205
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 8.1804,
+              "Y": 0.0351
+            },
+            "PreSize": {
+              "X": 0.0594,
+              "Y": 0.0711
+            },
+            "LeftMargin": 20865.707,
+            "RightMargin": -18457.707,
+            "TopMargin": 1672.7795,
+            "BottomMargin": -0.7795,
+            "Tag": 262,
+            "ActionTag": -611189872,
+            "Size": {
+              "X": 152.0,
+              "Y": 128.0
+            },
+            "Name": "bomb4_5_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "blastletterlevel/rocket.png",
+              "Plist": "blastletterlevel/blastletterlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 16961.666,
+              "Y": 1326.9268
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -126.7971,
+            "RotationSkewY": -126.702,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 6.6257,
+              "Y": 0.7372
+            },
+            "PreSize": {
+              "X": 0.1539,
+              "Y": 0.0367
+            },
+            "LeftMargin": 16764.666,
+            "RightMargin": -14598.666,
+            "TopMargin": 440.0732,
+            "BottomMargin": 1293.9268,
+            "Tag": 263,
+            "ActionTag": -153007691,
+            "Size": {
+              "X": 394.0,
+              "Y": 66.0
+            },
+            "Name": "rocket_3_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "blastletterlevel/bomb.png",
+              "Plist": "blastletterlevel/blastletterlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 14784.2793,
+              "Y": 328.9165
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 23.7246,
+            "RotationSkewY": 23.6502,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 5.7751,
+              "Y": 0.1827
+            },
+            "PreSize": {
+              "X": 0.1824,
+              "Y": 0.4433
+            },
+            "LeftMargin": 14550.7793,
+            "RightMargin": -12457.7793,
+            "TopMargin": 1072.0835,
+            "BottomMargin": -70.0835,
+            "Tag": 264,
+            "ActionTag": -382371762,
+            "Size": {
+              "X": 467.0,
+              "Y": 798.0
+            },
+            "Name": "bomb_1_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "blastletterlevel/rocket.png",
+              "Plist": "blastletterlevel/blastletterlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 13421.2471,
+              "Y": 964.6324
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -126.7971,
+            "RotationSkewY": -126.702,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 5.2427,
+              "Y": 0.5359
+            },
+            "PreSize": {
+              "X": 0.1539,
+              "Y": 0.0367
+            },
+            "LeftMargin": 13224.2471,
+            "RightMargin": -11058.2471,
+            "TopMargin": 802.3676,
+            "BottomMargin": 931.6324,
+            "Tag": 265,
+            "ActionTag": 1994341575,
+            "Size": {
+              "X": 394.0,
+              "Y": 66.0
+            },
+            "Name": "rocket_3_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "blastletterlevel/bomb3.png",
+              "Plist": "blastletterlevel/blastletterlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 24798.877,
+              "Y": 95.7487
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 9.6871,
+              "Y": 0.0532
+            },
+            "PreSize": {
+              "X": 0.0871,
+              "Y": 0.1072
+            },
+            "LeftMargin": 24687.377,
+            "RightMargin": -22350.377,
+            "TopMargin": 1607.7513,
+            "BottomMargin": -0.7513,
+            "Tag": 266,
+            "ActionTag": -296811870,
+            "Size": {
+              "X": 223.0,
+              "Y": 193.0
+            },
+            "Name": "bomb3_2_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "blastletterlevel/bomb.png",
+              "Plist": "blastletterlevel/blastletterlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 27284.3008,
+              "Y": 168.9178
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 23.7246,
+            "RotationSkewY": 23.6502,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 10.6579,
+              "Y": 0.0938
+            },
+            "PreSize": {
+              "X": 0.1824,
+              "Y": 0.4433
+            },
+            "LeftMargin": 27050.8008,
+            "RightMargin": -24957.8008,
+            "TopMargin": 1232.0822,
+            "BottomMargin": -230.0822,
+            "Tag": 267,
+            "ActionTag": -2044973117,
+            "Size": {
+              "X": 467.0,
+              "Y": 798.0
+            },
+            "Name": "bomb_1_0_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "blastletterlevel/rocket.png",
+              "Plist": "blastletterlevel/blastletterlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 25841.5469,
+              "Y": 1226.9177
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -126.7971,
+            "RotationSkewY": -126.702,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 10.0944,
+              "Y": 0.6816
+            },
+            "PreSize": {
+              "X": 0.1539,
+              "Y": 0.0367
+            },
+            "LeftMargin": 25644.5469,
+            "RightMargin": -23478.5469,
+            "TopMargin": 540.0823,
+            "BottomMargin": 1193.9177,
+            "Tag": 268,
+            "ActionTag": 699947272,
+            "Size": {
+              "X": 394.0,
+              "Y": 66.0
+            },
+            "Name": "rocket_3_0_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "blastletterlevel/bomb.png",
+              "Plist": "blastletterlevel/blastletterlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 23664.252,
+              "Y": 228.9154
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 23.7246,
+            "RotationSkewY": 23.6502,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 9.2438,
+              "Y": 0.1272
+            },
+            "PreSize": {
+              "X": 0.1824,
+              "Y": 0.4433
+            },
+            "LeftMargin": 23430.752,
+            "RightMargin": -21337.752,
+            "TopMargin": 1172.0846,
+            "BottomMargin": -170.0846,
+            "Tag": 269,
+            "ActionTag": -1245729377,
+            "Size": {
+              "X": 467.0,
+              "Y": 798.0
+            },
+            "Name": "bomb_1_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "blastletterlevel/rocket.png",
+              "Plist": "blastletterlevel/blastletterlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 22301.2207,
+              "Y": 864.6276
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -43.5782,
+            "RotationSkewY": -43.41,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 8.7114,
+              "Y": 0.4803
+            },
+            "PreSize": {
+              "X": 0.1539,
+              "Y": 0.0367
+            },
+            "LeftMargin": 22104.2207,
+            "RightMargin": -19938.2207,
+            "TopMargin": 902.3724,
+            "BottomMargin": 831.6276,
+            "Tag": 270,
+            "ActionTag": -1560409813,
+            "Size": {
+              "X": 394.0,
+              "Y": 66.0
+            },
+            "Name": "rocket_3_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "blastletterlevel/bomb3.png",
+              "Plist": "blastletterlevel/blastletterlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 28762.2383,
+              "Y": 95.738
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 11.2352,
+              "Y": 0.0532
+            },
+            "PreSize": {
+              "X": 0.0871,
+              "Y": 0.1072
+            },
+            "LeftMargin": 28650.7383,
+            "RightMargin": -26313.7383,
+            "TopMargin": 1607.762,
+            "BottomMargin": -0.762,
+            "Tag": 271,
+            "ActionTag": 929228990,
+            "Size": {
+              "X": 223.0,
+              "Y": 193.0
+            },
+            "Name": "bomb3_2_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "blastletterlevel/rocket.png",
+              "Plist": "blastletterlevel/blastletterlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 29855.3945,
+              "Y": 1551.6125
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -227.5875,
+            "RotationSkewY": -227.4835,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 11.6623,
+              "Y": 0.862
+            },
+            "PreSize": {
+              "X": 0.1539,
+              "Y": 0.0367
+            },
+            "LeftMargin": 29658.3945,
+            "RightMargin": -27492.3945,
+            "TopMargin": 215.3875,
+            "BottomMargin": 1518.6125,
+            "Tag": 272,
+            "ActionTag": -1929053445,
+            "Size": {
+              "X": 394.0,
+              "Y": 66.0
+            },
+            "Name": "rocket_3_0_0_1_0",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "blastletterlevel.plist",
+        "blastletterlevel.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}
