@@ -33,7 +33,9 @@ void BlastLetter::checkAlphabets()
 		((BlastLetterNode *)this->getChildByName(stringStream.str()))->_drawingBoard->removeAllChildren();
 		((BlastLetterNode *)this->getChildByName(stringStream.str()))->setScale(1.0f/3.0f);
 		((BlastLetterNode *)this->getChildByName(stringStream.str()))->drawAllowance(false);
-		auto grid = this->getChildByName(LangUtil::convertUTF16CharToString(_data_value[_counterLetter]));
+		std::ostringstream nameLetterBoard;
+		nameLetterBoard << LangUtil::convertUTF16CharToString(_data_value[_counterLetter])<<(_counterLetter + 1);
+		auto grid = this->getChildByName(nameLetterBoard.str());
 		((BlastLetterNode *)this->getChildByName(stringStream.str()))->setPosition(Vec2(grid->getPositionX(), grid->getPositionY()));
 		_checkingAlphabets = false;
 		_touch = true;
@@ -47,9 +49,11 @@ void BlastLetter::checkAlphabets()
 			this->runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() {_menuContext->showScore(); }), NULL));
 		}
 		else {
-			auto label = this->getChildByName(LangUtil::convertUTF16CharToString(_data_value[_counterLetter]));
-			label->getChildByName(label->getName())->setRotation(20);
-			label->getChildByName(label->getName())->runAction(RepeatForever::create(shakingCharacter()));
+			std::ostringstream nameLetterBoard;
+			nameLetterBoard << LangUtil::convertUTF16CharToString(_data_value[_counterLetter])<<(_counterLetter + 1);
+			auto label = this->getChildByName(nameLetterBoard.str());
+			label->getChildByName(LangUtil::convertUTF16CharToString(nameLetterBoard.str().at(1)))->setRotation(20);
+			label->getChildByName(LangUtil::convertUTF16CharToString(nameLetterBoard.str().at(1)))->runAction(RepeatForever::create(shakingCharacter()));
 		}
 	}
 	else {
@@ -91,10 +95,10 @@ void BlastLetter::onEnterTransitionDidFinish() {
 	BlastLetterNode* BlastLetterNodeObj;
 	
 	_data_key = getConvertInUpperCase(TextGenerator::getInstance()->generateAWord(1));
-	_data_value = _data_key;
-	auto coord = getAllGridCoord(1, _data_key.size());
+	_data_value = "AAAA";
+	auto coord = getAllGridCoord(1, _data_value.size());
 
-	for (size_t coordIndex = 0; coordIndex < _data_key.size(); coordIndex++) {
+	for (size_t coordIndex = 0; coordIndex < _data_value.size(); coordIndex++) {
 		auto letterBoardSprite = Sprite::create();
 		letterBoardSprite->setTextureRect(Rect(0, 0, 350, 380));
 		letterBoardSprite->setColor(Color3B(219, 224, 252));
@@ -104,9 +108,15 @@ void BlastLetter::onEnterTransitionDidFinish() {
 		auto myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), LangUtil::convertUTF16CharToString(_data_value[coordIndex]));
 		myLabel->setPosition(Vec2(letterBoardSprite->getContentSize().width * 0.5, letterBoardSprite->getContentSize().height * 0.45));
 		myLabel->setScale(0.7);
-		myLabel->setName(myLabel->getString());
+		std::ostringstream namemyLabel;
+		namemyLabel << (coordIndex+1);
+		myLabel->setName(namemyLabel.str());
 		letterBoardSprite->addChild(myLabel);
-		letterBoardSprite->setName(myLabel->getString());
+
+		std::ostringstream nameLetterBoard;
+		nameLetterBoard << myLabel->getString() << (coordIndex + 1);
+
+		letterBoardSprite->setName(nameLetterBoard.str());
 		letterBoardSprite->setTag(coordIndex+1);
 		addEventsOnGrid(letterBoardSprite);
 
@@ -161,8 +171,10 @@ void BlastLetter::removeAllWritingScene()
 	runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() {
 		std::ostringstream stringStream;
 		stringStream << "Node" << (_counterLetter + 1);
-		auto label = this->getChildByName(LangUtil::convertUTF16CharToString(_data_value[_counterLetter]));
-		label->getChildByName(label->getName())->runAction(FadeIn::create(2.0f));
+		std::ostringstream nameLetterBoard;
+		nameLetterBoard << LangUtil::convertUTF16CharToString(_data_value[_counterLetter])<<(_counterLetter + 1);
+		auto label = this->getChildByName(nameLetterBoard.str());
+		label->getChildByName(LangUtil::convertUTF16CharToString(nameLetterBoard.str().at(1)))->runAction(FadeIn::create(2.0f));
 		this->removeChildByName(stringStream.str());
 		this->removeChildByName("blastScene");
 		this->removeChildByName("tempBoard");
@@ -181,12 +193,14 @@ bool BlastLetter::checkRecognizeLetter(string letter)
 {
 	if (_result.size() > 0) {
 		if ((_result.at(0).compare("o") == 0 || _result.at(0).compare("0") == 0) && (LangUtil::convertUTF16CharToString(_data_value[_counterLetter]).compare("O") == 0)) {
+			_result.clear();
 			return true;
 		}
 	}
 
 	for (size_t i = 0; i < _result.size(); i++) {
 		if (_result.at(i).compare(letter) == 0) {
+			_result.clear();
 			return true;
 		}
 	}
@@ -215,7 +229,9 @@ void BlastLetter::addEventsOnGrid(cocos2d::Sprite* callerObject)
 		auto target = event->getCurrentTarget();
 		Rect rect = Rect(0, 0, target->getContentSize().width, target->getContentSize().height);
 		if (target->getBoundingBox().containsPoint(touch->getLocation())) {
-			auto childText = target->getChildByName(target->getName());
+			std::ostringstream nameLetterBoard;
+			nameLetterBoard << (_counterLetter+1);
+			auto childText = target->getChildByName(nameLetterBoard.str());
 			target->setColor(Color3B::GRAY);
 			auto x = childText->getName();
 			CCLOG("Touched : %c", x.at(0));
@@ -246,7 +262,9 @@ void BlastLetter::addEventsOnGrid(cocos2d::Sprite* callerObject)
 		if (target->getBoundingBox().containsPoint(touch->getLocation())) {
 			
 			auto fadeOut = FadeOut::create(2.0f);
-			target->getChildByName(target->getName())->runAction(fadeOut);
+			std::ostringstream nameLetterBoard;
+			nameLetterBoard << (_counterLetter + 1);
+			target->getChildByName(nameLetterBoard.str())->runAction(fadeOut);
 			
 			auto letterBoardSprite = Sprite::create();
 			letterBoardSprite->setTextureRect(Rect(0, 0, 350, 380));
@@ -258,8 +276,9 @@ void BlastLetter::addEventsOnGrid(cocos2d::Sprite* callerObject)
 			auto bgLayerGradient = LayerGradient::create(Color4B(49, 42, 53,191.25), Color4B(49, 42, 53, 191.25));
 			addChild(bgLayerGradient, 3);
 			bgLayerGradient->setName("tempBg");
-
-			auto myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), target->getChildByName(target->getName())->getName());
+			std::ostringstream nameLetterBoards;
+			nameLetterBoards << _data_value[_counterLetter];
+			auto myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), nameLetterBoards.str());
 			myLabel->setPosition(Vec2(letterBoardSprite->getContentSize().width * 0.5, letterBoardSprite->getContentSize().height * 0.45));
 			myLabel->setScale(0.7);
 			letterBoardSprite->addChild(myLabel);
@@ -268,15 +287,17 @@ void BlastLetter::addEventsOnGrid(cocos2d::Sprite* callerObject)
 			letterBoardSprite->runAction(ScaleTo::create(1,3));
 
 			auto letterCharacterBoard = CallFunc::create([=]() {
+				std::ostringstream nameLetterBoard;
+				nameLetterBoard << (_counterLetter + 1);
 				auto fadeOut1 = FadeOut::create(1.0f);
-				target->getChildByName(target->getName())->runAction(fadeOut1);
+				target->getChildByName(nameLetterBoard.str())->runAction(fadeOut1);
 				auto fadeOut2 = FadeOut::create(2.0f);
 				myLabel->runAction(fadeOut2);
 			});
 			auto letterCharacter = CallFunc::create([=]() {
 				Node* popGrid = CSLoader::createNode("blastletter/screen_blast.csb");
 				auto timelineBlast = CSLoader::createTimeline("blastletter/screen_blast.csb");
-				_timelineBlast = timelineBlast;
+				
 				addChild(popGrid, 4);
 				popGrid->setName("blastScene");
 				popGrid->runAction(timelineBlast);
