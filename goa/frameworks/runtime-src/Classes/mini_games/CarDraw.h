@@ -15,7 +15,7 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../WordSceneLipiTKNode.h"
 
-
+class carDrawNode;
 class CarDraw : public cocos2d::Layer
 {
 public:
@@ -28,11 +28,25 @@ public:
 	virtual void postTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
 	virtual void postTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
 	virtual void postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
+	virtual void characterRecogination(std::vector<string> str);
+	void gameHelpLayer();
+	
 protected:
+	string _myChar;
 	MenuContext * menu;
+	bool _helpLayerFlag = false;
 	cocos2d::Node* _car;
 	cocos2d::DrawNode * _road;
-
+	float _prevDegree;
+	carDrawNode * _carDrawNodeLiPi;
+	void carMoving();
+	float _carPreviousAngle = 0.0f;
+	std::vector<Stroke*> _carStrokes;
+	Stroke* _carCurrentStroke;
+	std::vector <float> _distance;
+	void clearScreen(float ft);
+	void gameStart();
+	void onEnterTransitionDidFinish();
 };
 
 #endif 

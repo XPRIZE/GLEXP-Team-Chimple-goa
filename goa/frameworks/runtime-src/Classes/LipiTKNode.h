@@ -40,7 +40,7 @@ public:
     
     virtual void clearPrintedCharacters();
     
-    void broadCastRecognizedChars(std::vector<std::string> results);
+    virtual void broadCastRecognizedChars(std::vector<std::string> results);
     
     virtual cocos2d::Sprite* createDrawingBoard();
     
@@ -50,6 +50,18 @@ public:
     virtual void postTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
     virtual void postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
 
+	virtual std::vector<Stroke*> getStrokes();
+
+
+	// canvas, drawBoard and painting node
+	cocos2d::RenderTexture* _canvas;
+	cocos2d::Sprite* _drawingBoard;
+	cocos2d::DrawNode* _paintingNode;
+
+	std::vector<Stroke*> _strokes;
+	Stroke* _currentStroke;
+
+	void writingEnable(bool enable);
 protected:
     int _canvasHeight;
     int _canvasWidth;
@@ -58,13 +70,7 @@ protected:
 private:
     bool _isTouchEndedOrMovedOut;
 
-    // canvas, drawBoard and painting node
-    cocos2d::RenderTexture* _canvas;
-    cocos2d::Sprite* _drawingBoard;
-    cocos2d::DrawNode* _paintingNode;
     
-    std::vector<Stroke*> _strokes;
-    Stroke* _currentStroke;
     LipiTKProcessTask* lipiProcessTask;
     LipiTKInterface* _lipiTKInterface;
     
@@ -77,7 +83,7 @@ private:
     void onTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event);
     void touchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
 
-
+	cocos2d::EventListenerTouchOneByOne * _listenerTouches;
     void processLipiTK();
 
 };

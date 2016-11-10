@@ -1,0 +1,458 @@
+{
+  "ID": "e2d11b82-c037-415c-8d2e-eefffe85ffcf",
+  "Version": "2.3.4",
+  "Name": "Kima_apoteza_mkia_wakeMonkey_12",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 100,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": 543431779,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fire",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fire",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 100,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 543431779,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1508.1899,
+                "Y": 337.19,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1508.1899,
+                "Y": 337.19,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 543431779,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 543431779,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 100,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 329,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 218,
+              "G": 239,
+              "B": 237
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 332,
+            "ActionTag": 1528306899,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 139,
+              "G": 105,
+              "B": 20
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.2778
+            },
+            "TopMargin": 1300.0,
+            "Tag": 331,
+            "ActionTag": 144042717,
+            "Size": {
+              "X": 2560.0,
+              "Y": 500.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kima_apoteza_mkia_wakeMonkey/Kima_table.png",
+              "Plist": "Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 696.6621,
+              "Y": 416.6951
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2721,
+              "Y": 0.2315
+            },
+            "PreSize": {
+              "X": 0.291,
+              "Y": 0.2461
+            },
+            "LeftMargin": 324.1621,
+            "RightMargin": 1490.8379,
+            "TopMargin": 1161.8049,
+            "BottomMargin": 195.1951,
+            "Tag": 334,
+            "ActionTag": 1649261611,
+            "Size": {
+              "X": 745.0,
+              "Y": 443.0
+            },
+            "Name": "Kima_table_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kima_apoteza_mkia_wakeMonkey/Kima_pot.png",
+              "Plist": "Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1508.4457,
+              "Y": 402.1924
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5892,
+              "Y": 0.2234
+            },
+            "PreSize": {
+              "X": 0.1125,
+              "Y": 0.2372
+            },
+            "LeftMargin": 1364.4457,
+            "RightMargin": 907.5543,
+            "TopMargin": 1184.3076,
+            "BottomMargin": 188.6924,
+            "Tag": 1615,
+            "ActionTag": -743658094,
+            "Size": {
+              "X": 288.0,
+              "Y": 427.0
+            },
+            "Name": "Kima_pot_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Kima_apoteza_mkia_wakeMonkey/bonfire.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1508.1899,
+              "Y": 337.19
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5891,
+              "Y": 0.1873
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1508.1899,
+            "RightMargin": 1051.8101,
+            "TopMargin": 1462.8101,
+            "BottomMargin": 337.19,
+            "UserData": "fir:drag",
+            "Tag": 1612,
+            "ActionTag": 543431779,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bonfire_0",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kima_apoteza_mkia_wakeMonkey/monkey1.png",
+              "Plist": "Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 530.3377,
+              "Y": 778.5685
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2072,
+              "Y": 0.4325
+            },
+            "PreSize": {
+              "X": 0.1969,
+              "Y": 0.2022
+            },
+            "LeftMargin": 278.3377,
+            "RightMargin": 1777.6624,
+            "TopMargin": 839.4315,
+            "BottomMargin": 596.5685,
+            "Tag": 1616,
+            "ActionTag": 1707425970,
+            "Size": {
+              "X": 504.0,
+              "Y": 364.0
+            },
+            "Name": "monkey1_11",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kima_apoteza_mkia_wakeMonkey/rabbit_1.png",
+              "Plist": "Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 789.9297,
+              "Y": 673.6274
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3086,
+              "Y": 0.3742
+            },
+            "PreSize": {
+              "X": 0.1273,
+              "Y": 0.1289
+            },
+            "LeftMargin": 626.9297,
+            "RightMargin": 1607.0703,
+            "TopMargin": 1010.3726,
+            "BottomMargin": 557.6274,
+            "Tag": 1617,
+            "ActionTag": -2030989696,
+            "Size": {
+              "X": 326.0,
+              "Y": 232.0
+            },
+            "Name": "rabbit_1_12",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bonfire.json",
+        "Kima_apoteza_mkia_wakeMonkey.plist",
+        "Kima_apoteza_mkia_wakeMonkey.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

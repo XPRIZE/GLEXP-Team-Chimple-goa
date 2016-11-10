@@ -1,0 +1,784 @@
+{
+  "ID": "406aa108-62c7-4959-b2a8-0e1670db9080",
+  "Version": "2.3.4",
+  "Name": "Adhabu_Punishment06",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 240,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": 803533631,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 80,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 160,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 240,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 803533631,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2356.6611,
+                "Y": 453.9325,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2154.9702,
+                "Y": 423.5894,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1988.9275,
+                "Y": 393.4003,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1819.3386,
+                "Y": 341.7838,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 803533631,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.8194,
+                "Y": 0.8194,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8194,
+                "Y": 0.8194,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8194,
+                "Y": 0.8194,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8194,
+                "Y": 0.8194,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 803533631,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 921809716,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 80,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 160,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 240,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 921809716,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 153.5331,
+                "Y": 420.7286,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 352.6278,
+                "Y": 386.3189,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 550.3492,
+                "Y": 351.6039,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 823.1836,
+                "Y": 268.035,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 921809716,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 921809716,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 360,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 18,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "G": 205,
+              "B": 82
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -272.3282,
+              "Y": 0.7003
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1064,
+              "Y": 0.0004
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.2778
+            },
+            "LeftMargin": -272.3282,
+            "RightMargin": -267.6719,
+            "TopMargin": 1299.2997,
+            "BottomMargin": 0.7003,
+            "Tag": 19,
+            "ActionTag": -114590405,
+            "Size": {
+              "X": 3100.0,
+              "Y": 500.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "G": 214,
+              "B": 123
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -272.3264,
+              "Y": 499.2573
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1064,
+              "Y": 0.2774
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.7222
+            },
+            "LeftMargin": -272.3264,
+            "RightMargin": -267.6736,
+            "TopMargin": 0.7427,
+            "BottomMargin": 499.2573,
+            "Tag": 20,
+            "ActionTag": -397798419,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1300.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Adhabu_Punishment/boy.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1287.3903,
+              "Y": 301.0547
+            },
+            "Scale": {
+              "ScaleX": 0.832,
+              "ScaleY": 0.832
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5029,
+              "Y": 0.1673
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1287.3903,
+            "RightMargin": 1272.6097,
+            "TopMargin": 1498.9453,
+            "BottomMargin": 301.0547,
+            "UserData": "walk;drag",
+            "Tag": 1344,
+            "ActionTag": 1457511182,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "boy",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Adhabu_Punishment/boy.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1988.9275,
+              "Y": 393.4003
+            },
+            "Scale": {
+              "ScaleX": 0.8194,
+              "ScaleY": 0.8194
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7769,
+              "Y": 0.2186
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1988.9275,
+            "RightMargin": 571.0725,
+            "TopMargin": 1406.5997,
+            "BottomMargin": 393.4003,
+            "UserData": "walk;drag",
+            "Tag": 1473,
+            "ActionTag": 803533631,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "boy",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Adhabu_Punishment/girl.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 550.3492,
+              "Y": 351.6039
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.215,
+              "Y": 0.1953
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 550.3492,
+            "RightMargin": 2009.6508,
+            "TopMargin": 1448.396,
+            "BottomMargin": 351.6039,
+            "UserData": "walk;drag",
+            "Tag": 1387,
+            "ActionTag": 921809716,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "girl",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Adhabu_Punishment/adhabu_table.png",
+              "Plist": "Adhabu_Punishment/Adhabu_Punishment.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1169.7894,
+              "Y": 295.7268
+            },
+            "Scale": {
+              "ScaleX": 0.7581,
+              "ScaleY": 0.7581
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4569,
+              "Y": 0.1643
+            },
+            "PreSize": {
+              "X": 0.5297,
+              "Y": 0.3933
+            },
+            "LeftMargin": 491.7894,
+            "RightMargin": 712.2106,
+            "TopMargin": 1150.2732,
+            "BottomMargin": -58.2732,
+            "Tag": 21,
+            "ActionTag": 1603960697,
+            "Size": {
+              "X": 1356.0,
+              "Y": 708.0
+            },
+            "Name": "table_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Adhabu_Punishment/appleeatan.png",
+              "Plist": "Adhabu_Punishment/Adhabu_Punishment.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1210.949,
+              "Y": 470.1454
+            },
+            "Scale": {
+              "ScaleX": 0.7953,
+              "ScaleY": 0.7953
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.473,
+              "Y": 0.2612
+            },
+            "PreSize": {
+              "X": 0.0461,
+              "Y": 0.0683
+            },
+            "LeftMargin": 1151.949,
+            "RightMargin": 1290.051,
+            "TopMargin": 1268.3546,
+            "BottomMargin": 408.6454,
+            "Tag": 427,
+            "ActionTag": 1160366185,
+            "Size": {
+              "X": 118.0,
+              "Y": 123.0
+            },
+            "Name": "appleeatan_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Adhabu_Punishment/bananaeatan.png",
+              "Plist": "Adhabu_Punishment/Adhabu_Punishment.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1385.8975,
+              "Y": 532.6252
+            },
+            "Scale": {
+              "ScaleX": 0.7953,
+              "ScaleY": 0.7953
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5414,
+              "Y": 0.2959
+            },
+            "PreSize": {
+              "X": 0.0273,
+              "Y": 0.0744
+            },
+            "LeftMargin": 1350.8975,
+            "RightMargin": 1139.1025,
+            "TopMargin": 1200.3748,
+            "BottomMargin": 465.6252,
+            "Tag": 428,
+            "ActionTag": -1535477329,
+            "Size": {
+              "X": 70.0,
+              "Y": 134.0
+            },
+            "Name": "bananaeatan_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Adhabu_Punishment/mangoeatan.png",
+              "Plist": "Adhabu_Punishment/Adhabu_Punishment.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1003.1975,
+              "Y": 562.3047
+            },
+            "Scale": {
+              "ScaleX": 0.7953,
+              "ScaleY": 0.7953
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3919,
+              "Y": 0.3124
+            },
+            "PreSize": {
+              "X": 0.0512,
+              "Y": 0.1
+            },
+            "LeftMargin": 937.6975,
+            "RightMargin": 1491.3025,
+            "TopMargin": 1147.6953,
+            "BottomMargin": 472.3047,
+            "Tag": 429,
+            "ActionTag": 1607777010,
+            "Size": {
+              "X": 131.0,
+              "Y": 180.0
+            },
+            "Name": "mangoeatan_3",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Adhabu_Punishment.plist",
+        "Adhabu_Punishment.png",
+        "boy.json",
+        "girl.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

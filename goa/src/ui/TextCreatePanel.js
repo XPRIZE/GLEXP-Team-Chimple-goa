@@ -1,11 +1,12 @@
 var xc = xc || {};
 xc.TextCreatePanel = cc.Layer.extend({
-    ctor: function (width, height, position, existingText, callback, callbackContext, enabled) {
+    ctor: function (width, height, position, existingText, callback, audiocallback, callbackContext, enabled) {
         this._super(width, height);
         var backButton = new ccui.Button('icons/check.png', 'icons/check_onclick.png', 'icons/check_onclick.png', ccui.Widget.PLIST_TEXTURE);
         backButton.setPosition(cc.director.getWinSize().width * 0.55,cc.director.getWinSize().height * 0.65);
         backButton.addTouchEventListener(this.goBack, this);
         this.callback = callback;
+        this.audiocallback = audiocallback;
         this._callbackContext = callbackContext;
         this._text = existingText;
 
@@ -19,7 +20,7 @@ xc.TextCreatePanel = cc.Layer.extend({
         this._textField = new ccui.TextField();
         this._textField.setFontSize(50);
         this._textField.setAnchorPoint(0.5, 0.5);
-        this._textField.setPosition(cc.director.getWinSize().width / 2  + textContentMargin, cc.director.getWinSize().height/2 - 2 * textContentMargin);
+        this._textField.setPosition(cc.director.getWinSize().width / 2 - 2 * textContentMargin + textContentMargin, cc.director.getWinSize().height/2 - 2 * textContentMargin);
         this._textField.setMaxLengthEnabled(true);
         this._textField.setMaxLength(500);
         this._textField.ignoreContentAdaptWithSize(false);
@@ -35,7 +36,7 @@ xc.TextCreatePanel = cc.Layer.extend({
 
         var audioButton = new ccui.Button('icons/check.png', 'icons/check_onclick.png', 'icons/check_onclick.png', ccui.Widget.PLIST_TEXTURE);
         audioButton.setPosition(cc.director.getWinSize().width * 0.55,cc.director.getWinSize().height * 0.15);
-        audioButton.addTouchEventListener(this.playAudio, this);
+        audioButton.addTouchEventListener(this.audiocallback, this._callbackContext);
         this._textField.addChild(audioButton);
 
         this.addChild(this._textField, 0);
@@ -46,24 +47,6 @@ xc.TextCreatePanel = cc.Layer.extend({
             this._textField.setTouchEnabled(false);
         }
     },   
-
-    playAudio: function(sender, type) {
-        switch (type) {
-            case ccui.Widget.TOUCH_ENDED:
-                var langDir = goa.TextGenerator.getInstance().getLang();
-
-                // var soundFile = xc.path + "wikitaki/misc/" + langDir + "/" + "sounds/" + "a.m4a";
-                var soundFile = xc.path + "wikitaki/misc/" + langDir + "/" + "sounds/" + xc.currentStoryId + "_" + xc.pageIndex +".json";;
-                cc.loader.load(soundFile, function(err, data) {
-                    if(!err) {
-                        cc.audioEngine.playMusic(soundFile, false);
-                    }
-                }); 
-                
-
-                break;
-        }
-    },
 
     goBack: function (sender, type) {
         switch (type) {

@@ -253,7 +253,7 @@ bool js_textgeneratorautobindings_TextGenerator_getWords(JSContext *cx, uint32_t
     TextGenerator* cobj = (TextGenerator *)(proxy ? proxy->ptr : NULL);
     JSB_PRECONDITION2( cobj, cx, false, "js_textgeneratorautobindings_TextGenerator_getWords : Invalid Native Object");
     if (argc == 2) {
-        TextGenerator::POS arg0;
+        TextGenerator::P_O_S arg0;
         int arg1 = 0;
         ok &= jsval_to_int32(cx, args.get(0), (int32_t *)&arg0);
         ok &= jsval_to_int32(cx, args.get(1), (int32_t *)&arg1);
@@ -265,7 +265,7 @@ bool js_textgeneratorautobindings_TextGenerator_getWords(JSContext *cx, uint32_t
         return true;
     }
     if (argc == 3) {
-        TextGenerator::POS arg0;
+        TextGenerator::P_O_S arg0;
         int arg1 = 0;
         int arg2 = 0;
         ok &= jsval_to_int32(cx, args.get(0), (int32_t *)&arg0);

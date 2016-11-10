@@ -23,22 +23,6 @@ carDrawNode::~carDrawNode()
 
 }
 
-
-cocos2d::Scene * carDrawNode::createScene()
-{
-	Size visibleSize = Director::getInstance()->getVisibleSize();
-	auto scene = cocos2d::Scene::create();
-	auto layer = (carDrawNode *)cocos2d::Layer::create();
-	auto drawNode = carDrawNode::create(visibleSize.width / 2, visibleSize.height / 2, Vec2(100, 100));
-	drawNode->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
-	layer->addChild(drawNode);
-	scene->addChild(layer);
-	//carLayer = layer;
-	layer->menu = MenuContext::create(layer, "cardraw");
-	scene->addChild(layer->menu);
-	return scene;
-}
-
 cocos2d::Sprite * carDrawNode::createDrawingBoard()
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -64,7 +48,7 @@ carDrawNode * carDrawNode::create(int width, int height, cocos2d::Point position
 
 void carDrawNode::draw(cocos2d::DrawNode * paintingNode, cocos2d::Point fromPoint, cocos2d::Point currentPoint)
 {
-	paintingNode->drawSegment(fromPoint, currentPoint, 50, Color4F(0 / 255.0f, 0 / 255.0f, 0 / 255.0f, 1.0f));
+	paintingNode->drawSegment(fromPoint, currentPoint, 80, Color4F(0 / 255.0f, 0 / 255.0f, 0 / 255.0f, 1.0f));
 	//paintingNode->drawSegment(fromPoint, currentPoint, 5, Color4F(255 / 255.0f, 255 / 255.0f, 255 / 255.0f, 1.0f));
 }
 
@@ -87,22 +71,34 @@ void carDrawNode::postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event,
 {
 	CCLOG("touchPoint.x  in end %f", touchPoint.x);
 	CCLOG("touchPoint.y  in end %f", touchPoint.y);
-
+	_carDraw->postTouchEnded(touch, event, touchPoint);
 }
 
-bool carDrawNode::init()
+void carDrawNode::broadCastRecognizedChars(std::vector<std::string> results)
 {
-	Size visibleSize = Director::getInstance()->getVisibleSize();
-	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	//	carDrawLiPi = new (std::nothrow) 
-	//auto bg = CSLoader::createNode("cardraw/cardraw.csb");
-	//this->addChild(bg);
+	CCLOG("car draw = %s", results.at(0).c_str());
+	_carDraw->characterRecogination(results);
 
-	return true;
 }
 
 
 void carDrawNode::setParent(CarDraw* parent) {
 	this->_carDraw = parent;
+}
+
+void carDrawNode::clearDrawing(cocos2d::Ref * pSender, cocos2d::ui::Widget::TouchEventType eEventType)
+{
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	_paintingNode->clear();
+	_strokes.clear();
+	((DrawNode *)_carDraw->getChildByName("roadNode"))->clear();
+}
+
+cocos2d::ui::Button * carDrawNode::createButton(const std::string normalImage, const std::string selectedImage, const std::string disableImage, cocos2d::Vec2 position)
+{
+
+	/*
+	*/
+	return nullptr;
 }

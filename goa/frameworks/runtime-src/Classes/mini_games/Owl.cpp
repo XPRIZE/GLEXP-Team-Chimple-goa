@@ -132,19 +132,24 @@ void Owl::onEnterTransitionDidFinish()
 	std::tuple<int, int , int> levelKeyNumber = levelAllInfo(gameCurrentLevel,5,5,3,10);
 
 	if (std::get<0>(levelKeyNumber) == 1) {
-		_data = TextGenerator::getInstance()->getAntonyms(5, std::get<2>(levelKeyNumber));
+		auto listOfWords = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ANY ,5, std::get<2>(levelKeyNumber));
+		
+		for (size_t index = 0; index < listOfWords.size(); index++) {
+			_data_key.push_back(getConvertInUpperCase(listOfWords[index]));
+		}
+		_data_value = _data_key;
 	}
 	else if (std::get<0>(levelKeyNumber) == 2) {
-		_data = TextGenerator::getInstance()->getSynonyms(5, std::get<2>(levelKeyNumber));
+		_data = TextGenerator::getInstance()->getSingularPlurals(5, std::get<2>(levelKeyNumber));
 	}
 	else if (std::get<0>(levelKeyNumber) == 3) {
-		_data = TextGenerator::getInstance()->getHomonyms(5, std::get<2>(levelKeyNumber));
-	}
-	else if (std::get<0>(levelKeyNumber) == 4) {
 		_data = TextGenerator::getInstance()->getAntonyms(5, std::get<2>(levelKeyNumber));
 	}
-	else if (std::get<0>(levelKeyNumber) == 5) {
+	else if (std::get<0>(levelKeyNumber) == 4) {
 		_data = TextGenerator::getInstance()->getSynonyms(5, std::get<2>(levelKeyNumber));
+	}
+	else if (std::get<0>(levelKeyNumber) == 5) {
+		_data = TextGenerator::getInstance()->getHomonyms(5, std::get<2>(levelKeyNumber));
 	}
 
 	_owlCurrentTheme = owlSceneMapping.at(std::get<1>(levelKeyNumber));
@@ -158,11 +163,12 @@ void Owl::onEnterTransitionDidFinish()
 		bg->setPositionX(myGameWidth);
 	}
 
-	for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
-		_data_key.push_back(getConvertInUpperCase(it->first));
-		_data_value.push_back(getConvertInUpperCase(it->second));
+	if (!(std::get<0>(levelKeyNumber) == 1)) {
+		for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
+			_data_key.push_back(getConvertInUpperCase(it->first));
+			_data_value.push_back(getConvertInUpperCase(it->second));
+		}
 	}
-	
 	int totalPoints = 0;
 	for (int index = 0; index < _data_value.size(); index++) {
 		int i = 0;
@@ -262,8 +268,11 @@ std::tuple<int, int,int> Owl::levelAllInfo(int currentLevel, int totalCategory ,
 	
 	int categoryNo = totalCategory;
 
-	if(categoryBase != totalCategory)
-	 categoryNo = categoryBase % totalCategory;
+	if (categoryBase != totalCategory) {
+		categoryNo = categoryBase % totalCategory;
+		if (categoryNo == 0)
+			categoryNo = totalCategory;
+	}
 	
 	if (currentLevel % eachCategoryGroup == 0)
 		categoryNo = (categoryBase-1) % totalCategory + 1;
@@ -294,7 +303,7 @@ void Owl::autoPlayerController(float data) {
 
 	if (_textCounter2 == (blockChild.size())) {
 		
-		if ((_blockLevel2 >= _data.size())) {
+		if ((_blockLevel2 >= _data_key.size())) {
 			//this->unschedule(schedule_selector(Owl::autoPlayerController));
 			CCLOG("< ------ DONE COMPLETE -----  >     I AM IN AUTOPLAYERCONTROLLER METHOD");
 			this->runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() { _menuContext->showScore(); }), NULL));
@@ -513,7 +522,7 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 
 				std::ostringstream blockName;	blockName << "blockLevel1" << _blockLevel1; std::string blockNameInString = blockName.str();
 				
-				if (_blockLevel1 <= _data.size()) {
+				if (_blockLevel1 <= _data_key.size()) {
 					auto blockChild = target->getParent()->getChildByName(blockNameInString)->getChildren();
 
 					if (blockChild.at(_textCounter)->getName() == target->getName() && _flagToControlMuiltipleTouch) {
@@ -551,13 +560,13 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 								_ticksTotal = 3 / (1.0/60.0);// Pixels
 							}
 
-							if (_textCounter == blockChild.size() && _blockLevel1 < _data.size()) {
+							if (_textCounter == blockChild.size() && _blockLevel1 < _data_key.size()) {
 								_textLabel->setString(_data_key[++_textBoard]);
 								setBuildingBlock(++_blockLevel1);
 								crateLetterGridOnBuilding(_blockLevel1, _data_value[_textBoard]);
 								_textCounter = 0;
 							}
-							else if (_textCounter == blockChild.size() && _blockLevel1 == _data.size()) {
+							else if (_textCounter == blockChild.size() && _blockLevel1 == _data_key.size()) {
 								_textCounter = 0;
 								_blockLevel1++;
 								this->runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() { _menuContext->showScore(); }),NULL));
@@ -727,8 +736,8 @@ void Owl::UpdateAnimation(float dt)
 	else {
 		counter++;
 		Node *block;
-		if (_blockLevel1 > _data.size()) {
-			std::ostringstream blockName;	blockName << "blockLevel1" << _data.size(); std::string blockNameInString = blockName.str();
+		if (_blockLevel1 > _data_key.size()) {
+			std::ostringstream blockName;	blockName << "blockLevel1" << _data_key.size(); std::string blockNameInString = blockName.str();
 			block = this->getChildByName(blockNameInString);
 		}
 		else {
@@ -777,8 +786,8 @@ void Owl::UpdateAnimationSecond(float dt)
 	else {
 		counter2++;
 		Node *block;
-		if (_blockLevel2 > _data.size()) {
-			std::ostringstream blockName;	blockName << "blockLevel2" << _data.size(); std::string blockNameInString = blockName.str();
+		if (_blockLevel2 > _data_key.size()) {
+			std::ostringstream blockName;	blockName << "blockLevel2" << _data_key.size(); std::string blockNameInString = blockName.str();
 			block = this->getChildByName(blockNameInString);
 		}
 		else {

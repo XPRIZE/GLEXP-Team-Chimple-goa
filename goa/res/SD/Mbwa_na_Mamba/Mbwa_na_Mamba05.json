@@ -1,0 +1,836 @@
+{
+  "ID": "5f4d084b-cbf9-4cc2-9a5e-259c7b1ed43a",
+  "Version": "3.10.0.0",
+  "Name": "Mbwa_na_Mamba05",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 440,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": 1092506670,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "crocwalk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "crocwalk",
+                "SingleFrameIndex": 30,
+                "FrameIndex": 244,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "lifthead",
+                "SingleFrameIndex": 30,
+                "FrameIndex": 245,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "lifthead",
+                "SingleFrameIndex": 120,
+                "FrameIndex": 270,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1092506670,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -605.4266,
+                "Y": 177.2891,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 704.9656,
+                "Y": 184.2954,
+                "FrameIndex": 244,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 704.9656,
+                "Y": 184.2954,
+                "FrameIndex": 245,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 704.9656,
+                "Y": 184.2954,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 704.9656,
+                "Y": 184.2954,
+                "FrameIndex": 440,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1249060981,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "cheetawalk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "cheetawalk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 30,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "cheetawalk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 180,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "no",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 325,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "no",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 440,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1249060981,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2370.46,
+                "Y": 285.9328,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2370.46,
+                "Y": 285.9328,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1950.73,
+                "Y": 268.1981,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1950.7297,
+                "Y": 268.1981,
+                "FrameIndex": 324,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1950.7297,
+                "Y": 268.1981,
+                "FrameIndex": 325,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 440,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 301,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 188,
+              "G": 239,
+              "B": 244
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1365.97,
+              "Y": 1129.9639
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.8222
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5336,
+              "Y": 0.6278
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -634.03,
+            "RightMargin": -805.97,
+            "TopMargin": -229.9639,
+            "BottomMargin": 229.9639,
+            "Tag": 312,
+            "ActionTag": 1854348616,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_7_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 240,
+              "G": 196,
+              "B": 159
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1365.9685,
+              "Y": 189.9927
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.3556
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5336,
+              "Y": 0.1056
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -634.0315,
+            "RightMargin": -805.9685,
+            "TopMargin": 710.0073,
+            "BottomMargin": -710.0073,
+            "Tag": 307,
+            "ActionTag": 47411105,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_7",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mbwa_na_Mamba/MbwanaMamba_tree1.png",
+              "Plist": "Mbwa_na_Mamba/Mbwa_na_Mamba.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2464.9497,
+              "Y": 956.9655
+            },
+            "Scale": {
+              "ScaleX": 1.7901,
+              "ScaleY": 1.7901
+            },
+            "CColor": {
+              "R": 234,
+              "G": 234,
+              "B": 234
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9629,
+              "Y": 0.5316
+            },
+            "PreSize": {
+              "X": 0.3164,
+              "Y": 0.3828
+            },
+            "LeftMargin": 2059.9497,
+            "RightMargin": -309.9497,
+            "TopMargin": 498.5344,
+            "BottomMargin": 612.4655,
+            "Tag": 316,
+            "ActionTag": 373424490,
+            "Size": {
+              "X": 810.0,
+              "Y": 689.0
+            },
+            "Name": "MbwanaMamba_tree1_5_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mbwa_na_Mamba/MbwanaMamba_tree1.png",
+              "Plist": "Mbwa_na_Mamba/Mbwa_na_Mamba.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1454.9741,
+              "Y": 946.9771
+            },
+            "Scale": {
+              "ScaleX": 1.7901,
+              "ScaleY": 1.7901
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5683,
+              "Y": 0.5261
+            },
+            "PreSize": {
+              "X": 0.3164,
+              "Y": 0.3828
+            },
+            "LeftMargin": 1049.9741,
+            "RightMargin": 700.0259,
+            "TopMargin": 508.5229,
+            "BottomMargin": 602.4771,
+            "Tag": 315,
+            "ActionTag": -401437854,
+            "Size": {
+              "X": 810.0,
+              "Y": 689.0
+            },
+            "Name": "MbwanaMamba_tree1_5_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mbwa_na_Mamba/MbwanaMamba_tree1.png",
+              "Plist": "Mbwa_na_Mamba/Mbwa_na_Mamba.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 164.9932,
+              "Y": 916.982
+            },
+            "Scale": {
+              "ScaleX": 1.7901,
+              "ScaleY": 1.7901
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0645,
+              "Y": 0.5094
+            },
+            "PreSize": {
+              "X": 0.3164,
+              "Y": 0.3828
+            },
+            "LeftMargin": -240.0068,
+            "RightMargin": 1990.0068,
+            "TopMargin": 538.5181,
+            "BottomMargin": 572.482,
+            "Tag": 314,
+            "ActionTag": -1811048165,
+            "Size": {
+              "X": 810.0,
+              "Y": 689.0
+            },
+            "Name": "MbwanaMamba_tree1_5_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mbwa_na_Mamba/MbwanaMamba_tree1.png",
+              "Plist": "Mbwa_na_Mamba/Mbwa_na_Mamba.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 869.9849,
+              "Y": 966.985
+            },
+            "Scale": {
+              "ScaleX": 1.7901,
+              "ScaleY": 1.7901
+            },
+            "CColor": {
+              "R": 234,
+              "G": 234,
+              "B": 234
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3398,
+              "Y": 0.5372
+            },
+            "PreSize": {
+              "X": 0.3164,
+              "Y": 0.3828
+            },
+            "LeftMargin": 464.9849,
+            "RightMargin": 1285.0151,
+            "TopMargin": 488.515,
+            "BottomMargin": 622.485,
+            "Tag": 313,
+            "ActionTag": 1693770391,
+            "Size": {
+              "X": 810.0,
+              "Y": 689.0
+            },
+            "Name": "MbwanaMamba_tree1_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mbwa_na_Mamba/MbwanaMamba_bush.png",
+              "Plist": "Mbwa_na_Mamba/Mbwa_na_Mamba.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 132.4849,
+              "Y": 516.9893
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0518,
+              "Y": 0.2872
+            },
+            "PreSize": {
+              "X": 0.3848,
+              "Y": 0.2522
+            },
+            "LeftMargin": -360.0151,
+            "RightMargin": 1935.0151,
+            "TopMargin": 1056.0107,
+            "BottomMargin": 289.9893,
+            "Tag": 311,
+            "ActionTag": 408772773,
+            "Size": {
+              "X": 985.0,
+              "Y": 454.0
+            },
+            "Name": "MbwanaMamba_bush_1_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mbwa_na_Mamba/MbwanaMamba_bush.png",
+              "Plist": "Mbwa_na_Mamba/Mbwa_na_Mamba.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 492.4812,
+              "Y": 406.9918
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1924,
+              "Y": 0.2261
+            },
+            "PreSize": {
+              "X": 0.3848,
+              "Y": 0.2522
+            },
+            "LeftMargin": -0.0188,
+            "RightMargin": 1575.0188,
+            "TopMargin": 1166.0082,
+            "BottomMargin": 179.9918,
+            "Tag": 308,
+            "ActionTag": 125801820,
+            "Size": {
+              "X": 985.0,
+              "Y": 454.0
+            },
+            "Name": "MbwanaMamba_bush_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mbwa_na_Mamba/MbwanaMamba_bush.png",
+              "Plist": "Mbwa_na_Mamba/Mbwa_na_Mamba.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1062.4824,
+              "Y": 546.9911
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.415,
+              "Y": 0.3039
+            },
+            "PreSize": {
+              "X": 0.3848,
+              "Y": 0.2522
+            },
+            "LeftMargin": 569.9824,
+            "RightMargin": 1005.0176,
+            "TopMargin": 1026.0089,
+            "BottomMargin": 319.9911,
+            "Tag": 309,
+            "ActionTag": 1566862431,
+            "Size": {
+              "X": 985.0,
+              "Y": 454.0
+            },
+            "Name": "MbwanaMamba_bush_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mbwa_na_Mamba/MbwanaMamba_bush.png",
+              "Plist": "Mbwa_na_Mamba/Mbwa_na_Mamba.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1502.4802,
+              "Y": 476.9899
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5869,
+              "Y": 0.265
+            },
+            "PreSize": {
+              "X": 0.3848,
+              "Y": 0.2522
+            },
+            "LeftMargin": 1009.9802,
+            "RightMargin": 565.0198,
+            "TopMargin": 1096.0101,
+            "BottomMargin": 249.9899,
+            "Tag": 310,
+            "ActionTag": -987742841,
+            "Size": {
+              "X": 985.0,
+              "Y": 454.0
+            },
+            "Name": "MbwanaMamba_bush_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mbwa_na_Mamba/MbwanaMamba_cave.png",
+              "Plist": "Mbwa_na_Mamba/Mbwa_na_Mamba.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2519.999,
+              "Y": 696.9997
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9844,
+              "Y": 0.3872
+            },
+            "PreSize": {
+              "X": 0.3375,
+              "Y": 0.8022
+            },
+            "LeftMargin": 2087.999,
+            "RightMargin": -391.999,
+            "TopMargin": 381.0002,
+            "BottomMargin": -25.0003,
+            "Tag": 318,
+            "ActionTag": 1342020528,
+            "Size": {
+              "X": 864.0,
+              "Y": 1444.0
+            },
+            "Name": "MbwanaMamba_cave_10",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mbwa_na_Mamba/croc.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -605.4266,
+              "Y": 177.2891
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.2365,
+              "Y": 0.0985
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -605.4266,
+            "RightMargin": 3165.4265,
+            "TopMargin": 1622.7109,
+            "BottomMargin": 177.2891,
+            "Tag": 704,
+            "ActionTag": 1092506670,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_1",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mbwa_na_Mamba/cheeta.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2370.46,
+              "Y": 285.9328
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.926,
+              "Y": 0.1589
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2370.46,
+            "RightMargin": 189.54,
+            "TopMargin": 1514.0671,
+            "BottomMargin": 285.9328,
+            "Tag": 325,
+            "ActionTag": -1249060981,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_2",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "cheeta.json",
+        "croc.json",
+        "Mbwa_na_Mamba.plist",
+        "Mbwa_na_Mamba.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

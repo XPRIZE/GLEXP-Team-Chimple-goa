@@ -1356,10 +1356,10 @@ void HelloWorld::applyImpulseOnSkeletonToJumpOnTap(Point position) {
 
 void HelloWorld::applyImpulseOnSkeletonToJump(Point position, float angle, float value, float timeToStart) {
     if(checkTouchLeftOfCharacter(position, this->skeletonCharacter->getSkeletonNode())) {
-        this->stateMachine->handleInput(S_JUMPING_STATE, Vec2(-value * cos(angle * PI/RADIAN_TO_DEGREE), -value * sin(angle * PI/RADIAN_TO_DEGREE)));
+        this->stateMachine->handleInput(S_JUMPING_STATE, Vec2(-value * cos(angle * MYPI/RADIAN_TO_DEGREE), -value * sin(angle * MYPI/RADIAN_TO_DEGREE)));
         
     } else if (checkTouchRightOfCharacter(position, this->skeletonCharacter->getSkeletonNode())) {
-        this->stateMachine->handleInput(S_JUMPING_STATE, Vec2(value * cos(angle * PI/RADIAN_TO_DEGREE), value * sin(angle * PI/RADIAN_TO_DEGREE)));
+        this->stateMachine->handleInput(S_JUMPING_STATE, Vec2(value * cos(angle * MYPI/RADIAN_TO_DEGREE), value * sin(angle * MYPI/RADIAN_TO_DEGREE)));
     }
 }
 

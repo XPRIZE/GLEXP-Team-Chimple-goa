@@ -53,6 +53,11 @@
 #include "../mini_games/Order.h"
 #include "../mini_games/Pillar.h"
 #include "../mini_games/CarDraw.h"
+#include "../mini_games/BlastLetter.h"
+#include "../mini_games/Door.h"
+#include "../mini_games/TreasureHunt.h"
+#include "../mini_games/JumpingNumbers.h"
+
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -250,10 +255,7 @@ cocos2d::ClippingNode* MenuContext::createMaskedMenuItem(const std::string norma
     if(!cachedCharacterInformation.empty())
     {
         std::string contents = FileUtils::getInstance()->getStringFromFile("config/characterConfig.json");
-		if (contents.empty()) {
-			return nullptr;
-		}
-		CCLOG("Contents for character %s", contents.c_str());
+
         rapidjson::Document d;
         
         if (false == d.Parse<0>(contents.c_str()).HasParseError()) {
@@ -839,7 +841,10 @@ void MenuContext::launchGameFromJS(std::string gameName) {
     	}
     	else if (gameName == OWL) {
     		Director::getInstance()->replaceScene(Owl::createScene());
-    	}
+		}
+		else if (gameName == BLASTLETTER) {
+			Director::getInstance()->replaceScene(BlastLetter::createScene());
+		}
     	else if (gameName == DASH) {
     		Director::getInstance()->replaceScene(Dash::createScene());
     	}
@@ -852,6 +857,13 @@ void MenuContext::launchGameFromJS(std::string gameName) {
     	else if (gameName == PILLAR) {
     		Director::getInstance()->replaceScene(Pillar::createScene());
     	}
+
+		else if (gameName == CARDRAW) {
+			Director::getInstance()->replaceScene(CarDraw::createScene());
+		}
+		else if (gameName == DOOR) {
+			Director::getInstance()->replaceScene(Door::createScene());
+		}
     	else if (gameName == MEMORY) {
     		
 			int numberPicker = RandomHelper::random_int(0, 2);
@@ -861,7 +873,6 @@ void MenuContext::launchGameFromJS(std::string gameName) {
     		case 2: Director::getInstance()->replaceScene(Memory::createScene());  break;
     		}
 			
-
 			
     	}
 		else if (gameName == BALLONHERO) {
@@ -870,8 +881,11 @@ void MenuContext::launchGameFromJS(std::string gameName) {
 		else if (gameName == SORT_IT) {
 			ScriptingCore::getInstance()->runScript("src/start/sortit.js");
 		}
-		else if (gameName == CARDRAW) {
-			Director::getInstance()->replaceScene(CarDraw::createScene());
+		else if (gameName == TREASUREHUNT) {
+			Director::getInstance()->replaceScene(TreasureHunt::createScene());
+		}
+		else if (gameName == JUMPING_NUMBERS) {
+			Director::getInstance()->replaceScene(JumpingNumber::createScene());
 		}
     	else{
             CCLOG("Failed starting scene: %s", gameName.c_str());
