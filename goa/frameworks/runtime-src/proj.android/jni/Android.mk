@@ -159,6 +159,7 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/mini_games/Door.cpp \
 					../../Classes/mini_games/DoorNode.cpp \
 					../../Classes/mini_games/JumpingNumbers.cpp \
+					../../Classes/mini_games/ChocolateFactory.cpp \
                     ../../Classes/AsyncTask.cpp \
                     ../../Classes/LipiTKNode.cpp \
                     ../../Classes/LipiTKInterface.cpp \
