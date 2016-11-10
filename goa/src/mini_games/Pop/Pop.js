@@ -5,6 +5,7 @@ var xc = xc || {};
 xc.PopLayer = cc.Layer.extend({
     gameName: "pop",
     multiPlayerMode: false,
+    menuContext: null,
     //sprite: null,
     ctor: function () {
         //////////////////////////////
@@ -30,30 +31,32 @@ xc.PopLayer = cc.Layer.extend({
         this.currentLevel = null; 
 
         // S T A R T
-        //    if (cc.sys.isNative)
-        //     {
-        //         menuContext = self.getParent().menuContext;
-        //         this.currentLevel = menuContext.getCurrentLevel();
-        //         wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence(1);
-            
-        //     }
-
-        // level mapping for pop game
-        var levelKeyNumber = this.levelAllInfo(47, 4,2,8,6);
-         var sceneRes = null;
-        if(this.selectedScene== "scene_1")
+        if (cc.sys.isNative)
         {
-                 sceneRes = ccs.load(xc.PopLayer.res.pop_scene_1, xc.path);
+            menuContext = self.getParent().menuContext;
+            this.currentLevel = menuContext.getCurrentLevel();
+            console.log("currentLevel : "+this.currentLevel);
+            //wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence(1);
+        }
+        // level mapping for pop game
+        var levelKeyNumber = this.levelAllInfo(this.currentLevel, 4,2,8,6);
+        console.log("levelKeyNumber sceneNo: "+levelKeyNumber.sceneNum);
+        console.log("levelKeyNumber catagoryNo: "+levelKeyNumber.catagoryNum);
+        var sceneRes = null;
+        if(levelKeyNumber.sceneNum == 0)
+        {
+              sceneRes = ccs.load(xc.PopLayer.res.pop_scene_1, xc.path);
         }
         else
         {
-                 sceneRes = ccs.load(xc.PopLayer.res.pop_scene_2, xc.path);
+             sceneRes = ccs.load(xc.PopLayer.res.pop_scene_2, xc.path);
         }
            var catagoryMap = [9,4,5,6,7,8]
            var catagoryLevel = catagoryMap[levelKeyNumber.catagoryNum];
-        //  var wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence(catagoryLevel);
+           console.log("catagoryLevel: "+catagoryLevel);
+           var wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence(catagoryLevel);
         
-       // E N D
+
                 if (worldSize.width > 2560){
                     var x = worldSize.width - 2560;
                     sceneRes.node.x = x/2;
@@ -78,12 +81,10 @@ xc.PopLayer = cc.Layer.extend({
                 this.plane.action.play('planerun', true);
                 this.plane.node.runAction(cc.MoveTo.create(5, cc.p(-220, cc.director.getWinSize().height * multiplyFactor)));
         
-        var wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence();
+       // var wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence();
         wordForSentanceArray = wordForSentanceArray.split(" ");
-
-         //var wordForSentanceArray = ["Twinkle","Twinkle", "Twinkle","Twinkle","Twinkle"];
-
         var dummySentance = "";
+        menuContext.setMaxPoints(wordForSentanceArray.length*5);
         for(var i=0; i<wordForSentanceArray.length; i++)
         {
             dummySentance = dummySentance +" "+ wordForSentanceArray[i];
@@ -98,7 +99,7 @@ xc.PopLayer = cc.Layer.extend({
 
             this.addChild(this.sentanceInRightOrder);
             setTimeout(function(){ self.clickableFlag = true; 
-                self.removeChild(self.sentanceInRightOrder)}, 12000);
+                self.removeChild(self.sentanceInRightOrder)}, 13000);
 
             var listener = cc.EventListener.create({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
@@ -114,9 +115,15 @@ xc.PopLayer = cc.Layer.extend({
                     console.log("clickableFlag : "+self.clickableFlag);
                     if(self.clickableFlag)
                     {
+                        if( self.currentLevel == 1 && self.helpFlag)
+                        {
+                            self.helpFlag = false;
+                            self.removeChild(self.help)
+                        }                    
                         console.log("clickableFlag : "+self.clickableFlag);
                         self.setWordInRightOrder(target);
                     }
+                     
                     return true;
                 }
                 return false;
@@ -173,6 +180,17 @@ xc.PopLayer = cc.Layer.extend({
             cloud.addChild(label);
             this.stringContainer[i]=""+wordForSentanceArray[i];
             cc.eventManager.addListener(listener.clone(), cloud);
+
+          if( this.currentLevel == 1 && i == (wordForSentanceArray.length-1)){
+              console.log("-------------- in 1st level ------------");
+              console.log("cloud x :"+cloud.x);
+               console.log("cloud y :"+cloud.y);
+                this.help = new xc.HelpLayer(cc.rect(cloud.Xpos,cloud.Ypos,cloud.width,cloud.height), cc.rect( cc.director.getWinSize().width / 2,cc.director.getWinSize().height * .93,cc.director.getWinSize().width * .85,cc.director.getWinSize().height*0.1))
+                this.addChild(this.help,4)
+                this.help.setName("help");
+                this.help.click(cloud.getPositionX(),cloud.getPositionY());
+                this.helpFlag = true;
+            }
         }
         setTimeout(function () {
             for (var i = 0; i < self.cloudContainer.length; i++) {
@@ -200,10 +218,12 @@ xc.PopLayer = cc.Layer.extend({
             if( wordObject.children[0].getString() == this.stringContainer[this.wordInOrder.length])
             {
                  this.makeSentance(wordObject);
+                 menuContext.addPoints(5);
             }
             else
             {
                   this.cloudShake(wordObject);
+                  menuContext.addPoints(-2);
             }
         }
         else if (this.wordInOrder.length != 0) {
@@ -211,9 +231,11 @@ xc.PopLayer = cc.Layer.extend({
             if ( wordObject.children[0].getString() == this.stringContainer[this.wordInOrder.length])
              {
                 this.makeSentance(wordObject);
+                menuContext.addPoints(5);
              }
            else{
                   this.cloudShake(wordObject);
+                  menuContext.addPoints(-2);
              }
         }
     },
