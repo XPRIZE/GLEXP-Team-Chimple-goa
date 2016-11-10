@@ -93,9 +93,17 @@ void BlastLetter::onEnterTransitionDidFinish() {
 	}
 
 	BlastLetterNode* BlastLetterNodeObj;
+	auto currentLevel = _menuContext->getCurrentLevel();
 	
+	if (currentLevel >= 1 && currentLevel <= 26) {
+	
+	}else if (currentLevel >= 1 && currentLevel <= 26) {
+	}else if (currentLevel >= 1 && currentLevel <= 26) {
+	}
+
+
 	_data_key = getConvertInUpperCase(TextGenerator::getInstance()->generateAWord(1));
-	_data_value = "AAAA";
+	_data_value = _data_key;
 	auto coord = getAllGridCoord(1, _data_value.size());
 
 	for (size_t coordIndex = 0; coordIndex < _data_value.size(); coordIndex++) {
@@ -229,12 +237,7 @@ void BlastLetter::addEventsOnGrid(cocos2d::Sprite* callerObject)
 		auto target = event->getCurrentTarget();
 		Rect rect = Rect(0, 0, target->getContentSize().width, target->getContentSize().height);
 		if (target->getBoundingBox().containsPoint(touch->getLocation())) {
-			std::ostringstream nameLetterBoard;
-			nameLetterBoard << (_counterLetter+1);
-			auto childText = target->getChildByName(nameLetterBoard.str());
 			target->setColor(Color3B::GRAY);
-			auto x = childText->getName();
-			CCLOG("Touched : %c", x.at(0));
 			auto t = target->getTag();
 			if (target->getTag() == (_counterLetter+1) && _touch) {
 				return true;
@@ -255,9 +258,7 @@ void BlastLetter::addEventsOnGrid(cocos2d::Sprite* callerObject)
 		auto target = event->getCurrentTarget();
 		Size s = target->getContentSize();
 		Rect rect = Rect(0, 0, s.width, s.height);
-		auto x = target->getName();
 		target->setColor(Color3B(219, 224, 252));
-		CCLOG("Touched : %c", x.at(0));
 		_touch = false;
 		if (target->getBoundingBox().containsPoint(touch->getLocation())) {
 			
@@ -324,6 +325,10 @@ void BlastLetter::addEventsOnGrid(cocos2d::Sprite* callerObject)
 			});
 
 			this->runAction(Sequence::create(DelayTime::create(1), letterCharacterBoard, DelayTime::create(2), letterCharacter, NULL));
+		}
+		else {
+			_touch = true;
+			target->setColor(Color3B(219, 224, 252));
 		}
 
 		return false;
