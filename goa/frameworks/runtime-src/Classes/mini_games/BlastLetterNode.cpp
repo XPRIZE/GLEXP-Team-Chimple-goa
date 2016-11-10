@@ -55,9 +55,19 @@ ui::Button * BlastLetterNode::createButton(const std::string normalImage, const 
 	cocos2d::ui::Button* button = cocos2d::ui::Button::create(normalImage, selectedImage, disableImage, cocos2d::ui::Widget::TextureResType::LOCAL);
 	button->setPosition(position);
 	
-	button->addTouchEventListener(CC_CALLBACK_2(LipiTKNode::clearDrawing, this));
+	button->addTouchEventListener(CC_CALLBACK_2(BlastLetterNode::clearDrawing, this));
 	return button;
 }
+
+void BlastLetterNode::clearDrawing(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
+	if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
+		_paintingNode->clear();
+		//_canvas->clear(0, 0, _canvasWidth, _canvasHeight);
+		_strokes.clear();
+		clearPrintedCharacters();
+	}
+}
+
 
 std::vector<std::string> BlastLetterNode::getPosibileCharacter()
 {
