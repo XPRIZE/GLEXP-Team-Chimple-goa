@@ -56,6 +56,7 @@ static const std::string BLASTLETTER = "blastletter";
 static const std::string DOOR = "Door";
 static const std::string TREASUREHUNT = "TreasureHunt";
 static const std::string JUMPING_NUMBERS = "jumpingNumbers";
+static const std::string CHOCOLATEFACTORY = "chocolateFactory";
 
 
 class StartMenu {
