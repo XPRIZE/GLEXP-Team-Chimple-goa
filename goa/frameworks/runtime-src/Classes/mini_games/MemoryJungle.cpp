@@ -35,7 +35,9 @@ MemoryJungle::MemoryJungle() :
     _gridThreeByFourIds(12),
     _gridThreeBySixIds(18),
     _gridFourByFiveIds(20),
-    _gridFourBySixIds(24)
+    _gridFourBySixIds(24),
+    _counter(0),
+	_helpflag(0)
 	
 {
 
@@ -206,6 +208,8 @@ void MemoryJungle::onEnterTransitionDidFinish() {
 	}
 
 	generateRandomNumbers();
+    
+    _chickenTimeline.resize(25);
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -292,6 +296,33 @@ void MemoryJungle::onEnterTransitionDidFinish() {
 	}
 
 
+    
+    ////////////////////help
+
+
+	if (_menuContext->getCurrentLevel() == 1) {
+
+		auto box1 =_memoryfarm->getChildByName("mainground")->getChildByName("board9");
+		auto box2 = _memoryfarm->getChildByName("mainground")->getChildByName("board16");
+
+
+		box1pos = box1->getPosition() + Vec2(visibleSize.width * 0.03, 0);
+		box2pos = box2->getPosition() + Vec2(visibleSize.width * 0.03, 0);
+
+		help1 = HelpLayer::create(Rect(box1pos.x, box1pos.y, box1->getChildByName("leave")->getChildByName("leave")->getContentSize().width, box1->getChildByName("leave")->getChildByName("leave")->getContentSize().height), Rect(0, 0, 0, 0));
+
+
+		help1->click(Vec2(box1pos));
+
+
+		this->addChild(help1);
+	}
+
+	///////////////////////help end
+	_counter = 0;
+	_helpflag = 0;
+
+
 	
 }
 
@@ -333,15 +364,43 @@ bool MemoryJungle::onTouchBegan(Touch* touch, Event* event) {
 
 	//Size s = target->getContentSize();
 	//Rect rect = Rect(0, 0, s.width, s.height);
-	static int counter = 0;
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	auto bb = target->getBoundingBox();
 
 	if (target->getBoundingBox().containsPoint(locationInNode))
 	{
 
+        
+       
+        	if (_menuContext->getCurrentLevel() == 1 && _helpflag == 0 && _counter == 0) {
+			this->removeChild(help1);
+
+			 auto box1 =_memoryfarm->getChildByName("mainground")->getChildByName("board9");
+		auto box2 = _memoryfarm->getChildByName("mainground")->getChildByName("board16");
+
+
+		box1pos = box1->getPosition() + Vec2(visibleSize.width * 0.03, 0);
+		box2pos = box2->getPosition() + Vec2(visibleSize.width * 0.03, 0);
+
+		help2 = HelpLayer::create(Rect(box2pos.x, box2pos.y, box2->getChildByName("leave")->getChildByName("leave")->getContentSize().width, box2->getChildByName("leave")->getChildByName("leave")->getContentSize().height), Rect(0, 0, 0, 0));
+
+			help2->click(Vec2(box2pos));
+
+
+			this->addChild(help2);
+			_helpflag = 1;
+
+		}
+
+		if (_menuContext->getCurrentLevel() == 1 && _helpflag == 1 && _counter == 1) {
+			this->removeChild(help2);
+			_helpflag++;
+		}
+        
 		//CCLOG("NEST CLICKED : %d ", counter++);
-		if (counter < 2) {
+		if (_counter < 2) {
 
 			std::ostringstream sstreamc;
 			sstreamc << "board" << target->getTag();
@@ -350,7 +409,7 @@ bool MemoryJungle::onTouchBegan(Touch* touch, Event* event) {
 			auto child = target->getChildren();
 			std::string childName = child.at(0)->getName();
 
-			_currentSelectedNestNames[counter] = childName;
+			_currentSelectedNestNames[_counter] = childName;
 			//target->getChildByName("Chimple")->setVisible(true);
 			auto pauseCurrentTarget = _memoryfarm->getChildByName("mainground")->getChildByName(queryc)->getChildByName("leave")->getChildByName("leave");
 			
@@ -360,15 +419,15 @@ bool MemoryJungle::onTouchBegan(Touch* touch, Event* event) {
 
 			
 
-			_currentClickedPair[counter] = target->getTag();
+			_currentClickedPair[_counter] = target->getTag();
 
 			_memoryfarm->getChildByName("mainground")->getChildByName(queryc)->getChildByName("chimp")->setVisible(true);
 
-			_chickenTimeline[_currentClickedPair[counter]]->play("stand", false);
+			_chickenTimeline[_currentClickedPair[_counter]]->play("stand", false);
 
 
 			bool flag;
-			if (counter == 1) {
+			if (_counter == 1) {
 
 				//pause listener on all nests which have non zero values
 				pauseAllActiveListeners();
@@ -476,11 +535,11 @@ bool MemoryJungle::onTouchBegan(Touch* touch, Event* event) {
 
 				}
 
-				counter = -1;
+				_counter = -1;
 			}
 
 		}
-		counter++;
+		_counter++;
 
 		return true; // to indicate that we have consumed it.
 	}

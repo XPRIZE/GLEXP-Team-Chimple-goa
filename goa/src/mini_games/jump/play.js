@@ -17,22 +17,29 @@ xc.playLayer = cc.Layer.extend( {
    correct: 0,
    flag:true,
    score:0,
+   _level:0,
    scoreLabel : null,
+   char:null,
    _dir_Flag: true,
-nameLabel : null,
+  nameLabel : null,
+  helpLayerLetter:0,
+  helpIsFirst: true,
+  bg : null,
+  extraX:0,
     ctor:
     function () {
         this._super();
-        
-
+        this.helpLayerLetter = 0;
+        this.helpIsFirst = true;
+        this.stepRef = [];
         this.size = cc.winSize;
         cc.spriteFrameCache.addSpriteFrames(xc.playLayer.res.jump_plist);
 
-        this.char = ccs.load(xc.playLayer.res.char,xc.path);
+    /*    this.char = ccs.load(xc.playLayer.res.char,xc.path);
         this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
-        this.addChild(this.char.node,1);
+        this.addChild(this.char.node,1);*/
 
-      
+       // menuContext.setMaxPoints(10);
         this.bg = ccs.load(xc.playLayer.res.jump_game, xc.path);
         if( this.size.width > 2560) {
           this.extraX = (this.size.width - 2560) / 2;
@@ -55,7 +62,7 @@ nameLabel : null,
        
         
         
-        var ball1 = this.bg.node.getChildByName("ball_34_0");
+        var ball1 = this.bg.node.getChildByName("ball_34");
         ball1.id = "Ball1";
         this.ballref.push(ball1.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
@@ -63,7 +70,7 @@ nameLabel : null,
          swallowTouches:true,  
          onTouchBegan: this.onTouchBegan,}) , ball1); 
 
-        var ball2 = this.bg.node.getChildByName("ball_35_0");
+        var ball2 = this.bg.node.getChildByName("ball_35");
         ball2.id = "Ball2";
         this.ballref.push(ball2.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
@@ -71,7 +78,7 @@ nameLabel : null,
          swallowTouches:true,  
          onTouchBegan: this.onTouchBegan,}) , ball2); 
 
-        var ball3 = this.bg.node.getChildByName("ball_35");
+        var ball3 = this.bg.node.getChildByName("ball_34_0");
         ball3.id = "Ball3";
         this.ballref.push(ball3.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
@@ -79,7 +86,7 @@ nameLabel : null,
          swallowTouches:true,  
          onTouchBegan: this.onTouchBegan,}) , ball3); 
 
-        var ball4 = this.bg.node.getChildByName("ball_34");
+        var ball4 = this.bg.node.getChildByName("ball_35_0");
         ball4.id = "Ball4";
         this.ballref.push(ball4.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
@@ -103,7 +110,7 @@ nameLabel : null,
          swallowTouches:true,  
          onTouchBegan: this.onTouchBegan,}) , ball6); 
 
-        var ball7 = this.bg.node.getChildByName("ball_35_0_0");
+        var ball7 = this.bg.node.getChildByName("ball_34_0_0");
         ball7.id = "Ball7";
         this.ballref.push(ball7.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
@@ -111,7 +118,7 @@ nameLabel : null,
          swallowTouches:true,  
          onTouchBegan: this.onTouchBegan,}) , ball7); 
 
-         var ball8 = this.bg.node.getChildByName("ball_34_0_0");
+         var ball8 = this.bg.node.getChildByName("ball_35_0_0");
         ball8.id = "Ball8";
         this.ballref.push(ball8.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
@@ -234,7 +241,7 @@ nameLabel : null,
         this.vowels = ['A','E','I','O','U'];
 
        this.createLevel();
-         this.scheduleUpdate();
+       this.scheduleUpdate();
         self=this;
     },
 
@@ -260,24 +267,114 @@ nameLabel : null,
       for( var i=0; i<10 ;i++){
       var alpha = cc.LabelTTF.create(group[i], 'Arial', 130);
       this.addChild(alpha);
+      cc.log("group[i]=",group[i]);
       alpha.setPosition(cc.p(this.ballref[i].x + this.extraX,this.ballref[i].y));
       alpha.setAnchorPoint(0.5,0.5);
       alpha.setColor(cc.color(0,0,0));
         //  cc.log("alpha =",group[i]);
         }
 
-       cc.log(group);
-      this.string = '';
+       cc.log("group = " ,group);
+      this.string1 = '';
+      for(var i=0; i< group.length - 6;i++)
         {
-            this.string += group[i];
+            this.string1 += group[i];
         }
-        cc.log(this.string);
-     this.dict =  xc.WordUtil.getValidCombinations(this.string.toLowerCase());
+        cc.log("string=",this.string1);
+     this.dict =  xc.WordUtil.getValidCombinations(this.string1.toLowerCase());
      this.allwords = cc.loader.getRes(xc.path + "english/allwords.json");
     // dict = ["abc","dsa","cba","bda","hsf"];
-       
-        cc.log(this.dict);
+      
+        cc.log("dict=",this.dict);
      },
+
+    onEnterTransitionDidFinish: function() {
+    this._level = this.getParent().menuContext.getCurrentLevel();
+    cc.log("Level = ",this._level);
+    if(this._level <= 10 ) {
+        this.char = ccs.load(xc.playLayer.res.char,xc.path);
+        this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
+        this.addChild(this.char.node,1);
+       
+    } else if(this._level <= 20) {
+        this.char = ccs.load(xc.playLayer.res.char1,xc.path);
+        this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
+        this.addChild(this.char.node,1);
+         
+    }  else if(this._level <= 30) {
+        this.char = ccs.load(xc.playLayer.res.char2,xc.path);
+        this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
+        this.addChild(this.char.node,1);
+         
+    }  else if(this._level <= 40) {
+        this.char = ccs.load(xc.playLayer.res.char3,xc.path);
+        this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
+        this.addChild(this.char.node,1);
+        
+    }  else if(this._level <= 50) {
+        this.char = ccs.load(xc.playLayer.res.char4,xc.path);
+        this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
+        this.addChild(this.char.node,1);
+        
+    }  else if(this._level <= 60) {
+        this.char = ccs.load(xc.playLayer.res.char5,xc.path);
+        this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
+        this.addChild(this.char.node,1);
+        
+    }  else if(this._level <= 70) {
+        this.char = ccs.load(xc.playLayer.res.char6,xc.path);
+        this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
+        this.addChild(this.char.node,1);
+        
+    }  else if(this._level <= 80) {
+        this.char = ccs.load(xc.playLayer.res.char7,xc.path);
+        this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
+        this.addChild(this.char.node,1);
+        
+    }  else if(this._level <= 90) {
+        this.char = ccs.load(xc.playLayer.res.char8,xc.path);
+        this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
+        this.addChild(this.char.node,1);
+    }  
+     this.myGameHelp();
+
+  },
+
+    myGameHelp: function() {
+
+if(this._level == 1)
+       {
+           cc.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+          var helpWord = this.dict[0];
+          cc.log("helpWord=",helpWord);
+    if (helpWord.length > this.helpLayerLetter)
+         {
+             cc.log("num=",helpWord[0]);
+             var pos = group.indexOf(helpWord[this.helpLayerLetter].toUpperCase());
+             cc.log("pos=",pos);
+             this.ballref[pos];
+             var helpLayer = new xc.HelpLayer(cc.rect( this.ballref[pos].x+ this.extraX, this.ballref[pos].y,200,200),cc.rect(0,0,0,0));
+             helpLayer.setName("helpLayer");
+             helpLayer.click( this.ballref[pos].x+ this.extraX, this.ballref[pos].y);
+             this.addChild(helpLayer);
+         } else{
+             var tickPos =  this.bg.node.getChildByName("tick_button_31");
+              var helpLayer = new xc.HelpLayer(cc.rect( tickPos.x+ this.extraX,tickPos.y,400,400),cc.rect(0,0,0,0));
+             this.addChild(helpLayer);
+             helpLayer.click(tickPos.x+ this.extraX,tickPos.y);
+             helpLayer.setName("helpLayer1");
+         }
+
+       }
+
+
+
+    },
+
+
+
+
+
 
 
      charMove : function()
@@ -286,9 +383,44 @@ nameLabel : null,
         var jump = new cc.jumpBy(1,cc.p(this.size.width /4 - (cc.winSize.width * 0.06),230),150,1);
         this.char.node.runAction(jump);
 
+     if(this._level <= 10 ) {
         var animation = ccs.load(xc.playLayer.res.char,xc.path);
        this.char.node.runAction(animation.action);
        animation.action.play("jumping",false);
+     }else if(this._level <= 20) {
+       var animation = ccs.load(xc.playLayer.res.char1,xc.path);
+       this.char.node.runAction(animation.action);
+       animation.action.play("jumping",false);
+    }  else if(this._level <= 30) {
+       var animation = ccs.load(xc.playLayer.res.char2,xc.path);
+       this.char.node.runAction(animation.action);
+       animation.action.play("jumping",false);
+    } else if(this._level <= 40) {
+       var animation = ccs.load(xc.playLayer.res.char3,xc.path);
+       this.char.node.runAction(animation.action);
+       animation.action.play("jumping",false);
+    } else if(this._level <= 50) {
+       var animation = ccs.load(xc.playLayer.res.char4,xc.path);
+       this.char.node.runAction(animation.action);
+       animation.action.play("jumping",false);
+    } else if(this._level <= 60) {
+       var animation = ccs.load(xc.playLayer.res.char5,xc.path);
+       this.char.node.runAction(animation.action);
+       animation.action.play("jumping",false);
+    } else if(this._level <= 70) {
+       var animation = ccs.load(xc.playLayer.res.char6,xc.path);
+       this.char.node.runAction(animation.action);
+       animation.action.play("jumping",false);
+    } else if(this._level <= 80) {
+       var animation = ccs.load(xc.playLayer.res.char7,xc.path);
+       this.char.node.runAction(animation.action);
+       animation.action.play("jumping",false);
+    } else if(this._level <= 90) {
+       var animation = ccs.load(xc.playLayer.res.char8,xc.path);
+       this.char.node.runAction(animation.action);
+       animation.action.play("jumping",false);
+    } 
+
 
      },
     charjump: function()
@@ -308,7 +440,26 @@ nameLabel : null,
         }
         var jump = new cc.JumpBy(1.5,cc.p(x * this.size.width /4,300),200,1);
        this.char.node.runAction(cc.sequence( jump, cc.callFunc(this.jumpCallback, this)));//runAction(jump);
+       if(this._level <= 10 ) {
        var animation = ccs.load(xc.playLayer.res.char,xc.path);
+       }else if(this._level <= 20) {
+          var animation = ccs.load(xc.playLayer.res.char1,xc.path); 
+       }else if(this._level <= 30) {
+          var animation = ccs.load(xc.playLayer.res.char2,xc.path); 
+       }else if(this._level <= 40) {
+          var animation = ccs.load(xc.playLayer.res.char3,xc.path); 
+       }else if(this._level <= 50) {
+          var animation = ccs.load(xc.playLayer.res.char4,xc.path); 
+       }else if(this._level <= 60) {
+          var animation = ccs.load(xc.playLayer.res.char5,xc.path); 
+       }else if(this._level <= 70) {
+          var animation = ccs.load(xc.playLayer.res.char6,xc.path); 
+       }else if(this._level <= 80) {
+          var animation = ccs.load(xc.playLayer.res.char7,xc.path); 
+       }else if(this._level <= 90) {
+          var animation = ccs.load(xc.playLayer.res.char8,xc.path); 
+       }
+
        this.char.node.runAction(animation.action);
        animation.action.play("jumping",false);
     },
@@ -470,7 +621,7 @@ this.remove();
            this.nameLabel = null;
         },3);
 
-     if(this.score <= -3 )
+     if(this.score <= -4 )
      {
          if (cc.sys.isNative) {
                 var menuContext = this.getParent().menuContext;
@@ -505,7 +656,8 @@ this.remove();
      incrementScore : function()
   {
          self.correct++;
-    this.score += 2;
+    this.score += 2 ;
+ //   menuContext.addPoints(2);
     scoreLabel.setString(""+ this.score);
     if(this.score >= 10)
     {
@@ -519,7 +671,7 @@ this.remove();
   
    decrementScore : function()
    {
-       this.score -= 1;
+       this.score -= 2;
        scoreLabel.setString(""+ this.score);
    },
 
@@ -531,7 +683,8 @@ this.remove();
          var targetSize = target.getContentSize();
          var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.height);
          if (cc.rectContainsPoint(targetRectangle, location))
-                   {
+         {
+           
                        if(target.id == "Ball1" && self.word.length < 10){ 
                         var letter = new cc.LabelTTF (group[0], 'Arial' , 130);
                         self.addChild(letter,2);
@@ -686,7 +839,8 @@ this.remove();
                         }
                        if(target.id == "Tick"){ 
                        
-                        
+                        self.helpIsFirst = false;
+                        self.removeChildByName("helpLayer1");
                         self.verify(self.word);
                         cc.log("tick");
                           if (self.wordObj.length == 0)
@@ -699,7 +853,12 @@ this.remove();
                          self.help();
                          
                        }   
-                       
+                       if(self._level == 1 && self.helpIsFirst)
+            {
+                self.removeChildByName("helpLayer");
+                self.helpLayerLetter++;
+                self.myGameHelp();
+            } 
                    }
      return false;
     }              
@@ -710,6 +869,14 @@ xc.playLayer.res = {
     jump_main: xc.path +"jump_on_words/jump_on_words_main_menu.json",
     jump_game: xc.path +"jump_on_words/jump_on_words_game_menu.json",
     char:xc.path +"jump_on_words/character.json",
+    char1:xc.path+"jump_on_words/character1.json",
+    char2:xc.path+"jump_on_words/character2.json",
+    char3:xc.path+"jump_on_words/character3.json",
+    char4:xc.path+"jump_on_words/character4.json",
+    char5:xc.path+"jump_on_words/character5.json",
+    char6:xc.path+"jump_on_words/character6.json",
+    char7:xc.path+"jump_on_words/character7.json",
+    char8:xc.path+"jump_on_words/character8.json",
     jump_plist: xc.path +"jump_on_words/jump_on_words.plist",
     jump_png: xc.path +"jump_on_words/jump_on_words.png",
     dict:xc.path + "english/allwords.json"

@@ -22,11 +22,13 @@ protected:
 	Node *_userCar;
 	cocos2d::ui::LoadingBar* _fuelBar;
 	CocosDenshion::SimpleAudioEngine* audioBg;
+	int _levelPoint = 0, _maxPoint = 0;
 
 public:
 	~Baja();
-	static cocos2d::Scene* createScene();
-	virtual bool init();
+	static cocos2d::Scene* createScene(int levelPoints , int maxPoints);
+	virtual bool init(int layerPoints , int maxPoints);
+	static Baja* create(int layerPoints, int maxPoints);
 	Sprite* setSpriteProperties(std::string frameName,float positionX,float positionY,float scaleX, float scaleY, float anchorX, float anchorY,float rotation,int zorder);
 	Node* carGenerate(int positionX,int positionY,std::string animationName,int initFrame, int zOrder);
 
@@ -41,7 +43,8 @@ public:
 	void carRightGenerate(float dt);
 	void fuelMeterMethod(float dt);
 	// implement the "static create()" method manually
-	CREATE_FUNC(Baja);
+	/*CREATE_FUNC(Baja);*/
+	
 	void update(float) override;
 	
     static const char* gameName() { return BAJA.c_str();}

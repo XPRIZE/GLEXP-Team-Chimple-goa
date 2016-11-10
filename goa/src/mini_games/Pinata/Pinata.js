@@ -3,14 +3,19 @@ var xc = xc || {};
 
 xc.Pinata = cc.Layer.extend({
   gameName: "shoot",
+  menuContext: null,
+
   ctor:function () {
   
    this._super();
 //this.gameBg.node.getChildByName("Panel_1").getChildByName("Button_10");
+  },
+  onEnter: function() {
+    this._super();
+    menuContext = this.getParent().menuContext;
     var gameTheme = "";
     var gameRand = new Array(3);
     gameRand[0] = "pinatacity"; gameRand[1] ="pinatacream"; gameRand[2] ="pinatajungle";
-    gameTheme = gameRand[this.getRandomInt(0,2)];
     //gameTheme = "pinatacream";
     this.gameBg = null;
     this.stringColor = new cc.color(255,255,255,255);
@@ -19,6 +24,23 @@ xc.Pinata = cc.Layer.extend({
     this.xPosi =0; 
     this.shootingFlag = false;
     this.flagSingleTouchFirst = true;
+    var currentLevelValue = menuContext.getCurrentLevel();
+    menuContext.setMaxPoints(2);
+    var info = this.levelAllInfo(currentLevelValue,3,5,3,10);
+    console.log("the pinata category value is : " +     info.category);
+    console.log("the pinata scene value is : " +     info.scene);
+    console.log("the pinata level value is : " +     info.level);
+   
+ if(info.category == 1){
+         this.map =  goa.TextGenerator.getInstance().getAntonyms(3);
+    }else if(info.category == 2){
+         this.map =  goa.TextGenerator.getInstance().getSynonyms(3);
+    }else if(info.category == 3){
+         this.map =  goa.TextGenerator.getInstance().getHomonyms(3);
+    }else{
+        console.log("ERROR :: Your category is wrong , please check your code : line no : 23");
+    }
+    gameTheme = gameRand[info.scene - 1];
 
     if(gameTheme == "pinatacream"){
          cc.spriteFrameCache.addSpriteFrames(xc.Pinata.res.pinatacream_plist);
@@ -57,10 +79,9 @@ xc.Pinata = cc.Layer.extend({
         angle : 90
     }
 
-    this.map =  goa.TextGenerator.getInstance().getAntonyms(3);
     var mapKeyArray = Object.keys(this.map);
     this.mapKey = mapKeyArray[this.getRandomInt(0,(mapKeyArray.length-1))];
-        
+    
     var board = this.gameBg.node.getChildByName("board");
     var boardText = new cc.LabelTTF(""+this.mapKey,"res/fonts/Marker Felt.ttf",120);
     boardText.setName(board.getName());
@@ -116,6 +137,14 @@ xc.Pinata = cc.Layer.extend({
     this.gameBg.node.getChildByName("board").freezShooting = false;
     if(this.bubblePlayer.getName() == "pinatacity")
     this.gameBg.node.getChildByName("slingshot_16").visible = false;
+    var help = null;
+   
+    if(currentLevelValue == 1){
+        help = new xc.HelpLayer(cc.rect((this.xPosi/2)+targetB.x,targetB.y,targetB.width +targetB.width * 0.3,targetB.height+targetB.height * 0.1), cc.rect((this.xPosi/2)+board.x, board.y,board.width,board.height))
+        this.addChild(help,4)
+        help.setName("help");
+        help.click((this.xPosi/2)+targetB.x,targetB.y);
+    }
 
     var classReference = this;
     var listnerBg = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY_ONE, swallowTouches: false,
@@ -200,11 +229,14 @@ xc.Pinata = cc.Layer.extend({
                     classReference.flagSingleTouchFirst = false;
                     return true;
                 }
- 
+
                 return false;
             },
             onTouchEnded : function(touch, event){
                 var target = event.getCurrentTarget();
+                 if(currentLevelValue == 1){
+                    classReference.removeChildByName("help");
+                 }
                 var path = "";
                 if(classReference.bubblePlayer.getName() == "pinatacity"){
                     path = xc.Pinata.res.pinatacity_anim;
@@ -228,6 +260,7 @@ xc.Pinata = cc.Layer.extend({
                         if(!targetB.dead){classReference.runAnimations(ccs.load(path,xc.path),targetB.x,targetB.y,path); classReference.gameBg.node.removeChild(targetB);}
                         classReference.gamePlay(targetA);
                     }
+                    menuContext.addPoints(2);
                 }else{
                     console.log("its wrong answer");
                 
@@ -244,6 +277,7 @@ xc.Pinata = cc.Layer.extend({
                          classReference.runAnimations(ccs.load(path,xc.path),targetA.x,targetA.y,path);
                         classReference.gameBg.node.removeChild(targetA);
                     }
+                    menuContext.addPoints(-1);
                 }
 
                 setTimeout(function() {
@@ -253,12 +287,6 @@ xc.Pinata = cc.Layer.extend({
                 return false;
             }
      });
-
-    var vari = this.levelAllInfo(17,3,5,3,10);
-
-    console.log("the pinata category value is : " +     vari.category);
-    console.log("the pinata scene value is : " +     vari.scene);
-    console.log("the pinata level value is : " +     vari.level);
 
     cc.eventManager.addListener(listnerBg,this.bubblePlayer);
     cc.eventManager.addListener(choosingListner,targetA);
@@ -309,8 +337,8 @@ xc.Pinata = cc.Layer.extend({
                 var classReference = this;
                 setTimeout(function() {
                     if (cc.sys.isNative) {
-                         var menuContext = classReference.getParent().menuContext;
-                         menuContext.showScore();
+                          menuContext.showScore();
+
                     }else{
                         xc.GameScene.load(xc.Pinata);
                     }
@@ -377,20 +405,33 @@ xc.Pinata = cc.Layer.extend({
 
     levelAllInfo : function (currentLevel,totalCategory ,eachCategoryGroup , totalSceneTheme ,SceneChangeAfterLevel)
     {
-        var categoryBase = Math.ceil(currentLevel / eachCategoryGroup);
-        var categoryNo = categoryBase % totalCategory;
-        if (categoryNo == 0)
-            categoryNo = (categoryBase-1) % totalCategory + 1;
 
+        var categoryBase = Math.ceil(currentLevel / eachCategoryGroup);
+
+        var categoryNo = totalCategory;
+        
+        if(categoryBase != totalCategory){
+           categoryNo = categoryBase % totalCategory;
+           if(categoryNo == 0)
+                categoryNo = totalCategory;
+        }
+        
+        if (currentLevel % eachCategoryGroup == 0){
+            categoryNo = (categoryBase-1) % totalCategory + 1;
+        }
         var sceneBase = Math.ceil(currentLevel / SceneChangeAfterLevel);
         var sceneNo = sceneBase % totalSceneTheme;
 
-        var categoryLevel = currentLevel % eachCategoryGroup + (Math.ceil(currentLevel / (eachCategoryGroup *  totalCategory)) * eachCategoryGroup );
-        if (categoryLevel == 0)
-            categoryLevel = (currentLevel-1) % eachCategoryGroup + (Math.ceil((currentLevel-1) / (eachCategoryGroup *  totalCategory)) * eachCategoryGroup) + 1;
+        var totalInterationLevel = totalCategory * eachCategoryGroup;
+        var Iteration = Math.floor(currentLevel/totalInterationLevel);
+        var level = currentLevel % eachCategoryGroup;
+        if (level == 0)
+            level = eachCategoryGroup;
+        var categoryLevel = (Iteration * eachCategoryGroup) + level;
 
+        if (sceneNo == 0)
+            sceneNo = totalSceneTheme;
          return { category: categoryNo, scene: sceneNo,  level: categoryLevel };
-//        return std::make_tuple(categoryNo, sceneNo, categoryLevel);
     },
 
 

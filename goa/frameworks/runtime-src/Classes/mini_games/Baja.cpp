@@ -2,31 +2,40 @@
 
 USING_NS_CC;
 
-Scene* Baja::createScene()
+Scene* Baja::createScene(int levelPoints , int maxPoints)
 {
 	auto scene = Scene::create();
-	auto layer = Baja::create();
+	auto layer = Baja::create(levelPoints, maxPoints);
 	scene->addChild(layer);
-	layer->_menuContext = MenuContext::create(layer,"baja");
+	layer->_menuContext = MenuContext::create(layer, Baja::gameName());
 	scene->addChild(layer->_menuContext);
 	return scene;
 }
 
-bool Baja::init()
+Baja *Baja::create(int levelpoints , int maxPoints) {
+	Baja *baja = new (std::nothrow) Baja();
+	if (baja && baja->init(levelpoints , maxPoints)) {
+		baja->autorelease();
+		return baja;
+	}
+	CC_SAFE_DELETE(baja);
+	return nullptr;
+
+}
+
+bool Baja::init(int levelPoints , int maxPoints)
 {
 	if (!Layer::init()){ return false;}
-
 	CCSpriteFrameCache* framecache1 = CCSpriteFrameCache::sharedSpriteFrameCache();
 	framecache1->addSpriteFramesWithFile("baja/baja.plist");
 	CCSpriteFrameCache* framecache2 = CCSpriteFrameCache::sharedSpriteFrameCache();
 	framecache2->addSpriteFramesWithFile("endlessrunner/endlessrunner_01.plist");
-
+	_levelPoint = levelPoints;
+	_maxPoint = maxPoints;
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	auto origin = Director::getInstance()->getVisibleOrigin();
 	addInitPath(visibleSize, origin);
-
-
-
+	
 	auto loader = CSLoader::createNode("baja/bajafuelmeter.csb");
 	addChild(loader,1);
 	_fuelBar = (cocos2d::ui::LoadingBar*)(loader->getChildren()).at(1);	_fuelBar->setPercent(100);
@@ -186,6 +195,8 @@ void Baja::carRightGenerate(float dt)
 void Baja::fuelMeterMethod(float dt)
 {
 	if (_fuelBar->getPercent() <= 0) {
+		_menuContext->setMaxPoints(_maxPoint);
+		_menuContext->addPoints(_levelPoint);
 		_menuContext->showScore();
 	}
 	_fuelBar->setPercent(_fuelBar->getPercent() - 0.4);

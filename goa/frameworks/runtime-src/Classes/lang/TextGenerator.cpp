@@ -57,7 +57,7 @@ std::map<int, int> TextGenerator::getRandomLocations(int numLoc, int totalNum) {
     return locChars;
 }
 
-std::string TextGenerator::generateAWord(int level) {
+std::string TextGenerator::generateAWord(int level, int length) {
     return LangUtil::getInstance()->getAWord();
 }
 
@@ -259,10 +259,10 @@ std::map<std::string, std::map<std::string, std::string>> TextGenerator::getInit
     return data;
 }
 
-std::vector<std::string> TextGenerator::getWords(TextGenerator::POS partOfSpeech, int maxLength, int level) {
+std::vector<std::string> TextGenerator::getWords(TextGenerator::P_O_S partOfSpeech, int maxLength, int level) {
     std::vector<std::string> WordVec;
     switch( partOfSpeech ) {
-        case TextGenerator::POS::NOUN:
+        case TextGenerator::P_O_S::NOUN:
             WordVec = {
                 "people",
                 "history",
@@ -326,7 +326,7 @@ std::vector<std::string> TextGenerator::getWords(TextGenerator::POS partOfSpeech
                 "management"
             };
         break;
-        case TextGenerator::POS::VERB:
+        case TextGenerator::P_O_S::VERB:
             WordVec = {
                 "accept",
                 "add",
@@ -399,7 +399,7 @@ std::vector<std::string> TextGenerator::getWords(TextGenerator::POS partOfSpeech
                 "buzz"
             };
         break;
-        case TextGenerator::POS::ADJECTIVE:
+        case TextGenerator::P_O_S::ADJECTIVE:
             WordVec = {
                 "used",
                 "important",
@@ -530,7 +530,7 @@ std::vector<std::string> TextGenerator::getWords(TextGenerator::POS partOfSpeech
                 "wooden"
             };
         break;
-        case TextGenerator::POS::ANY:
+        case TextGenerator::P_O_S::ANY:
             WordVec = {
                 "people",
                 "history",
@@ -624,83 +624,83 @@ std::vector<std::string> TextGenerator::getOrderedConcepts(int level) {
     return OrderedConcepts;
 }
 
-std::vector<std::vector<std::pair<std::string, TextGenerator::POS>>> TextGenerator::getSentenceWithPOS(TextGenerator::POS partOfSpeech, int maxLength, int level) {
-    std::vector<std::vector<std::pair<std::string, TextGenerator::POS>>> Sentences = {
+std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> TextGenerator::getSentenceWithPOS(TextGenerator::P_O_S partOfSpeech, int maxLength, int level) {
+    std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> Sentences = {
         {
-            {"The", TextGenerator::POS::ARTICLE},
-            {"young", TextGenerator::POS::ADJECTIVE},
-            {"boy", TextGenerator::POS::NOUN},
-            {"rode", TextGenerator::POS::VERB},
-            {"his", TextGenerator::POS::PRONOUN},
-            {"red", TextGenerator::POS::ADJECTIVE},
-            {"bike", TextGenerator::POS::NOUN}
+            {"The", TextGenerator::P_O_S::ARTICLE},
+            {"young", TextGenerator::P_O_S::ADJECTIVE},
+            {"boy", TextGenerator::P_O_S::NOUN},
+            {"rode", TextGenerator::P_O_S::VERB},
+            {"his", TextGenerator::P_O_S::PRONOUN},
+            {"red", TextGenerator::P_O_S::ADJECTIVE},
+            {"bike", TextGenerator::P_O_S::NOUN}
         },
         {
-            {"The", TextGenerator::POS::ARTICLE},
-            {"girl", TextGenerator::POS::NOUN},
-            {"with", TextGenerator::POS::PREPOSITION},
-            {"the", TextGenerator::POS::ARTICLE},
-            {"curly", TextGenerator::POS::ADJECTIVE},
-            {"hair", TextGenerator::POS::NOUN},
-            {"ate", TextGenerator::POS::VERB},
-            {"lunch", TextGenerator::POS::NOUN},
-            {"in", TextGenerator::POS::PREPOSITION},
-            {"the", TextGenerator::POS::ARTICLE},
-            {"park", TextGenerator::POS::NOUN}
+            {"The", TextGenerator::P_O_S::ARTICLE},
+            {"girl", TextGenerator::P_O_S::NOUN},
+            {"with", TextGenerator::P_O_S::PREPOSITION},
+            {"the", TextGenerator::P_O_S::ARTICLE},
+            {"curly", TextGenerator::P_O_S::ADJECTIVE},
+            {"hair", TextGenerator::P_O_S::NOUN},
+            {"ate", TextGenerator::P_O_S::VERB},
+            {"lunch", TextGenerator::P_O_S::NOUN},
+            {"in", TextGenerator::P_O_S::PREPOSITION},
+            {"the", TextGenerator::P_O_S::ARTICLE},
+            {"park", TextGenerator::P_O_S::NOUN}
         },
         {
-            {"A", TextGenerator::POS::ARTICLE},
-            {"bird", TextGenerator::POS::NOUN},
-            {"flew", TextGenerator::POS::VERB},
-            {"in", TextGenerator::POS::PREPOSITION},
-            {"the", TextGenerator::POS::ARTICLE},
-            {"clear", TextGenerator::POS::ADJECTIVE},
-            {"sky", TextGenerator::POS::NOUN}
+            {"A", TextGenerator::P_O_S::ARTICLE},
+            {"bird", TextGenerator::P_O_S::NOUN},
+            {"flew", TextGenerator::P_O_S::VERB},
+            {"in", TextGenerator::P_O_S::PREPOSITION},
+            {"the", TextGenerator::P_O_S::ARTICLE},
+            {"clear", TextGenerator::P_O_S::ADJECTIVE},
+            {"sky", TextGenerator::P_O_S::NOUN}
         },
         {
-            {"Vincent", TextGenerator::POS::NOUN},
-            {"painted", TextGenerator::POS::VERB},
-            {"a", TextGenerator::POS::ARTICLE},
-            {"beautiful", TextGenerator::POS::ADJECTIVE},
-            {"scene", TextGenerator::POS::NOUN}
+            {"Vincent", TextGenerator::P_O_S::NOUN},
+            {"painted", TextGenerator::P_O_S::VERB},
+            {"a", TextGenerator::P_O_S::ARTICLE},
+            {"beautiful", TextGenerator::P_O_S::ADJECTIVE},
+            {"scene", TextGenerator::P_O_S::NOUN}
         },
         {
-            {"Jay", TextGenerator::POS::NOUN},
-            {"ran", TextGenerator::POS::VERB},
-            {"a", TextGenerator::POS::ARTICLE},
-            {"fast", TextGenerator::POS::ADJECTIVE},
-            {"race", TextGenerator::POS::NOUN}
+            {"Jay", TextGenerator::P_O_S::NOUN},
+            {"ran", TextGenerator::P_O_S::VERB},
+            {"a", TextGenerator::P_O_S::ARTICLE},
+            {"fast", TextGenerator::P_O_S::ADJECTIVE},
+            {"race", TextGenerator::P_O_S::NOUN}
         },
         {
-            {"Rita", TextGenerator::POS::NOUN},
-            {"jumped", TextGenerator::POS::VERB},
-            {"a", TextGenerator::POS::ARTICLE},
-            {"high", TextGenerator::POS::ADJECTIVE},
-            {"obstacle", TextGenerator::POS::NOUN}
+            {"Rita", TextGenerator::P_O_S::NOUN},
+            {"jumped", TextGenerator::P_O_S::VERB},
+            {"a", TextGenerator::P_O_S::ARTICLE},
+            {"high", TextGenerator::P_O_S::ADJECTIVE},
+            {"obstacle", TextGenerator::P_O_S::NOUN}
         },
         {
-            {"Don", TextGenerator::POS::NOUN},
-            {"wore", TextGenerator::POS::VERB},
-            {"a", TextGenerator::POS::ARTICLE},
-            {"rough", TextGenerator::POS::ADJECTIVE},
-            {"sweater", TextGenerator::POS::NOUN}
+            {"Don", TextGenerator::P_O_S::NOUN},
+            {"wore", TextGenerator::P_O_S::VERB},
+            {"a", TextGenerator::P_O_S::ARTICLE},
+            {"rough", TextGenerator::P_O_S::ADJECTIVE},
+            {"sweater", TextGenerator::P_O_S::NOUN}
         },
         {
-            {"Maria", TextGenerator::POS::NOUN},
-            {"read", TextGenerator::POS::VERB},
-            {"a", TextGenerator::POS::ARTICLE},
-            {"difficult", TextGenerator::POS::ADJECTIVE},
-            {"word", TextGenerator::POS::NOUN}
+            {"Maria", TextGenerator::P_O_S::NOUN},
+            {"read", TextGenerator::P_O_S::VERB},
+            {"a", TextGenerator::P_O_S::ARTICLE},
+            {"difficult", TextGenerator::P_O_S::ADJECTIVE},
+            {"word", TextGenerator::P_O_S::NOUN}
         },
         {
-            {"Gloria", TextGenerator::POS::NOUN},
-            {"walked", TextGenerator::POS::VERB},
-            {"an", TextGenerator::POS::ARTICLE},
-            {"uphill", TextGenerator::POS::ADJECTIVE},
-            {"road", TextGenerator::POS::NOUN}
+            {"Gloria", TextGenerator::P_O_S::NOUN},
+            {"walked", TextGenerator::P_O_S::VERB},
+            {"an", TextGenerator::P_O_S::ARTICLE},
+            {"uphill", TextGenerator::P_O_S::ADJECTIVE},
+            {"road", TextGenerator::P_O_S::NOUN}
         }
     };
-    std::vector<std::vector<std::pair<std::string, TextGenerator::POS>>> data;
+    std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> data;
     for (auto it=Sentences.begin(); it!=Sentences.end(); ++it) {
         data.push_back(*it);
         if(data.size() >= maxLength) {
@@ -739,5 +739,9 @@ std::map<std::string, std::string> TextGenerator::getSingularPlurals(int maxNum,
     return data;
 }
 
+
+std::string TextGenerator::getLang() {
+    return LangUtil::getInstance()->getLang();
+}
 
 

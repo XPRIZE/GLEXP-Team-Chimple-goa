@@ -1,10 +1,13 @@
 var xc = xc || {};
 xc.Bubble_Number = cc.Layer.extend({
+  menuContext: null,
   
-  ctor:function () {
-  
-   this._super();
-   imageSprite = ['bubble_shooter/red_ball','bubble_shooter/green_ball','bubble_shooter/yellow_ball','bubble_shooter/purple_ball','bubble_shooter/blue_ball','bubble_shooter/orange_ball',"bubble_shooter/yellow_ball","bubble_shooter/blue_ball"];
+  onEnter:function(){
+     this._super();
+    menuContext = this.getParent().menuContext;
+    this.flagSwitchTwoColor = true;
+    this.negativePoints = 0;
+    imageSprite = ['bubble_shooter/red_ball','bubble_shooter/green_ball','bubble_shooter/yellow_ball','bubble_shooter/purple_ball','bubble_shooter/blue_ball','bubble_shooter/orange_ball',"bubble_shooter/yellow_ball","bubble_shooter/blue_ball"];
 
    var ScreenMenu = ccs.load(xc.BubbleGame_HomeScreenMenu.res.bubbleShooter_gameMenu_json,xc.path);
    this.addChild(ScreenMenu.node);
@@ -235,10 +238,21 @@ xc.Bubble_Number = cc.Layer.extend({
         this.gunBase.setPosition(trnspImg.width/2 , cc.director.getWinSize().height * 0.0575);
         this.addChild(this.gunBase);  
   
+       if(levelValues == 1){
+            var window = cc.director.getWinSize();
+            var help = new xc.HelpLayer(cc.rect((window.width - (cc.director.getWinSize().width - 2560)) * 0.5 , window.height *0.75 , window.width - (cc.director.getWinSize().width - 2560),window.height *0.5), cc.rect(this.gunBase.x, this.gunBase.y,this.bubblePlayer.width,this.bubblePlayer.height))
+            this.addChild(help,4)
+            help.setName("help");
+        }
+        this.helpActive = true;
+
       this.scheduleUpdate();
     
     return true;
     
+  },
+  ctor:function () {
+       this._super();
   },
   
     update : function (dt) {
@@ -259,6 +273,11 @@ xc.Bubble_Number = cc.Layer.extend({
             this.stateRemoveCluster();
         }else if (this.gamestate == this.gamestates.gameover){
             console.log("game over bro !!");
+            menuContext.setMaxPoints(this.counterhits);
+            menuContext.addPoints(0);
+            cc.log("showscore game over");
+            menuContext.showScore();
+            this.unscheduleUpdate();
         }
     },
      
@@ -272,6 +291,10 @@ xc.Bubble_Number = cc.Layer.extend({
         console.log("x and y : "+x +"  "+ y + " xPosi value is : "+ xPosi);
          if (this.gamestate == this.gamestates.ready) {
                  this.shootBubble(); 
+                 if(this.helpActive){
+                     this.helpActive = false;
+                     this.removeChildByName("help");
+                 }
             }
     },
             // Create a random pattern level1
@@ -406,7 +429,7 @@ xc.Bubble_Number = cc.Layer.extend({
           if(this.mainPlayerBubbleDestroy){
               // console.log("done 413");
               this.bubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(imageSprite[ this.player.bubble.tiletype]+".png"));
-              this.letterPlayer =  new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/Marker Felt.ttf",100);
+              this.letterPlayer =  new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/Marker Felt.ttf",120);
               this.addChild(this.bubblePlayer);
               this.bubblePlayer.addChild(this.letterPlayer);
               
@@ -572,6 +595,8 @@ xc.Bubble_Number = cc.Layer.extend({
                     this.setGameState(this.gamestates.removecluster);
                     
                     return;
+                }else{
+                    console.log("the total missed : "+ ++this.negativePoints);
                 }   
             }
  
@@ -771,12 +796,13 @@ xc.Bubble_Number = cc.Layer.extend({
         }
         return false;
     },
-        
+    
    DataCard : function (gamestatus){
        console.log("gamestatus : "+gamestatus + " -------------- ");
        var level = levelValues;
     if (cc.sys.isNative) {
-               var menuContext = this.getParent().menuContext;
+               menuContext.setMaxPoints(this.counterhits);
+                menuContext.addPoints(this.counterhits - this.negativePoints);
                cc.log("showscore");
                menuContext.showScore();
      }else{
@@ -905,7 +931,7 @@ xc.Bubble_Number = cc.Layer.extend({
                 // Game over
                 this.nextBubble();
                 this.setGameState(this.gamestates.gameover);
-                this.DataCard("gameOver");
+                //this.DataCard("gameOver");
                 return true;
             }
         }
@@ -1059,9 +1085,23 @@ xc.Bubble_Number = cc.Layer.extend({
     
    // Get a random existing color
    getExistingColor : function () {
-      
-        let existingcolors = this.findColors();
         
+       let existingcolors = this.findColors();
+       
+       if(existingcolors.length == 1){
+            return existingcolors[0];
+        }
+
+        if(existingcolors.length == 2){
+            if(this.flagSwitchTwoColor){
+                 this.flagSwitchTwoColor = false;
+                 return existingcolors[0];
+            }else{
+                this.flagSwitchTwoColor = true;
+                return existingcolors[1];
+            }   
+        }
+
         let bubbletype = 0;
         if (existingcolors.length > 0) {
             bubbletype = existingcolors[Math.floor(Math.random()*100 % (existingcolors.length-1))];
@@ -1138,14 +1178,15 @@ xc.Bubble_Number = cc.Layer.extend({
      this.nextBubblePlayer.anchorY=0.5;
      //  console.log("the value for y in playe : "+ this.player.bubble.y);
      this.addChild(this.nextBubblePlayer);     
-    },    
+    },
      // Draw the bubble
      drawNextLetter : function (x, y, index) {
         if (index < 0 || index >= bubblecolors)
             return;
   
-     this.nextLetterPlayer = new cc.LabelTTF(""+letterSprite[this.player.nextbubble.tiletype],"res/fonts/Marker Felt.ttf",150);
+     this.nextLetterPlayer = new cc.LabelTTF(""+letterSprite[this.player.nextbubble.tiletype],"res/fonts/Marker Felt.ttf",120);
      this.nextLetterPlayer.setPosition(this.nextLetterPlayer.getContentSize().width/2,this.nextLetterPlayer.getContentSize().height/2);
+     this.nextLetterPlayer.setAnchorPoint(-0.2,0.4);
      this.nextBubblePlayer.addChild(this.nextLetterPlayer);
     },
 

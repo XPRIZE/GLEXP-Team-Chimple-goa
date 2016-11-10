@@ -89,7 +89,7 @@
       <PrecompiledHeader>
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
       <DisableSpecificWarnings>4267;4251;4244;4800;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -235,8 +235,12 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClCompile Include="..\Classes\mini_games\BajaWordScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\BalloonHero.cpp" />
     <ClCompile Include="..\Classes\mini_games\Bingo.cpp" />
+    <ClCompile Include="..\Classes\mini_games\BlastLetter.cpp" />
+    <ClCompile Include="..\Classes\mini_games\BlastLetterNode.cpp" />
     <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Listener.cpp" />
     <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Main.cpp" />
+    <ClCompile Include="..\Classes\mini_games\CarDraw.cpp" />
+    <ClCompile Include="..\Classes\mini_games\CarDrawNode.cpp" />
     <ClCompile Include="..\Classes\mini_games\CatGameScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\CatScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\Chain.cpp" />
@@ -245,11 +249,14 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClCompile Include="..\Classes\mini_games\Dash.cpp" />
     <ClCompile Include="..\Classes\mini_games\Decomon.cpp" />
     <ClCompile Include="..\Classes\mini_games\DecomonGallery.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Door.cpp" />
+    <ClCompile Include="..\Classes\mini_games\DoorNode.cpp" />
     <ClCompile Include="..\Classes\mini_games\Drop.cpp" />
     <ClCompile Include="..\Classes\mini_games\EndlessRunner.cpp" />
     <ClCompile Include="..\Classes\mini_games\Jasmin_Listenerfile.cpp" />
     <ClCompile Include="..\Classes\mini_games\Jasmin_Mainfile.cpp" />
     <ClCompile Include="..\Classes\mini_games\jazz.cpp" />
+    <ClCompile Include="..\Classes\mini_games\JumpingNumbers.cpp" />
     <ClCompile Include="..\Classes\mini_games\Memory.cpp" />
     <ClCompile Include="..\Classes\mini_games\MemoryHero.cpp" />
     <ClCompile Include="..\Classes\mini_games\MemoryJungle.cpp" />
@@ -265,6 +272,8 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClCompile Include="..\Classes\mini_games\Talk.cpp" />
     <ClCompile Include="..\Classes\mini_games\TraceScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\Train.cpp" />
+    <ClCompile Include="..\Classes\mini_games\TreasureHunt.cpp" />
+    <ClCompile Include="..\Classes\mini_games\TreasureHuntNode.cpp" />
     <ClCompile Include="..\Classes\mini_games\Wembley.cpp" />
     <ClCompile Include="..\Classes\MO.cpp" />
     <ClCompile Include="..\Classes\PhotoCaptureScene.cpp" />
@@ -324,6 +333,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClCompile Include="..\Classes\util\logger\logger.cpp" />
     <ClCompile Include="..\Classes\util\logger\LTKLogger.cpp" />
     <ClCompile Include="..\Classes\WalkingState.cpp" />
+    <ClCompile Include="..\Classes\WordSceneLipiTKNode.cpp" />
     <ClCompile Include="..\Classes\WordSprite.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -411,8 +421,12 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClInclude Include="..\Classes\mini_games\BajaWordScene.h" />
     <ClInclude Include="..\Classes\mini_games\BalloonHero.h" />
     <ClInclude Include="..\Classes\mini_games\Bingo.h" />
+    <ClInclude Include="..\Classes\mini_games\BlastLetter.h" />
+    <ClInclude Include="..\Classes\mini_games\BlastLetterNode.h" />
     <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Listener.h" />
     <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Main.h" />
+    <ClInclude Include="..\Classes\mini_games\CarDraw.h" />
+    <ClInclude Include="..\Classes\mini_games\CarDrawNode.h" />
     <ClInclude Include="..\Classes\mini_games\CatGameScene.h" />
     <ClInclude Include="..\Classes\mini_games\CatScene.h" />
     <ClInclude Include="..\Classes\mini_games\Chain.h" />
@@ -421,11 +435,14 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClInclude Include="..\Classes\mini_games\Dash.h" />
     <ClInclude Include="..\Classes\mini_games\Decomon.h" />
     <ClInclude Include="..\Classes\mini_games\DecomonGallery.h" />
+    <ClInclude Include="..\Classes\mini_games\Door.h" />
+    <ClInclude Include="..\Classes\mini_games\DoorNode.h" />
     <ClInclude Include="..\Classes\mini_games\Drop.h" />
     <ClInclude Include="..\Classes\mini_games\EndlessRunner.h" />
     <ClInclude Include="..\Classes\mini_games\Jasmin_Listenerfile.h" />
     <ClInclude Include="..\Classes\mini_games\Jasmin_Mainfile.h" />
     <ClInclude Include="..\Classes\mini_games\jazz.h" />
+    <ClInclude Include="..\Classes\mini_games\JumpingNumbers.h" />
     <ClInclude Include="..\Classes\mini_games\Memory.h" />
     <ClInclude Include="..\Classes\mini_games\MemoryHero.h" />
     <ClInclude Include="..\Classes\mini_games\MemoryJungle.h" />
@@ -441,6 +458,8 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClInclude Include="..\Classes\mini_games\Talk.h" />
     <ClInclude Include="..\Classes\mini_games\TraceScene.h" />
     <ClInclude Include="..\Classes\mini_games\Train.h" />
+    <ClInclude Include="..\Classes\mini_games\TreasureHunt.h" />
+    <ClInclude Include="..\Classes\mini_games\TreasureHuntNode.h" />
     <ClInclude Include="..\Classes\mini_games\Wembley.h" />
     <ClInclude Include="..\Classes\MO.h" />
     <ClInclude Include="..\Classes\PhotoCaptureScene.hpp" />
@@ -496,6 +515,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClInclude Include="..\Classes\util\lib\LTKWindowsUtil.h" />
     <ClInclude Include="..\Classes\util\logger\logger.h" />
     <ClInclude Include="..\Classes\WalkingState.h" />
+    <ClInclude Include="..\Classes\WordSceneLipiTKNode.h" />
     <ClInclude Include="..\Classes\WordSprite.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="resource.h" />

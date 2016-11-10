@@ -26,10 +26,10 @@ xc.PlayRecordingLayer = cc.Layer.extend({
         //create scene with first page
         this._contentPanel = new xc.PlayContentPanel(this._contentPanelWidth, this._contentPanelHeight, cc.p(this._configPanelWidth, 0));
         this.addChild(this._contentPanel);
-        this._pageConfigPanel = new xc.BaseConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(150, 0), xc.storyPlayConfigurationObject.editDefault, this._contentPanel);
-        this.addChild(this._pageConfigPanel);
-        this._pageConfigPanel.setVisible(false);
-        this.playRecordedScene();
+        // this._pageConfigPanel = new xc.BaseConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(150, 0), xc.storyPlayConfigurationObject.editDefault, this._contentPanel);
+        // this.addChild(this._pageConfigPanel);
+        // this._pageConfigPanel.setVisible(false);
+        // this.playRecordedScene();
 
     },
 
@@ -51,7 +51,7 @@ xc.PlayRecordingLayer = cc.Layer.extend({
     
     createWebView: function() {
         if (xc.story.items[xc.pageIndex].sceneText != null && xc.story.items[xc.pageIndex].sceneText !== "undefined") {
-            this.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), xc.story.items[xc.pageIndex].sceneText, this.processText, this, false));
+            this.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), xc.story.items[xc.pageIndex].sceneText, this.processText, null, this, false));
         }     
 
         this._pageConfigPanel.setVisible(true);           

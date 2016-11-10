@@ -1,12 +1,12 @@
 var xc = xc || {};
 xc.TextCreatePanel = cc.Layer.extend({
-    ctor: function (width, height, position, existingText, callback, callbackContext, enabled) {
+    ctor: function (width, height, position, existingText, callback, audiocallback, callbackContext, enabled) {
         this._super(width, height);
         var backButton = new ccui.Button('icons/check.png', 'icons/check_onclick.png', 'icons/check_onclick.png', ccui.Widget.PLIST_TEXTURE);
-        backButton.setPosition(cc.director.getWinSize().width * 0.8, cc.director.getWinSize().height * 0.9);
+        backButton.setPosition(cc.director.getWinSize().width * 0.55,cc.director.getWinSize().height * 0.65);
         backButton.addTouchEventListener(this.goBack, this);
-        this.addChild(backButton);                
         this.callback = callback;
+        this.audiocallback = audiocallback;
         this._callbackContext = callbackContext;
         this._text = existingText;
 
@@ -20,7 +20,7 @@ xc.TextCreatePanel = cc.Layer.extend({
         this._textField = new ccui.TextField();
         this._textField.setFontSize(50);
         this._textField.setAnchorPoint(0.5, 0.5);
-        this._textField.setPosition(cc.director.getWinSize().width / 2  + textContentMargin, cc.director.getWinSize().height/2 - 2 * textContentMargin);
+        this._textField.setPosition(cc.director.getWinSize().width / 2 - 2 * textContentMargin + textContentMargin, cc.director.getWinSize().height/2 - 2 * textContentMargin);
         this._textField.setMaxLengthEnabled(true);
         this._textField.setMaxLength(500);
         this._textField.ignoreContentAdaptWithSize(false);
@@ -31,6 +31,14 @@ xc.TextCreatePanel = cc.Layer.extend({
         if (this._text) {
             this._textField.setString(this._text);
         }
+
+        this._textField.addChild(backButton);
+
+        var audioButton = new ccui.Button('icons/check.png', 'icons/check_onclick.png', 'icons/check_onclick.png', ccui.Widget.PLIST_TEXTURE);
+        audioButton.setPosition(cc.director.getWinSize().width * 0.55,cc.director.getWinSize().height * 0.15);
+        audioButton.addTouchEventListener(this.audiocallback, this._callbackContext);
+        this._textField.addChild(audioButton);
+
         this.addChild(this._textField, 0);
         if(enabled) {
             this._textField.addEventListener(this.updateText, this);
@@ -38,9 +46,6 @@ xc.TextCreatePanel = cc.Layer.extend({
         }  else {
             this._textField.setTouchEnabled(false);
         }
-        
-
-
     },   
 
     goBack: function (sender, type) {

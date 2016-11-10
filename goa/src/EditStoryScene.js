@@ -28,7 +28,7 @@ xc.EditStoryLayer = cc.Layer.extend({
             //backgrounds, characters and pops, texts
             var mainConfigurationItems = Object.getOwnPropertyNames(xc.storyConfigurationObject.addObjects);
             //Construct UI
-            this._contentPanel = new xc.ContentPanel(this._contentPanelWidth, this._contentPanelWidth, cc.p(this._configPanelWidth, 0));
+            this._contentPanel = new xc.ContentPanel(this._contentPanelWidth, this._contentPanelWidth, cc.p(0, 0));
             this.addChild(this._contentPanel);
             this._objectConfigPanel = new xc.ObjectConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(this._configPanelWidth + this._contentPanelWidth, 0), xc.storyConfigurationObject, this._contentPanel);
             this.addChild(this._objectConfigPanel);
@@ -61,6 +61,8 @@ xc.EditStoryScene = cc.Scene.extend({
 
     createStoryPage: function () {
         var newPage = {};
+        var len = xc.story.items.length;
+        newPage.pageNumber = len + 1;
         newPage.cIcon = "icons/page.png";
         newPage.icon = "icons/page.png";
         newPage.scene = {};        

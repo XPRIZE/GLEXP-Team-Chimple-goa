@@ -14,7 +14,7 @@
 
 class TextGenerator {
 public:
-    enum class POS
+    enum class P_O_S
     {
         ANY = 0,
         NOUN = 1,
@@ -31,7 +31,7 @@ public:
     static TextGenerator* getInstance();
     
     std::vector<std::vector<std::string>> generateMatrix(std::string word, int numRows, int numCols);
-    std::string generateAWord(int level = 0);
+    std::string generateAWord(int level = 0, int length = 0);
     int getNumGraphemesInString(std::string word);
     std::vector<std::string> getGraphemes(std::string word);
     std::string generateASentence(int level = 0);
@@ -41,10 +41,12 @@ public:
     std::map<std::string, std::string> getAntonyms(int maxNum, int level = 0);
     std::map<std::string, std::string> getHomonyms(int maxNum, int level = 0);
     std::map<std::string, std::map<std::string, std::string>> getInitialSyllableWords(int maxNum, int maxChoices, int level = 0);
-    std::vector<std::string> getWords(TextGenerator::POS partOfSpeech, int maxLength, int level = 0);
+    std::vector<std::string> getWords(TextGenerator::P_O_S partOfSpeech, int maxLength, int level = 0);
     std::vector<std::string> getOrderedConcepts(int level = 0);
-    std::vector<std::vector<std::pair<std::string, TextGenerator::POS>>> getSentenceWithPOS(TextGenerator::POS partOfSpeech, int maxLength, int level = 0);
+    std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> getSentenceWithPOS(TextGenerator::P_O_S partOfSpeech, int maxLength, int level = 0);
     std::map<std::string, std::string> getSingularPlurals(int maxNum, int level = 0);
+    
+    std::string getLang();
     
 protected:
     std::map<int, int> getRandomLocations(int numLoc, int totalNum);

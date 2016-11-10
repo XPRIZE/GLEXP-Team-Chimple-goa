@@ -21,7 +21,7 @@ public:
 	void scoreBoard(float dt);
 	void onEnterTransitionDidFinish();
 	void gameHelp();
-	bool _helpFlage;
+	bool _helpFlage = false;
 	int _score = 0;
 	void bigpuff(float dt);
 	float extraX;

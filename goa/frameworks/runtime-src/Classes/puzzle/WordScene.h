@@ -11,11 +11,12 @@
 
 #include "cocos2d.h"
 #include "../menu/MenuContext.h"
+#include "../menu/HelpLayer.h"
 #include "GraphemeGrid.h"
 #include "Grapheme.h"
 #include "RPGConfig.h"
 
-class LipiTKNode;
+class WordSceneLipiTKNode;
 class WordScene : public cocos2d::Node {
 public:
     static cocos2d::Scene* createScene();
@@ -30,7 +31,8 @@ public:
     void enableHandWriting();
     bool isHandWritingEnabled();
     static void textReceived(std::string text);
-        
+	MenuContext* _menuContext;
+	int _score = 0;
 CC_CONSTRUCTOR_ACCESS:
     WordScene();
     virtual ~WordScene();
@@ -60,11 +62,12 @@ protected:
     void charactersRecognized(cocos2d::EventCustom* event);
     void characterSelected(cocos2d::Ref *sender);
 
-    MenuContext* _menuContext;
     GraphemeGrid* _grid;
     Node* _background;
     Node* _answer;
     Node* _choice;
+    HelpLayer* _helpLayer;
+    std::string _helpGraphemeText;
     std::string _word;
     int _numGraphemes;
     std::vector<std::string> _answerGraphemes;
@@ -72,8 +75,9 @@ protected:
     std::vector<std::pair<Node*, Grapheme*>> _answerVector;
     bool _showHandWriting;
     cocos2d::ui::Button* _handWritingDialogButton;
-    LipiTKNode* _lipiTKNode;
+    WordSceneLipiTKNode* _lipiTKNode;
     cocos2d::Menu* _lipiTKResultMenu;
+    int _numTries;
 };
 
 #endif /* WordScene_h */

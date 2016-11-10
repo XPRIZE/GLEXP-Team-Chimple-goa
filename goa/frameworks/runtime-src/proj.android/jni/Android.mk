@@ -83,6 +83,10 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
                     ../../Classes/mini_games/Drop.cpp \
 					../../Classes/mini_games/Order.cpp \
 					../../Classes/mini_games/Owl.cpp \
+					../../Classes/mini_games/BlastLetter.cpp \
+					../../Classes/mini_games/BlastLetterNode.cpp \
+					../../Classes/mini_games/TreasureHunt.cpp \
+					../../Classes/mini_games/TreasureHuntNode.cpp \
 					../../Classes/menu/MenuContext.cpp \
 					../../Classes/menu/HelpLayer.cpp \
 					../../Classes/lang/LangUtil.cpp \
@@ -109,6 +113,7 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/PhotoCaptureScene.cpp \
 					../../Classes/mini_games/Spirograph.cpp	\
 					../../Classes/mini_games/Bingo.cpp \
+					../../Classes/WordSceneLipiTKNode.cpp\
 					./src/util/logger/LTKLogger.cpp	\
 					./src/util/logger/logger.cpp	\
 					./src/common/LTKCaptureDevice.cpp \
@@ -149,12 +154,18 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					./src/reco/shaperec/preprocessing/LTKPreprocessor.cpp \
 					./src/reco/shaperec/preprocessing/preprocessing.cpp \
 					lipiJni.cpp \
+					../../Classes/mini_games/CarDraw.cpp \
+					../../Classes/mini_games/CarDrawNode.cpp \
+					../../Classes/mini_games/Door.cpp \
+					../../Classes/mini_games/DoorNode.cpp \
+					../../Classes/mini_games/JumpingNumbers.cpp \
+					../../Classes/mini_games/ChocolateFactory.cpp \
                     ../../Classes/AsyncTask.cpp \
                     ../../Classes/LipiTKNode.cpp \
                     ../../Classes/LipiTKInterface.cpp \
                     ../../Classes/LipiTKProcessTask.cpp \
                     ../../Classes/LipiTKResult.cpp \
-                    ../../Classes/Stroke.cpp					
+                    ../../Classes/Stroke.cpp
 					
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../extensions

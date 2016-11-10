@@ -12,6 +12,7 @@
 #include "cocos2d.h"
 #include "../menu/MenuContext.h"
 #include "../StartMenuScene.h"
+#include "../menu/HelpLayer.h"
 
 class MemoryHero : public cocos2d::Layer {
 public:
@@ -51,6 +52,9 @@ protected:
 	Node * _mainground;
 	Node * _memoryfarm;
 	int _currentNest;
+    
+    int _counter;
+	int _helpflag;
 
     std::vector<int> _gridTwoByTwoIds;
 	std::vector<int> _gridTwoByThreeIds;
@@ -68,6 +72,11 @@ protected:
 	int _gridFourBySixIds_Size = 24;
 	
 
+    HelpLayer * help1;
+	HelpLayer * help2;
+	cocos2d::Vec2 box1pos;
+	cocos2d::Vec2 box2pos;
+    
 	int _pairCount;
 	
     

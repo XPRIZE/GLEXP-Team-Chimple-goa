@@ -1,18 +1,19 @@
 var xc = xc || {};
 xc.Bubble_Alphabets = cc.Layer.extend({
-  
-  ctor:function () {
-  
+   menuContext: null,
+  onEnter: function() {
    this._super();
+    menuContext = this.getParent().menuContext;
+    this.negativePoints = 0;
+    this.flagSwitchTwoColor = true;
    imageSprite = ['bubble_shooter/red_ball','bubble_shooter/green_ball','bubble_shooter/yellow_ball','bubble_shooter/purple_ball','bubble_shooter/blue_ball','bubble_shooter/orange_ball',"bubble_shooter/yellow_ball","bubble_shooter/blue_ball"];
 
    var ScreenMenu = ccs.load(xc.BubbleGame_HomeScreenMenu.res.bubbleShooter_gameMenu_json,xc.path);
    this.addChild(ScreenMenu.node);
    var xPosi ;
-    // if (cc.director.getWinSize().width > 2560){
-    //     xPosi = cc.director.getWinSize().width - 2560;
-    //     ScreenMenu.node.x = xPosi/2;
-    // }
+     if (cc.director.getWinSize().width > 2560){
+         xPosi = cc.director.getWinSize().width - 2560;
+     }
     
     var LangLetter = goa.TextGenerator.getInstance().getAllChars();
     
@@ -64,6 +65,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
                 letterSprite[i] = [index];
             }
         }
+
         
         let color = numberOfLetter , repeat = 3;
         // Create the level of bubbles
@@ -79,7 +81,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         this.player.tiletype = 0;
         
         // Init the next-this.player
-        this.player.nextbubble.x = this.player.x - 2 * this.level.tilewidth;
+        this.player.nextbubble.x = this.player.x - 3 * this.level.tilewidth;
         this.player.nextbubble.y = this.player.y;
       
         
@@ -163,10 +165,22 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         this.gunBase.setPosition(trnspImg.width/2 , cc.director.getWinSize().height * 0.0575);
         this.addChild(this.gunBase);  
   
+       if(levelValues == 1){
+            var window = cc.director.getWinSize();
+            var help = new xc.HelpLayer(cc.rect((window.width - (cc.director.getWinSize().width - 2560)) * 0.5 , window.height *0.75 , window.width - (cc.director.getWinSize().width - 2560),window.height *0.5), cc.rect(this.gunBase.x, this.gunBase.y,this.bubblePlayer.width,this.bubblePlayer.height))
+            this.addChild(help,4)
+            help.setName("help");
+           // help.click((this.xPosi/2)+targetB.x,targetB.y);
+        }
+      this.helpActive = true;
       this.scheduleUpdate();
     
     return true;
     
+  },
+
+  ctor:function () {
+   this._super();
   },
   
     update : function (dt) {
@@ -187,6 +201,11 @@ xc.Bubble_Alphabets = cc.Layer.extend({
             this.stateRemoveCluster();
         }else if (this.gamestate == this.gamestates.gameover){
             console.log("game over bro !!");
+            menuContext.setMaxPoints(this.counterhits);
+            menuContext.addPoints(0);
+            cc.log("showscore game over");
+            menuContext.showScore();
+            this.unscheduleUpdate();
         }
     },
      
@@ -199,7 +218,11 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         this.onMouseMove(x , y);
         console.log("x and y : "+x +"  "+ y + " xPosi value is : "+ xPosi);
          if (this.gamestate == this.gamestates.ready) {
-                 this.shootBubble(); 
+                 this.shootBubble();
+                 if(this.helpActive){
+                     this.helpActive = false;
+                     this.removeChildByName("help");
+                 }
             }
     },
     
@@ -323,14 +346,11 @@ xc.Bubble_Alphabets = cc.Layer.extend({
            return;
                 
         // Use to kill the previous bubble sprite
-        
-        // this.removeChild(bubblePlayer,true);
-        // this.removeChild(letterPlayer,true);
-        // console.log("393 -------- > " + letterSprite[index]);
+       
           if(this.mainPlayerBubbleDestroy){
               // console.log("done 413");
               this.bubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(imageSprite[ this.player.bubble.tiletype]+".png"));
-              this.letterPlayer =  new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/Marker Felt.ttf",100);
+              this.letterPlayer =  new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/Marker Felt.ttf",120);
               this.addChild(this.bubblePlayer);
               this.bubblePlayer.addChild(this.letterPlayer);
               
@@ -386,7 +406,6 @@ xc.Bubble_Alphabets = cc.Layer.extend({
                 if (tile.type < 0) {
                     continue;
                 }
-                // console.log("done 486");
                 // Check for intersections
                 let coord = this.getTileCoordinate(i, j);
                 // console.log(coord.tilex + "           "+ coord.tiley);
@@ -496,6 +515,8 @@ xc.Bubble_Alphabets = cc.Layer.extend({
                     this.setGameState(this.gamestates.removecluster);
                     
                     return;
+                }else{
+                    console.log("not matched --- > 503" + ++this.negativePoints);
                 }   
             }
  
@@ -699,13 +720,14 @@ xc.Bubble_Alphabets = cc.Layer.extend({
    DataCard : function (gamestatus){
        console.log("gamestatus : "+gamestatus + " -------------- ");
        var level = levelValues;
-    if (cc.sys.isNative) {
-               var menuContext = this.getParent().menuContext;
-               cc.log("showscore");
-               menuContext.showScore();
-     }else{
-         xc.GameScene.load(xc.BubbleGame_HomeScreenMenu);
-     }  
+        if (cc.sys.isNative) {
+                menuContext.setMaxPoints(this.counterhits);
+                menuContext.addPoints(this.counterhits - this.negativePoints);
+                //  menuContext.addPoints(this.negativePoints);
+                menuContext.showScore();
+        }else{
+            xc.GameScene.load(xc.BubbleGame_HomeScreenMenu);
+        }
     },
     
    playerDie : function (tilex,tiley,type,float){
@@ -828,7 +850,6 @@ xc.Bubble_Alphabets = cc.Layer.extend({
                 // Game over
                 this.nextBubble();
                 this.setGameState(this.gamestates.gameover);
-                this.DataCard("gameOver");
                 return true;
             }
         }
@@ -984,7 +1005,21 @@ xc.Bubble_Alphabets = cc.Layer.extend({
    getExistingColor : function () {
       
         let existingcolors = this.findColors();
+       
+        if(existingcolors.length == 1){
+            return existingcolors[0];
+        }
         
+        if(existingcolors.length == 2){
+            if(this.flagSwitchTwoColor){
+                 this.flagSwitchTwoColor = false;
+                 return existingcolors[0];
+            }else{
+                this.flagSwitchTwoColor = true;
+                return existingcolors[1];
+            }   
+        }
+       
         let bubbletype = 0;
         if (existingcolors.length > 0) {
             bubbletype = existingcolors[Math.floor(Math.random()*100 % (existingcolors.length-1))];
@@ -1067,9 +1102,10 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         if (index < 0 || index >= bubblecolors)
             return;
   
-     this.nextLetterPlayer = new cc.LabelTTF(""+letterSprite[this.player.nextbubble.tiletype],"res/fonts/Marker Felt.ttf",150);
+     this.nextLetterPlayer = new cc.LabelTTF(""+letterSprite[this.player.nextbubble.tiletype],"res/fonts/Marker Felt.ttf",120);
      this.nextLetterPlayer.setPosition(this.nextLetterPlayer.getContentSize().width/2,this.nextLetterPlayer.getContentSize().height/2);
      this.nextBubblePlayer.addChild(this.nextLetterPlayer);
+     this.nextLetterPlayer.setAnchorPoint(-0.1,0.4);
     },
 
     /**
@@ -1210,7 +1246,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
 
         // Array Of BubbleColor
         this.counterhits = 0;
-        
+    
         // Array Of Letter
         this.letterSprite = [];
         this.imageSprite = [];

@@ -54,9 +54,8 @@ bool Pillar::init()
 	float toplabelX = visibleSize.width / 2 - 30;
 	std::map<std::string, std::map<std::string, std::string>> differntSceneMapping = {
 		{
-			{ "city",  
+			{ "candy",  
 			{
-				{ "plist", "layercandy/layercandy.plist"},
 				{ "bg", "layercandy/layercandy.csb"},
 				{ "ladder", "ladder_6"},
 				{ "cakePath", "layercandy/cake1.png"},
@@ -74,7 +73,6 @@ bool Pillar::init()
 			} },
 			{ "iceLand",  
 			{
-				{ "plist", "dashisland/dashisland.plist" },
 				{ "bg", "layerisland/layerisland.csb" },
 				{ "ladder", "ladder_6" },
 				{ "cakePath", "layerisland/cake1.png" },
@@ -89,9 +87,8 @@ bool Pillar::init()
 				{ "animation_select", "two" }
 
 			} },
-			{ "candy", 
+			{ "farm", 
 			{
-				{ "plist", "dashisland/dashisland.plist" },
 				{ "bg", "layerfarm/layerfarm.csb" },
 				{ "ladder", "ladder_6" },
 				{ "cakePath", "layerfarm/cake1.png" },
@@ -109,13 +106,13 @@ bool Pillar::init()
 		}
 	};
 
-	std::vector<std::string> theme = { "city","iceLand","candy" };
+	std::vector<std::string> theme = { "candy","iceLand","farm" };
 	_scenePath = differntSceneMapping.at(theme.at(cocos2d::RandomHelper::random_int(0, 2)));
 
-	auto spritecache1 = SpriteFrameCache::getInstance();
-	spritecache1->addSpriteFramesWithFile(_scenePath.at("plist"));
+	
 
 	background = CSLoader::createNode(_scenePath.at("bg"));
+	extraX = 0;
 	if (visibleSize.width > 2560) {
 		extraX = (visibleSize.width - 2560) / 2;
 		background->setPositionX((visibleSize.width - 2560) / 2);
@@ -185,9 +182,7 @@ bool Pillar::init()
 		wind2->runAction(timeline3);
 		timeline3->gotoFrameAndPlay(0, true);
 	}
-	newCake();
-	ladderMove();
-	this->scheduleUpdate();
+	
 
 	
 
@@ -202,39 +197,64 @@ void Pillar::onEnterTransitionDidFinish()
 	if (division >= 1 && division < 6) {
 		int roundLevel = (level / 15) + 1;
 		int inner = division + ((roundLevel - 1) * 5);
-		CCLOG("Sysnonyms Level = %d", inner);
-		_wordCorrect = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 5, 1);
+		CCLOG("Synonyms Level = %d", inner);
+		_wordCorrect = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 5, 1);
 		std::copy(std::begin(_wordCorrect), std::end(_wordCorrect), std::back_inserter(_wordList));
-		auto wordVerb = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 3, 1);
+		auto wordVerb = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 3, 1);
 		std::copy(std::begin(wordVerb), std::end(wordVerb), std::inserter(_wordList, _wordList.end()));
-		auto wordAdj = TextGenerator::getInstance()->getWords(TextGenerator::POS::ADJECTIVE, 3, 1);
+		auto wordAdj = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ADJECTIVE, 3, 1);
 		std::copy(std::begin(wordAdj), std::end(wordAdj), std::inserter(_wordList, _wordList.end()));
 	}
 	else if (division > 5 && division < 11) {
 		int roundLevel = (level / 15) + 1;
 		int inner = division - 5 + ((roundLevel - 1) * 5);
 		CCLOG("Antonyms Level = %d", inner);
-		_wordCorrect = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 5, 1);
+		_wordCorrect = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 5, 1);
 		std::copy(std::begin(_wordCorrect), std::end(_wordCorrect), std::back_inserter(_wordList));
-		auto wordVerb = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 3, 1);
+		auto wordVerb = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 3, 1);
 		std::copy(std::begin(wordVerb), std::end(wordVerb), std::inserter(_wordList, _wordList.end()));
-		auto wordAdj = TextGenerator::getInstance()->getWords(TextGenerator::POS::ADJECTIVE, 3, 1);
+		auto wordAdj = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ADJECTIVE, 3, 1);
 		std::copy(std::begin(wordAdj), std::end(wordAdj), std::inserter(_wordList, _wordList.end()));
 	}
 	else {
 		int roundLevel = (level / 15) + 1;
 		int inner = division - 10 + ((roundLevel - 1) * 5);
 		CCLOG("Homonyms Level = %d", inner);
-		_wordCorrect = TextGenerator::getInstance()->getWords(TextGenerator::POS::ADJECTIVE, 5, 1);
+		_wordCorrect = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ADJECTIVE, 5, 1);
 		std::copy(std::begin(_wordCorrect), std::end(_wordCorrect), std::back_inserter(_wordList));
-		auto wordVerb = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 3, 1);
+		auto wordVerb = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 3, 1);
 		std::copy(std::begin(wordVerb), std::end(wordVerb), std::inserter(_wordList, _wordList.end()));
-		auto wordAdj = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 3, 1);
+		auto wordAdj = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 3, 1);
 		std::copy(std::begin(wordAdj), std::end(wordAdj), std::inserter(_wordList, _wordList.end()));
 	}
-
-
+	newCake();
+	ladderMove();
+	this->scheduleUpdate();
+	menu->setMaxPoints(5);
 	
+}
+void Pillar::gameHelp()
+{
+	_helpFlage = true;
+	//game help only for first level
+	auto labelSize = _cake->getContentSize();
+	auto labelPosition = _cake->getPosition();
+	/*auto ans = _synonyms.at(_gameWord);
+	std::string name;
+	for (int i = 0; i < _answers.size(); i++) {
+		if (_answers.at(i).find(ans) == 0) {
+			CCLOG("help");
+			name = _answers.at(i);
+		}
+	}*/
+	auto optionLayer = _topLabel;
+	auto optionSize = optionLayer->getContentSize();
+	auto optionPosition = optionLayer->getPosition();
+	auto help = HelpLayer::create(Rect(_pointRef->getPositionX(), _ladder->getContentSize().height + _ladder->getPositionY(), labelSize.width , labelSize.height ),Rect(0,0,0,0));
+	help->click(Vec2(_pointRef->getPositionX(), _ladder->getContentSize().height + _ladder->getPositionY() ));
+	help->setName("helpLayer");
+	this->addChild(help);
+
 }
 void Pillar::blink(std::string animationName, bool loop)
 {
@@ -282,6 +302,11 @@ void Pillar::newCake()
 	_topLabel->setPositionY(_ladder->getContentSize().height);
 	_topLabel->setColor(Color3B(255, 255, 255));
 	_ladder->addChild(_topLabel);
+
+	if (menu->getCurrentLevel() == 1 && _score == 0) {
+		this->removeChildByName("helpLayer");
+		gameHelp();
+	}
 }
 
 void Pillar::update(float dt)
@@ -298,13 +323,15 @@ void Pillar::update(float dt)
 			runAction(Sequence::create(DelayTime::create(2),CallFunc::create([=]() {
 				_pointRef = _cakeMove;
 				_cakeMove = nullptr;
-				newCake();
-				ladderMove();
+				
 				_score++;
+				menu->addPoints(1);
 				if (_score == 5)
 				{
 					menu->showScore();
 				}
+				newCake();
+				ladderMove();
 			}),NULL));
 			
 			_rotateFlag = false;
@@ -336,7 +363,15 @@ bool Pillar::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				_cakeMove = Sprite::createWithSpriteFrameName(_scenePath.at("cakePath"));
 				//_cakeMove->setScale(0.55);
 				auto size = _cakeMove->getContentSize();
-				_cakeMove->setContentSize(Size(size.width, size.height - 60));
+				if (_scenePath.at("animation_select").compare("two") == 0)
+				{
+					_cakeMove->setContentSize(Size(size.width, size.height - 30));
+				}
+				else
+				{
+					_cakeMove->setContentSize(Size(size.width, size.height - 60));
+				}
+				
 				//_cakeMove->setColor(Color3B(212, 232, 222));
 				_cakeMove->setPositionX(touch->getLocation().x);
 				_cakeMove->setPositionY(touch->getLocation().y);
@@ -352,6 +387,8 @@ bool Pillar::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				_cakeMove->runAction(seq);
 				_rotateFlag = true;
 				
+					this->removeChildByName("helpLayer");
+					_helpFlage = false;
 			}
 
 			else
