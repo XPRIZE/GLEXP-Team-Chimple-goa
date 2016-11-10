@@ -56,6 +56,7 @@
 #include "../mini_games/BlastLetter.h"
 #include "../mini_games/Door.h"
 #include "../mini_games/TreasureHunt.h"
+#include "../mini_games/JumpingNumbers.h"
 
 
 USING_NS_CC;
@@ -882,6 +883,9 @@ void MenuContext::launchGameFromJS(std::string gameName) {
 		}
 		else if (gameName == TREASUREHUNT) {
 			Director::getInstance()->replaceScene(TreasureHunt::createScene());
+		}
+		else if (gameName == JUMPING_NUMBERS) {
+			Director::getInstance()->replaceScene(JumpingNumber::createScene());
 		}
     	else{
             CCLOG("Failed starting scene: %s", gameName.c_str());
