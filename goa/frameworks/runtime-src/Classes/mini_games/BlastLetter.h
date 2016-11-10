@@ -35,7 +35,6 @@ public:
 	virtual bool init();
 	static BlastLetter* create();
 	void checkAlphabets();
-	void wrongSoTryAgain(BlastLetterNode *canvasWriting);
 	bool checkRecognizeLetter(string letter);
 	string getConvertInUpperCase(string data);
 	void addEventsOnGrid(cocos2d::Sprite * callerObject);
