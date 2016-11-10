@@ -57,7 +57,7 @@ std::map<int, int> TextGenerator::getRandomLocations(int numLoc, int totalNum) {
     return locChars;
 }
 
-std::string TextGenerator::generateAWord(int level) {
+std::string TextGenerator::generateAWord(int level, int length) {
     return LangUtil::getInstance()->getAWord();
 }
 

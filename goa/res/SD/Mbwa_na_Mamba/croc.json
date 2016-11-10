@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 85,
+        "Duration": 120,
         "Speed": 1.0,
-        "ActivedAnimationName": "crocstand",
+        "ActivedAnimationName": "lifthead",
         "Timelines": [
           {
             "ActionTag": 724571596,
@@ -53,6 +53,15 @@
                 "X": 33.7163,
                 "Y": 33.7137,
                 "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 80.1197,
+                "Y": 80.1171,
+                "FrameIndex": 90,
                 "EasingData": {
                   "Type": 0
                 },
@@ -109,6 +118,15 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              },
+              {
+                "X": 534.249,
+                "Y": -37.3603,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -157,6 +175,15 @@
                 "X": 29.7452,
                 "Y": 29.7483,
                 "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 83.8288,
+                "Y": 83.8319,
+                "FrameIndex": 90,
                 "EasingData": {
                   "Type": 0
                 },
@@ -220,6 +247,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 75.2282,
+                "Y": 75.2297,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -263,6 +299,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 76.9521,
+                "Y": 76.937,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -288,6 +333,15 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              },
+              {
+                "X": 89.84,
+                "Y": 3.8145,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -309,6 +363,74 @@
                 "X": 53.963,
                 "Y": 53.9664,
                 "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0034,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2043719000,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 73.91,
+                "Y": 4.6605,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 74.7808,
+                "Y": 3.0522,
+                "FrameIndex": 95,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 73.9103,
+                "Y": -4.989,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2043719000,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -161.283,
+                "Y": -161.2793,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -149.4975,
+                "Y": -149.4938,
+                "FrameIndex": 120,
                 "EasingData": {
                   "Type": 0
                 },
@@ -374,6 +496,15 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              },
+              {
+                "X": -290.9599,
+                "Y": 7.7917,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -399,6 +530,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -417,6 +557,12 @@
           "StartIndex": 45,
           "EndIndex": 85,
           "Name": "crocstand",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 90,
+          "EndIndex": 120,
+          "Name": "lifthead",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -440,8 +586,8 @@
           {
             "Length": 699.0,
             "Position": {
-              "X": -6.3857,
-              "Y": 479.6819
+              "X": -290.96,
+              "Y": 12.91
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -464,8 +610,7 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 53.963,
-                "RotationSkewY": 53.9664,
+                "RotationSkewY": 0.0034,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 770,
@@ -523,15 +668,15 @@
                   {
                     "Length": 89.0,
                     "Position": {
-                      "X": 577.309,
-                      "Y": -69.4063
+                      "X": 534.249,
+                      "Y": -37.3603
                     },
                     "Scale": {
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 33.7163,
-                    "RotationSkewY": 33.7137,
+                    "RotationSkewX": 58.7001,
+                    "RotationSkewY": 58.6975,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 770,
@@ -606,8 +751,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 29.7452,
-                    "RotationSkewY": 29.7483,
+                    "RotationSkewX": 114.0227,
+                    "RotationSkewY": 114.0258,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 770,
@@ -682,8 +827,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 75.2282,
-                    "RotationSkewY": 75.2297,
+                    "RotationSkewX": 96.4564,
+                    "RotationSkewY": 96.4578,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 770,
@@ -758,8 +903,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 76.9521,
-                    "RotationSkewY": 76.937,
+                    "RotationSkewX": 60.2033,
+                    "RotationSkewY": 60.1882,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 770,
@@ -837,15 +982,15 @@
               {
                 "Length": 284.0,
                 "Position": {
-                  "X": 73.9139,
+                  "X": 73.91,
                   "Y": 4.6605
                 },
                 "Scale": {
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": -163.4098,
-                "RotationSkewY": -163.4061,
+                "RotationSkewX": -161.283,
+                "RotationSkewY": -161.2793,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 770,
@@ -1056,15 +1201,15 @@
                   {
                     "Length": 141.0,
                     "Position": {
-                      "X": 288.6982,
-                      "Y": 132.384
+                      "X": 312.2377,
+                      "Y": 107.9229
                     },
                     "Scale": {
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": -197.6848,
-                    "RotationSkewY": 162.3185,
+                    "RotationSkewX": -202.7326,
+                    "RotationSkewY": 157.2707,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 770,
@@ -1075,7 +1220,7 @@
                       {
                         "FileData": {
                           "Type": "MarkedSubImage",
-                          "Path": "Mbwa_na_Mamba/crocodilemouth.png",
+                          "Path": "Mbwa_na_Mamba/crocodileteeth.png",
                           "Plist": "Mbwa_na_Mamba/Mbwa_na_Mamba.plist"
                         },
                         "BlendFunc": {
@@ -1087,15 +1232,15 @@
                           "ScaleY": 0.5
                         },
                         "Position": {
-                          "X": 93.5594,
-                          "Y": 13.8886
+                          "X": 162.375,
+                          "Y": 10.2028
                         },
                         "Scale": {
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewX": 2.3602,
-                        "RotationSkewY": 2.3615,
+                        "RotationSkewX": -1.0325,
+                        "RotationSkewY": -1.0383,
                         "CColor": {},
                         "IconVisible": false,
                         "PrePosition": {
@@ -1106,17 +1251,17 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -12.4406,
-                        "RightMargin": -199.5594,
-                        "TopMargin": -53.8886,
-                        "BottomMargin": -26.1114,
-                        "Tag": 172,
-                        "ActionTag": 1415065324,
+                        "LeftMargin": -560.3713,
+                        "RightMargin": 209.3713,
+                        "TopMargin": -46.3269,
+                        "BottomMargin": -0.6731,
+                        "Tag": 484,
+                        "ActionTag": 635261069,
                         "Size": {
-                          "X": 212.0,
-                          "Y": 80.0
+                          "X": 351.0,
+                          "Y": 47.0
                         },
-                        "Name": "crocodilemouth_10",
+                        "Name": "crocodileteeth_23",
                         "ctype": "SpriteObjectData"
                       }
                     ],

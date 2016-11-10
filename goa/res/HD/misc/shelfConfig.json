@@ -92,9 +92,10 @@
 			]
 		}, {
 			"storyId": "storyId_4",
-			"icon": "Anansi_Kunguru_na_Mamba_Anansi_the_crows/Anansi_Kunguru_na_Mamba_Anansi_the_crows_thumbnail.png",
-			"coverPage": "Mbwa_na_Mamba/Mbwa_na_Mamba01.json",
+			"icon": "Mbwa_na_Mamba/Mbwa_na_Mambathumbnail.png",
+			"coverPage": "Mbwa_na_Mamba/Mbwa_na_Mambacoverpage.json",
 			"resources": [
+				"Mbwa_na_Mamba/cheeta.json",
 				"Mbwa_na_Mamba/croc.json",
 				"Mbwa_na_Mamba/dog.json",
 				"Mbwa_na_Mamba/Mbwa_na_Mamba.plist",
@@ -188,7 +189,7 @@
 		},
 		{
 			"storyId": "storyId_6",
-			"icon": "Anansi_Kunguru_na_Mamba_Anansi_the_crows/Anansi_Kunguru_na_Mamba_Anansi_the_crows_thumbnail.png",
+			"icon": "bunty_and_bubbly/Bunty_and_Bubbly_thumbnail.png",
 			"coverPage": "bunty_and_bubbly/bunty_and_bubbly_cover_page.json",
 			"resources": [
 				"bunty_and_bubbly/bird.json",
@@ -201,8 +202,8 @@
 				"bunty_and_bubbly/wife.json",
 				"bunty_and_bubbly/bunty_and_bubbly.plist",
 				"bunty_and_bubbly/bunty_and_bubbly.png",
-				"bunty_and_bubbly/bunty_and_bubblyb.plist",
-				"bunty_and_bubbly/bunty_and_bubblyb.png"				
+				"bunty_and_bubbly/bb2/bb2.plist",
+				"bunty_and_bubbly/bb2/bb2.png"				
 			],
 			"pages": [{
 				"contentJson": "bunty_and_bubbly/bunty_and_bubbly_1.json"
@@ -390,7 +391,239 @@
 					"contentJson": "Unafanya_nini_What_are_you_doing/Unafanya_nini_What_are_you_doing_07.json"
 				}																								
 			]
-		}											
-
+		},											
+		{
+			"storyId": "storyId_10",
+			"icon": "hadithi_kumhusu_wangari/Hadithi_kumhusu_wangari_thumbnail.png",
+			"coverPage": "hadithi_kumhusu_wangari/hadithi_kumhusu_wangari_cover_page.json",
+			"resources": [
+				"hadithi_kumhusu_wangari/bird.json",
+				"hadithi_kumhusu_wangari/bird2.json",
+				"hadithi_kumhusu_wangari/deer.json",
+				"hadithi_kumhusu_wangari/girl.json",
+				"hadithi_kumhusu_wangari/Insects.json",
+				"hadithi_kumhusu_wangari/squirrel.json",
+				"hadithi_kumhusu_wangari/zebra.json",
+				"hadithi_kumhusu_wangari/hadithi_kumhusu_wangari.plist",
+				"hadithi_kumhusu_wangari/hadithi2/hadithi2.png",
+				"hadithi_kumhusu_wangari/hadithi2/hadithi2.plist",
+				"hadithi_kumhusu_wangari/hadithi_kumhusu_wangari.png"
+			],
+			"pages": [
+				{
+					"contentJson": "hadithi_kumhusu_wangari/hadithi_kumhusu_wangari1.json"
+				},
+				{
+					"contentJson": "hadithi_kumhusu_wangari/hadithi_kumhusu_wangari2.json"
+				},																								
+				{
+					"contentJson": "hadithi_kumhusu_wangari/hadithi_kumhusu_wangari3.json"
+				},																								
+				{
+					"contentJson": "hadithi_kumhusu_wangari/hadithi_kumhusu_wangari4.json"
+				},																								
+				{
+					"contentJson": "hadithi_kumhusu_wangari/hadithi_kumhusu_wangari5.json"
+				},																								
+				{
+					"contentJson": "hadithi_kumhusu_wangari/hadithi_kumhusu_wangari6.json"
+				},																								
+				{
+					"contentJson": "hadithi_kumhusu_wangari/hadithi_kumhusu_wangari7.json"
+				},																								
+				{
+					"contentJson": "hadithi_kumhusu_wangari/hadithi_kumhusu_wangari8.json"
+				},																								
+				{
+					"contentJson": "hadithi_kumhusu_wangari/hadithi_kumhusu_wangari9.json"
+				},																								
+				{
+					"contentJson": "hadithi_kumhusu_wangari/hadithi_kumhusu_wangari10.json"
+				},																								
+				{
+					"contentJson": "hadithi_kumhusu_wangari/hadithi_kumhusu_wangari11.json"
+				},																								
+				{
+					"contentJson": "hadithi_kumhusu_wangari/hadithi_kumhusu_wangari12.json"
+				}																												
+			]
+		},
+		{
+			"storyId": "storyId_11",
+			"icon": "Meno_aina_gani/Meno_aina_ganithumbnail.png",
+			"coverPage": "Meno_aina_gani/Meno_aina_ganicoverpage.json",
+			"resources": [
+				"Meno_aina_gani/boy.json",
+				"Meno_aina_gani/cow.json",
+				"Meno_aina_gani/crane.json",
+				"Meno_aina_gani/croc.json",
+				"Meno_aina_gani/lion.json",
+				"Meno_aina_gani/rat1.json",
+				"Meno_aina_gani/shark.json",
+				"Meno_aina_gani/Meno_aina_gani.plist",
+				"Meno_aina_gani/Meno_aina_gani.png"
+			],
+			"pages": [
+				{
+					"contentJson": "Meno_aina_gani/Meno_aina_gani01.json"
+				},
+				{
+					"contentJson": "Meno_aina_gani/Meno_aina_gani02.json"
+				},																												
+				{
+					"contentJson": "Meno_aina_gani/Meno_aina_gani03.json"
+				},																												
+				{
+					"contentJson": "Meno_aina_gani/Meno_aina_gani04.json"
+				},																												
+				{
+					"contentJson": "Meno_aina_gani/Meno_aina_gani05.json"
+				},																												
+				{
+					"contentJson": "Meno_aina_gani/Meno_aina_gani06.json"
+				},																												
+				{
+					"contentJson": "Meno_aina_gani/Meno_aina_gani07.json"
+				},																												
+				{
+					"contentJson": "Meno_aina_gani/Meno_aina_gani08.json"
+				}																																
+			]
+		},
+		{
+			"storyId": "storyId_12",
+			"icon": "jimbi_na_sungura/Jimbi na sungura thumbnail.png",
+			"coverPage": "jimbi_na_sungura/jimbi_na_sungura_cover_page.json",
+			"resources": [
+				"jimbi_na_sungura/chicken.json",
+				"jimbi_na_sungura/cock.json",
+				"jimbi_na_sungura/fire.json",
+				"jimbi_na_sungura/rabbit.json",
+				"jimbi_na_sungura/jimbi_na_sungura.plist",
+				"jimbi_na_sungura/jimbi_na_sungura.png"
+			],
+			"pages": [
+				{
+					"contentJson": "jimbi_na_sungura/jimbi_na_sungura1.json"
+				},
+				{
+					"contentJson": "jimbi_na_sungura/jimbi_na_sungura2.json"
+				},																												
+				{
+					"contentJson": "jimbi_na_sungura/jimbi_na_sungura3.json"
+				},																												
+				{
+					"contentJson": "jimbi_na_sungura/jimbi_na_sungura4.json"
+				},																												
+				{
+					"contentJson": "jimbi_na_sungura/jimbi_na_sungura5.json"
+				},																												
+				{
+					"contentJson": "jimbi_na_sungura/jimbi_na_sungura6.json"
+				},																												
+				{
+					"contentJson": "jimbi_na_sungura/jimbi_na_sungura7.json"
+				},																												
+				{
+					"contentJson": "jimbi_na_sungura/jimbi_na_sungura8.json"
+				}																																
+			]
+		},
+		{
+			"storyId": "storyId_13",
+			"icon": "jimbi_na_sungura/Jimbi na sungura thumbnail.png",
+			"coverPage": "Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey_cover_page.json",
+			"resources": [
+				"Kima_apoteza_mkia_wakeMonkey/bonfire.json",
+				"Kima_apoteza_mkia_wakeMonkey/boy.json",
+				"Kima_apoteza_mkia_wakeMonkey/monkey.json",
+				"Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey.plist",
+				"Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey.png"
+			],
+			"pages": [
+				{
+					"contentJson": "Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey_1.json"
+				},																																
+				{
+					"contentJson": "Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey_2.json"
+				},																																
+				{
+					"contentJson": "Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey_3.json"
+				},																																
+				{
+					"contentJson": "Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey_4.json"
+				},																																
+				{
+					"contentJson": "Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey_5.json"
+				},																																
+				{
+					"contentJson": "Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey_6.json"
+				},																																
+				{
+					"contentJson": "Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey_7.json"
+				},																																
+				{
+					"contentJson": "Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey_8.json"
+				},																																
+				{
+					"contentJson": "Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey_9.json"
+				},																																
+				{
+					"contentJson": "Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey_10.json"
+				},																																
+				{
+					"contentJson": "Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey_11.json"
+				},																																
+				{
+					"contentJson": "Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey_12.json"
+				},																																
+				{
+					"contentJson": "Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey_13.json"
+				}																																
+			]
+		},
+		{
+			"storyId": "storyId_14",
+			"icon": "Mimi_na_familia_yangu/Mimi_na_familia_yanguthumbnail.png",
+			"coverPage": "Mimi_na_familia_yangu/Mimi_na_familia_yangucoverpage.json",
+			"resources": [
+				"Mimi_na_familia_yangu/animal_animation.json",
+				"Mimi_na_familia_yangu/bird.json",
+				"Mimi_na_familia_yangu/boy.json",
+				"Mimi_na_familia_yangu/chimpanzee.json",
+				"Mimi_na_familia_yangu/drop.json",
+				"Mimi_na_familia_yangu/gorilla.json",
+				"Mimi_na_familia_yangu/snake.json",
+				"Mimi_na_familia_yangu/turtle.json",
+				"Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist",
+				"Mimi_na_familia_yangu/Mimi_na_familia_yangu.png"
+			],
+			"pages": [
+				{
+					"contentJson": "Mimi_na_familia_yangu/Mimi_na_familia_yangu01.json"
+				},
+				{
+					"contentJson": "Mimi_na_familia_yangu/Mimi_na_familia_yangu02.json"
+				},																																
+				{
+					"contentJson": "Mimi_na_familia_yangu/Mimi_na_familia_yangu03.json"
+				},																																
+				{
+					"contentJson": "Mimi_na_familia_yangu/Mimi_na_familia_yangu04.json"
+				},																																
+				{
+					"contentJson": "Mimi_na_familia_yangu/Mimi_na_familia_yangu05.json"
+				},																																
+				{
+					"contentJson": "Mimi_na_familia_yangu/Mimi_na_familia_yangu06.json"
+				},																																
+				{
+					"contentJson": "Mimi_na_familia_yangu/Mimi_na_familia_yangu07.json"
+				},																																
+				{
+					"contentJson": "Mimi_na_familia_yangu/Mimi_na_familia_yangu08.json"
+				}																																
+			]
+		}									
 	]
 }

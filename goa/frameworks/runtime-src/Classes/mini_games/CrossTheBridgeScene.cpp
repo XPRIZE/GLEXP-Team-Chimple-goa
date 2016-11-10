@@ -125,16 +125,22 @@ void CrossTheBridge::onEnterTransitionDidFinish()
 			pathOpen_right->setVisible(false);
 			pathOpen_left->setVisible(false);
 
-			Sprite* transparentBG = Sprite::create("crossthebridge/Pixel.png");
+			 transparentBG = Sprite::create("crossthebridge/Pixel.png");
 			setAllSpriteProperties(transparentBG, 3, 0, 0, false, 0, 0, 2560, 1800);
 
-			addEvents(transparentBG);
-
+			_menuContext->setMaxPoints(40);
+			if (_menuContext->getCurrentLevel() != 1)
+			{
+				addEvents(transparentBG);
+			}
 			sceneMaking();
 			startGame();
+			if (_menuContext->getCurrentLevel() == 1)
+			{
+				creatHelp(letterBoard, cubeAtRest);
+				_helpFlag = true;
+			}
 			/*setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(CrossTheBridge::startGame, this));*/
-
-
 
 }
 CrossTheBridge::~CrossTheBridge() {
@@ -151,6 +157,14 @@ void CrossTheBridge::menuCloseCallback(Ref* pSender)
 #endif
 }
 
+void CrossTheBridge::creatHelp(Sprite* letterDisplayBoard , Sprite* cubeAtRest)
+{
+	_help = HelpLayer::create(Rect((cubeAtRest->getPositionX()+ visibleSize.width * 0.05), (cubeAtRest->getPositionY()+ visibleSize.width * 0.07), cubeAtRest->getContentSize().width*1.7, cubeAtRest->getContentSize().height*2.2), Rect(letterDisplayBoard->getPositionX(), (letterDisplayBoard->getPositionY()- visibleSize.width * 0.01), letterDisplayBoard->getContentSize().width,letterDisplayBoard->getContentSize().height*0.8));
+	_help->click(Vec2((cubeAtRest->getPositionX() + visibleSize.width * 0.05), (cubeAtRest->getPositionY() + visibleSize.width * 0.05)));
+	 this->addChild(_help, 6);
+	 
+}
+
 void CrossTheBridge::startGame() {
 	_menuContext->showStartupHelp(CC_CALLBACK_0(CrossTheBridge::allUpdateMethod, this));
 	//runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)), CallFunc::create(CC_CALLBACK_0(CrossTheBridge::allUpdateMethod, this)), NULL));
@@ -159,7 +173,10 @@ void CrossTheBridge::startGame() {
 void CrossTheBridge::allUpdateMethod() {
 	gameMelody = CocosDenshion::SimpleAudioEngine::getInstance();
 	gameMelody->playEffect("endlessrunner/sound/african_drum.wav", true);
-	this->schedule(schedule_selector(CrossTheBridge::alphabetAndMonsterGeneration), 6);
+	if (_menuContext->getCurrentLevel() != 1)
+	{
+		this->schedule(schedule_selector(CrossTheBridge::alphabetAndMonsterGeneration), 6);
+	}
 	this->scheduleUpdate();
 }
 
@@ -209,6 +226,16 @@ void CrossTheBridge::update(float delta) {
 	rightAlphaMonDelete();
 
 	alphaLoud();
+
+	if (_helpFlag)
+	{
+		if (alphaContainer[0]->getPositionX() < (cubeAtRest->getPositionX()+visibleSize.width*.04))
+		{
+			_helpFlag = false;
+		   	alphaContainer[0]->pause();
+			addEvents(transparentBG);
+		}
+	}
 }
 void CrossTheBridge::letterDisplayCombinationMethod()
 {
@@ -297,10 +324,12 @@ void CrossTheBridge::alphaDeletion()
 					letterContainer[letterDisplayCounter]->setVisible(true);
 					letterDisplayCounter++;
 					pointGenerater = false;
+					_menuContext->addPoints(5);
 				}
 			}
 			else
 			{
+				_menuContext->addPoints(-3);
 				punchForBack->setVisible(true);
 				punchForBack->setPosition(Vec2(302.02 + origin.x, 960.51 + origin.y));
 				punch->gotoFrameAndPlay(0, false);
@@ -540,6 +569,13 @@ void CrossTheBridge::addEvents(Sprite* callerObject)
 				pathClose_right->setVisible(false);
 				pathClose_left->setVisible(false);
 				oneSecondClick = true;
+				if (_menuContext->getCurrentLevel() == 1 && _initObj)
+				{
+					this->removeChild(_help);
+					this->schedule(schedule_selector(CrossTheBridge::alphabetAndMonsterGeneration), 6);
+					_initObj = false;
+					alphaContainer[0]->resume();
+				}
 			}});
 		auto sequance_B = CallFunc::create([=]()
 		{

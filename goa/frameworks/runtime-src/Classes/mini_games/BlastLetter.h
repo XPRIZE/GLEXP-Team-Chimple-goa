@@ -25,8 +25,9 @@ protected:
 	std::string _data_value;
 	int _counterLetter = 0 , _maxWrong = 3;
 	Node* _popGrid = NULL;
-	bool _checkingAlphabets = false , _bang = true;
+	bool _checkingAlphabets = false , _bang = true ,_touch = true;
 	cocostudio::timeline::ActionTimeline *_timelineBlast;
+	std::string _NodeIdentity = "";
 
 public:
 	~BlastLetter();
@@ -41,6 +42,9 @@ public:
 	void onEnterTransitionDidFinish();
 	std::vector<std::pair<int, int>> getAllGridCoord(int row , int column);
 	void update(float) override;
+	void removeAllWritingScene();
+	Sequence* shakingCharacter();
+
 	static const char* gameName() { return BLASTLETTER.c_str(); }
 };
 

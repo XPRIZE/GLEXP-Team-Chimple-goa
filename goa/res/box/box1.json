@@ -5,12 +5,12 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 60,
+        "Duration": 95,
         "Speed": 1.0,
-        "ActivedAnimationName": "box",
+        "ActivedAnimationName": "correct",
         "Timelines": [
           {
-            "ActionTag": 544918183,
+            "ActionTag": 1883313970,
             "Property": "FileData",
             "Frames": [
               {
@@ -59,7 +59,37 @@
                   "Path": "box/box1.png",
                   "Plist": "box/box.plist"
                 },
-                "FrameIndex": 60,
+                "FrameIndex": 50,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "box/box5.png",
+                  "Plist": "box/box.plist"
+                },
+                "FrameIndex": 65,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "box/box6.png",
+                  "Plist": "box/box.plist"
+                },
+                "FrameIndex": 80,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "box/box7.png",
+                  "Plist": "box/box.plist"
+                },
+                "FrameIndex": 95,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               }
@@ -72,8 +102,14 @@
       "AnimationList": [
         {
           "StartIndex": 0,
-          "EndIndex": 60,
-          "Name": "box",
+          "EndIndex": 45,
+          "Name": "correct",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 50,
+          "EndIndex": 95,
+          "Name": "wrong",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -83,7 +119,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "box/box1.png",
+              "Path": "box/box2.png",
               "Plist": "box/box.plist"
             },
             "BlendFunc": {
@@ -116,8 +152,8 @@
             "RightMargin": -23.0,
             "TopMargin": -23.0,
             "BottomMargin": -23.0,
-            "Tag": 76,
-            "ActionTag": 544918183,
+            "Tag": 35,
+            "ActionTag": 1883313970,
             "Size": {
               "X": 436.0,
               "Y": 365.0

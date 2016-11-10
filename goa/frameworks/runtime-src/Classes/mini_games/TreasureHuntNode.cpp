@@ -4,6 +4,7 @@
 
 USING_NS_CC;
 
+int TreasureHuntNode::done = 0;
 
 TreasureHuntNode::TreasureHuntNode()
 {
@@ -54,3 +55,11 @@ std::vector<std::string> TreasureHuntNode::getPosibileCharacter()
 	return _result;
 }
 
+
+
+void TreasureHuntNode::postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint) {
+
+	CCLOG("trace done!!!");
+	TreasureHuntNode::done = 1;
+
+}

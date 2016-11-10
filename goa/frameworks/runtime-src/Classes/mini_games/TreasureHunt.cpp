@@ -53,8 +53,10 @@ void TreasureHunt::onEnterTransitionDidFinish() {
 	//this->addChild(bgLayerGradient, 0);
 
 	_alpha = LangUtil::getInstance()->getAllCharacters();
+	
+	
+	setLevel(_menuContext->getCurrentLevel()-1);
 
-	_currentLetter = _alpha[0];
 
 	TreasureHuntNode* TreasureHuntNodeObj;
 	//TreasureHuntNodeObj.resize(6);
@@ -63,15 +65,17 @@ void TreasureHunt::onEnterTransitionDidFinish() {
 	TreasureHuntNodeObj = TreasureHuntNode::create(1550, 800, Vec2(visibleSize.width/2 + 120, visibleSize.height/2));
 	TreasureHuntNodeObj->setName("1");
 	addChild(TreasureHuntNodeObj);
-
-
-	Sprite* box = Sprite::createWithSpriteFrameName("box/box1.png");
-	box->setPosition(Vec2(350, visibleSize.height / 2));
-	box->setAnchorPoint(Vec2(0.5, 0.5));
-	box->setScaleX(1.5);
-	box->setScaleY(1.5);
-	box->setName("box");
-	this->addChild(box, 1);
+	
+	_box = (Sprite *)CSLoader::createNode("box/box1.csb");
+	_box->setPosition(Vec2(350, visibleSize.height / 2));
+	auto texture = SpriteFrameCache::getInstance()->getSpriteFrameByName("box/box1.png");
+	auto x = (Sprite *)_box->getChildByName("Sprite_1");
+	x->setDisplayFrame(texture);
+	_box->setAnchorPoint(Vec2(0.5, 0.5));
+	_box->setScaleX(1.5);
+	_box->setScaleY(1.5);
+	_box->setName("box");
+	this->addChild(_box, 1);
 
 
 	Sprite* labelBoard = Sprite::createWithSpriteFrameName("box/board.png");
@@ -93,8 +97,23 @@ void TreasureHunt::onEnterTransitionDidFinish() {
 	label->setScaleX(1);
 	labelBoard->addChild(label);
 	
+	if (_menuContext->getCurrentLevel() == 1) {
+		
+		//auto startPos = Vec2(visibleSize.width / 2, visibleSize.height / 2 - 300);
+		//auto endPos = Vec2(visibleSize.width / 2 + 300, visibleSize.height / 2);
 
+		//_help = HelpLayer::create(Rect(startPos.x, startPos.y, 50, 50), Rect(endPos.x, endPos.y, 50, 50));
+
+		//_help->clickAndDrag(startPos, endPos);
+
+		//this->addChild(_help);
+		
+		gameHelpLayer();
+		
+	}
 	
+
+	_menuContext->setMaxPoints(1);
 	//std::vector<Sprite*> boxes;
 	//boxes.resize(6);
 
@@ -153,11 +172,34 @@ std::vector<std::pair<int, int>> TreasureHunt::getAllGridCoord(int rowData, int 
 }
 
 void TreasureHunt::update(float delta) {
+	
+	if (TreasureHuntNode::done == 1 && _menuContext->getCurrentLevel() == 1) {
+		this->removeChild(_help);
+		TreasureHuntNode::done = 0;
+	}
+	
+	if (checkRecognizeLetter(_currentLetter) && _flag ==0) {
 
-	if (checkRecognizeLetter(_currentLetter)) {
-		_menuContext->showScore();
+		
+
+		auto openBox = CallFunc::create([=] {
+			openCoinBox();
+			
+		});
+
+		auto gameOver = CallFunc::create([=] {
+			_menuContext->addPoints(1);
+			_menuContext->showScore();
+		});
+
+	
+		auto completeSequence = Sequence::create(openBox, DelayTime::create(2.0), gameOver, NULL);
+
+		this->runAction(completeSequence);
+		
 	}
 	else {
+		
 		_result = ((TreasureHuntNode *)this->getChildByName("1"))->getPosibileCharacter();
 	}
 
@@ -189,3 +231,52 @@ string TreasureHunt::getConvertInUpperCase(string data)
 	}
 	return blockName.str();
 }
+
+void TreasureHunt::openCoinBox() {
+
+	cocostudio::timeline::ActionTimeline * _openBox;
+	_openBox = CSLoader::createTimeline("box/box1.csb");
+	_box->runAction(_openBox);
+	_openBox->play("correct", false);
+	_flag = 1;
+}
+
+
+void TreasureHunt::openStoneBox() {
+
+	cocostudio::timeline::ActionTimeline * _openBox;
+	_openBox = CSLoader::createTimeline("box/box1.csb");
+	_box->runAction(_openBox);
+	_openBox->play("wrong", false);
+	_flag = 1;
+
+
+}
+void TreasureHunt::setLevel(int level) {
+
+	_currentLetter = _alpha[level];
+	
+}
+
+
+
+void TreasureHunt::gameHelpLayer()
+{
+
+	
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	_help = HelpLayer::create(Rect(visibleSize.width / 2, visibleSize.height / 2, visibleSize.width / 2.8, visibleSize.height * 0.4), Rect(0, 0, 0, 0));
+	std::vector <Point> points;
+	float boxWidth = (visibleSize.width / 2.8) / 2;
+	float boxHeight = (visibleSize.height * 0.4) / 2;
+	points.push_back(Vec2(visibleSize.width / 2 - boxWidth / 1.25, visibleSize.height / 2 - boxHeight*0.6));
+	points.push_back(Vec2(visibleSize.width / 2, visibleSize.height / 2 + boxHeight*0.7));
+	points.push_back(Vec2(visibleSize.width / 2 + boxWidth / 1.25, visibleSize.height / 2 - boxHeight*0.6));
+	points.push_back(Vec2(visibleSize.width / 2 - boxWidth / 2, visibleSize.height / 2 - boxHeight*0.1));
+	points.push_back(Vec2(visibleSize.width / 2 + boxWidth / 2, visibleSize.height / 2 - boxHeight*0.1));
+	_help->writing(points);
+	this->addChild(_help);
+	_help->setName("gameHelpLayer");
+}
+
+
