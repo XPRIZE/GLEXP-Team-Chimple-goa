@@ -255,6 +255,11 @@ void JumpingNumber::stepsCreate(int numberLabel)
 		listener->onTouchBegan = CC_CALLBACK_2(JumpingNumber::onTouchBegan, this);
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, step);
 	}
+	if (menu->getCurrentLevel() == 1 && _helpLayer) {
+		_helpLayer = false;
+		gameHelp();
+	}
+	
 }
 
 bool JumpingNumber::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
@@ -269,7 +274,7 @@ bool JumpingNumber::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		std::stringstream ss;
 		ss << _passingNumber;
 		std::string str = ss.str();
-
+		this->removeChildByName("helpLayer");
 		if (target->getName().compare(str) == 0) {
 			_passingNumber += _numberDifference;
 			this->getChildByName("character")->stopAllActions();
@@ -407,4 +412,15 @@ void JumpingNumber::gameRestart()
 	this->runAction(Sequence::create(move, CallFunc::create([=]() {
 		JumpingNumber::onEnterTransitionDidFinish();
 	}), NULL));
+}
+
+void JumpingNumber::gameHelp()
+{
+	auto sprite = this->getChildByName("1");
+	auto position = sprite->getPosition();
+	auto size = sprite->getContentSize();
+	auto helpLayer = HelpLayer::create(Rect(position.x, position.y, size.width, size.height), Rect(0, 0, 0, 0));
+	helpLayer->click(position);
+	helpLayer->setName("helpLayer");
+	this->addChild(helpLayer,2);
 }
