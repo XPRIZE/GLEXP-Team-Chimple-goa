@@ -506,6 +506,22 @@
     "menuPlist": "droplevel/droplevel.plist",
     "menuPng": "droplevel/droplevel.png"
   },
+   {
+    "name": "chocolateFactory",
+    "cIcon": "gameicons/drop_pressed.png",
+    "icon": "gameicons/drop.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "6",
+    "numLevels": "60",
+    "backgroundJson": "droplevel/Layer1.json",
+    "foregroundJson": "droplevel/Layer3.json",
+    "frontgroundJson": "droplevel/Layer4.json",
+    "maingroundJson": "droplevel/Layer2.json",
+    "menuPlist": "droplevel/droplevel.plist",
+    "menuPng": "droplevel/droplevel.png"
+  },
   {
     "name": "Kung Fu Alpha",
     "cIcon": "gameicons/Kung Fu Alpha_pressed.png",
