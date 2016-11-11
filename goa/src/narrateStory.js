@@ -161,7 +161,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 this._baseDir = parts[0];
             }
         }
-        
+        cc.log('this._baseDir:' + this._baseDir);
         this._constructedScene = ccs.load(xc.path + contentUrl, xc.path);
         this._constructedScene.node.retain();
         this._constructedScene.action.retain();
@@ -375,30 +375,48 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         cc.log("langDir:" + langDir);
         var storyText = "";
         var that = this;
-
-        var textFileUrl = xc.path + this._baseDir + "/" + langDir + "/" + xc.currentStoryId + ".txt";
+        var textFileUrl =  "res/story" + "/" + langDir + "/" + this._baseDir + ".json";
+        //var textFileUrl = xc.path + this._baseDir + "/" + langDir + "/" + xc.currentStoryId + ".txt";
         cc.log('textFileUrl:' + textFileUrl);
         if(cc.sys.isNative) {
             var fileExists = jsb.fileUtils.isFileExist(textFileUrl);
             if(fileExists) {
-                cc.loader.loadTxt(textFileUrl, function(err, json) {            
+                // cc.loader.loadTxt(textFileUrl, function(err, json) {            
+                //     if(!err && json != null && json != undefined) {
+                //         var data = json.split(/"[\d]+":/);
+                //         storyText = data[xc.pageIndex + 1];
+                //         that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that, false));
+                //     }                                
+                // });     
+
+                cc.loader.loadJson(textFileUrl, function(err, json) {            
                     if(!err && json != null && json != undefined) {
-                        var data = json.split(/"[\d]+":/);
-                        storyText = data[xc.pageIndex + 1];
+                        storyText = json[xc.pageIndex];
+                        cc.log('story text received:' + storyText);
                         that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that, false));
                     }                                
                 });                
+           
             } else {
                 that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText,that.processAudio, that, false));
             }
         } else {
-            cc.loader.loadTxt(textFileUrl, function(err, json) {            
+            // cc.loader.loadTxt(textFileUrl, function(err, json) {            
+            //     if(!err && json != null && json != undefined) {
+            //         var data = json.split(/"[\d]+":/);
+            //         storyText = data[xc.pageIndex + 1];
+            //     } 
+            //     that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that, false));           
+            // });
+
+            cc.loader.loadJson(textFileUrl, function(err, json) {            
                 if(!err && json != null && json != undefined) {
-                    var data = json.split(/"[\d]+":/);
-                    storyText = data[xc.pageIndex + 1];
-                } 
-                that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that, false));           
-            });
+                    storyText = json[xc.pageIndex];
+                    cc.log('story text received:' + storyText);
+                    that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that, false));
+                }                                
+            });                
+            
         }        
     },
 
