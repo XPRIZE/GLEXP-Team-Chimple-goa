@@ -34,6 +34,7 @@ protected:
 	void floatingCharacter();
 	void layerMoving(cocos2d::Point position);
 	int _stepIndex = 0;
+	bool _helpLayer = true;
 	int _passingNumber, _numberDifference, _lastNumber, _maxScore = 0;
 	std::string _number;
 	void characterAnimation(std::string str, bool loop = false);
@@ -42,6 +43,7 @@ protected:
 	void wrongAnimation(cocos2d::Node * sprite,cocos2d::Point position);
 	std::map<int, std::map<int, int>> _levelMapping;
 	void gameRestart();
+	void gameHelp();
 };
 
 #endif 
