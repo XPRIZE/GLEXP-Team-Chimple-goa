@@ -115,6 +115,16 @@ void BlastLetter::onEnterTransitionDidFinish() {
 		myLabel->setName(myLabel->getString());
 		this->getChildByName("bg")->getChildByName("topboard ")->addChild(myLabel);
 
+		if (_menuContext->getCurrentLevel() == 1) {
+			std::ostringstream nameLetterBoard;
+			nameLetterBoard << LangUtil::convertUTF16CharToString(_data_value[_counterLetter]) << (_counterLetter + 1);
+			auto board = this->getChildByName("bg")->getChildByName("topboard ");
+			auto downGrid = this->getChildByName(nameLetterBoard.str());
+			auto help = HelpLayer::create(Rect(downGrid->getPositionX(), downGrid->getPositionY(), downGrid->getContentSize().width, downGrid->getContentSize().height), Rect(Director::getInstance()->getVisibleSize().width / 2, board->getContentSize().height / 2 + board->getPositionY(), board->getContentSize().width, board->getContentSize().height));
+			help->click(Vec2(downGrid->getPositionX(), downGrid->getPositionY()));
+			help->setName("helpLayer");
+			this->addChild(help, 4);
+		}
 		this->scheduleUpdate();
 }
 
