@@ -535,8 +535,16 @@
     <ClCompile Include="..\Classes\mini_games\TreasureHuntNode.cpp">
       <Filter>Classes\mini_games</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\JumpingNumbers.cpp" />
+    <ClCompile Include="..\Classes\mini_games\JumpingNumbers.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
     <ClCompile Include="..\Classes\mini_games\Card.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Line.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\ChocolateFactory.cpp">
       <Filter>Classes\mini_games</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1079,8 +1087,18 @@
     <ClInclude Include="..\Classes\mini_games\TreasureHuntNode.h">
       <Filter>Classes\mini_games</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="..\Classes\mini_games\JumpingNumbers.h" />
     <ClInclude Include="..\Classes\mini_games\Card.h">
+=======
+    <ClInclude Include="..\Classes\mini_games\JumpingNumbers.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Line.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\ChocolateFactory.h">
+>>>>>>> refs/remotes/origin/master
       <Filter>Classes\mini_games</Filter>
     </ClInclude>
   </ItemGroup>

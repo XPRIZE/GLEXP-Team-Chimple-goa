@@ -58,6 +58,7 @@
 #include "../mini_games/TreasureHunt.h"
 #include "../mini_games/JumpingNumbers.h"
 #include "../mini_games/Card.h"
+#include "../mini_games/Line.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -857,6 +858,9 @@ void MenuContext::launchGameFromJS(std::string gameName) {
     	else if (gameName == PILLAR) {
     		Director::getInstance()->replaceScene(Pillar::createScene());
     	}
+		else if (gameName == LINE) {
+			Director::getInstance()->replaceScene(Line::createScene());
+		}
 
 		else if (gameName == CARDRAW) {
 			Director::getInstance()->replaceScene(CarDraw::createScene());
