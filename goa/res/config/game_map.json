@@ -682,5 +682,21 @@
     "maingroundJson": "jump_on_words_level/mainground.json",
     "menuPlist": "jump_on_words_level/jump_on_words_level.plist",
     "menuPng": "jump_on_words_level/jump_on_words_level.png"
+  },
+   {
+        "name": "card",
+        "cIcon": "gameicons/talk_pressed.png",
+        "icon": "gameicons/talk.png",
+        "multiPlayer":false,
+        "isJSGame":false,
+        "script":"src/NonJSGameLauncher.js",
+        "span": "9",
+        "numLevels": "20",
+        "backgroundJson": "talkislandlevel/talkbackground.json",
+        "foregroundJson": "talkislandlevel/talkforeground.json",
+        "frontgroundJson": "talkislandlevel/talkfrontground.json",
+        "maingroundJson": "talkislandlevel/talkmainground.json",
+        "menuPlist": "talkislandlevel/talkislandlevel.plist",
+        "menuPng": "talkislandlevel/talkislandlevel.png"  
   }
 ]
