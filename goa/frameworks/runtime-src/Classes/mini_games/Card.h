@@ -23,7 +23,7 @@ public:
 	virtual bool init();
 	void onEnterTransitionDidFinish() override;
 	Node *_CardBg;
-	int _level, _pairSum, _pairCard, _totalSum=0, _useCard = 0;
+	int _level, _pairSum, _pairCard, _totalSum=0, _useCard = 0, _programFlag = 0, _remainingCard = 6;
 	int _handFlag;
 
 	CREATE_FUNC(Card);
@@ -38,11 +38,20 @@ public:
 	}SpriteDetails;
 	std::vector<struct SpriteDetails> _spriteDetails;
 
+	std::vector<cocos2d::Sprite*> _doneSprite;
+	std::vector<cocos2d::Sprite*> _todoSprite;
+
 	struct Position
 	{
 		int x, y;
 	}_p1, _p2, _p3, _p4, _p5, _p6;
 	std::vector<struct Position> _position;
+
+	struct CardPosition
+	{
+		int x, y;
+	}_cp1, _cp2, _cp3;
+	std::vector<struct CardPosition> _cardPosition;
 
 	int _differentLevel[20][6] = {
 		{ 3, 2, 4, 1, 2, 3 },
