@@ -1,0 +1,1173 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "line",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 130,
+              "G": 205,
+              "B": 190
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -254.1764,
+              "Y": -0.474
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0993,
+              "Y": -0.0003
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -254.1764,
+            "RightMargin": -285.8237,
+            "TopMargin": 0.474,
+            "BottomMargin": -0.474,
+            "Tag": 536,
+            "ActionTag": 609236539,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "line/candy10.png",
+              "Plist": "line/line.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 986.7759,
+              "Y": 120.7837
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3855,
+              "Y": 0.0671
+            },
+            "PreSize": {
+              "X": 0.0754,
+              "Y": 0.1006
+            },
+            "LeftMargin": 890.2759,
+            "RightMargin": 1476.7241,
+            "TopMargin": 1588.7163,
+            "BottomMargin": 30.2837,
+            "Tag": 680,
+            "ActionTag": -1436520239,
+            "Size": {
+              "X": 193.0,
+              "Y": 181.0
+            },
+            "Name": "candy10_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "line/candy11.png",
+              "Plist": "line/line.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 774.5945,
+              "Y": 63.2408
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3026,
+              "Y": 0.0351
+            },
+            "PreSize": {
+              "X": 0.0754,
+              "Y": 0.1006
+            },
+            "LeftMargin": 678.0945,
+            "RightMargin": 1688.9055,
+            "TopMargin": 1646.2593,
+            "BottomMargin": -27.2592,
+            "Tag": 681,
+            "ActionTag": -104194082,
+            "Size": {
+              "X": 193.0,
+              "Y": 181.0
+            },
+            "Name": "candy11_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "line/candy12.png",
+              "Plist": "line/line.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 918.439,
+              "Y": 56.0455
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -69.3969,
+            "RotationSkewY": -69.4171,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3588,
+              "Y": 0.0311
+            },
+            "PreSize": {
+              "X": 0.0637,
+              "Y": 0.0772
+            },
+            "LeftMargin": 836.939,
+            "RightMargin": 1560.061,
+            "TopMargin": 1674.4545,
+            "BottomMargin": -13.4545,
+            "Tag": 682,
+            "ActionTag": -211238611,
+            "Size": {
+              "X": 163.0,
+              "Y": 139.0
+            },
+            "Name": "candy12_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "line/candy13.png",
+              "Plist": "line/line.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2068.9236,
+              "Y": 124.7522
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -55.2145,
+            "RotationSkewY": -55.2279,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8082,
+              "Y": 0.0693
+            },
+            "PreSize": {
+              "X": 0.059,
+              "Y": 0.0867
+            },
+            "LeftMargin": 1993.4236,
+            "RightMargin": 415.5764,
+            "TopMargin": 1597.2478,
+            "BottomMargin": 46.7522,
+            "Tag": 683,
+            "ActionTag": 445016695,
+            "Size": {
+              "X": 151.0,
+              "Y": 156.0
+            },
+            "Name": "candy13_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "line/candy18.png",
+              "Plist": "line/line.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2426.791,
+              "Y": 395.2216
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.948,
+              "Y": 0.2196
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2402.291,
+            "RightMargin": 108.709,
+            "TopMargin": 1380.2784,
+            "BottomMargin": 370.7216,
+            "Tag": 684,
+            "ActionTag": 484101164,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "line/candy19.png",
+              "Plist": "line/line.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1472.3456,
+              "Y": 281.3393
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5751,
+              "Y": 0.1563
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 1447.8456,
+            "RightMargin": 1063.1544,
+            "TopMargin": 1494.1606,
+            "BottomMargin": 256.8393,
+            "Tag": 685,
+            "ActionTag": -2005262103,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy19_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "line/candy20.png",
+              "Plist": "line/line.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1776.0327,
+              "Y": 364.4914
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6938,
+              "Y": 0.2025
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 1751.5327,
+            "RightMargin": 759.4673,
+            "TopMargin": 1411.0085,
+            "BottomMargin": 339.9914,
+            "Tag": 686,
+            "ActionTag": -967518834,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy20_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "line/candy21.png",
+              "Plist": "line/line.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2014.6449,
+              "Y": 353.6462
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.787,
+              "Y": 0.1965
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 1990.1449,
+            "RightMargin": 520.8551,
+            "TopMargin": 1421.8538,
+            "BottomMargin": 329.1462,
+            "Tag": 687,
+            "ActionTag": -1103924899,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy21_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "line/candy8.png",
+              "Plist": "line/line.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2205.2305,
+              "Y": 247.4749
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8614,
+              "Y": 0.1375
+            },
+            "PreSize": {
+              "X": 0.0637,
+              "Y": 0.0617
+            },
+            "LeftMargin": 2123.7305,
+            "RightMargin": 273.2695,
+            "TopMargin": 1497.0251,
+            "BottomMargin": 191.9749,
+            "Tag": 688,
+            "ActionTag": 1411793536,
+            "Size": {
+              "X": 163.0,
+              "Y": 111.0
+            },
+            "Name": "candy8_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "line/candy9.png",
+              "Plist": "line/line.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 798.536,
+              "Y": 300.2448
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3119,
+              "Y": 0.1668
+            },
+            "PreSize": {
+              "X": 0.0633,
+              "Y": 0.0622
+            },
+            "LeftMargin": 717.536,
+            "RightMargin": 1680.464,
+            "TopMargin": 1443.7551,
+            "BottomMargin": 244.2448,
+            "Tag": 689,
+            "ActionTag": -1673627711,
+            "Size": {
+              "X": 162.0,
+              "Y": 112.0
+            },
+            "Name": "candy9_10",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "line/targeta.png",
+              "Plist": "line/line.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.3157,
+              "ScaleY": 0.5055
+            },
+            "Position": {
+              "X": 133.0615,
+              "Y": 188.4655
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 20.8445,
+            "RotationSkewY": 20.8464,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.052,
+              "Y": 0.1047
+            },
+            "PreSize": {
+              "X": 0.1844,
+              "Y": 0.33
+            },
+            "LeftMargin": -15.9662,
+            "RightMargin": 2103.9663,
+            "TopMargin": 1317.7959,
+            "BottomMargin": -111.7959,
+            "Tag": 690,
+            "ActionTag": 1813830366,
+            "Size": {
+              "X": 472.0,
+              "Y": 594.0
+            },
+            "Name": "targeta_11",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "line/targetb.png",
+              "Plist": "line/line.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.4563,
+              "ScaleY": 0.457
+            },
+            "Position": {
+              "X": 1156.6964,
+              "Y": 72.1033
+            },
+            "Scale": {
+              "ScaleX": 0.8022,
+              "ScaleY": 0.8022
+            },
+            "RotationSkewX": 17.4725,
+            "RotationSkewY": 17.4711,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4518,
+              "Y": 0.0401
+            },
+            "PreSize": {
+              "X": 0.1891,
+              "Y": 0.3228
+            },
+            "LeftMargin": 935.8253,
+            "RightMargin": 1140.1747,
+            "TopMargin": 1412.4043,
+            "BottomMargin": -193.4043,
+            "Tag": 691,
+            "ActionTag": -419320648,
+            "Size": {
+              "X": 484.0,
+              "Y": 581.0
+            },
+            "Name": "targetb_12",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "line/targetc.png",
+              "Plist": "line/line.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2418.4988,
+              "Y": 122.7055
+            },
+            "Scale": {
+              "ScaleX": 0.7323,
+              "ScaleY": 0.7323
+            },
+            "RotationSkewX": -16.5406,
+            "RotationSkewY": -16.4493,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9447,
+              "Y": 0.0682
+            },
+            "PreSize": {
+              "X": 0.1871,
+              "Y": 0.3228
+            },
+            "LeftMargin": 2178.9988,
+            "RightMargin": -97.9988,
+            "TopMargin": 1386.7944,
+            "BottomMargin": -167.7945,
+            "Tag": 692,
+            "ActionTag": 761141249,
+            "Size": {
+              "X": 479.0,
+              "Y": 581.0
+            },
+            "Name": "targetc_13",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "line/candy.png",
+              "Plist": "line/line.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1900.2837,
+              "Y": 53.369
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7423,
+              "Y": 0.0296
+            },
+            "PreSize": {
+              "X": 0.116,
+              "Y": 0.1678
+            },
+            "LeftMargin": 1751.7837,
+            "RightMargin": 511.2163,
+            "TopMargin": 1595.631,
+            "BottomMargin": -97.631,
+            "Tag": 693,
+            "ActionTag": 1553083160,
+            "Size": {
+              "X": 297.0,
+              "Y": 302.0
+            },
+            "Name": "candy_14",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "line/chocolate.png",
+              "Plist": "line/line.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1655.7289,
+              "Y": 110.9125
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6468,
+              "Y": 0.0616
+            },
+            "PreSize": {
+              "X": 0.1133,
+              "Y": 0.1628
+            },
+            "LeftMargin": 1510.7289,
+            "RightMargin": 759.2711,
+            "TopMargin": 1542.5875,
+            "BottomMargin": -35.5875,
+            "Tag": 694,
+            "ActionTag": 1607156448,
+            "Size": {
+              "X": 290.0,
+              "Y": 293.0
+            },
+            "Name": "chocolate_15",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "line/lollipop.png",
+              "Plist": "line/line.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 512.0512,
+              "Y": 190.0395
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 78.3962,
+            "RotationSkewY": 78.3694,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2,
+              "Y": 0.1056
+            },
+            "PreSize": {
+              "X": 0.1223,
+              "Y": 0.2
+            },
+            "LeftMargin": 355.5512,
+            "RightMargin": 1891.4487,
+            "TopMargin": 1429.9604,
+            "BottomMargin": 10.0395,
+            "Tag": 696,
+            "ActionTag": -2036531481,
+            "Size": {
+              "X": 313.0,
+              "Y": 360.0
+            },
+            "Name": "lollipop_17",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "line/cookie.png",
+              "Plist": "line/line.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 548.0261,
+              "Y": 35.3867
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2141,
+              "Y": 0.0197
+            },
+            "PreSize": {
+              "X": 0.1434,
+              "Y": 0.0956
+            },
+            "LeftMargin": 364.5261,
+            "RightMargin": 1828.4739,
+            "TopMargin": 1678.6133,
+            "BottomMargin": -50.6133,
+            "Tag": 695,
+            "ActionTag": 380626759,
+            "Size": {
+              "X": 367.0,
+              "Y": 172.0
+            },
+            "Name": "cookie_16",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "line/star.png",
+              "Plist": "line/line.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 723.0291,
+              "Y": 204.5748
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2824,
+              "Y": 0.1137
+            },
+            "PreSize": {
+              "X": 0.0477,
+              "Y": 0.0644
+            },
+            "LeftMargin": 662.0291,
+            "RightMargin": 1775.9709,
+            "TopMargin": 1537.4252,
+            "BottomMargin": 146.5748,
+            "Tag": 697,
+            "ActionTag": 592187667,
+            "Size": {
+              "X": 122.0,
+              "Y": 116.0
+            },
+            "Name": "star_18",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "line/strawberry.png",
+              "Plist": "line/line.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1447.13,
+              "Y": 71.3512
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5653,
+              "Y": 0.0396
+            },
+            "PreSize": {
+              "X": 0.1285,
+              "Y": 0.2061
+            },
+            "LeftMargin": 1282.63,
+            "RightMargin": 948.37,
+            "TopMargin": 1543.1488,
+            "BottomMargin": -114.1488,
+            "Tag": 698,
+            "ActionTag": 595023297,
+            "Size": {
+              "X": 329.0,
+              "Y": 371.0
+            },
+            "Name": "strawberry_19",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "line/cookie.png",
+              "Plist": "line/line.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2154.8391,
+              "Y": 32.5805
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8417,
+              "Y": 0.0181
+            },
+            "PreSize": {
+              "X": 0.1434,
+              "Y": 0.0956
+            },
+            "LeftMargin": 1971.3391,
+            "RightMargin": 221.6609,
+            "TopMargin": 1681.4194,
+            "BottomMargin": -53.4195,
+            "Tag": 699,
+            "ActionTag": -340116896,
+            "Size": {
+              "X": 367.0,
+              "Y": 172.0
+            },
+            "Name": "cookie_16_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "line/candy19.png",
+              "Plist": "line/line.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 699.6288,
+              "Y": 459.3363
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2733,
+              "Y": 0.2552
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 675.1288,
+            "RightMargin": 1835.8711,
+            "TopMargin": 1316.1637,
+            "BottomMargin": 434.8363,
+            "Tag": 852,
+            "ActionTag": -740054142,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy19_6_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "line/candy20.png",
+              "Plist": "line/line.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 199.4152,
+              "Y": 583.7919
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0779,
+              "Y": 0.3243
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 174.9152,
+            "RightMargin": 2336.0847,
+            "TopMargin": 1191.7081,
+            "BottomMargin": 559.2919,
+            "Tag": 853,
+            "ActionTag": -353887491,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy20_7_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "line/candy18.png",
+              "Plist": "line/line.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1011.8746,
+              "Y": 341.0546
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3953,
+              "Y": 0.1895
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 987.3746,
+            "RightMargin": 1523.6254,
+            "TopMargin": 1434.4454,
+            "BottomMargin": 316.5546,
+            "Tag": 854,
+            "ActionTag": 177572195,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_5_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "line/candy21.png",
+              "Plist": "line/line.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1248.7881,
+              "Y": 450.4904
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4878,
+              "Y": 0.2503
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 1224.2881,
+            "RightMargin": 1286.7119,
+            "TopMargin": 1325.0096,
+            "BottomMargin": 425.9904,
+            "Tag": 855,
+            "ActionTag": -1897378050,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy21_8_0",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "line.plist",
+        "line.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
