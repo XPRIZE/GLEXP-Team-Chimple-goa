@@ -1,0 +1,1131 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "2.3.4",
+  "Name": "Kuhesabu_wanyama_Counting_2",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 200,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -590156385,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "Walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "Walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 200,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -590156385,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 287.2134,
+                "Y": 282.2737,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2113.7749,
+                "Y": 240.4185,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -590156385,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.58,
+                "Y": 0.58,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.58,
+                "Y": 0.58,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -590156385,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -590156385,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "giraffe",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1569225630,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "Walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "Walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 200,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1569225630,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 100.24,
+                "Y": 198.7688,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2481.4514,
+                "Y": 190.6906,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1569225630,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.58,
+                "Y": 0.58,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.58,
+                "Y": 0.58,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1569225630,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1569225630,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "giraffe",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 200,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 217,
+              "G": 243,
+              "B": 248
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -260.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1016,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -260.0,
+            "RightMargin": -280.0,
+            "Tag": 220,
+            "ActionTag": -844424322,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_hill.png",
+              "Plist": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1823.3566,
+              "Y": 651.7018
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7122,
+              "Y": 0.3621
+            },
+            "PreSize": {
+              "X": 0.4613,
+              "Y": 0.2028
+            },
+            "LeftMargin": 1232.8566,
+            "RightMargin": 146.1436,
+            "TopMargin": 965.7982,
+            "BottomMargin": 469.2018,
+            "Tag": 228,
+            "ActionTag": 406476619,
+            "Size": {
+              "X": 1181.0,
+              "Y": 365.0
+            },
+            "Name": "Kuhesabu_hill_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_hill1.png",
+              "Plist": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2051.1943,
+              "Y": 547.9783
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8012,
+              "Y": 0.3044
+            },
+            "PreSize": {
+              "X": 0.4617,
+              "Y": 0.0867
+            },
+            "LeftMargin": 1460.1943,
+            "RightMargin": -82.1943,
+            "TopMargin": 1174.0217,
+            "BottomMargin": 469.9783,
+            "Tag": 229,
+            "ActionTag": 779468088,
+            "Size": {
+              "X": 1182.0,
+              "Y": 156.0
+            },
+            "Name": "Kuhesabu_hill1_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_hill.png",
+              "Plist": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 596.3634,
+              "Y": 655.5916
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.233,
+              "Y": 0.3642
+            },
+            "PreSize": {
+              "X": 0.4613,
+              "Y": 0.2028
+            },
+            "LeftMargin": 5.8634,
+            "RightMargin": 1373.1366,
+            "TopMargin": 961.9084,
+            "BottomMargin": 473.0916,
+            "Tag": 221,
+            "ActionTag": 402427098,
+            "Size": {
+              "X": 1181.0,
+              "Y": 365.0
+            },
+            "Name": "Kuhesabu_hill_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_hill1.png",
+              "Plist": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 824.2062,
+              "Y": 546.866
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.322,
+              "Y": 0.3038
+            },
+            "PreSize": {
+              "X": 0.4617,
+              "Y": 0.0867
+            },
+            "LeftMargin": 233.2062,
+            "RightMargin": 1144.7938,
+            "TopMargin": 1175.134,
+            "BottomMargin": 468.866,
+            "Tag": 222,
+            "ActionTag": 1912646037,
+            "Size": {
+              "X": 1182.0,
+              "Y": 156.0
+            },
+            "Name": "Kuhesabu_hill1_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_tree.png",
+              "Plist": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 266.5455,
+              "Y": 1083.5444
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1041,
+              "Y": 0.602
+            },
+            "PreSize": {
+              "X": 0.4848,
+              "Y": 0.7433
+            },
+            "LeftMargin": -353.9545,
+            "RightMargin": 1672.9545,
+            "TopMargin": 47.4556,
+            "BottomMargin": 414.5444,
+            "Tag": 223,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_tree.png",
+                  "Plist": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 989.7577,
+                  "Y": 663.5187
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.7975,
+                  "Y": 0.4959
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 369.2577,
+                "RightMargin": -369.2577,
+                "TopMargin": 5.4813,
+                "BottomMargin": -5.4813,
+                "Tag": 224,
+                "ActionTag": 1669800474,
+                "Size": {
+                  "X": 1241.0,
+                  "Y": 1338.0
+                },
+                "Name": "Kuhesabu_tree_3_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FlipX": true,
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_tree.png",
+                  "Plist": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1510.1112,
+                  "Y": 661.8549
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.2169,
+                  "Y": 0.4947
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 889.6112,
+                "RightMargin": -889.6113,
+                "TopMargin": 7.145,
+                "BottomMargin": -7.1451,
+                "Tag": 225,
+                "ActionTag": 1022933743,
+                "Size": {
+                  "X": 1241.0,
+                  "Y": 1338.0
+                },
+                "Name": "Kuhesabu_tree_3_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_tree.png",
+                  "Plist": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2123.5728,
+                  "Y": 661.8542
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.7112,
+                  "Y": 0.4947
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1503.0728,
+                "RightMargin": -1503.0728,
+                "TopMargin": 7.1458,
+                "BottomMargin": -7.1458,
+                "Tag": 226,
+                "ActionTag": 1318710469,
+                "Size": {
+                  "X": 1241.0,
+                  "Y": 1338.0
+                },
+                "Name": "Kuhesabu_tree_3_2",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FlipX": true,
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_tree.png",
+                  "Plist": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2700.9541,
+                  "Y": 654.6368
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 2.1764,
+                  "Y": 0.4893
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2080.4541,
+                "RightMargin": -2080.4541,
+                "TopMargin": 14.3633,
+                "BottomMargin": -14.3632,
+                "Tag": 227,
+                "ActionTag": -541030065,
+                "Size": {
+                  "X": 1241.0,
+                  "Y": 1338.0
+                },
+                "Name": "Kuhesabu_tree_3_3",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": -511729894,
+            "Size": {
+              "X": 1241.0,
+              "Y": 1338.0
+            },
+            "Name": "Kuhesabu_tree_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 109,
+              "G": 195,
+              "B": 215
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.2639
+            },
+            "TopMargin": 1325.0,
+            "Tag": 230,
+            "ActionTag": 1818574751,
+            "Size": {
+              "X": 2560.0,
+              "Y": 475.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_grass1.png",
+              "Plist": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2269.624,
+              "Y": 444.8501
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8866,
+              "Y": 0.2471
+            },
+            "PreSize": {
+              "X": 0.2602,
+              "Y": 0.1317
+            },
+            "LeftMargin": 1936.624,
+            "RightMargin": -42.624,
+            "TopMargin": 1236.6499,
+            "BottomMargin": 326.3501,
+            "Tag": 231,
+            "ActionTag": 520295455,
+            "Size": {
+              "X": 666.0,
+              "Y": 237.0
+            },
+            "Name": "Kuhesabu_grass1_10",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_grass2.png",
+              "Plist": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 464.446,
+              "Y": 472.5895
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1814,
+              "Y": 0.2625
+            },
+            "PreSize": {
+              "X": 0.3879,
+              "Y": 0.1117
+            },
+            "LeftMargin": -32.054,
+            "RightMargin": 1599.054,
+            "TopMargin": 1226.9105,
+            "BottomMargin": 372.0895,
+            "Tag": 232,
+            "ActionTag": -60825423,
+            "Size": {
+              "X": 993.0,
+              "Y": 201.0
+            },
+            "Name": "Kuhesabu_grass2_11",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_water.png",
+              "Plist": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 647.5267,
+              "Y": 85.9297
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2529,
+              "Y": 0.0477
+            },
+            "PreSize": {
+              "X": 0.1328,
+              "Y": 0.0561
+            },
+            "LeftMargin": 477.5267,
+            "RightMargin": 1742.4734,
+            "TopMargin": 1663.5703,
+            "BottomMargin": 35.4297,
+            "Tag": 235,
+            "ActionTag": -429524361,
+            "Size": {
+              "X": 340.0,
+              "Y": 101.0
+            },
+            "Name": "Kuhesabu_water_14",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_water.png",
+              "Plist": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1130.4305,
+              "Y": 215.1886
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4416,
+              "Y": 0.1195
+            },
+            "PreSize": {
+              "X": 0.1328,
+              "Y": 0.0561
+            },
+            "LeftMargin": 960.4305,
+            "RightMargin": 1259.5695,
+            "TopMargin": 1534.3114,
+            "BottomMargin": 164.6886,
+            "Tag": 236,
+            "ActionTag": -967374433,
+            "Size": {
+              "X": 340.0,
+              "Y": 101.0
+            },
+            "Name": "Kuhesabu_water_14_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_water.png",
+              "Plist": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1655.5575,
+              "Y": 354.4483
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6467,
+              "Y": 0.1969
+            },
+            "PreSize": {
+              "X": 0.1328,
+              "Y": 0.0561
+            },
+            "LeftMargin": 1485.5575,
+            "RightMargin": 734.4425,
+            "TopMargin": 1395.0518,
+            "BottomMargin": 303.9483,
+            "Tag": 237,
+            "ActionTag": 211395762,
+            "Size": {
+              "X": 340.0,
+              "Y": 101.0
+            },
+            "Name": "Kuhesabu_water_14_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 47,
+              "G": 181,
+              "B": 47
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -260.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1016,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.2222
+            },
+            "LeftMargin": -260.0,
+            "RightMargin": -280.0,
+            "TopMargin": 1400.0,
+            "Tag": 938,
+            "ActionTag": 2145067,
+            "Size": {
+              "X": 3100.0,
+              "Y": 400.0
+            },
+            "Name": "Panel_8",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Kuhesabu_wanyama_Counting/giraffe.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 287.2134,
+              "Y": 282.2737
+            },
+            "Scale": {
+              "ScaleX": 0.58,
+              "ScaleY": 0.58
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1122,
+              "Y": 0.1568
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 287.2134,
+            "RightMargin": 2272.7866,
+            "TopMargin": 1517.7263,
+            "BottomMargin": 282.2737,
+            "UserData": "walk:drag",
+            "Tag": 939,
+            "FrameEvent": "giraffe",
+            "ActionTag": -590156385,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "giraffe",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Kuhesabu_wanyama_Counting/giraffe.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 100.24,
+              "Y": 198.7688
+            },
+            "Scale": {
+              "ScaleX": 0.58,
+              "ScaleY": 0.58
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0392,
+              "Y": 0.1104
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 100.24,
+            "RightMargin": 2459.76,
+            "TopMargin": 1601.2312,
+            "BottomMargin": 198.7688,
+            "UserData": "walk:drag",
+            "Tag": 2669,
+            "FrameEvent": "giraffe",
+            "ActionTag": 1569225630,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "giraffe",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 960.0,
+          "Y": 640.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "giraffe.json",
+        "Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.plist",
+        "Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

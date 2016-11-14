@@ -66,6 +66,10 @@
 		9C6007AA1DC1DBB700F9C184 /* CarDrawNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6007A51DC1DBB700F9C184 /* CarDrawNode.cpp */; };
 		9C7B1AC71DAA1BCE00EBD1FE /* Order.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */; };
 		9C7B1ACA1DAA1BD200EBD1FE /* Order.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */; };
+		9C7C1A6E1DD8F77D00DD5C6B /* ChocolateFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7C1A6A1DD8F77D00DD5C6B /* ChocolateFactory.cpp */; };
+		9C7C1A6F1DD8F77D00DD5C6B /* JumpingNumbers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7C1A6C1DD8F77D00DD5C6B /* JumpingNumbers.cpp */; };
+		9C7C1A721DD8F78000DD5C6B /* ChocolateFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7C1A6A1DD8F77D00DD5C6B /* ChocolateFactory.cpp */; };
+		9C7C1A731DD8F78200DD5C6B /* JumpingNumbers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7C1A6C1DD8F77D00DD5C6B /* JumpingNumbers.cpp */; };
 		9FA3AE461BE9BBCA00FC9645 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA3AE451BE9BBCA00FC9645 /* GameController.framework */; };
 		A92275421517C094001B78AA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92275411517C094001B78AA /* QuartzCore.framework */; };
 		A92275441517C094001B78AA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92275431517C094001B78AA /* OpenGLES.framework */; };
@@ -524,6 +528,10 @@
 		9C6007A61DC1DBB700F9C184 /* CarDrawNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDrawNode.h; sourceTree = "<group>"; };
 		9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Order.cpp; sourceTree = "<group>"; };
 		9C7B1AC61DAA1BCE00EBD1FE /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		9C7C1A6A1DD8F77D00DD5C6B /* ChocolateFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChocolateFactory.cpp; sourceTree = "<group>"; };
+		9C7C1A6B1DD8F77D00DD5C6B /* ChocolateFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChocolateFactory.h; sourceTree = "<group>"; };
+		9C7C1A6C1DD8F77D00DD5C6B /* JumpingNumbers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JumpingNumbers.cpp; sourceTree = "<group>"; };
+		9C7C1A6D1DD8F77D00DD5C6B /* JumpingNumbers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JumpingNumbers.h; sourceTree = "<group>"; };
 		9FA3AE451BE9BBCA00FC9645 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		A922753D1517C094001B78AA /* goa-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "goa-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92275411517C094001B78AA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -1201,6 +1209,10 @@
 		F352471A1D6D9D1A0077C333 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				9C7C1A6A1DD8F77D00DD5C6B /* ChocolateFactory.cpp */,
+				9C7C1A6B1DD8F77D00DD5C6B /* ChocolateFactory.h */,
+				9C7C1A6C1DD8F77D00DD5C6B /* JumpingNumbers.cpp */,
+				9C7C1A6D1DD8F77D00DD5C6B /* JumpingNumbers.h */,
 				F3AB34CF1DCDA95900613C20 /* Door.cpp */,
 				F3AB34D01DCDA95900613C20 /* Door.h */,
 				F3AB34D11DCDA95900613C20 /* DoorNode.cpp */,
@@ -1768,6 +1780,7 @@
 				F35248231D6D9D1A0077C333 /* SkeletonCharacter.cpp in Sources */,
 				509D4A8117EBB24E00697056 /* AppDelegate.cpp in Sources */,
 				F35247F51D6D9D1A0077C333 /* LangUtil.cpp in Sources */,
+				9C7C1A721DD8F78000DD5C6B /* ChocolateFactory.cpp in Sources */,
 				F3667D191DB4BA6F00EC8908 /* LTKCaptureDevice.cpp in Sources */,
 				F3667D5D1DB4BA7000EC8908 /* LTKCheckSumGenerate.cpp in Sources */,
 				F35248431D6D9D1A0077C333 /* I18nUtils.cpp in Sources */,
@@ -1910,6 +1923,7 @@
 				F352483D1D6D9D1A0077C333 /* ExternalSkeletonCharacter.cpp in Sources */,
 				F352481F1D6D9D1A0077C333 /* GameMapScene.cpp in Sources */,
 				F35248051D6D9D1A0077C333 /* CharGenerator.cpp in Sources */,
+				9C7C1A731DD8F78200DD5C6B /* JumpingNumbers.cpp in Sources */,
 				F35248131D6D9D1A0077C333 /* RPGConfig.cpp in Sources */,
 				F3667D491DB4BA6F00EC8908 /* PointFloatShapeFeatureExtractor.cpp in Sources */,
 				F35247D31D6D9D1A0077C333 /* CatScene.cpp in Sources */,
@@ -1938,6 +1952,7 @@
 				F3F7ED621D93DAFE00727A7C /* Dash.cpp in Sources */,
 				F3667D741DB4BA7000EC8908 /* LTKVersionCompatibilityCheck.cpp in Sources */,
 				F35248201D6D9D1A0077C333 /* GestureLayer.cpp in Sources */,
+				9C7C1A6F1DD8F77D00DD5C6B /* JumpingNumbers.cpp in Sources */,
 				F3AB34D51DCDA95900613C20 /* DoorNode.cpp in Sources */,
 				F35248021D6D9D1A0077C333 /* AlphabetGrid.cpp in Sources */,
 				F352484E1D6D9D1A0077C333 /* MessageContent.cpp in Sources */,
@@ -1967,6 +1982,7 @@
 				F3667D1E1DB4BA6F00EC8908 /* LTKScreenContext.cpp in Sources */,
 				F35247C01D6D9D1A0077C333 /* HelloWorldScene.cpp in Sources */,
 				F3F7ED7C1D9F891000727A7C /* MemoryHero.cpp in Sources */,
+				9C7C1A6E1DD8F77D00DD5C6B /* ChocolateFactory.cpp in Sources */,
 				F352482C1D6D9D1A0077C333 /* SelectAlphamonScene.cpp in Sources */,
 				F3667D381DB4BA6F00EC8908 /* LTKShapeRecoResult.cpp in Sources */,
 				F352483E1D6D9D1A0077C333 /* MessageSender.cpp in Sources */,
