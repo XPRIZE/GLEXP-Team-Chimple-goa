@@ -45,6 +45,7 @@
 #include "mini_games/Door.h"
 #include "mini_games/TreasureHunt.h"
 #include "mini_games/Line.h"
+#include "mini_games/Units.h"
 
 #include "storage/local-storage/LocalStorage.h"
 #include "external/json/document.h"
@@ -119,6 +120,7 @@ const std::vector<std::string> StartMenu::getGameNames() {
 	gameNames.push_back(DASH);
 	gameNames.push_back(TREASUREHUNT);
 	gameNames.push_back(LINE);
+	gameNames.push_back(UNITS);
     return gameNames;
 
 }
