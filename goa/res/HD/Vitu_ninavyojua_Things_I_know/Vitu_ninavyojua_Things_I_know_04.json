@@ -1,0 +1,306 @@
+{
+  "ID": "73906b69-41b1-4158-9d30-13b91b1fc186",
+  "Version": "3.10.0.0",
+  "Name": "Vitu_ninavyojua_Things_I_know_04",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 300,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -977701614,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2730.835,
+                "Y": 826.7759,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -709.8026,
+                "Y": 842.0858,
+                "FrameIndex": 145,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -687.0478,
+                "Y": 842.1082,
+                "FrameIndex": 146,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1343.1519,
+                "Y": 833.2909,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -977701614,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.4553,
+                "Y": 1.4553,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.4278,
+                "Y": 1.4553,
+                "FrameIndex": 145,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.4553,
+                "Y": 1.4553,
+                "FrameIndex": 146,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.4553,
+                "Y": 1.4553,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -977701614,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 146,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 300,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 790,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {},
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -49.6359,
+              "Y": -40.6111
+            },
+            "Scale": {
+              "ScaleX": 13.5895,
+              "ScaleY": 9.3704
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0194,
+              "Y": -0.0226
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -49.6359,
+            "RightMargin": 2409.636,
+            "TopMargin": 1640.6111,
+            "BottomMargin": -40.6111,
+            "Tag": 791,
+            "ActionTag": -1671457386,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Vitu_ninavyojua_Things_I_know/ship_01.png",
+              "Plist": "Vitu_ninavyojua_Things_I_know/Vitu_ninavyojua_Things_I_know.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -515.6673,
+              "Y": 841.3638
+            },
+            "Scale": {
+              "ScaleX": -1.4553,
+              "ScaleY": 1.4553
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.2014,
+              "Y": 0.4674
+            },
+            "PreSize": {
+              "X": 0.302,
+              "Y": 0.2617
+            },
+            "LeftMargin": -902.1673,
+            "RightMargin": 2689.1672,
+            "TopMargin": 723.1362,
+            "BottomMargin": 605.8638,
+            "Tag": 792,
+            "ActionTag": -977701614,
+            "Size": {
+              "X": 773.0,
+              "Y": 471.0
+            },
+            "Name": "ship_01_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 197,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 100,
+              "G": 158,
+              "B": 222
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -63.1729,
+              "Y": -81.2219
+            },
+            "Scale": {
+              "ScaleX": 13.6346,
+              "ScaleY": 3.1208
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0247,
+              "Y": -0.0451
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -63.1729,
+            "RightMargin": 2423.1729,
+            "TopMargin": 1681.2219,
+            "BottomMargin": -81.2219,
+            "Tag": 793,
+            "ActionTag": 875087763,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Vitu_ninavyojua_Things_I_know.plist",
+        "Vitu_ninavyojua_Things_I_know.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
