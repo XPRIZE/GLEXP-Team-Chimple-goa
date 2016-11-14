@@ -897,6 +897,7 @@ void MenuContext::launchGameFromJS(std::string gameName) {
 		}
 		else if (gameName == CHOCOLATEFACTORY) {
 			Director::getInstance()->replaceScene(Line::createScene());
+		}
     	else{
             CCLOG("Failed starting scene: %s", gameName.c_str());
         }
