@@ -68,6 +68,22 @@
     "menuPng": "decomonlevel/decomonlevel.png"
   },
   {
+    "name": "Line",
+    "cIcon": "gameicons/pillar_pressed.png",
+    "icon": "gameicons/pillar.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "10",
+    "numLevels": "75",
+    "backgroundJson": "layercandylevel/background.json",
+    "foregroundJson": "layercandylevel/foreground.json",
+    "frontgroundJson": "layercandylevel/frontground.json",
+    "maingroundJson": "layercandylevel/mainground.json",
+    "menuPlist": "layercandylevel/layercandylevel.plist",
+    "menuPng": "layercandylevel/layercandylevel.png"
+  },
+  {
         "name": "blastletter",
         "cIcon": "gameicons/blastletter_pressed.png",
         "icon": "gameicons/blastletter.png",
@@ -492,6 +508,22 @@
         "menuPng": "bingolevel/bingolevel.png" },
   {
     "name": "drop",
+    "cIcon": "gameicons/drop_pressed.png",
+    "icon": "gameicons/drop.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "6",
+    "numLevels": "60",
+    "backgroundJson": "droplevel/Layer1.json",
+    "foregroundJson": "droplevel/Layer3.json",
+    "frontgroundJson": "droplevel/Layer4.json",
+    "maingroundJson": "droplevel/Layer2.json",
+    "menuPlist": "droplevel/droplevel.plist",
+    "menuPng": "droplevel/droplevel.png"
+  },
+   {
+    "name": "chocolateFactory",
     "cIcon": "gameicons/drop_pressed.png",
     "icon": "gameicons/drop.png",
     "multiPlayer": false,
