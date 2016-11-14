@@ -18,6 +18,8 @@ protected:
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	MenuContext *_menuContext;
 
+	std::string _dropCurrentTheme = "";
+
 public:
 	~ChocolateFactory();
 	CREATE_FUNC(ChocolateFactory);
@@ -26,6 +28,7 @@ public:
 	void update(float) override;
 
 
+	std::pair<int, int> levelAllInfo(int levelNum, int sceneRepetitionNo, int totalScene, int catagoryRepetitionNo, int totalcatagory);
 	void setAllSpriteProperties(Sprite* object, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY);
 	LabelTTF* setAllLabelProperties(std::string letter, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY, int labelSizeInPixel);
 	std::pair<Sprite*, cocostudio::timeline::ActionTimeline*> setAnimationAndProperties(std::string csbString, float posX, float posY, int zOrder);
