@@ -619,8 +619,23 @@
     "menuPlist": "plevelscreen/plevelscreen.plist",
     "menuPng": "plevelscreen/plevelscreen.png"
   },
-   {
+  {
     "name": "TreasureHunt",
+    "cIcon": "gameicons/box_pressed.png",
+    "icon": "gameicons/box.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "5",
+    "numLevels": "26",
+    "backgroundJson": "boxlevel/background.json",
+    "foregroundJson": "boxlevel/foreground.json",
+    "frontgroundJson": "boxlevel/frontground.json",
+    "maingroundJson": "boxlevel/mainground.json",
+    "menuPlist": "boxlevel/boxlevel.plist",
+    "menuPng": "boxlevel/boxlevel.png"
+  },
+   {
     "cIcon": "gameicons/box_pressed.png",
     "icon": "gameicons/box.png",
     "multiPlayer": false,
