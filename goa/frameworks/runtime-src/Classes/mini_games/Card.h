@@ -32,7 +32,7 @@ public:
 	cocos2d::Size visibleSize;
 
 	void addEvents();
-    static const char* gameName() { return Card.c_str(); };
+    static const char* gameName() { return CARD.c_str(); };
 	void update(float);
 	void gameEnd();
 	HelpLayer *_help;

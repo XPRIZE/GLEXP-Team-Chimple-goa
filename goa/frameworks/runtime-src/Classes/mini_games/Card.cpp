@@ -22,7 +22,7 @@ Scene* Card::createScene()
 
 void Card::onEnterTransitionDidFinish()
 {
-	_menuContext->setMaxPoints(8);
+//	_menuContext->setMaxPoints(8);
 	_level = _menuContext->getCurrentLevel();
 
 	visibleSize = Director::getInstance()->getWinSize();
@@ -41,7 +41,6 @@ bool Card::init()
 
 void Card::update(float d)
 {
-
 }
 
 void Card::gameEnd()
