@@ -193,22 +193,20 @@ void Card::addEvents(struct SpriteDetails sprite)
 					this->removeChild(_help);
 					_helpFlag = 0;
 				}
-			}
 
-			if (_useCard == _pairCard)
-			{
-				if (_totalSum == _pairSum)
+				if (_useCard == _pairCard)
 				{
 					_programFlag = 1;
-
-					for (int i = 0; i < _spriteDetails.size(); i++)
+					if (_totalSum == _pairSum)
 					{
-						if (_spriteDetails.at(i)._flag == 1)
+						for (int i = 0; i < _spriteDetails.size(); i++)
 						{
-							_spriteDetails.at(i)._sprite->setLocalZOrder(1);
-							_spriteDetails.at(i)._sprite->runAction(Sequence::create(
-							MoveTo::create(.5, Vec2(visibleSize.width / 2, visibleSize.height / 2)),
-							CallFunc::create([=]() {
+							if (_spriteDetails.at(i)._flag == 1)
+							{
+								_spriteDetails.at(i)._sprite->setLocalZOrder(1);
+								_spriteDetails.at(i)._sprite->runAction(Sequence::create(
+									MoveTo::create(.5, Vec2(visibleSize.width / 2, visibleSize.height / 2)),
+									CallFunc::create([=]() {
 									removeChild(_spriteDetails.at(i)._sprite);
 									_totalSum = 0;
 									_programFlag = 0;
@@ -226,33 +224,34 @@ void Card::addEvents(struct SpriteDetails sprite)
 									if (_remainingCard == 0)
 										_menuContext->showScore();
 
-							}), NULL));
-						}
-					}
-				}
-				else
-				{
-					this->runAction(Sequence::create(DelayTime::create(.3), CallFunc::create([=]() {
-
-						for (int i = 0; i < _spriteDetails.size(); i++)
-						{
-							if (_spriteDetails.at(i)._flag == 1)
-							{
-								_spriteDetails.at(i)._sprite->setScale(.9);
-								_spriteDetails.at(i)._flag = 0;
+								}), NULL));
 							}
 						}
+					}
+					else
+					{
+						this->runAction(Sequence::create(DelayTime::create(.3), CallFunc::create([=]() {
 
-						for (int i = 0; i < _todoSprite.size(); i++)
-						{
-							_todoSprite.at(i)->setVisible(true);
-							_doneSprite.at(i)->setVisible(false);
-						}
+							for (int i = 0; i < _spriteDetails.size(); i++)
+							{
+								if (_spriteDetails.at(i)._flag == 1)
+								{
+									_spriteDetails.at(i)._sprite->setScale(.9);
+									_spriteDetails.at(i)._flag = 0;
+								}
+							}
 
-						_totalSum = 0;
-						_useCard = 0;
+							for (int i = 0; i < _todoSprite.size(); i++)
+							{
+								_todoSprite.at(i)->setVisible(true);
+								_doneSprite.at(i)->setVisible(false);
+							}
 
-					}), NULL));
+							_totalSum = 0;
+							_useCard = 0;
+							_programFlag = 0;
+						}), NULL));
+					}
 				}
 			}
 			return true;
