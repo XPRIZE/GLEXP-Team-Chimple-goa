@@ -26,13 +26,21 @@ void Card::onEnterTransitionDidFinish()
 	_level = _menuContext->getCurrentLevel();
 
 	if (_level >= 1 && _level <= 5)
+	{
 		_pairSum = 5;
+	}
 	else if (_level >= 6 && _level <= 10)
+	{
 		_pairSum = 10;
+	}
 	else if (_level >= 11 && _level <= 15)
+	{
 		_pairSum = 15;
+	}
 	else if (_level >= 16 && _level <= 20)
+	{
 		_pairSum = 20;
+	}
 
 	if (_level == 1 || _level == 2 || _level == 6 || _level == 7 || _level == 11 || _level == 12 || _level == 16)
 	{
@@ -83,6 +91,12 @@ void Card::onEnterTransitionDidFinish()
 
 	_CardBg = CSLoader::createNode("card/background.csb");
 	this->addChild(_CardBg);
+
+	std::ostringstream _boardTextName;
+	_boardTextName << _pairSum;
+	LabelTTF *_boardText = LabelTTF::create(_boardTextName.str(), "Arial", 120);
+	_boardText->setPosition(Vec2(_CardBg->getChildByName("board_6")->getPositionX(), _CardBg->getChildByName("board_6")->getPositionY() - _CardBg->getChildByName("board_6")->getContentSize().height / 2));
+	this->addChild(_boardText);
 
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("card/card.plist");
 
