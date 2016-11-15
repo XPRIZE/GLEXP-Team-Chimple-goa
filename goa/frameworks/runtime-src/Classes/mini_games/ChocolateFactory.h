@@ -7,6 +7,8 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../lang/LangUtil.h"
 #include "../lang/TextGenerator.h"
+#include "../mini_games/Drop.h"
+
 
 using namespace cocos2d;
 using namespace std;
@@ -19,12 +21,15 @@ protected:
 	MenuContext *_menuContext;
 
 	std::string _dropCurrentTheme = "";
+	std::vector<std::pair<float, float>> _boxPosition;
+	std::vector<Sprite*> _boxBin;
 
 public:
 	~ChocolateFactory();
 	CREATE_FUNC(ChocolateFactory);
 	static cocos2d::Scene* createScene();
 	void onEnterTransitionDidFinish();
+	void rightFloat(Sprite* spriteAlphabet, int time, float positionX, float positionY);
 	void update(float) override;
 
 

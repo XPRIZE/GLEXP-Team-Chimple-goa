@@ -23,8 +23,6 @@ BlastLetter *BlastLetter::create() {
 
 }
 
-
-
 bool BlastLetter::init()
 {
 	if (!Layer::init()) { return false;}
@@ -43,12 +41,9 @@ void BlastLetter::onEnterTransitionDidFinish() {
 		bg->setPositionX(myGameWidth);
 	}
 
-	BlastLetterNode* BlastLetterNodeObj;
-
 	auto currentLevel = _menuContext->getCurrentLevel();
 	_data_key = getConvertInUpperCase(TextGenerator::getInstance()->generateAWord(1));
 	_data_value = _data_key;
-	
 	if (currentLevel >= 1 && currentLevel <= 26) {
 		auto charcaterStream = LangUtil::getInstance()->getAllCharacters();
 		std::ostringstream namemyLabel;
@@ -59,8 +54,13 @@ void BlastLetter::onEnterTransitionDidFinish() {
 		_data_value = namemyLabel.str();
 
 	}else if (currentLevel >= 27 && currentLevel <= 36) {
-		_data_key = TextGenerator::getInstance()->generateAWord((_menuContext->getCurrentLevel() - 26));
-		_data_value = _data_key;
+		wchar_t* const allNumbers = L"0123456789";
+		std::ostringstream namemyLabel;
+		_data_key = allNumbers[(currentLevel - 27)];
+		for (int i = 0; i < 6; i++) {
+			namemyLabel << _data_key;
+		}
+		_data_value = namemyLabel.str();
 	}else if (currentLevel >= 37 && currentLevel <= 46) {
 		_data_key = TextGenerator::getInstance()->generateAWord((_menuContext->getCurrentLevel() - 36));
 		_data_value = _data_key;
@@ -80,7 +80,7 @@ void BlastLetter::onEnterTransitionDidFinish() {
 		_data_key = (getConvertInUpperCase(it->first));
 		_data_value = (getConvertInUpperCase(it->second));
 	}
-
+	_menuContext->setMaxPoints(_data_value.size());
 	auto coord = getAllGridCoord(1, _data_value.size());
 	for (size_t coordIndex = 0; coordIndex < _data_value.size(); coordIndex++) {
 		auto letterBoardSprite = Sprite::create();
@@ -89,10 +89,11 @@ void BlastLetter::onEnterTransitionDidFinish() {
 		letterBoardSprite->setPosition(Vec2(coord.at(coordIndex).second, coord.at(coordIndex).first));		
 		addChild(letterBoardSprite);
 
-		auto myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), LangUtil::convertUTF16CharToString(_data_value[coordIndex]));
-//		auto myLabel = LabelTTF::create(_data_key[_textBoard], "Helvetica", board->getContentSize().height *0.8);
+//		auto myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), LangUtil::convertUTF16CharToString(_data_value[coordIndex]));
+		auto myLabel = LabelTTF::create(LangUtil::convertUTF16CharToString(_data_value[coordIndex]), "res/fonts/BalooBhai-Regular.ttf", letterBoardSprite->getContentSize().height);
 		myLabel->setPosition(Vec2(letterBoardSprite->getContentSize().width * 0.5, letterBoardSprite->getContentSize().height * 0.45));
-		myLabel->setScale(0.7);
+		myLabel->setScale(1);
+		myLabel->setColor(Color3B::GRAY);
 		std::ostringstream namemyLabel;
 		namemyLabel << (coordIndex+1);
 		myLabel->setName(namemyLabel.str());
@@ -115,6 +116,17 @@ void BlastLetter::onEnterTransitionDidFinish() {
 		myLabel->setName(myLabel->getString());
 		this->getChildByName("bg")->getChildByName("topboard ")->addChild(myLabel);
 
+		if (_menuContext->getCurrentLevel() == 1) {
+			std::ostringstream nameLetterBoard;
+			nameLetterBoard << LangUtil::convertUTF16CharToString(_data_value[_counterLetter]) << (_counterLetter + 1);
+			auto board = this->getChildByName("bg")->getChildByName("topboard ");
+			auto downGrid = this->getChildByName(nameLetterBoard.str());
+			this->getChildByName("bg")->getChildByName("topboard ")->setPositionX(Director::getInstance()->getVisibleSize().width / 2 - (board->getContentSize().width / 2));
+			auto help = HelpLayer::create(Rect(downGrid->getPositionX(), downGrid->getPositionY(), downGrid->getContentSize().width, downGrid->getContentSize().height), Rect(Director::getInstance()->getVisibleSize().width / 2 + 70, board->getContentSize().height / 2 + board->getPositionY(), board->getContentSize().width * 0.9, board->getContentSize().height));
+			help->click(Vec2(downGrid->getPositionX(), downGrid->getPositionY()));
+			help->setName("helpLayer");
+			this->addChild(help, 4);
+		}
 		this->scheduleUpdate();
 }
 
@@ -153,6 +165,7 @@ void BlastLetter::removeAllWritingScene()
 	((BlastLetterNode *)this->getChildByName(stringStream.str()))->_drawingBoard->removeAllChildren();
 	((BlastLetterNode *)this->getChildByName(stringStream.str()))->drawAllowance(false);
 	_bang = false;
+	_menuContext->addPoints(-1);
 	runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() {
 		std::ostringstream stringStream;
 		stringStream << "Node" << (_counterLetter + 1);
@@ -217,10 +230,11 @@ void BlastLetter::addEventsOnGrid(cocos2d::Sprite* callerObject)
 			target->setColor(Color3B::GRAY);
 			auto t = target->getTag();
 			if (target->getTag() == (_counterLetter+1) && _touch) {
+				if (_flagTurnHelp && (_menuContext->getCurrentLevel() == 1)) {
+					this->removeChildByName("helpLayer");
+					_flagTurnHelp = false;
+				}
 				return true;
-				std::ostringstream stringStream;
-				stringStream << "Node" << target->getTag();
-				_NodeIdentity = stringStream.str();
 			}
 			else {
 				target->setColor(Color3B(219, 224, 252));
@@ -256,9 +270,12 @@ void BlastLetter::addEventsOnGrid(cocos2d::Sprite* callerObject)
 			bgLayerGradient->setName("tempBg");
 			std::ostringstream nameLetterBoards;
 			nameLetterBoards << _data_value[_counterLetter];
-			auto myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), nameLetterBoards.str());
+
+			auto myLabel = LabelTTF::create(nameLetterBoards.str(), "res/fonts/BalooBhai-Regular.ttf", letterBoardSprite->getContentSize().height);
+			myLabel->setColor(Color3B::GRAY);
 			myLabel->setPosition(Vec2(letterBoardSprite->getContentSize().width * 0.5, letterBoardSprite->getContentSize().height * 0.45));
-			myLabel->setScale(0.7);
+			myLabel->setScale(1);
+
 			letterBoardSprite->addChild(myLabel);
 			
 			letterBoardSprite->runAction(MoveTo::create(1,Vec2(Director::getInstance()->getVisibleSize().width/2 , Director::getInstance()->getVisibleSize().height * 0.540072222)));
@@ -320,7 +337,7 @@ void BlastLetter::checkAlphabets()
 	stringStream << "Node" << (_counterLetter + 1);
 
 	if (checkRecognizeLetter(LangUtil::convertUTF16CharToString(_data_value[_counterLetter]))) {
-
+		_menuContext->addPoints(1);
 		((BlastLetterNode *)this->getChildByName(stringStream.str()))->_drawingBoard->removeAllChildren();
 		((BlastLetterNode *)this->getChildByName(stringStream.str()))->setScale(1.0f / 3.0f);
 		((BlastLetterNode *)this->getChildByName(stringStream.str()))->drawAllowance(false);
