@@ -1,0 +1,123 @@
+{
+  "ID": "64b55f9d-b807-4dc9-922e-bba84546a336",
+  "Version": "3.10.0.0",
+  "Name": "Vitu_ninavyojua_Things_I_know_05",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 794,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {},
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -117.3121,
+              "Y": -63.1681
+            },
+            "Scale": {
+              "ScaleX": 13.8828,
+              "ScaleY": 9.5058
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0458,
+              "Y": -0.0351
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -117.3121,
+            "RightMargin": 2477.312,
+            "TopMargin": 1663.1681,
+            "BottomMargin": -63.1681,
+            "Tag": 795,
+            "ActionTag": 1438980249,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Vitu_ninavyojua_Things_I_know/hospital bed front.png",
+              "Plist": "Vitu_ninavyojua_Things_I_know/Vitu_ninavyojua_Things_I_know.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1073.9431,
+              "Y": 857.3488
+            },
+            "Scale": {
+              "ScaleX": 3.729,
+              "ScaleY": 3.729
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4195,
+              "Y": 0.4763
+            },
+            "PreSize": {
+              "X": 0.1305,
+              "Y": 0.1611
+            },
+            "LeftMargin": 906.9431,
+            "RightMargin": 1319.0569,
+            "TopMargin": 797.6512,
+            "BottomMargin": 712.3488,
+            "Tag": 800,
+            "ActionTag": -2118565977,
+            "Size": {
+              "X": 334.0,
+              "Y": 290.0
+            },
+            "Name": "Sprite_3",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Vitu_ninavyojua_Things_I_know.plist",
+        "Vitu_ninavyojua_Things_I_know.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

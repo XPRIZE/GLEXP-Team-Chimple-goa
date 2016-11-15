@@ -376,22 +376,14 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         var storyText = "";
         var that = this;
         var textFileUrl =  "res/story" + "/" + langDir + "/" + this._baseDir + ".json";
-        //var textFileUrl = xc.path + this._baseDir + "/" + langDir + "/" + xc.currentStoryId + ".txt";
         cc.log('textFileUrl:' + textFileUrl);
         if(cc.sys.isNative) {
             var fileExists = jsb.fileUtils.isFileExist(textFileUrl);
             if(fileExists) {
-                // cc.loader.loadTxt(textFileUrl, function(err, json) {            
-                //     if(!err && json != null && json != undefined) {
-                //         var data = json.split(/"[\d]+":/);
-                //         storyText = data[xc.pageIndex + 1];
-                //         that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that, false));
-                //     }                                
-                // });     
 
                 cc.loader.loadJson(textFileUrl, function(err, json) {            
                     if(!err && json != null && json != undefined) {
-                        storyText = json[xc.pageIndex];
+                        storyText = json[xc.pageIndex + 1];
                         cc.log('story text received:' + storyText);
                         that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that, false));
                     }                                
@@ -401,17 +393,10 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText,that.processAudio, that, false));
             }
         } else {
-            // cc.loader.loadTxt(textFileUrl, function(err, json) {            
-            //     if(!err && json != null && json != undefined) {
-            //         var data = json.split(/"[\d]+":/);
-            //         storyText = data[xc.pageIndex + 1];
-            //     } 
-            //     that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that, false));           
-            // });
 
             cc.loader.loadJson(textFileUrl, function(err, json) {            
                 if(!err && json != null && json != undefined) {
-                    storyText = json[xc.pageIndex];
+                    storyText = json[xc.pageIndex + 1];
                     cc.log('story text received:' + storyText);
                     that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that, false));
                 }                                
