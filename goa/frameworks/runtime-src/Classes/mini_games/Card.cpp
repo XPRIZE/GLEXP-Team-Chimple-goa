@@ -26,15 +26,23 @@ void Card::onEnterTransitionDidFinish()
 	_level = _menuContext->getCurrentLevel();
 
 	if (_level >= 1 && _level <= 5)
+	{
 		_pairSum = 5;
+	}
 	else if (_level >= 6 && _level <= 10)
+	{
 		_pairSum = 10;
+	}
 	else if (_level >= 11 && _level <= 15)
+	{
 		_pairSum = 15;
+	}
 	else if (_level >= 16 && _level <= 20)
+	{
 		_pairSum = 20;
+	}
 
-	if (_level >= 1 || _level == 2 || _level == 6 || _level == 7 || _level == 11 || _level == 12 || _level == 16)
+	if (_level == 1 || _level == 2 || _level == 6 || _level == 7 || _level == 11 || _level == 12 || _level == 16)
 	{
 		_pairCard = 2;
 	}
@@ -84,6 +92,13 @@ void Card::onEnterTransitionDidFinish()
 	_CardBg = CSLoader::createNode("card/background.csb");
 	this->addChild(_CardBg);
 
+	std::ostringstream _boardTextName;
+	_boardTextName << _pairSum;
+
+	Node *_board = _CardBg->getChildByName("board_6");
+	LabelTTF *_boardText = LabelTTF::create(_boardTextName.str(), "Arial", 120);
+	_boardText->setPosition(Vec2(_board->getPositionX(), _board->getPositionY() - _board->getContentSize().height / 2));
+	this->addChild(_boardText);
 
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("card/card.plist");
 
@@ -116,7 +131,14 @@ void Card::onEnterTransitionDidFinish()
 		addEvents(SpriteDetails);
 	}
 
-	this->scheduleUpdate();
+	if (_level == 1)
+	{
+		_help = HelpLayer::create(Rect(_spriteDetails.at(0)._sprite->getChildByName("box_1")->getPositionX() + _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.width * .73, _spriteDetails.at(0)._sprite->getChildByName("box_1")->getPositionY() + _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.height * 105 / 100, _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.width, _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.height * 2), Rect(_board->getPositionX(), _board->getPositionY() - _board->getContentSize().height / 2, _board->getContentSize().width, _board->getContentSize().height));
+		addChild(_help, 5);
+		_help->clickTwice(Vec2(_spriteDetails.at(0)._sprite->getChildByName("box_1")->getPositionX() + _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.width/2, _spriteDetails.at(0)._sprite->getChildByName("box_1")->getPositionY() + _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.height/ 2), Vec2(_spriteDetails.at(0)._sprite->getChildByName("box_1")->getPositionX() + _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.width / 2, _spriteDetails.at(3)._sprite->getChildByName("box_1")->getPositionY() + _spriteDetails.at(3)._sprite->getChildByName("box_1")->getBoundingBox().size.height * 1.5));
+		_helpFlag = 1;
+	}
+
 }
 
 bool Card::init()
@@ -127,15 +149,6 @@ bool Card::init()
 	}
 
 	return true;
-}
-
-void Card::update(float d)
-{
-}
-
-void Card::gameEnd()
-{
-
 }
 
 void Card::addEvents(struct SpriteDetails sprite)
@@ -174,28 +187,26 @@ void Card::addEvents(struct SpriteDetails sprite)
 					_todoSprite.at(_useCard)->setVisible(true);
 					_doneSprite.at(_useCard)->setVisible(false);
 				}
-			}
 
-			if (_useCard == _pairCard)
-			{
-				if (_totalSum == _pairSum)
+				if (_helpFlag == 1)
+				{
+					this->removeChild(_help);
+					_helpFlag = 0;
+				}
+
+				if (_useCard == _pairCard)
 				{
 					_programFlag = 1;
-
-					for (int i = 0; i < _todoSprite.size(); i++)
+					if (_totalSum == _pairSum)
 					{
-						_todoSprite.at(i)->setVisible(true);
-						_doneSprite.at(i)->setVisible(false);
-					}
-
-					for (int i = 0; i < _spriteDetails.size(); i++)
-					{
-						if (_spriteDetails.at(i)._flag == 1)
+						for (int i = 0; i < _spriteDetails.size(); i++)
 						{
-							_spriteDetails.at(i)._sprite->setLocalZOrder(1);
-							_spriteDetails.at(i)._sprite->runAction(Sequence::create(
-							MoveTo::create(.5, Vec2(visibleSize.width / 2, visibleSize.height / 2)),
-							CallFunc::create([=]() {
+							if (_spriteDetails.at(i)._flag == 1)
+							{
+								_spriteDetails.at(i)._sprite->setLocalZOrder(1);
+								_spriteDetails.at(i)._sprite->runAction(Sequence::create(
+									MoveTo::create(.5, Vec2(visibleSize.width / 2, visibleSize.height / 2)),
+									CallFunc::create([=]() {
 									removeChild(_spriteDetails.at(i)._sprite);
 									_totalSum = 0;
 									_programFlag = 0;
@@ -204,39 +215,48 @@ void Card::addEvents(struct SpriteDetails sprite)
 									_remainingCard -= _useCard;
 									_useCard = 0;
 
+									for (int i = 0; i < _todoSprite.size(); i++)
+									{
+										_todoSprite.at(i)->setVisible(true);
+										_doneSprite.at(i)->setVisible(false);
+									}
+
 									if (_remainingCard == 0)
 										_menuContext->showScore();
 
-							}), NULL));
+								}), NULL));
+							}
 						}
 					}
-				}
-				else
-				{
-					for (int i = 0; i < _spriteDetails.size(); i++)
+					else
 					{
-						if (_spriteDetails.at(i)._flag == 1)
-						{
-							_spriteDetails.at(i)._sprite->setScale(.9);
-							_spriteDetails.at(i)._flag = 0;
-						}
-					}
+						this->runAction(Sequence::create(DelayTime::create(.3), CallFunc::create([=]() {
 
-					for (int i = 0; i < _todoSprite.size(); i++)
-					{
-						_todoSprite.at(i)->setVisible(true);
-						_doneSprite.at(i)->setVisible(false);
-					}
+							for (int i = 0; i < _spriteDetails.size(); i++)
+							{
+								if (_spriteDetails.at(i)._flag == 1)
+								{
+									_spriteDetails.at(i)._sprite->setScale(.9);
+									_spriteDetails.at(i)._flag = 0;
+								}
+							}
 
-					_totalSum = 0;
-					_useCard = 0;
+							for (int i = 0; i < _todoSprite.size(); i++)
+							{
+								_todoSprite.at(i)->setVisible(true);
+								_doneSprite.at(i)->setVisible(false);
+							}
+
+							_totalSum = 0;
+							_useCard = 0;
+							_programFlag = 0;
+						}), NULL));
+					}
 				}
 			}
-
 			return true;
 		}
 		return false;
 	};
-
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener->clone(), sprite._sprite->getChildByName("box_1"));
 }

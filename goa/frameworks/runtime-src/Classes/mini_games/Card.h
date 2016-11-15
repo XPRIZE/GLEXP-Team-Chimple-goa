@@ -17,18 +17,14 @@ class Card : public cocos2d::Layer
 {
 	
 public:
-	static cocos2d::Scene* createScene();
 	Card();
 	~Card();
-	virtual bool init();
-	void onEnterTransitionDidFinish() override;
-	Node *_CardBg;
-	int _level, _pairSum, _pairCard, _totalSum=0, _useCard = 0, _programFlag = 0, _remainingCard = 6;
-	int _handFlag;
 
-	CREATE_FUNC(Card);
-    
+	Node *_CardBg;
+	int _level, _pairSum, _pairCard, _totalSum=0, _useCard = 0, _programFlag = 0, _remainingCard = 6, _helpFlag = 0;
+	HelpLayer *_help;
 	cocos2d::Size visibleSize;
+
 	struct SpriteDetails
 	{
 		cocos2d::Node *_sprite;
@@ -36,25 +32,25 @@ public:
 		int _id;
 		int _index;
 	}SpriteDetails;
-	std::vector<struct SpriteDetails> _spriteDetails;
-
-	std::vector<cocos2d::Sprite*> _doneSprite;
-	std::vector<cocos2d::Sprite*> _todoSprite;
 
 	struct Position
 	{
 		int x, y;
 	}_p1, _p2, _p3, _p4, _p5, _p6;
-	std::vector<struct Position> _position;
 
 	struct CardPosition
 	{
 		int x, y;
 	}_cp1, _cp2, _cp3;
+
+	std::vector<struct SpriteDetails> _spriteDetails;
+	std::vector<cocos2d::Sprite*> _doneSprite;
+	std::vector<cocos2d::Sprite*> _todoSprite;
+	std::vector<struct Position> _position;
 	std::vector<struct CardPosition> _cardPosition;
 
 	int _differentLevel[20][6] = {
-		{ 3, 2, 4, 1, 2, 3 },
+		{ 3, 1, 4, 2, 2, 3 },
 		{ 4, 3, 2, 3, 2, 1 },
 		{ 2, 1, 3, 1, 2, 1 },
 		{ 2, 3, 1, 1, 1, 2 },
@@ -79,12 +75,13 @@ public:
 		{ 6, 8, 4, 10, 9, 3 }
 	};
 
+	static cocos2d::Scene* createScene();
+	virtual bool init();
+	void onEnterTransitionDidFinish() override;
 	void addEvents(struct SpriteDetails);
     static const char* gameName() { return CARD.c_str(); };
-	void update(float);
-	void gameEnd();
-	HelpLayer *_help;
-	int _helpFlag;
+	CREATE_FUNC(Card);
+
 protected:
 	MenuContext* _menuContext;
 };
