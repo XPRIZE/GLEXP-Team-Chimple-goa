@@ -44,6 +44,13 @@ void Units::onEnterTransitionDidFinish() {
 	}
 
 	_menuContext->setMaxPoints(1);
+
+	auto bg = CSLoader::createNode("unit/unit.csb");
+
+	bg->setAnchorPoint(Vec2(0.5, 0.5));
+	bg->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
+	//bg->setScale(0.5, 0.5);
+	this->addChild(bg);
 	
 
 }
