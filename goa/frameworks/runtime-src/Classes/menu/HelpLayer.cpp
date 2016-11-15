@@ -69,6 +69,17 @@ void HelpLayer::click(Vec2 point) {
     auto callFunc = CallFunc::create(CC_CALLBACK_0(HelpLayer::removeFinger, this, finger));
     finger->runAction(Sequence::create(scaleBy, DelayTime::create(0.5), callFunc, NULL));
 }
+void HelpLayer::clickTwice(cocos2d::Vec2 point1, cocos2d::Vec2 point2) {
+    _animating = true;
+    auto finger = Sprite::create("help/touch.png");
+    finger->setPosition(point1);
+    finger->setAnchorPoint(Vec2::ANCHOR_MIDDLE_TOP);
+    addChild(finger);
+    auto scaleBy = ScaleBy::create(0.5, 0.8);
+    auto moveTo = MoveTo::create(0.5, point2);
+    auto callFunc = CallFunc::create(CC_CALLBACK_0(HelpLayer::removeFinger, this, finger));
+    finger->runAction(Sequence::create(scaleBy, DelayTime::create(0.5), scaleBy->reverse(), moveTo, scaleBy, DelayTime::create(0.5), scaleBy->reverse(), callFunc, NULL));
+}
 
 void HelpLayer::clickAndDrag(Vec2 startPoint, Vec2 endPoint) {
     _animating = true;
