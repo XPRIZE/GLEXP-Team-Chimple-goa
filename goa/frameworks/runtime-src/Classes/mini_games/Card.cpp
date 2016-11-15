@@ -94,8 +94,10 @@ void Card::onEnterTransitionDidFinish()
 
 	std::ostringstream _boardTextName;
 	_boardTextName << _pairSum;
+
+	Node *_board = _CardBg->getChildByName("board_6");
 	LabelTTF *_boardText = LabelTTF::create(_boardTextName.str(), "Arial", 120);
-	_boardText->setPosition(Vec2(_CardBg->getChildByName("board_6")->getPositionX(), _CardBg->getChildByName("board_6")->getPositionY() - _CardBg->getChildByName("board_6")->getContentSize().height / 2));
+	_boardText->setPosition(Vec2(_board->getPositionX(), _board->getPositionY() - _board->getContentSize().height / 2));
 	this->addChild(_boardText);
 
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("card/card.plist");
@@ -128,6 +130,15 @@ void Card::onEnterTransitionDidFinish()
 		_spriteDetails.push_back(SpriteDetails);
 		addEvents(SpriteDetails);
 	}
+
+	if (_level == 1)
+	{
+		_help = HelpLayer::create(Rect(_spriteDetails.at(0)._sprite->getChildByName("box_1")->getPositionX() + _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.width * .73, _spriteDetails.at(0)._sprite->getChildByName("box_1")->getPositionY() + _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.height * 105 / 100, _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.width, _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.height * 2), Rect(_board->getPositionX(), _board->getPositionY() - _board->getContentSize().height / 2, _board->getContentSize().width, _board->getContentSize().height));
+		addChild(_help, 5);
+		_help->clickTwice(Vec2(_spriteDetails.at(0)._sprite->getChildByName("box_1")->getPositionX() + _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.width/2, _spriteDetails.at(0)._sprite->getChildByName("box_1")->getPositionY() + _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.height/ 2), Vec2(_spriteDetails.at(0)._sprite->getChildByName("box_1")->getPositionX() + _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.width / 2, _spriteDetails.at(3)._sprite->getChildByName("box_1")->getPositionY() + _spriteDetails.at(3)._sprite->getChildByName("box_1")->getBoundingBox().size.height * 1.5));
+		_helpFlag = 1;
+	}
+
 }
 
 bool Card::init()
@@ -175,6 +186,12 @@ void Card::addEvents(struct SpriteDetails sprite)
 
 					_todoSprite.at(_useCard)->setVisible(true);
 					_doneSprite.at(_useCard)->setVisible(false);
+				}
+
+				if (_helpFlag == 1)
+				{
+					this->removeChild(_help);
+					_helpFlag = 0;
 				}
 			}
 

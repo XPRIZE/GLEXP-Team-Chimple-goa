@@ -21,7 +21,7 @@ public:
 	~Card();
 
 	Node *_CardBg;
-	int _level, _pairSum, _pairCard, _totalSum=0, _useCard = 0, _programFlag = 0, _remainingCard = 6;
+	int _level, _pairSum, _pairCard, _totalSum=0, _useCard = 0, _programFlag = 0, _remainingCard = 6, _helpFlag = 0;
 	HelpLayer *_help;
 	cocos2d::Size visibleSize;
 
