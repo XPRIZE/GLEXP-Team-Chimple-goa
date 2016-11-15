@@ -34,7 +34,7 @@ void Card::onEnterTransitionDidFinish()
 	else if (_level >= 16 && _level <= 20)
 		_pairSum = 20;
 
-	if (_level >= 1 || _level == 2 || _level == 6 || _level == 7 || _level == 11 || _level == 12 || _level == 16)
+	if (_level == 1 || _level == 2 || _level == 6 || _level == 7 || _level == 11 || _level == 12 || _level == 16)
 	{
 		_pairCard = 2;
 	}
@@ -84,7 +84,6 @@ void Card::onEnterTransitionDidFinish()
 	_CardBg = CSLoader::createNode("card/background.csb");
 	this->addChild(_CardBg);
 
-
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("card/card.plist");
 
 	for (int i = 0; i < _pairCard; i++)
@@ -115,8 +114,6 @@ void Card::onEnterTransitionDidFinish()
 		_spriteDetails.push_back(SpriteDetails);
 		addEvents(SpriteDetails);
 	}
-
-	this->scheduleUpdate();
 }
 
 bool Card::init()
@@ -127,15 +124,6 @@ bool Card::init()
 	}
 
 	return true;
-}
-
-void Card::update(float d)
-{
-}
-
-void Card::gameEnd()
-{
-
 }
 
 void Card::addEvents(struct SpriteDetails sprite)
@@ -232,11 +220,9 @@ void Card::addEvents(struct SpriteDetails sprite)
 					_useCard = 0;
 				}
 			}
-
 			return true;
 		}
 		return false;
 	};
-
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener->clone(), sprite._sprite->getChildByName("box_1"));
 }
