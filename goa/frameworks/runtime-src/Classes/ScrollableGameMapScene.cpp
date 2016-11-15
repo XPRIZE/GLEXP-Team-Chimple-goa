@@ -51,6 +51,8 @@
 #include "mini_games/Owl.h"
 #include "mini_games/Order.h"
 #include "mini_games/Pillar.h"
+#include "mini_games/Line.h"
+#include "mini_games/ChocolateFactory.h"
 
 #include "storage/local-storage/LocalStorage.h"
 #include "external/json/document.h"

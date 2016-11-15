@@ -38,7 +38,7 @@ cocos2d::Scene * JumpingNumber::createScene()
 	auto layer = JumpingNumber::create();
 	scene->addChild(layer);
 
-	layer->menu = MenuContext::create(layer, "jumpingNumbers");
+	layer->menu = MenuContext::create(layer, JumpingNumber::gameName());
 	scene->addChild(layer->menu);
 	return scene;
 }
@@ -56,9 +56,6 @@ bool JumpingNumber::init()
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	
-	auto bg = CSLoader::createNode("jumping_numbers/jumping_numbers.csb");
-	this->addChild(bg);
-
 
 	_levelMapping = {
 
@@ -180,13 +177,64 @@ bool JumpingNumber::init()
 		} },
 	};
 
+	_differntSceneMappingConfig = {
+
+		{ "city",  //sonu designs
+		{
+			{ "plist", "dash/dash.plist" },
+			{ "bg", "jumping_numbers/jumping_numbers.csb" },
+			{ "step", "jumping_numbers/step.png" },
+			{ "base", "jumping_numbers/base.png" },
+			{ "character", "jumping_numbers/rabbit.csb" },
+			{ "right_animation", "jumping" },
+			{ "wrong_animation", "sad_wrong" }
+		} },
+		{ "iceLand",  //anu designs jumping_numbers_island
+		{
+			{ "plist", "dash/dash.plist" },
+			{ "bg", "jumping_numbers_island/jumping_numbers_island.csb" },
+			{ "step", "jumping_numbers_island/step.png" },
+			{ "base", "jumping_numbers_island/base.png" },
+			{ "character", "jumping_numbers_island/frog.csb" },
+			{ "right_animation", "frog" },
+			{ "wrong_animation", "sad_wrong" }
+		} },
+		{ "candy",  //teju design
+		{
+			{ "plist", "dashcandy/dashcandy.plist" },
+			{ "bg", "dashcandy/dashcandy.csb" },
+			{ "step", "dashcandy/step.png" },
+			{ "step_winning", "dashcandy/step_winning.png" },
+			{ "flag", "dashcandy/flag.png" },
+			{ "button", "dashcandy/answer_button.png" },
+			{ "character", "dashcandy/character.csb" },
+			{ "right_animation", "jump" },
+			{ "wrong_animation", "angry" },
+			{ "winning_animation", "null" },
+			{ "board","dashcandy/answer_button.png" }
+		} },
+	};
+
+
+
+
+
 	return true;
 }
 
 void JumpingNumber::onEnterTransitionDidFinish()
 {
+	std::vector<std::string> theme = { "city","candy","iceLand" };
+	int currentTheme = (menu->getCurrentLevel() - 1) / 10;
+	_themeName = "iceLand";
+	_fullDirectoryPath = _differntSceneMappingConfig.at("iceLand");//theme.at(currentTheme));
+	auto bg = CSLoader::createNode(_fullDirectoryPath.at("bg"));
+	this->addChild(bg);
+
+
+	
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-	auto character = CSLoader::createNode("jumping_numbers/rabbit.csb");
+	auto character = CSLoader::createNode(_fullDirectoryPath.at("character"));
 	character->setPositionX(250);
 	character->setPositionY(visibleSize.height/2);
 	character->setName("character");
@@ -198,11 +246,13 @@ void JumpingNumber::onEnterTransitionDidFinish()
 	_lastNumber = level.begin()->second;
 	_passingNumber = firstNumber;
 	_numberDifference = (_lastNumber - firstNumber) / 10;
+	_isTouched = true;
 	stepsCreate(_passingNumber);
 }
 
 void JumpingNumber::stepsCreate(int numberLabel)
 {
+
 	auto score = numberLabel;
 	std::vector<int> myLabel;
 	myLabel.push_back(numberLabel);
@@ -211,7 +261,7 @@ void JumpingNumber::stepsCreate(int numberLabel)
 	int randomIndex = RandomHelper::random_int(0, 2);
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	for (int i = 1; i < 4; i++) {
-		auto step = Sprite::createWithSpriteFrameName("jumping_numbers/step.png");
+		auto step = Sprite::createWithSpriteFrameName(_fullDirectoryPath.at("step"));
 		step->setPositionX(_stepPositionX);
 		step->setPositionY(visibleSize.height/4 * i);
 		this->addChild(step,1);
@@ -244,12 +294,12 @@ void JumpingNumber::stepsCreate(int numberLabel)
 	_stepPositionX += visibleSize.width * 0.18;
 
 	if (_stepIndex == 7) {
-		auto step = Sprite::createWithSpriteFrameName("jumping_numbers/base.png");
+		auto step = Sprite::createWithSpriteFrameName(_fullDirectoryPath.at("base"));
 		step->setPositionX(_stepPositionX + (visibleSize.width* 0.18)*2);
 		step->setPositionY(visibleSize.height / 2);
 		step->setName("base");
 		this->addChild(step,1);
-
+		step->setScaleX(-1);
 		auto listener = EventListenerTouchOneByOne::create();
 		listener->setSwallowTouches(true);
 		listener->onTouchBegan = CC_CALLBACK_2(JumpingNumber::onTouchBegan, this);
@@ -268,8 +318,9 @@ bool JumpingNumber::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 	auto  location = target->convertToNodeSpace(touch->getLocation());
 	Size s = target->getContentSize();
 	Rect rect = Rect(0, 0, s.width, s.height);
-	if (rect.containsPoint(location)) {
+	if (rect.containsPoint(location) && _isTouched) {
 		CCLOG("onTouchBegan");
+		_isTouched = false;
 		// converting int to string
 		std::stringstream ss;
 		ss << _passingNumber;
@@ -308,11 +359,11 @@ void JumpingNumber::jumpAnimation(cocos2d::Point pos, bool gameEnd)
 	auto character = this->getChildByName("character");
 
 	auto jumpspeed = ccpDistance(character->getPosition(), pos);
-	auto jump = JumpTo::create(jumpspeed/750, pos, 100,1);
+	auto jump = JumpTo::create(0.8, pos, 100,1);
 	auto move = MoveBy::create(dis/500, Vec2(0, -difference));
 	
 	auto stepMove = MoveBy::create(dis/500, Vec2(0, -difference));
-	characterAnimation("jumping");
+	characterAnimation(_fullDirectoryPath.at("right_animation"));
 	character->runAction(Sequence::create(jump, CallFunc::create([=]() {
 		if (!gameEnd) {
 			for (int i = 0; i < 3; i++) {
@@ -326,12 +377,14 @@ void JumpingNumber::jumpAnimation(cocos2d::Point pos, bool gameEnd)
 	
 		if (_passingNumber != _lastNumber) {
 			floatingCharacter();
+			_isTouched = true;
 			stepsCreate(_passingNumber);
 		}
 		else if (gameEnd){
 			menu->showScore();
 		}
 		else {
+			_isTouched = true;
 			floatingCharacter();
 		}
 		//stepsCreate(_passingNumber);
@@ -340,7 +393,7 @@ void JumpingNumber::jumpAnimation(cocos2d::Point pos, bool gameEnd)
 
 	), NULL));
 	if (!gameEnd) {
-		_floatingStepsReff.at(_stepIndex)->runAction(Sequence::create(DelayTime::create(jumpspeed / 750), stepMove, NULL));
+		_floatingStepsReff.at(_stepIndex)->runAction(Sequence::create(DelayTime::create(0.8), stepMove, NULL));
 	}
 	
 }
@@ -375,7 +428,7 @@ void JumpingNumber::layerMoving(cocos2d::Point position)
 void JumpingNumber::characterAnimation(std::string str, bool loop)
 {
 	auto character = this->getChildByName("character");
-	auto timeLineAction = CSLoader::createTimeline("jumping_numbers/rabbit.csb");
+	auto timeLineAction = CSLoader::createTimeline(_fullDirectoryPath.at("character"));
 	character->runAction(timeLineAction);
 	timeLineAction->play(str, loop);
 }
@@ -388,7 +441,17 @@ void JumpingNumber::wrongAnimation(cocos2d::Node * sprite, cocos2d::Point positi
 	auto scale = ScaleTo::create(2, 0.0f);
 	character->runAction(Sequence::create(jump, CallFunc::create([=]() {
 		this->removeChild(sprite);
+		if (_themeName.compare("iceLand") == 0) {
+			auto splash = CSLoader::createNode("jumping_numbers_island/splash.csb");
+			splash->setPosition(character->getPosition());
+			this->addChild(splash);
+			auto splashTimeline = CSLoader::createTimeline("jumping_numbers_island/splash.csb");
+			splash->runAction(splashTimeline);
+			splashTimeline->play("splash", false);
+
+		}
 	}
+
 	),scale, CallFunc::create([=]() {
 		//Director::getInstance()->replaceScene(JumpingNumber::createScene());
 		for (int i = 0; i < _floatingStepsReff.size() ; i++) {
