@@ -277,6 +277,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClCompile Include="..\Classes\mini_games\Train.cpp" />
     <ClCompile Include="..\Classes\mini_games\TreasureHunt.cpp" />
     <ClCompile Include="..\Classes\mini_games\TreasureHuntNode.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Units.cpp" />
     <ClCompile Include="..\Classes\mini_games\Wembley.cpp" />
     <ClCompile Include="..\Classes\MO.cpp" />
     <ClCompile Include="..\Classes\PhotoCaptureScene.cpp" />
@@ -466,6 +467,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClInclude Include="..\Classes\mini_games\Train.h" />
     <ClInclude Include="..\Classes\mini_games\TreasureHunt.h" />
     <ClInclude Include="..\Classes\mini_games\TreasureHuntNode.h" />
+    <ClInclude Include="..\Classes\mini_games\Units.h" />
     <ClInclude Include="..\Classes\mini_games\Wembley.h" />
     <ClInclude Include="..\Classes\MO.h" />
     <ClInclude Include="..\Classes\PhotoCaptureScene.hpp" />
