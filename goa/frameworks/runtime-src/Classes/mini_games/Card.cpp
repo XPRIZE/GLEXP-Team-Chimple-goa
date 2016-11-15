@@ -170,12 +170,6 @@ void Card::addEvents(struct SpriteDetails sprite)
 				{
 					_programFlag = 1;
 
-					for (int i = 0; i < _todoSprite.size(); i++)
-					{
-						_todoSprite.at(i)->setVisible(true);
-						_doneSprite.at(i)->setVisible(false);
-					}
-
 					for (int i = 0; i < _spriteDetails.size(); i++)
 					{
 						if (_spriteDetails.at(i)._flag == 1)
@@ -192,6 +186,12 @@ void Card::addEvents(struct SpriteDetails sprite)
 									_remainingCard -= _useCard;
 									_useCard = 0;
 
+									for (int i = 0; i < _todoSprite.size(); i++)
+									{
+										_todoSprite.at(i)->setVisible(true);
+										_doneSprite.at(i)->setVisible(false);
+									}
+
 									if (_remainingCard == 0)
 										_menuContext->showScore();
 
@@ -201,23 +201,27 @@ void Card::addEvents(struct SpriteDetails sprite)
 				}
 				else
 				{
-					for (int i = 0; i < _spriteDetails.size(); i++)
-					{
-						if (_spriteDetails.at(i)._flag == 1)
+					this->runAction(Sequence::create(DelayTime::create(.3), CallFunc::create([=]() {
+
+						for (int i = 0; i < _spriteDetails.size(); i++)
 						{
-							_spriteDetails.at(i)._sprite->setScale(.9);
-							_spriteDetails.at(i)._flag = 0;
+							if (_spriteDetails.at(i)._flag == 1)
+							{
+								_spriteDetails.at(i)._sprite->setScale(.9);
+								_spriteDetails.at(i)._flag = 0;
+							}
 						}
-					}
 
-					for (int i = 0; i < _todoSprite.size(); i++)
-					{
-						_todoSprite.at(i)->setVisible(true);
-						_doneSprite.at(i)->setVisible(false);
-					}
+						for (int i = 0; i < _todoSprite.size(); i++)
+						{
+							_todoSprite.at(i)->setVisible(true);
+							_doneSprite.at(i)->setVisible(false);
+						}
 
-					_totalSum = 0;
-					_useCard = 0;
+						_totalSum = 0;
+						_useCard = 0;
+
+					}), NULL));
 				}
 			}
 			return true;
