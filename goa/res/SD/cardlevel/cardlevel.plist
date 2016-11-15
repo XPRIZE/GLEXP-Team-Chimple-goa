@@ -4,140 +4,125 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>card/board.png</key>
+            <key>cardlevel/box.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{681,304}</string>
+                <string>{260,260}</string>
                 <key>spriteSourceSize</key>
-                <string>{681,304}</string>
+                <string>{260,260}</string>
                 <key>textureRect</key>
-                <string>{{746,1},{681,304}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>card/box.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{743,745}</string>
-                <key>spriteSourceSize</key>
-                <string>{743,745}</string>
-                <key>textureRect</key>
-                <string>{{1,1},{743,745}}</string>
+                <string>{{1,1151},{260,260}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>card/cow.png</key>
+            <key>cardlevel/cow.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{184,185}</string>
+                <string>{449,295}</string>
                 <key>spriteSourceSize</key>
-                <string>{184,185}</string>
+                <string>{449,295}</string>
                 <key>textureRect</key>
-                <string>{{321,748},{184,185}}</string>
+                <string>{{1,219},{449,295}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>card/dog.png</key>
+            <key>cardlevel/drygrass.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{176,160}</string>
+                <string>{332,120}</string>
                 <key>spriteSourceSize</key>
-                <string>{176,160}</string>
+                <string>{332,120}</string>
                 <key>textureRect</key>
-                <string>{{507,748},{176,160}}</string>
+                <string>{{340,923},{332,120}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>card/done.png</key>
+            <key>cardlevel/hay.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{159,160}</string>
+                <string>{395,156}</string>
                 <key>spriteSourceSize</key>
-                <string>{159,160}</string>
+                <string>{395,156}</string>
                 <key>textureRect</key>
-                <string>{{839,684},{159,160}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>card/hen.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{175,168}</string>
-                <key>spriteSourceSize</key>
-                <string>{175,168}</string>
-                <key>textureRect</key>
-                <string>{{669,748},{175,168}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>card/pig.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{169,189}</string>
-                <key>spriteSourceSize</key>
-                <string>{169,189}</string>
-                <key>textureRect</key>
-                <string>{{1,748},{169,189}}</string>
+                <string>{{1,765},{395,156}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>card/sheep.png</key>
+            <key>cardlevel/pig.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{0,-13}</string>
                 <key>spriteSize</key>
-                <string>{186,147}</string>
+                <string>{337,226}</string>
                 <key>spriteSourceSize</key>
-                <string>{186,147}</string>
+                <string>{337,252}</string>
                 <key>textureRect</key>
-                <string>{{172,748},{186,147}}</string>
+                <string>{{1,923},{337,226}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
-            <key>card/todo.png</key>
+            <key>cardlevel/rope 2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{159,160}</string>
+                <string>{409,247}</string>
                 <key>spriteSourceSize</key>
-                <string>{159,160}</string>
+                <string>{409,247}</string>
                 <key>textureRect</key>
-                <string>{{839,845},{159,160}}</string>
+                <string>{{1,516},{409,247}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
+            </dict>
+            <key>cardlevel/rope1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{30,385}</string>
+                <key>spriteSourceSize</key>
+                <string>{30,385}</string>
+                <key>textureRect</key>
+                <string>{{412,516},{30,385}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>cardlevel/sheep.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{450,216}</string>
+                <key>spriteSourceSize</key>
+                <string>{450,216}</string>
+                <key>textureRect</key>
+                <string>{{1,1},{450,216}}</string>
+                <key>textureRotated</key>
+                <false/>
             </dict>
         </dict>
         <key>metadata</key>
@@ -149,13 +134,13 @@
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>card.png</string>
+            <string>cardlevel.png</string>
             <key>size</key>
-            <string>{1051,1005}</string>
+            <string>{461,1412}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:2c5950c31c25e2e032e0f011a3d412ce:2dd2890d8666542ef6a2e7e65b8141ae:7c7a40e17f66f6454f208738c2110e7c$</string>
+            <string>$TexturePacker:SmartUpdate:f5c74c5cc14a3a503afd7f42e8787f42:d72bbf15d92e3ffe73911fe06e4a8323:3ad70638dbb74698eddb328891b3557b$</string>
             <key>textureFileName</key>
-            <string>card.png</string>
+            <string>cardlevel.png</string>
         </dict>
     </dict>
 </plist>

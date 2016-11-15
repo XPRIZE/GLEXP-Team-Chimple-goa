@@ -56,19 +56,18 @@ void ChocolateFactory::onEnterTransitionDidFinish()
 	conveyor->runAction(timeline);
 	timeline->gotoFrameAndPlay(0, true);
 
+	auto barrierRight = Sprite::create("crossthebridge/barrier.png");
+	setAllSpriteProperties(barrierRight, 2, visibleSize.width*.3, visibleSize.height/2, true, 0.5, 0.5, 0, 1, 1);
+
 	Sprite* dummyBox = Sprite::createWithSpriteFrameName("chocolatefactory/boxfront.png");
 
 	for (int i=0; i<4; i++)
 	{
 		auto a = dummyBox->getContentSize().width;
-		std::pair<Sprite*, cocostudio::timeline::ActionTimeline*>animationData1 = setAnimationAndProperties("chocolatefactory/box.csb",-visibleSize.width*.13, (534.75), (534.75), 1);
+		std::pair<Sprite*, cocostudio::timeline::ActionTimeline*>animationData1 = setAnimationAndProperties("chocolatefactory/box.csb",-(visibleSize.width*.13+i*dummyBox->getContentSize().width*.735), (534.75),1);
 		_boxBin.push_back(animationData1.first);
-		rightFloat(animationData1.first,10,(visibleSize.width*.13 + i*dummyBox->getContentSize().width*.735),534.75);
+		rightFloat(animationData1.first,10+i*2,(visibleSize.width*.13 + i*dummyBox->getContentSize().width*.735),534.75);
 	}
-
-
-
-
 	/*std::pair<Sprite*, cocostudio::timeline::ActionTimeline*>animationData1 = setAnimationAndProperties("chocolatefactory/box.csb", (visibleSize.width*),(534.75), 1);
 	Sprite* box1 = animationData1.first;
 
@@ -81,8 +80,6 @@ void ChocolateFactory::onEnterTransitionDidFinish()
 	std::pair<Sprite*, cocostudio::timeline::ActionTimeline*>animationData4 = setAnimationAndProperties("chocolatefactory/box.csb", (1322.75), (534.75), 1);
 	Sprite* box4 = animationData4.first;
 	*/
-
-
 }
 
 ChocolateFactory::~ChocolateFactory()

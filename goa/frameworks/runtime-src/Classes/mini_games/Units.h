@@ -31,6 +31,11 @@ public:
 	int _helpFlag = 0;
 	
 	void gameHelpLayer();
+	Node * _bg;
+	Node *_pizza;
+	Vec2 outlet_1;
+	Vec2 outlet_2;
+	void createOrder(int id);
 	static const char* gameName() { return UNITS.c_str(); }
 };
 

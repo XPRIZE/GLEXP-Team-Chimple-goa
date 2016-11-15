@@ -181,7 +181,6 @@ bool JumpingNumber::init()
 
 		{ "city",  //sonu designs
 		{
-			{ "plist", "dash/dash.plist" },
 			{ "bg", "jumping_numbers/jumping_numbers.csb" },
 			{ "step", "jumping_numbers/step.png" },
 			{ "base", "jumping_numbers/base.png" },
@@ -191,33 +190,25 @@ bool JumpingNumber::init()
 		} },
 		{ "iceLand",  //anu designs jumping_numbers_island
 		{
-			{ "plist", "dash/dash.plist" },
 			{ "bg", "jumping_numbers_island/jumping_numbers_island.csb" },
 			{ "step", "jumping_numbers_island/step.png" },
 			{ "base", "jumping_numbers_island/base.png" },
 			{ "character", "jumping_numbers_island/frog.csb" },
+			{ "animationFile", "jumping_numbers_island/splash.csb" },
 			{ "right_animation", "frog" },
-			{ "wrong_animation", "sad_wrong" }
+			{ "wrong_animation", "splash" }
 		} },
-		{ "candy",  //teju design
+		{ "candy",  //teju design  candy_jumping_numbers
 		{
-			{ "plist", "dashcandy/dashcandy.plist" },
-			{ "bg", "dashcandy/dashcandy.csb" },
-			{ "step", "dashcandy/step.png" },
-			{ "step_winning", "dashcandy/step_winning.png" },
-			{ "flag", "dashcandy/flag.png" },
-			{ "button", "dashcandy/answer_button.png" },
-			{ "character", "dashcandy/character.csb" },
+			{ "bg", "candy_jumping_numbers/candy_jumping_numbers.csb" },
+			{ "step", "candy_jumping_numbers/cookie.png" },
+			{ "base", "candy_jumping_numbers/land.png" },
+			{ "character", "candy_jumping_numbers/gingerbreadman.csb" },
 			{ "right_animation", "jump" },
-			{ "wrong_animation", "angry" },
-			{ "winning_animation", "null" },
-			{ "board","dashcandy/answer_button.png" }
+			{ "animationFile", "candy_jumping_numbers/waves.csb" },
+			{ "wrong_animation", "waves" }
 		} },
 	};
-
-
-
-
 
 	return true;
 }
@@ -226,8 +217,8 @@ void JumpingNumber::onEnterTransitionDidFinish()
 {
 	std::vector<std::string> theme = { "city","candy","iceLand" };
 	int currentTheme = (menu->getCurrentLevel() - 1) / 10;
-	_themeName = "iceLand";
-	_fullDirectoryPath = _differntSceneMappingConfig.at("iceLand");//theme.at(currentTheme));
+	_themeName = theme.at(currentTheme);
+	_fullDirectoryPath = _differntSceneMappingConfig.at(_themeName);//theme.at(currentTheme));
 	auto bg = CSLoader::createNode(_fullDirectoryPath.at("bg"));
 	this->addChild(bg);
 
@@ -235,6 +226,9 @@ void JumpingNumber::onEnterTransitionDidFinish()
 	
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto character = CSLoader::createNode(_fullDirectoryPath.at("character"));
+	auto characterAnimation = CSLoader::createTimeline(_fullDirectoryPath.at("character"));
+	characterAnimation->gotoFrameAndPause(1);
+	character->runAction(characterAnimation);
 	character->setPositionX(250);
 	character->setPositionY(visibleSize.height/2);
 	character->setName("character");
@@ -441,13 +435,13 @@ void JumpingNumber::wrongAnimation(cocos2d::Node * sprite, cocos2d::Point positi
 	auto scale = ScaleTo::create(2, 0.0f);
 	character->runAction(Sequence::create(jump, CallFunc::create([=]() {
 		this->removeChild(sprite);
-		if (_themeName.compare("iceLand") == 0) {
-			auto splash = CSLoader::createNode("jumping_numbers_island/splash.csb");
+		if (_themeName.compare("city") != 0) {
+			auto splash = CSLoader::createNode(_fullDirectoryPath.at("animationFile"));
 			splash->setPosition(character->getPosition());
 			this->addChild(splash);
-			auto splashTimeline = CSLoader::createTimeline("jumping_numbers_island/splash.csb");
+			auto splashTimeline = CSLoader::createTimeline(_fullDirectoryPath.at("animationFile"));
 			splash->runAction(splashTimeline);
-			splashTimeline->play("splash", false);
+			splashTimeline->play(_fullDirectoryPath.at("wrong_animation"), false); 
 
 		}
 	}
