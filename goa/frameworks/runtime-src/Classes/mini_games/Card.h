@@ -21,7 +21,7 @@ public:
 	~Card();
 
 	Node *_CardBg;
-	int _level, _pairSum, _pairCard, _totalSum=0, _useCard = 0, _programFlag = 0, _remainingCard = 6;
+	int _level, _pairSum, _pairCard, _totalSum=0, _useCard = 0, _programFlag = 0, _remainingCard = 6, _helpFlag = 0;
 	HelpLayer *_help;
 	cocos2d::Size visibleSize;
 
@@ -50,7 +50,7 @@ public:
 	std::vector<struct CardPosition> _cardPosition;
 
 	int _differentLevel[20][6] = {
-		{ 3, 2, 4, 1, 2, 3 },
+		{ 3, 1, 4, 2, 2, 3 },
 		{ 4, 3, 2, 3, 2, 1 },
 		{ 2, 1, 3, 1, 2, 1 },
 		{ 2, 3, 1, 1, 1, 2 },
