@@ -21,16 +21,23 @@ protected:
 	MenuContext *_menuContext;
 
 	std::string _dropCurrentTheme = "";
+	Sprite* _fillUpMachine;
 	std::vector<std::pair<float, float>> _boxPosition;
-	std::vector<Sprite*> _boxBin;
+	std::vector<Sprite*> _trayBin;
+	std::vector<pair<float, float>> _trayPositions;
+	int _fillUpFlag = 0;
 
 public:
 	~ChocolateFactory();
 	CREATE_FUNC(ChocolateFactory);
 	static cocos2d::Scene* createScene();
 	void onEnterTransitionDidFinish();
+	void update(float dt);
 	void rightFloat(Sprite* spriteAlphabet, int time, float positionX, float positionY);
-	void update(float) override;
+	void addTouchEvents(Sprite* touchSprite);
+	void machineDynamicMotion(int i);
+	Sprite* _pole;
+	bool _touched = true;
 
 
 	std::pair<int, int> levelAllInfo(int levelNum, int sceneRepetitionNo, int totalScene, int catagoryRepetitionNo, int totalcatagory);
