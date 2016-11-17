@@ -221,27 +221,8 @@ void JumpingNumber::onEnterTransitionDidFinish()
 	_fullDirectoryPath = _differntSceneMappingConfig.at(_themeName);//theme.at(currentTheme));
 	auto bg = CSLoader::createNode(_fullDirectoryPath.at("bg"));
 	this->addChild(bg);
+	gameStart();
 
-
-	
-	Size visibleSize = Director::getInstance()->getVisibleSize();
-	auto character = CSLoader::createNode(_fullDirectoryPath.at("character"));
-	auto characterAnimation = CSLoader::createTimeline(_fullDirectoryPath.at("character"));
-	characterAnimation->gotoFrameAndPause(1);
-	character->runAction(characterAnimation);
-	character->setPositionX(250);
-	character->setPositionY(visibleSize.height/2);
-	character->setName("character");
-	this->addChild(character,2);
-	_stepPositionX = visibleSize.width * 0.25;
-//	creatSteps(1);
-	auto level = _levelMapping.at(menu->getCurrentLevel());
-	auto firstNumber = level.begin()->first;
-	_lastNumber = level.begin()->second;
-	_passingNumber = firstNumber;
-	_numberDifference = (_lastNumber - firstNumber) / 10;
-	_isTouched = true;
-	stepsCreate(_passingNumber);
 }
 
 void JumpingNumber::stepsCreate(int numberLabel)
@@ -438,6 +419,7 @@ void JumpingNumber::wrongAnimation(cocos2d::Node * sprite, cocos2d::Point positi
 		if (_themeName.compare("city") != 0) {
 			auto splash = CSLoader::createNode(_fullDirectoryPath.at("animationFile"));
 			splash->setPosition(character->getPosition());
+			splash->setName("splash");
 			this->addChild(splash);
 			auto splashTimeline = CSLoader::createTimeline(_fullDirectoryPath.at("animationFile"));
 			splash->runAction(splashTimeline);
@@ -464,10 +446,12 @@ void JumpingNumber::wrongAnimation(cocos2d::Node * sprite, cocos2d::Point positi
 
 void JumpingNumber::gameRestart()
 {
+	this->removeChildByName("splash");
 	this->removeChildByName("character");
 	auto move = MoveTo::create(2, Vec2(0, 0));
 	this->runAction(Sequence::create(move, CallFunc::create([=]() {
-		JumpingNumber::onEnterTransitionDidFinish();
+		//JumpingNumber::onEnterTransitionDidFinish();
+		gameStart();
 	}), NULL));
 }
 
@@ -480,4 +464,27 @@ void JumpingNumber::gameHelp()
 	helpLayer->click(position);
 	helpLayer->setName("helpLayer");
 	this->addChild(helpLayer,2);
+}
+
+void JumpingNumber::gameStart()
+{
+
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	auto character = CSLoader::createNode(_fullDirectoryPath.at("character"));
+	auto characterAnimation = CSLoader::createTimeline(_fullDirectoryPath.at("character"));
+	characterAnimation->gotoFrameAndPause(1);
+	character->runAction(characterAnimation);
+	character->setPositionX(250);
+	character->setPositionY(visibleSize.height / 2);
+	character->setName("character");
+	this->addChild(character, 2);
+	_stepPositionX = visibleSize.width * 0.25;
+	//	creatSteps(1);
+	auto level = _levelMapping.at(menu->getCurrentLevel());
+	auto firstNumber = level.begin()->first;
+	_lastNumber = level.begin()->second;
+	_passingNumber = firstNumber;
+	_numberDifference = (_lastNumber - firstNumber) / 10;
+	_isTouched = true;
+	stepsCreate(_passingNumber);
 }
