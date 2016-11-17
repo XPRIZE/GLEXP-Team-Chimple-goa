@@ -24,6 +24,7 @@ protected:
 	Sprite* _fillUpMachine;
 	std::vector<std::pair<float, float>> _boxPosition;
 	std::vector<Sprite*> _trayBin;
+	std::vector<Sprite*> _trayBinDummy;
 	std::vector<pair<float, float>> _trayPositions;
 	int _fillUpFlag = 0;
 
