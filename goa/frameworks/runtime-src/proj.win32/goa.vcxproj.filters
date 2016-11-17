@@ -159,6 +159,7 @@
     <ClCompile Include="..\Classes\WordSprite.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="..\Classes\mini_games\Units.cpp" />
+    <ClCompile Include="..\Classes\Calculator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AlphamonSprite.h" />
@@ -346,6 +347,7 @@
     <ClInclude Include="main.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="..\Classes\mini_games\Units.h" />
+    <ClInclude Include="..\Classes\Calculator.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc" />
