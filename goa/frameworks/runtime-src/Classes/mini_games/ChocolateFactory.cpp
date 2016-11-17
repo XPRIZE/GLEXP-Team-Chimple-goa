@@ -61,21 +61,40 @@ void ChocolateFactory::onEnterTransitionDidFinish()
 	_fillUpMachine->setGlobalZOrder(10);
 	_fillUpMachine->runAction(fillUpMachineTimeline);
 
-	 _pole = Sprite::createWithSpriteFrameName("chocolatefactory/boxfront.png");
+	/* _pole = Sprite::createWithSpriteFrameName("chocolatefactory/boxfront.png");
 	setAllSpriteProperties(_pole, 0,-(visibleSize.width*0.4), 534.75, true, 0.5, 0.5, 0, 1, 1);
 	this->addChild(_pole, 0);
-	rightFloat(_pole,3.4, visibleSize.width*.09, 534.75);
-
+	rightFloat(_pole,2, visibleSize.width*.09, 534.75);
+	*/
 	Sprite* dummyBox = Sprite::createWithSpriteFrameName("chocolatefactory/boxfront.png");
 
 	for (int i=0; i<4; i++)
 	{
 		Sprite* sprite = (Sprite *)CSLoader::createNode("chocolatefactory/box.csb");
-	   	sprite->setPosition(Vec2(dummyBox->getContentSize().width/2 + i*dummyBox->getContentSize().width*.82, 130));
+		sprite->setPosition(Vec2(-visibleSize.width*.2-i*dummyBox->getContentSize().width*.90, visibleSize.height*.222));
 		sprite->setTag(i);
-		_pole->addChild(sprite, 0);
+		sprite->setContentSize(sprite->getChildByName("boxfront_2")->getContentSize());
+		sprite->setAnchorPoint(Vec2(-0.5,-0.5));
+		this->addChild(sprite, 0);
+		rightFloat(sprite, 2, sprite->getPositionX()+ visibleSize.width*.66, visibleSize.height*.222);
 		_trayBin.push_back(sprite);
+
+		//auto transparentBG = Sprite::create("chocolatefactory/touch.png");
+		//transparentBG->setPosition(Vec2(dummyBox->getContentSize().width / 2 + i*dummyBox->getContentSize().width*.82, 130));
+		//_pole->addChild(transparentBG, 0);
+		////transparentBG->setAnchorPoint(Vec2(0, 0));
+		//transparentBG->setTag(i);
+		//transparentBG->setScaleX(0.6);
+		//transparentBG->setScaleY(1);
+		//_trayBinDummy.push_back(transparentBG);
 	}
+	/*Vector <Node*> children1 = _trayBin[0]->getChildren();
+	int size1 = children1.size();
+	for (auto item = children1.rbegin(); item != children1.rend(); ++item) {
+		Node * monsterItem = *item;
+		std::string str = monsterItem->getName().c_str();
+		CCLOG("name : %s", str.c_str());
+	}*/
 	auto addposition = CCCallFunc::create([=] {
 		for (int i = 0; i <_trayBin.size(); i++)
 		{
@@ -93,16 +112,14 @@ void ChocolateFactory::onEnterTransitionDidFinish()
 		{
 			_fillUpFlag++;
 			for (int i = 0; i < _trayBin.size(); i++)
-			{   addTouchEvents(_trayBin[i]);
-			 auto aab = DrawNode::create();
+			{
+				addTouchEvents(_trayBin[i]);
+
+			auto aab = DrawNode::create();
 			this->addChild(aab, 20);
-			auto a = _trayBin[i]->getPositionX();
-			auto b = _trayBin[i]->getPositionY();
-			auto c = _trayBin[i]->getContentSize().width;
-			auto d = _trayBin[i]->getContentSize().width;
-			aab->drawRect(Vec2(_trayBin[i]->getPositionX()-_trayBin[i]->getContentSize().width,_trayBin[i]->getPositionY()-_trayBin[i]->getContentSize().height),
-				Vec2(_trayBin[i]->getPositionX()+_trayBin[i]->getContentSize().width, _trayBin[i]->getPositionY() + _trayBin[i]->getContentSize().height), Color4F(0, 0, 255, 22));
-			
+			aab->drawRect(Vec2(_trayBin[3]->getPositionX(), _trayBin[3]->getPositionY()),
+				Vec2(_trayBin[3]->getPositionX()+100, _trayBin[3]->getPositionY() +100),
+				Color4F(0, 0, 255, 22));
 			}
 		}
 		fillUpMachineTimeline->gotoFrameAndPlay(0, false);
@@ -122,20 +139,19 @@ void ChocolateFactory::onEnterTransitionDidFinish()
 
 	auto sequence_A  = CCCallFunc::create([=] {
 		if (_fillUpFlag == 0)
-			_fillUpMachine->runAction(MoveTo::create(1, Vec2(_trayBin[0]->getPositionX(), _fillUpMachine->getPositionY())));
+			_fillUpMachine->runAction(MoveTo::create(1, Vec2(_trayBin[0]->getPositionX() + visibleSize.width*.115, _fillUpMachine->getPositionY())));
 		else if (_fillUpFlag == 1)
-			_fillUpMachine->runAction(MoveTo::create(1, Vec2(_trayBin[1]->getPositionX(), _fillUpMachine->getPositionY())));
+			_fillUpMachine->runAction(MoveTo::create(1, Vec2(_trayBin[1]->getPositionX() + visibleSize.width*.115, _fillUpMachine->getPositionY())));
 		else if (_fillUpFlag == 2)
-			_fillUpMachine->runAction(MoveTo::create(1, Vec2(_trayBin[2]->getPositionX(), _fillUpMachine->getPositionY())));
+			_fillUpMachine->runAction(MoveTo::create(1, Vec2(_trayBin[2]->getPositionX() + visibleSize.width*.115, _fillUpMachine->getPositionY())));
 		else
-			_fillUpMachine->runAction(MoveTo::create(1, Vec2(_trayBin[3]->getPositionX(), _fillUpMachine->getPositionY())));
+			_fillUpMachine->runAction(MoveTo::create(1, Vec2(_trayBin[3]->getPositionX() + visibleSize.width*.115, _fillUpMachine->getPositionY())));
 	}); 
+	this->runAction(Sequence::create(DelayTime::create(3), sequence_A, DelayTime::create(1), fillProduct,
+		DelayTime::create(3.5), sequence_A, DelayTime::create(1),fillProduct,DelayTime::create(3.5), sequence_A ,DelayTime::create(1),
+		fillProduct,DelayTime::create(3.5),sequence_A , DelayTime::create(1), fillProduct,NULL));
 
-	this->runAction(Sequence::create(DelayTime::create(4), sequence_A, DelayTime::create(1), fillProduct,
-		DelayTime::create(4), sequence_A, DelayTime::create(1),fillProduct,DelayTime::create(4), sequence_A ,DelayTime::create(1),
-		fillProduct,DelayTime::create(4),sequence_A , DelayTime::create(1), fillProduct,NULL));
-
-	this->runAction(Sequence::create(DelayTime::create(6), addposition, NULL));
+	this->runAction(Sequence::create(DelayTime::create(7), addposition, NULL));
 	this->scheduleUpdate();
 }
 
@@ -165,7 +181,7 @@ void ChocolateFactory::addTouchEvents(Sprite* obj)
 		rect = Rect(0, 0, s.width, s.height);
 		if (rect.containsPoint(locationInNode))
 		{
-			CCLOG("ABC");
+			CCLOG("touched");
 		}
 		return true;
 	};
@@ -176,10 +192,11 @@ void ChocolateFactory::addTouchEvents(Sprite* obj)
 		Size s = target->getContentSize();
 		Rect rect;
 		rect = Rect(0, 0, s.width, s.height);
-		if (rect.containsPoint(locationInNode) & _touched)
+		if (rect.containsPoint(locationInNode))
 		{
 			_touched = false;
-			CCLOG("ABC");
+			target->setPosition(Vec2(touch->getLocation().x, touch->getLocation().y));
+			CCLOG("moved");
 		}
 		return true;
 	};
@@ -192,7 +209,7 @@ void ChocolateFactory::addTouchEvents(Sprite* obj)
 		rect = Rect(0, 0, s.width, s.height);
 		if (rect.containsPoint(locationInNode))
 		{
-			CCLOG("ABC");
+			CCLOG("ended");
 		}
 		return true;
 	};
