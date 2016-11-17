@@ -29,9 +29,6 @@
     <Filter Include="Classes\menu">
       <UniqueIdentifier>{c3ea67e5-6c87-4045-9210-fee097c3f66e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\mini_games">
-      <UniqueIdentifier>{b378c225-325b-42b1-8a10-6bea9d251620}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Classes\puzzle">
       <UniqueIdentifier>{190bfbf7-5e8f-4f4a-9d46-65373a78367f}</UniqueIdentifier>
     </Filter>
@@ -73,6 +70,9 @@
     </Filter>
     <Filter Include="Classes\util\logger">
       <UniqueIdentifier>{729c288e-6106-45f1-be86-31322f837334}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\mini_games">
+      <UniqueIdentifier>{1c19c213-3390-4796-8bed-900845472874}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -117,69 +117,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\menu\ScoreBoardContent.cpp">
       <Filter>Classes\menu</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\AlphamonFeedLevelScene.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\AlphamonFeedScene.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\Baja.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\BajaWordScene.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Listener.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Main.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\CatGameScene.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\CatScene.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\Chain.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\CrossTheBridgeScene.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\EndlessRunner.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\Jasmin_Listenerfile.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\Jasmin_Mainfile.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\jazz.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\PatchTheWallScene.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\SmashTheRockLevelScene.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\SmashTheRockScene.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\Spirograph.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\SpriteCreate.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\TraceScene.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\Wembley.cpp">
-      <Filter>Classes\mini_games</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\puzzle\Alphabet.cpp">
       <Filter>Classes\puzzle</Filter>
@@ -315,60 +252,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\WordSprite.cpp">
       <Filter>Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\Train.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\Alphamole.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\AlphamoleLevel.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\Bingo.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\Memory.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\Dash.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\Circle.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\Stack.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\Decomon.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\MemoryHero.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\MemoryJungle.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\Talk.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\BalloonHero.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\Drop.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\Owl.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\Order.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\Pillar.cpp">
-      <Filter>Classes\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\DecomonGallery.cpp">
-      <Filter>Classes\mini_games</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\menu\HelpLayer.cpp">
       <Filter>Classes\menu</Filter>
@@ -511,28 +394,97 @@
     <ClCompile Include="..\Classes\WordSceneLipiTKNode.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Alphamole.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\AlphamoleLevel.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\AlphamonFeedLevelScene.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\AlphamonFeedScene.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Baja.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\BajaWordScene.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\BalloonHero.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Bingo.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\BlastLetter.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\BlastLetterNode.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Listener.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Main.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Card.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
     <ClCompile Include="..\Classes\mini_games\CarDraw.cpp">
       <Filter>Classes\mini_games</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\mini_games\CarDrawNode.cpp">
       <Filter>Classes\mini_games</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\BlastLetter.cpp">
+    <ClCompile Include="..\Classes\mini_games\CatGameScene.cpp">
       <Filter>Classes\mini_games</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\DoorNode.cpp">
+    <ClCompile Include="..\Classes\mini_games\CatScene.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Chain.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\ChocolateFactory.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Circle.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\CrossTheBridgeScene.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Dash.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Decomon.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\DecomonGallery.cpp">
       <Filter>Classes\mini_games</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\mini_games\Door.cpp">
       <Filter>Classes\mini_games</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\BlastLetterNode.cpp">
+    <ClCompile Include="..\Classes\mini_games\DoorNode.cpp">
       <Filter>Classes\mini_games</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\TreasureHunt.cpp">
+    <ClCompile Include="..\Classes\mini_games\Drop.cpp">
       <Filter>Classes\mini_games</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\TreasureHuntNode.cpp">
+    <ClCompile Include="..\Classes\mini_games\EndlessRunner.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Jasmin_Listenerfile.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Jasmin_Mainfile.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\jazz.cpp">
       <Filter>Classes\mini_games</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\mini_games\JumpingNumbers.cpp">
@@ -541,7 +493,64 @@
     <ClCompile Include="..\Classes\mini_games\Line.cpp">
       <Filter>Classes\mini_games</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\ChocolateFactory.cpp">
+    <ClCompile Include="..\Classes\mini_games\Memory.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\MemoryHero.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\MemoryJungle.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Order.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Owl.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\PatchTheWallScene.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Pillar.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Pop.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\SmashTheRockLevelScene.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\SmashTheRockScene.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Spirograph.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\SpriteCreate.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Stack.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Talk.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\TraceScene.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Train.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\TreasureHunt.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\TreasureHuntNode.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Units.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Wembley.cpp">
       <Filter>Classes\mini_games</Filter>
     </ClCompile>
   </ItemGroup>
@@ -600,69 +609,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\menu\ScoreBoardContext.h">
       <Filter>Classes\menu</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\AlphamonFeedLevelScene.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\AlphamonFeedScene.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\Baja.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\BajaWordScene.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Listener.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Main.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\CatGameScene.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\CatScene.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\Chain.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\CrossTheBridgeScene.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\EndlessRunner.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\Jasmin_Listenerfile.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\Jasmin_Mainfile.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\jazz.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\PatchTheWallScene.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\SmashTheRockLevelScene.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\SmashTheRockScene.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\Spirograph.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\SpriteCreate.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\TraceScene.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\Wembley.h">
-      <Filter>Classes\mini_games</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\puzzle\Alphabet.h">
       <Filter>Classes\puzzle</Filter>
@@ -801,60 +747,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\WordSprite.h">
       <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\Train.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\Alphamole.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\AlphamoleLevel.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\Bingo.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\Memory.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\Dash.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\Circle.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\Stack.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\Decomon.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\MemoryHero.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\MemoryJungle.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\Talk.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\BalloonHero.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\Drop.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\Owl.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\Order.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\Pillar.h">
-      <Filter>Classes\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\DecomonGallery.h">
-      <Filter>Classes\mini_games</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\menu\HelpLayer.h">
       <Filter>Classes\menu</Filter>
@@ -1060,28 +952,97 @@
     <ClInclude Include="..\Classes\WordSceneLipiTKNode.h">
       <Filter>Classes</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Alphamole.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\AlphamoleLevel.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\AlphamonFeedLevelScene.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\AlphamonFeedScene.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Baja.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\BajaWordScene.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\BalloonHero.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Bingo.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\BlastLetter.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\BlastLetterNode.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Listener.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Main.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Card.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
     <ClInclude Include="..\Classes\mini_games\CarDraw.h">
       <Filter>Classes\mini_games</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\mini_games\CarDrawNode.h">
       <Filter>Classes\mini_games</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\BlastLetter.h">
+    <ClInclude Include="..\Classes\mini_games\CatGameScene.h">
       <Filter>Classes\mini_games</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\DoorNode.h">
+    <ClInclude Include="..\Classes\mini_games\CatScene.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Chain.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\ChocolateFactory.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Circle.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\CrossTheBridgeScene.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Dash.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Decomon.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\DecomonGallery.h">
       <Filter>Classes\mini_games</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\mini_games\Door.h">
       <Filter>Classes\mini_games</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\BlastLetterNode.h">
+    <ClInclude Include="..\Classes\mini_games\DoorNode.h">
       <Filter>Classes\mini_games</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\TreasureHunt.h">
+    <ClInclude Include="..\Classes\mini_games\Drop.h">
       <Filter>Classes\mini_games</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\TreasureHuntNode.h">
+    <ClInclude Include="..\Classes\mini_games\EndlessRunner.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Jasmin_Listenerfile.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Jasmin_Mainfile.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\jazz.h">
       <Filter>Classes\mini_games</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\mini_games\JumpingNumbers.h">
@@ -1090,7 +1051,64 @@
     <ClInclude Include="..\Classes\mini_games\Line.h">
       <Filter>Classes\mini_games</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\ChocolateFactory.h">
+    <ClInclude Include="..\Classes\mini_games\Memory.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\MemoryHero.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\MemoryJungle.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Order.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Owl.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\PatchTheWallScene.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Pillar.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Pop.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\SmashTheRockLevelScene.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\SmashTheRockScene.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Spirograph.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\SpriteCreate.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Stack.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Talk.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\TraceScene.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Train.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\TreasureHunt.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\TreasureHuntNode.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Units.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Wembley.h">
       <Filter>Classes\mini_games</Filter>
     </ClInclude>
   </ItemGroup>
