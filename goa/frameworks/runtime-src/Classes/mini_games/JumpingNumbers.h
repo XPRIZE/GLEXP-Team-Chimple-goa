@@ -47,6 +47,7 @@ protected:
 	std::map<std::string, std::string> _fullDirectoryPath;
 	void gameRestart();
 	void gameHelp();
+	void gameStart();
 	static const char* gameName() { return JUMPING_NUMBERS.c_str(); };
 };
 
