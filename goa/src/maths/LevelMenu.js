@@ -108,7 +108,7 @@ xc.ScrollView = ccui.ScrollView.extend({
         but.setColor(cc.color(256, 128, 0))
         but.addTouchEventListener(this.itemSelected, this)
         this._initPos = cc.p(-Math.max(0, Math.min(cc.director.getVisibleSize().width * ( this._span - 1), newPos.x - cc.director.getVisibleSize().width / 2)), 0)
-      } else if(i > gameProgress.length) {
+      } else if(i > gameProgress.length && !xc.LevelMenuLayer.debug) {
         but.setColor(cc.color(128, 128, 128))
       } else {
         but.setColor(cc.color(128, 0, 0))
@@ -155,6 +155,8 @@ xc.ScrollView = ccui.ScrollView.extend({
     cc.sys.localStorage.setItem(this._gameName + '.level', JSON.stringify(gameProgress))
   }
 })
+
+xc.LevelMenuLayer.debug = true
 
 xc.LevelMenuLayer.res = {
   hand_plist: xc.path + "maths/hand.plist",
