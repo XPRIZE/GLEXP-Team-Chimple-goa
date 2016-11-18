@@ -25,19 +25,19 @@ public:
 
 	HelpLayer *_help;
 	cocos2d::Size visibleSize;
-	int _level, _moveFlag = 0, _startPercent;
+	int _level, _moveFlag = 0, _startPercent, _percentLevelNo;
 	float _previousY;
 
-	int _percent[9][2] = {
-		{10, 5},
-		{ 9, 3 },
-		{ 8, 2 },
-		{ 10, 2 },
-		{ 6, 1 },
-		{ 7, 1 },
-		{ 8, 2 },
-		{ 9, 3 },
-		{ 10, 5 }
+	int _percent[9][3] = {
+		{10, 5, 20},
+		{ 9, 3, 30 },
+		{ 8, 2, 40 },
+		{ 10, 2, 50 },
+		{ 6, 1, 60 },
+		{ 7, 1, 70 },
+		{ 8, 1, 80 },
+		{ 9, 1, 90 },
+		{ 10, 1, 100 }
 	};
 
 	int _differentLevel[45][10] = {
