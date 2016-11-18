@@ -71,7 +71,14 @@ void Step::onEnterTransitionDidFinish()
 	_position.push_back(p9);
 	_position.push_back(p10);
 
-	_startPercent = _percent[_level / 5][0];
+	if (_level % 5 == 0)
+	{
+		_percentLevelNo = (_level / 5) - 1;
+	}
+	else
+		_percentLevelNo = (_level / 5);
+
+	_startPercent = _percent[_percentLevelNo][0];
 
 	for (int i = 0; i < _position.size(); i++)
 	{
@@ -103,7 +110,7 @@ void Step::onEnterTransitionDidFinish()
 			_label->setPosition(Vec2(_position.at(i).x, _stepBar->getPositionY() - _loadingBar->getContentSize().height / 2));
 			this->addChild(_label);
 		}
-		_startPercent += _percent[_level / 5][0];
+		_startPercent += _percent[_percentLevelNo][0];
 	}
 
 	Sprite *sp = Sprite::createWithSpriteFrameName("bar/cake.png");
@@ -150,16 +157,16 @@ void Step::addEvents(struct LoadingBarDetails sprite)
 		if (_moveFlag == 1)
 		{
 			std::ostringstream _textValue;
-			if (_previousY < touch->getLocation().y && sprite._loadingBar->getPercent()<100)
+			if (_previousY < touch->getLocation().y && sprite._loadingBar->getPercent() < _percent[_percentLevelNo][2])
 			{
 				_textValue << atoi(sprite._label->getString().c_str()) + 1;
-				sprite._loadingBar->setPercent(sprite._loadingBar->getPercent() + _percent[_level / 5][1]);
+				sprite._loadingBar->setPercent(sprite._loadingBar->getPercent() + _percent[_percentLevelNo][1]);
 				sprite._label->setString(_textValue.str());
 			}
 			else if(_previousY > touch->getLocation().y && sprite._loadingBar->getPercent() > 0)
 			{
 				_textValue << atoi(sprite._label->getString().c_str()) - 1;
-				sprite._loadingBar->setPercent(sprite._loadingBar->getPercent() - _percent[_level / 5][1]);
+				sprite._loadingBar->setPercent(sprite._loadingBar->getPercent() - _percent[_percentLevelNo][1]);
 				sprite._label->setString(_textValue.str());
 			}
 			_previousY = touch->getLocation().y;
@@ -196,8 +203,10 @@ void Step::Events(Sprite *sprite)
 					_touchFlag++;
 				}
 			}
-			if(_touchFlag!=0)
+			if (_touchFlag == _loadingBarDetails.size())
 				_menuContext->showScore();
+			else
+				_moveFlag = 0;
 
 			return true;
 		}
