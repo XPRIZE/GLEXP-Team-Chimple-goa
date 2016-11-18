@@ -26,16 +26,22 @@ public:
 	
 	void onEnterTransitionDidFinish();
 
+	bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
 	
+
 	HelpLayer * _help;
 	int _helpFlag = 0;
 	
 	void gameHelpLayer();
 	Node * _bg;
+	Node * _bgCopy;
+
 	Node *_pizza;
 	Vec2 outlet_1;
 	Vec2 outlet_2;
+	int handleTriggered = 0;
 	void createOrder(int id);
+	void addCookiesToPizza(int pizzaToppingStartId, int pizzaToppingEndId, int cookiesStartId, int cookiesEndId);
 	static const char* gameName() { return UNITS.c_str(); }
 };
 
