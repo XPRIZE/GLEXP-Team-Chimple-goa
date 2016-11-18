@@ -2,7 +2,6 @@
 #ifndef __UNITS_SCENE_H__
 #define __UNITS_SCENE_H__
 
-#include "Calculator.h"
 #include "cocos2d.h"
 #include "../menu/MenuContext.h"
 #include "../StartMenuScene.h"
@@ -21,7 +20,6 @@ protected:
 
 public:
 	~Units();
-	Calculator *_calculator;
 	static cocos2d::Scene* createScene();
 	virtual bool init();
 	static Units* create();
@@ -37,12 +35,11 @@ public:
 	void gameHelpLayer();
 	Node * _bg;
 	Node * _bgCopy;
-	void update(float);
+
 	Node *_pizza;
 	Vec2 outlet_1;
 	Vec2 outlet_2;
 	int handleTriggered = 0;
-	int _calculateFlag = 0;
 	void createOrder(int id);
 	void addCookiesToPizza(int pizzaToppingStartId, int pizzaToppingEndId, int cookiesStartId, int cookiesEndId);
 	static const char* gameName() { return UNITS.c_str(); }
