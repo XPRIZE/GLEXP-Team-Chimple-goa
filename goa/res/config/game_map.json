@@ -522,6 +522,22 @@
     "menuPlist": "droplevel/droplevel.plist",
     "menuPng": "droplevel/droplevel.png"
   },
+   {
+    "name": "chocolateFactory",
+    "cIcon": "gameicons/drop_pressed.png",
+    "icon": "gameicons/drop.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "6",
+    "numLevels": "60",
+    "backgroundJson": "droplevel/Layer1.json",
+    "foregroundJson": "droplevel/Layer3.json",
+    "frontgroundJson": "droplevel/Layer4.json",
+    "maingroundJson": "droplevel/Layer2.json",
+    "menuPlist": "droplevel/droplevel.plist",
+    "menuPng": "droplevel/droplevel.png"
+  },
   {
     "name": "Kung Fu Alpha",
     "cIcon": "gameicons/Kung Fu Alpha_pressed.png",
@@ -603,8 +619,24 @@
     "menuPlist": "plevelscreen/plevelscreen.plist",
     "menuPng": "plevelscreen/plevelscreen.png"
   },
-   {
+  {
     "name": "TreasureHunt",
+    "cIcon": "gameicons/box_pressed.png",
+    "icon": "gameicons/box.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "5",
+    "numLevels": "26",
+    "backgroundJson": "boxlevel/background.json",
+    "foregroundJson": "boxlevel/foreground.json",
+    "frontgroundJson": "boxlevel/frontground.json",
+    "maingroundJson": "boxlevel/mainground.json",
+    "menuPlist": "boxlevel/boxlevel.plist",
+    "menuPng": "boxlevel/boxlevel.png"
+  },
+   {
+    "name": "Units",
     "cIcon": "gameicons/box_pressed.png",
     "icon": "gameicons/box.png",
     "multiPlayer": false,
@@ -698,5 +730,21 @@
     "maingroundJson": "jump_on_words_level/mainground.json",
     "menuPlist": "jump_on_words_level/jump_on_words_level.plist",
     "menuPng": "jump_on_words_level/jump_on_words_level.png"
+  },
+   {
+        "name": "card",
+        "cIcon": "gameicons/talk_pressed.png",
+        "icon": "gameicons/talk.png",
+        "multiPlayer":false,
+        "isJSGame":false,
+        "script":"src/NonJSGameLauncher.js",
+        "span": "3",
+        "numLevels": "20",
+        "backgroundJson": "cardlevel/Layer1.json",
+        "foregroundJson": "cardlevel/Layer2.json",
+        "frontgroundJson": "cardlevel/Layer3.json",
+        "maingroundJson": "cardlevel/Layer4.json",
+        "menuPlist": "cardlevel/cardlevel.plist",
+        "menuPng": "cardlevel/cardlevel.png"  
   }
 ]

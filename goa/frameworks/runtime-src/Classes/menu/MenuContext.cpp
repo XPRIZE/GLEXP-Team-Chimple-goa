@@ -56,8 +56,11 @@
 #include "../mini_games/BlastLetter.h"
 #include "../mini_games/Door.h"
 #include "../mini_games/TreasureHunt.h"
+#include "../mini_games/Units.h"
 #include "../mini_games/JumpingNumbers.h"
+#include "../mini_games/Card.h"
 #include "../mini_games/Line.h"
+#include "../mini_games/ChocolateFactory.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -887,8 +890,17 @@ void MenuContext::launchGameFromJS(std::string gameName) {
 		else if (gameName == TREASUREHUNT) {
 			Director::getInstance()->replaceScene(TreasureHunt::createScene());
 		}
+		else if (gameName == UNITS) {
+			Director::getInstance()->replaceScene(Units::createScene());
+		}
 		else if (gameName == JUMPING_NUMBERS) {
 			Director::getInstance()->replaceScene(JumpingNumber::createScene());
+		}
+		else if (gameName == CARD) {
+			Director::getInstance()->replaceScene(Card::createScene());
+		}
+		else if (gameName == CHOCOLATEFACTORY) {
+			Director::getInstance()->replaceScene(ChocolateFactory::createScene());
 		}
     	else{
             CCLOG("Failed starting scene: %s", gameName.c_str());
