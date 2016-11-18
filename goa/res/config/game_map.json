@@ -746,5 +746,21 @@
         "maingroundJson": "cardlevel/Layer2.json",
         "menuPlist": "cardlevel/cardlevel.plist",
         "menuPng": "cardlevel/cardlevel.png"  
+  },
+   {
+        "name": "step",
+        "cIcon": "gameicons/jasmine_pressed.png",
+        "icon": "gameicons/jasmine.png",
+        "multiPlayer":false,
+        "isJSGame":false,
+        "script":"src/NonJSGameLauncher.js",
+        "span": "3",
+        "numLevels": "20",
+        "backgroundJson": "cardlevel/Layer1.json",
+        "foregroundJson": "cardlevel/Layer3.json",
+        "frontgroundJson": "cardlevel/Layer4.json",
+        "maingroundJson": "cardlevel/Layer2.json",
+        "menuPlist": "cardlevel/cardlevel.plist",
+        "menuPng": "cardlevel/cardlevel.png"  
   }
 ]
