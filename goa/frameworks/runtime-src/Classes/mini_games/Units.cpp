@@ -106,9 +106,17 @@ void Units::update(float delta) {
 		
 		CCLOG("correct answer");
 		_calculateFlag = 1;
-		_menuContext->showScore();
+
+		auto ShowScore = CallFunc::create([=] {
+			
+			_menuContext->showScore();
+		});
+
+	
+		auto scoreSequenceOne = Sequence::create(DelayTime::create(0.5), ShowScore, NULL);
+		this->runAction(scoreSequenceOne);
 		
-		
+			
 		}
 	
 		
