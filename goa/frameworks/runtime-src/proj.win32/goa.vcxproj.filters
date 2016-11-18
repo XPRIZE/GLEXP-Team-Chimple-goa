@@ -160,6 +160,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="..\Classes\mini_games\Units.cpp" />
     <ClCompile Include="..\Classes\Calculator.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Step.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AlphamonSprite.h" />
@@ -348,6 +349,7 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="..\Classes\mini_games\Units.h" />
     <ClInclude Include="..\Classes\Calculator.h" />
+    <ClInclude Include="..\Classes\mini_games\Step.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc" />
