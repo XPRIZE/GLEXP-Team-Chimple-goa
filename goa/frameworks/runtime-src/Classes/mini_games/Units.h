@@ -1,4 +1,4 @@
-#pragma once
+
 #ifndef __UNITS_SCENE_H__
 #define __UNITS_SCENE_H__
 
@@ -8,6 +8,7 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "../menu/HelpLayer.h"
+#include "Calculator.h"
 
 using namespace cocos2d;
 
@@ -26,16 +27,23 @@ public:
 	
 	void onEnterTransitionDidFinish();
 
+	bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
 	
+	Calculator * _calculator;
 	HelpLayer * _help;
 	int _helpFlag = 0;
 	
 	void gameHelpLayer();
 	Node * _bg;
+	Node * _bgCopy;
+	void update(float delta);
 	Node *_pizza;
 	Vec2 outlet_1;
 	Vec2 outlet_2;
+	int handleTriggered = 0;
+	int _calculateFlag = 0;
 	void createOrder(int id);
+	void addCookiesToPizza(int pizzaToppingStartId, int pizzaToppingEndId, int cookiesStartId, int cookiesEndId);
 	static const char* gameName() { return UNITS.c_str(); }
 };
 

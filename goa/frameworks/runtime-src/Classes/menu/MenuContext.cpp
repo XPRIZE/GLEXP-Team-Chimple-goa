@@ -61,6 +61,7 @@
 #include "../mini_games/Card.h"
 #include "../mini_games/Line.h"
 #include "../mini_games/ChocolateFactory.h"
+#include "../mini_games/Step.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -901,6 +902,9 @@ void MenuContext::launchGameFromJS(std::string gameName) {
 		}
 		else if (gameName == CHOCOLATEFACTORY) {
 			Director::getInstance()->replaceScene(ChocolateFactory::createScene());
+		}
+		else if (gameName == STEP) {
+			Director::getInstance()->replaceScene(Step::createScene());
 		}
     	else{
             CCLOG("Failed starting scene: %s", gameName.c_str());
