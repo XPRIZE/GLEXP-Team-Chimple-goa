@@ -30,6 +30,7 @@ protected:
 	int _fillUpFlag = 0;
 	bool _touched = true;
 	cocos2d::Vec2 _trayPos;
+	int _setcounter;
 
 public:
 	~ChocolateFactory();
@@ -40,6 +41,7 @@ public:
 	void rightFloat(Sprite* spriteAlphabet, int time, float positionX, float positionY);
 	void addTouchEvents(Sprite* touchSprite);
 	void machineDynamicMotion(std::vector<int>, std::vector<int>, int index, cocostudio::timeline::ActionTimeline* timeline);
+	void isTrayInRightSequence();
 
 
 	std::pair<int, int> levelAllInfo(int levelNum, int sceneRepetitionNo, int totalScene, int catagoryRepetitionNo, int totalcatagory);

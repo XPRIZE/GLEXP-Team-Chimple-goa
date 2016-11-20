@@ -94,13 +94,13 @@ void ChocolateFactory::onEnterTransitionDidFinish()
 		sprite->setTag(i);
 		sprite->setContentSize(sprite->getChildByName("boxfront_2")->getContentSize());
 		this->addChild(sprite, 0);
-		rightFloat(sprite, 2, sprite->getPositionX()+ visibleSize.width*.747, visibleSize.height*.294);
+		rightFloat(sprite, 4, sprite->getPositionX()+ visibleSize.width*.747, visibleSize.height*.294);
 		_trayBin.push_back(sprite);
 
 		
 		for (int j=0; j<sprite->getChildren().size(); j++)
 		{ 
-			std::string str = sprite->getChildren().at(j)->getName();
+			 std::string str = sprite->getChildren().at(j)->getName();
 			 if(str.find("milkcarton")==0)
 			 sprite->getChildren().at(j)->setVisible(false);
 		}
@@ -141,14 +141,13 @@ void ChocolateFactory::onEnterTransitionDidFinish()
 			for (int i = 0; i < _trayBin.size(); i++)
 			{
 				addTouchEvents(_trayBin[i]);
-
-			auto aab = DrawNode::create();
+			/*auto aab = DrawNode::create();
 			this->addChild(aab, 20);
 			auto a = _trayBin[3]->getPositionX() - _trayBin[3]->getContentSize().width / 2 * 0.82;
 			auto b = _trayBin[3]->getPositionY() - _trayBin[3]->getContentSize().height / 2 * 0.78;
 			aab->drawRect(Vec2(a,b),
 				Vec2(a+ _trayBin[3]->getContentSize().width*0.77,b+ _trayBin[3]->getContentSize().height*0.95),
-				Color4F(0, 0, 255, 22));
+				Color4F(0, 0, 255, 22));*/
 			}
 		}
 		fillUpMachineTimeline->play("forward", false);
@@ -168,7 +167,7 @@ void ChocolateFactory::onEnterTransitionDidFinish()
 	});
 	auto sequence_A  = CCCallFunc::create([=] {
 		if (_fillUpFlag == 0)
-			_fillUpMachine->runAction(MoveTo::create(1, Vec2(_trayBin[0]->getPositionX() + visibleSize.width*.006, _fillUpMachine->getPositionY())));
+			_fillUpMachine->runAction(MoveTo::create(2, Vec2(_trayBin[0]->getPositionX() + visibleSize.width*.006, _fillUpMachine->getPositionY())));
 		else if (_fillUpFlag == 1)
 			_fillUpMachine->runAction(MoveTo::create(1, Vec2(_trayBin[1]->getPositionX() + visibleSize.width*.006, _fillUpMachine->getPositionY())));
 		else if (_fillUpFlag == 2)
@@ -176,11 +175,10 @@ void ChocolateFactory::onEnterTransitionDidFinish()
 		else
 			_fillUpMachine->runAction(MoveTo::create(1, Vec2(_trayBin[3]->getPositionX() + visibleSize.width*.006, _fillUpMachine->getPositionY())));
 	}); 
-	this->runAction(Sequence::create(DelayTime::create(3), sequence_A, DelayTime::create(1), fillProduct,
+	this->runAction(Sequence::create(DelayTime::create(4), sequence_A, DelayTime::create(2), fillProduct,
 		DelayTime::create(3.5), sequence_A, DelayTime::create(1),fillProduct,DelayTime::create(3.5), sequence_A ,DelayTime::create(1),
 		fillProduct,DelayTime::create(3.5),sequence_A , DelayTime::create(1), fillProduct,NULL));
 
-	
 	for (int i = 0; i <_trayBin.size(); i++) {
 	std::string str = _trayBin[i]->getName().c_str();
 	CCLOG("name : %s", str.c_str());
@@ -244,7 +242,6 @@ void ChocolateFactory::addTouchEvents(Sprite* obj)
 		Rect rect = CCRectMake(a,b, target->getContentSize().width*0.77, target->getContentSize().height*.95);
 		if (rect.containsPoint(Vec2(touch->getLocation().x,touch->getLocation().y)) && _touched)
 		{
-			CCLOG("touched");
 			_touched = false;
 			return true;
 		}
@@ -273,7 +270,6 @@ void ChocolateFactory::addTouchEvents(Sprite* obj)
 			//		}
 			//	}
 			//}
-			CCLOG("moved");
 		return true;
 	};
 	listener->onTouchEnded = [=](cocos2d::Touch* touch, cocos2d::Event* event)
@@ -286,11 +282,19 @@ void ChocolateFactory::addTouchEvents(Sprite* obj)
 		bool isIntersect = false;
 		for (int i = 0; i < _nodeName.size(); i++)
 		{
-
 			Rect boxRect = CCRectMake(myBG->getChildByName(_nodeName.at(i))->getPositionX() - 100, myBG->getChildByName(_nodeName.at(i))->getPositionY() - 100, 200, 200);
 			if (rect.intersectsRect(boxRect)) {
-				target->setPosition(myBG->getChildByName(_nodeName.at(i))->getPosition());
-				isIntersect = true;
+				bool flag = false;
+				for (int j = 0; j < _trayBin.size(); j++)
+				{
+					if (myBG->getChildByName(_nodeName.at(i))->getPosition() == _trayBin[j]->getPosition())
+					{  flag = true;  }
+				}
+				if (!flag) {
+					//target->runAction(MoveTo::create(0.0, Vec2(myBG->getChildByName(_nodeName.at(i))->getPosition())));
+					target->setPosition(myBG->getChildByName(_nodeName.at(i))->getPosition());
+					isIntersect = true;
+				}
 			}
 		}
 		if (!isIntersect)
@@ -298,7 +302,7 @@ void ChocolateFactory::addTouchEvents(Sprite* obj)
 			auto pos = _trayPositions[target->getTag()];
 			target->runAction(MoveTo::create(1,Vec2( pos.first,pos.second)));
 		}
-		bool rightOrderFlag1 = false, rightOrderFlag2 = false, rightOrderFlag3 = false, rightOrderFlag4 = false;
+		_setcounter = 0;
 		for (int k=0; k < _trayBin.size(); k++)
 		{
 			bool flag = false;
@@ -306,32 +310,17 @@ void ChocolateFactory::addTouchEvents(Sprite* obj)
 			{
 				std::string name1 = _trayBin[k]->getName();
 				std::string name2 = _nodeName[j];
-				if (_trayBin[k]->getPosition() == myBG->getChildByName(_nodeName.at(j))->getPosition() 
-					&& !(name1.compare(name2)))
+				if (_trayBin[k]->getPosition() == myBG->getChildByName(_nodeName.at(j))->getPosition())
 				{
-					if (k == 0)
-						rightOrderFlag1 = true;
-					else if (k == 1)
-						rightOrderFlag2 = true;
-					else if (k == 2)
-						rightOrderFlag3 = true;
-					else if (k== 3)
-						rightOrderFlag4 = true;
-					else{}
-				}
-				else
-				{
-					flag = true;
-					break;
+					_setcounter++;
 				}
 			}
-			if(flag)
-				break;
 		}
-
-		if (rightOrderFlag1 && rightOrderFlag2 && rightOrderFlag3 && rightOrderFlag4)
-			CCLOG("G A M E O V E R");
-
+		if (_setcounter == 4)
+		{
+			CCLOG("G A M E O V E R counter : %d", _setcounter);
+			isTrayInRightSequence();
+		}
 		_touched = true;
 	};
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, obj);
@@ -341,6 +330,30 @@ void ChocolateFactory::rightFloat(Sprite* floatingObj, int time, float positionX
 {
 	floatingObj->runAction(MoveTo::create(time, Vec2(positionX, positionY)));
 }
+void ChocolateFactory::isTrayInRightSequence()
+{
+	int orderCounter = 0;
+	auto myBG = this->getChildByName("bg");
+	for (int k = 0; k < _trayBin.size(); k++)
+	{
+		for (int j = 0; j < _nodeName.size(); j++)
+		{
+			std::string name1 = _trayBin[k]->getName();
+			std::string name2 = myBG->getChildByName(_nodeName.at(j))->getName();
+			if (_trayBin[k]->getPosition() == myBG->getChildByName(_nodeName.at(j))->getPosition()
+				&& !name1.compare(name2))
+			{orderCounter++;}
+		}
+	}
+	if (orderCounter == 4) {
+		CCLOG("G A M E  IS O V E R");
+		auto callShowScore = CCCallFunc::create([=] {
+			_menuContext->showScore();
+		});
+		this->runAction(Sequence::create(DelayTime::create(2), callShowScore, NULL));
+	 }
+	}
+		
 void ChocolateFactory::setAllSpriteProperties(Sprite* sprite, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY)
 {
 	sprite->setPosition(Vec2(posX + origin.x, posY + origin.y));
