@@ -81,15 +81,16 @@ void ATM::onEnterTransitionDidFinish()
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, listenChild);
 	}
 	_ten_XPosition = visibleSize.width / 1.45;
-
-	_hundreadLabel = Label::createWithTTF("0 X ", "fonts/digital.ttf", 100);
+	_hundredXPosition = visibleSize.width / 1.45;
+	_one_XPosition = visibleSize.width / 1.45;
+	/*_hundreadLabel = Label::createWithTTF("0 X ", "fonts/digital.ttf", 100);
 	_hundreadLabel->setPositionX(visibleSize.width / 1.45);
 	_hundreadLabel->setPositionY(visibleSize.height / 2);
 	this->addChild(_hundreadLabel);
 
 	auto sprite = Sprite::createWithSpriteFrameName("ATM/100.png");
 	sprite->setPosition(Vec2(visibleSize.width / 1.15, visibleSize.height / 2));
-	this->addChild(sprite);
+	this->addChild(sprite);*/
 }
 
 bool ATM::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
@@ -105,10 +106,10 @@ bool ATM::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			oneNotePressed();
 		}
 		else if (target->getName().compare("hundred") == 0) {
-			tenNotePressed();
+			hundredNotePressed();
 		}
 		else if (target->getName().compare("Sprite_81") == 0) {
-			hundredNotePressed();
+			tenNotePressed();
 		}
 	}
 	return false;
@@ -116,11 +117,18 @@ bool ATM::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 
 void ATM::oneNotePressed()
 {
+	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto myAtm = this->getChildByName("bg")->getChildByName("notemachine");
 	auto timeLine = CSLoader::createTimeline("ATM/notemachine.csb");
 	myAtm->runAction(timeLine);
 	timeLine->play("1", false);
 	auto sprite = Sprite::createWithSpriteFrameName("ATM/1.png");
+	sprite->setPosition(Vec2(myAtm->getPositionX(), myAtm->getPositionY() - 100));
+	this->addChild(sprite);
+	_hundredCount++;
+	auto move = MoveTo::create(2, Vec2(_ten_XPosition, 1400));
+	_ten_XPosition += visibleSize.width*0.05;
+	sprite->runAction(move);
 }
 
 void ATM::tenNotePressed()
@@ -129,28 +137,28 @@ void ATM::tenNotePressed()
 	auto myAtm = this->getChildByName("bg")->getChildByName("notemachine");
 	auto timeLine = CSLoader::createTimeline("ATM/notemachine.csb");
 	myAtm->runAction(timeLine);
-	timeLine->play("100", false);
-	auto sprite = Sprite::createWithSpriteFrameName("ATM/100.png");
+	timeLine->play("10", false);
+	auto sprite = Sprite::createWithSpriteFrameName("ATM/10.png");
 	sprite->setPosition(Vec2(myAtm->getPositionX(),myAtm->getPositionY()-100));
 	this->addChild(sprite);
 	_hundredCount++;
 	auto move = MoveTo::create(2, Vec2(_ten_XPosition, 1400));
 	_ten_XPosition += visibleSize.width*0.05;
 	sprite->runAction(move);
-
-
-	std::stringstream ss;
-	ss << _hundredCount;
-	std::string str = ss.str();
-	_hundreadLabel->setString(str+" X ");
-
 }
 
 void ATM::hundredNotePressed()
 {
+	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto myAtm = this->getChildByName("bg")->getChildByName("notemachine");
 	auto timeLine = CSLoader::createTimeline("ATM/notemachine.csb");
 	myAtm->runAction(timeLine);
-	timeLine->play("10", false);
+	timeLine->play("100", false);
 	auto sprite = Sprite::createWithSpriteFrameName("ATM/100.png");
+	sprite->setPosition(Vec2(myAtm->getPositionX(), myAtm->getPositionY() - 100));
+	this->addChild(sprite);
+	_hundredCount++;
+	auto move = MoveTo::create(2, Vec2(_ten_XPosition, 1400));
+	_ten_XPosition += visibleSize.width*0.05;
+	sprite->runAction(move);
 }
