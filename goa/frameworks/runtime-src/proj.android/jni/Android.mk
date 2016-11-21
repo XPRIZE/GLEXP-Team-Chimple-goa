@@ -76,6 +76,7 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/mini_games/Talk.cpp \
 					../../Classes/mini_games/Card.cpp \
 					../../Classes/mini_games/Step.cpp \
+					../../Classes/mini_games/ATM.cpp \
 					../../Classes/mini_games/Circle.cpp \
 					../../Classes/mini_games/Pillar.cpp \
 					../../Classes/mini_games/Dash.cpp \
@@ -158,6 +159,7 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					./src/reco/shaperec/preprocessing/LTKPreprocessor.cpp \
 					./src/reco/shaperec/preprocessing/preprocessing.cpp \
 					lipiJni.cpp \
+					../../Classes/Calculator.cpp \
 					../../Classes/mini_games/CarDraw.cpp \
 					../../Classes/mini_games/CarDrawNode.cpp \
 					../../Classes/mini_games/Door.cpp \
