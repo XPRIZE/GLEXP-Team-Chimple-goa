@@ -74,15 +74,8 @@ void Units::onEnterTransitionDidFinish() {
 	//bg->setScale(0.5, 0.5);
 	this->addChild(_pizza);
 
-	_calculator = new Calculator();
-	_calculator->createCalculator(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y), Vec2(0.5, 0.5), 1, 1);
-	this->addChild(_calculator);
-	
 
-
-	for (int i = 1; i <= 10; i++) {
-		//createOrder(i);
-	}
+	addCalculator();
 
 
 	//addCookiesToPizza(1, 10, 1, 10);
@@ -90,13 +83,24 @@ void Units::onEnterTransitionDidFinish() {
 	
 	auto handle = _bg->getChildByName("FileNode_3");
 	handle->setContentSize(Size(200, 200));
+	handle->setName("handle");
 	auto listener = EventListenerTouchOneByOne::create();
 	listener->onTouchBegan = CC_CALLBACK_2(Units::onTouchBegan, this);
+	listener->setSwallowTouches(false);
 
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, handle);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener->clone(), handle);
+
+
+	Sprite* calculatorButton = Sprite::createWithSpriteFrameName("unit/cal.png");
+	calculatorButton->setName("calbutton");
+	calculatorButton->setAnchorPoint(Vec2(0.5, 0.5));
+	calculatorButton->setPosition(Vec2(500, 750));
+	this->addChild(calculatorButton);
+
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener->clone(), calculatorButton);
 
 	
-		this->scheduleUpdate();
+	this->scheduleUpdate();
 
 }
 
@@ -170,9 +174,8 @@ void Units::createOrder(int id) {
 		//_bg->getChildByName(queryb)->removeFromParent();
 		//removeChild(_bg->getChildByName(queryb));
 		//_bg->reorderChild(_bg->getChildByName(queryb), 4);
-		_bg->getChildByName(queryb)->setGlobalZOrder(4);
+		_bg->getChildByName(queryb)->setGlobalZOrder(1);
 		//object->removeFromParent();
-
 
 	});
 
@@ -263,8 +266,15 @@ bool Units::onTouchBegan(Touch* touch, Event* event) {
 
 
 	auto target = event->getCurrentTarget();
+	Point locationInNode = Vec2(0,0);
 
-	Point locationInNode = target->getParent()->convertToNodeSpace(touch->getLocation());
+	if (target->getName() == "handle") {
+		locationInNode = target->getParent()->convertToNodeSpace(touch->getLocation());
+	}
+
+	if (target->getName() == "calbutton") {
+		locationInNode = target->getParent()->convertToNodeSpace(touch->getLocation());
+	}
 
 
 	auto bb = target->getBoundingBox();
@@ -272,19 +282,52 @@ bool Units::onTouchBegan(Touch* touch, Event* event) {
 	if (bb.containsPoint(locationInNode)) {
 
 		CCLOG("touched");
-		if (handleTriggered == 0) {
+		if (target->getName() == "handle") {
+			if (handleTriggered == 0) {
 
-			for (int i = 1; i <= 10; i++) {
-				createOrder(i);
+				for (int i = 1; i <= 10; i++) {
+					createOrder(i);
+
+				}
+
+				handleTriggered = 1;
 
 			}
-
-			handleTriggered = 1;
-
 		}
+
+		if (target->getName() == "calbutton") {
+
+			_calculator->resetCalculator();
+
+			if (_calculatorTouched == false) {
+				_calculator->setVisible(true);
+				_calculatorTouched = true;
+
+			}
+			else {
+
+				_calculator->setVisible(false);
+				_calculatorTouched = false;
+			}
+			
+		}
+
+
 		return true; // to indicate that we have consumed it.
 	}
 	return false; // to indicate that we have not consumed it.
 }
 
 
+void Units::addCalculator() {
+
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
+	_calculator = new Calculator();
+	_calculator->createCalculator(Vec2(500, 1150), Vec2(0.5, 0.5), 0.5, 0.5);
+	this->addChild(_calculator,10);
+	//_calculator->setGlobalZOrder(2);
+	_calculator->setVisible(false);
+
+}

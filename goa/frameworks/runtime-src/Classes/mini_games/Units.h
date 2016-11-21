@@ -42,7 +42,9 @@ public:
 	Vec2 outlet_2;
 	int handleTriggered = 0;
 	int _calculateFlag = 0;
+	bool _calculatorTouched = false;
 	void createOrder(int id);
+	void addCalculator();
 	void addCookiesToPizza(int pizzaToppingStartId, int pizzaToppingEndId, int cookiesStartId, int cookiesEndId);
 	static const char* gameName() { return UNITS.c_str(); }
 };
