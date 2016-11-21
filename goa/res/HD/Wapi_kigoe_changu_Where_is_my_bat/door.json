@@ -1,0 +1,129 @@
+{
+  "ID": "f0ed149f-6024-4012-b666-8e8375a56afe",
+  "Version": "3.10.0.0",
+  "Name": "door",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 50,
+        "Speed": 1.0,
+        "Timelines": [
+          {
+            "ActionTag": -1638724676,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 53.5619,
+                "Y": 9.4061,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 53.576,
+                "Y": 9.4062,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1638724676,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.5306,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0766,
+                "Y": 1.0,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 127,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Wapi_kigoe_changu_Where_is_my_bat/door.png",
+              "Plist": "Wapi_kigoe_changu_Where_is_my_bat/Wapi_kigoe_changu_Where_is_my_bat.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 53.576,
+              "Y": 9.4062
+            },
+            "Scale": {
+              "ScaleX": 0.0766,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -46.424,
+            "RightMargin": -53.576,
+            "TopMargin": -141.9062,
+            "BottomMargin": -123.0938,
+            "Tag": 128,
+            "ActionTag": -1638724676,
+            "Size": {
+              "X": 100.0,
+              "Y": 265.0
+            },
+            "Name": "door_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Wapi_kigoe_changu_Where_is_my_bat.plist",
+        "Wapi_kigoe_changu_Where_is_my_bat.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}
