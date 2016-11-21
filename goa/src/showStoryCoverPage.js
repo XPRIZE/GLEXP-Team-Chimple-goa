@@ -119,6 +119,32 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
         }
     },
 
+
+    processAudio: function(sender, type) {
+        switch (type) {
+            case ccui.Widget.TOUCH_ENDED:
+                var langDir = goa.TextGenerator.getInstance().getLang();
+                var soundFile = "res/story/" + langDir + "/" + this._baseDir + "/" + this._baseDir + "_0.ogg";
+                if(cc.sys.isNative) {
+                    var fileExists = jsb.fileUtils.isFileExist(soundFile);
+                    if(fileExists) {
+                        cc.loader.load(soundFile, function(err, data) {
+                            if(!err) {
+                                cc.audioEngine.playMusic(soundFile, false);
+                            }
+                        }); 
+                    }
+                } else {
+                    cc.loader.load(soundFile, function(err, data) {
+                        if(!err) {
+                            cc.audioEngine.playMusic(soundFile, false);
+                        }
+                    }); 
+                }             
+                break;
+        }
+    },    
+
     showText: function() {        
         //load text file based on Current Story Id and Page index
         this._isTextShown = true;

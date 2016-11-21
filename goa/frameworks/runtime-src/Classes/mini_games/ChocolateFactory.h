@@ -22,11 +22,15 @@ protected:
 
 	std::string _dropCurrentTheme = "";
 	Sprite* _fillUpMachine;
+	Sprite* _conveyor;
 	std::vector<std::pair<float, float>> _boxPosition;
 	std::vector<Sprite*> _trayBin;
-	std::vector<Sprite*> _trayBinDummy;
+	std::vector<std::string> _nodeName;
 	std::vector<pair<float, float>> _trayPositions;
 	int _fillUpFlag = 0;
+	bool _touched = true;
+	cocos2d::Vec2 _trayPos;
+	int _setcounter;
 
 public:
 	~ChocolateFactory();
@@ -36,9 +40,8 @@ public:
 	void update(float dt);
 	void rightFloat(Sprite* spriteAlphabet, int time, float positionX, float positionY);
 	void addTouchEvents(Sprite* touchSprite);
-	void machineDynamicMotion(int i);
-	Sprite* _pole;
-	bool _touched = true;
+	void machineDynamicMotion(std::vector<int>, std::vector<int>, int index, cocostudio::timeline::ActionTimeline* timeline);
+	void isTrayInRightSequence();
 
 
 	std::pair<int, int> levelAllInfo(int levelNum, int sceneRepetitionNo, int totalScene, int catagoryRepetitionNo, int totalcatagory);

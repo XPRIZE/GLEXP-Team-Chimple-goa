@@ -74,24 +74,53 @@ void Units::onEnterTransitionDidFinish() {
 	//bg->setScale(0.5, 0.5);
 	this->addChild(_pizza);
 
+	_calculator = new Calculator();
+	_calculator->createCalculator(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y), Vec2(0.5, 0.5), 1, 1);
+	this->addChild(_calculator);
+	
+
 
 	for (int i = 1; i <= 10; i++) {
-		createOrder(i);
+		//createOrder(i);
 	}
 
 
 	//addCookiesToPizza(1, 10, 1, 10);
 
+	
 	auto handle = _bg->getChildByName("FileNode_3");
-	handle->setContentSize(Size(200,200));
+	handle->setContentSize(Size(200, 200));
 	auto listener = EventListenerTouchOneByOne::create();
 	listener->onTouchBegan = CC_CALLBACK_2(Units::onTouchBegan, this);
 
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, handle);
 
+	
+		this->scheduleUpdate();
+
 }
 
+void Units::update(float delta) {
+	
+		if (_calculateFlag == 0 && _calculator->checkAnswer(13)) {
+		
+		CCLOG("correct answer");
+		_calculateFlag = 1;
 
+		auto ShowScore = CallFunc::create([=] {
+			
+			_menuContext->showScore();
+		});
+
+	
+		auto scoreSequenceOne = Sequence::create(DelayTime::create(0.5), ShowScore, NULL);
+		this->runAction(scoreSequenceOne);
+		
+			
+		}
+	
+		
+}
 
 Units::~Units(void)
 {
@@ -232,21 +261,30 @@ void Units::addCookiesToPizza(int pizzaToppingStartId, int pizzaToppingEndId, in
 
 bool Units::onTouchBegan(Touch* touch, Event* event) {
 
-	
+
 	auto target = event->getCurrentTarget();
 
 	Point locationInNode = target->getParent()->convertToNodeSpace(touch->getLocation());
 
+
 	auto bb = target->getBoundingBox();
 
-	if (bb.containsPoint(locationInNode))
-	{
+	if (bb.containsPoint(locationInNode)) {
+
 		CCLOG("touched");
+		if (handleTriggered == 0) {
+
+			for (int i = 1; i <= 10; i++) {
+				createOrder(i);
+
+			}
+
+			handleTriggered = 1;
+
+		}
 		return true; // to indicate that we have consumed it.
 	}
-
-	return false; // we did not consume this event, pass thru.
+	return false; // to indicate that we have not consumed it.
 }
-
 
 
