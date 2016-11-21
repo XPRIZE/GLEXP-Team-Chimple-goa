@@ -410,7 +410,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         switch (type) {
             case ccui.Widget.TOUCH_ENDED:
                 var langDir = goa.TextGenerator.getInstance().getLang();
-                var soundFile = xc.path + this._baseDir + "/" + langDir + "/" + xc.currentStoryId + "_" + xc.pageIndex +".mp3";
+                var soundFile = "res/story/" + langDir + "/" + this._baseDir + "/" + this._baseDir + "_" + (xc.pageIndex + 1) + ".ogg";
                 if(cc.sys.isNative) {
                     var fileExists = jsb.fileUtils.isFileExist(soundFile);
                     if(fileExists) {
