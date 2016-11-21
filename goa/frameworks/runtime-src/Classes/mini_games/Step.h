@@ -20,7 +20,7 @@ public:
 	Step();
 	~Step();
 
-	Node *_StepBg, *_stepBar;
+	Node *_StepBg, *_stepBar, *_fluffy, *_blast;
 	cocos2d::ui::LoadingBar *_loadingBar;
 
 	HelpLayer *_help;
@@ -29,10 +29,10 @@ public:
 	float _previousY;
 
 	int _percent[9][3] = {
-		{10, 5, 20},
-		{ 9, 3, 30 },
-		{ 8, 2, 40 },
-		{ 10, 2, 50 },
+		{10, 5, 100},
+		{ 9, 3, 90 },
+		{ 8, 2, 80 },
+		{ 10, 2, 100 },
 		{ 6, 1, 60 },
 		{ 7, 1, 70 },
 		{ 8, 1, 80 },
@@ -172,7 +172,7 @@ public:
 	virtual bool init();
 	void onEnterTransitionDidFinish() override;
 	void addEvents(struct LoadingBarDetails);
-	void Events(cocos2d::Sprite*);
+	void Events(cocos2d::Node*);
     static const char* gameName() { return STEP.c_str(); };
 	CREATE_FUNC(Step);
 

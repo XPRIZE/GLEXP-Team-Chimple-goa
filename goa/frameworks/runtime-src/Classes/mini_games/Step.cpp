@@ -22,7 +22,7 @@ Scene* Step::createScene()
 
 void Step::onEnterTransitionDidFinish()
 {
-//	_menuContext->setMaxPoints(8);
+//	_menuContext->setMaxPoints(10);
 	_level = _menuContext->getCurrentLevel();
 
 	visibleSize = Director::getInstance()->getWinSize();
@@ -31,34 +31,34 @@ void Step::onEnterTransitionDidFinish()
 	this->addChild(_StepBg);
 
 	p1.x = visibleSize.width * .05;
-	p1.y = visibleSize.height * .12;
+	p1.y = visibleSize.height * .14;
 
 	p2.x = visibleSize.width * .15;
-	p2.y = visibleSize.height * .12;
+	p2.y = visibleSize.height * .14;
 
 	p3.x = visibleSize.width * .25;
-	p3.y = visibleSize.height * .12;
+	p3.y = visibleSize.height * .14;
 
 	p4.x = visibleSize.width * .35;
-	p4.y = visibleSize.height * .12;
+	p4.y = visibleSize.height * .14;
 
 	p5.x = visibleSize.width * .45;
-	p5.y = visibleSize.height * .12;
+	p5.y = visibleSize.height * .14;
 
 	p6.x = visibleSize.width * .55;
-	p6.y = visibleSize.height * .12;
+	p6.y = visibleSize.height * .14;
 
 	p7.x = visibleSize.width * .65;
-	p7.y = visibleSize.height * .12;
+	p7.y = visibleSize.height * .14;
 
 	p8.x = visibleSize.width * .75;
-	p8.y = visibleSize.height * .12;
+	p8.y = visibleSize.height * .14;
 
 	p9.x = visibleSize.width * .85;
-	p9.y = visibleSize.height * .12;
+	p9.y = visibleSize.height * .14;
 
 	p10.x = visibleSize.width * .95;
-	p10.y = visibleSize.height * .12;
+	p10.y = visibleSize.height * .14;
 
 	_position.push_back(p1);
 	_position.push_back(p2);
@@ -113,10 +113,18 @@ void Step::onEnterTransitionDidFinish()
 		_startPercent += _percent[_percentLevelNo][0];
 	}
 
+	_fluffy = CSLoader::createNode("bar/fluffy.csb");
+	_fluffy->setPosition(Vec2(visibleSize.width * .10, visibleSize.height * .60));
+	this->addChild(_fluffy);
+
+	_blast = CSLoader::createNode("bar/blast.csb");
+	_blast->getChildByName("Sprite_1")->setPosition(Vec2(visibleSize.width * .20, visibleSize.height * .70));
+	this->addChild(_blast->getChildByName("Sprite_1"));
+
 	Sprite *sp = Sprite::createWithSpriteFrameName("bar/cake.png");
 	sp->setPosition(Vec2(200, visibleSize.height * .75));
-	this->addChild(sp);
-	Events(sp);
+//	this->addChild(sp);
+	Events(_blast);
 }
 
 bool Step::init()
@@ -138,14 +146,30 @@ void Step::addEvents(struct LoadingBarDetails sprite)
 		auto target = static_cast<Sprite*>(event->getCurrentTarget());
 		Point locationInNode = target->convertToNodeSpace(touch->getLocation());
 		Size size = target->getContentSize();
-		Rect rect = Rect(0, 0, target->getContentSize().width, target->getContentSize().height);
+		Rect rect = Rect(0, 0, target->getContentSize().width * _percent[_percentLevelNo][2] / 100, target->getContentSize().height);
 
 		if (rect.containsPoint(locationInNode) && _moveFlag==0)
 		{
 			_previousY = touch->getLocation().y;
-			_moveFlag = 1;
-			
-			return true;
+
+			std::ostringstream _textValue;
+			if (sprite._loadingBar->getPercent() <= _percent[_percentLevelNo][2] && sprite._loadingBar->getPercent() >= 0)
+			{
+					_moveFlag = 1;
+					sprite._loadingBar->setPercent((int)(locationInNode.x / target->getContentSize().width * 100));
+					_textValue << (int)(sprite._loadingBar->getPercent() / 2);
+					sprite._label->setString(_textValue.str());
+
+					return true;
+			}
+/*			else if (sprite._loadingBar->getPercent() > 0)
+			{
+				sprite._loadingBar->setPercent(locationInNode.x / target->getContentSize().width * 100);
+				_textValue << (int)sprite._loadingBar->getPercent();
+				sprite._label->setString(_textValue.str());
+			}
+*/
+			return false;
 		}
 		return false;
 	};
@@ -157,19 +181,21 @@ void Step::addEvents(struct LoadingBarDetails sprite)
 		if (_moveFlag == 1)
 		{
 			std::ostringstream _textValue;
-			if (_previousY < touch->getLocation().y && sprite._loadingBar->getPercent() < _percent[_percentLevelNo][2])
+			if (sprite._loadingBar->getPercent() <= _percent[_percentLevelNo][2] && sprite._loadingBar->getPercent() >= 0)
 			{
-				_textValue << atoi(sprite._label->getString().c_str()) + 1;
-				sprite._loadingBar->setPercent(sprite._loadingBar->getPercent() + _percent[_percentLevelNo][1]);
-				sprite._label->setString(_textValue.str());
+				int _updatePer = (int)(locationInNode.x / target->getContentSize().width * 100);
+				if (_updatePer > _percent[_percentLevelNo][2])
+				{
+
+				}
+				else
+				{
+					sprite._loadingBar->setPercent((int)(locationInNode.x / target->getContentSize().width * 100));
+					_textValue << (int)(sprite._loadingBar->getPercent() / _percent[_percentLevelNo][1]);
+					sprite._label->setString(_textValue.str());
+				}
 			}
-			else if(_previousY > touch->getLocation().y && sprite._loadingBar->getPercent() > 0)
-			{
-				_textValue << atoi(sprite._label->getString().c_str()) - 1;
-				sprite._loadingBar->setPercent(sprite._loadingBar->getPercent() - _percent[_percentLevelNo][1]);
-				sprite._label->setString(_textValue.str());
-			}
-			_previousY = touch->getLocation().y;
+			CCLOG("%f", sprite._loadingBar->getPercent());
 		}
 	};
 
@@ -181,7 +207,7 @@ void Step::addEvents(struct LoadingBarDetails sprite)
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener->clone(), sprite._loadingBar);
 }
 
-void Step::Events(Sprite *sprite)
+void Step::Events(Node *sprite)
 {
 	auto listener = cocos2d::EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(true);
@@ -212,5 +238,5 @@ void Step::Events(Sprite *sprite)
 		}
 		return false;
 	};
-	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener->clone(), sprite);
+	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener->clone(), sprite->getChildByName("Sprite_1"));
 }

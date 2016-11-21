@@ -45,9 +45,13 @@ void Card::onEnterTransitionDidFinish()
 	if (_level == 1 || _level == 2 || _level == 6 || _level == 7 || _level == 11 || _level == 12 || _level == 16)
 	{
 		_pairCard = 2;
+		_menuContext->setMaxPoints(6);
 	}
 	else
+	{
+		_menuContext->setMaxPoints(9);
 		_pairCard = 3;
+	}
 
 	visibleSize = Director::getInstance()->getWinSize();
 
@@ -226,6 +230,7 @@ void Card::addEvents(struct SpriteDetails sprite)
 
 								}), NULL));
 							}
+							_menuContext->addPoints(2);
 						}
 					}
 					else
@@ -250,6 +255,7 @@ void Card::addEvents(struct SpriteDetails sprite)
 							_totalSum = 0;
 							_useCard = 0;
 							_programFlag = 0;
+							_menuContext->addPoints(-1);
 						}), NULL));
 					}
 				}
