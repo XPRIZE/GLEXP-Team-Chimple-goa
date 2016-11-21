@@ -97,7 +97,11 @@ xc.BounceBall = cc.Sprite.extend({
             holder = nextholder
           }
           if(holder._num == target.getParent()._sum) {
-
+            
+          } else {
+            var moveTo = new cc.MoveTo(0.5, cc.p(target.getPosition().x, -100))
+            actionArray.push(moveTo)
+            
           }
           var seq = new cc.Sequence(actionArray)
           target.runAction(seq)
