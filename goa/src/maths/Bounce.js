@@ -13,9 +13,20 @@ xc.BounceLayer = cc.Node.extend({
   _bounceDrop: null,
   _bounceBall: null,
   _listener: null,
+  _level: 1,
   ctor: function(args) {
     this._super()
     this.setupLayer(0, 20, 15, 5, [4, -2, 3, 10])
+  },
+  onEnterTransitionDidFinish: function() {
+    this._level = this.getParent().menuContext.getCurrentLevel()
+    if(this._level <= 5) {
+      var startNum = 0
+      var endNum = 10
+      var begin = this._level
+      var sum = getRandomInt(begin + 1, endNum)
+
+    }
   },
   setupLayer: function(startNum, endNum, sum, begin, choices) {
     this._startNum = startNum
@@ -45,7 +56,7 @@ xc.BounceLayer = cc.Node.extend({
     this._scroll.setTouchEnabled(false)
     this._scroll.scrollToPercentHorizontal((this._holders[sum - startNum].x + this._scroll.getContentSize().width / 2) * 100/ this._scroll.getInnerContainerSize().width, 1)
     var callFunc = new cc.CallFunc(function() {
-      this._scroll.scrollToPercentHorizontal((this._holders[startNum - startNum].x) * 100/ this._scroll.getInnerContainerSize().width, 1)
+      this._scroll.scrollToPercentHorizontal((this._holders[begin - startNum].x) * 100/ this._scroll.getInnerContainerSize().width, 1)
     }, this)
     var callFunc2 = new cc.CallFunc(function() {
       this._scroll.setTouchEnabled(true)
@@ -94,7 +105,7 @@ xc.BounceBall = cc.Sprite.extend({
       onTouchBegan: function (touch, event) {
         var target = event.getCurrentTarget()
         if(!target._animating) {
-          var locationInNode = target._layer.convertTouchToNodeSpace(touch)
+          var locationInNode = target.getParent().convertTouchToNodeSpace(touch)
           var targetSize = target.getContentSize()
           var rect = cc.rect(target.x - targetSize.width / 2, target.y - targetSize.height / 2, targetSize.width, targetSize.height)
           if (cc.rectContainsPoint(rect, locationInNode)) {
@@ -112,8 +123,8 @@ xc.BounceBall = cc.Sprite.extend({
           var holder = target._layer._holders[posNum]
           var pos = holder.getPosition()
           var moveTo = new cc.MoveTo(1, pos)
-          this._follow = new cc.Follow(target, cc.rect(0, 0, target.getParent().getContentSize().width, target.getParent().getContentSize().height))
-          target.getParent().runAction(this._follow)
+          target._follow = new cc.Follow(target, cc.rect(0, 0, target.getParent().getContentSize().width, target.getParent().getContentSize().height))
+          target.getParent().runAction(target._follow)
           var actionArray = [moveTo]
           while(holder._choice) {
             posNum += holder._choice._number
@@ -140,6 +151,8 @@ xc.BounceBall = cc.Sprite.extend({
               this._animating = false
               this.getParent().stopAction(this._follow)
               this._follow = null
+              this._layer._scroll.scrollToPercentHorizontal((this._layer._holders[this._layer._begin - this._layer._startNum].x) * 100/ this._layer._scroll.getInnerContainerSize().width, 1)
+              
             }, target)
             actionArray.push(callFunc)
           }
@@ -219,7 +232,9 @@ xc.BounceChoice = cc.Node.extend({
           target._positionAtTouch = null
           for(var i = 0; i < target.getParent()._holders.length; i++) {
             var holder = target.getParent()._holders[i]
-            var holderRect = cc.rect(holder.x, holder.y, holder.getContentSize().width, holder.getContentSize().height)
+            var holderPos = holder.getParent().convertToWorldSpace(holder.getPosition())
+            var holderRect = cc.rect(holderPos.x, holderPos.y, holder.getContentSize().width, holder.getContentSize().height)
+
             var targetRect = cc.rect(target._brightSprite.x, target._brightSprite.y, target._brightSprite.getContentSize().width, target._brightSprite.getContentSize().height)
             if(cc.rectIntersectsRect(holderRect, targetRect) && holder._choice == null) {
               target._holder = holder
