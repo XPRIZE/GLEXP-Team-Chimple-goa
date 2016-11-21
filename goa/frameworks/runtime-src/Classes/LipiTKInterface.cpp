@@ -58,6 +58,7 @@ void LipiTKInterface::initialize() {
 	//std::string lipitkLocation = FileUtils::getInstance()->fullPathForFilename(_lipiDirectory);
     auto sss = FileUtils::sharedFileUtils()->fullPathForFilename("res/largeBrush.png");
     std::string lipitkLocation = sss.substr(0, sss.size() - 15);
+	CCLOG("Path = %s", lipitkLocation.c_str());
     
 #endif // WIN32
 

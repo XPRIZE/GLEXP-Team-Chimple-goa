@@ -386,6 +386,8 @@
 		F3E210301DCC60D300C301F8 /* TreasureHunt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E2102B1DCC60D300C301F8 /* TreasureHunt.cpp */; };
 		F3E210311DCC60D300C301F8 /* TreasureHuntNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E2102D1DCC60D300C301F8 /* TreasureHuntNode.cpp */; };
 		F3E210321DCC60D300C301F8 /* TreasureHuntNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E2102D1DCC60D300C301F8 /* TreasureHuntNode.cpp */; };
+		F3EEA3E61DE2D53A00CA7D31 /* Calculator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA3E41DE2D53A00CA7D31 /* Calculator.cpp */; };
+		F3EEA3E71DE2D53A00CA7D31 /* Calculator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA3E41DE2D53A00CA7D31 /* Calculator.cpp */; };
 		F3F7ED621D93DAFE00727A7C /* Dash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED601D93DAFE00727A7C /* Dash.cpp */; };
 		F3F7ED631D93DAFE00727A7C /* Dash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED601D93DAFE00727A7C /* Dash.cpp */; };
 		F3F7ED6C1D94F22F00727A7C /* Bingo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED6B1D94F22F00727A7C /* Bingo.cpp */; };
@@ -872,6 +874,8 @@
 		F3E2102C1DCC60D300C301F8 /* TreasureHunt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreasureHunt.h; sourceTree = "<group>"; };
 		F3E2102D1DCC60D300C301F8 /* TreasureHuntNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TreasureHuntNode.cpp; sourceTree = "<group>"; };
 		F3E2102E1DCC60D300C301F8 /* TreasureHuntNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreasureHuntNode.h; sourceTree = "<group>"; };
+		F3EEA3E41DE2D53A00CA7D31 /* Calculator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Calculator.cpp; sourceTree = "<group>"; };
+		F3EEA3E51DE2D53A00CA7D31 /* Calculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calculator.h; sourceTree = "<group>"; };
 		F3F7ED601D93DAFE00727A7C /* Dash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dash.cpp; sourceTree = "<group>"; };
 		F3F7ED611D93DAFE00727A7C /* Dash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dash.h; sourceTree = "<group>"; };
 		F3F7ED6A1D94F22F00727A7C /* Bingo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bingo.h; sourceTree = "<group>"; };
@@ -1083,6 +1087,8 @@
 		D4545214156E28EF00887EB5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F3EEA3E41DE2D53A00CA7D31 /* Calculator.cpp */,
+				F3EEA3E51DE2D53A00CA7D31 /* Calculator.h */,
 				F3667C931DB4BA6F00EC8908 /* AsyncTask.cpp */,
 				F3667C941DB4BA6F00EC8908 /* AsyncTask.hpp */,
 				F3667C951DB4BA6F00EC8908 /* common */,
@@ -1865,6 +1871,7 @@
 				F35247D51D6D9D1A0077C333 /* Chain.cpp in Sources */,
 				3740AD381D912A8E005BDCBA /* Stack.cpp in Sources */,
 				F3F7ED951DA65FF400727A7C /* Owl.cpp in Sources */,
+				F3EEA3E71DE2D53A00CA7D31 /* Calculator.cpp in Sources */,
 				C06E23CC18CEFE680093C81A /* main.cpp in Sources */,
 				3740AD401D912D4A005BDCBA /* Circle.cpp in Sources */,
 				F35248371D6D9D1A0077C333 /* WalkingState.cpp in Sources */,
@@ -2069,6 +2076,7 @@
 				F35248481D6D9D1A0077C333 /* SpeechBubbleView.cpp in Sources */,
 				F3667D221DB4BA6F00EC8908 /* LTKTraceFormat.cpp in Sources */,
 				F3667D721DB4BA7000EC8908 /* LTKStringUtil.cpp in Sources */,
+				F3EEA3E61DE2D53A00CA7D31 /* Calculator.cpp in Sources */,
 				F35247DC1D6D9D1A0077C333 /* Jasmin_Mainfile.cpp in Sources */,
 				F35247D61D6D9D1A0077C333 /* CrossTheBridgeScene.cpp in Sources */,
 				F35248501D6D9D1A0077C333 /* StateMachine.cpp in Sources */,
