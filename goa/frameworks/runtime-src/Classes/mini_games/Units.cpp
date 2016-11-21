@@ -37,11 +37,21 @@ void Units::onEnterTransitionDidFinish() {
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 
-	if (_menuContext->getCurrentLevel() == 1) {
+	switch (_menuContext->getCurrentLevel()) {
 
-		//gameHelpLayer();
+	case 1:break;
+	case 2:break;
+	case 3:break;
+	case 4:break;
+	case 5:break;
+	case 6:break;
+	case 7:break;
+	case 8:break;
+	case 9:break;
+	case 10:break;
 
 	}
+	
 
 	_menuContext->setMaxPoints(1);
 
@@ -113,7 +123,9 @@ void Units::update(float delta) {
 
 		auto ShowScore = CallFunc::create([=] {
 			
+			_menuContext->addPoints(1);
 			_menuContext->showScore();
+
 		});
 
 	
