@@ -27,8 +27,14 @@ public:
 	
 protected:
 	MenuContext * menu;
-	
-	static const char* gameName() { return JUMPING_NUMBERS.c_str(); };
+	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
+	static const char* gameName() { return A_T_M.c_str(); };
+	void oneNotePressed();
+	void tenNotePressed();
+	void hundredNotePressed();
+	float _hundredXPosition, _ten_XPosition, _one_XPosition;
+	int _hundredCount = 0;
+	cocos2d::Label * _hundreadLabel;
 };
 
 #endif 

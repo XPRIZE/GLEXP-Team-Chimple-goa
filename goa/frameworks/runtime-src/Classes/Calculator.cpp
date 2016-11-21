@@ -9,9 +9,9 @@
 #include "Calculator.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "SimpleAudioEngine.h"
-#include "../lang/LangUtil.h"
-#include "../StartMenuScene.h"
-#include "../lang/TextGenerator.h"
+#include "lang/LangUtil.h"
+#include "StartMenuScene.h"
+#include "lang/TextGenerator.h"
 #include "ui/CocosGUI.h"
 
 USING_NS_CC;

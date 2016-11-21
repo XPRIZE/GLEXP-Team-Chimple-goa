@@ -61,6 +61,7 @@ static const std::string CHOCOLATEFACTORY = "chocolateFactory";
 static const std::string CARD = "card";
 static const std::string LINE = "Line";
 static const std::string STEP = "step";
+static const std::string A_T_M = "atm";
 
 class StartMenu {
 public:
