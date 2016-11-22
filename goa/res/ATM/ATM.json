@@ -2942,7 +2942,7 @@
             },
             "LeftMargin": 884.5945,
             "RightMargin": 1675.4055,
-            "TopMargin": 1428.6377,
+            "TopMargin": 1428.6376,
             "BottomMargin": 371.3624,
             "Tag": 75,
             "ActionTag": -552074380,
@@ -3091,51 +3091,6 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "ATM/correct_button.png",
-              "Plist": "ATM/ATM.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 2161.3271,
-              "Y": 164.9391
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.8443,
-              "Y": 0.0916
-            },
-            "PreSize": {
-              "X": 0.2188,
-              "Y": 0.1044
-            },
-            "LeftMargin": 1881.3271,
-            "RightMargin": 118.6729,
-            "TopMargin": 1541.0609,
-            "BottomMargin": 70.9391,
-            "Tag": 114,
-            "ActionTag": 1223041291,
-            "Size": {
-              "X": 560.0,
-              "Y": 188.0
-            },
-            "Name": "correct_button_20",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
               "Path": "ATM/10.png",
               "Plist": "ATM/ATM.plist"
             },
@@ -3175,8 +3130,94 @@
               "X": 360.0,
               "Y": 146.0
             },
-            "Name": "Sprite_81",
+            "Name": "ten",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "ATM/correct_button.png",
+              "Plist": "ATM/ATM.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2161.3271,
+              "Y": 164.9391
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8443,
+              "Y": 0.0916
+            },
+            "PreSize": {
+              "X": 0.2188,
+              "Y": 0.1044
+            },
+            "LeftMargin": 1881.3271,
+            "RightMargin": 118.6729,
+            "TopMargin": 1541.0609,
+            "BottomMargin": 70.9391,
+            "Tag": 114,
+            "ActionTag": 1223041291,
+            "Size": {
+              "X": 560.0,
+              "Y": 188.0
+            },
+            "Name": "correct_button",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ATM/star.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 845.5577,
+              "Y": 1795.3792
+            },
+            "Scale": {
+              "ScaleX": 1.3563,
+              "ScaleY": 1.3563
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.3303,
+              "Y": 0.9974
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 845.5577,
+            "RightMargin": 1714.4423,
+            "TopMargin": 4.6208,
+            "BottomMargin": 1795.3792,
+            "Tag": 102,
+            "ActionTag": 972202117,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "star",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -3189,7 +3230,8 @@
       "UsedResources": [
         "ATM.plist",
         "ATM.png",
-        "notemachine.json"
+        "notemachine.json",
+        "star.json"
       ],
       "ctype": "GameFileData"
     }
