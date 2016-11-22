@@ -59,7 +59,7 @@
 #include "LTKOSUtil.h"
 #include "LTKLoggerUtil.h"
 #include "NN.h"			// Android port : Added this header file
-#include "cocos2d.h"
+
 
 extern int unloadAllModules();
 extern int deleteModule(void* RecoHandle);
@@ -123,7 +123,6 @@ int LTKLipiEngineModule::initializeLipiEngine()
 	
 	string temp;
 	int errorCode;
-	CCLOG("LTKLipiEngineModule");
 	if(m_strLipiRootPath == "")
 	{
 		LTKReturnError(ELIPI_ROOT_PATH_NOT_SET);	// PATH not set
@@ -131,7 +130,6 @@ int LTKLipiEngineModule::initializeLipiEngine()
 
 	temp = m_strLipiRootPath + SEPARATOR + "projects" + SEPARATOR + 
 		   LIPIENGINE_CFG_STRING;
-	CCLOG("temp %s", temp.c_str());
 	//Read the logical name mapping file from lipiengine.cfg file;
 	try
 	{
