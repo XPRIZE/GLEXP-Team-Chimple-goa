@@ -72,24 +72,24 @@ void ATM::onEnterTransitionDidFinish()
 	auto bg = CSLoader::createNode("ATM/ATM.csb");
 	bg->setName("bg");
 	this->addChild(bg);
-	std::vector<std::string> childName = { "correct_button_20" , "Sprite_81","hundred","one" };
+	std::vector<std::string> childName = { "correct_button" , "ten","hundred","one" };
 	for (int i = 0; i < 4; i++) {
 		auto listenChild = bg->getChildByName(childName.at(i));
 		auto listener = EventListenerTouchOneByOne::create();
 		listener->setSwallowTouches(true);
 		listener->onTouchBegan = CC_CALLBACK_2(ATM::onTouchBegan, this);
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, listenChild);
+		_listner.push_back(listener);
 	}
 	_ten_XPosition = visibleSize.width / 1.45;
-
-	_hundreadLabel = Label::createWithTTF("0 X ", "fonts/digital.ttf", 100);
-	_hundreadLabel->setPositionX(visibleSize.width / 1.45);
-	_hundreadLabel->setPositionY(visibleSize.height / 2);
-	this->addChild(_hundreadLabel);
-
-	auto sprite = Sprite::createWithSpriteFrameName("ATM/100.png");
-	sprite->setPosition(Vec2(visibleSize.width / 1.15, visibleSize.height / 2));
-	this->addChild(sprite);
+	_hundredXPosition = visibleSize.width / 1.45;
+	_one_XPosition = visibleSize.width / 1.45;
+	_hundreadLabel = Label::createWithTTF("0", "fonts/digital.ttf", 200);
+	_hundreadLabel->setColor(Color3B(0, 0, 0));
+	_hundreadLabel->setPositionX(bg->getChildByName("board_7")->getContentSize().width/2 );
+	_hundreadLabel->setPositionY(bg->getChildByName("board_7")->getContentSize().height/2 + 40);
+	bg->getChildByName("board_7")->addChild(_hundreadLabel);
+	
 }
 
 bool ATM::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
@@ -105,10 +105,10 @@ bool ATM::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			oneNotePressed();
 		}
 		else if (target->getName().compare("hundred") == 0) {
-			tenNotePressed();
-		}
-		else if (target->getName().compare("Sprite_81") == 0) {
 			hundredNotePressed();
+		}
+		else if (target->getName().compare("ten") == 0) {
+			tenNotePressed();
 		}
 	}
 	return false;
@@ -116,11 +116,41 @@ bool ATM::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 
 void ATM::oneNotePressed()
 {
+	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto myAtm = this->getChildByName("bg")->getChildByName("notemachine");
 	auto timeLine = CSLoader::createTimeline("ATM/notemachine.csb");
 	myAtm->runAction(timeLine);
 	timeLine->play("1", false);
 	auto sprite = Sprite::createWithSpriteFrameName("ATM/1.png");
+	sprite->setPosition(Vec2(myAtm->getPositionX(), myAtm->getPositionY() - 100));
+	this->addChild(sprite);
+	_oneCount++;
+	_totalCount++;
+
+	std::stringstream ss;
+	ss << _totalCount;
+	std::string str = ss.str();
+
+	_hundreadLabel->setString(str);
+
+	cocos2d::MoveTo * move;
+	if (_oneCount < 6) {
+		move = MoveTo::create(2, Vec2(_one_XPosition, 600));
+	 }
+	else if (_oneCount == 6) {
+		_one_XPosition = visibleSize.width / 1.45;
+		move = MoveTo::create(2, Vec2(_one_XPosition, 400));
+	}
+	else if (_oneCount > 6 && _oneCount < 11) {
+		move = MoveTo::create(2, Vec2(_one_XPosition, 400));
+	}
+	if (_oneCount == 10) {
+		///
+		CCLOG("disable the listener");
+		_listner.at(3)->setEnabled(false);
+	}
+	_one_XPosition += visibleSize.width*0.05;
+	sprite->runAction(move);
 }
 
 void ATM::tenNotePressed()
@@ -129,28 +159,73 @@ void ATM::tenNotePressed()
 	auto myAtm = this->getChildByName("bg")->getChildByName("notemachine");
 	auto timeLine = CSLoader::createTimeline("ATM/notemachine.csb");
 	myAtm->runAction(timeLine);
-	timeLine->play("100", false);
-	auto sprite = Sprite::createWithSpriteFrameName("ATM/100.png");
+	timeLine->play("10", false);
+	auto sprite = Sprite::createWithSpriteFrameName("ATM/10.png");
 	sprite->setPosition(Vec2(myAtm->getPositionX(),myAtm->getPositionY()-100));
 	this->addChild(sprite);
-	_hundredCount++;
-	auto move = MoveTo::create(2, Vec2(_ten_XPosition, 1400));
-	_ten_XPosition += visibleSize.width*0.05;
-	sprite->runAction(move);
-
+	_tensCount++;
+	_totalCount += 10;
 
 	std::stringstream ss;
-	ss << _hundredCount;
+	ss << _totalCount;
 	std::string str = ss.str();
-	_hundreadLabel->setString(str+" X ");
 
+	_hundreadLabel->setString(str);
+
+	cocos2d::MoveTo * move;
+	if (_tensCount < 6) {
+		move = MoveTo::create(2, Vec2(_ten_XPosition, 1000));
+	}
+	else if (_tensCount == 6) {
+		_ten_XPosition = visibleSize.width / 1.45;
+		move = MoveTo::create(2, Vec2(_ten_XPosition, 800));
+	}
+	else if (_tensCount > 6) {
+		move = MoveTo::create(2, Vec2(_ten_XPosition, 800));
+	}
+	else if (_tensCount == 11) {
+		///
+	}
+	_ten_XPosition += visibleSize.width*0.05;
+	sprite->runAction(move);
 }
 
 void ATM::hundredNotePressed()
 {
+	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto myAtm = this->getChildByName("bg")->getChildByName("notemachine");
 	auto timeLine = CSLoader::createTimeline("ATM/notemachine.csb");
 	myAtm->runAction(timeLine);
-	timeLine->play("10", false);
+	timeLine->play("100", false);
 	auto sprite = Sprite::createWithSpriteFrameName("ATM/100.png");
+	sprite->setPosition(Vec2(myAtm->getPositionX(), myAtm->getPositionY() - 100));
+	this->addChild(sprite);
+	_hundredCount++;
+
+	_totalCount += 100;
+
+
+	std::stringstream ss;
+	ss << _totalCount;
+	std::string str = ss.str();
+
+	_hundreadLabel->setString(str);
+
+
+	cocos2d::MoveTo * move;
+	if (_hundredCount < 6) {
+		move = MoveTo::create(2, Vec2(_hundredXPosition, 1400));
+	}
+	else if (_hundredCount == 6) {
+		_hundredXPosition = visibleSize.width / 1.45;
+		move = MoveTo::create(2, Vec2(_hundredXPosition, 1200));	
+	}
+	else if (_hundredCount > 6) {
+		move = MoveTo::create(2, Vec2(_hundredXPosition, 1200));
+	}
+	else if (_hundredCount == 11) {
+		///
+	}
+	_hundredXPosition += visibleSize.width*0.05;
+	sprite->runAction(move);
 }
