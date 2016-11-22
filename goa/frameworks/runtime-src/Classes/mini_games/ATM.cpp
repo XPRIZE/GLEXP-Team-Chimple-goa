@@ -72,21 +72,23 @@ void ATM::onEnterTransitionDidFinish()
 	auto bg = CSLoader::createNode("ATM/ATM.csb");
 	bg->setName("bg");
 	this->addChild(bg);
-	std::vector<std::string> childName = { "correct_button_20" , "Sprite_81","hundred","one" };
+	std::vector<std::string> childName = { "correct_button" , "ten","hundred","one" };
 	for (int i = 0; i < 4; i++) {
 		auto listenChild = bg->getChildByName(childName.at(i));
 		auto listener = EventListenerTouchOneByOne::create();
 		listener->setSwallowTouches(true);
 		listener->onTouchBegan = CC_CALLBACK_2(ATM::onTouchBegan, this);
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, listenChild);
+		_listner.push_back(listener);
 	}
 	_ten_XPosition = visibleSize.width / 1.45;
 	_hundredXPosition = visibleSize.width / 1.45;
 	_one_XPosition = visibleSize.width / 1.45;
-	_hundreadLabel = Label::createWithTTF("0", "fonts/digital.ttf", 500);
-	_hundreadLabel->setPositionX(visibleSize.width / 1.55);
-	_hundreadLabel->setPositionY(visibleSize.height / 1.12);
-	this->addChild(_hundreadLabel);
+	_hundreadLabel = Label::createWithTTF("0", "fonts/digital.ttf", 200);
+	_hundreadLabel->setColor(Color3B(0, 0, 0));
+	_hundreadLabel->setPositionX(bg->getChildByName("board_7")->getContentSize().width/2 );
+	_hundreadLabel->setPositionY(bg->getChildByName("board_7")->getContentSize().height/2 + 40);
+	bg->getChildByName("board_7")->addChild(_hundreadLabel);
 	
 }
 
@@ -105,7 +107,7 @@ bool ATM::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		else if (target->getName().compare("hundred") == 0) {
 			hundredNotePressed();
 		}
-		else if (target->getName().compare("Sprite_81") == 0) {
+		else if (target->getName().compare("ten") == 0) {
 			tenNotePressed();
 		}
 	}
@@ -139,11 +141,13 @@ void ATM::oneNotePressed()
 		_one_XPosition = visibleSize.width / 1.45;
 		move = MoveTo::create(2, Vec2(_one_XPosition, 400));
 	}
-	else if (_oneCount > 6) {
+	else if (_oneCount > 6 && _oneCount < 11) {
 		move = MoveTo::create(2, Vec2(_one_XPosition, 400));
 	}
-	else if (_oneCount == 11) {
+	if (_oneCount == 10) {
 		///
+		CCLOG("disable the listener");
+		_listner.at(3)->setEnabled(false);
 	}
 	_one_XPosition += visibleSize.width*0.05;
 	sprite->runAction(move);
