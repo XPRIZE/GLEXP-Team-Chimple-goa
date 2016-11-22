@@ -46,22 +46,23 @@ bool LipiTKProcessTask::isFinished() {
 
 void LipiTKProcessTask::onPostExecute() {
     CCLOG("onPostExecute with result: %lu", _results.size());
-    
-    sort( _results.begin( ), _results.end( ), [ ]( LipiTKResult* lhs, LipiTKResult* rhs )
-    {
-        return lhs->getConfidence() > rhs->getConfidence();
-    });
-    
-    for (std::vector<LipiTKResult* >::iterator it = _results.begin() ; it != _results.end(); ++it)
-    {
-        LipiTKResult* res = *it;
-        std::string shapeAlphabet = decodeSymbol(res->getShapeId());
-        CCLOG("shapeAlphabet putting into _recognizedCharacters %s", shapeAlphabet.c_str());
-        _recognizedCharacters.push_back(shapeAlphabet);
+    if(!_results.empty() && _results.size() > 0) {
+        sort( _results.begin( ), _results.end( ), [ ]( LipiTKResult* lhs, LipiTKResult* rhs )
+             {
+                 return lhs->getConfidence() > rhs->getConfidence();
+             });
+        
+        for (std::vector<LipiTKResult* >::iterator it = _results.begin() ; it != _results.end(); ++it)
+        {
+            LipiTKResult* res = *it;
+            std::string shapeAlphabet = decodeSymbol(res->getShapeId());
+            CCLOG("shapeAlphabet putting into _recognizedCharacters %s", shapeAlphabet.c_str());
+            _recognizedCharacters.push_back(shapeAlphabet);
+        }
+        
+        Director::getInstance()->getScheduler()->performFunctionInCocosThread(CC_CALLBACK_0(LipiTKNode::broadCastRecognizedChars, _node, _recognizedCharacters));        
     }
-
-    Director::getInstance()->getScheduler()->performFunctionInCocosThread(CC_CALLBACK_0(LipiTKNode::broadCastRecognizedChars, _node, _recognizedCharacters));
-//    _node->displayRecognizedChars(_recognizedCharacters);
+    
 }
 
 
