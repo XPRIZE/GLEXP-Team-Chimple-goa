@@ -12,9 +12,9 @@
 #include "cocos2d.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "SimpleAudioEngine.h"
-#include "../lang/LangUtil.h"
-#include "../StartMenuScene.h"
-#include "../lang/TextGenerator.h"
+#include "lang/LangUtil.h"
+#include "StartMenuScene.h"
+#include "lang/TextGenerator.h"
 #include "ui/CocosGUI.h"
 
 
@@ -37,7 +37,7 @@ public:
 	Node* createCalculator(cocos2d::Vec2 position, cocos2d::Vec2 anchor,float scaleX, float scaleY);
 	bool checkAnswer(int value);
 	bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
-	
+	void resetCalculator();
 
 };
 

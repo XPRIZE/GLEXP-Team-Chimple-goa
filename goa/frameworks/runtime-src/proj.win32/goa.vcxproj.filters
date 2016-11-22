@@ -559,6 +559,12 @@
     <ClCompile Include="..\Classes\Calculator.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\ATM.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Shop.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1122,6 +1128,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Calculator.h">
       <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\ATM.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Shop.h">
+      <Filter>Classes\mini_games</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

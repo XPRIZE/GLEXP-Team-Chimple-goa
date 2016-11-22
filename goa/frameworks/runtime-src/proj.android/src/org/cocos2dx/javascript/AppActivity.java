@@ -78,7 +78,7 @@ import java.util.Map;
 import java.util.UUID;
 import android.widget.Toast;
 
-public class AppActivity extends Cocos2dxActivity  implements OnClickListener, OnLongClickListener{
+public class AppActivity extends Cocos2dxActivity {
 	static {
 		System.out.println("Loaded library");
 		System.loadLibrary("cocos2djs");
@@ -93,20 +93,10 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 
 	private Vibrator v;
 	private Handler handler = null;
-	public ProgressDialog processLipitkDialog;
 
 	public ProgressDialog processDiscoveryDialog;
 	boolean isBluetoothDiscoveryFinished = true;
 
-	//View Components
-	private static CanvasView canvasView = null;
-	private static LinearLayout main;
-	private static LinearLayout cenerLayout;
-	private static RelativeLayout topLayout;
-	private static TextView[] TV = new TextView[1];
-
-	public final int MY_DATA_CHECK_CODE = 1;
-	private TextToSpeech mTts = null;
 	private static Dialog dialog;
 	private static String currentGameName;
 	public static final String TAG = "GOA";
@@ -136,7 +126,7 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 		_activity = this;
 		_context = this;
 		handler = new Handler(getMainLooper());
-		installAssets();
+		
 
 		Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
 		width = (int) (display.getWidth() * 0.5);
@@ -146,10 +136,6 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
-		Intent checkIntent = new Intent();
-		checkIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
-		startActivityForResult(checkIntent, MY_DATA_CHECK_CODE);
-		
         blueToothSupport = BlueToothSupport.getInstance(this, null);		
         blueToothSupport.setBluetoothChatService();
 
@@ -175,21 +161,7 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		if (requestCode == MY_DATA_CHECK_CODE) {
-			if (resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
-				// success, create the TTS instance
-				mTts = new TextToSpeech(this, new OnInitListener() {
-					public void onInit(int status) {
-					}
-				});
-			} else {
-				// missing data, install it
-				Intent installIntent = new Intent();
-				installIntent.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
-				startActivity(installIntent);
-			}
-		}
-		else if(requestCode == REQUEST_ENABLE_BT) {
+		if(requestCode == REQUEST_ENABLE_BT) {
 			// When the request to enable Bluetooth returns
 			if (resultCode == Activity.RESULT_OK) {
 				// Bluetooth is now enabled, so set up a chat session
@@ -245,16 +217,6 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 		}
 	}
 
-	private void installAssets() {
-		AssetInstaller assetInstaller = new AssetInstaller(getApplicationContext(), "projects");
-		try {
-			assetInstaller.execute();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-	}
-
 	public static native boolean discoveredBluetoothDevices(String devices);
 	
 
@@ -295,160 +257,6 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 
 		Intent startCameraActivity = new Intent(_activity, CameraActivity.class);
 		_activity.startActivityForResult(startCameraActivity, 0);
-	}
-
-
-	private static void showCustomDialog(Context context, final int posX, final int posY, final int hGravity, final int vGravity) {
-		// custom dialog
-		String tag = "showCustomDialog";
-		dialog = new Dialog(context);
-		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-		dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-		WindowManager.LayoutParams wmlp = dialog.getWindow().getAttributes();
-		wmlp.gravity = hGravity| vGravity;
-		wmlp.x = posX; // x position
-		wmlp.y = posY; // y position
-		canvasView = new CanvasView(_context, _appActivity);
-		main = new LinearLayout(_activity);
-		main.setOrientation(LinearLayout.VERTICAL);
-		main.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-				LinearLayout.LayoutParams.MATCH_PARENT));
-		topLayout = new RelativeLayout(_activity);
-		topLayout.setLayoutParams(
-				new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
-		topLayout.setBackgroundColor(Color.WHITE);
-
-		cenerLayout = new LinearLayout(_activity);
-		cenerLayout.setOrientation(LinearLayout.HORIZONTAL);
-		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
-				LinearLayout.LayoutParams.WRAP_CONTENT);
-		cenerLayout.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);
-		cenerLayout.setLayoutParams(params);
-		cenerLayout.setBackgroundColor(Color.WHITE);
-		cenerLayout.addView(canvasView);
-		main.setAlpha(0.5f);
-		main.addView(cenerLayout);
-		main.addView(topLayout);
-		dialog.setContentView(main);
-		dialog.getWindow().setLayout(width, height);
-		dialog.show();
-	}
-
-	public static void drawCanvas(final int posX, final int posY, final int hGravity, final int vGravity){
-		String tag = "drawCanvas";
-		String message = "I've been called from C++";
-		Log.d(tag, "Showing alert dialog: " + message);
-
-		_activity.runOnUiThread(new Runnable() {
-			public void run() {
-				String tag1 = "UI RUN";
-				Log.d(tag1, "Showing alert in RUN Method on UI Thread");
-				showCustomDialog(_activity, posX, posY, hGravity, vGravity);
-			}
-		});
-	}
-
-	public void Process() {
-		ProgressLipiTKTask ObjAsy = new ProgressLipiTKTask();
-		ObjAsy.execute();
-	}
-
-	@Override
-	public boolean onLongClick(View v) {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
-	@Override
-	public void onClick(View v) {
-
-	}
-
-	/*
-	 * This method will handle the swipe across the edge. Calls Freepad once the
-	 * touch area reaches the right end of screen
-	 */
-	public void ClearCanvas() {
-		if (canvasView != null) {
-			cenerLayout.removeView(canvasView);
-			canvasView = new CanvasView(_context, _appActivity);
-			cenerLayout.setLayoutParams(
-					new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
-			cenerLayout.addView(canvasView);
-		}
-	}
-
-	class ProgressLipiTKTask extends AsyncTask<Void, Void, String> {
-		@Override
-		protected String doInBackground(Void... unsued) {
-			canvasView.addStroke(canvasView._currentStroke);
-			return null;
-		}
-
-		@Override
-		protected void onPostExecute(String sResponse) {
-			processLipitkDialog.dismiss();
-			FreePadCall();
-		}
-
-		@Override
-		protected void onPreExecute() {
-			processLipitkDialog = ProgressDialog.show(AppActivity.this, "Processing", "Please wait...", true);
-
-		}
-	}
-
-	public void FreePadCall() {
-		if (canvasView != null) {
-			cenerLayout.removeView(canvasView);
-			canvasView.destroyDrawingCache();
-			canvasView = new CanvasView(_context, _appActivity);
-			cenerLayout.setLayoutParams(
-					new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
-			cenerLayout.addView(canvasView);
-		}
-		//TV[0].setText(canvasView.character[0]);
-		final String str1 = canvasView.character[0].toString();
-		System.out.println("all matching possibilities");
-		int indexI = 0;
-		for (String rChar: canvasView.character) {
-			Log.d(TAG, "Recongnized characters: " + rChar + " with confidence:" + canvasView.confidences[indexI]);
-			indexI++;
-		}
-
-		
-	
-		dialog.dismiss();
-		handler.postDelayed(new Runnable() {
-			public void run() {
-				if (!str1.isEmpty()) {
-					executeRecognizedCharcter(str1);
-				}
-			}
-		}, 100 * 1);
-
-		mTts.speak(str1, 0, null);
-	}
-
-	int curr_indx = 0;
-
-	public void SpeakOutChoices() {
-		if (canvasView != null) {
-			cenerLayout.removeView(canvasView);
-			canvasView = new CanvasView(_context, _appActivity);
-			cenerLayout.setLayoutParams(
-					new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
-			cenerLayout.addView(canvasView);
-		}
-		if (curr_indx < CanvasView.StrokeResultCount) {
-			//TV[0].setText(CanvasView.character[curr_indx]);
-			String Choice1 = CanvasView.character[curr_indx];
-			mTts.speak(Choice1, 0, null);
-			curr_indx++;
-			if (curr_indx == CanvasView.StrokeResultCount)
-				curr_indx = 0;
-
-		}
 	}
 
 	public static native boolean sendRecognizedStringToGame(String path);

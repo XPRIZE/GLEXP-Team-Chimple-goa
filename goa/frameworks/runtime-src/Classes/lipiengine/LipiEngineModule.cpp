@@ -60,6 +60,7 @@
 #include "LTKLoggerUtil.h"
 #include "NN.h"			// Android port : Added this header file
 
+
 extern int unloadAllModules();
 extern int deleteModule(void* RecoHandle);
 extern void addModule(void* RecoHandle, void* handle);
@@ -122,7 +123,6 @@ int LTKLipiEngineModule::initializeLipiEngine()
 	
 	string temp;
 	int errorCode;
-	
 	if(m_strLipiRootPath == "")
 	{
 		LTKReturnError(ELIPI_ROOT_PATH_NOT_SET);	// PATH not set
@@ -130,7 +130,6 @@ int LTKLipiEngineModule::initializeLipiEngine()
 
 	temp = m_strLipiRootPath + SEPARATOR + "projects" + SEPARATOR + 
 		   LIPIENGINE_CFG_STRING;
-	
 	//Read the logical name mapping file from lipiengine.cfg file;
 	try
 	{

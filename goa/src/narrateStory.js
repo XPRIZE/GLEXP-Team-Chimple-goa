@@ -32,9 +32,11 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 var target = event.getCurrentTarget();
                 var boundingBox = target.getBoundingBoxToWorld();
                 
-                var location = target.convertToNodeSpace(touch.getLocation());
-
                 if (cc.rectContainsPoint(boundingBox, touch.getLocation())) {
+                    var location = target.parent.convertToNodeSpace(touch.getLocation());
+                    context._offsetYInTouch = location.y - target.getPosition().y;
+                    context._offsetXInTouch = location.x - target.getPosition().x;
+                    
                     context[funcName](target, loop);
                     context.displayText(target.getName());
                     if(target.draggingEnabled) {
@@ -47,15 +49,21 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
             onTouchMoved: function (touch, event) {
                 var target = event.getCurrentTarget();
+                var location = target.parent.convertToNodeSpace(touch.getLocation());
+                var locationTo = cc.p(location.x - context._offsetXInTouch, location.y - context._offsetYInTouch);
+                if (!context._previousTouch) {
+                    context._previousTouch = touch.getLocationInView();
+                }
+                var locationPoint = touch.getLocationInView();
+                var deltaX = locationPoint.x - context._previousTouch.x;
+                var deltaY = locationPoint.y - context._previousTouch.y;
+
                 var boundingBox = target.getBoundingBoxToWorld();
-                var location = target.convertToNodeSpace(touch.getLocation());
-                if (cc.rectContainsPoint(boundingBox, touch.getLocation())) {
-                    if(target.draggingEnabled) {
-                        var location = target.parent.convertToNodeSpace(touch.getLocation());
-                        target.x = location.x;
-                        target.y = location.y;
-                    }
-                }                
+                if(target.draggingEnabled) {                        
+                    target.x = locationTo.x;
+                    target.y = locationTo.y;
+                }
+                context._previousTouch = locationPoint;                
             },
 
             onTouchEnded: function (touch, event) {
@@ -63,6 +71,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 if(target.draggingEnabled) {
                     target.actionManager.pauseTarget(target);
                 }
+                context._previousTouch = null;
                 
             }
             
@@ -93,6 +102,23 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 return false;
             },
 
+            onTouchMoved:function(touch, event) {                
+                var target = event.getCurrentTarget();
+                var location = target.convertToNodeSpace(touch.getLocation());
+                  if(target.getChildren() != null && target.getChildren().length > 0)
+                  {
+
+                        var targetRectangle = target.getChildren()[0].getBoundingBox();
+                        
+                        if (cc.rectContainsPoint(targetRectangle, location)) {
+                            if(target.draggingEnabled) {
+                                var location = target.parent.convertToNodeSpace(touch.getLocation());
+                                target.setPosition(location.x, location.y);
+                            }                            
+                        }
+                  }
+                
+            },
             onTouchEnded: function (touch, event) {
 
             }            
@@ -237,13 +263,14 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 that.bindTouchListenerToSkeleton(child, "playAnimiation", false);    
             } else {
                 if(!child.getName().startsWith("Panel")) {
+                    cc.log("processing:" + child.getName());
                     if(child.getChildren() != null && child.getChildren().length > 1) {
                         that.bindEventsToTarget(child);
                         that.bindTouchListenerToSubChild(child, "playAnimationOnChild", false);                                        
                     } else {
                         that.bindEventsToTarget(child);
                         that.bindTouchListener(child, "playAnimiation", false);
-                    }                                    
+                    }                                                        
                 }
             }
         }); 
@@ -410,7 +437,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         switch (type) {
             case ccui.Widget.TOUCH_ENDED:
                 var langDir = goa.TextGenerator.getInstance().getLang();
-                var soundFile = xc.path + this._baseDir + "/" + langDir + "/" + xc.currentStoryId + "_" + xc.pageIndex +".mp3";
+                var soundFile = "res/story/" + langDir + "/" + this._baseDir + "/" + this._baseDir + "_" + (xc.pageIndex + 1) + ".ogg";
                 if(cc.sys.isNative) {
                     var fileExists = jsb.fileUtils.isFileExist(soundFile);
                     if(fileExists) {

@@ -13,9 +13,21 @@ xc.BounceLayer = cc.Node.extend({
   _bounceDrop: null,
   _bounceBall: null,
   _listener: null,
+  _level: 1,
   ctor: function(args) {
     this._super()
-    this.setupLayer(0, 20, 10, 5, [3, -6, 8, 10])
+  },
+  onEnterTransitionDidFinish: function() {
+    this._choices = []
+    this._holders = []
+    this._level = this.getParent().menuContext.getCurrentLevel()
+    if(this._level <= 5) {
+      var startNum = 0
+      var endNum = 10
+      var begin = this._level
+      var sum = getRandomInt(begin + 1, endNum)
+    }
+    this.setupLayer(0, 30, 25, 15, [4, -2, 3, 10])    
   },
   setupLayer: function(startNum, endNum, sum, begin, choices) {
     this._startNum = startNum
@@ -31,15 +43,36 @@ xc.BounceLayer = cc.Node.extend({
     for(var i = startNum; i <= endNum; i++) {
       var sprite = new xc.BounceHolder(xc.BounceLayer.res.dot_png, i)
       sprite.setPosition((i - startNum + 0.5) * xc.BounceLayer.NUMBER_WIDTH, 800)
+      var text = new cc.LabelTTF(i.toString(), "Arial", 128)
+      sprite.addChild(text)
       this._scroll.addChild(sprite)
       this._holders.push(sprite)
     }
     this._bounceDrop = new xc.BounceDrop(this._begin, startNum)
-    this.addChild(this._bounceDrop)
-    this._bounceBall = new xc.BounceBall()
+    this._scroll.addChild(this._bounceDrop)
+    this._bounceBall = new xc.BounceBall(this)
     this._bounceBall.setPosition(this._bounceDrop.getPosition())
-    this.addChild(this._bounceBall)
+    this._scroll.addChild(this._bounceBall)
     this.setupChoices()
+    this._scroll.setTouchEnabled(false)
+    this._scroll.scrollToPercentHorizontal((this._holders[sum - startNum].getPosition().x + this._scroll.getContentSize().width / 2) * 100/ this._scroll.getInnerContainerSize().width, 1, true)
+    var callFunc = new cc.CallFunc(function() {
+      this._scroll.scrollToPercentHorizontal((this._holders[begin - startNum].getPosition().x) * 100/ this._scroll.getInnerContainerSize().width, 1, true)
+    }, this)
+    var callFunc2 = new cc.CallFunc(function() {
+      this._scroll.setTouchEnabled(true)
+    }, this)      
+
+    var seq = new cc.Sequence(new cc.DelayTime(2), callFunc, new cc.DelayTime(1), callFunc2)
+    this.runAction(seq)
+  },
+  cleanLayer: function() {
+    // this.removeChild(this._scroll)
+    // this.removeChild(this._bounceBall)
+    // this.removeChild(this._bounceDrop)
+    this.removeAllChildren()
+    this._holders = []
+    this._choices = []
   },
   setupChoices: function() {
     var screenWidth = cc.director.getVisibleSize().width
@@ -63,8 +96,11 @@ xc.BounceDrop = cc.Node.extend({
 
 xc.BounceBall = cc.Sprite.extend({
   _animating: false,
-  ctor: function() {
+  _layer: null,
+  _follow: null,
+  ctor: function(layer) {
     this._super(xc.BounceLayer.res.dot_png)
+    this._layer = layer
     this._listener = cc.EventListener.create({
       event: cc.EventListener.TOUCH_ONE_BY_ONE,
       swallowTouches: true,
@@ -73,7 +109,7 @@ xc.BounceBall = cc.Sprite.extend({
         if(!target._animating) {
           var locationInNode = target.getParent().convertTouchToNodeSpace(touch)
           var targetSize = target.getContentSize()
-          var rect = cc.rect(target.x - targetSize.width / 2, target.y - targetSize.height / 2, targetSize.width, targetSize.height)
+          var rect = cc.rect(target.getPosition().x - targetSize.width / 2, target.getPosition().y - targetSize.height / 2, targetSize.width, targetSize.height)
           if (cc.rectContainsPoint(rect, locationInNode)) {
             return true
           }
@@ -84,24 +120,53 @@ xc.BounceBall = cc.Sprite.extend({
         var target = event.getCurrentTarget()
         if(!target._animating) {
           target._animating = true
-          var posNum = target.getParent()._bounceDrop._posNum
-          var holder = target.getParent()._holders[posNum]
+          var posNum = target._layer._bounceDrop._posNum
+          var components = [posNum]
+          var holder = target._layer._holders[posNum]
           var pos = holder.getPosition()
+          var scrollX = pos.x
+          if(scrollX <= cc.director.getWinSize().width / 2) {
+            scrollX = 0
+          }
+          target._layer._scroll.scrollToPercentHorizontal(scrollX * 100/ target._layer._scroll.getInnerContainerSize().width, 1, true)
+          var delayTime = new cc.DelayTime(1)
           var moveTo = new cc.MoveTo(1, pos)
+          target._follow = new cc.Follow(target, cc.rect(0, 0, target.getParent().getContentSize().width, target.getParent().getContentSize().height))
+          target.getParent().runAction(target._follow)
+          var followCallFunc = new cc.CallFunc(function() {
+            this._follow = new cc.Follow(this, cc.rect(0, 0, this.getParent().getContentSize().width, this.getParent().getContentSize().height))
+            this.getParent().runAction(this._follow)
+          }, target)
           var actionArray = [moveTo]
+          // actionArray.push(followCallFunc)
           while(holder._choice) {
             posNum += holder._choice._number
-            var nextholder = target.getParent()._holders[posNum]
-            var bezier = new cc.BezierTo(1, [holder.getPosition(), cc.p((nextholder.getPosition().x + holder.getPosition().x) / 2, holder.getPosition().y + 900), nextholder.getPosition()])
+            components.push(holder._choice._number)
+            var nextholder = target._layer._holders[posNum]
+            var bezier = new cc.BezierTo(1, [holder.getPosition(), cc.p((nextholder.getPosition().x + holder.getPosition().x) / 2, holder.getPosition().y + 1800), nextholder.getPosition()])
             actionArray.push(bezier)
             holder = nextholder
           }
-          if(holder._num == target.getParent()._sum) {
-            
+          if(holder._num == target._layer._sum) {
+            var callFunc = new cc.CallFunc(function() {
+              this._animating = false
+              this.getParent().stopAction(this._follow)
+              this._follow = null
+              var additionDisplay = new xc.AdditionDisplay(components, this._layer._sum)
+              this._layer.addChild(additionDisplay)
+            }, target)
+            actionArray.push(callFunc)
           } else {
-            var moveTo = new cc.MoveTo(0.5, cc.p(target.getPosition().x, -100))
+            var moveTo = new cc.MoveTo(0.5, cc.p(holder.getPosition().x, -100))
             actionArray.push(moveTo)
-            
+            var callFunc = new cc.CallFunc(function() {
+              this.setPosition(this._layer._bounceDrop.getPosition())
+              this._animating = false
+              this.getParent().stopAction(this._follow)
+              this._follow = null
+              this._layer._scroll.scrollToPercentHorizontal((this._layer._holders[this._layer._begin - this._layer._startNum].x) * 100/ this._layer._scroll.getInnerContainerSize().width, 1, true)
+            }, target)
+            actionArray.push(callFunc)
           }
           var seq = new cc.Sequence(actionArray)
           target.runAction(seq)
@@ -151,14 +216,17 @@ xc.BounceChoice = cc.Node.extend({
           var target = event.getCurrentTarget()
           var locationInNode = target._brightSprite.getParent().convertTouchToNodeSpace(touch)
           var targetSize = target._brightSprite.getContentSize()
-          var rect = cc.rect(target._brightSprite.x - targetSize.width / 2, target._brightSprite.y - targetSize.height / 2, targetSize.width, targetSize.height)
+          var rect = cc.rect(target._brightSprite.getPosition().x - targetSize.width / 2, target._brightSprite.getPosition().y - targetSize.height / 2, targetSize.width, targetSize.height)
           if (cc.rectContainsPoint(rect, locationInNode)) {
             target._locationInNode = locationInNode
             target._positionAtTouch = target._brightSprite.getPosition()
             cc.log(locationInNode)
             if(target._holder) {
               var pos = target._brightSprite.getParent().convertToWorldSpace(target._brightSprite.getPosition())
-              target._brightSprite.removeFromParent(false)
+              target._brightSprite.removeFromParent()
+              target._brightSprite = new cc.Sprite("#hand/one.png")
+              var text = new cc.LabelTTF(number.toString(), "Arial", 128)
+              target._brightSprite.addChild(text)              
               target.addChild(target._brightSprite)
               target._brightSprite.setPosition(pos)
               target._holder._choice = null
@@ -179,14 +247,20 @@ xc.BounceChoice = cc.Node.extend({
           target._positionAtTouch = null
           for(var i = 0; i < target.getParent()._holders.length; i++) {
             var holder = target.getParent()._holders[i]
-            var holderRect = cc.rect(holder.x, holder.y, holder.getContentSize().width, holder.getContentSize().height)
-            var targetRect = cc.rect(target._brightSprite.x, target._brightSprite.y, target._brightSprite.getContentSize().width, target._brightSprite.getContentSize().height)
+            var holderPos = holder.getParent().convertToWorldSpace(holder.getPosition())
+            var holderRect = cc.rect(holderPos.x, holderPos.y, holder.getContentSize().width, holder.getContentSize().height)
+
+            var targetRect = cc.rect(target._brightSprite.getPosition().x, target._brightSprite.getPosition().y, target._brightSprite.getContentSize().width, target._brightSprite.getContentSize().height)
             if(cc.rectIntersectsRect(holderRect, targetRect) && holder._choice == null) {
               target._holder = holder
               holder._choice = target
-              target._brightSprite.removeFromParent(false)
+              var spritePos = target._brightSprite.getPosition()
+              target._brightSprite.removeFromParent()
+              target._brightSprite = new cc.Sprite("#hand/one.png")
+              var text = new cc.LabelTTF(number.toString(), "Arial", 128)
+              target._brightSprite.addChild(text)
               holder.addChild(target._brightSprite)
-              target._brightSprite.setPosition(holder.convertToNodeSpace(target._brightSprite.getPosition()))
+              target._brightSprite.setPosition(holder.convertToNodeSpace(spritePos))
               var moveTo = new cc.MoveTo(0.25, cc.p(0, 0))
               target._brightSprite.runAction(moveTo)
               return
@@ -199,6 +273,41 @@ xc.BounceChoice = cc.Node.extend({
         }
     })
     cc.eventManager.addListener(this._listener, this)    
+  }
+})
+
+xc.AdditionDisplay = cc.LayerColor.extend({
+  ctor: function(components, sum) {
+    this._super(cc.color(128, 128, 0), cc.director.getVisibleSize().width / 2, cc.director.getVisibleSize().height / 2)
+    this.setPosition(cc.director.getVisibleSize().width / 4, cc.director.getVisibleSize().height / 4)
+    var text = components[0]
+    for(var i = 1; i < components.length; i++) {
+      if(components[i] >= 0) {
+        text = text + ' + ' + components[i].toString()
+      } else {
+        text = text + ' - ' + Math.abs(components[i]).toString()        
+      }
+    }
+    text = text + ' = ' + sum
+    var label = new cc.LabelTTF(text, "Arial", 128)
+    label.color = new cc.Color(256, 0, 0)
+    label.setPosition(cc.director.getVisibleSize().width / 4, cc.director.getVisibleSize().height / 4)
+    this.addChild(label)
+    this._listener = cc.EventListener.create({
+        event: cc.EventListener.TOUCH_ONE_BY_ONE,
+        swallowTouches: true,
+        onTouchBegan: function (touch, event) {
+          return true
+        },
+        onTouchEnded: function(touch, event) {
+          var target = event.getCurrentTarget()
+          var parent = target.getParent()
+          parent.cleanLayer()
+          // target.removeFromParent()
+          parent.setupLayer(0, 20, 10, 5, [4, -2, 3, 10])
+        }
+    })
+    cc.eventManager.addListener(this._listener, this)
   }
 })
 

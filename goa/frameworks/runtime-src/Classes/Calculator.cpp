@@ -9,9 +9,9 @@
 #include "Calculator.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "SimpleAudioEngine.h"
-#include "../lang/LangUtil.h"
-#include "../StartMenuScene.h"
-#include "../lang/TextGenerator.h"
+#include "lang/LangUtil.h"
+#include "StartMenuScene.h"
+#include "lang/TextGenerator.h"
 #include "ui/CocosGUI.h"
 
 USING_NS_CC;
@@ -43,7 +43,7 @@ Node*  Calculator::createCalculator(Vec2 position, Vec2 anchor, float scaleX, fl
 	_label = ui::Text::create();
 	_label->setFontName("fonts/Marker Felt.ttf");
 	_label->setString(_answerText);
-	_label->setFontSize(100);
+	_label->setFontSize(200);
 	_label->setPosition(Vec2(100, 50));
 	_label->setAnchorPoint(Vec2(0, 0));
 	_label->setName("label");
@@ -150,3 +150,12 @@ bool Calculator::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 			}
 		return false;
 }
+
+
+void Calculator::resetCalculator() {
+
+	auto answerText = (cocos2d::ui::Text *)_node->getChildByName("screen")->getChildByName("label");
+	answerText->setString("0");
+	_answer = 0;
+}
+

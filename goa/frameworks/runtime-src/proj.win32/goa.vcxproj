@@ -232,6 +232,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClCompile Include="..\Classes\mini_games\AlphamoleLevel.cpp" />
     <ClCompile Include="..\Classes\mini_games\AlphamonFeedLevelScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\AlphamonFeedScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\ATM.cpp" />
     <ClCompile Include="..\Classes\mini_games\Baja.cpp" />
     <ClCompile Include="..\Classes\mini_games\BajaWordScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\BalloonHero.cpp" />
@@ -269,6 +270,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClCompile Include="..\Classes\mini_games\PatchTheWallScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\Pillar.cpp" />
     <ClCompile Include="..\Classes\mini_games\Pop.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Shop.cpp" />
     <ClCompile Include="..\Classes\mini_games\SmashTheRockLevelScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\SmashTheRockScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\Spirograph.cpp" />
@@ -425,6 +427,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClInclude Include="..\Classes\mini_games\AlphamoleLevel.h" />
     <ClInclude Include="..\Classes\mini_games\AlphamonFeedLevelScene.h" />
     <ClInclude Include="..\Classes\mini_games\AlphamonFeedScene.h" />
+    <ClInclude Include="..\Classes\mini_games\ATM.h" />
     <ClInclude Include="..\Classes\mini_games\Baja.h" />
     <ClInclude Include="..\Classes\mini_games\BajaWordScene.h" />
     <ClInclude Include="..\Classes\mini_games\BalloonHero.h" />
@@ -462,6 +465,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClInclude Include="..\Classes\mini_games\PatchTheWallScene.h" />
     <ClInclude Include="..\Classes\mini_games\Pillar.h" />
     <ClInclude Include="..\Classes\mini_games\Pop.h" />
+    <ClInclude Include="..\Classes\mini_games\Shop.h" />
     <ClInclude Include="..\Classes\mini_games\SmashTheRockLevelScene.h" />
     <ClInclude Include="..\Classes\mini_games\SmashTheRockScene.h" />
     <ClInclude Include="..\Classes\mini_games\Spirograph.h" />
