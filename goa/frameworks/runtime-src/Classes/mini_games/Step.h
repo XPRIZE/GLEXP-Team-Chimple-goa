@@ -20,13 +20,16 @@ public:
 	Step();
 	~Step();
 
-	Node *_StepBg, *_stepBar, *_fluffy, *_blast;
+	Node *_StepBg, *_fluffyNode, *_blastNode;
+	cocostudio::timeline::ActionTimeline *_fluffyTime, *_blastTime;
 	cocos2d::ui::LoadingBar *_loadingBar;
+	cocos2d::Sprite *_balloon;
+
+	std::vector<cocos2d::ui::LoadingBar*> _allBar;
 
 	HelpLayer *_help;
 	cocos2d::Size visibleSize;
-	int _level, _moveFlag = 0, _startPercent, _percentLevelNo;
-	float _previousY;
+	int _level, _moveFlag = 0, _startPercent, _percentLevelNo, _helpFlag = 0;
 
 	int _percent[9][3] = {
 		{10, 5, 100},
@@ -158,21 +161,21 @@ public:
 	}p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
 	std::vector<Position> _position;
 
-
 	struct LoadingBarDetails
 	{
 		cocos2d::ui::LoadingBar *_loadingBar;
 		int _id, _answer;
 		cocos2d::LabelTTF *_label;
 	}LoadingBarDetails;
-
 	std::vector<struct LoadingBarDetails> _loadingBarDetails;
 
 	static cocos2d::Scene* createScene();
 	virtual bool init();
 	void onEnterTransitionDidFinish() override;
 	void addEvents(struct LoadingBarDetails);
-	void Events(cocos2d::Node*);
+	void Events(cocos2d::Sprite*);
+	void finalAnimation(int);
+	void removeAnimation();
     static const char* gameName() { return STEP.c_str(); };
 	CREATE_FUNC(Step);
 
