@@ -83,14 +83,11 @@ void ATM::onEnterTransitionDidFinish()
 	_ten_XPosition = visibleSize.width / 1.45;
 	_hundredXPosition = visibleSize.width / 1.45;
 	_one_XPosition = visibleSize.width / 1.45;
-	/*_hundreadLabel = Label::createWithTTF("0 X ", "fonts/digital.ttf", 100);
-	_hundreadLabel->setPositionX(visibleSize.width / 1.45);
-	_hundreadLabel->setPositionY(visibleSize.height / 2);
+	_hundreadLabel = Label::createWithTTF("0", "fonts/digital.ttf", 500);
+	_hundreadLabel->setPositionX(visibleSize.width / 1.55);
+	_hundreadLabel->setPositionY(visibleSize.height / 1.12);
 	this->addChild(_hundreadLabel);
-
-	auto sprite = Sprite::createWithSpriteFrameName("ATM/100.png");
-	sprite->setPosition(Vec2(visibleSize.width / 1.15, visibleSize.height / 2));
-	this->addChild(sprite);*/
+	
 }
 
 bool ATM::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
@@ -125,9 +122,30 @@ void ATM::oneNotePressed()
 	auto sprite = Sprite::createWithSpriteFrameName("ATM/1.png");
 	sprite->setPosition(Vec2(myAtm->getPositionX(), myAtm->getPositionY() - 100));
 	this->addChild(sprite);
-	_hundredCount++;
-	auto move = MoveTo::create(2, Vec2(_ten_XPosition, 1400));
-	_ten_XPosition += visibleSize.width*0.05;
+	_oneCount++;
+	_totalCount++;
+
+	std::stringstream ss;
+	ss << _totalCount;
+	std::string str = ss.str();
+
+	_hundreadLabel->setString(str);
+
+	cocos2d::MoveTo * move;
+	if (_oneCount < 6) {
+		move = MoveTo::create(2, Vec2(_one_XPosition, 600));
+	 }
+	else if (_oneCount == 6) {
+		_one_XPosition = visibleSize.width / 1.45;
+		move = MoveTo::create(2, Vec2(_one_XPosition, 400));
+	}
+	else if (_oneCount > 6) {
+		move = MoveTo::create(2, Vec2(_one_XPosition, 400));
+	}
+	else if (_oneCount == 11) {
+		///
+	}
+	_one_XPosition += visibleSize.width*0.05;
 	sprite->runAction(move);
 }
 
@@ -141,8 +159,29 @@ void ATM::tenNotePressed()
 	auto sprite = Sprite::createWithSpriteFrameName("ATM/10.png");
 	sprite->setPosition(Vec2(myAtm->getPositionX(),myAtm->getPositionY()-100));
 	this->addChild(sprite);
-	_hundredCount++;
-	auto move = MoveTo::create(2, Vec2(_ten_XPosition, 1400));
+	_tensCount++;
+	_totalCount += 10;
+
+	std::stringstream ss;
+	ss << _totalCount;
+	std::string str = ss.str();
+
+	_hundreadLabel->setString(str);
+
+	cocos2d::MoveTo * move;
+	if (_tensCount < 6) {
+		move = MoveTo::create(2, Vec2(_ten_XPosition, 1000));
+	}
+	else if (_tensCount == 6) {
+		_ten_XPosition = visibleSize.width / 1.45;
+		move = MoveTo::create(2, Vec2(_ten_XPosition, 800));
+	}
+	else if (_tensCount > 6) {
+		move = MoveTo::create(2, Vec2(_ten_XPosition, 800));
+	}
+	else if (_tensCount == 11) {
+		///
+	}
 	_ten_XPosition += visibleSize.width*0.05;
 	sprite->runAction(move);
 }
@@ -158,7 +197,31 @@ void ATM::hundredNotePressed()
 	sprite->setPosition(Vec2(myAtm->getPositionX(), myAtm->getPositionY() - 100));
 	this->addChild(sprite);
 	_hundredCount++;
-	auto move = MoveTo::create(2, Vec2(_ten_XPosition, 1400));
-	_ten_XPosition += visibleSize.width*0.05;
+
+	_totalCount += 100;
+
+
+	std::stringstream ss;
+	ss << _totalCount;
+	std::string str = ss.str();
+
+	_hundreadLabel->setString(str);
+
+
+	cocos2d::MoveTo * move;
+	if (_hundredCount < 6) {
+		move = MoveTo::create(2, Vec2(_hundredXPosition, 1400));
+	}
+	else if (_hundredCount == 6) {
+		_hundredXPosition = visibleSize.width / 1.45;
+		move = MoveTo::create(2, Vec2(_hundredXPosition, 1200));	
+	}
+	else if (_hundredCount > 6) {
+		move = MoveTo::create(2, Vec2(_hundredXPosition, 1200));
+	}
+	else if (_hundredCount == 11) {
+		///
+	}
+	_hundredXPosition += visibleSize.width*0.05;
 	sprite->runAction(move);
 }

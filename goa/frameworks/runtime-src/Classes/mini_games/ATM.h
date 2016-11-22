@@ -33,7 +33,7 @@ protected:
 	void tenNotePressed();
 	void hundredNotePressed();
 	float _hundredXPosition, _ten_XPosition, _one_XPosition;
-	int _hundredCount = 0;
+	int _hundredCount = 0, _oneCount = 0,_tensCount = 0, _totalCount = 0;
 	cocos2d::Label * _hundreadLabel;
 };
 
