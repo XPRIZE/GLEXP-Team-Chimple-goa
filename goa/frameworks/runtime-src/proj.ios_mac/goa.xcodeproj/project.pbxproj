@@ -70,6 +70,8 @@
 		9C7C1A6F1DD8F77D00DD5C6B /* JumpingNumbers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7C1A6C1DD8F77D00DD5C6B /* JumpingNumbers.cpp */; };
 		9C7C1A721DD8F78000DD5C6B /* ChocolateFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7C1A6A1DD8F77D00DD5C6B /* ChocolateFactory.cpp */; };
 		9C7C1A731DD8F78200DD5C6B /* JumpingNumbers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7C1A6C1DD8F77D00DD5C6B /* JumpingNumbers.cpp */; };
+		9C7E27231DE41E0A0088B346 /* Shop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7E27211DE41E0A0088B346 /* Shop.cpp */; };
+		9C7E27261DE41E0D0088B346 /* Shop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7E27211DE41E0A0088B346 /* Shop.cpp */; };
 		9FA3AE461BE9BBCA00FC9645 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA3AE451BE9BBCA00FC9645 /* GameController.framework */; };
 		A92275421517C094001B78AA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92275411517C094001B78AA /* QuartzCore.framework */; };
 		A92275441517C094001B78AA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92275431517C094001B78AA /* OpenGLES.framework */; };
@@ -544,6 +546,8 @@
 		9C7C1A6B1DD8F77D00DD5C6B /* ChocolateFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChocolateFactory.h; sourceTree = "<group>"; };
 		9C7C1A6C1DD8F77D00DD5C6B /* JumpingNumbers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JumpingNumbers.cpp; sourceTree = "<group>"; };
 		9C7C1A6D1DD8F77D00DD5C6B /* JumpingNumbers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JumpingNumbers.h; sourceTree = "<group>"; };
+		9C7E27211DE41E0A0088B346 /* Shop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shop.cpp; sourceTree = "<group>"; };
+		9C7E27221DE41E0A0088B346 /* Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
 		9FA3AE451BE9BBCA00FC9645 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		A922753D1517C094001B78AA /* goa-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "goa-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92275411517C094001B78AA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -1235,6 +1239,8 @@
 		F352471A1D6D9D1A0077C333 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				9C7E27211DE41E0A0088B346 /* Shop.cpp */,
+				9C7E27221DE41E0A0088B346 /* Shop.h */,
 				F3EEA3EC1DE3011B00CA7D31 /* ATM.cpp */,
 				F3EEA3ED1DE3011B00CA7D31 /* ATM.h */,
 				F3EEA3EE1DE3011B00CA7D31 /* Step.cpp */,
@@ -1821,6 +1827,7 @@
 				F3667D5D1DB4BA7000EC8908 /* LTKCheckSumGenerate.cpp in Sources */,
 				F35248431D6D9D1A0077C333 /* I18nUtils.cpp in Sources */,
 				F35247CD1D6D9D1A0077C333 /* Cannon_Ball_Listener.cpp in Sources */,
+				9C7E27261DE41E0D0088B346 /* Shop.cpp in Sources */,
 				F373B90F1DDAE1280027D32C /* Units.cpp in Sources */,
 				F37286F51DCB4B5000F4804A /* BlastLetterNode.cpp in Sources */,
 				F3667D7B1DB4BA7000EC8908 /* LTKLogger.cpp in Sources */,
@@ -2108,6 +2115,7 @@
 				9C0E13471DBF707E00C10A81 /* WordSceneLipiTKNode.cpp in Sources */,
 				F3667D2A1DB4BA6F00EC8908 /* LipiEngineModule.cpp in Sources */,
 				F3667D2C1DB4BA6F00EC8908 /* LipiTKInterface.cpp in Sources */,
+				9C7E27231DE41E0A0088B346 /* Shop.cpp in Sources */,
 				F36840C01D8A812F00969162 /* AlphamoleLevel.cpp in Sources */,
 				F35248121D6D9D1A0077C333 /* RPGConfig.cpp in Sources */,
 				F3667D461DB4BA6F00EC8908 /* PointFloatShapeFeature.cpp in Sources */,
