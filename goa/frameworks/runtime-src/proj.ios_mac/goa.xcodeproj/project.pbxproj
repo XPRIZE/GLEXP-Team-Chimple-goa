@@ -64,10 +64,6 @@
 		9C6007A81DC1DBB700F9C184 /* CarDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6007A31DC1DBB700F9C184 /* CarDraw.cpp */; };
 		9C6007A91DC1DBB700F9C184 /* CarDrawNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6007A51DC1DBB700F9C184 /* CarDrawNode.cpp */; };
 		9C6007AA1DC1DBB700F9C184 /* CarDrawNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6007A51DC1DBB700F9C184 /* CarDrawNode.cpp */; };
-		9C72FB011DE2D39F0082D556 /* Calculator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C72FB001DE2D39F0082D556 /* Calculator.cpp */; };
-		9C72FB021DE2D3A30082D556 /* Calculator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C72FB001DE2D39F0082D556 /* Calculator.cpp */; };
-		9C72FB091DE2D44C0082D556 /* Step.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C72FB071DE2D44C0082D556 /* Step.cpp */; };
-		9C72FB0A1DE2D44F0082D556 /* Step.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C72FB071DE2D44C0082D556 /* Step.cpp */; };
 		9C7B1AC71DAA1BCE00EBD1FE /* Order.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */; };
 		9C7B1ACA1DAA1BD200EBD1FE /* Order.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */; };
 		9C7C1A6E1DD8F77D00DD5C6B /* ChocolateFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7C1A6A1DD8F77D00DD5C6B /* ChocolateFactory.cpp */; };
@@ -390,6 +386,12 @@
 		F3E210301DCC60D300C301F8 /* TreasureHunt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E2102B1DCC60D300C301F8 /* TreasureHunt.cpp */; };
 		F3E210311DCC60D300C301F8 /* TreasureHuntNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E2102D1DCC60D300C301F8 /* TreasureHuntNode.cpp */; };
 		F3E210321DCC60D300C301F8 /* TreasureHuntNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E2102D1DCC60D300C301F8 /* TreasureHuntNode.cpp */; };
+		F3EEA3E61DE2D53A00CA7D31 /* Calculator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA3E41DE2D53A00CA7D31 /* Calculator.cpp */; };
+		F3EEA3E71DE2D53A00CA7D31 /* Calculator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA3E41DE2D53A00CA7D31 /* Calculator.cpp */; };
+		F3EEA3F01DE3011B00CA7D31 /* ATM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA3EC1DE3011B00CA7D31 /* ATM.cpp */; };
+		F3EEA3F11DE3011B00CA7D31 /* ATM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA3EC1DE3011B00CA7D31 /* ATM.cpp */; };
+		F3EEA3F21DE3011B00CA7D31 /* Step.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA3EE1DE3011B00CA7D31 /* Step.cpp */; };
+		F3EEA3F31DE3011B00CA7D31 /* Step.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA3EE1DE3011B00CA7D31 /* Step.cpp */; };
 		F3F7ED621D93DAFE00727A7C /* Dash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED601D93DAFE00727A7C /* Dash.cpp */; };
 		F3F7ED631D93DAFE00727A7C /* Dash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED601D93DAFE00727A7C /* Dash.cpp */; };
 		F3F7ED6C1D94F22F00727A7C /* Bingo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED6B1D94F22F00727A7C /* Bingo.cpp */; };
@@ -536,10 +538,6 @@
 		9C6007A41DC1DBB700F9C184 /* CarDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDraw.h; sourceTree = "<group>"; };
 		9C6007A51DC1DBB700F9C184 /* CarDrawNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CarDrawNode.cpp; sourceTree = "<group>"; };
 		9C6007A61DC1DBB700F9C184 /* CarDrawNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDrawNode.h; sourceTree = "<group>"; };
-		9C72FB001DE2D39F0082D556 /* Calculator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Calculator.cpp; sourceTree = "<group>"; };
-		9C72FB031DE2D3A90082D556 /* Calculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calculator.h; sourceTree = "<group>"; };
-		9C72FB071DE2D44C0082D556 /* Step.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Step.cpp; sourceTree = "<group>"; };
-		9C72FB081DE2D44C0082D556 /* Step.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Step.h; sourceTree = "<group>"; };
 		9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Order.cpp; sourceTree = "<group>"; };
 		9C7B1AC61DAA1BCE00EBD1FE /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
 		9C7C1A6A1DD8F77D00DD5C6B /* ChocolateFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChocolateFactory.cpp; sourceTree = "<group>"; };
@@ -880,6 +878,12 @@
 		F3E2102C1DCC60D300C301F8 /* TreasureHunt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreasureHunt.h; sourceTree = "<group>"; };
 		F3E2102D1DCC60D300C301F8 /* TreasureHuntNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TreasureHuntNode.cpp; sourceTree = "<group>"; };
 		F3E2102E1DCC60D300C301F8 /* TreasureHuntNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreasureHuntNode.h; sourceTree = "<group>"; };
+		F3EEA3E41DE2D53A00CA7D31 /* Calculator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Calculator.cpp; sourceTree = "<group>"; };
+		F3EEA3E51DE2D53A00CA7D31 /* Calculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calculator.h; sourceTree = "<group>"; };
+		F3EEA3EC1DE3011B00CA7D31 /* ATM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ATM.cpp; sourceTree = "<group>"; };
+		F3EEA3ED1DE3011B00CA7D31 /* ATM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATM.h; sourceTree = "<group>"; };
+		F3EEA3EE1DE3011B00CA7D31 /* Step.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Step.cpp; sourceTree = "<group>"; };
+		F3EEA3EF1DE3011B00CA7D31 /* Step.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Step.h; sourceTree = "<group>"; };
 		F3F7ED601D93DAFE00727A7C /* Dash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dash.cpp; sourceTree = "<group>"; };
 		F3F7ED611D93DAFE00727A7C /* Dash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dash.h; sourceTree = "<group>"; };
 		F3F7ED6A1D94F22F00727A7C /* Bingo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bingo.h; sourceTree = "<group>"; };
@@ -1009,15 +1013,15 @@
 		A92275321517C094001B78AA = {
 			isa = PBXGroup;
 			children = (
-				D4545214156E28EF00887EB5 /* Classes */,
 				C037820118BF76AF00FE4F13 /* cocos2d_js_bindings.xcodeproj */,
 				1AC6FB34180E9ACB004C840B /* cocos2d_libs.xcodeproj */,
+				BAF426FA19484B3E002B22EF /* script */,
+				D4545214156E28EF00887EB5 /* Classes */,
 				A92275401517C094001B78AA /* Frameworks */,
 				D45446CC156DE73F00887EB5 /* ios */,
 				509D4ACA17EBB2BE00697056 /* mac */,
 				A922753E1517C094001B78AA /* Products */,
 				15628F5B15F0F5C2000CF24B /* Resources */,
-				BAF426FA19484B3E002B22EF /* script */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1091,8 +1095,8 @@
 		D4545214156E28EF00887EB5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				9C72FB031DE2D3A90082D556 /* Calculator.h */,
-				9C72FB001DE2D39F0082D556 /* Calculator.cpp */,
+				F3EEA3E41DE2D53A00CA7D31 /* Calculator.cpp */,
+				F3EEA3E51DE2D53A00CA7D31 /* Calculator.h */,
 				F3667C931DB4BA6F00EC8908 /* AsyncTask.cpp */,
 				F3667C941DB4BA6F00EC8908 /* AsyncTask.hpp */,
 				F3667C951DB4BA6F00EC8908 /* common */,
@@ -1231,8 +1235,10 @@
 		F352471A1D6D9D1A0077C333 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
-				9C72FB071DE2D44C0082D556 /* Step.cpp */,
-				9C72FB081DE2D44C0082D556 /* Step.h */,
+				F3EEA3EC1DE3011B00CA7D31 /* ATM.cpp */,
+				F3EEA3ED1DE3011B00CA7D31 /* ATM.h */,
+				F3EEA3EE1DE3011B00CA7D31 /* Step.cpp */,
+				F3EEA3EF1DE3011B00CA7D31 /* Step.h */,
 				F373B90A1DDAE1280027D32C /* Units.h */,
 				F373B90B1DDAE1280027D32C /* Units.cpp */,
 				F373B90C1DDAE1280027D32C /* Card.h */,
@@ -1831,7 +1837,6 @@
 				F35248511D6D9D1A0077C333 /* StateMachine.cpp in Sources */,
 				F35248451D6D9D1A0077C333 /* MO.cpp in Sources */,
 				F3667D551DB4BA6F00EC8908 /* LTKPreprocessor.cpp in Sources */,
-				9C72FB0A1DE2D44F0082D556 /* Step.cpp in Sources */,
 				F352484D1D6D9D1A0077C333 /* SkeletonPosition.cpp in Sources */,
 				F3667D311DB4BA6F00EC8908 /* LipiTKProcessTask.cpp in Sources */,
 				F3667D631DB4BA7000EC8908 /* LTKImageWriter.cpp in Sources */,
@@ -1853,6 +1858,7 @@
 				F35248111D6D9D1A0077C333 /* WordScene.cpp in Sources */,
 				F3AB34D61DCDA95900613C20 /* DoorNode.cpp in Sources */,
 				F35247D91D6D9D1A0077C333 /* EndlessRunner.cpp in Sources */,
+				F3EEA3F11DE3011B00CA7D31 /* ATM.cpp in Sources */,
 				F3F7ED8F1DA65FF400727A7C /* BalloonHero.cpp in Sources */,
 				F352481B1D6D9D1A0077C333 /* RPGSprite.cpp in Sources */,
 				F3667D171DB4BA6F00EC8908 /* AsyncTask.cpp in Sources */,
@@ -1878,7 +1884,7 @@
 				F35247D51D6D9D1A0077C333 /* Chain.cpp in Sources */,
 				3740AD381D912A8E005BDCBA /* Stack.cpp in Sources */,
 				F3F7ED951DA65FF400727A7C /* Owl.cpp in Sources */,
-				9C72FB021DE2D3A30082D556 /* Calculator.cpp in Sources */,
+				F3EEA3E71DE2D53A00CA7D31 /* Calculator.cpp in Sources */,
 				C06E23CC18CEFE680093C81A /* main.cpp in Sources */,
 				3740AD401D912D4A005BDCBA /* Circle.cpp in Sources */,
 				F35248371D6D9D1A0077C333 /* WalkingState.cpp in Sources */,
@@ -1939,6 +1945,7 @@
 				F35247E31D6D9D1A0077C333 /* SmashTheRockLevelScene.cpp in Sources */,
 				F352480D1D6D9D1A0077C333 /* PegWord.cpp in Sources */,
 				F3F7ED631D93DAFE00727A7C /* Dash.cpp in Sources */,
+				F3EEA3F31DE3011B00CA7D31 /* Step.cpp in Sources */,
 				F3667D1B1DB4BA6F00EC8908 /* LTKChannel.cpp in Sources */,
 				F3667D251DB4BA6F00EC8908 /* LTKTraceGroup.cpp in Sources */,
 				F35247ED1D6D9D1A0077C333 /* Wembley.cpp in Sources */,
@@ -2070,6 +2077,7 @@
 				9C064E5C1DB8905C000892E1 /* DecomonGallery.cpp in Sources */,
 				F35247E81D6D9D1A0077C333 /* SpriteCreate.cpp in Sources */,
 				F35248281D6D9D1A0077C333 /* Alphamon.cpp in Sources */,
+				F3EEA3F01DE3011B00CA7D31 /* ATM.cpp in Sources */,
 				F3F7ED7E1D9F891000727A7C /* MemoryJungle.cpp in Sources */,
 				F35248141D6D9D1A0077C333 /* StartMenuScene.cpp in Sources */,
 				F3667D601DB4BA7000EC8908 /* LTKErrors.cpp in Sources */,
@@ -2083,7 +2091,7 @@
 				F35248481D6D9D1A0077C333 /* SpeechBubbleView.cpp in Sources */,
 				F3667D221DB4BA6F00EC8908 /* LTKTraceFormat.cpp in Sources */,
 				F3667D721DB4BA7000EC8908 /* LTKStringUtil.cpp in Sources */,
-				9C72FB011DE2D39F0082D556 /* Calculator.cpp in Sources */,
+				F3EEA3E61DE2D53A00CA7D31 /* Calculator.cpp in Sources */,
 				F35247DC1D6D9D1A0077C333 /* Jasmin_Mainfile.cpp in Sources */,
 				F35247D61D6D9D1A0077C333 /* CrossTheBridgeScene.cpp in Sources */,
 				F35248501D6D9D1A0077C333 /* StateMachine.cpp in Sources */,
@@ -2112,7 +2120,6 @@
 				F3667D701DB4BA7000EC8908 /* LTKStrEncoding.cpp in Sources */,
 				F352483C1D6D9D1A0077C333 /* ExternalSkeletonCharacter.cpp in Sources */,
 				F35248101D6D9D1A0077C333 /* WordScene.cpp in Sources */,
-				9C72FB091DE2D44C0082D556 /* Step.cpp in Sources */,
 				F3667D4C1DB4BA6F00EC8908 /* NN.cpp in Sources */,
 				F35248581D6D9D1A0077C333 /* sqlite3.c in Sources */,
 				3740AD3D1D912CFD005BDCBA /* Circle.cpp in Sources */,
@@ -2125,6 +2132,7 @@
 				F352481C1D6D9D1A0077C333 /* ScrollableGameMapScene.cpp in Sources */,
 				F3667D5C1DB4BA7000EC8908 /* LTKCheckSumGenerate.cpp in Sources */,
 				F3AB34D31DCDA95900613C20 /* Door.cpp in Sources */,
+				F3EEA3F21DE3011B00CA7D31 /* Step.cpp in Sources */,
 				F35248301D6D9D1A0077C333 /* JumpingState.cpp in Sources */,
 				F36840BE1D8A812F00969162 /* Alphamole.cpp in Sources */,
 				F352481A1D6D9D1A0077C333 /* RPGSprite.cpp in Sources */,

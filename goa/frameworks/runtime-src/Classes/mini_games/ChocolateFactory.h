@@ -23,14 +23,14 @@ protected:
 	std::string _dropCurrentTheme = "";
 	Sprite* _fillUpMachine;
 	Sprite* _conveyor;
-	std::vector<std::pair<float, float>> _boxPosition;
 	std::vector<Sprite*> _trayBin;
 	std::vector<std::string> _nodeName;
 	std::vector<pair<float, float>> _trayPositions;
 	int _fillUpFlag = 0;
 	bool _touched = true;
-	cocos2d::Vec2 _trayPos;
+	bool _helpFlag = true;
 	int _setcounter;
+	HelpLayer* _help;
 
 public:
 	~ChocolateFactory();
