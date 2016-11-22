@@ -392,6 +392,8 @@
 		F3EEA3F11DE3011B00CA7D31 /* ATM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA3EC1DE3011B00CA7D31 /* ATM.cpp */; };
 		F3EEA3F21DE3011B00CA7D31 /* Step.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA3EE1DE3011B00CA7D31 /* Step.cpp */; };
 		F3EEA3F31DE3011B00CA7D31 /* Step.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA3EE1DE3011B00CA7D31 /* Step.cpp */; };
+		F3EEA3FA1DE41EC100CA7D31 /* Shop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA3F81DE41EC100CA7D31 /* Shop.cpp */; };
+		F3EEA3FD1DE41ED200CA7D31 /* Shop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA3F81DE41EC100CA7D31 /* Shop.cpp */; };
 		F3F7ED621D93DAFE00727A7C /* Dash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED601D93DAFE00727A7C /* Dash.cpp */; };
 		F3F7ED631D93DAFE00727A7C /* Dash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED601D93DAFE00727A7C /* Dash.cpp */; };
 		F3F7ED6C1D94F22F00727A7C /* Bingo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED6B1D94F22F00727A7C /* Bingo.cpp */; };
@@ -884,6 +886,8 @@
 		F3EEA3ED1DE3011B00CA7D31 /* ATM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATM.h; sourceTree = "<group>"; };
 		F3EEA3EE1DE3011B00CA7D31 /* Step.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Step.cpp; sourceTree = "<group>"; };
 		F3EEA3EF1DE3011B00CA7D31 /* Step.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Step.h; sourceTree = "<group>"; };
+		F3EEA3F81DE41EC100CA7D31 /* Shop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shop.cpp; sourceTree = "<group>"; };
+		F3EEA3F91DE41EC100CA7D31 /* Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
 		F3F7ED601D93DAFE00727A7C /* Dash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dash.cpp; sourceTree = "<group>"; };
 		F3F7ED611D93DAFE00727A7C /* Dash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dash.h; sourceTree = "<group>"; };
 		F3F7ED6A1D94F22F00727A7C /* Bingo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bingo.h; sourceTree = "<group>"; };
@@ -1235,6 +1239,8 @@
 		F352471A1D6D9D1A0077C333 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				F3EEA3F81DE41EC100CA7D31 /* Shop.cpp */,
+				F3EEA3F91DE41EC100CA7D31 /* Shop.h */,
 				F3EEA3EC1DE3011B00CA7D31 /* ATM.cpp */,
 				F3EEA3ED1DE3011B00CA7D31 /* ATM.h */,
 				F3EEA3EE1DE3011B00CA7D31 /* Step.cpp */,
@@ -1821,6 +1827,7 @@
 				F3667D5D1DB4BA7000EC8908 /* LTKCheckSumGenerate.cpp in Sources */,
 				F35248431D6D9D1A0077C333 /* I18nUtils.cpp in Sources */,
 				F35247CD1D6D9D1A0077C333 /* Cannon_Ball_Listener.cpp in Sources */,
+				F3EEA3FD1DE41ED200CA7D31 /* Shop.cpp in Sources */,
 				F373B90F1DDAE1280027D32C /* Units.cpp in Sources */,
 				F37286F51DCB4B5000F4804A /* BlastLetterNode.cpp in Sources */,
 				F3667D7B1DB4BA7000EC8908 /* LTKLogger.cpp in Sources */,
@@ -2108,6 +2115,7 @@
 				9C0E13471DBF707E00C10A81 /* WordSceneLipiTKNode.cpp in Sources */,
 				F3667D2A1DB4BA6F00EC8908 /* LipiEngineModule.cpp in Sources */,
 				F3667D2C1DB4BA6F00EC8908 /* LipiTKInterface.cpp in Sources */,
+				F3EEA3FA1DE41EC100CA7D31 /* Shop.cpp in Sources */,
 				F36840C01D8A812F00969162 /* AlphamoleLevel.cpp in Sources */,
 				F35248121D6D9D1A0077C333 /* RPGConfig.cpp in Sources */,
 				F3667D461DB4BA6F00EC8908 /* PointFloatShapeFeature.cpp in Sources */,
