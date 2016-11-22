@@ -21,22 +21,12 @@ void ChocolateFactory::onEnterTransitionDidFinish()
 {
 	//std::pair<int, int> levelKeyNumber = levelAllInfo(gameCurrentLevel, 5, 3, 5, 3);
 	_dropCurrentTheme ="drophero";
-
-	if (!_dropCurrentTheme.compare("dropjungle"))
-	{
-		CCSpriteFrameCache* framecache1 = CCSpriteFrameCache::sharedSpriteFrameCache();
-		framecache1->addSpriteFramesWithFile("dropjungle/dropjungle.plist");
-	}
-	else if (!_dropCurrentTheme.compare("drophero"))
+	 if (!_dropCurrentTheme.compare("drophero"))
 	{
 		CCSpriteFrameCache* framecache1 = CCSpriteFrameCache::sharedSpriteFrameCache();
 		framecache1->addSpriteFramesWithFile("chocolatefactory/chocolatefactory.plist");
 	}
-	else
-	{
-		CCSpriteFrameCache* framecache1 = CCSpriteFrameCache::sharedSpriteFrameCache();
-		framecache1->addSpriteFramesWithFile("drophero/dropcity.plist");
-	}
+
 	int gameCurrentLevel = _menuContext->getCurrentLevel();
 
 	// BackGround
