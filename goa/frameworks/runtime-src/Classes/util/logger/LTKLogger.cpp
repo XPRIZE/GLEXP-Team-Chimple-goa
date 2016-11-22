@@ -59,7 +59,7 @@ LTKLoggerInterface* LTKLogger::loggerInstance = NULL;
 *************************************************************************************/
 
 LTKLogger::LTKLogger():
-m_debugLevel(LTKLogger::LTK_LOGLEVEL_ERR),
+m_debugLevel(LTKLogger::LTK_LOGLEVEL_ALL),
 m_logFileName(DEFAULT_LOG_FILE),
 m_logStatus(INACTIVE),
 m_isTimeStamped(true)
@@ -101,7 +101,7 @@ ostream& LTKLogger::operator()(const EDebugLevel& msgDebugLevel,
 {
 	if ( m_debugLevel <= msgDebugLevel )
 	{
-#if 0
+//#if 0
 		/* Android port : commenting logging message to lipi.log
 		 */
 		writeAuxInfo(fileName, lineNumber);
@@ -130,7 +130,7 @@ ostream& LTKLogger::operator()(const EDebugLevel& msgDebugLevel,
 		}
         
 		m_logFile.flush();
-#endif
+//#endif
         return m_logFile;
 	}
 
