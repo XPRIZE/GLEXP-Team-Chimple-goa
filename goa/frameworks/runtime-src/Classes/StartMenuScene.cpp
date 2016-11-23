@@ -49,6 +49,7 @@
 #include "mini_games/Shop.h"
 #include "mini_games/Item.h"
 #include "mini_games/ChocolateFactory.h"
+#include "mini_games/spot.h"
 
 
 #include "storage/local-storage/LocalStorage.h"
@@ -128,6 +129,7 @@ const std::vector<std::string> StartMenu::getGameNames() {
 	gameNames.push_back(SHOP);
 	gameNames.push_back(CHOCOLATEFACTORY);
 	gameNames.push_back(ITEM);
+	gameNames.push_back(SPOT);
     return gameNames;
 
 }

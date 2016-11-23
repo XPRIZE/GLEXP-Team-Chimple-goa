@@ -683,8 +683,24 @@
     "menuPlist": "boxlevel/boxlevel.plist",
     "menuPng": "boxlevel/boxlevel.png"
   },
-   {
+  {
     "name": "Units",
+    "cIcon": "gameicons/pizza_pressed.png",
+    "icon": "gameicons/pizza.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "2",
+    "numLevels": "10",
+    "backgroundJson": "boxlevel/background.json",
+    "foregroundJson": "boxlevel/foreground.json",
+    "frontgroundJson": "boxlevel/frontground.json",
+    "maingroundJson": "boxlevel/mainground.json",
+    "menuPlist": "boxlevel/boxlevel.plist",
+    "menuPng": "boxlevel/boxlevel.png"
+  },
+   {
+    "name": "spot",
     "cIcon": "gameicons/pizza_pressed.png",
     "icon": "gameicons/pizza.png",
     "multiPlayer": false,
