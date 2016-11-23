@@ -2,14 +2,13 @@
 //  ATM.cpp 
 //  goa
 //
-//  Created by Kirankumar CS on 08/11/16
+//  Created by Kirankumar CS on 21/11/16
 //
 //
-#include "../menu/HelpLayer.h"
+
 #include "ATM.h"
 #include "../menu/HelpLayer.h"
 #include "../effects/FShake.h"
-
 
 USING_NS_CC;
 
