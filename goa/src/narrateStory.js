@@ -77,15 +77,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 }
                 context._previousTouch = null;
                 if(!this._isDragging) {
-                    var textPosY = 0;
-                    if(context._contentPanelHeight > target.y + target.getBoundingBoxToWorld().height + 50)
-                    {
-                        textPosY = target.y + target.getBoundingBoxToWorld().height + 50; 
-                    } else {
-                        textPosY = target.y - target.getBoundingBoxToWorld().height;
-                    }
-                    var textPos = cc.p(target.x, textPosY);
-                    context.displayText(target.getName(), textPos);
+                    var location = target.parent.convertToNodeSpace(touch.getLocation());
+                    context.displayText(target.getName(),location);
                 }
                 this._isDragging = false;
             }
@@ -141,8 +134,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 var target = event.getCurrentTarget();
                 
                 if(!this._isDragging) {
-                    var textPos = cc.p(target.x, target.y + target.getChildren()[0].getBoundingBox().height);
-                    context.displayText(target.getName(), textPos);
+                    var location = target.parent.convertToNodeSpace(touch.getLocation());
+                    context.displayText(target.getName(),location);                    
                 }
                     
 
