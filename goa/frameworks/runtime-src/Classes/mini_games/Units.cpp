@@ -37,21 +37,10 @@ void Units::onEnterTransitionDidFinish() {
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 
-	switch (_menuContext->getCurrentLevel()) {
-
-	case 1:break;
-	case 2:break;
-	case 3:break;
-	case 4:break;
-	case 5:break;
-	case 6:break;
-	case 7:break;
-	case 8:break;
-	case 9:break;
-	case 10:break;
-
-	}
 	
+	_level = _menuContext->getCurrentLevel();
+	_answerValue = _level + 10;
+
 
 	_menuContext->setMaxPoints(1);
 
@@ -59,10 +48,9 @@ void Units::onEnterTransitionDidFinish() {
 	_bg->setName("bg");
 	_bg->setAnchorPoint(Vec2(0.5, 0.5));
 	_bg->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
-	//_bg->setScale(0.5, 0.5);
+
 	this->addChild(_bg);
 
-	//_bgCopy = CSLoader::createNode("unit/unit.csb");
 
 	Vector <Node*> children = _bg->getChildren();
 	int size = children.size();
@@ -72,25 +60,33 @@ void Units::onEnterTransitionDidFinish() {
 		CCLOG("name : %s", str.c_str());
 	}
 
-
+	hideUnwated(_level);
 	float delay = 0.5;
 	outlet_1 = _bg->getChildByName("outlet_1")->getPosition();
 	outlet_2 = _bg->getChildByName("outlet_2")->getPosition();
 
-	_pizza = CSLoader::createNode("unit/pizza.csb");
+	_pizza1 = CSLoader::createNode("unit/pizza.csb");
 
-	_pizza->setAnchorPoint(Vec2(0.5, 0.5));
-	_pizza->setPosition(Vec2(visibleSize.width / 2 + origin.x, outlet_2.y - 550 + origin.y));
-	//bg->setScale(0.5, 0.5);
-	this->addChild(_pizza);
+	_pizza1->setAnchorPoint(Vec2(0.5, 0.5));
+	_pizza1->setPosition(Vec2(visibleSize.width / 2 + origin.x, outlet_2.y - 550 + origin.y));
 
+	this->addChild(_pizza1);
+
+
+	_pizza2 = CSLoader::createNode("unit/pizza.csb");
+
+	_pizza2->setAnchorPoint(Vec2(0.5, 0.5));
+	_pizza2->setPosition(Vec2(visibleSize.width / 2 + origin.x + 700, outlet_2.y - 550 + origin.y));
+
+	this->addChild(_pizza2);
 
 	addCalculator();
 
 
-	//addCookiesToPizza(1, 10, 1, 10);
+	_openTimeline = CSLoader::createTimeline("unit/botton.csb");
+	_bg->getChildByName("FileNode_3")->runAction(_openTimeline);
 
-	
+
 	auto handle = _bg->getChildByName("FileNode_3");
 	handle->setContentSize(Size(200, 200));
 	handle->setName("handle");
@@ -116,7 +112,7 @@ void Units::onEnterTransitionDidFinish() {
 
 void Units::update(float delta) {
 	
-		if (_calculateFlag == 0 && _calculator->checkAnswer(13)) {
+		if (_calculateFlag == 0 && _calculator->checkAnswer(_answerValue)) {
 		
 		CCLOG("correct answer");
 		_calculateFlag = 1;
@@ -168,66 +164,76 @@ void Units::createOrder(int id) {
 	static int delay = 0.5;
 	float time = 0.5;
 
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
+	std::ostringstream sstreama;
 	std::ostringstream sstreamb;
-	sstreamb << "pizzatoppings_" << id;
+	
+	if (orderIteration == 0) {
+
+		sstreama << "pizzatoppings_" << id;
+		sstreamb << "pizzatoppings_" << id;
+	}
+
+	if (orderIteration == 1) {
+
+		sstreama << "pizzatoppings_" << id;
+		sstreamb << "pizzatoppings_" << (id-10);
+	}
+
+	std::string querya = sstreama.str();
 	std::string queryb = sstreamb.str();
+
 
 	auto moveObjectToOutletOne = MoveTo::create(time, outlet_1);
 	auto moveObjectToOutletTwo = MoveTo::create(time, outlet_2);
 	
-	auto moveObjectToOrderContainer = MoveTo::create(time, Vec2(_pizza->getPosition()) + _pizza->getChildByName(queryb)->getPosition());
+	Vec2 position;
+	if (orderIteration == 0) {
+
+		position = Vec2(_pizza1->getPosition() + Vec2(_pizza1->getChildByName(queryb)->getPositionX()/2, _pizza1->getChildByName(queryb)->getPositionY()) - Vec2(visibleSize.width * 0.03, 0));
+		//position = Vec2(_pizza1->getChildByName(queryb)->getPosition());
+	
+	}
+
+	if (orderIteration == 1) {
+
+		position = Vec2(_pizza2->getPosition()  + Vec2(_pizza2->getChildByName(queryb)->getPositionX() / 2, _pizza2->getChildByName(queryb)->getPositionY()) - Vec2(visibleSize.width * 0.03, 0));
+		//position = Vec2(_pizza2->getChildByName(queryb)->getPosition());
+
+	}
+
+	auto moveObjectToOrderContainer = MoveTo::create(time, position);
 	
 
-	Sprite * newObject = (Sprite*)_bg->getChildByName(queryb);
 
 	auto switchParentSequence = CallFunc::create([=] {
-		
-		//_bg->getChildByName(queryb)->removeFromParent();
-		//removeChild(_bg->getChildByName(queryb));
-		//_bg->reorderChild(_bg->getChildByName(queryb), 4);
-		_bg->getChildByName(queryb)->setGlobalZOrder(1);
-		//object->removeFromParent();
-
-	});
-
-
-	auto addCookieToPizzaSequence = CallFunc::create([=] {
-
-		//_bg->getChildByName(queryb)->removeFromParent();
-		//removeChild(_bg->getChildByName(queryb));
-		//_bg->reorderChild(_bg->getChildByName(queryb), 4);
-		//_bg->getChildByName(queryb)->setGlobalZOrder(4);
-		//object->removeFromParent();
-		//_pizza->getChildByName(queryb)->addChild(_bg->getChildByName(queryb));
+	
+		_bg->getChildByName(querya)->setGlobalZOrder(1);
 
 	});
 
 
 	auto orderSequence = CallFunc::create([=] {
-		if (id == 10) {
+		if (id == 10 && orderIteration == 0) {
 
-			//addCookiesToPizza(1, 10, 1, 10);
+			createPizza();
+		}
+		if (id == 10 + _level && orderIteration == 1) {
+
+			createPizza();
 		}
 
 	});
 
 	delay += 0.5;
-	auto moveSequenceOne = Sequence::create(moveObjectToOutletOne, switchParentSequence,moveObjectToOutletTwo, moveObjectToOrderContainer,DelayTime::create(2), orderSequence,NULL);
-	_bg->getChildByName(queryb)->runAction(moveSequenceOne);
-	
-	//std::chrono::seconds duration(3);
-	//std::this_thread::sleep_for(duration); // Sleep for 1 seconds.
-	
-	//auto moveSequenceTwo = Sequence::create(moveObjectToOrderContainer, NULL);
-	//newObject->runAction(moveSequenceTwo);
-
-	//auto mainSequence = Sequence::create(sequenceOne, sequenceTwo,  NULL);
-	//_bg->runAction(mainSequence);
-
+	auto moveSequenceOne = Sequence::create(moveObjectToOutletOne, switchParentSequence,moveObjectToOutletTwo, moveObjectToOrderContainer, orderSequence,NULL);
+	_bg->getChildByName(querya)->runAction(moveSequenceOne);
 
 }
 
-
+/*
 void Units::addCookiesToPizza(int pizzaToppingStartId, int pizzaToppingEndId, int cookiesStartId, int cookiesEndId) {
 
 
@@ -246,12 +252,14 @@ void Units::addCookiesToPizza(int pizzaToppingStartId, int pizzaToppingEndId, in
 		pizza << "pizzatoppings_" << j;
 		std::string pizzaStr = pizza.str();
 
-		Sprite * newObject = new Sprite();
-		newObject = (Sprite*)_bg->getChildByName(cookieStr);
+		
+
+		_tempCookie = _bgCopy->getChildByName(cookieStr);
+		
 		removeChild(_bg->getChildByName(cookieStr));
 		_bg->getChildByName(cookieStr)->removeFromParent();
-		newObject->setPosition(_pizza->getChildByName(pizzaStr)->getPosition());
-		_pizza->addChild(newObject);
+		_tempCookie->setPosition(_pizza1->getChildByName(pizzaStr)->getPosition());
+		_pizza1->addChild(_tempCookie);
 
 	}
 
@@ -260,15 +268,15 @@ void Units::addCookiesToPizza(int pizzaToppingStartId, int pizzaToppingEndId, in
 
 	
 
-	auto movePizza = MoveTo::create(1, _pizza->getPosition() - Vec2(800, 0));
+	auto movePizza = MoveTo::create(1, _pizza1->getPosition() - Vec2(800, 0));
 
 	auto moveSequenceOne = Sequence::create(DelayTime::create(1), movePizza, NULL);
 	
-	_pizza->runAction(moveSequenceOne);
+	_pizza1->runAction(moveSequenceOne);
 
 }
 
-
+*/
 
 
 bool Units::onTouchBegan(Touch* touch, Event* event) {
@@ -293,7 +301,9 @@ bool Units::onTouchBegan(Touch* touch, Event* event) {
 		CCLOG("touched");
 		if (target->getName() == "handle" && orderIteration<=1) {
 			if (handleTriggered == 0) {
-
+				
+				_openTimeline->play("open", false);
+			
 				createNthOrder();
 				handleTriggered = 1;
 
@@ -363,4 +373,134 @@ void Units::createNthOrder() {
 
 	_startCookieId = 11;
 	_endCookieId = _startCookieId + _menuContext->getCurrentLevel()-1;
+}
+
+
+void Units::createPizza() {
+
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
+	if (orderIteration == 1) {
+
+		for (int i = 11; i <= 10 + _level; i++) {
+
+			std::ostringstream cookie;
+			cookie << "pizzatoppings_" << i;
+			std::string cookieStr = cookie.str();
+
+			removeChild(_bg->getChildByName(cookieStr));
+			_bg->getChildByName(cookieStr)->removeFromParent();
+
+		}
+
+		removeChild(_pizza2);
+		auto pizza2 = CSLoader::createNode("unit/pizza.csb");
+
+		pizza2->setAnchorPoint(Vec2(0.5, 0.5));
+		//_pizza1->setPosition(Vec2(visibleSize.width / 2 + origin.x + 700, outlet_2.y - 550 + origin.y));
+		pizza2->setPosition(Vec2(visibleSize.width / 2 + origin.x, outlet_2.y - 550 + origin.y));
+		//bg->setScale(0.5, 0.5);
+
+
+		this->addChild(pizza2);
+
+
+		for (int i = 1; i <= _level; i++) {
+
+			std::ostringstream cookie;
+			cookie << "pizzatoppings_" << i;
+			std::string cookieStr = cookie.str();
+
+			Sprite* cookieAdd = Sprite::createWithSpriteFrameName("unit/pizzatoppings.png");
+			cookieAdd->setPosition(pizza2->getChildByName(cookieStr)->getPosition());
+			cookieAdd->setScale(2);
+			pizza2->addChild(cookieAdd);
+
+
+		}
+
+		_openTimeline->play("close", false);
+	}
+
+
+	if (orderIteration == 0) {
+
+
+		for (int i = 1 ; i <= 10; i++) {
+
+			std::ostringstream cookie;
+			cookie << "pizzatoppings_" << i;
+			std::string cookieStr = cookie.str();
+
+			removeChild(_bg->getChildByName(cookieStr));
+			_bg->getChildByName(cookieStr)->removeFromParent();
+
+		}
+
+		removeChild(_pizza1);
+		auto pizza1 = CSLoader::createNode("unit/pizza.csb");
+
+		pizza1->setAnchorPoint(Vec2(0.5, 0.5));
+		//_pizza1->setPosition(Vec2(visibleSize.width / 2 + origin.x + 700, outlet_2.y - 550 + origin.y));
+		pizza1->setPosition(Vec2(visibleSize.width / 2 + origin.x, outlet_2.y - 550 + origin.y));
+		//bg->setScale(0.5, 0.5);
+
+
+		this->addChild(pizza1);
+
+		cocos2d::ui::Text * _label = ui::Text::create();
+		_label->setFontName("fonts/Marker Felt.ttf");
+		_label->setString("10");
+		_label->setFontSize(100);
+		_label->setPosition(Vec2(-25, 5));
+		_label->setAnchorPoint(Vec2(0, 0));
+		_label->setName("label");
+		_label->setTextColor(Color4B::BLUE);
+		_label->setColor(Color3B::BLACK);
+		_label->setScaleX(1);
+		_label->setScaleY(1);
+
+		pizza1->addChild(_label);
+		pizza1->getChildByName("label")->setGlobalZOrder(2);
+
+
+		for (int i = 1; i <= 10; i++) {
+
+			std::ostringstream cookie;
+			cookie << "pizzatoppings_" << i;
+			std::string cookieStr = cookie.str();
+
+			Sprite* cookieAdd = Sprite::createWithSpriteFrameName("unit/pizzatoppings.png");
+			cookieAdd->setPosition(pizza1->getChildByName(cookieStr)->getPosition());
+			cookieAdd->setScale(2);
+			pizza1->addChild(cookieAdd);
+
+
+		}
+
+		auto enableTrigger = CallFunc::create([=] {
+			
+			handleTriggered = 0;
+			orderIteration = 1;
+			_openTimeline->play("close", false);
+
+		});
+
+		auto movePizza = MoveTo::create(1, pizza1->getPosition() - Vec2(800, 0));
+
+
+		auto movePizza2 = MoveTo::create(1, _pizza2->getPosition() - Vec2(650, 0));
+
+
+		auto moveSequenceOne = Sequence::create(DelayTime::create(1), movePizza, NULL);
+
+		pizza1->runAction(moveSequenceOne);
+
+
+		auto moveSequenceTwo = Sequence::create(DelayTime::create(2), movePizza2, DelayTime::create(0.5),  enableTrigger, NULL);
+
+		_pizza2->runAction(moveSequenceTwo);
+	}
+
 }

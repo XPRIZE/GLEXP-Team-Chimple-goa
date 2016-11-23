@@ -121,53 +121,51 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/mini_games/Spirograph.cpp	\
 					../../Classes/mini_games/Bingo.cpp \
 					../../Classes/WordSceneLipiTKNode.cpp\
-					./src/util/logger/LTKLogger.cpp	\
-					./src/util/logger/logger.cpp	\
-					./src/common/LTKCaptureDevice.cpp \
-				    ./src/common/LTKChannel.cpp \
-					./src/common/LTKException.cpp \
-					./src/common/LTKScreenContext.cpp \
-					./src/common/LTKTrace.cpp \
-					./src/common/LTKTraceFormat.cpp \
-					./src/common/LTKTraceGroup.cpp \
-					./src/util/lib/LTKCheckSumGenerate.cpp \
-					./src/util/lib/LTKConfigFileReader.cpp \
-					./src/util/lib/LTKErrors.cpp \
-					./src/util/lib/LTKImageWriter.cpp \
-					./src/util/lib/LTKInkFileReader.cpp \
-					./src/util/lib/LTKInkFileWriter.cpp \
-					./src/util/lib/LTKInkUtils.cpp \
-					./src/util/lib/LTKLinuxUtil.cpp \
-					./src/util/lib/LTKLoggerUtil.cpp \
-					./src/util/lib/LTKOSUtilFactory.cpp \
-					./src/util/lib/LTKStrEncoding.cpp \
-					./src/util/lib/LTKStringUtil.cpp \
-					./src/util/lib/LTKVersionCompatibilityCheck.cpp \
-					./src/lipiengine/lipiengine.cpp \
-					./src/lipiengine/LipiEngineModule.cpp \
-					./src/reco/shaperec/common/LTKShapeRecoConfig.cpp \
-					./src/reco/shaperec/common/LTKShapeRecognizer.cpp \
-					./src/reco/shaperec/common/LTKShapeRecoResult.cpp \
-					./src/reco/shaperec/common/LTKShapeRecoUtil.cpp \
-					./src/reco/shaperec/common/LTKShapeSample.cpp \
-					./src/reco/shaperec/featureextractor/common/LTKShapeFeatureExtractor.cpp \
-					./src/reco/shaperec/featureextractor/common/LTKShapeFeatureExtractorFactory.cpp \
-					./src/reco/shaperec/featureextractor/pointfloat/PointFloat.cpp \
-					./src/reco/shaperec/featureextractor/pointfloat/PointFloatShapeFeature.cpp \
-					./src/reco/shaperec/featureextractor/pointfloat/PointFloatShapeFeatureExtractor.cpp \
-					./src/reco/shaperec/nn/NN.cpp \
-					./src/reco/shaperec/nn/NNShapeRecognizer.cpp \
-					./src/reco/shaperec/nn/NNAdapt.cpp \
-					./src/reco/shaperec/preprocessing/LTKPreprocessor.cpp \
-					./src/reco/shaperec/preprocessing/preprocessing.cpp \
-					lipiJni.cpp \
+					../../Classes/util/logger/LTKLogger.cpp	\
+					../../Classes/util/logger/logger.cpp	\
+					../../Classes/common/LTKCaptureDevice.cpp \
+				    ../../Classes/common/LTKChannel.cpp \
+					../../Classes/common/LTKException.cpp \
+					../../Classes/common/LTKScreenContext.cpp \
+					../../Classes/common/LTKTrace.cpp \
+					../../Classes/common/LTKTraceFormat.cpp \
+					../../Classes/common/LTKTraceGroup.cpp \
+					../../Classes/util/lib/LTKCheckSumGenerate.cpp \
+					../../Classes/util/lib/LTKConfigFileReader.cpp \
+					../../Classes/util/lib/LTKErrors.cpp \
+					../../Classes/util/lib/LTKImageWriter.cpp \
+					../../Classes/util/lib/LTKInkFileReader.cpp \
+					../../Classes/util/lib/LTKInkFileWriter.cpp \
+					../../Classes/util/lib/LTKInkUtils.cpp \
+					../../Classes/util/lib/LTKLinuxUtil.cpp \
+					../../Classes/util/lib/LTKLoggerUtil.cpp \
+					../../Classes/util/lib/LTKOSUtilFactory.cpp \
+					../../Classes/util/lib/LTKStrEncoding.cpp \
+					../../Classes/util/lib/LTKStringUtil.cpp \
+					../../Classes/util/lib/LTKVersionCompatibilityCheck.cpp \
+					../../Classes/lipiengine/lipiengine.cpp \
+					../../Classes/lipiengine/LipiEngineModule.cpp \
+					../../Classes/reco/shaperec/common/LTKShapeRecoConfig.cpp \
+					../../Classes/reco/shaperec/common/LTKShapeRecognizer.cpp \
+					../../Classes/reco/shaperec/common/LTKShapeRecoResult.cpp \
+					../../Classes/reco/shaperec/common/LTKShapeRecoUtil.cpp \
+					../../Classes/reco/shaperec/common/LTKShapeSample.cpp \
+					../../Classes/reco/shaperec/featureextractor/common/LTKShapeFeatureExtractor.cpp \
+					../../Classes/reco/shaperec/featureextractor/common/LTKShapeFeatureExtractorFactory.cpp \
+					../../Classes/reco/shaperec/featureextractor/pointfloat/PointFloat.cpp \
+					../../Classes/reco/shaperec/featureextractor/pointfloat/PointFloatShapeFeature.cpp \
+					../../Classes/reco/shaperec/featureextractor/pointfloat/PointFloatShapeFeatureExtractor.cpp \
+					../../Classes/reco/shaperec/nn/NN.cpp \
+					../../Classes/reco/shaperec/nn/NNShapeRecognizer.cpp \
+					../../Classes/reco/shaperec/nn/NNAdapt.cpp \
+					../../Classes/reco/shaperec/preprocessing/LTKPreprocessor.cpp \
+					../../Classes/reco/shaperec/preprocessing/preprocessing.cpp \
 					../../Classes/Calculator.cpp \
 					../../Classes/mini_games/CarDraw.cpp \
 					../../Classes/mini_games/CarDrawNode.cpp \
 					../../Classes/mini_games/Door.cpp \
 					../../Classes/mini_games/DoorNode.cpp \
 					../../Classes/mini_games/JumpingNumbers.cpp \
-					../../Classes/mini_games/ChocolateFactory.cpp \
                     ../../Classes/AsyncTask.cpp \
                     ../../Classes/LipiTKNode.cpp \
                     ../../Classes/LipiTKInterface.cpp \
@@ -178,14 +176,14 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../extensions
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/include/
-LOCAL_C_INCLUDES += $(LOCAL_PATH)/src/util/lib
-LOCAL_C_INCLUDES += $(LOCAL_PATH)/src/lipiengine
-LOCAL_C_INCLUDES += $(LOCAL_PATH)/src/reco/shaperec/common
-LOCAL_C_INCLUDES += $(LOCAL_PATH)/src/reco/shaperec/featureextractor/common
-LOCAL_C_INCLUDES += $(LOCAL_PATH)/src/reco/shaperec/featureextractor/pointfloat
-LOCAL_C_INCLUDES += $(LOCAL_PATH)/src/reco/shaperec/nn
-LOCAL_C_INCLUDES += $(LOCAL_PATH)/src/reco/shaperec/preprocessing
-LOCAL_C_INCLUDES += $(LOCAL_PATH)/src/util/logger
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/util/lib
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/lipiengine
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/reco/shaperec/common
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/reco/shaperec/featureextractor/common
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/reco/shaperec/featureextractor/pointfloat
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/reco/shaperec/nn
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/reco/shaperec/preprocessing
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/util/logger
 
 LOCAL_STATIC_LIBRARIES := cocos2d_js_static
 LOCAL_STATIC_LIBRARIES += cocos_extension_static	

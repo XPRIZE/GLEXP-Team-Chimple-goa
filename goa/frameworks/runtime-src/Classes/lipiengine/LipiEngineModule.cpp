@@ -60,7 +60,6 @@
 #include "LTKLoggerUtil.h"
 #include "NN.h"			// Android port : Added this header file
 
-
 extern int unloadAllModules();
 extern int deleteModule(void* RecoHandle);
 extern void addModule(void* RecoHandle, void* handle);
@@ -134,7 +133,6 @@ int LTKLipiEngineModule::initializeLipiEngine()
 	try
 	{
 		m_LipiEngineConfigEntries = new LTKConfigFileReader(temp);
-
 	}
 	catch(LTKException e)
 	{
@@ -143,8 +141,8 @@ int LTKLipiEngineModule::initializeLipiEngine()
 		        "proceeding with defaults" << endl;
 	}
 
+    
     errorCode = configureLogger();	// Configure the logger
-
 	if(errorCode !=SUCCESS)
 	{
 		LTKReturnError(errorCode);
@@ -339,7 +337,7 @@ int LTKLipiEngineModule::createShapeRecognizer(string &strLogicalProjectName, LT
 		"Entering: LTKLipiEngineModule::createShapeRecognizer()"<<endl;
 
 	if(strLogicalProjectName.empty())
-	{		
+	{
 		return EINVALID_PROJECT_NAME;
 	}
 
@@ -361,7 +359,6 @@ int LTKLipiEngineModule::createShapeRecognizer(string &strLogicalProjectName, LT
 	}
 
 	errorCode = createShapeRecognizer(strProjectName,strProfileName,outShapeRecognizerPtr);
-
 	if(errorCode !=SUCCESS)
 	{
 		LOG( LTKLogger::LTK_LOGLEVEL_ERR) << 
@@ -828,7 +825,6 @@ int LTKLipiEngineModule::resolveLogicalNameToProjectProfile(
 
 	char strSep[] = " ()\r";
 	char *strToken;
-
 	if (m_LipiEngineConfigEntries == NULL )
 	{
 		LOG( LTKLogger::LTK_LOGLEVEL_ERR) << 

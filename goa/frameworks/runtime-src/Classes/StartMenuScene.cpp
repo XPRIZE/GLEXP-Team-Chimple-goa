@@ -48,6 +48,8 @@
 #include "mini_games/Units.h"
 #include "mini_games/Shop.h"
 #include "mini_games/Item.h"
+#include "mini_games/ChocolateFactory.h"
+
 
 #include "storage/local-storage/LocalStorage.h"
 #include "external/json/document.h"
