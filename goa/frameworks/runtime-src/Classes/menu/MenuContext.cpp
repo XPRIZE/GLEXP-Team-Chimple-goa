@@ -65,6 +65,7 @@
 #include "../mini_games/ATM.h"
 #include "../mini_games/Shop.h"
 #include "../mini_games/Item.h"
+#include "../mini_games/spot.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -917,6 +918,9 @@ void MenuContext::launchGameFromJS(std::string gameName) {
 		}
 		else if (gameName == SHOP) {
 			Director::getInstance()->replaceScene(Shop::createScene());
+		}
+		else if (gameName == SPOT) {
+			Director::getInstance()->replaceScene(spot::createScene());
 		}
     	else{
             CCLOG("Failed starting scene: %s", gameName.c_str());
