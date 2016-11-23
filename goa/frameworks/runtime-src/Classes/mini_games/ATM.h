@@ -32,10 +32,17 @@ protected:
 	void oneNotePressed();
 	void tenNotePressed();
 	void hundredNotePressed();
+	bool _touched = false;
+	void rePositionOneNotes(cocos2d::Node * note);
+	void rePositionTenNotes(cocos2d::Node * note);
+	void rePositionHundredNotes(cocos2d::Node * note);
+	void answerCheck();
 	std::vector<cocos2d::EventListenerTouchOneByOne *> _listner;
 	float _hundredXPosition, _ten_XPosition, _one_XPosition;
-	int _hundredCount = 0, _oneCount = 0,_tensCount = 0, _totalCount = 0;
+	int _hundredCount = 0, _oneCount = 0,_tensCount = 0, _totalCount = 0, _targetedNumber;
 	cocos2d::Label * _hundreadLabel;
+	std::map<int, std::map<int, int>> _levelMapping;
+	std::vector<cocos2d::Sprite *> _onesSprite, _tensSprite, _hundredsSprite;
 };
 
 #endif 
