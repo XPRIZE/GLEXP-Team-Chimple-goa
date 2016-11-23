@@ -189,12 +189,12 @@ void Units::createOrder(int id) {
 	
 	Vec2 position;
 	if (orderIteration == 0) {
-		position = Vec2(_pizza1->getPosition() + _pizza1->getChildByName(queryb)->getPosition()/2);
+		position = Vec2(_pizza1->getPosition() + Vec2(_pizza1->getChildByName(queryb)->getPositionX()/2, _pizza1->getChildByName(queryb)->getPositionY()));
 		//position = Vec2(_pizza1->getChildByName(queryb)->getPosition());
 	}
 
 	if (orderIteration == 1) {
-		position = Vec2(_pizza2->getPosition()  + _pizza2->getChildByName(queryb)->getPosition()/2);
+		position = Vec2(_pizza2->getPosition()   + Vec2(_pizza2->getChildByName(queryb)->getPositionX() / 2, _pizza2->getChildByName(queryb)->getPositionY()));
 		//position = Vec2(_pizza2->getChildByName(queryb)->getPosition());
 	}
 
