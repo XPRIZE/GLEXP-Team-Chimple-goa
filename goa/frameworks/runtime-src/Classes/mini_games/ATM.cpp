@@ -5,7 +5,7 @@
 //  Created by Kirankumar CS on 08/11/16
 //
 //
-
+#include "../menu/HelpLayer.h"
 #include "ATM.h"
 #include "../menu/HelpLayer.h"
 #include "../effects/FShake.h"
@@ -174,6 +174,9 @@ void ATM::onEnterTransitionDidFinish()
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto bg = CSLoader::createNode("ATM/ATM.csb");
 	bg->setName("bg");
+	if (visibleSize.width > 2560) {
+		bg->setPositionX((visibleSize.width - 2560)/2);
+	}
 	this->addChild(bg);
 	_touched = true;
 
@@ -191,9 +194,9 @@ void ATM::onEnterTransitionDidFinish()
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, listenChild);
 		_listner.push_back(listener);
 	}
-	_ten_XPosition = visibleSize.width / 1.45;
-	_hundredXPosition = visibleSize.width / 1.45;
-	_one_XPosition = visibleSize.width / 1.45;
+	_ten_XPosition = visibleSize.width / 1.35;
+	_hundredXPosition = visibleSize.width / 1.35;
+	_one_XPosition = visibleSize.width / 1.35;
 	_hundreadLabel = Label::createWithTTF("0", "fonts/digital.ttf", 200);
 	_hundreadLabel->setColor(Color3B(0, 0, 0));
 	_hundreadLabel->setPositionX(bg->getChildByName("board_7")->getContentSize().width/2 );
@@ -210,6 +213,10 @@ void ATM::onEnterTransitionDidFinish()
 	targetLabel->setPositionX(bg->getChildByName("atm_machine_67")->getContentSize().width/2);
 	targetLabel->setPositionY(bg->getChildByName("atm_machine_67")->getContentSize().height * 0.9);
 	bg->getChildByName("atm_machine_67")->addChild(targetLabel);
+
+	if (menu->getCurrentLevel() == 1) {
+		helpLayer();
+	}
 }
 
 bool ATM::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
@@ -220,7 +227,11 @@ bool ATM::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 	Rect rect = Rect(0, 0, s.width, s.height);
 	if (rect.containsPoint(location) && _touched) {  // && _touched
 		_touched = false;
-		CCLOG("clicked");
+		
+		auto scale = ScaleBy::create(0.1, 0.75);
+		target->runAction(Sequence::create(scale, scale->reverse(), NULL));
+		this->removeChildByName("help");
+
 		CCLOG(" target Name = %s", target->getName().c_str());
 		if (target->getName().compare("one") == 0) {
 			oneNotePressed();
@@ -276,7 +287,7 @@ void ATM::oneNotePressed()
 		move = MoveTo::create(2, Vec2(_one_XPosition, 600));
 	 }
 	else if (_oneCount == 6) {
-		_one_XPosition = visibleSize.width / 1.45;
+		_one_XPosition = visibleSize.width / 1.35;
 		move = MoveTo::create(2, Vec2(_one_XPosition, 400));
 	}
 	else if (_oneCount > 6 && _oneCount < 11) {
@@ -326,7 +337,7 @@ void ATM::tenNotePressed()
 		move = MoveTo::create(2, Vec2(_ten_XPosition, 1000));
 	}
 	else if (_tensCount == 6) {
-		_ten_XPosition = visibleSize.width / 1.45;
+		_ten_XPosition = visibleSize.width / 1.35;
 		move = MoveTo::create(2, Vec2(_ten_XPosition, 800));
 	}
 	else if (_tensCount > 6 ) {
@@ -371,7 +382,7 @@ void ATM::hundredNotePressed()
 		move = MoveTo::create(2, Vec2(_hundredXPosition, 1400));
 	}
 	else if (_hundredCount == 6) {
-		_hundredXPosition = visibleSize.width / 1.45;
+		_hundredXPosition = visibleSize.width / 1.35;
 		move = MoveTo::create(2, Vec2(_hundredXPosition, 1200));	
 	}
 	else if (_hundredCount > 6) {
@@ -398,10 +409,6 @@ void ATM::rePositionOneNotes(cocos2d::Node * note)
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto one = this->getChildByName("bg")->getChildByName("one");
-	float x = note->getPositionX() - visibleSize.width/1.45;
-	CCLOG("x = %f", x);
-	CCLOG("note Pos %f", note->getPositionX());
-	CCLOG("visible size = %f", visibleSize.width / 1.45);
 	_one_XPosition -= visibleSize.width*0.05;
 	_oneCount--;
 	_totalCount--;
@@ -411,20 +418,13 @@ void ATM::rePositionOneNotes(cocos2d::Node * note)
 	std::string str = ss.str();
 
 	_hundreadLabel->setString(str);
-	int index = x / (visibleSize.width * 0.05);
-	if (note->getPositionY() == 400) {
-		index += 5;
-	}
-	for (int i = _onesSprite.size() - 1; i > index; i--) {
-		auto yy = _onesSprite.at(i-1)->getPosition();
-		_onesSprite.at(i)->setPosition(yy);
-	}
+	auto notes = _onesSprite.at(_onesSprite.size() - 1);
 	auto move = MoveTo::create(2, one->getPosition());
-	note->runAction(move);
+	notes->runAction(move);
 	this->runAction(Sequence::create(DelayTime::create(2), CallFunc::create([=]() {
-		_onesSprite.erase(_onesSprite.begin() + index);
+		_onesSprite.pop_back();
 		_touched = true;
-		this->removeChild(note);
+		this->removeChild(notes);
 		_listner.at(3)->setEnabled(true);
 	}), NULL));
 }
@@ -433,7 +433,6 @@ void ATM::rePositionTenNotes(cocos2d::Node * note)
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto one = this->getChildByName("bg")->getChildByName("ten");
-	float x = note->getPositionX() - visibleSize.width / 1.45;
 	_ten_XPosition -= visibleSize.width*0.05;
 	_tensCount--;
 	_totalCount -= 10;
@@ -443,20 +442,13 @@ void ATM::rePositionTenNotes(cocos2d::Node * note)
 	std::string str = ss.str();
 
 	_hundreadLabel->setString(str);
-	int index = x / (visibleSize.width * 0.05);
-	if (note->getPositionY() == 800) {
-		index += 5;
-	}
-	for (int i = _tensSprite.size() - 1; i > index; i--) {
-		auto yy = _tensSprite.at(i - 1)->getPosition();
-		_tensSprite.at(i)->setPosition(yy);
-	}
+	auto notes = _tensSprite.at(_tensSprite.size() - 1);
 	auto move = MoveTo::create(2, one->getPosition());
-	note->runAction(move);
+	notes->runAction(move);
 	this->runAction(Sequence::create(DelayTime::create(2), CallFunc::create([=]() {
-		_tensSprite.erase(_tensSprite.begin() + index);
+		_tensSprite.pop_back();
 		_touched = true;
-		this->removeChild(note);
+		this->removeChild(notes);
 		_listner.at(1)->setEnabled(true);
 	}), NULL));
 }
@@ -465,7 +457,6 @@ void ATM::rePositionHundredNotes(cocos2d::Node * note)
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto one = this->getChildByName("bg")->getChildByName("hundred");
-	float x = note->getPositionX() - visibleSize.width / 1.45;
 	_hundredXPosition -= visibleSize.width*0.05;
 	_hundredCount--;
 	_totalCount -= 100;
@@ -476,21 +467,14 @@ void ATM::rePositionHundredNotes(cocos2d::Node * note)
 
 	_hundreadLabel->setString(str);
 
-	int index = x / (visibleSize.width * 0.05);
-	if (note->getPositionY() == 1200) {
-		index += 5;
-	}
-	CCLOG("index = %d", index);
-	for (int i = _hundredsSprite.size() - 1; i > index; i--) {
-		auto yy = _hundredsSprite.at(i - 1)->getPosition();
-		_hundredsSprite.at(i)->setPosition(yy);
-	}
+	auto notes = _hundredsSprite.at(_hundredsSprite.size() - 1);
+
 	auto move = MoveTo::create(2, one->getPosition());
-	note->runAction(move);
+	notes->runAction(move);
 	this->runAction(Sequence::create(DelayTime::create(2), CallFunc::create([=]() {
-		_hundredsSprite.erase(_hundredsSprite.begin() + index);
+		_hundredsSprite.pop_back();
 		_touched = true;
-		this->removeChild(note);
+		this->removeChild(notes);
 		_listner.at(2)->setEnabled(true);
 	}), NULL));
 }
@@ -514,4 +498,19 @@ void ATM::answerCheck()
 		star->runAction(shake);
 		_touched = true;
 	}
+}
+
+void ATM::helpLayer()
+{
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	auto note = this->getChildByName("bg")->getChildByName("one");
+	float extraX = (visibleSize.width - 2560) / 2;
+	if (_targetedNumber == 10 || _targetedNumber == 20) {
+		note = this->getChildByName("bg")->getChildByName("ten");
+	}
+	auto machine = this->getChildByName("bg")->getChildByName("atm_machine_67")->getPosition();
+	auto help = HelpLayer::create(Rect(note->getPositionX() + extraX, note->getPositionY(), note->getContentSize().width, note->getContentSize().height), Rect(extraX + machine.x, this->getChildByName("bg")->getChildByName("atm_machine_67")->getContentSize().height*0.4 + machine.y, 400, 200));
+	help->click(Vec2(note->getPositionX() + extraX, note->getPositionY()));
+	this->addChild(help);
+	help->setName("help");
 }

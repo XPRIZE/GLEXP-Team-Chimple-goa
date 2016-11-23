@@ -37,6 +37,7 @@ protected:
 	void rePositionTenNotes(cocos2d::Node * note);
 	void rePositionHundredNotes(cocos2d::Node * note);
 	void answerCheck();
+	void helpLayer();
 	std::vector<cocos2d::EventListenerTouchOneByOne *> _listner;
 	float _hundredXPosition, _ten_XPosition, _one_XPosition;
 	int _hundredCount = 0, _oneCount = 0,_tensCount = 0, _totalCount = 0, _targetedNumber;
