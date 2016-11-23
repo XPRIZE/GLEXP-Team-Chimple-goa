@@ -7,11 +7,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.zip.ZipFile;
 
-import org.cocos2dx.javascript.Zip;
-
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.os.Environment;
 import android.util.Log;
 
 public class AssetInstaller {
@@ -27,61 +24,36 @@ public class AssetInstaller {
 
 	private void copyAssets() {
 		AssetManager assetManager = context.getAssets();
-		// String[] files = null;
-		// try {
-		// 	files = assetManager.list("");
-		// } catch (IOException e) {
-		// 	Log.e(TAG, "Failed to get asset file list.", e);
-		// }
-		// for (String filename : files) {
-		// 	InputStream in = null;
-		// 	OutputStream out = null;
-		// 	try {
-		// 		System.out.println("trying to open file: 6666666" + filename);
-		// 		in = assetManager.open(filename);
-		// 		out = new FileOutputStream(context.getExternalFilesDir(null)
-		// 				.getPath() + "/" + filename);
-		// 		copyFile(in, out);
-		// 		in.close();
-		// 		in = null;
-		// 		out.flush();
-		// 		out.close();
-		// 		out = null;
-		// 	} catch (IOException e) {
-		// 		Log.e(TAG, "Failed to copy asset file: " + filename, e);
-		// 	}
-		// }
-		
-		
-		String filename = "projects.zip";
-		InputStream in = null;
-		OutputStream out = null;
+		String[] files = null;
 		try {
-			System.out.println("trying to open file: 6666666" + "res/" + filename);
-			in = assetManager.open("res/" + filename);
-			File storageDir = new File(context.getExternalFilesDir(null).getPath() + "/" + "projects.zip");
-	
-			System.out.println("storage project file:" + storageDir.getAbsolutePath());
-			Log.d("Storage", "storage project file:" + storageDir.getAbsolutePath());
-
-	        boolean created = storageDir.createNewFile();
-	        if(created) {
-				Log.d("projects.zip", "scucessfully created storage project file:" + storageDir.getAbsolutePath());
-	        	System.out.println("scucessfully created storage project file:" + storageDir.getAbsolutePath());
-	        }
-	
-	         out = new FileOutputStream(context.getExternalFilesDir(null)
-					.getPath() + "/" + filename);
-			copyFile(in, out);
-			in.close();
-			in = null;
-			out.flush();
-			out.close();
-			out = null;
+			files = assetManager.list("res/android-lipitk");
 		} catch (IOException e) {
-			Log.e(TAG, "Failed to copy asset file: " + filename, e);
+			Log.e(TAG, "Failed to get asset file list.", e);
 		}
+		for (String filename : files) {
+			InputStream in = null;
+			FileOutputStream out = null;
+            System.out.println("processing file:" + filename);
 
+            System.out.println("file ueeeeeee:" + context.getFilesDir()
+						+ "/" + filename);
+
+			try {
+				in = assetManager.open("res/android-lipitk/" + filename);
+                System.out.println("file ueeeeeee:" + context.getFilesDir()
+						.getPath() + "/" + filename);
+				out = new FileOutputStream(context.getFilesDir()
+						.getPath() + "/" + filename);
+				copyFile(in, out);
+				in.close();
+				in = null;
+				out.flush();
+				out.close();
+				out = null;
+			} catch (IOException e) {
+				Log.e(TAG, "Failed to copy asset file: " + filename, e);
+			}
+		}
 	}
 
 	private void copyFile(InputStream in, OutputStream out) throws IOException {
@@ -89,14 +61,13 @@ public class AssetInstaller {
 		int read;
 		while ((read = in.read(buffer)) != -1) {
 			out.write(buffer, 0, read);
-			System.out.println("WRITING....");
 		}
 	}
 
 	private void explodeAsset() throws IOException {
-		String zipPath = context.getExternalFilesDir(null).getPath() + "/"
+		String zipPath = context.getFilesDir().getPath() + "/"
 				+ zipName + ".zip";
-		String extractPath = context.getExternalFilesDir(null).getPath() + "/";
+		String extractPath = context.getFilesDir().getPath() + "/";
 		File file = new File(zipPath);
 		ZipFile zipFile = new ZipFile(file);
 		try {
@@ -112,7 +83,7 @@ public class AssetInstaller {
 	
 
 	private boolean dirCheck() {
-		File dir = new File(context.getExternalFilesDir(null).getPath() + "/"
+		File dir = new File(context.getFilesDir().getPath() + "/"
 				+ zipName);
 		return dir.exists();
 	}

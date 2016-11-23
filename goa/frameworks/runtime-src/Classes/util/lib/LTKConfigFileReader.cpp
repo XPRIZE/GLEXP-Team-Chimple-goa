@@ -52,6 +52,10 @@
 
 #include "LTKLoggerUtil.h"
 
+#include "cocos2d.h"
+
+USING_NS_CC;
+
 /******************************************************************************
 * AUTHOR		: Balaji R.
 * DATE			: 23-DEC-2004
@@ -68,17 +72,20 @@
 LTKConfigFileReader::LTKConfigFileReader(const string& configFilePath):
 m_configFilePath(configFilePath)
 {
+    CCLOG("LTKConfigFileReader::configFilePath %s", configFilePath.c_str());
 	LOG( LTKLogger::LTK_LOGLEVEL_DEBUG) << 
 		 " Entering: LTKConfigFileReader::LTKConfigFileReader()" << endl;
 
 	// Read the config file into stringStringMap
 	int errorCode = getMap();
-
+    CCLOG("LTKConfigFileReader::configFilePath errorCode %d", errorCode);
 	if (errorCode != SUCCESS )
 	{
 	// logger message
 	 LOG( LTKLogger::LTK_LOGLEVEL_ERR) 
         <<"Error: LTKConfigFileReader::LTKConfigFileReader()"<<endl;
+        
+        CCLOG("LTKConfigFileReader::configFilePath Error %d", errorCode);
 	throw LTKException(errorCode);
 	}
 
@@ -104,13 +111,14 @@ int LTKConfigFileReader::getMap()
 {
 	LOG( LTKLogger::LTK_LOGLEVEL_DEBUG) << 
 		 " Entering: LTKConfigFileReader::getMap()" << endl;
+    
+    CCLOG("Entering: LTKConfigFileReader::getMap()");
 
 	string line = "";						//	a line read from the config file
 
 	vector<string> strTokens;				//	string list found in the line read
 
 	//	opening the config file
-
 	ifstream cfgFileHandle(m_configFilePath.c_str());
 
 	//	checking if the file open was successful
@@ -118,12 +126,17 @@ int LTKConfigFileReader::getMap()
 	if(!cfgFileHandle)
 	{
 		// logger message
+        
+        CCLOG("Unable to Open Config file : m_configFilePath() %s", m_configFilePath.c_str());
+        
 		LOG(LTKLogger::LTK_LOGLEVEL_ERR)
                   <<"Unable to Open Config file :"<< m_configFilePath<<endl;
 		LOG(LTKLogger::LTK_LOGLEVEL_ERR)
                   <<"Error : "<< EFILE_OPEN_ERROR <<": "<< 
                   getErrorMessage(EFILE_OPEN_ERROR)
                   <<"LTKConfigFileReader::getMap() => Config File Not Found" <<endl;
+        
+        CCLOG("LTKConfigFileReader::getMap() => Config File Not Found");
 
 		LTKReturnError(EFILE_OPEN_ERROR);
 	}
@@ -163,6 +176,7 @@ int LTKConfigFileReader::getMap()
                   getErrorMessage(EINVALID_CFG_FILE_ENTRY)
                   <<"LTKConfigFileReader::getMap()" <<endl;
 
+                CCLOG("Error in LTKConfigFileReader::getMap()");
                 //	closing the config file
             	cfgFileHandle.close();
                 

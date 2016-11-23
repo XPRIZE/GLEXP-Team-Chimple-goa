@@ -78,13 +78,24 @@ Sprite* LipiTKNode::createDrawingAreaUsingFileName(Vec2 anchorPoint, Vec2 positi
 
 
 bool LipiTKNode::initialize(int width, int height, Point position) {
-
-    //initialize lipiTK
-    _lipiTKInterface = LipiTKInterface::getInstance("res");
+    auto path = "res";
+    #if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+        //initialize lipiTK
+            path = "res";
+    
+        #elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
+        //initialize lipiTK
+            path = "res";
     
     
-    _canvasWidth = width;
-    _canvasHeight = height;
+        #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+            //initialize lipiTK
+             path = FileUtils::getInstance()->getWritablePath().c_str();
+        #endif
+    
+        _lipiTKInterface = LipiTKInterface::getInstance(path);
+        _canvasWidth = width;
+        _canvasHeight = height;
     
     // create a canvas to draw on
     _canvas = RenderTexture::create(_canvasWidth, _canvasHeight, kCCTexture2DPixelFormat_RGBA8888);

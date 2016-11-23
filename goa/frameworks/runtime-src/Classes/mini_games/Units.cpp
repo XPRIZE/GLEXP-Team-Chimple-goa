@@ -132,7 +132,6 @@ void Units::update(float delta) {
 		auto scoreSequenceOne = Sequence::create(DelayTime::create(0.5), ShowScore, NULL);
 		this->runAction(scoreSequenceOne);
 		
-			
 		}
 	
 		
@@ -142,8 +141,6 @@ Units::~Units(void)
 {
 	this->removeAllChildrenWithCleanup(true);
 }
-
-
 
 
 void Units::gameHelpLayer()
@@ -167,8 +164,10 @@ void Units::gameHelpLayer()
 
 
 void Units::createOrder(int id) {
+	
 	static int delay = 0.5;
 	float time = 0.5;
+
 	std::ostringstream sstreamb;
 	sstreamb << "pizzatoppings_" << id;
 	std::string queryb = sstreamb.str();
@@ -206,6 +205,7 @@ void Units::createOrder(int id) {
 
 	auto orderSequence = CallFunc::create([=] {
 		if (id == 10) {
+
 			//addCookiesToPizza(1, 10, 1, 10);
 		}
 
@@ -234,7 +234,7 @@ void Units::addCookiesToPizza(int pizzaToppingStartId, int pizzaToppingEndId, in
 	//std::ostringstream sstreamb;
 	//sstreamb << "pizzatoppings_" << id;
 	//std::string queryb = sstreamb.str();
-	
+
 
 	for (int i = cookiesStartId, j = pizzaToppingStartId; i <= cookiesEndId; i++, j++) {
 
@@ -252,7 +252,6 @@ void Units::addCookiesToPizza(int pizzaToppingStartId, int pizzaToppingEndId, in
 		_bg->getChildByName(cookieStr)->removeFromParent();
 		newObject->setPosition(_pizza->getChildByName(pizzaStr)->getPosition());
 		_pizza->addChild(newObject);
-		
 
 	}
 
@@ -266,8 +265,6 @@ void Units::addCookiesToPizza(int pizzaToppingStartId, int pizzaToppingEndId, in
 	auto moveSequenceOne = Sequence::create(DelayTime::create(1), movePizza, NULL);
 	
 	_pizza->runAction(moveSequenceOne);
-
-
 
 }
 
@@ -294,14 +291,10 @@ bool Units::onTouchBegan(Touch* touch, Event* event) {
 	if (bb.containsPoint(locationInNode)) {
 
 		CCLOG("touched");
-		if (target->getName() == "handle") {
+		if (target->getName() == "handle" && orderIteration<=1) {
 			if (handleTriggered == 0) {
 
-				for (int i = 1; i <= 10; i++) {
-					createOrder(i);
-
-				}
-
+				createNthOrder();
 				handleTriggered = 1;
 
 			}
@@ -342,4 +335,32 @@ void Units::addCalculator() {
 	//_calculator->setGlobalZOrder(2);
 	_calculator->setVisible(false);
 
+}
+
+void Units::hideUnwated(int level) {
+
+
+	for (int i = 11 + level; i <= 20; i++) {
+
+		std::ostringstream cookie;
+		cookie << "pizzatoppings_" << i;
+		std::string cookieStr = cookie.str();
+
+		_bg->getChildByName(cookieStr)->setVisible(false);
+
+	}
+
+}
+
+
+void Units::createNthOrder() {
+
+	for (int i = _startCookieId; i <= _endCookieId; i++) {
+
+		createOrder(i);
+
+	}
+
+	_startCookieId = 11;
+	_endCookieId = _startCookieId + _menuContext->getCurrentLevel()-1;
 }

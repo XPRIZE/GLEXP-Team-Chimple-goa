@@ -791,7 +791,7 @@
 
 #define DEFAULT_LOG_FILE        "lipi.log"
 
-#define DEFAULT_LOG_LEVEL       LTKLogger::LTK_LOGLEVEL_OFF
+#define DEFAULT_LOG_LEVEL       LTKLogger::LTK_LOGLEVEL_ALL
 
 #define LOG_LEVEL_DEBUG         "DEBUG"
 

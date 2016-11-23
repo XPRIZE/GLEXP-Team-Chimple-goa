@@ -29,6 +29,8 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
@@ -696,6 +698,51 @@
             },
             "Name": "Panel_1_0_0",
             "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bar/cake2.png",
+              "Plist": "bar/bar.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 283.7626,
+              "Y": 594.9722
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1108,
+              "Y": 0.3305
+            },
+            "PreSize": {
+              "X": 0.2094,
+              "Y": 0.3728
+            },
+            "LeftMargin": 15.7626,
+            "RightMargin": 2008.2374,
+            "TopMargin": 869.5278,
+            "BottomMargin": 259.4722,
+            "Tag": 17,
+            "ActionTag": -2074096397,
+            "Size": {
+              "X": 536.0,
+              "Y": 671.0
+            },
+            "Name": "cake2_1",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
