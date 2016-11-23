@@ -264,6 +264,7 @@ void Line::onEnterTransitionDidFinish()
 	{
 		_NumberLine = CSLoader::createNode(_scenePath.at("five"));
 		int temp = _startNum;
+		_diff = (_endNum - _startNum) / 5;
 		auto nodeVector = _NumberLine->getChildren();
 		int numberCount = 0;
 		for (int i = 0; i < nodeVector.size(); i++)
@@ -285,6 +286,7 @@ void Line::onEnterTransitionDidFinish()
 	{
 		_NumberLine = CSLoader::createNode(_scenePath.at("ten"));
 		int temp = _startNum;
+		_diff = (_endNum - _startNum) / 10;
 		auto nodeVector = _NumberLine->getChildren();
 		int numberCount = 0;
 		for (int i = 0; i < nodeVector.size(); i++)
@@ -446,7 +448,10 @@ void Line::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 	{
 		if ((target->getBoundingBox().containsPoint(_nodeRef.at(i)->getPosition())) && (target->getName().compare(_nodeRef.at(i)->getName()) == 0))
 		{
-			this->removeChildByName("help");
+			if (menu->getCurrentLevel() == 1)
+			{
+				this->removeChildByName("help");
+			}
 			target->setPosition(_nodeRef.at(i)->getPosition());
 			target->setAnchorPoint(Vec2(0.5, 1));
 			_eventDispatcher->removeEventListenersForTarget(target);

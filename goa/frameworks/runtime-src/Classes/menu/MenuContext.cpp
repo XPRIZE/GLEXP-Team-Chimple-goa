@@ -64,6 +64,7 @@
 #include "../mini_games/Step.h"
 #include "../mini_games/ATM.h"
 #include "../mini_games/Shop.h"
+#include "../mini_games/Item.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -865,6 +866,9 @@ void MenuContext::launchGameFromJS(std::string gameName) {
     	}
 		else if (gameName == LINE) {
 			Director::getInstance()->replaceScene(Line::createScene());
+		}
+		else if (gameName == ITEM) {
+			Director::getInstance()->replaceScene(Item::createScene());
 		}
 
 		else if (gameName == CARDRAW) {
