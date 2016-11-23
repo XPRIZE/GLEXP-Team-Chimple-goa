@@ -87,13 +87,15 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             swallowTouches: true,
             onTouchBegan: function (touch, event) {
                 var target = event.getCurrentTarget();
-                var location = target.convertToNodeSpace(touch.getLocation());
+                var location = target.parent.convertToNodeSpace(touch.getLocation());
                   if(target.getChildren() != null && target.getChildren().length > 0)
                   {
+                        var targetRectangle = cc.rect(target.getPosition().x, target.getPosition().y, target.getChildren()[0].getBoundingBox().width, target.getChildren()[0].getBoundingBox().height);
 
-                        var targetRectangle = target.getChildren()[0].getBoundingBox();
-                        
                         if (cc.rectContainsPoint(targetRectangle, location)) {
+                            context._offsetYInTouch = location.y - target.getPosition().y;
+                            context._offsetXInTouch = location.x - target.getPosition().x;
+
                             context[funcName](target, loop);
                             context.displayText(target.getName());                            
                             return true;
@@ -104,20 +106,15 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
             onTouchMoved:function(touch, event) {                
                 var target = event.getCurrentTarget();
-                var location = target.convertToNodeSpace(touch.getLocation());
+                var location = target.parent.convertToNodeSpace(touch.getLocation());
                   if(target.getChildren() != null && target.getChildren().length > 0)
                   {
-
                         var targetRectangle = target.getChildren()[0].getBoundingBox();
-                        
-                        if (cc.rectContainsPoint(targetRectangle, location)) {
-                            if(target.draggingEnabled) {
-                                var location = target.parent.convertToNodeSpace(touch.getLocation());
-                                target.setPosition(location.x, location.y);
-                            }                            
-                        }
+                        if(target.draggingEnabled) {  
+                            var locationTo = cc.p(location.x - context._offsetXInTouch, location.y - context._offsetYInTouch);                          
+                            target.setPosition(locationTo.x, locationTo.y);
+                        }                            
                   }
-                
             },
             onTouchEnded: function (touch, event) {
 
@@ -197,14 +194,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             this.addChild(this._constructedScene.node,0);
         }        
 
-        this._playButton = new cc.Sprite(xc.NarrateStoryLayer.res.play_png);
-        this._playButton.setName("Play");
-        this._playButton.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
-        this.addChild(this._playButton);        
-        this.bindTouchListener(this._playButton, "sceneTouched", false, 2);
-
         this.setUpScene();
-
 
         this._leftButtonPanel = new xc.ButtonPanel(new cc.p(150, 0), cc.size(this._configPanelWidth, this._contentPanelHeight), 1, 1, xc.onlyStoryNarrateConfigurationObject.prevDefault, new xc.ButtonHandler(this.previousStory, this, false));        
         this._leftButtonPanel.scaleX *= -1;
@@ -218,6 +208,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this._rightButtonPanel.setBackGroundColor(xc.PRIMARY_COLOR);
         this.addChild(this._rightButtonPanel);
         this._rightButtonPanel.setVisible(false);
+
+        this.sceneTouched();
     },
 
     bindEventsToTarget:function(child) {
@@ -307,6 +299,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
     setUpScene: function () {
         if (this._constructedScene.node) {
+            this._referenceToContext = this;
             this._constructedScene.action._referenceToContext = this;
             this._constructedScene.action.setLastFrameCallFunc(this.playEnded);
             this._constructedScene.action.setFrameEventCallFunc(this.enterFrameEvent);
@@ -358,9 +351,10 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
     sceneTouched: function (target) {
         //load content
-        this.playRecordedScene();
-        this._playButton.setVisible(false);
-        this._playButton.removeFromParent();
+        var delayAction = new cc.DelayTime(2);
+        var createPlayAction = new cc.CallFunc(this._referenceToContext.playRecordedScene, this._referenceToContext);
+        var playSequence = new cc.Sequence(delayAction, createPlayAction);
+        this._referenceToContext.runAction(playSequence);        
     },
 
     previousStory: function () {
@@ -464,9 +458,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         if (this._constructedScene.node && this._constructedScene.action.getDuration() > 0) {
             this._constructedScene.node.runAction(this._constructedScene.action);
             this._constructedScene.action.play('master', false);
-            // this._constructedScene.action.gotoFrameAndPlay(0, this._constructedScene.action.getDuration(), 0, false);
-        } else {
-            this._referenceToContext = this;
+        } else {            
             this.playEnded();
         }
     }
@@ -474,12 +466,19 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
 xc.NarrateStoryScene = cc.Scene.extend({
     layerClass: null,
+    _menuContext: null,
     ctor: function (pageIndex, storyInformation, layer) {
         this._super();
         this.layerClass = layer;
         this._sceneLayer = new this.layerClass(pageIndex, storyInformation);
         this.addChild(this._sceneLayer);
         this._sceneLayer.init();
+
+        if (cc.sys.isNative) {
+            this._menuContext = goa.MenuContext.create(this._sceneLayer, "Narrate Story");
+            this.addChild(this._menuContext);
+            this._menuContext.setVisible(true);
+        }                        
                 
     }
 });
