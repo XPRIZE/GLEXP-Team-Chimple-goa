@@ -185,6 +185,7 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
 
 xc.StoryCoverPageScene = cc.Scene.extend({
     layerClass: null,
+    _menuContext: null,
     ctor: function (pageIndex, storyInformation, layer) {
         this._super();
         this.layerClass = layer;
@@ -192,6 +193,11 @@ xc.StoryCoverPageScene = cc.Scene.extend({
         this.addChild(this._sceneLayer);
         this._sceneLayer.init();
                 
+        if (cc.sys.isNative) {
+            this._menuContext = goa.MenuContext.create(this._sceneLayer, "Show Stories");
+            this.addChild(this._menuContext);
+            this._menuContext.setVisible(true);
+        }                        
     }
 });
 

@@ -22,7 +22,6 @@ Scene* Card::createScene()
 
 void Card::onEnterTransitionDidFinish()
 {
-//	_menuContext->setMaxPoints(8);
 	_level = _menuContext->getCurrentLevel();
 
 	if (_level >= 1 && _level <= 5)
@@ -55,13 +54,13 @@ void Card::onEnterTransitionDidFinish()
 
 	visibleSize = Director::getInstance()->getWinSize();
 
-	_cp1.x = visibleSize.width * .10;
+	_cp1.x = visibleSize.width * .06;
 	_cp1.y = visibleSize.height * .93;
 
-	_cp2.x = visibleSize.width * .18;
+	_cp2.x = visibleSize.width * .17;
 	_cp2.y = visibleSize.height * .93;
 
-	_cp3.x = visibleSize.width * .26;
+	_cp3.x = visibleSize.width * .28;
 	_cp3.y = visibleSize.height * .93;
 
 	_cardPosition.push_back(_cp1);
@@ -108,16 +107,24 @@ void Card::onEnterTransitionDidFinish()
 
 	for (int i = 0; i < _pairCard; i++)
 	{
-		Sprite *_done = Sprite::createWithSpriteFrameName("card/done.png");
-		_done->setPosition(Vec2(_cardPosition[i].x, _cardPosition[i].y));
-		this->addChild(_done);
-		_doneSprite.push_back(_done);
-		_done->setVisible(false);
+		ToDoDetails._sprite = Sprite::createWithSpriteFrameName("card/todo.png");
+		ToDoDetails._sprite->setPosition(Vec2(_cardPosition[i].x, _cardPosition[i].y));
+		this->addChild(ToDoDetails._sprite);
+		ToDoDetails._child = 0;
+		_toDoDetails.push_back(ToDoDetails);
 
-		Sprite *_todo = Sprite::createWithSpriteFrameName("card/todo.png");
-		_todo->setPosition(Vec2(_cardPosition[i].x, _cardPosition[i].y));
-		this->addChild(_todo);
-		_todoSprite.push_back(_todo);
+		if (i < _pairCard - 1)
+		{
+			LabelTTF *_boardText = LabelTTF::create("+", "Arial", 120);
+			_boardText->setPosition(Vec2(ToDoDetails._sprite->getPositionX() + ToDoDetails._sprite->getContentSize().width, ToDoDetails._sprite->getPositionY()));
+			this->addChild(_boardText);
+		}
+		else
+		{
+			LabelTTF *_boardText = LabelTTF::create("=", "Arial", 120);
+			_boardText->setPosition(Vec2(ToDoDetails._sprite->getPositionX() + ToDoDetails._sprite->getContentSize().width, ToDoDetails._sprite->getPositionY()));
+			this->addChild(_boardText);
+		}
 	}
 
 	for (int i = 0; i < _position.size(); i++)
@@ -173,8 +180,21 @@ void Card::addEvents(struct SpriteDetails sprite)
 			{
 				if (_spriteDetails.at(sprite._index)._flag == 0)
 				{
-					_doneSprite.at(_useCard)->setVisible(true);
-					_todoSprite.at(_useCard)->setVisible(false);
+					for (int i = 0; i < _toDoDetails.size(); i++)
+					{
+						if (_toDoDetails.at(i)._child == 0)
+						{
+							std::ostringstream _digit;
+							_digit << sprite._id;
+
+							LabelTTF *_boardText = LabelTTF::create(_digit.str(), "Arial", 120);
+							_boardText->setPosition(Vec2(_toDoDetails.at(i)._sprite->getContentSize().width / 2, _toDoDetails.at(i)._sprite->getContentSize().height / 2));
+							_toDoDetails.at(i)._sprite->addChild(_boardText);
+							_toDoDetails.at(i)._child = 1;
+							_toDoDetails.at(i)._id = sprite._id;
+							break;
+						}
+					}
 
 					_spriteDetails.at(sprite._index)._sprite->setScale(1);
 					_totalSum += sprite._id;
@@ -188,8 +208,15 @@ void Card::addEvents(struct SpriteDetails sprite)
 					_useCard--;
 					_spriteDetails.at(sprite._index)._flag = 0;
 
-					_todoSprite.at(_useCard)->setVisible(true);
-					_doneSprite.at(_useCard)->setVisible(false);
+					for (int i = 0; i < _toDoDetails.size(); i++)
+					{
+						if (_toDoDetails.at(i)._child == 1 && _toDoDetails.at(i)._id == sprite._id)
+						{
+							_toDoDetails.at(i)._sprite->removeChild(_toDoDetails.at(i)._sprite->getChildren().at(0), true);
+							_toDoDetails.at(i)._child = 0;
+							break;
+						}
+					}
 				}
 
 				if (_helpFlag == 1)
@@ -219,18 +246,21 @@ void Card::addEvents(struct SpriteDetails sprite)
 									_remainingCard -= _useCard;
 									_useCard = 0;
 
-									for (int i = 0; i < _todoSprite.size(); i++)
-									{
-										_todoSprite.at(i)->setVisible(true);
-										_doneSprite.at(i)->setVisible(false);
-									}
-
 									if (_remainingCard == 0)
 										_menuContext->showScore();
 
 								}), NULL));
 							}
 							_menuContext->addPoints(2);
+						}
+
+						for (int i = 0; i < _toDoDetails.size(); i++)
+						{
+							if (_toDoDetails.at(i)._child == 1)
+							{
+								_toDoDetails.at(i)._sprite->removeChild(_toDoDetails.at(i)._sprite->getChildren().at(0), true);
+								_toDoDetails.at(i)._child = 0;
+							}
 						}
 					}
 					else
@@ -246,10 +276,20 @@ void Card::addEvents(struct SpriteDetails sprite)
 								}
 							}
 
-							for (int i = 0; i < _todoSprite.size(); i++)
+/*							for (int i = 0; i < _todoSprite.size(); i++)
 							{
 								_todoSprite.at(i)->setVisible(true);
 								_doneSprite.at(i)->setVisible(false);
+							}
+*/
+
+							for (int i = 0; i < _toDoDetails.size(); i++)
+							{
+								if (_toDoDetails.at(i)._child == 1)
+								{
+									_toDoDetails.at(i)._sprite->removeChild(_toDoDetails.at(i)._sprite->getChildren().at(0), true);
+									_toDoDetails.at(i)._child = 0;
+								}
 							}
 
 							_totalSum = 0;
