@@ -197,7 +197,10 @@ void Step::addEvents(struct LoadingBarDetails sprite)
 	{
 		auto target = static_cast<Sprite*>(event->getCurrentTarget());
 		Point locationInNode = target->convertToNodeSpace(touch->getLocation());
-		if (_moveFlag == 1)
+		Size size = target->getContentSize();
+		Rect rect = Rect(0, 0, target->getContentSize().width * _percent[_percentLevelNo][2] / 100, target->getContentSize().height);
+
+		if (rect.containsPoint(locationInNode) && _moveFlag == 1)
 		{
 			std::ostringstream _textValue;
 			if (sprite._loadingBar->getPercent() <= _percent[_percentLevelNo][2] && sprite._loadingBar->getPercent() >= 0)
