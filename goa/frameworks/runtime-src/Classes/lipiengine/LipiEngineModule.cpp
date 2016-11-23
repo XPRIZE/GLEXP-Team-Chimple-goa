@@ -59,7 +59,9 @@
 #include "LTKOSUtil.h"
 #include "LTKLoggerUtil.h"
 #include "NN.h"			// Android port : Added this header file
+#include "cocos2d.h"
 
+USING_NS_CC;
 
 extern int unloadAllModules();
 extern int deleteModule(void* RecoHandle);
@@ -131,20 +133,23 @@ int LTKLipiEngineModule::initializeLipiEngine()
 	temp = m_strLipiRootPath + SEPARATOR + "projects" + SEPARATOR + 
 		   LIPIENGINE_CFG_STRING;
 	//Read the logical name mapping file from lipiengine.cfg file;
+    CCLOG("temp m_LipiEngineConfigEntries location %s", temp.c_str());
 	try
 	{
 		m_LipiEngineConfigEntries = new LTKConfigFileReader(temp);
-
+        CCLOG("temp m_LipiEngineConfigEntries intialized");
 	}
 	catch(LTKException e)
 	{
 		// display warning to the user and continue with default values
 		cout << " Could not open file : " << temp << endl <<
 		        "proceeding with defaults" << endl;
+        CCLOG("temp m_LipiEngineConfigEntries failed");
 	}
 
+    
     errorCode = configureLogger();	// Configure the logger
-
+    CCLOG("configureLogger error code %d", errorCode);
 	if(errorCode !=SUCCESS)
 	{
 		LTKReturnError(errorCode);
@@ -339,7 +344,8 @@ int LTKLipiEngineModule::createShapeRecognizer(string &strLogicalProjectName, LT
 		"Entering: LTKLipiEngineModule::createShapeRecognizer()"<<endl;
 
 	if(strLogicalProjectName.empty())
-	{		
+	{
+        CCLOG("strLogicalProjectName.empty");
 		return EINVALID_PROJECT_NAME;
 	}
 
@@ -351,6 +357,7 @@ int LTKLipiEngineModule::createShapeRecognizer(string &strLogicalProjectName, LT
 		                                           strProjectName, 
 		                                           strProfileName);
 
+    CCLOG("resolveLogicalNameToProjectProfile OUTCOME %d", errorCode);
 	if(errorCode !=SUCCESS)
 	{
 		LOG( LTKLogger::LTK_LOGLEVEL_ERR) << 
@@ -361,7 +368,7 @@ int LTKLipiEngineModule::createShapeRecognizer(string &strLogicalProjectName, LT
 	}
 
 	errorCode = createShapeRecognizer(strProjectName,strProfileName,outShapeRecognizerPtr);
-
+    CCLOG("createShapeRecognizer OUTCOME %d", errorCode);
 	if(errorCode !=SUCCESS)
 	{
 		LOG( LTKLogger::LTK_LOGLEVEL_ERR) << 
@@ -823,14 +830,18 @@ int LTKLipiEngineModule::resolveLogicalNameToProjectProfile(
                                                 string &outProjectName,
                                                 string &outProfileName)
 {
+    CCLOG("resolveLogicalNameToProjectProfile strLogicalName 1111 %s", strLogicalName.c_str());
+    CCLOG("resolveLogicalNameToProjectProfile outProjectName 1111 %s", outProjectName.c_str());
+    CCLOG("resolveLogicalNameToProjectProfile outProfileName 1111 %s", outProfileName.c_str());
 	LOG( LTKLogger::LTK_LOGLEVEL_DEBUG) << 
        "Entering: LTKLipiEngineModule::resolveLogicalNameToProjectProfile()"<<endl;
 
 	char strSep[] = " ()\r";
 	char *strToken;
-
+    CCLOG("resolveLogicalNameToProjectProfile 22222");
 	if (m_LipiEngineConfigEntries == NULL )
 	{
+        CCLOG("resolveLogicalNameToProjectProfile m_LipiEngineConfigEntries NULL");
 		LOG( LTKLogger::LTK_LOGLEVEL_ERR) << 
        "Error: " << EFILE_OPEN_ERROR  << getErrorMessage(EFILE_OPEN_ERROR) <<
        " lipiengine.cfg " <<
@@ -839,8 +850,10 @@ int LTKLipiEngineModule::resolveLogicalNameToProjectProfile(
 		LTKReturnError(EFILE_OPEN_ERROR);
 	}
 
+    CCLOG("resolveLogicalNameToProjectProfile m_LipiEngineConfigEntries NOT NULL");
 	if(m_LipiEngineConfigEntries->isConfigMapEmpty())
 	{
+        CCLOG("resolveLogicalNameToProjectProfile isConfigMapEmpty NULL");
 		LOG( LTKLogger::LTK_LOGLEVEL_ERR) << 
         "Error: "<<
 		getErrorMessage(ENOMAPFOUND_LIPIENGINECFG) <<
@@ -863,6 +876,7 @@ int LTKLipiEngineModule::resolveLogicalNameToProjectProfile(
 	}
 	else
 	{
+        CCLOG("No token found, invalid entry for project name");
 		// No token found, invalid entry for project name...
 		LOG( LTKLogger::LTK_LOGLEVEL_ERR) << 
         "Error: "<< getErrorMessage(ENO_TOKEN_FOUND) <<

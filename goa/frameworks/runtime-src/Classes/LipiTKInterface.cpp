@@ -55,9 +55,7 @@ void LipiTKInterface::initialize() {
 //	std::string lipitkLocation = FileUtils::sharedFileUtils()->fullPathForFilename(_lipiDirectory);
 //	 lipitkLocation = "D:/GLEXP-Team-Chimple/goa/frameworks/runtime-src/proj.win32/Debug.win32/res";
 #else
-	//std::string lipitkLocation = FileUtils::getInstance()->fullPathForFilename(_lipiDirectory);
-    auto sss = FileUtils::sharedFileUtils()->fullPathForFilename("res/largeBrush.png");
-    std::string lipitkLocation = sss.substr(0, sss.size() - 15);
+	std::string lipitkLocation = FileUtils::getInstance()->fullPathForFilename(_lipiDirectory);
 	CCLOG("Path = %s", lipitkLocation.c_str());
     
 #endif // WIN32
@@ -74,7 +72,7 @@ void LipiTKInterface::initialize() {
     }
     
     result = _lipiEngine->createShapeRecognizer(_projectRecognizeStr, &_lipiShapeReco);
-    
+    CCLOG("result createShapeRecognizer %d", result);
     if(result != 0) {
         cout << "Error: Shape Recognizer could not be created." << endl;
         return ;
