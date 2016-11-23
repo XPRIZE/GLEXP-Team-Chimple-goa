@@ -43,9 +43,14 @@ public:
 		int x, y;
 	}_cp1, _cp2, _cp3;
 
+	struct ToDoDetails
+	{
+		cocos2d::Sprite *_sprite;
+		int _child, _id;
+	}ToDoDetails;
+
+	std::vector<struct ToDoDetails> _toDoDetails;
 	std::vector<struct SpriteDetails> _spriteDetails;
-	std::vector<cocos2d::Sprite*> _doneSprite;
-	std::vector<cocos2d::Sprite*> _todoSprite;
 	std::vector<struct Position> _position;
 	std::vector<struct CardPosition> _cardPosition;
 
