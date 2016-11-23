@@ -29,16 +29,19 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
             swallowTouches: true,
             onTouchBegan: function (touch, event) {
+                var childText = context.getChildByName("wordMeaning");
+                if(childText) {
+                    childText.removeFromParent();
+                }
+                
                 var target = event.getCurrentTarget();
                 var boundingBox = target.getBoundingBoxToWorld();
                 
                 if (cc.rectContainsPoint(boundingBox, touch.getLocation())) {
                     var location = target.parent.convertToNodeSpace(touch.getLocation());
                     context._offsetYInTouch = location.y - target.getPosition().y;
-                    context._offsetXInTouch = location.x - target.getPosition().x;
-                    
-                    context[funcName](target, loop);
-                    context.displayText(target.getName());
+                    context._offsetXInTouch = location.x - target.getPosition().x;                    
+                    context[funcName](target, loop);                    
                     if(target.draggingEnabled) {
                         target.actionManager.resumeTarget(target);
                         return true;
@@ -48,6 +51,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             },
 
             onTouchMoved: function (touch, event) {
+                this._isDragging = true;
                 var target = event.getCurrentTarget();
                 var location = target.parent.convertToNodeSpace(touch.getLocation());
                 var locationTo = cc.p(location.x - context._offsetXInTouch, location.y - context._offsetYInTouch);
@@ -72,7 +76,18 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                     target.actionManager.pauseTarget(target);
                 }
                 context._previousTouch = null;
-                
+                if(!this._isDragging) {
+                    var textPosY = 0;
+                    if(context._contentPanelHeight > target.y + target.getBoundingBoxToWorld().height + 50)
+                    {
+                        textPosY = target.y + target.getBoundingBoxToWorld().height + 50; 
+                    } else {
+                        textPosY = target.y - target.getBoundingBoxToWorld().height;
+                    }
+                    var textPos = cc.p(target.x, textPosY);
+                    context.displayText(target.getName(), textPos);
+                }
+                this._isDragging = false;
             }
             
             
@@ -86,6 +101,12 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
             swallowTouches: true,
             onTouchBegan: function (touch, event) {
+
+                var childText = context.getChildByName("wordMeaning");
+                if(childText) {
+                    childText.removeFromParent();
+                }
+                
                 var target = event.getCurrentTarget();
                 var location = target.parent.convertToNodeSpace(touch.getLocation());
                   if(target.getChildren() != null && target.getChildren().length > 0)
@@ -96,15 +117,15 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                             context._offsetYInTouch = location.y - target.getPosition().y;
                             context._offsetXInTouch = location.x - target.getPosition().x;
 
-                            context[funcName](target, loop);
-                            context.displayText(target.getName());                            
+                            context[funcName](target, loop);                                                        
                             return true;
                         }
                   }
                 return false;
             },
 
-            onTouchMoved:function(touch, event) {                
+            onTouchMoved:function(touch, event) {     
+                this._isDragging = true;           
                 var target = event.getCurrentTarget();
                 var location = target.parent.convertToNodeSpace(touch.getLocation());
                   if(target.getChildren() != null && target.getChildren().length > 0)
@@ -117,17 +138,33 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                   }
             },
             onTouchEnded: function (touch, event) {
+                var target = event.getCurrentTarget();
+                
+                if(!this._isDragging) {
+                    var textPos = cc.p(target.x, target.y + target.getChildren()[0].getBoundingBox().height);
+                    context.displayText(target.getName(), textPos);
+                }
+                    
 
+                this._isDragging = false;            
             }            
         });
         cc.eventManager.addListener(listener, target);
     },   
 
-    displayText:function(text) {
+    displayText:function(text, location) {
         var texts = text.split("_");
         if(texts && texts.length > 0) {
             var langText = texts[0];
             cc.log('text:' + langText.toLowerCase());
+            this._text = new cc.LabelTTF(text, "Arial", 100)
+            this._text.setName("wordMeaning");
+            this._text.color = new cc.Color(255, 255, 255);
+            this._text.setPosition(location.x, location.y + 1000);
+            this.addChild(this._text);
+            var textDropAction = new cc.MoveTo(0.5, cc.p(location.x, location.y));
+            textDropAction.easing(cc.easeBackOut());
+            this._text.runAction(textDropAction);            
         }
         
     },
@@ -139,13 +176,17 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             swallowTouches: true,
             onTouchBegan: function (touch, event) {
                 var target = event.getCurrentTarget();
+                var childText = context.getChildByName("wordMeaning");
+                if(childText) {
+                    childText.removeFromParent();
+                }
+                
                 var location = target.convertToNodeSpace(touch.getLocation());
                 var targetSize = target.getContentSize();
                 var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
                     height);
                     
-                if (cc.rectContainsPoint(targetRectangle, location)) {
-                    context.displayText(target.getName());
+                if (cc.rectContainsPoint(targetRectangle, location)) {                    
                     context[funcName](target, loop);                    
                     return true;
                 }
@@ -154,6 +195,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             },
 
             onTouchMoved: function (touch, event) {
+                this._isDragging = true;
                 var target = event.getCurrentTarget();
                 var targetSize = target.getContentSize();
                 var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
@@ -168,7 +210,13 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             },
 
             onTouchEnded: function (touch, event) {
-
+                var target = event.getCurrentTarget();
+                var location = target.parent.convertToNodeSpace(touch.getLocation());
+                if(!this._isDragging) {
+                    var textPos = cc.p(location.x, location.y);
+                    context.displayText(target.getName(), textPos);                
+                }                
+                this._isDragging = false;
             }            
         });
         cc.eventManager.addListener(listener, target);
