@@ -32,12 +32,13 @@ public:
 	Calculator * _calculator;
 	HelpLayer * _help;
 	int _helpFlag = 0;
-	
+	void createPizza();
 	void gameHelpLayer();
 	Node * _bg;
-	Node * _bgCopy;
 	void update(float delta);
-	Node *_pizza;
+	Node *_pizza1;
+	Node *_pizza2;
+	
 	Vec2 outlet_1;
 	Vec2 outlet_2;
 	int handleTriggered = 0;
@@ -49,8 +50,13 @@ public:
 	void hideUnwated(int level);
 	int _startCookieId=1;
 	int _endCookieId=10;
-	int orderIteration = 0;
-	void addCookiesToPizza(int pizzaToppingStartId, int pizzaToppingEndId, int cookiesStartId, int cookiesEndId);
+	int orderIteration =  0;
+	int _answerValue;
+	int _level;
+	//Node* _tempCookie;
+	cocostudio::timeline::ActionTimeline* _openTimeline;
+	
+	//void addCookiesToPizza(int pizzaToppingStartId, int pizzaToppingEndId, int cookiesStartId, int cookiesEndId);
 	static const char* gameName() { return UNITS.c_str(); }
 };
 
