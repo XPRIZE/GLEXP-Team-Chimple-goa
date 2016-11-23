@@ -199,7 +199,7 @@ void ATM::onEnterTransitionDidFinish()
 	_hundreadLabel = Label::createWithTTF("0", "fonts/digital.ttf", 200);
 	_hundreadLabel->setColor(Color3B(0, 0, 0));
 	_hundreadLabel->setPositionX(bg->getChildByName("board_7")->getContentSize().width/2 );
-	_hundreadLabel->setPositionY(bg->getChildByName("board_7")->getContentSize().height/2 + 40);
+	_hundreadLabel->setPositionY(bg->getChildByName("board_7")->getContentSize().height/2 + 20);
 	bg->getChildByName("board_7")->addChild(_hundreadLabel);
 
 
@@ -210,7 +210,7 @@ void ATM::onEnterTransitionDidFinish()
 	auto targetLabel = Label::createWithTTF(str, "fonts/digital.ttf", 200);
 	targetLabel->setColor(Color3B(0, 0, 0));
 	targetLabel->setPositionX(bg->getChildByName("atm_machine_67")->getContentSize().width/2);
-	targetLabel->setPositionY(bg->getChildByName("atm_machine_67")->getContentSize().height * 0.9);
+	targetLabel->setPositionY(bg->getChildByName("atm_machine_67")->getContentSize().height * 0.915);
 	bg->getChildByName("atm_machine_67")->addChild(targetLabel);
 
 	if (menu->getCurrentLevel() == 1) {
@@ -283,14 +283,14 @@ void ATM::oneNotePressed()
 
 	cocos2d::MoveTo * move;
 	if (_oneCount < 6) {
-		move = MoveTo::create(2, Vec2(_one_XPosition, 600));
+		move = MoveTo::create(1, Vec2(_one_XPosition, 600));
 	 }
 	else if (_oneCount == 6) {
 		_one_XPosition = visibleSize.width / 1.35;
-		move = MoveTo::create(2, Vec2(_one_XPosition, 400));
+		move = MoveTo::create(1, Vec2(_one_XPosition, 400));
 	}
 	else if (_oneCount > 6 && _oneCount < 11) {
-		move = MoveTo::create(2, Vec2(_one_XPosition, 400));
+		move = MoveTo::create(1, Vec2(_one_XPosition, 400));
 	}
 	if (_oneCount == 10) {
 		///
@@ -333,14 +333,14 @@ void ATM::tenNotePressed()
 
 	cocos2d::MoveTo * move;
 	if (_tensCount < 6) {
-		move = MoveTo::create(2, Vec2(_ten_XPosition, 1000));
+		move = MoveTo::create(1, Vec2(_ten_XPosition, 1000));
 	}
 	else if (_tensCount == 6) {
 		_ten_XPosition = visibleSize.width / 1.35;
-		move = MoveTo::create(2, Vec2(_ten_XPosition, 800));
+		move = MoveTo::create(1, Vec2(_ten_XPosition, 800));
 	}
 	else if (_tensCount > 6 ) {
-		move = MoveTo::create(2, Vec2(_ten_XPosition, 800));
+		move = MoveTo::create(1, Vec2(_ten_XPosition, 800));
 	}
 	if (_tensCount == 10) {
 		CCLOG("disable the listener");
@@ -378,14 +378,14 @@ void ATM::hundredNotePressed()
 	_hundreadLabel->setString(str);
 	cocos2d::MoveTo * move;
 	if (_hundredCount < 6) {
-		move = MoveTo::create(2, Vec2(_hundredXPosition, 1400));
+		move = MoveTo::create(1, Vec2(_hundredXPosition, 1400));
 	}
 	else if (_hundredCount == 6) {
 		_hundredXPosition = visibleSize.width / 1.35;
-		move = MoveTo::create(2, Vec2(_hundredXPosition, 1200));	
+		move = MoveTo::create(1, Vec2(_hundredXPosition, 1200));	
 	}
 	else if (_hundredCount > 6) {
-		move = MoveTo::create(2, Vec2(_hundredXPosition, 1200));
+		move = MoveTo::create(1, Vec2(_hundredXPosition, 1200));
 	}
 	if (_hundredCount == 10) {
 		CCLOG("disable the listener");
@@ -418,9 +418,9 @@ void ATM::rePositionOneNotes(cocos2d::Node * note)
 
 	_hundreadLabel->setString(str);
 	auto notes = _onesSprite.at(_onesSprite.size() - 1);
-	auto move = MoveTo::create(2, one->getPosition());
+	auto move = MoveTo::create(1, one->getPosition());
 	notes->runAction(move);
-	this->runAction(Sequence::create(DelayTime::create(2), CallFunc::create([=]() {
+	this->runAction(Sequence::create(DelayTime::create(1), CallFunc::create([=]() {
 		_onesSprite.pop_back();
 		_touched = true;
 		this->removeChild(notes);
@@ -442,9 +442,9 @@ void ATM::rePositionTenNotes(cocos2d::Node * note)
 
 	_hundreadLabel->setString(str);
 	auto notes = _tensSprite.at(_tensSprite.size() - 1);
-	auto move = MoveTo::create(2, one->getPosition());
+	auto move = MoveTo::create(1, one->getPosition());
 	notes->runAction(move);
-	this->runAction(Sequence::create(DelayTime::create(2), CallFunc::create([=]() {
+	this->runAction(Sequence::create(DelayTime::create(1), CallFunc::create([=]() {
 		_tensSprite.pop_back();
 		_touched = true;
 		this->removeChild(notes);
@@ -468,9 +468,9 @@ void ATM::rePositionHundredNotes(cocos2d::Node * note)
 
 	auto notes = _hundredsSprite.at(_hundredsSprite.size() - 1);
 
-	auto move = MoveTo::create(2, one->getPosition());
+	auto move = MoveTo::create(1, one->getPosition());
 	notes->runAction(move);
-	this->runAction(Sequence::create(DelayTime::create(2), CallFunc::create([=]() {
+	this->runAction(Sequence::create(DelayTime::create(1), CallFunc::create([=]() {
 		_hundredsSprite.pop_back();
 		_touched = true;
 		this->removeChild(notes);
