@@ -68,6 +68,22 @@
     "menuPng": "decomonlevel/decomonlevel.png"
   },
   {
+    "name": "Item",
+    "cIcon": "gameicons/circle_pressed.png",
+    "icon": "gameicons/circle.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "10",
+    "numLevels": "75",
+    "backgroundJson": "circleislandlevel/circlebackground.json",
+    "foregroundJson": "circleislandlevel/circleforeground.json",
+    "frontgroundJson": "circleislandlevel/circlefrontground.json",
+    "maingroundJson": "circleislandlevel/circlemainground.json",
+    "menuPlist": "circleislandlevel/circleislandlevel.plist",
+    "menuPng": "circleislandlevel/circleislandlevel.png"
+  },
+  {
     "name": "cardraw",
     "cIcon": "gameicons/cardraw_pressed.png",
     "icon": "gameicons/cardraw.png",
@@ -667,8 +683,24 @@
     "menuPlist": "boxlevel/boxlevel.plist",
     "menuPng": "boxlevel/boxlevel.png"
   },
-   {
+  {
     "name": "Units",
+    "cIcon": "gameicons/pizza_pressed.png",
+    "icon": "gameicons/pizza.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "2",
+    "numLevels": "10",
+    "backgroundJson": "boxlevel/background.json",
+    "foregroundJson": "boxlevel/foreground.json",
+    "frontgroundJson": "boxlevel/frontground.json",
+    "maingroundJson": "boxlevel/mainground.json",
+    "menuPlist": "boxlevel/boxlevel.plist",
+    "menuPng": "boxlevel/boxlevel.png"
+  },
+   {
+    "name": "spot",
     "cIcon": "gameicons/pizza_pressed.png",
     "icon": "gameicons/pizza.png",
     "multiPlayer": false,
