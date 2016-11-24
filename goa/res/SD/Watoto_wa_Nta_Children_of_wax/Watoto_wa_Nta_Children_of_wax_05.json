@@ -5,16 +5,92 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 0,
+        "Duration": 5,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
-        "Timelines": [],
+        "Timelines": [
+          {
+            "ActionTag": 788903314,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -337.7556,
+                "Y": -23.202,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -337.7556,
+                "Y": -23.202,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 788903314,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 15.0201,
+                "Y": 9.4908,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 15.0201,
+                "Y": 9.4908,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 788903314,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
         "ctype": "TimelineActionData"
       },
       "AnimationList": [
         {
           "StartIndex": 0,
-          "EndIndex": 300,
+          "EndIndex": 5,
           "Name": "master",
           "ctype": "AnimationInfoData"
         }
@@ -62,7 +138,7 @@
             },
             "LeftMargin": -337.7556,
             "RightMargin": 2697.7556,
-            "TopMargin": 1623.2019,
+            "TopMargin": 1623.202,
             "BottomMargin": -23.202,
             "Tag": 4395,
             "ActionTag": 788903314,

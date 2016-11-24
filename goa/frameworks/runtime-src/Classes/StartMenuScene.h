@@ -66,6 +66,7 @@ static const std::string SHOP = "shop";
 static const std::string ITEM = "Item";
 static const std::string SPOT = "spot";
 static const std::string TABLE = "table";
+static const std::string SHAPE = "shape";
 
 class StartMenu {
 public:

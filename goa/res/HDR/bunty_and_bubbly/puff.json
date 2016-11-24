@@ -153,7 +153,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "bunty_and_bubbly/puff12.png",
+              "Path": "bunty_and_bubbly/puff10.png",
               "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
             },
             "BlendFunc": {
@@ -182,10 +182,10 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -23.0,
-            "RightMargin": -23.0,
-            "TopMargin": -23.0,
-            "BottomMargin": -23.0,
+            "LeftMargin": -185.5,
+            "RightMargin": -185.5,
+            "TopMargin": -163.5,
+            "BottomMargin": -163.5,
             "Tag": 730,
             "ActionTag": -1387867761,
             "Size": {
@@ -193,6 +193,51 @@
               "Y": 327.0
             },
             "Name": "Sprite_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/touch.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0005,
+              "Y": 4.1727
+            },
+            "Scale": {
+              "ScaleX": 0.9174,
+              "ScaleY": 0.8554
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -201.9995,
+            "RightMargin": -202.0005,
+            "TopMargin": -206.1727,
+            "BottomMargin": -197.8273,
+            "Tag": 62,
+            "ActionTag": -2060313989,
+            "Size": {
+              "X": 404.0,
+              "Y": 404.0
+            },
+            "Name": "touch",
             "ctype": "SpriteObjectData"
           }
         ],

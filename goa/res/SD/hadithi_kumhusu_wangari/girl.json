@@ -12002,7 +12002,7 @@
             "Length": 400.0,
             "Position": {
               "X": 0.0089,
-              "Y": 256.69
+              "Y": 256.6854
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -12027,8 +12027,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 180.6109,
-                "RotationSkewY": 180.6113,
+                "RotationSkewX": 180.1992,
+                "RotationSkewY": 180.1996,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -12046,8 +12046,6 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 2.4374,
-                    "RotationSkewY": 2.4374,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -13464,6 +13462,51 @@
             },
             "Name": "hip",
             "ctype": "BoneNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "hadithi_kumhusu_wangari/touch.png",
+              "Plist": "hadithi_kumhusu_wangari/hadithi_kumhusu_wangari.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 23.9658,
+              "Y": 638.1256
+            },
+            "Scale": {
+              "ScaleX": 1.6212,
+              "ScaleY": 3.2348
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -178.0342,
+            "RightMargin": -225.9658,
+            "TopMargin": -840.1256,
+            "BottomMargin": 436.1256,
+            "Tag": 1491,
+            "ActionTag": 930652776,
+            "Size": {
+              "X": 404.0,
+              "Y": 404.0
+            },
+            "Name": "touch",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {

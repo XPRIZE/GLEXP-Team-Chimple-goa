@@ -572,6 +572,9 @@
       <Filter>Classes\mini_games</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\mini_games\Table.cpp">
+		<Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Shape.cpp">
       <Filter>Classes\mini_games</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1151,6 +1154,9 @@
       <Filter>Classes\mini_games</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\mini_games\Table.h">
+		 <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Shape.h">
       <Filter>Classes\mini_games</Filter>
     </ClInclude>
   </ItemGroup>
