@@ -826,5 +826,21 @@
         "maingroundJson": "cardlevel/Layer2.json",
         "menuPlist": "cardlevel/cardlevel.plist",
         "menuPng": "cardlevel/cardlevel.png"  
+  },
+   {
+        "name": "shape",
+        "cIcon": "gameicons/train_pressed.png",
+        "icon": "gameicons/train.png",
+        "multiPlayer":false,
+        "isJSGame":false,
+        "script":"src/NonJSGameLauncher.js",
+        "span": "1",
+        "numLevels": "2",
+        "backgroundJson": "cardlevel/Layer1.json",
+        "foregroundJson": "cardlevel/Layer3.json",
+        "frontgroundJson": "cardlevel/Layer4.json",
+        "maingroundJson": "cardlevel/Layer2.json",
+        "menuPlist": "cardlevel/cardlevel.plist",
+        "menuPng": "cardlevel/cardlevel.png"  
   }
 ]
