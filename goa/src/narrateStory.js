@@ -259,13 +259,13 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 && child.getComponent("ComExtensionData").getCustomProperty()) 
         {
             var events = [];            
-            var property = child.getComponent("ComExtensionData").getCustomProperty().trim();            
+            var property = ""+child.getComponent("ComExtensionData").getCustomProperty().trim();            
 
-            if(property.includes(':')) 
+            if(property.indexOf(':') != -1) 
             {
                 events = property.split(':');
             } 
-            else if(property.includes(';'))
+            else if(property.indexOf(';') != -1)
             {
                 events = property.split(';');
             }
