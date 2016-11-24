@@ -28,6 +28,8 @@ void Step::onEnterTransitionDidFinish()
 	visibleSize = Director::getInstance()->getWinSize();
 
 	_StepBg = CSLoader::createNode("bar/shop.csb");
+	_StepBg->setPosition(Vec2(visibleSize.width / 2, 0));
+	_StepBg->setAnchorPoint(Vec2(.5, 0));
 	this->addChild(_StepBg);
 
 	p1.x = visibleSize.width * .05;
@@ -195,7 +197,10 @@ void Step::addEvents(struct LoadingBarDetails sprite)
 	{
 		auto target = static_cast<Sprite*>(event->getCurrentTarget());
 		Point locationInNode = target->convertToNodeSpace(touch->getLocation());
-		if (_moveFlag == 1)
+		Size size = target->getContentSize();
+		Rect rect = Rect(0, 0, target->getContentSize().width * _percent[_percentLevelNo][2] / 100, target->getContentSize().height);
+
+		if (rect.containsPoint(locationInNode) && _moveFlag == 1)
 		{
 			std::ostringstream _textValue;
 			if (sprite._loadingBar->getPercent() <= _percent[_percentLevelNo][2] && sprite._loadingBar->getPercent() >= 0)
@@ -305,7 +310,7 @@ void Step::finalAnimation(int _index)
 		auto _barPercent = _allBar.at(_index)->getPercent();
 
 		auto _moveTo = MoveTo::create(.4, Vec2(_position.at(_index).x, (visibleSize.height * .14 + (_fluffyNode->getChildByName("body_1")->getContentSize().height * .30) + (_height * _barPercent / 100))));
-		auto _delay = DelayTime::create(1);
+		auto _delay = DelayTime::create(.3);
 		auto _sequence = Sequence::create(_moveTo, _delay, CallFunc::create([=]() {
 			finalAnimation(_index + 1);
 		}), NULL);

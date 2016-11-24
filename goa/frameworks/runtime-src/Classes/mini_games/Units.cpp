@@ -164,6 +164,8 @@ void Units::createOrder(int id) {
 	static int delay = 0.5;
 	float time = 0.5;
 
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	std::ostringstream sstreama;
 	std::ostringstream sstreamb;
@@ -189,11 +191,17 @@ void Units::createOrder(int id) {
 	
 	Vec2 position;
 	if (orderIteration == 0) {
-		position = Vec2(_pizza1->getPosition()) + _pizza1->getChildByName(queryb)->getPosition();
+
+		position = Vec2(_pizza1->getPosition() + Vec2(_pizza1->getChildByName(queryb)->getPositionX()/2, _pizza1->getChildByName(queryb)->getPositionY()) - Vec2(visibleSize.width * 0.03, 0));
+		//position = Vec2(_pizza1->getChildByName(queryb)->getPosition());
+	
 	}
 
 	if (orderIteration == 1) {
-		position = Vec2(_pizza2->getPosition()) + _pizza2->getChildByName(queryb)->getPosition();
+
+		position = Vec2(_pizza2->getPosition()  + Vec2(_pizza2->getChildByName(queryb)->getPositionX() / 2, _pizza2->getChildByName(queryb)->getPositionY()) - Vec2(visibleSize.width * 0.03, 0));
+		//position = Vec2(_pizza2->getChildByName(queryb)->getPosition());
+
 	}
 
 	auto moveObjectToOrderContainer = MoveTo::create(time, position);
