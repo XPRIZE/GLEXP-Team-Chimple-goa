@@ -258,7 +258,18 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 child.getComponent("ComExtensionData").getCustomProperty() != undefined
                 && child.getComponent("ComExtensionData").getCustomProperty()) 
         {
-            var events = child.getComponent("ComExtensionData").getCustomProperty().split(';');
+            var events = [];            
+            var property = child.getComponent("ComExtensionData").getCustomProperty().trim();            
+
+            if(property.includes(':')) 
+            {
+                events = property.split(':');
+            } 
+            else if(property.includes(';'))
+            {
+                events = property.split(';');
+            }
+
             var isMultipleEvents = events && events.length > 1;
 
             if(isMultipleEvents) {
