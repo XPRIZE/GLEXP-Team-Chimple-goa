@@ -25,6 +25,13 @@ public:
 	cocos2d::Size visibleSize;
 	int _level, _helpFlag = 0;
 
+	cocos2d::Sprite *_fish, *_water, *_circle, *_circle_Trans, *_bottom_Crack;
+	cocos2d::Sequence *_fishSequence;
+	cocos2d::RepeatForever *_fishRepeat;
+
+	std::map<int, std::map<int, std::string>> _differntSceneMapping;
+	std::map<int, std::map<int, float>> _differntPosition;
+
 	struct Position
 	{
 		int x, y;
@@ -34,6 +41,7 @@ public:
 	static cocos2d::Scene* createScene();
 	virtual bool init();
 	void addEvents();
+	void update(float d);
 	void onEnterTransitionDidFinish() override;
     static const char* gameName() { return SHAPE.c_str(); };
 	CREATE_FUNC(Shape);
