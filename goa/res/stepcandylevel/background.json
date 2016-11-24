@@ -1,0 +1,486 @@
+{
+  "ID": "7edd1cec-6fc8-4e04-9f24-76951a8c3042",
+  "Version": "3.10.0.0",
+  "Name": "background",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 190,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "G": 206,
+              "B": 153
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 2.8125,
+              "Y": 1.0
+            },
+            "RightMargin": -4640.0,
+            "Tag": 191,
+            "ActionTag": -1824201045,
+            "Size": {
+              "X": 7200.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "stepcandylevel/cloud1.png",
+              "Plist": "stepcandylevel/stepcandylevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 731.3766,
+              "Y": 1522.4653
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2857,
+              "Y": 0.8458
+            },
+            "PreSize": {
+              "X": 0.2027,
+              "Y": 0.1133
+            },
+            "LeftMargin": 471.8766,
+            "RightMargin": 1569.1234,
+            "TopMargin": 175.5347,
+            "BottomMargin": 1420.4653,
+            "Tag": 194,
+            "ActionTag": -119854323,
+            "Size": {
+              "X": 519.0,
+              "Y": 204.0
+            },
+            "Name": "cloud1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "stepcandylevel/cloud1.png",
+              "Plist": "stepcandylevel/stepcandylevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6413.4072,
+              "Y": 1606.4072
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.5052,
+              "Y": 0.8924
+            },
+            "PreSize": {
+              "X": 0.2027,
+              "Y": 0.1133
+            },
+            "LeftMargin": 6153.9072,
+            "RightMargin": -4112.9072,
+            "TopMargin": 91.5928,
+            "BottomMargin": 1504.4072,
+            "Tag": 195,
+            "ActionTag": -1502572529,
+            "Size": {
+              "X": 519.0,
+              "Y": 204.0
+            },
+            "Name": "cloud1_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "stepcandylevel/bg_mountain.png",
+              "Plist": "stepcandylevel/stepcandylevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2036.8988,
+              "Y": 889.3559
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7957,
+              "Y": 0.4941
+            },
+            "PreSize": {
+              "X": 0.5027,
+              "Y": 0.3978
+            },
+            "LeftMargin": 1393.3988,
+            "RightMargin": -120.3989,
+            "TopMargin": 552.644,
+            "BottomMargin": 531.3559,
+            "Tag": 196,
+            "ActionTag": -855325760,
+            "Size": {
+              "X": 1287.0,
+              "Y": 716.0
+            },
+            "Name": "bg_mountain_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "stepcandylevel/bg_mountain.png",
+              "Plist": "stepcandylevel/stepcandylevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4823.0391,
+              "Y": 932.5566
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.884,
+              "Y": 0.5181
+            },
+            "PreSize": {
+              "X": 0.5027,
+              "Y": 0.3978
+            },
+            "LeftMargin": 4179.5391,
+            "RightMargin": -2906.5391,
+            "TopMargin": 509.4434,
+            "BottomMargin": 574.5566,
+            "Tag": 197,
+            "ActionTag": -26008279,
+            "Size": {
+              "X": 1287.0,
+              "Y": 716.0
+            },
+            "Name": "bg_mountain2_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "stepcandylevel/bg_mountain.png",
+              "Plist": "stepcandylevel/stepcandylevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3354.1809,
+              "Y": 839.7826
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3102,
+              "Y": 0.4665
+            },
+            "PreSize": {
+              "X": 0.5027,
+              "Y": 0.3978
+            },
+            "LeftMargin": 2710.6809,
+            "RightMargin": -1437.6809,
+            "TopMargin": 602.2174,
+            "BottomMargin": 481.7826,
+            "Tag": 198,
+            "ActionTag": 2146123854,
+            "Size": {
+              "X": 1287.0,
+              "Y": 716.0
+            },
+            "Name": "bg_mountain3_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "stepcandylevel/cloud3.png",
+              "Plist": "stepcandylevel/stepcandylevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3695.4175,
+              "Y": 1608.7578
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.4435,
+              "Y": 0.8938
+            },
+            "PreSize": {
+              "X": 0.3246,
+              "Y": 0.225
+            },
+            "LeftMargin": 3279.9175,
+            "RightMargin": -1550.9175,
+            "TopMargin": -11.2578,
+            "BottomMargin": 1406.2578,
+            "Tag": 244,
+            "ActionTag": 1759507187,
+            "Size": {
+              "X": 831.0,
+              "Y": 405.0
+            },
+            "Name": "cloud3_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "stepcandylevel/bg_mountain.png",
+              "Plist": "stepcandylevel/stepcandylevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6504.2471,
+              "Y": 884.4581
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.5407,
+              "Y": 0.4914
+            },
+            "PreSize": {
+              "X": 0.5027,
+              "Y": 0.3978
+            },
+            "LeftMargin": 5860.7471,
+            "RightMargin": -4587.7471,
+            "TopMargin": 557.5419,
+            "BottomMargin": 526.4581,
+            "Tag": 336,
+            "ActionTag": 1325158031,
+            "Size": {
+              "X": 1287.0,
+              "Y": 716.0
+            },
+            "Name": "bg_mountain_3_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "stepcandylevel/bg_mountain.png",
+              "Plist": "stepcandylevel/stepcandylevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7343.9521,
+              "Y": 854.2712
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.8687,
+              "Y": 0.4746
+            },
+            "PreSize": {
+              "X": 0.5027,
+              "Y": 0.3978
+            },
+            "LeftMargin": 6700.4521,
+            "RightMargin": -5427.4521,
+            "TopMargin": 587.7288,
+            "BottomMargin": 496.2712,
+            "Tag": 338,
+            "ActionTag": 1981786438,
+            "Size": {
+              "X": 1287.0,
+              "Y": 716.0
+            },
+            "Name": "bg_mountain3_5_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "stepcandylevel/bg_mountain.png",
+              "Plist": "stepcandylevel/stepcandylevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 364.1747,
+              "Y": 799.7814
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1423,
+              "Y": 0.4443
+            },
+            "PreSize": {
+              "X": 0.5027,
+              "Y": 0.3978
+            },
+            "LeftMargin": -279.3253,
+            "RightMargin": 1552.3253,
+            "TopMargin": 642.2186,
+            "BottomMargin": 441.7814,
+            "Tag": 353,
+            "ActionTag": -882346953,
+            "Size": {
+              "X": 1287.0,
+              "Y": 716.0
+            },
+            "Name": "bg_mountain3_5_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "stepcandylevel.plist",
+        "stepcandylevel.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}
