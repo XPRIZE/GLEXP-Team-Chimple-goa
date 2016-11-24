@@ -829,19 +829,19 @@
   },
    {
         "name": "step",
-        "cIcon": "gameicons/jasmine_pressed.png",
-        "icon": "gameicons/jasmine.png",
+        "cIcon": "gameicons/step_pressed.png",
+        "icon": "gameicons/step.png",
         "multiPlayer":false,
         "isJSGame":false,
         "script":"src/NonJSGameLauncher.js",
         "span": "6",
         "numLevels": "45",
-        "backgroundJson": "cardlevel/Layer1.json",
-        "foregroundJson": "cardlevel/Layer3.json",
-        "frontgroundJson": "cardlevel/Layer4.json",
-        "maingroundJson": "cardlevel/Layer2.json",
-        "menuPlist": "cardlevel/cardlevel.plist",
-        "menuPng": "cardlevel/cardlevel.png"  
+        "backgroundJson": "stepcandylevel/background.json",
+        "foregroundJson": "stepcandylevel/foreground.json",
+        "frontgroundJson": "stepcandylevel/frontground.json",
+        "maingroundJson": "stepcandylevel/mainground.json",
+        "menuPlist": "stepcandylevel/stepcandylevel.plist",
+        "menuPng": "stepcandylevel/stepcandylevel.png"  
   },
    {
         "name": "shape",
