@@ -1,6 +1,6 @@
 {
   "ID": "2e6d8d8d-4415-47b4-a3ef-0bcf91f15f8d",
-  "Version": "3.10.0.0",
+  "Version": "2.3.4",
   "Name": "jimbi_na_sungura_cover_page",
   "Content": {
     "Content": {
@@ -307,7 +307,7 @@
               "X": 1584.0,
               "Y": 335.0
             },
-            "Name": "hadithi_hill2_10_1",
+            "Name": "hadithi_hill_2_10_1",
             "ctype": "SpriteObjectData"
           },
           {
@@ -356,7 +356,7 @@
               "X": 1584.0,
               "Y": 335.0
             },
-            "Name": "hadithi_hill2_10",
+            "Name": "hadithi_hill_2_10",
             "ctype": "SpriteObjectData"
           },
           {
@@ -455,7 +455,7 @@
               "X": 1584.0,
               "Y": 335.0
             },
-            "Name": "hadithi_hill2_10_0",
+            "Name": "hadithi_hill_2_10_0",
             "ctype": "SpriteObjectData"
           },
           {
@@ -501,7 +501,7 @@
               "X": 1171.0,
               "Y": 943.0
             },
-            "Name": "jimbi_grass1_1_0",
+            "Name": "jimbi_grass_1_1_0",
             "ctype": "SpriteObjectData"
           },
           {
@@ -546,7 +546,7 @@
               "X": 1171.0,
               "Y": 943.0
             },
-            "Name": "jimbi_grass1_1",
+            "Name": "jimbi_grass_1_1",
             "ctype": "SpriteObjectData"
           },
           {
@@ -579,8 +579,9 @@
             },
             "LeftMargin": 920.9376,
             "RightMargin": 1639.0624,
-            "TopMargin": 1434.1818,
+            "TopMargin": 1434.1816,
             "BottomMargin": 365.8183,
+            "UserData": "run;drag",
             "Tag": 782,
             "ActionTag": 1185444656,
             "Size": {
@@ -620,8 +621,9 @@
             },
             "LeftMargin": 1922.7388,
             "RightMargin": 637.2612,
-            "TopMargin": 1300.885,
+            "TopMargin": 1300.8849,
             "BottomMargin": 499.1151,
+            "UserData": "fly;drag",
             "Tag": 785,
             "ActionTag": -1582556695,
             "Size": {
@@ -860,51 +862,6 @@
             "ctype": "SpriteObjectData"
           },
           {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "jimbi_na_sungura/fahali_house.png",
-              "Plist": "jimbi_na_sungura/jimbi_na_sungura.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 898.3907,
-              "Y": 805.9463
-            },
-            "Scale": {
-              "ScaleX": 0.8025,
-              "ScaleY": 0.8025
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.3509,
-              "Y": 0.4477
-            },
-            "PreSize": {
-              "X": 0.4672,
-              "Y": 0.4506
-            },
-            "LeftMargin": 300.3907,
-            "RightMargin": 1063.6094,
-            "TopMargin": 588.5537,
-            "BottomMargin": 400.4463,
-            "Tag": 810,
-            "ActionTag": 1232635941,
-            "Size": {
-              "X": 1196.0,
-              "Y": 811.0
-            },
-            "Name": "fahali_house_3",
-            "ctype": "SpriteObjectData"
-          },
-          {
             "FlipX": true,
             "FileData": {
               "Type": "MarkedSubImage",
@@ -948,6 +905,51 @@
               "Y": 1136.0
             },
             "Name": "fisi_tree_13",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jimbi_na_sungura/fahali_house.png",
+              "Plist": "jimbi_na_sungura/jimbi_na_sungura.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 898.3907,
+              "Y": 805.9463
+            },
+            "Scale": {
+              "ScaleX": 0.8025,
+              "ScaleY": 0.8025
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3509,
+              "Y": 0.4477
+            },
+            "PreSize": {
+              "X": 0.4672,
+              "Y": 0.4506
+            },
+            "LeftMargin": 300.3907,
+            "RightMargin": 1063.6094,
+            "TopMargin": 588.5537,
+            "BottomMargin": 400.4463,
+            "Tag": 810,
+            "ActionTag": 1232635941,
+            "Size": {
+              "X": 1196.0,
+              "Y": 811.0
+            },
+            "Name": "fahali_house_3",
             "ctype": "SpriteObjectData"
           }
         ],

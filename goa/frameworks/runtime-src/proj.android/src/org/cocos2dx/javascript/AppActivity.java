@@ -126,7 +126,13 @@ public class AppActivity extends Cocos2dxActivity {
 		_activity = this;
 		_context = this;
 		handler = new Handler(getMainLooper());
-		
+
+		AssetInstaller assetInstaller = new AssetInstaller(getApplicationContext(), "projects");
+		try {
+			assetInstaller.execute();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}		
 
 		Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
 		width = (int) (display.getWidth() * 0.5);

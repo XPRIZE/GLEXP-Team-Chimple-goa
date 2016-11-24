@@ -70,6 +70,12 @@
 		9C7C1A6F1DD8F77D00DD5C6B /* JumpingNumbers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7C1A6C1DD8F77D00DD5C6B /* JumpingNumbers.cpp */; };
 		9C7C1A721DD8F78000DD5C6B /* ChocolateFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7C1A6A1DD8F77D00DD5C6B /* ChocolateFactory.cpp */; };
 		9C7C1A731DD8F78200DD5C6B /* JumpingNumbers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7C1A6C1DD8F77D00DD5C6B /* JumpingNumbers.cpp */; };
+		9CA07C921DE6BFBF007578FF /* Item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA07C8C1DE6BFBF007578FF /* Item.cpp */; };
+		9CA07C931DE6BFBF007578FF /* Shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA07C8E1DE6BFBF007578FF /* Shape.cpp */; };
+		9CA07C941DE6BFBF007578FF /* spot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA07C901DE6BFBF007578FF /* spot.cpp */; };
+		9CA07C971DE6BFC2007578FF /* Item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA07C8C1DE6BFBF007578FF /* Item.cpp */; };
+		9CA07C981DE6BFC4007578FF /* Shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA07C8E1DE6BFBF007578FF /* Shape.cpp */; };
+		9CA07C991DE6BFC8007578FF /* spot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA07C901DE6BFBF007578FF /* spot.cpp */; };
 		9FA3AE461BE9BBCA00FC9645 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA3AE451BE9BBCA00FC9645 /* GameController.framework */; };
 		A92275421517C094001B78AA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92275411517C094001B78AA /* QuartzCore.framework */; };
 		A92275441517C094001B78AA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92275431517C094001B78AA /* OpenGLES.framework */; };
@@ -392,6 +398,8 @@
 		F3EEA3F11DE3011B00CA7D31 /* ATM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA3EC1DE3011B00CA7D31 /* ATM.cpp */; };
 		F3EEA3F21DE3011B00CA7D31 /* Step.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA3EE1DE3011B00CA7D31 /* Step.cpp */; };
 		F3EEA3F31DE3011B00CA7D31 /* Step.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA3EE1DE3011B00CA7D31 /* Step.cpp */; };
+		F3EEA3FA1DE41EC100CA7D31 /* Shop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA3F81DE41EC100CA7D31 /* Shop.cpp */; };
+		F3EEA3FD1DE41ED200CA7D31 /* Shop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA3F81DE41EC100CA7D31 /* Shop.cpp */; };
 		F3F7ED621D93DAFE00727A7C /* Dash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED601D93DAFE00727A7C /* Dash.cpp */; };
 		F3F7ED631D93DAFE00727A7C /* Dash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED601D93DAFE00727A7C /* Dash.cpp */; };
 		F3F7ED6C1D94F22F00727A7C /* Bingo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED6B1D94F22F00727A7C /* Bingo.cpp */; };
@@ -544,6 +552,12 @@
 		9C7C1A6B1DD8F77D00DD5C6B /* ChocolateFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChocolateFactory.h; sourceTree = "<group>"; };
 		9C7C1A6C1DD8F77D00DD5C6B /* JumpingNumbers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JumpingNumbers.cpp; sourceTree = "<group>"; };
 		9C7C1A6D1DD8F77D00DD5C6B /* JumpingNumbers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JumpingNumbers.h; sourceTree = "<group>"; };
+		9CA07C8C1DE6BFBF007578FF /* Item.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Item.cpp; sourceTree = "<group>"; };
+		9CA07C8D1DE6BFBF007578FF /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		9CA07C8E1DE6BFBF007578FF /* Shape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shape.cpp; sourceTree = "<group>"; };
+		9CA07C8F1DE6BFBF007578FF /* Shape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shape.h; sourceTree = "<group>"; };
+		9CA07C901DE6BFBF007578FF /* spot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = spot.cpp; sourceTree = "<group>"; };
+		9CA07C911DE6BFBF007578FF /* spot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spot.h; sourceTree = "<group>"; };
 		9FA3AE451BE9BBCA00FC9645 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		A922753D1517C094001B78AA /* goa-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "goa-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92275411517C094001B78AA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -884,6 +898,8 @@
 		F3EEA3ED1DE3011B00CA7D31 /* ATM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATM.h; sourceTree = "<group>"; };
 		F3EEA3EE1DE3011B00CA7D31 /* Step.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Step.cpp; sourceTree = "<group>"; };
 		F3EEA3EF1DE3011B00CA7D31 /* Step.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Step.h; sourceTree = "<group>"; };
+		F3EEA3F81DE41EC100CA7D31 /* Shop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shop.cpp; sourceTree = "<group>"; };
+		F3EEA3F91DE41EC100CA7D31 /* Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
 		F3F7ED601D93DAFE00727A7C /* Dash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dash.cpp; sourceTree = "<group>"; };
 		F3F7ED611D93DAFE00727A7C /* Dash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dash.h; sourceTree = "<group>"; };
 		F3F7ED6A1D94F22F00727A7C /* Bingo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bingo.h; sourceTree = "<group>"; };
@@ -1235,6 +1251,14 @@
 		F352471A1D6D9D1A0077C333 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				9CA07C8C1DE6BFBF007578FF /* Item.cpp */,
+				9CA07C8D1DE6BFBF007578FF /* Item.h */,
+				9CA07C8E1DE6BFBF007578FF /* Shape.cpp */,
+				9CA07C8F1DE6BFBF007578FF /* Shape.h */,
+				9CA07C901DE6BFBF007578FF /* spot.cpp */,
+				9CA07C911DE6BFBF007578FF /* spot.h */,
+				F3EEA3F81DE41EC100CA7D31 /* Shop.cpp */,
+				F3EEA3F91DE41EC100CA7D31 /* Shop.h */,
 				F3EEA3EC1DE3011B00CA7D31 /* ATM.cpp */,
 				F3EEA3ED1DE3011B00CA7D31 /* ATM.h */,
 				F3EEA3EE1DE3011B00CA7D31 /* Step.cpp */,
@@ -1821,7 +1845,9 @@
 				F3667D5D1DB4BA7000EC8908 /* LTKCheckSumGenerate.cpp in Sources */,
 				F35248431D6D9D1A0077C333 /* I18nUtils.cpp in Sources */,
 				F35247CD1D6D9D1A0077C333 /* Cannon_Ball_Listener.cpp in Sources */,
+				F3EEA3FD1DE41ED200CA7D31 /* Shop.cpp in Sources */,
 				F373B90F1DDAE1280027D32C /* Units.cpp in Sources */,
+				9CA07C991DE6BFC8007578FF /* spot.cpp in Sources */,
 				F37286F51DCB4B5000F4804A /* BlastLetterNode.cpp in Sources */,
 				F3667D7B1DB4BA7000EC8908 /* LTKLogger.cpp in Sources */,
 				F3667D731DB4BA7000EC8908 /* LTKStringUtil.cpp in Sources */,
@@ -1829,6 +1855,7 @@
 				F35247DF1D6D9D1A0077C333 /* jazz.cpp in Sources */,
 				F35248211D6D9D1A0077C333 /* GestureLayer.cpp in Sources */,
 				F35248091D6D9D1A0077C333 /* Grapheme.cpp in Sources */,
+				9CA07C971DE6BFC2007578FF /* Item.cpp in Sources */,
 				F35247C31D6D9D1A0077C333 /* MapScene.cpp in Sources */,
 				F3F7ED6D1D94F22F00727A7C /* Bingo.cpp in Sources */,
 				F35247FB1D6D9D1A0077C333 /* WordInfo.cpp in Sources */,
@@ -1930,6 +1957,7 @@
 				F3667D651DB4BA7000EC8908 /* LTKInkFileReader.cpp in Sources */,
 				F35247D11D6D9D1A0077C333 /* CatGameScene.cpp in Sources */,
 				F3667D1F1DB4BA6F00EC8908 /* LTKScreenContext.cpp in Sources */,
+				9CA07C981DE6BFC4007578FF /* Shape.cpp in Sources */,
 				F3F7ED911DA65FF400727A7C /* Talk.cpp in Sources */,
 				F3667D611DB4BA7000EC8908 /* LTKErrors.cpp in Sources */,
 				F35248471D6D9D1A0077C333 /* LanguageManager.cpp in Sources */,
@@ -1987,6 +2015,7 @@
 				F35248341D6D9D1A0077C333 /* StandingState.cpp in Sources */,
 				F35247C81D6D9D1A0077C333 /* Baja.cpp in Sources */,
 				F35247C61D6D9D1A0077C333 /* AlphamonFeedScene.cpp in Sources */,
+				9CA07C921DE6BFBF007578FF /* Item.cpp in Sources */,
 				F35247F61D6D9D1A0077C333 /* SafariAnalyticsManager.cpp in Sources */,
 				F3667D201DB4BA6F00EC8908 /* LTKTrace.cpp in Sources */,
 				F35247FA1D6D9D1A0077C333 /* WordInfo.cpp in Sources */,
@@ -2082,6 +2111,7 @@
 				F35248141D6D9D1A0077C333 /* StartMenuScene.cpp in Sources */,
 				F3667D601DB4BA7000EC8908 /* LTKErrors.cpp in Sources */,
 				509D4ABC17EBB2AB00697056 /* AppController.mm in Sources */,
+				9CA07C931DE6BFBF007578FF /* Shape.cpp in Sources */,
 				F3667D401DB4BA6F00EC8908 /* LTKShapeFeatureExtractorFactory.cpp in Sources */,
 				F35248321D6D9D1A0077C333 /* RunningState.cpp in Sources */,
 				F35247D01D6D9D1A0077C333 /* CatGameScene.cpp in Sources */,
@@ -2096,6 +2126,7 @@
 				F35247D61D6D9D1A0077C333 /* CrossTheBridgeScene.cpp in Sources */,
 				F35248501D6D9D1A0077C333 /* StateMachine.cpp in Sources */,
 				F352482E1D6D9D1A0077C333 /* FallingState.cpp in Sources */,
+				9CA07C941DE6BFBF007578FF /* spot.cpp in Sources */,
 				F3F7ED901DA65FF400727A7C /* Talk.cpp in Sources */,
 				F35248221D6D9D1A0077C333 /* SkeletonCharacter.cpp in Sources */,
 				F3667D681DB4BA7000EC8908 /* LTKInkUtils.cpp in Sources */,
@@ -2108,6 +2139,7 @@
 				9C0E13471DBF707E00C10A81 /* WordSceneLipiTKNode.cpp in Sources */,
 				F3667D2A1DB4BA6F00EC8908 /* LipiEngineModule.cpp in Sources */,
 				F3667D2C1DB4BA6F00EC8908 /* LipiTKInterface.cpp in Sources */,
+				F3EEA3FA1DE41EC100CA7D31 /* Shop.cpp in Sources */,
 				F36840C01D8A812F00969162 /* AlphamoleLevel.cpp in Sources */,
 				F35248121D6D9D1A0077C333 /* RPGConfig.cpp in Sources */,
 				F3667D461DB4BA6F00EC8908 /* PointFloatShapeFeature.cpp in Sources */,

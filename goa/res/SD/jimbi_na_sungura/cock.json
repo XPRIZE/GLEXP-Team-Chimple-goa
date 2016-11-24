@@ -1,6 +1,6 @@
 {
   "ID": "c26f6e67-ad8a-48cb-afc0-eaad028ebc0a",
-  "Version": "3.10.0.0",
+  "Version": "2.3.4",
   "Name": "cock",
   "Content": {
     "Content": {
@@ -4085,8 +4085,8 @@
               {
                 "Length": 529.0,
                 "Position": {
-                  "X": -138.0775,
-                  "Y": 320.1051
+                  "X": -138.0756,
+                  "Y": 348.9362
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -4180,15 +4180,15 @@
                   {
                     "Length": 508.0,
                     "Position": {
-                      "X": -22.3343,
-                      "Y": 118.4143
+                      "X": -19.4647,
+                      "Y": 127.009
                     },
                     "Scale": {
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 202.226,
-                    "RotationSkewY": -157.7754,
+                    "RotationSkewX": 219.1954,
+                    "RotationSkewY": -140.8067,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -4204,7 +4204,7 @@
                         },
                         "Scale": {
                           "ScaleX": 1.0,
-                          "ScaleY": 0.1921
+                          "ScaleY": 1.0
                         },
                         "RotationSkewX": 150.5311,
                         "RotationSkewY": 150.5311,
@@ -4282,8 +4282,8 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewX": 308.55,
-                        "RotationSkewY": 308.5511,
+                        "RotationSkewX": 291.5527,
+                        "RotationSkewY": 291.5538,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -4484,15 +4484,15 @@
                   {
                     "Length": 293.0,
                     "Position": {
-                      "X": 87.0455,
+                      "X": 87.0456,
                       "Y": 29.8586
                     },
                     "Scale": {
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 2.6578,
-                    "RotationSkewY": 2.6572,
+                    "RotationSkewX": -22.371,
+                    "RotationSkewY": -22.3693,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -4567,8 +4567,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": -10.0263,
-                    "RotationSkewY": -10.0311,
+                    "RotationSkewX": -30.6539,
+                    "RotationSkewY": -30.6573,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -4651,8 +4651,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 94.26,
-                "RotationSkewY": 94.2576,
+                "RotationSkewX": 76.26,
+                "RotationSkewY": 76.2576,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -4727,8 +4727,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 63.56,
-                "RotationSkewY": 63.5604,
+                "RotationSkewX": 69.56,
+                "RotationSkewY": 69.5604,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -4802,6 +4802,51 @@
             },
             "Name": "main_bone",
             "ctype": "BoneNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jimbi_na_sungura/touch.png",
+              "Plist": "jimbi_na_sungura/jimbi_na_sungura.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -29.755,
+              "Y": 89.4865
+            },
+            "Scale": {
+              "ScaleX": 3.4597,
+              "ScaleY": 2.5318
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -231.755,
+            "RightMargin": -172.245,
+            "TopMargin": -291.4865,
+            "BottomMargin": -112.5135,
+            "Tag": 68,
+            "ActionTag": 1114911631,
+            "Size": {
+              "X": 404.0,
+              "Y": 404.0
+            },
+            "Name": "touch",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
