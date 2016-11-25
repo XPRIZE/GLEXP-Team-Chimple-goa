@@ -12377,7 +12377,7 @@
             "Length": 400.0,
             "Position": {
               "X": 0.0089,
-              "Y": 256.69
+              "Y": 256.6854
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -12846,14 +12846,14 @@
                 "Length": 82.0,
                 "Position": {
                   "X": 389.3273,
-                  "Y": 1.2003
+                  "Y": 0.5275
                 },
                 "Scale": {
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": -360.3223,
-                "RotationSkewY": -360.3223,
+                "RotationSkewX": -359.8011,
+                "RotationSkewY": -359.8011,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -13376,7 +13376,7 @@
                         "Length": 166.0,
                         "Position": {
                           "X": 92.0941,
-                          "Y": 34.0388
+                          "Y": 34.0389
                         },
                         "Scale": {
                           "ScaleX": 1.0,
@@ -13487,8 +13487,8 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewX": 79.5042,
-                        "RotationSkewY": 79.4971,
+                        "RotationSkewX": 80.7451,
+                        "RotationSkewY": 80.738,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -13567,8 +13567,8 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewX": -78.6341,
-                        "RotationSkewY": -438.6353,
+                        "RotationSkewX": -79.8956,
+                        "RotationSkewY": -439.8968,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -13866,7 +13866,7 @@
             "Length": 139.0,
             "Position": {
               "X": 0.0089,
-              "Y": 256.69
+              "Y": 256.6854
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -13969,10 +13969,10 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": 67.1985,
-                            "RightMargin": -172.1985,
-                            "TopMargin": -1.751,
-                            "BottomMargin": -19.249,
+                            "LeftMargin": -12.1011,
+                            "RightMargin": -92.8989,
+                            "TopMargin": -9.2018,
+                            "BottomMargin": -11.7982,
                             "Tag": 2634,
                             "ActionTag": 664275170,
                             "Size": {
@@ -14083,10 +14083,10 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": 30.5631,
-                    "RightMargin": -51.5631,
-                    "TopMargin": 35.1272,
-                    "BottomMargin": -124.1272,
+                    "LeftMargin": 34.8735,
+                    "RightMargin": -55.8735,
+                    "TopMargin": -44.5712,
+                    "BottomMargin": -44.4288,
                     "Tag": 2635,
                     "ActionTag": -1540868627,
                     "Size": {
@@ -14387,6 +14387,51 @@
             },
             "Name": "hip",
             "ctype": "BoneNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/touch.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 36.0565,
+              "Y": 605.9965
+            },
+            "Scale": {
+              "ScaleX": 1.8331,
+              "ScaleY": 3.1158
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -165.9435,
+            "RightMargin": -238.0565,
+            "TopMargin": -807.9965,
+            "BottomMargin": 403.9965,
+            "Tag": 55,
+            "ActionTag": -1233264176,
+            "Size": {
+              "X": 404.0,
+              "Y": 404.0
+            },
+            "Name": "touch",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {

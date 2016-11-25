@@ -1,0 +1,258 @@
+{
+  "ID": "039bc3a3-7053-4e55-b727-5e03af8f5c8b",
+  "Version": "3.10.0.0",
+  "Name": "Jinsi_usiku_ulivyoingia10",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 180,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -969949702,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1290.2581,
+                "Y": 180.332,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1320.7974,
+                "Y": 187.0074,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -969949702,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -969949702,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 21.0,
+                "Y": 21.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 56.0,
+                "Y": 56.0,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 180,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 56,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 18,
+              "G": 48,
+              "B": 61
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -255.9309,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -255.9309,
+            "RightMargin": -284.0691,
+            "Tag": 111,
+            "ActionTag": -2006384368,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Jinsi_usiku_ulivyoingia/night.png",
+              "Plist": "Jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1303.8682,
+              "Y": 918.8287
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5093,
+              "Y": 0.5105
+            },
+            "PreSize": {
+              "X": 0.5461,
+              "Y": 0.7444
+            },
+            "LeftMargin": 604.8682,
+            "RightMargin": 557.1318,
+            "TopMargin": 211.1714,
+            "BottomMargin": 248.8287,
+            "Tag": 110,
+            "ActionTag": 487982194,
+            "Size": {
+              "X": 1398.0,
+              "Y": 1340.0
+            },
+            "Name": "night_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Jinsi_usiku_ulivyoingia/moon.png",
+              "Plist": "Jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 6.7278,
+              "ScaleY": -5.207
+            },
+            "Position": {
+              "X": 1298.0625,
+              "Y": 182.0379
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 29.9444,
+            "RotationSkewY": 29.9444,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5071,
+              "Y": 0.1011
+            },
+            "PreSize": {
+              "X": 0.0449,
+              "Y": 0.0761
+            },
+            "LeftMargin": 524.3655,
+            "RightMargin": 1920.6345,
+            "TopMargin": 767.6031,
+            "BottomMargin": 895.3969,
+            "Tag": 1805,
+            "ActionTag": -969949702,
+            "Size": {
+              "X": 115.0,
+              "Y": 137.0
+            },
+            "Name": "moon_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "Jinsi_usiku_ulivyoingia.plist",
+        "Jinsi_usiku_ulivyoingia.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

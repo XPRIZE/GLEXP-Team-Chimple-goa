@@ -1,0 +1,590 @@
+{
+  "ID": "831ea373-5c16-42e3-87b2-651215978a4a",
+  "Version": "3.10.0.0",
+  "Name": "Mwezi_na_Kofia02",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 320,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": 1514608352,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1925.0021,
+                "Y": 761.6174,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1514608352,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.5926,
+                "Y": 1.5926,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1534090957,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 206,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1534090957,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 530.8673,
+                "Y": 112.8545,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1206.9911,
+                "Y": 82.6367,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -532473609,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "hi",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -532473609,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 444.3845,
+                "Y": 49.6685,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 869196292,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 206,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 320,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 869196292,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2230.1304,
+                "Y": 41.1387,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1781.4624,
+                "Y": 36.429,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 869196292,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.5697,
+                "Y": 0.5697,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 320,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 904,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 170,
+              "G": 216,
+              "B": 239
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1280.0,
+              "Y": 900.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -720.0,
+            "RightMargin": -720.0,
+            "Tag": 909,
+            "ActionTag": -1369443644,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 229,
+              "G": 162,
+              "B": 124
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1279.9983,
+              "Y": -30.0003
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": -0.0167
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 0.3889
+            },
+            "LeftMargin": -720.0017,
+            "RightMargin": -719.9983,
+            "TopMargin": 1480.0002,
+            "BottomMargin": -380.0003,
+            "Tag": 908,
+            "ActionTag": -2060830824,
+            "Size": {
+              "X": 4000.0,
+              "Y": 700.0
+            },
+            "Name": "Panel_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mwezi_na_Kofia/MbwanaMamba_tree1.png",
+              "Plist": "Mwezi_na_Kofia/Mwezi_na_Kofia.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1925.0021,
+              "Y": 761.6174
+            },
+            "Scale": {
+              "ScaleX": 1.5926,
+              "ScaleY": 1.5926
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.752,
+              "Y": 0.4231
+            },
+            "PreSize": {
+              "X": 0.3164,
+              "Y": 0.3828
+            },
+            "LeftMargin": 1520.0021,
+            "RightMargin": 229.998,
+            "TopMargin": 693.8826,
+            "BottomMargin": 417.1174,
+            "Tag": 907,
+            "ActionTag": 1514608352,
+            "Size": {
+              "X": 810.0,
+              "Y": 689.0
+            },
+            "Name": "MbwanaMamba_tree1_206",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mwezi_na_Kofia/shop1.png",
+              "Plist": "Mwezi_na_Kofia/Mwezi_na_Kofia.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2269.1653,
+              "Y": 508.4518
+            },
+            "Scale": {
+              "ScaleX": 1.2033,
+              "ScaleY": 1.2033
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8864,
+              "Y": 0.2825
+            },
+            "PreSize": {
+              "X": 0.1953,
+              "Y": 0.2744
+            },
+            "LeftMargin": 2019.1653,
+            "RightMargin": 40.8347,
+            "TopMargin": 1044.5482,
+            "BottomMargin": 261.4518,
+            "Tag": 906,
+            "ActionTag": -323195063,
+            "Size": {
+              "X": 500.0,
+              "Y": 494.0
+            },
+            "Name": "shop1_20_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mwezi_na_Kofia/shop1.png",
+              "Plist": "Mwezi_na_Kofia/Mwezi_na_Kofia.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 755.2815,
+              "Y": 508.4519
+            },
+            "Scale": {
+              "ScaleX": 1.2033,
+              "ScaleY": 1.2033
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.295,
+              "Y": 0.2825
+            },
+            "PreSize": {
+              "X": 0.1953,
+              "Y": 0.2744
+            },
+            "LeftMargin": 505.2815,
+            "RightMargin": 1554.7185,
+            "TopMargin": 1044.5481,
+            "BottomMargin": 261.4519,
+            "Tag": 910,
+            "ActionTag": 361221954,
+            "Size": {
+              "X": 500.0,
+              "Y": 494.0
+            },
+            "Name": "shop1_20_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mwezi_na_Kofia/boy2.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 530.8673,
+              "Y": 112.8545
+            },
+            "Scale": {
+              "ScaleX": -0.7554,
+              "ScaleY": 0.7554
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.2074,
+              "Y": 0.0627
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 530.8673,
+            "RightMargin": 2029.1327,
+            "TopMargin": 1687.1455,
+            "BottomMargin": 112.8545,
+            "Tag": 776,
+            "ActionTag": -1534090957,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_1",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mwezi_na_Kofia/boy1.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 444.3845,
+              "Y": 49.6685
+            },
+            "Scale": {
+              "ScaleX": -0.7554,
+              "ScaleY": 0.7554
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1736,
+              "Y": 0.0276
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 444.3845,
+            "RightMargin": 2115.6155,
+            "TopMargin": 1750.3315,
+            "BottomMargin": 49.6685,
+            "Tag": 1137,
+            "ActionTag": -532473609,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_5",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mwezi_na_Kofia/girl.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2230.1304,
+              "Y": 41.1387
+            },
+            "Scale": {
+              "ScaleX": 0.5697,
+              "ScaleY": 0.5697
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8711,
+              "Y": 0.0229
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2230.1304,
+            "RightMargin": 329.8696,
+            "TopMargin": 1758.8613,
+            "BottomMargin": 41.1387,
+            "Tag": 1092,
+            "ActionTag": 869196292,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_8",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "boy1.json",
+        "boy2.json",
+        "girl.json",
+        "Mwezi_na_Kofia.plist",
+        "Mwezi_na_Kofia.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

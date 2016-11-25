@@ -13111,6 +13111,51 @@
             },
             "Name": "hip",
             "ctype": "BoneNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/touch.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 38.1187,
+              "Y": 660.6992
+            },
+            "Scale": {
+              "ScaleX": 1.5854,
+              "ScaleY": 3.428
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -163.8813,
+            "RightMargin": -240.1187,
+            "TopMargin": -862.6992,
+            "BottomMargin": 458.6992,
+            "Tag": 107,
+            "ActionTag": 485453799,
+            "Size": {
+              "X": 404.0,
+              "Y": 404.0
+            },
+            "Name": "touch",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
@@ -13122,7 +13167,9 @@
       },
       "UsedResources": [
         "bb2/bb2.plist",
-        "bb2/bb2.png"
+        "bb2/bb2.png",
+        "bunty_and_bubbly.plist",
+        "bunty_and_bubbly.png"
       ],
       "ctype": "GameFileData"
     }

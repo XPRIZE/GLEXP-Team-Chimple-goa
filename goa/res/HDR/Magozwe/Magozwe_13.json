@@ -1,0 +1,839 @@
+{
+  "ID": "68523e9a-26a5-4d93-b9c1-cfd005b8b200",
+  "Version": "3.10.0.0",
+  "Name": "Magozwe_13",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 300,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": 285046168,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 498.6095,
+                "Y": 1499.4535,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 618.61,
+                "Y": 1499.4535,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 498.6095,
+                "Y": 1499.4535,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 285046168,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 285046168,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -323080533,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -323080533,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -218.8907,
+                "Y": 457.5945,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2061.8232,
+                "Y": 425.3595,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -323080533,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -0.49,
+                "Y": 0.49,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.49,
+                "Y": 0.49,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -323080533,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 300,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 108,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 217,
+              "G": 243,
+              "B": 248
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -260.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1016,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -260.0,
+            "RightMargin": -280.0,
+            "Tag": 120,
+            "ActionTag": -681964250,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Kuhesabu_hill1.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 836.1675,
+              "Y": 964.2087
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3266,
+              "Y": 0.5357
+            },
+            "PreSize": {
+              "X": 0.4617,
+              "Y": 0.0867
+            },
+            "LeftMargin": 245.1675,
+            "RightMargin": 1132.8325,
+            "TopMargin": 757.7913,
+            "BottomMargin": 886.2087,
+            "Tag": 117,
+            "ActionTag": -380477116,
+            "Size": {
+              "X": 1182.0,
+              "Y": 156.0
+            },
+            "Name": "Kuhesabu_hill_1_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Kuhesabu_hill1.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2007.322,
+              "Y": 974.0468
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7841,
+              "Y": 0.5411
+            },
+            "PreSize": {
+              "X": 0.4617,
+              "Y": 0.0867
+            },
+            "LeftMargin": 1416.322,
+            "RightMargin": -38.322,
+            "TopMargin": 747.9531,
+            "BottomMargin": 896.0468,
+            "Tag": 118,
+            "ActionTag": -259739209,
+            "Size": {
+              "X": 1182.0,
+              "Y": 156.0
+            },
+            "Name": "Kuhesabu_hill_1_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Kuhesabu_hill.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1960.0001,
+              "Y": 1086.8579
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7656,
+              "Y": 0.6038
+            },
+            "PreSize": {
+              "X": 0.4613,
+              "Y": 0.2028
+            },
+            "LeftMargin": 1369.5001,
+            "RightMargin": 9.5,
+            "TopMargin": 530.6421,
+            "BottomMargin": 904.3579,
+            "Tag": 119,
+            "ActionTag": -1899782544,
+            "Size": {
+              "X": 1181.0,
+              "Y": 365.0
+            },
+            "Name": "Kuhesabu_hill_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Kuhesabu_cloud.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1556.2574,
+              "Y": 1379.3344
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6079,
+              "Y": 0.7663
+            },
+            "PreSize": {
+              "X": 0.2223,
+              "Y": 0.1267
+            },
+            "LeftMargin": 1271.7574,
+            "RightMargin": 719.2426,
+            "TopMargin": 306.6656,
+            "BottomMargin": 1265.3344,
+            "Tag": 114,
+            "ActionTag": 1606570106,
+            "Size": {
+              "X": 569.0,
+              "Y": 228.0
+            },
+            "Name": "Kuhesabu_cloud_4_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Kuhesabu_cloud.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 498.6095,
+              "Y": 1499.4535
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1948,
+              "Y": 0.833
+            },
+            "PreSize": {
+              "X": 0.2223,
+              "Y": 0.1267
+            },
+            "LeftMargin": 214.1095,
+            "RightMargin": 1776.8905,
+            "TopMargin": 186.5465,
+            "BottomMargin": 1385.4535,
+            "Tag": 115,
+            "ActionTag": 285046168,
+            "Size": {
+              "X": 569.0,
+              "Y": 228.0
+            },
+            "Name": "Kuhesabu_cloud_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 189,
+              "G": 204,
+              "B": 9
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -260.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1016,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.5
+            },
+            "LeftMargin": -260.0,
+            "RightMargin": -280.0,
+            "TopMargin": 900.0,
+            "Tag": 116,
+            "ActionTag": 1662353581,
+            "Size": {
+              "X": 3100.0,
+              "Y": 900.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Mama_tree1.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 213.0444,
+              "Y": 897.8157
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0832,
+              "Y": 0.4988
+            },
+            "PreSize": {
+              "X": 0.1383,
+              "Y": 0.3022
+            },
+            "LeftMargin": 36.0444,
+            "RightMargin": 2169.9556,
+            "TopMargin": 630.1843,
+            "BottomMargin": 625.8157,
+            "Tag": 113,
+            "ActionTag": 1397439866,
+            "Size": {
+              "X": 354.0,
+              "Y": 544.0
+            },
+            "Name": "Mama_tree_1_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Kuhesabu_tree.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2302.8757,
+              "Y": 900.8071
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8996,
+              "Y": 0.5004
+            },
+            "PreSize": {
+              "X": 0.0273,
+              "Y": 0.0483
+            },
+            "LeftMargin": 2267.8757,
+            "RightMargin": 222.1243,
+            "TopMargin": 855.6929,
+            "BottomMargin": 857.3071,
+            "Tag": 111,
+            "ActionTag": 119746192,
+            "Size": {
+              "X": 70.0,
+              "Y": 87.0
+            },
+            "Name": "Kuhesabu_tree_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Kuhesabu_tree.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2138.0249,
+              "Y": 809.9082
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8352,
+              "Y": 0.4499
+            },
+            "PreSize": {
+              "X": 0.0273,
+              "Y": 0.0483
+            },
+            "LeftMargin": 2103.0249,
+            "RightMargin": 386.9751,
+            "TopMargin": 946.5918,
+            "BottomMargin": 766.4082,
+            "Tag": 110,
+            "ActionTag": 404184057,
+            "Size": {
+              "X": 70.0,
+              "Y": 87.0
+            },
+            "Name": "Kuhesabu_tree_8_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "G": 226,
+              "B": 65
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -260.0,
+              "Y": 390.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1016,
+              "Y": 0.2167
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.1111
+            },
+            "LeftMargin": -260.0,
+            "RightMargin": -280.0,
+            "TopMargin": 1210.0,
+            "BottomMargin": 390.0,
+            "Tag": 121,
+            "ActionTag": -43660377,
+            "Size": {
+              "X": 3100.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_4",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Magozwe/boy.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -218.8907,
+              "Y": 457.5945
+            },
+            "Scale": {
+              "ScaleX": -0.49,
+              "ScaleY": 0.49
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.0855,
+              "Y": 0.2542
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -218.8907,
+            "RightMargin": 2778.8906,
+            "TopMargin": 1342.4055,
+            "BottomMargin": 457.5945,
+            "UserData": "walk:drag",
+            "Tag": 4397,
+            "ActionTag": -323080533,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "boy",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Magozwe_character.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2432.4648,
+              "Y": 893.5824
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9502,
+              "Y": 0.4964
+            },
+            "PreSize": {
+              "X": 0.2289,
+              "Y": 0.5933
+            },
+            "LeftMargin": 2139.4648,
+            "RightMargin": -165.4648,
+            "TopMargin": 372.4176,
+            "BottomMargin": 359.5824,
+            "Tag": 4444,
+            "ActionTag": -1927717069,
+            "Size": {
+              "X": 586.0,
+              "Y": 1068.0
+            },
+            "Name": "Magozwe_character_102",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "boy.json",
+        "Magozwe.plist",
+        "Magozwe.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

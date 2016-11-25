@@ -1,0 +1,816 @@
+{
+  "ID": "9ac0b70e-f539-414b-b340-6db8ae73cfc6",
+  "Version": "3.10.0.0",
+  "Name": "Rangi_za_upinde_05",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 350,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": 276557492,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1854.9261,
+                "Y": 785.8757,
+                "FrameIndex": 350,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 276557492,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 350,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 276557492,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -31.0801,
+                "Y": -31.0927,
+                "FrameIndex": 350,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1766858502,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2041.467,
+                "Y": 1070.0896,
+                "FrameIndex": 22,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1766858502,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 27.1155,
+                "Y": 27.1249,
+                "FrameIndex": 22,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1836701881,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "swim",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 94625197,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "lift",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 215,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 94625197,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -746.2678,
+                "Y": 35.9088,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1252.8698,
+                "Y": 22.8905,
+                "FrameIndex": 215,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 94625197,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -1.2,
+                "Y": 1.2,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.2,
+                "Y": 1.2,
+                "FrameIndex": 215,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 94625197,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 215,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 350,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "G": 222,
+              "B": 194
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -401.2124,
+              "Y": 599.6169
+            },
+            "Scale": {
+              "ScaleX": 17.0999,
+              "ScaleY": 6.05
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1567,
+              "Y": 0.3331
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -401.2124,
+            "RightMargin": 2761.2124,
+            "TopMargin": 1000.3831,
+            "BottomMargin": 599.6169,
+            "Tag": 122,
+            "ActionTag": 2079076856,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_9",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "G": 122,
+              "B": 0
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -400.1865,
+              "Y": -24.6471
+            },
+            "Scale": {
+              "ScaleX": 17.099,
+              "ScaleY": 3.1765
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1563,
+              "Y": -0.0137
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -400.1865,
+            "RightMargin": 2760.1865,
+            "TopMargin": 1624.6471,
+            "BottomMargin": -24.6471,
+            "Tag": 103,
+            "ActionTag": -1769451639,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "G": 225,
+              "B": 197
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -397.1861,
+              "Y": -34.647
+            },
+            "Scale": {
+              "ScaleX": 17.099,
+              "ScaleY": 2.7985
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1552,
+              "Y": -0.0192
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -397.1861,
+            "RightMargin": 2757.186,
+            "TopMargin": 1634.647,
+            "BottomMargin": -34.647,
+            "Tag": 113,
+            "ActionTag": 953952356,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "G": 122,
+              "B": 0
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -354.5813,
+              "Y": -56.8698
+            },
+            "Scale": {
+              "ScaleX": 3.7576,
+              "ScaleY": 2.4872
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1385,
+              "Y": -0.0316
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -354.5813,
+            "RightMargin": 2714.5813,
+            "TopMargin": 1656.8698,
+            "BottomMargin": -56.8698,
+            "Tag": 114,
+            "ActionTag": 125514344,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "G": 122,
+              "B": 0
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 518.1625,
+              "Y": -57.976
+            },
+            "Scale": {
+              "ScaleX": 3.7576,
+              "ScaleY": 2.4872
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2024,
+              "Y": -0.0322
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 518.1625,
+            "RightMargin": 1841.8375,
+            "TopMargin": 1657.976,
+            "BottomMargin": -57.976,
+            "Tag": 116,
+            "ActionTag": 2118724814,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "G": 122,
+              "B": 0
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1394.2468,
+              "Y": -53.5289
+            },
+            "Scale": {
+              "ScaleX": 3.7576,
+              "ScaleY": 2.4872
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5446,
+              "Y": -0.0297
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 1394.2468,
+            "RightMargin": 965.7532,
+            "TopMargin": 1653.5289,
+            "BottomMargin": -53.5289,
+            "Tag": 117,
+            "ActionTag": -33105185,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1_1_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "G": 122,
+              "B": 0
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2288.115,
+              "Y": -49.0817
+            },
+            "Scale": {
+              "ScaleX": 3.7576,
+              "ScaleY": 2.4872
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8938,
+              "Y": -0.0273
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 2288.115,
+            "RightMargin": 71.885,
+            "TopMargin": 1649.0817,
+            "BottomMargin": -49.0817,
+            "Tag": 118,
+            "ActionTag": -2124164673,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1_1_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Rangi_za_upinde/orange.png",
+              "Plist": "Rangi_za_upinde/Rangi_za_upinde.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2196.8008,
+              "Y": 774.8057
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8581,
+              "Y": 0.4304
+            },
+            "PreSize": {
+              "X": 0.134,
+              "Y": 0.1906
+            },
+            "LeftMargin": 2025.3008,
+            "RightMargin": 191.6992,
+            "TopMargin": 853.6943,
+            "BottomMargin": 603.3057,
+            "UserData": "drag",
+            "Tag": 119,
+            "ActionTag": -263573265,
+            "Size": {
+              "X": 343.0,
+              "Y": 343.0
+            },
+            "Name": "orange_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Rangi_za_upinde/orange.png",
+              "Plist": "Rangi_za_upinde/Rangi_za_upinde.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1854.9261,
+              "Y": 785.8757
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -31.0801,
+            "RotationSkewY": -31.0927,
+            "CColor": {
+              "R": 222,
+              "G": 222,
+              "B": 222
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7246,
+              "Y": 0.4366
+            },
+            "PreSize": {
+              "X": 0.134,
+              "Y": 0.1906
+            },
+            "LeftMargin": 1683.4261,
+            "RightMargin": 533.5739,
+            "TopMargin": 842.6243,
+            "BottomMargin": 614.3757,
+            "UserData": "drag",
+            "Tag": 120,
+            "ActionTag": 276557492,
+            "Size": {
+              "X": 343.0,
+              "Y": 343.0
+            },
+            "Name": "orange_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Rangi_za_upinde/orange.png",
+              "Plist": "Rangi_za_upinde/Rangi_za_upinde.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2041.467,
+              "Y": 1070.0896
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 27.1155,
+            "RotationSkewY": 27.1249,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7974,
+              "Y": 0.5945
+            },
+            "PreSize": {
+              "X": 0.134,
+              "Y": 0.1906
+            },
+            "LeftMargin": 1869.967,
+            "RightMargin": 347.033,
+            "TopMargin": 558.4104,
+            "BottomMargin": 898.5896,
+            "UserData": "drag",
+            "Tag": 121,
+            "ActionTag": 1766858502,
+            "Size": {
+              "X": 343.0,
+              "Y": 343.0
+            },
+            "Name": "orange_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Rangi_za_upinde/fishbowl.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 417.9157,
+              "Y": 789.8208
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1632,
+              "Y": 0.4388
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 417.9157,
+            "RightMargin": 2142.0842,
+            "TopMargin": 1010.1792,
+            "BottomMargin": 789.8208,
+            "UserData": "drag",
+            "Tag": 2143,
+            "ActionTag": 1836701881,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "fishbowl",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Rangi_za_upinde/girl3.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 694.9709,
+              "Y": 26.5235
+            },
+            "Scale": {
+              "ScaleX": -1.2,
+              "ScaleY": 1.2
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.2715,
+              "Y": 0.0147
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 694.9709,
+            "RightMargin": 1865.0291,
+            "TopMargin": 1773.4766,
+            "BottomMargin": 26.5235,
+            "UserData": "walk;drag",
+            "Tag": 1601,
+            "ActionTag": 94625197,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "girl",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "fishbowl.json",
+        "girl3.json",
+        "Rangi_za_upinde.plist",
+        "Rangi_za_upinde.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
