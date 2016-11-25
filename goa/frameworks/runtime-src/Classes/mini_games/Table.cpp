@@ -53,7 +53,7 @@ void Table::onEnterTransitionDidFinish()
 		_config = _levelMapping.at(menu->getCurrentLevel());
 	} 
 	else {
-		_config = _levelMapping.at(5);
+		_config = _levelMapping.at(4);
 	}
 	
 	auto bg = CSLoader::createNode("table/table.csb");
