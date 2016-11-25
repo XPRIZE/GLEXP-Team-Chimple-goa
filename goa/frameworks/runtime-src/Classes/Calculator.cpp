@@ -13,6 +13,7 @@
 #include "StartMenuScene.h"
 #include "lang/TextGenerator.h"
 #include "ui/CocosGUI.h"
+#include "mini_games/Table.h"
 
 USING_NS_CC;
 
@@ -39,18 +40,17 @@ Node*  Calculator::createCalculator(Vec2 position, Vec2 anchor, float scaleX, fl
 	_node->setAnchorPoint(anchor);
 
 	_answerText = "0";
-	
 	_label = ui::Text::create();
-	_label->setFontName("fonts/Marker Felt.ttf");
+	_label->setFontName("fonts/digital.ttf");
 	_label->setString(_answerText);
-	_label->setFontSize(200);
-	_label->setPosition(Vec2(100, 50));
-	_label->setAnchorPoint(Vec2(0, 0));
+	_label->setFontSize(180);
+	_label->setPosition(Vec2(_node->getChildByName("screen")->getContentSize().width* 0.05, _node->getChildByName("screen")->getContentSize().height/1.75));
+	_label->setAnchorPoint(Vec2(0, 0.5));
 	_label->setName("label");
 	_label->setTextColor(Color4B::BLUE);
 	_label->setColor(Color3B::RED);
-	_label->setScaleX(scaleX);
-	_label->setScaleY(scaleY);
+	//_label->setScaleX(scaleX);
+	//_label->setScaleY(scaleY);
 	
 		
 	_node->getChildByName("screen")->addChild(_label);
@@ -124,6 +124,16 @@ bool Calculator::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 			}
 			
 		if (target->getName() == "enter"){
+			if (this->getParent()->getName().compare(TABLE) == 0) {
+				CCLOG("in Tabel");
+				std::ostringstream sstreamb;
+				sstreamb.clear();
+				sstreamb << _answer;
+				std::string queryb = sstreamb.str();
+				Table * table = (Table *)this->getParent();
+				table->calculatedResult(queryb);
+
+			}
 				_done = 1;
 		}
 
