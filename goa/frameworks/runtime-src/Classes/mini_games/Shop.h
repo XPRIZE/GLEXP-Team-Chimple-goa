@@ -19,6 +19,7 @@ protected:
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	MenuContext *_menuContext;
 	Calculator *_calculator;
+	HelpLayer* _help;
 
 	bool _touched = true;
 	bool _isItemOnePlaced = false;
@@ -32,7 +33,6 @@ protected:
 	cocos2d::LabelTTF* _label = NULL;
 	int _labelCounter = 0;
 	int _total;
-	HelpLayer* _help;
 
 public:
 	~Shop();
