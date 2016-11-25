@@ -723,7 +723,7 @@
               "Y": 487.0
             },
             "Alpha": 139,
-            "Name": "pattern1_2",
+            "Name": "pattern_1_2",
             "ctype": "SpriteObjectData"
           },
           {
@@ -769,7 +769,7 @@
               "Y": 487.0
             },
             "Alpha": 139,
-            "Name": "pattern1_2_0",
+            "Name": "pattern_1_2_0",
             "ctype": "SpriteObjectData"
           },
           {
@@ -815,7 +815,7 @@
               "Y": 487.0
             },
             "Alpha": 139,
-            "Name": "pattern1_2_0_0",
+            "Name": "pattern_1_2_0_0",
             "ctype": "SpriteObjectData"
           },
           {
@@ -861,7 +861,7 @@
               "Y": 487.0
             },
             "Alpha": 139,
-            "Name": "pattern1_2_0_0_0",
+            "Name": "pattern_1_2_0_0_0",
             "ctype": "SpriteObjectData"
           },
           {
@@ -907,7 +907,7 @@
               "Y": 487.0
             },
             "Alpha": 139,
-            "Name": "pattern1_2_0_0_1",
+            "Name": "pattern_1_2_0_0_1",
             "ctype": "SpriteObjectData"
           },
           {
@@ -953,7 +953,7 @@
               "Y": 487.0
             },
             "Alpha": 139,
-            "Name": "pattern1_2_0_0_1_0",
+            "Name": "pattern_1_2_0_0_1_0",
             "ctype": "SpriteObjectData"
           },
           {
@@ -995,7 +995,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "butterfly1",
+            "Name": "butterfly_1",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1033,13 +1033,14 @@
             "RightMargin": 1071.3672,
             "TopMargin": 699.7113,
             "BottomMargin": 1100.2887,
+            "UserData": "fly;drag",
             "Tag": 34,
             "ActionTag": 1355361966,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "butterfly2",
+            "Name": "butterfly_2",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1052,7 +1053,6 @@
             "StretchHeightEnable": false,
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
-			"UserData": "drag",
             "Position": {
               "X": 685.1847,
               "Y": 417.1826
@@ -1075,7 +1075,7 @@
             "RightMargin": 1874.8153,
             "TopMargin": 1382.8174,
             "BottomMargin": 417.1826,
-            "UserData": "drag",
+            "UserData": "petals",
             "Tag": 31,
             "ActionTag": 147506062,
             "Size": {
@@ -1095,7 +1095,6 @@
             "StretchHeightEnable": false,
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
-            "UserData": "drag",
             "Position": {
               "X": 2461.0928,
               "Y": 220.3144
@@ -1118,6 +1117,7 @@
             "RightMargin": 98.9072,
             "TopMargin": 1579.6855,
             "BottomMargin": 220.3144,
+            "UserData": "hi;drag",
             "Tag": 660,
             "ActionTag": 648573338,
             "Size": {

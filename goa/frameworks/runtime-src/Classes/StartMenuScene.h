@@ -65,7 +65,9 @@ static const std::string A_T_M = "atm";
 static const std::string SHOP = "shop";
 static const std::string ITEM = "Item";
 static const std::string SPOT = "spot";
+static const std::string TABLE = "table";
 static const std::string SHAPE = "shape";
+
 class StartMenu {
 public:
     static void startScene(std::string gameName, std::string firstParam = "", std::string secondParam = "", std::string thirdParam = "");

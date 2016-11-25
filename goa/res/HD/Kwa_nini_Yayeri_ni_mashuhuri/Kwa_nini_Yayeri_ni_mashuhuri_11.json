@@ -1,0 +1,748 @@
+{
+  "ID": "8a6235a6-5682-4279-b611-4fccb2944e43",
+  "Version": "3.10.0.0",
+  "Name": "Kwa_nini_Yayeri_ni_mashuhuri_11",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 99,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": 1790009908,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "sit",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1790009908,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 885.6624,
+                "Y": 583.3807,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1790009908,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -0.68,
+                "Y": 0.68,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1790009908,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -496471684,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "blink",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "blink",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 99,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -496471684,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 207.4076,
+                "Y": 633.4845,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 207.4076,
+                "Y": 633.4845,
+                "FrameIndex": 99,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -496471684,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -0.77,
+                "Y": 0.77,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.77,
+                "Y": 0.77,
+                "FrameIndex": 99,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -496471684,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 99,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 100,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 83,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {},
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -260.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1016,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -260.0,
+            "RightMargin": -280.0,
+            "Tag": 84,
+            "ActionTag": -1603517458,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -210.0013,
+              "Y": 1088.33
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.082,
+              "Y": 0.6046
+            },
+            "PreSize": {
+              "X": 0.6277,
+              "Y": 0.3956
+            },
+            "LeftMargin": -210.0013,
+            "RightMargin": 1163.0013,
+            "TopMargin": -0.33,
+            "BottomMargin": 1088.33,
+            "Tag": 85,
+            "ActionTag": -936901922,
+            "Size": {
+              "X": 1607.0,
+              "Y": 712.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 200,
+              "G": 189,
+              "B": 158
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -253.6172,
+              "Y": 0.0025
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -71.998,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0991,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.9531,
+              "Y": 1.9533
+            },
+            "LeftMargin": -253.6172,
+            "RightMargin": -2186.3828,
+            "TopMargin": -1716.0024,
+            "BottomMargin": 0.0025,
+            "Tag": 86,
+            "ActionTag": 978266601,
+            "Size": {
+              "X": 5000.0,
+              "Y": 3516.0
+            },
+            "Name": "Panel_3",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kwa_nini_Yayeri_ni_mashuhuri/Kwa_board.png",
+              "Plist": "Kwa_nini_Yayeri_ni_mashuhuri/Kwa_nini_Yayeri_ni_mashuhuri.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2140.4868,
+              "Y": 1366.7366
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8361,
+              "Y": 0.7593
+            },
+            "PreSize": {
+              "X": 0.3305,
+              "Y": 0.4906
+            },
+            "LeftMargin": 1717.4868,
+            "RightMargin": -3.4868,
+            "TopMargin": -8.2366,
+            "BottomMargin": 925.2366,
+            "Tag": 87,
+            "ActionTag": 2043146879,
+            "Size": {
+              "X": 846.0,
+              "Y": 883.0
+            },
+            "Name": "Kwa_board_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kwa_nini_Yayeri_ni_mashuhuri/Kwa_table.png",
+              "Plist": "Kwa_nini_Yayeri_ni_mashuhuri/Kwa_nini_Yayeri_ni_mashuhuri.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1683.7004,
+              "Y": 944.4639
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6577,
+              "Y": 0.5247
+            },
+            "PreSize": {
+              "X": 0.2109,
+              "Y": 0.2156
+            },
+            "LeftMargin": 1413.7004,
+            "RightMargin": 606.2996,
+            "TopMargin": 661.5361,
+            "BottomMargin": 750.4639,
+            "Tag": 88,
+            "ActionTag": 1285630699,
+            "Size": {
+              "X": 540.0,
+              "Y": 388.0
+            },
+            "Name": "Kwa_table_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kwa_nini_Yayeri_ni_mashuhuri/Kwa_table.png",
+              "Plist": "Kwa_nini_Yayeri_ni_mashuhuri/Kwa_nini_Yayeri_ni_mashuhuri.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 808.9171,
+              "Y": 1021.9189
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.316,
+              "Y": 0.5677
+            },
+            "PreSize": {
+              "X": 0.2109,
+              "Y": 0.2156
+            },
+            "LeftMargin": 538.9171,
+            "RightMargin": 1481.0829,
+            "TopMargin": 584.0811,
+            "BottomMargin": 827.9189,
+            "Tag": 89,
+            "ActionTag": 403158768,
+            "Size": {
+              "X": 540.0,
+              "Y": 388.0
+            },
+            "Name": "Kwa_table_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kwa_nini_Yayeri_ni_mashuhuri/Kwa_table.png",
+              "Plist": "Kwa_nini_Yayeri_ni_mashuhuri/Kwa_nini_Yayeri_ni_mashuhuri.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1413.8988,
+              "Y": 611.4838
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5523,
+              "Y": 0.3397
+            },
+            "PreSize": {
+              "X": 0.2109,
+              "Y": 0.2156
+            },
+            "LeftMargin": 1143.8988,
+            "RightMargin": 876.1012,
+            "TopMargin": 994.5162,
+            "BottomMargin": 417.4838,
+            "Tag": 90,
+            "ActionTag": 1921477458,
+            "Size": {
+              "X": 540.0,
+              "Y": 388.0
+            },
+            "Name": "Kwa_table_2_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kwa_nini_Yayeri_ni_mashuhuri/Kwa_table.png",
+              "Plist": "Kwa_nini_Yayeri_ni_mashuhuri/Kwa_nini_Yayeri_ni_mashuhuri.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 215.3285,
+              "Y": 981.8667
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0841,
+              "Y": 0.5455
+            },
+            "PreSize": {
+              "X": 0.2109,
+              "Y": 0.2156
+            },
+            "LeftMargin": -54.6715,
+            "RightMargin": 2074.6714,
+            "TopMargin": 624.1333,
+            "BottomMargin": 787.8667,
+            "Tag": 91,
+            "ActionTag": -1538147853,
+            "Size": {
+              "X": 540.0,
+              "Y": 388.0
+            },
+            "Name": "Kwa_table_2_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kwa_nini_Yayeri_ni_mashuhuri/Kwa_table.png",
+              "Plist": "Kwa_nini_Yayeri_ni_mashuhuri/Kwa_nini_Yayeri_ni_mashuhuri.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 673.1586,
+              "Y": 590.9158
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.263,
+              "Y": 0.3283
+            },
+            "PreSize": {
+              "X": 0.2109,
+              "Y": 0.2156
+            },
+            "LeftMargin": 403.1586,
+            "RightMargin": 1616.8413,
+            "TopMargin": 1015.0842,
+            "BottomMargin": 396.9158,
+            "Tag": 92,
+            "ActionTag": -900578111,
+            "Size": {
+              "X": 540.0,
+              "Y": 388.0
+            },
+            "Name": "Kwa_table_2_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Kwa_nini_Yayeri_ni_mashuhuri/girl.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 885.6624,
+              "Y": 583.3807
+            },
+            "Scale": {
+              "ScaleX": -0.68,
+              "ScaleY": 0.68
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.346,
+              "Y": 0.3241
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 885.6624,
+            "RightMargin": 1674.3376,
+            "TopMargin": 1216.6194,
+            "BottomMargin": 583.3807,
+            "UserData": "sit:drag",
+            "Tag": 1702,
+            "ActionTag": 1790009908,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "girl",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Kwa_nini_Yayeri_ni_mashuhuri/boy.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 207.4076,
+              "Y": 633.4845
+            },
+            "Scale": {
+              "ScaleX": -0.77,
+              "ScaleY": 0.77
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.081,
+              "Y": 0.3519
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 207.4076,
+            "RightMargin": 2352.5923,
+            "TopMargin": 1166.5155,
+            "BottomMargin": 633.4845,
+            "UserData": "blink:drag",
+            "Tag": 1746,
+            "ActionTag": -496471684,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "boy",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kwa_nini_Yayeri_ni_mashuhuri/teacher_th.png",
+              "Plist": "Kwa_nini_Yayeri_ni_mashuhuri/Kwa_nini_Yayeri_ni_mashuhuri.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2218.3364,
+              "Y": 1137.4978
+            },
+            "Scale": {
+              "ScaleX": 1.9864,
+              "ScaleY": 3.1619
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8665,
+              "Y": 0.6319
+            },
+            "PreSize": {
+              "X": 0.1172,
+              "Y": 0.1667
+            },
+            "LeftMargin": 2068.3364,
+            "RightMargin": 191.6636,
+            "TopMargin": 512.5022,
+            "BottomMargin": 987.4978,
+            "Tag": 1889,
+            "ActionTag": 1242090913,
+            "Size": {
+              "X": 300.0,
+              "Y": 300.0
+            },
+            "Name": "teacher_th_85",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "boy.json",
+        "girl.json",
+        "Kwa_nini_Yayeri_ni_mashuhuri.plist",
+        "Kwa_nini_Yayeri_ni_mashuhuri.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

@@ -35,6 +35,22 @@
         "pureJS":"",
         "script": "src/start/showBlueToothPeers.js"
     },
+      {
+    "name": "table",
+    "cIcon": "gameicons/decomone_pressed.png",
+    "icon": "gameicons/decomone.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "5",
+    "numLevels": "26",
+    "backgroundJson": "decomonlevel/Layer1.json",
+    "foregroundJson": "decomonlevel/Layer3.json",
+    "frontgroundJson": "decomonlevel/Layer4.json",
+    "maingroundJson": "decomonlevel/Layer2.json",
+    "menuPlist": "decomonlevel/decomonlevel.plist",
+    "menuPng": "decomonlevel/decomonlevel.png"
+  },
      {
     "name": "jumpingNumbers",
     "cIcon": "gameicons/decomone_pressed.png",
@@ -572,8 +588,8 @@
   },
   {
     "name": "shop",
-    "cIcon": "gameicons/drop_pressed.png",
-    "icon": "gameicons/drop.png",
+    "cIcon": "gameicons/shopping_pressed.png",
+    "icon": "gameicons/shopping.png",
     "multiPlayer": false,
     "isJSGame": false,
     "script": "src/NonJSGameLauncher.js",

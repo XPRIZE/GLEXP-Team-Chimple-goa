@@ -5936,6 +5936,51 @@
             },
             "Name": "body",
             "ctype": "BoneNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "hadithi_kumhusu_wangari/touch.png",
+              "Plist": "hadithi_kumhusu_wangari/hadithi_kumhusu_wangari.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 228.016,
+              "Y": 608.1346
+            },
+            "Scale": {
+              "ScaleX": 3.4091,
+              "ScaleY": 3.3703
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 26.016,
+            "RightMargin": -430.016,
+            "TopMargin": -810.1346,
+            "BottomMargin": 406.1346,
+            "Tag": 65,
+            "ActionTag": 371542266,
+            "Size": {
+              "X": 404.0,
+              "Y": 404.0
+            },
+            "Name": "touch",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
@@ -5946,6 +5991,8 @@
         "ctype": "SkeletonNodeObjectData"
       },
       "UsedResources": [
+        "hadithi_kumhusu_wangari.plist",
+        "hadithi_kumhusu_wangari.png",
         "hadithi2/hadithi2.plist",
         "hadithi2/hadithi2.png"
       ],

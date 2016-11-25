@@ -1,0 +1,429 @@
+{
+  "ID": "ab6266c5-227a-4aee-be72-bb93bb09f1c6",
+  "Version": "3.10.0.0",
+  "Name": "Rangi_za_upinde_11",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 200,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": 629699802,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2170.9028,
+                "Y": 1350.5691,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 629699802,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -0.8715,
+                "Y": 1.0,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 629699802,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1864736903,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "handsup",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1864736903,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 830.8256,
+                "Y": -233.7934,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1864736903,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -1.2,
+                "Y": 1.2,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1864736903,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 200,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 0,
+              "G": 251
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -400.1888,
+              "Y": -24.6464
+            },
+            "Scale": {
+              "ScaleX": 17.099,
+              "ScaleY": 9.1265
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1563,
+              "Y": -0.0137
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -400.1888,
+            "RightMargin": 2760.1887,
+            "TopMargin": 1624.6464,
+            "BottomMargin": -24.6464,
+            "Tag": 103,
+            "ActionTag": -1769451639,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Rangi_za_upinde/cloud.png",
+              "Plist": "Rangi_za_upinde/Rangi_za_upinde.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 504.8265,
+              "Y": 904.9938
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1972,
+              "Y": 0.5028
+            },
+            "PreSize": {
+              "X": 0.3418,
+              "Y": 0.2028
+            },
+            "LeftMargin": 67.3265,
+            "RightMargin": 1617.6735,
+            "TopMargin": 712.5062,
+            "BottomMargin": 722.4938,
+            "UserData": "drag",
+            "Tag": 135,
+            "ActionTag": -437823374,
+            "Size": {
+              "X": 875.0,
+              "Y": 365.0
+            },
+            "Name": "cloud_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Rangi_za_upinde/cloud.png",
+              "Plist": "Rangi_za_upinde/Rangi_za_upinde.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2170.9028,
+              "Y": 1350.5691
+            },
+            "Scale": {
+              "ScaleX": -0.8715,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.848,
+              "Y": 0.7503
+            },
+            "PreSize": {
+              "X": 0.3418,
+              "Y": 0.2028
+            },
+            "LeftMargin": 1733.4028,
+            "RightMargin": -48.4028,
+            "TopMargin": 266.9309,
+            "BottomMargin": 1168.0691,
+            "UserData": "drag",
+            "Tag": 136,
+            "ActionTag": 629699802,
+            "Size": {
+              "X": 875.0,
+              "Y": 365.0
+            },
+            "Name": "cloud_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Rangi_za_upinde/cloud.png",
+              "Plist": "Rangi_za_upinde/Rangi_za_upinde.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1706.8588,
+              "Y": 681.8323
+            },
+            "Scale": {
+              "ScaleX": -0.5479,
+              "ScaleY": 0.6627
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6667,
+              "Y": 0.3788
+            },
+            "PreSize": {
+              "X": 0.3418,
+              "Y": 0.2028
+            },
+            "LeftMargin": 1269.3588,
+            "RightMargin": 415.6411,
+            "TopMargin": 935.6677,
+            "BottomMargin": 499.3323,
+            "UserData": "drag",
+            "Tag": 137,
+            "ActionTag": -892555427,
+            "Size": {
+              "X": 875.0,
+              "Y": 365.0
+            },
+            "Name": "cloud_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Rangi_za_upinde/cloud.png",
+              "Plist": "Rangi_za_upinde/Rangi_za_upinde.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 60.7834,
+              "Y": 333.2283
+            },
+            "Scale": {
+              "ScaleX": 0.4934,
+              "ScaleY": 0.6627
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0237,
+              "Y": 0.1851
+            },
+            "PreSize": {
+              "X": 0.3418,
+              "Y": 0.2028
+            },
+            "LeftMargin": -376.7166,
+            "RightMargin": 2061.7166,
+            "TopMargin": 1284.2717,
+            "BottomMargin": 150.7283,
+            "UserData": "drag",
+            "Tag": 138,
+            "ActionTag": 275262514,
+            "Size": {
+              "X": 875.0,
+              "Y": 365.0
+            },
+            "Name": "cloud_1_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Rangi_za_upinde/girl6.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 830.8256,
+              "Y": -233.7934
+            },
+            "Scale": {
+              "ScaleX": -1.2,
+              "ScaleY": 1.2
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.3245,
+              "Y": -0.1299
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 830.8256,
+            "RightMargin": 1729.1743,
+            "TopMargin": 2033.7935,
+            "BottomMargin": -233.7934,
+            "UserData": "walk;drag",
+            "Tag": 6164,
+            "ActionTag": 1864736903,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "girl",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "girl6.json",
+        "Rangi_za_upinde.plist",
+        "Rangi_za_upinde.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

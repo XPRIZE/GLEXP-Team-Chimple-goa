@@ -55,7 +55,15 @@
               },
               {
                 "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "walk",
+                "CurrentAniamtionName": "blink",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 321,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "blink",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 360,
                 "Tween": false,
@@ -108,6 +116,15 @@
                 "X": 1098.5671,
                 "Y": 444.3341,
                 "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1098.5671,
+                "Y": 444.3341,
+                "FrameIndex": 321,
                 "EasingData": {
                   "Type": 0
                 },
@@ -177,6 +194,15 @@
               {
                 "X": -0.7332,
                 "Y": 0.7332,
+                "FrameIndex": 321,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.7332,
+                "Y": 0.7332,
                 "FrameIndex": 360,
                 "EasingData": {
                   "Type": 0
@@ -230,6 +256,15 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 321,
                 "EasingData": {
                   "Type": 0
                 },
@@ -870,27 +905,27 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1431.8318,
-              "Y": 576.6293
+              "X": 1443.3512,
+              "Y": 574.274
             },
             "Scale": {
-              "ScaleX": 0.3591,
-              "ScaleY": 0.3591
+              "ScaleX": 0.4395,
+              "ScaleY": 0.4395
             },
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.5593,
-              "Y": 0.3203
+              "X": 0.5638,
+              "Y": 0.319
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1431.8318,
-            "RightMargin": 1128.1682,
-            "TopMargin": 1223.3707,
-            "BottomMargin": 576.6293,
+            "LeftMargin": 1443.3512,
+            "RightMargin": 1116.6488,
+            "TopMargin": 1225.726,
+            "BottomMargin": 574.274,
             "UserData": "walk;drag",
             "Tag": 275,
             "ActionTag": 538053172,
@@ -912,27 +947,27 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1594.8375,
-              "Y": 576.4855
+              "X": 1642.8638,
+              "Y": 574.098
             },
             "Scale": {
-              "ScaleX": 0.2496,
-              "ScaleY": 0.2496
+              "ScaleX": 0.3055,
+              "ScaleY": 0.3055
             },
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.623,
-              "Y": 0.3203
+              "X": 0.6417,
+              "Y": 0.3189
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1594.8375,
-            "RightMargin": 965.1625,
-            "TopMargin": 1223.5145,
-            "BottomMargin": 576.4855,
+            "LeftMargin": 1642.8638,
+            "RightMargin": 917.1362,
+            "TopMargin": 1225.9021,
+            "BottomMargin": 574.098,
             "UserData": "walk;drag ",
             "Tag": 318,
             "ActionTag": 326755926,
