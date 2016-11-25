@@ -22,7 +22,7 @@ class Calculator : public cocos2d::Node {
 
 private:
 
-	unsigned long int _answer;
+	
 	Node * _node;
 	int _done ;
 	
@@ -30,7 +30,7 @@ public:
 
 	Calculator();
 	~Calculator();
-
+	unsigned long int _answer;
 	std::string _answerText;
 	cocos2d::ui::Text * _label;
 
