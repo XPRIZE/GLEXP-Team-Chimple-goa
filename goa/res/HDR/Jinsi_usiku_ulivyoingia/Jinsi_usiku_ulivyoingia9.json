@@ -1,0 +1,1757 @@
+{
+  "ID": "a8352c19-518a-4d43-9b28-68092328c281",
+  "Version": "3.10.0.0",
+  "Name": "Jinsi_usiku_ulivyoingia9",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 240,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": 1843312777,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1649.8978,
+                "Y": 1015.4675,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1649.9,
+                "Y": 1500.0,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1843312777,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.4744,
+                "Y": 0.7425,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.4744,
+                "Y": 0.7425,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1843312777,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -195201291,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1429.6985,
+                "Y": 1081.886,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1429.6985,
+                "Y": 1600.0,
+                "FrameIndex": 235,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -195201291,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 2.0312,
+                "Y": 1.0,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 2.0312,
+                "Y": 1.0,
+                "FrameIndex": 235,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -195201291,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 235,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 297826094,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 115,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "hi",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 145,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 240,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 297826094,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -537.937,
+                "Y": 535.5564,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 900.0,
+                "Y": 535.5564,
+                "FrameIndex": 115,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 900.0,
+                "Y": 535.5564,
+                "FrameIndex": 145,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 900.0,
+                "Y": 535.5564,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 297826094,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -0.5,
+                "Y": 0.5,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.5,
+                "Y": 0.5,
+                "FrameIndex": 115,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.5,
+                "Y": 0.5,
+                "FrameIndex": 145,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.5,
+                "Y": 0.5,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 297826094,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 115,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 145,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 925033372,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 398.2412,
+                "Y": 595.4514,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 398.2412,
+                "Y": 595.4514,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 398.2411,
+                "Y": 595.4515,
+                "FrameIndex": 115,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 925033372,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.1411,
+                "Y": 0.1411,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.1411,
+                "Y": 0.1411,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.2313,
+                "Y": 0.2313,
+                "FrameIndex": 115,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 925033372,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 115,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -61613964,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 587.098,
+                "Y": 635.1375,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 587.098,
+                "Y": 635.1375,
+                "FrameIndex": 115,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 587.0966,
+                "Y": 635.1371,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -61613964,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.1324,
+                "Y": 0.1324,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.1324,
+                "Y": 0.1324,
+                "FrameIndex": 115,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.2718,
+                "Y": 0.2718,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -61613964,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 115,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1502044534,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "sleep",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "sleep",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 240,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1502044534,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1940.5381,
+                "Y": 291.112,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1940.5381,
+                "Y": 291.112,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1502044534,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -0.4,
+                "Y": 0.4,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.4,
+                "Y": 0.4,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1502044534,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 240,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 66,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 216,
+              "G": 239,
+              "B": 245
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -289.2489,
+              "Y": 0.4189
+            },
+            "Scale": {
+              "ScaleX": 0.4975,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.113,
+              "Y": 0.0002
+            },
+            "PreSize": {
+              "X": 1.2088,
+              "Y": 0.9982
+            },
+            "LeftMargin": -289.2489,
+            "RightMargin": -245.1543,
+            "TopMargin": 2.7809,
+            "BottomMargin": 0.4189,
+            "Tag": 73,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Jinsi_usiku_ulivyoingia/sun.png",
+                  "Plist": "Jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5623,
+                  "ScaleY": 0.4699
+                },
+                "Position": {
+                  "X": 1649.8978,
+                  "Y": 1015.4675
+                },
+                "Scale": {
+                  "ScaleX": 1.4744,
+                  "ScaleY": 0.7425
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5332,
+                  "Y": 0.5652
+                },
+                "PreSize": {
+                  "X": 0.3319,
+                  "Y": 0.5716
+                },
+                "LeftMargin": 1072.4158,
+                "RightMargin": 994.9875,
+                "TopMargin": 236.92,
+                "BottomMargin": 532.8802,
+                "Tag": 74,
+                "ActionTag": 1843312777,
+                "Size": {
+                  "X": 1027.0,
+                  "Y": 1027.0
+                },
+                "Name": "sun_14",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Jinsi_usiku_ulivyoingia/hill.png",
+                  "Plist": "Jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1701.5231,
+                  "Y": 1077.032
+                },
+                "Scale": {
+                  "ScaleX": 1.9853,
+                  "ScaleY": 1.0008
+                },
+                "RotationSkewX": -2.6635,
+                "RotationSkewY": -0.687,
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5499,
+                  "Y": 0.5994
+                },
+                "PreSize": {
+                  "X": 0.4844,
+                  "Y": 0.0824
+                },
+                "LeftMargin": 952.0231,
+                "RightMargin": 643.3804,
+                "TopMargin": 645.7682,
+                "BottomMargin": 1003.032,
+                "Tag": 75,
+                "ActionTag": 238591556,
+                "Size": {
+                  "X": 1499.0,
+                  "Y": 148.0
+                },
+                "Name": "hill_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "ClipAble": false,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 174,
+                  "G": 202,
+                  "B": 78
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 54.6632,
+                  "Y": -0.0016
+                },
+                "Scale": {
+                  "ScaleX": 0.9879,
+                  "ScaleY": 0.6363
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0177,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.9944,
+                  "Y": 0.9013
+                },
+                "LeftMargin": 54.6632,
+                "RightMargin": -37.2126,
+                "TopMargin": 177.37,
+                "BottomMargin": -0.0016,
+                "Tag": 76,
+                "ActionTag": -1110552281,
+                "Size": {
+                  "X": 3076.9529,
+                  "Y": 1619.4318
+                },
+                "Name": "Panel_1_0",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "ClipAble": false,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 156,
+                  "G": 191,
+                  "B": 60
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 5.257,
+                  "Y": -0.0831
+                },
+                "Scale": {
+                  "ScaleX": 0.9879,
+                  "ScaleY": 0.6363
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0017,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 1.0086,
+                  "Y": 0.784
+                },
+                "LeftMargin": 5.257,
+                "RightMargin": -31.916,
+                "TopMargin": 388.1473,
+                "BottomMargin": -0.0831,
+                "Tag": 77,
+                "ActionTag": -37365281,
+                "Size": {
+                  "X": 3121.0623,
+                  "Y": 1408.736
+                },
+                "Name": "Panel_1_0_0",
+                "ctype": "PanelObjectData"
+              }
+            ],
+            "ActionTag": 490366774,
+            "Size": {
+              "X": 3094.4033,
+              "Y": 1796.8002
+            },
+            "Name": "Panel_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 216,
+              "G": 239,
+              "B": 245
+            },
+            "FirstColor": {
+              "R": 38,
+              "G": 85,
+              "B": 102
+            },
+            "EndColor": {
+              "R": 18,
+              "G": 48,
+              "B": 61
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 1.0
+            },
+            "Position": {
+              "X": 2789.6665,
+              "Y": 0.4172
+            },
+            "Scale": {
+              "ScaleX": 0.4975,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0897,
+              "Y": 0.0002
+            },
+            "PreSize": {
+              "X": 1.2088,
+              "Y": 0.9978
+            },
+            "LeftMargin": -304.7368,
+            "RightMargin": -229.6665,
+            "TopMargin": 3.4723,
+            "BottomMargin": 0.4172,
+            "Tag": 78,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Jinsi_usiku_ulivyoingia/stars.png",
+                  "Plist": "Jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2326.7915,
+                  "Y": 1396.3997
+                },
+                "Scale": {
+                  "ScaleX": 0.618,
+                  "ScaleY": 1.2082
+                },
+                "RotationSkewX": -91.2388,
+                "RotationSkewY": -91.2451,
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.7519,
+                  "Y": 0.7775
+                },
+                "PreSize": {
+                  "X": 0.2989,
+                  "Y": 0.7021
+                },
+                "LeftMargin": 1864.2915,
+                "RightMargin": 305.1118,
+                "TopMargin": -230.7892,
+                "BottomMargin": 765.8997,
+                "Tag": 83,
+                "ActionTag": -1648921133,
+                "Size": {
+                  "X": 925.0,
+                  "Y": 1261.0
+                },
+                "Name": "stars_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Jinsi_usiku_ulivyoingia/moon.png",
+                  "Plist": "Jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.148,
+                  "ScaleY": 1.1776
+                },
+                "Position": {
+                  "X": 1429.6985,
+                  "Y": 1081.886
+                },
+                "Scale": {
+                  "ScaleX": 2.0312,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.462,
+                  "Y": 0.6023
+                },
+                "PreSize": {
+                  "X": 0.0372,
+                  "Y": 0.0763
+                },
+                "LeftMargin": 1412.6785,
+                "RightMargin": 1566.7249,
+                "TopMargin": 738.5557,
+                "BottomMargin": 920.5548,
+                "Tag": 147,
+                "ActionTag": -195201291,
+                "Size": {
+                  "X": 115.0,
+                  "Y": 137.0
+                },
+                "Name": "moon_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Jinsi_usiku_ulivyoingia/hill.png",
+                  "Plist": "Jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1419.5889,
+                  "Y": 1087.4871
+                },
+                "Scale": {
+                  "ScaleX": 1.9853,
+                  "ScaleY": 1.0008
+                },
+                "RotationSkewX": -2.5096,
+                "RotationSkewY": -0.5249,
+                "CColor": {
+                  "R": 158,
+                  "G": 168,
+                  "B": 132
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4588,
+                  "Y": 0.6055
+                },
+                "PreSize": {
+                  "X": 0.4844,
+                  "Y": 0.0824
+                },
+                "LeftMargin": 670.0889,
+                "RightMargin": 925.3145,
+                "TopMargin": 634.6234,
+                "BottomMargin": 1013.4871,
+                "Tag": 80,
+                "ActionTag": -1376114984,
+                "Size": {
+                  "X": 1499.0,
+                  "Y": 148.0
+                },
+                "Name": "hill_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "ClipAble": false,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 107,
+                  "G": 127,
+                  "B": 43
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 0.0153,
+                  "Y": 0.0
+                },
+                "Scale": {
+                  "ScaleX": 0.9879,
+                  "ScaleY": 0.6363
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.9944,
+                  "Y": 0.9019
+                },
+                "LeftMargin": 0.0153,
+                "RightMargin": 17.4351,
+                "TopMargin": 176.2643,
+                "Tag": 81,
+                "ActionTag": -1545458920,
+                "Size": {
+                  "X": 3076.9529,
+                  "Y": 1619.8462
+                },
+                "Name": "Panel_1_0",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "ClipAble": false,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 94,
+                  "G": 113,
+                  "B": 35
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 5.257,
+                  "Y": -0.0831
+                },
+                "Scale": {
+                  "ScaleX": 0.9879,
+                  "ScaleY": 0.6363
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0017,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 1.0086,
+                  "Y": 0.7835
+                },
+                "LeftMargin": 5.257,
+                "RightMargin": -31.916,
+                "TopMargin": 389.0071,
+                "BottomMargin": -0.0831,
+                "Tag": 82,
+                "ActionTag": 1383093242,
+                "Size": {
+                  "X": 3121.0623,
+                  "Y": 1407.1865
+                },
+                "Name": "Panel_1_0_0",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "FlipX": true,
+                "FlipY": true,
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Jinsi_usiku_ulivyoingia/stars.png",
+                  "Plist": "Jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 770.2334,
+                  "Y": 1462.7378
+                },
+                "Scale": {
+                  "ScaleX": 0.5277,
+                  "ScaleY": 0.9782
+                },
+                "RotationSkewX": -89.907,
+                "RotationSkewY": -89.8012,
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.2489,
+                  "Y": 0.8144
+                },
+                "PreSize": {
+                  "X": 0.2989,
+                  "Y": 0.7021
+                },
+                "LeftMargin": 307.7334,
+                "RightMargin": 1861.6699,
+                "TopMargin": -297.1273,
+                "BottomMargin": 832.2378,
+                "Tag": 84,
+                "ActionTag": 107086951,
+                "Size": {
+                  "X": 925.0,
+                  "Y": 1261.0
+                },
+                "Name": "stars_1_0",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": 750182499,
+            "Size": {
+              "X": 3094.4033,
+              "Y": 1796.1105
+            },
+            "Name": "Panel_1_0_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Jinsi_usiku_ulivyoingia/pillow.png",
+              "Plist": "Jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2264.22,
+              "Y": 327.6317
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8845,
+              "Y": 0.182
+            },
+            "PreSize": {
+              "X": 0.1437,
+              "Y": 0.0744
+            },
+            "LeftMargin": 2080.22,
+            "RightMargin": 111.78,
+            "TopMargin": 1405.3683,
+            "BottomMargin": 260.6317,
+            "Tag": 156,
+            "ActionTag": -1069736051,
+            "Size": {
+              "X": 368.0,
+              "Y": 134.0
+            },
+            "Name": "pillow_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Jinsi_usiku_ulivyoingia/plant2.png",
+              "Plist": "Jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 403.351,
+              "Y": 499.6011
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1576,
+              "Y": 0.2776
+            },
+            "PreSize": {
+              "X": 0.0723,
+              "Y": 0.1
+            },
+            "LeftMargin": 310.851,
+            "RightMargin": 2064.1489,
+            "TopMargin": 1210.3989,
+            "BottomMargin": 409.6011,
+            "Tag": 157,
+            "ActionTag": -1358895455,
+            "Size": {
+              "X": 185.0,
+              "Y": 180.0
+            },
+            "Name": "plant_2_13",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Jinsi_usiku_ulivyoingia/plant1.png",
+              "Plist": "Jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 587.6284,
+              "Y": 525.5892
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2295,
+              "Y": 0.292
+            },
+            "PreSize": {
+              "X": 0.0723,
+              "Y": 0.1317
+            },
+            "LeftMargin": 495.1284,
+            "RightMargin": 1879.8716,
+            "TopMargin": 1155.9109,
+            "BottomMargin": 407.0892,
+            "Tag": 158,
+            "ActionTag": -765235600,
+            "Size": {
+              "X": 185.0,
+              "Y": 237.0
+            },
+            "Name": "plant_1_12",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Jinsi_usiku_ulivyoingia/soil.png",
+              "Plist": "Jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 617.4614,
+              "Y": 352.3386
+            },
+            "Scale": {
+              "ScaleX": 0.5833,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2412,
+              "Y": 0.1957
+            },
+            "PreSize": {
+              "X": 0.2746,
+              "Y": 0.0133
+            },
+            "LeftMargin": 265.9614,
+            "RightMargin": 1591.0386,
+            "TopMargin": 1435.6614,
+            "BottomMargin": 340.3386,
+            "Tag": 159,
+            "ActionTag": 1836709446,
+            "Size": {
+              "X": 703.0,
+              "Y": 24.0
+            },
+            "Name": "soil_10_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Jinsi_usiku_ulivyoingia/soil.png",
+              "Plist": "Jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 465.7096,
+              "Y": 411.9492
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1819,
+              "Y": 0.2289
+            },
+            "PreSize": {
+              "X": 0.2746,
+              "Y": 0.0133
+            },
+            "LeftMargin": 114.2096,
+            "RightMargin": 1742.7904,
+            "TopMargin": 1376.0508,
+            "BottomMargin": 399.9492,
+            "Tag": 160,
+            "ActionTag": 1927929631,
+            "Size": {
+              "X": 703.0,
+              "Y": 24.0
+            },
+            "Name": "soil_10",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Jinsi_usiku_ulivyoingia/water_pot.png",
+              "Plist": "Jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 215.2682,
+              "Y": 260.7009
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0841,
+              "Y": 0.1448
+            },
+            "PreSize": {
+              "X": 0.1008,
+              "Y": 0.1144
+            },
+            "LeftMargin": 86.2682,
+            "RightMargin": 2215.7319,
+            "TopMargin": 1436.2991,
+            "BottomMargin": 157.7009,
+            "UserData": "drag",
+            "Tag": 161,
+            "ActionTag": 192380025,
+            "Size": {
+              "X": 258.0,
+              "Y": 206.0
+            },
+            "Name": "water_pot_15",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Jinsi_usiku_ulivyoingia/farmer.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -537.937,
+              "Y": 535.5564
+            },
+            "Scale": {
+              "ScaleX": -0.5,
+              "ScaleY": 0.5
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.2101,
+              "Y": 0.2975
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -537.937,
+            "RightMargin": 3097.937,
+            "TopMargin": 1264.4436,
+            "BottomMargin": 535.5564,
+            "UserData": "hi;drag",
+            "Tag": 1390,
+            "ActionTag": 297826094,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "farmer",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Jinsi_usiku_ulivyoingia/flower1.png",
+              "Plist": "Jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 398.2412,
+              "Y": 595.4514
+            },
+            "Scale": {
+              "ScaleX": 0.1411,
+              "ScaleY": 0.1411
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1556,
+              "Y": 0.3308
+            },
+            "PreSize": {
+              "X": 0.2348,
+              "Y": 0.3328
+            },
+            "LeftMargin": 97.7412,
+            "RightMargin": 1861.2588,
+            "TopMargin": 905.0486,
+            "BottomMargin": 295.9514,
+            "Tag": 162,
+            "ActionTag": 925033372,
+            "Size": {
+              "X": 601.0,
+              "Y": 599.0
+            },
+            "Name": "flower_1_16",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Jinsi_usiku_ulivyoingia/flower1.png",
+              "Plist": "Jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 587.098,
+              "Y": 635.1375
+            },
+            "Scale": {
+              "ScaleX": 0.1324,
+              "ScaleY": 0.1324
+            },
+            "CColor": {
+              "G": 225,
+              "B": 196
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2293,
+              "Y": 0.3529
+            },
+            "PreSize": {
+              "X": 0.2348,
+              "Y": 0.3328
+            },
+            "LeftMargin": 286.598,
+            "RightMargin": 1672.402,
+            "TopMargin": 865.3625,
+            "BottomMargin": 335.6375,
+            "Tag": 163,
+            "ActionTag": -61613964,
+            "Size": {
+              "X": 601.0,
+              "Y": 599.0
+            },
+            "Name": "flower_1_16_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Jinsi_usiku_ulivyoingia/boy.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1940.5381,
+              "Y": 291.112
+            },
+            "Scale": {
+              "ScaleX": -0.4,
+              "ScaleY": 0.4
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.758,
+              "Y": 0.1617
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1940.5381,
+            "RightMargin": 619.4619,
+            "TopMargin": 1508.8879,
+            "BottomMargin": 291.112,
+            "UserData": "sleep",
+            "Tag": 1340,
+            "ActionTag": -1502044534,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "boy",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Jinsi_usiku_ulivyoingia/bed.png",
+              "Plist": "Jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1705.9962,
+              "Y": 350.3748
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6664,
+              "Y": 0.1947
+            },
+            "PreSize": {
+              "X": 0.3094,
+              "Y": 0.1189
+            },
+            "LeftMargin": 1309.9962,
+            "RightMargin": 458.0039,
+            "TopMargin": 1342.6252,
+            "BottomMargin": 243.3748,
+            "Tag": 155,
+            "ActionTag": -1250863657,
+            "Size": {
+              "X": 792.0,
+              "Y": 214.0
+            },
+            "Name": "bed_8",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "boy.json",
+        "farmer.json",
+        "Jinsi_usiku_ulivyoingia.plist",
+        "Jinsi_usiku_ulivyoingia.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

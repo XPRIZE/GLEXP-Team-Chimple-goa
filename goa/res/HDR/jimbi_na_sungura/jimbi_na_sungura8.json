@@ -1,12 +1,13 @@
 {
   "ID": "6eb67b5e-aa22-41c8-8ee7-9ac37df6c4f6",
-  "Version": "3.10.0.0",
+  "Version": "2.3.4",
   "Name": "jimbi_na_sungura8",
   "Content": {
     "Content": {
       "Animation": {
         "Duration": 240,
         "Speed": 1.0,
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 143057482,
@@ -639,7 +640,14 @@
         ],
         "ctype": "TimelineActionData"
       },
-      "AnimationList": [],
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 240,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
       "ObjectData": {
         "Tag": 711,
         "Children": [
@@ -760,12 +768,12 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1293.1182,
-              "Y": 422.1169
+              "X": 1293.1165,
+              "Y": 422.1165
             },
             "Scale": {
-              "ScaleX": 0.9283,
-              "ScaleY": 0.8321
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
             },
             "CColor": {},
             "IconVisible": false,
@@ -777,10 +785,10 @@
               "X": 0.7203,
               "Y": 0.3978
             },
-            "LeftMargin": 371.1182,
-            "RightMargin": 344.8818,
-            "TopMargin": 1019.8832,
-            "BottomMargin": 64.1169,
+            "LeftMargin": 371.1165,
+            "RightMargin": 344.8835,
+            "TopMargin": 1019.8835,
+            "BottomMargin": 64.1165,
             "Tag": 764,
             "ActionTag": 143057482,
             "Size": {
@@ -1392,8 +1400,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 2585.8926,
-              "Y": 326.3373
+              "X": 2997.5122,
+              "Y": 326.34
             },
             "Scale": {
               "ScaleX": -1.0,
@@ -1405,17 +1413,17 @@
             },
             "IconVisible": true,
             "PrePosition": {
-              "X": 1.0101,
+              "X": 1.1709,
               "Y": 0.1813
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 2585.8926,
-            "RightMargin": -25.8926,
-            "TopMargin": 1473.6627,
-            "BottomMargin": 326.3373,
+            "LeftMargin": 2997.5122,
+            "RightMargin": -437.5122,
+            "TopMargin": 1473.66,
+            "BottomMargin": 326.34,
             "Tag": 778,
             "ActionTag": -1973067126,
             "Size": {
@@ -1436,7 +1444,7 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 2200.0,
+              "X": 2997.5122,
               "Y": 500.0
             },
             "Scale": {
@@ -1446,15 +1454,15 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.8594,
+              "X": 1.1709,
               "Y": 0.2778
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 2200.0,
-            "RightMargin": 360.0,
+            "LeftMargin": 2997.5122,
+            "RightMargin": -437.5122,
             "TopMargin": 1300.0,
             "BottomMargin": 500.0,
             "Tag": 712,
@@ -1498,6 +1506,7 @@
             "RightMargin": 1245.9019,
             "TopMargin": 1263.9373,
             "BottomMargin": 536.0627,
+            "UserData": "fire",
             "Tag": 759,
             "ActionTag": 148020034,
             "Size": {

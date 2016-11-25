@@ -249,7 +249,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "bunty_and_bubbly/butterfly1.png",
+              "Path": "bunty_and_bubbly/butterfly2.png",
               "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
             },
             "BlendFunc": {
@@ -261,8 +261,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1.8806,
-              "Y": 39.5787
+              "X": -3.0976,
+              "Y": 33.4131
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -278,10 +278,10 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -229.1194,
-            "RightMargin": -232.8806,
-            "TopMargin": -219.0787,
-            "BottomMargin": -139.9213,
+            "LeftMargin": -234.0976,
+            "RightMargin": -227.9024,
+            "TopMargin": -212.9131,
+            "BottomMargin": -146.0869,
             "Tag": 29,
             "ActionTag": -981151262,
             "Size": {
@@ -289,6 +289,51 @@
               "Y": 359.0
             },
             "Name": "Sprite_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/touch.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2.1967,
+              "Y": 29.0826
+            },
+            "Scale": {
+              "ScaleX": 1.319,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -199.8033,
+            "RightMargin": -204.1967,
+            "TopMargin": -231.0826,
+            "BottomMargin": -172.9174,
+            "Tag": 122,
+            "ActionTag": -1684572438,
+            "Size": {
+              "X": 404.0,
+              "Y": 404.0
+            },
+            "Name": "touch",
             "ctype": "SpriteObjectData"
           }
         ],

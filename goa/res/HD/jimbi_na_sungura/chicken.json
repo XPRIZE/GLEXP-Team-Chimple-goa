@@ -1,6 +1,6 @@
 {
   "ID": "c26f6e67-ad8a-48cb-afc0-eaad028ebc0a",
-  "Version": "3.10.0.0",
+  "Version": "2.3.4",
   "Name": "chicken",
   "Content": {
     "Content": {
@@ -3952,15 +3952,15 @@
                   {
                     "Length": 508.0,
                     "Position": {
-                      "X": -19.4646,
+                      "X": -19.4647,
                       "Y": 127.009
                     },
                     "Scale": {
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 214.2,
-                    "RotationSkewY": -145.8014,
+                    "RotationSkewX": 219.1954,
+                    "RotationSkewY": -140.8067,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -4054,8 +4054,8 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewX": 302.7508,
-                        "RotationSkewY": 302.7519,
+                        "RotationSkewX": 291.5527,
+                        "RotationSkewY": 291.5538,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -4231,7 +4231,7 @@
                           "Y": 0.0
                         },
                         "LeftMargin": -108.7453,
-                        "RightMargin": -292.2546,
+                        "RightMargin": -292.2547,
                         "TopMargin": -148.0385,
                         "BottomMargin": -539.9615,
                         "Tag": 86,
@@ -4256,15 +4256,15 @@
                   {
                     "Length": 293.0,
                     "Position": {
-                      "X": 87.0455,
+                      "X": 87.0456,
                       "Y": 29.8586
                     },
                     "Scale": {
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 2.6578,
-                    "RotationSkewY": 2.6572,
+                    "RotationSkewX": -22.371,
+                    "RotationSkewY": -22.3693,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -4339,8 +4339,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": -10.0263,
-                    "RotationSkewY": -10.0311,
+                    "RotationSkewX": -30.6539,
+                    "RotationSkewY": -30.6573,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -4574,6 +4574,51 @@
             },
             "Name": "main_bone",
             "ctype": "BoneNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jimbi_na_sungura/touch.png",
+              "Plist": "jimbi_na_sungura/jimbi_na_sungura.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -59.3102,
+              "Y": 70.4308
+            },
+            "Scale": {
+              "ScaleX": 2.9554,
+              "ScaleY": 2.9304
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -261.3102,
+            "RightMargin": -142.6898,
+            "TopMargin": -272.4308,
+            "BottomMargin": -131.5692,
+            "Tag": 90,
+            "ActionTag": -1133998140,
+            "Size": {
+              "X": 404.0,
+              "Y": 404.0
+            },
+            "Name": "touch",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
