@@ -31,13 +31,13 @@ protected:
 	MenuContext * menu;
 	Calculator * _calculator;
 	bool _checkResult = false, _touched = true;
-	int _fishNumber,_score;
+	int _fishNumber,_score, _numberOfAttempt = 0;
 	std::string _targetedFishName;
 	cocos2d::Point _targetPosition;
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
 	static const char* gameName() { return TABLE.c_str(); };
 	std::vector<std::vector<cocos2d::Node*>> _fishMatrix;
-	void helpLayer();
+	void helpLayer(cocos2d::Node * node);
 	void createGrid();
 	cocos2d::Vector<cocos2d::Node *> _catchedFish;
 	cocos2d::Node * _jellyFish, *_grid, * _target;
@@ -47,7 +47,6 @@ protected:
 	void gameEnd(float ft);
 	std::map<int, std::map<std::string, int>> _levelMapping;
 	std::map<std::string, int> _config;
-	void update(float ft);
 };
 
 #endif 
