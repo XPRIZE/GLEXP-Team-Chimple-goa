@@ -44,10 +44,6 @@ void Shop::onEnterTransitionDidFinish()
 		auto myGameWidth = (visibleSize.width - 2560) / 2;
 		shopingBackground->setPositionX(myGameWidth);
 	}
-	auto tabel = this->getChildByName("bg")->getChildByName("table_16");
-	auto weightMech = this->getChildByName("bg")->getChildByName("weightmech_281");
-	tabel->setZOrder(3);
-	weightMech->setZOrder(3);
 
 	vector<string> vegetableNodeName = { "Pineapple", "corn", "carrot", "pumpkin", "capsico", "cabbage", "spinach", "tomato", "Brinjal" };
 	vector<string> characters = { "men", "men_0", "men_1", "men_2", "women", "women_0", "women_1", "women_2", "women_3" };
@@ -55,12 +51,21 @@ void Shop::onEnterTransitionDidFinish()
 
 	int randomValue = RandomHelper::random_int(0, 8);
 
-	cocostudio::timeline::ActionTimeline* customerWalkAnim = CSLoader::createTimeline("shoping/"+characters[randomValue] + ".csb");;
+	cocostudio::timeline::ActionTimeline* customerWalkAnim = CSLoader::createTimeline("shoping/" + characters[randomValue] + ".csb");;
 	Sprite* customer = (Sprite *)CSLoader::createNode("shoping/" + characters[randomValue] + ".csb");
 	setAllSpriteProperties(customer, -1, visibleSize.width*1.3, visibleSize.height*.2, true, 0.5, 0.5, 1, 0.6, 0.6);
 	customer->runAction(customerWalkAnim);
 	customerWalkAnim->play("walk", true);
 	shopingBackground->addChild(customer);
+
+	auto tabel = this->getChildByName("bg")->getChildByName("table_16");
+	auto weightMech = this->getChildByName("bg")->getChildByName("weightmech_281");
+	//auto fruitStand1 = this->getChildByName("bg")->getChildByName("standfuritfront_3");
+	//auto fruitStand2 = this->getChildByName("bg")->getChildByName("standfuritfront_3_0");
+	tabel->setZOrder(1);
+	weightMech->setZOrder(1);
+	//fruitStand1->setZOrder(1);
+	//fruitStand2->setZOrder(1);
 
 	customer->runAction(Sequence::create(MoveTo::create(4, Vec2(visibleSize.width*.8, visibleSize.height*.2)),
 		CCCallFunc::create([=] {	customerWalkAnim->pause();
@@ -105,7 +110,7 @@ void Shop::onEnterTransitionDidFinish()
 
 	auto textOnDisplay = _textString1+" + "+ _textString2 + " = "+ _textString3;
 	_label = setAllLabelProperties(textOnDisplay, 0, labelNode->getPositionX()+visibleSize.width*0.026,labelNode->getPositionY(), true, 0.5, 0.5, 0, 1, 1, 85);
-	_label->setColor(cocos2d::Color3B(255, 192, 203)); 
+	_label->setColor(cocos2d::Color3B(200, 30, 50));
 	this->addChild(_label, 0);
 	
 
@@ -264,9 +269,10 @@ void Shop::addTouchEvents(Sprite* obj)
 			else if(!touchedVegeName.find("pumpkin"))
 				target->runAction(MoveTo::create(0.5, Vec2(a - 30, b + 39)));*/
 			else
-				target->runAction(MoveTo::create(0.5, Vec2(a - 30, b + 26)));
+				target->runAction(MoveTo::create(0.5, Vec2(a - 30, b + 24)));
 
 			 //target->setPosition(Vec2(a-30, b + 30));
+			target->setZOrder(3);
 			_isItemOnePlaced = true;
 			_labelCounter++;
 
@@ -301,9 +307,10 @@ void Shop::addTouchEvents(Sprite* obj)
 			/*else if (!touchedVegeName.find("pumpkin"))
 				target->runAction(MoveTo::create(0.5, Vec2(c + 40, d + 37)));*/
 			else
-				target->runAction(MoveTo::create(0.5, Vec2(c + 40, d + 22)));
+				target->runAction(MoveTo::create(0.5, Vec2(c + 40, d + 19)));
 
 			//target->setPosition(Vec2(c+40, d+25));
+			target->setZOrder(3);
 			_isItemTwoPlaced = true;
 			_labelCounter++;
 
@@ -337,7 +344,8 @@ void Shop::addTouchEvents(Sprite* obj)
 				this->runAction(Sequence::create(CCCallFunc::create([=] {
 				//target->setZOrder(-1);
 				target->runAction(MoveTo::create(0.7, Vec2(_vegeOriginalPos.first, _vegeOriginalPos.second)));
-				}), DelayTime::create(0.7), CCCallFunc::create([=] {  }), NULL));
+				}), DelayTime::create(0.7), CCCallFunc::create([=] { // target->setZOrder(0); 
+				}), NULL));
 		}
 		if (_labelCounter == 2)
 		{
