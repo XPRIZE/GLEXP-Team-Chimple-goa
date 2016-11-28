@@ -36,7 +36,6 @@ cocos2d::Scene * Item::createScene()
 {
 	auto scene = cocos2d::Scene::create();
 	auto layer = Item::create();
-	layer->setName(Item::gameName());
 	scene->addChild(layer);
 
 	layer->menu = MenuContext::create(layer, Item::gameName());
@@ -163,14 +162,13 @@ void Item::onEnterTransitionDidFinish()
 		timeline2->gotoFrameAndPause(0);
 		fishCreate();
 		numCreate();
-		
 		_done = background->getChildByName("item_done_4");
 		_done->setName("done");
 		auto listener = EventListenerTouchOneByOne::create();
 		listener->setSwallowTouches(true);
 		listener->onTouchBegan = CC_CALLBACK_2(Item::onTouchBegan, this);
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, _done);
-		gameHelp();
+		
 	}
 	else if (menu->getCurrentLevel() <= 10)
 	{
@@ -182,14 +180,7 @@ void Item::onEnterTransitionDidFinish()
 }
 void Item::gameHelp()
 {
-	auto bubble1 = background->getChildByName("item_bubble_3");
-	auto bubble2 = background->getChildByName("item_bubble_3_2");
-	Size visibleSize = Director::getInstance()->getVisibleSize();
-
-	auto help = HelpLayer::create(Rect(bubble1->getPositionX() + extraX, bubble1->getPositionY(), bubble1->getContentSize().width+200, bubble1->getContentSize().height ), Rect(_box1->getPositionX() + extraX, _box1->getPositionY(), 250, 270));
-	help->setName("help");
-	help->clickAndDrag(bubble1->getPosition(),Vec2(visibleSize.width*0.1, visibleSize.height/2));
-	this->addChild(help);
+	
 }
 
 
@@ -245,26 +236,26 @@ void Item::check()
 }
 void Item::numCreate()
 {
-	_box1 = background->getChildByName(_scenePath.at("box1"));
-	_box2 = background->getChildByName(_scenePath.at("box2"));
+	auto box1 = background->getChildByName(_scenePath.at("box1"));
+	auto box2 = background->getChildByName(_scenePath.at("box2"));
 
 	_num1 = cocos2d::RandomHelper::random_int(1, 5);
 	std::stringstream ss1;
 	ss1 << _num1;
 	std::string str1 = ss1.str();
 	auto number_label1 = Label::createWithSystemFont(str1, "Arial", 90);
-	number_label1->setPositionX(_box1->getContentSize().width/2);
-	number_label1->setPositionY(_box1->getContentSize().height/2);
-	_box1->addChild(number_label1,2);
+	number_label1->setPositionX(box1->getContentSize().width/2);
+	number_label1->setPositionY(box1->getContentSize().height/2);
+	box1->addChild(number_label1,2);
 
 	_num2 = cocos2d::RandomHelper::random_int(1, 5);
 	std::stringstream ss2;
 	ss2 << _num2;
 	std::string str2 = ss2.str();
 	auto number_label2 = Label::createWithSystemFont(str2, "Arial", 90);
-	number_label2->setPositionX(_box2->getContentSize().width / 2);
-	number_label2->setPositionY(_box2->getContentSize().height / 2);
-	_box2->addChild(number_label2,2);
+	number_label2->setPositionX(box2->getContentSize().width / 2);
+	number_label2->setPositionY(box2->getContentSize().height / 2);
+	box2->addChild(number_label2,2);
 }
 void Item::fishCreate()
 {
@@ -314,7 +305,6 @@ void Item::scoreBoard(float dt)
 }
 void Item::result()
 {
-	
 	if (_num1 == _count1 && _num2 == _count2)
 	{
 		CCLOG("Done.........");
@@ -352,7 +342,6 @@ bool Item::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 	{
 		if (target->getName().compare("done") == 0)
 		{
-
 			result();
 		}
 		if (target->getName().compare("box1") == 0)
@@ -440,10 +429,7 @@ void Item::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 		this->removeChild(target);
 		_fishMove.pop_back();
 	}
-	if (_num1 == _count1)
-	{
-		this->removeChildByName("help");
-	}
+	
 	
 
 }
@@ -459,22 +445,5 @@ void Item::addCalculator() {
 	this->addChild(_calculator, 10);
 	//_calculator->setGlobalZOrder(2);
 	_calculator->setVisible(true);
-
-}
-void Item::calculatedResult(std::string result)
-{
-	CCLOG("table calculator!!!!!!!!!!!  === %s", result.c_str());
-  /*	if (_targetedFishName.compare(result) == 0) {
-		for (int i = 0; i < _catchedFish.size(); i++) {
-			if (_catchedFish.at(i)->getName().compare(result) == 0) {
-				_catchedFish.at(i)->setOpacity(100);
-				auto move = MoveTo::create(1, _targetPosition);
-				_catchedFish.at(i)->runAction(move);
-				_catchedFish.erase(_catchedFish.begin() + i);
-				break;
-			}
-		}
-	}*/
-
 
 }
