@@ -27,6 +27,7 @@ public:
 	void onEnterTransitionDidFinish();
 	void gameHelp();
 	void addCalculator();
+	void calculatedResult(std::string result);
 	bool _helpFlage = false;
 	static const char* gameName() { return ITEM.c_str(); }
 protected:
@@ -38,6 +39,8 @@ protected:
 	cocos2d::Node* _fish1;
 	cocos2d::Node* _fish2;
 	cocos2d::Node* _done;
+	cocos2d::Node* _box1;
+	cocos2d::Node* _box2;
 	cocostudio::timeline::ActionTimeline* _timeline1;
 	cocostudio::timeline::ActionTimeline* _timeline2;
 	std::vector<Node *> _fishMove;
@@ -46,6 +49,7 @@ protected:
 	std::vector<int>_frogX2 = { 200, 450, 750, 1000, 1250, 900, 600, 350 };
 	std::vector<int>_frogY2 = { 150, 130, 130, 130,  240,  270, 270, 270 };
 	void fishCreate();
+	
 	void numCreate();
 	void frogCreate();
 	void result();
