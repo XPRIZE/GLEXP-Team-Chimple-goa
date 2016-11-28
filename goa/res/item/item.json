@@ -284,7 +284,7 @@
               "X": 0.1402,
               "Y": 0.1994
             },
-            "LeftMargin": 855.4062,
+            "LeftMargin": 855.4063,
             "RightMargin": 1345.5938,
             "TopMargin": -24.8997,
             "BottomMargin": 1465.8997,
@@ -510,7 +510,7 @@
               "Y": -0.0234
             },
             "PreSize": {
-              "X": 0.1562,
+              "X": 0.1563,
               "Y": 1.1811
             },
             "LeftMargin": 700.2374,
@@ -608,7 +608,7 @@
               "Y": -0.0001
             },
             "PreSize": {
-              "X": 0.1562,
+              "X": 0.1563,
               "Y": 1.1811
             },
             "LeftMargin": 2720.228,
@@ -907,9 +907,9 @@
           },
           {
             "FileData": {
-              "Type": "Normal",
+              "Type": "MarkedSubImage",
               "Path": "item/item_done.png",
-              "Plist": ""
+              "Plist": "item/item.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -960,8 +960,7 @@
       },
       "UsedResources": [
         "item.plist",
-        "item.png",
-        "item_done.png"
+        "item.png"
       ],
       "ctype": "GameFileData"
     }

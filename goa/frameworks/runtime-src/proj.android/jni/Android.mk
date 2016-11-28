@@ -94,7 +94,9 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/mini_games/Line.cpp \
 					../../Classes/mini_games/ChocolateFactory.cpp \
 					../../Classes/mini_games/Shop.cpp \
+					../../Classes/mini_games/Balloon.cpp \
 					../../Classes/mini_games/Item.cpp \
+                    ../../Classes/mini_games/Table.cpp \
                     ../../Classes/mini_games/spot.cpp \
 					../../Classes/menu/MenuContext.cpp \
 					../../Classes/menu/HelpLayer.cpp \

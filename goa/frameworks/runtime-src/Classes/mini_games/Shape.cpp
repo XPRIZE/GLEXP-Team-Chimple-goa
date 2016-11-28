@@ -20,6 +20,64 @@ Scene* Shape::createScene()
 	return scene;
 }
 
+bool Shape::init()
+{
+	if (!Layer::init())
+	{
+		return false;
+	}
+	return true;
+}
+
+void Shape::update(float d)
+{
+	if (_water->getScaleY() >= 0.0)
+	{
+		_water->setScaleY(_water->getScaleY() - .00050);
+	}
+
+	if (_ShapeBg->getChildByName("water_level")->getPositionY() + _water->getBoundingBox().size.height < _fish->getPositionY() && _firstFishFlag == 0)
+	{
+		for (int i = 0; i < _realSpriteDetails.size(); i++)
+		{
+			Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(_realSpriteDetails.at(i)._sprite);
+		}
+
+		_firstFishFlag = 1;
+		_fish->stopAction(_fishTimeline);
+		_fish->stopAction(_fishRepeat);
+
+		_fish->runAction(Sequence::create(MoveTo::create(1, Vec2(_fish->getPositionX(), visibleSize.height * .35)), CallFunc::create([=] {
+			_menuContext->addPoints(-10);
+			_menuContext->showScore();
+			this->unscheduleUpdate();
+		}), NULL));
+	}
+
+	if (_ShapeBg->getChildByName("water_level")->getPositionY() + _water->getBoundingBox().size.height < (_transSpriteDetails.at(0)._sprite->getPositionY() - _transSpriteDetails.at(0)._sprite->getContentSize().height * .30))
+	{
+		this->unscheduleUpdate();
+
+		int _flag = 0;
+		for (int i = 0; i < _realSpriteDetails.size(); i++)
+		{
+			if (_realSpriteDetails.at(i)._flag == 1)
+				_flag++;
+		}
+
+		if (_flag != _realSpriteDetails.size())
+		{
+			_menuContext->addPoints(-10);
+			_menuContext->showScore();
+		}
+		else
+		{
+			_menuContext->addPoints(10);
+			_menuContext->showScore();
+		}
+	}
+}
+
 void Shape::onEnterTransitionDidFinish()
 {
 	_menuContext->setMaxPoints(10);
@@ -28,13 +86,7 @@ void Shape::onEnterTransitionDidFinish()
 	visibleSize = Director::getInstance()->getWinSize();
 
 	_ShapeBg = CSLoader::createNode("Shape/Shape.csb");
-//	_ShapeBg->setPosition(Vec2(visibleSize.width / 2, 0));
-//	_ShapeBg->setAnchorPoint(Vec2(.5, 0));
 	this->addChild(_ShapeBg);
-
-//	auto back = Sprite::create("shape/Background.png");
-//	back->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
-//	this->addChild(back);
 
 	if (_level == 1)
 	{
@@ -44,21 +96,19 @@ void Shape::onEnterTransitionDidFinish()
 //		_helpFlag = 0;
 	}
 
-	auto water_tank = Sprite::createWithSpriteFrameName("shape/water_tank.png");
-	water_tank->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
-	this->addChild(water_tank);
-
-	_water = Sprite::createWithSpriteFrameName("shape/water_level.png");
-	_water->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * .315));
+	_water = (Sprite*)_ShapeBg->getChildByName("water_level")->getChildren().at(0);
 	_water->setAnchorPoint(Vec2(.5, 0));
-	this->addChild(_water);
 
-	_fish = Sprite::createWithSpriteFrameName("shape/fish.png");
-	_fish->setPosition(Vec2(visibleSize.width * .83, visibleSize.height * .60));
+	_fish = CSLoader::createNode("Shape/fish.csb");
+	_fish->setPosition(Vec2(visibleSize.width * .80, visibleSize.height * .50));
 	this->addChild(_fish);
 
+	_fishTimeline = CSLoader::createTimeline("Shape/fish.csb");
+	_fish->runAction(_fishTimeline);
+	_fishTimeline->play("fish_01", true);
 
-	auto _moveBy = MoveBy::create(2, Vec2(-(_fish->getPositionX() - visibleSize.width * .20), 0));
+
+	auto _moveBy = MoveBy::create(5, Vec2(-(_fish->getPositionX() - visibleSize.width * .20), 0));
 	auto _delay = DelayTime::create(.01f);
 
 	_fishSequence = Sequence::create(_moveBy, CallFunc::create([=] {
@@ -81,7 +131,7 @@ void Shape::onEnterTransitionDidFinish()
 			{ 0, "pentagon" },
 			{ 1, "square" },
 			{ 2, "star" },
-			{ 3, "tringle" },
+//			{ 3, "tringle" },
 		} },
 		{ 3,
 		{
@@ -115,58 +165,63 @@ void Shape::onEnterTransitionDidFinish()
 		} },
 	};
 
-	int val = -1;
+	int _posIndex = -1;
 	for (int i = 0; i < _differntSceneMapping.at(_level).size(); i++)
 	{
 		std::ostringstream _trans;
+		_posIndex++;
+		int _posIndexY = 1 + _posIndex;
+		_trans << "Shape/" << _differntSceneMapping.at(_level).at(i) << "_trans.png";
 
-		_trans << "shape/" << _differntSceneMapping.at(_level).at(i) << "_trans.png";
-		auto _circle_Trans = Sprite::createWithSpriteFrameName(_trans.str());
-		_circle_Trans->setPosition(Vec2(_differntPosition.at(_level).at(++val), _differntPosition.at(_level).at(++val)));
-		this->addChild(_circle_Trans);
+		TransSpriteDetails._sprite = Sprite::createWithSpriteFrameName(_trans.str());
+		TransSpriteDetails._sprite->setPosition(Vec2(_differntPosition.at(_level).at(_posIndex), _differntPosition.at(_level).at(_posIndexY)));
+		TransSpriteDetails._sprite->setOpacity(0);
+		TransSpriteDetails._id = i;
+		TransSpriteDetails._flag = 0;
+		this->addChild(TransSpriteDetails._sprite);
+
+		_transSpriteDetails.push_back(TransSpriteDetails);
 
 		std::ostringstream _main;
-		_main << "shape/" << _differntSceneMapping.at(_level).at(i) << ".png";
-		auto _circle = Sprite::createWithSpriteFrameName(_main.str());
-		_circle->setPosition(Vec2(_circle_Trans->getPositionX(), _circle_Trans->getPositionY()));
-		this->addChild(_circle);
+		_main << "Shape/" << _differntSceneMapping.at(_level).at(i) << ".png";
+		RealSpriteDetails._sprite = Sprite::createWithSpriteFrameName(_main.str());
+		RealSpriteDetails._sprite->setPosition(Vec2(TransSpriteDetails._sprite->getPositionX(), TransSpriteDetails._sprite->getPositionY()));
+		RealSpriteDetails._id = i;
+		RealSpriteDetails._flag = 0;
+		RealSpriteDetails._xp = RealSpriteDetails._sprite->getPositionX();
+		RealSpriteDetails._yp = visibleSize.height * .08;
+		this->addChild(RealSpriteDetails._sprite);
+		_realSpriteDetails.push_back(RealSpriteDetails);
+		_posIndex = _posIndexY;
+
+		addEvents(RealSpriteDetails);
 	}
-	/*
-	_circle = Sprite::create("shape/Circle.png");
-	_circle->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
-	this->addChild(_circle);
 
-	_circle_Trans = Sprite::create("shape/Circle_Trans.png");
-	_circle_Trans->setPosition(Vec2(_circle->getPositionX(), _circle->getPositionY()));
-	this->addChild(_circle_Trans);
+	this->runAction(Sequence::create(DelayTime::create(1), CallFunc::create([=] {
+		objectMovement();
+	}), NULL));
 
-	_bottom_Crack = Sprite::create("shape/Bottom_Crack.png");
-	_bottom_Crack->setPosition(Vec2(_circle_Trans->getPositionX(), _circle_Trans->getPositionY() - _circle_Trans->getContentSize().height / 2));
-	_bottom_Crack->setScale(.4);
-	this->addChild(_bottom_Crack);
-*/
+//	ParticleSystem *ps = ParticleSystem::create("Shape/particle_texture.plist")
+//	ps->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
+//	this->addChild(ps, 2);
+}
 
+void Shape::objectMovement()
+{
+	for(int i = 0; i<_realSpriteDetails.size(); i++)
+	{
+		_realSpriteDetails.at(i)._sprite->runAction(MoveTo::create(.5, Vec2(_realSpriteDetails.at(i)._sprite->getPositionX(), visibleSize.height * .08)));
+		_transSpriteDetails.at(i)._sprite->runAction(Sequence::create(FadeIn::create(.5), CallFunc::create([=] {
+			if (i == _realSpriteDetails.size() - 1)
+			{
+				_moveFlag = 1;
+			}
+		}), NULL));
+	}
 	this->scheduleUpdate();
 }
 
-bool Shape::init()
-{
-	if (!Layer::init())
-	{
-		return false;
-	}
-	return true;
-}
-
-void Shape::update(float d)
-{
-	if (_water->getScaleY() >= 0.0)
-	{
-		_water->setScaleY(_water->getScaleY() - .00050);
-	}
-}
-
-void Shape::addEvents()
+void Shape::addEvents(struct SpriteDetails sprite)
 {
 	auto listener = cocos2d::EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(true);
@@ -176,22 +231,56 @@ void Shape::addEvents()
 		auto target = static_cast<Sprite*>(event->getCurrentTarget());
 		Point locationInNode = target->convertToNodeSpace(touch->getLocation());
 		Size size = target->getContentSize();
-/*		Rect rect = Rect(0, 0, target->getContentSize().width * _percent[_percentLevelNo][2] / 100, target->getContentSize().height);
+		Rect rect = Rect(0, 0, target->getContentSize().width, target->getContentSize().height);
 
-		if (rect.containsPoint(locationInNode))
+		if (rect.containsPoint(locationInNode) && _moveFlag==1)
 		{
+			_moveFlag = 0;
 			return true;
 		}
-*/		return false;
+		return false;
 	};
 
 	listener->onTouchMoved = [=](cocos2d::Touch *touch, cocos2d::Event *event)
 	{
+		auto target = static_cast<Sprite*>(event->getCurrentTarget());
+		target->setPosition(touch->getLocation());
 	};
 
 	listener->onTouchEnded = [=](cocos2d::Touch *touch, cocos2d::Event *event)
 	{
+		auto target = static_cast<Sprite*>(event->getCurrentTarget());
+		Rect _targetRect = target->getBoundingBox();
+		Rect _transRect = _transSpriteDetails.at(sprite._id)._sprite->getBoundingBox();
+
+		if (_transRect.intersectsRect(_targetRect))
+		{
+			_realSpriteDetails.at(sprite._id)._flag = 1;
+			target->runAction(Sequence::create(MoveTo::create(.5, Vec2(_transSpriteDetails.at(sprite._id)._sprite->getPositionX(), _transSpriteDetails.at(sprite._id)._sprite->getPositionY())),
+				CallFunc::create([=] {
+				_transSpriteDetails.at(sprite._id)._sprite->setOpacity(0);
+				_moveFlag = 1;
+
+				int _flag = 0;
+				for (int i = 0; i < _realSpriteDetails.size(); i++)
+				{
+					if (_realSpriteDetails.at(i)._flag == 1)
+						_flag++;
+				}
+
+				if (_flag == _realSpriteDetails.size() && _firstFishFlag==0)
+					_menuContext->showScore();
+
+			}), NULL));
+			Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(target);
+		}
+		else
+		{
+			target->runAction(Sequence::create(MoveTo::create(.5, Vec2(sprite._xp, sprite._yp)), CallFunc::create([=] {
+				_moveFlag = 1;
+			}), NULL));
+		}
 	};
 
-//	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener->clone(), sprite._loadingBar);
+	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener->clone(), sprite._sprite);
 }
