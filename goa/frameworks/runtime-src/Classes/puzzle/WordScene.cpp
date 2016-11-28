@@ -17,26 +17,6 @@
 
 USING_NS_CC;
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-extern "C"
-{
-    jboolean Java_org_cocos2dx_javascript_AppActivity_sendRecognizedStringToGame(JNIEnv* env, jobject thiz,jstring textStr)
-    {
-        const char* str;
-        str = env->GetStringUTFChars(textStr, NULL);
-        std::string tempStr(str);
-        if(!tempStr.empty()) {
-            CCLOG("Received Character String %s", tempStr.c_str());
-            WordScene::textReceived(tempStr);
-        }
-        
-        return true;
-    }
-    
-}
-#endif
-
-
 cocos2d::Scene* WordScene::createScene() {
     auto layer = WordScene::create();
     auto scene = GameScene::createWithChild(layer, "word");
