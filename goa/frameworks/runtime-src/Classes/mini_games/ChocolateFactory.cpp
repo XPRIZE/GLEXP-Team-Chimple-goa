@@ -273,8 +273,9 @@ void ChocolateFactory::addTouchEvents(Sprite* obj)
 					{  flag = true;  }
 				}
 				if (!flag) {
+					target->runAction(Sequence::create(MoveTo::create(0.2, Vec2(myBG->getChildByName(_nodeName.at(i))->getPosition())), DelayTime::create(0.2), CCCallFunc::create([=] { _touched = true; }), NULL));
 					//target->runAction(MoveTo::create(0.0, Vec2(myBG->getChildByName(_nodeName.at(i))->getPosition())));
-					target->setPosition(myBG->getChildByName(_nodeName.at(i))->getPosition());
+					//target->setPosition(myBG->getChildByName(_nodeName.at(i))->getPosition());
 					this->reorderChild(target, 0);
 					isIntersect = true;
 				}
@@ -283,7 +284,7 @@ void ChocolateFactory::addTouchEvents(Sprite* obj)
 		if (!isIntersect)
 		{
 			auto pos = _trayPositions[target->getTag()];
-			target->runAction(Sequence::create(MoveTo::create(1, Vec2(pos.first, pos.second)), CCCallFunc::create([=] {	target->setZOrder(0); }), NULL));
+			target->runAction(Sequence::create(MoveTo::create(0.5, Vec2(pos.first, pos.second)), DelayTime::create(0.5),CCCallFunc::create([=] {	target->setZOrder(0); _touched = true; }), NULL));
 		}
 		_setcounter = 0;
 		for (int k=0; k < _trayBin.size(); k++)
@@ -305,7 +306,7 @@ void ChocolateFactory::addTouchEvents(Sprite* obj)
 		 }), NULL));
 			CCLOG("G A M E O V E R counter : %d", _setcounter);
 		}
-		_touched = true;
+		
 	};
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, obj);
 }
