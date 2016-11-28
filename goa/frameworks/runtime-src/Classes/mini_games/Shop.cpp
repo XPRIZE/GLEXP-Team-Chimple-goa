@@ -344,7 +344,7 @@ void Shop::addTouchEvents(Sprite* obj)
 				this->runAction(Sequence::create(CCCallFunc::create([=] {
 				//target->setZOrder(-1);
 				target->runAction(MoveTo::create(0.7, Vec2(_vegeOriginalPos.first, _vegeOriginalPos.second)));
-				}), DelayTime::create(0.7), CCCallFunc::create([=] { // target->setZOrder(0); 
+				}), DelayTime::create(0.7), CCCallFunc::create([=] {  //target->setZOrder(0); 
 				}), NULL));
 		}
 		if (_labelCounter == 2)
