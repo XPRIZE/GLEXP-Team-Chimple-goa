@@ -28,6 +28,7 @@ public:
 	void gameHelp();
 	void addCalculator();
 	bool _helpFlage = false;
+	void calculatedResult(std::string result);
 	static const char* gameName() { return ITEM.c_str(); }
 protected:
 	bool _rotateFlag = true;
@@ -38,6 +39,8 @@ protected:
 	cocos2d::Node* _fish1;
 	cocos2d::Node* _fish2;
 	cocos2d::Node* _done;
+	cocos2d::Node* _box1;
+	cocos2d::Node* _box2;
 	cocostudio::timeline::ActionTimeline* _timeline1;
 	cocostudio::timeline::ActionTimeline* _timeline2;
 	std::vector<Node *> _fishMove;
