@@ -18,7 +18,7 @@ void Shop::onEnterTransitionDidFinish()
 	//std::pair<int, int> levelKeyNumber = levelAllInfo(gameCurrentLevel, 5, 3, 5, 3);
 	CCSpriteFrameCache* framecache1 = CCSpriteFrameCache::sharedSpriteFrameCache();
 	framecache1->addSpriteFramesWithFile("shoping/shoping.plist");
-	
+
 	int gameCurrentLevel = _menuContext->getCurrentLevel();
 
 	_vegePrice = {
@@ -76,6 +76,22 @@ void Shop::onEnterTransitionDidFinish()
 												addTouchEvents(obj);
 											}
 										}
+									}
+
+									if (gameCurrentLevel == 1)
+									{
+										auto nodeForHelp = this->getChildByName("bg")->getChildByName("corn");
+										auto a = nodeForHelp->getPositionX() + visibleSize.width*.038;
+										auto b = nodeForHelp->getPositionY() - nodeForHelp->getContentSize().height*.25;
+
+										auto nodeForDropPos = this->getChildByName("bg")->getChildByName("item_1"); 
+										auto c = nodeForDropPos->getPositionX()+visibleSize.width*0.049;
+										auto d = nodeForDropPos->getPositionY()+ visibleSize.height*0.045;
+
+										_help = HelpLayer::create(Rect(a,b, visibleSize.width*0.12, visibleSize.height*.2),
+											Rect(c,d-30, visibleSize.width*0.12, visibleSize.height*.12));
+										_help->click(Vec2(a,b));
+										this->addChild(_help, 5);
 									}
 	}), NULL));
 
@@ -146,8 +162,6 @@ void Shop::chooseVegeForShop(vector<string> vegetableNodeName)
 
 	_expectedItemOne = vegetableNodeName[randomIndex[0]];
 	_expectedItemTwo = vegetableNodeName[randomIndex[1]];
-	_expectedItemOne = "pumpkin";
-	_expectedItemTwo = "corn";
 	_total = _vegePrice.at(_expectedItemOne) + _vegePrice.at(_expectedItemTwo);
 	//_chooseVegePriceTag = vegetablePriceValue();
 
@@ -187,11 +201,11 @@ void Shop::addTouchEvents(Sprite* obj)
 			_vegeOriginalPos = std::make_pair(target->getPositionX(), target->getPositionY());
 			_touched = false;
 
-			auto E = DrawNode::create();
+		/*	auto E = DrawNode::create();
 			this->addChild(E, 10);
 			E->drawRect(Vec2(a, b),
 				Vec2(a + target->getContentSize().width*1.5, b + target->getContentSize().height*1.5),
-				Color4F(0, 0, 255, 22));
+				Color4F(0, 0, 255, 22));*/
 			return true;
 		}
 		return false;
@@ -200,8 +214,13 @@ void Shop::addTouchEvents(Sprite* obj)
 	{
 
 		auto target = event->getCurrentTarget();
-		target->setZOrder(10);
+		//target->setZOrder(5);
 		target->setPosition(Vec2(touch->getLocation().x, touch->getLocation().y));
+		auto gameCurrentLevel = _menuContext->getCurrentLevel();
+		if (gameCurrentLevel == 1)
+		{
+			this->runAction(Sequence::create(DelayTime::create(2), CCCallFunc::create([=] {this->removeChild(_help, true); }), NULL));
+		}
 		//return true;
 	};
 	listener->onTouchEnded = [=](cocos2d::Touch* touch, cocos2d::Event* event)
@@ -223,7 +242,7 @@ void Shop::addTouchEvents(Sprite* obj)
 		Rect rect = CCRectMake(target->getPositionX() + target->getContentSize().width * .5, target->getPositionY() - target->getContentSize().height / 2,
 					target->getContentSize().width*1.5, target->getContentSize().height*1.5);
 
-		auto E = DrawNode::create();
+		/*auto E = DrawNode::create();
 		this->addChild(E, 10);
 		E->drawRect(Vec2(a , b - 30),
 			Vec2(a + 120, b + 90),
@@ -233,7 +252,7 @@ void Shop::addTouchEvents(Sprite* obj)
 		this->addChild(F, 10);
 		F->drawRect(Vec2(c + 50, d - 30),
 			Vec2(c +170, d + 90),
-			Color4F(0, 0, 255, 22));
+			Color4F(0, 0, 255, 22));*/
 		
 		string touchedVegeName = target->getName();
 		auto myBG = this->getChildByName("bg");
@@ -316,8 +335,9 @@ void Shop::addTouchEvents(Sprite* obj)
 		else
 		{
 				this->runAction(Sequence::create(CCCallFunc::create([=] {
+				//target->setZOrder(-1);
 				target->runAction(MoveTo::create(0.7, Vec2(_vegeOriginalPos.first, _vegeOriginalPos.second)));
-				}), DelayTime::create(0.7),	NULL));
+				}), DelayTime::create(0.7), CCCallFunc::create([=] {  }), NULL));
 		}
 		if (_labelCounter == 2)
 		{
