@@ -117,7 +117,8 @@ bool Calculator::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 	Point locationInNode = target->getParent()-> convertToNodeSpace(touch->getLocation());
 	
 	if (target->getBoundingBox().containsPoint(locationInNode)) {
-		
+		auto scale = ScaleBy::create(0.1, 0.75);
+		target->runAction(Sequence::create(scale, scale->reverse(), NULL));
 		if (target->getName() != "enter" && target->getName() != "backspace" && target->getName() != "reset") {
 			
 				_answer = 10 * _answer + target->getTag();
