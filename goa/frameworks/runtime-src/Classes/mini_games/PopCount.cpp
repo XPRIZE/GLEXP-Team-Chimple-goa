@@ -90,14 +90,6 @@ void PopCount::onEnterTransitionDidFinish() {
 	Node* bg = CSLoader::createNode(_sceneMap.at(_popcountCurrentTheme).at("bg"));
 	addChild(bg);
 	bg->setName("bg");
-	
-	auto timelineWater1 = CSLoader::createTimeline(_sceneMap.at(_popcountCurrentTheme).at("waterAnimation"));
-	this->getChildByName("bg")->getChildByName("mainground")->getChildByName("water1")->runAction(timelineWater1);
-	timelineWater1->gotoFrameAndPlay(0, true);
-
-	auto timelineWater2 = CSLoader::createTimeline(_sceneMap.at(_popcountCurrentTheme).at("waterAnimation"));
-	this->getChildByName("bg")->getChildByName("mainground")->getChildByName("water2")->runAction(timelineWater2);
-	timelineWater2->gotoFrameAndPlay(0, true);
 
 	if (Director::getInstance()->getVisibleSize().width > 2560) {
 		auto myGameWidth = (Director::getInstance()->getVisibleSize().width - 2560) / 2;
@@ -203,6 +195,11 @@ void PopCount::setGridNumberPanel() {
 		smallGrid->setOpacity(150);
 		smallGrid->setPosition(Vec2(positionX, gridPanel->getContentSize().height / 2));
 		positionX = positionX + smallGridSize + indiSpace;
+		
+		auto drawRect = DrawNode::create();
+		addChild(drawRect,10);
+		drawRect->drawRect(Vec2(smallGrid->getPositionX() - smallGrid->getContentSize().width/2,smallGrid->getPositionY()-smallGrid->getContentSize().height/2),Vec2(smallGrid->getPositionX() + smallGrid->getContentSize().width/2, smallGrid->getPositionY() + smallGrid->getContentSize().height/2),Color4F::GREEN);
+
 		addEventsOnGrid(smallGrid);
 
 		std::ostringstream gridName;	gridName << (i + 1);
@@ -246,6 +243,15 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 }
 
 void PopCount::setIslandScene() {
+
+	auto timelineWater1 = CSLoader::createTimeline(_sceneMap.at(_popcountCurrentTheme).at("waterAnimation"));
+	this->getChildByName("bg")->getChildByName("mainground")->getChildByName("water_1")->runAction(timelineWater1);
+	timelineWater1->gotoFrameAndPlay(0, true);
+
+	auto timelineWater2 = CSLoader::createTimeline(_sceneMap.at(_popcountCurrentTheme).at("waterAnimation"));
+	this->getChildByName("bg")->getChildByName("mainground")->getChildByName("water_2")->runAction(timelineWater2);
+	timelineWater2->gotoFrameAndPlay(0, true);
+
 	auto themeResourcePath = _sceneMap.at(_popcountCurrentTheme);
 	auto starFish = CSLoader::createNode(themeResourcePath.at("character"));
 	starFish->setScale(0.5);
