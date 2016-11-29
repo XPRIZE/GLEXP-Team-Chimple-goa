@@ -32,6 +32,7 @@ protected:
 	void oneNotePressed();
 	void tenNotePressed();
 	void hundredNotePressed();
+	float _extraX = 0.0f;
 	bool _touched = false;
 	void rePositionOneNotes(cocos2d::Node * note);
 	void rePositionTenNotes(cocos2d::Node * note);
