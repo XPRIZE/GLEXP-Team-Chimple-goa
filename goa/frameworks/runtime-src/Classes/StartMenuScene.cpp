@@ -51,6 +51,7 @@
 #include "mini_games/ChocolateFactory.h"
 #include "mini_games/spot.h"
 #include "mini_games/Balloon.h"
+#include "mini_games/PopCount.h"
 
 
 #include "storage/local-storage/LocalStorage.h"
@@ -93,6 +94,7 @@ const std::vector<std::string> StartMenu::getGameNames() {
     std::vector<std::string> gameNames;
 
 	gameNames.push_back(DECOMON);
+	gameNames.push_back(POPCOUNT);
 	gameNames.push_back(PILLAR);
 	gameNames.push_back(OWL); 
 	gameNames.push_back(BLASTLETTER);
