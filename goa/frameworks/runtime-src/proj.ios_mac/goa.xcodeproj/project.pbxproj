@@ -76,6 +76,8 @@
 		9CA07C971DE6BFC2007578FF /* Item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA07C8C1DE6BFBF007578FF /* Item.cpp */; };
 		9CA07C981DE6BFC4007578FF /* Shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA07C8E1DE6BFBF007578FF /* Shape.cpp */; };
 		9CA07C991DE6BFC8007578FF /* spot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA07C901DE6BFBF007578FF /* spot.cpp */; };
+		9CE8E1EC1DE98718004A4F35 /* Table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8E1EA1DE98718004A4F35 /* Table.cpp */; };
+		9CE8E1EF1DE9871B004A4F35 /* Table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8E1EA1DE98718004A4F35 /* Table.cpp */; };
 		9FA3AE461BE9BBCA00FC9645 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA3AE451BE9BBCA00FC9645 /* GameController.framework */; };
 		A92275421517C094001B78AA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92275411517C094001B78AA /* QuartzCore.framework */; };
 		A92275441517C094001B78AA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92275431517C094001B78AA /* OpenGLES.framework */; };
@@ -558,6 +560,8 @@
 		9CA07C8F1DE6BFBF007578FF /* Shape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shape.h; sourceTree = "<group>"; };
 		9CA07C901DE6BFBF007578FF /* spot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = spot.cpp; sourceTree = "<group>"; };
 		9CA07C911DE6BFBF007578FF /* spot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spot.h; sourceTree = "<group>"; };
+		9CE8E1EA1DE98718004A4F35 /* Table.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Table.cpp; sourceTree = "<group>"; };
+		9CE8E1EB1DE98718004A4F35 /* Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Table.h; sourceTree = "<group>"; };
 		9FA3AE451BE9BBCA00FC9645 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		A922753D1517C094001B78AA /* goa-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "goa-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92275411517C094001B78AA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -1251,6 +1255,8 @@
 		F352471A1D6D9D1A0077C333 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				9CE8E1EA1DE98718004A4F35 /* Table.cpp */,
+				9CE8E1EB1DE98718004A4F35 /* Table.h */,
 				9CA07C8C1DE6BFBF007578FF /* Item.cpp */,
 				9CA07C8D1DE6BFBF007578FF /* Item.h */,
 				9CA07C8E1DE6BFBF007578FF /* Shape.cpp */,
@@ -1927,6 +1933,7 @@
 				F35248591D6D9D1A0077C333 /* sqlite3.c in Sources */,
 				F3667D2F1DB4BA6F00EC8908 /* LipiTKNode.cpp in Sources */,
 				F35248331D6D9D1A0077C333 /* RunningState.cpp in Sources */,
+				9CE8E1EF1DE9871B004A4F35 /* Table.cpp in Sources */,
 				9C0E13481DBF707E00C10A81 /* WordSceneLipiTKNode.cpp in Sources */,
 				F3667D771DB4BA7000EC8908 /* logger.cpp in Sources */,
 				F35247F91D6D9D1A0077C333 /* TextGenerator.cpp in Sources */,
@@ -2154,6 +2161,7 @@
 				F35248101D6D9D1A0077C333 /* WordScene.cpp in Sources */,
 				F3667D4C1DB4BA6F00EC8908 /* NN.cpp in Sources */,
 				F35248581D6D9D1A0077C333 /* sqlite3.c in Sources */,
+				9CE8E1EC1DE98718004A4F35 /* Table.cpp in Sources */,
 				3740AD3D1D912CFD005BDCBA /* Circle.cpp in Sources */,
 				F35248381D6D9D1A0077C333 /* Sqlite3Helper.cpp in Sources */,
 				F35247E61D6D9D1A0077C333 /* Spirograph.cpp in Sources */,
