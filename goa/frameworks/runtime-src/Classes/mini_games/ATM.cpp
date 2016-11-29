@@ -174,11 +174,12 @@ void ATM::onEnterTransitionDidFinish()
 	auto bg = CSLoader::createNode("ATM/ATM.csb");
 	bg->setName("bg");
 	if (visibleSize.width > 2560) {
+		_extraX = (visibleSize.width - 2560) / 2;
 		bg->setPositionX((visibleSize.width - 2560)/2);
 	}
 	this->addChild(bg);
 	_touched = true;
-
+	menu->setMaxPoints(1);
 	auto level = _levelMapping.at(menu->getCurrentLevel());
 	auto firstNumber = level.begin()->first;
 	auto lastNumber = level.begin()->second;
@@ -268,7 +269,7 @@ void ATM::oneNotePressed()
 	myAtm->runAction(timeLine);
 	timeLine->play("1", false);
 	auto sprite = Sprite::createWithSpriteFrameName("ATM/1.png");
-	sprite->setPosition(Vec2(myAtm->getPositionX(), myAtm->getPositionY() - 100));
+	sprite->setPosition(Vec2(myAtm->getPositionX()+ _extraX, myAtm->getPositionY() - 100));
 	sprite->setName("oneNote");
 	sprite->setVisible(false);
 	this->addChild(sprite);
@@ -318,7 +319,7 @@ void ATM::tenNotePressed()
 	myAtm->runAction(timeLine);
 	timeLine->play("10", false);
 	auto sprite = Sprite::createWithSpriteFrameName("ATM/10.png");
-	sprite->setPosition(Vec2(myAtm->getPositionX(),myAtm->getPositionY()-100));
+	sprite->setPosition(Vec2(myAtm->getPositionX()+ _extraX,myAtm->getPositionY()-100));
 	sprite->setName("tenNote");
 	sprite->setVisible(false);
 	this->addChild(sprite);
@@ -366,7 +367,7 @@ void ATM::hundredNotePressed()
 	myAtm->runAction(timeLine);
 	timeLine->play("100", false);
 	auto sprite = Sprite::createWithSpriteFrameName("ATM/100.png");
-	sprite->setPosition(Vec2(myAtm->getPositionX(), myAtm->getPositionY() - 100));
+	sprite->setPosition(Vec2(myAtm->getPositionX()+ _extraX, myAtm->getPositionY() - 100));
 	sprite->setName("hundredNote");
 	sprite->setVisible(false);
 	this->addChild(sprite);
@@ -417,8 +418,12 @@ void ATM::rePositionOneNotes(cocos2d::Node * note)
 	std::string str = ss.str();
 
 	_hundreadLabel->setString(str);
+	if (_oneCount == 0) {
+		_one_XPosition = visibleSize.width / 1.35;
+	}
+
 	auto notes = _onesSprite.at(_onesSprite.size() - 1);
-	auto move = MoveTo::create(1, one->getPosition());
+	auto move = MoveTo::create(1, Vec2(one->getPositionX()+ _extraX,one->getPositionY()));
 	notes->runAction(move);
 	this->runAction(Sequence::create(DelayTime::create(1), CallFunc::create([=]() {
 		_onesSprite.pop_back();
@@ -441,8 +446,12 @@ void ATM::rePositionTenNotes(cocos2d::Node * note)
 	std::string str = ss.str();
 
 	_hundreadLabel->setString(str);
+	if (_tensCount == 0) {
+		_ten_XPosition = visibleSize.width / 1.35;
+	}
+
 	auto notes = _tensSprite.at(_tensSprite.size() - 1);
-	auto move = MoveTo::create(1, one->getPosition());
+	auto move = MoveTo::create(1, Vec2(one->getPositionX() + _extraX, one->getPositionY()));
 	notes->runAction(move);
 	this->runAction(Sequence::create(DelayTime::create(1), CallFunc::create([=]() {
 		_tensSprite.pop_back();
@@ -467,8 +476,10 @@ void ATM::rePositionHundredNotes(cocos2d::Node * note)
 	_hundreadLabel->setString(str);
 
 	auto notes = _hundredsSprite.at(_hundredsSprite.size() - 1);
-
-	auto move = MoveTo::create(1, one->getPosition());
+	if (_hundredCount == 0) {
+		_hundredXPosition = visibleSize.width / 1.35;
+	}
+	auto move = MoveTo::create(1, Vec2(one->getPositionX() + _extraX, one->getPositionY()));
 	notes->runAction(move);
 	this->runAction(Sequence::create(DelayTime::create(1), CallFunc::create([=]() {
 		_hundredsSprite.pop_back();
@@ -483,6 +494,7 @@ void ATM::answerCheck()
 	if (_targetedNumber == _totalCount) {
 		//winning
 		CCLOG("win !!!!");
+		menu->addPoints(1);
 		auto star = this->getChildByName("bg")->getChildByName("star");
 		auto timeLine = CSLoader::createTimeline("ATM/star.csb");
 		star->runAction(timeLine);
@@ -495,6 +507,7 @@ void ATM::answerCheck()
 		auto star = this->getChildByName("bg")->getChildByName("correct_button");
 		FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
 		star->runAction(shake);
+		menu->addPoints(-1);
 		_touched = true;
 	}
 }
