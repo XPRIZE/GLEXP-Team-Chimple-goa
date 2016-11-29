@@ -104,7 +104,7 @@
             },
             "LeftMargin": -257.7043,
             "RightMargin": -282.2957,
-            "TopMargin": 1500.1118,
+            "TopMargin": 1500.1119,
             "BottomMargin": -0.1119,
             "Tag": 510,
             "ActionTag": -1800382794,
@@ -208,51 +208,6 @@
               "Y": 463.0
             },
             "Name": "door_2",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Shape/painting.png",
-              "Plist": "Shape/shape.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1217.3184,
-              "Y": 1554.0253
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.4755,
-              "Y": 0.8633
-            },
-            "PreSize": {
-              "X": 0.2004,
-              "Y": 0.1322
-            },
-            "LeftMargin": 960.8184,
-            "RightMargin": 1086.1816,
-            "TopMargin": 126.9747,
-            "BottomMargin": 1435.0253,
-            "Tag": 492,
-            "ActionTag": -640116489,
-            "Size": {
-              "X": 513.0,
-              "Y": 238.0
-            },
-            "Name": "painting_3",
             "ctype": "SpriteObjectData"
           },
           {
@@ -385,6 +340,51 @@
             },
             "Name": "water_level",
             "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Shape/alphabet_board.png",
+              "Plist": "Shape/shape.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1278.0182,
+              "Y": 1667.7793
+            },
+            "Scale": {
+              "ScaleX": 1.9537,
+              "ScaleY": 1.9537
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4992,
+              "Y": 0.9265
+            },
+            "PreSize": {
+              "X": 0.1348,
+              "Y": 0.1089
+            },
+            "LeftMargin": 1105.5182,
+            "RightMargin": 1109.4818,
+            "TopMargin": 34.2207,
+            "BottomMargin": 1569.7793,
+            "Tag": 24,
+            "ActionTag": 606268903,
+            "Size": {
+              "X": 345.0,
+              "Y": 196.0
+            },
+            "Name": "alphabet_board_4",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {

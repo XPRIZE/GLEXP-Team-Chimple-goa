@@ -1,0 +1,921 @@
+{
+  "ID": "22b4674f-36e1-4827-ada4-d19cd12a0bdc",
+  "Version": "3.10.0.0",
+  "Name": "background",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 14032,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 124,
+              "G": 206,
+              "B": 218
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -260.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1016,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -260.0,
+            "RightMargin": -280.0,
+            "Tag": 14034,
+            "ActionTag": -1384197018,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/cloud.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 318.1515,
+              "Y": 1387.4751
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1243,
+              "Y": 0.7708
+            },
+            "PreSize": {
+              "X": 0.1684,
+              "Y": 0.0806
+            },
+            "LeftMargin": 102.6515,
+            "RightMargin": 2026.3485,
+            "TopMargin": 340.0249,
+            "BottomMargin": 1314.9751,
+            "Tag": 14035,
+            "ActionTag": 1812918915,
+            "Size": {
+              "X": 431.0,
+              "Y": 145.0
+            },
+            "Name": "cloud_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/cloud.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1963.605,
+              "Y": 1496.9219
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.767,
+              "Y": 0.8316
+            },
+            "PreSize": {
+              "X": 0.1684,
+              "Y": 0.0806
+            },
+            "LeftMargin": 1748.105,
+            "RightMargin": 380.895,
+            "TopMargin": 230.5781,
+            "BottomMargin": 1424.4219,
+            "Tag": 14036,
+            "ActionTag": 800602789,
+            "Size": {
+              "X": 431.0,
+              "Y": 145.0
+            },
+            "Name": "cloud_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/wave.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {},
+            "Position": {
+              "X": -237.9985,
+              "Y": 0.0001
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.093,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.2004,
+              "Y": 0.3522
+            },
+            "LeftMargin": -237.9985,
+            "RightMargin": 2284.9985,
+            "TopMargin": 1165.9999,
+            "BottomMargin": 0.0001,
+            "Tag": 14046,
+            "ActionTag": 1480501438,
+            "Size": {
+              "X": 513.0,
+              "Y": 634.0
+            },
+            "Name": "wave_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/wave.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {},
+            "Position": {
+              "X": 269.389,
+              "Y": 0.0001
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1052,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.2004,
+              "Y": 0.3522
+            },
+            "LeftMargin": 269.389,
+            "RightMargin": 1777.611,
+            "TopMargin": 1165.9999,
+            "BottomMargin": 0.0001,
+            "Tag": 14047,
+            "ActionTag": -1430605603,
+            "Size": {
+              "X": 513.0,
+              "Y": 634.0
+            },
+            "Name": "wave_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/wave.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {},
+            "Position": {
+              "X": 780.3726,
+              "Y": -0.6005
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3048,
+              "Y": -0.0003
+            },
+            "PreSize": {
+              "X": 0.2004,
+              "Y": 0.3522
+            },
+            "LeftMargin": 780.3726,
+            "RightMargin": 1266.6274,
+            "TopMargin": 1166.6005,
+            "BottomMargin": -0.6005,
+            "Tag": 14048,
+            "ActionTag": 1468888845,
+            "Size": {
+              "X": 513.0,
+              "Y": 634.0
+            },
+            "Name": "wave_2_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/wave.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1287.7621,
+              "Y": -0.6005
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.503,
+              "Y": -0.0003
+            },
+            "PreSize": {
+              "X": 0.2004,
+              "Y": 0.3522
+            },
+            "LeftMargin": 1287.7621,
+            "RightMargin": 759.2379,
+            "TopMargin": 1166.6005,
+            "BottomMargin": -0.6005,
+            "Tag": 14049,
+            "ActionTag": 344969235,
+            "Size": {
+              "X": 513.0,
+              "Y": 634.0
+            },
+            "Name": "wave_2_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/wave.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1798.5565,
+              "Y": 0.0001
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7026,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.2004,
+              "Y": 0.3522
+            },
+            "LeftMargin": 1798.5565,
+            "RightMargin": 248.4434,
+            "TopMargin": 1165.9999,
+            "BottomMargin": 0.0001,
+            "Tag": 14050,
+            "ActionTag": 402786313,
+            "Size": {
+              "X": 513.0,
+              "Y": 634.0
+            },
+            "Name": "wave_2_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/wave.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2305.938,
+              "Y": 0.0001
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9008,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.2004,
+              "Y": 0.3522
+            },
+            "LeftMargin": 2305.938,
+            "RightMargin": -258.938,
+            "TopMargin": 1165.9999,
+            "BottomMargin": 0.0001,
+            "Tag": 14051,
+            "ActionTag": 1028474421,
+            "Size": {
+              "X": 513.0,
+              "Y": 634.0
+            },
+            "Name": "wave_2_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/bush.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 181.7535,
+              "Y": 748.2375
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.071,
+              "Y": 0.4157
+            },
+            "PreSize": {
+              "X": 0.3523,
+              "Y": 0.1672
+            },
+            "LeftMargin": -269.2465,
+            "RightMargin": 1927.2465,
+            "TopMargin": 901.2625,
+            "BottomMargin": 597.7375,
+            "Tag": 14052,
+            "ActionTag": -1268109195,
+            "Size": {
+              "X": 902.0,
+              "Y": 301.0
+            },
+            "Name": "bush_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/bush.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1011.9437,
+              "Y": 712.4066
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3953,
+              "Y": 0.3958
+            },
+            "PreSize": {
+              "X": 0.3523,
+              "Y": 0.1672
+            },
+            "LeftMargin": 560.9437,
+            "RightMargin": 1097.0563,
+            "TopMargin": 937.0934,
+            "BottomMargin": 561.9066,
+            "Tag": 14053,
+            "ActionTag": -47421245,
+            "Size": {
+              "X": 902.0,
+              "Y": 301.0
+            },
+            "Name": "bush_3_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/bush.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1845.0497,
+              "Y": 747.9266
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7207,
+              "Y": 0.4155
+            },
+            "PreSize": {
+              "X": 0.3523,
+              "Y": 0.1672
+            },
+            "LeftMargin": 1394.0497,
+            "RightMargin": 263.9502,
+            "TopMargin": 901.5734,
+            "BottomMargin": 597.4266,
+            "Tag": 14054,
+            "ActionTag": 1405024857,
+            "Size": {
+              "X": 902.0,
+              "Y": 301.0
+            },
+            "Name": "bush_3_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/bush.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2442.0742,
+              "Y": 728.2442
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9539,
+              "Y": 0.4046
+            },
+            "PreSize": {
+              "X": 0.3523,
+              "Y": 0.1672
+            },
+            "LeftMargin": 1991.0742,
+            "RightMargin": -333.0742,
+            "TopMargin": 921.2558,
+            "BottomMargin": 577.7442,
+            "Tag": 14055,
+            "ActionTag": 2126722266,
+            "Size": {
+              "X": 902.0,
+              "Y": 301.0
+            },
+            "Name": "bush_3_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/sand.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -43.4377,
+              "Y": 562.4077
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.017,
+              "Y": 0.3124
+            },
+            "PreSize": {
+              "X": 0.1266,
+              "Y": 0.0306
+            },
+            "LeftMargin": -205.4377,
+            "RightMargin": 2441.4377,
+            "TopMargin": 1210.0923,
+            "BottomMargin": 534.9077,
+            "Tag": 14056,
+            "ActionTag": 1777399541,
+            "Size": {
+              "X": 324.0,
+              "Y": 55.0
+            },
+            "Name": "sand_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/sand.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 378.8972,
+              "Y": 539.1066
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.148,
+              "Y": 0.2995
+            },
+            "PreSize": {
+              "X": 0.1266,
+              "Y": 0.0306
+            },
+            "LeftMargin": 216.8972,
+            "RightMargin": 2019.1028,
+            "TopMargin": 1233.3934,
+            "BottomMargin": 511.6066,
+            "Tag": 14057,
+            "ActionTag": -1477854021,
+            "Size": {
+              "X": 324.0,
+              "Y": 55.0
+            },
+            "Name": "sand_7_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/sand.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 862.1711,
+              "Y": 536.1509
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3368,
+              "Y": 0.2979
+            },
+            "PreSize": {
+              "X": 0.1266,
+              "Y": 0.0306
+            },
+            "LeftMargin": 700.1711,
+            "RightMargin": 1535.8289,
+            "TopMargin": 1236.3491,
+            "BottomMargin": 508.6509,
+            "Tag": 14058,
+            "ActionTag": 817931897,
+            "Size": {
+              "X": 324.0,
+              "Y": 55.0
+            },
+            "Name": "sand_7_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/sand.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1330.6658,
+              "Y": 528.7614
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5198,
+              "Y": 0.2938
+            },
+            "PreSize": {
+              "X": 0.1266,
+              "Y": 0.0306
+            },
+            "LeftMargin": 1168.6658,
+            "RightMargin": 1067.3342,
+            "TopMargin": 1243.7386,
+            "BottomMargin": 501.2614,
+            "Tag": 14059,
+            "ActionTag": 1995820656,
+            "Size": {
+              "X": 324.0,
+              "Y": 55.0
+            },
+            "Name": "sand_7_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/sand.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1787.2395,
+              "Y": 549.5871
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6981,
+              "Y": 0.3053
+            },
+            "PreSize": {
+              "X": 0.1266,
+              "Y": 0.0306
+            },
+            "LeftMargin": 1625.2395,
+            "RightMargin": 610.7605,
+            "TopMargin": 1222.9128,
+            "BottomMargin": 522.0871,
+            "Tag": 14060,
+            "ActionTag": 583067563,
+            "Size": {
+              "X": 324.0,
+              "Y": 55.0
+            },
+            "Name": "sand_7_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/sand.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2235.7988,
+              "Y": 543.1789
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8734,
+              "Y": 0.3018
+            },
+            "PreSize": {
+              "X": 0.1266,
+              "Y": 0.0306
+            },
+            "LeftMargin": 2073.7988,
+            "RightMargin": 162.2012,
+            "TopMargin": 1229.321,
+            "BottomMargin": 515.6789,
+            "Tag": 14061,
+            "ActionTag": -316213822,
+            "Size": {
+              "X": 324.0,
+              "Y": 55.0
+            },
+            "Name": "sand_7_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/sand.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2615.4722,
+              "Y": 539.9749
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0217,
+              "Y": 0.3
+            },
+            "PreSize": {
+              "X": 0.1266,
+              "Y": 0.0306
+            },
+            "LeftMargin": 2453.4722,
+            "RightMargin": -217.4722,
+            "TopMargin": 1232.5251,
+            "BottomMargin": 512.4749,
+            "Tag": 14062,
+            "ActionTag": 2110443939,
+            "Size": {
+              "X": 324.0,
+              "Y": 55.0
+            },
+            "Name": "sand_7_5",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "popcount.plist",
+        "popcount.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

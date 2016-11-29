@@ -377,7 +377,7 @@
             },
             "LeftMargin": 659.4807,
             "RightMargin": 1636.5193,
-            "TopMargin": 1483.1312,
+            "TopMargin": 1483.1313,
             "BottomMargin": 52.8687,
             "Tag": 54,
             "ActionTag": 1214740958,
@@ -701,6 +701,51 @@
               "Y": 294.0
             },
             "Name": "item_frog2_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "item/item_done.png",
+              "Plist": "item/item.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2274.5444,
+              "Y": 205.2814
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8885,
+              "Y": 0.114
+            },
+            "PreSize": {
+              "X": 0.0996,
+              "Y": 0.1183
+            },
+            "LeftMargin": 2147.0444,
+            "RightMargin": 157.9556,
+            "TopMargin": 1488.2186,
+            "BottomMargin": 98.7814,
+            "Tag": 38,
+            "ActionTag": 1514439511,
+            "Size": {
+              "X": 255.0,
+              "Y": 213.0
+            },
+            "Name": "item_done_4",
             "ctype": "SpriteObjectData"
           }
         ],
