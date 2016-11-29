@@ -238,8 +238,8 @@ void Order::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 	if (qqq < 0) {
 		qqq = 0;
 	}
-	else if (qqq == _boxes.size()) {
-		qqq--;
+	else if (qqq >= _boxes.size()) {
+		qqq = _boxes.size()-1;
 	}
 	target->setPositionY(visibleSize.height* 0.1 + ((qqq) * (target->getContentSize().height * 1)));
 	for (short i = 0; i < _boxes.size(); i++) {
@@ -330,17 +330,20 @@ void Order::onEnterTransitionDidFinish()
 	days sorting list = 1 levels
 	pngs formate list = 5 levels
 	*/
-	_sortedList = TextGenerator::getInstance()->getOrderedConcepts(1);
-
+	_sortedList = TextGenerator::getInstance()->getOrderedConcepts(menu->getCurrentLevel());
+//	_sortedList = { "1","2","3","4","5" };
 	auto randomList = _sortedList;
 	std::random_shuffle(randomList.begin(), randomList.end());
+
+	auto spritecache2 = SpriteFrameCache::getInstance();
+	spritecache1->addSpriteFramesWithFile("shoping/shoping.plist");
 
 	//std::copy()
 	//orderfarm/woodblock.png
 	//random vector
 	std::vector<std::string> str1 = { "l","k","j","a","g","h","f","c","d","e","b","i" };
 	std::string str = "1";
-	for (short i = 0; i < 12; i++) {
+	for (short i = 0; i < _sortedList.size(); i++) {
 		auto obj1 = Sprite::createWithSpriteFrameName(_scenePath.at("box"));
 		obj1->setPositionX(visibleSize.width / 2);
 		obj1->setAnchorPoint(Vec2(0.5, 0.5));
@@ -349,11 +352,33 @@ void Order::onEnterTransitionDidFinish()
 		str = str + str;
 		_boxes.pushBack(obj1);
 		this->addChild(obj1);
-		auto topLabel = Label::createWithSystemFont(randomList.at(i).c_str(), "Arial", 100);
-		topLabel->setPositionX(obj1->getContentSize().width / 2);
-		topLabel->setPositionY(obj1->getContentSize().height / 2);
-		topLabel->setColor(Color3B(255, 255, 255));
-		obj1->addChild(topLabel);
+
+		
+		//for quantity
+		if (menu->getCurrentLevel() > 6 && menu->getCurrentLevel() < 12) {
+			int i_dec = atoi(randomList.at(i).c_str());
+			auto pngNode = Node::create();
+			float width = 0.0f;
+			for (int i = 0; i < i_dec; i++) {
+				auto fruit = Sprite::createWithSpriteFrameName("shoping/Pineapple.png");
+				fruit->setPositionX(i * (75));
+				fruit->setPositionY(obj1->getContentSize().height / 2);
+				pngNode->addChild(fruit);
+				width = fruit->getContentSize().width / 2;
+			}
+			pngNode->setPositionX(obj1->getContentSize().width / 2);
+			pngNode->setPositionY(obj1->getContentSize().height / 2);
+			pngNode->setContentSize(Size((i_dec-1) * (75), obj1->getContentSize().height));
+			pngNode->setAnchorPoint(Vec2(0.5, 0.5));
+			obj1->addChild(pngNode);
+		}
+		else {
+			auto topLabel = Label::createWithSystemFont(randomList.at(i).c_str(), "Arial", 100);
+			topLabel->setPositionX(obj1->getContentSize().width / 2);
+			topLabel->setPositionY(obj1->getContentSize().height / 2);
+			topLabel->setColor(Color3B(255, 255, 255));
+			obj1->addChild(topLabel);
+		}
 		auto listener = EventListenerTouchOneByOne::create();
 		//listener->setSwallowTouches(true);
 		listener->onTouchBegan = CC_CALLBACK_2(Order::onTouchBegan, this);
@@ -362,10 +387,11 @@ void Order::onEnterTransitionDidFinish()
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, obj1);
 		_lastBoxPosition = visibleSize.height * 0.1 + (i) * (obj1->getContentSize().height * 1);
 	}
-	_cartMove = _differentPointsConfig.at(_themeName).at("targetDistance") / str1.size();
+	_cartMove = _differentPointsConfig.at(_themeName).at("targetDistance") / _boxes.size();
 
 	runAction(RepeatForever::create(Sequence::create(DelayTime::create(10 + (rand() % 60) / 30.0), CallFunc::create([=]() {
-		int score = cocos2d::RandomHelper::random_int(0, 12);
+		int size = _sortedList.size();
+		int score = cocos2d::RandomHelper::random_int(0, size);
 		otherPlayer(score);
 	}
 	
@@ -449,7 +475,7 @@ void Order::checkUserSortList(std::vector<int> list)
 	auto cart = _bg->getChildByName(_scenePath.at("child1"))->getChildByName(_scenePath.at("child2"));
 	_myScore = score;
 	cart->runAction(Sequence::create(moveBy, CallFunc::create([=]() {
-		if (_myScore == 12) {
+		if (_myScore == _sortedList.size()) {
 			winAnimation();
 			//cartAnimation("eat", true);
 		}
@@ -476,7 +502,7 @@ void Order::cartAnimation(std::string animationName, bool loop)
 	auto timeline = CSLoader::createTimeline(_scenePath.at("characterAnimation"));
 	auto cart = _bg->getChildByName(_scenePath.at("child1"))->getChildByName(_scenePath.at("child2"));
 	cart->runAction(timeline);
-	if (_cartFloating && _myScore != 12) {
+	if (_cartFloating && _myScore != _sortedList.size()) {
 		timeline->play(animationName, loop);
 	} 
 }
@@ -510,7 +536,7 @@ void Order::otherPlayer(int score)
 	cart->runAction(Sequence::create(moveBy,CallFunc::create([=]() {
 
 		_enemyScore = score;
-		if (_enemyScore == 12) {
+		if (_enemyScore == _sortedList.size()) {
 			menu->showScore();
 		}
 	}), NULL));
