@@ -18,6 +18,9 @@ protected:
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	MenuContext *_menuContext;
 	HelpLayer* _help;
+	std::vector<std::string> _nodeName;
+	Sprite* _pin;
+	bool _touched = true;
 
 
 public:
@@ -27,6 +30,7 @@ public:
 	void onEnterTransitionDidFinish();
 	void update(float dt);
 	void addTouchEvents(Sprite* touchSprite);
+	void upFloat(Sprite* spriteAlphabet, int time, float positionX, float positionY);
 
 	std::pair<int, int> levelAllInfo(int levelNum, int sceneRepetitionNo, int totalScene, int catagoryRepetitionNo, int totalcatagory);
 	void setAllSpriteProperties(Sprite* object, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY);

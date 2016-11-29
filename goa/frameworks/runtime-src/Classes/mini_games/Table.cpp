@@ -57,6 +57,10 @@ void Table::onEnterTransitionDidFinish()
 	}
 	
 	auto bg = CSLoader::createNode("table/table.csb");
+	if (visibleSize.width > 2560) {
+	//	_extraX = (visibleSize.width - 2560) / 2;
+		bg->setPositionX((visibleSize.width - 2560) / 2);
+	}
 	this->addChild(bg);
 	auto child = bg->getChildren();
 	for (int i = 0; i < child.size(); i++) {
@@ -371,7 +375,7 @@ void Table::calculatedResult(std::string result)
 		_target->runAction(shake);
 	}
 	if (_score == _config.at("disableFish")) {
-		menu->setMaxPoints(_numberOfAttempt);
+		menu->setMaxPoints(_config.at("disableFish"));
 		this->scheduleOnce(schedule_selector(Table::gameEnd), 2);
 	}
 }

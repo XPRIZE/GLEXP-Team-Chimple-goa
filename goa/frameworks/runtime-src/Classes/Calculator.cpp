@@ -14,7 +14,7 @@
 #include "lang/TextGenerator.h"
 #include "ui/CocosGUI.h"
 #include "mini_games/Table.h"
-
+#include "mini_games/Item.h"
 USING_NS_CC;
 
 Calculator::Calculator() :
@@ -119,7 +119,7 @@ bool Calculator::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 	if (target->getBoundingBox().containsPoint(locationInNode)) {
 		auto scale = ScaleBy::create(0.1, 0.75);
 		target->runAction(Sequence::create(scale, scale->reverse(), NULL));
-		if (target->getName() != "enter" && target->getName() != "backspace" && target->getName() != "reset") {
+		if (target->getName() != "enter" && target->getName() != "backspace" && target->getName() != "reset" && _answerText.length()<7) {
 			
 				_answer = 10 * _answer + target->getTag();
 			}
@@ -133,6 +133,16 @@ bool Calculator::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 				std::string queryb = sstreamb.str();
 				Table * table = (Table *)this->getParent();
 				table->calculatedResult(queryb);
+
+			}
+			if (this->getParent()->getName().compare(ITEM) == 0) {
+				CCLOG("in ITEM");
+				std::ostringstream sstreamb;
+				sstreamb.clear();
+				sstreamb << _answer;
+				std::string queryb = sstreamb.str();
+				Item * item = (Item *)this->getParent();
+				item->calculatedResult(queryb);
 
 			}
 				_done = 1;
@@ -153,7 +163,7 @@ bool Calculator::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 		sstreamb.clear();
 		sstreamb << _answer;
 		std::string queryb = sstreamb.str();
-				
+		_answerText = queryb;
 		auto answerText = (cocos2d::ui::Text *)_node->getChildByName("screen")->getChildByName("label");
 		answerText->setString(queryb);
 				

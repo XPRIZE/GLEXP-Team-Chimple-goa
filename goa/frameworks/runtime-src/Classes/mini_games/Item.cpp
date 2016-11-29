@@ -36,6 +36,7 @@ cocos2d::Scene * Item::createScene()
 {
 	auto scene = cocos2d::Scene::create();
 	auto layer = Item::create();
+	layer->setName(Item::gameName());
 	scene->addChild(layer);
 
 	layer->menu = MenuContext::create(layer, Item::gameName());
@@ -67,8 +68,8 @@ bool Item::init()
 				{ "frog2","item/item_frog2.png" },
 				{ "box1","item_box_5" },
 				{ "box2","item_box_5_1" },
-				{ "box2","item_box_5_1" },
-				{ "happy","happy" },
+				{ "box3","item_box_5_0" },
+				{ "done","item_done_4" },
 				{ "cry","cry" },
 				{ "animation_select", "one" },
 
@@ -125,7 +126,7 @@ void Item::onEnterTransitionDidFinish()
 	{
 		background = CSLoader::createNode(_scenePath.at("bg"));
 	}
-	else if (menu->getCurrentLevel() <= 10)
+	else if (menu->getCurrentLevel() <= 25)
 	{
 		background = CSLoader::createNode(_scenePath.at("bg1"));
 	}
@@ -135,7 +136,12 @@ void Item::onEnterTransitionDidFinish()
 		background->setPositionX((visibleSize.width - 2560) / 2);
 	}
 	this->addChild(background, 0);
-
+	_done = background->getChildByName(_scenePath.at("done"));
+	_done->setName("done");
+	auto listener = EventListenerTouchOneByOne::create();
+	listener->setSwallowTouches(true);
+	listener->onTouchBegan = CC_CALLBACK_2(Item::onTouchBegan, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, _done);
 	
 
 	if (menu->getCurrentLevel() <= 5)
@@ -162,39 +168,33 @@ void Item::onEnterTransitionDidFinish()
 		timeline2->gotoFrameAndPause(0);
 		fishCreate();
 		numCreate();
-		_done = background->getChildByName("item_done_4");
-		_done->setName("done");
-		auto listener = EventListenerTouchOneByOne::create();
-		listener->setSwallowTouches(true);
-		listener->onTouchBegan = CC_CALLBACK_2(Item::onTouchBegan, this);
-		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, _done);
 		
+		gameHelp();
 	}
-	else if (menu->getCurrentLevel() <= 10)
+	else if (menu->getCurrentLevel() <= 25)
 	{
 		auto spritecache1 = SpriteFrameCache::getInstance();
 		spritecache1->addSpriteFramesWithFile(_scenePath.at("plist"));
 		frogCreate();
 		check();
+		
 	}
 }
 void Item::gameHelp()
 {
-	
+	auto bubble1 = background->getChildByName("item_bubble_3");
+	auto bubble2 = background->getChildByName("item_bubble_3_2");
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+
+	auto help = HelpLayer::create(Rect(bubble1->getPositionX() + extraX, bubble1->getPositionY(), bubble1->getContentSize().width + 200, bubble1->getContentSize().height), Rect(_box1->getPositionX() + extraX, _box1->getPositionY(), 250, 270));
+	help->setName("help");
+	help->clickAndDrag(bubble1->getPosition(), Vec2(visibleSize.width*0.1, visibleSize.height / 2));
+	this->addChild(help);
 }
 
 
 void Item::update(float dt)
 {
-	if (_flag == true)
-	{
-		_flag = false;
-		if (_calculator->checkAnswer(_frog1Num))
-		{
-			CCLOG("true..........");
-		}
-
-	}
 }
 
 void Item::frogCreate()
@@ -203,23 +203,29 @@ void Item::frogCreate()
 	auto ground2 = background->getChildByName(_scenePath.at("ground2"));
 
 	_frog1Num = RandomHelper::random_int(1, 5);
+	CCLOG("frog1num 1st = %d", _frog1Num);
+	auto num1 = RandomHelper::random_int(0, 7);
 	for (int i = 0; i <_frog1Num; i++)
 	{
-		auto num1 = RandomHelper::random_int(0, 7);
+		
 		auto frog1 = Sprite::createWithSpriteFrameName(_scenePath.at("frog1"));
-		frog1->setPosition(_frogX1.at(num1), _frogY1.at(num1));
+		frog1->setPosition(_frogX1.at(num1 % 8), _frogY1.at(num1%8));
 		frog1->setScale(0.5);
 		ground1->addChild(frog1);
+		num1++;
 	//	_frogX1.erase(_frogX1.begin() + num1);
 	//	_frogY1.erase(_frogY1.begin() + num1);
 	}
 	_frog2Num = RandomHelper::random_int(1, 5);
+	CCLOG("frog2num 1st = %d", _frog2Num);
+	auto num2 = RandomHelper::random_int(0, 7);
 	for (int i = 0; i < _frog2Num; i++)
 	{
 		auto frog2 = Sprite::createWithSpriteFrameName(_scenePath.at("frog2"));
-		frog2->setPosition(_frogX2.at(i), _frogY2.at(i));
+		frog2->setPosition(_frogX2.at(num2 % 8), _frogY2.at(num2 % 8));
 		frog2->setScale(0.5);
 		ground2->addChild(frog2);
+		num2++;
 	}
 
 
@@ -228,34 +234,109 @@ void Item::check()
 {
 	auto box1 = background->getChildByName(_scenePath.at("box1"));
 	box1->setName("box1");
-	auto listener = EventListenerTouchOneByOne::create();
-	listener->setSwallowTouches(true);
-	listener->onTouchBegan = CC_CALLBACK_2(Item::onTouchBegan, this);
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, box1);
+	_boxRef.push_back(box1);
+	auto listener1 = EventListenerTouchOneByOne::create();
+	listener1->setSwallowTouches(true);
+	listener1->onTouchBegan = CC_CALLBACK_2(Item::onTouchBegan, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, box1);
+
+	auto box2 = background->getChildByName(_scenePath.at("box2"));
+	box2->setName("box2");
+	_boxRef.push_back(box2);
+	auto listener2 = EventListenerTouchOneByOne::create();
+	listener2->setSwallowTouches(true);
+	listener2->onTouchBegan = CC_CALLBACK_2(Item::onTouchBegan, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener2, box2);
+
+	auto box3 = background->getChildByName(_scenePath.at("box3"));
+	box3->setName("box3");
+	_boxRef.push_back(box3);
+	auto listener3 = EventListenerTouchOneByOne::create();
+	listener3->setSwallowTouches(true);
+	listener3->onTouchBegan = CC_CALLBACK_2(Item::onTouchBegan, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener3, box3);
 	
+	_hintLabel1 = Label::createWithTTF("?", "fonts/digital.ttf", 200);
+	_hintLabel1->setColor(Color3B(255, 255, 255));
+	_hintLabel1->setPositionX(box1->getContentSize().width / 2);
+	_hintLabel1->setPositionY(box1->getContentSize().height / 2);
+	_hintLabel1->setName("hintLabel1");
+	box1->addChild(_hintLabel1);
+
+	_hintLabel2 = Label::createWithTTF("?", "fonts/digital.ttf", 200);
+	_hintLabel2->setColor(Color3B(255, 255, 255));
+	_hintLabel2->setPositionX(box1->getContentSize().width / 2);
+	_hintLabel2->setPositionY(box1->getContentSize().height / 2);
+	_hintLabel2->setName("hintLabel2");
+	box2->addChild(_hintLabel2);
+
+	_hintLabel3 = Label::createWithTTF("?", "fonts/digital.ttf", 200);
+	_hintLabel3->setColor(Color3B(255, 255, 255));
+	_hintLabel3->setPositionX(box1->getContentSize().width / 2);
+	_hintLabel3->setPositionY(box1->getContentSize().height / 2);
+	_hintLabel3->setName("hintLabel3");
+	box3->addChild(_hintLabel3);
+
+	if (menu->getCurrentLevel() < 25)
+	{
+		auto fillNum = cocos2d::RandomHelper::random_int(0, 2);
+		if (fillNum == 0)
+		{
+			Label* box1Label = (Label*)box1->getChildByName("hintLabel1");
+			std::stringstream ss;
+			ss << _frog1Num;
+			std::string str = ss.str();
+			box1Label->setString(str.c_str());
+			_eventDispatcher->removeEventListenersForTarget(box1);
+			_frogCount1 = atoi(str.c_str());
+		}
+		else if (fillNum == 1)
+		{
+			Label* box1Label = (Label*)box2->getChildByName("hintLabel2");
+			std::stringstream ss;
+			ss << _frog2Num;
+			std::string str = ss.str();
+			box1Label->setString(str.c_str());
+			_eventDispatcher->removeEventListenersForTarget(box2);
+			_frogCount2 = atoi(str.c_str());
+		}
+		else if (fillNum == 2)
+		{
+			Label* box1Label = (Label*)box3->getChildByName("hintLabel3");
+			std::stringstream ss;
+			ss << (_frog1Num + _frog2Num);
+			std::string str = ss.str();
+			box1Label->setString(str.c_str());
+			_eventDispatcher->removeEventListenersForTarget(box3);
+			_frogCount3 = atoi(str.c_str());
+		}
+
+	}
+
 }
 void Item::numCreate()
 {
-	auto box1 = background->getChildByName(_scenePath.at("box1"));
-	auto box2 = background->getChildByName(_scenePath.at("box2"));
+	_box1 = background->getChildByName(_scenePath.at("box1"));
+	_box2 = background->getChildByName(_scenePath.at("box2"));
 
 	_num1 = cocos2d::RandomHelper::random_int(1, 5);
+	CCLOG("randNum =%d", _num1);
 	std::stringstream ss1;
 	ss1 << _num1;
 	std::string str1 = ss1.str();
 	auto number_label1 = Label::createWithSystemFont(str1, "Arial", 90);
-	number_label1->setPositionX(box1->getContentSize().width/2);
-	number_label1->setPositionY(box1->getContentSize().height/2);
-	box1->addChild(number_label1,2);
+	number_label1->setPositionX(_box1->getContentSize().width / 2);
+	number_label1->setPositionY(_box1->getContentSize().height / 2);
+	_box1->addChild(number_label1, 2);
 
 	_num2 = cocos2d::RandomHelper::random_int(1, 5);
 	std::stringstream ss2;
 	ss2 << _num2;
 	std::string str2 = ss2.str();
 	auto number_label2 = Label::createWithSystemFont(str2, "Arial", 90);
-	number_label2->setPositionX(box2->getContentSize().width / 2);
-	number_label2->setPositionY(box2->getContentSize().height / 2);
-	box2->addChild(number_label2,2);
+	number_label2->setPositionX(_box2->getContentSize().width / 2);
+	number_label2->setPositionY(_box2->getContentSize().height / 2);
+	_box2->addChild(number_label2, 2);
 }
 void Item::fishCreate()
 {
@@ -301,6 +382,11 @@ void Item::fishCreate()
 }
 void Item::scoreBoard(float dt)
 {
+	_frog1Num = 0;
+	_frog2Num = 0;
+	_frogCount1 = 0;
+	_frogCount2 = 0;
+	_frogCount3 = 0;
 	menu->showScore();
 }
 void Item::result()
@@ -330,6 +416,25 @@ void Item::result()
 		_fishMove.clear();
 	}
 }
+void Item::verify()
+{
+	CCLOG("_frog1Num = %d", _frog1Num);
+	CCLOG("_frog2Num = %d", _frog2Num);
+	CCLOG("_frogCount1 = %d", _frogCount1);
+	CCLOG("_frogCount2 = %d", _frogCount2);
+	CCLOG("_frogCount3 = %d", _frogCount3);
+	if (_frog1Num == _frogCount1 && _frog2Num == _frogCount2 && (_frog1Num+ _frog2Num) == _frogCount3)
+	{
+		this->scheduleOnce(schedule_selector(Item::scoreBoard), 2);
+	}
+	else
+	{
+		FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
+		_done->runAction(shake);
+
+	}
+}
+
 bool Item::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -342,13 +447,39 @@ bool Item::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 	{
 		if (target->getName().compare("done") == 0)
 		{
-			result();
+			if (menu->getCurrentLevel() <= 5)
+			{
+				result();
+			}
+			else if (menu->getCurrentLevel() <= 25)
+			{
+				verify();
+			}
+			
 		}
 		if (target->getName().compare("box1") == 0)
 		{
-			CCLOG("box1");
+			this->removeChildByName("calculator");
 			_flag = true;
+			_box1Name = "box1";
 			addCalculator();
+			
+		}
+		if (target->getName().compare("box2") == 0)
+		{
+			this->removeChildByName("calculator");
+			_flag = true;
+			_box1Name = "box2";
+			addCalculator();
+			
+		}
+		if (target->getName().compare("box3") == 0)
+		{
+			this->removeChildByName("calculator");
+			_flag = true;
+			_box1Name = "box3";
+			addCalculator();
+			
 		}
 		return true;
 	}
@@ -426,11 +557,15 @@ void Item::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 		{
 			_count2--;
 		}
+
 		this->removeChild(target);
 		_fishMove.pop_back();
 	}
 	
-	
+	if (_num1 == _count1)
+	{
+		this->removeChildByName("help");
+	}
 
 }
 	
@@ -441,9 +576,35 @@ void Item::addCalculator() {
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	_calculator = new Calculator();
-	_calculator->createCalculator(Vec2(800, 800), Vec2(0.5, 0.5), 0.5, 0.5);
+	_calculator->createCalculator(Vec2(visibleSize.width/2, visibleSize.height -350), Vec2(0.5, 0.5), 0.5, 0.5);
 	this->addChild(_calculator, 10);
+	_calculator->setName("calculator");
 	//_calculator->setGlobalZOrder(2);
 	_calculator->setVisible(true);
 
+}
+void Item::calculatedResult(std::string result)
+{
+	CCLOG("table calculator!!!!!!!!!!!  === %s", result.c_str());
+	this->removeChildByName("calculator");
+	if (_box1Name == "box1")
+	{
+		_hintLabel1->setString(result.c_str());
+		_frogCount1 = atoi(result.c_str());
+		CCLOG("_frogCount1 = %d", _frogCount1);
+	}
+	else if (_box1Name == "box2")
+	{
+		_hintLabel2->setString(result.c_str());
+		_frogCount2 = atoi(result.c_str());
+		CCLOG("_frogCount2 = %d", _frogCount2);
+	}
+	else if (_box1Name == "box3")
+	{
+		_hintLabel3->setString(result.c_str());
+		_frogCount3 = atoi(result.c_str());
+		CCLOG("_frogCount3 = %d", _frogCount3);
+	}
+	
+	
 }

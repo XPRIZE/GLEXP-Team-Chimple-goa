@@ -29,6 +29,7 @@ public:
 	cocos2d::Sprite *_water, *_circle, *_circle_Trans, *_bottom_Crack;
 	cocos2d::Sequence *_fishSequence;
 	cocos2d::RepeatForever *_fishRepeat;
+	cocos2d::Label *_shapeName;
 
 	std::map<int, std::map<int, std::string>> _differntSceneMapping;
 	std::map<int, std::map<int, float>> _differntPosition;
@@ -43,9 +44,12 @@ public:
 	{
 		cocos2d::Sprite *_sprite;
 		int _id, _flag, _xp, _yp;
+		std::string _name;
 	}TransSpriteDetails, RealSpriteDetails;
 	std::vector<struct SpriteDetails> _transSpriteDetails;
 	std::vector<struct SpriteDetails> _realSpriteDetails;
+	std::vector<CCParticleSystemQuad*> _particleDetails;
+
 
 	static cocos2d::Scene* createScene();
 	virtual bool init();
