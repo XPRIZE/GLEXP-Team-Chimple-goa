@@ -23,12 +23,34 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         return true;
     },
 
+    bindTouchListenerToLayer: function(target) {
+        var context = this;
+        var listener = cc.EventListener.create({
+            event: cc.EventListener.TOUCH_ONE_BY_ONE,
+            swallowTouches: true,
+            onTouchBegan: function (touch, event) {
+                if(context._playStarted) {
+                    return false;
+                }
+                return true;
+            },
+            onTouchEnded: function (touch, event) {
+            }            
+        });
+        cc.eventManager.addListener(listener, target);
+    },
+
     bindTouchListenerToSkeleton: function (target, funcName, loop) {
         var context = this;
         var listener = cc.EventListener.create({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
             swallowTouches: true,
             onTouchBegan: function (touch, event) {
+
+                if(context._playStarted) {
+                    return false;
+                }
+                
                 var childText = context.getChildByName("wordMeaning");
                 if(childText) {
                     childText.removeFromParent();
@@ -73,6 +95,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             onTouchEnded: function (touch, event) {
                 var target = event.getCurrentTarget();
                 if(target.draggingEnabled) {
+                    var action = target.actionManager.getActionByTag(target.tag, target);
+                    action.pause();
                     target.actionManager.pauseTarget(target);
                 }
                 context._previousTouch = null;
@@ -94,6 +118,9 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
             swallowTouches: true,
             onTouchBegan: function (touch, event) {
+                if(context._playStarted) {
+                    return false;
+                }
 
                 var childText = context.getChildByName("wordMeaning");
                 if(childText) {
@@ -138,6 +165,11 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                     context.displayText(target.getName(),location);                    
                 }
                     
+                if(target.draggingEnabled) {
+                    var action = target.actionManager.getActionByTag(target.tag, target);
+                    action.pause();                    
+                    target.actionManager.pauseTarget(target);
+                }
 
                 this._isDragging = false;            
             }            
@@ -168,6 +200,10 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
             swallowTouches: true,
             onTouchBegan: function (touch, event) {
+                if(context._playStarted) {
+                    return false;
+                }
+                
                 var target = event.getCurrentTarget();
                 var childText = context.getChildByName("wordMeaning");
                 if(childText) {
@@ -205,6 +241,13 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             onTouchEnded: function (touch, event) {
                 var target = event.getCurrentTarget();
                 var location = target.parent.convertToNodeSpace(touch.getLocation());
+
+                if(target.draggingEnabled) {
+                    var action = target.actionManager.getActionByTag(target.tag, target);
+                    action.pause();                    
+                    target.actionManager.pauseTarget(target);
+                }
+                
                 if(!this._isDragging) {
                     var textPos = cc.p(location.x, location.y);
                     context.displayText(target.getName(), textPos);                
@@ -232,6 +275,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         
         this.processScene(this._constructedScene.node);
         if (this._constructedScene.node) {
+            this._constructedScene.node.setPosition(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2);
+            this._constructedScene.node.setAnchorPoint(cc.p(0.5,0.5));
             this.addChild(this._constructedScene.node,0);
         }        
 
@@ -249,7 +294,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this._rightButtonPanel.setBackGroundColor(xc.PRIMARY_COLOR);
         this.addChild(this._rightButtonPanel);
         this._rightButtonPanel.setVisible(false);
-
+        // this.showText();
+        this.bindTouchListenerToLayer(this);
         this.sceneTouched();
     },
 
@@ -304,16 +350,16 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         {      
             if(child instanceof ccs.SkeletonNode) {
                 that.bindEventsToTarget(child);
-                that.bindTouchListenerToSkeleton(child, "playAnimiation", false);    
+                that.bindTouchListenerToSkeleton(child, "playAnimiation", true);    
             } else {
                 if(!child.getName().startsWith("Panel")) {
                     cc.log("processing:" + child.getName());
                     if(child.getChildren() != null && child.getChildren().length > 1) {
                         that.bindEventsToTarget(child);
-                        that.bindTouchListenerToSubChild(child, "playAnimationOnChild", false);                                        
+                        that.bindTouchListenerToSubChild(child, "playAnimationOnChild", true);                                        
                     } else {
                         that.bindEventsToTarget(child);
-                        that.bindTouchListener(child, "playAnimiation", false);
+                        that.bindTouchListener(child, "playAnimiation", true);
                     }                                                        
                 }
             }
@@ -321,31 +367,29 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     },
 
     playAnimiation: function(target, loop) {
-
+        var action = target.actionManager.getActionByTag(target.tag, target);
         if(target.isMultipleEvents) {
             target.currentAnimIndex = target.currentAnimIndex == undefined ? 0 : target.currentAnimIndex;              
             cc.log("playAnimiation" + target.cEvents[target.currentAnimIndex]);
             var currentAnim = target.cEvents[target.currentAnimIndex];
-            this._constructedScene.action.play(currentAnim, loop);
+            action.play(currentAnim, loop);
             target.currentAnimIndex = (target.currentAnimIndex + 1)  % target.cEvents.length;
         } else if(target.cEvent) {
             cc.log("playAnimiation" + target.cEvent);
-            this._constructedScene.action.play(target.cEvent, loop);
+            action.play(target.cEvent, loop);
         }
     },
 
     playAnimationOnChild: function(target, loop) {
         var action = target.actionManager.getActionByTag(target.tag, target);
-        if(action) {
-            if(target.isMultipleEvents) {
-                target.currentAnimIndex = target.currentAnimIndex == undefined ? 0 : target.currentAnimIndex;              
-                cc.log("playAnimationOnChild" + target.cEvents[target.currentAnimIndex]);
-                action.play(target.cEvents[target.currentAnimIndex], false);
-                target.currentAnimIndex = (target.currentAnimIndex + 1)  % target.cEvents.length; 
-            } else if(target.cEvent) {
-                action.play(target.cEvent, false);
-            }
-        }
+        if(target.isMultipleEvents) {
+            target.currentAnimIndex = target.currentAnimIndex == undefined ? 0 : target.currentAnimIndex;              
+            cc.log("playAnimationOnChild" + target.cEvents[target.currentAnimIndex]);
+            action.play(target.cEvents[target.currentAnimIndex], loop);
+            target.currentAnimIndex = (target.currentAnimIndex + 1)  % target.cEvents.length; 
+        } else if(target.cEvent) {
+            action.play(target.cEvent, loop);
+        }        
     },
 
 
@@ -402,11 +446,13 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     },
 
     sceneTouched: function (target) {
-        //load content
+        //load content        
+        this._playStarted = true;
         var delayAction = new cc.DelayTime(2);
         var createPlayAction = new cc.CallFunc(this._referenceToContext.playRecordedScene, this._referenceToContext);
         var playSequence = new cc.Sequence(delayAction, createPlayAction);
-        this._referenceToContext.runAction(playSequence);        
+        this._referenceToContext.runAction(playSequence);    
+        
     },
 
     previousStory: function () {
@@ -419,14 +465,16 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         xc.NarrateStoryScene.load(curIndex, this._storyInformation, xc.NarrateStoryLayer, true);
     },
 
-    nextStory: function () {
+    nextStory: function () {        
         var pages = this._storyInformation["pages"];
         var curIndex = this._pageIndex;
         curIndex++;
         if (curIndex >= pages.length) {
+            xc.StoryQuestionHandlerScene.load(this._baseDir, xc.StoryQuestionHandlerLayer, true);
             return;
         }
         xc.NarrateStoryScene.load(curIndex, this._storyInformation, xc.NarrateStoryLayer, true);
+        
     },
 
     playEnded: function () {
@@ -434,10 +482,11 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         var delayAction = new cc.DelayTime(2);
         var createWebViewAction = new cc.CallFunc(this._referenceToContext.showText, this._referenceToContext);
         var playEndSequence = new cc.Sequence(delayAction, createWebViewAction);
-        this._referenceToContext.runAction(playEndSequence);
+        this._referenceToContext.runAction(playEndSequence);        
     },
     
     showText: function() {
+        this._playStarted = false;
         this._constructedScene.action.clearLastFrameCallFunc();
         this._constructedScene.action.gotoFrameAndPause(this._constructedScene.action.getCurrentFrame());
         this.renderNextButton();
@@ -478,6 +527,11 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         }        
     },
 
+    processText:function(sender, type) {
+        if(cc.audioEngine.isMusicPlaying()) {
+            cc.audioEngine.stopMusic();
+        }        
+    },
 
     processAudio: function(sender, type) {
         switch (type) {
@@ -513,6 +567,13 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         } else {            
             this.playEnded();
         }
+    },
+
+
+    onExit: function() {
+        if(cc.audioEngine.isMusicPlaying()) {
+            cc.audioEngine.stopMusic();
+        }        
     }
 });
 

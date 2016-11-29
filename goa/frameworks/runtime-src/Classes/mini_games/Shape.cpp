@@ -38,11 +38,43 @@ void Shape::update(float d)
 
 	if (_ShapeBg->getChildByName("water_level")->getPositionY() + _water->getBoundingBox().size.height < _fish->getPositionY() && _firstFishFlag == 0)
 	{
+		for (int i = 0; i < _realSpriteDetails.size(); i++)
+		{
+			Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(_realSpriteDetails.at(i)._sprite);
+		}
+
 		_firstFishFlag = 1;
 		_fish->stopAction(_fishTimeline);
 		_fish->stopAction(_fishRepeat);
-//		this->unscheduleUpdate();
-		_fish->runAction(MoveTo::create(1, Vec2(_fish->getPositionX(), visibleSize.height * .35)));
+
+		_fish->runAction(Sequence::create(MoveTo::create(1, Vec2(_fish->getPositionX(), visibleSize.height * .35)), CallFunc::create([=] {
+			_menuContext->addPoints(-10);
+			_menuContext->showScore();
+			this->unscheduleUpdate();
+		}), NULL));
+	}
+
+	if (_ShapeBg->getChildByName("water_level")->getPositionY() + _water->getBoundingBox().size.height < (_transSpriteDetails.at(0)._sprite->getPositionY() - _transSpriteDetails.at(0)._sprite->getContentSize().height * .30))
+	{
+		this->unscheduleUpdate();
+
+		int _flag = 0;
+		for (int i = 0; i < _realSpriteDetails.size(); i++)
+		{
+			if (_realSpriteDetails.at(i)._flag == 1)
+				_flag++;
+		}
+
+		if (_flag != _realSpriteDetails.size())
+		{
+			_menuContext->addPoints(-10);
+			_menuContext->showScore();
+		}
+		else
+		{
+			_menuContext->addPoints(10);
+			_menuContext->showScore();
+		}
 	}
 }
 
@@ -68,7 +100,7 @@ void Shape::onEnterTransitionDidFinish()
 	_water->setAnchorPoint(Vec2(.5, 0));
 
 	_fish = CSLoader::createNode("Shape/fish.csb");
-	_fish->setPosition(Vec2(visibleSize.width * .80, visibleSize.height * .60));
+	_fish->setPosition(Vec2(visibleSize.width * .80, visibleSize.height * .50));
 	this->addChild(_fish);
 
 	_fishTimeline = CSLoader::createTimeline("Shape/fish.csb");
@@ -99,7 +131,7 @@ void Shape::onEnterTransitionDidFinish()
 			{ 0, "pentagon" },
 			{ 1, "square" },
 			{ 2, "star" },
-			{ 3, "tringle" },
+//			{ 3, "tringle" },
 		} },
 		{ 3,
 		{
@@ -157,7 +189,7 @@ void Shape::onEnterTransitionDidFinish()
 		RealSpriteDetails._id = i;
 		RealSpriteDetails._flag = 0;
 		RealSpriteDetails._xp = RealSpriteDetails._sprite->getPositionX();
-		RealSpriteDetails._yp = visibleSize.height * .23;
+		RealSpriteDetails._yp = visibleSize.height * .08;
 		this->addChild(RealSpriteDetails._sprite);
 		_realSpriteDetails.push_back(RealSpriteDetails);
 		_posIndex = _posIndexY;
@@ -168,13 +200,17 @@ void Shape::onEnterTransitionDidFinish()
 	this->runAction(Sequence::create(DelayTime::create(1), CallFunc::create([=] {
 		objectMovement();
 	}), NULL));
+
+//	ParticleSystem *ps = ParticleSystem::create("Shape/particle_texture.plist")
+//	ps->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
+//	this->addChild(ps, 2);
 }
 
 void Shape::objectMovement()
 {
 	for(int i = 0; i<_realSpriteDetails.size(); i++)
 	{
-		_realSpriteDetails.at(i)._sprite->runAction(MoveTo::create(.5, Vec2(_realSpriteDetails.at(i)._sprite->getPositionX(), visibleSize.height * .23)));
+		_realSpriteDetails.at(i)._sprite->runAction(MoveTo::create(.5, Vec2(_realSpriteDetails.at(i)._sprite->getPositionX(), visibleSize.height * .08)));
 		_transSpriteDetails.at(i)._sprite->runAction(Sequence::create(FadeIn::create(.5), CallFunc::create([=] {
 			if (i == _realSpriteDetails.size() - 1)
 			{
@@ -232,7 +268,7 @@ void Shape::addEvents(struct SpriteDetails sprite)
 						_flag++;
 				}
 
-				if (_flag == _realSpriteDetails.size() - 1 && _firstFishFlag==0)
+				if (_flag == _realSpriteDetails.size() && _firstFishFlag==0)
 					_menuContext->showScore();
 
 			}), NULL));

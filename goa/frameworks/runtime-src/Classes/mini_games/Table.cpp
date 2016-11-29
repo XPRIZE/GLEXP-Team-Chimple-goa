@@ -49,14 +49,18 @@ void Table::onEnterTransitionDidFinish()
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	_score = 0;
-	if (menu->getCurrentLevel() < 5) {
+	if (menu->getCurrentLevel() < 16) {
 		_config = _levelMapping.at(menu->getCurrentLevel());
 	} 
 	else {
-		_config = _levelMapping.at(4);
+		_config = _levelMapping.at(15);
 	}
 	
 	auto bg = CSLoader::createNode("table/table.csb");
+	if (visibleSize.width > 2560) {
+	//	_extraX = (visibleSize.width - 2560) / 2;
+		bg->setPositionX((visibleSize.width - 2560) / 2);
+	}
 	this->addChild(bg);
 	auto child = bg->getChildren();
 	for (int i = 0; i < child.size(); i++) {
@@ -98,6 +102,30 @@ bool Table::init()
 		},
 		{
 			2,{
+				{ "row",3 },
+				{ "column",3 },
+				{ "maxNumber",2 },
+				{ "disableFish",2 }
+			},
+		},
+		{
+			3,{
+				{ "row",3 },
+				{ "column",3 },
+				{ "maxNumber",2 },
+				{ "disableFish",3 }
+			},
+		},
+		{
+			4,{
+				{ "row",3 },
+				{ "column",3 },
+				{ "maxNumber",2 },
+				{ "disableFish",4 }
+			},
+		},
+		{
+			5,{
 				{ "row",4 },
 				{ "column",4 },
 				{ "maxNumber",3 },
@@ -105,7 +133,39 @@ bool Table::init()
 			},
 		},
 		{
-			3,{
+			6,{
+				{ "row",4 },
+				{ "column",4 },
+				{ "maxNumber",3 },
+				{ "disableFish",2 }
+			},
+		},
+		{
+			7,{
+				{ "row",4 },
+				{ "column",4 },
+				{ "maxNumber",3 },
+				{ "disableFish",3}
+			},
+		},
+		{
+			8,{
+				{ "row",4 },
+				{ "column",4 },
+				{ "maxNumber",3 },
+				{ "disableFish",4 }
+			},
+		},
+		{
+			9,{
+				{ "row",4 },
+				{ "column",4 },
+				{ "maxNumber",3 },
+				{ "disableFish",5 }
+			},
+		},
+		{
+			10,{
 				{ "row",5 },
 				{ "column",5 },
 				{ "maxNumber",4 },
@@ -113,20 +173,60 @@ bool Table::init()
 			},
 		},
 		{
-			4,{
+			11,{
+				{ "row",5 },
+				{ "column",5 },
+				{ "maxNumber",4 },
+				{ "disableFish",3 }
+			},
+		},
+		{
+			12,{
 				{ "row",5 },
 				{ "column",5 },
 				{ "maxNumber",4 },
 				{ "disableFish",5 }
+			}
+		},
+		{
+			13,{
+				{ "row",5 },
+				{ "column",5 },
+				{ "maxNumber",4 },
+				{ "disableFish",6 }
+			},
+		},
+		{
+			14,{
+				{ "row",5 },
+				{ "column",5 },
+				{ "maxNumber",4 },
+				{ "disableFish",8 }
+			},
+		},
+		{
+			15,{
+				{ "row",5 },
+				{ "column",5 },
+				{ "maxNumber",4 },
+				{ "disableFish",10 }
 			},
 		}
-	};
+};
 
 	return true;
 }
 
-void Table::helpLayer()
+void Table::helpLayer(cocos2d::Node * node)
 {
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	auto pos = node->getPosition();
+	pos.x = (visibleSize.width / 2) - (200 * (_config.at("row") - 1) - pos.x);
+	pos.y = (visibleSize.height / 2) - (150 * (_config.at("row") - 1) - pos.y);
+	auto helpLayer = HelpLayer::create(Rect(pos.x, pos.y,node->getContentSize().width,node->getContentSize().height), Rect(0,0,0,0));
+	helpLayer->click(pos);
+	helpLayer->setName("helpLayer");
+	this->addChild(helpLayer);
 	
 }
 
@@ -234,6 +334,10 @@ void Table::askMissingNumber()
 		listener->setSwallowTouches(false);
 		listener->onTouchBegan = CC_CALLBACK_2(Table::onTouchBegan, this);
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, stone);
+
+		if (menu->getCurrentLevel() == 1) {
+			helpLayer(stone);
+		}
 	}
 }
 
@@ -246,9 +350,11 @@ void Table::calculatedResult(std::string result)
 {
 	CCLOG("table calculator!!!!!!!!!!!  === %s",result.c_str());
 	_touched = true;
+	_numberOfAttempt++;
 	if (_targetedFishName.compare(result) == 0) {
 		for (int i = 0; i < _catchedFish.size(); i++) {
 			if (_catchedFish.at(i)->getName().compare(result) == 0) {
+				menu->addPoints(1);
 				this->removeChildByName("calculator");
 				this->removeChildByName("hintLabel");
 				_score++;
@@ -264,21 +370,13 @@ void Table::calculatedResult(std::string result)
 	else {
 		this->removeChildByName("calculator");
 		this->removeChildByName("hintLabel");
+		menu->addPoints(-1);
 		FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
 		_target->runAction(shake);
 	}
 	if (_score == _config.at("disableFish")) {
+		menu->setMaxPoints(_config.at("disableFish"));
 		this->scheduleOnce(schedule_selector(Table::gameEnd), 2);
-	}
-}
-
-void Table::update(float ft)
-{
-	if (_checkResult) {
-		_checkResult = false;
-		if (_calculator->checkAnswer(_fishNumber)) {
-			CCLOG("good!!!!");
-		}
 	}
 }
 
@@ -291,6 +389,7 @@ bool Table::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 	Rect rect = Rect(0, 0, s.width, s.height);
 	if (rect.containsPoint(location) && _touched) {  // 
 		CCLOG("touched");
+		this->removeChildByName("helpLayer");
 		_touched = false;
 		_targetedFishName = target->getName().c_str();
 		_fishNumber = atoi(target->getName().c_str());

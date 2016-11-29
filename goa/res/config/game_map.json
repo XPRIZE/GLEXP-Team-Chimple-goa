@@ -506,8 +506,24 @@
         "menuPlist": "crossthebridgelevel/crossthebridgelevel.plist",
         "menuPng": "crossthebridgelevel/crossthebridgelevel.png"
     },
-    {
-        "name": "chain",
+  {
+    "name": "chain",
+    "cIcon": "gameicons/chain_pressed.png",
+    "icon": "gameicons/chain.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "5",
+    "numLevels": "24",
+    "backgroundJson": "chainlevel/chainbackground.json",
+    "foregroundJson": "chainlevel/chainforeground.json",
+    "frontgroundJson": "chainlevel/chainfrontground.json",
+    "maingroundJson": "chainlevel/chainmainground.json",
+    "menuPlist": "chainlevel/chainlevel.plist",
+    "menuPng": "chainlevel/chainlevel.png"
+  },
+  {
+        "name": "balloonMath",
         "cIcon": "gameicons/chain_pressed.png",
         "icon": "gameicons/chain.png",
         "multiPlayer": false,
@@ -723,7 +739,7 @@
     "isJSGame": false,
     "script": "src/NonJSGameLauncher.js",
     "span": "2",
-    "numLevels": "10",
+    "numLevels": "6",
     "backgroundJson": "boxlevel/background.json",
     "foregroundJson": "boxlevel/foreground.json",
     "frontgroundJson": "boxlevel/frontground.json",

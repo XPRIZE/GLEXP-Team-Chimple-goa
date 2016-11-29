@@ -117,8 +117,9 @@ bool Calculator::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 	Point locationInNode = target->getParent()-> convertToNodeSpace(touch->getLocation());
 	
 	if (target->getBoundingBox().containsPoint(locationInNode)) {
-		
-		if (target->getName() != "enter" && target->getName() != "backspace" && target->getName() != "reset") {
+		auto scale = ScaleBy::create(0.1, 0.75);
+		target->runAction(Sequence::create(scale, scale->reverse(), NULL));
+		if (target->getName() != "enter" && target->getName() != "backspace" && target->getName() != "reset" && _answerText.length()<7) {
 			
 				_answer = 10 * _answer + target->getTag();
 			}
@@ -152,7 +153,7 @@ bool Calculator::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 		sstreamb.clear();
 		sstreamb << _answer;
 		std::string queryb = sstreamb.str();
-				
+		_answerText = queryb;
 		auto answerText = (cocos2d::ui::Text *)_node->getChildByName("screen")->getChildByName("label");
 		answerText->setString(queryb);
 				
