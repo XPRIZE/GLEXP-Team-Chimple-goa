@@ -375,7 +375,7 @@ void Table::calculatedResult(std::string result)
 		_target->runAction(shake);
 	}
 	if (_score == _config.at("disableFish")) {
-		menu->setMaxPoints(_numberOfAttempt);
+		menu->setMaxPoints(_config.at("disableFish"));
 		this->scheduleOnce(schedule_selector(Table::gameEnd), 2);
 	}
 }

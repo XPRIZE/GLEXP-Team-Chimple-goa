@@ -179,7 +179,7 @@ void ATM::onEnterTransitionDidFinish()
 	}
 	this->addChild(bg);
 	_touched = true;
-
+	menu->setMaxPoints(1);
 	auto level = _levelMapping.at(menu->getCurrentLevel());
 	auto firstNumber = level.begin()->first;
 	auto lastNumber = level.begin()->second;
@@ -494,6 +494,7 @@ void ATM::answerCheck()
 	if (_targetedNumber == _totalCount) {
 		//winning
 		CCLOG("win !!!!");
+		menu->addPoints(1);
 		auto star = this->getChildByName("bg")->getChildByName("star");
 		auto timeLine = CSLoader::createTimeline("ATM/star.csb");
 		star->runAction(timeLine);
@@ -506,6 +507,7 @@ void ATM::answerCheck()
 		auto star = this->getChildByName("bg")->getChildByName("correct_button");
 		FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
 		star->runAction(shake);
+		menu->addPoints(-1);
 		_touched = true;
 	}
 }
