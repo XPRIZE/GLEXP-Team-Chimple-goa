@@ -33,7 +33,7 @@ void Shape::update(float d)
 {
 	if (_water->getScaleY() >= 0.0)
 	{
-		_water->setScaleY(_water->getScaleY() - .00050);
+		_water->setScaleY(_water->getScaleY() - .00005);
 	}
 
 	if (_ShapeBg->getChildByName("water_level")->getPositionY() + _water->getBoundingBox().size.height < _fish->getPositionY() && _firstFishFlag == 0)
@@ -88,14 +88,6 @@ void Shape::onEnterTransitionDidFinish()
 	_ShapeBg = CSLoader::createNode("Shape/Shape.csb");
 	this->addChild(_ShapeBg);
 
-	if (_level == 1)
-	{
-//		_help = HelpLayer::create(Rect(_position[2].x, _position[2].y + _allBar.at(2)->getContentSize().width / 2, _allBar.at(2)->getContentSize().height, _allBar.at(2)->getContentSize().width), Rect(0, 0, 0, 0));
-//		_help->clickAndDrag(Vec2(_position[2].x, _position[2].y), Vec2(_position[2].x, _position[2].y + _allBar.at(2)->getContentSize().width));
-//		this->addChild(_help);
-//		_helpFlag = 0;
-	}
-
 	_water = (Sprite*)_ShapeBg->getChildByName("water_level")->getChildren().at(0);
 	_water->setAnchorPoint(Vec2(.5, 0));
 
@@ -130,15 +122,32 @@ void Shape::onEnterTransitionDidFinish()
 		{
 			{ 0, "pentagon" },
 			{ 1, "square" },
-			{ 2, "star" },
-//			{ 3, "tringle" },
 		} },
 		{ 3,
 		{
-			{ 0, "Left_Crack" },
-			{ 1, "Right_Crack" },
-			{ 2, "Top_Crack" },
-			{ 3, "Bottom_Crack" }
+			{ 0, "Hexagon" },
+			{ 1, "Octagon" },
+			{ 2, "circle" },
+		} },
+		{ 4,
+		{
+			{ 0, "Rectangle" },
+			{ 1, "cross" },
+			{ 2, "pentagon" },
+		} },
+		{ 5,
+		{
+			{ 0, "heart" },
+			{ 1, "oval" },
+			{ 2, "pentagon" },
+			{ 3, "Hexagon" },
+		} },
+		{ 6,
+		{
+			{ 0, "star" },
+			{ 1, "triangle" },
+			{ 2, "cross" },
+			{ 3, "heart" },
 		} },
 	};
 
@@ -152,17 +161,6 @@ void Shape::onEnterTransitionDidFinish()
 			{ 2, visibleSize.width * .70 },
 			{ 3, visibleSize.height / 2 }
 		} },
-		{ 2,
-		{
-			{ 0, visibleSize.width * .20 },
-			{ 1, visibleSize.height / 2 },
-
-			{ 2, visibleSize.width * .50 },
-			{ 3, visibleSize.height / 2 },
-
-			{ 4, visibleSize.width * .80 },
-			{ 5, visibleSize.height / 2 }
-		} },
 	};
 
 	int _posIndex = -1;
@@ -174,13 +172,11 @@ void Shape::onEnterTransitionDidFinish()
 		_trans << "Shape/" << _differntSceneMapping.at(_level).at(i) << "_trans.png";
 
 		TransSpriteDetails._sprite = Sprite::createWithSpriteFrameName(_trans.str());
-		TransSpriteDetails._sprite->setPosition(Vec2(_differntPosition.at(_level).at(_posIndex), _differntPosition.at(_level).at(_posIndexY)));
+		TransSpriteDetails._sprite->setPosition(Vec2(_differntPosition.at(1).at(_posIndex), _differntPosition.at(1).at(_posIndexY)));
 		TransSpriteDetails._sprite->setOpacity(0);
 		TransSpriteDetails._id = i;
 		TransSpriteDetails._flag = 0;
 		this->addChild(TransSpriteDetails._sprite);
-
-		_transSpriteDetails.push_back(TransSpriteDetails);
 
 		std::ostringstream _main;
 		_main << "Shape/" << _differntSceneMapping.at(_level).at(i) << ".png";
@@ -190,31 +186,57 @@ void Shape::onEnterTransitionDidFinish()
 		RealSpriteDetails._flag = 0;
 		RealSpriteDetails._xp = RealSpriteDetails._sprite->getPositionX();
 		RealSpriteDetails._yp = visibleSize.height * .08;
-		this->addChild(RealSpriteDetails._sprite);
+		this->addChild(RealSpriteDetails._sprite, 2);
+
+		CCParticleSystemQuad *_particle = CCParticleSystemQuad::create("Shape/particle_texture.plist");
+		_particle->setTexture(CCTextureCache::sharedTextureCache()->addImage("Shape/particle_texture.png"));
+		_particle->setPosition(Vec2(RealSpriteDetails._sprite->getPositionX(), RealSpriteDetails._sprite->getPositionY()));
+		_particle->setVisible(false);
+		this->addChild(_particle);
+
+		std::transform(_differntSceneMapping.at(_level).at(i).begin(), _differntSceneMapping.at(_level).at(i).end(), _differntSceneMapping.at(_level).at(i).begin(), ::toupper);
+		TransSpriteDetails._name = _differntSceneMapping.at(_level).at(i);
+		RealSpriteDetails._name = _differntSceneMapping.at(_level).at(i);
 		_realSpriteDetails.push_back(RealSpriteDetails);
+		_transSpriteDetails.push_back(TransSpriteDetails);
+		_particleDetails.push_back(_particle);
 		_posIndex = _posIndexY;
 
 		addEvents(RealSpriteDetails);
 	}
 
+	_shapeName = Label::createWithSystemFont("", "Arial", 100);
+	_shapeName->setPositionX(_ShapeBg->getChildByName("alphabet_board_4")->getPositionX());
+	_shapeName->setPositionY(_ShapeBg->getChildByName("alphabet_board_4")->getPositionY() - _ShapeBg->getChildByName("alphabet_board_4")->getContentSize().height / 4);
+	_shapeName->setColor(Color3B(255, 255, 255));
+	this->addChild(_shapeName);
+
 	this->runAction(Sequence::create(DelayTime::create(1), CallFunc::create([=] {
 		objectMovement();
 	}), NULL));
 
-//	ParticleSystem *ps = ParticleSystem::create("Shape/particle_texture.plist")
-//	ps->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
-//	this->addChild(ps, 2);
+
+	if (_level == 1)
+	{
+		_help = HelpLayer::create(Rect(_transSpriteDetails.at(0)._sprite->getPositionX(), visibleSize.height * .10, _transSpriteDetails.at(0)._sprite->getContentSize().height, _transSpriteDetails.at(0)._sprite->getContentSize().width), Rect(_transSpriteDetails.at(0)._sprite->getPositionX(), _transSpriteDetails.at(0)._sprite->getPositionY(), _transSpriteDetails.at(0)._sprite->getContentSize().height, _transSpriteDetails.at(0)._sprite->getContentSize().width));
+		this->addChild(_help, 3);
+		_helpFlag = 1;
+	}
 }
 
 void Shape::objectMovement()
 {
 	for(int i = 0; i<_realSpriteDetails.size(); i++)
 	{
+		_particleDetails.at(i)->setVisible(true);
 		_realSpriteDetails.at(i)._sprite->runAction(MoveTo::create(.5, Vec2(_realSpriteDetails.at(i)._sprite->getPositionX(), visibleSize.height * .08)));
 		_transSpriteDetails.at(i)._sprite->runAction(Sequence::create(FadeIn::create(.5), CallFunc::create([=] {
 			if (i == _realSpriteDetails.size() - 1)
 			{
 				_moveFlag = 1;
+
+				if (_level == 1)
+					_help->clickAndDrag(Vec2(_transSpriteDetails.at(0)._sprite->getPositionX(), visibleSize.height * .08), Vec2(_transSpriteDetails.at(0)._sprite->getPositionX(), _transSpriteDetails.at(0)._sprite->getPositionY()));
 			}
 		}), NULL));
 	}
@@ -236,6 +258,13 @@ void Shape::addEvents(struct SpriteDetails sprite)
 		if (rect.containsPoint(locationInNode) && _moveFlag==1)
 		{
 			_moveFlag = 0;
+			_shapeName->setString(sprite._name);
+			if (_helpFlag == 1)
+			{
+				this->removeChild(_help);
+				_helpFlag = -1;
+			}
+
 			return true;
 		}
 		return false;
@@ -260,6 +289,7 @@ void Shape::addEvents(struct SpriteDetails sprite)
 				CallFunc::create([=] {
 				_transSpriteDetails.at(sprite._id)._sprite->setOpacity(0);
 				_moveFlag = 1;
+				_particleDetails.at(sprite._id)->setVisible(false);
 
 				int _flag = 0;
 				for (int i = 0; i < _realSpriteDetails.size(); i++)
