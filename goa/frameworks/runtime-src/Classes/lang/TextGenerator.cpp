@@ -607,6 +607,69 @@ std::vector<std::string> TextGenerator::getWords(TextGenerator::P_O_S partOfSpee
 }
 
 std::vector<std::string> TextGenerator::getOrderedConcepts(int level) {
+	std::map<int, std::vector<std::string>> orderedMap = {
+		
+		{1,
+			{"A","B","C","D","E","F","G","H","I","J"}
+		},
+		{ 2,
+			{ "K","L","M","N","O","P","Q","R","S","T" }
+		},
+		{ 3,
+			{ "Q","R","S","T","U","V","W","X","Y","Z" } 
+		},
+		{ 4,
+			{ "a","b","c","d","e","f","g","h","i","j" }
+		},
+		{ 5,
+			{ "k","l","m","n","o","p","q","r","s","t" }
+		},
+		{ 6,
+			{ "q","r","s","t","u","v","w","x","y","z" }
+		},
+		{ 7,
+			{ "1","2","3","4","5","6","7","8","9" }
+		},
+		{ 8,
+			{ "1","3","5","7","9" }
+		},
+		{ 9,
+			{ "2","4","6","8"}
+		},
+		{ 10,
+			{ "1","2","3","5","6","7","9" }
+		},
+		{ 11,
+			{ "2","3","4","6","7","9" }
+		},
+		{ 12,
+			{ "0","1","2","3","4","5","6","7","8","9" }
+		},
+		{ 13,
+			{ "11","12","13","14","15","16","17","18","19","20" }
+		},
+		{ 14,
+			{ "50","100","150","200","250","300","350","400","450","500" }
+		},
+		{ 15,
+			{ "550","600","650","700","750","800","850","900","950","1000" }
+		},
+		{ 16,
+			{ "10","20","30","40","50","60","70","80","90","100" }
+		},
+		{ 17,
+			{ "100","200","300","400","500","600","700","800","900","1000" }
+		},
+		{ 18,
+			{ "1","57","100","145","219","300","389","450","666","963", "999","1010" }
+		},
+		{ 19,
+			{ "Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday" }
+		},
+		{ 20,
+			{ "January", "February","March","April","May","June","July","August","September","October","November","December" }
+		},
+	};
     std::vector<std::string> OrderedConcepts = {
         "January",
         "February",
@@ -621,7 +684,7 @@ std::vector<std::string> TextGenerator::getOrderedConcepts(int level) {
         "November",
         "December"
     };
-    return OrderedConcepts;
+    return orderedMap.at(level);
 }
 
 std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> TextGenerator::getSentenceWithPOS(TextGenerator::P_O_S partOfSpeech, int maxLength, int level) {
