@@ -29,6 +29,7 @@ public:
 	static PopCount* create();
 	void addEventsOnGrid(cocos2d::Sprite * callerObject);
 	void setIslandScene();
+	void popUpCall(int popNumberOfCharacter);
 	void onEnterTransitionDidFinish();
 	void update(float) override;
 

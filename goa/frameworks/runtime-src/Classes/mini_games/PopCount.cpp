@@ -193,13 +193,11 @@ void PopCount::setGridNumberPanel() {
 		gridPanel->addChild(smallGrid);
 		smallGrid->setColor(Color3B::BLUE);
 		smallGrid->setOpacity(150);
+		smallGrid->setTag(i+1);
+		smallGrid->setName("smallGrid");
 		smallGrid->setPosition(Vec2(positionX, gridPanel->getContentSize().height / 2));
 		positionX = positionX + smallGridSize + indiSpace;
 		
-		auto drawRect = DrawNode::create();
-		addChild(drawRect,10);
-		drawRect->drawRect(Vec2(smallGrid->getPositionX() - smallGrid->getContentSize().width/2,smallGrid->getPositionY()-smallGrid->getContentSize().height/2),Vec2(smallGrid->getPositionX() + smallGrid->getContentSize().width/2, smallGrid->getPositionY() + smallGrid->getContentSize().height/2),Color4F::GREEN);
-
 		addEventsOnGrid(smallGrid);
 
 		std::ostringstream gridName;	gridName << (i + 1);
@@ -208,7 +206,6 @@ void PopCount::setGridNumberPanel() {
 		label->setPosition(Vec2(smallGrid->getContentSize().width / 2, smallGrid->getContentSize().height / 2));
 		smallGrid->addChild(label);
 	}
-
 }
 
 void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
@@ -219,8 +216,18 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 	listener->onTouchBegan = [=](cocos2d::Touch* touch, cocos2d::Event* event)
 	{
 		auto target = event->getCurrentTarget();
-		Rect rect = Rect(0, 0, target->getContentSize().width, target->getContentSize().height);
-		if (target->getBoundingBox().containsPoint(touch->getLocation())) {
+		Point locationInNode;
+		if (target->getName() == "smallGrid") {
+			locationInNode = target->getParent()->convertToNodeSpace(touch->getLocation());
+		}
+		else if (target->getName() == "play") {
+		
+		}
+		else if (target->getName() == "playAgain") {
+
+		}
+
+		if (target->getBoundingBox().containsPoint(locationInNode)) {
 			target->setColor(Color3B::GRAY);
 			return true;
 		}
@@ -230,11 +237,12 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 	listener->onTouchEnded = [=](cocos2d::Touch* touch, cocos2d::Event* event)
 	{
 		auto target = event->getCurrentTarget();
-		Size s = target->getContentSize();
-		Rect rect = Rect(0, 0, s.width, s.height);
+		Point locationInNode = target->getParent()->convertToNodeSpace(touch->getLocation());
 		target->setColor(Color3B::BLUE);
-		if (target->getBoundingBox().containsPoint(touch->getLocation())) {
-
+		if (target->getBoundingBox().containsPoint(locationInNode)) {
+			if (target->getTag() == 4) {
+				CCLOG(" THIS IS CORRECT ");
+			}
 		}
 		return false;
 	};
@@ -269,9 +277,15 @@ void PopCount::setIslandScene() {
 		positionX = positionX + (starFish->getChildByName(themeResourcePath.at("characterSpriteName"))->getContentSize().width * 0.5) + indiSpace;
 	}
 
+	popUpCall(4);
+	
+}
+
+void PopCount::popUpCall(int popNumberOfCharacter) {
+
 	this->runAction(Sequence::create(DelayTime::create(2), CallFunc::create([=]() {
 
-		auto getElementObject = getRandomValueRange(0, 9, 4);
+		auto getElementObject = getRandomValueRange(0, 9, popNumberOfCharacter);
 
 		for (size_t i = 0; i < getElementObject.size(); i++) {
 			popUpCharacter(this->getChildByName("bg")->getChildByName("background")->getChildByTag(getElementObject[i] + 1000), "blink");
