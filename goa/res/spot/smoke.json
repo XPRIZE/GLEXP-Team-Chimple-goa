@@ -7,6 +7,7 @@
       "Animation": {
         "Duration": 105,
         "Speed": 1.0,
+        "ActivedAnimationName": "fly",
         "Timelines": [
           {
             "ActionTag": 1866728807,
@@ -2449,7 +2450,14 @@
         ],
         "ctype": "TimelineActionData"
       },
-      "AnimationList": [],
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 105,
+          "Name": "fly",
+          "ctype": "AnimationInfoData"
+        }
+      ],
       "ObjectData": {
         "Tag": 41,
         "Children": [
