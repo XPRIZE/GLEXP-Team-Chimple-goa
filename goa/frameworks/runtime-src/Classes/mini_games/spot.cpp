@@ -54,6 +54,7 @@ void spot::onEnterTransitionDidFinish() {
 
 
 	_bg = CSLoader::createNode("spot/background.csb"); 
+	_bg->setName("bg");
 	_bg->setContentSize(Size(visibleSize.width * numberOfPages, visibleSize.height));
 
 
@@ -74,13 +75,13 @@ void spot::onEnterTransitionDidFinish() {
 
 
 
-	//Vector <Node*> children = _bg->getChildren();
-	//int size = children.size();
-	//for (auto item = children.rbegin(); item != children.rend(); ++item) {
-	//	Node * monsterItem = *item;
-	//	std::string str = monsterItem->getName().c_str();
-	//	CCLOG("name : %s", str.c_str());
-	//}
+	Vector <Node*> children = _bg->getChildren();
+	int size = children.size();
+	for (auto item = children.rbegin(); item != children.rend(); ++item) {
+		Node * monsterItem = *item;
+		std::string str = monsterItem->getName().c_str();
+		CCLOG("name : %s", str.c_str());
+	}
 
 
 	_scrollView = ui::ScrollView::create();
@@ -91,8 +92,12 @@ void spot::onEnterTransitionDidFinish() {
 	this->addChild(_scrollView);
 	_answerValue = 0;
 	addAnimals();
+
+
 	addCalculator();
 
+
+	
 
 	auto listener = EventListenerTouchOneByOne::create();
 	listener->onTouchBegan = CC_CALLBACK_2(spot::onTouchBegan, this);
@@ -128,12 +133,27 @@ void spot::onEnterTransitionDidFinish() {
 
 	_scrollView->addChild(_label,15);
 
-
 	_scrollView->addChild(_bg, 10);
 	
 	_scrollView->addChild(questionPlate, 10);
 
 	CCLOG("%d", _answerValue);
+
+
+
+	///
+	cocostudio::timeline::ActionTimeline * _windmillTimeline;
+	_windmillTimeline = CSLoader::createTimeline("spot/windmill.csb");
+	_bg->getChildByName("windmill")->runAction(_windmillTimeline);
+	_windmillTimeline->play("fly", true);
+	
+
+	cocostudio::timeline::ActionTimeline * _smokeTimeline;
+	_smokeTimeline = CSLoader::createTimeline("spot/smoke.csb");
+	_scrollView->getChildByName("bg")->getChildByName("smoke")->runAction(_smokeTimeline);
+	_smokeTimeline->play("fly", true);
+
+	///
 
 	this->scheduleUpdate();
 
@@ -238,6 +258,11 @@ void spot::addAnimals() {
 		animal->setPosition(nodePos);
 
 		_scrollView->addChild(animal,15);
+
+		cocostudio::timeline::ActionTimeline * _animalTimeline;
+		_animalTimeline = CSLoader::createTimeline("spot/" + animalsName[animalPicker] + ".csb");
+		animal->runAction(_animalTimeline);
+		_animalTimeline->play("eat", true);
 		//std::string str = monsterItem->getName().c_str();
 		//CCLOG("name : %s", str.c_str());
 	}
