@@ -76,6 +76,8 @@
 		9CA07C971DE6BFC2007578FF /* Item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA07C8C1DE6BFBF007578FF /* Item.cpp */; };
 		9CA07C981DE6BFC4007578FF /* Shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA07C8E1DE6BFBF007578FF /* Shape.cpp */; };
 		9CA07C991DE6BFC8007578FF /* spot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA07C901DE6BFBF007578FF /* spot.cpp */; };
+		9CB54DC01DED46E3006B9D59 /* Balloon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CB54DBE1DED46E3006B9D59 /* Balloon.cpp */; };
+		9CB54DC31DED46E7006B9D59 /* Balloon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CB54DBE1DED46E3006B9D59 /* Balloon.cpp */; };
 		9CE8E1EC1DE98718004A4F35 /* Table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8E1EA1DE98718004A4F35 /* Table.cpp */; };
 		9CE8E1EF1DE9871B004A4F35 /* Table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8E1EA1DE98718004A4F35 /* Table.cpp */; };
 		9FA3AE461BE9BBCA00FC9645 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA3AE451BE9BBCA00FC9645 /* GameController.framework */; };
@@ -560,6 +562,8 @@
 		9CA07C8F1DE6BFBF007578FF /* Shape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shape.h; sourceTree = "<group>"; };
 		9CA07C901DE6BFBF007578FF /* spot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = spot.cpp; sourceTree = "<group>"; };
 		9CA07C911DE6BFBF007578FF /* spot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spot.h; sourceTree = "<group>"; };
+		9CB54DBE1DED46E3006B9D59 /* Balloon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Balloon.cpp; sourceTree = "<group>"; };
+		9CB54DBF1DED46E3006B9D59 /* Balloon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Balloon.h; sourceTree = "<group>"; };
 		9CE8E1EA1DE98718004A4F35 /* Table.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Table.cpp; sourceTree = "<group>"; };
 		9CE8E1EB1DE98718004A4F35 /* Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Table.h; sourceTree = "<group>"; };
 		9FA3AE451BE9BBCA00FC9645 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
@@ -1255,6 +1259,8 @@
 		F352471A1D6D9D1A0077C333 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				9CB54DBE1DED46E3006B9D59 /* Balloon.cpp */,
+				9CB54DBF1DED46E3006B9D59 /* Balloon.h */,
 				9CE8E1EA1DE98718004A4F35 /* Table.cpp */,
 				9CE8E1EB1DE98718004A4F35 /* Table.h */,
 				9CA07C8C1DE6BFBF007578FF /* Item.cpp */,
@@ -1947,6 +1953,7 @@
 				F35248391D6D9D1A0077C333 /* Sqlite3Helper.cpp in Sources */,
 				F3667D4D1DB4BA6F00EC8908 /* NN.cpp in Sources */,
 				F3667D211DB4BA6F00EC8908 /* LTKTrace.cpp in Sources */,
+				9CB54DC31DED46E7006B9D59 /* Balloon.cpp in Sources */,
 				F352480F1D6D9D1A0077C333 /* WordBoard.cpp in Sources */,
 				F35248171D6D9D1A0077C333 /* MenuContext.cpp in Sources */,
 				F35248151D6D9D1A0077C333 /* StartMenuScene.cpp in Sources */,
@@ -2149,6 +2156,7 @@
 				F3EEA3FA1DE41EC100CA7D31 /* Shop.cpp in Sources */,
 				F36840C01D8A812F00969162 /* AlphamoleLevel.cpp in Sources */,
 				F35248121D6D9D1A0077C333 /* RPGConfig.cpp in Sources */,
+				9CB54DC01DED46E3006B9D59 /* Balloon.cpp in Sources */,
 				F3667D461DB4BA6F00EC8908 /* PointFloatShapeFeature.cpp in Sources */,
 				F35247C21D6D9D1A0077C333 /* MapScene.cpp in Sources */,
 				F352484C1D6D9D1A0077C333 /* SkeletonPosition.cpp in Sources */,

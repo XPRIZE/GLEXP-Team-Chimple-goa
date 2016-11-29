@@ -19,6 +19,51 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
+            <key>template/bbutton_click.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{448,104}</string>
+                <key>spriteSourceSize</key>
+                <string>{448,106}</string>
+                <key>textureRect</key>
+                <string>{{1,644},{448,104}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>template/bbutton_dis.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{448,104}</string>
+                <key>spriteSourceSize</key>
+                <string>{448,106}</string>
+                <key>textureRect</key>
+                <string>{{1,750},{448,104}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>template/bbutton_normal.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{448,104}</string>
+                <key>spriteSourceSize</key>
+                <string>{448,106}</string>
+                <key>textureRect</key>
+                <string>{{1,856},{448,104}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
             <key>template/hint_click.png</key>
             <dict>
                 <key>aliases</key>
@@ -26,11 +71,11 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{301,118}</string>
+                <string>{295,116}</string>
                 <key>spriteSourceSize</key>
-                <string>{303,120}</string>
+                <string>{295,116}</string>
                 <key>textureRect</key>
-                <string>{{1,1246},{301,118}}</string>
+                <string>{{1,962},{295,116}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -41,13 +86,13 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{299,116}</string>
+                <string>{295,116}</string>
                 <key>spriteSourceSize</key>
-                <string>{303,120}</string>
+                <string>{295,116}</string>
                 <key>textureRect</key>
-                <string>{{325,1244},{299,116}}</string>
+                <string>{{1,1080},{295,116}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>template/hint_normal.png</key>
             <dict>
@@ -56,43 +101,13 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{301,118}</string>
+                <string>{295,116}</string>
                 <key>spriteSourceSize</key>
-                <string>{303,120}</string>
+                <string>{295,116}</string>
                 <key>textureRect</key>
-                <string>{{1,1366},{301,118}}</string>
+                <string>{{1,1198},{295,116}}</string>
                 <key>textureRotated</key>
                 <false/>
-            </dict>
-            <key>template/que_click.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{600,160}</string>
-                <key>spriteSourceSize</key>
-                <string>{600,160}</string>
-                <key>textureRect</key>
-                <string>{{1,644},{600,160}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>template/que_dis.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{598,158}</string>
-                <key>spriteSourceSize</key>
-                <string>{600,160}</string>
-                <key>textureRect</key>
-                <string>{{325,644},{598,158}}</string>
-                <key>textureRotated</key>
-                <true/>
             </dict>
             <key>template/que_normal.png</key>
             <dict>
@@ -101,13 +116,58 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{600,160}</string>
+                <string>{600,164}</string>
                 <key>spriteSourceSize</key>
-                <string>{600,160}</string>
+                <string>{602,164}</string>
                 <key>textureRect</key>
-                <string>{{163,644},{600,160}}</string>
+                <string>{{298,962},{600,164}}</string>
                 <key>textureRotated</key>
                 <true/>
+            </dict>
+            <key>template/sbutton_click.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{104,104}</string>
+                <key>spriteSourceSize</key>
+                <string>{106,106}</string>
+                <key>textureRect</key>
+                <string>{{1,1316},{104,104}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>template/sbutton_dis.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{104,104}</string>
+                <key>spriteSourceSize</key>
+                <string>{106,106}</string>
+                <key>textureRect</key>
+                <string>{{107,1316},{104,104}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>template/sbutton_normal.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{104,104}</string>
+                <key>spriteSourceSize</key>
+                <string>{106,106}</string>
+                <key>textureRect</key>
+                <string>{{1,1422},{104,104}}</string>
+                <key>textureRotated</key>
+                <false/>
             </dict>
         </dict>
         <key>metadata</key>
@@ -121,9 +181,9 @@
             <key>realTextureFileName</key>
             <string>template.png</string>
             <key>size</key>
-            <string>{484,1544}</string>
+            <string>{463,1563}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:34c2c0ccf49b3b2ab603c543d1fb5db7:858cbf81de24b76dbfdb6dce72f42ff3:17517f7c2bf80e0af3cdd4c7637fa865$</string>
+            <string>$TexturePacker:SmartUpdate:a807271ee97cbd3cf48adb58fccb9c43:99a191acc59ca93fe414726440f72700:17517f7c2bf80e0af3cdd4c7637fa865$</string>
             <key>textureFileName</key>
             <string>template.png</string>
         </dict>
