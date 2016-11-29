@@ -57,6 +57,10 @@ void Table::onEnterTransitionDidFinish()
 	}
 	
 	auto bg = CSLoader::createNode("table/table.csb");
+	if (visibleSize.width > 2560) {
+	//	_extraX = (visibleSize.width - 2560) / 2;
+		bg->setPositionX((visibleSize.width - 2560) / 2);
+	}
 	this->addChild(bg);
 	auto child = bg->getChildren();
 	for (int i = 0; i < child.size(); i++) {
