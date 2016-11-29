@@ -36,6 +36,9 @@ xc.BounceLayer = cc.Node.extend({
     if(this._level <= 5) {
       var startNum = 0
       var endNum = 20
+      if(this._level == 1) {
+        endNum = 9
+      }
       var begin = this._level
       var sum = getRandomInt(begin + 1, 10)
       var choices = [sum - begin, getRandomInt(1, sum)]
@@ -43,8 +46,9 @@ xc.BounceLayer = cc.Node.extend({
       this.setupLayer(startNum, endNum, sum, begin, choices, correctChoices)
       if(this._level == 1 && this._lessons == 0) {
         var dullSprite = this._bounceChoices[this._correctChoices[0]]._dullSprite
-        var dullSpriteRect = cc.rect(dullSprite.x, dullSprite.y, dullSprite.width, dullSprite.height)
-
+        var dullSpriteRect = dullSprite.getBoundingBoxToWorld()
+        dullSpriteRect.x = dullSpriteRect.x + dullSpriteRect.width / 2
+        dullSpriteRect.y = dullSpriteRect.y + dullSpriteRect.height / 2
         var holder = this._holders[this._begin - this._startNum]
         var holderPos = holder.getParent().convertToWorldSpace(holder.getPosition())
         var holderRect = cc.rect(holderPos.x, holderPos.y, holder.width, holder.height)

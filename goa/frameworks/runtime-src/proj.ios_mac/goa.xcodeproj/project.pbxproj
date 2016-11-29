@@ -106,6 +106,8 @@
 		F303CCA41DB20DB700DB6D81 /* Pillar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F303CC9F1DB20D9000DB6D81 /* Pillar.cpp */; };
 		F307808A1DB5C2C90078DF62 /* HelpLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F30780891DB5C2C90078DF62 /* HelpLayer.cpp */; };
 		F307808B1DB5C2C90078DF62 /* HelpLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F30780891DB5C2C90078DF62 /* HelpLayer.cpp */; };
+		F33052311DED7D2300BA235E /* Balloon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F330522F1DED7D2300BA235E /* Balloon.cpp */; };
+		F33052321DED7D2300BA235E /* Balloon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F330522F1DED7D2300BA235E /* Balloon.cpp */; };
 		F345C5C01DEBFEB40092515B /* Table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F345C5BE1DEBFEB40092515B /* Table.cpp */; };
 		F345C5C11DEBFEB40092515B /* Table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F345C5BE1DEBFEB40092515B /* Table.cpp */; };
 		F35247C01D6D9D1A0077C333 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35247171D6D9D1A0077C333 /* HelloWorldScene.cpp */; };
@@ -588,6 +590,8 @@
 		F303CCA01DB20D9000DB6D81 /* Pillar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pillar.h; sourceTree = "<group>"; };
 		F30780891DB5C2C90078DF62 /* HelpLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelpLayer.cpp; sourceTree = "<group>"; };
 		F307808E1DB5C2DD0078DF62 /* HelpLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpLayer.h; sourceTree = "<group>"; };
+		F330522F1DED7D2300BA235E /* Balloon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Balloon.cpp; sourceTree = "<group>"; };
+		F33052301DED7D2300BA235E /* Balloon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Balloon.h; sourceTree = "<group>"; };
 		F345C5BE1DEBFEB40092515B /* Table.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Table.cpp; sourceTree = "<group>"; };
 		F345C5BF1DEBFEB40092515B /* Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Table.h; sourceTree = "<group>"; };
 		F35247171D6D9D1A0077C333 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelloWorldScene.cpp; sourceTree = "<group>"; };
@@ -1255,6 +1259,8 @@
 		F352471A1D6D9D1A0077C333 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				F330522F1DED7D2300BA235E /* Balloon.cpp */,
+				F33052301DED7D2300BA235E /* Balloon.h */,
 				F345C5BE1DEBFEB40092515B /* Table.cpp */,
 				F345C5BF1DEBFEB40092515B /* Table.h */,
 				9CA07C8C1DE6BFBF007578FF /* Item.cpp */,
@@ -1947,6 +1953,7 @@
 				F35248391D6D9D1A0077C333 /* Sqlite3Helper.cpp in Sources */,
 				F3667D4D1DB4BA6F00EC8908 /* NN.cpp in Sources */,
 				F3667D211DB4BA6F00EC8908 /* LTKTrace.cpp in Sources */,
+				F33052321DED7D2300BA235E /* Balloon.cpp in Sources */,
 				F352480F1D6D9D1A0077C333 /* WordBoard.cpp in Sources */,
 				F35248171D6D9D1A0077C333 /* MenuContext.cpp in Sources */,
 				F35248151D6D9D1A0077C333 /* StartMenuScene.cpp in Sources */,
@@ -2149,6 +2156,7 @@
 				F3EEA3FA1DE41EC100CA7D31 /* Shop.cpp in Sources */,
 				F36840C01D8A812F00969162 /* AlphamoleLevel.cpp in Sources */,
 				F35248121D6D9D1A0077C333 /* RPGConfig.cpp in Sources */,
+				F33052311DED7D2300BA235E /* Balloon.cpp in Sources */,
 				F3667D461DB4BA6F00EC8908 /* PointFloatShapeFeature.cpp in Sources */,
 				F35247C21D6D9D1A0077C333 /* MapScene.cpp in Sources */,
 				F352484C1D6D9D1A0077C333 /* SkeletonPosition.cpp in Sources */,
