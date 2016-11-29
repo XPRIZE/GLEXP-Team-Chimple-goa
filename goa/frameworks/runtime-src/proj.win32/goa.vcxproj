@@ -269,6 +269,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClCompile Include="..\Classes\mini_games\MemoryJungle.cpp" />
     <ClCompile Include="..\Classes\mini_games\Order.cpp" />
     <ClCompile Include="..\Classes\mini_games\Owl.cpp" />
+    <ClCompile Include="..\Classes\mini_games\PopCount.cpp" />
     <ClCompile Include="..\Classes\mini_games\Shape.cpp" />
     <ClCompile Include="..\Classes\mini_games\PatchTheWallScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\Pillar.cpp" />
@@ -469,6 +470,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClInclude Include="..\Classes\mini_games\MemoryJungle.h" />
     <ClInclude Include="..\Classes\mini_games\Order.h" />
     <ClInclude Include="..\Classes\mini_games\Owl.h" />
+    <ClInclude Include="..\Classes\mini_games\PopCount.h" />
     <ClInclude Include="..\Classes\mini_games\Shape.h" />
     <ClInclude Include="..\Classes\mini_games\PatchTheWallScene.h" />
     <ClInclude Include="..\Classes\mini_games\Pillar.h" />

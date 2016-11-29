@@ -1,0 +1,256 @@
+{
+  "ID": "3e42b89f-affa-4715-b2d8-7c37147cdbf6",
+  "Version": "3.10.0.0",
+  "Name": "mainground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 14033,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 124,
+              "G": 206,
+              "B": 218
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -260.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1016,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.2056
+            },
+            "LeftMargin": -260.0,
+            "RightMargin": -280.0,
+            "TopMargin": 1430.0,
+            "Tag": 14037,
+            "ActionTag": 1661036409,
+            "Size": {
+              "X": 3100.0,
+              "Y": 370.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/obj.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 297.6426,
+              "Y": 178.1663
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1163,
+              "Y": 0.099
+            },
+            "PreSize": {
+              "X": 0.1293,
+              "Y": 0.1111
+            },
+            "LeftMargin": 132.1426,
+            "RightMargin": 2096.8574,
+            "TopMargin": 1521.8337,
+            "BottomMargin": 78.1663,
+            "Tag": 14111,
+            "ActionTag": -34468087,
+            "Size": {
+              "X": 331.0,
+              "Y": 200.0
+            },
+            "Name": "obj_14",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/obj.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2176.605,
+              "Y": 266.8443
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8502,
+              "Y": 0.1482
+            },
+            "PreSize": {
+              "X": 0.1293,
+              "Y": 0.1111
+            },
+            "LeftMargin": 2011.105,
+            "RightMargin": 217.895,
+            "TopMargin": 1433.1558,
+            "BottomMargin": 166.8443,
+            "Tag": 14112,
+            "ActionTag": -843362575,
+            "Size": {
+              "X": 331.0,
+              "Y": 200.0
+            },
+            "Name": "obj_14_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "popcount/water.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 993.3652,
+              "Y": 172.1212
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.388,
+              "Y": 0.0956
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 993.3652,
+            "RightMargin": 1566.6348,
+            "TopMargin": 1627.8788,
+            "BottomMargin": 172.1212,
+            "Tag": 14126,
+            "ActionTag": 79610802,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "water_1",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "popcount/water.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1816.7712,
+              "Y": 119.9411
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7097,
+              "Y": 0.0666
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1816.7712,
+            "RightMargin": 743.2288,
+            "TopMargin": 1680.059,
+            "BottomMargin": 119.9411,
+            "Tag": 14130,
+            "ActionTag": -484630280,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "water_2",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "popcount.plist",
+        "popcount.png",
+        "water.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

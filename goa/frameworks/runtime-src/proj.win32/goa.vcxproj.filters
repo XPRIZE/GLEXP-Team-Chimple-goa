@@ -580,6 +580,9 @@
     <ClCompile Include="..\Classes\mini_games\Balloon.cpp">
       <Filter>Classes\mini_games</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\PopCount.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1163,6 +1166,9 @@
       <Filter>Classes\mini_games</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\mini_games\Balloon.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\PopCount.h">
       <Filter>Classes\mini_games</Filter>
     </ClInclude>
   </ItemGroup>
