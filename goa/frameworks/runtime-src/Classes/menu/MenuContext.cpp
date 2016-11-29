@@ -68,6 +68,7 @@
 #include "../mini_games/spot.h"
 #include "../mini_games/Table.h"
 #include "../mini_games/Shape.h"
+#include "../mini_games/Balloon.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -929,6 +930,9 @@ void MenuContext::launchGameFromJS(std::string gameName) {
 		}
 		else if (gameName == SHAPE) {
 			Director::getInstance()->replaceScene(Shape::createScene());
+		}
+		else if (gameName == BALLOON) {
+			Director::getInstance()->replaceScene(Balloon::createScene());
 		}
 		else{
             CCLOG("Failed starting scene: %s", gameName.c_str());

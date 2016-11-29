@@ -1,0 +1,452 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "question",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "template/background_image.png",
+              "Plist": "template/question.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1281.5897,
+              "Y": 900.8416
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5006,
+              "Y": 0.5005
+            },
+            "PreSize": {
+              "X": 1.0008,
+              "Y": 1.0011
+            },
+            "LeftMargin": 0.5897,
+            "RightMargin": -2.5898,
+            "TopMargin": -1.8416,
+            "BottomMargin": -0.1584,
+            "Tag": 3,
+            "ActionTag": 414835146,
+            "Size": {
+              "X": 2562.0,
+              "Y": 1802.0
+            },
+            "Name": "background_image_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "Button",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "template/que_dis.png",
+              "Plist": "template/question.plist"
+            },
+            "PressedFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "template/que_click.png",
+              "Plist": "template/question.plist"
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "template/que_normal.png",
+              "Plist": "template/question.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 2370,
+            "Scale9Height": 619,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1274.0486,
+              "Y": 1371.5509
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4977,
+              "Y": 0.762
+            },
+            "PreSize": {
+              "X": 0.9375,
+              "Y": 0.3561
+            },
+            "LeftMargin": 74.0486,
+            "RightMargin": 85.9514,
+            "TopMargin": 107.9491,
+            "BottomMargin": 1051.0509,
+            "Tag": 4,
+            "ActionTag": 2050534686,
+            "Size": {
+              "X": 2400.0,
+              "Y": 641.0
+            },
+            "Name": "Q1",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "Button",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "template/hint_dis.png",
+              "Plist": "template/question.plist"
+            },
+            "PressedFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "template/hint_click.png",
+              "Plist": "template/question.plist"
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "template/hint_normal.png",
+              "Plist": "template/question.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 1182,
+            "Scale9Height": 459,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.4986,
+              "ScaleY": 0.5044
+            },
+            "Position": {
+              "X": 678.4821,
+              "Y": 792.8146
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.265,
+              "Y": 0.4405
+            },
+            "PreSize": {
+              "X": 0.4734,
+              "Y": 0.2672
+            },
+            "LeftMargin": 74.2347,
+            "RightMargin": 1273.7653,
+            "TopMargin": 768.7959,
+            "BottomMargin": 550.204,
+            "Tag": 5,
+            "ActionTag": -1777461401,
+            "Size": {
+              "X": 1212.0,
+              "Y": 481.0
+            },
+            "Name": "A1",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "Button",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "template/hint_dis.png",
+              "Plist": "template/question.plist"
+            },
+            "PressedFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "template/hint_click.png",
+              "Plist": "template/question.plist"
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "template/hint_normal.png",
+              "Plist": "template/question.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 1182,
+            "Scale9Height": 459,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1864.74,
+              "Y": 790.0239
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7284,
+              "Y": 0.4389
+            },
+            "PreSize": {
+              "X": 0.4734,
+              "Y": 0.2672
+            },
+            "LeftMargin": 1258.74,
+            "RightMargin": 89.26,
+            "TopMargin": 769.4761,
+            "BottomMargin": 549.5239,
+            "Tag": 6,
+            "ActionTag": 734188146,
+            "Size": {
+              "X": 1212.0,
+              "Y": 481.0
+            },
+            "Name": "A2",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "Button",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "template/hint_dis.png",
+              "Plist": "template/question.plist"
+            },
+            "PressedFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "template/hint_click.png",
+              "Plist": "template/question.plist"
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "template/hint_normal.png",
+              "Plist": "template/question.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 1182,
+            "Scale9Height": 459,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 679.9475,
+              "Y": 300.326
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2656,
+              "Y": 0.1668
+            },
+            "PreSize": {
+              "X": 0.4734,
+              "Y": 0.2672
+            },
+            "LeftMargin": 73.9475,
+            "RightMargin": 1274.0525,
+            "TopMargin": 1259.174,
+            "BottomMargin": 59.826,
+            "Tag": 7,
+            "ActionTag": -395711736,
+            "Size": {
+              "X": 1212.0,
+              "Y": 481.0
+            },
+            "Name": "A3",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "Button",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "template/hint_dis.png",
+              "Plist": "template/question.plist"
+            },
+            "PressedFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "template/hint_click.png",
+              "Plist": "template/question.plist"
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "template/hint_normal.png",
+              "Plist": "template/question.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 1182,
+            "Scale9Height": 459,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1867.2515,
+              "Y": 299.7462
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7294,
+              "Y": 0.1665
+            },
+            "PreSize": {
+              "X": 0.4734,
+              "Y": 0.2672
+            },
+            "LeftMargin": 1261.2515,
+            "RightMargin": 86.7485,
+            "TopMargin": 1259.7538,
+            "BottomMargin": 59.2462,
+            "Tag": 8,
+            "ActionTag": -1989684661,
+            "Size": {
+              "X": 1212.0,
+              "Y": 481.0
+            },
+            "Name": "A4",
+            "ctype": "ButtonObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "question.plist",
+        "question.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
