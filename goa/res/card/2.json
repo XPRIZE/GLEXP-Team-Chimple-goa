@@ -1,0 +1,170 @@
+{
+  "ID": "1d330421-181b-4f87-af6c-6e6f960bd1e4",
+  "Version": "3.10.0.0",
+  "Name": "2",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 1441,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "card/box.png",
+              "Plist": "card/card.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6.3821,
+              "Y": 6.3746
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 90.0,
+            "RotationSkewY": 89.9994,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -365.1179,
+            "RightMargin": -377.8821,
+            "TopMargin": -378.8746,
+            "BottomMargin": -366.1254,
+            "Tag": 1442,
+            "ActionTag": 124941240,
+            "Size": {
+              "X": 743.0,
+              "Y": 745.0
+            },
+            "Name": "box_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "card/cow.png",
+              "Plist": "card/card.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -201.8158,
+              "Y": 6.8026
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -293.8158,
+            "RightMargin": 109.8158,
+            "TopMargin": -99.3026,
+            "BottomMargin": -85.6974,
+            "Tag": 1449,
+            "ActionTag": -974753307,
+            "Size": {
+              "X": 184.0,
+              "Y": 185.0
+            },
+            "Name": "cow_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "card/sheep.png",
+              "Plist": "card/card.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 181.4063,
+              "Y": -9.0701
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 88.4063,
+            "RightMargin": -274.4063,
+            "TopMargin": -64.4299,
+            "BottomMargin": -82.5701,
+            "Tag": 1450,
+            "ActionTag": -1410994515,
+            "Size": {
+              "X": 186.0,
+              "Y": 147.0
+            },
+            "Name": "sheep_2",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "card.plist",
+        "card.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

@@ -1,0 +1,242 @@
+{
+  "ID": "76389fa4-7ad8-478e-860c-7f66cad5a1a5",
+  "Version": "3.10.0.0",
+  "Name": "Rangi_za_upinde_13",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 185,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -1769451639,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -400.1888,
+                "Y": -24.6464,
+                "FrameIndex": 185,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1769451639,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 17.099,
+                "Y": 9.1265,
+                "FrameIndex": 185,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1769451639,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 185,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -716377793,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "lift",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -716377793,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1004.7983,
+                "Y": 26.5308,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -716377793,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -716377793,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 185,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 7,
+              "G": 0
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -400.1888,
+              "Y": -24.6464
+            },
+            "Scale": {
+              "ScaleX": 17.099,
+              "ScaleY": 9.1265
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1563,
+              "Y": -0.0137
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -400.1888,
+            "RightMargin": 2760.1887,
+            "TopMargin": 1624.6464,
+            "BottomMargin": -24.6464,
+            "Tag": 103,
+            "ActionTag": -1769451639,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Rangi_za_upinde/girl7.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1004.7983,
+              "Y": 26.5308
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.3925,
+              "Y": 0.0147
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1004.7983,
+            "RightMargin": 1555.2017,
+            "TopMargin": 1773.4692,
+            "BottomMargin": 26.5308,
+            "Tag": 6841,
+            "ActionTag": -716377793,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "girl",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "girl7.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

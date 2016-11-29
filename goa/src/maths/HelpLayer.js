@@ -102,6 +102,21 @@ xc.HelpLayer = cc.Node.extend({
     var seq = new cc.Sequence(touchAction, cc.delayTime(0.5), moveAction, touchAction.reverse(), callFunc)
     touch.runAction(seq)
     
+  },
+  clickAndDragCardinalSpline: function(points) {
+    this._animating = true
+    var touch = new cc.Sprite(xc.HelpLayer.res.touch_png)
+    touch.setPosition(points[0])
+    touch.setAnchorPoint(0.5, 1.0)
+    this.addChild(touch)
+    var touchAction = new cc.ScaleBy(0.5, 0.8)
+    var pathAction = new cc.CardinalSplineTo(5, points, 0.5)
+    var callFunc = new cc.CallFunc(function() {
+      this.getParent()._animating = false
+      this.removeFromParent()
+    }, touch)
+    var seq = new cc.Sequence(touchAction, cc.delayTime(0.5), pathAction, touchAction.reverse(), callFunc)
+    touch.runAction(seq)
   }
 })
 

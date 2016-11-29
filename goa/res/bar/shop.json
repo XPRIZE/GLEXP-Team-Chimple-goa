@@ -1,0 +1,763 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "shop",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 248,
+              "G": 187,
+              "B": 205
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -260.0586,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1016,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -260.0586,
+            "RightMargin": -279.9414,
+            "Tag": 2251,
+            "ActionTag": 1301752809,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bar/cake.png",
+              "Plist": "bar/bar.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2371.8335,
+              "Y": 493.1455
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9265,
+              "Y": 0.274
+            },
+            "PreSize": {
+              "X": 0.2098,
+              "Y": 0.3906
+            },
+            "LeftMargin": 2103.3335,
+            "RightMargin": -80.3335,
+            "TopMargin": 955.3545,
+            "BottomMargin": 141.6455,
+            "Tag": 2273,
+            "ActionTag": 1359720356,
+            "Size": {
+              "X": 537.0,
+              "Y": 703.0
+            },
+            "Name": "cake_16",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bar/decor.png",
+              "Plist": "bar/bar.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": -260.5895,
+              "Y": 1623.1793
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1018,
+              "Y": 0.9018
+            },
+            "PreSize": {
+              "X": 0.1246,
+              "Y": 0.0506
+            },
+            "LeftMargin": -260.5895,
+            "RightMargin": 2501.5896,
+            "TopMargin": 176.8207,
+            "BottomMargin": 1532.1793,
+            "Tag": 2255,
+            "ActionTag": 94689057,
+            "Size": {
+              "X": 319.0,
+              "Y": 91.0
+            },
+            "Name": "decor_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 193,
+              "G": 112,
+              "B": 108
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -260.2175,
+              "Y": 1617.6289
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1016,
+              "Y": 0.8987
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.1029
+            },
+            "LeftMargin": -260.2175,
+            "RightMargin": -279.7825,
+            "TopMargin": -2.769,
+            "BottomMargin": 1617.6289,
+            "Tag": 2256,
+            "ActionTag": -1969825994,
+            "Size": {
+              "X": 3100.0,
+              "Y": 185.1401
+            },
+            "Name": "Panel_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bar/decor.png",
+              "Plist": "bar/bar.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 57.0569,
+              "Y": 1623.1782
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0223,
+              "Y": 0.9018
+            },
+            "PreSize": {
+              "X": 0.1246,
+              "Y": 0.0506
+            },
+            "LeftMargin": 57.0569,
+            "RightMargin": 2183.9431,
+            "TopMargin": 176.8218,
+            "BottomMargin": 1532.1782,
+            "Tag": 2257,
+            "ActionTag": 1073155036,
+            "Size": {
+              "X": 319.0,
+              "Y": 91.0
+            },
+            "Name": "decor_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bar/decor.png",
+              "Plist": "bar/bar.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 375.0906,
+              "Y": 1623.1909
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1465,
+              "Y": 0.9018
+            },
+            "PreSize": {
+              "X": 0.1246,
+              "Y": 0.0506
+            },
+            "LeftMargin": 375.0906,
+            "RightMargin": 1865.9094,
+            "TopMargin": 176.8091,
+            "BottomMargin": 1532.1909,
+            "Tag": 2259,
+            "ActionTag": -993894272,
+            "Size": {
+              "X": 319.0,
+              "Y": 91.0
+            },
+            "Name": "decor_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bar/decor.png",
+              "Plist": "bar/bar.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 692.7451,
+              "Y": 1623.1866
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2706,
+              "Y": 0.9018
+            },
+            "PreSize": {
+              "X": 0.1246,
+              "Y": 0.0506
+            },
+            "LeftMargin": 692.7451,
+            "RightMargin": 1548.2549,
+            "TopMargin": 176.8134,
+            "BottomMargin": 1532.1866,
+            "Tag": 2260,
+            "ActionTag": -298120284,
+            "Size": {
+              "X": 319.0,
+              "Y": 91.0
+            },
+            "Name": "decor_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bar/decor.png",
+              "Plist": "bar/bar.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 1010.5847,
+              "Y": 1623.1467
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3948,
+              "Y": 0.9017
+            },
+            "PreSize": {
+              "X": 0.1246,
+              "Y": 0.0506
+            },
+            "LeftMargin": 1010.5847,
+            "RightMargin": 1230.4153,
+            "TopMargin": 176.8533,
+            "BottomMargin": 1532.1467,
+            "Tag": 2261,
+            "ActionTag": 1159907007,
+            "Size": {
+              "X": 319.0,
+              "Y": 91.0
+            },
+            "Name": "decor_1_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bar/decor.png",
+              "Plist": "bar/bar.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 1328.2278,
+              "Y": 1623.1445
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5188,
+              "Y": 0.9017
+            },
+            "PreSize": {
+              "X": 0.1246,
+              "Y": 0.0506
+            },
+            "LeftMargin": 1328.2278,
+            "RightMargin": 912.7722,
+            "TopMargin": 176.8555,
+            "BottomMargin": 1532.1445,
+            "Tag": 2262,
+            "ActionTag": -335628043,
+            "Size": {
+              "X": 319.0,
+              "Y": 91.0
+            },
+            "Name": "decor_1_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bar/decor.png",
+              "Plist": "bar/bar.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 1646.2578,
+              "Y": 1623.1582
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6431,
+              "Y": 0.9018
+            },
+            "PreSize": {
+              "X": 0.1246,
+              "Y": 0.0506
+            },
+            "LeftMargin": 1646.2578,
+            "RightMargin": 594.7422,
+            "TopMargin": 176.8418,
+            "BottomMargin": 1532.1582,
+            "Tag": 2263,
+            "ActionTag": 964665693,
+            "Size": {
+              "X": 319.0,
+              "Y": 91.0
+            },
+            "Name": "decor_1_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bar/decor.png",
+              "Plist": "bar/bar.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 1963.9109,
+              "Y": 1623.1533
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7672,
+              "Y": 0.9018
+            },
+            "PreSize": {
+              "X": 0.1246,
+              "Y": 0.0506
+            },
+            "LeftMargin": 1963.9109,
+            "RightMargin": 277.0891,
+            "TopMargin": 176.8467,
+            "BottomMargin": 1532.1533,
+            "Tag": 2264,
+            "ActionTag": -269724696,
+            "Size": {
+              "X": 319.0,
+              "Y": 91.0
+            },
+            "Name": "decor_1_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bar/decor.png",
+              "Plist": "bar/bar.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 2282.0554,
+              "Y": 1623.1742
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8914,
+              "Y": 0.9018
+            },
+            "PreSize": {
+              "X": 0.1246,
+              "Y": 0.0506
+            },
+            "LeftMargin": 2282.0554,
+            "RightMargin": -41.0554,
+            "TopMargin": 176.8258,
+            "BottomMargin": 1532.1742,
+            "Tag": 2269,
+            "ActionTag": -603837498,
+            "Size": {
+              "X": 319.0,
+              "Y": 91.0
+            },
+            "Name": "decor_1_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bar/decor.png",
+              "Plist": "bar/bar.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 2599.708,
+              "Y": 1623.1699
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0155,
+              "Y": 0.9018
+            },
+            "PreSize": {
+              "X": 0.1246,
+              "Y": 0.0506
+            },
+            "LeftMargin": 2599.708,
+            "RightMargin": -358.708,
+            "TopMargin": 176.8301,
+            "BottomMargin": 1532.1699,
+            "Tag": 2270,
+            "ActionTag": 1484788897,
+            "Size": {
+              "X": 319.0,
+              "Y": 91.0
+            },
+            "Name": "decor_1_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 253,
+              "G": 235,
+              "B": 240
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -252.0914,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0985,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.1442
+            },
+            "LeftMargin": -252.0914,
+            "RightMargin": -287.9087,
+            "TopMargin": 1540.4337,
+            "Tag": 2272,
+            "ActionTag": -1283655497,
+            "Size": {
+              "X": 3100.0,
+              "Y": 259.5663
+            },
+            "Name": "Panel_1_0_0_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 184,
+              "G": 92,
+              "B": 107
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -262.0914,
+              "Y": -4.6517
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1024,
+              "Y": -0.0026
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.1365
+            },
+            "LeftMargin": -262.0914,
+            "RightMargin": -277.9087,
+            "TopMargin": 1559.0403,
+            "BottomMargin": -4.6517,
+            "Tag": 2271,
+            "ActionTag": 1489940718,
+            "Size": {
+              "X": 3100.0,
+              "Y": 245.6114
+            },
+            "Name": "Panel_1_0_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bar/cake2.png",
+              "Plist": "bar/bar.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 283.7626,
+              "Y": 594.9722
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1108,
+              "Y": 0.3305
+            },
+            "PreSize": {
+              "X": 0.2094,
+              "Y": 0.3728
+            },
+            "LeftMargin": 15.7626,
+            "RightMargin": 2008.2374,
+            "TopMargin": 869.5278,
+            "BottomMargin": 259.4722,
+            "Tag": 17,
+            "ActionTag": -2074096397,
+            "Size": {
+              "X": 536.0,
+              "Y": 671.0
+            },
+            "Name": "cake2_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bar.plist",
+        "bar.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

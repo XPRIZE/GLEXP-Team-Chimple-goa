@@ -66,7 +66,7 @@ xc.TrainLayer = cc.Layer.extend({
                         target.selected = 1;
                         target.setScale(1);
                         target.setPosition(target.xP, target.yP);
-//                        _menuContext.addPoints(1);
+                        _menuContext.addPoints(1);
                         if (wordPosition % 3 != 0) {
                             var scaleAnimation = function () {
                                 var increase = new cc.ScaleTo(1, 1.4);
@@ -161,7 +161,7 @@ xc.TrainLayer = cc.Layer.extend({
                         var removeLayer = function()
                         {
                             layer1.setVisible(false);
-//                            _menuContext.addPoints(-1);
+                            _menuContext.addPoints(-1);
                         };
 
                         var increase = new cc.MoveTo(1, cc.p(target.getPositionX() + size.width * .10, target.getPositionY() + size.height * .10));
@@ -189,7 +189,7 @@ xc.TrainLayer = cc.Layer.extend({
         if (cc.sys.isNative)
         {
             _menuContext = self.getParent().menuContext;
-//            currentLevel = _menuContext.getCurrentLevel();
+            currentLevel = _menuContext.getCurrentLevel();
             wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence();
             currentLevel = 0;
                 

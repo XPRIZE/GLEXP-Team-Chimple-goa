@@ -56,8 +56,19 @@
 #include "../mini_games/BlastLetter.h"
 #include "../mini_games/Door.h"
 #include "../mini_games/TreasureHunt.h"
+#include "../mini_games/Units.h"
 #include "../mini_games/JumpingNumbers.h"
-
+#include "../mini_games/Card.h"
+#include "../mini_games/Line.h"
+#include "../mini_games/ChocolateFactory.h"
+#include "../mini_games/Step.h"
+#include "../mini_games/ATM.h"
+#include "../mini_games/Shop.h"
+#include "../mini_games/Item.h"
+#include "../mini_games/spot.h"
+#include "../mini_games/Table.h"
+#include "../mini_games/Shape.h"
+#include "../mini_games/Balloon.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -857,6 +868,12 @@ void MenuContext::launchGameFromJS(std::string gameName) {
     	else if (gameName == PILLAR) {
     		Director::getInstance()->replaceScene(Pillar::createScene());
     	}
+		else if (gameName == LINE) {
+			Director::getInstance()->replaceScene(Line::createScene());
+		}
+		else if (gameName == ITEM) {
+			Director::getInstance()->replaceScene(Item::createScene());
+		}
 
 		else if (gameName == CARDRAW) {
 			Director::getInstance()->replaceScene(CarDraw::createScene());
@@ -884,10 +901,40 @@ void MenuContext::launchGameFromJS(std::string gameName) {
 		else if (gameName == TREASUREHUNT) {
 			Director::getInstance()->replaceScene(TreasureHunt::createScene());
 		}
+		else if (gameName == UNITS) {
+			Director::getInstance()->replaceScene(Units::createScene());
+		}
 		else if (gameName == JUMPING_NUMBERS) {
 			Director::getInstance()->replaceScene(JumpingNumber::createScene());
 		}
-    	else{
+		else if (gameName == CARD) {
+			Director::getInstance()->replaceScene(Card::createScene());
+		}
+		else if (gameName == CHOCOLATEFACTORY) {
+			Director::getInstance()->replaceScene(ChocolateFactory::createScene());
+		}
+		else if (gameName == STEP) {
+			Director::getInstance()->replaceScene(Step::createScene());
+		}
+		else if (gameName == A_T_M) {
+			Director::getInstance()->replaceScene(ATM::createScene());
+		}
+		else if (gameName == SHOP) {
+			Director::getInstance()->replaceScene(Shop::createScene());
+		}
+		else if (gameName == SPOT) {
+			Director::getInstance()->replaceScene(spot::createScene());
+		}
+		else if (gameName == TABLE) {
+			Director::getInstance()->replaceScene(Table::createScene());
+		}
+		else if (gameName == SHAPE) {
+			Director::getInstance()->replaceScene(Shape::createScene());
+		}
+		else if (gameName == BALLOON) {
+			Director::getInstance()->replaceScene(Balloon::createScene());
+		}
+		else{
             CCLOG("Failed starting scene: %s", gameName.c_str());
         }
     

@@ -9,6 +9,7 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
     _configPanelWidth: null,
     _configPanelHeight: null,
     _isTitleDisplayed: false,
+    _isTextShown: false,
     ctor: function (pageIndex, storyInformation) {
         this._super();
         this._name = "StoryCoverPageLayer";
@@ -64,20 +65,23 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
             this.addChild(this._constructedScene.node,0);
         }        
         
-        this.setUpScene();
+        
 
         this._playButton = new cc.Sprite(xc.NarrateStoryLayer.res.play_png);
         this._playButton.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
-        this.addChild(this._playButton);        
+        this.addChild(this._playButton);     
+        this._playButton.setVisible(false);   
         this.bindTouchListener(this._playButton, "sceneTouched", false, 2);
+
+        this.setUpScene();        
     },
 
     setUpScene: function () {
         if (this._constructedScene.node) {
             this._constructedScene.action._referenceToContext = this;
-            this._constructedScene.action.setLastFrameCallFunc(this.playEnded);
             this._constructedScene.action.setFrameEventCallFunc(this.enterFrameEvent);
-            this._constructedScene.action.gotoFrameAndPause(0);            
+            this._constructedScene.action.gotoFrameAndPause(0);   
+            this.showText();                     
         }
     },
 
@@ -106,17 +110,82 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
     },
     
     sceneTouched: function (target) {
+        //load content
+        this._playButton.setVisible(false);
+        this._playButton.removeFromParent();
         if(this._storyInformation != undefined && this._storyInformation.hasOwnProperty("pages") && this._storyInformation["pages"] != undefined && this._storyInformation["pages"].length > 0) {
             cc.log('loading story:' + this._storyInformation["pages"][0]);
             xc.NarrateStoryScene.load(0, this._storyInformation, xc.NarrateStoryLayer);
         }
-    }
+    },
 
 
+    processAudio: function(sender, type) {
+        switch (type) {
+            case ccui.Widget.TOUCH_ENDED:
+                var langDir = goa.TextGenerator.getInstance().getLang();
+                var soundFile = "res/story/" + langDir + "/" + this._baseDir + "/" + this._baseDir + "_0.ogg";
+                if(cc.sys.isNative) {
+                    var fileExists = jsb.fileUtils.isFileExist(soundFile);
+                    if(fileExists) {
+                        cc.loader.load(soundFile, function(err, data) {
+                            if(!err) {
+                                cc.audioEngine.playMusic(soundFile, false);
+                            }
+                        }); 
+                    }
+                } else {
+                    cc.loader.load(soundFile, function(err, data) {
+                        if(!err) {
+                            cc.audioEngine.playMusic(soundFile, false);
+                        }
+                    }); 
+                }             
+                break;
+        }
+    },    
+
+    showText: function() {        
+        //load text file based on Current Story Id and Page index
+        this._isTextShown = true;
+        this._playButton.setVisible(true);
+        var langDir = goa.TextGenerator.getInstance().getLang();
+        cc.log("langDir:" + langDir);
+        var storyText = "";
+        var that = this;
+        var textFileUrl =  "res/story" + "/" + langDir + "/" + this._baseDir + ".json";
+        cc.log('textFileUrl:' + textFileUrl);
+        if(cc.sys.isNative) {
+            var fileExists = jsb.fileUtils.isFileExist(textFileUrl);
+            if(fileExists) {
+
+                cc.loader.loadJson(textFileUrl, function(err, json) {            
+                    if(!err && json != null && json != undefined) {
+                        storyText = json[0];
+                        cc.log('story text received:' + storyText);
+                        that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that, false));
+                    }                                
+                });                
+           
+            } else {
+                that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText,that.processAudio, that, false));
+            }
+        } else {
+
+            cc.loader.loadJson(textFileUrl, function(err, json) {            
+                if(!err && json != null && json != undefined) {
+                    storyText = json[0];
+                    cc.log('story text received:' + storyText);
+                    that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that, false));
+                }                                
+            });                            
+        }        
+    }    
 });
 
 xc.StoryCoverPageScene = cc.Scene.extend({
     layerClass: null,
+    _menuContext: null,
     ctor: function (pageIndex, storyInformation, layer) {
         this._super();
         this.layerClass = layer;
@@ -124,6 +193,11 @@ xc.StoryCoverPageScene = cc.Scene.extend({
         this.addChild(this._sceneLayer);
         this._sceneLayer.init();
                 
+        if (cc.sys.isNative) {
+            this._menuContext = goa.MenuContext.create(this._sceneLayer, "Show Stories");
+            this.addChild(this._menuContext);
+            this._menuContext.setVisible(true);
+        }                        
     }
 });
 

@@ -122,7 +122,6 @@ int LTKLipiEngineModule::initializeLipiEngine()
 	
 	string temp;
 	int errorCode;
-	
 	if(m_strLipiRootPath == "")
 	{
 		LTKReturnError(ELIPI_ROOT_PATH_NOT_SET);	// PATH not set
@@ -130,12 +129,10 @@ int LTKLipiEngineModule::initializeLipiEngine()
 
 	temp = m_strLipiRootPath + SEPARATOR + "projects" + SEPARATOR + 
 		   LIPIENGINE_CFG_STRING;
-	
 	//Read the logical name mapping file from lipiengine.cfg file;
 	try
 	{
 		m_LipiEngineConfigEntries = new LTKConfigFileReader(temp);
-
 	}
 	catch(LTKException e)
 	{
@@ -144,8 +141,8 @@ int LTKLipiEngineModule::initializeLipiEngine()
 		        "proceeding with defaults" << endl;
 	}
 
+    
     errorCode = configureLogger();	// Configure the logger
-
 	if(errorCode !=SUCCESS)
 	{
 		LTKReturnError(errorCode);
@@ -340,7 +337,7 @@ int LTKLipiEngineModule::createShapeRecognizer(string &strLogicalProjectName, LT
 		"Entering: LTKLipiEngineModule::createShapeRecognizer()"<<endl;
 
 	if(strLogicalProjectName.empty())
-	{		
+	{
 		return EINVALID_PROJECT_NAME;
 	}
 
@@ -362,7 +359,6 @@ int LTKLipiEngineModule::createShapeRecognizer(string &strLogicalProjectName, LT
 	}
 
 	errorCode = createShapeRecognizer(strProjectName,strProfileName,outShapeRecognizerPtr);
-
 	if(errorCode !=SUCCESS)
 	{
 		LOG( LTKLogger::LTK_LOGLEVEL_ERR) << 
@@ -829,7 +825,6 @@ int LTKLipiEngineModule::resolveLogicalNameToProjectProfile(
 
 	char strSep[] = " ()\r";
 	char *strToken;
-
 	if (m_LipiEngineConfigEntries == NULL )
 	{
 		LOG( LTKLogger::LTK_LOGLEVEL_ERR) << 

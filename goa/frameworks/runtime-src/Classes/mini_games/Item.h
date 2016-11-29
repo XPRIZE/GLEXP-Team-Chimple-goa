@@ -1,0 +1,59 @@
+#ifndef __ITEM_SCENE_H__
+#define __ITEM_SCENE_H__
+
+#include "cocos2d.h"
+#include "../menu/MenuContext.h"
+#include "Calculator.h"
+
+
+class Item : public cocos2d::Layer
+{
+public:
+	Item();
+	~Item();
+	static Item* create();
+	virtual bool init();
+	Calculator * _calculator;
+	std::map<int, std::map<std::string, int>> _levelMapping;
+	void update(float dt);
+	void scoreBoard(float dt);
+	static cocos2d::Scene* createScene();
+	std::map<std::string, std::string> _scenePath;
+	float extraX;
+	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
+	virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event);
+	virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event * event);
+    cocos2d::Node* background;
+	void onEnterTransitionDidFinish();
+	void gameHelp();
+	void addCalculator();
+	bool _helpFlage = false;
+	static const char* gameName() { return ITEM.c_str(); }
+protected:
+	bool _rotateFlag = true;
+	MenuContext * menu;
+	bool _flag = false;
+	int _frog1Num = 0;
+	int _frog2Num = 0;
+	cocos2d::Node* _fish1;
+	cocos2d::Node* _fish2;
+	cocos2d::Node* _done;
+	cocostudio::timeline::ActionTimeline* _timeline1;
+	cocostudio::timeline::ActionTimeline* _timeline2;
+	std::vector<Node *> _fishMove;
+	std::vector<int>_frogX1 = { 200, 450, 750, 1000, 1250, 900, 600, 350};
+	std::vector<int>_frogY1 = { 170, 120, 120, 120,  220,  280, 280, 280};
+	std::vector<int>_frogX2 = { 200, 450, 750, 1000, 1250, 900, 600, 350 };
+	std::vector<int>_frogY2 = { 150, 130, 130, 130,  240,  270, 270, 270 };
+	void fishCreate();
+	void numCreate();
+	void frogCreate();
+	void result();
+	void check();
+	int _count1 = 0;
+	int _count2 = 0;
+	int _num1 = 0;
+	int _num2 = 0;
+};
+
+#endif

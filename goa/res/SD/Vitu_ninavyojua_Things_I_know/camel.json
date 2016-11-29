@@ -1,0 +1,657 @@
+{
+  "ID": "6d1e6684-9862-4aca-af44-25fc8e469b43",
+  "Version": "3.10.0.0",
+  "Name": "camel",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 70,
+        "Speed": 1.0,
+        "ActivedAnimationName": "blink",
+        "Timelines": [
+          {
+            "ActionTag": -493694346,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 660.3508,
+                "Y": 43.1363,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 639.8588,
+                "Y": 76.5399,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 660.3505,
+                "Y": 51.7536,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -493694346,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -493694346,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -26.2599,
+                "Y": -26.2687,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -493694346,
+            "Property": "AnchorPoint",
+            "Frames": [
+              {
+                "X": 0.1129,
+                "Y": 1.0,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1089188347,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -416.2694,
+                "Y": 424.1986,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -416.2696,
+                "Y": 424.1989,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -416.2694,
+                "Y": 424.1986,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -416.2694,
+                "Y": 424.1986,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -416.2696,
+                "Y": 424.1989,
+                "FrameIndex": 55,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -416.2694,
+                "Y": 424.1986,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1089188347,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 0.012,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 0.012,
+                "FrameIndex": 55,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1089188347,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 55,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 70,
+          "Name": "blink",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 282,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Vitu_ninavyojua_Things_I_know/04-04.png",
+              "Plist": "Vitu_ninavyojua_Things_I_know/Vitu_ninavyojua_Things_I_know.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.1129,
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 660.3508,
+              "Y": 43.1363
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 639.9159,
+            "RightMargin": -820.9159,
+            "TopMargin": -43.1363,
+            "BottomMargin": -303.8637,
+            "Tag": 284,
+            "ActionTag": -493694346,
+            "Size": {
+              "X": 181.0,
+              "Y": 347.0
+            },
+            "Name": "Sprite_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Vitu_ninavyojua_Things_I_know/04-06.png",
+              "Plist": "Vitu_ninavyojua_Things_I_know/Vitu_ninavyojua_Things_I_know.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -41.8487,
+              "Y": -446.0037
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 210,
+              "G": 196,
+              "B": 196
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -149.8487,
+            "RightMargin": -66.1513,
+            "TopMargin": 97.0037,
+            "BottomMargin": -795.0037,
+            "Tag": 286,
+            "ActionTag": 954719015,
+            "Size": {
+              "X": 216.0,
+              "Y": 698.0
+            },
+            "Name": "Sprite_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Vitu_ninavyojua_Things_I_know/04-05.png",
+              "Plist": "Vitu_ninavyojua_Things_I_know/Vitu_ninavyojua_Things_I_know.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 487.8084,
+              "Y": -421.2541
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 210,
+              "G": 196,
+              "B": 196
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 359.8084,
+            "RightMargin": -615.8085,
+            "TopMargin": 5.7541,
+            "BottomMargin": -836.7542,
+            "Tag": 285,
+            "ActionTag": -1632526479,
+            "Size": {
+              "X": 256.0,
+              "Y": 831.0
+            },
+            "Name": "Sprite_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Vitu_ninavyojua_Things_I_know/04-03.png",
+              "Plist": "Vitu_ninavyojua_Things_I_know/Vitu_ninavyojua_Things_I_know.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0022,
+              "Y": 180.3438
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -691.4978,
+            "RightMargin": -691.5022,
+            "TopMargin": -566.3438,
+            "BottomMargin": -205.6563,
+            "Tag": 283,
+            "ActionTag": -1031333949,
+            "Size": {
+              "X": 1383.0,
+              "Y": 772.0
+            },
+            "Name": "Sprite_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Vitu_ninavyojua_Things_I_know/04-06.png",
+              "Plist": "Vitu_ninavyojua_Things_I_know/Vitu_ninavyojua_Things_I_know.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 20.1258,
+              "Y": -456.0038
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -87.8742,
+            "RightMargin": -128.1258,
+            "TopMargin": 107.0038,
+            "BottomMargin": -805.0038,
+            "Tag": 287,
+            "ActionTag": 1502623643,
+            "Size": {
+              "X": 216.0,
+              "Y": 698.0
+            },
+            "Name": "Sprite_4_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Vitu_ninavyojua_Things_I_know/04-05.png",
+              "Plist": "Vitu_ninavyojua_Things_I_know/Vitu_ninavyojua_Things_I_know.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 579.4828,
+              "Y": -428.7791
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 451.4828,
+            "RightMargin": -707.4828,
+            "TopMargin": 13.2791,
+            "BottomMargin": -844.2791,
+            "Tag": 288,
+            "ActionTag": 845475273,
+            "Size": {
+              "X": 256.0,
+              "Y": 831.0
+            },
+            "Name": "Sprite_3_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Vitu_ninavyojua_Things_I_know/04-02.png",
+              "Plist": "Vitu_ninavyojua_Things_I_know/Vitu_ninavyojua_Things_I_know.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -416.2694,
+              "Y": 424.1986
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -455.2694,
+            "RightMargin": 377.2694,
+            "TopMargin": -463.1986,
+            "BottomMargin": 385.1986,
+            "Tag": 289,
+            "ActionTag": 1089188347,
+            "Size": {
+              "X": 78.0,
+              "Y": 78.0
+            },
+            "Name": "Sprite_7",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Vitu_ninavyojua_Things_I_know.plist",
+        "Vitu_ninavyojua_Things_I_know.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

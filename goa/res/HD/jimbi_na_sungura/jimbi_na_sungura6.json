@@ -1,12 +1,13 @@
 {
   "ID": "84015126-ee43-4ed6-9a35-2bec5b9fdf31",
-  "Version": "3.10.0.0",
+  "Version": "2.3.4",
   "Name": "jimbi_na_sungura6",
   "Content": {
     "Content": {
       "Animation": {
         "Duration": 265,
         "Speed": 1.0,
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -256726463,
@@ -524,7 +525,14 @@
         ],
         "ctype": "TimelineActionData"
       },
-      "AnimationList": [],
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 265,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
       "ObjectData": {
         "Tag": 600,
         "Children": [
@@ -707,6 +715,7 @@
             "RightMargin": 1016.8853,
             "TopMargin": 1235.6201,
             "BottomMargin": 564.3799,
+            "UserData": "fly;drag",
             "Tag": 626,
             "ActionTag": -256726463,
             "Size": {
@@ -727,8 +736,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 2130.7593,
-              "Y": 384.2783
+              "X": 2279.9514,
+              "Y": 385.85
             },
             "Scale": {
               "ScaleX": 0.5,
@@ -737,17 +746,18 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.8323,
-              "Y": 0.2135
+              "X": 0.8906,
+              "Y": 0.2144
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 2130.7593,
-            "RightMargin": 429.2407,
-            "TopMargin": 1415.7217,
-            "BottomMargin": 384.2783,
+            "LeftMargin": 2279.9514,
+            "RightMargin": 280.0486,
+            "TopMargin": 1414.15,
+            "BottomMargin": 385.85,
+            "UserData": "fly;drag",
             "Tag": 601,
             "ActionTag": 1854835121,
             "Size": {
@@ -860,29 +870,28 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 425.4115,
-              "Y": 471.3789
+              "X": 614.3883,
+              "Y": 385.7787
             },
             "Scale": {
-              "ScaleX": -1.0,
+              "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "RotationSkewX": 4.6453,
-            "RotationSkewY": 4.6453,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.1662,
-              "Y": 0.2619
+              "X": 0.24,
+              "Y": 0.2143
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 425.4115,
-            "RightMargin": 2134.5884,
-            "TopMargin": 1328.6211,
-            "BottomMargin": 471.3789,
+            "LeftMargin": 614.3883,
+            "RightMargin": 1945.6117,
+            "TopMargin": 1414.2213,
+            "BottomMargin": 385.7787,
+            "UserData": "run;drag",
             "Tag": 623,
             "ActionTag": 1423364977,
             "Size": {

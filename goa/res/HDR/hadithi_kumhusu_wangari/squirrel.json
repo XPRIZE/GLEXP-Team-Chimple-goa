@@ -102,10 +102,10 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -23.0,
-            "RightMargin": -23.0,
-            "TopMargin": -23.0,
-            "BottomMargin": -23.0,
+            "LeftMargin": -173.0,
+            "RightMargin": -173.0,
+            "TopMargin": -95.5,
+            "BottomMargin": -95.5,
             "Tag": 3085,
             "ActionTag": 887756878,
             "Size": {
@@ -113,6 +113,51 @@
               "Y": 191.0
             },
             "Name": "Sprite_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "hadithi_kumhusu_wangari/touch.png",
+              "Plist": "hadithi_kumhusu_wangari/hadithi_kumhusu_wangari.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -7.5413,
+              "Y": -0.391
+            },
+            "Scale": {
+              "ScaleX": 0.8042,
+              "ScaleY": 0.5513
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -209.5413,
+            "RightMargin": -194.4587,
+            "TopMargin": -201.609,
+            "BottomMargin": -202.391,
+            "Tag": 68,
+            "ActionTag": 2011186464,
+            "Size": {
+              "X": 404.0,
+              "Y": 404.0
+            },
+            "Name": "touch",
             "ctype": "SpriteObjectData"
           }
         ],
@@ -124,6 +169,8 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "hadithi_kumhusu_wangari.plist",
+        "hadithi_kumhusu_wangari.png",
         "hadithi2/hadithi2.plist",
         "hadithi2/hadithi2.png"
       ],

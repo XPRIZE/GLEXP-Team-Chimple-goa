@@ -73,7 +73,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "hadithi_kumhusu_wangari/bird1.png",
+              "Path": "hadithi_kumhusu_wangari/bird2.png",
               "Plist": "hadithi_kumhusu_wangari/hadithi_kumhusu_wangari.plist"
             },
             "BlendFunc": {
@@ -113,6 +113,51 @@
               "Y": 125.0
             },
             "Name": "Sprite_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "hadithi_kumhusu_wangari/touch.png",
+              "Plist": "hadithi_kumhusu_wangari/hadithi_kumhusu_wangari.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -16.2961,
+              "Y": 4.7078
+            },
+            "Scale": {
+              "ScaleX": 0.2349,
+              "ScaleY": 0.3342
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -218.2961,
+            "RightMargin": -185.7039,
+            "TopMargin": -206.7078,
+            "BottomMargin": -197.2922,
+            "Tag": 1524,
+            "ActionTag": -1604468369,
+            "Size": {
+              "X": 404.0,
+              "Y": 404.0
+            },
+            "Name": "touch",
             "ctype": "SpriteObjectData"
           }
         ],

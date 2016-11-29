@@ -1,0 +1,132 @@
+{
+  "ID": "620c2490-b3f8-4ef9-ac49-f620d535d724",
+  "Version": "3.10.0.0",
+  "Name": "frog",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 45,
+        "Speed": 1.0,
+        "ActivedAnimationName": "frog",
+        "Timelines": [
+          {
+            "ActionTag": 1928507555,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jumping_numbers_island/frog1.png",
+                  "Plist": "jumping_numbers_island/jumping_numbers_island.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jumping_numbers_island/frog2.png",
+                  "Plist": "jumping_numbers_island/jumping_numbers_island.plist"
+                },
+                "FrameIndex": 15,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jumping_numbers_island/frog3.png",
+                  "Plist": "jumping_numbers_island/jumping_numbers_island.plist"
+                },
+                "FrameIndex": 30,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jumping_numbers_island/frog1.png",
+                  "Plist": "jumping_numbers_island/jumping_numbers_island.plist"
+                },
+                "FrameIndex": 45,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 45,
+          "Name": "frog",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 9,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jumping_numbers_island/frog1.png",
+              "Plist": "jumping_numbers_island/jumping_numbers_island.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -199.5,
+            "RightMargin": -199.5,
+            "TopMargin": -320.0,
+            "Tag": 10,
+            "ActionTag": 1928507555,
+            "Size": {
+              "X": 399.0,
+              "Y": 320.0
+            },
+            "Name": "Sprite_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "jumping_numbers_island.plist",
+        "jumping_numbers_island.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

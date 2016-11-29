@@ -1,0 +1,131 @@
+{
+  "ID": "b81810e7-5149-4381-8333-a01355afe4db",
+  "Version": "3.10.0.0",
+  "Name": "background",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 2998,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 190,
+              "G": 171,
+              "B": 153
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleY": 0.0133
+            },
+            "Position": {
+              "X": -569.6023,
+              "Y": 19.9677
+            },
+            "Scale": {
+              "ScaleX": 19.421,
+              "ScaleY": 9.1896
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.2225,
+              "Y": 0.0111
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -569.6023,
+            "RightMargin": 2929.6023,
+            "TopMargin": 1582.6923,
+            "BottomMargin": 17.3077,
+            "Tag": 3317,
+            "ActionTag": 837149039,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_11",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "card/board.png",
+              "Plist": "card/card.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 1293.4622,
+              "Y": 1819.3521
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.8775
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5053,
+              "Y": 1.0108
+            },
+            "PreSize": {
+              "X": 0.266,
+              "Y": 0.1689
+            },
+            "LeftMargin": 952.9622,
+            "RightMargin": 926.0378,
+            "TopMargin": -19.3521,
+            "BottomMargin": 1515.3521,
+            "Tag": 139,
+            "ActionTag": 1862144595,
+            "Size": {
+              "X": 681.0,
+              "Y": 304.0
+            },
+            "Name": "board_6",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "card.plist",
+        "card.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

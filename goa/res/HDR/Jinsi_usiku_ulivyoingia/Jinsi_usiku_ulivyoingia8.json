@@ -1,0 +1,488 @@
+{
+  "ID": "f20a84ed-df8f-41e9-81d0-ca4e7a05f8eb",
+  "Version": "3.10.0.0",
+  "Name": "Jinsi_usiku_ulivyoingia8",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 180,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -294321727,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 180,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -294321727,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -500.0,
+                "Y": 126.5481,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1400.0,
+                "Y": 126.5481,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -294321727,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -0.8,
+                "Y": 0.8,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.8,
+                "Y": 0.8,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -294321727,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 849600085,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "drop",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 70,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "drop",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 170,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 180,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 849600085,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2162.1985,
+                "Y": 120.4642,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2162.1985,
+                "Y": 120.4642,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2162.1985,
+                "Y": 120.4642,
+                "FrameIndex": 170,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2162.1985,
+                "Y": 120.4642,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 849600085,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.8,
+                "Y": 0.8,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8,
+                "Y": 0.8,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8,
+                "Y": 0.8,
+                "FrameIndex": 170,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8,
+                "Y": 0.8,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 849600085,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 170,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 180,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 56,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 18,
+              "G": 48,
+              "B": 61
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -255.9309,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -255.9309,
+            "RightMargin": -284.0691,
+            "Tag": 111,
+            "ActionTag": -2006384368,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Jinsi_usiku_ulivyoingia/night.png",
+              "Plist": "Jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1303.8682,
+              "Y": 918.8287
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5093,
+              "Y": 0.5105
+            },
+            "PreSize": {
+              "X": 0.5461,
+              "Y": 0.7444
+            },
+            "LeftMargin": 604.8682,
+            "RightMargin": 557.1318,
+            "TopMargin": 211.1714,
+            "BottomMargin": 248.8287,
+            "Tag": 110,
+            "ActionTag": 487982194,
+            "Size": {
+              "X": 1398.0,
+              "Y": 1340.0
+            },
+            "Name": "night_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Jinsi_usiku_ulivyoingia/boy.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -500.0,
+              "Y": 126.5481
+            },
+            "Scale": {
+              "ScaleX": -0.8,
+              "ScaleY": 0.8
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.1953,
+              "Y": 0.0703
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -500.0,
+            "RightMargin": 3060.0,
+            "TopMargin": 1673.4519,
+            "BottomMargin": 126.5481,
+            "UserData": "hi;drag",
+            "Tag": 1120,
+            "ActionTag": -294321727,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "boy",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Jinsi_usiku_ulivyoingia/farmer.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2162.1985,
+              "Y": 120.4642
+            },
+            "Scale": {
+              "ScaleX": 0.8,
+              "ScaleY": 0.8
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8446,
+              "Y": 0.0669
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2162.1985,
+            "RightMargin": 397.8015,
+            "TopMargin": 1679.5358,
+            "BottomMargin": 120.4642,
+            "UserData": "hi;drag",
+            "Tag": 1170,
+            "ActionTag": 849600085,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "farmer",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "boy.json",
+        "farmer.json",
+        "Jinsi_usiku_ulivyoingia.plist",
+        "Jinsi_usiku_ulivyoingia.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}
