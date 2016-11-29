@@ -14,7 +14,7 @@
 #include "lang/TextGenerator.h"
 #include "ui/CocosGUI.h"
 #include "mini_games/Table.h"
-
+#include "mini_games/Item.h"
 USING_NS_CC;
 
 Calculator::Calculator() :
@@ -132,6 +132,16 @@ bool Calculator::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 				std::string queryb = sstreamb.str();
 				Table * table = (Table *)this->getParent();
 				table->calculatedResult(queryb);
+
+			}
+			if (this->getParent()->getName().compare(ITEM) == 0) {
+				CCLOG("in ITEM");
+				std::ostringstream sstreamb;
+				sstreamb.clear();
+				sstreamb << _answer;
+				std::string queryb = sstreamb.str();
+				Item * item = (Item *)this->getParent();
+				item->calculatedResult(queryb);
 
 			}
 				_done = 1;

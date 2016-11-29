@@ -41,6 +41,10 @@ protected:
 	cocos2d::Node* _done;
 	cocos2d::Node* _box1;
 	cocos2d::Node* _box2;
+	cocos2d::Label* _hintLabel1;
+	cocos2d::Label* _hintLabel2;
+	cocos2d::Label* _hintLabel3;
+	std::string _box1Name;
 	cocostudio::timeline::ActionTimeline* _timeline1;
 	cocostudio::timeline::ActionTimeline* _timeline2;
 	std::vector<Node *> _fishMove;
@@ -48,13 +52,15 @@ protected:
 	std::vector<int>_frogY1 = { 170, 120, 120, 120,  220,  280, 280, 280};
 	std::vector<int>_frogX2 = { 200, 450, 750, 1000, 1250, 900, 600, 350 };
 	std::vector<int>_frogY2 = { 150, 130, 130, 130,  240,  270, 270, 270 };
+	std::vector<Node*> _boxRef;
 	void fishCreate();
 	void numCreate();
 	void frogCreate();
 	void result();
+	void verify();
 	void check();
-	int _count1 = 0;
-	int _count2 = 0;
+	int _count1, _count2 = 0;
+	int _frogCount1, _frogCount2, _frogCount3 = 0;
 	int _num1 = 0;
 	int _num2 = 0;
 };
