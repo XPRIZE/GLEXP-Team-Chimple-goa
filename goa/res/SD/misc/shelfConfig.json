@@ -8,6 +8,7 @@
 				"Anansi_Kunguru_na_Mamba_Anansi_the_crows/Anansi_Kunguru_na_Mamba_Anansi_the_crows.plist",
 				"Anansi_Kunguru_na_Mamba_Anansi_the_crows/bee.json",
 				"Anansi_Kunguru_na_Mamba_Anansi_the_crows/bird.json",
+				"Anansi_Kunguru_na_Mamba_Anansi_the_crows/crocodile.json",
 				"Anansi_Kunguru_na_Mamba_Anansi_the_crows/fire.json",
 				"Anansi_Kunguru_na_Mamba_Anansi_the_crows/rain.json"
 			],
@@ -70,9 +71,9 @@
 				"Ajali_mbaya_Serious_accident/car.json",
 				"Ajali_mbaya_Serious_accident/girl.json",
 				"Ajali_mbaya_Serious_accident/truck.json",
+				"Ajali_mbaya_Serious_accident/towtruck.json",
 				"Ajali_mbaya_Serious_accident/Ajali_mbaya_Serious_accident.plist",
-				"Ajali_mbaya_Serious_accident/Ajali_mbaya_Serious_accident.png",
-				"Ajali_mbaya_Serious_accident/towtruck.json"
+				"Ajali_mbaya_Serious_accident/Ajali_mbaya_Serious_accident.png"				
 			],
 			"pages": [
 				{
@@ -682,7 +683,7 @@
 		},
 		{
 			"storyId": "storyId_16",
-			"icon": "jinsi_anansi_alivyopata/jinsi anansi alivyopata thumbnail.jpg",
+			"icon": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata_thumbnail.jpg",
 			"coverPage": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata_cover_page.json",
 			"resources": [
 				"jinsi_anansi_alivyopata/fire.json",
@@ -818,58 +819,50 @@
 		{
 			"storyId": "storyId_19",
 			"icon": "Watoto_wa_Nta_Children_of_wax/Watoto_wa_Nta_Children_of_wax_thumbnail.png",
-			"coverPage": "Watoto_wa_Nta_Children_of_wax/Watoto_wa_Nta_Children_of_wax_coverpage.json",
+			"coverPage": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza01.json",
 			"resources": [
-				"Watoto_wa_Nta_Children_of_wax/bird.json",
-				"Watoto_wa_Nta_Children_of_wax/boy_1.json",
-				"Watoto_wa_Nta_Children_of_wax/boy_2.json",
-				"Watoto_wa_Nta_Children_of_wax/boy_3.json",
-				"Watoto_wa_Nta_Children_of_wax/fire.json",
-				"Watoto_wa_Nta_Children_of_wax/men.json",
-				"Watoto_wa_Nta_Children_of_wax/star.json",
-				"Watoto_wa_Nta_Children_of_wax/women.json",
-				"Watoto_wa_Nta_Children_of_wax/Watoto_wa_Nta_Children_of_wax.plist",
-				"Watoto_wa_Nta_Children_of_wax/Watoto_wa_Nta_Children_of_wax.png"
+				"Mwanamme_na_Mwanamke_wa_Kwanza/cycle.json",
+				"Mwanamme_na_Mwanamke_wa_Kwanza/cycle1.json",
+				"Mwanamme_na_Mwanamke_wa_Kwanza/man.json",
+				"Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza.plist",
+				"Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza.png"
 			],
 			"pages": [
 				{
-					"contentJson": "Watoto_wa_Nta_Children_of_wax/Watoto_wa_Nta_Children_of_wax_01.json"
+					"contentJson": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza01.json"
 				},
 				{
-					"contentJson": "Watoto_wa_Nta_Children_of_wax/Watoto_wa_Nta_Children_of_wax_02.json"
+					"contentJson": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza02.json"
 				},
 				{
-					"contentJson": "Watoto_wa_Nta_Children_of_wax/Watoto_wa_Nta_Children_of_wax_03.json"
+					"contentJson": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza03.json"
 				},
 				{
-					"contentJson": "Watoto_wa_Nta_Children_of_wax/Watoto_wa_Nta_Children_of_wax_04.json"
+					"contentJson": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza04.json"
 				},
 				{
-					"contentJson": "Watoto_wa_Nta_Children_of_wax/Watoto_wa_Nta_Children_of_wax_05.json"
+					"contentJson": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza05.json"
 				},
 				{
-					"contentJson": "Watoto_wa_Nta_Children_of_wax/Watoto_wa_Nta_Children_of_wax_06.json"
+					"contentJson": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza06.json"
 				},
 				{
-					"contentJson": "Watoto_wa_Nta_Children_of_wax/Watoto_wa_Nta_Children_of_wax_07.json"
+					"contentJson": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza07.json"
 				},
 				{
-					"contentJson": "Watoto_wa_Nta_Children_of_wax/Watoto_wa_Nta_Children_of_wax_08.json"
+					"contentJson": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza08.json"
 				},
 				{
-					"contentJson": "Watoto_wa_Nta_Children_of_wax/Watoto_wa_Nta_Children_of_wax_09.json"
+					"contentJson": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza09.json"
 				},
 				{
-					"contentJson": "Watoto_wa_Nta_Children_of_wax/Watoto_wa_Nta_Children_of_wax_10.json"
+					"contentJson": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza10.json"
 				},
 				{
-					"contentJson": "Watoto_wa_Nta_Children_of_wax/Watoto_wa_Nta_Children_of_wax_11.json"
-				},
-				{
-					"contentJson": "Watoto_wa_Nta_Children_of_wax/Watoto_wa_Nta_Children_of_wax_12.json"
+					"contentJson": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza11.json"
 				}
 			]
-		},
+		},				
 		{
 			"storyId": "storyId_20",
 			"icon": "Kisirusiru_mjinga_Kisirusiru/Kisirusiru_mjinga_Kisirusiru_coverpage.png",
@@ -1773,6 +1766,7 @@
 				"Vayu_Upepo_Vayu_the_wind/glass.json",
 				"Vayu_Upepo_Vayu_the_wind/tree.json",
 				"Vayu_Upepo_Vayu_the_wind/wind_char.json",
+				"Vayu_Upepo_Vayu_the_wind/wind_char/wind_char.json",
 				"Vayu_Upepo_Vayu_the_wind/window.json",
 				"Vayu_Upepo_Vayu_the_wind/Vayu_Upepo_Vayu_the_wind.plist",
 				"Vayu_Upepo_Vayu_the_wind/Vayu_Upepo_Vayu_the_wind.png"
@@ -2028,6 +2022,1249 @@
 					"contentJson": "Mwezi_na_Kofia/Mwezi_na_Kofia10.json"
 				}
 			]
-		}																																																	
+		},
+		{
+			"storyId": "storyId_44",
+			"icon": "Adun_the_beautiful/Adun_the_beautiful_thumbnail.png",
+			"coverPage": "Adun_the_beautiful/Adun_the_beautiful_cover_page.json",
+			"resources": [
+				"Adun_the_beautiful/boy_1.json",
+				"Adun_the_beautiful/boy_2.json",
+				"Adun_the_beautiful/boy_3.json",
+				"Adun_the_beautiful/boy.json",
+				"Adun_the_beautiful/girl.json",
+				"Adun_the_beautiful/skeleton.json",
+				"Adun_the_beautiful/wife.json",
+				"Adun_the_beautiful/Adun_the_beautiful.png",
+				"Adun_the_beautiful/Adun_the_beautiful.plist"
+			],
+			"pages": [
+				{
+					"contentJson": "Adun_the_beautiful/Adun_the_beautiful_01.json"
+				},
+				{
+					"contentJson": "Adun_the_beautiful/Adun_the_beautiful_02.json"
+				},
+				{
+					"contentJson": "Adun_the_beautiful/Adun_the_beautiful_03.json"
+				},
+				{
+					"contentJson": "Adun_the_beautiful/Adun_the_beautiful_04.json"
+				},
+				{
+					"contentJson": "Adun_the_beautiful/Adun_the_beautiful_05.json"
+				},
+				{
+					"contentJson": "Adun_the_beautiful/Adun_the_beautiful_06.json"
+				},
+				{
+					"contentJson": "Adun_the_beautiful/Adun_the_beautiful_07.json"
+				},
+				{
+					"contentJson": "Adun_the_beautiful/Adun_the_beautiful_08.json"
+				},
+				{
+					"contentJson": "Adun_the_beautiful/Adun_the_beautiful_09.json"
+				},
+				{
+					"contentJson": "Adun_the_beautiful/Adun_the_beautiful_10.json"
+				},
+				{
+					"contentJson": "Adun_the_beautiful/Adun_the_beautiful_11.json"
+				},
+				{
+					"contentJson": "Adun_the_beautiful/Adun_the_beautiful_12.json"
+				},
+				{
+					"contentJson": "Adun_the_beautiful/Adun_the_beautiful_13.json"
+				}
+			]
+		},
+		{
+			"storyId": "storyId_45",
+			"icon": "Akai_amefurahi_Happy_Akai/Akai_amefurahi_Happy_Akai_thumbnail.png",
+			"coverPage": "Akai_amefurahi_Happy_Akai/Akai_amefurahi_Happy_Akai_cover_page.json",
+			"resources": [
+				"Akai_amefurahi_Happy_Akai/boy.json",
+				"Akai_amefurahi_Happy_Akai/girl.json",
+				"Akai_amefurahi_Happy_Akai/girl_1.json",
+				"Akai_amefurahi_Happy_Akai/girl_shoe.json",
+				"Adun_the_beautiful/Akai_amefurahi_Happy_Akai.png",
+				"Adun_the_beautiful/Akai_amefurahi_Happy_Akai.plist"
+			],
+			"pages": [
+				{
+					"contentJson": "Akai_amefurahi_Happy_Akai/Akai_amefurahi_Happy_Akai01.json"
+				},
+				{
+					"contentJson": "Akai_amefurahi_Happy_Akai/Akai_amefurahi_Happy_Akai02.json"
+				},
+				{
+					"contentJson": "Akai_amefurahi_Happy_Akai/Akai_amefurahi_Happy_Akai03.json"
+				},
+				{
+					"contentJson": "Akai_amefurahi_Happy_Akai/Akai_amefurahi_Happy_Akai04.json"
+				},
+				{
+					"contentJson": "Akai_amefurahi_Happy_Akai/Akai_amefurahi_Happy_Akai05.json"
+				},
+				{
+					"contentJson": "Akai_amefurahi_Happy_Akai/Akai_amefurahi_Happy_Akai06.json"
+				},
+				{
+					"contentJson": "Akai_amefurahi_Happy_Akai/Akai_amefurahi_Happy_Akai07.json"
+				},
+				{
+					"contentJson": "Akai_amefurahi_Happy_Akai/Akai_amefurahi_Happy_Akai08.json"
+				},
+				{
+					"contentJson": "Akai_amefurahi_Happy_Akai/Akai_amefurahi_Happy_Akai09.json"
+				},
+				{
+					"contentJson": "Akai_amefurahi_Happy_Akai/Akai_amefurahi_Happy_Akai10.json"
+				},
+				{
+					"contentJson": "Akai_amefurahi_Happy_Akai/Akai_amefurahi_Happy_Akai11.json"
+				},
+				{
+					"contentJson": "Akai_amefurahi_Happy_Akai/Akai_amefurahi_Happy_Akai12.json"
+				}
+			]
+		},
+		{
+			"storyId": "storyId_46",
+			"icon": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stories_thumbnail.png",
+			"coverPage": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_cover_page.json",
+			"resources": [
+				"Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/bee.json",
+				"Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/bee1.json",
+				"Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/boy_11.json",
+				"Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/boy1.json",
+				"Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/girl1.json",
+				"Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/wife.json",
+				"Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/wife_0.json",
+				"Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/wife_1.json",
+				"Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/wife_2.json",
+				"Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.png",
+				"Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
+			],
+			"pages": [
+				{
+					"contentJson": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_01.json"
+				},
+				{
+					"contentJson": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_02.json"
+				},
+				{
+					"contentJson": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_03.json"
+				},
+				{
+					"contentJson": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_04.json"
+				},
+				{
+					"contentJson": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_05.json"
+				},
+				{
+					"contentJson": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_06.json"
+				},
+				{
+					"contentJson": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_07.json"
+				},
+				{
+					"contentJson": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_08.json"
+				},
+				{
+					"contentJson": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_09.json"
+				},
+				{
+					"contentJson": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_10.json"
+				},
+				{
+					"contentJson": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_11.json"
+				},
+				{
+					"contentJson": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_12.json"
+				}
+			]
+		},
+		{
+			"storyId": "storyId_47",
+			"icon": "Anansi_na_Tai_Anansi_and_Vulture/Anansi_na_Tai_Anansi_and_Vulture_thumbnail.png",
+			"coverPage": "Anansi_na_Tai_Anansi_and_Vulture/Anansi_na_Tai_Anansi_and_Vulture_cover_page.json",
+			"resources": [
+				"Anansi_na_Tai_Anansi_and_Vulture/bee.json",
+				"Anansi_na_Tai_Anansi_and_Vulture/boy1.json",
+				"Anansi_na_Tai_Anansi_and_Vulture/boy2.json",
+				"Anansi_na_Tai_Anansi_and_Vulture/boy3.json",
+				"Anansi_na_Tai_Anansi_and_Vulture/girl1.json",
+				"Anansi_na_Tai_Anansi_and_Vulture/rabbit.json",
+				"Anansi_na_Tai_Anansi_and_Vulture/rain.json",
+				"Anansi_na_Tai_Anansi_and_Vulture/valture.json",
+				"Anansi_na_Tai_Anansi_and_Vulture/wife.json",
+				"Anansi_na_Tai_Anansi_and_Vulture/Anansi_na_Tai_Anansi_and_Vulture.plist",
+				"Anansi_na_Tai_Anansi_and_Vulture/Anansi_na_Tai_Anansi_and_Vulture.png"
+			],
+			"pages": [
+				{
+					"contentJson": "Anansi_na_Tai_Anansi_and_Vulture/Anansi_na_Tai_Anansi_and_Vulture_01.json"
+				},
+				{
+					"contentJson": "Anansi_na_Tai_Anansi_and_Vulture/Anansi_na_Tai_Anansi_and_Vulture_02.json"
+				},
+				{
+					"contentJson": "Anansi_na_Tai_Anansi_and_Vulture/Anansi_na_Tai_Anansi_and_Vulture_03.json"
+				},
+				{
+					"contentJson": "Anansi_na_Tai_Anansi_and_Vulture/Anansi_na_Tai_Anansi_and_Vulture_04.json"
+				},
+				{
+					"contentJson": "Anansi_na_Tai_Anansi_and_Vulture/Anansi_na_Tai_Anansi_and_Vulture_05.json"
+				},
+				{
+					"contentJson": "Anansi_na_Tai_Anansi_and_Vulture/Anansi_na_Tai_Anansi_and_Vulture_06.json"
+				},
+				{
+					"contentJson": "Anansi_na_Tai_Anansi_and_Vulture/Anansi_na_Tai_Anansi_and_Vulture_07.json"
+				},
+				{
+					"contentJson": "Anansi_na_Tai_Anansi_and_Vulture/Anansi_na_Tai_Anansi_and_Vulture_08.json"
+				},
+				{
+					"contentJson": "Anansi_na_Tai_Anansi_and_Vulture/Anansi_na_Tai_Anansi_and_Vulture_09.json"
+				},
+				{
+					"contentJson": "Anansi_na_Tai_Anansi_and_Vulture/Anansi_na_Tai_Anansi_and_Vulture_10.json"
+				},
+				{
+					"contentJson": "Anansi_na_Tai_Anansi_and_Vulture/Anansi_na_Tai_Anansi_and_Vulture_11.json"
+				},
+				{
+					"contentJson": "Anansi_na_Tai_Anansi_and_Vulture/Anansi_na_Tai_Anansi_and_Vulture_12.json"
+				}
+			]
+		},																																																								
+		{
+			"storyId": "storyId_48",
+			"icon": "Barua_kwa_mama_Letter_to_mum/Barua_kwa_mama_Letter_to_mum_thumbnail.png",
+			"coverPage": "Barua_kwa_mama_Letter_to_mum/Barua_kwa_mama_Letter_to_mum_cover_page.json",
+			"resources": [
+				"Barua_kwa_mama_Letter_to_mum/boy.json",
+				"Barua_kwa_mama_Letter_to_mum/boy1.json",
+				"Barua_kwa_mama_Letter_to_mum/girl.json",
+				"Barua_kwa_mama_Letter_to_mum/girl1.json",
+				"Barua_kwa_mama_Letter_to_mum/wife2.json",	
+				"Barua_kwa_mama_Letter_to_mum/Barua_kwa_mama_Letter_to_mum.plist",
+				"Barua_kwa_mama_Letter_to_mum/Barua_kwa_mama_Letter_to_mum.png"
+			],
+			"pages": [
+				{
+					"contentJson": "Barua_kwa_mama_Letter_to_mum/Barua_kwa_mama_Letter_to_mum01.json"
+				},
+				{
+					"contentJson": "Barua_kwa_mama_Letter_to_mum/Barua_kwa_mama_Letter_to_mum02.json"
+				},
+				{
+					"contentJson": "Barua_kwa_mama_Letter_to_mum/Barua_kwa_mama_Letter_to_mum03.json"
+				},
+				{
+					"contentJson": "Barua_kwa_mama_Letter_to_mum/Barua_kwa_mama_Letter_to_mum04.json"
+				},
+				{
+					"contentJson": "Barua_kwa_mama_Letter_to_mum/Barua_kwa_mama_Letter_to_mum05.json"
+				},
+				{
+					"contentJson": "Barua_kwa_mama_Letter_to_mum/Barua_kwa_mama_Letter_to_mum06.json"
+				},
+				{
+					"contentJson": "Barua_kwa_mama_Letter_to_mum/Barua_kwa_mama_Letter_to_mum07.json"
+				},
+				{
+					"contentJson": "Barua_kwa_mama_Letter_to_mum/Barua_kwa_mama_Letter_to_mum08.json"
+				},
+				{
+					"contentJson": "Barua_kwa_mama_Letter_to_mum/Barua_kwa_mama_Letter_to_mum09.json"
+				},
+				{
+					"contentJson": "Barua_kwa_mama_Letter_to_mum/Barua_kwa_mama_Letter_to_mum10.json"
+				},
+				{
+					"contentJson": "Barua_kwa_mama_Letter_to_mum/Barua_kwa_mama_Letter_to_mum11.json"
+				},
+				{
+					"contentJson": "Barua_kwa_mama_Letter_to_mum/Barua_kwa_mama_Letter_to_mum12.json"
+				},
+				{
+					"contentJson": "Barua_kwa_mama_Letter_to_mum/Barua_kwa_mama_Letter_to_mum13.json"
+				},
+				{
+					"contentJson": "Barua_kwa_mama_Letter_to_mum/Barua_kwa_mama_Letter_to_mum14.json"
+				},
+				{
+					"contentJson": "Barua_kwa_mama_Letter_to_mum/Barua_kwa_mama_Letter_to_mum15.json"
+				},
+				{
+					"contentJson": "Barua_kwa_mama_Letter_to_mum/Barua_kwa_mama_Letter_to_mum16.json"
+				},
+				{
+					"contentJson": "Barua_kwa_mama_Letter_to_mum/Barua_kwa_mama_Letter_to_mum17.json"
+				},
+				{
+					"contentJson": "Barua_kwa_mama_Letter_to_mum/Barua_kwa_mama_Letter_to_mum18.json"
+				}
+			]
+		},
+		{
+			"storyId": "storyId_49",
+			"icon": "Binti_wa_Mflame_Kayanja/Binti wa Mflame Kayanja thumbnail.png",
+			"coverPage": "Binti_wa_Mflame_Kayanja/Binti_wa_Mflame_Kayanja_cover_page.json",
+			"resources": [
+				"Binti_wa_Mflame_Kayanja/birdsmall.json",
+				"Binti_wa_Mflame_Kayanja/man.json",
+				"Binti_wa_Mflame_Kayanja/man2.json",
+				"Binti_wa_Mflame_Kayanja/man3.json",
+				"Binti_wa_Mflame_Kayanja/wife.json",
+				"Binti_wa_Mflame_Kayanja/wife2.json",
+				"Binti_wa_Mflame_Kayanja/wife3.json",
+				"Binti_wa_Mflame_Kayanja/wife4.json",	
+				"Binti_wa_Mflame_Kayanja/Binti_wa_Mflame_Kayanja.plist",
+				"Binti_wa_Mflame_Kayanja/Binti_wa_Mflame_Kayanja.png",
+				"Binti_wa_Mflame_Kayanja/Binti2/Binti2.plist",
+				"Binti_wa_Mflame_Kayanja/Binti2/Binti2.png",
+				"Binti_wa_Mflame_Kayanja/Binti3/Binti3.plist",
+				"Binti_wa_Mflame_Kayanja/Binti3/Binti3.png"				
+			],
+			"pages": [
+				{
+					"contentJson": "Binti_wa_Mflame_Kayanja/Binti_wa_Mflame_Kayanja1.json"
+				},
+				{
+					"contentJson": "Binti_wa_Mflame_Kayanja/Binti_wa_Mflame_Kayanja2.json"
+				},
+				{
+					"contentJson": "Binti_wa_Mflame_Kayanja/Binti_wa_Mflame_Kayanja3.json"
+				},
+				{
+					"contentJson": "Binti_wa_Mflame_Kayanja/Binti_wa_Mflame_Kayanja4.json"
+				},
+				{
+					"contentJson": "Binti_wa_Mflame_Kayanja/Binti_wa_Mflame_Kayanja5.json"
+				},
+				{
+					"contentJson": "Binti_wa_Mflame_Kayanja/Binti_wa_Mflame_Kayanja6.json"
+				},
+				{
+					"contentJson": "Binti_wa_Mflame_Kayanja/Binti_wa_Mflame_Kayanja7.json"
+				},
+				{
+					"contentJson": "Binti_wa_Mflame_Kayanja/Binti_wa_Mflame_Kayanja8.json"
+				},
+				{
+					"contentJson": "Binti_wa_Mflame_Kayanja/Binti_wa_Mflame_Kayanja9.json"
+				},
+				{
+					"contentJson": "Binti_wa_Mflame_Kayanja/Binti_wa_Mflame_Kayanja10.json"
+				},
+				{
+					"contentJson": "Binti_wa_Mflame_Kayanja/Binti_wa_Mflame_Kayanja11.json"
+				},
+				{
+					"contentJson": "Binti_wa_Mflame_Kayanja/Binti_wa_Mflame_Kayanja12.json"
+				},
+				{
+					"contentJson": "Binti_wa_Mflame_Kayanja/Binti_wa_Mflame_Kayanja13.json"
+				},
+				{
+					"contentJson": "Binti_wa_Mflame_Kayanja/Binti_wa_Mflame_Kayanja14.json"
+				},
+				{
+					"contentJson": "Binti_wa_Mflame_Kayanja/Binti_wa_Mflame_Kayanja15.json"
+				},
+				{
+					"contentJson": "Binti_wa_Mflame_Kayanja/Binti_wa_Mflame_Kayanja16.json"
+				}
+			]
+		},
+		{
+			"storyId": "storyId_50",
+			"icon": "Demane_and_Demazane/Demane_and_Demazane_thumbnail.jpg",
+			"coverPage": "Demane_and_Demazane/Demane_and_Demazane_cover_page.json",
+			"resources": [
+				"Demane_and_Demazane/boy.json",
+				"Demane_and_Demazane/dove.json",
+				"Demane_and_Demazane/farmer.json",
+				"Demane_and_Demazane/fire.json",
+				"Demane_and_Demazane/girl.json",
+				"Demane_and_Demazane/Demane_and_Demazane.plist",
+				"Demane_and_Demazane/Demane_and_Demazane.png",
+				"Demane_and_Demazane/d2/d2.plist",
+				"Demane_and_Demazane/d2/d2.png"
+			],
+			"pages": [
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane1.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane2.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane3.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane4.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane5.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane6.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane7.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane8.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane9.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane10.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane11.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane12.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane13.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane14.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane15.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane16.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane17.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane18.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane19.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane20.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane21.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane22.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane23.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane24.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane25.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane26.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane27.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane28.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane29.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane30.json"
+				},
+				{
+					"contentJson": "Demane_and_Demazane/Demane_and_Demazane31.json"
+				}
+			]
+		},
+		{
+			"storyId": "storyId_51",
+			"icon": "Fahali_na_Punda/Fahali_na_Punda_thumbnail.jpg",
+			"coverPage": "Fahali_na_Punda/Fahali_na_Punda_cover_page.json",
+			"resources": [
+				"Fahali_na_Punda/farmer.json",
+				"Fahali_na_Punda/cow.json",
+				"Fahali_na_Punda/donkey.json",
+				"Fahali_na_Punda/Fahali_na_Punda.png",
+				"Fahali_na_Punda/Fahali_na_Punda.plist"
+			],
+			"pages": [
+				{
+					"contentJson": "Fahali_na_Punda/Fahali_na_Punda1.json"
+				},
+				{
+					"contentJson": "Fahali_na_Punda/Fahali_na_Punda2.json"
+				},
+				{
+					"contentJson": "Fahali_na_Punda/Fahali_na_Punda3.json"
+				},
+				{
+					"contentJson": "Fahali_na_Punda/Fahali_na_Punda4.json"
+				},
+				{
+					"contentJson": "Fahali_na_Punda/Fahali_na_Punda5.json"
+				},
+				{
+					"contentJson": "Fahali_na_Punda/Fahali_na_Punda6.json"
+				},
+				{
+					"contentJson": "Fahali_na_Punda/Fahali_na_Punda7.json"
+				},
+				{
+					"contentJson": "Fahali_na_Punda/Fahali_na_Punda8.json"
+				},
+				{
+					"contentJson": "Fahali_na_Punda/Fahali_na_Punda9.json"
+				},
+				{
+					"contentJson": "Fahali_na_Punda/Fahali_na_Punda10.json"
+				},
+				{
+					"contentJson": "Fahali_na_Punda/Fahali_na_Punda11.json"
+				},
+				{
+					"contentJson": "Fahali_na_Punda/Fahali_na_Punda12.json"
+				}
+			]
+		},
+		{
+			"storyId": "storyId_52",
+			"icon": "Fisi_mlafi/Fisi_mlafi_thumbnail.jpg",
+			"coverPage": "Fisi_mlafi/Fisi_mlafi_cover_page.json",
+			"resources": [
+				"Fisi_mlafi/deer.json",
+				"Fisi_mlafi/farmer.json",
+				"Fisi_mlafi/fire.json",
+				"Fisi_mlafi/fox.json",
+				"Fisi_mlafi/hyena.json",
+				"Fisi_mlafi/man.json",
+				"Fisi_mlafi/rabbit.json",
+				"Fisi_mlafi/squirrel.json",
+				"Fisi_mlafi/Fisi_mlafi.plist",
+				"Fisi_mlafi/Fisi_mlafi.png",
+				"Fisi_mlafi/fisi2/fisi2.png",
+				"Fisi_mlafi/fisi2/fisi2.plist"
+			],
+			"pages": [
+				{
+					"contentJson": "Fisi_mlafi/Fisi_mlafi1.json"
+				},
+				{
+					"contentJson": "Fisi_mlafi/Fisi_mlafi2.json"
+				},
+				{
+					"contentJson": "Fisi_mlafi/Fisi_mlafi3.json"
+				},
+				{
+					"contentJson": "Fisi_mlafi/Fisi_mlafi4.json"
+				},
+				{
+					"contentJson": "Fisi_mlafi/Fisi_mlafi5.json"
+				},
+				{
+					"contentJson": "Fisi_mlafi/Fisi_mlafi6.json"
+				},
+				{
+					"contentJson": "Fisi_mlafi/Fisi_mlafi7.json"
+				},
+				{
+					"contentJson": "Fisi_mlafi/Fisi_mlafi8.json"
+				},
+				{
+					"contentJson": "Fisi_mlafi/Fisi_mlafi9.json"
+				},
+				{
+					"contentJson": "Fisi_mlafi/Fisi_mlafi10.json"
+				},
+				{
+					"contentJson": "Fisi_mlafi/Fisi_mlafi11.json"
+				},
+				{
+					"contentJson": "Fisi_mlafi/Fisi_mlafi12.json"
+				},
+				{
+					"contentJson": "Fisi_mlafi/Fisi_mlafi13.json"
+				},
+				{
+					"contentJson": "Fisi_mlafi/Fisi_mlafi14.json"
+				},
+				{
+					"contentJson": "Fisi_mlafi/Fisi_mlafi15.json"
+				},
+				{
+					"contentJson": "Fisi_mlafi/Fisi_mlafi16.json"
+				}
+			]
+		},
+		{
+			"storyId": "storyId_53",
+			"icon": "Fisi_na_Kobe/Fisi_na_Kobe_thumbnail.png",
+			"coverPage": "Fisi_na_Kobe/Fisi_na_Kobe_cover_page.json",
+			"resources": [
+				"Fisi_na_Kobe/bird.json",
+				"Fisi_na_Kobe/hyena.json",
+				"Fisi_na_Kobe/tortoise.json",
+				"Fisi_na_Kobe/Fisi_na_Kobe.png",
+				"Fisi_na_Kobe/Fisi_na_Kobe.plist"
+			],
+			"pages": [
+				{
+					"contentJson": "Fisi_na_Kobe/Fisi_na_Kobe1.json"
+				},
+				{
+					"contentJson": "Fisi_na_Kobe/Fisi_na_Kobe2.json"
+				},
+				{
+					"contentJson": "Fisi_na_Kobe/Fisi_na_Kobe3.json"
+				},
+				{
+					"contentJson": "Fisi_na_Kobe/Fisi_na_Kobe4.json"
+				},
+				{
+					"contentJson": "Fisi_na_Kobe/Fisi_na_Kobe5.json"
+				},
+				{
+					"contentJson": "Fisi_na_Kobe/Fisi_na_Kobe6.json"
+				},
+				{
+					"contentJson": "Fisi_na_Kobe/Fisi_na_Kobe7.json"
+				},
+				{
+					"contentJson": "Fisi_na_Kobe/Fisi_na_Kobe8.json"
+				},
+				{
+					"contentJson": "Fisi_na_Kobe/Fisi_na_Kobe9.json"
+				},
+				{
+					"contentJson": "Fisi_na_Kobe/Fisi_na_Kobe10.json"
+				},
+				{
+					"contentJson": "Fisi_na_Kobe/Fisi_na_Kobe11.json"
+				},
+				{
+					"contentJson": "Fisi_na_Kobe/Fisi_na_Kobe12.json"
+				},
+				{
+					"contentJson": "Fisi_na_Kobe/Fisi_na_Kobe13.json"
+				},
+				{
+					"contentJson": "Fisi_na_Kobe/Fisi_na_Kobe14.json"
+				},
+				{
+					"contentJson": "Fisi_na_Kobe/Fisi_na_Kobe15.json"
+				}
+			]
+		},
+		{
+			"storyId": "storyId_54",
+			"icon": "Jumamosi_alasiri/Jumamosi_alasiri_thumbnail.png",
+			"coverPage": "Jumamosi_alasiri/Jumamosi_alasiri_cover_page.json",
+			"resources": [
+				"Jumamosi_alasiri/birdsmall.json",
+				"Jumamosi_alasiri/boy.json",
+				"Jumamosi_alasiri/butterfly.json",
+				"Jumamosi_alasiri/cow.json",
+				"Jumamosi_alasiri/girl.json",
+				"Jumamosi_alasiri/man.json",
+				"Jumamosi_alasiri/splash.json",
+				"Jumamosi_alasiri/wife.json",
+				"Jumamosi_alasiri/Jumamosi_alasiri.plist",
+				"Jumamosi_alasiri/Jumamosi_alasiri.png",
+				"Jumamosi_alasiri/Jumamosi2/Jumamosi2.plist",
+				"Jumamosi_alasiri/Jumamosi2/Jumamosi2.png"				
+			],
+			"pages": [
+				{
+					"contentJson": "Jumamosi_alasiri/Jumamosi_alasiri1.json"
+				},
+				{
+					"contentJson": "Jumamosi_alasiri/Jumamosi_alasiri2.json"
+				},
+				{
+					"contentJson": "Jumamosi_alasiri/Jumamosi_alasiri3.json"
+				},
+				{
+					"contentJson": "Jumamosi_alasiri/Jumamosi_alasiri4.json"
+				},
+				{
+					"contentJson": "Jumamosi_alasiri/Jumamosi_alasiri5.json"
+				},
+				{
+					"contentJson": "Jumamosi_alasiri/Jumamosi_alasiri6.json"
+				},
+				{
+					"contentJson": "Jumamosi_alasiri/Jumamosi_alasiri7.json"
+				},
+				{
+					"contentJson": "Jumamosi_alasiri/Jumamosi_alasiri8.json"
+				},
+				{
+					"contentJson": "Jumamosi_alasiri/Jumamosi_alasiri9.json"
+				},
+				{
+					"contentJson": "Jumamosi_alasiri/Jumamosi_alasiri10.json"
+				},
+				{
+					"contentJson": "Jumamosi_alasiri/Jumamosi_alasiri11.json"
+				},
+				{
+					"contentJson": "Jumamosi_alasiri/Jumamosi_alasiri12.json"
+				}
+			]
+		},
+		{
+			"storyId": "storyId_55",
+			"icon": "Kalabushe_chiriku/Kalabushe_chiriku_thumbnail.png",
+			"coverPage": "Kalabushe_chiriku/Kalabushe_chiriku_cover_page.json",
+			"resources": [
+				"Kalabushe_chiriku/bedsheet.json",
+				"Kalabushe_chiriku/boy.json",
+				"Kalabushe_chiriku/butterfly.json",
+				"Kalabushe_chiriku/girl.json",
+				"Kalabushe_chiriku/man.json",
+				"Kalabushe_chiriku/wife.json",
+				"Kalabushe_chiriku/Kalabushe_chiriku.plist",
+				"Kalabushe_chiriku/Kalabushe_chiriku.png"	
+			],
+			"pages": [
+				{
+					"contentJson": "Kalabushe_chiriku/Kalabushe_chiriku1.json"
+				},
+				{
+					"contentJson": "Kalabushe_chiriku/Kalabushe_chiriku2.json"
+				},
+				{
+					"contentJson": "Kalabushe_chiriku/Kalabushe_chiriku3.json"
+				},
+				{
+					"contentJson": "Kalabushe_chiriku/Kalabushe_chiriku4.json"
+				},
+				{
+					"contentJson": "Kalabushe_chiriku/Kalabushe_chiriku5.json"
+				},
+				{
+					"contentJson": "Kalabushe_chiriku/Kalabushe_chiriku6.json"
+				},
+				{
+					"contentJson": "Kalabushe_chiriku/Kalabushe_chiriku7.json"
+				},
+				{
+					"contentJson": "Kalabushe_chiriku/Kalabushe_chiriku8.json"
+				},
+				{
+					"contentJson": "Kalabushe_chiriku/Kalabushe_chiriku9.json"
+				},
+				{
+					"contentJson": "Kalabushe_chiriku/Kalabushe_chiriku10.json"
+				},
+				{
+					"contentJson": "Kalabushe_chiriku/Kalabushe_chiriku11.json"
+				},
+				{
+					"contentJson": "Kalabushe_chiriku/Kalabushe_chiriku12.json"
+				},
+				{
+					"contentJson": "Kalabushe_chiriku/Kalabushe_chiriku13.json"
+				},
+				{
+					"contentJson": "Kalabushe_chiriku/Kalabushe_chiriku14.json"
+				},
+				{
+					"contentJson": "Kalabushe_chiriku/Kalabushe_chiriku15.json"
+				},
+				{
+					"contentJson": "Kalabushe_chiriku/Kalabushe_chiriku16.json"
+				}
+			]
+		},
+		{
+			"storyId": "storyId_56",
+			"icon": "Kijana_Palinyang_Young_Palinyang/Kijana_Palinyang_Young_Palinyang_thumbnail.png",
+			"coverPage": "Kijana_Palinyang_Young_Palinyang/Kijana_Palinyang_Young_Palinyang_coverpage.json",
+			"resources": [
+				"Kijana_Palinyang_Young_Palinyang/boy_2.json",
+				"Kijana_Palinyang_Young_Palinyang/boy_3.json",
+				"Kijana_Palinyang_Young_Palinyang/boy_4.json",
+				"Kijana_Palinyang_Young_Palinyang/boy_5.json",
+				"Kijana_Palinyang_Young_Palinyang/cow.json",
+				"Kijana_Palinyang_Young_Palinyang/men_0.json",
+				"Kijana_Palinyang_Young_Palinyang/men_1.json",
+				"Kijana_Palinyang_Young_Palinyang/men_2.json",
+				"Kijana_Palinyang_Young_Palinyang/rain.json",
+				"Kijana_Palinyang_Young_Palinyang/star.json",
+				"Kijana_Palinyang_Young_Palinyang/women_0.json",
+				"Kijana_Palinyang_Young_Palinyang/Kijana_Palinyang_Young_Palinyang.plist",
+				"Kijana_Palinyang_Young_Palinyang/Kijana_Palinyang_Young_Palinyang.png"
+			],
+			"pages": [
+				{
+					"contentJson": "Kijana_Palinyang_Young_Palinyang/Kijana_Palinyang_Young_Palinyang_01.json"
+				},
+				{
+					"contentJson": "Kijana_Palinyang_Young_Palinyang/Kijana_Palinyang_Young_Palinyang_02.json"
+				},
+				{
+					"contentJson": "Kijana_Palinyang_Young_Palinyang/Kijana_Palinyang_Young_Palinyang_03.json"
+				},
+				{
+					"contentJson": "Kijana_Palinyang_Young_Palinyang/Kijana_Palinyang_Young_Palinyang_04.json"
+				},
+				{
+					"contentJson": "Kijana_Palinyang_Young_Palinyang/Kijana_Palinyang_Young_Palinyang_05.json"
+				},
+				{
+					"contentJson": "Kijana_Palinyang_Young_Palinyang/Kijana_Palinyang_Young_Palinyang_06.json"
+				},
+				{
+					"contentJson": "Kijana_Palinyang_Young_Palinyang/Kijana_Palinyang_Young_Palinyang_07.json"
+				},
+				{
+					"contentJson": "Kijana_Palinyang_Young_Palinyang/Kijana_Palinyang_Young_Palinyang_08.json"
+				},
+				{
+					"contentJson": "Kijana_Palinyang_Young_Palinyang/Kijana_Palinyang_Young_Palinyang_09.json"
+				},
+				{
+					"contentJson": "Kijana_Palinyang_Young_Palinyang/Kijana_Palinyang_Young_Palinyang_10.json"
+				},
+				{
+					"contentJson": "Kijana_Palinyang_Young_Palinyang/Kijana_Palinyang_Young_Palinyang_11.json"
+				},
+				{
+					"contentJson": "Kijana_Palinyang_Young_Palinyang/Kijana_Palinyang_Young_Palinyang_12.json"
+				}
+			]
+		},
+		{
+			"storyId": "storyId_57",
+			"icon": "Mbuzi_Mbwa_na_Ng_ombe/Mbuzi_Mbwa_na_Ng_ombe_coverpage.png",
+			"coverPage": "Mbuzi_Mbwa_na_Ng_ombe/Mbuzi_Mbwa_na_Ng_ombe_coverpage.json",
+			"resources": [
+				"Mbuzi_Mbwa_na_Ng_ombe/boy.json",
+				"Mbuzi_Mbwa_na_Ng_ombe/cow.json",
+				"Mbuzi_Mbwa_na_Ng_ombe/dog.json",
+				"Mbuzi_Mbwa_na_Ng_ombe/goat.json",
+				"Mbuzi_Mbwa_na_Ng_ombe/Mbuzi_Mbwa_na_Ng_ombe.plist",
+				"Mbuzi_Mbwa_na_Ng_ombe/Mbuzi_Mbwa_na_Ng_ombe.png"
+			],
+			"pages": [
+				{
+					"contentJson": "Mbuzi_Mbwa_na_Ng_ombe/Mbuzi_Mbwa_na_Ng_ombe_1.json"
+				},
+				{
+					"contentJson": "Mbuzi_Mbwa_na_Ng_ombe/Mbuzi_Mbwa_na_Ng_ombe_2.json"
+				},
+				{
+					"contentJson": "Mbuzi_Mbwa_na_Ng_ombe/Mbuzi_Mbwa_na_Ng_ombe_3.json"
+				},
+				{
+					"contentJson": "Mbuzi_Mbwa_na_Ng_ombe/Mbuzi_Mbwa_na_Ng_ombe_4.json"
+				},
+				{
+					"contentJson": "Mbuzi_Mbwa_na_Ng_ombe/Mbuzi_Mbwa_na_Ng_ombe_5.json"
+				},
+				{
+					"contentJson": "Mbuzi_Mbwa_na_Ng_ombe/Mbuzi_Mbwa_na_Ng_ombe_6.json"
+				},
+				{
+					"contentJson": "Mbuzi_Mbwa_na_Ng_ombe/Mbuzi_Mbwa_na_Ng_ombe_7.json"
+				},
+				{
+					"contentJson": "Mbuzi_Mbwa_na_Ng_ombe/Mbuzi_Mbwa_na_Ng_ombe_8.json"
+				}
+			]
+		},
+		{
+			"storyId": "storyId_58",
+			"icon": "Mbuzi_Mbwa_na_Ng_ombe/Mbuzi_Mbwa_na_Ng_ombe_coverpage.png",
+			"coverPage": "Mbweha_na_jua/Mbweha_na_jua01.json",
+			"resources": [
+				"Mbweha_na_jua/jackal1.json",
+				"Mbweha_na_jua/jackal2.json",
+				"Mbweha_na_jua/Mbweha_na_jua.plist",
+				"Mbweha_na_jua/Mbweha_na_jua.png"
+			],
+			"pages": [
+				{
+					"contentJson": "Mbweha_na_jua/Mbweha_na_jua01.json"
+				},
+				{
+					"contentJson": "Mbweha_na_jua/Mbweha_na_jua02.json"
+				},
+				{
+					"contentJson": "Mbweha_na_jua/Mbweha_na_jua03.json"
+				},
+				{
+					"contentJson": "Mbweha_na_jua/Mbweha_na_jua04.json"
+				},
+				{
+					"contentJson": "Mbweha_na_jua/Mbweha_na_jua05.json"
+				},
+				{
+					"contentJson": "Mbweha_na_jua/Mbweha_na_jua06.json"
+				},
+				{
+					"contentJson": "Mbweha_na_jua/Mbweha_na_jua07.json"
+				},
+				{
+					"contentJson": "Mbweha_na_jua/Mbweha_na_jua08.json"
+				},
+				{
+					"contentJson": "Mbweha_na_jua/Mbweha_na_jua09.json"
+				}
+			]
+		},
+		{
+			"storyId": "storyId_59",
+			"icon": "Mbuzi_Mbwa_na_Ng_ombe/Mbuzi_Mbwa_na_Ng_ombe_coverpage.png",
+			"coverPage": "Mtoto_aliyeleta_amani/Mtoto_aliyeleta_amani01.json",
+			"resources": [
+				"Mtoto_aliyeleta_amani/baby.json",
+				"Mtoto_aliyeleta_amani/girl.json",
+				"Mtoto_aliyeleta_amani/man.json",
+				"Mtoto_aliyeleta_amani/Mtoto_aliyeleta_amani.plist",
+				"Mtoto_aliyeleta_amani/Mtoto_aliyeleta_amani.png"
+			],
+			"pages": [
+				{
+					"contentJson": "Mtoto_aliyeleta_amani/Mtoto_aliyeleta_amani01.json"
+				},
+				{
+					"contentJson": "Mtoto_aliyeleta_amani/Mtoto_aliyeleta_amani02.json"
+				},
+				{
+					"contentJson": "Mtoto_aliyeleta_amani/Mtoto_aliyeleta_amani03.json"
+				},
+				{
+					"contentJson": "Mtoto_aliyeleta_amani/Mtoto_aliyeleta_amani04.json"
+				},
+				{
+					"contentJson": "Mtoto_aliyeleta_amani/Mtoto_aliyeleta_amani05.json"
+				},
+				{
+					"contentJson": "Mtoto_aliyeleta_amani/Mtoto_aliyeleta_amani06.json"
+				},
+				{
+					"contentJson": "Mtoto_aliyeleta_amani/Mtoto_aliyeleta_amani07.json"
+				},
+				{
+					"contentJson": "Mtoto_aliyeleta_amani/Mtoto_aliyeleta_amani08.json"
+				},
+				{
+					"contentJson": "Mtoto_aliyeleta_amani/Mtoto_aliyeleta_amani09.json"
+				},
+				{
+					"contentJson": "Mtoto_aliyeleta_amani/Mtoto_aliyeleta_amani10.json"
+				},
+				{
+					"contentJson": "Mtoto_aliyeleta_amani/Mtoto_aliyeleta_amani11.json"
+				},
+				{
+					"contentJson": "Mtoto_aliyeleta_amani/Mtoto_aliyeleta_amani12.json"
+				}				
+			]
+		},
+		{
+			"storyId": "storyId_60",
+			"icon": "Mbuzi_Mbwa_na_Ng_ombe/Mbuzi_Mbwa_na_Ng_ombe_coverpage.png",
+			"coverPage": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi01.json",
+			"resources": [
+				"Mtoto_wa_Tembo_Mdadisi/animal_animation.json",
+				"Mtoto_wa_Tembo_Mdadisi/animal_animation1.json",
+				"Mtoto_wa_Tembo_Mdadisi/bird.json",
+				"Mtoto_wa_Tembo_Mdadisi/croc.json",
+				"Mtoto_wa_Tembo_Mdadisi/elephant.json",
+				"Mtoto_wa_Tembo_Mdadisi/elephant1.json",
+				"Mtoto_wa_Tembo_Mdadisi/giraffe.json",
+				"Mtoto_wa_Tembo_Mdadisi/hippo.json",
+				"Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist",
+				"Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.png"
+			],
+			"pages": [
+				{
+					"contentJson": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi01.json"
+				},			
+				{
+					"contentJson": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi02.json"
+				},			
+				{
+					"contentJson": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi03.json"
+				},			
+				{
+					"contentJson": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi04.json"
+				},			
+				{
+					"contentJson": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi05.json"
+				},			
+				{
+					"contentJson": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi06.json"
+				},			
+				{
+					"contentJson": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi07.json"
+				},			
+				{
+					"contentJson": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi08.json"
+				},			
+				{
+					"contentJson": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi09.json"
+				},			
+				{
+					"contentJson": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi10.json"
+				},			
+				{
+					"contentJson": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi11.json"
+				},			
+				{
+					"contentJson": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi12.json"
+				},			
+				{
+					"contentJson": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi13.json"
+				},			
+				{
+					"contentJson": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi14.json"
+				},			
+				{
+					"contentJson": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi15.json"
+				},			
+				{
+					"contentJson": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi16.json"
+				},			
+				{
+					"contentJson": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi17.json"
+				},			
+				{
+					"contentJson": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi18.json"
+				},			
+				{
+					"contentJson": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi19.json"
+				},			
+				{
+					"contentJson": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi20.json"
+				}			
+			]
+		},
+		{
+			"storyId": "storyId_61",
+			"icon": "Ninapenda_kusoma/Ninapenda_kusoma_icon.png",
+			"coverPage": "Ninapenda_kusoma/Ninapenda_kusoma_cover_page.json",
+			"resources": [
+				"Ninapenda_kusoma/boy_1.json",
+				"Ninapenda_kusoma/boy_2.json",
+				"Ninapenda_kusoma/boy_3.json",
+				"Ninapenda_kusoma/men_1.json",
+				"Ninapenda_kusoma/men.json",
+				"Ninapenda_kusoma/women.json",
+				"Ninapenda_kusoma/women_1.json",
+				"Ninapenda_kusoma/z.json",
+				"Ninapenda_kusoma/Ninapenda_kusoma.plist",
+				"Ninapenda_kusoma/Ninapenda_kusoma.png"
+			],
+			"pages": [
+				{
+					"contentJson": "Ninapenda_kusoma/Ninapenda_kusoma_01.json"
+				},			
+				{
+					"contentJson": "Ninapenda_kusoma/Ninapenda_kusoma_02.json"
+				},			
+				{
+					"contentJson": "Ninapenda_kusoma/Ninapenda_kusoma_03.json"
+				},			
+				{
+					"contentJson": "Ninapenda_kusoma/Ninapenda_kusoma_04.json"
+				},			
+				{
+					"contentJson": "Ninapenda_kusoma/Ninapenda_kusoma_05.json"
+				},			
+				{
+					"contentJson": "Ninapenda_kusoma/Ninapenda_kusoma_06.json"
+				},			
+				{
+					"contentJson": "Ninapenda_kusoma/Ninapenda_kusoma_07.json"
+				},			
+				{
+					"contentJson": "Ninapenda_kusoma/Ninapenda_kusoma_08.json"
+				}			
+			]
+		},
+		{
+			"storyId": "storyId_62",
+			"icon": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea_thumbnail.png",
+			"coverPage": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea_cover_page.json",
+			"resources": [
+				"Siku_ambayo_Jua_lilipotea/flower1.json",
+				"Siku_ambayo_Jua_lilipotea/flower2.json",
+				"Siku_ambayo_Jua_lilipotea/flower3.json",
+				"Siku_ambayo_Jua_lilipotea/flower4.json",
+				"Siku_ambayo_Jua_lilipotea/plant1.json",
+				"Siku_ambayo_Jua_lilipotea/plant2.json",
+				"Siku_ambayo_Jua_lilipotea/plant3.json",
+				"Siku_ambayo_Jua_lilipotea/plant4.json",
+				"Siku_ambayo_Jua_lilipotea/rain.json",
+				"Siku_ambayo_Jua_lilipotea/star.json",
+				"Siku_ambayo_Jua_lilipotea/star_0.json",
+				"Siku_ambayo_Jua_lilipotea/sun.json",
+				"Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist",
+				"Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.png"
+			],
+			"pages": [
+				{
+					"contentJson": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea_01.json"
+				},		
+				{
+					"contentJson": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea_02.json"
+				},		
+				{
+					"contentJson": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea_03.json"
+				},		
+				{
+					"contentJson": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea_04.json"
+				},		
+				{
+					"contentJson": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea_05.json"
+				},		
+				{
+					"contentJson": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea_06.json"
+				},		
+				{
+					"contentJson": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea_07.json"
+				},		
+				{
+					"contentJson": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea_08.json"
+				},		
+				{
+					"contentJson": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea_09.json"
+				},		
+				{
+					"contentJson": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea_10.json"
+				},		
+				{
+					"contentJson": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea_11.json"
+				},		
+				{
+					"contentJson": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea_12.json"
+				}		
+			]
+		},
+		{
+			"storyId": "storyId_63",
+			"icon": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/Siku_tuliyouona_upinde_Day_we_saw_the_rainbow_thumbnail.png",
+			"coverPage": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/Siku_tuliyouona_upinde_Day_we_saw_the_rainbow_page.json",
+			"resources": [
+				"Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/boy.json",
+				"Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/men.json",
+				"Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/rainbowman.json",
+				"Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/women.json",
+				"Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/Siku_tuliyouona_upinde_Day_we_saw_the_rainbow.plist",
+				"Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/Siku_tuliyouona_upinde_Day_we_saw_the_rainbow.png"
+			],
+			"pages": [
+				{
+					"contentJson": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/Siku_tuliyouona_upinde_Day_we_saw_the_rainbow_01.json"
+				},	
+				{
+					"contentJson": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/Siku_tuliyouona_upinde_Day_we_saw_the_rainbow_02.json"
+				},	
+				{
+					"contentJson": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/Siku_tuliyouona_upinde_Day_we_saw_the_rainbow_03.json"
+				},	
+				{
+					"contentJson": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/Siku_tuliyouona_upinde_Day_we_saw_the_rainbow_04.json"
+				},	
+				{
+					"contentJson": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/Siku_tuliyouona_upinde_Day_we_saw_the_rainbow_05.json"
+				},	
+				{
+					"contentJson": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/Siku_tuliyouona_upinde_Day_we_saw_the_rainbow_06.json"
+				},	
+				{
+					"contentJson": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/Siku_tuliyouona_upinde_Day_we_saw_the_rainbow_07.json"
+				},	
+				{
+					"contentJson": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/Siku_tuliyouona_upinde_Day_we_saw_the_rainbow_08.json"
+				},	
+				{
+					"contentJson": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/Siku_tuliyouona_upinde_Day_we_saw_the_rainbow_09.json"
+				},	
+				{
+					"contentJson": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/Siku_tuliyouona_upinde_Day_we_saw_the_rainbow_10.json"
+				},	
+				{
+					"contentJson": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/Siku_tuliyouona_upinde_Day_we_saw_the_rainbow_11.json"
+				},	
+				{
+					"contentJson": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/Siku_tuliyouona_upinde_Day_we_saw_the_rainbow_12.json"
+				}	
+			]
+		},
+		{
+			"storyId": "storyId_64",
+			"icon": "Uji_Milk_is_good/Uji_Milk_is_good_thumbnail.png",
+			"coverPage": "Uji_Milk_is_good/Uji_Milk_is_good_coverpage.json",
+			"resources": [
+				"Uji_Milk_is_good/boy_2.json",
+				"Uji_Milk_is_good/men_1.json",
+				"Uji_Milk_is_good/girl.json",
+				"Uji_Milk_is_good/women_0.json",
+				"Uji_Milk_is_good/women_3.json",
+				"Uji_Milk_is_good/Uji_Milk_is_good.plist",
+				"Uji_Milk_is_good/Uji_Milk_is_good.png"
+			],
+			"pages": [
+				{
+					"contentJson": "Uji_Milk_is_good/Uji_Milk_is_good_01.json"
+				},
+				{
+					"contentJson": "Uji_Milk_is_good/Uji_Milk_is_good_02.json"
+				},
+				{
+					"contentJson": "Uji_Milk_is_good/Uji_Milk_is_good_03.json"
+				},
+				{
+					"contentJson": "Uji_Milk_is_good/Uji_Milk_is_good_04.json"
+				},
+				{
+					"contentJson": "Uji_Milk_is_good/Uji_Milk_is_good_05.json"
+				},
+				{
+					"contentJson": "Uji_Milk_is_good/Uji_Milk_is_good_06.json"
+				},
+				{
+					"contentJson": "Uji_Milk_is_good/Uji_Milk_is_good_07.json"
+				},
+				{
+					"contentJson": "Uji_Milk_is_good/Uji_Milk_is_good_08.json"
+				},
+				{
+					"contentJson": "Uji_Milk_is_good/Uji_Milk_is_good_09.json"
+				},
+				{
+					"contentJson": "Uji_Milk_is_good/Uji_Milk_is_good_10.json"
+				},
+				{
+					"contentJson": "Uji_Milk_is_good/Uji_Milk_is_good_11.json"
+				},
+				{
+					"contentJson": "Uji_Milk_is_good/Uji_Milk_is_good_12.json"
+				}
+			]
+		}																															
 	]
 }

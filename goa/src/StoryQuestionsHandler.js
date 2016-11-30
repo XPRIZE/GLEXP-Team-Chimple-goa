@@ -73,7 +73,11 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
             var handler = new xc.MeaningQuestionHandler(xc.StoryQuestionHandlerLayer.res.meaning_question_choice_json, cc.director.getWinSize().width, cc.director.getWinSize().height, question, this.questionCallBack, this);
             handler.setName(this._Q_MEANINGS); 
             this._currentQName = this._Q_MEANINGS;          
-        }
+        } else if(questionType == this._Q_WORDS && cc.sys.isNative) {
+            var handler = new xc.WordQuestionHandler(cc.director.getWinSize().width, cc.director.getWinSize().height, question, this.questionCallBack, this);
+            handler.setName(this._Q_WORDS); 
+            this._currentQName = this._Q_WORDS;          
+        } 
         this.addChild(handler);        
     },
 
@@ -137,7 +141,10 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
         this.processQuestions(json[this._Q_FILL_IN_THE_BLANKS], this._Q_FILL_IN_THE_BLANKS);
         this.processQuestions(json[this._Q_MEANINGS], this._Q_MEANINGS);
         this.processQuestions(json[this._Q_PICTURES], this._Q_PICTURES);
-        this.processQuestions(json[this._Q_WORDS], this._Q_WORDS);        
+        if(cc.sys.isNative) {
+            this.processQuestions(json[this._Q_WORDS], this._Q_WORDS);
+        }
+                
         cc.log("questions:" + this._questions);
 
         //create UI for questions

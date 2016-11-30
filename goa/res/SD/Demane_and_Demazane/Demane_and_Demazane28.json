@@ -1,0 +1,374 @@
+{
+  "ID": "db29cc9d-cf82-4835-b014-6eaded777c6e",
+  "Version": "3.10.0.0",
+  "Name": "Demane_and_Demazane28",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 160,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -631669939,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "dizzy",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 160,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -631669939,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 852.2542,
+                "Y": 256.2161,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2900.0,
+                "Y": 256.2161,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -631669939,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -0.7,
+                "Y": 0.7,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.7,
+                "Y": 0.7,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -631669939,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 160,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 2860,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 48,
+              "G": 29,
+              "B": 53
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -240.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0938,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -240.0,
+            "RightMargin": -300.0,
+            "Tag": 2861,
+            "ActionTag": 1433193831,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 115,
+              "G": 79,
+              "B": 42
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -240.0,
+              "Y": 0.1682
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0938,
+              "Y": 0.0001
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.3545
+            },
+            "LeftMargin": -240.0,
+            "RightMargin": -300.0,
+            "TopMargin": 1161.6833,
+            "BottomMargin": 0.1682,
+            "Tag": 2862,
+            "ActionTag": 1324280951,
+            "Size": {
+              "X": 3100.0,
+              "Y": 638.1484
+            },
+            "Name": "Panel_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Demane_and_Demazane/demane_tree.png",
+              "Plist": "Demane_and_Demazane/Demane_and_Demazane.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1858.7305,
+              "Y": 946.6106
+            },
+            "Scale": {
+              "ScaleX": 0.5056,
+              "ScaleY": 0.5056
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7261,
+              "Y": 0.5259
+            },
+            "PreSize": {
+              "X": 0.8957,
+              "Y": 0.6111
+            },
+            "LeftMargin": 712.2305,
+            "RightMargin": -445.2305,
+            "TopMargin": 303.3894,
+            "BottomMargin": 396.6106,
+            "Tag": 2865,
+            "ActionTag": 1322521589,
+            "Size": {
+              "X": 2293.0,
+              "Y": 1100.0
+            },
+            "Name": "demane_tree_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Demane_and_Demazane/farmer.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 852.2542,
+              "Y": 256.2161
+            },
+            "Scale": {
+              "ScaleX": -0.7,
+              "ScaleY": 0.7
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.3329,
+              "Y": 0.1423
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 852.2542,
+            "RightMargin": 1707.7458,
+            "TopMargin": 1543.7839,
+            "BottomMargin": 256.2161,
+            "UserData": "hi;drag",
+            "Tag": 2867,
+            "ActionTag": -631669939,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "farmer",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Demane_and_Demazane/bag.png",
+              "Plist": "Demane_and_Demazane/Demane_and_Demazane.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 402.4788,
+              "Y": 316.7498
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1572,
+              "Y": 0.176
+            },
+            "PreSize": {
+              "X": 0.1941,
+              "Y": 0.0906
+            },
+            "LeftMargin": 153.9788,
+            "RightMargin": 1909.0212,
+            "TopMargin": 1401.7502,
+            "BottomMargin": 235.2498,
+            "Tag": 3886,
+            "ActionTag": 1484237631,
+            "Size": {
+              "X": 497.0,
+              "Y": 163.0
+            },
+            "Name": "bag_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Demane_and_Demazane.plist",
+        "Demane_and_Demazane.png",
+        "farmer.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

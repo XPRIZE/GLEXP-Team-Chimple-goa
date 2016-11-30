@@ -1,0 +1,418 @@
+{
+  "ID": "4b951c48-1253-4ad7-9e9a-d859058e43ad",
+  "Version": "2.3.4",
+  "Name": "Binti_wa_Mflame_Kayanja10",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 165,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -72867977,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "hi",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 165,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -72867977,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 3000.0,
+                "Y": -11.0846,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1800.0,
+                "Y": -11.0846,
+                "FrameIndex": 165,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -72867977,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 165,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -72867977,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 165,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 165,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 40,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 239,
+              "G": 216,
+              "B": 142
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -280.0007,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1094,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -280.0007,
+            "RightMargin": -259.9993,
+            "Tag": 93,
+            "ActionTag": -612823908,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 112,
+              "G": 147,
+              "B": 68
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -280.0007,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.4026
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1094,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -280.0007,
+            "RightMargin": -259.9993,
+            "Tag": 92,
+            "ActionTag": -594113748,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Binti_wa_Mflame_Kayanja/binti_carpet2.png",
+              "Plist": "Binti_wa_Mflame_Kayanja/Binti_wa_Mflame_Kayanja.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1313.0975,
+              "Y": 433.1864
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5129,
+              "Y": 0.2407
+            },
+            "PreSize": {
+              "X": 0.7836,
+              "Y": 0.1967
+            },
+            "LeftMargin": 310.0975,
+            "RightMargin": 243.9023,
+            "TopMargin": 1189.8136,
+            "BottomMargin": 256.1864,
+            "Tag": 91,
+            "ActionTag": -372819193,
+            "Size": {
+              "X": 2006.0,
+              "Y": 354.0
+            },
+            "Name": "carpet_2_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Binti_wa_Mflame_Kayanja/Binti3/binti_window4.png",
+              "Plist": "Binti_wa_Mflame_Kayanja/Binti3/Binti3.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1403.3447,
+              "Y": 1448.4695
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5482,
+              "Y": 0.8047
+            },
+            "PreSize": {
+              "X": 0.1574,
+              "Y": 0.1656
+            },
+            "LeftMargin": 1201.8447,
+            "RightMargin": 955.1553,
+            "TopMargin": 202.5305,
+            "BottomMargin": 1299.4695,
+            "Tag": 94,
+            "ActionTag": 1340735370,
+            "Size": {
+              "X": 403.0,
+              "Y": 298.0
+            },
+            "Name": "window_4_12",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Binti_wa_Mflame_Kayanja/Binti3/binti_window4.png",
+              "Plist": "Binti_wa_Mflame_Kayanja/Binti3/Binti3.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2144.3489,
+              "Y": 1456.5205
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8376,
+              "Y": 0.8092
+            },
+            "PreSize": {
+              "X": 0.1574,
+              "Y": 0.1656
+            },
+            "LeftMargin": 1942.8489,
+            "RightMargin": 214.1511,
+            "TopMargin": 194.4795,
+            "BottomMargin": 1307.5205,
+            "Tag": 95,
+            "ActionTag": -1305266622,
+            "Size": {
+              "X": 403.0,
+              "Y": 298.0
+            },
+            "Name": "window_4_12_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Binti_wa_Mflame_Kayanja/man.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 3000.0,
+              "Y": -11.0846
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.1719,
+              "Y": -0.0062
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 3000.0,
+            "RightMargin": -440.0,
+            "TopMargin": 1811.0846,
+            "BottomMargin": -11.0846,
+            "UserData": "hi;drag",
+            "Tag": 3401,
+            "ActionTag": -72867977,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "man",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Binti_wa_Mflame_Kayanja.plist",
+        "Binti_wa_Mflame_Kayanja.png",
+        "Binti3/Binti3.plist",
+        "Binti3/Binti3.png",
+        "man.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

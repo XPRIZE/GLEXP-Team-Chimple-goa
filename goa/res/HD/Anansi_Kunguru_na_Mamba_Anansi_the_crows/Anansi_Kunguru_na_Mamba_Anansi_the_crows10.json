@@ -645,63 +645,61 @@
             "TopMargin": -0.6195,
             "BottomMargin": 0.6195,
             "Tag": 32,
-            "Children": [
-              {
-                "ClipAble": false,
-                "ComboBoxIndex": 1,
-                "SingleColor": {
-                  "R": 96,
-                  "G": 172
-                },
-                "FirstColor": {
-                  "R": 150,
-                  "G": 200
-                },
-                "EndColor": {},
-                "ColorVector": {
-                  "ScaleY": 1.0
-                },
-                "Scale9Width": 1,
-                "Scale9Height": 1,
-                "AnchorPoint": {},
-                "Position": {
-                  "X": -1.3443,
-                  "Y": 157.649
-                },
-                "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
-                },
-                "CColor": {},
-                "IconVisible": false,
-                "PrePosition": {
-                  "X": -0.0004,
-                  "Y": 0.0876
-                },
-                "PreSize": {
-                  "X": 1.0,
-                  "Y": 0.3889
-                },
-                "LeftMargin": -1.3443,
-                "RightMargin": 1.3442,
-                "TopMargin": 942.351,
-                "BottomMargin": 157.649,
-                "Tag": 33,
-                "ActionTag": 1198119400,
-                "Size": {
-                  "X": 3100.0,
-                  "Y": 700.0
-                },
-                "Name": "Panel_2",
-                "ctype": "PanelObjectData"
-              }
-            ],
             "ActionTag": -201599315,
             "Size": {
               "X": 3100.0,
               "Y": 1800.0
             },
             "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 96,
+              "G": 172
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -273.0807,
+              "Y": 157.6486
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1067,
+              "Y": 0.0876
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.3889
+            },
+            "LeftMargin": -273.0807,
+            "RightMargin": -266.9194,
+            "TopMargin": 942.3514,
+            "BottomMargin": 157.6486,
+            "Tag": 33,
+            "ActionTag": 1198119400,
+            "Size": {
+              "X": 3100.0,
+              "Y": 700.0
+            },
+            "Name": "Panel_2",
             "ctype": "PanelObjectData"
           },
           {
@@ -977,53 +975,6 @@
             "ctype": "SpriteObjectData"
           },
           {
-            "FlipX": true,
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Anansi_Kunguru_na_Mamba_Anansi_the_crows/kun_cloud.png",
-              "Plist": "Anansi_Kunguru_na_Mamba_Anansi_the_crows/Anansi_Kunguru_na_Mamba_Anansi_the_crows.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 2299.6299,
-              "Y": 1590.9274
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.8983,
-              "Y": 0.8838
-            },
-            "PreSize": {
-              "X": 0.2531,
-              "Y": 0.1444
-            },
-            "LeftMargin": 1975.6299,
-            "RightMargin": -63.6299,
-            "TopMargin": 79.0726,
-            "BottomMargin": 1460.9274,
-            "UserData": "rain;drag",
-            "Tag": 5893,
-            "ActionTag": -570633064,
-            "Size": {
-              "X": 648.0,
-              "Y": 260.0
-            },
-            "Name": "kun_cloud_1",
-            "ctype": "SpriteObjectData"
-          },
-          {
             "FileData": {
               "Type": "Normal",
               "Path": "Anansi_Kunguru_na_Mamba_Anansi_the_crows/crocodile.json",
@@ -1034,8 +985,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 353.0312,
-              "Y": 367.0477
+              "X": 213.2636,
+              "Y": 369.1339
             },
             "Scale": {
               "ScaleX": -1.0543,
@@ -1044,17 +995,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.1379,
-              "Y": 0.2039
+              "X": 0.0833,
+              "Y": 0.2051
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 353.0312,
-            "RightMargin": 2206.9688,
-            "TopMargin": 1432.9524,
-            "BottomMargin": 367.0477,
+            "LeftMargin": 213.2636,
+            "RightMargin": 2346.7363,
+            "TopMargin": 1430.8661,
+            "BottomMargin": 369.1339,
             "UserData": "waling;drag",
             "Tag": 5894,
             "ActionTag": -2013213964,
@@ -1076,8 +1027,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 190.7243,
-              "Y": 576.598
+              "X": 50.9577,
+              "Y": 578.6841
             },
             "Scale": {
               "ScaleX": 0.6469,
@@ -1086,17 +1037,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.0745,
-              "Y": 0.3203
+              "X": 0.0199,
+              "Y": 0.3215
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 190.7243,
-            "RightMargin": 2369.2756,
-            "TopMargin": 1223.4021,
-            "BottomMargin": 576.598,
+            "LeftMargin": 50.9577,
+            "RightMargin": 2509.0422,
+            "TopMargin": 1221.3159,
+            "BottomMargin": 578.6841,
             "Tag": 5904,
             "ActionTag": -391670837,
             "Size": {
@@ -1104,6 +1055,48 @@
               "Y": 0.0
             },
             "Name": "FileNode_2",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Anansi_Kunguru_na_Mamba_Anansi_the_crows/rain.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2284.644,
+              "Y": 1254.5068
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8924,
+              "Y": 0.6969
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2284.644,
+            "RightMargin": 275.356,
+            "TopMargin": 545.4932,
+            "BottomMargin": 1254.5068,
+            "UserData": "rain;drag",
+            "Tag": 4678,
+            "ActionTag": 1152871754,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_3",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -1118,7 +1111,8 @@
         "Anansi_Kunguru_na_Mamba_Anansi_the_crows.plist",
         "Anansi_Kunguru_na_Mamba_Anansi_the_crows.png",
         "bee.json",
-        "crocodile.json"
+        "crocodile.json",
+        "rain.json"
       ],
       "ctype": "GameFileData"
     }
