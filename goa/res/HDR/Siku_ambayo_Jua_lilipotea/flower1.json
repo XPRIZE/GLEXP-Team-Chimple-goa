@@ -1,0 +1,311 @@
+{
+  "ID": "82fd562a-bda6-49bd-b994-4347438321be",
+  "Version": "3.10.0.0",
+  "Name": "flower1",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 63,
+        "Speed": 1.0,
+        "ActivedAnimationName": "bloom",
+        "Timelines": [
+          {
+            "ActionTag": 1509585791,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 4.7269,
+                "Y": 2.4597,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1509585791,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.01,
+                "Y": 0.01,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.01,
+                "Y": 0.01,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.1,
+                "Y": 1.1,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.95,
+                "Y": 0.95,
+                "FrameIndex": 55,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.03,
+                "Y": 1.03,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 63,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1509585791,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 623950362,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 4.72,
+                "Y": 2.4556,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 623950362,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.01,
+                "Y": 0.01,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.1,
+                "Y": 1.1,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.95,
+                "Y": 0.95,
+                "FrameIndex": 55,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.03,
+                "Y": 1.03,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 63,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 623950362,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -26.3202,
+                "Y": -26.3204,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 65,
+          "Name": "bloom",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 158,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/flower1petal.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4.7269,
+              "Y": 2.4597
+            },
+            "Scale": {
+              "ScaleX": 0.01,
+              "ScaleY": 0.01
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -114.7731,
+            "RightMargin": -124.2269,
+            "TopMargin": -121.9597,
+            "BottomMargin": -117.0403,
+            "Tag": 160,
+            "ActionTag": 1509585791,
+            "Size": {
+              "X": 239.0,
+              "Y": 239.0
+            },
+            "Name": "flowerpetal_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/flower1bud.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4.72,
+              "Y": 2.4556
+            },
+            "Scale": {
+              "ScaleX": 0.2934,
+              "ScaleY": 0.2934
+            },
+            "RotationSkewX": -26.3202,
+            "RotationSkewY": -26.3204,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -54.28,
+            "RightMargin": -63.72,
+            "TopMargin": -61.9556,
+            "BottomMargin": -57.0444,
+            "Tag": 159,
+            "ActionTag": 623950362,
+            "Size": {
+              "X": 118.0,
+              "Y": 119.0
+            },
+            "Name": "flowerbud_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Siku_ambayo_Jua_lilipotea.plist",
+        "Siku_ambayo_Jua_lilipotea.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

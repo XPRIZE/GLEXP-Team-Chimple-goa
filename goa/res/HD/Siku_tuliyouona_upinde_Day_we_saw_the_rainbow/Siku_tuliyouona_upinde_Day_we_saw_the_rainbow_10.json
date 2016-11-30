@@ -1,0 +1,236 @@
+{
+  "ID": "7bd6d024-da10-421f-a05f-c473de8d54b1",
+  "Version": "3.10.0.0",
+  "Name": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow_10",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [
+          {
+            "ActionTag": 1775236076,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "blink",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1775236076,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1985.4987,
+                "Y": 95.738,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1775236076,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1775236076,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 153,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 179,
+              "G": 90,
+              "B": 188
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -1508.1002,
+              "Y": -25.6331
+            },
+            "Scale": {
+              "ScaleX": 29.3496,
+              "ScaleY": 9.4499
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.5891,
+              "Y": -0.0142
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -1508.1002,
+            "RightMargin": 3868.1001,
+            "TopMargin": 1625.6332,
+            "BottomMargin": -25.6331,
+            "Tag": 154,
+            "ActionTag": 1022063024,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/rainbowman.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1985.4987,
+              "Y": 95.738
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7756,
+              "Y": 0.0532
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1985.4987,
+            "RightMargin": 574.5013,
+            "TopMargin": 1704.262,
+            "BottomMargin": 95.738,
+            "UserData": "hi;drag",
+            "Tag": 6577,
+            "ActionTag": 1775236076,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "rainbowman",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/03-19.png",
+              "Plist": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/Siku_tuliyouona_upinde_Day_we_saw_the_rainbow.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 886.2437,
+              "Y": 1169.8929
+            },
+            "Scale": {
+              "ScaleX": 0.6992,
+              "ScaleY": 0.6992
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3462,
+              "Y": 0.6499
+            },
+            "PreSize": {
+              "X": 0.7152,
+              "Y": 0.7878
+            },
+            "LeftMargin": -29.2563,
+            "RightMargin": 758.2563,
+            "TopMargin": -78.8929,
+            "BottomMargin": 460.8929,
+            "Tag": 7981,
+            "ActionTag": -914186706,
+            "Size": {
+              "X": 1831.0,
+              "Y": 1418.0
+            },
+            "Name": "Sprite_415",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "rainbowman.json",
+        "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow.plist",
+        "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

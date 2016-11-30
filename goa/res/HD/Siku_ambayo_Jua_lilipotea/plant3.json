@@ -1,0 +1,2022 @@
+{
+  "ID": "54305ae4-ec65-4f7b-b06f-fc4b9403811b",
+  "Version": "3.10.0.0",
+  "Name": "plant3",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 95,
+        "Speed": 0.5,
+        "Timelines": [
+          {
+            "ActionTag": 1341686670,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -45.3643,
+                "Y": 240.3138,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 5
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -133.7004,
+                "Y": 340.8392,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1341686670,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -0.01,
+                "Y": 0.01,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 5
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.4535,
+                "Y": 0.3874,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1341686670,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -26.5479,
+                "Y": -29.5469,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1341686670,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 60,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 62,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1341686670,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 250,
+                  "G": 198,
+                  "B": 198
+                },
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -638717284,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 71.2598,
+                "Y": 374.2194,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 119.0284,
+                "Y": 423.4407,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -638717284,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.01,
+                "Y": 0.01,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.2817,
+                "Y": 0.2593,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -638717284,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -23.0387,
+                "Y": -23.0627,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 28.8953,
+                "Y": 32.311,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -638717284,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 60,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 62,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -638717284,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 250,
+                  "G": 198,
+                  "B": 198
+                },
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 239781533,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 6.1003,
+                "Y": 39.1623,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 5
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -10.1664,
+                "Y": 144.6181,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 239781533,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.0132,
+                "Y": 0.01,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 5
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.7908,
+                "Y": 0.6954,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 239781533,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 5.8998,
+                "Y": 12.4248,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 5
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -30.0461,
+                "Y": -38.9892,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 239781533,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 60,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 62,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 239781533,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Siku_ambayo_Jua_lilipotea/plant1.png",
+                  "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+                },
+                "FrameIndex": 28,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Siku_ambayo_Jua_lilipotea/plant1.png",
+                  "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+                },
+                "FrameIndex": 60,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 239781533,
+            "Property": "BlendFunc",
+            "Frames": [
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 28,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              },
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 60,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 239781533,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 250,
+                  "G": 198,
+                  "B": 198
+                },
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 708782386,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 11.4413,
+                "Y": 140.3208,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 5
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 29.1924,
+                "Y": 281.8886,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 708782386,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -0.01,
+                "Y": 0.01,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 5
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.5866,
+                "Y": 0.5267,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 708782386,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -1.6087,
+                "Y": -1.6256,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 5
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 33.9084,
+                "Y": 37.4839,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 708782386,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 60,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 62,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 708782386,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Siku_ambayo_Jua_lilipotea/plant1.png",
+                  "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Siku_ambayo_Jua_lilipotea/plant1.png",
+                  "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+                },
+                "FrameIndex": 28,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Siku_ambayo_Jua_lilipotea/plant1.png",
+                  "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+                },
+                "FrameIndex": 60,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 708782386,
+            "Property": "BlendFunc",
+            "Frames": [
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              },
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 28,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              },
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 60,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 708782386,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 250,
+                  "G": 198,
+                  "B": 198
+                },
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1129058010,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 18.0448,
+                "Y": 290.303,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 5
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -133.1249,
+                "Y": 499.5474,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1129058010,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -0.0093,
+                "Y": 0.01,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 5
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.7734,
+                "Y": 0.8542,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1129058010,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -26.6692,
+                "Y": -26.6422,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 5
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -31.9735,
+                "Y": -35.3387,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1129058010,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 60,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 62,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1762527272,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 34.1317,
+                "Y": 296.6847,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 5
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 103.187,
+                "Y": 412.2224,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1762527272,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.0088,
+                "Y": 0.01,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 5
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.528,
+                "Y": 0.6075,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1762527272,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -70.4989,
+                "Y": -70.4797,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 5
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 33.4312,
+                "Y": 36.9409,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1762527272,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 60,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 62,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1762527272,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 254,
+                  "G": 202,
+                  "B": 202
+                },
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1160892839,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -2.4144,
+                "Y": -1.0458,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -41.4146,
+                "Y": -1.046,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -0.8144,
+                "Y": -1.046,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -3.4157,
+                "Y": -1.0462,
+                "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -1.4157,
+                "Y": -1.0462,
+                "FrameIndex": 95,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1160892839,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.01,
+                "Y": 0.01,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 5
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.1057,
+                "Y": 1.0,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.01,
+                "Y": 0.01,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.35,
+                "Y": 0.35,
+                "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.01,
+                "Y": 0.01,
+                "FrameIndex": 95,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1160892839,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 95,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1160892839,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 60,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 62,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 65,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 85,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 95,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1160892839,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 250,
+                  "G": 198,
+                  "B": 198
+                },
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 875057246,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -161.4033,
+                "Y": 375.7063,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 5
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -253.8534,
+                "Y": 480.8154,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 875057246,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.0111,
+                "Y": 0.01,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 5
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.4293,
+                "Y": 0.4939,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 875057246,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -4.629,
+                "Y": -4.6116,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 5
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -53.202,
+                "Y": -56.7036,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 875057246,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 60,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 62,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 875057246,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 251,
+                  "G": 221,
+                  "B": 221
+                },
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -72028597,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -23.5176,
+                "Y": 117.1648,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 5
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -116.7659,
+                "Y": 261.1479,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -72028597,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.0075,
+                "Y": 0.01,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 5
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.9394,
+                "Y": 0.9996,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -72028597,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -39.6695,
+                "Y": -39.6636,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 5
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -17.8567,
+                "Y": -18.478,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -72028597,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 60,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 62,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -72028597,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 249,
+                  "G": 174,
+                  "B": 174
+                },
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -560188293,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 29.9127,
+                "Y": 358.4453,
+                "FrameIndex": 36,
+                "EasingData": {
+                  "Type": 5
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 126.4506,
+                "Y": 530.8881,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -560188293,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.0114,
+                "Y": 0.01,
+                "FrameIndex": 36,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.6761,
+                "Y": 0.5779,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -560188293,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 6.3136,
+                "Y": 6.3082,
+                "FrameIndex": 36,
+                "EasingData": {
+                  "Type": 5
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 49.8818,
+                "Y": 53.2278,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -560188293,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 60,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 62,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -560188293,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 249,
+                  "G": 174,
+                  "B": 174
+                },
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1089083980,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 125.9318,
+                "Y": 469.5985,
+                "FrameIndex": 48,
+                "EasingData": {
+                  "Type": 5
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 198.6492,
+                "Y": 505.8819,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1089083980,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -0.0086,
+                "Y": 0.01,
+                "FrameIndex": 48,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.4299,
+                "Y": 0.5274,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1089083980,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -84.1241,
+                "Y": -84.1119,
+                "FrameIndex": 48,
+                "EasingData": {
+                  "Type": 5
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 13.5192,
+                "Y": 15.7342,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1089083980,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 60,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 62,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1089083980,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "G": 215,
+                  "B": 215
+                },
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 60,
+          "Name": "correct",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 65,
+          "EndIndex": 95,
+          "Name": "wrong",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 208,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/plant2.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.6375,
+              "ScaleY": 0.1648
+            },
+            "Position": {
+              "X": -132.13,
+              "Y": 339.0521
+            },
+            "Scale": {
+              "ScaleX": 0.4453,
+              "ScaleY": 0.3807
+            },
+            "RotationSkewX": -26.5479,
+            "RotationSkewY": -29.5469,
+            "CColor": {
+              "R": 250,
+              "G": 198,
+              "B": 198
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -232.2175,
+            "RightMargin": 75.2175,
+            "TopMargin": -814.2809,
+            "BottomMargin": 245.2809,
+            "Tag": 261,
+            "ActionTag": 1341686670,
+            "Size": {
+              "X": 157.0,
+              "Y": 569.0
+            },
+            "Name": "plant2_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/plant2.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.7433,
+              "ScaleY": 0.209
+            },
+            "Position": {
+              "X": 116.6904,
+              "Y": 421.0316
+            },
+            "Scale": {
+              "ScaleX": -0.2674,
+              "ScaleY": 0.2471
+            },
+            "RotationSkewX": 26.3535,
+            "RotationSkewY": 29.6008,
+            "CColor": {
+              "R": 250,
+              "G": 198,
+              "B": 198
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -0.0077,
+            "RightMargin": -156.9923,
+            "TopMargin": -871.1107,
+            "BottomMargin": 302.1107,
+            "Tag": 260,
+            "ActionTag": -638717284,
+            "Size": {
+              "X": 157.0,
+              "Y": 569.0
+            },
+            "Name": "plant2_11",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/plant1.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.6725,
+              "ScaleY": 0.1056
+            },
+            "Position": {
+              "X": -10.0623,
+              "Y": 143.9432
+            },
+            "Scale": {
+              "ScaleX": -0.7857,
+              "ScaleY": 0.691
+            },
+            "RotationSkewX": -29.816,
+            "RotationSkewY": -38.6601,
+            "CColor": {
+              "R": 250,
+              "G": 198,
+              "B": 198
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -117.6623,
+            "RightMargin": -42.3377,
+            "TopMargin": -653.7512,
+            "BottomMargin": 83.7512,
+            "Tag": 259,
+            "ActionTag": 239781533,
+            "Size": {
+              "X": 160.0,
+              "Y": 570.0
+            },
+            "Name": "plant1_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/plant1.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.6574,
+              "ScaleY": 0.1302
+            },
+            "Position": {
+              "X": 28.9605,
+              "Y": 280.0396
+            },
+            "Scale": {
+              "ScaleX": 0.5788,
+              "ScaleY": 0.52
+            },
+            "RotationSkewX": 33.4445,
+            "RotationSkewY": 36.9731,
+            "CColor": {
+              "R": 250,
+              "G": 198,
+              "B": 198
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -76.2235,
+            "RightMargin": -83.7766,
+            "TopMargin": -775.8256,
+            "BottomMargin": 205.8256,
+            "Tag": 258,
+            "ActionTag": 708782386,
+            "Size": {
+              "X": 160.0,
+              "Y": 570.0
+            },
+            "Name": "plant1_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/leaf2.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.1583,
+              "ScaleY": 0.5818
+            },
+            "Position": {
+              "X": -131.1504,
+              "Y": 496.8144
+            },
+            "Scale": {
+              "ScaleX": 0.7632,
+              "ScaleY": 0.8432
+            },
+            "RotationSkewX": -31.9042,
+            "RotationSkewY": -35.2251,
+            "CColor": {
+              "R": 254,
+              "G": 202,
+              "B": 202
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -155.8452,
+            "RightMargin": -0.1548,
+            "TopMargin": -539.889,
+            "BottomMargin": 436.889,
+            "Tag": 255,
+            "ActionTag": -1129058010,
+            "Size": {
+              "X": 156.0,
+              "Y": 103.0
+            },
+            "Name": "leaf2_12_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/leaf2.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.1344,
+              "ScaleY": 0.5994
+            },
+            "Position": {
+              "X": 101.4192,
+              "Y": 409.2646
+            },
+            "Scale": {
+              "ScaleX": -0.5143,
+              "ScaleY": 0.5922
+            },
+            "RotationSkewX": 30.7706,
+            "RotationSkewY": 34.1909,
+            "CColor": {
+              "R": 254,
+              "G": 202,
+              "B": 202
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 80.4528,
+            "RightMargin": -236.4528,
+            "TopMargin": -450.5265,
+            "BottomMargin": 347.5265,
+            "Tag": 251,
+            "ActionTag": 1762527272,
+            "Size": {
+              "X": 156.0,
+              "Y": 103.0
+            },
+            "Name": "leaf2_12_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/plant2.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5
+            },
+            "Position": {
+              "X": -38.8146,
+              "Y": -1.046
+            },
+            "Scale": {
+              "ScaleX": 1.1008,
+              "ScaleY": 0.9956
+            },
+            "CColor": {
+              "R": 250,
+              "G": 198,
+              "B": 198
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -117.3146,
+            "RightMargin": -39.6854,
+            "TopMargin": -567.954,
+            "BottomMargin": -1.046,
+            "Tag": 257,
+            "ActionTag": 1160892839,
+            "Size": {
+              "X": 157.0,
+              "Y": 569.0
+            },
+            "Name": "plant2_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/leaf2.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.1259,
+              "ScaleY": 0.5973
+            },
+            "Position": {
+              "X": -250.1554,
+              "Y": 476.6111
+            },
+            "Scale": {
+              "ScaleX": -0.4117,
+              "ScaleY": 0.4745
+            },
+            "RotationSkewX": -51.2591,
+            "RotationSkewY": -54.6199,
+            "CColor": {
+              "R": 251,
+              "G": 221,
+              "B": 221
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -269.7958,
+            "RightMargin": 113.7958,
+            "TopMargin": -518.0892,
+            "BottomMargin": 415.0891,
+            "Tag": 256,
+            "ActionTag": 875057246,
+            "Size": {
+              "X": 156.0,
+              "Y": 103.0
+            },
+            "Name": "leaf2_12",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/leaf2.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.1344,
+              "ScaleY": 0.5994
+            },
+            "Position": {
+              "X": -115.8334,
+              "Y": 259.7081
+            },
+            "Scale": {
+              "ScaleX": -0.9299,
+              "ScaleY": 0.9897
+            },
+            "RotationSkewX": -18.0748,
+            "RotationSkewY": -18.6899,
+            "CColor": {
+              "R": 249,
+              "G": 174,
+              "B": 174
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -136.7998,
+            "RightMargin": -19.2002,
+            "TopMargin": -300.9699,
+            "BottomMargin": 197.9699,
+            "Tag": 254,
+            "ActionTag": -72028597,
+            "Size": {
+              "X": 156.0,
+              "Y": 103.0
+            },
+            "Name": "leaf2_12_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/leaf2.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.1362,
+              "ScaleY": 0.6194
+            },
+            "Position": {
+              "X": 123.769,
+              "Y": 526.098
+            },
+            "Scale": {
+              "ScaleX": -0.5615,
+              "ScaleY": 0.4832
+            },
+            "RotationSkewX": 48.6716,
+            "RotationSkewY": 51.9245,
+            "CColor": {
+              "R": 249,
+              "G": 174,
+              "B": 174
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 102.5218,
+            "RightMargin": -258.5218,
+            "TopMargin": -565.2998,
+            "BottomMargin": 462.2998,
+            "Tag": 253,
+            "ActionTag": -560188293,
+            "Size": {
+              "X": 156.0,
+              "Y": 103.0
+            },
+            "Name": "leaf2_12_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/leaf2.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.1648,
+              "ScaleY": 0.6133
+            },
+            "Position": {
+              "X": 190.5695,
+              "Y": 501.8504
+            },
+            "Scale": {
+              "ScaleX": 0.2837,
+              "ScaleY": 0.3549
+            },
+            "RotationSkewX": 2.6699,
+            "RotationSkewY": 4.6402,
+            "CColor": {
+              "G": 215,
+              "B": 215
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 164.8607,
+            "RightMargin": -320.8607,
+            "TopMargin": -541.6805,
+            "BottomMargin": 438.6805,
+            "Tag": 252,
+            "ActionTag": 1089083980,
+            "Size": {
+              "X": 156.0,
+              "Y": 103.0
+            },
+            "Name": "leaf2_12_0_0",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Siku_ambayo_Jua_lilipotea.plist",
+        "Siku_ambayo_Jua_lilipotea.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

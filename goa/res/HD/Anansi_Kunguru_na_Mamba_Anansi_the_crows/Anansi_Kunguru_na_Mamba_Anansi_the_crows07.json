@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 370,
         "Speed": 1.0,
-        "ActivedAnimationName": "jug",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 1674082246,
@@ -764,12 +764,6 @@
           "EndIndex": 370,
           "Name": "master",
           "ctype": "AnimationInfoData"
-        },
-        {
-          "StartIndex": 380,
-          "EndIndex": 400,
-          "Name": "jug",
-          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -951,6 +945,7 @@
             "RightMargin": 1334.9001,
             "TopMargin": 1324.3599,
             "BottomMargin": 475.6402,
+            "UserData": "walking;drag",
             "Tag": 4266,
             "ActionTag": 1674082246,
             "Size": {

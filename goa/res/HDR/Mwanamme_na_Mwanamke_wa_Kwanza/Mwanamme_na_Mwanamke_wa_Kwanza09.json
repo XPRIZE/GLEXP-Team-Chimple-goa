@@ -1,0 +1,385 @@
+{
+  "ID": "bf7a74dc-a136-406d-9777-74c6dc575a21",
+  "Version": "3.10.0.0",
+  "Name": "Mwanamme_na_Mwanamke_wa_Kwanza09",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 280,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -1962851619,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walksmile",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walksmile",
+                "SingleFrameIndex": 2,
+                "FrameIndex": 180,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walksmile",
+                "SingleFrameIndex": 2,
+                "FrameIndex": 280,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1962851619,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2509.551,
+                "Y": 685.1729,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1688.9802,
+                "Y": 662.1471,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1688.9802,
+                "Y": 662.1471,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 280,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 145,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 189,
+              "G": 198
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1280.0,
+              "Y": 900.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -720.0,
+            "RightMargin": -720.0,
+            "Tag": 149,
+            "ActionTag": 43927117,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 205,
+              "G": 163,
+              "B": 141
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1280.3046,
+              "Y": -38.5067
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewY": -0.0227,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5001,
+              "Y": -0.0214
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 0.5
+            },
+            "LeftMargin": -719.6954,
+            "RightMargin": -720.3047,
+            "TopMargin": 1388.5067,
+            "BottomMargin": -488.5067,
+            "Tag": 148,
+            "ActionTag": -962038606,
+            "Size": {
+              "X": 4000.0,
+              "Y": 900.0
+            },
+            "Name": "Panel_1_0_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/bush.png",
+              "Plist": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 322.9031,
+              "Y": 539.9326
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1261,
+              "Y": 0.3
+            },
+            "PreSize": {
+              "X": 0.3848,
+              "Y": 0.2522
+            },
+            "LeftMargin": -169.5969,
+            "RightMargin": 1744.5969,
+            "TopMargin": 1033.0674,
+            "BottomMargin": 312.9326,
+            "Tag": 147,
+            "ActionTag": -1035903873,
+            "Size": {
+              "X": 985.0,
+              "Y": 454.0
+            },
+            "Name": "bush_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/bush.png",
+              "Plist": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2175.032,
+              "Y": 535.2263
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8496,
+              "Y": 0.2973
+            },
+            "PreSize": {
+              "X": 0.3848,
+              "Y": 0.2522
+            },
+            "LeftMargin": 1682.532,
+            "RightMargin": -107.532,
+            "TopMargin": 1037.7737,
+            "BottomMargin": 308.2263,
+            "Tag": 146,
+            "ActionTag": -2008700675,
+            "Size": {
+              "X": 985.0,
+              "Y": 454.0
+            },
+            "Name": "bush_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/cycle1.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1505.9818,
+              "Y": 693.1696
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5883,
+              "Y": 0.3851
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1505.9818,
+            "RightMargin": 1054.0182,
+            "TopMargin": 1106.8303,
+            "BottomMargin": 693.1696,
+            "Tag": 155,
+            "ActionTag": 513275367,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_1",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/man.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2509.551,
+              "Y": 685.1729
+            },
+            "Scale": {
+              "ScaleX": 0.9,
+              "ScaleY": 0.9
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.9803,
+              "Y": 0.3807
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2509.551,
+            "RightMargin": 50.449,
+            "TopMargin": 1114.8271,
+            "BottomMargin": 685.1729,
+            "Tag": 161,
+            "ActionTag": -1962851619,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_2",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "cycle1.json",
+        "man.json",
+        "Mwanamme_na_Mwanamke_wa_Kwanza.plist",
+        "Mwanamme_na_Mwanamke_wa_Kwanza.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
