@@ -75,6 +75,8 @@ void Balloon::onEnterTransitionDidFinish()
 	makingBalloons();
 
 
+	/*E = DrawNode::create();
+	this->addChild(E, 10);*/
 
 	Sprite* check = Sprite::createWithSpriteFrameName("balloonpop/balloonpop_done.png");
 	setAllSpriteProperties(check, 0, visibleSize.width*0.83, visibleSize.height*0.1, true, 0.5, 0.5, 0, 1, 1);
@@ -189,6 +191,8 @@ void Balloon::addTouchEvents(Sprite* obj)
 			auto a = target->getPositionX() - target->getContentSize().width / 2;
 			auto b = target->getPositionY() - target->getContentSize().height / 2;
 
+			/*E->clear();
+			E->drawRect(Vec2(a, b), Vec2(a + 10, b + 10), Color4F(0, 0, 255, 22));*/
 
 			Rect pinRect = CCRectMake(a, b, 10, 10);
 
