@@ -105,12 +105,14 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
                         node.setTouchEnabled(true);
                         node.selectedIndex = index;
                         var result = [];
+                        cc.log('remainingAnswers[0]:' + remainingAnswers[0]);
                         var qText = remainingAnswers[0];
                         remainingAnswers[0].replace(/(.{30}\w+)\s(.+)/, function(_,a,b) { result.push(a,b); });
                         if(result.length > 0) {
                            qText = result.join('\n');     
                         }
                         node.setTitleText(qText);
+                        cc.log("qText setting:" + qText);
                         node.addTouchEventListener(this.answerSelected, this);
                     }                    
                 }                             
