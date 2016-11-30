@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 190,
         "Speed": 1.0,
-        "ActivedAnimationName": "yellow",
+        "ActivedAnimationName": "red",
         "Timelines": [
           {
             "ActionTag": 339856056,
@@ -55,9 +55,9 @@
               },
               {
                 "TextureFile": {
-                  "Type": "MarkedSubImage",
-                  "Path": "balloonpop/balloonpop_green_7.png",
-                  "Plist": "balloonpop/balloonpop.plist"
+                  "Type": "Normal",
+                  "Path": "balloonpop/balloonpop_green_71.png",
+                  "Plist": ""
                 },
                 "FrameIndex": 40,
                 "Tween": false,
@@ -66,7 +66,7 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "balloonpop/balloonpop_green_8.png",
+                  "Path": "balloonpop/balloonpop_green_4.png",
                   "Plist": "balloonpop/balloonpop.plist"
                 },
                 "FrameIndex": 50,
@@ -136,7 +136,7 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "balloonpop/balloonpop_red_8.png",
+                  "Path": "balloonpop/balloonpop_red_4.png",
                   "Plist": "balloonpop/balloonpop.plist"
                 },
                 "FrameIndex": 115,
@@ -206,7 +206,7 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "balloonpop/balloonpop_yellow_8.png",
+                  "Path": "balloonpop/balloonpop_yellow_4.png",
                   "Plist": "balloonpop/balloonpop.plist"
                 },
                 "FrameIndex": 180,
@@ -255,7 +255,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "balloonpop/balloonpop_green.png",
+              "Path": "balloonpop/balloonpop_red_6.png",
               "Plist": "balloonpop/balloonpop.plist"
             },
             "BlendFunc": {
@@ -290,8 +290,8 @@
             "Tag": 25,
             "ActionTag": 339856056,
             "Size": {
-              "X": 195.0,
-              "Y": 738.0
+              "X": 252.0,
+              "Y": 762.0
             },
             "Name": "Sprite_1",
             "ctype": "SpriteObjectData"
@@ -306,7 +306,8 @@
       },
       "UsedResources": [
         "balloonpop.plist",
-        "balloonpop.png"
+        "balloonpop.png",
+        "balloonpop_green_71.png"
       ],
       "ctype": "GameFileData"
     }
