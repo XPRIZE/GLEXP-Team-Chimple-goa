@@ -1,5 +1,8 @@
 /// <reference path="cocos2d-typescript-definitions-master/cocos2d/cocos2d-lib.d.ts" />
 var xc = xc || {};
+xc.storyFontName = "Arial";
+xc.storyFontSize = 90;
+xc.storyFontColor = cc.color.BLACK;
 xc.StoryQuestionHandlerLayer = cc.Layer.extend({
     _contentPanel: null,
     _pageConfigPanel: null,
@@ -66,6 +69,10 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
             var handler = new xc.FillInTheBlanksQuestionHandler(xc.StoryQuestionHandlerLayer.res.multi_question_choice_json, cc.director.getWinSize().width, cc.director.getWinSize().height, question, this.questionCallBack, this);
             handler.setName(this._Q_FILL_IN_THE_BLANKS); 
             this._currentQName = this._Q_FILL_IN_THE_BLANKS;          
+        } else if(questionType == this._Q_MEANINGS) {
+            var handler = new xc.MeaningQuestionHandler(xc.StoryQuestionHandlerLayer.res.meaning_question_choice_json, cc.director.getWinSize().width, cc.director.getWinSize().height, question, this.questionCallBack, this);
+            handler.setName(this._Q_MEANINGS); 
+            this._currentQName = this._Q_MEANINGS;          
         }
         this.addChild(handler);        
     },
@@ -203,11 +210,9 @@ xc.StoryQuestionHandlerScene.load = function(storyBaseDir, layer, enableTransiti
 
 xc.StoryQuestionHandlerLayer.res = {
         storyQuestionsConfig_json: xc.path + "misc/storyQuestionsConfig.json",
-        multi_question_choice_json: xc.path + "template/question.json",
-        multi_question_choice_plist: xc.path + "template/question.plist",
-        multi_question_choice_png: xc.path + "template/template.png",
-        multi_question_choice_q_png: xc.path + "template/question.png",
-        pinatacity_plist : xc.path +"pinatacity/pinatacity.plist",
-        pinatacity_png : xc.path +"pinatacity/pinatacity.png",
-        pinatacity_json : xc.path +"pinatacity/pinatacity.json"            
+        multi_question_choice_json: xc.path + "template/template.json",
+        picture_question_choice_json: xc.path + "template/template_1.json",
+        meaning_question_choice_json: xc.path + "template/template_2.json",
+        multi_question_choice_plist: xc.path + "template/template.plist",
+        multi_question_choice_png: xc.path + "template/template.png"       
 };

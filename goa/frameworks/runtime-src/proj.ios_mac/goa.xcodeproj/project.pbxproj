@@ -76,6 +76,10 @@
 		9CA07C971DE6BFC2007578FF /* Item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA07C8C1DE6BFBF007578FF /* Item.cpp */; };
 		9CA07C981DE6BFC4007578FF /* Shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA07C8E1DE6BFBF007578FF /* Shape.cpp */; };
 		9CA07C991DE6BFC8007578FF /* spot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA07C901DE6BFBF007578FF /* spot.cpp */; };
+		9CB54DC01DED46E3006B9D59 /* Balloon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CB54DBE1DED46E3006B9D59 /* Balloon.cpp */; };
+		9CB54DC31DED46E7006B9D59 /* Balloon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CB54DBE1DED46E3006B9D59 /* Balloon.cpp */; };
+		9CE8E1EC1DE98718004A4F35 /* Table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8E1EA1DE98718004A4F35 /* Table.cpp */; };
+		9CE8E1EF1DE9871B004A4F35 /* Table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8E1EA1DE98718004A4F35 /* Table.cpp */; };
 		9FA3AE461BE9BBCA00FC9645 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA3AE451BE9BBCA00FC9645 /* GameController.framework */; };
 		A92275421517C094001B78AA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92275411517C094001B78AA /* QuartzCore.framework */; };
 		A92275441517C094001B78AA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92275431517C094001B78AA /* OpenGLES.framework */; };
@@ -106,10 +110,6 @@
 		F303CCA41DB20DB700DB6D81 /* Pillar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F303CC9F1DB20D9000DB6D81 /* Pillar.cpp */; };
 		F307808A1DB5C2C90078DF62 /* HelpLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F30780891DB5C2C90078DF62 /* HelpLayer.cpp */; };
 		F307808B1DB5C2C90078DF62 /* HelpLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F30780891DB5C2C90078DF62 /* HelpLayer.cpp */; };
-		F33052311DED7D2300BA235E /* Balloon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F330522F1DED7D2300BA235E /* Balloon.cpp */; };
-		F33052321DED7D2300BA235E /* Balloon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F330522F1DED7D2300BA235E /* Balloon.cpp */; };
-		F345C5C01DEBFEB40092515B /* Table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F345C5BE1DEBFEB40092515B /* Table.cpp */; };
-		F345C5C11DEBFEB40092515B /* Table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F345C5BE1DEBFEB40092515B /* Table.cpp */; };
 		F35247C01D6D9D1A0077C333 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35247171D6D9D1A0077C333 /* HelloWorldScene.cpp */; };
 		F35247C11D6D9D1A0077C333 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35247171D6D9D1A0077C333 /* HelloWorldScene.cpp */; };
 		F35247C21D6D9D1A0077C333 /* MapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35247191D6D9D1A0077C333 /* MapScene.cpp */; };
@@ -562,6 +562,10 @@
 		9CA07C8F1DE6BFBF007578FF /* Shape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shape.h; sourceTree = "<group>"; };
 		9CA07C901DE6BFBF007578FF /* spot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = spot.cpp; sourceTree = "<group>"; };
 		9CA07C911DE6BFBF007578FF /* spot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spot.h; sourceTree = "<group>"; };
+		9CB54DBE1DED46E3006B9D59 /* Balloon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Balloon.cpp; sourceTree = "<group>"; };
+		9CB54DBF1DED46E3006B9D59 /* Balloon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Balloon.h; sourceTree = "<group>"; };
+		9CE8E1EA1DE98718004A4F35 /* Table.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Table.cpp; sourceTree = "<group>"; };
+		9CE8E1EB1DE98718004A4F35 /* Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Table.h; sourceTree = "<group>"; };
 		9FA3AE451BE9BBCA00FC9645 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		A922753D1517C094001B78AA /* goa-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "goa-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92275411517C094001B78AA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -590,10 +594,6 @@
 		F303CCA01DB20D9000DB6D81 /* Pillar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pillar.h; sourceTree = "<group>"; };
 		F30780891DB5C2C90078DF62 /* HelpLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelpLayer.cpp; sourceTree = "<group>"; };
 		F307808E1DB5C2DD0078DF62 /* HelpLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpLayer.h; sourceTree = "<group>"; };
-		F330522F1DED7D2300BA235E /* Balloon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Balloon.cpp; sourceTree = "<group>"; };
-		F33052301DED7D2300BA235E /* Balloon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Balloon.h; sourceTree = "<group>"; };
-		F345C5BE1DEBFEB40092515B /* Table.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Table.cpp; sourceTree = "<group>"; };
-		F345C5BF1DEBFEB40092515B /* Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Table.h; sourceTree = "<group>"; };
 		F35247171D6D9D1A0077C333 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelloWorldScene.cpp; sourceTree = "<group>"; };
 		F35247181D6D9D1A0077C333 /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldScene.h; sourceTree = "<group>"; };
 		F35247191D6D9D1A0077C333 /* MapScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapScene.cpp; sourceTree = "<group>"; };
@@ -1259,10 +1259,10 @@
 		F352471A1D6D9D1A0077C333 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
-				F330522F1DED7D2300BA235E /* Balloon.cpp */,
-				F33052301DED7D2300BA235E /* Balloon.h */,
-				F345C5BE1DEBFEB40092515B /* Table.cpp */,
-				F345C5BF1DEBFEB40092515B /* Table.h */,
+				9CB54DBE1DED46E3006B9D59 /* Balloon.cpp */,
+				9CB54DBF1DED46E3006B9D59 /* Balloon.h */,
+				9CE8E1EA1DE98718004A4F35 /* Table.cpp */,
+				9CE8E1EB1DE98718004A4F35 /* Table.h */,
 				9CA07C8C1DE6BFBF007578FF /* Item.cpp */,
 				9CA07C8D1DE6BFBF007578FF /* Item.h */,
 				9CA07C8E1DE6BFBF007578FF /* Shape.cpp */,
@@ -1939,7 +1939,7 @@
 				F35248591D6D9D1A0077C333 /* sqlite3.c in Sources */,
 				F3667D2F1DB4BA6F00EC8908 /* LipiTKNode.cpp in Sources */,
 				F35248331D6D9D1A0077C333 /* RunningState.cpp in Sources */,
-				F345C5C11DEBFEB40092515B /* Table.cpp in Sources */,
+				9CE8E1EF1DE9871B004A4F35 /* Table.cpp in Sources */,
 				9C0E13481DBF707E00C10A81 /* WordSceneLipiTKNode.cpp in Sources */,
 				F3667D771DB4BA7000EC8908 /* logger.cpp in Sources */,
 				F35247F91D6D9D1A0077C333 /* TextGenerator.cpp in Sources */,
@@ -1953,7 +1953,7 @@
 				F35248391D6D9D1A0077C333 /* Sqlite3Helper.cpp in Sources */,
 				F3667D4D1DB4BA6F00EC8908 /* NN.cpp in Sources */,
 				F3667D211DB4BA6F00EC8908 /* LTKTrace.cpp in Sources */,
-				F33052321DED7D2300BA235E /* Balloon.cpp in Sources */,
+				9CB54DC31DED46E7006B9D59 /* Balloon.cpp in Sources */,
 				F352480F1D6D9D1A0077C333 /* WordBoard.cpp in Sources */,
 				F35248171D6D9D1A0077C333 /* MenuContext.cpp in Sources */,
 				F35248151D6D9D1A0077C333 /* StartMenuScene.cpp in Sources */,
@@ -2156,7 +2156,7 @@
 				F3EEA3FA1DE41EC100CA7D31 /* Shop.cpp in Sources */,
 				F36840C01D8A812F00969162 /* AlphamoleLevel.cpp in Sources */,
 				F35248121D6D9D1A0077C333 /* RPGConfig.cpp in Sources */,
-				F33052311DED7D2300BA235E /* Balloon.cpp in Sources */,
+				9CB54DC01DED46E3006B9D59 /* Balloon.cpp in Sources */,
 				F3667D461DB4BA6F00EC8908 /* PointFloatShapeFeature.cpp in Sources */,
 				F35247C21D6D9D1A0077C333 /* MapScene.cpp in Sources */,
 				F352484C1D6D9D1A0077C333 /* SkeletonPosition.cpp in Sources */,
@@ -2169,7 +2169,7 @@
 				F35248101D6D9D1A0077C333 /* WordScene.cpp in Sources */,
 				F3667D4C1DB4BA6F00EC8908 /* NN.cpp in Sources */,
 				F35248581D6D9D1A0077C333 /* sqlite3.c in Sources */,
-				F345C5C01DEBFEB40092515B /* Table.cpp in Sources */,
+				9CE8E1EC1DE98718004A4F35 /* Table.cpp in Sources */,
 				3740AD3D1D912CFD005BDCBA /* Circle.cpp in Sources */,
 				F35248381D6D9D1A0077C333 /* Sqlite3Helper.cpp in Sources */,
 				F35247E61D6D9D1A0077C333 /* Spirograph.cpp in Sources */,
