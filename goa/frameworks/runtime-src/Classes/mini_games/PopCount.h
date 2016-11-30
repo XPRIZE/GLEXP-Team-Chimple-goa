@@ -22,6 +22,7 @@ protected:
 	std::map<std::string, std::map<std::string, float>> _popcountPropertyMap;
 	string _popcountCurrentTheme = "";
 	int _popUpAnswer = 0;
+	float _popStayDelay = 2.0f;
 public:
 	~PopCount();
 	static cocos2d::Scene* createScene();

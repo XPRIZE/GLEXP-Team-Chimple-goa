@@ -1,22 +1,22 @@
 {
-  "ID": "f4e297aa-433c-4a8d-979a-2d8fd658d1fb",
+  "ID": "de447ac7-4cce-444e-9ea0-a62e03df6517",
   "Version": "3.10.0.0",
-  "Name": "starfish",
+  "Name": "starfish1",
   "Content": {
     "Content": {
       "Animation": {
         "Duration": 150,
         "Speed": 1.0,
-        "ActivedAnimationName": "wrong",
+        "ActivedAnimationName": "correct",
         "Timelines": [
           {
-            "ActionTag": 1086631814,
+            "ActionTag": -589926453,
             "Property": "FileData",
             "Frames": [
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "popcount/blink1.png",
+                  "Path": "popcount/yellow1.png",
                   "Plist": "popcount/popcount.plist"
                 },
                 "FrameIndex": 0,
@@ -26,7 +26,7 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "popcount/blink2.png",
+                  "Path": "popcount/yellow2.png",
                   "Plist": "popcount/popcount.plist"
                 },
                 "FrameIndex": 5,
@@ -36,7 +36,7 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "popcount/blink1.png",
+                  "Path": "popcount/yellow1.png",
                   "Plist": "popcount/popcount.plist"
                 },
                 "FrameIndex": 20,
@@ -46,7 +46,7 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "popcount/blink1.png",
+                  "Path": "popcount/yellow1.png",
                   "Plist": "popcount/popcount.plist"
                 },
                 "FrameIndex": 65,
@@ -56,7 +56,7 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "popcount/happy1.png",
+                  "Path": "popcount/yellow3.png",
                   "Plist": "popcount/popcount.plist"
                 },
                 "FrameIndex": 70,
@@ -66,7 +66,7 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "popcount/happy2.png",
+                  "Path": "popcount/yellow4.png",
                   "Plist": "popcount/popcount.plist"
                 },
                 "FrameIndex": 85,
@@ -76,7 +76,7 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "popcount/happy3.png",
+                  "Path": "popcount/yellow5.png",
                   "Plist": "popcount/popcount.plist"
                 },
                 "FrameIndex": 100,
@@ -86,7 +86,7 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "popcount/happy4.png",
+                  "Path": "popcount/yellow6.png",
                   "Plist": "popcount/popcount.plist"
                 },
                 "FrameIndex": 115,
@@ -96,7 +96,7 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "popcount/sad1.png",
+                  "Path": "popcount/yellow7.png",
                   "Plist": "popcount/popcount.plist"
                 },
                 "FrameIndex": 120,
@@ -106,7 +106,7 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "popcount/sad2.png",
+                  "Path": "popcount/yellow8.png",
                   "Plist": "popcount/popcount.plist"
                 },
                 "FrameIndex": 135,
@@ -116,7 +116,7 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "popcount/sad1.png",
+                  "Path": "popcount/yellow7.png",
                   "Plist": "popcount/popcount.plist"
                 },
                 "FrameIndex": 150,
@@ -150,12 +150,12 @@
         }
       ],
       "ObjectData": {
-        "Tag": 14117,
+        "Tag": 51,
         "Children": [
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "popcount/sad1.png",
+              "Path": "popcount/yellow4.png",
               "Plist": "popcount/popcount.plist"
             },
             "BlendFunc": {
@@ -185,9 +185,9 @@
             },
             "LeftMargin": -219.5,
             "RightMargin": -219.5,
-            "TopMargin": -525.0,
-            "Tag": 14118,
-            "ActionTag": 1086631814,
+            "TopMargin": -526.0,
+            "Tag": 55,
+            "ActionTag": -589926453,
             "Size": {
               "X": 439.0,
               "Y": 526.0
