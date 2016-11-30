@@ -269,6 +269,8 @@
 		9C0E13421DBF3ACC00C10A81 /* textgeneratorautobindings.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 9C0E13401DBF3ACC00C10A81 /* textgeneratorautobindings.hpp */; };
 		9CA8581E1DEC37DB00F56255 /* wordgeneratorautobindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA8581C1DEC37DB00F56255 /* wordgeneratorautobindings.cpp */; };
 		9CA8581F1DEC37DB00F56255 /* wordgeneratorautobindings.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 9CA8581D1DEC37DB00F56255 /* wordgeneratorautobindings.hpp */; };
+		9CB54DC61DED4833006B9D59 /* wordscenegeneratorautobindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CB54DC41DED4833006B9D59 /* wordscenegeneratorautobindings.cpp */; };
+		9CB54DC71DED4833006B9D59 /* wordscenegeneratorautobindings.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 9CB54DC51DED4833006B9D59 /* wordscenegeneratorautobindings.hpp */; };
 		ADAC23EE1C2044DC0049A6A2 /* js_module_register.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ADD1C0D91C196BDF00733781 /* js_module_register.cpp */; };
 		ADD1C0DC1C196BDF00733781 /* js_module_register.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ADD1C0D91C196BDF00733781 /* js_module_register.cpp */; };
 		ADD1C0DD1C196BDF00733781 /* js_module_register.h in Headers */ = {isa = PBXBuildFile; fileRef = ADD1C0DA1C196BDF00733781 /* js_module_register.h */; };
@@ -401,6 +403,8 @@
 		9C0E13401DBF3ACC00C10A81 /* textgeneratorautobindings.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = textgeneratorautobindings.hpp; sourceTree = "<group>"; };
 		9CA8581C1DEC37DB00F56255 /* wordgeneratorautobindings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = wordgeneratorautobindings.cpp; sourceTree = "<group>"; };
 		9CA8581D1DEC37DB00F56255 /* wordgeneratorautobindings.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = wordgeneratorautobindings.hpp; sourceTree = "<group>"; };
+		9CB54DC41DED4833006B9D59 /* wordscenegeneratorautobindings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = wordscenegeneratorautobindings.cpp; sourceTree = "<group>"; };
+		9CB54DC51DED4833006B9D59 /* wordscenegeneratorautobindings.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = wordscenegeneratorautobindings.hpp; sourceTree = "<group>"; };
 		ADD1C0D91C196BDF00733781 /* js_module_register.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = js_module_register.cpp; sourceTree = "<group>"; };
 		ADD1C0DA1C196BDF00733781 /* js_module_register.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = js_module_register.h; sourceTree = "<group>"; };
 		ADD1C0DB1C196BDF00733781 /* js-BindingsExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "js-BindingsExport.h"; sourceTree = "<group>"; };
@@ -483,6 +487,8 @@
 				9CA8581C1DEC37DB00F56255 /* wordgeneratorautobindings.cpp */,
 				9CA8581D1DEC37DB00F56255 /* wordgeneratorautobindings.hpp */,
 				9C0E133B1DBF3A8400C10A81 /* chimpleautogenbindings.cpp */,
+				9CB54DC41DED4833006B9D59 /* wordscenegeneratorautobindings.cpp */,
+				9CB54DC51DED4833006B9D59 /* wordscenegeneratorautobindings.hpp */,
 				9C0E133F1DBF3ACC00C10A81 /* textgeneratorautobindings.cpp */,
 				9C0E13401DBF3ACC00C10A81 /* textgeneratorautobindings.hpp */,
 				9C0E133C1DBF3A8400C10A81 /* chimpleautogenbindings.hpp */,
@@ -836,6 +842,7 @@
 				50864CFC1C7CA95200B3BAB1 /* js_bindings_chipmunk_auto_classes.h in Headers */,
 				1A119EE318BDF19200352BAA /* jsb_opengl_functions.h in Headers */,
 				42638FFF1B0EC1B7004C53A2 /* jsb_cocos2dx_physics3d_auto.hpp in Headers */,
+				9CB54DC71DED4833006B9D59 /* wordscenegeneratorautobindings.hpp in Headers */,
 				0541A74F1973876100E45470 /* JavaScriptObjCBridge.h in Headers */,
 				426390061B0EC1C6004C53A2 /* jsb_cocos2dx_physics3d_manual.h in Headers */,
 				ADD1C0DD1C196BDF00733781 /* js_module_register.h in Headers */,
@@ -1075,6 +1082,7 @@
 				1A119E8F18BDF19200352BAA /* jsb_cocos2dx_extension_auto.cpp in Sources */,
 				ADD1C0DC1C196BDF00733781 /* js_module_register.cpp in Sources */,
 				1A119ED718BDF19200352BAA /* js_bindings_opengl.cpp in Sources */,
+				9CB54DC61DED4833006B9D59 /* wordscenegeneratorautobindings.cpp in Sources */,
 				1AB5E62B18D05BC80088DAA4 /* jsb_cocos2dx_ui_auto.cpp in Sources */,
 				1A119E9B18BDF19200352BAA /* jsb_cocos2dx_spine_auto.cpp in Sources */,
 				1A119EF318BDF19200352BAA /* js_bindings_system_registration.cpp in Sources */,

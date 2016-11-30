@@ -260,6 +260,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
 
     init: function () {
+        
         var contentUrl = this._storyInformation["pages"][this._pageIndex]["contentJson"];
         this._baseDir = "";
         if(contentUrl.indexOf("/") != -1) {
@@ -297,6 +298,9 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         // this.showText();
         this.bindTouchListenerToLayer(this);
         this.sceneTouched();
+
+        // var board = goa.WordBoard.createSceneWithWord("test");
+        // this.addChild(board,0);
     },
 
     bindEventsToTarget:function(child) {
@@ -474,7 +478,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             return;
         }
         xc.NarrateStoryScene.load(curIndex, this._storyInformation, xc.NarrateStoryLayer, true);
-        
+        // xc.StoryQuestionHandlerScene.load(this._baseDir, xc.StoryQuestionHandlerLayer, true);
     },
 
     playEnded: function () {
