@@ -96,6 +96,8 @@ void PopCount::onEnterTransitionDidFinish() {
 		bg->setPositionX(myGameWidth);
 	}
 
+	_popUpAnswer = RandomHelper::random_int(1,10);
+
 	setIslandScene();
 
 	setGridNumberPanel();
@@ -193,13 +195,11 @@ void PopCount::setGridNumberPanel() {
 		gridPanel->addChild(smallGrid);
 		smallGrid->setColor(Color3B::BLUE);
 		smallGrid->setOpacity(150);
+		smallGrid->setTag(i+1);
+		smallGrid->setName("smallGrid");
 		smallGrid->setPosition(Vec2(positionX, gridPanel->getContentSize().height / 2));
 		positionX = positionX + smallGridSize + indiSpace;
 		
-		auto drawRect = DrawNode::create();
-		addChild(drawRect,10);
-		drawRect->drawRect(Vec2(smallGrid->getPositionX() - smallGrid->getContentSize().width/2,smallGrid->getPositionY()-smallGrid->getContentSize().height/2),Vec2(smallGrid->getPositionX() + smallGrid->getContentSize().width/2, smallGrid->getPositionY() + smallGrid->getContentSize().height/2),Color4F::GREEN);
-
 		addEventsOnGrid(smallGrid);
 
 		std::ostringstream gridName;	gridName << (i + 1);
@@ -208,7 +208,6 @@ void PopCount::setGridNumberPanel() {
 		label->setPosition(Vec2(smallGrid->getContentSize().width / 2, smallGrid->getContentSize().height / 2));
 		smallGrid->addChild(label);
 	}
-
 }
 
 void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
@@ -219,8 +218,15 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 	listener->onTouchBegan = [=](cocos2d::Touch* touch, cocos2d::Event* event)
 	{
 		auto target = event->getCurrentTarget();
-		Rect rect = Rect(0, 0, target->getContentSize().width, target->getContentSize().height);
-		if (target->getBoundingBox().containsPoint(touch->getLocation())) {
+		Point locationInNode;
+		if (target->getName() == "smallGrid") {
+			locationInNode = target->getParent()->convertToNodeSpace(touch->getLocation());
+		}
+		else if (target->getName() == "midButton") {
+			locationInNode = touch->getLocation();
+		}
+
+		if (target->getBoundingBox().containsPoint(locationInNode)) {
 			target->setColor(Color3B::GRAY);
 			return true;
 		}
@@ -230,12 +236,36 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 	listener->onTouchEnded = [=](cocos2d::Touch* touch, cocos2d::Event* event)
 	{
 		auto target = event->getCurrentTarget();
-		Size s = target->getContentSize();
-		Rect rect = Rect(0, 0, s.width, s.height);
-		target->setColor(Color3B::BLUE);
-		if (target->getBoundingBox().containsPoint(touch->getLocation())) {
-
+		Point locationInNode;
+		if (target->getName() == "smallGrid") {
+			locationInNode = target->getParent()->convertToNodeSpace(touch->getLocation());
 		}
+		else if (target->getName() == "midButton") {
+			locationInNode = touch->getLocation();
+		}
+
+		target->setColor(Color3B::BLUE);
+		if (target->getBoundingBox().containsPoint(locationInNode) && (target->getName() == "smallGrid")) {
+			if (target->getTag() == _popUpAnswer) {
+				CCLOG(" THIS IS CORRECT ");
+				((LabelTTF*)this->getChildByName("midButton")->getChildByName("text"))->setString("PLAY");
+			}
+		}
+		else if (target->getBoundingBox().containsPoint(locationInNode) && (target->getName() == "midButton")) {
+			if (((LabelTTF*)target->getChildByName("text"))->getString() == "WATCH AGAIN") {
+				CCLOG("CLICKED ON WATCH AGAIN BUTTON");
+				popUpCall(_popUpAnswer);
+			}
+			else if (((LabelTTF*)target->getChildByName("text"))->getString() == "PLAY") {
+				CCLOG("CLICKED ON PLAY BUTTON");
+				((LabelTTF*)target->getChildByName("text"))->setString("WATCH AGAIN");
+				_popUpAnswer = RandomHelper::random_int(1, 10);
+				popUpCall(_popUpAnswer);
+			}else{
+				CCLOG("Wrong in condition , check in listner");
+			}
+		}
+
 		return false;
 	};
 
@@ -269,9 +299,30 @@ void PopCount::setIslandScene() {
 		positionX = positionX + (starFish->getChildByName(themeResourcePath.at("characterSpriteName"))->getContentSize().width * 0.5) + indiSpace;
 	}
 
+	auto midButton = Sprite::create();
+	midButton->setTextureRect(Rect(0, 0, Director::getInstance()->getVisibleSize().width*0.2, Director::getInstance()->getVisibleSize().height*0.1));
+	midButton->setColor(Color3B::BLUE);
+	midButton->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height/2));
+	midButton->setOpacity(80);
+	addChild(midButton, 3);
+	midButton->setName("midButton");
+	addEventsOnGrid(midButton);
+
+	auto label = LabelTTF::create("PLAY", "Helvetica", midButton->getContentSize().height*0.8);
+	label->setColor(Color3B::WHITE);
+	label->setPosition(Vec2(midButton->getContentSize().width / 2, midButton->getContentSize().height / 2));
+	label->setName("text");
+	midButton->addChild(label);
+
+//	popUpCall(_popUpAnswer);
+	
+}
+
+void PopCount::popUpCall(int popNumberOfCharacter) {
+
 	this->runAction(Sequence::create(DelayTime::create(2), CallFunc::create([=]() {
 
-		auto getElementObject = getRandomValueRange(0, 9, 4);
+		auto getElementObject = getRandomValueRange(0, 9, popNumberOfCharacter);
 
 		for (size_t i = 0; i < getElementObject.size(); i++) {
 			popUpCharacter(this->getChildByName("bg")->getChildByName("background")->getChildByTag(getElementObject[i] + 1000), "blink");

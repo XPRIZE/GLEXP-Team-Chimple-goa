@@ -298,9 +298,6 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         // this.showText();
         this.bindTouchListenerToLayer(this);
         this.sceneTouched();
-
-        // var board = goa.WordBoard.createSceneWithWord("test");
-        // this.addChild(board,0);
     },
 
     bindEventsToTarget:function(child) {
@@ -575,6 +572,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
 
     onExit: function() {
+        this._super();
         if(cc.audioEngine.isMusicPlaying()) {
             cc.audioEngine.stopMusic();
         }        
