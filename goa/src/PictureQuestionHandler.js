@@ -1,6 +1,6 @@
 /// <reference path="cocos2d-typescript-definitions-master/cocos2d/cocos2d-lib.d.ts" />
 var xc = xc || {};
-xc.MeaningQuestionHandler = cc.Layer.extend({
+xc.PictureQuestionHandler = cc.Layer.extend({
     _textContentMargin: 100,
     _width:0,
     _height: 0,
@@ -71,15 +71,8 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
     },    
 
     configureAnswers: function() {
-        var context = this;      
-        context._answers = [];
-        var obj = this._question;  
-        Object.keys(context._question).forEach(function (key) {
-            var val = context._question[key];
-            context._answers.push(val);
-    
-        });
-        
+        var context = this;        
+        this._answers = Object.values(this._question);
         this._answers = this._answers.filter(function(e) { return e !== "meanings" });
 
         var alreadySelectedAnswers = [];
@@ -257,11 +250,11 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
             this._totalCorrectAnswers++;
             this.swipeAnswers(sender, questionNode);
         }
-        this.hintForCorrectAnswer(sender, isCorrectAnswered);
+        this.hintForCorrectAnswer(sender, isCorrectAnswered);  
         if(this._totalCorrectAnswers == 4) {
             this.callback.call(this._callbackContext, sender, isCorrectAnswered, true);
         } else {
             this.callback.call(this._callbackContext, sender, isCorrectAnswered, false);
-        }                      
+        }                     
     }
 });
