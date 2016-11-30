@@ -44,34 +44,16 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
         this._questionNode = this._constructedScene.node.getChildByName("Q1");
         if(this._questionNode) {
             this._questionNode.setAnchorPoint(cc.p(0.5,0.5));
-            this._questionNode.setTitleFontSize(60);
+            this._questionNode.setFontSize(xc.storyFontSize);
+            this._questionNode.setTextColor(xc.storyFontColor);
+            this._questionNode.setFontName(xc.storyFontName);
+            this._questionNode.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_LEFT);
+            this._questionNode.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
             this._questionNode.setTouchEnabled(false);
             var qText = this._question.question.replace(this._question.answer, Array(this._question.answer.length + 1).join("_"));
-            this._questionNode.setTitleText(qText);
+            this._questionNode.setString(qText);            
         }
     },    
-
-    // configureQuestion: function() {
-    //     var questionChild = new ccui.TextField();
-    //     var qText = this._question.question.replace(this._question.answer, Array(this._question.answer.length + 1).join("_"));
-    //     if(questionChild) {
-    //         questionChild.setTouchEnabled(false);
-    //         questionChild.setFontSize(72);
-    //         questionChild.setTextColor(cc.color.BLACK);
-    //         questionChild.setAnchorPoint(0.5, 0.5);
-    //         questionChild.setPosition(this._width / 2, this._height - 4 * this._textContentMargin);
-    //         questionChild.setMaxLengthEnabled(true);
-    //         questionChild.setMaxLength(this._width - 250);
-    //         questionChild.ignoreContentAdaptWithSize(false);
-    //         questionChild.setPlaceHolderColor(cc.color.BLACK);
-    //         questionChild.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
-    //         questionChild.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_TOP);
-    //         questionChild.setContentSize(cc.size(this._width * 0.9 , this._height * 0.3));
-    //         questionChild.setString(qText);
-    //         this.addChild(questionChild, 0);            
-    //     }
-    // },
-
 
     isEven: function (n) {
         return n % 2 == 0;
@@ -94,7 +76,9 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
             var node = this._constructedScene.node.getChildByName(nodeName);
             if(node) {
                 node.setAnchorPoint(cc.p(0.5,0.5));
-                node.setTitleFontSize(60);
+                node.setTitleFontSize(xc.storyFontSize);
+                node.setTitleColor(xc.storyFontColor);
+                node.setTitleFontName(xc.storyFontName);
                 node.setTouchEnabled(true);
                 node.setTitleText(element);
                 node.addTouchEventListener(this.answerSelected, this);
@@ -127,10 +111,10 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
     },
     
     scaleAnimation: function(correctAnswerNode) {
-        var c1 = new cc.TintTo(1.5, 0, 0, 255);
-        var c2 = new cc.TintTo(1.5, 255, 255, 255);
-        var delay = new cc.DelayTime(1.5);
-        var repeatAction = new cc.Repeat(new cc.Sequence(c1, c2, delay), 3);
+        var increase = new cc.ScaleTo(0.5, 1.2);
+        var decrease = new cc.ScaleTo(0.5, 1); 
+        var delay = new cc.DelayTime(1);
+        var repeatAction = new cc.Repeat(new cc.Sequence(increase, decrease, delay), 3);
         var sequenceAction = new cc.Sequence(repeatAction, new cc.CallFunc(this.resetNumberOfIncorrectAnswered, this));
         correctAnswerNode.runAction(sequenceAction);          
     },
@@ -140,41 +124,53 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
     },
 
 
-    hintForCorrectAnswer: function(isCorrectAnswered) {
-        if(!isCorrectAnswered) {
-            this._numberOfTimesInCorrectAnswered++;
-        } else {
-            this._numberOfTimesInCorrectAnswered = 0;
-        }
-
-        if(this._numberOfTimesInCorrectAnswered >= 2) {
-            //glow correct answer
-            
+    showHintAnimation: function() {
+        if(this._numberOfTimesInCorrectAnswered > 2) {
+            //glow correct answer            
             var correctAnswerNode = this._constructedScene.node.getChildByName(this._correctAnswerNode);
             if(correctAnswerNode) {
-               this.scaleAnimation(correctAnswerNode);               
+               this.scaleAnimation(correctAnswerNode);                           
             }
         }
     },
 
+    hintForCorrectAnswer: function(sender, isCorrectAnswered) {
+        if(!isCorrectAnswered) {
+            this._numberOfTimesInCorrectAnswered++;
+            var x = sender.getPosition().x;
+            var y = sender.getPosition().y;
+            var moveLeft = new cc.moveTo(0.1, cc.p(sender.getPosition().x - 20, sender.getPosition().y));
+            var moveRight = new cc.moveTo(0.1, cc.p(sender.getPosition().x + 40, sender.getPosition().y));
+            var moveOriginal = new cc.moveTo(0.1, cc.p(x, y));
+            var repeatAction = new cc.Repeat(new cc.Sequence(moveLeft, moveRight), 3);
+            var sequenceAction = new cc.Sequence(repeatAction, moveOriginal, new cc.CallFunc(this.showHintAnimation, this));
+            sender.runAction(sequenceAction);                      
+        } else {
+            this._numberOfTimesInCorrectAnswered = 0;
+        }
+
+    },
+
     animateFillInBlanks: function(isCorrectAnswered, sender) {
         if(isCorrectAnswered) {
-            this._label = new cc.LabelTTF(sender.getTitleText(), "Arial", 72.0);
-            this._label.setColor(cc.color.BLACK);
+            this._label = new cc.LabelTTF(sender.getTitleText(), xc.storyFontName, xc.storyFontSize);
+            this._label.setColor(xc.storyFontColor);
             this._label.attr({
                 x: sender.getPosition().x,
                 y: sender.getPosition().y
             });
-
+            sender.setTitleText("");
             this.addChild(this._label, 1);
-            var move = new cc.MoveTo(2.5, this._questionNode.getPosition());
-            this._label.runAction(new cc.Sequence(move, new cc.CallFunc(this.cleanUpLabel, this, sender)));            
+            var increase = new cc.ScaleTo(1, 2.0);
+            var decrease = new cc.ScaleTo(1, 1);
+            var sequenceAction = new cc.Sequence(increase, decrease, new cc.CallFunc(this.cleanUpLabel, this, sender));            
+            this._label.runAction(sequenceAction);            
         }
     },
 
     cleanUpLabel: function(sender) {
         this._label.removeFromParent();
-        this._questionNode.setTitleText(this._question.question);
+        this._questionNode.setString(this._question.question);
         var delay = new cc.DelayTime(1);
         var sequenceAction = new cc.Sequence(delay, new cc.CallFunc(this.executeCallBack, this, sender));
         this.runAction(sequenceAction);        
@@ -186,7 +182,7 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
 
     verifyAnswer: function(sender) {
         var isCorrectAnswered = sender.getTitleText().toLowerCase() === this._question.answer.toLowerCase();
-        this.hintForCorrectAnswer(isCorrectAnswered);
+        this.hintForCorrectAnswer(sender, isCorrectAnswered);
         this.animateFillInBlanks(isCorrectAnswered, sender);               
     }
 });

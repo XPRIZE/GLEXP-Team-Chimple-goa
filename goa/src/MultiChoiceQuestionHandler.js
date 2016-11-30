@@ -43,35 +43,15 @@ xc.MultipleChoiceQuestionHandler = cc.Layer.extend({
         var node = this._constructedScene.node.getChildByName("Q1");
         if(node) {
             node.setAnchorPoint(cc.p(0.5,0.5));
-            node.setTitleFontSize(60);
+            node.setFontSize(xc.storyFontSize);
+            node.setTextColor(xc.storyFontColor);
+            node.setFontName(xc.storyFontName);
+            node.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_LEFT);
+            node.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
             node.setTouchEnabled(false);
-            node.setTitleText(this._question.question);
+            node.setString(this._question.question);
         }
     },    
-
-
-    // configureQuestion: function() {
-    //     //randomize array
-    //     this._question.choices
-    //     //find out question node
-
-    //     var questionChild = this._constructedScene.node.getChildByName("Q1");
-    //     if(questionChild) {
-    //         questionChild.setTouchEnabled(false);
-    //         questionChild.setFontSize(72);
-    //         questionChild.setAnchorPoint(0.5, 0.5);
-    //         questionChild.setPosition(questionChild.getPosition().x, questionChild.getPosition().y - 4 * this._textContentMargin);
-    //         //this._textField.setPosition(this._width / 2 - 2 * this._textContentMargin + this._textContentMargin, this._height - 4 * this._textContentMargin);
-    //         questionChild.setMaxLengthEnabled(true);
-    //         questionChild.setMaxLength(this._width - 250);
-    //         questionChild.ignoreContentAdaptWithSize(false);
-    //         questionChild.setPlaceHolderColor(cc.color.WHITE);
-    //         questionChild.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
-    //         questionChild.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_TOP);
-    //         questionChild.setContentSize(cc.size(this._width * 0.9 , this._height * 0.3));
-    //         questionChild.setString(this._question.question);            
-    //     }
-    // },
 
     configureAnswers: function() {
         var context = this;
@@ -85,7 +65,9 @@ xc.MultipleChoiceQuestionHandler = cc.Layer.extend({
             var node = this._constructedScene.node.getChildByName(nodeName);
             if(node) {
                 node.setAnchorPoint(cc.p(0.5,0.5));
-                node.setTitleFontSize(60);
+                node.setTitleFontSize(xc.storyFontSize);
+                node.setTitleColor(xc.storyFontColor);
+                node.setTitleFontName(xc.storyFontName);
                 node.setTouchEnabled(true);
                 node.setTitleText(element);
                 node.addTouchEventListener(this.answerSelected, this);
@@ -118,10 +100,10 @@ xc.MultipleChoiceQuestionHandler = cc.Layer.extend({
     },
     
     scaleAnimation: function(correctAnswerNode) {
-        var c1 = new cc.TintTo(1.5, 0, 0, 255);
-        var c2 = new cc.TintTo(1.5, 255, 255, 255);
-        var delay = new cc.DelayTime(1.5);
-        var repeatAction = new cc.Repeat(new cc.Sequence(c1, c2, delay), 3);
+        var increase = new cc.ScaleTo(0.5, 1.2);
+        var decrease = new cc.ScaleTo(0.5, 1); 
+        var delay = new cc.DelayTime(1);
+        var repeatAction = new cc.Repeat(new cc.Sequence(increase, decrease, delay), 3);
         var sequenceAction = new cc.Sequence(repeatAction, new cc.CallFunc(this.resetNumberOfIncorrectAnswered, this));
         correctAnswerNode.runAction(sequenceAction);          
     },
@@ -130,27 +112,36 @@ xc.MultipleChoiceQuestionHandler = cc.Layer.extend({
         this._numberOfTimesInCorrectAnswered = 0;        
     },
 
-
-    hintForCorrectAnswer: function(isCorrectAnswered) {
-        if(!isCorrectAnswered) {
-            this._numberOfTimesInCorrectAnswered++;
-        } else {
-            this._numberOfTimesInCorrectAnswered = 0;
-        }
-
-        if(this._numberOfTimesInCorrectAnswered >= 2) {
-            //glow correct answer
-            
+    showHintAnimation: function() {
+        if(this._numberOfTimesInCorrectAnswered > 2) {
+            //glow correct answer            
             var correctAnswerNode = this._constructedScene.node.getChildByName(this._correctAnswerNode);
             if(correctAnswerNode) {
-               this.scaleAnimation(correctAnswerNode);               
+               this.scaleAnimation(correctAnswerNode);                           
             }
         }
     },
 
+    hintForCorrectAnswer: function(sender, isCorrectAnswered) {
+        if(!isCorrectAnswered) {
+            this._numberOfTimesInCorrectAnswered++;
+            var x = sender.getPosition().x;
+            var y = sender.getPosition().y;
+            var moveLeft = new cc.moveTo(0.1, cc.p(sender.getPosition().x - 20, sender.getPosition().y));
+            var moveRight = new cc.moveTo(0.1, cc.p(sender.getPosition().x + 40, sender.getPosition().y));
+            var moveOriginal = new cc.moveTo(0.1, cc.p(x, y));
+            var repeatAction = new cc.Repeat(new cc.Sequence(moveLeft, moveRight), 3);
+            var sequenceAction = new cc.Sequence(repeatAction, moveOriginal, new cc.CallFunc(this.showHintAnimation, this));
+            sender.runAction(sequenceAction);                      
+        } else {
+            this._numberOfTimesInCorrectAnswered = 0;
+        }
+
+    },
+
     verifyAnswer: function(sender) {
         var isCorrectAnswered = sender.getTitleText().toLowerCase() === this._question.answer.toLowerCase();
-        this.hintForCorrectAnswer(isCorrectAnswered);        
+        this.hintForCorrectAnswer(sender, isCorrectAnswered);        
         this.callback.call(this._callbackContext, sender, isCorrectAnswered);        
     }
 });

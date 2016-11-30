@@ -32,6 +32,8 @@
 #include "scripting/js-bindings/manual/ui/jsb_cocos2dx_ui_manual.h"
 #include "scripting/js-bindings/auto/chimpleautogenbindings.hpp"
 #include "scripting/js-bindings/auto/textgeneratorautobindings.hpp"
+#include "scripting/js-bindings/auto/wordgeneratorautobindings.hpp"
+#include "scripting/js-bindings/auto/wordscenegeneratorautobindings.hpp"
 #include "storage/local-storage/LocalStorage.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
@@ -247,7 +249,8 @@ bool AppDelegate::applicationDidFinishLaunching()
     
     sc->addRegisterCallback(register_all_chimpleautogenbindings);
     sc->addRegisterCallback(register_all_textgeneratorautobindings);
-    
+    sc->addRegisterCallback(register_all_wordgeneratorautobindings);
+    sc->addRegisterCallback(register_all_wordscenegeneratorautobindings);
     
     sc->start();
     sc->runScript("script/jsb_boot.js");
