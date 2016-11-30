@@ -189,10 +189,10 @@ void WordScene::createGrid() {
         addChild(_grid);
         _grid->touchEndedCallback = CC_CALLBACK_2(WordScene::onTouchEnded, this);
     
-        if(_showHandWriting) {
-            createHandWritingButton();
-            _grid->setVisible(false);
-        }
+//        if(_showHandWriting) {
+//            createHandWritingButton();
+//            _grid->setVisible(false);
+//        }
 		
 }
 
@@ -289,13 +289,13 @@ void WordScene::processGrapheme(Grapheme* grapheme) {
                 grapheme->selected(false);
                 grapheme->setZOrder(0);
                 grapheme->animateToPositionAndChangeBackground(grapheme->getPrevPosition());
-                if(_showHandWriting) {
-                    _handWritingDialogButton->setEnabled(true);
-                    clearLipiTKResult();
-                    //_lipiTKNode->removeFromParent();
-                    Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(grapheme);
-
-                }
+//                if(_showHandWriting) {
+//                    _handWritingDialogButton->setEnabled(true);
+//                    clearLipiTKResult();
+//                    //_lipiTKNode->removeFromParent();
+//                    Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(grapheme);
+//
+//                }
                 return;
             }
         }
