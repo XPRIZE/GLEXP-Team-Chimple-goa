@@ -295,9 +295,9 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this._rightButtonPanel.setBackGroundColor(xc.PRIMARY_COLOR);
         this.addChild(this._rightButtonPanel);
         this._rightButtonPanel.setVisible(false);
-        // this.showText();
-        this.bindTouchListenerToLayer(this);
-        this.sceneTouched();
+        this.showText();
+        // this.bindTouchListenerToLayer(this);
+        // this.sceneTouched();
     },
 
     bindEventsToTarget:function(child) {
@@ -474,8 +474,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             xc.StoryQuestionHandlerScene.load(this._baseDir, xc.StoryQuestionHandlerLayer, true);
             return;
         }
-        xc.NarrateStoryScene.load(curIndex, this._storyInformation, xc.NarrateStoryLayer, true);
-        // xc.StoryQuestionHandlerScene.load(this._baseDir, xc.StoryQuestionHandlerLayer, true);
+        // xc.NarrateStoryScene.load(curIndex, this._storyInformation, xc.NarrateStoryLayer, true);
+        xc.StoryQuestionHandlerScene.load(this._baseDir, xc.StoryQuestionHandlerLayer, true);
     },
 
     playEnded: function () {
