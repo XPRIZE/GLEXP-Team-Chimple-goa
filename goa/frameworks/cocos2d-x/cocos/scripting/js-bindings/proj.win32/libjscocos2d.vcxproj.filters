@@ -176,6 +176,12 @@
     <ClCompile Include="..\auto\textgeneratorautobindings.cpp">
       <Filter>auto</Filter>
     </ClCompile>
+    <ClCompile Include="..\auto\wordgeneratorautobindings.cpp">
+      <Filter>auto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\auto\wordscenegeneratorautobindings.cpp">
+      <Filter>auto</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\auto\jsb_cocos2dx_auto.hpp">
@@ -329,6 +335,12 @@
       <Filter>auto</Filter>
     </ClInclude>
     <ClInclude Include="..\auto\textgeneratorautobindings.hpp">
+      <Filter>auto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\auto\wordgeneratorautobindings.hpp">
+      <Filter>auto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\auto\wordscenegeneratorautobindings.hpp">
       <Filter>auto</Filter>
     </ClInclude>
   </ItemGroup>
