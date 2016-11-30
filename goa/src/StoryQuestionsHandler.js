@@ -50,6 +50,18 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
         cc.log('this._storyBaseDir:' + this._storyBaseDir);
         this._menuContext = menuContext;
         this.loadQuestions();
+
+        this._celebrationNode = ccs.load(xc.StoryQuestionHandlerLayer.res.celebration_json,xc.path);
+        this._celebrationNode.node.retain();
+        this._celebrationNode.action.retain();
+        this._celebrationNode.action._referenceToContext = this;
+        this._celebrationNode.action.setLastFrameCallFunc(this.finishedSuccessAnimation);
+        if(this._celebrationNode.node) {
+            this._celebrationNode.node.setPosition(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2 + 200);
+            this._celebrationNode.node.setVisible(false);
+            this.addChild(this._celebrationNode.node, 1);
+            this._celebrationNode.action.gotoFrameAndPause(0);
+        }
     },
 
     questionHandler: function(question) {
@@ -99,15 +111,24 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
             }            
         }
     },
+
+    finishedSuccessAnimation: function() {
+        this._referenceToContext._celebrationNode.node.setVisible(false);
+        this._referenceToContext._celebrationNode.action.gotoFrameAndPause(0);
+        //move to next
+        if(this._referenceToContext._isAllAnswered) {
+            this._referenceToContext.nextQuestion();
+        }
+    },
     
     postAnswerAnimation: function(isCorrect, isAllAnswered) {
         cc.log("postAnswerAnimation for answer :" + isCorrect);
+        this._isAllAnswered = isAllAnswered;
         if(isCorrect) {
             cc.log("play success animation");
-        }
-        //move to next
-        if(isAllAnswered) {
-            this.nextQuestion();
+            this._celebrationNode.node.setVisible(true);
+            this._celebrationNode.node.runAction(this._celebrationNode.action);
+            this._celebrationNode.action.play("celebration", false);
         }
     },
 
@@ -250,5 +271,6 @@ xc.StoryQuestionHandlerLayer.res = {
         picture_question_choice_json: xc.path + "template/template_1.json",
         meaning_question_choice_json: xc.path + "template/template_2.json",
         multi_question_choice_plist: xc.path + "template/template.plist",
-        multi_question_choice_png: xc.path + "template/template.png"       
+        multi_question_choice_png: xc.path + "template/template.png",
+        celebration_json: xc.path + "template/celebration.json"    
 };

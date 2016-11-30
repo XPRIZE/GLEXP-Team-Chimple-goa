@@ -163,12 +163,12 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
                     if(!err && json != null && json != undefined) {
                         storyText = json[0];
                         cc.log('story text received:' + storyText);
-                        that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that, false));
+                        that.parent.addChild(new xc.BubbleSpeech(xc.StoryCoverPageLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that));
                     }                                
                 });                
            
             } else {
-                that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText,that.processAudio, that, false));
+                that.parent.addChild(new xc.BubbleSpeech(xc.StoryCoverPageLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that));
             }
         } else {
 
@@ -176,7 +176,7 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
                 if(!err && json != null && json != undefined) {
                     storyText = json[0];
                     cc.log('story text received:' + storyText);
-                    that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that, false));
+                    that.parent.addChild(new xc.BubbleSpeech(xc.StoryCoverPageLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that));
                 }                                
             });                            
         }        
@@ -247,5 +247,6 @@ xc.StoryCoverPageScene.load = function(pageIndex, storyInformation, layer, enabl
 }
 
 xc.StoryCoverPageLayer.res = {
-    play_png: xc.path + "wikitaki/play.png"
+    play_png: xc.path + "wikitaki/play.png",
+    textBubble_json: xc.path + "template/bubble_tem.json"
 };
