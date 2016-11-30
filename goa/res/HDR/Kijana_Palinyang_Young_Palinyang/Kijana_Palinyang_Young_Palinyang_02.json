@@ -1,0 +1,494 @@
+{
+  "ID": "edb7900f-6766-416c-9627-b858557d1ca4",
+  "Version": "3.10.0.0",
+  "Name": "Kijana_Palinyang_Young_Palinyang_02",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 300,
+        "Speed": 1.0,
+        "Timelines": [
+          {
+            "ActionTag": -1213569390,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "blink",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "blink",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1213569390,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1329.9501,
+                "Y": 144.7536,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1329.9501,
+                "Y": 144.7536,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1213569390,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1213569390,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 2531,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 118,
+              "G": 65,
+              "B": 74
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -122.5677,
+              "Y": -110.9529
+            },
+            "Scale": {
+              "ScaleX": 14.0399,
+              "ScaleY": 9.8684
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0479,
+              "Y": -0.0616
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -122.5677,
+            "RightMargin": 2482.5679,
+            "TopMargin": 1710.9529,
+            "BottomMargin": -110.9529,
+            "Tag": 2532,
+            "ActionTag": -463690572,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kijana_Palinyang_Young_Palinyang/tree_01.png",
+              "Plist": "Kijana_Palinyang_Young_Palinyang/Kijana_Palinyang_Young_Palinyang.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 958.5093,
+              "Y": 1123.4048
+            },
+            "Scale": {
+              "ScaleX": 1.1441,
+              "ScaleY": 1.1441
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3744,
+              "Y": 0.6241
+            },
+            "PreSize": {
+              "X": 0.2457,
+              "Y": 0.6578
+            },
+            "LeftMargin": 644.0093,
+            "RightMargin": 1286.9907,
+            "TopMargin": 84.5952,
+            "BottomMargin": 531.4048,
+            "Tag": 2533,
+            "ActionTag": 540377516,
+            "Size": {
+              "X": 629.0,
+              "Y": 1184.0
+            },
+            "Name": "tree_01_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kijana_Palinyang_Young_Palinyang/tree_02.png",
+              "Plist": "Kijana_Palinyang_Young_Palinyang/Kijana_Palinyang_Young_Palinyang.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1379.3823,
+              "Y": 1085.8291
+            },
+            "Scale": {
+              "ScaleX": 1.1441,
+              "ScaleY": 1.1441
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5388,
+              "Y": 0.6032
+            },
+            "PreSize": {
+              "X": 0.2453,
+              "Y": 0.6144
+            },
+            "LeftMargin": 1065.3823,
+            "RightMargin": 866.6177,
+            "TopMargin": 161.1709,
+            "BottomMargin": 532.8291,
+            "Tag": 2534,
+            "ActionTag": 2084254527,
+            "Size": {
+              "X": 628.0,
+              "Y": 1106.0
+            },
+            "Name": "tree_02_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kijana_Palinyang_Young_Palinyang/tree_01.png",
+              "Plist": "Kijana_Palinyang_Young_Palinyang/Kijana_Palinyang_Young_Palinyang.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1713.9912,
+              "Y": 1111.9658
+            },
+            "Scale": {
+              "ScaleX": 1.1441,
+              "ScaleY": 1.1441
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6695,
+              "Y": 0.6178
+            },
+            "PreSize": {
+              "X": 0.2457,
+              "Y": 0.6578
+            },
+            "LeftMargin": 1399.4912,
+            "RightMargin": 531.5088,
+            "TopMargin": 96.0342,
+            "BottomMargin": 519.9658,
+            "Tag": 2535,
+            "ActionTag": -1814142234,
+            "Size": {
+              "X": 629.0,
+              "Y": 1184.0
+            },
+            "Name": "tree_01_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kijana_Palinyang_Young_Palinyang/tree_02.png",
+              "Plist": "Kijana_Palinyang_Young_Palinyang/Kijana_Palinyang_Young_Palinyang.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2134.8652,
+              "Y": 1074.3867
+            },
+            "Scale": {
+              "ScaleX": 1.1441,
+              "ScaleY": 1.1441
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8339,
+              "Y": 0.5969
+            },
+            "PreSize": {
+              "X": 0.2453,
+              "Y": 0.6144
+            },
+            "LeftMargin": 1820.8652,
+            "RightMargin": 111.1348,
+            "TopMargin": 172.6133,
+            "BottomMargin": 521.3867,
+            "Tag": 2536,
+            "ActionTag": -1926305430,
+            "Size": {
+              "X": 628.0,
+              "Y": 1106.0
+            },
+            "Name": "tree_02_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kijana_Palinyang_Young_Palinyang/tree_01.png",
+              "Plist": "Kijana_Palinyang_Young_Palinyang/Kijana_Palinyang_Young_Palinyang.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 454.0233,
+              "Y": 1066.8735
+            },
+            "Scale": {
+              "ScaleX": 1.1441,
+              "ScaleY": 1.1441
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1774,
+              "Y": 0.5927
+            },
+            "PreSize": {
+              "X": 0.2457,
+              "Y": 0.6578
+            },
+            "LeftMargin": 139.5233,
+            "RightMargin": 1791.4767,
+            "TopMargin": 141.1265,
+            "BottomMargin": 474.8735,
+            "Tag": 2537,
+            "ActionTag": -333247054,
+            "Size": {
+              "X": 629.0,
+              "Y": 1184.0
+            },
+            "Name": "tree_01_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kijana_Palinyang_Young_Palinyang/tree_02.png",
+              "Plist": "Kijana_Palinyang_Young_Palinyang/Kijana_Palinyang_Young_Palinyang.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 874.897,
+              "Y": 1029.2986
+            },
+            "Scale": {
+              "ScaleX": 1.1441,
+              "ScaleY": 1.1441
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3418,
+              "Y": 0.5718
+            },
+            "PreSize": {
+              "X": 0.2453,
+              "Y": 0.6144
+            },
+            "LeftMargin": 560.897,
+            "RightMargin": 1371.103,
+            "TopMargin": 217.7014,
+            "BottomMargin": 476.2986,
+            "Tag": 2538,
+            "ActionTag": -1330706610,
+            "Size": {
+              "X": 628.0,
+              "Y": 1106.0
+            },
+            "Name": "tree_02_2_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Kijana_Palinyang_Young_Palinyang/men_1.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1329.9501,
+              "Y": 144.7536
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5195,
+              "Y": 0.0804
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1329.9501,
+            "RightMargin": 1230.0499,
+            "TopMargin": 1655.2463,
+            "BottomMargin": 144.7536,
+            "UserData": "hi",
+            "Tag": 2611,
+            "ActionTag": -1213569390,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "man",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Kijana_Palinyang_Young_Palinyang.plist",
+        "Kijana_Palinyang_Young_Palinyang.png",
+        "men_1.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

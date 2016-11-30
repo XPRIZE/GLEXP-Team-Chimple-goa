@@ -230,7 +230,7 @@
             },
             "LeftMargin": 58.968,
             "RightMargin": 2342.032,
-            "TopMargin": 1545.6316,
+            "TopMargin": 1545.6315,
             "BottomMargin": 87.3685,
             "Tag": 201,
             "Children": [
@@ -1806,7 +1806,7 @@
               "Y": 0.2367
             },
             "LeftMargin": 521.1266,
-            "RightMargin": 1887.8733,
+            "RightMargin": 1887.8734,
             "TopMargin": 1212.0417,
             "BottomMargin": 161.9582,
             "Tag": 198,
@@ -2136,6 +2136,98 @@
               "Y": 426.0
             },
             "Name": "plant3_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "tablelevel/bg.png",
+              "Plist": "tablelevel/tablelevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3405.49,
+              "Y": 737.58
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3303,
+              "Y": 0.4098
+            },
+            "PreSize": {
+              "X": 0.5527,
+              "Y": 0.1822
+            },
+            "LeftMargin": 2697.99,
+            "RightMargin": -1552.9902,
+            "TopMargin": 898.42,
+            "BottomMargin": 573.58,
+            "Tag": 172,
+            "ActionTag": -1668521052,
+            "Size": {
+              "X": 1415.0,
+              "Y": 328.0
+            },
+            "Name": "bg_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "tablelevel/bg.png",
+              "Plist": "tablelevel/tablelevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3406.22,
+              "Y": 1276.3827
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3306,
+              "Y": 0.7091
+            },
+            "PreSize": {
+              "X": 0.5527,
+              "Y": 0.1822
+            },
+            "LeftMargin": 2698.72,
+            "RightMargin": -1553.7197,
+            "TopMargin": 359.6173,
+            "BottomMargin": 1112.3827,
+            "Tag": 173,
+            "ActionTag": -1055689351,
+            "Size": {
+              "X": 1415.0,
+              "Y": 328.0
+            },
+            "Name": "bg_0_0",
             "ctype": "SpriteObjectData"
           }
         ],

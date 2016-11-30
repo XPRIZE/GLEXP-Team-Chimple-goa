@@ -165,6 +165,8 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
             var decrease = new cc.ScaleTo(1, 1);
             var sequenceAction = new cc.Sequence(increase, decrease, new cc.CallFunc(this.cleanUpLabel, this, sender));            
             this._label.runAction(sequenceAction);            
+        } else {
+            this.callback.call(this._callbackContext, sender, false, false);
         }
     },
 
@@ -177,7 +179,7 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
     },
 
     executeCallBack: function(sender) {
-        this.callback.call(this._callbackContext, sender, true);
+        this.callback.call(this._callbackContext, sender, true, true);
     },
 
     verifyAnswer: function(sender) {

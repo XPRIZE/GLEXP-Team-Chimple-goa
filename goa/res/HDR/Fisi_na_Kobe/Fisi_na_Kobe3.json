@@ -1,0 +1,2075 @@
+{
+  "ID": "72dfb9e1-3df8-42e5-9861-5e0948faa23b",
+  "Version": "2.3.4",
+  "Name": "Fisi_na_Kobe3",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 255,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -1675473910,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 255,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1675473910,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2149.6777,
+                "Y": 112.6137,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1431.1594,
+                "Y": 63.402,
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1675473910,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -0.6,
+                "Y": 0.6,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.6,
+                "Y": 0.6,
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1675473910,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2041595940,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "Walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "Walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 160,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2041595940,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 137.4543,
+                "Y": 38.6297,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 866.2415,
+                "Y": 38.6297,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2041595940,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.4,
+                "Y": 0.4,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.3562,
+                "Y": 0.3562,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2041595940,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 255,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 19,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 217,
+              "G": 243,
+              "B": 248
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -239.5191,
+              "Y": 0.4248
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0936,
+              "Y": 0.0002
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -239.5191,
+            "RightMargin": -300.481,
+            "TopMargin": -0.4248,
+            "BottomMargin": 0.4248,
+            "Tag": 20,
+            "ActionTag": -841827205,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fahali_hill.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 750.2454,
+              "Y": 1257.9799
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2931,
+              "Y": 0.6989
+            },
+            "PreSize": {
+              "X": 0.5855,
+              "Y": 0.0822
+            },
+            "LeftMargin": 0.7454,
+            "RightMargin": 1060.2546,
+            "TopMargin": 468.0201,
+            "BottomMargin": 1183.9799,
+            "Tag": 21,
+            "ActionTag": 809298217,
+            "Size": {
+              "X": 1499.0,
+              "Y": 148.0
+            },
+            "Name": "fahali_hill_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_tree.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2497.9502,
+              "Y": 1339.7212
+            },
+            "Scale": {
+              "ScaleX": 0.375,
+              "ScaleY": 0.375
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9758,
+              "Y": 0.7443
+            },
+            "PreSize": {
+              "X": 0.3566,
+              "Y": 0.6311
+            },
+            "LeftMargin": 2041.4502,
+            "RightMargin": -394.4502,
+            "TopMargin": -107.7212,
+            "BottomMargin": 771.7212,
+            "Tag": 58,
+            "ActionTag": -1321972127,
+            "Size": {
+              "X": 913.0,
+              "Y": 1136.0
+            },
+            "Name": "fisi_tree_19_0_6_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 156,
+              "G": 192,
+              "B": 59
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1.2218,
+              "Y": 502.8249
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.3965
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0005,
+              "Y": 0.2793
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": 1.2218,
+            "RightMargin": -1.2217,
+            "TopMargin": -502.825,
+            "BottomMargin": 502.8249,
+            "Tag": 23,
+            "ActionTag": -1117129701,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_shadow.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1991.2128,
+              "Y": 1117.1736
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7778,
+              "Y": 0.6207
+            },
+            "PreSize": {
+              "X": 0.4453,
+              "Y": 0.12
+            },
+            "LeftMargin": 1421.2128,
+            "RightMargin": -1.2129,
+            "TopMargin": 574.8264,
+            "BottomMargin": 1009.1736,
+            "Tag": 41,
+            "ActionTag": -1753179836,
+            "Size": {
+              "X": 1140.0,
+              "Y": 216.0
+            },
+            "Name": "fisi_shadow_18",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 232,
+              "G": 207,
+              "B": 84
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1.2217,
+              "Y": 0.5894
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.3321
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0005,
+              "Y": 0.0003
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": 1.2217,
+            "RightMargin": -1.2217,
+            "TopMargin": -0.5894,
+            "BottomMargin": 0.5894,
+            "Tag": 24,
+            "ActionTag": -1604903959,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_0_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_tree_trunk.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2218.8613,
+              "Y": 1166.1328
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8667,
+              "Y": 0.6479
+            },
+            "PreSize": {
+              "X": 0.0137,
+              "Y": 0.0622
+            },
+            "LeftMargin": 2201.3613,
+            "RightMargin": 323.6387,
+            "TopMargin": 577.8672,
+            "BottomMargin": 1110.1328,
+            "Tag": 61,
+            "ActionTag": -825600696,
+            "Size": {
+              "X": 35.0,
+              "Y": 112.0
+            },
+            "Name": "fisi_tree_trunk_30_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_tree_trunk.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2424.3594,
+              "Y": 1186.2871
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.947,
+              "Y": 0.659
+            },
+            "PreSize": {
+              "X": 0.0137,
+              "Y": 0.0622
+            },
+            "LeftMargin": 2406.8594,
+            "RightMargin": 118.1406,
+            "TopMargin": 557.7129,
+            "BottomMargin": 1130.2871,
+            "Tag": 60,
+            "ActionTag": 1386214194,
+            "Size": {
+              "X": 35.0,
+              "Y": 112.0
+            },
+            "Name": "fisi_tree_trunk_30_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fahali_house.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1073.1096,
+              "Y": 759.5856
+            },
+            "Scale": {
+              "ScaleX": 0.6345,
+              "ScaleY": 0.6345
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4192,
+              "Y": 0.422
+            },
+            "PreSize": {
+              "X": 0.4672,
+              "Y": 0.4506
+            },
+            "LeftMargin": 475.1096,
+            "RightMargin": 888.8904,
+            "TopMargin": 634.9144,
+            "BottomMargin": 354.0856,
+            "Tag": 40,
+            "ActionTag": 971751664,
+            "Size": {
+              "X": 1196.0,
+              "Y": 811.0
+            },
+            "Name": "fahali_house_11_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fahali_house.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 264.0513,
+              "Y": 750.9248
+            },
+            "Scale": {
+              "ScaleX": 0.6242,
+              "ScaleY": 0.6242
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1031,
+              "Y": 0.4172
+            },
+            "PreSize": {
+              "X": 0.4672,
+              "Y": 0.4506
+            },
+            "LeftMargin": -333.9487,
+            "RightMargin": 1697.9487,
+            "TopMargin": 643.5752,
+            "BottomMargin": 345.4248,
+            "Tag": 36,
+            "ActionTag": 1161910374,
+            "Size": {
+              "X": 1196.0,
+              "Y": 811.0
+            },
+            "Name": "fahali_house_11_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fahali_house.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 716.7102,
+              "Y": 742.2361
+            },
+            "Scale": {
+              "ScaleX": 0.7619,
+              "ScaleY": 0.7619
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.28,
+              "Y": 0.4124
+            },
+            "PreSize": {
+              "X": 0.4672,
+              "Y": 0.4506
+            },
+            "LeftMargin": 118.7102,
+            "RightMargin": 1245.2898,
+            "TopMargin": 652.2639,
+            "BottomMargin": 336.7361,
+            "Tag": 35,
+            "ActionTag": -922013285,
+            "Size": {
+              "X": 1196.0,
+              "Y": 811.0
+            },
+            "Name": "fahali_house_11_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fahali_house.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2302.8516,
+              "Y": 760.0577
+            },
+            "Scale": {
+              "ScaleX": 0.6345,
+              "ScaleY": 0.6345
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8996,
+              "Y": 0.4223
+            },
+            "PreSize": {
+              "X": 0.4672,
+              "Y": 0.4506
+            },
+            "LeftMargin": 1704.8516,
+            "RightMargin": -340.8516,
+            "TopMargin": 634.4424,
+            "BottomMargin": 354.5577,
+            "Tag": 38,
+            "ActionTag": -1838405150,
+            "Size": {
+              "X": 1196.0,
+              "Y": 811.0
+            },
+            "Name": "fahali_house_11_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fahali_house.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1785.6165,
+              "Y": 818.4031
+            },
+            "Scale": {
+              "ScaleX": 0.6345,
+              "ScaleY": 0.6345
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6975,
+              "Y": 0.4547
+            },
+            "PreSize": {
+              "X": 0.4672,
+              "Y": 0.4506
+            },
+            "LeftMargin": 1187.6165,
+            "RightMargin": 176.3835,
+            "TopMargin": 576.0969,
+            "BottomMargin": 412.9031,
+            "Tag": 39,
+            "ActionTag": -1090756419,
+            "Size": {
+              "X": 1196.0,
+              "Y": 811.0
+            },
+            "Name": "fahali_house_11_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fahali_house.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2078.0542,
+              "Y": 726.1213
+            },
+            "Scale": {
+              "ScaleX": 0.6345,
+              "ScaleY": 0.6345
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8117,
+              "Y": 0.4034
+            },
+            "PreSize": {
+              "X": 0.4672,
+              "Y": 0.4506
+            },
+            "LeftMargin": 1480.0542,
+            "RightMargin": -116.0542,
+            "TopMargin": 668.3787,
+            "BottomMargin": 320.6213,
+            "Tag": 37,
+            "ActionTag": 422730334,
+            "Size": {
+              "X": 1196.0,
+              "Y": 811.0
+            },
+            "Name": "fahali_house_11_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_tree.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2238.1816,
+              "Y": 1264.8835
+            },
+            "Scale": {
+              "ScaleX": 0.2958,
+              "ScaleY": 0.2958
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8743,
+              "Y": 0.7027
+            },
+            "PreSize": {
+              "X": 0.3566,
+              "Y": 0.6311
+            },
+            "LeftMargin": 1781.6816,
+            "RightMargin": -134.6816,
+            "TopMargin": -32.8835,
+            "BottomMargin": 696.8835,
+            "Tag": 42,
+            "ActionTag": 449149159,
+            "Size": {
+              "X": 913.0,
+              "Y": 1136.0
+            },
+            "Name": "fisi_tree_19",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_tree.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2146.863,
+              "Y": 1416.5194
+            },
+            "Scale": {
+              "ScaleX": 0.4702,
+              "ScaleY": 0.4702
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8386,
+              "Y": 0.787
+            },
+            "PreSize": {
+              "X": 0.3566,
+              "Y": 0.6311
+            },
+            "LeftMargin": 1690.363,
+            "RightMargin": -43.363,
+            "TopMargin": -184.5194,
+            "BottomMargin": 848.5194,
+            "Tag": 43,
+            "ActionTag": 791423413,
+            "Size": {
+              "X": 913.0,
+              "Y": 1136.0
+            },
+            "Name": "fisi_tree_19_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_tree.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1985.5854,
+              "Y": 1290.7245
+            },
+            "Scale": {
+              "ScaleX": 0.2958,
+              "ScaleY": 0.2958
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7756,
+              "Y": 0.7171
+            },
+            "PreSize": {
+              "X": 0.3566,
+              "Y": 0.6311
+            },
+            "LeftMargin": 1529.0854,
+            "RightMargin": 117.9146,
+            "TopMargin": -58.7245,
+            "BottomMargin": 722.7245,
+            "Tag": 44,
+            "ActionTag": 1465816803,
+            "Size": {
+              "X": 913.0,
+              "Y": 1136.0
+            },
+            "Name": "fisi_tree_19_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_tree.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1922.866,
+              "Y": 1317.265
+            },
+            "Scale": {
+              "ScaleX": 0.3698,
+              "ScaleY": 0.3698
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7511,
+              "Y": 0.7318
+            },
+            "PreSize": {
+              "X": 0.3566,
+              "Y": 0.6311
+            },
+            "LeftMargin": 1466.366,
+            "RightMargin": 180.634,
+            "TopMargin": -85.265,
+            "BottomMargin": 749.265,
+            "Tag": 45,
+            "ActionTag": 244613982,
+            "Size": {
+              "X": 913.0,
+              "Y": 1136.0
+            },
+            "Name": "fisi_tree_19_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_tree.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1789.1033,
+              "Y": 1255.873
+            },
+            "Scale": {
+              "ScaleX": 0.2306,
+              "ScaleY": 0.2306
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6989,
+              "Y": 0.6977
+            },
+            "PreSize": {
+              "X": 0.3566,
+              "Y": 0.6311
+            },
+            "LeftMargin": 1332.6033,
+            "RightMargin": 314.3967,
+            "TopMargin": -23.873,
+            "BottomMargin": 687.873,
+            "Tag": 46,
+            "ActionTag": -153906641,
+            "Size": {
+              "X": 913.0,
+              "Y": 1136.0
+            },
+            "Name": "fisi_tree_19_0_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_tree.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2378.8086,
+              "Y": 1447.5435
+            },
+            "Scale": {
+              "ScaleX": 0.412,
+              "ScaleY": 0.412
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9292,
+              "Y": 0.8042
+            },
+            "PreSize": {
+              "X": 0.3566,
+              "Y": 0.6311
+            },
+            "LeftMargin": 1922.3086,
+            "RightMargin": -275.3086,
+            "TopMargin": -215.5435,
+            "BottomMargin": 879.5435,
+            "Tag": 47,
+            "ActionTag": -976653102,
+            "Size": {
+              "X": 913.0,
+              "Y": 1136.0
+            },
+            "Name": "fisi_tree_19_0_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_tree.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2453.5933,
+              "Y": 1305.2141
+            },
+            "Scale": {
+              "ScaleX": 0.2958,
+              "ScaleY": 0.2958
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9584,
+              "Y": 0.7251
+            },
+            "PreSize": {
+              "X": 0.3566,
+              "Y": 0.6311
+            },
+            "LeftMargin": 1997.0933,
+            "RightMargin": -350.0933,
+            "TopMargin": -73.2141,
+            "BottomMargin": 737.2141,
+            "Tag": 48,
+            "ActionTag": 644123775,
+            "Size": {
+              "X": 913.0,
+              "Y": 1136.0
+            },
+            "Name": "fisi_tree_19_0_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_tree.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2190.646,
+              "Y": 1338.9827
+            },
+            "Scale": {
+              "ScaleX": 0.3803,
+              "ScaleY": 0.3803
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8557,
+              "Y": 0.7439
+            },
+            "PreSize": {
+              "X": 0.3566,
+              "Y": 0.6311
+            },
+            "LeftMargin": 1734.146,
+            "RightMargin": -87.146,
+            "TopMargin": -106.9827,
+            "BottomMargin": 770.9827,
+            "Tag": 49,
+            "ActionTag": 446529218,
+            "Size": {
+              "X": 913.0,
+              "Y": 1136.0
+            },
+            "Name": "fisi_tree_19_0_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_tree.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2390.0073,
+              "Y": 1346.2202
+            },
+            "Scale": {
+              "ScaleX": 0.375,
+              "ScaleY": 0.375
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9336,
+              "Y": 0.7479
+            },
+            "PreSize": {
+              "X": 0.3566,
+              "Y": 0.6311
+            },
+            "LeftMargin": 1933.5073,
+            "RightMargin": -286.5073,
+            "TopMargin": -114.2202,
+            "BottomMargin": 778.2202,
+            "Tag": 50,
+            "ActionTag": -1324947832,
+            "Size": {
+              "X": 913.0,
+              "Y": 1136.0
+            },
+            "Name": "fisi_tree_19_0_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_tree.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2078.0588,
+              "Y": 1283.6292
+            },
+            "Scale": {
+              "ScaleX": 0.3381,
+              "ScaleY": 0.3381
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8117,
+              "Y": 0.7131
+            },
+            "PreSize": {
+              "X": 0.3566,
+              "Y": 0.6311
+            },
+            "LeftMargin": 1621.5588,
+            "RightMargin": 25.4412,
+            "TopMargin": -51.6292,
+            "BottomMargin": 715.6292,
+            "Tag": 51,
+            "ActionTag": 1027805517,
+            "Size": {
+              "X": 913.0,
+              "Y": 1136.0
+            },
+            "Name": "fisi_tree_19_0_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_tree.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2331.3623,
+              "Y": 1264.3292
+            },
+            "Scale": {
+              "ScaleX": 0.3169,
+              "ScaleY": 0.3169
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9107,
+              "Y": 0.7024
+            },
+            "PreSize": {
+              "X": 0.3566,
+              "Y": 0.6311
+            },
+            "LeftMargin": 1874.8623,
+            "RightMargin": -227.8623,
+            "TopMargin": -32.3292,
+            "BottomMargin": 696.3292,
+            "Tag": 52,
+            "ActionTag": -1579962920,
+            "Size": {
+              "X": 913.0,
+              "Y": 1136.0
+            },
+            "Name": "fisi_tree_19_0_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_tree_trunk.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1843.4507,
+              "Y": 1186.1317
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7201,
+              "Y": 0.659
+            },
+            "PreSize": {
+              "X": 0.0137,
+              "Y": 0.0622
+            },
+            "LeftMargin": 1825.9507,
+            "RightMargin": 699.0493,
+            "TopMargin": 557.8683,
+            "BottomMargin": 1130.1317,
+            "Tag": 53,
+            "ActionTag": 1974091316,
+            "Size": {
+              "X": 35.0,
+              "Y": 112.0
+            },
+            "Name": "fisi_tree_trunk_30",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_grass1.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2184.2134,
+              "Y": 95.8407
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 200,
+              "G": 233,
+              "B": 180
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8532,
+              "Y": 0.0532
+            },
+            "PreSize": {
+              "X": 0.2945,
+              "Y": 0.1489
+            },
+            "LeftMargin": 1807.2134,
+            "RightMargin": -1.2134,
+            "TopMargin": 1570.1593,
+            "BottomMargin": -38.1593,
+            "Tag": 1226,
+            "ActionTag": 495066992,
+            "Size": {
+              "X": 754.0,
+              "Y": 268.0
+            },
+            "Name": "fisi_grass_1_2_0_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_grass1.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 558.6094,
+              "Y": 358.3685
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 200,
+              "G": 233,
+              "B": 180
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2182,
+              "Y": 0.1991
+            },
+            "PreSize": {
+              "X": 0.2945,
+              "Y": 0.1489
+            },
+            "LeftMargin": 181.6094,
+            "RightMargin": 1624.3906,
+            "TopMargin": 1307.6315,
+            "BottomMargin": 224.3685,
+            "Tag": 1225,
+            "ActionTag": 506105167,
+            "Size": {
+              "X": 754.0,
+              "Y": 268.0
+            },
+            "Name": "fisi_grass_1_2_0_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_grass1.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 377.7451,
+              "Y": 363.4867
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 200,
+              "G": 233,
+              "B": 180
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1476,
+              "Y": 0.2019
+            },
+            "PreSize": {
+              "X": 0.2945,
+              "Y": 0.1489
+            },
+            "LeftMargin": 0.7451,
+            "RightMargin": 1805.2549,
+            "TopMargin": 1302.5133,
+            "BottomMargin": 229.4867,
+            "Tag": 1224,
+            "ActionTag": 803377829,
+            "Size": {
+              "X": 754.0,
+              "Y": 268.0
+            },
+            "Name": "fisi_grass_1_2_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_grass1.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2184.2134,
+              "Y": 199.8869
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8532,
+              "Y": 0.111
+            },
+            "PreSize": {
+              "X": 0.2945,
+              "Y": 0.1489
+            },
+            "LeftMargin": 1807.2134,
+            "RightMargin": -1.2134,
+            "TopMargin": 1466.113,
+            "BottomMargin": 65.8869,
+            "Tag": 1223,
+            "ActionTag": 1343953774,
+            "Size": {
+              "X": 754.0,
+              "Y": 268.0
+            },
+            "Name": "fisi_grass_1_2_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_grass1.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2037.2812,
+              "Y": 314.8668
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7958,
+              "Y": 0.1749
+            },
+            "PreSize": {
+              "X": 0.2945,
+              "Y": 0.1489
+            },
+            "LeftMargin": 1660.2812,
+            "RightMargin": 145.7188,
+            "TopMargin": 1351.1332,
+            "BottomMargin": 180.8668,
+            "Tag": 1222,
+            "ActionTag": -279931447,
+            "Size": {
+              "X": 754.0,
+              "Y": 268.0
+            },
+            "Name": "fisi_grass_1_2_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_grass1.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2184.2134,
+              "Y": 315.1023
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8532,
+              "Y": 0.1751
+            },
+            "PreSize": {
+              "X": 0.2945,
+              "Y": 0.1489
+            },
+            "LeftMargin": 1807.2134,
+            "RightMargin": -1.2134,
+            "TopMargin": 1350.8977,
+            "BottomMargin": 181.1023,
+            "Tag": 1221,
+            "ActionTag": 336622816,
+            "Size": {
+              "X": 754.0,
+              "Y": 268.0
+            },
+            "Name": "fisi_grass_1_2_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_tree.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2020.8586,
+              "Y": 1214.7614
+            },
+            "Scale": {
+              "ScaleX": 0.2365,
+              "ScaleY": 0.2365
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7894,
+              "Y": 0.6749
+            },
+            "PreSize": {
+              "X": 0.3566,
+              "Y": 0.6311
+            },
+            "LeftMargin": 1564.3586,
+            "RightMargin": 82.6414,
+            "TopMargin": 17.2386,
+            "BottomMargin": 646.7614,
+            "Tag": 54,
+            "ActionTag": 1335157935,
+            "Size": {
+              "X": 913.0,
+              "Y": 1136.0
+            },
+            "Name": "fisi_tree_19_0_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_tree.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2145.4297,
+              "Y": 1207.0997
+            },
+            "Scale": {
+              "ScaleX": 0.2365,
+              "ScaleY": 0.2365
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8381,
+              "Y": 0.6706
+            },
+            "PreSize": {
+              "X": 0.3566,
+              "Y": 0.6311
+            },
+            "LeftMargin": 1688.9297,
+            "RightMargin": -41.9297,
+            "TopMargin": 24.9003,
+            "BottomMargin": 639.0997,
+            "Tag": 55,
+            "ActionTag": 680006966,
+            "Size": {
+              "X": 913.0,
+              "Y": 1136.0
+            },
+            "Name": "fisi_tree_19_0_9_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_tree.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2309.2942,
+              "Y": 1202.646
+            },
+            "Scale": {
+              "ScaleX": 0.2365,
+              "ScaleY": 0.2365
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9021,
+              "Y": 0.6681
+            },
+            "PreSize": {
+              "X": 0.3566,
+              "Y": 0.6311
+            },
+            "LeftMargin": 1852.7942,
+            "RightMargin": -205.7942,
+            "TopMargin": 29.354,
+            "BottomMargin": 634.646,
+            "Tag": 56,
+            "ActionTag": 2013529977,
+            "Size": {
+              "X": 913.0,
+              "Y": 1136.0
+            },
+            "Name": "fisi_tree_19_0_9_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_tree.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2504.6802,
+              "Y": 1215.3816
+            },
+            "Scale": {
+              "ScaleX": 0.2365,
+              "ScaleY": 0.2365
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9784,
+              "Y": 0.6752
+            },
+            "PreSize": {
+              "X": 0.3566,
+              "Y": 0.6311
+            },
+            "LeftMargin": 2048.1802,
+            "RightMargin": -401.1802,
+            "TopMargin": 16.6184,
+            "BottomMargin": 647.3816,
+            "Tag": 57,
+            "ActionTag": 513385362,
+            "Size": {
+              "X": 913.0,
+              "Y": 1136.0
+            },
+            "Name": "fisi_tree_19_0_9_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_tree.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1871.3152,
+              "Y": 1224.4369
+            },
+            "Scale": {
+              "ScaleX": 0.2059,
+              "ScaleY": 0.2059
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.731,
+              "Y": 0.6802
+            },
+            "PreSize": {
+              "X": 0.3566,
+              "Y": 0.6311
+            },
+            "LeftMargin": 1414.8152,
+            "RightMargin": 232.1848,
+            "TopMargin": 7.5631,
+            "BottomMargin": 656.4369,
+            "Tag": 59,
+            "ActionTag": 1824942858,
+            "Size": {
+              "X": 913.0,
+              "Y": 1136.0
+            },
+            "Name": "fisi_tree_19_0_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Fisi_na_Kobe/tortoise.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2149.6777,
+              "Y": 112.6137
+            },
+            "Scale": {
+              "ScaleX": -0.6,
+              "ScaleY": 0.6
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8397,
+              "Y": 0.0626
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2149.6777,
+            "RightMargin": 410.3223,
+            "TopMargin": 1687.3864,
+            "BottomMargin": 112.6137,
+            "UserData": "walk;drag",
+            "Tag": 126,
+            "ActionTag": -1675473910,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "tortoise",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Fisi_na_Kobe/hyena.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 137.4543,
+              "Y": 38.6297
+            },
+            "Scale": {
+              "ScaleX": 0.4,
+              "ScaleY": 0.4
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0537,
+              "Y": 0.0215
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 137.4543,
+            "RightMargin": 2422.5457,
+            "TopMargin": 1761.3704,
+            "BottomMargin": 38.6297,
+            "UserData": "walk;drag",
+            "Tag": 377,
+            "ActionTag": -2041595940,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "hyena",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fahali_house.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1520.2905,
+              "Y": 694.8281
+            },
+            "Scale": {
+              "ScaleX": 0.8812,
+              "ScaleY": 0.8812
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5939,
+              "Y": 0.386
+            },
+            "PreSize": {
+              "X": 0.4672,
+              "Y": 0.4506
+            },
+            "LeftMargin": 922.2905,
+            "RightMargin": 441.7095,
+            "TopMargin": 699.6719,
+            "BottomMargin": 289.3281,
+            "Tag": 34,
+            "ActionTag": -1182812190,
+            "Size": {
+              "X": 1196.0,
+              "Y": 811.0
+            },
+            "Name": "fahali_house_11",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "Fisi_na_Kobe.plist",
+        "Fisi_na_Kobe.png",
+        "hyena.json",
+        "tortoise.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

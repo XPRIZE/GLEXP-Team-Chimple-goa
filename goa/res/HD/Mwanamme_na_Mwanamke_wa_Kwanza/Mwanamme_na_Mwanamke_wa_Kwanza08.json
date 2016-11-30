@@ -1,0 +1,308 @@
+{
+  "ID": "61afd210-aba8-41b9-ab77-801e8b495669",
+  "Version": "3.10.0.0",
+  "Name": "Mwanamme_na_Mwanamke_wa_Kwanza08",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 150,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -1165601320,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "sleep",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "sleep",
+                "SingleFrameIndex": 170,
+                "FrameIndex": 150,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1165601320,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1183.3977,
+                "Y": 660.8226,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1165601320,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.6,
+                "Y": 0.6,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1165601320,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 5.6862,
+                "Y": 5.721,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 150,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 292,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 208,
+              "G": 175,
+              "B": 139
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1279.9995,
+              "Y": 899.9997
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -720.0005,
+            "RightMargin": -719.9995,
+            "TopMargin": 0.0002,
+            "BottomMargin": -0.0003,
+            "Tag": 316,
+            "ActionTag": -444519184,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 195,
+              "G": 146,
+              "B": 92
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1280.0,
+              "Y": -19.9977
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.4667
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": -0.0111
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -720.0,
+            "RightMargin": -720.0,
+            "TopMargin": 919.9977,
+            "BottomMargin": -919.9977,
+            "Tag": 315,
+            "ActionTag": -899601500,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/bed1.png",
+              "Plist": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1308.8807,
+              "Y": 340.5245
+            },
+            "Scale": {
+              "ScaleX": 1.5189,
+              "ScaleY": 1.4432
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5113,
+              "Y": 0.1892
+            },
+            "PreSize": {
+              "X": 0.5281,
+              "Y": 0.3422
+            },
+            "LeftMargin": 632.8807,
+            "RightMargin": 575.1193,
+            "TopMargin": 1151.4755,
+            "BottomMargin": 32.5245,
+            "Tag": 314,
+            "ActionTag": -651761993,
+            "Size": {
+              "X": 1352.0,
+              "Y": 616.0
+            },
+            "Name": "bed1_30",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/man.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1183.3977,
+              "Y": 660.8226
+            },
+            "Scale": {
+              "ScaleX": 0.6,
+              "ScaleY": 0.6
+            },
+            "RotationSkewX": 5.6862,
+            "RotationSkewY": 5.721,
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.4623,
+              "Y": 0.3671
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1183.3977,
+            "RightMargin": 1376.6023,
+            "TopMargin": 1139.1774,
+            "BottomMargin": 660.8226,
+            "Tag": 293,
+            "ActionTag": -1165601320,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_2",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "man.json",
+        "Mwanamme_na_Mwanamke_wa_Kwanza.plist",
+        "Mwanamme_na_Mwanamke_wa_Kwanza.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

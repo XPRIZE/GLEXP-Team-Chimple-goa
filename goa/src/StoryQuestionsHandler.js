@@ -17,6 +17,8 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
     _Q_PICTURES:"picture",
     _Q_WORDS: "words",    
     _currentQName: null,    
+    _totalPoints: 0,
+    _menuContext: null,
     ctor: function (storyBaseDir) {
         this._super();
         this._name = "StoryQuestionHandlerLayer";
@@ -29,7 +31,6 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
 
         return true;
     },
-
 
     displayText:function(text, location) {
         var texts = text.split("_");
@@ -48,10 +49,10 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
         
     },
 
-    init: function () {
+    init: function (menuContext) {
         cc.log('this._storyBaseDir:' + this._storyBaseDir);
+        this._menuContext = menuContext;
         this.loadQuestions();
-        
     },
 
     questionHandler: function(question) {
@@ -73,24 +74,42 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
             var handler = new xc.MeaningQuestionHandler(xc.StoryQuestionHandlerLayer.res.meaning_question_choice_json, cc.director.getWinSize().width, cc.director.getWinSize().height, question, this.questionCallBack, this);
             handler.setName(this._Q_MEANINGS); 
             this._currentQName = this._Q_MEANINGS;          
-        }
+        } else if(questionType == this._Q_PICTURES) {
+            var handler = new xc.PictureQuestionHandler(xc.StoryQuestionHandlerLayer.res.picture_question_choice_json, cc.director.getWinSize().width, cc.director.getWinSize().height, question, this.questionCallBack, this);
+            handler.setName(this._Q_PICTURES); 
+            this._currentQName = this._Q_PICTURES;          
+        } else if(questionType == this._Q_WORDS && cc.sys.isNative) {
+            var handler = new xc.WordQuestionHandler(cc.director.getWinSize().width, cc.director.getWinSize().height, question, this.questionCallBack, this);
+            handler.setName(this._Q_WORDS); 
+            this._currentQName = this._Q_WORDS;          
+        } 
         this.addChild(handler);        
     },
 
-    questionCallBack: function(sender, isCorrect) {
+    questionCallBack: function(sender, isCorrect, isAllAnswered) {
         //play animation for correct/incorrect answer, update score and move to next question
         this.updateScore(isCorrect);
-        this.postAnswerAnimation(isCorrect);
+        this.postAnswerAnimation(isCorrect, isAllAnswered);
     },
 
     updateScore: function(isCorrect) {
         cc.log("update score for answer :" + isCorrect);
+        if(cc.sys.isNative) {
+            if(isCorrect) {
+                this._menuContext.addPoints(1);
+            } else {
+                this._menuContext.addPoints(-0.5);
+            }            
+        }
     },
     
-    postAnswerAnimation: function(isCorrect) {
+    postAnswerAnimation: function(isCorrect, isAllAnswered) {
         cc.log("postAnswerAnimation for answer :" + isCorrect);
-        //move to next
         if(isCorrect) {
+            cc.log("play success animation");
+        }
+        //move to next
+        if(isAllAnswered) {
             this.nextQuestion();
         }
     },
@@ -137,16 +156,36 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
         this.processQuestions(json[this._Q_FILL_IN_THE_BLANKS], this._Q_FILL_IN_THE_BLANKS);
         this.processQuestions(json[this._Q_MEANINGS], this._Q_MEANINGS);
         this.processQuestions(json[this._Q_PICTURES], this._Q_PICTURES);
-        this.processQuestions(json[this._Q_WORDS], this._Q_WORDS);        
-        cc.log("questions:" + this._questions);
-
+        if(cc.sys.isNative) {
+            this.processQuestions(json[this._Q_WORDS], this._Q_WORDS);
+        }
+                
+        cc.log("questions:" + this._questions.length);
+        if(cc.sys.isNative) {
+            this._menuContext.setMaxPoints(this._totalPoints);
+        }
         //create UI for questions
         var question = this._questions[this._currentQuestionIndex];
         this.questionHandler(question);        
     },
 
-    processQuestions: function (array, type) {
+    computePoints:function(array, type) {
+        if(type == this._Q_MULTIPLE_CHOICE) {
+            this._totalPoints += 1 * array.length;
+        } else if(type == this._Q_FILL_IN_THE_BLANKS) {
+            this._totalPoints += 1 * array.length;
+        } else if(type == this._Q_MEANINGS) {
+            this._totalPoints += 4 * array.length;
+        } else if(type == this._Q_PICTURES) {
+            this._totalPoints += 4 * array.length;
+        } else if(type == this._Q_WORDS) {
+            this._totalPoints += 1 * array.length;
+        }
+    },
+
+    processQuestions: function (array, type) {        
         if(array && array.length > 0) {
+            this.computePoints(array, type);
             array = array.map(function(question, index){
                 if(typeof question === 'object') {
                     question["type"]=type;
@@ -171,13 +210,13 @@ xc.StoryQuestionHandlerScene = cc.Scene.extend({
         this.layerClass = layer;
         this._sceneLayer = new this.layerClass(storyBaseDir);
         this.addChild(this._sceneLayer);
-        this._sceneLayer.init();
-
         if (cc.sys.isNative) {
-            this._menuContext = goa.MenuContext.create(this._sceneLayer, "Narrate Story");
-            this.addChild(this._menuContext);
+            this._menuContext = goa.MenuContext.create(this._sceneLayer, "QuestionHandler");
+            this.addChild(this._menuContext, 1);
             this._menuContext.setVisible(true);
         }                                        
+        
+        this._sceneLayer.init(this._menuContext);
     }
 });
 

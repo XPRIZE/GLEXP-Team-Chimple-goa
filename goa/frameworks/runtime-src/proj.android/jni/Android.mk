@@ -62,6 +62,7 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/mini_games/jazz.cpp \
 					../../Classes/mini_games/Wembley.cpp \
 					../../Classes/mini_games/Baja.cpp \
+					../../Classes/mini_games/PopCount.cpp \
 					../../Classes/mini_games/BajaWordScene.cpp \
 					../../Classes/mini_games/CatGameScene.cpp \
 					../../Classes/mini_games/CatScene.cpp \
