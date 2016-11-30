@@ -55,7 +55,9 @@ void Table::onEnterTransitionDidFinish()
 	else {
 		_config = _levelMapping.at(15);
 	}
-	
+	auto spritecache1 = SpriteFrameCache::getInstance();
+	spritecache1->addSpriteFramesWithFile("tablelevel/tablelevel.plist");
+
 	auto bg = CSLoader::createNode("table/table.csb");
 	if (visibleSize.width > 2560) {
 	//	_extraX = (visibleSize.width - 2560) / 2;
@@ -325,10 +327,12 @@ void Table::askMissingNumber()
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	for (int i = 0; i < _catchedFish.size(); i++) {
-		auto stone = Sprite::createWithSpriteFrameName("table/stone.png");
+		auto stone = Sprite::createWithSpriteFrameName("tablelevel/fish0.png");
 		stone->setPosition(_catchedFish.at(i)->getPosition());
 		stone->setName(_catchedFish.at(i)->getName());
 		_grid->addChild(stone);
+	//	auto scale = ScaleBy::create(0.05, 2);
+	//	stone->runAction(RepeatForever::create(Sequence::create(scale, scale->reverse(), NULL)));
 		_catchedFish.at(i)->setPosition(Vec2(visibleSize.width,visibleSize.height/2));
 		auto listener = EventListenerTouchOneByOne::create();
 		listener->setSwallowTouches(false);
@@ -358,10 +362,15 @@ void Table::calculatedResult(std::string result)
 				this->removeChildByName("calculator");
 				this->removeChildByName("hintLabel");
 				_score++;
-				_grid->removeChild(_target);
+				
 				_catchedFish.at(i)->setOpacity(255);
+				
+				auto fadeOut = FadeOut::create(2);
+				_target->runAction(fadeOut);
 				auto move = MoveTo::create(2, _targetPosition);
-				_catchedFish.at(i)->runAction(move);
+				_catchedFish.at(i)->runAction(Sequence::create(move, CallFunc::create([=]() {
+					_grid->removeChild(_target);
+				}), NULL));
 				_catchedFish.erase(_catchedFish.begin() + i);
 				break;
 			}
@@ -401,14 +410,25 @@ bool Table::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		std::string option2 = _fishMatrix.at(_config.at("column")-1).at(indexX)->getName();
 		auto hintLabel = Label::createWithTTF(option1+" X "+option2+" = ?", "fonts/digital.ttf", 200);
 		hintLabel->setColor(Color3B(255, 255, 255));
-		hintLabel->setPositionX(visibleSize.width / 2);
-		hintLabel->setPositionY(visibleSize.height *0.9);
+		
 		hintLabel->setName("hintLabel");
 		this->addChild(hintLabel);
 
 		_calculator = new Calculator();
-		_calculator->createCalculator(Vec2(visibleSize.width / 2, visibleSize.height / 2), Vec2(0.5, 0.5), 1, 1);
+		_calculator->createCalculator(Vec2(0,0), Vec2(0.5, 0.5), 1, 1);
+		auto calculatorBack = _calculator->getChildren().at(0)->getChildByName("back");
 		_calculator->setName("calculator");
+		_calculator->setContentSize(calculatorBack->getContentSize());
+		if (touch->getLocation().x > visibleSize.width / 2) {
+			hintLabel->setPositionX(calculatorBack->getContentSize().width / 2);
+			hintLabel->setPositionY(calculatorBack->getContentSize().height * 1.2);
+			_calculator->setPosition(Vec2(calculatorBack->getContentSize().width / 2, calculatorBack->getContentSize().height / 2));
+		}
+		else {
+			hintLabel->setPositionX(visibleSize.width - calculatorBack->getContentSize().width / 2);
+			hintLabel->setPositionY(calculatorBack->getContentSize().height * 1.2);
+			_calculator->setPosition(Vec2(visibleSize.width - calculatorBack->getContentSize().width / 2, calculatorBack->getContentSize().height / 2));
+		}
 		_target = target;
 		_targetPosition = target->getPosition();
 		this->addChild(_calculator,1);
