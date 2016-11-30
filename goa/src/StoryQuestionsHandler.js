@@ -127,6 +127,7 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
         if(isCorrect) {
             cc.log("play success animation");
             this._celebrationNode.node.setVisible(true);
+            this._celebrationNode.action.gotoFrameAndPause(0);
             this._celebrationNode.node.runAction(this._celebrationNode.action);
             this._celebrationNode.action.play("celebration", false);
         }

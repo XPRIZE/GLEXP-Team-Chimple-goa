@@ -437,7 +437,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         if (pages != null  &&  !(this._pageIndex + 1 == pages.length)) {
             this._rightButtonPanel.setVisible(true);
         } else {
-            this._rightButtonPanel.setVisible(false);
+            this._rightButtonPanel.setVisible(true);
         }
     },
 

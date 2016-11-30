@@ -247,9 +247,15 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
     
 
     disableNodesForCorrectAnswer:function(sender, questionNode) {
-
         sender.setEnabled(false);
         questionNode.setEnabled(false);
+
+        if(this._totalCorrectAnswers == 4) {
+            this.callback.call(this._callbackContext, sender, true, true);
+        } else {
+            this.callback.call(this._callbackContext, sender, true, false);
+        }                      
+        
     },
 
     verifyAnswer: function(sender, questionNode) {
@@ -258,12 +264,8 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
         if(isCorrectAnswered) {
             this._totalCorrectAnswers++;
             this.swipeAnswers(sender, questionNode);
-        }
-        this.hintForCorrectAnswer(sender, isCorrectAnswered);
-        if(this._totalCorrectAnswers == 4) {
-            this.callback.call(this._callbackContext, sender, isCorrectAnswered, true);
         } else {
-            this.callback.call(this._callbackContext, sender, isCorrectAnswered, false);
-        }                      
+            this.hintForCorrectAnswer(sender, isCorrectAnswered);
+        }
     }
 });
