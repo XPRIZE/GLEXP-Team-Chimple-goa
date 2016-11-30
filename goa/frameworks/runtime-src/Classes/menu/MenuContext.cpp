@@ -69,7 +69,7 @@
 #include "../mini_games/Table.h"
 #include "../mini_games/Shape.h"
 #include "../mini_games/Balloon.h"
-#include "mini_games/PopCount.h"
+#include "../mini_games/PopCount.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;

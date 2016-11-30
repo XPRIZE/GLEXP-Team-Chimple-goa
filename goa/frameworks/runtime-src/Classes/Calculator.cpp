@@ -135,7 +135,7 @@ bool Calculator::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 				table->calculatedResult(queryb);
 
 			}
-			if (this->getParent()->getName().compare(ITEM) == 0) {
+			else if (this->getParent()->getName().compare(ITEM) == 0) {
 				CCLOG("in ITEM");
 				std::ostringstream sstreamb;
 				sstreamb.clear();
