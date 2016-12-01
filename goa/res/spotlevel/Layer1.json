@@ -1,0 +1,492 @@
+{
+  "ID": "63f7aca5-442b-47d5-9c4a-9734167005f9",
+  "Version": "3.10.0.0",
+  "Name": "Layer1",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 6,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {
+              "R": 191,
+              "B": 245
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 7849.939,
+              "Y": 1820.8057
+            },
+            "Scale": {
+              "ScaleX": 39.2998,
+              "ScaleY": 3.3622
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.0664,
+              "Y": 1.0116
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 7649.939,
+            "RightMargin": -5289.939,
+            "TopMargin": -20.8057,
+            "BottomMargin": 1620.8057,
+            "Tag": 206,
+            "ActionTag": 1673225235,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_6",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spotlevel/cloud1.png",
+              "Plist": "spotlevel/spotlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1330.4674,
+              "Y": 1615.1968
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5197,
+              "Y": 0.8973
+            },
+            "PreSize": {
+              "X": 0.3457,
+              "Y": 0.1844
+            },
+            "LeftMargin": 887.9674,
+            "RightMargin": 787.0326,
+            "TopMargin": 18.8032,
+            "BottomMargin": 1449.1968,
+            "Tag": 207,
+            "ActionTag": -211278562,
+            "Size": {
+              "X": 885.0,
+              "Y": 332.0
+            },
+            "Name": "cloud1_109",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spotlevel/cloud2.png",
+              "Plist": "spotlevel/spotlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3481.0085,
+              "Y": 1582.4174
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3598,
+              "Y": 0.8791
+            },
+            "PreSize": {
+              "X": 0.3141,
+              "Y": 0.1867
+            },
+            "LeftMargin": 3079.0085,
+            "RightMargin": -1323.0085,
+            "TopMargin": 49.5826,
+            "BottomMargin": 1414.4174,
+            "Tag": 208,
+            "ActionTag": -1353066172,
+            "Size": {
+              "X": 804.0,
+              "Y": 336.0
+            },
+            "Name": "cloud2_110",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spotlevel/cloud2.png",
+              "Plist": "spotlevel/spotlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 340.7359,
+              "Y": 1424.7883
+            },
+            "Scale": {
+              "ScaleX": 0.5791,
+              "ScaleY": 0.6357
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1331,
+              "Y": 0.7915
+            },
+            "PreSize": {
+              "X": 0.3141,
+              "Y": 0.1867
+            },
+            "LeftMargin": -61.2641,
+            "RightMargin": 1817.2642,
+            "TopMargin": 207.2117,
+            "BottomMargin": 1256.7883,
+            "Tag": 209,
+            "ActionTag": -2140774473,
+            "Size": {
+              "X": 804.0,
+              "Y": 336.0
+            },
+            "Name": "cloud2_110_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spotlevel/cloud1.png",
+              "Plist": "spotlevel/spotlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2668.989,
+              "Y": 1520.1721
+            },
+            "Scale": {
+              "ScaleX": 0.4711,
+              "ScaleY": 0.5879
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0426,
+              "Y": 0.8445
+            },
+            "PreSize": {
+              "X": 0.3457,
+              "Y": 0.1844
+            },
+            "LeftMargin": 2226.489,
+            "RightMargin": -551.489,
+            "TopMargin": 113.8279,
+            "BottomMargin": 1354.1721,
+            "Tag": 210,
+            "ActionTag": 69158628,
+            "Size": {
+              "X": 885.0,
+              "Y": 332.0
+            },
+            "Name": "cloud1_109_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spotlevel/cloud2.png",
+              "Plist": "spotlevel/spotlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5410.6802,
+              "Y": 1643.5652
+            },
+            "Scale": {
+              "ScaleX": 0.5791,
+              "ScaleY": 0.6357
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.1135,
+              "Y": 0.9131
+            },
+            "PreSize": {
+              "X": 0.3141,
+              "Y": 0.1867
+            },
+            "LeftMargin": 5008.6802,
+            "RightMargin": -3252.6802,
+            "TopMargin": -11.5652,
+            "BottomMargin": 1475.5652,
+            "Tag": 211,
+            "ActionTag": -1624017615,
+            "Size": {
+              "X": 804.0,
+              "Y": 336.0
+            },
+            "Name": "cloud2_110_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spotlevel/cloud1.png",
+              "Plist": "spotlevel/spotlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4544.728,
+              "Y": 1500.7764
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.7753,
+              "Y": 0.8338
+            },
+            "PreSize": {
+              "X": 0.3457,
+              "Y": 0.1844
+            },
+            "LeftMargin": 4102.228,
+            "RightMargin": -2427.228,
+            "TopMargin": 133.2236,
+            "BottomMargin": 1334.7764,
+            "Tag": 212,
+            "ActionTag": 339601914,
+            "Size": {
+              "X": 885.0,
+              "Y": 332.0
+            },
+            "Name": "cloud1_109_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spotlevel/cloud1.png",
+              "Plist": "spotlevel/spotlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6394.458,
+              "Y": 1562.778
+            },
+            "Scale": {
+              "ScaleX": 0.5525,
+              "ScaleY": 0.6747
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.4978,
+              "Y": 0.8682
+            },
+            "PreSize": {
+              "X": 0.3457,
+              "Y": 0.1844
+            },
+            "LeftMargin": 5951.958,
+            "RightMargin": -4276.958,
+            "TopMargin": 71.222,
+            "BottomMargin": 1396.778,
+            "Tag": 213,
+            "ActionTag": -393919334,
+            "Size": {
+              "X": 885.0,
+              "Y": 332.0
+            },
+            "Name": "cloud1_109_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spotlevel/cloud1.png",
+              "Plist": "spotlevel/spotlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7498.939,
+              "Y": 1660.7841
+            },
+            "Scale": {
+              "ScaleX": 0.5525,
+              "ScaleY": 0.6747
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.9293,
+              "Y": 0.9227
+            },
+            "PreSize": {
+              "X": 0.3457,
+              "Y": 0.1844
+            },
+            "LeftMargin": 7056.439,
+            "RightMargin": -5381.439,
+            "TopMargin": -26.7841,
+            "BottomMargin": 1494.7841,
+            "Tag": 214,
+            "ActionTag": -472732042,
+            "Size": {
+              "X": 885.0,
+              "Y": 332.0
+            },
+            "Name": "cloud1_109_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spotlevel/sun.png",
+              "Plist": "spotlevel/spotlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2125.8105,
+              "Y": 1575.8491
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8304,
+              "Y": 0.8755
+            },
+            "PreSize": {
+              "X": 0.148,
+              "Y": 0.2083
+            },
+            "LeftMargin": 1936.3105,
+            "RightMargin": 244.6895,
+            "TopMargin": 36.6509,
+            "BottomMargin": 1388.3491,
+            "Tag": 215,
+            "ActionTag": 1561672083,
+            "Size": {
+              "X": 379.0,
+              "Y": 375.0
+            },
+            "Name": "sun_117",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "spotlevel.plist",
+        "spotlevel.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}
