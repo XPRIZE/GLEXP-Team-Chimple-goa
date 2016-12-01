@@ -24,9 +24,10 @@ public:
 	cocostudio::timeline::ActionTimeline *_fishTimeline;
 	HelpLayer *_help;
 	cocos2d::Size visibleSize;
-	int _level, _helpFlag = 0, _moveFlag = 0, _firstFishFlag = 0;
+	int _level, _helpFlag = 0, _moveFlag = 0, _firstFishFlag = 0, _spriteMoved, _totalCount = 0, _posmainIndex;
+	float _waterSpeed;
 
-	cocos2d::Sprite *_water, *_circle, *_circle_Trans, *_bottom_Crack;
+	cocos2d::Sprite *_water, *_duplicateSprite;
 	cocos2d::Sequence *_fishSequence;
 	cocos2d::RepeatForever *_fishRepeat;
 	cocos2d::Label *_shapeName;
@@ -34,27 +35,20 @@ public:
 	std::map<int, std::map<int, std::string>> _differntSceneMapping;
 	std::map<int, std::map<int, float>> _differntPosition;
 
-	struct Position
-	{
-		int x, y;
-	};
-	std::vector<Position> _position;
-
 	struct SpriteDetails
 	{
 		cocos2d::Sprite *_sprite;
 		int _id, _flag, _xp, _yp;
-		std::string _name;
-	}TransSpriteDetails, RealSpriteDetails;
+		std::string _name, _spriteName;
+	}TransSpriteDetails, RealSpriteDetails, _spriteDetails;
 	std::vector<struct SpriteDetails> _transSpriteDetails;
 	std::vector<struct SpriteDetails> _realSpriteDetails;
-	std::vector<CCParticleSystemQuad*> _particleDetails;
 
 
 	static cocos2d::Scene* createScene();
 	virtual bool init();
 	void addEvents(struct SpriteDetails);
-	void objectMovement();
+	void createTrans();
 	void update(float d);
 	void onEnterTransitionDidFinish() override;
     static const char* gameName() { return SHAPE.c_str(); };

@@ -8,6 +8,7 @@
 
 #include "WordBoard.h"
 #include "../GameScene.h"
+#include "scripting/js-bindings/manual/ScriptingCore.h"
 
 USING_NS_CC;
 
@@ -124,6 +125,20 @@ void WordBoard::checkAnswer() {
 
 void WordBoard::gameOver(bool correct) {
     if(correct) {
+//        ScriptingCore * scriptingCore = ScriptingCore::getInstance();
+//        
+//        JSContext * context = scriptingCore->getGlobalContext();
+//        JS::RootedObject object(context, scriptingCore->getGlobalObject());
+//        JS::RootedValue owner(context);
+//        
+//        jsval * argumentsVector = new jsval[1];
+//        argumentsVector[0] = INT_TO_JSVAL(1);
+//        
+//        JS_GetProperty(context, object, "xc", &owner);
+//        scriptingCore->executeFunctionWithOwner(owner, "addNumberHints", 1, argumentsVector);
+//        
+//        delete [] argumentsVector;
+
         _menuContext->showScore();
     }
 }
