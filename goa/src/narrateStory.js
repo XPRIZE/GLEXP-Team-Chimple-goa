@@ -421,10 +421,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 var soundFile = xc.path + this._referenceToContext._baseDir + "/sounds/" + soundFile + ".mp3";
                 cc.loader.load(soundFile, function(err, data) {
                     if(!err) {
-                        if(cc.audioEngine.isMusicPlaying()) {
-                            cc.audioEngine.stopMusic();
-                        }
-                        cc.audioEngine.playMusic(soundFile, false);
+                        cc.audioEngine.playEffect(soundFile, false);
                     }
                 }); 
             }            
@@ -594,7 +591,7 @@ xc.NarrateStoryScene = cc.Scene.extend({
         this._sceneLayer.init();
 
         if (cc.sys.isNative) {
-            this._menuContext = goa.MenuContext.create(this._sceneLayer, "Narrate Story");
+            this._menuContext = goa.MenuContext.create(this._sceneLayer, "story-play");
             this.addChild(this._menuContext);
             this._menuContext.setVisible(true);
         }                        
