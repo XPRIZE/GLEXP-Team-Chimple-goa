@@ -23,7 +23,7 @@ protected:
 	vector<int>_removedBalloonsId;
 	string _textString1, _textString2, _textString3, _balloonColor;
 	Sprite* _pin;
-	bool _touched = true, _burstFlag = false;
+	bool _touched = true, _burstFlag = false, _helpFlag = true;
 	cocos2d::LabelTTF* _label = NULL;
 	DrawNode* E;
 	int _answer;

@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 190,
         "Speed": 1.0,
-        "ActivedAnimationName": "red",
+        "ActivedAnimationName": "yellow",
         "Timelines": [
           {
             "ActionTag": 339856056,
@@ -55,9 +55,9 @@
               },
               {
                 "TextureFile": {
-                  "Type": "Normal",
-                  "Path": "balloonpop/balloonpop_green_71.png",
-                  "Plist": ""
+                  "Type": "MarkedSubImage",
+                  "Path": "balloonpop/balloonpop_green_7.png",
+                  "Plist": "balloonpop/balloonpop.plist"
                 },
                 "FrameIndex": 40,
                 "Tween": false,
@@ -255,7 +255,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "balloonpop/balloonpop_red_6.png",
+              "Path": "balloonpop/balloonpop_yellow_7.png",
               "Plist": "balloonpop/balloonpop.plist"
             },
             "BlendFunc": {
@@ -291,7 +291,7 @@
             "ActionTag": 339856056,
             "Size": {
               "X": 252.0,
-              "Y": 762.0
+              "Y": 763.0
             },
             "Name": "Sprite_1",
             "ctype": "SpriteObjectData"
@@ -306,8 +306,7 @@
       },
       "UsedResources": [
         "balloonpop.plist",
-        "balloonpop.png",
-        "balloonpop_green_71.png"
+        "balloonpop.png"
       ],
       "ctype": "GameFileData"
     }
