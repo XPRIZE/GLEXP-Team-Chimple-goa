@@ -1,0 +1,1019 @@
+{
+  "ID": "20b0f787-5517-4947-8243-1a85d9047423",
+  "Version": "2.3.4",
+  "Name": "Fisi_na_Kobe8",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 545,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -558919814,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "talk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 100,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -558919814,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1499.9996,
+                "Y": 799.9998,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1499.9996,
+                "Y": 799.9998,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -558919814,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.4,
+                "Y": 0.4,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.4,
+                "Y": 0.4,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -558919814,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -21.4248,
+                "Y": -21.4443,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -21.4248,
+                "Y": -21.4443,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1882913706,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 255,
+                "FrameIndex": 100,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 255,
+                "FrameIndex": 265,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "blink",
+                "SingleFrameIndex": 255,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 255,
+                "FrameIndex": 375,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "see_up",
+                "SingleFrameIndex": 255,
+                "FrameIndex": 545,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1882913706,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1600.915,
+                "Y": 714.4732,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1996.3101,
+                "Y": 779.8075,
+                "FrameIndex": 265,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2068.7495,
+                "Y": 796.4094,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2068.7495,
+                "Y": 796.4094,
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2126.8047,
+                "Y": 962.8201,
+                "FrameIndex": 545,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1882913706,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.6,
+                "Y": 0.6,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.6,
+                "Y": 0.6,
+                "FrameIndex": 265,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.6,
+                "Y": 0.6,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.6,
+                "Y": 0.6,
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.6,
+                "Y": 0.6,
+                "FrameIndex": 545,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1882913706,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -17.7327,
+                "Y": -17.7198,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -17.7327,
+                "Y": -17.7198,
+                "FrameIndex": 265,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -43.0955,
+                "Y": -43.0833,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -43.0955,
+                "Y": -43.0833,
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -65.4683,
+                "Y": -65.4007,
+                "FrameIndex": 545,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 545,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 106,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 217,
+              "G": 243,
+              "B": 248
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -239.5191,
+              "Y": 0.4248
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0936,
+              "Y": 0.0002
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -239.5191,
+            "RightMargin": -300.481,
+            "TopMargin": -0.4248,
+            "BottomMargin": 0.4248,
+            "Tag": 109,
+            "ActionTag": 1336980089,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 156,
+              "G": 192,
+              "B": 59
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.9456,
+              "Y": -1.3223
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.2872
+            },
+            "CColor": {
+              "R": 199,
+              "G": 211,
+              "B": 189
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0004,
+              "Y": -0.0007
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.727
+            },
+            "LeftMargin": 0.9456,
+            "RightMargin": -0.9456,
+            "TopMargin": 492.8038,
+            "BottomMargin": -1.3223,
+            "Tag": 107,
+            "ActionTag": 2133811529,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1308.5184
+            },
+            "Name": "Panel_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_hill.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 987.5652,
+              "Y": 647.3524
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 16.8567,
+            "RotationSkewY": 16.8711,
+            "CColor": {
+              "R": 199,
+              "G": 211,
+              "B": 189
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3858,
+              "Y": 0.3596
+            },
+            "PreSize": {
+              "X": 0.7668,
+              "Y": 0.6133
+            },
+            "LeftMargin": 6.0652,
+            "RightMargin": 590.9348,
+            "TopMargin": 600.6476,
+            "BottomMargin": 95.3524,
+            "Tag": 793,
+            "ActionTag": 540906764,
+            "Size": {
+              "X": 1963.0,
+              "Y": 1104.0
+            },
+            "Name": "fisi_hill_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_hill.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1640.983,
+              "Y": 859.6699
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 8.4447,
+            "RotationSkewY": 8.4343,
+            "CColor": {
+              "R": 199,
+              "G": 211,
+              "B": 189
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.641,
+              "Y": 0.4776
+            },
+            "PreSize": {
+              "X": 0.7668,
+              "Y": 0.6133
+            },
+            "LeftMargin": 659.483,
+            "RightMargin": -62.4829,
+            "TopMargin": 388.3301,
+            "BottomMargin": 307.6699,
+            "Tag": 110,
+            "ActionTag": -950346172,
+            "Size": {
+              "X": 1963.0,
+              "Y": 1104.0
+            },
+            "Name": "fisi_hill_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_grass3.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1999.6655,
+              "Y": 370.6694
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 199,
+              "G": 211,
+              "B": 189
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7811,
+              "Y": 0.2059
+            },
+            "PreSize": {
+              "X": 0.2176,
+              "Y": 0.0561
+            },
+            "LeftMargin": 1721.1655,
+            "RightMargin": 281.8345,
+            "TopMargin": 1378.8306,
+            "BottomMargin": 320.1694,
+            "Tag": 2405,
+            "ActionTag": -356002558,
+            "Size": {
+              "X": 557.0,
+              "Y": 101.0
+            },
+            "Name": "fisi_grass_3_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_grass3.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1243.2242,
+              "Y": 619.4048
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 199,
+              "G": 211,
+              "B": 189
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4856,
+              "Y": 0.3441
+            },
+            "PreSize": {
+              "X": 0.2176,
+              "Y": 0.0561
+            },
+            "LeftMargin": 964.7242,
+            "RightMargin": 1038.2758,
+            "TopMargin": 1130.0952,
+            "BottomMargin": 568.9048,
+            "Tag": 2406,
+            "ActionTag": 743002800,
+            "Size": {
+              "X": 557.0,
+              "Y": 101.0
+            },
+            "Name": "fisi_grass_3_3_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_grass3.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1975.73,
+              "Y": 809.5576
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 199,
+              "G": 211,
+              "B": 189
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7718,
+              "Y": 0.4498
+            },
+            "PreSize": {
+              "X": 0.2176,
+              "Y": 0.0561
+            },
+            "LeftMargin": 1697.23,
+            "RightMargin": 305.77,
+            "TopMargin": 939.9424,
+            "BottomMargin": 759.0576,
+            "Tag": 2407,
+            "ActionTag": 1544868748,
+            "Size": {
+              "X": 557.0,
+              "Y": 101.0
+            },
+            "Name": "fisi_grass_3_3_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_grass3.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2124.1602,
+              "Y": 807.9377
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 199,
+              "G": 211,
+              "B": 189
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8298,
+              "Y": 0.4489
+            },
+            "PreSize": {
+              "X": 0.2176,
+              "Y": 0.0561
+            },
+            "LeftMargin": 1845.6602,
+            "RightMargin": 157.3398,
+            "TopMargin": 941.5623,
+            "BottomMargin": 757.4377,
+            "Tag": 2408,
+            "ActionTag": -618296160,
+            "Size": {
+              "X": 557.0,
+              "Y": 101.0
+            },
+            "Name": "fisi_grass_3_3_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_tree.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2444.9612,
+              "Y": 1526.6904
+            },
+            "Scale": {
+              "ScaleX": 0.5615,
+              "ScaleY": 0.5615
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9551,
+              "Y": 0.8482
+            },
+            "PreSize": {
+              "X": 0.3566,
+              "Y": 0.6311
+            },
+            "LeftMargin": 1988.4612,
+            "RightMargin": -341.4612,
+            "TopMargin": -294.6904,
+            "BottomMargin": 958.6904,
+            "Tag": 117,
+            "ActionTag": 411832758,
+            "Size": {
+              "X": 913.0,
+              "Y": 1136.0
+            },
+            "Name": "fisi_tree_7_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_tree.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2442.6089,
+              "Y": 1497.7482
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9541,
+              "Y": 0.8321
+            },
+            "PreSize": {
+              "X": 0.3566,
+              "Y": 0.6311
+            },
+            "LeftMargin": 1986.1089,
+            "RightMargin": -339.1089,
+            "TopMargin": -265.748,
+            "BottomMargin": 929.7482,
+            "Tag": 116,
+            "ActionTag": 1143749016,
+            "Size": {
+              "X": 913.0,
+              "Y": 1136.0
+            },
+            "Name": "fisi_tree_7_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_honeycomb.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1940.7168,
+              "Y": 1303.2892
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7581,
+              "Y": 0.724
+            },
+            "PreSize": {
+              "X": 0.0523,
+              "Y": 0.0894
+            },
+            "LeftMargin": 1873.7168,
+            "RightMargin": 552.2832,
+            "TopMargin": 416.2108,
+            "BottomMargin": 1222.7892,
+            "Tag": 118,
+            "ActionTag": 1561449859,
+            "Size": {
+              "X": 134.0,
+              "Y": 161.0
+            },
+            "Name": "fisi_honeycomb_10",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_na_Kobe/fisi_tree.png",
+              "Plist": "Fisi_na_Kobe/Fisi_na_Kobe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2117.4041,
+              "Y": 1356.2947
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8271,
+              "Y": 0.7535
+            },
+            "PreSize": {
+              "X": 0.3566,
+              "Y": 0.6311
+            },
+            "LeftMargin": 1660.9041,
+            "RightMargin": -13.9041,
+            "TopMargin": -124.2947,
+            "BottomMargin": 788.2947,
+            "Tag": 115,
+            "ActionTag": 679549452,
+            "Size": {
+              "X": 913.0,
+              "Y": 1136.0
+            },
+            "Name": "fisi_tree_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Fisi_na_Kobe/hyena.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1499.9996,
+              "Y": 799.9998
+            },
+            "Scale": {
+              "ScaleX": 0.4,
+              "ScaleY": 0.4
+            },
+            "RotationSkewX": -21.4248,
+            "RotationSkewY": -21.4443,
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5859,
+              "Y": 0.4444
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1499.9996,
+            "RightMargin": 1060.0004,
+            "TopMargin": 1000.0002,
+            "BottomMargin": 799.9998,
+            "UserData": "walk;drag",
+            "Tag": 569,
+            "ActionTag": -558919814,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "hyena",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Fisi_na_Kobe/tortoise.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1600.915,
+              "Y": 714.4732
+            },
+            "Scale": {
+              "ScaleX": 0.6,
+              "ScaleY": 0.6
+            },
+            "RotationSkewX": -17.7327,
+            "RotationSkewY": -17.7198,
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.6254,
+              "Y": 0.3969
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1600.915,
+            "RightMargin": 959.085,
+            "TopMargin": 1085.5269,
+            "BottomMargin": 714.4732,
+            "UserData": "walk;drag",
+            "Tag": 599,
+            "ActionTag": -1882913706,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "tortoise",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "Fisi_na_Kobe.plist",
+        "Fisi_na_Kobe.png",
+        "hyena.json",
+        "tortoise.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

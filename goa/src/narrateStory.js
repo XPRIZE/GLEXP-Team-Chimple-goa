@@ -1,5 +1,9 @@
 /// <reference path="cocos2d-typescript-definitions-master/cocos2d/cocos2d-lib.d.ts" />
 var xc = xc || {};
+xc.storyFontName = "Arial";
+xc.storyFontSize = 85;
+xc.storyFontColor = cc.color.BLACK;
+
 xc.NarrateStoryLayer = cc.Layer.extend({
     _contentPanel: null,
     _pageConfigPanel: null,
@@ -298,9 +302,6 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         // this.showText();
         this.bindTouchListenerToLayer(this);
         this.sceneTouched();
-
-        // var board = goa.WordBoard.createSceneWithWord("test");
-        // this.addChild(board,0);
     },
 
     bindEventsToTarget:function(child) {
@@ -436,7 +437,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         if (pages != null  &&  !(this._pageIndex + 1 == pages.length)) {
             this._rightButtonPanel.setVisible(true);
         } else {
-            this._rightButtonPanel.setVisible(false);
+            this._rightButtonPanel.setVisible(true);
         }
     },
 
@@ -511,12 +512,12 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                     if(!err && json != null && json != undefined) {
                         storyText = json[xc.pageIndex + 1];
                         cc.log('story text received:' + storyText);
-                        that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that, false));
+                        that.parent.addChild(new xc.BubbleSpeech(xc.NarrateStoryLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that));
                     }                                
                 });                
            
             } else {
-                that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText,that.processAudio, that, false));
+                that.parent.addChild(new xc.BubbleSpeech(xc.NarrateStoryLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that));             
             }
         } else {
 
@@ -524,7 +525,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 if(!err && json != null && json != undefined) {
                     storyText = json[xc.pageIndex + 1];
                     cc.log('story text received:' + storyText);
-                    that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that, false));
+                    that.parent.addChild(new xc.BubbleSpeech(xc.NarrateStoryLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that));
                 }                                
             });                
             
@@ -575,6 +576,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
 
     onExit: function() {
+        this._super();
         if(cc.audioEngine.isMusicPlaying()) {
             cc.audioEngine.stopMusic();
         }        
@@ -662,5 +664,6 @@ xc.NarrateStoryLayer.res = {
         play_png: xc.path + "wikitaki/play.png",
         record_animation_png: xc.path + "wikitaki/recording.png",
         record_animation_plist: xc.path + "wikitaki/recording.plist",
-        OnlyStoryPlayConfig_json: xc.path + "wikitaki/misc/onlyPlayConfig.json"
+        OnlyStoryPlayConfig_json: xc.path + "wikitaki/misc/onlyPlayConfig.json",
+        textBubble_json: xc.path + "template/bubble_tem.json"
 };

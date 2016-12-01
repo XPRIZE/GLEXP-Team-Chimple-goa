@@ -1,0 +1,179 @@
+{
+  "ID": "fa3b5db0-46db-460b-81aa-b7a6536e3103",
+  "Version": "2.3.4",
+  "Name": "squirrel",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 18,
+        "Speed": 1.0,
+        "ActivedAnimationName": "run",
+        "Timelines": [
+          {
+            "ActionTag": 484525827,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Fisi_mlafi/fisi2/squirrel_1.png",
+                  "Plist": "Fisi_mlafi/fisi2/fisi2.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Fisi_mlafi/fisi2/squirrel_2.png",
+                  "Plist": "Fisi_mlafi/fisi2/fisi2.plist"
+                },
+                "FrameIndex": 6,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Fisi_mlafi/fisi2/squirrel_3.png",
+                  "Plist": "Fisi_mlafi/fisi2/fisi2.plist"
+                },
+                "FrameIndex": 12,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Fisi_mlafi/fisi2/squirrel_1.png",
+                  "Plist": "Fisi_mlafi/fisi2/fisi2.plist"
+                },
+                "FrameIndex": 18,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 18,
+          "Name": "run",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 5971,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_mlafi/fisi2/squirrel_1.png",
+              "Plist": "Fisi_mlafi/fisi2/fisi2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -173.0,
+            "RightMargin": -173.0,
+            "TopMargin": -95.5,
+            "BottomMargin": -95.5,
+            "Tag": 5972,
+            "ActionTag": 484525827,
+            "Size": {
+              "X": 346.0,
+              "Y": 191.0
+            },
+            "Name": "Sprite_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_mlafi/fisi2/touch.png",
+              "Plist": "Fisi_mlafi/fisi2/fisi2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -5.0162,
+              "Y": -4.5243
+            },
+            "Scale": {
+              "ScaleX": 0.8144,
+              "ScaleY": 0.5405
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -207.0162,
+            "RightMargin": -196.9838,
+            "TopMargin": -197.4757,
+            "BottomMargin": -206.5243,
+            "Tag": 12509,
+            "ActionTag": 1647546360,
+            "Size": {
+              "X": 404.0,
+              "Y": 404.0
+            },
+            "Name": "touch",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "fisi2/fisi2.plist",
+        "fisi2/fisi2.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

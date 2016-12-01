@@ -1,0 +1,221 @@
+{
+  "ID": "4b31266f-f07c-49b6-848a-faa98797168f",
+  "Version": "2.3.4",
+  "Name": "fire",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 42,
+        "Speed": 1.0,
+        "ActivedAnimationName": "fire",
+        "Timelines": [
+          {
+            "ActionTag": 418128163,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Fisi_mlafi/fire1.png",
+                  "Plist": "Fisi_mlafi/Fisi_mlafi.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Fisi_mlafi/fire2.png",
+                  "Plist": "Fisi_mlafi/Fisi_mlafi.plist"
+                },
+                "FrameIndex": 6,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Fisi_mlafi/fire3.png",
+                  "Plist": "Fisi_mlafi/Fisi_mlafi.plist"
+                },
+                "FrameIndex": 12,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Fisi_mlafi/fire4.png",
+                  "Plist": "Fisi_mlafi/Fisi_mlafi.plist"
+                },
+                "FrameIndex": 18,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Fisi_mlafi/fire5.png",
+                  "Plist": "Fisi_mlafi/Fisi_mlafi.plist"
+                },
+                "FrameIndex": 24,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Fisi_mlafi/fire6.png",
+                  "Plist": "Fisi_mlafi/Fisi_mlafi.plist"
+                },
+                "FrameIndex": 30,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Fisi_mlafi/fire7.png",
+                  "Plist": "Fisi_mlafi/Fisi_mlafi.plist"
+                },
+                "FrameIndex": 36,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Fisi_mlafi/fire8.png",
+                  "Plist": "Fisi_mlafi/Fisi_mlafi.plist"
+                },
+                "FrameIndex": 42,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 48,
+          "Name": "fire",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 218,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_mlafi/fire1.png",
+              "Plist": "Fisi_mlafi/Fisi_mlafi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -25.3018,
+              "Y": 303.6231
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -184.3018,
+            "RightMargin": -133.6982,
+            "TopMargin": -683.6232,
+            "BottomMargin": -76.3769,
+            "Tag": 5499,
+            "ActionTag": 418128163,
+            "Size": {
+              "X": 318.0,
+              "Y": 760.0
+            },
+            "Name": "Sprite_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fisi_mlafi/fisi2/touch.png",
+              "Plist": "Fisi_mlafi/fisi2/fisi2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7.468,
+              "Y": 225.2488
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.6449
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -194.532,
+            "RightMargin": -209.468,
+            "TopMargin": -427.2488,
+            "BottomMargin": 23.2488,
+            "Tag": 12514,
+            "ActionTag": 1838834364,
+            "Size": {
+              "X": 404.0,
+              "Y": 404.0
+            },
+            "Name": "touch",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Fisi_mlafi.plist",
+        "Fisi_mlafi.png",
+        "fisi2/fisi2.plist",
+        "fisi2/fisi2.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

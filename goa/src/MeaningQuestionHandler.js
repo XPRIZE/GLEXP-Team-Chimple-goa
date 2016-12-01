@@ -71,8 +71,15 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
     },    
 
     configureAnswers: function() {
-        var context = this;        
-        this._answers = Object.values(this._question);
+        var context = this;      
+        context._answers = [];
+        var obj = this._question;  
+        Object.keys(context._question).forEach(function (key) {
+            var val = context._question[key];
+            context._answers.push(val);
+    
+        });
+        
         this._answers = this._answers.filter(function(e) { return e !== "meanings" });
 
         var alreadySelectedAnswers = [];
@@ -98,12 +105,14 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
                         node.setTouchEnabled(true);
                         node.selectedIndex = index;
                         var result = [];
+                        cc.log('remainingAnswers[0]:' + remainingAnswers[0]);
                         var qText = remainingAnswers[0];
                         remainingAnswers[0].replace(/(.{30}\w+)\s(.+)/, function(_,a,b) { result.push(a,b); });
                         if(result.length > 0) {
                            qText = result.join('\n');     
                         }
                         node.setTitleText(qText);
+                        cc.log("qText setting:" + qText);
                         node.addTouchEventListener(this.answerSelected, this);
                     }                    
                 }                             
@@ -238,9 +247,15 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
     
 
     disableNodesForCorrectAnswer:function(sender, questionNode) {
-
         sender.setEnabled(false);
         questionNode.setEnabled(false);
+
+        if(this._totalCorrectAnswers == 4) {
+            this.callback.call(this._callbackContext, sender, true, true);
+        } else {
+            this.callback.call(this._callbackContext, sender, true, false);
+        }                      
+        
     },
 
     verifyAnswer: function(sender, questionNode) {
@@ -249,10 +264,8 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
         if(isCorrectAnswered) {
             this._totalCorrectAnswers++;
             this.swipeAnswers(sender, questionNode);
+        } else {
+            this.hintForCorrectAnswer(sender, isCorrectAnswered);
         }
-        this.hintForCorrectAnswer(sender, isCorrectAnswered);  
-        if(this._totalCorrectAnswers == 4) {
-            this.callback.call(this._callbackContext, sender, isCorrectAnswered);
-        }                      
     }
 });

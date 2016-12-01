@@ -1,0 +1,985 @@
+{
+  "ID": "f153140a-6152-4626-84f5-8d39fb68afc1",
+  "Version": "3.10.0.0",
+  "Name": "Siku_ambayo_Jua_lilipotea_01",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 212,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -773076305,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -615.6779,
+                "Y": 1846.4059,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -773076305,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 19.0857,
+                "Y": 7.217,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -773076305,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 162617254,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1562255864,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2102.7188,
+                "Y": 1321.8713,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1562255864,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 211,
+                  "G": 101,
+                  "B": 47
+                },
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 64763569,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Siku_ambayo_Jua_lilipotea/cloud2.png",
+                  "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+                },
+                "FrameIndex": 212,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 64763569,
+            "Property": "BlendFunc",
+            "Frames": [
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 212,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 204552355,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Siku_ambayo_Jua_lilipotea/mouth.png",
+                  "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+                },
+                "FrameIndex": 212,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 204552355,
+            "Property": "BlendFunc",
+            "Frames": [
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 212,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -529092579,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Siku_ambayo_Jua_lilipotea/eyes.png",
+                  "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+                },
+                "FrameIndex": 212,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -529092579,
+            "Property": "BlendFunc",
+            "Frames": [
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 212,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 781182367,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Siku_ambayo_Jua_lilipotea/cloud1.png",
+                  "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+                },
+                "FrameIndex": 212,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 781182367,
+            "Property": "BlendFunc",
+            "Frames": [
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 212,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -21884815,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Siku_ambayo_Jua_lilipotea/mouth.png",
+                  "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+                },
+                "FrameIndex": 212,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -21884815,
+            "Property": "BlendFunc",
+            "Frames": [
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 212,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1554730592,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Siku_ambayo_Jua_lilipotea/eyes.png",
+                  "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+                },
+                "FrameIndex": 212,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1554730592,
+            "Property": "BlendFunc",
+            "Frames": [
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 212,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 180,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 1359,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {
+              "R": 214
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": -615.6779,
+              "Y": 1846.4059
+            },
+            "Scale": {
+              "ScaleX": 19.0857,
+              "ScaleY": 7.217
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.2405,
+              "Y": 1.0258
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -615.6779,
+            "RightMargin": 2975.678,
+            "TopMargin": -46.4059,
+            "BottomMargin": 1646.4059,
+            "Tag": 1360,
+            "ActionTag": -773076305,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "sky",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 63,
+              "G": 180,
+              "B": 26
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -625.7801,
+              "Y": -16.9561
+            },
+            "Scale": {
+              "ScaleX": 19.2835,
+              "ScaleY": 2.2151
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.2444,
+              "Y": -0.0094
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -625.7801,
+            "RightMargin": 2985.78,
+            "TopMargin": 1616.9561,
+            "BottomMargin": -16.9561,
+            "Tag": 1361,
+            "ActionTag": -557023579,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "ground",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/mountain1.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 109.0644,
+              "Y": 652.5055
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0426,
+              "Y": 0.3625
+            },
+            "PreSize": {
+              "X": 0.5055,
+              "Y": 0.4117
+            },
+            "LeftMargin": -537.9356,
+            "RightMargin": 1803.9355,
+            "TopMargin": 776.9945,
+            "BottomMargin": 282.0055,
+            "Tag": 1362,
+            "ActionTag": -1846445479,
+            "Size": {
+              "X": 1294.0,
+              "Y": 741.0
+            },
+            "Name": "mountain1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/mountain1.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2436.5083,
+              "Y": 653.8795
+            },
+            "Scale": {
+              "ScaleX": 1.1391,
+              "ScaleY": 1.135
+            },
+            "CColor": {
+              "R": 228,
+              "G": 228,
+              "B": 228
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9518,
+              "Y": 0.3633
+            },
+            "PreSize": {
+              "X": 0.5055,
+              "Y": 0.4117
+            },
+            "LeftMargin": 1789.5083,
+            "RightMargin": -523.5083,
+            "TopMargin": 775.6205,
+            "BottomMargin": 283.3795,
+            "Tag": 1363,
+            "ActionTag": -1680376781,
+            "Size": {
+              "X": 1294.0,
+              "Y": 741.0
+            },
+            "Name": "mountain1_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/mountain2.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1202.0967,
+              "Y": 589.9252
+            },
+            "Scale": {
+              "ScaleX": 1.1237,
+              "ScaleY": 1.108
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4696,
+              "Y": 0.3277
+            },
+            "PreSize": {
+              "X": 0.5051,
+              "Y": 0.4117
+            },
+            "LeftMargin": 555.5967,
+            "RightMargin": 711.4033,
+            "TopMargin": 839.5748,
+            "BottomMargin": 219.4252,
+            "Tag": 1364,
+            "ActionTag": -2142912892,
+            "Size": {
+              "X": 1293.0,
+              "Y": 741.0
+            },
+            "Name": "mountain2_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Siku_ambayo_Jua_lilipotea/sun.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2155.5288,
+              "Y": 1412.3339
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.842,
+              "Y": 0.7846
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2155.5288,
+            "RightMargin": 404.4712,
+            "TopMargin": 387.6661,
+            "BottomMargin": 1412.3339,
+            "Tag": 451,
+            "ActionTag": 162617254,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "sun",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/mouth.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2102.7188,
+              "Y": 1321.8713
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 211,
+              "G": 101,
+              "B": 47
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8214,
+              "Y": 0.7344
+            },
+            "PreSize": {
+              "X": 0.1008,
+              "Y": 0.0806
+            },
+            "LeftMargin": 1973.7188,
+            "RightMargin": 328.2812,
+            "TopMargin": 405.6287,
+            "BottomMargin": 1249.3713,
+            "Tag": 456,
+            "ActionTag": -1562255864,
+            "Size": {
+              "X": 258.0,
+              "Y": 145.0
+            },
+            "Name": "mouth_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/eyes.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2094.3804,
+              "Y": 1487.4155
+            },
+            "Scale": {
+              "ScaleX": 0.894,
+              "ScaleY": 0.9259
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8181,
+              "Y": 0.8263
+            },
+            "PreSize": {
+              "X": 0.0949,
+              "Y": 0.0828
+            },
+            "LeftMargin": 1972.8804,
+            "RightMargin": 344.1196,
+            "TopMargin": 238.0845,
+            "BottomMargin": 1412.9155,
+            "Tag": 457,
+            "ActionTag": 1847593177,
+            "Size": {
+              "X": 243.0,
+              "Y": 149.0
+            },
+            "Name": "eyes_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/cloud2.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 683.0249,
+              "Y": 1611.7831
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2668,
+              "Y": 0.8954
+            },
+            "PreSize": {
+              "X": 0.3141,
+              "Y": 0.1867
+            },
+            "LeftMargin": 281.0249,
+            "RightMargin": 1474.9751,
+            "TopMargin": 20.2169,
+            "BottomMargin": 1443.7831,
+            "Tag": 699,
+            "ActionTag": 64763569,
+            "Size": {
+              "X": 804.0,
+              "Y": 336.0
+            },
+            "Name": "cloud2_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/mouth.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 877.653,
+              "Y": 1554.5453
+            },
+            "Scale": {
+              "ScaleX": 0.5719,
+              "ScaleY": 0.6039
+            },
+            "CColor": {
+              "R": 199,
+              "G": 199,
+              "B": 199
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3428,
+              "Y": 0.8636
+            },
+            "PreSize": {
+              "X": 0.1008,
+              "Y": 0.0806
+            },
+            "LeftMargin": 748.653,
+            "RightMargin": 1553.3469,
+            "TopMargin": 172.9547,
+            "BottomMargin": 1482.0453,
+            "Tag": 697,
+            "ActionTag": 204552355,
+            "Size": {
+              "X": 258.0,
+              "Y": 145.0
+            },
+            "Name": "mouth_12_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/eyes.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 835.6971,
+              "Y": 1676.0142
+            },
+            "Scale": {
+              "ScaleX": -0.9633,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3264,
+              "Y": 0.9311
+            },
+            "PreSize": {
+              "X": 0.0949,
+              "Y": 0.0828
+            },
+            "LeftMargin": 714.1971,
+            "RightMargin": 1602.803,
+            "TopMargin": 49.4858,
+            "BottomMargin": 1601.5142,
+            "Tag": 698,
+            "ActionTag": -529092579,
+            "Size": {
+              "X": 243.0,
+              "Y": 149.0
+            },
+            "Name": "eyes_11_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/cloud1.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1214.6486,
+              "Y": 1222.718
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4745,
+              "Y": 0.6793
+            },
+            "PreSize": {
+              "X": 0.3457,
+              "Y": 0.1844
+            },
+            "LeftMargin": 772.1486,
+            "RightMargin": 902.8514,
+            "TopMargin": 411.282,
+            "BottomMargin": 1056.718,
+            "Tag": 709,
+            "ActionTag": 781182367,
+            "Size": {
+              "X": 885.0,
+              "Y": 332.0
+            },
+            "Name": "cloud1_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/mouth.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1429.6254,
+              "Y": 1156.6946
+            },
+            "Scale": {
+              "ScaleX": 0.5719,
+              "ScaleY": 0.6039
+            },
+            "CColor": {
+              "R": 199,
+              "G": 199,
+              "B": 199
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5584,
+              "Y": 0.6426
+            },
+            "PreSize": {
+              "X": 0.1008,
+              "Y": 0.0806
+            },
+            "LeftMargin": 1300.6254,
+            "RightMargin": 1001.3746,
+            "TopMargin": 570.8054,
+            "BottomMargin": 1084.1946,
+            "Tag": 707,
+            "ActionTag": -21884815,
+            "Size": {
+              "X": 258.0,
+              "Y": 145.0
+            },
+            "Name": "mouth_12",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/eyes.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1387.6708,
+              "Y": 1278.1702
+            },
+            "Scale": {
+              "ScaleX": -0.9633,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5421,
+              "Y": 0.7101
+            },
+            "PreSize": {
+              "X": 0.0949,
+              "Y": 0.0828
+            },
+            "LeftMargin": 1266.1708,
+            "RightMargin": 1050.8292,
+            "TopMargin": 447.3298,
+            "BottomMargin": 1203.6702,
+            "Tag": 708,
+            "ActionTag": -1554730592,
+            "Size": {
+              "X": 243.0,
+              "Y": 149.0
+            },
+            "Name": "eyes_11",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Siku_ambayo_Jua_lilipotea.plist",
+        "Siku_ambayo_Jua_lilipotea.png",
+        "sun.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

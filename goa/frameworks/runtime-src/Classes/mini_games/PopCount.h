@@ -21,7 +21,8 @@ protected:
 	std::map<std::string, std::map<std::string, std::string>> _sceneMap;
 	std::map<std::string, std::map<std::string, float>> _popcountPropertyMap;
 	string _popcountCurrentTheme = "";
-
+	int _popUpAnswer = 0;
+	float _popStayDelay = 2.0f;
 public:
 	~PopCount();
 	static cocos2d::Scene* createScene();
@@ -29,6 +30,7 @@ public:
 	static PopCount* create();
 	void addEventsOnGrid(cocos2d::Sprite * callerObject);
 	void setIslandScene();
+	void popUpCall(int popNumberOfCharacter);
 	void onEnterTransitionDidFinish();
 	void update(float) override;
 
