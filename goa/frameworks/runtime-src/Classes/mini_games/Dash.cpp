@@ -115,7 +115,7 @@ bool Dash::init()
 	};
 	
 	std::vector<std::string> theme = { "city","candy","iceLand" };
-	_scenePath = differntSceneMapping.at(theme.at(0));//cocos2d::RandomHelper::random_int(0, 2)));
+	_scenePath = differntSceneMapping.at(theme.at(cocos2d::RandomHelper::random_int(0, 2)));
 
 	auto spritecache1 = SpriteFrameCache::getInstance();
 	spritecache1->addSpriteFramesWithFile(_scenePath.at("plist"));
