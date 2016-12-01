@@ -39,7 +39,10 @@ void PopCount::onEnterTransitionDidFinish() {
 					{ "bg", "popcount/popcount.csb" },
 					{ "character", "popcount/starfish.csb" },
 					{ "characterSpriteName", "Sprite_1" },
-					{ "waterAnimation" , "popcount/water.csb" }
+					{ "waterAnimation" , "popcount/water.csb" },
+					{ "midboard" , "popcount/board.png" },
+					{ "play" , "popcount/play.png" },
+					{ "watchagain" , "popcount/watchagain.png"}
 				}
 			},
 			{ "popcountCity",
@@ -66,7 +69,7 @@ void PopCount::onEnterTransitionDidFinish() {
 			{ "popcountIsland",
 			{
 				{ "jumpHeight", 600.0f },
-				{ "jumpStart", 100.0f },
+				{ "jumpStart", 200.0f },
 				{ "smallGridSize", 160.0f }
 			}
 			},
@@ -124,8 +127,9 @@ void PopCount::popUpCharacter(Node* character, string animationName) {
 	auto timelineWater = CSLoader::createTimeline(_sceneMap.at(_popcountCurrentTheme).at("waterAnimation"));
 	auto water = CSLoader::createNode(_sceneMap.at(_popcountCurrentTheme).at("waterAnimation"));
 	water->runAction(timelineWater);
-	water->setScale(0.5f);
-	water->setPosition(Vec2(character->getPositionX(), character->getPositionY() + height / 2));
+	water->setScale(0.4f);
+	auto width = ((character->getChildByName("Sprite_1")->getContentSize().width * 0.5) / 2);
+	water->setPosition(Vec2(character->getPositionX() + width, character->getPositionY() + (height*0.6)));
 	addChild(water, 3);
 	timelineWater->gotoFrameAndPlay(0, false);
 
@@ -133,7 +137,7 @@ void PopCount::popUpCharacter(Node* character, string animationName) {
 		auto timelinecharacter = CSLoader::createTimeline(_sceneMap.at(_popcountCurrentTheme).at("character"));
 		character->runAction(timelinecharacter);
 		timelinecharacter->play(animationName, true);
-		character->runAction(MoveTo::create(1.2f, Vec2(character->getPositionX(), character->getPositionY() + height)));
+		character->runAction(MoveTo::create(0.6f, Vec2(character->getPositionX(), character->getPositionY() + height)));
 	});
 	auto popDown = CallFunc::create([=]() {
 		character->runAction(MoveTo::create(0.7f, Vec2(character->getPositionX(), character->getPositionY() - height)));
@@ -141,7 +145,7 @@ void PopCount::popUpCharacter(Node* character, string animationName) {
 	auto removeWaterWave = CallFunc::create([=]() {
 		removeChild(water);
 	});
-	this->runAction(Sequence::create(popUp, DelayTime::create(1.4f), popDown, DelayTime::create(0.7f), removeWaterWave, NULL));
+	this->runAction(Sequence::create(popUp, DelayTime::create(_popStayDelay), popDown, DelayTime::create(0.7f), removeWaterWave, NULL));
 
 }
 
@@ -174,9 +178,9 @@ void PopCount::setGridNumberPanel() {
 
 	auto gridPanel = Sprite::create();
 	gridPanel->setTextureRect(Rect(0, 0, Director::getInstance()->getVisibleSize().width - reduceSize, Director::getInstance()->getVisibleSize().height* 0.15));
-	gridPanel->setColor(Color3B::BLUE);
+	gridPanel->setColor(Color3B(41,158,170));
 	gridPanel->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height * 0.1));
-	gridPanel->setOpacity(50);
+	gridPanel->setOpacity(60);
 	addChild(gridPanel, 2);
 
 	auto themeResourcePath = _sceneMap.at(_popcountCurrentTheme);
@@ -193,8 +197,8 @@ void PopCount::setGridNumberPanel() {
 		auto smallGrid = Sprite::create();
 		smallGrid->setTextureRect(Rect(0, 0, smallGridSize, smallGridSize));
 		gridPanel->addChild(smallGrid);
-		smallGrid->setColor(Color3B::BLUE);
-		smallGrid->setOpacity(150);
+		smallGrid->setColor(Color3B(14,124,142));
+		smallGrid->setOpacity(110);
 		smallGrid->setTag(i+1);
 		smallGrid->setName("smallGrid");
 		smallGrid->setPosition(Vec2(positionX, gridPanel->getContentSize().height / 2));
@@ -239,26 +243,33 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 		Point locationInNode;
 		if (target->getName() == "smallGrid") {
 			locationInNode = target->getParent()->convertToNodeSpace(touch->getLocation());
+			target->setColor(Color3B(14, 124, 142));
 		}
 		else if (target->getName() == "midButton") {
 			locationInNode = touch->getLocation();
+			target->setColor(Color3B(255,255,255));
 		}
 
-		target->setColor(Color3B::BLUE);
 		if (target->getBoundingBox().containsPoint(locationInNode) && (target->getName() == "smallGrid")) {
 			if (target->getTag() == _popUpAnswer) {
 				CCLOG(" THIS IS CORRECT ");
-				((LabelTTF*)this->getChildByName("midButton")->getChildByName("text"))->setString("PLAY");
+				(this->getChildByName("midButton")->getChildByTag(0))->setName("PLAY");
+				auto texture = SpriteFrameCache::getInstance()->getSpriteFrameByName(_sceneMap.at(_popcountCurrentTheme).at("play"));
+				((Sprite*)this->getChildByName("midButton")->getChildByTag(0))->setSpriteFrame(texture);
 			}
 		}
 		else if (target->getBoundingBox().containsPoint(locationInNode) && (target->getName() == "midButton")) {
-			if (((LabelTTF*)target->getChildByName("text"))->getString() == "WATCH AGAIN") {
+			if ((target->getChildByTag(0))->getName() == "WATCH AGAIN") {
 				CCLOG("CLICKED ON WATCH AGAIN BUTTON");
+				auto texture = SpriteFrameCache::getInstance()->getSpriteFrameByName(_sceneMap.at(_popcountCurrentTheme).at("watchagain"));
+				((Sprite*)target->getChildByTag(0))->setSpriteFrame(texture);
 				popUpCall(_popUpAnswer);
 			}
-			else if (((LabelTTF*)target->getChildByName("text"))->getString() == "PLAY") {
-				CCLOG("CLICKED ON PLAY BUTTON");
-				((LabelTTF*)target->getChildByName("text"))->setString("WATCH AGAIN");
+			else if ((target->getChildByTag(0))->getName() == "PLAY") {
+				CCLOG("CLICKED ON PLAY BUTTON"); 
+				(target->getChildByTag(0))->setName("WATCH AGAIN");
+				auto texture = SpriteFrameCache::getInstance()->getSpriteFrameByName(_sceneMap.at(_popcountCurrentTheme).at("watchagain"));
+				((Sprite*)target->getChildByTag(0))->setSpriteFrame(texture);
 				_popUpAnswer = RandomHelper::random_int(1, 10);
 				popUpCall(_popUpAnswer);
 			}else{
@@ -299,20 +310,17 @@ void PopCount::setIslandScene() {
 		positionX = positionX + (starFish->getChildByName(themeResourcePath.at("characterSpriteName"))->getContentSize().width * 0.5) + indiSpace;
 	}
 
-	auto midButton = Sprite::create();
-	midButton->setTextureRect(Rect(0, 0, Director::getInstance()->getVisibleSize().width*0.2, Director::getInstance()->getVisibleSize().height*0.1));
-	midButton->setColor(Color3B::BLUE);
+	auto midButton = Sprite::createWithSpriteFrameName(themeResourcePath.at("midboard"));
 	midButton->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height/2));
-	midButton->setOpacity(80);
 	addChild(midButton, 3);
 	midButton->setName("midButton");
 	addEventsOnGrid(midButton);
 
-	auto label = LabelTTF::create("PLAY", "Helvetica", midButton->getContentSize().height*0.8);
-	label->setColor(Color3B::WHITE);
-	label->setPosition(Vec2(midButton->getContentSize().width / 2, midButton->getContentSize().height / 2));
-	label->setName("text");
-	midButton->addChild(label);
+	auto buttonSymbl = Sprite::createWithSpriteFrameName(themeResourcePath.at("play"));
+	buttonSymbl->setPosition(Vec2(midButton->getContentSize().width / 2, midButton->getContentSize().height / 2));
+	buttonSymbl->setName("PLAY");
+	buttonSymbl->setTag(0);
+	midButton->addChild(buttonSymbl);
 
 //	popUpCall(_popUpAnswer);
 	
