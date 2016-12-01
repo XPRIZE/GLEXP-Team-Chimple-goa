@@ -176,6 +176,25 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1169642463,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "walking",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "walking",
+                "FrameIndex": 239,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -337,7 +356,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Adhabu_Punishment/adhabu_door.png",
+              "Path": "Adhabu_Punishment/door.png",
               "Plist": "Adhabu_Punishment/Adhabu_Punishment.plist"
             },
             "BlendFunc": {
@@ -382,7 +401,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Adhabu_Punishment/adhabu_painting.png",
+              "Path": "Adhabu_Punishment/painting.png",
               "Plist": "Adhabu_Punishment/Adhabu_Punishment.plist"
             },
             "BlendFunc": {
@@ -428,7 +447,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Adhabu_Punishment/adhabu_sofa.png",
+              "Path": "Adhabu_Punishment/sofa.png",
               "Plist": "Adhabu_Punishment/Adhabu_Punishment.plist"
             },
             "BlendFunc": {
@@ -566,8 +585,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 2132.5671,
-              "Y": 65.1144
+              "X": 1869.2406,
+              "Y": 67.0795
             },
             "Scale": {
               "ScaleX": 0.8095,
@@ -576,19 +595,20 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.833,
-              "Y": 0.0362
+              "X": 0.7302,
+              "Y": 0.0373
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 2132.5671,
-            "RightMargin": 427.4329,
-            "TopMargin": 1734.8856,
-            "BottomMargin": 65.1144,
+            "LeftMargin": 1869.2406,
+            "RightMargin": 690.7594,
+            "TopMargin": 1732.9205,
+            "BottomMargin": 67.0795,
             "UserData": "walk;drag",
             "Tag": 1644,
+            "FrameEvent": "walking",
             "ActionTag": -1169642463,
             "Size": {
               "X": 0.0,

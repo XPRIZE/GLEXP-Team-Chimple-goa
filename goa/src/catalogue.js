@@ -62,12 +62,19 @@ xc.CatalogueLayer = cc.Layer.extend({
 
 xc.CatalogueScene = cc.Scene.extend({
     layerClass: null,
+    _menuContext: null,
     ctor: function (layer, storyCatalogueObject) {
         this._super();
         this.layerClass = layer;
         this._catalogueLayer = new this.layerClass(storyCatalogueObject);
         this.addChild(this._catalogueLayer);
-        this._catalogueLayer.init();        
+        this._catalogueLayer.init();     
+        if (cc.sys.isNative) {
+            this._menuContext = goa.MenuContext.create(this._catalogueLayer, "story-play");
+            this.addChild(this._menuContext, 1);
+            this._menuContext.setVisible(true);
+        }                                        
+           
     }
 });
 

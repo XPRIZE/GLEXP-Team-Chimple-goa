@@ -52,8 +52,8 @@ LOCAL_SRC_FILES := ../auto/jsb_cocos2dx_3d_auto.cpp \
                    ../auto/js_bindings_chipmunk_functions.cpp \
                    ../auto/chimpleautogenbindings.cpp \
                    ../auto/textgeneratorautobindings.cpp \
-				   ../auto/wordgeneratorautobindings.cpp \
-				   ../auto/wordscenegeneratorautobindings.cpp \
+                   ../auto/wordgeneratorautobindings.cpp \
+                   ../auto/wordscenegeneratorautobindings.cpp \
                    ../manual/ScriptingCore.cpp \
                    ../manual/cocos2d_specifics.cpp \
                    ../manual/js_manual_conversions.cpp \

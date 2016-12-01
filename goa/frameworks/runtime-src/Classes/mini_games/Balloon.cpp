@@ -63,7 +63,7 @@ void Balloon::onEnterTransitionDidFinish()
 	this->addChild(label, 0);
 
 	auto textOnDisplayAnswer = _textString3;
-	_label = setAllLabelProperties(textOnDisplayAnswer, 0, visibleSize.width*0.605, visibleSize.height*0.1, true, 0.5, 0.5, 0, 1, 1, 220);
+	_label = setAllLabelProperties(textOnDisplayAnswer, 0, visibleSize.width*0.615, visibleSize.height*0.1, true, 0.5, 0.5, 0, 1, 1, 220);
 	_label->setColor(cocos2d::Color3B(253, 255, 233));
 	this->addChild(_label, 0);
 
@@ -72,8 +72,6 @@ void Balloon::onEnterTransitionDidFinish()
 	int randomValue = RandomHelper::random_int(0, 2);
 	_balloonColor = balloonName[randomValue];
 	_removedBalloonsId = { 0,1,2,3,4,5,6,7,8,9,10,11 };
-	makingBalloons();
-
 
 	/*E = DrawNode::create();
 	this->addChild(E, 10);*/
@@ -85,11 +83,12 @@ void Balloon::onEnterTransitionDidFinish()
 	//_pin->setScale(0.7);
 	addTouchEvents(check);
 
-	Sprite* _pin = Sprite::createWithSpriteFrameName("balloonpop/balloonpop_pin.png");
+    _pin = Sprite::createWithSpriteFrameName("balloonpop/balloonpop_pin.png");
 	setAllSpriteProperties(_pin, 0, visibleSize.height*0.5, visibleSize.height*0.5, true, 0.5, 0.5, 0, 1, 1);
-	this->addChild(_pin, 0);
+	this->addChild(_pin);
 	//_pin->setScale(0.7);
 	addTouchEvents(_pin);
+	makingBalloons();
 }
 Balloon::~Balloon()
 {
@@ -118,9 +117,27 @@ void Balloon::makingBalloons()
 			_removedBalloonsId.clear();
 		}
 	}
+	_pin->setZOrder(2);
 	this->runAction(Sequence::create(DelayTime::create(6), CCCallFunc::create([=] {
 		_burstFlag = true;
-		/*	for (int i = 0; i < _balloonsBin.size(); i++)
+		int gameCurrentLevel = _menuContext->getCurrentLevel();
+		if (gameCurrentLevel == 1 && _helpFlag)
+		{
+			_helpFlag = false;
+			auto nodeForHelp = this->getChildByName("bg")->getChildByName("corn");
+			auto a = _pin->getPositionX() ;
+			auto b = _pin->getPositionY() ;
+			
+			auto c = _balloonsBin[6]->getPositionX();// -_balloonsBin[6]->getChildByName("Sprite_1")->getContentSize().width / 2 * 0.7;
+			auto d = _balloonsBin[6]->getPositionY() -_balloonsBin[6]->getChildByName("Sprite_1")->getContentSize().height / 2 * 0.35;
+
+			_help = HelpLayer::create(Rect(a, b, _pin->getContentSize().width*1.02
+				, _pin->getContentSize().height*1.02),
+				Rect(c, d , _balloonsBin[6]->getChildByName("Sprite_1")->getContentSize().width, _balloonsBin[6]->getChildByName("Sprite_1")->getContentSize().height / 2 * 0.65));
+			_help->clickAndDrag(Vec2(a,b),Vec2(c,d));
+			this->addChild(_help, 5);
+		}
+			/*	for (int i = 0; i < _balloonsBin.size(); i++)
 		{
 		auto a = _balloonsBin[i]->getPositionX() - _balloonsBin[i]->getChildByName("Sprite_1")->getContentSize().width / 2 * 0.7;
 		auto b = _balloonsBin[i]->getPositionY() - _balloonsBin[i]->getChildByName("Sprite_1")->getContentSize().height / 2 * 0.65;
@@ -172,15 +189,20 @@ void Balloon::addTouchEvents(Sprite* obj)
 			if (rect.containsPoint(Vec2(touch->getLocation().x, touch->getLocation().y)) && _touched)
 			{
 				_touched = false;
-				return true;
+				 return true;
 			}
 		}
-
 		return false;
 	};
 	listener->onTouchMoved = [=](cocos2d::Touch* touch, cocos2d::Event* event)
 	{
 		auto target = event->getCurrentTarget();
+
+		int gameCurrentLevel = _menuContext->getCurrentLevel();
+		if (gameCurrentLevel == 1)
+		{
+			this->removeChild(_help,true);
+		}
 		if (!(target->getName()).compare("done"))
 		{
 		}

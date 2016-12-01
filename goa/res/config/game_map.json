@@ -749,19 +749,19 @@
   },
    {
     "name": "spot",
-    "cIcon": "gameicons/pizza_pressed.png",
-    "icon": "gameicons/pizza.png",
+    "cIcon": "gameicons/spot_pressed.png",
+    "icon": "gameicons/spot.png",
     "multiPlayer": false,
     "isJSGame": false,
     "script": "src/NonJSGameLauncher.js",
     "span": "2",
     "numLevels": "6",
-    "backgroundJson": "boxlevel/background.json",
-    "foregroundJson": "boxlevel/foreground.json",
-    "frontgroundJson": "boxlevel/frontground.json",
-    "maingroundJson": "boxlevel/mainground.json",
-    "menuPlist": "boxlevel/boxlevel.plist",
-    "menuPng": "boxlevel/boxlevel.png"
+    "backgroundJson": "spotlevel/layer1.json",
+    "foregroundJson": "spotlevel/layer3.json",
+    "frontgroundJson": "spotlevel/layer4.json",
+    "maingroundJson": "spotlevel/layer2.json",
+    "menuPlist": "spotlevel/spotlevel.plist",
+    "menuPng": "spotlevel/spotlevel.png"
   },
    {
     "name": "pillar",
