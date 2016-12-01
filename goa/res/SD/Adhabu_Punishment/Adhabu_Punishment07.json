@@ -422,6 +422,25 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1111716821,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "walking",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "walking",
+                "FrameIndex": 400,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -583,7 +602,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Adhabu_Punishment/adhabu_door.png",
+              "Path": "Adhabu_Punishment/door.png",
               "Plist": "Adhabu_Punishment/Adhabu_Punishment.plist"
             },
             "BlendFunc": {
@@ -596,10 +615,10 @@
             },
             "Position": {
               "X": 2348.6509,
-              "Y": 1094.2581
+              "Y": 1094.2587
             },
             "Scale": {
-              "ScaleX": 1.0,
+              "ScaleX": 0.2312,
               "ScaleY": 1.0
             },
             "CColor": {},
@@ -614,8 +633,8 @@
             },
             "LeftMargin": 1750.6509,
             "RightMargin": 211.3491,
-            "TopMargin": 210.9357,
-            "BottomMargin": 598.0643,
+            "TopMargin": 210.9351,
+            "BottomMargin": 598.0649,
             "Tag": 29,
             "ActionTag": 1695366777,
             "Size": {
@@ -628,7 +647,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Adhabu_Punishment/adhabu_painting.png",
+              "Path": "Adhabu_Punishment/painting.png",
               "Plist": "Adhabu_Punishment/Adhabu_Punishment.plist"
             },
             "BlendFunc": {
@@ -674,7 +693,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Adhabu_Punishment/adhabu_sofa.png",
+              "Path": "Adhabu_Punishment/sofa.png",
               "Plist": "Adhabu_Punishment/Adhabu_Punishment.plist"
             },
             "BlendFunc": {
@@ -770,29 +789,30 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 2026.9182,
-              "Y": 559.4651
+              "X": 1283.4435,
+              "Y": 230.023
             },
             "Scale": {
-              "ScaleX": 0.4882,
-              "ScaleY": 0.4882
+              "ScaleX": 0.8415,
+              "ScaleY": 0.8415
             },
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.7918,
-              "Y": 0.3108
+              "X": 0.5013,
+              "Y": 0.1278
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 2026.9182,
-            "RightMargin": 533.0818,
-            "TopMargin": 1240.5349,
-            "BottomMargin": 559.4651,
+            "LeftMargin": 1283.4435,
+            "RightMargin": 1276.5565,
+            "TopMargin": 1569.9771,
+            "BottomMargin": 230.023,
             "UserData": "walk;drag",
             "Tag": 1212,
+            "FrameEvent": "walking",
             "ActionTag": 1111716821,
             "Size": {
               "X": 0.0,
