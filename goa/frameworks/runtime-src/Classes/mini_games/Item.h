@@ -59,8 +59,8 @@ protected:
 	void result();
 	void verify();
 	void check();
-	int _count1, _count2 = 0;
-	int _frogCount1, _frogCount2, _frogCount3 = 0;
+	int _count1 = 0, _count2 = 0;
+	int _frogCount1 = 0, _frogCount2 = 0, _frogCount3 = 0;
 	int _num1 = 0;
 	int _num2 = 0;
 };
