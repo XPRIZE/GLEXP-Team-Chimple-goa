@@ -1,0 +1,929 @@
+{
+  "ID": "0866348e-d467-4419-8b85-cbaf1f770e0c",
+  "Version": "3.10.0.0",
+  "Name": "Mke_Mti02",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 380,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -1293651313,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rotate",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1293651313,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2308.1135,
+                "Y": 910.503,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1827.468,
+                "Y": 1421.7629,
+                "FrameIndex": 380,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1994975508,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 220,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 2,
+                "FrameIndex": 302,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 2,
+                "FrameIndex": 380,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1994975508,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2376.8406,
+                "Y": 403.229,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1425.9614,
+                "Y": 419.9478,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1799743056,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 283,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 285,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 295,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 305,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1799743056,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 285,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 244,
+                  "B": 0
+                },
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 244,
+                  "B": 0
+                },
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 244,
+                  "B": 0
+                },
+                "FrameIndex": 310,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -182272790,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1072.3451,
+                "Y": 1036.1078,
+                "FrameIndex": 230,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1087.5975,
+                "Y": 219.9951,
+                "FrameIndex": 265,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1102.8494,
+                "Y": 261.9453,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1137.1713,
+                "Y": 219.9959,
+                "FrameIndex": 275,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -182272790,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 15.3351,
+                "Y": 15.332,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 380,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 507,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 174,
+              "G": 212
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": -1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1280.0,
+              "Y": 900.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -720.0,
+            "RightMargin": -720.0,
+            "Tag": 513,
+            "ActionTag": -1623048907,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mke_Mti/sun.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2308.1135,
+              "Y": 910.503
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.9016,
+              "Y": 0.5058
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2308.1135,
+            "RightMargin": 251.8865,
+            "TopMargin": 889.497,
+            "BottomMargin": 910.503,
+            "Tag": 268,
+            "ActionTag": -1293651313,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_2",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 196,
+              "G": 240,
+              "B": 123
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1270.0117,
+              "Y": -209.9861
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 3.6394,
+            "RotationSkewY": 3.6322,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4961,
+              "Y": -0.1167
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -729.9883,
+            "RightMargin": -710.0117,
+            "TopMargin": 1109.9861,
+            "BottomMargin": -1109.9861,
+            "Tag": 511,
+            "ActionTag": 922476077,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mke_Mti/tree_1.png",
+              "Plist": "Mke_Mti/Mke_Mti.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2154.9993,
+              "Y": 860.0001
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8418,
+              "Y": 0.4778
+            },
+            "PreSize": {
+              "X": 0.3164,
+              "Y": 0.3828
+            },
+            "LeftMargin": 1749.9993,
+            "RightMargin": 0.0007,
+            "TopMargin": 595.4999,
+            "BottomMargin": 515.5001,
+            "Tag": 510,
+            "ActionTag": -995341868,
+            "Size": {
+              "X": 810.0,
+              "Y": 689.0
+            },
+            "Name": "tree_1_11",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 92,
+              "G": 199,
+              "B": 109
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1329.999,
+              "Y": -529.9935
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -5.0073,
+            "RotationSkewY": -5.0105,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5195,
+              "Y": -0.2944
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -670.001,
+            "RightMargin": -769.999,
+            "TopMargin": 1429.9935,
+            "BottomMargin": -1429.9935,
+            "Tag": 509,
+            "ActionTag": 1134156546,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mke_Mti/tree_1.png",
+              "Plist": "Mke_Mti/Mke_Mti.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 575.0439,
+              "Y": 1092.458
+            },
+            "Scale": {
+              "ScaleX": 2.8518,
+              "ScaleY": 2.8518
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2246,
+              "Y": 0.6069
+            },
+            "PreSize": {
+              "X": 0.3164,
+              "Y": 0.3828
+            },
+            "LeftMargin": 170.0439,
+            "RightMargin": 1579.9561,
+            "TopMargin": 363.042,
+            "BottomMargin": 747.958,
+            "Tag": 508,
+            "ActionTag": -1763546136,
+            "Size": {
+              "X": 810.0,
+              "Y": 689.0
+            },
+            "Name": "tree_1_11_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mke_Mti/man.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2376.8406,
+              "Y": 403.229
+            },
+            "Scale": {
+              "ScaleX": 0.6,
+              "ScaleY": 0.6
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.9285,
+              "Y": 0.224
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2376.8406,
+            "RightMargin": 183.1594,
+            "TopMargin": 1396.771,
+            "BottomMargin": 403.229,
+            "Tag": 514,
+            "ActionTag": -1994975508,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_1",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mke_Mti/bulb.png",
+              "Plist": "Mke_Mti/Mke_Mti.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1669.9368,
+              "Y": 1132.0427
+            },
+            "Scale": {
+              "ScaleX": 0.5861,
+              "ScaleY": 0.5861
+            },
+            "RotationSkewX": 40.5741,
+            "RotationSkewY": 40.5573,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6523,
+              "Y": 0.6289
+            },
+            "PreSize": {
+              "X": 0.1074,
+              "Y": 0.2522
+            },
+            "LeftMargin": 1532.4368,
+            "RightMargin": 752.5632,
+            "TopMargin": 440.9573,
+            "BottomMargin": 905.0427,
+            "Tag": 540,
+            "ActionTag": 1799743056,
+            "Size": {
+              "X": 275.0,
+              "Y": 454.0
+            },
+            "VisibleForFrame": false,
+            "Name": "bulb_28",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mke_Mti/apple.png",
+              "Plist": "Mke_Mti/Mke_Mti.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1072.3451,
+              "Y": 1036.1078
+            },
+            "Scale": {
+              "ScaleX": 0.5368,
+              "ScaleY": 0.5368
+            },
+            "RotationSkewX": 15.3351,
+            "RotationSkewY": 15.332,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4189,
+              "Y": 0.5756
+            },
+            "PreSize": {
+              "X": 0.0965,
+              "Y": 0.18
+            },
+            "LeftMargin": 948.8451,
+            "RightMargin": 1364.1549,
+            "TopMargin": 601.8922,
+            "BottomMargin": 874.1078,
+            "Tag": 535,
+            "ActionTag": -182272790,
+            "Size": {
+              "X": 247.0,
+              "Y": 324.0
+            },
+            "Name": "apple_23",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mke_Mti/apple.png",
+              "Plist": "Mke_Mti/Mke_Mti.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 66.2959,
+              "Y": 1463.2366
+            },
+            "Scale": {
+              "ScaleX": 0.5368,
+              "ScaleY": 0.5368
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0259,
+              "Y": 0.8129
+            },
+            "PreSize": {
+              "X": 0.0965,
+              "Y": 0.18
+            },
+            "LeftMargin": -57.2041,
+            "RightMargin": 2370.2041,
+            "TopMargin": 174.7634,
+            "BottomMargin": 1301.2366,
+            "Tag": 536,
+            "ActionTag": 950561245,
+            "Size": {
+              "X": 247.0,
+              "Y": 324.0
+            },
+            "Name": "apple_23_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mke_Mti/apple.png",
+              "Plist": "Mke_Mti/Mke_Mti.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1293.5382,
+              "Y": 1531.8829
+            },
+            "Scale": {
+              "ScaleX": 0.5368,
+              "ScaleY": 0.5368
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5053,
+              "Y": 0.851
+            },
+            "PreSize": {
+              "X": 0.0965,
+              "Y": 0.18
+            },
+            "LeftMargin": 1170.0382,
+            "RightMargin": 1142.9618,
+            "TopMargin": 106.1171,
+            "BottomMargin": 1369.8829,
+            "Tag": 537,
+            "ActionTag": 773325911,
+            "Size": {
+              "X": 247.0,
+              "Y": 324.0
+            },
+            "Name": "apple_23_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mke_Mti/apple.png",
+              "Plist": "Mke_Mti/Mke_Mti.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 172.3301,
+              "Y": 914.0729
+            },
+            "Scale": {
+              "ScaleX": 0.5368,
+              "ScaleY": 0.5368
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0673,
+              "Y": 0.5078
+            },
+            "PreSize": {
+              "X": 0.0965,
+              "Y": 0.18
+            },
+            "LeftMargin": 48.8301,
+            "RightMargin": 2264.1699,
+            "TopMargin": 723.9271,
+            "BottomMargin": 752.0729,
+            "Tag": 538,
+            "ActionTag": -261755119,
+            "Size": {
+              "X": 247.0,
+              "Y": 324.0
+            },
+            "Name": "apple_23_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mke_Mti/apple.png",
+              "Plist": "Mke_Mti/Mke_Mti.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 828.2767,
+              "Y": 1751.1775
+            },
+            "Scale": {
+              "ScaleX": 0.5368,
+              "ScaleY": 0.5368
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3235,
+              "Y": 0.9729
+            },
+            "PreSize": {
+              "X": 0.0965,
+              "Y": 0.18
+            },
+            "LeftMargin": 704.7767,
+            "RightMargin": 1608.2234,
+            "TopMargin": -113.1775,
+            "BottomMargin": 1589.1775,
+            "Tag": 539,
+            "ActionTag": 16508409,
+            "Size": {
+              "X": 247.0,
+              "Y": 324.0
+            },
+            "Name": "apple_23_3",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "man.json",
+        "Mke_Mti.plist",
+        "Mke_Mti.png",
+        "sun.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
