@@ -24,10 +24,8 @@ xc.ButtonPanel = ccui.Layout.extend({
                             try {
                                 if(this._loadLocalTexture) {
                                     item = new ccui.Button(configuration[index]['icon'], configuration[index]['icon'], configuration[index]['icon'], ccui.Widget.LOCAL_TEXTURE);
-                                    item.setScale(0.5);                                
                                 } else {
                                     item = new ccui.Button(configuration[index]['icon'], configuration[index]['icon'], configuration[index]['icon'], ccui.Widget.PLIST_TEXTURE);
-                                    //item.setScale(3.0);
                                 }                                
                             } catch (error) {
                                 cc.log(error);
