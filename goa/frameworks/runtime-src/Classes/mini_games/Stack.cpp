@@ -418,6 +418,13 @@ void Stack::addEvents(struct LabelDetails sprite)
 						charNode->runAction(charTimeline);
 						charTimeline->play("wrong", false);
 					}
+
+					if (sceneName == "farm")
+					{
+						auto charTimeline = CSLoader::createTimeline("stackfarm/cow.csb");
+						_tray->runAction(charTimeline);
+						charTimeline->play("wrong", false);
+					}
 				}
 			}
 			return true;
