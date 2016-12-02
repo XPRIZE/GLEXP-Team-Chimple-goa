@@ -21,7 +21,7 @@ AlphamonFeed::AlphamonFeed() {
 }
 
 AlphamonFeed::~AlphamonFeed() {
-	backgroundMusic->stopBackgroundMusic();
+//	backgroundMusic->stopBackgroundMusic();
 	if (listener) {
 		_eventDispatcher->removeEventListener(listener);
 	}
@@ -110,7 +110,7 @@ bool AlphamonFeed::init()
 }
 
 void AlphamonFeed::startGame() {
-
+	Size visibleSize = Director::getInstance()->getVisibleSize();
 	menu->setMaxPoints(10);
 	mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
 	std::stringstream ss;
@@ -120,7 +120,7 @@ void AlphamonFeed::startGame() {
 	sprite1 = Alphamon::createWithAlphabet(mychar);//alphaLevelString.at(0));
 	sprite1->setScaleX(0.85);
 	sprite1->setScaleY(0.85);
-	sprite1->setPositionX(300);
+	sprite1->setPositionX(visibleSize.width/2);
 	sprite1->setPositionY(50);
 	sprite1->setName(mycharString);
 	sprite1->setContentSize(cocos2d::Size(300.0f, 400.0f));
@@ -139,9 +139,9 @@ void AlphamonFeed::startGame() {
 		}
 	}
 
-	backgroundMusic = CocosDenshion::SimpleAudioEngine::getInstance();
-	backgroundMusic->playBackgroundMusic("sounds/alphamonfeed.wav", true);
-	backgroundMusic->setBackgroundMusicVolume(0.50f);
+	//backgroundMusic = CocosDenshion::SimpleAudioEngine::getInstance();
+	//backgroundMusic->playBackgroundMusic("sounds/alphamonfeed.wav", true);
+	//backgroundMusic->setBackgroundMusicVolume(0.50f);
     menu->showStartupHelp(CC_CALLBACK_0(AlphamonFeed::callingFruits, this));
 //	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, menu)), CallFunc::create(CC_CALLBACK_0(AlphamonFeed::callingFruits, this)), NULL));
 }
@@ -175,7 +175,7 @@ void AlphamonFeed::showFruits(float dt) {
 		str = mychar;
 		_helpLayer = true;
 		auto help = HelpLayer::create(Rect(visibleSize.width/2, visibleSize.height * 0.2, visibleSize.width, visibleSize.height * 0.3), Rect(random_Xposition, visibleSize.height / 1.1, 400, 400));
-		help->click(Vec2(300, visibleSize.height * 0.2));
+		help->click(Vec2(visibleSize.width/2, visibleSize.height * 0.2));
 		help->setName("helpLayer");
 		this->addChild(help);
 	}
@@ -236,7 +236,7 @@ void AlphamonFeed:: update(float dt) {
                         smile->setVisible(false);
                         laughing->setVisible(false);
                         angry->setVisible(true);
-                        score = score - 10;
+                      //  score = score - 10;
                         if (score < 0) {
                             score = 0;
                         }
@@ -278,8 +278,9 @@ bool AlphamonFeed::onTouchBegan(cocos2d::Touch *touch,cocos2d::Event * event)
 	touchPosition = touch->getLocation().x;
 	cocos2d::Node * target = sprite1;
 	auto  location = target->convertToNodeSpace(touch->getLocation());
+//	menu->
 	CCRect targetRectangle =  CCRectMake(target->getPositionX()-200, target->getPositionY(), target->getContentSize().width, target->getContentSize().height);
-	if(targetRectangle.containsPoint(touch->getLocation())){
+	if(targetRectangle.containsPoint(touch->getLocation()) && (!menu->isGamePaused())){
 		//CCLOG("touch began");
 		_touched = true;
 		_isPlayFirst = false;
@@ -295,7 +296,7 @@ bool AlphamonFeed::onTouchBegan(cocos2d::Touch *touch,cocos2d::Event * event)
 		sprite1->runAction(touchAction);
 		sprite1->alphamonLegAnimation("walk", true);
 		return true;
-	}else if  (touch->getLocation().y < Director::getInstance()->getVisibleSize().height - 350){
+	}else if  ((touch->getLocation().y < Director::getInstance()->getVisibleSize().height - 350) && (!menu->isGamePaused())) {
 		sprite1->alphamonLegAnimation("walk", true);
 		return true;
 	}
