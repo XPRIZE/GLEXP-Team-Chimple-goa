@@ -149,10 +149,17 @@ void MainGame::onEnterTransitionDidFinish()
 	self = this;
 
 	startGame();
-//	letterCome(1);
-//	self->schedule(schedule_selector(MainGame::letterCome), letterComespeed);
+
+	if (_menuContext->getCurrentLevel() == 1)
+	{
+		displayHelp();
+	}
+	else
+	{
+		letterCome(1);
+		self->schedule(schedule_selector(MainGame::letterCome), letterComespeed);
+	}
 	self->scheduleUpdate();
-	displayHelp();
 }
 
 //	function display help for first time when game is open
@@ -178,18 +185,20 @@ void MainGame::displayHelp()
 
 	MainGame::lettertmpPosition.erase(MainGame::lettertmpPosition.begin() + val);
 
-	for (int i = 0; i < MainGame::cannon_ballArray.size(); i++)
+	if (_menuContext->getCurrentLevel() == 1)
 	{
-		if (MainGame::cannon_ballArray[i]->id == letterName)
+		for (int i = 0; i < MainGame::cannon_ballArray.size(); i++)
 		{
-			MainGame::_help = HelpLayer::create(Rect(MainGame::cannon_ballArray[i]->getPositionX(), MainGame::cannon_ballArray[i]->getPositionY(), MainGame::cannon_ballArray[i]->getContentSize().width, MainGame::cannon_ballArray[i]->getContentSize().height), Rect(MainGame::width * .10, lett->getPositionY(), lett->getBoundingBox().size.width, lett->getBoundingBox().size.height));
-			MainGame::_help->clickAndDrag(Vec2(MainGame::cannon_ballArray[i]->getPositionX(), MainGame::cannon_ballArray[i]->getPositionY()), Vec2(MainGame::cannon2->getPositionX(), MainGame::cannon2->getPositionY()));
-			this->addChild(MainGame::_help);
-			MainGame::_helpFlag = 1;
-			break;
+			if (MainGame::cannon_ballArray[i]->id == letterName)
+			{
+				MainGame::_help = HelpLayer::create(Rect(MainGame::cannon_ballArray[i]->getPositionX(), MainGame::cannon_ballArray[i]->getPositionY(), MainGame::cannon_ballArray[i]->getContentSize().width, MainGame::cannon_ballArray[i]->getContentSize().height), Rect(MainGame::width * .10, lett->getPositionY(), lett->getBoundingBox().size.width, lett->getBoundingBox().size.height));
+				MainGame::_help->clickAndDrag(Vec2(MainGame::cannon_ballArray[i]->getPositionX(), MainGame::cannon_ballArray[i]->getPositionY()), Vec2(MainGame::cannon2->getPositionX(), MainGame::cannon2->getPositionY()));
+				this->addChild(MainGame::_help);
+				MainGame::_helpFlag = 1;
+				break;
+			}
 		}
 	}
-
 }
 
 void MainGame::PlayVideo()

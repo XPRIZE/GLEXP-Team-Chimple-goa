@@ -195,17 +195,19 @@ void Talk::onEnterTransitionDidFinish()
 //	_questionType = _question.at(rand() % _question.size());
 	_question_Name << "SELECT " << _questionType;
 
+	std::string _qName = LangUtil::getInstance()->translateString(_question_Name.str());
+
 	_imgName << sceneName << "/patch_image.png";
 
-	auto _lbl = LabelTTF::create(_question_Name.str(), "Arial", 80);
+	auto _lbl = LabelTTF::create(_qName, "Arial", 80);
 	_board = cocos2d::ui::Scale9Sprite::createWithSpriteFrameName(_imgName.str());
 	_board->setContentSize(Size(_lbl->getBoundingBox().size.width * 1.2, _lbl->getBoundingBox().size.height));
-	_board->setPosition(Vec2(visibleSize.width / 2 - _board->getContentSize().width / 2, visibleSize.height * .90));
+	_board->setPosition(Vec2(visibleSize.width * .1 , visibleSize.height * .90));
 	_lbl->setPosition(Vec2(_board->getBoundingBox().size.width / 2, 0));
 	_lbl->setAnchorPoint(Vec2(.5, 0));
 	_board->setAnchorPoint(Vec2(0, .5));
 	_board->addChild(_lbl);
-	_talkBg->addChild(_board);
+	this->addChild(_board);
 
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
@@ -300,14 +302,14 @@ void Talk::displayWord()
 
 			if (i == 0)
 			{
-				LabelDetails.label->setPosition(Vec2(LabelDetails.sprite->getBoundingBox().size.width / 2, 0));
+				LabelDetails.label->setPosition(Vec2(LabelDetails.sprite->getBoundingBox().size.width / 2, LabelDetails.sprite->getBoundingBox().size.height / 2));
 				LabelDetails.sprite->setPosition(Vec2(visibleSize.width * .10, visibleSize.height * .80));
 			}
 			else
 			{
 				cocos2d::ui::Scale9Sprite *lab = _labelDetails.at(i - 1).sprite;
 				LabelDetails.sprite->setPosition(Vec2(lab->getPositionX() + lab->getBoundingBox().size.width + 30, lab->getPositionY()));
-				LabelDetails.label->setPosition(Vec2(LabelDetails.sprite->getBoundingBox().size.width / 2, 0));
+				LabelDetails.label->setPosition(Vec2(LabelDetails.sprite->getBoundingBox().size.width / 2, LabelDetails.sprite->getBoundingBox().size.height / 2));
 			}
 
 			if (LabelDetails.sprite->getBoundingBox().size.width + LabelDetails.sprite->getPositionX() >= visibleSize.width)
@@ -321,7 +323,7 @@ void Talk::displayWord()
 			LabelDetails.sequence = i;
 			LabelDetails.id = _textToShow.at(i).first;
 			LabelDetails.flag = 0;
-			LabelDetails.label->setAnchorPoint(Vec2(.5, 0));
+			LabelDetails.label->setAnchorPoint(Vec2(.5, .5));
 
 			if ((_questionType == "NOUN" && _textToShow.at(i).second == TextGenerator::P_O_S::NOUN) ||
 				(_questionType == "PRONOUN" && _textToShow.at(i).second == TextGenerator::P_O_S::PRONOUN) ||
@@ -336,9 +338,9 @@ void Talk::displayWord()
 				LabelDetails.answer = 'c';
 				_totalAnswer++;
 
-				if (_helpFlag == 0)
+				if (_helpFlag == 0 && _level == 1)
 				{
-					_help = HelpLayer::create(Rect(LabelDetails.sprite->getPositionX() + LabelDetails.sprite->getBoundingBox().size.width/2, LabelDetails.sprite->getPositionY(), LabelDetails.sprite->getBoundingBox().size.width, LabelDetails.sprite->getBoundingBox().size.height), Rect(_board->getPositionX() + _board->getBoundingBox().size.width * .57, _board->getPositionY(), _board->getBoundingBox().size.width * 1.05, _board->getBoundingBox().size.height));
+					_help = HelpLayer::create(Rect(LabelDetails.sprite->getPositionX() + LabelDetails.sprite->getBoundingBox().size.width/2, LabelDetails.sprite->getPositionY(), LabelDetails.sprite->getBoundingBox().size.width, LabelDetails.sprite->getBoundingBox().size.height), Rect(_board->getPositionX() + _board->getBoundingBox().size.width / 2, _board->getPositionY(), _board->getBoundingBox().size.width * 1.05, _board->getBoundingBox().size.height));
 					addChild(_help, 5);
 					_help->click(Vec2(LabelDetails.sprite->getPositionX() + LabelDetails.sprite->getBoundingBox().size.width, LabelDetails.sprite->getPositionY()));
 					_helpFlag = 1;
