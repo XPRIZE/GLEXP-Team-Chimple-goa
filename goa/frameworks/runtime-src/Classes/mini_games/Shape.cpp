@@ -73,6 +73,19 @@ void Shape::onEnterTransitionDidFinish()
 	visibleSize = Director::getInstance()->getWinSize();
 
 	_ShapeBg = CSLoader::createNode("Shape/Shape.csb");
+
+	if (visibleSize.width > 2560)
+	{
+		float xP = (visibleSize.width - 2560) / 2;
+		_ShapeBg->setPosition(Vec2(xP, 0));
+//		_ShapeBg->setAnchorPoint(Vec2(.5, 0));
+	}
+	else
+	{
+		_ShapeBg->setPosition(Vec2(visibleSize.width / 2, 0));
+		_ShapeBg->setAnchorPoint(Vec2(.5, 0));
+	}
+
 	this->addChild(_ShapeBg);
 
 	_water = (Sprite*)_ShapeBg->getChildByName("water_level")->getChildren().at(0);
@@ -258,11 +271,12 @@ void Shape::onEnterTransitionDidFinish()
 		addEvents(RealSpriteDetails);
 	}
 
-	_shapeName = Label::createWithSystemFont("", "Arial", 100);
-	_shapeName->setPositionX(_ShapeBg->getChildByName("alphabet_board_4")->getPositionX());
-	_shapeName->setPositionY(_ShapeBg->getChildByName("alphabet_board_4")->getPositionY() - _ShapeBg->getChildByName("alphabet_board_4")->getContentSize().height / 4);
+	_shapeName = Label::createWithSystemFont("", "Arial", 50);
+	_shapeName->setPositionX(_ShapeBg->getChildByName("alphabet_board_4")->getContentSize().width /2);
+	_shapeName->setPositionY(_ShapeBg->getChildByName("alphabet_board_4")->getContentSize().height / 2.5);
+//	_shapeName->setAnchorPoint(Vec2(.3, 1));
 	_shapeName->setColor(Color3B(255, 255, 255));
-	this->addChild(_shapeName);
+	_ShapeBg->getChildByName("alphabet_board_4")->addChild(_shapeName);
 
 	this->runAction(RepeatForever::create(Sequence::create(DelayTime::create(_differntPosition.at(_posmainIndex).at(_differntPosition.at(_posmainIndex).size() - 1)), CallFunc::create([=] {
 		createTrans();
