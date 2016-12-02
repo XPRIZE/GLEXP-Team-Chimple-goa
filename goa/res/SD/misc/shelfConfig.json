@@ -154,7 +154,10 @@
 				"Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_2/Insects2.json",
 				"Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_2/bird.json",
 				"Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_1/Kato_Mwakili_na_Shida_Kubwa_1.plist",
-				"Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_1/Kato_Mwakili_na_Shida_Kubwa_1.png"
+				"Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_1/Kato_Mwakili_na_Shida_Kubwa_1.png",
+				"Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_2/Kato_Mwakili_na_Shida_Kubwa_2.plist",
+				"Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_2/Kato_Mwakili_na_Shida_Kubwa_2.png"
+				
 			],
 			"pages": [{
 				"contentJson": "Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_1.json"
@@ -542,6 +545,7 @@
 				"Kima_apoteza_mkia_wakeMonkey/bonfire.json",
 				"Kima_apoteza_mkia_wakeMonkey/boy.json",
 				"Kima_apoteza_mkia_wakeMonkey/monkey.json",
+				"Kima_apoteza_mkia_wakeMonkey/rabbit.json",
 				"Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey.plist",
 				"Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey.png"
 			],
@@ -878,6 +882,7 @@
 				"Kisirusiru_mjinga_Kisirusiru/animal_animation.json",
 				"Kisirusiru_mjinga_Kisirusiru/boy.json",
 				"Kisirusiru_mjinga_Kisirusiru/pot.json",
+				"Kisirusiru_mjinga_Kisirusiru/goat.json",
 				"Kisirusiru_mjinga_Kisirusiru/Kisirusiru_mjinga_Kisirusiru.plist",
 				"Kisirusiru_mjinga_Kisirusiru/Kisirusiru_mjinga_Kisirusiru.png"
 			],
@@ -1307,38 +1312,40 @@
 		{
 			"storyId": "storyId_30",
 			"icon": "Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_cover_page.png",
-			"coverPage": "Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_1/Khalai_azungumzia_mimea_Khalai_talks_cover_page.json",
+			"coverPage": "Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_cover_page.json",
 			"resources": [
 				"Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_1/bird.json",
 				"Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_1/butterfly.json",
 				"Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_1/girl.json",
 				"Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_1/Khalai_azungumzia_mimea_Khalai_talks_1.plist",
-				"Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_1/Khalai_azungumzia_mimea_Khalai_talks_1.png"			
+				"Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_1/Khalai_azungumzia_mimea_Khalai_talks_1.png",
+				"Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_2/Khalai_azungumzia_mimea_Khalai_talks_2.plist",
+				"Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_2/Khalai_azungumzia_mimea_Khalai_talks_2.png"
 			],
 			"pages": [
 				{
-					"contentJson": "Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_1/Khalai_azungumzia_mimea_Khalai_talks_1.json"
+					"contentJson": "Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_1.json"
 				},
 				{
-					"contentJson": "Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_1/Khalai_azungumzia_mimea_Khalai_talks_2.json"
+					"contentJson": "Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_2.json"
 				},
 				{
-					"contentJson": "Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_1/Khalai_azungumzia_mimea_Khalai_talks_3.json"
+					"contentJson": "Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_3.json"
 				},
 				{
-					"contentJson": "Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_1/Khalai_azungumzia_mimea_Khalai_talks_4.json"
+					"contentJson": "Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_4.json"
 				},
 				{
-					"contentJson": "Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_1/Khalai_azungumzia_mimea_Khalai_talks_5.json"
+					"contentJson": "Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_5.json"
 				},
 				{
-					"contentJson": "Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_1/Khalai_azungumzia_mimea_Khalai_talks_6.json"
+					"contentJson": "Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_6.json"
 				},
 				{
-					"contentJson": "Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_1/Khalai_azungumzia_mimea_Khalai_talks_7.json"
+					"contentJson": "Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_7.json"
 				},
 				{
-					"contentJson": "Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_1/Khalai_azungumzia_mimea_Khalai_talks_8.json"
+					"contentJson": "Khalai_azungumzia_mimea_Khalai_talks/Khalai_azungumzia_mimea_Khalai_talks_8.json"
 				}
 			]
 		},
