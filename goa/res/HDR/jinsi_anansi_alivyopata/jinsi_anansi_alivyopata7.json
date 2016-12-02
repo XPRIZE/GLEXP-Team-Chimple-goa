@@ -5,10 +5,206 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 195,
+        "Duration": 280,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "wave",
         "Timelines": [
+          {
+            "ActionTag": 2086522654,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "wave",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 280,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2086522654,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 406.1634,
+                "Y": 56.4741,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 406.1634,
+                "Y": 56.4741,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2086522654,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2086522654,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -982573739,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "wave",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "wave",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 280,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -982573739,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1835.2766,
+                "Y": 58.404,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1835.2766,
+                "Y": 58.404,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -982573739,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -982573739,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 1994099099,
             "Property": "Position",
@@ -916,6 +1112,12 @@
           "StartIndex": 0,
           "EndIndex": 195,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 205,
+          "EndIndex": 280,
+          "Name": "wave",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -2852,6 +3054,90 @@
           },
           {
             "FileData": {
+              "Type": "Normal",
+              "Path": "jinsi_anansi_alivyopata/wave.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 406.1634,
+              "Y": 56.4741
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1587,
+              "Y": 0.0314
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 406.1634,
+            "RightMargin": 2153.8367,
+            "TopMargin": 1743.5259,
+            "BottomMargin": 56.4741,
+            "UserData": "wave",
+            "Tag": 856,
+            "ActionTag": 2086522654,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "wave",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "jinsi_anansi_alivyopata/wave.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1835.2766,
+              "Y": 58.404
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7169,
+              "Y": 0.0324
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1835.2766,
+            "RightMargin": 724.7234,
+            "TopMargin": 1741.5959,
+            "BottomMargin": 58.404,
+            "UserData": "wave",
+            "Tag": 861,
+            "ActionTag": -982573739,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "wave_0",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
               "Type": "MarkedSubImage",
               "Path": "jinsi_anansi_alivyopata/jinsi_rock2.png",
               "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
@@ -2889,6 +3175,7 @@
             "RightMargin": 1861.5076,
             "TopMargin": 1652.0173,
             "BottomMargin": -106.0173,
+            "UserData": "main.wave",
             "Tag": 1128,
             "ActionTag": 1023985520,
             "Size": {
@@ -2938,6 +3225,7 @@
             "RightMargin": 0.6982,
             "TopMargin": 1674.4865,
             "BottomMargin": -164.4865,
+            "UserData": "main.wave",
             "Tag": 1129,
             "ActionTag": -584997850,
             "Size": {
@@ -3306,7 +3594,8 @@
       "UsedResources": [
         "jinsi_anansi_alivyopata.plist",
         "jinsi_anansi_alivyopata.png",
-        "spider.json"
+        "spider.json",
+        "wave.json"
       ],
       "ctype": "GameFileData"
     }
