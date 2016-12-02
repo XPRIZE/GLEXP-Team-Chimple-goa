@@ -39,7 +39,10 @@ void PopCount::onEnterTransitionDidFinish() {
 					{ "bg", "popcount/popcount.csb" },
 					{ "character", "popcount/starfish.csb" },
 					{ "characterSpriteName", "Sprite_1" },
-					{ "waterAnimation" , "popcount/water.csb" }
+					{ "waterAnimation" , "popcount/water.csb" },
+					{ "midboard" , "popcount/board.png" },
+					{ "play" , "popcount/play.png" },
+					{ "watchagain" , "popcount/watchagain.png"}
 				}
 			},
 			{ "popcountCity",
@@ -66,7 +69,7 @@ void PopCount::onEnterTransitionDidFinish() {
 			{ "popcountIsland",
 			{
 				{ "jumpHeight", 600.0f },
-				{ "jumpStart", 100.0f },
+				{ "jumpStart", 200.0f },
 				{ "smallGridSize", 160.0f }
 			}
 			},
@@ -96,6 +99,8 @@ void PopCount::onEnterTransitionDidFinish() {
 		bg->setPositionX(myGameWidth);
 	}
 
+	_popUpAnswer = RandomHelper::random_int(1,10);
+
 	setIslandScene();
 
 	setGridNumberPanel();
@@ -104,7 +109,9 @@ void PopCount::onEnterTransitionDidFinish() {
 }
 
 void PopCount::update(float delta) {
-
+	if (_popElementCount == 0) {
+		_menuContext->showScore();
+	}
 }
 
 void PopCount::setSpriteProperties(Sprite* ImageObject, float positionX, float positionY, float scaleX, float scaleY, float anchorX, float anchorY, float rotation, int zorder) {
@@ -122,8 +129,9 @@ void PopCount::popUpCharacter(Node* character, string animationName) {
 	auto timelineWater = CSLoader::createTimeline(_sceneMap.at(_popcountCurrentTheme).at("waterAnimation"));
 	auto water = CSLoader::createNode(_sceneMap.at(_popcountCurrentTheme).at("waterAnimation"));
 	water->runAction(timelineWater);
-	water->setScale(0.5f);
-	water->setPosition(Vec2(character->getPositionX(), character->getPositionY() + height / 2));
+	water->setScale(0.4f);
+	auto width = ((character->getChildByName("Sprite_1")->getContentSize().width * 0.5) / 2);
+	water->setPosition(Vec2(character->getPositionX() + width, character->getPositionY() + (height*0.6)));
 	addChild(water, 3);
 	timelineWater->gotoFrameAndPlay(0, false);
 
@@ -131,15 +139,15 @@ void PopCount::popUpCharacter(Node* character, string animationName) {
 		auto timelinecharacter = CSLoader::createTimeline(_sceneMap.at(_popcountCurrentTheme).at("character"));
 		character->runAction(timelinecharacter);
 		timelinecharacter->play(animationName, true);
-		character->runAction(MoveTo::create(1.2f, Vec2(character->getPositionX(), character->getPositionY() + height)));
+		character->runAction(MoveTo::create(0.5f, Vec2(character->getPositionX(), character->getPositionY() + height)));
 	});
 	auto popDown = CallFunc::create([=]() {
-		character->runAction(MoveTo::create(0.7f, Vec2(character->getPositionX(), character->getPositionY() - height)));
+		character->runAction(MoveTo::create(0.5f, Vec2(character->getPositionX(), character->getPositionY() - height)));
 	});
 	auto removeWaterWave = CallFunc::create([=]() {
 		removeChild(water);
 	});
-	this->runAction(Sequence::create(popUp, DelayTime::create(1.4f), popDown, DelayTime::create(0.7f), removeWaterWave, NULL));
+	this->runAction(Sequence::create(popUp, DelayTime::create(_popStayDelay), popDown, DelayTime::create(0.5f), removeWaterWave, NULL));
 
 }
 
@@ -172,9 +180,10 @@ void PopCount::setGridNumberPanel() {
 
 	auto gridPanel = Sprite::create();
 	gridPanel->setTextureRect(Rect(0, 0, Director::getInstance()->getVisibleSize().width - reduceSize, Director::getInstance()->getVisibleSize().height* 0.15));
-	gridPanel->setColor(Color3B::BLUE);
+	gridPanel->setColor(Color3B(41,158,170));
 	gridPanel->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height * 0.1));
-	gridPanel->setOpacity(50);
+	gridPanel->setOpacity(60);
+	gridPanel->setName("gridpanel");
 	addChild(gridPanel, 2);
 
 	auto themeResourcePath = _sceneMap.at(_popcountCurrentTheme);
@@ -191,15 +200,13 @@ void PopCount::setGridNumberPanel() {
 		auto smallGrid = Sprite::create();
 		smallGrid->setTextureRect(Rect(0, 0, smallGridSize, smallGridSize));
 		gridPanel->addChild(smallGrid);
-		smallGrid->setColor(Color3B::BLUE);
-		smallGrid->setOpacity(150);
+		smallGrid->setColor(Color3B(14,124,142));
+		smallGrid->setOpacity(110);
+		smallGrid->setTag(i+1);
+		smallGrid->setName("smallGrid");
 		smallGrid->setPosition(Vec2(positionX, gridPanel->getContentSize().height / 2));
 		positionX = positionX + smallGridSize + indiSpace;
 		
-		auto drawRect = DrawNode::create();
-		addChild(drawRect,10);
-		drawRect->drawRect(Vec2(smallGrid->getPositionX() - smallGrid->getContentSize().width/2,smallGrid->getPositionY()-smallGrid->getContentSize().height/2),Vec2(smallGrid->getPositionX() + smallGrid->getContentSize().width/2, smallGrid->getPositionY() + smallGrid->getContentSize().height/2),Color4F::GREEN);
-
 		addEventsOnGrid(smallGrid);
 
 		std::ostringstream gridName;	gridName << (i + 1);
@@ -208,7 +215,6 @@ void PopCount::setGridNumberPanel() {
 		label->setPosition(Vec2(smallGrid->getContentSize().width / 2, smallGrid->getContentSize().height / 2));
 		smallGrid->addChild(label);
 	}
-
 }
 
 void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
@@ -219,8 +225,15 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 	listener->onTouchBegan = [=](cocos2d::Touch* touch, cocos2d::Event* event)
 	{
 		auto target = event->getCurrentTarget();
-		Rect rect = Rect(0, 0, target->getContentSize().width, target->getContentSize().height);
-		if (target->getBoundingBox().containsPoint(touch->getLocation())) {
+		Point locationInNode;
+		if (target->getName() == "smallGrid") {
+			locationInNode = target->getParent()->convertToNodeSpace(touch->getLocation());
+		}
+		else if (target->getName() == "midButton") {
+			locationInNode = touch->getLocation();
+		}
+
+		if (target->getBoundingBox().containsPoint(locationInNode) && _popMidButtonClickPermision) {
 			target->setColor(Color3B::GRAY);
 			return true;
 		}
@@ -230,12 +243,54 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 	listener->onTouchEnded = [=](cocos2d::Touch* touch, cocos2d::Event* event)
 	{
 		auto target = event->getCurrentTarget();
-		Size s = target->getContentSize();
-		Rect rect = Rect(0, 0, s.width, s.height);
-		target->setColor(Color3B::BLUE);
-		if (target->getBoundingBox().containsPoint(touch->getLocation())) {
-
+		Point locationInNode;
+		if (target->getName() == "smallGrid") {
+			locationInNode = target->getParent()->convertToNodeSpace(touch->getLocation());
+			target->setColor(Color3B(14, 124, 142));
 		}
+		else if (target->getName() == "midButton") {
+			locationInNode = touch->getLocation();
+			target->setColor(Color3B(255,255,255));
+		}
+		
+		if (target->getBoundingBox().containsPoint(locationInNode) && (target->getName() == "smallGrid") && _popStartListner) {
+			if (target->getTag() == _popUpAnswer) {
+				CCLOG(" THIS IS CORRECT ");
+				
+				this->getChildByName("midButton")->runAction(Sequence::create(ScaleTo::create(0.4,1.5), ScaleTo::create(0.2,1), NULL));
+				_popStartListner = false;
+				_popElementCount = _popElementCount - 1;
+				(this->getChildByName("midButton")->getChildByTag(0))->setName("PLAY");
+				auto texture = SpriteFrameCache::getInstance()->getSpriteFrameByName(_sceneMap.at(_popcountCurrentTheme).at("play"));
+				((Sprite*)this->getChildByName("midButton")->getChildByTag(0))->setSpriteFrame(texture);
+			}
+			else {
+				float distance = Director::getInstance()->getVisibleSize().width * 0.8;
+				FShake* shake = FShake::actionWithDuration(0.5f,10.0f);
+				this->getChildByName("gridpanel")->runAction(shake);
+				CCLOG(" ------------------- CLICKED WRONG ---------------");
+			}
+		}
+		else if (target->getBoundingBox().containsPoint(locationInNode) && (target->getName() == "midButton")) {
+			if ((target->getChildByTag(0))->getName() == "WATCH AGAIN") {
+				auto texture = SpriteFrameCache::getInstance()->getSpriteFrameByName(_sceneMap.at(_popcountCurrentTheme).at("watchagain"));
+				((Sprite*)target->getChildByTag(0))->setSpriteFrame(texture);
+				popUpCall(_popUpAnswer);
+			}
+			else if ((target->getChildByTag(0))->getName() == "PLAY") {
+				_popStartListner = true;
+				(target->getChildByTag(0))->setName("WATCH AGAIN");
+				auto texture = SpriteFrameCache::getInstance()->getSpriteFrameByName(_sceneMap.at(_popcountCurrentTheme).at("watchagain"));
+				((Sprite*)target->getChildByTag(0))->setSpriteFrame(texture);
+				_popUpAnswer = RandomHelper::random_int(1, 10);
+				popUpCall(_popUpAnswer);
+			}else{
+				CCLOG("Wrong in condition , check in listner");
+			}
+			target->setVisible(false);
+			_popMidButtonClickPermision = false;
+		}
+
 		return false;
 	};
 
@@ -269,15 +324,39 @@ void PopCount::setIslandScene() {
 		positionX = positionX + (starFish->getChildByName(themeResourcePath.at("characterSpriteName"))->getContentSize().width * 0.5) + indiSpace;
 	}
 
-	this->runAction(Sequence::create(DelayTime::create(2), CallFunc::create([=]() {
+	auto midButton = Sprite::createWithSpriteFrameName(themeResourcePath.at("midboard"));
+	midButton->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height/2));
+	addChild(midButton, 3);
+	midButton->setName("midButton");
+	addEventsOnGrid(midButton);
+	this->getChildByName("midButton")->runAction(Sequence::create(DelayTime::create(0.5f),ScaleTo::create(0.4, 1.5), ScaleTo::create(0.2, 1), NULL));
 
-		auto getElementObject = getRandomValueRange(0, 9, 4);
+	auto buttonSymbl = Sprite::createWithSpriteFrameName(themeResourcePath.at("play"));
+	buttonSymbl->setPosition(Vec2(midButton->getContentSize().width / 2, midButton->getContentSize().height / 2));
+	buttonSymbl->setName("PLAY");
+	buttonSymbl->setTag(0);
+	midButton->addChild(buttonSymbl);
+
+//	popUpCall(_popUpAnswer);
+	
+}
+
+void PopCount::popUpCall(int popNumberOfCharacter) {
+
+	this->runAction(Sequence::create(DelayTime::create(1), CallFunc::create([=]() {
+
+		auto getElementObject = getRandomValueRange(0, 9, popNumberOfCharacter);
 
 		for (size_t i = 0; i < getElementObject.size(); i++) {
 			popUpCharacter(this->getChildByName("bg")->getChildByName("background")->getChildByTag(getElementObject[i] + 1000), "blink");
 		}
 
-	}), NULL));
+	}), DelayTime::create(1 + _popStayDelay), CallFunc::create([=]() {
+	
+		this->getChildByName("midButton")->setVisible(true);
+		_popMidButtonClickPermision = true;
+	
+	}),NULL));
 }
 
 PopCount::~PopCount(void)

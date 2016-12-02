@@ -1,0 +1,544 @@
+{
+  "ID": "7cdfd4ff-2fb0-4e23-89d9-6e25a87afb34",
+  "Version": "3.10.0.0",
+  "Name": "Anansi_awapa_watu_hadithi_02",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 160,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": 2049269339,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walking",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walking",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 80,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walking",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 160,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2049269339,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -455.8167,
+                "Y": 544.0424,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 375.6147,
+                "Y": 605.7985,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 991.2091,
+                "Y": 592.5394,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2049269339,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2049269339,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 240,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 38,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 250,
+              "G": 189,
+              "B": 38
+            },
+            "FirstColor": {
+              "R": 250,
+              "G": 189,
+              "B": 38
+            },
+            "EndColor": {
+              "G": 227,
+              "B": 157
+            },
+            "ColorVector": {
+              "ScaleX": 0.0523,
+              "ScaleY": -0.9986
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -272.764,
+              "Y": 0.6702
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1065,
+              "Y": 0.0004
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -272.764,
+            "RightMargin": -267.2361,
+            "TopMargin": -0.6702,
+            "BottomMargin": 0.6702,
+            "Tag": 39,
+            "ActionTag": 1400778725,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/anansi_cloud.png",
+              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 689.5037,
+              "Y": 436.9717
+            },
+            "Scale": {
+              "ScaleX": 2.0292,
+              "ScaleY": 2.0292
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2693,
+              "Y": 0.2428
+            },
+            "PreSize": {
+              "X": 0.2531,
+              "Y": 0.1444
+            },
+            "LeftMargin": 365.5037,
+            "RightMargin": 1546.4963,
+            "TopMargin": 1233.0283,
+            "BottomMargin": 306.9717,
+            "Tag": 40,
+            "ActionTag": -1176913826,
+            "Size": {
+              "X": 648.0,
+              "Y": 260.0
+            },
+            "Name": "cloud_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/boy1.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1864.6472,
+              "Y": 483.6623
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7284,
+              "Y": 0.2687
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1864.6472,
+            "RightMargin": 695.3528,
+            "TopMargin": 1316.3376,
+            "BottomMargin": 483.6623,
+            "UserData": "walk;drag",
+            "Tag": 404,
+            "ActionTag": -357349,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "sadhu",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/anansi_box.png",
+              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1868.0054,
+              "Y": 781.2755
+            },
+            "Scale": {
+              "ScaleX": 0.3214,
+              "ScaleY": 0.2976
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7297,
+              "Y": 0.434
+            },
+            "PreSize": {
+              "X": 0.3758,
+              "Y": 0.1972
+            },
+            "LeftMargin": 1387.0054,
+            "RightMargin": 210.9946,
+            "TopMargin": 841.2245,
+            "BottomMargin": 603.7755,
+            "UserData": "drag",
+            "Tag": 446,
+            "ActionTag": -1327847377,
+            "Size": {
+              "X": 962.0,
+              "Y": 355.0
+            },
+            "Name": "anansi_box_46",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/anansi_cloud.png",
+              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 523.228,
+              "Y": 1233.1089
+            },
+            "Scale": {
+              "ScaleX": 1.5969,
+              "ScaleY": 1.5969
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2044,
+              "Y": 0.6851
+            },
+            "PreSize": {
+              "X": 0.2531,
+              "Y": 0.1444
+            },
+            "LeftMargin": 199.228,
+            "RightMargin": 1712.772,
+            "TopMargin": 436.8911,
+            "BottomMargin": 1103.1089,
+            "Tag": 42,
+            "ActionTag": -1979804459,
+            "Size": {
+              "X": 648.0,
+              "Y": 260.0
+            },
+            "Name": "cloud_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/anansi_cloud.png",
+              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1267.7358,
+              "Y": 1107.3416
+            },
+            "Scale": {
+              "ScaleX": 1.4323,
+              "ScaleY": 1.4323
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4952,
+              "Y": 0.6152
+            },
+            "PreSize": {
+              "X": 0.2531,
+              "Y": 0.1444
+            },
+            "LeftMargin": 943.7358,
+            "RightMargin": 968.2642,
+            "TopMargin": 562.6584,
+            "BottomMargin": 977.3416,
+            "UserData": "drag",
+            "Tag": 43,
+            "ActionTag": -1417607314,
+            "Size": {
+              "X": 648.0,
+              "Y": 260.0
+            },
+            "Name": "cloud_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/bee1.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -455.8167,
+              "Y": 544.0424
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.1781,
+              "Y": 0.3022
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -455.8167,
+            "RightMargin": 3015.8167,
+            "TopMargin": 1255.9575,
+            "BottomMargin": 544.0424,
+            "UserData": "walk;drag",
+            "Tag": 447,
+            "ActionTag": 2049269339,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "spider",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/anansi_cloud.png",
+              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1690.3221,
+              "Y": 472.8271
+            },
+            "Scale": {
+              "ScaleX": 2.6261,
+              "ScaleY": 2.6261
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6603,
+              "Y": 0.2627
+            },
+            "PreSize": {
+              "X": 0.2531,
+              "Y": 0.1444
+            },
+            "LeftMargin": 1366.3221,
+            "RightMargin": 545.6779,
+            "TopMargin": 1197.1729,
+            "BottomMargin": 342.8271,
+            "Tag": 41,
+            "ActionTag": -1220456186,
+            "Size": {
+              "X": 648.0,
+              "Y": 260.0
+            },
+            "Name": "cloud_2",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Anansi_awapa_watu_hadithi.plist",
+        "Anansi_awapa_watu_hadithi.png",
+        "bee1.json",
+        "boy1.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

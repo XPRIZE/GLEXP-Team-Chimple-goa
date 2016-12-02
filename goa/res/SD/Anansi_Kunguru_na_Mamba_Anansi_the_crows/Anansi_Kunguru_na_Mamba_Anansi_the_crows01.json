@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 690,
         "Speed": 1.0,
-        "ActivedAnimationName": "rain",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 462477215,
@@ -966,7 +966,7 @@
               },
               {
                 "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "eat",
+                "CurrentAniamtionName": "fly",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 560,
                 "Tween": false,
@@ -974,7 +974,7 @@
               },
               {
                 "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "eat",
+                "CurrentAniamtionName": "fly",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 580,
                 "Tween": false,
@@ -982,7 +982,7 @@
               },
               {
                 "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "eat",
+                "CurrentAniamtionName": "fly",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 600,
                 "Tween": false,
@@ -1058,8 +1058,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 2220.5081,
-                "Y": 1372.4756,
+                "X": 2155.6775,
+                "Y": 1348.3199,
                 "FrameIndex": 555,
                 "EasingData": {
                   "Type": 0
@@ -1067,8 +1067,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 2220.5081,
-                "Y": 1372.4756,
+                "X": 2155.6775,
+                "Y": 1348.3199,
                 "FrameIndex": 560,
                 "EasingData": {
                   "Type": 0
@@ -1076,8 +1076,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 2220.5081,
-                "Y": 1372.4756,
+                "X": 2155.6775,
+                "Y": 1348.3199,
                 "FrameIndex": 580,
                 "EasingData": {
                   "Type": 0
@@ -1085,8 +1085,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 2220.5081,
-                "Y": 1372.4756,
+                "X": 2155.6775,
+                "Y": 1348.3199,
                 "FrameIndex": 600,
                 "EasingData": {
                   "Type": 0
@@ -1340,8 +1340,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 2639.0708,
-                "Y": 1444.6204,
+                "X": 2506.9849,
+                "Y": 1372.3959,
                 "FrameIndex": 555,
                 "EasingData": {
                   "Type": 0
@@ -1349,8 +1349,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 2639.0708,
-                "Y": 1444.6204,
+                "X": 2506.9854,
+                "Y": 1376.4827,
                 "FrameIndex": 600,
                 "EasingData": {
                   "Type": 0
@@ -1892,30 +1892,29 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 492.5863,
-              "Y": 946.9165
+              "X": 638.7172,
+              "Y": 414.4196
             },
             "Scale": {
-              "ScaleX": 0.3025,
-              "ScaleY": 0.3025
+              "ScaleX": 0.9955,
+              "ScaleY": 0.9955
             },
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.1924,
-              "Y": 0.5261
+              "X": 0.2495,
+              "Y": 0.2302
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 492.5863,
-            "RightMargin": 2067.4136,
-            "TopMargin": 853.0835,
-            "BottomMargin": 946.9165,
+            "LeftMargin": 638.7172,
+            "RightMargin": 1921.2827,
+            "TopMargin": 1385.5804,
+            "BottomMargin": 414.4196,
             "UserData": "walking;drag",
             "Tag": 1719,
-            "FrameEvent": "bee",
             "ActionTag": -164467386,
             "Size": {
               "X": 0.0,

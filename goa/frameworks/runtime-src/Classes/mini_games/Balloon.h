@@ -19,9 +19,14 @@ protected:
 	MenuContext *_menuContext;
 	HelpLayer* _help;
 	std::vector<std::string> _nodeName;
+	vector<Sprite*>_balloonsBin;
+	vector<int>_removedBalloonsId;
+	string _textString1, _textString2, _textString3, _balloonColor;
 	Sprite* _pin;
-	bool _touched = true;
-
+	bool _touched = true, _burstFlag = false, _helpFlag = true;
+	cocos2d::LabelTTF* _label = NULL;
+	DrawNode* E;
+	int _answer;
 
 public:
 	~Balloon();
@@ -31,6 +36,8 @@ public:
 	void update(float dt);
 	void addTouchEvents(Sprite* touchSprite);
 	void upFloat(Sprite* spriteAlphabet, int time, float positionX, float positionY);
+	void removeBalloon(Sprite* obj);
+	void makingBalloons();
 
 	std::pair<int, int> levelAllInfo(int levelNum, int sceneRepetitionNo, int totalScene, int catagoryRepetitionNo, int totalcatagory);
 	void setAllSpriteProperties(Sprite* object, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY);

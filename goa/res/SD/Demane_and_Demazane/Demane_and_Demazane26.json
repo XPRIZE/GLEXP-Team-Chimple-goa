@@ -1,0 +1,363 @@
+{
+  "ID": "f48ad10b-5c03-468a-98ba-fe5f16b9ea31",
+  "Version": "3.10.0.0",
+  "Name": "Demane_and_Demazane26",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 145,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -631669939,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "dizzy",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 110,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "dizzy",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 145,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -631669939,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -210.5272,
+                "Y": 184.7686,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1500.0,
+                "Y": 209.8739,
+                "FrameIndex": 110,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1500.0,
+                "Y": 209.8739,
+                "FrameIndex": 145,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -631669939,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -0.7,
+                "Y": 0.7,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.7,
+                "Y": 0.7,
+                "FrameIndex": 110,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.7,
+                "Y": 0.7,
+                "FrameIndex": 145,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -631669939,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 110,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 145,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 145,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 2860,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 48,
+              "G": 29,
+              "B": 53
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -240.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0938,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -240.0,
+            "RightMargin": -300.0,
+            "Tag": 2861,
+            "ActionTag": 1433193831,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 115,
+              "G": 79,
+              "B": 42
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -240.0,
+              "Y": 0.1682
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0938,
+              "Y": 0.0001
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.3545
+            },
+            "LeftMargin": -240.0,
+            "RightMargin": -300.0,
+            "TopMargin": 1161.6833,
+            "BottomMargin": 0.1682,
+            "Tag": 2862,
+            "ActionTag": 1324280951,
+            "Size": {
+              "X": 3100.0,
+              "Y": 638.1484
+            },
+            "Name": "Panel_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Demane_and_Demazane/demane_tree.png",
+              "Plist": "Demane_and_Demazane/Demane_and_Demazane.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1858.7305,
+              "Y": 946.6106
+            },
+            "Scale": {
+              "ScaleX": 0.5056,
+              "ScaleY": 0.5056
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7261,
+              "Y": 0.5259
+            },
+            "PreSize": {
+              "X": 0.8957,
+              "Y": 0.6111
+            },
+            "LeftMargin": 712.2305,
+            "RightMargin": -445.2305,
+            "TopMargin": 303.3894,
+            "BottomMargin": 396.6106,
+            "Tag": 2865,
+            "ActionTag": 1322521589,
+            "Size": {
+              "X": 2293.0,
+              "Y": 1100.0
+            },
+            "Name": "demane_tree_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Demane_and_Demazane/farmer.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -210.5272,
+              "Y": 184.7686
+            },
+            "Scale": {
+              "ScaleX": -0.7,
+              "ScaleY": 0.7
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.0822,
+              "Y": 0.1026
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -210.5272,
+            "RightMargin": 2770.5271,
+            "TopMargin": 1615.2314,
+            "BottomMargin": 184.7686,
+            "UserData": "hi;drag",
+            "Tag": 2867,
+            "ActionTag": -631669939,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "farmer",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Demane_and_Demazane.plist",
+        "Demane_and_Demazane.png",
+        "farmer.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

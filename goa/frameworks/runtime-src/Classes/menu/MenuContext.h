@@ -60,6 +60,7 @@ CC_CONSTRUCTOR_ACCESS:
     void launchGame(std::string gameName);
     
     static void launchGameFromJS(std::string gameName);
+    static void launchGameFinally(std::string gameName);
     
 protected:
     int _points;
@@ -80,6 +81,7 @@ protected:
     cocos2d::Node* _photoMenu;
     cocos2d::LayerColor* _greyLayer;
     cocos2d::Node* _chimp;
+    cocos2d::ParticleSystem* _ps;
     int _chimpAudioId;
     void expandMenu(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void pauseNodeAndDescendants(Node *pNode);

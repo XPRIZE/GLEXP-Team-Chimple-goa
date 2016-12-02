@@ -1,5 +1,9 @@
 /// <reference path="cocos2d-typescript-definitions-master/cocos2d/cocos2d-lib.d.ts" />
 var xc = xc || {};
+xc.storyFontName = "Arial";
+xc.storyFontSize = 85;
+xc.storyFontColor = cc.color.BLACK;
+
 xc.NarrateStoryLayer = cc.Layer.extend({
     _contentPanel: null,
     _pageConfigPanel: null,
@@ -9,6 +13,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     _configPanelWidth: null,
     _configPanelHeight: null,
     _isTitleDisplayed: false,
+    _playEnded: false,
+    _playStarted: false,    
     ctor: function (pageIndex, storyInformation) {
         this._super();
         this._name = "NarrateStoryLayer";
@@ -60,6 +66,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 var boundingBox = target.getBoundingBoxToWorld();
                 
                 if (cc.rectContainsPoint(boundingBox, touch.getLocation())) {
+                    context._currentTarget = target;
                     var location = target.parent.convertToNodeSpace(touch.getLocation());
                     context._offsetYInTouch = location.y - target.getPosition().y;
                     context._offsetXInTouch = location.x - target.getPosition().x;                    
@@ -134,9 +141,9 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                         var targetRectangle = cc.rect(target.getPosition().x, target.getPosition().y, target.getChildren()[0].getBoundingBox().width, target.getChildren()[0].getBoundingBox().height);
 
                         if (cc.rectContainsPoint(targetRectangle, location)) {
+                            context._currentTarget = target;
                             context._offsetYInTouch = location.y - target.getPosition().y;
                             context._offsetXInTouch = location.x - target.getPosition().x;
-
                             context[funcName](target, loop);                                                        
                             return true;
                         }
@@ -159,7 +166,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             },
             onTouchEnded: function (touch, event) {
                 var target = event.getCurrentTarget();
-                
+                context._currentTarget = null;
                 if(!this._isDragging) {
                     var location = target.parent.convertToNodeSpace(touch.getLocation());
                     context.displayText(target.getName(),location);                    
@@ -170,7 +177,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                     action.pause();                    
                     target.actionManager.pauseTarget(target);
                 }
-
+                context._currentTarget = null;
                 this._isDragging = false;            
             }            
         });
@@ -215,7 +222,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
                     height);
                     
-                if (cc.rectContainsPoint(targetRectangle, location)) {                    
+                if (cc.rectContainsPoint(targetRectangle, location)) {
+                    context._currentTarget = target;                    
                     context[funcName](target, loop);                    
                     return true;
                 }
@@ -241,11 +249,13 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             onTouchEnded: function (touch, event) {
                 var target = event.getCurrentTarget();
                 var location = target.parent.convertToNodeSpace(touch.getLocation());
-
+                context._currentTarget = null;
                 if(target.draggingEnabled) {
                     var action = target.actionManager.getActionByTag(target.tag, target);
-                    action.pause();                    
-                    target.actionManager.pauseTarget(target);
+                    if(action) {
+                        action.pause();
+                        target.actionManager.pauseTarget(target);
+                    }                    
                 }
                 
                 if(!this._isDragging) {
@@ -298,9 +308,6 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         // this.showText();
         this.bindTouchListenerToLayer(this);
         this.sceneTouched();
-
-        // var board = goa.WordBoard.createSceneWithWord("test");
-        // this.addChild(board,0);
     },
 
     bindEventsToTarget:function(child) {
@@ -318,25 +325,41 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             else if(property.indexOf(';') != -1)
             {
                 events = property.split(';');
+            } 
+            else {
+                events.push(property);
             }
 
             var isMultipleEvents = events && events.length > 1;
 
             if(isMultipleEvents) {
-                child.cEvents = [];                            
+                child.cEvents = [];  
+                child.mEvents = [];                          
             }
             events.forEach(function(event){
                 if(event.trim() == 'drag') {
                     child.draggingEnabled = true;
-                } else {                                
+                } else {                               
                     if(child instanceof ccs.SkeletonNode) {
-                        child.cEvent = event;
+                        if(event.indexOf("main.") != -1) {
+                            child.mEvent = event;
+                        } else {
+                           child.cEvent = event;     
+                        }                        
                     } else {
                         if(isMultipleEvents) {
-                            child.cEvents.push(event);
+                            if(event.indexOf("main.") != -1) {
+                                child.mEvents.push(event);    
+                            } else {
+                                child.cEvents.push(event);
+                            } 
                             child.isMultipleEvents = true;
                         }  else {
-                            child.cEvent = event;
+                            if(event.indexOf("main.") != -1) {
+                                child.mEvent = event;
+                            } else {
+                                child.cEvent = event;
+                            }                            
                             child.isMultipleEvents = false;                                               
                         }                                     
                     }                                
@@ -371,28 +394,65 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     },
 
     playAnimiation: function(target, loop) {
-        var action = target.actionManager.getActionByTag(target.tag, target);
-        if(target.isMultipleEvents) {
-            target.currentAnimIndex = target.currentAnimIndex == undefined ? 0 : target.currentAnimIndex;              
-            cc.log("playAnimiation" + target.cEvents[target.currentAnimIndex]);
-            var currentAnim = target.cEvents[target.currentAnimIndex];
-            action.play(currentAnim, loop);
-            target.currentAnimIndex = (target.currentAnimIndex + 1)  % target.cEvents.length;
-        } else if(target.cEvent) {
-            cc.log("playAnimiation" + target.cEvent);
-            action.play(target.cEvent, loop);
+        if(target.cEvent || (target.cEvents && target.cEvents.length > 0))
+        {
+            var action = target.actionManager.getActionByTag(target.tag, target);
+            if(target.isMultipleEvents) {
+                target.currentAnimIndex = target.currentAnimIndex == undefined ? 0 : target.currentAnimIndex;              
+                cc.log("playAnimiation" + target.cEvents[target.currentAnimIndex]);
+                var currentAnim = target.cEvents[target.currentAnimIndex];
+                if(action) {
+                    action.play(currentAnim, loop);
+                }
+                target.currentAnimIndex = (target.currentAnimIndex + 1)  % target.cEvents.length;
+            } else if(target.cEvent) {
+                cc.log("playAnimiation" + target.cEvent);
+                if(action) {
+                    action.play(target.cEvent, loop);
+                }                
+            }
+        } 
+        
+        if(target.mEvent || (target.mEvents && target.mEvents.length > 0)) {    
+            if(target.mEvent) {
+                var action = this._constructedScene.node.actionManager.getActionByTag(this._constructedScene.node.tag, this._constructedScene.node);
+                if(action) {
+                    cc.log("playAnimiation" + target.mEvent);
+                    var eventForMainScene = target.mEvent.replace("main.","");
+                    action.play(eventForMainScene, false);
+                }
+            }            
         }
     },
 
     playAnimationOnChild: function(target, loop) {
-        var action = target.actionManager.getActionByTag(target.tag, target);
-        if(target.isMultipleEvents) {
-            target.currentAnimIndex = target.currentAnimIndex == undefined ? 0 : target.currentAnimIndex;              
-            cc.log("playAnimationOnChild" + target.cEvents[target.currentAnimIndex]);
-            action.play(target.cEvents[target.currentAnimIndex], loop);
-            target.currentAnimIndex = (target.currentAnimIndex + 1)  % target.cEvents.length; 
-        } else if(target.cEvent) {
-            action.play(target.cEvent, loop);
+        if(target.cEvent || (target.cEvents && target.cEvents.length > 0))
+        {
+            var action = target.actionManager.getActionByTag(target.tag, target);
+            if(target.isMultipleEvents) {
+                target.currentAnimIndex = target.currentAnimIndex == undefined ? 0 : target.currentAnimIndex;              
+                cc.log("playAnimationOnChild" + target.cEvents[target.currentAnimIndex]);
+                if(action) {
+                    action.play(target.cEvents[target.currentAnimIndex], loop);
+                }
+                
+                target.currentAnimIndex = (target.currentAnimIndex + 1)  % target.cEvents.length; 
+            } else if(target.cEvent) {
+                if(action) {                    
+                    action.play(target.cEvent, loop);
+                }
+            }        
+        }
+        
+        if(target.mEvent || (target.mEvents && target.mEvents.length > 0)) {    
+            if(target.mEvent) {
+                var action = this._constructedScene.node.actionManager.getActionByTag(this._constructedScene.node.tag, this._constructedScene.node);
+                if(action) {
+                    cc.log("playAnimiation" + target.mEvent);
+                    var eventForMainScene = target.mEvent.replace("main.","");
+                    action.play(eventForMainScene, false);
+                }
+            }            
         }        
     },
 
@@ -407,27 +467,36 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         }
     },
 
-
-    enterFrameEvent: function(event) {
+    playEffect:function(event) {
         cc.log('enterFrameEvent' + event.getEvent());    
         var langDir = goa.TextGenerator.getInstance().getLang();
         var eventData = event.getEvent();
         var page = this._referenceToContext._storyInformation["pages"][this._referenceToContext._pageIndex];
-        if(page) {
-            //var soundFile = page[eventData];
+        if(page && eventData) {
             var soundFile = eventData;
-            if(soundFile != undefined) {
-                var soundFile = xc.path + this._referenceToContext._baseDir + "/sounds/" + soundFile + ".mp3";
-                cc.loader.load(soundFile, function(err, data) {
-                    if(!err) {
-                        if(cc.audioEngine.isMusicPlaying()) {
-                            cc.audioEngine.stopMusic();
+            if(soundFile.trim() != undefined && soundFile.trim().length > 0) {
+                cc.log('soundFile 111:' + soundFile.trim());
+                var soundFile = xc.path + this._referenceToContext._baseDir + "/sounds/" + soundFile.trim() + ".ogg";
+                if(soundFile) {
+                    cc.loader.load(soundFile, function(err, data) {
+                        if(!err) {
+                            cc.audioEngine.playEffect(soundFile, false);
                         }
-                        cc.audioEngine.playMusic(soundFile, false);
-                    }
-                }); 
+                    }); 
+                }
             }            
+        }        
+    },
 
+
+    enterFrameEvent: function(event) {
+        if(!this._referenceToContext._playEnded) {
+            this._referenceToContext.playEffect(event);
+        } else {
+            var eventFrameTarget = event.getNode().getName();
+            if(eventFrameTarget && this._referenceToContext._currentTarget && this._referenceToContext._currentTarget.getName() == eventFrameTarget.trim()) {
+                this._referenceToContext.playEffect(event);
+            }
         }
     },
     
@@ -436,7 +505,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         if (pages != null  &&  !(this._pageIndex + 1 == pages.length)) {
             this._rightButtonPanel.setVisible(true);
         } else {
-            this._rightButtonPanel.setVisible(false);
+            this._rightButtonPanel.setVisible(true);
         }
     },
 
@@ -483,6 +552,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
     playEnded: function () {
         //create delay action
+        this._referenceToContext._playEnded = true;
         var delayAction = new cc.DelayTime(2);
         var createWebViewAction = new cc.CallFunc(this._referenceToContext.showText, this._referenceToContext);
         var playEndSequence = new cc.Sequence(delayAction, createWebViewAction);
@@ -511,12 +581,12 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                     if(!err && json != null && json != undefined) {
                         storyText = json[xc.pageIndex + 1];
                         cc.log('story text received:' + storyText);
-                        that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that, false));
+                        that.parent.addChild(new xc.BubbleSpeech(xc.NarrateStoryLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that));
                     }                                
                 });                
            
             } else {
-                that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText,that.processAudio, that, false));
+                that.parent.addChild(new xc.BubbleSpeech(xc.NarrateStoryLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that));             
             }
         } else {
 
@@ -524,7 +594,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 if(!err && json != null && json != undefined) {
                     storyText = json[xc.pageIndex + 1];
                     cc.log('story text received:' + storyText);
-                    that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that, false));
+                    that.parent.addChild(new xc.BubbleSpeech(xc.NarrateStoryLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that));
                 }                                
             });                
             
@@ -575,6 +645,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
 
     onExit: function() {
+        this._super();
         if(cc.audioEngine.isMusicPlaying()) {
             cc.audioEngine.stopMusic();
         }        
@@ -592,7 +663,7 @@ xc.NarrateStoryScene = cc.Scene.extend({
         this._sceneLayer.init();
 
         if (cc.sys.isNative) {
-            this._menuContext = goa.MenuContext.create(this._sceneLayer, "Narrate Story");
+            this._menuContext = goa.MenuContext.create(this._sceneLayer, "story-play");
             this.addChild(this._menuContext);
             this._menuContext.setVisible(true);
         }                        
@@ -662,5 +733,6 @@ xc.NarrateStoryLayer.res = {
         play_png: xc.path + "wikitaki/play.png",
         record_animation_png: xc.path + "wikitaki/recording.png",
         record_animation_plist: xc.path + "wikitaki/recording.plist",
-        OnlyStoryPlayConfig_json: xc.path + "wikitaki/misc/onlyPlayConfig.json"
+        OnlyStoryPlayConfig_json: xc.path + "wikitaki/misc/onlyPlayConfig.json",
+        textBubble_json: xc.path + "template/bubble_tem.json"
 };

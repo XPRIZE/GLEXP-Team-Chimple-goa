@@ -7,6 +7,7 @@
 //
 
 #include "MenuContext.h"
+#include "LevelHelpScene.h"
 #include "ui/CocosGUI.h"
 #include "../StartMenuScene.h"
 #include "../MapScene.h"
@@ -775,6 +776,10 @@ void MenuContext::launchGame(std::string gameName) {
 
 
 void MenuContext::launchGameFromJS(std::string gameName) {
+    Director::getInstance()->replaceScene(LevelHelpScene::createScene(gameName));
+}
+
+void MenuContext::launchGameFinally(std::string gameName) {
     CCLOG("gameName %s", gameName.c_str());
         if(gameName == ALPHAMON_COMBAT) {
             Director::getInstance()->replaceScene(SelectAlphamon::createScene());
@@ -1014,9 +1019,18 @@ void MenuContext::showScore() {
     const char* output = buffer.GetString();
     localStorageSetItem(gameName + LEVEL, output);
 
-    auto scoreNode = ScoreBoardContext::create(stars, this->gameName, this->sceneName);
-    scoreNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
-    addChild(scoreNode);
+    _ps = ParticleFireworks::create();
+    _ps->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+    this->addChild(_ps, 10);
+    
+    runAction(Sequence::create(DelayTime::create(5.0), CallFunc::create([=] {
+        this->removeChild(_ps);
+        _ps = nullptr;
+        auto scoreNode = ScoreBoardContext::create(stars, this->gameName, this->sceneName);
+        scoreNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+        addChild(scoreNode);
+    }), NULL));
+
 }
 
 bool MenuContext::isGamePaused() {

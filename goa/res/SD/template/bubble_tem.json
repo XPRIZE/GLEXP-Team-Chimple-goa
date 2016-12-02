@@ -1,0 +1,230 @@
+{
+  "ID": "a5ad5ea9-42b8-4389-bcc2-77c401900daa",
+  "Version": "3.10.0.0",
+  "Name": "bubble_tem",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 45,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "template/bubble_tem.png",
+              "Plist": "template/template.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1270.48,
+              "Y": 890.4468
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4963,
+              "Y": 0.4947
+            },
+            "PreSize": {
+              "X": 0.798,
+              "Y": 0.8033
+            },
+            "LeftMargin": 248.98,
+            "RightMargin": 268.02,
+            "TopMargin": 186.5532,
+            "BottomMargin": 167.4468,
+            "Tag": 46,
+            "ActionTag": -1241815232,
+            "Size": {
+              "X": 2043.0,
+              "Y": 1446.0
+            },
+            "Name": "bubble_tem_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "Button",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Press.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "template/cross_button.png",
+              "Plist": "template/template.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 147,
+            "Scale9Height": 155,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2031.7212,
+              "Y": 1418.4377
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7936,
+              "Y": 0.788
+            },
+            "PreSize": {
+              "X": 0.0691,
+              "Y": 0.0983
+            },
+            "LeftMargin": 1943.2212,
+            "RightMargin": 439.7788,
+            "TopMargin": 293.0623,
+            "BottomMargin": 1329.9377,
+            "Tag": 47,
+            "ActionTag": -52643977,
+            "Size": {
+              "X": 177.0,
+              "Y": 177.0
+            },
+            "Name": "Button_1",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "Button",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Press.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "template/sound_button.png",
+              "Plist": "template/template.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 147,
+            "Scale9Height": 154,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2031.7184,
+              "Y": 434.4413
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7936,
+              "Y": 0.2414
+            },
+            "PreSize": {
+              "X": 0.0691,
+              "Y": 0.0978
+            },
+            "LeftMargin": 1943.2184,
+            "RightMargin": 439.7817,
+            "TopMargin": 1277.5587,
+            "BottomMargin": 346.4413,
+            "Tag": 48,
+            "ActionTag": 1976994335,
+            "Size": {
+              "X": 177.0,
+              "Y": 176.0
+            },
+            "Name": "Button_2",
+            "ctype": "ButtonObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "../Default/Button_Disable.png",
+        "../Default/Button_Press.png",
+        "template.plist",
+        "template.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

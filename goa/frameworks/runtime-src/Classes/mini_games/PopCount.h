@@ -8,6 +8,7 @@
 #include "ui/CocosGUI.h"
 #include "../lang/LangUtil.h"
 #include "../lang/TextGenerator.h"
+#include "../effects/FShake.h"
 
 using namespace cocos2d;
 using namespace std;
@@ -21,6 +22,9 @@ protected:
 	std::map<std::string, std::map<std::string, std::string>> _sceneMap;
 	std::map<std::string, std::map<std::string, float>> _popcountPropertyMap;
 	string _popcountCurrentTheme = "";
+	int _popUpAnswer = 0, _popElementCount = 5;
+	float _popStayDelay = 2.0f;
+	bool _popMidButtonClickPermision = true , _popStartListner = false;
 
 public:
 	~PopCount();
@@ -29,6 +33,7 @@ public:
 	static PopCount* create();
 	void addEventsOnGrid(cocos2d::Sprite * callerObject);
 	void setIslandScene();
+	void popUpCall(int popNumberOfCharacter);
 	void onEnterTransitionDidFinish();
 	void update(float) override;
 

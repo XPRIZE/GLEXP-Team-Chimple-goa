@@ -178,6 +178,25 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 803533631,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "walking",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "walking",
+                "FrameIndex": 240,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 921809716,
             "Property": "ActionValue",
             "Frames": [
@@ -341,6 +360,25 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 921809716,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "walking",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "walking",
+                "FrameIndex": 240,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -510,8 +548,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1819.3386,
-              "Y": 341.7838
+              "X": 2356.6611,
+              "Y": 453.9325
             },
             "Scale": {
               "ScaleX": 0.8194,
@@ -520,19 +558,20 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.7107,
-              "Y": 0.1899
+              "X": 0.9206,
+              "Y": 0.2522
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1819.3386,
-            "RightMargin": 740.6614,
-            "TopMargin": 1458.2162,
-            "BottomMargin": 341.7838,
+            "LeftMargin": 2356.6611,
+            "RightMargin": 203.3389,
+            "TopMargin": 1346.0675,
+            "BottomMargin": 453.9325,
             "UserData": "walk;drag",
             "Tag": 1473,
+            "FrameEvent": "walking",
             "ActionTag": 803533631,
             "Size": {
               "X": 0.0,
@@ -552,8 +591,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 823.1836,
-              "Y": 268.035
+              "X": 153.5331,
+              "Y": 420.7286
             },
             "Scale": {
               "ScaleX": -1.0,
@@ -562,19 +601,20 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.3216,
-              "Y": 0.1489
+              "X": 0.06,
+              "Y": 0.2337
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 823.1836,
-            "RightMargin": 1736.8164,
-            "TopMargin": 1531.965,
-            "BottomMargin": 268.035,
+            "LeftMargin": 153.5331,
+            "RightMargin": 2406.4668,
+            "TopMargin": 1379.2714,
+            "BottomMargin": 420.7286,
             "UserData": "walk;drag",
             "Tag": 1387,
+            "FrameEvent": "walking",
             "ActionTag": 921809716,
             "Size": {
               "X": 0.0,
@@ -586,7 +626,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Adhabu_Punishment/adhabu_table.png",
+              "Path": "Adhabu_Punishment/table.png",
               "Plist": "Adhabu_Punishment/Adhabu_Punishment.plist"
             },
             "BlendFunc": {
