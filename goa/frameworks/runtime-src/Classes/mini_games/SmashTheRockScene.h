@@ -7,6 +7,7 @@
 #include "../menu/MenuContext.h"
 #include "SimpleAudioEngine.h" 
 #include "../StartMenuScene.h"
+#include "../puzzle/Alphabet.h"
 
 class SmashTheRock : public cocos2d::Layer
 {
@@ -27,7 +28,7 @@ public:
 	cocos2d::Vector < cocos2d::Node *> blockRef;
 	cocos2d::Vector < cocos2d::Node *> rightRef;
 	cocos2d::Vector < cocos2d::Node *> wrongRef;
-	cocos2d::Vector <cocos2d::Label*> labelRef;
+	cocos2d::Vector <Alphabet*> labelRef;
 	std::map<std::string, std::int32_t> alphabetMap;
 	
 	int key;
@@ -44,6 +45,7 @@ public:
 	
 	cocos2d::Node* background;
 	cocos2d::Node* centre;
+	
 	cocos2d::ClippingNode* maskedFill = nullptr;
 	SmashTheRock();
 	~SmashTheRock();
