@@ -55,31 +55,29 @@ xc.PopLayer = cc.Layer.extend({
            var catagoryLevel = catagoryMap[levelKeyNumber.catagoryNum];
            console.log("catagoryLevel: "+catagoryLevel);
            var wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence(catagoryLevel);
-        
 
                 if (worldSize.width > 2560){
                     var x = worldSize.width - 2560;
                     sceneRes.node.x = x/2;
                 }
                 this.addChild(sceneRes.node);
-             
 
                 this.plane = ccs.load(xc.PopLayer.res.pop_plane, xc.path);
                 this.plane.node.x = worldSize.width + 200;
                 if(this.selectedScene == "scene_1")
                 {
-                    var multiplyFactor = 0.7;
+                    var multiplyFactor = 0.68;
                 }
                 else
                 {
-                    var multiplyFactor = 0.76;
+                    var multiplyFactor = 0.73;
                 }
                 this.plane.node.y = cc.director.getWinSize().height * multiplyFactor;
                 this.plane.node.uId = "plane";
                 this.addChild(this.plane.node);
                 this.plane.node.runAction(this.plane.action);
                 this.plane.action.play('planerun', true);
-                this.plane.node.runAction(cc.MoveTo.create(5, cc.p(-220, cc.director.getWinSize().height * multiplyFactor)));
+                // this.plane.node.runAction(cc.MoveTo.create(5, cc.p(-220, cc.director.getWinSize().height * multiplyFactor)));
         
        // var wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence();
         wordForSentanceArray = wordForSentanceArray.split(" ");
@@ -90,16 +88,23 @@ xc.PopLayer = cc.Layer.extend({
             dummySentance = dummySentance +" "+ wordForSentanceArray[i];
         }
 
-            this.sentanceInRightOrder = new cc.LabelTTF(dummySentance, "Arial", 120);
-            this.sentanceInRightOrder.color = new cc.Color(255, 192, 203);
+            this.sentanceInRightOrder = new cc.LabelTTF(dummySentance, "Arial", 100);
+            this.sentanceInRightOrder.color = new cc.Color(255,255,255);
             this.sentanceInRightOrder.attr({
                 x: cc.director.getWinSize().width / 2,
                 y: cc.director.getWinSize().height * .93
             });
 
+                var labelAction_1 = new cc.ScaleTo(3,1.1);
+                var labelAction_2 = new cc.ScaleTo(3,1);
+
+                var seqAction = new cc.Sequence(labelAction_1, labelAction_2);
+                this.sentanceInRightOrder.runAction(seqAction);
+
+
             this.addChild(this.sentanceInRightOrder);
-            setTimeout(function(){ self.clickableFlag = true; 
-                self.removeChild(self.sentanceInRightOrder)}, 13000);
+            setTimeout(function(){  
+                self.removeChild(self.sentanceInRightOrder)}, 6000);
 
             var listener = cc.EventListener.create({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
@@ -111,7 +116,7 @@ xc.PopLayer = cc.Layer.extend({
                 var targetSize = target.getContentSize();
                 var rect = cc.rect(0, 0, targetSize.width, targetSize.height);
 
-                if (cc.rectContainsPoint(rect, locationInNode)) {
+                if ((cc.rectContainsPoint(rect, locationInNode))) {
                     console.log("clickableFlag : "+self.clickableFlag);
                     if(self.clickableFlag)
                     {
@@ -123,7 +128,6 @@ xc.PopLayer = cc.Layer.extend({
                         console.log("clickableFlag : "+self.clickableFlag);
                         self.setWordInRightOrder(target);
                     }
-                     
                     return true;
                 }
                 return false;
@@ -142,8 +146,8 @@ xc.PopLayer = cc.Layer.extend({
             if (duplicateCheck) {
                 existingNumber.push(numberPicker);
             }
-
         }
+
         for (var i = 0; i < wordForSentanceArray.length; i++) {
             var cloud = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("pop/cloud.png"));
             cloud.setName("cloud_" + (i + 1));
@@ -154,24 +158,24 @@ xc.PopLayer = cc.Layer.extend({
 
             if (existingNumber[i] >= 1 && existingNumber[i] <= 4) {
                 cloud.Xpos = (worldSize.width / 4) * (existingNumber[i] - 1) + 300;
-                cloud.Ypos = cc.director.getWinSize().height * 0.76;
+                cloud.Ypos = cc.director.getWinSize().height * 0.71;
                 cloud.setPosition(worldSize.width + 300, cloud.Ypos);
             }
 
             else if (existingNumber[i] >= 5 && existingNumber[i] <= 8) {
                 cloud.Xpos = (worldSize.width / 4) * (existingNumber[i] - 5) + 390;
-                cloud.Ypos = (cc.director.getWinSize().height * 0.76) - cloud.getBoundingBox().height;
+                cloud.Ypos = (cc.director.getWinSize().height * 0.71) - (cloud.getBoundingBox().height+30);
                 cloud.setPosition(worldSize.width + 300, cloud.Ypos);
             }
 
             else if (existingNumber[i] >= 9 && existingNumber[i] <= 12) {
                 cloud.Xpos = (worldSize.width / 4) * (existingNumber[i] - 9) + 240;
-                cloud.Ypos = (cc.director.getWinSize().height * 0.76) - (cloud.getBoundingBox().height * 2);
+                cloud.Ypos = (cc.director.getWinSize().height * 0.71) - (cloud.getBoundingBox().height * 2+60);
                 cloud.setPosition(worldSize.width + 300, cloud.Ypos);
             }
 
             var label = new cc.LabelTTF(""+wordForSentanceArray[i], "Arial", 110);
-            label.color = new cc.Color(255, 192, 203);
+            label.color = new cc.Color(229,78,78);
             label.attr({
                 x: cloud.getBoundingBox().width / 2,
                 y: cloud.getBoundingBox().height / 2
@@ -185,23 +189,30 @@ xc.PopLayer = cc.Layer.extend({
               console.log("-------------- in 1st level ------------");
               console.log("cloud x :"+cloud.x);
                console.log("cloud y :"+cloud.y);
-                this.help = new xc.HelpLayer(cc.rect(cloud.Xpos,cloud.Ypos,cloud.width,cloud.height), cc.rect( cc.director.getWinSize().width / 2,cc.director.getWinSize().height * .93,cc.director.getWinSize().width * .85,cc.director.getWinSize().height*0.1))
+                this.help = new xc.HelpLayer(cc.rect(cloud.Xpos,cloud.Ypos,cloud.width,cloud.height), cc.rect( cc.director.getWinSize().width / 2,cc.director.getWinSize().height * .93,cc.director.getWinSize().width * .85,cc.director.getWinSize().height*0.09))
                 this.addChild(this.help,4)
                 this.help.setName("help");
                 this.help.click(cloud.getPositionX(),cloud.getPositionY());
                 this.helpFlag = true;
             }
         }
+        
         setTimeout(function () {
-            for (var i = 0; i < self.cloudContainer.length; i++) {
 
-                var actionDate = new cc.MoveTo(Math.floor(self.getRandomArbitrary(9, 12)), cc.p(self.cloudContainer[i].Xpos, self.cloudContainer[i].Ypos));
-                var easeAction = new cc.EaseBackOut(actionDate);
-                self.cloudContainer[i].runAction(easeAction);
-            }
+            self.plane.node.runAction(cc.MoveTo.create(5, cc.p(-220, cc.director.getWinSize().height * multiplyFactor)));
+            setTimeout(function () {
 
-        }, 1750);
-    },
+               for (var i = 0; i < self.cloudContainer.length; i++)
+                 {
+                    var actionDate = new cc.MoveTo(Math.floor(self.getRandomArbitrary(9, 11)), cc.p(self.cloudContainer[i].Xpos, self.cloudContainer[i].Ypos));
+                    var easeAction = new cc.EaseBackOut(actionDate);
+                    self.cloudContainer[i].runAction(easeAction);
+                 }
+              }, 1750);
+          }, 6000);
+
+      setTimeout(function () {  self.clickableFlag = true;   }, 17000);
+      },
 
     getRandomArbitrary: function (min, max) {
         return Math.random() * (max - min) + min;
@@ -242,7 +253,7 @@ xc.PopLayer = cc.Layer.extend({
     makeSentance: function (word) {
         if (this.wordInOrder.length == 0) {
             this.correctSentance = new cc.LabelTTF(word.children[0].getString(), "Arial", 120);
-            this.correctSentance.color = new cc.Color(255, 192, 203);
+            this.correctSentance.color = new cc.Color(255,255,255);
             this.correctSentance.attr({
                 x: cc.director.getWinSize().width / 2,
                 y: cc.director.getWinSize().height * .93
@@ -287,7 +298,7 @@ xc.PopLayer = cc.Layer.extend({
     },
   levelAllInfo: function(currentLevel, sceneRepetitionNo, totalScene, catagoryRepetitionNo, totalcatagory)
     {
-        var currentLevelInFloat = currentLevel.toFixed(2);;
+        var currentLevelInFloat = currentLevel;
         var sceneBaseValue = (Math.ceil(currentLevelInFloat/ sceneRepetitionNo));
         var sceneNo = sceneBaseValue % totalScene;
 
