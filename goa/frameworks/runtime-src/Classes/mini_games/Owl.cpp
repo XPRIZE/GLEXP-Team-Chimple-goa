@@ -350,8 +350,8 @@ void Owl::crateLetterGridOnBuilding(int blockLevel, string displayWord) {
 	auto letterbox = Sprite::createWithSpriteFrameName(themeResourcePath.at("gridOrange"));
 	int boxSize = blockObject->getContentSize().width;
 	int space = blockObject->getContentSize().width - (letterbox->getContentSize().width * 6);
-	int indiSpace = space / (6+1);
-
+	//int indiSpace = space / (6+1);
+	int indiSpace = 0;
 	int equIndi = (indiSpace * (displayWord.length() - 1));
 	int initSpace = blockObject->getContentSize().width - letterbox->getContentSize().width * displayWord.length() - equIndi;
 	initSpace = initSpace / 2;
@@ -384,7 +384,8 @@ void Owl::crateLetterGridOnBuildingSecond(int blockLevel, string displayWord) {
 	auto blockObject = Sprite::createWithSpriteFrameName(themeResourcePath.at("greenbase"));
 	auto letterbox = Sprite::createWithSpriteFrameName(themeResourcePath.at("gridGreen"));
 	int space = blockObject->getContentSize().width - (letterbox->getContentSize().width * 6);
-	int indiSpace = space / (6 + 1);
+	//int indiSpace = space / (6 + 1);
+	int indiSpace = 0;
 	int equIndi = (indiSpace * (displayWord.length() - 1));
 	int initSpace = blockObject->getContentSize().width - letterbox->getContentSize().width * displayWord.length() - equIndi;
 	initSpace = initSpace / 2 ;

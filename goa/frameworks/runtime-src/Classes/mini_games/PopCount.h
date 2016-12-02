@@ -21,7 +21,7 @@ protected:
 	vector<std::pair<float, float>> _coordinate;
 	std::map<std::string, std::map<std::string, std::string>> _sceneMap;
 	std::map<std::string, std::map<std::string, float>> _popcountPropertyMap;
-	string _popcountCurrentTheme = "";
+	string _popcountCurrentTheme = "" , _popCharacter = "";
 	int _popUpAnswer = 0, _popElementCount = 5;
 	float _popStayDelay = 2.0f;
 	bool _popMidButtonClickPermision = true , _popStartListner = false;
