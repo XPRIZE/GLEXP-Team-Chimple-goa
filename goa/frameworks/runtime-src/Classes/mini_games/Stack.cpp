@@ -84,18 +84,29 @@ void Stack::onEnterTransitionDidFinish()
 				}
 			}
 		}
+		this->addChild(stackbg);
 	}
 	else if (sceneName == "superhero")
 	{
 		stackbg = (Node *)CSLoader::createNode("stackhero/stackhero.csb");
+		this->addChild(stackbg);
 	}
 	else
 	{
 		stackbg = (Node *)CSLoader::createNode("stackfarm/stackfarm.csb");
-		_tray = (Sprite*)stackbg->getChildren().at(1)->getChildByName("cow");
+		this->addChild(stackbg);
+
+		auto _stackfarm = CSLoader::createNode("stackfarm/box.csb");
+		_stackfarm->setScale(.8);
+		_stackfarm->setPosition(Vec2(visibleSize.width * .99999999, visibleSize.height * .00001));
+		this->addChild(_stackfarm, 3);
+
+		_tray = (Sprite *)CSLoader::createNode("stackfarm/cow.csb");
+		_tray->setPosition(Vec2(-500, visibleSize.height * .23));
+		this->addChild(_tray , 2);
+//		_tray = (Sprite*)stackbg->getChildren().at(1)->getChildByName("cow");
 	}
 
-	this->addChild(stackbg);
 
 	auto secondChild = stackbg->getChildren().at(1);
 
@@ -292,16 +303,17 @@ void Stack::generateWord()
 		else if (sceneName == "farm")
 		{
 			_wordLabel->setPosition(-200, visibleSize.height * .22);
+			_wordLabel->setZOrder(2);
 
 			auto sequenceFuel = Sequence::create(MoveTo::create(2, Vec2(visibleSize.width * .14, visibleSize.height * .22)), CallFunc::create([=]() {
 				flag = false;
-				stackbg->stopAction(treadmill);
+				_tray->stopAction(treadmill);
 			}), NULL);
 
 			treadmill = CSLoader::createTimeline("stackfarm/cow.csb");
-			stackbg->runAction(treadmill);
+			_tray->runAction(treadmill);
 			treadmill->play("treadmill", true);
-
+			
 			if (_helpFlag == 0)
 			{
 				for (auto i = 0; i < _startName.size(); i++)
@@ -317,8 +329,8 @@ void Stack::generateWord()
 				_helpFlag = 1;
 			}
 
-			_tray->setPosition(Vec2(-500, visibleSize.height * .25));
-			_tray->runAction(MoveTo::create(2, Vec2(visibleSize.width * .065, visibleSize.height * .25)));
+			_tray->setPosition(Vec2(-500, visibleSize.height * .23));
+			_tray->runAction(MoveTo::create(2, Vec2(visibleSize.width * .065, visibleSize.height * .23)));
 			_wordLabel->runAction(sequenceFuel);
 		}
 	}
@@ -429,9 +441,9 @@ void Stack::wordLabelAnim(struct LabelDetails sprite)
 				stackbg->stopAction(treadmill);
 				Stack::generateWord();
 			}), NULL);
-
+			_wordLabel->setZOrder(0);
 			treadmill = CSLoader::createTimeline("stackfarm/cow.csb");
-			stackbg->runAction(treadmill);
+			_tray->runAction(treadmill);
 			treadmill->play("treadmill", true);
 			_tray->runAction(sequenceFuel1);
 		}

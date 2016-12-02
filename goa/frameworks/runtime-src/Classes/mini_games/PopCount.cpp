@@ -109,7 +109,9 @@ void PopCount::onEnterTransitionDidFinish() {
 }
 
 void PopCount::update(float delta) {
-
+	if (_popElementCount == 0) {
+		_menuContext->showScore();
+	}
 }
 
 void PopCount::setSpriteProperties(Sprite* ImageObject, float positionX, float positionY, float scaleX, float scaleY, float anchorX, float anchorY, float rotation, int zorder) {
@@ -137,15 +139,15 @@ void PopCount::popUpCharacter(Node* character, string animationName) {
 		auto timelinecharacter = CSLoader::createTimeline(_sceneMap.at(_popcountCurrentTheme).at("character"));
 		character->runAction(timelinecharacter);
 		timelinecharacter->play(animationName, true);
-		character->runAction(MoveTo::create(0.6f, Vec2(character->getPositionX(), character->getPositionY() + height)));
+		character->runAction(MoveTo::create(0.5f, Vec2(character->getPositionX(), character->getPositionY() + height)));
 	});
 	auto popDown = CallFunc::create([=]() {
-		character->runAction(MoveTo::create(0.7f, Vec2(character->getPositionX(), character->getPositionY() - height)));
+		character->runAction(MoveTo::create(0.5f, Vec2(character->getPositionX(), character->getPositionY() - height)));
 	});
 	auto removeWaterWave = CallFunc::create([=]() {
 		removeChild(water);
 	});
-	this->runAction(Sequence::create(popUp, DelayTime::create(_popStayDelay), popDown, DelayTime::create(0.7f), removeWaterWave, NULL));
+	this->runAction(Sequence::create(popUp, DelayTime::create(_popStayDelay), popDown, DelayTime::create(0.5f), removeWaterWave, NULL));
 
 }
 
@@ -181,6 +183,7 @@ void PopCount::setGridNumberPanel() {
 	gridPanel->setColor(Color3B(41,158,170));
 	gridPanel->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height * 0.1));
 	gridPanel->setOpacity(60);
+	gridPanel->setName("gridpanel");
 	addChild(gridPanel, 2);
 
 	auto themeResourcePath = _sceneMap.at(_popcountCurrentTheme);
@@ -230,7 +233,7 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 			locationInNode = touch->getLocation();
 		}
 
-		if (target->getBoundingBox().containsPoint(locationInNode)) {
+		if (target->getBoundingBox().containsPoint(locationInNode) && _popMidButtonClickPermision) {
 			target->setColor(Color3B::GRAY);
 			return true;
 		}
@@ -249,24 +252,33 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 			locationInNode = touch->getLocation();
 			target->setColor(Color3B(255,255,255));
 		}
-
-		if (target->getBoundingBox().containsPoint(locationInNode) && (target->getName() == "smallGrid")) {
+		
+		if (target->getBoundingBox().containsPoint(locationInNode) && (target->getName() == "smallGrid") && _popStartListner) {
 			if (target->getTag() == _popUpAnswer) {
 				CCLOG(" THIS IS CORRECT ");
+				
+				this->getChildByName("midButton")->runAction(Sequence::create(ScaleTo::create(0.4,1.5), ScaleTo::create(0.2,1), NULL));
+				_popStartListner = false;
+				_popElementCount = _popElementCount - 1;
 				(this->getChildByName("midButton")->getChildByTag(0))->setName("PLAY");
 				auto texture = SpriteFrameCache::getInstance()->getSpriteFrameByName(_sceneMap.at(_popcountCurrentTheme).at("play"));
 				((Sprite*)this->getChildByName("midButton")->getChildByTag(0))->setSpriteFrame(texture);
 			}
+			else {
+				float distance = Director::getInstance()->getVisibleSize().width * 0.8;
+				FShake* shake = FShake::actionWithDuration(0.5f,10.0f);
+				this->getChildByName("gridpanel")->runAction(shake);
+				CCLOG(" ------------------- CLICKED WRONG ---------------");
+			}
 		}
 		else if (target->getBoundingBox().containsPoint(locationInNode) && (target->getName() == "midButton")) {
 			if ((target->getChildByTag(0))->getName() == "WATCH AGAIN") {
-				CCLOG("CLICKED ON WATCH AGAIN BUTTON");
 				auto texture = SpriteFrameCache::getInstance()->getSpriteFrameByName(_sceneMap.at(_popcountCurrentTheme).at("watchagain"));
 				((Sprite*)target->getChildByTag(0))->setSpriteFrame(texture);
 				popUpCall(_popUpAnswer);
 			}
 			else if ((target->getChildByTag(0))->getName() == "PLAY") {
-				CCLOG("CLICKED ON PLAY BUTTON"); 
+				_popStartListner = true;
 				(target->getChildByTag(0))->setName("WATCH AGAIN");
 				auto texture = SpriteFrameCache::getInstance()->getSpriteFrameByName(_sceneMap.at(_popcountCurrentTheme).at("watchagain"));
 				((Sprite*)target->getChildByTag(0))->setSpriteFrame(texture);
@@ -275,6 +287,8 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 			}else{
 				CCLOG("Wrong in condition , check in listner");
 			}
+			target->setVisible(false);
+			_popMidButtonClickPermision = false;
 		}
 
 		return false;
@@ -315,6 +329,7 @@ void PopCount::setIslandScene() {
 	addChild(midButton, 3);
 	midButton->setName("midButton");
 	addEventsOnGrid(midButton);
+	this->getChildByName("midButton")->runAction(Sequence::create(DelayTime::create(0.5f),ScaleTo::create(0.4, 1.5), ScaleTo::create(0.2, 1), NULL));
 
 	auto buttonSymbl = Sprite::createWithSpriteFrameName(themeResourcePath.at("play"));
 	buttonSymbl->setPosition(Vec2(midButton->getContentSize().width / 2, midButton->getContentSize().height / 2));
@@ -328,7 +343,7 @@ void PopCount::setIslandScene() {
 
 void PopCount::popUpCall(int popNumberOfCharacter) {
 
-	this->runAction(Sequence::create(DelayTime::create(2), CallFunc::create([=]() {
+	this->runAction(Sequence::create(DelayTime::create(1), CallFunc::create([=]() {
 
 		auto getElementObject = getRandomValueRange(0, 9, popNumberOfCharacter);
 
@@ -336,7 +351,12 @@ void PopCount::popUpCall(int popNumberOfCharacter) {
 			popUpCharacter(this->getChildByName("bg")->getChildByName("background")->getChildByTag(getElementObject[i] + 1000), "blink");
 		}
 
-	}), NULL));
+	}), DelayTime::create(1 + _popStayDelay), CallFunc::create([=]() {
+	
+		this->getChildByName("midButton")->setVisible(true);
+		_popMidButtonClickPermision = true;
+	
+	}),NULL));
 }
 
 PopCount::~PopCount(void)

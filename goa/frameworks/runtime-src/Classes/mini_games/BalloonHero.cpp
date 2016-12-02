@@ -414,7 +414,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 	
 
 
-	_sceneNumber = 2;
+	//_sceneNumber = 3;
 
 	std::string mainSceneplist;
 

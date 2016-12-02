@@ -247,7 +247,20 @@ bool Line::init()
 			{ "mid", 15 },   // "mid"
 			{ "tags", 8 }   // "no of tags"
 		} },
-
+		{ 19,  //level number
+		{
+			{ "start", 5 },  //"start"
+			{ "end", 80 },   // "end"
+			{ "mid", 20 },   // "mid"
+			{ "tags", 8 }   // "no of tags"
+		} },
+		{ 20,  //level number
+		{
+			{ "start", 5 },  //"start"
+			{ "end", 80 },   // "end"
+			{ "mid", 25 },   // "mid"
+			{ "tags", 10 }   // "no of tags"
+		} },
 	};
 }
 void Line::onEnterTransitionDidFinish()
@@ -330,7 +343,7 @@ void Line::onEnterTransitionDidFinish()
 	scaleNumber(_startNum, _endNum, mid);
 	tagCreate(_tagNum);
 	
-	_NumberLine->setPosition(Vec2(0, 0));
+	_NumberLine->setPosition(Vec2(0, 150));
 	this->addChild(_NumberLine);
 
 }
@@ -354,7 +367,7 @@ void Line::scaleNumber(int start, int end,int mid)
 		std::string str = ss.str();
 		auto number_label = Label::createWithSystemFont(str, "Arial", 70);
 		number_label->setPositionX(_NumberLine->getChildByName(str)->getPositionX());
-		number_label->setPositionY(_NumberLine->getChildByName(str)->getPositionY() - 150);
+		number_label->setPositionY(_NumberLine->getChildByName(str)->getPositionY());
 		this->addChild(number_label);
 		
 	}
@@ -374,8 +387,8 @@ void Line::tagCreate(int choice)
 	std::random_shuffle(_five.begin(), _five.end());
 	for (int i = 1; i <= choice; i++)
 	{
-		_tag = Sprite::createWithSpriteFrameName("line/tag.png");
-		_tag->setPosition(visibleSize.width/(choice +1)*i, 600);
+		_tag = Sprite::createWithSpriteFrameName("line/candy_1.png");
+		_tag->setPosition(visibleSize.width/(choice +1)*i, 700);
 		//_tag->setContentSize(Size(200, 200));
 		//_tag->setAnchorPoint(Vec2(0.5, 1));
 		this->addChild(_tag,1);
@@ -384,7 +397,8 @@ void Line::tagCreate(int choice)
 		
 		auto number_label = Label::createWithSystemFont(_five.at(i), "Arial", 90);
 		number_label->setPositionX(_tag->getContentSize().width / 2);
-		number_label->setPositionY(_tag->getContentSize().height / 2.5);
+		number_label->setPositionY(_tag->getContentSize().height / 3.3);
+		number_label->setColor(Color3B(0, 0, 0));
 		_tag->addChild(number_label);
 		_tag->setName(_five.at(i));
 		
@@ -453,7 +467,7 @@ void Line::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 				this->removeChildByName("help");
 			}
 			target->setPosition(_nodeRef.at(i)->getPosition());
-			target->setAnchorPoint(Vec2(0.5, 1));
+			target->setAnchorPoint(Vec2(0.5, 0.5));
 			_eventDispatcher->removeEventListenersForTarget(target);
 			CCLOG("correct");
 			flag = true;

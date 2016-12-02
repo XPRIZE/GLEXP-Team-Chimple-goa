@@ -13,6 +13,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     _configPanelWidth: null,
     _configPanelHeight: null,
     _isTitleDisplayed: false,
+    _playEnded: false,
+    _playStarted: false,    
     ctor: function (pageIndex, storyInformation) {
         this._super();
         this._name = "NarrateStoryLayer";
@@ -64,6 +66,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 var boundingBox = target.getBoundingBoxToWorld();
                 
                 if (cc.rectContainsPoint(boundingBox, touch.getLocation())) {
+                    context._currentTarget = target;
                     var location = target.parent.convertToNodeSpace(touch.getLocation());
                     context._offsetYInTouch = location.y - target.getPosition().y;
                     context._offsetXInTouch = location.x - target.getPosition().x;                    
@@ -138,9 +141,9 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                         var targetRectangle = cc.rect(target.getPosition().x, target.getPosition().y, target.getChildren()[0].getBoundingBox().width, target.getChildren()[0].getBoundingBox().height);
 
                         if (cc.rectContainsPoint(targetRectangle, location)) {
+                            context._currentTarget = target;
                             context._offsetYInTouch = location.y - target.getPosition().y;
                             context._offsetXInTouch = location.x - target.getPosition().x;
-
                             context[funcName](target, loop);                                                        
                             return true;
                         }
@@ -163,7 +166,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             },
             onTouchEnded: function (touch, event) {
                 var target = event.getCurrentTarget();
-                
+                context._currentTarget = null;
                 if(!this._isDragging) {
                     var location = target.parent.convertToNodeSpace(touch.getLocation());
                     context.displayText(target.getName(),location);                    
@@ -174,7 +177,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                     action.pause();                    
                     target.actionManager.pauseTarget(target);
                 }
-
+                context._currentTarget = null;
                 this._isDragging = false;            
             }            
         });
@@ -219,7 +222,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
                     height);
                     
-                if (cc.rectContainsPoint(targetRectangle, location)) {                    
+                if (cc.rectContainsPoint(targetRectangle, location)) {
+                    context._currentTarget = target;                    
                     context[funcName](target, loop);                    
                     return true;
                 }
@@ -245,15 +249,13 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             onTouchEnded: function (touch, event) {
                 var target = event.getCurrentTarget();
                 var location = target.parent.convertToNodeSpace(touch.getLocation());
-
+                context._currentTarget = null;
                 if(target.draggingEnabled) {
                     var action = target.actionManager.getActionByTag(target.tag, target);
                     if(action) {
                         action.pause();
                         target.actionManager.pauseTarget(target);
-                    }
-                                        
-                    
+                    }                    
                 }
                 
                 if(!this._isDragging) {
@@ -465,24 +467,36 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         }
     },
 
-
-    enterFrameEvent: function(event) {
+    playEffect:function(event) {
         cc.log('enterFrameEvent' + event.getEvent());    
         var langDir = goa.TextGenerator.getInstance().getLang();
         var eventData = event.getEvent();
         var page = this._referenceToContext._storyInformation["pages"][this._referenceToContext._pageIndex];
-        if(page) {
-            //var soundFile = page[eventData];
+        if(page && eventData) {
             var soundFile = eventData;
-            if(soundFile != undefined) {
-                var soundFile = xc.path + this._referenceToContext._baseDir + "/sounds/" + soundFile + ".ogg";
-                cc.loader.load(soundFile, function(err, data) {
-                    if(!err) {
-                        cc.audioEngine.playEffect(soundFile, false);
-                    }
-                }); 
+            if(soundFile.trim() != undefined && soundFile.trim().length > 0) {
+                cc.log('soundFile 111:' + soundFile.trim());
+                var soundFile = xc.path + this._referenceToContext._baseDir + "/sounds/" + soundFile.trim() + ".ogg";
+                if(soundFile) {
+                    cc.loader.load(soundFile, function(err, data) {
+                        if(!err) {
+                            cc.audioEngine.playEffect(soundFile, false);
+                        }
+                    }); 
+                }
             }            
+        }        
+    },
 
+
+    enterFrameEvent: function(event) {
+        if(!this._referenceToContext._playEnded) {
+            this._referenceToContext.playEffect(event);
+        } else {
+            var eventFrameTarget = event.getNode().getName();
+            if(eventFrameTarget && this._referenceToContext._currentTarget && this._referenceToContext._currentTarget.getName() == eventFrameTarget.trim()) {
+                this._referenceToContext.playEffect(event);
+            }
         }
     },
     
@@ -538,6 +552,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
     playEnded: function () {
         //create delay action
+        this._referenceToContext._playEnded = true;
         var delayAction = new cc.DelayTime(2);
         var createWebViewAction = new cc.CallFunc(this._referenceToContext.showText, this._referenceToContext);
         var playEndSequence = new cc.Sequence(delayAction, createWebViewAction);

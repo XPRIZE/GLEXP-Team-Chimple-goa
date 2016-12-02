@@ -112,6 +112,8 @@
 		F303CCA41DB20DB700DB6D81 /* Pillar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F303CC9F1DB20D9000DB6D81 /* Pillar.cpp */; };
 		F307808A1DB5C2C90078DF62 /* HelpLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F30780891DB5C2C90078DF62 /* HelpLayer.cpp */; };
 		F307808B1DB5C2C90078DF62 /* HelpLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F30780891DB5C2C90078DF62 /* HelpLayer.cpp */; };
+		F33052401DF04E6000BA235E /* LevelHelpScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F330523F1DF04E6000BA235E /* LevelHelpScene.cpp */; };
+		F33052411DF04E6000BA235E /* LevelHelpScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F330523F1DF04E6000BA235E /* LevelHelpScene.cpp */; };
 		F35247C01D6D9D1A0077C333 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35247171D6D9D1A0077C333 /* HelloWorldScene.cpp */; };
 		F35247C11D6D9D1A0077C333 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35247171D6D9D1A0077C333 /* HelloWorldScene.cpp */; };
 		F35247C21D6D9D1A0077C333 /* MapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35247191D6D9D1A0077C333 /* MapScene.cpp */; };
@@ -598,6 +600,8 @@
 		F303CCA01DB20D9000DB6D81 /* Pillar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pillar.h; sourceTree = "<group>"; };
 		F30780891DB5C2C90078DF62 /* HelpLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelpLayer.cpp; sourceTree = "<group>"; };
 		F307808E1DB5C2DD0078DF62 /* HelpLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpLayer.h; sourceTree = "<group>"; };
+		F330523F1DF04E6000BA235E /* LevelHelpScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelHelpScene.cpp; sourceTree = "<group>"; };
+		F33052441DF04E7200BA235E /* LevelHelpScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelHelpScene.h; sourceTree = "<group>"; };
 		F35247171D6D9D1A0077C333 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelloWorldScene.cpp; sourceTree = "<group>"; };
 		F35247181D6D9D1A0077C333 /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldScene.h; sourceTree = "<group>"; };
 		F35247191D6D9D1A0077C333 /* MapScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapScene.cpp; sourceTree = "<group>"; };
@@ -1446,6 +1450,8 @@
 				F35247721D6D9D1A0077C333 /* ScoreBoardContext.h */,
 				F30780891DB5C2C90078DF62 /* HelpLayer.cpp */,
 				F307808E1DB5C2DD0078DF62 /* HelpLayer.h */,
+				F330523F1DF04E6000BA235E /* LevelHelpScene.cpp */,
+				F33052441DF04E7200BA235E /* LevelHelpScene.h */,
 			);
 			path = menu;
 			sourceTree = "<group>";
@@ -1910,6 +1916,7 @@
 				F3667D171DB4BA6F00EC8908 /* AsyncTask.cpp in Sources */,
 				F3667D671DB4BA7000EC8908 /* LTKInkFileWriter.cpp in Sources */,
 				F35248531D6D9D1A0077C333 /* FShake.cpp in Sources */,
+				F33052411DF04E6000BA235E /* LevelHelpScene.cpp in Sources */,
 				F35247E11D6D9D1A0077C333 /* PatchTheWallScene.cpp in Sources */,
 				F352485B1D6D9D1A0077C333 /* State.cpp in Sources */,
 				F3667D6F1DB4BA7000EC8908 /* LTKOSUtilFactory.cpp in Sources */,
@@ -2118,6 +2125,7 @@
 				F3667D241DB4BA6F00EC8908 /* LTKTraceGroup.cpp in Sources */,
 				F35247CE1D6D9D1A0077C333 /* Cannon_Ball_Main.cpp in Sources */,
 				F3667D761DB4BA7000EC8908 /* logger.cpp in Sources */,
+				F33052401DF04E6000BA235E /* LevelHelpScene.cpp in Sources */,
 				F35247D41D6D9D1A0077C333 /* Chain.cpp in Sources */,
 				F3667D361DB4BA6F00EC8908 /* LTKShapeRecognizer.cpp in Sources */,
 				F3667D6C1DB4BA7000EC8908 /* LTKLoggerUtil.cpp in Sources */,
