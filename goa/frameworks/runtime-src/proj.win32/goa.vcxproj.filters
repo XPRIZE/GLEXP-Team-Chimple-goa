@@ -583,6 +583,9 @@
     <ClCompile Include="..\Classes\mini_games\PopCount.cpp">
       <Filter>Classes\mini_games</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\menu\LevelHelpScene.cpp">
+      <Filter>Classes\menu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1170,6 +1173,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\mini_games\PopCount.h">
       <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\menu\LevelHelpScene.h">
+      <Filter>Classes\menu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
