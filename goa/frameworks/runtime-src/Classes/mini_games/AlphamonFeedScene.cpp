@@ -278,8 +278,9 @@ bool AlphamonFeed::onTouchBegan(cocos2d::Touch *touch,cocos2d::Event * event)
 	touchPosition = touch->getLocation().x;
 	cocos2d::Node * target = sprite1;
 	auto  location = target->convertToNodeSpace(touch->getLocation());
+//	menu->
 	CCRect targetRectangle =  CCRectMake(target->getPositionX()-200, target->getPositionY(), target->getContentSize().width, target->getContentSize().height);
-	if(targetRectangle.containsPoint(touch->getLocation())){
+	if(targetRectangle.containsPoint(touch->getLocation()) && (!menu->isGamePaused())){
 		//CCLOG("touch began");
 		_touched = true;
 		_isPlayFirst = false;
@@ -295,7 +296,7 @@ bool AlphamonFeed::onTouchBegan(cocos2d::Touch *touch,cocos2d::Event * event)
 		sprite1->runAction(touchAction);
 		sprite1->alphamonLegAnimation("walk", true);
 		return true;
-	}else if  (touch->getLocation().y < Director::getInstance()->getVisibleSize().height - 350){
+	}else if  ((touch->getLocation().y < Director::getInstance()->getVisibleSize().height - 350) && (!menu->isGamePaused())) {
 		sprite1->alphamonLegAnimation("walk", true);
 		return true;
 	}
