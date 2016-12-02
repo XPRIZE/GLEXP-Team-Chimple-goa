@@ -38,6 +38,8 @@ void PopCount::onEnterTransitionDidFinish() {
 				{
 					{ "bg", "popcount/popcount.csb" },
 					{ "character", "popcount/starfish.csb" },
+					{ "character2", "popcount/starfish.csb" },
+					{ "character3", "popcount/starfish.csb" },
 					{ "characterSpriteName", "Sprite_1" },
 					{ "waterAnimation" , "popcount/water.csb" },
 					{ "midboard" , "popcount/board.png" },
@@ -61,23 +63,23 @@ void PopCount::onEnterTransitionDidFinish() {
 	_popcountPropertyMap = {
 		{
 			{ "popcountCity",
-			{
-				{ "jumpHeight",600.0f },
-				{ "jumpStart", 0.0f }
-			}
+				{
+					{ "jumpHeight",600.0f },
+					{ "jumpStart", 0.0f }
+				}
 			},
 			{ "popcountIsland",
-			{
-				{ "jumpHeight", 600.0f },
-				{ "jumpStart", 200.0f },
-				{ "smallGridSize", 160.0f }
-			}
+				{
+					{ "jumpHeight", 600.0f },
+					{ "jumpStart", 200.0f },
+					{ "smallGridSize", 160.0f }
+				}
 			},
 			{ "popcountjungle",
-			{
-				{ "jumpHeight",700.0f },
-				{ "jumpStart", 0.0f }
-			}
+				{
+					{ "jumpHeight",700.0f },
+					{ "jumpStart", 0.0f }
+				}
 			}
 		}
 	};

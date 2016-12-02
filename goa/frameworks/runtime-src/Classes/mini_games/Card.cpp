@@ -233,38 +233,44 @@ void Card::addEvents(struct SpriteDetails sprite)
 					_programFlag = 1;
 					if (_totalSum == _pairSum)
 					{
-						for (int i = 0; i < _spriteDetails.size(); i++)
-						{
-							if (_spriteDetails.at(i)._flag == 1)
+
+						this->runAction(Sequence::create(DelayTime::create(.5), CallFunc::create([=]() {
+
+							for (int i = 0; i < _spriteDetails.size(); i++)
 							{
-								_spriteDetails.at(i)._sprite->setLocalZOrder(1);
-								_spriteDetails.at(i)._sprite->runAction(Sequence::create(
-									MoveTo::create(.5, Vec2(visibleSize.width / 2, visibleSize.height / 2)),
-									CallFunc::create([=]() {
-									removeChild(_spriteDetails.at(i)._sprite);
-									_totalSum = 0;
-									_programFlag = 0;
-									_spriteDetails.at(i)._flag = 0;
+								if (_spriteDetails.at(i)._flag == 1)
+								{
+									_spriteDetails.at(i)._sprite->setLocalZOrder(1);
+									_spriteDetails.at(i)._sprite->runAction(Sequence::create(
+										MoveTo::create(.5, Vec2(visibleSize.width / 2, visibleSize.height / 2)),
+										CallFunc::create([=]() {
 
-									_remainingCard -= _useCard;
-									_useCard = 0;
+										if (_remainingCard == 0)
+											_menuContext->showScore();
 
-									if (_remainingCard == 0)
-										_menuContext->showScore();
+										removeChild(_spriteDetails.at(i)._sprite);
+										_totalSum = 0;
+										_programFlag = 0;
+										_spriteDetails.at(i)._flag = 0;
 
-								}), NULL));
+										_remainingCard -= _useCard;
+										_useCard = 0;
+
+									}), NULL));
+								}
+								_menuContext->addPoints(2);
 							}
-							_menuContext->addPoints(2);
-						}
 
-						for (int i = 0; i < _toDoDetails.size(); i++)
-						{
-							if (_toDoDetails.at(i)._child == 1)
+							for (int i = 0; i < _toDoDetails.size(); i++)
 							{
-								_toDoDetails.at(i)._sprite->removeChild(_toDoDetails.at(i)._sprite->getChildren().at(0), true);
-								_toDoDetails.at(i)._child = 0;
+								if (_toDoDetails.at(i)._child == 1)
+								{
+									_toDoDetails.at(i)._sprite->removeChild(_toDoDetails.at(i)._sprite->getChildren().at(0), true);
+									_toDoDetails.at(i)._child = 0;
+								}
 							}
-						}
+
+						}), NULL));
 					}
 					else
 					{
@@ -278,13 +284,6 @@ void Card::addEvents(struct SpriteDetails sprite)
 									_spriteDetails.at(i)._flag = 0;
 								}
 							}
-
-/*							for (int i = 0; i < _todoSprite.size(); i++)
-							{
-								_todoSprite.at(i)->setVisible(true);
-								_doneSprite.at(i)->setVisible(false);
-							}
-*/
 
 							for (int i = 0; i < _toDoDetails.size(); i++)
 							{

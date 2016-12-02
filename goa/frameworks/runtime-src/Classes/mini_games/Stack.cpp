@@ -244,7 +244,7 @@ void Stack::generateWord()
 				stackbg->stopAction(treadmill);
 			}), NULL);
 
-			if (_helpFlag == 0)
+			if (_helpFlag == 0 && _currentLevel == 1)
 			{
 				for (auto i = 0; i < _startName.size(); i++)
 				{
