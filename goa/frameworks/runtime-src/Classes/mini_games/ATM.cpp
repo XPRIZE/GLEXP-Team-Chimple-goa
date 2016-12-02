@@ -227,19 +227,22 @@ bool ATM::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 	Rect rect = Rect(0, 0, s.width, s.height);
 	if (rect.containsPoint(location) && _touched) {  // && _touched
 		_touched = false;
-		
+		auto  audio = CocosDenshion::SimpleAudioEngine::getInstance();
 		auto scale = ScaleBy::create(0.1, 0.75);
 		target->runAction(Sequence::create(scale, scale->reverse(), NULL));
 		this->removeChildByName("help");
 
 		CCLOG(" target Name = %s", target->getName().c_str());
 		if (target->getName().compare("one") == 0) {
+			audio->playEffect("sounds/sfx/atm.ogg", false);
 			oneNotePressed();
 		}
 		else if (target->getName().compare("hundred") == 0) {
+			audio->playEffect("sounds/sfx/atm.ogg", false);
 			hundredNotePressed();
 		}
 		else if (target->getName().compare("ten") == 0) {
+			audio->playEffect("sounds/sfx/atm.ogg", false);
 			tenNotePressed();
 		}
 		else if (target->getName().compare("oneNote") == 0) {
