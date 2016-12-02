@@ -8,7 +8,7 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../lang/LangUtil.h"
 #include "../menu/HelpLayer.h"
-#include "../puzzle/Alphabet.h"
+
 #include "../StartMenuScene.h"
 #define COCOS2D_DEBUG 1
 
@@ -118,70 +118,76 @@ void SmashTheRock::begin()
     _charkey = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mychar, 2, 7, 50);
 	bool firstMychar = true;
 	int dis = (220.0 / 2560)*visibleSize.width;
-	for (int i = 1; i < 3; i++)
+	auto keyboard = Node::create();
+	float xx = 0.0f;
+	float yy = 0.0f;
+
+	for (int i = 0; i < 2; i++)
 	{
 		int blockHeight = i*(block->getContentSize().height + 110) + 10;
 		sizei = (block->getContentSize().height + 110);
 		CCLOG("sizei = %d", sizei);
-		for (int j = 1; j < 8; j++)
+		yy = i* (block->getContentSize().height * 1.6);
+		for (int j = 0; j < 7; j++)
 		{
+			xx = j * (block->getContentSize().width * 1.8);
 			auto block1 = Sprite::createWithSpriteFrameName("smash_de_rock/letter_normal.png");
 			auto right = Sprite::createWithSpriteFrameName("smash_de_rock/letter_correct.png");
 			auto wrong = Sprite::createWithSpriteFrameName("smash_de_rock/letter_wrong.png");
 			int blockWidth = j*(block->getContentSize().width + 140) + dis;
 			sizej = (block->getContentSize().width + 140);
 			CCLOG("sizej = %d", sizej);
-			block1->setAnchorPoint(Vec2(0.5, 0.5));
-			block1->setPositionX(blockWidth);
-			block1->setPositionY(blockHeight);
+			block1->setAnchorPoint(Vec2(0, 0));
+			block1->setPositionX(xx);
+			block1->setPositionY(yy);
 			block1->setScaleX(1.6);
 			block1->setScaleY(1.4);
-			right->setAnchorPoint(Vec2(0.5, 0.5));
-			right->setPositionX(blockWidth);
-			right->setPositionY(blockHeight);
+			right->setAnchorPoint(Vec2(0, 0));
+			right->setPositionX(xx);
+			right->setPositionY(yy);
 			right->setScaleX(1.6);
 			right->setScaleY(1.4);
 			right->setVisible(false);
-			wrong->setAnchorPoint(Vec2(0.5, 0.5));
-			wrong->setPositionX(blockWidth);
-			wrong->setPositionY(blockHeight);
+			wrong->setAnchorPoint(Vec2(0, 0));
+			wrong->setPositionX(xx);
+			wrong->setPositionY(yy);
 			wrong->setScaleX(1.6);
 			wrong->setScaleY(1.4);
 			wrong->setVisible(false);
 			blockRef.pushBack(block1);
 			rightRef.pushBack(right);
 			wrongRef.pushBack(wrong);
-			this->addChild(block1, 2);
+			keyboard->addChild(block1, 2);
 			//	block1->setGlobalZOrder(6);
-			this->addChild(right, 2);
+			keyboard->addChild(right, 2);
 			//	right->setGlobalZOrder(6);
-			this->addChild(wrong, 2);
+			keyboard->addChild(wrong, 2);
 			//	wrong->setGlobalZOrder(6);
 			//	std::string str = Alphabets.at(cocos2d::RandomHelper::random_int(key, (key + 20)) % 20).c_str();
-			wchar_t str1 = _charkey.at(i - 1).at(j - 1);
+			wchar_t str1 = _charkey.at(i ).at(j );
 			//std::string ttttt(&str1,1) ;
 			//label = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), ttttt);
 			//label = Label::createWithTTF(ttttt, "fonts/BalooBhai-Regular.ttf", 256);
 			//CCLOG("alpha = %s",str.c_str());
 			Alphabet *label = Alphabet::createWithSize(str1, 200);
 			//	label->setScale(0.15);
-			label->setPositionX(blockWidth);
+			label->setPositionX(xx + block->getContentSize().width/2);
 			auto letter = label->getString();
-			label->setPositionY(blockHeight - 230);
+			label->setPositionY(yy - block->getContentSize().height/2);
 			if (str1 == mychar && firstMychar)
 			{
-				helpX = blockWidth;
-				helpY = blockHeight;
+				helpX = xx +(block->getContentSize().width * 0.9);
+				helpY = yy +(block->getContentSize().height * 0.8);
 				firstMychar = false;
 			}
-			label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
+			label->setAnchorPoint(Vec2(0,0)); //Vec2::ANCHOR_MIDDLE_BOTTOM
 			auto mystr = LangUtil::convertUTF16CharToString(str1);
 			label->setName(mystr);
 			label->setScaleX(0.35);
 			label->setScaleY(0.45);
 			labelRef.pushBack(label);
 			CCLOG("alpha = %d", labelRef.size());
-			this->addChild(label, 2);
+			keyboard->addChild(label, 2);
 			//		label->setGlobalZOrder(6);
 			auto listener = EventListenerTouchOneByOne::create();
 			//listener->setSwallowTouches(true);
@@ -194,7 +200,12 @@ void SmashTheRock::begin()
 
 	}
 
-
+	keyboard->setContentSize(Size(block->getContentSize().width * 1.8 * 7, block->getContentSize().height * 1.6 * 2));
+	this->addChild(keyboard,2);
+	keyboard->setAnchorPoint(Vec2(0.5, 0.5));
+	keyboard->setPositionX(visibleSize.width / 2);
+	keyboard->setPositionY(visibleSize.height*0.25);
+	keyboard->setName("keyboard");
 
 	audio = CocosDenshion::SimpleAudioEngine::getInstance();
 	//audio->playBackgroundMusic("smash_de_rock/Smash Rock  BG sound.wav", true);
@@ -211,7 +222,10 @@ void SmashTheRock::gameHelp()
 	//game help only for first level
 
 	auto mystr = LangUtil::convertUTF16CharToString(mychar);
-	auto label = this->getChildByName(mystr);
+	auto label = this->getChildByName("keyboard")->getChildByName(mystr);
+	auto keyboard = this->getChildByName("keyboard");
+	helpX = (visibleSize.width / 2) - (keyboard->getContentSize().width / 2 - helpX);
+	helpY = (visibleSize.height *0.25) - (keyboard->getContentSize().height / 2 - helpY);
 	auto optionSize = label->getContentSize();
 	auto optionPosition = label->getPosition();
 	auto help = HelpLayer::create(Rect(helpX, helpY, 200, 200), Rect(visibleSize.width/2,visibleSize.height/2 + 480,600,800));
@@ -327,6 +341,7 @@ void SmashTheRock::masking()
 	//maskedFill->setGlobalZOrder(3);
 	if (click == 5)
 	{
+		flag = false;
 		auto audio1 = CocosDenshion::SimpleAudioEngine::getInstance();
 		audio1->playEffect("smash_de_rock/Concrete break.wav", false);
 		audio1->setEffectsVolume(10.0f);
@@ -355,6 +370,7 @@ void SmashTheRock::change(float dt)
 
 bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 {
+	auto keyboard = this->getChildByName("keyboard");
 
 	//isTouching = true;
 	//	touchPosition = touch->getLocation().x;
@@ -364,11 +380,22 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 	int dis = (220.00 / 2560)*(visibleSize.width);
 	//auto mystr = LangUtil::convertUTF16CharToString(mychar);
 	auto myletter = target->getChar();
+	auto size1 = target->getContentSize();
+	Rect rect = Rect(0, 0, size1.width,size1.height);
 	//	CCRect targetRectangle = CCRectMake(0,0, target->getContentSize().width, target->getContentSize().height);
-	if ( target->getBoundingBox().containsPoint( touch->getLocation()) && flag )
+	if (rect.containsPoint(location) && flag )
 	{
+		auto scale = ScaleBy::create(0.1, 0.75);
+		target->runAction(Sequence::create(scale, scale->reverse(), NULL));
 		menu->pickAlphabet(myletter, mychar, true);
 		flag = false;
+		int myIndex = 0;
+		for (int i = 0; i < labelRef.size(); i++) {
+			if (target == labelRef.at(i)) {
+				CCLOG("hhhhhhhiiiiiiiiii");
+				myIndex = i;
+			}
+		}
 		if (myletter == mychar)
 		{
 			int indexj = (target->getPositionX());
@@ -380,9 +407,9 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			CCLOG("tempj x = %d", tempj);
 			val = ((tempi) * 7) + tempj;
 			CCLOG("val x = %d", val);
-            auto showright = rightRef.at(val);
+            auto showright = rightRef.at(myIndex);
 			showright->setVisible(true);
-			this->removeChild(blockRef.at(val));
+			keyboard->removeChild(blockRef.at(myIndex));
 
 			_eventDispatcher->removeEventListenersForTarget(target, false);
 			hit();
@@ -404,11 +431,11 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			CCLOG("tempj1 x = %d", tempj1);
 			val1 = ((tempi1) * 7) + tempj1;
 			CCLOG("val1 x = %d", val1);
-			auto showwrong = wrongRef.at(val1);
+			auto showwrong = wrongRef.at(myIndex);
 			showwrong->setVisible(true);
 			
-			this->removeChild(labelRef.at(val1));
-			this->removeChild(blockRef.at(val1));
+			keyboard->removeChild(labelRef.at(myIndex));
+			keyboard->removeChild(blockRef.at(myIndex));
 			clickWrong++;
 			CCLOG("clickwrong = %d", clickWrong);
 			flag = true;
