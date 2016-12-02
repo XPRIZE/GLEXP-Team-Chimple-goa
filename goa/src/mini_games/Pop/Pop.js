@@ -197,19 +197,22 @@ xc.PopLayer = cc.Layer.extend({
             }
         }
         
-        setTimeout(function () {
+                        var cloudMotion = function()
+                       {
+                            for (var i = 0; i < self.cloudContainer.length; i++)
+                            {
+                                var actionDate = new cc.MoveTo(Math.floor(self.getRandomArbitrary(9, 11)), cc.p(self.cloudContainer[i].Xpos, self.cloudContainer[i].Ypos));
+                                var easeAction = new cc.EaseBackOut(actionDate);
+                                self.cloudContainer[i].runAction(easeAction);
+                            }
+                       }
+                        var palneMotion = function()
+                       {
+                          self.plane.node.runAction(cc.MoveTo.create(5, cc.p(-220, cc.director.getWinSize().height * multiplyFactor)));
+                       }
 
-            self.plane.node.runAction(cc.MoveTo.create(5, cc.p(-220, cc.director.getWinSize().height * multiplyFactor)));
-            setTimeout(function () {
+                       self.runAction(new cc.Sequence(cc.delayTime(6),new cc.CallFunc(palneMotion, self),cc.delayTime(1.7), new cc.CallFunc(cloudMotion, self)));
 
-               for (var i = 0; i < self.cloudContainer.length; i++)
-                 {
-                    var actionDate = new cc.MoveTo(Math.floor(self.getRandomArbitrary(9, 11)), cc.p(self.cloudContainer[i].Xpos, self.cloudContainer[i].Ypos));
-                    var easeAction = new cc.EaseBackOut(actionDate);
-                    self.cloudContainer[i].runAction(easeAction);
-                 }
-              }, 1750);
-          }, 6000);
 
       setTimeout(function () {  self.clickableFlag = true;   }, 17000);
       },
