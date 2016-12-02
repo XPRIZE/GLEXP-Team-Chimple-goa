@@ -139,7 +139,7 @@ void Alphamole::jumpAlphabet()
 	if (_randomBackground == 1) {
 		this->schedule(schedule_selector(Alphamole::leafOpen), 2);
 	} else{
-		this->schedule(schedule_selector(Alphamole::showAlpha), 2);
+		this->schedule(schedule_selector(Alphamole::showAlpha), 2.5);
 	}
 }
 
@@ -162,8 +162,8 @@ void Alphamole::showAlpha(float ft)
 			str = _mychar;
 			_helpLayer = true;
 			child = _background->getChildByName(holes.at(cocos2d::RandomHelper::random_int(0, 1)));
-			auto help = HelpLayer::create(Rect(child->getPositionX() + 100, child->getPositionY() + 300, 600, 600), Rect(visibleSize.width/2, visibleSize.height/1.1, 400, 400));
-			help->click(Vec2(child->getPositionX() + 100, child->getPositionY() + 300));
+			auto help = HelpLayer::create(Rect(child->getPositionX() + _Xpos, child->getPositionY() + 300, 600, 800), Rect(visibleSize.width/2, visibleSize.height/1.1, 400, 400));
+			help->click(Vec2(child->getPositionX() + _Xpos, child->getPositionY() + 300));
 			help->setName("helpLayer");
 			this->addChild(help);
 		    
@@ -184,8 +184,10 @@ void Alphamole::showAlpha(float ft)
 		_alphabetLayer->addChild(_monsterReff);
 		_monsterReff->blinkAction();
 		auto jump = JumpBy::create(1.5, Vec2(0, 0), 750, 1);
-
-		_monsterReff->runAction(Sequence::create(jump, CallFunc::create([=]() {
+		auto moveup = MoveBy::create(0.75, Vec2(0, 750));
+		auto moveDown = MoveBy::create(0.75, Vec2(0, -750));
+		
+		_monsterReff->runAction(Sequence::create(moveup,DelayTime::create(0.5),moveDown, CallFunc::create([=]() {
 			if (_helpLayer) {
 				//auto help = this->getChildByName("helpLayer");
 				this->removeChildByName("helpLayer");

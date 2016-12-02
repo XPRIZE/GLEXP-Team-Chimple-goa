@@ -38,7 +38,7 @@ public:
 	void update(float delta);
 	Node *_pizza1;
 	Node *_pizza2;
-	
+	int _gameOverFlag = 0;
 	Vec2 outlet_1;
 	Vec2 outlet_2;
 	int handleTriggered = 0;

@@ -24,7 +24,7 @@ public:
 	cocostudio::timeline::ActionTimeline *_fishTimeline;
 	HelpLayer *_help;
 	cocos2d::Size visibleSize;
-	int _level, _helpFlag = 0, _moveFlag = 0, _firstFishFlag = 0, _spriteMoved, _totalCount = 0, _posmainIndex;
+	int _level, _helpFlag = 0, _moveFlag = 0, _firstFishFlag = 0, _spriteMoved, _totalCount = 0, _totalPatch = 0,  _posmainIndex;
 	float _waterSpeed;
 
 	cocos2d::Sprite *_water, *_duplicateSprite;

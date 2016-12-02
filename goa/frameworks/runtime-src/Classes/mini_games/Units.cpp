@@ -88,8 +88,17 @@ void Units::onEnterTransitionDidFinish() {
 
 
 	auto handle = _bg->getChildByName("FileNode_3");
+	//handle->setPosition(handle->getPosition() + Vec2(50,50));
 	handle->setContentSize(Size(200, 200));
 	handle->setName("handle");
+	
+	//auto E = DrawNode::create();
+	//this->addChild(E, 10);
+	//E->drawRect(Vec2(handle->getPosition()),
+	//	Vec2(200 + handle->getPositionX(), 200 + handle->getPositionY()),
+	//	Color4F(0, 0, 255, 22));
+
+	
 	auto listener = EventListenerTouchOneByOne::create();
 	listener->onTouchBegan = CC_CALLBACK_2(Units::onTouchBegan, this);
 	listener->setSwallowTouches(false);
@@ -102,6 +111,7 @@ void Units::onEnterTransitionDidFinish() {
 	calculatorButton->setAnchorPoint(Vec2(0.5, 0.5));
 	calculatorButton->setPosition(Vec2(500, 750));
 	this->addChild(calculatorButton);
+	calculatorButton->setVisible(false);
 
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener->clone(), calculatorButton);
 
@@ -310,7 +320,7 @@ bool Units::onTouchBegan(Touch* touch, Event* event) {
 			}
 		}
 
-		if (target->getName() == "calbutton") {
+		if (target->getName() == "calbutton" && _gameOverFlag == 1) {
 
 			_calculator->resetCalculator();
 
@@ -421,6 +431,8 @@ void Units::createPizza() {
 		}
 
 		_openTimeline->play("close", false);
+		this->getChildByName("calbutton")->setVisible(true);
+		_gameOverFlag = 1;
 	}
 
 
