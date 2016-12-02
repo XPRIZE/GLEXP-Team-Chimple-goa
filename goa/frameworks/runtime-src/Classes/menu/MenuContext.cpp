@@ -7,6 +7,7 @@
 //
 
 #include "MenuContext.h"
+#include "LevelHelpScene.h"
 #include "ui/CocosGUI.h"
 #include "../StartMenuScene.h"
 #include "../MapScene.h"
@@ -775,6 +776,10 @@ void MenuContext::launchGame(std::string gameName) {
 
 
 void MenuContext::launchGameFromJS(std::string gameName) {
+    Director::getInstance()->replaceScene(LevelHelpScene::createScene(gameName));
+}
+
+void MenuContext::launchGameFinally(std::string gameName) {
     CCLOG("gameName %s", gameName.c_str());
         if(gameName == ALPHAMON_COMBAT) {
             Director::getInstance()->replaceScene(SelectAlphamon::createScene());
