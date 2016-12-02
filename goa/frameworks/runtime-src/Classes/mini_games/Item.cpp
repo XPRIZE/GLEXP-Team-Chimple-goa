@@ -168,8 +168,11 @@ void Item::onEnterTransitionDidFinish()
 		timeline2->gotoFrameAndPause(0);
 		fishCreate();
 		numCreate();
+		if (menu->getCurrentLevel() == 1 )
+		{
+			gameHelp();
+		}
 		
-		gameHelp();
 	}
 	else if (menu->getCurrentLevel() <= 25)
 	{
@@ -277,7 +280,7 @@ void Item::check()
 	_hintLabel3->setName("hintLabel3");
 	box3->addChild(_hintLabel3);
 
-	if (menu->getCurrentLevel() < 25)
+	if (menu->getCurrentLevel() <= 15)
 	{
 		auto fillNum = cocos2d::RandomHelper::random_int(0, 2);
 		if (fillNum == 0)

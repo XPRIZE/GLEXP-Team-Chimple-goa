@@ -39,12 +39,18 @@ std::vector<std::vector<wchar_t>> CharGenerator::generateMatrixForChoosingAChar(
 {
     auto matrix = generateCharMatrix(numRows, numCols);
     int minOccurence = ceil(numRows * numCols * minPercentOfOccurence / 100);
+	int randRow = rand() % numRows;
+	int randCol = rand() % numCols;
     for (int i = 0; i < minOccurence; i++) {
-        int randRow = rand() % numRows;
-        int randCol = rand() % numCols;
-        matrix[randRow][randCol] = alpha;
+		matrix[randRow % numRows][randCol % numCols] = alpha;
+		randRow++;
+		if (randRow % numRows == 0) {
+			randCol++;
+		}
     }
-    
+	for (int j = 0; j < matrix.size(); j++) {
+		std::random_shuffle(matrix.at(j).begin(), matrix.at(j).end());
+	}
     return matrix;
 }
 
