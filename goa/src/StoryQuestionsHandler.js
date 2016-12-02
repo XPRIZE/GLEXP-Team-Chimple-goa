@@ -91,7 +91,8 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
         } else if(questionType == this._Q_PICTURES) {
             var handler = new xc.PictureQuestionHandler(xc.StoryQuestionHandlerLayer.res.picture_question_choice_json, cc.director.getWinSize().width, cc.director.getWinSize().height, question, this.questionCallBack, this);
             handler.setName(this._Q_PICTURES); 
-            this._currentQName = this._Q_PICTURES;          
+            this._currentQName = this._Q_PICTURES;
+        }          
         // } else if(questionType == this._Q_WORDS && cc.sys.isNative) {
         //     var handler = new xc.WordQuestionHandler(cc.director.getWinSize().width, cc.director.getWinSize().height, question, this.questionCallBack, this);
         //     handler.setName(this._Q_WORDS); 

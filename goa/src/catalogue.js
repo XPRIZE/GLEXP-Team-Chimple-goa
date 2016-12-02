@@ -30,6 +30,7 @@ xc.CatalogueLayer = cc.Layer.extend({
 
     init: function () {
         //create new content panel for showing all stories
+        //create tile
         this.loadStories();
         this.displayStories();
     },
@@ -46,7 +47,7 @@ xc.CatalogueLayer = cc.Layer.extend({
         this._stories.forEach(function(story) {
             story.icon = xc.path + story.icon;
         });
-        this._bookShelf = new xc.ScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height), 4, 4, this._stories, this.renderStory, this, false, true);
+        this._bookShelf = new xc.StoryCoverScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height), 5, 3, this._stories, this.renderStory, this, false, true);
         this.addChild(this._bookShelf);
     },
 
