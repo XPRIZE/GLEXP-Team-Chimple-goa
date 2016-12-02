@@ -60,7 +60,7 @@ xc.TrainLayer = cc.Layer.extend({
                 var rect = cc.rect(0, 0, targetSize.width, targetSize.height);
 
                 if (cc.rectContainsPoint(rect, locationInNode)) {
-                    if (sentence[wordPosition - 1] == target.id && target.selected == 0 && !(layer1.isVisible())) {
+                    if (sentence[wordPosition - 1] == target.id && target.selected == 0 && !(layer1.isVisible()) && randomLetter[wordPosition - 1].index == target.index) {
                         layer1.setVisible(true);
                         target.stopAction(repeatForeverAction);
                         target.selected = 1;
@@ -338,6 +338,7 @@ xc.TrainLayer = cc.Layer.extend({
             this.addChild(label, 1);
             label.id = sentence[i];
             label.selected = 0;
+            label.index = i;
             label.pos = -1;
             label.xP = label.getPositionX();
             label.yP = label.getPositionY();
@@ -382,19 +383,19 @@ xc.TrainLayer = cc.Layer.extend({
                         {
                             layer1.setVisible(false);
                         }
-                        var move = new cc.MoveTo(5, cc.p(position[char].x, position[char].y));
+                        var move = new cc.MoveTo(3, cc.p(position[char].x, position[char].y));
                         randomLetter[i].runAction(new cc.Sequence(move, new cc.CallFunc(layerVisible, self)));
                     }
                     else
                     {
-                        randomLetter[i].runAction(new cc.MoveTo(5, cc.p(position[char].x, position[char].y)));
+                        randomLetter[i].runAction(new cc.MoveTo(3, cc.p(position[char].x, position[char].y)));
                     }
                     position.splice(position.indexOf(position[char]), 1);
                     i++;
                 }
             }
 
-        }, 1000);
+        }, 800);
   }
 
 });
