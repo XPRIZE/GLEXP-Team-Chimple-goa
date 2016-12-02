@@ -65,14 +65,6 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
             this.addChild(this._constructedScene.node,0);
         }        
         
-        
-
-        this._playButton = new cc.Sprite(xc.NarrateStoryLayer.res.play_png);
-        this._playButton.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
-        this.addChild(this._playButton);     
-        this._playButton.setVisible(false);   
-        this.bindTouchListener(this._playButton, "sceneTouched", false, 2);
-
         this.setUpScene();        
     },
 
@@ -111,14 +103,15 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
     
     sceneTouched: function (target) {
         //load content
-        this._playButton.setVisible(false);
-        this._playButton.removeFromParent();
         if(this._storyInformation != undefined && this._storyInformation.hasOwnProperty("pages") && this._storyInformation["pages"] != undefined && this._storyInformation["pages"].length > 0) {
             cc.log('loading story:' + this._storyInformation["pages"][0]);
             xc.NarrateStoryScene.load(0, this._storyInformation, xc.NarrateStoryLayer);
         }
     },
 
+    processText: function(sender, type) {
+        this.sceneTouched();
+    },
 
     processAudio: function(sender, type) {
         switch (type) {
@@ -148,7 +141,6 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
     showText: function() {        
         //load text file based on Current Story Id and Page index
         this._isTextShown = true;
-        this._playButton.setVisible(true);
         var langDir = goa.TextGenerator.getInstance().getLang();
         cc.log("langDir:" + langDir);
         var storyText = "";

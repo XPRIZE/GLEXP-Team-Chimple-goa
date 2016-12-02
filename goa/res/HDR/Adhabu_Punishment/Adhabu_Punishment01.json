@@ -7,6 +7,7 @@
       "Animation": {
         "Duration": 835,
         "Speed": 1.0,
+        "ActivedAnimationName": "door",
         "Timelines": [
           {
             "ActionTag": 374016089,
@@ -289,14 +290,8 @@
                 "ctype": "EventFrameData"
               },
               {
-                "Value": "door_open",
+                "Value": "",
                 "FrameIndex": 425,
-                "Tween": false,
-                "ctype": "EventFrameData"
-              },
-              {
-                "Value": "door_open",
-                "FrameIndex": 449,
                 "Tween": false,
                 "ctype": "EventFrameData"
               }
@@ -509,18 +504,12 @@
             "Frames": [
               {
                 "Value": "shine",
-                "FrameIndex": 449,
-                "Tween": false,
-                "ctype": "EventFrameData"
-              },
-              {
-                "Value": "shine",
                 "FrameIndex": 495,
                 "Tween": false,
                 "ctype": "EventFrameData"
               },
               {
-                "Value": "shine ",
+                "Value": "",
                 "FrameIndex": 555,
                 "Tween": false,
                 "ctype": "EventFrameData"
@@ -786,13 +775,7 @@
                 "ctype": "EventFrameData"
               },
               {
-                "Value": "shine",
-                "FrameIndex": 449,
-                "Tween": false,
-                "ctype": "EventFrameData"
-              },
-              {
-                "Value": "shine",
+                "Value": "",
                 "FrameIndex": 490,
                 "Tween": false,
                 "ctype": "EventFrameData"
@@ -1234,13 +1217,13 @@
             "Property": "FrameEvent",
             "Frames": [
               {
-                "Value": "walking",
+                "Value": "",
                 "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "EventFrameData"
               },
               {
-                "Value": "walking",
+                "Value": "",
                 "FrameIndex": 320,
                 "Tween": false,
                 "ctype": "EventFrameData"
@@ -3153,10 +3136,11 @@
             },
             "LeftMargin": 807.046,
             "RightMargin": 1445.954,
-            "TopMargin": 472.4261,
+            "TopMargin": 472.426,
             "BottomMargin": 594.5739,
-            "UserData": "main.door",
+            "UserData": "main.door ",
             "Tag": 1816,
+            "FrameEvent": "door_open",
             "ActionTag": -1922497324,
             "Size": {
               "X": 307.0,
@@ -3241,8 +3225,8 @@
               "X": 0.0523,
               "Y": 0.0711
             },
-            "LeftMargin": 337.8737,
-            "RightMargin": 2088.1262,
+            "LeftMargin": 337.8734,
+            "RightMargin": 2088.1265,
             "TopMargin": 982.7859,
             "BottomMargin": 689.2141,
             "UserData": "main.flower_left",
@@ -3331,8 +3315,8 @@
               "X": 0.0523,
               "Y": 0.0711
             },
-            "LeftMargin": 2210.9141,
-            "RightMargin": 215.0859,
+            "LeftMargin": 2210.9197,
+            "RightMargin": 215.0803,
             "TopMargin": 980.6924,
             "BottomMargin": 691.3076,
             "UserData": "main.flower_right",
@@ -3403,8 +3387,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 209.1995,
-              "Y": 75.8259
+              "X": 1098.5671,
+              "Y": 444.3341
             },
             "Scale": {
               "ScaleX": -0.7332,
@@ -3413,20 +3397,19 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.0817,
-              "Y": 0.0421
+              "X": 0.4291,
+              "Y": 0.2469
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 209.1995,
-            "RightMargin": 2350.8005,
-            "TopMargin": 1724.1741,
-            "BottomMargin": 75.8259,
-            "UserData": "walk;drag",
+            "LeftMargin": 1098.5671,
+            "RightMargin": 1461.4329,
+            "TopMargin": 1355.6659,
+            "BottomMargin": 444.3341,
+            "UserData": "walk;drag ",
             "Tag": 167,
-            "FrameEvent": "walking",
             "ActionTag": 78160314,
             "Size": {
               "X": 0.0,
@@ -3450,8 +3433,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 179.2338,
-              "Y": 1087.3872
+              "X": 1068.6074,
+              "Y": 1455.8943
             },
             "Scale": {
               "ScaleX": 0.6532,
@@ -3460,18 +3443,18 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.07,
-              "Y": 0.6041
+              "X": 0.4174,
+              "Y": 0.8088
             },
             "PreSize": {
               "X": 0.1887,
               "Y": 0.3583
             },
-            "LeftMargin": -62.2662,
-            "RightMargin": 2139.2661,
-            "TopMargin": 390.1128,
-            "BottomMargin": 764.8872,
-            "UserData": "main.fruit_falling",
+            "LeftMargin": 827.1074,
+            "RightMargin": 1249.8926,
+            "TopMargin": 21.6057,
+            "BottomMargin": 1133.3943,
+            "UserData": "drag;main.fruit_falling",
             "Tag": 7,
             "ActionTag": 1773292674,
             "Size": {

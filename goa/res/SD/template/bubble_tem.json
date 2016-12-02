@@ -79,7 +79,7 @@
             },
             "NormalFileData": {
               "Type": "MarkedSubImage",
-              "Path": "template/cross_button.png",
+              "Path": "template/play_button.png",
               "Plist": "template/template.plist"
             },
             "Scale9Enable": true,
@@ -160,8 +160,8 @@
             "Scale9Enable": true,
             "Scale9OriginX": 15,
             "Scale9OriginY": 11,
-            "Scale9Width": 147,
-            "Scale9Height": 154,
+            "Scale9Width": 177,
+            "Scale9Height": 185,
             "OutlineColor": {
               "G": 0,
               "B": 0
@@ -208,6 +208,51 @@
             },
             "Name": "Button_2",
             "ctype": "ButtonObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Default",
+              "Path": "Default/Sprite.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1309.5698,
+              "Y": 1638.2997
+            },
+            "Scale": {
+              "ScaleX": 2.3276,
+              "ScaleY": 2.3276
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5116,
+              "Y": 0.9102
+            },
+            "PreSize": {
+              "X": 0.1348,
+              "Y": 0.1089
+            },
+            "LeftMargin": 1137.0698,
+            "RightMargin": 1077.9302,
+            "TopMargin": 63.7003,
+            "BottomMargin": 1540.2997,
+            "Tag": 51,
+            "ActionTag": 551174107,
+            "Size": {
+              "X": 46.0,
+              "Y": 46.0
+            },
+            "Name": "alphabet_board_1",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
@@ -220,6 +265,7 @@
       "UsedResources": [
         "../Default/Button_Disable.png",
         "../Default/Button_Press.png",
+        "../Default/Sprite.png",
         "template.plist",
         "template.png"
       ],
