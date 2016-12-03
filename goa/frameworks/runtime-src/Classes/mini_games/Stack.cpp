@@ -364,14 +364,18 @@ void Stack::addEvents(struct LabelDetails sprite)
 			{
 				if ((_word.substr(0, sprite.id.length()) == sprite.id) && flag == false)
 				{
-					if (_helpFlag == 1)
+/*					if (_helpFlag == 1)
 					{
 						_helpFlag = -1;
 						removeChild(_help);
 					}
-					_menuContext->addPoints(1);
+*/					_menuContext->addPoints(1);
 					flag = true;
 					sprite.label->setColor(Color3B::GREEN);
+
+					CocosDenshion::SimpleAudioEngine *success = CocosDenshion::SimpleAudioEngine::getInstance();
+					success->playEffect("sounds/sfx/success.ogg", false);
+
 					Stack::afterAnimation(sprite);
 				}
 				else if ((_word.substr(0, sprite.id.length()) != sprite.id) && flag == false)
@@ -383,12 +387,18 @@ void Stack::addEvents(struct LabelDetails sprite)
 					stackbg->runAction(treadmill);
 					treadmill->play("treadmill", false);
 					treadmill->setAnimationEndCallFunc("treadmill", CC_CALLBACK_0(Stack::wordShow, this, _wordLabel));
+
+					CocosDenshion::SimpleAudioEngine *error = CocosDenshion::SimpleAudioEngine::getInstance();
+					error->playEffect("sounds/sfx/error.ogg", false);
 				}
 			}
 			else
 			{
 				if ((_word.substr(0, sprite.id.length()) == sprite.id) && flag == false)
 				{
+					CocosDenshion::SimpleAudioEngine *success = CocosDenshion::SimpleAudioEngine::getInstance();
+					success->playEffect("sounds/sfx/success.ogg", false);
+
 					if (_helpFlag == 1)
 					{
 						_helpFlag = -1;
@@ -411,6 +421,9 @@ void Stack::addEvents(struct LabelDetails sprite)
 				}
 				else if ((_word.substr(0, sprite.id.length()) != sprite.id) && flag == false)
 				{
+					CocosDenshion::SimpleAudioEngine *error = CocosDenshion::SimpleAudioEngine::getInstance();
+					error->playEffect("sounds/sfx/error.ogg", false);
+
 					_menuContext->addPoints(-1);
 					if (sceneName == "superhero")
 					{

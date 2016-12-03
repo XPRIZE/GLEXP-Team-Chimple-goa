@@ -15,7 +15,7 @@
                 <key>spriteSourceSize</key>
                 <string>{309,308}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{307,306}}</string>
+                <string>{{1,310},{307,306}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -30,9 +30,24 @@
                 <key>spriteSourceSize</key>
                 <string>{300,300}</string>
                 <key>textureRect</key>
-                <string>{{309,1},{298,298}}</string>
+                <string>{{1,928},{298,298}}</string>
                 <key>textureRotated</key>
                 <false/>
+            </dict>
+            <key>levelstep/done_pressed.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{307,306}</string>
+                <key>spriteSourceSize</key>
+                <string>{309,308}</string>
+                <key>textureRect</key>
+                <string>{{1,619},{307,306}}</string>
+                <key>textureRotated</key>
+                <true/>
             </dict>
             <key>levelstep/mark.png</key>
             <dict>
@@ -45,7 +60,7 @@
                 <key>spriteSourceSize</key>
                 <string>{180,287}</string>
                 <key>textureRect</key>
-                <string>{{309,301},{178,281}}</string>
+                <string>{{1,1528},{178,281}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -60,7 +75,52 @@
                 <key>spriteSourceSize</key>
                 <string>{300,300}</string>
                 <key>textureRect</key>
-                <string>{{609,1},{298,298}}</string>
+                <string>{{1,1228},{298,298}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>levelstep/present_pressed.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{306,307}</string>
+                <key>spriteSourceSize</key>
+                <string>{308,309}</string>
+                <key>textureRect</key>
+                <string>{{1,1},{306,307}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>levelstep/star.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{72,69}</string>
+                <key>spriteSourceSize</key>
+                <string>{72,69}</string>
+                <key>textureRect</key>
+                <string>{{82,1708},{72,69}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>levelstep/star_empty.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{79,75}</string>
+                <key>spriteSourceSize</key>
+                <string>{79,75}</string>
+                <key>textureRect</key>
+                <string>{{1,1708},{79,75}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -76,9 +136,9 @@
             <key>realTextureFileName</key>
             <string>levelstep.png</string>
             <key>size</key>
-            <string>{908,480}</string>
+            <string>{308,1784}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:544f67818f3dc41f47653a3b9e1243b4:335d13acf010576bfd9c40f9083b4dc7:ef6e82637e1abb9acfb0906cfb894fc1$</string>
+            <string>$TexturePacker:SmartUpdate:42bba933ee7da986c4b29a0f21e1f65b:b19a3039a4d51b1dd70ee243bf98ebbf:ef6e82637e1abb9acfb0906cfb894fc1$</string>
             <key>textureFileName</key>
             <string>levelstep.png</string>
         </dict>

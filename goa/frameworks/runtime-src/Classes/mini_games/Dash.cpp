@@ -126,7 +126,11 @@ bool Dash::init()
 	}
 	this->addChild(_bg);
 
-	
+	//CCParticleSystemQuad *_particle = CCParticleSystemQuad::create("dash/particle_texture.plist");
+	//_particle->setTexture(CCTextureCache::sharedTextureCache()->addImage("dash/particle_texture.png"));
+	////_particle->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
+	//_bg->getChildByName("cloud2_9")->addChild(_particle);
+	//
 
 	_stepLayer = Layer::create();
 	_stepLayer->setPositionX(0);

@@ -1,21 +1,219 @@
 {
-  "ID": "68556052-dc99-4b5d-b43b-94a228aa69af",
+  "ID": "d0fcfa37-3acf-47a2-bfc0-cc2ef0a554b2",
   "Version": "3.10.0.0",
   "Name": "Mwanamme_na_Mwanamke_wa_Kwanza02",
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 255,
+        "Duration": 120,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
           {
-            "ActionTag": 807429678,
+            "ActionTag": 1704202888,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1279.9985,
+                "Y": 330.0002,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1954858102,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1279.9966,
+                "Y": 233.5945,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1404329029,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 125.6602,
+                "Y": 790.5848,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 690.6044,
+                "Y": 790.5848,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -189535685,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 711.2893,
+                "Y": 793.1235,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1276.1798,
+                "Y": 793.1235,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2041456519,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1291.6334,
+                "Y": 793.1223,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1856.475,
+                "Y": 793.1223,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -11872100,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1878.1063,
+                "Y": 789.3104,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2442.874,
+                "Y": 789.3104,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -242859346,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2452.4624,
+                "Y": 789.4974,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 3017.1709,
+                "Y": 785.4974,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1990252802,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -459.34,
+                "Y": 790.5846,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 123.5024,
+                "Y": 790.5836,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1949388238,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1279.9998,
+                "Y": -93.8888,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1309026398,
             "Property": "ActionValue",
             "Frames": [
               {
-                "InnerActionType": "SingleFrame",
-                "CurrentAniamtionName": "bend",
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "bubbles",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
                 "Tween": false,
@@ -23,25 +221,9 @@
               },
               {
                 "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "walk",
+                "CurrentAniamtionName": "bubbles",
                 "SingleFrameIndex": 0,
-                "FrameIndex": 40,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              },
-              {
-                "InnerActionType": "SingleFrame",
-                "CurrentAniamtionName": "bend",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 170,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              },
-              {
-                "InnerActionType": "SingleFrame",
-                "CurrentAniamtionName": "bend",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 255,
+                "FrameIndex": 55,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -49,12 +231,12 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": 807429678,
+            "ActionTag": 1309026398,
             "Property": "Position",
             "Frames": [
               {
-                "X": 2363.76,
-                "Y": 614.5784,
+                "X": 876.8837,
+                "Y": 177.8017,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -62,22 +244,564 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 2363.76,
-                "Y": 614.5784,
-                "FrameIndex": 40,
+                "X": 876.8837,
+                "Y": 177.8017,
+                "FrameIndex": 55,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1309026398,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.2,
+                "Y": 0.2,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.2,
+                "Y": 0.2,
+                "FrameIndex": 55,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 701353978,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "bubbles",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 25,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "bubbles",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 80,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 701353978,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 266.6849,
+                "Y": 468.6744,
+                "FrameIndex": 25,
                 "EasingData": {
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
               },
               {
-                "X": 1585.0044,
-                "Y": 628.3863,
-                "FrameIndex": 170,
+                "X": 266.6849,
+                "Y": 468.6744,
+                "FrameIndex": 80,
                 "EasingData": {
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 701353978,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.2,
+                "Y": 0.2,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.2,
+                "Y": 0.2,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1521702781,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "bubbles",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 10,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "bubbles",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 65,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1521702781,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1913.9089,
+                "Y": 459.1896,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1913.9089,
+                "Y": 459.1896,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1521702781,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.2,
+                "Y": 0.2,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.2,
+                "Y": 0.2,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -812079518,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "bubbles",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 20,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "bubbles",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 75,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -812079518,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1335.3245,
+                "Y": 604.6262,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1335.3245,
+                "Y": 604.6262,
+                "FrameIndex": 75,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -812079518,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.2,
+                "Y": 0.2,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.2,
+                "Y": 0.2,
+                "FrameIndex": 75,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -576942979,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "bubbles",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "bubbles",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 55,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -576942979,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2375.5117,
+                "Y": 25.9999,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2375.5117,
+                "Y": 25.9999,
+                "FrameIndex": 55,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -576942979,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.2,
+                "Y": 0.2,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.2,
+                "Y": 0.2,
+                "FrameIndex": 55,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 335960448,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "bubbles",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 45,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "bubbles",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 100,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 335960448,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2435.5801,
+                "Y": 478.1594,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2435.5801,
+                "Y": 478.1594,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 335960448,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.2,
+                "Y": 0.2,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.2,
+                "Y": 0.2,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1242186365,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "bubbles",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 55,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "bubbles",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 110,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1242186365,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1468.1147,
+                "Y": 82.952,
+                "FrameIndex": 55,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1468.1147,
+                "Y": 82.952,
+                "FrameIndex": 110,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1242186365,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.2,
+                "Y": 0.2,
+                "FrameIndex": 55,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.2,
+                "Y": 0.2,
+                "FrameIndex": 110,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1967670250,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "bubbles",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 35,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "bubbles",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 90,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1967670250,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 728.2861,
+                "Y": 607.7867,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 728.2861,
+                "Y": 607.7867,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1967670250,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.2,
+                "Y": 0.2,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.2,
+                "Y": 0.2,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -231166988,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "sun",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -88,20 +812,20 @@
       "AnimationList": [
         {
           "StartIndex": 0,
-          "EndIndex": 255,
+          "EndIndex": 120,
           "Name": "master",
           "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
-        "Tag": 641,
+        "Tag": 183,
         "Children": [
           {
             "ClipAble": false,
             "ComboBoxIndex": 1,
             "SingleColor": {
-              "R": 189,
-              "G": 198
+              "R": 214,
+              "B": 207
             },
             "FirstColor": {
               "R": 150,
@@ -119,7 +843,7 @@
             },
             "Position": {
               "X": 1280.0,
-              "Y": 899.9996
+              "Y": 900.0
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -137,10 +861,8 @@
             },
             "LeftMargin": -720.0,
             "RightMargin": -720.0,
-            "TopMargin": 0.0005,
-            "BottomMargin": -0.0004,
-            "Tag": 677,
-            "ActionTag": -1068051823,
+            "Tag": 185,
+            "ActionTag": 1781040354,
             "Size": {
               "X": 4000.0,
               "Y": 1800.0
@@ -152,9 +874,9 @@
             "ClipAble": false,
             "ComboBoxIndex": 1,
             "SingleColor": {
-              "R": 200,
-              "G": 251,
-              "B": 108
+              "R": 144,
+              "G": 182,
+              "B": 212
             },
             "FirstColor": {
               "R": 150,
@@ -171,33 +893,85 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1280.0,
-              "Y": -38.5069
+              "X": 1279.9985,
+              "Y": 330.0002
             },
             "Scale": {
               "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleY": 0.5444
             },
-            "RotationSkewY": -0.0227,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
               "X": 0.5,
-              "Y": -0.0214
+              "Y": 0.1833
             },
             "PreSize": {
               "X": 1.5625,
-              "Y": 0.5
+              "Y": 1.0
             },
-            "LeftMargin": -720.0,
-            "RightMargin": -720.0,
-            "TopMargin": 1388.5068,
-            "BottomMargin": -488.5069,
-            "Tag": 676,
-            "ActionTag": -411847134,
+            "LeftMargin": -720.0015,
+            "RightMargin": -719.9985,
+            "TopMargin": 569.9998,
+            "BottomMargin": -569.9998,
+            "Tag": 186,
+            "ActionTag": 1704202888,
             "Size": {
               "X": 4000.0,
-              "Y": 900.0
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_0_0_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 115,
+              "G": 155,
+              "B": 186
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1279.9966,
+              "Y": 233.5945
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.4111
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.1298
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -720.0034,
+            "RightMargin": -719.9966,
+            "TopMargin": 666.4055,
+            "BottomMargin": -666.4055,
+            "Tag": 184,
+            "ActionTag": 1954858102,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
             },
             "Name": "Panel_1_0_0",
             "ctype": "PanelObjectData"
@@ -205,7 +979,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/wicket.png",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/wave.png",
               "Plist": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza.plist"
             },
             "BlendFunc": {
@@ -217,8 +991,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 176.4999,
-              "Y": 605.9806
+              "X": 125.6602,
+              "Y": 790.5848
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -227,30 +1001,30 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.0689,
-              "Y": 0.3367
+              "X": 0.0491,
+              "Y": 0.4392
             },
             "PreSize": {
-              "X": 0.1379,
-              "Y": 0.2539
+              "X": 0.152,
+              "Y": 0.03
             },
-            "LeftMargin": -0.0001,
-            "RightMargin": 2207.0,
-            "TopMargin": 965.5194,
-            "BottomMargin": 377.4806,
-            "Tag": 669,
-            "ActionTag": 815801237,
+            "LeftMargin": -68.8398,
+            "RightMargin": 2239.8398,
+            "TopMargin": 982.4152,
+            "BottomMargin": 763.5848,
+            "Tag": 187,
+            "ActionTag": 1404329029,
             "Size": {
-              "X": 353.0,
-              "Y": 457.0
+              "X": 389.0,
+              "Y": 54.0
             },
-            "Name": "wicket_1",
+            "Name": "wave_1",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/wicket.png",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/wave.png",
               "Plist": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza.plist"
             },
             "BlendFunc": {
@@ -262,8 +1036,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 553.655,
-              "Y": 601.3282
+              "X": 711.2893,
+              "Y": 793.1235
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -272,30 +1046,30 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.2163,
-              "Y": 0.3341
+              "X": 0.2778,
+              "Y": 0.4406
             },
             "PreSize": {
-              "X": 0.1379,
-              "Y": 0.2539
+              "X": 0.152,
+              "Y": 0.03
             },
-            "LeftMargin": 377.155,
-            "RightMargin": 1829.845,
-            "TopMargin": 970.1718,
-            "BottomMargin": 372.8282,
-            "Tag": 670,
-            "ActionTag": -487934629,
+            "LeftMargin": 516.7893,
+            "RightMargin": 1654.2107,
+            "TopMargin": 979.8765,
+            "BottomMargin": 766.1235,
+            "Tag": 188,
+            "ActionTag": -189535685,
             "Size": {
-              "X": 353.0,
-              "Y": 457.0
+              "X": 389.0,
+              "Y": 54.0
             },
-            "Name": "wicket_1_0",
+            "Name": "wave_1_0",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/wicket.png",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/wave.png",
               "Plist": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza.plist"
             },
             "BlendFunc": {
@@ -307,8 +1081,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 926.8133,
-              "Y": 605.2154
+              "X": 1291.6334,
+              "Y": 793.1223
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -317,30 +1091,30 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.362,
-              "Y": 0.3362
+              "X": 0.5045,
+              "Y": 0.4406
             },
             "PreSize": {
-              "X": 0.1379,
-              "Y": 0.2539
+              "X": 0.152,
+              "Y": 0.03
             },
-            "LeftMargin": 750.3133,
-            "RightMargin": 1456.6868,
-            "TopMargin": 966.2846,
-            "BottomMargin": 376.7154,
-            "Tag": 671,
-            "ActionTag": -1882232249,
+            "LeftMargin": 1097.1334,
+            "RightMargin": 1073.8666,
+            "TopMargin": 979.8777,
+            "BottomMargin": 766.1223,
+            "Tag": 189,
+            "ActionTag": 2041456519,
             "Size": {
-              "X": 353.0,
-              "Y": 457.0
+              "X": 389.0,
+              "Y": 54.0
             },
-            "Name": "wicket_1_1",
+            "Name": "wave_1_1",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/wicket.png",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/wave.png",
               "Plist": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza.plist"
             },
             "BlendFunc": {
@@ -352,8 +1126,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1311.6321,
-              "Y": 612.9892
+              "X": 1878.1063,
+              "Y": 789.3104
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -362,30 +1136,30 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5124,
-              "Y": 0.3405
+              "X": 0.7336,
+              "Y": 0.4385
             },
             "PreSize": {
-              "X": 0.1379,
-              "Y": 0.2539
+              "X": 0.152,
+              "Y": 0.03
             },
-            "LeftMargin": 1135.1321,
-            "RightMargin": 1071.8679,
-            "TopMargin": 958.5108,
-            "BottomMargin": 384.4892,
-            "Tag": 672,
-            "ActionTag": -1562758021,
+            "LeftMargin": 1683.6063,
+            "RightMargin": 487.3936,
+            "TopMargin": 983.6896,
+            "BottomMargin": 762.3104,
+            "Tag": 190,
+            "ActionTag": -11872100,
             "Size": {
-              "X": 353.0,
-              "Y": 457.0
+              "X": 389.0,
+              "Y": 54.0
             },
-            "Name": "wicket_1_2",
+            "Name": "wave_1_2",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/wicket.png",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/wave.png",
               "Plist": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza.plist"
             },
             "BlendFunc": {
@@ -397,8 +1171,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1680.9016,
-              "Y": 616.8762
+              "X": 2452.4624,
+              "Y": 789.4974
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -407,30 +1181,30 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.6566,
-              "Y": 0.3427
+              "X": 0.958,
+              "Y": 0.4386
             },
             "PreSize": {
-              "X": 0.1379,
-              "Y": 0.2539
+              "X": 0.152,
+              "Y": 0.03
             },
-            "LeftMargin": 1504.4016,
-            "RightMargin": 702.5984,
-            "TopMargin": 954.6238,
-            "BottomMargin": 388.3762,
-            "Tag": 673,
-            "ActionTag": -1407765433,
+            "LeftMargin": 2257.9624,
+            "RightMargin": -86.9624,
+            "TopMargin": 983.5026,
+            "BottomMargin": 762.4974,
+            "Tag": 191,
+            "ActionTag": -242859346,
             "Size": {
-              "X": 353.0,
-              "Y": 457.0
+              "X": 389.0,
+              "Y": 54.0
             },
-            "Name": "wicket_1_3",
+            "Name": "wave_1_3",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/wicket.png",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/wave.png",
               "Plist": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza.plist"
             },
             "BlendFunc": {
@@ -442,8 +1216,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2069.6069,
-              "Y": 624.6504
+              "X": -459.34,
+              "Y": 790.5846
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -452,168 +1226,33 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.8084,
-              "Y": 0.347
+              "X": -0.1794,
+              "Y": 0.4392
             },
             "PreSize": {
-              "X": 0.1379,
-              "Y": 0.2539
+              "X": 0.152,
+              "Y": 0.03
             },
-            "LeftMargin": 1893.1069,
-            "RightMargin": 313.8931,
-            "TopMargin": 946.8496,
-            "BottomMargin": 396.1504,
-            "Tag": 674,
-            "ActionTag": -2147150844,
+            "LeftMargin": -653.84,
+            "RightMargin": 2824.8401,
+            "TopMargin": 982.4154,
+            "BottomMargin": 763.5846,
+            "Tag": 193,
+            "ActionTag": -1990252802,
             "Size": {
-              "X": 353.0,
-              "Y": 457.0
+              "X": 389.0,
+              "Y": 54.0
             },
-            "Name": "wicket_1_4",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/wicket.png",
-              "Plist": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 2458.3123,
-              "Y": 616.8763
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.9603,
-              "Y": 0.3427
-            },
-            "PreSize": {
-              "X": 0.1379,
-              "Y": 0.2539
-            },
-            "LeftMargin": 2281.8123,
-            "RightMargin": -74.8123,
-            "TopMargin": 954.6237,
-            "BottomMargin": 388.3763,
-            "Tag": 675,
-            "ActionTag": -1087719918,
-            "Size": {
-              "X": 353.0,
-              "Y": 457.0
-            },
-            "Name": "wicket_1_5",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/bush.png",
-              "Plist": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1863.6165,
-              "Y": 480.7924
-            },
-            "Scale": {
-              "ScaleX": 0.7443,
-              "ScaleY": 0.7443
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.728,
-              "Y": 0.2671
-            },
-            "PreSize": {
-              "X": 0.3848,
-              "Y": 0.2522
-            },
-            "LeftMargin": 1371.1165,
-            "RightMargin": 203.8835,
-            "TopMargin": 1092.2076,
-            "BottomMargin": 253.7924,
-            "Tag": 668,
-            "ActionTag": -2082838590,
-            "Size": {
-              "X": 985.0,
-              "Y": 454.0
-            },
-            "Name": "bush_8_0",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/bush.png",
-              "Plist": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 487.7089,
-              "Y": 448.8145
-            },
-            "Scale": {
-              "ScaleX": 0.7443,
-              "ScaleY": 0.7443
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.1905,
-              "Y": 0.2493
-            },
-            "PreSize": {
-              "X": 0.3848,
-              "Y": 0.2522
-            },
-            "LeftMargin": -4.7911,
-            "RightMargin": 1579.7911,
-            "TopMargin": 1124.1855,
-            "BottomMargin": 221.8145,
-            "Tag": 667,
-            "ActionTag": -247462555,
-            "Size": {
-              "X": 985.0,
-              "Y": 454.0
-            },
-            "Name": "bush_8",
+            "Name": "wave_1_4",
             "ctype": "SpriteObjectData"
           },
           {
             "ClipAble": false,
             "ComboBoxIndex": 1,
             "SingleColor": {
-              "R": 221,
-              "G": 174,
-              "B": 112
+              "R": 87,
+              "G": 134,
+              "B": 171
             },
             "FirstColor": {
               "R": 150,
@@ -630,85 +1269,40 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 716.0143,
-              "Y": 1046.7623
+              "X": 1279.9998,
+              "Y": -93.8888
             },
             "Scale": {
-              "ScaleX": 0.43,
-              "ScaleY": 1.0
+              "ScaleX": 1.0,
+              "ScaleY": 0.4111
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.2797,
-              "Y": 0.5815
+              "X": 0.5,
+              "Y": -0.0522
             },
             "PreSize": {
               "X": 1.5625,
               "Y": 1.0
             },
-            "LeftMargin": -1283.9857,
-            "RightMargin": -156.0142,
-            "TopMargin": -146.7623,
-            "BottomMargin": 146.7623,
-            "Tag": 678,
-            "ActionTag": -406975329,
+            "LeftMargin": -720.0002,
+            "RightMargin": -719.9998,
+            "TopMargin": 993.8888,
+            "BottomMargin": -993.8888,
+            "Tag": 194,
+            "ActionTag": -1949388238,
             "Size": {
               "X": 4000.0,
               "Y": 1800.0
             },
-            "Name": "Panel_1_0",
+            "Name": "Panel_1_0_0_1",
             "ctype": "PanelObjectData"
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/door.png",
-              "Plist": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 613.037,
-              "Y": 798.043
-            },
-            "Scale": {
-              "ScaleX": 1.5058,
-              "ScaleY": 1.5058
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.2395,
-              "Y": 0.4434
-            },
-            "PreSize": {
-              "X": 0.2008,
-              "Y": 0.4917
-            },
-            "LeftMargin": 356.037,
-            "RightMargin": 1689.963,
-            "TopMargin": 559.457,
-            "BottomMargin": 355.543,
-            "Tag": 679,
-            "ActionTag": -62055249,
-            "Size": {
-              "X": 514.0,
-              "Y": 885.0
-            },
-            "Name": "door_32",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
               "Type": "Normal",
-              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/man.json",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/bubble.json",
               "Plist": ""
             },
             "StretchWidthEnable": false,
@@ -716,34 +1310,362 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 2363.76,
-              "Y": 614.5784
+              "X": 876.8837,
+              "Y": 177.8017
             },
             "Scale": {
-              "ScaleX": 0.8,
-              "ScaleY": 0.8
+              "ScaleX": 0.2,
+              "ScaleY": 0.2
             },
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.9233,
-              "Y": 0.3414
+              "X": 0.3425,
+              "Y": 0.0988
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 2363.76,
-            "RightMargin": 196.24,
-            "TopMargin": 1185.4216,
-            "BottomMargin": 614.5784,
-            "Tag": 644,
-            "ActionTag": 807429678,
+            "LeftMargin": 876.8837,
+            "RightMargin": 1683.1162,
+            "TopMargin": 1622.1982,
+            "BottomMargin": 177.8017,
+            "Tag": 197,
+            "ActionTag": 1309026398,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
             "Name": "FileNode_1",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/bubble.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 266.6849,
+              "Y": 468.6744
+            },
+            "Scale": {
+              "ScaleX": 0.2,
+              "ScaleY": 0.2
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1042,
+              "Y": 0.2604
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 266.6849,
+            "RightMargin": 2293.3152,
+            "TopMargin": 1331.3256,
+            "BottomMargin": 468.6744,
+            "Tag": 200,
+            "ActionTag": 701353978,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_1_0",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/bubble.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1913.9089,
+              "Y": 459.1896
+            },
+            "Scale": {
+              "ScaleX": 0.2,
+              "ScaleY": 0.2
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7476,
+              "Y": 0.2551
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1913.9089,
+            "RightMargin": 646.0911,
+            "TopMargin": 1340.8104,
+            "BottomMargin": 459.1896,
+            "Tag": 203,
+            "ActionTag": -1521702781,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_1_1",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/bubble.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1335.3245,
+              "Y": 604.6262
+            },
+            "Scale": {
+              "ScaleX": 0.2,
+              "ScaleY": 0.2
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5216,
+              "Y": 0.3359
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1335.3245,
+            "RightMargin": 1224.6755,
+            "TopMargin": 1195.3738,
+            "BottomMargin": 604.6262,
+            "Tag": 206,
+            "ActionTag": -812079518,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_1_2",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/bubble.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2375.5117,
+              "Y": 25.9999
+            },
+            "Scale": {
+              "ScaleX": 0.2,
+              "ScaleY": 0.2
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.9279,
+              "Y": 0.0144
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2375.5117,
+            "RightMargin": 184.4883,
+            "TopMargin": 1774.0001,
+            "BottomMargin": 25.9999,
+            "Tag": 209,
+            "ActionTag": -576942979,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_1_3",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/bubble.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2435.5801,
+              "Y": 478.1594
+            },
+            "Scale": {
+              "ScaleX": 0.2,
+              "ScaleY": 0.2
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.9514,
+              "Y": 0.2656
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2435.5801,
+            "RightMargin": 124.4199,
+            "TopMargin": 1321.8406,
+            "BottomMargin": 478.1594,
+            "Tag": 212,
+            "ActionTag": 335960448,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_1_4",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/bubble.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1468.1147,
+              "Y": 82.952
+            },
+            "Scale": {
+              "ScaleX": 0.2,
+              "ScaleY": 0.2
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5735,
+              "Y": 0.0461
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1468.1147,
+            "RightMargin": 1091.8853,
+            "TopMargin": 1717.048,
+            "BottomMargin": 82.952,
+            "Tag": 215,
+            "ActionTag": 1242186365,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_1_5",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/bubble.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 728.2861,
+              "Y": 607.7867
+            },
+            "Scale": {
+              "ScaleX": 0.2,
+              "ScaleY": 0.2
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.2845,
+              "Y": 0.3377
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 728.2861,
+            "RightMargin": 1831.7139,
+            "TopMargin": 1192.2134,
+            "BottomMargin": 607.7867,
+            "Tag": 218,
+            "ActionTag": -1967670250,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_1_6",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/sun.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1293.7482,
+              "Y": 1912.4352
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5054,
+              "Y": 1.0625
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1293.7482,
+            "RightMargin": 1266.2518,
+            "TopMargin": -112.4352,
+            "BottomMargin": 1912.4352,
+            "Tag": 1395,
+            "ActionTag": -231166988,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_2",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -755,9 +1677,10 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "man.json",
+        "bubble.json",
         "Mwanamme_na_Mwanamke_wa_Kwanza.plist",
-        "Mwanamme_na_Mwanamke_wa_Kwanza.png"
+        "Mwanamme_na_Mwanamke_wa_Kwanza.png",
+        "sun.json"
       ],
       "ctype": "GameFileData"
     }

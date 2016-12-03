@@ -123,14 +123,33 @@ void Units::onEnterTransitionDidFinish() {
 
 void Units::update(float delta) {
 	
-		if (_calculateFlag == 0 && _calculator->checkAnswer(_answerValue)) {
+	if (_enterPressedFlag ==0 && _calculator->isEnterPressed() && (_calculator->checkAnswer(_answerValue + 1) == false)) {
+		
+		
+		auto deductPoint = CallFunc::create([=] {
+			_menuContext->addPoints(-1);
+			_enterPressedFlag = 1;
+			CCLOG("point deducted");
+
+		});
+
+
+		auto deductPointSequence = Sequence::create(DelayTime::create(0.5), deductPoint, NULL);
+		this->runAction(deductPointSequence);
+
+	}
+
+		
+		
+		if (_calculateFlag == 0 && _calculator->checkAnswer(_answerValue) && _calculator->isEnterPressed()) {
 		
 		CCLOG("correct answer");
 		_calculateFlag = 1;
 
 		auto ShowScore = CallFunc::create([=] {
 			
-			_menuContext->addPoints(1);
+			//_menuContext->addPoints(1);
+			_menuContext->addPoints(3);
 			_menuContext->showScore();
 
 		});
@@ -351,7 +370,7 @@ void Units::addCalculator() {
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	_calculator = new Calculator();
-	_calculator->createCalculator(Vec2(500, 1150), Vec2(0.5, 0.5), 0.5, 0.5);
+	_calculator->createCalculator(Vec2(500, 1300), Vec2(0.5, 0.5), 0.7, 0.7);
 	this->addChild(_calculator,10);
 	//_calculator->setGlobalZOrder(2);
 	_calculator->setVisible(false);
