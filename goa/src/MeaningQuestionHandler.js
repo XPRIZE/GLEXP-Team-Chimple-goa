@@ -88,8 +88,10 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
             var oQuestion = this._questions[index];
             if(this._question.hasOwnProperty(oQuestion)) {
                 var realAnswer = this._question[oQuestion];
-                var remainingAnswers = this._answers.filter(function(e) { 
-                        return e !== realAnswer &&  alreadySelectedAnswers.indexOf(e) < 0;
+                cc.log('realAnswer:' + realAnswer);
+                var remainingAnswers = this._answers.filter(function(e) {
+                        cc.log('checking alreadySelectedAnswers.indexOf(e) :' + alreadySelectedAnswers.indexOf(e) );
+                        return alreadySelectedAnswers.indexOf(e) < 0;
                     }
                 );   
 

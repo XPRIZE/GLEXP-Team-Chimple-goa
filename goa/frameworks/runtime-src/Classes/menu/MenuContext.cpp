@@ -993,6 +993,7 @@ void MenuContext::showScore() {
     pauseNodeAndDescendants(_main);
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    CCLOG("Points: %d MaxPoints: %d", _points, _maxPoints);
     int stars = round(_points * 3.0/_maxPoints);
 
     std::string progressStr;

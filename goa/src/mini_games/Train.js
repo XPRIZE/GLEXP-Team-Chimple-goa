@@ -329,7 +329,7 @@ xc.TrainLayer = cc.Layer.extend({
 
         for (var i = 0; i < random; i++) {
 
-            var label = new cc.LabelTTF(sentence[i], "Arial", 150);
+            var label = new cc.LabelTTF(sentence[i], "Arial", 100);
             label.attr({
                 x: position[i].x,
                 y: position[i].y

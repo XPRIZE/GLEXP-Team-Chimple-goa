@@ -5,10 +5,169 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 270,
+        "Duration": 400,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "rat",
         "Timelines": [
+          {
+            "ActionTag": -63524229,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 280,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 400,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -63524229,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1904.9449,
+                "Y": 966.8675,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -200.0,
+                "Y": 966.8675,
+                "FrameIndex": 400,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -63524229,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 400,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -63524229,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 400,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1322521589,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1894.7349,
+                "Y": 856.598,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1322521589,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.8168,
+                "Y": 0.8168,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1322521589,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1322521589,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "ratsqueak",
+                "FrameIndex": 280,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": -1372668215,
             "Property": "ActionValue",
@@ -319,6 +478,12 @@
           "EndIndex": 270,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 280,
+          "EndIndex": 400,
+          "Name": "rat",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -377,6 +542,47 @@
           },
           {
             "FileData": {
+              "Type": "Normal",
+              "Path": "Demane_and_Demazane/rat.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1904.9449,
+              "Y": 966.8675
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7441,
+              "Y": 0.5371
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1904.9449,
+            "RightMargin": 655.0551,
+            "TopMargin": 833.1325,
+            "BottomMargin": 966.8675,
+            "Tag": 4903,
+            "ActionTag": -63524229,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "rat",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
               "Type": "MarkedSubImage",
               "Path": "Demane_and_Demazane/demane_tree.png",
               "Plist": "Demane_and_Demazane/Demane_and_Demazane.plist"
@@ -411,7 +617,9 @@
             "RightMargin": -481.2349,
             "TopMargin": 393.402,
             "BottomMargin": 306.598,
+            "UserData": "main.rat",
             "Tag": 2865,
+            "FrameEvent": "ratsqueak",
             "ActionTag": 1322521589,
             "Size": {
               "X": 2293.0,
@@ -431,7 +639,7 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": -359.6645,
+              "X": 1200.0,
               "Y": 147.548
             },
             "Scale": {
@@ -441,18 +649,18 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": -0.1405,
+              "X": 0.4688,
               "Y": 0.082
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -359.6645,
-            "RightMargin": 2919.6646,
+            "LeftMargin": 1200.0,
+            "RightMargin": 1360.0,
             "TopMargin": 1652.452,
             "BottomMargin": 147.548,
-            "UserData": "hi;drag",
+            "UserData": "walk;drag",
             "Tag": 3940,
             "ActionTag": -1372668215,
             "Size": {
@@ -473,7 +681,7 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": -602.3521,
+              "X": 800.0,
               "Y": 132.8405
             },
             "Scale": {
@@ -483,18 +691,18 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": -0.2353,
+              "X": 0.3125,
               "Y": 0.0738
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -602.3521,
-            "RightMargin": 3162.3521,
+            "LeftMargin": 800.0,
+            "RightMargin": 1760.0,
             "TopMargin": 1667.1595,
             "BottomMargin": 132.8405,
-            "UserData": "hi;drag",
+            "UserData": "walk;drag",
             "Tag": 3990,
             "ActionTag": -1086373581,
             "Size": {
@@ -516,7 +724,8 @@
         "boy.json",
         "Demane_and_Demazane.plist",
         "Demane_and_Demazane.png",
-        "girl.json"
+        "girl.json",
+        "rat.json"
       ],
       "ctype": "GameFileData"
     }

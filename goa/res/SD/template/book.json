@@ -1,0 +1,198 @@
+{
+  "ID": "8ca252e3-8b00-4541-8ce1-6074dc7cec11",
+  "Version": "3.10.0.0",
+  "Name": "book",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 22,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "template/book.png",
+              "Plist": "template/template.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -12.7354,
+              "Y": 24.6024
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -175.2354,
+            "RightMargin": -149.7646,
+            "TopMargin": -229.1024,
+            "BottomMargin": -179.8976,
+            "Tag": 25,
+            "ActionTag": -548202384,
+            "Size": {
+              "X": 325.0,
+              "Y": 385.0
+            },
+            "Name": "book",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": -2.9142,
+              "Y": -82.1022
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -2.9142,
+            "RightMargin": 2.9142,
+            "TopMargin": 82.1022,
+            "BottomMargin": -82.1022,
+            "Tag": 26,
+            "ActionTag": -418173698,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "Node",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "FontSize": 20,
+            "IsCustomSize": true,
+            "LabelText": "",
+            "PlaceHolderText": "Text Field",
+            "MaxLengthText": 10,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.7153,
+              "Y": 87.271
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -127.2847,
+            "RightMargin": -128.7153,
+            "TopMargin": -177.271,
+            "BottomMargin": -2.729,
+            "Tag": 27,
+            "ActionTag": 1154721532,
+            "Size": {
+              "X": 256.0,
+              "Y": 180.0
+            },
+            "Name": "TextField",
+            "ctype": "TextFieldObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "template/book_inside.png",
+              "Plist": "template/template.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -12.7844,
+              "Y": 214.632
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -175.2844,
+            "RightMargin": -149.7156,
+            "TopMargin": -239.132,
+            "BottomMargin": 190.132,
+            "Tag": 28,
+            "ActionTag": -147458980,
+            "Size": {
+              "X": 325.0,
+              "Y": 49.0
+            },
+            "Name": "book_inside_3",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "template.plist",
+        "template.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

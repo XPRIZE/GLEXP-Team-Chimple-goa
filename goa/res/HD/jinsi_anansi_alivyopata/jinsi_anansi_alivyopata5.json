@@ -5,10 +5,71 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 145,
+        "Duration": 245,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "pig",
         "Timelines": [
+          {
+            "ActionTag": 1350251978,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 137.0641,
+                "Y": 91.6534,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1350251978,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1350251978,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 3.6394,
+                "Y": 3.6218,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1350251978,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "bush",
+                "FrameIndex": 160,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 1132908410,
             "Property": "ActionValue",
@@ -91,6 +152,22 @@
                 "FrameIndex": 85,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 160,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 245,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -112,6 +189,24 @@
                 "X": 500.0,
                 "Y": 282.6978,
                 "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -500.2858,
+                "Y": 282.6978,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 500.0,
+                "Y": 282.6978,
+                "FrameIndex": 245,
                 "EasingData": {
                   "Type": 0
                 },
@@ -141,6 +236,24 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.5,
+                "Y": 0.5,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.5,
+                "Y": 0.5,
+                "FrameIndex": 245,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -162,6 +275,24 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 245,
                 "EasingData": {
                   "Type": 0
                 },
@@ -311,6 +442,12 @@
           "StartIndex": 0,
           "EndIndex": 145,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 160,
+          "EndIndex": 245,
+          "Name": "pig",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -1154,7 +1291,9 @@
             "RightMargin": 1913.9359,
             "TopMargin": 1410.3467,
             "BottomMargin": -206.3466,
+            "UserData": "main.pig",
             "Tag": 132,
+            "FrameEvent": "bush",
             "ActionTag": 1350251978,
             "Size": {
               "X": 1018.0,
