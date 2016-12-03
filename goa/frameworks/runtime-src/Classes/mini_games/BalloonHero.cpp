@@ -84,27 +84,35 @@ void BalloonHero::onEnterTransitionDidFinish() {
 
 		case 1: _set1 =  TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+				_hint = "Catch the nouns";
 				break;
 		case 2: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ADJECTIVE, 10, 1);
 				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::PRONOUN, 10, 1); 
+				_hint = "Catch the adjectives";
 				break;
 		case 3: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ARTICLE, 10, 1);
 				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::PREPOSITION, 10, 1);
+				_hint = "Catch the articles";
 				break;
 		case 4: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::CONJUNCTION, 10, 1);
 				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::INTERJECTION, 10, 1);
+				_hint = "Catch the conjuctions";
 				break;
 		case 5: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::INTERJECTION, 10, 1);
+				_hint = "Catch the nouns";
 				break;
 		case 6: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::CONJUNCTION, 10, 1);
 				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+				_hint = "Catch the conjuctions";
 				break;
 		case 7: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ADJECTIVE, 10, 1);
 				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::PREPOSITION, 10, 1);
+				_hint = "Catch the prepositions";
 				break;
 		case 8: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ARTICLE, 10, 1);
 				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::PRONOUN, 10, 1);
+				_hint = "Catch the articles";
 				break;
 
 		}
@@ -121,27 +129,35 @@ void BalloonHero::onEnterTransitionDidFinish() {
 
 		case 9: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 10: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 11: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 12: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 13: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 14: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 15: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 16: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 
 		}
@@ -158,27 +174,35 @@ void BalloonHero::onEnterTransitionDidFinish() {
 
 		case 17: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 18: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 29: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 20: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 21: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 22: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 23: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 24: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 
 		}
@@ -196,27 +220,35 @@ void BalloonHero::onEnterTransitionDidFinish() {
 
 		case 25: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 26: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 27: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 28: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 29: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 30: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 31: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 32: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 
 		}
@@ -234,27 +266,35 @@ void BalloonHero::onEnterTransitionDidFinish() {
 
 		case 33: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 34: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 35: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 36: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 37: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 38: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 39: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 40: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 
 		}
@@ -272,27 +312,35 @@ void BalloonHero::onEnterTransitionDidFinish() {
 
 		case 41: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 42: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 43: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 44: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 45: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 46: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 47: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 48: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 
 		}
@@ -309,27 +357,35 @@ void BalloonHero::onEnterTransitionDidFinish() {
 
 		case 49: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 50: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 51: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 52: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 53: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 54: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 55: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 56: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 
 		}
@@ -347,27 +403,35 @@ void BalloonHero::onEnterTransitionDidFinish() {
 
 		case 57: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 58: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 59: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 60: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 61: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 62: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 63: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 64: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 
 		}
@@ -385,27 +449,35 @@ void BalloonHero::onEnterTransitionDidFinish() {
 
 		case 65: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 66: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 67: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 68: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 69: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 70: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 71: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 		case 72: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
+			_hint = "Catch the nouns";
 			break;
 
 		}
@@ -414,7 +486,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 	
 
 
-	//_sceneNumber = 3;
+	_sceneNumber = 1;
 
 	std::string mainSceneplist;
 
@@ -585,6 +657,22 @@ void BalloonHero::onEnterTransitionDidFinish() {
 
 	generateObjectsAndMove();
 
+
+	cocos2d::ui::Text * _label;
+
+	//_hint = "Catch the antonyms";
+	_label = ui::Text::create();
+	_label->setFontName("fonts/digital.ttf");
+	_label->setString(_hint);
+	_label->setFontSize(100);
+	
+	_label->setPosition(Vec2(visibleSize.width/2, visibleSize.height * 0.95));
+	_label->setAnchorPoint(Vec2(0.5, 0.5));
+	_label->setName("label");
+	_label->setTextColor(Color4B::BLUE);
+	_label->setColor(Color3B::RED);
+
+	this->addChild(_label,20);
 
 	this->scheduleUpdate();
 	
