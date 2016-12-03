@@ -60,6 +60,7 @@ CC_CONSTRUCTOR_ACCESS:
     void launchGame(std::string gameName);
     
     static void launchGameFromJS(std::string gameName);
+    static void launchGameFinally(std::string gameName);
     
 protected:
     int _points;

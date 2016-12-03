@@ -144,7 +144,10 @@ void Card::onEnterTransitionDidFinish()
 
 	if (_level == 1)
 	{
-		_help = HelpLayer::create(Rect(_spriteDetails.at(0)._sprite->getChildByName("box_1")->getPositionX() + _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.width * .73, _spriteDetails.at(0)._sprite->getChildByName("box_1")->getPositionY() + _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.height * 105 / 100, _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.width, _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.height * 2), Rect(_board->getPositionX(), _board->getPositionY() - _board->getContentSize().height / 2, _board->getContentSize().width, _board->getContentSize().height));
+		auto origin = Director::getInstance()->getVisibleOrigin();
+
+		_help = HelpLayer::create(Rect(_spriteDetails.at(0)._sprite->getPositionX(), _spriteDetails.at(0)._sprite->getPositionY() - _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.width / 2, _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.width, _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.height * 1.5), Rect(_board->getPositionX(), _board->getPositionY() - _board->getContentSize().height / 2, _board->getContentSize().width, _board->getContentSize().height));
+//		_help = HelpLayer::create(Rect(_spriteDetails.at(0)._sprite->getChildByName("box_1")->getPositionX() + _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.width * .73, _spriteDetails.at(0)._sprite->getChildByName("box_1")->getPositionY() + _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.height * 105 / 100, _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.width, _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.height * 2), Rect(_board->getPositionX(), _board->getPositionY() - _board->getContentSize().height / 2, _board->getContentSize().width, _board->getContentSize().height));
 		addChild(_help, 5);
 		_help->clickTwice(Vec2(_spriteDetails.at(0)._sprite->getChildByName("box_1")->getPositionX() + _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.width/2, _spriteDetails.at(0)._sprite->getChildByName("box_1")->getPositionY() + _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.height/ 2), Vec2(_spriteDetails.at(0)._sprite->getChildByName("box_1")->getPositionX() + _spriteDetails.at(0)._sprite->getChildByName("box_1")->getBoundingBox().size.width / 2, _spriteDetails.at(3)._sprite->getChildByName("box_1")->getPositionY() + _spriteDetails.at(3)._sprite->getChildByName("box_1")->getBoundingBox().size.height * 1.5));
 		_helpFlag = 1;
@@ -230,38 +233,44 @@ void Card::addEvents(struct SpriteDetails sprite)
 					_programFlag = 1;
 					if (_totalSum == _pairSum)
 					{
-						for (int i = 0; i < _spriteDetails.size(); i++)
-						{
-							if (_spriteDetails.at(i)._flag == 1)
+
+						this->runAction(Sequence::create(DelayTime::create(.5), CallFunc::create([=]() {
+
+							for (int i = 0; i < _spriteDetails.size(); i++)
 							{
-								_spriteDetails.at(i)._sprite->setLocalZOrder(1);
-								_spriteDetails.at(i)._sprite->runAction(Sequence::create(
-									MoveTo::create(.5, Vec2(visibleSize.width / 2, visibleSize.height / 2)),
-									CallFunc::create([=]() {
-									removeChild(_spriteDetails.at(i)._sprite);
-									_totalSum = 0;
-									_programFlag = 0;
-									_spriteDetails.at(i)._flag = 0;
+								if (_spriteDetails.at(i)._flag == 1)
+								{
+									_spriteDetails.at(i)._sprite->setLocalZOrder(1);
+									_spriteDetails.at(i)._sprite->runAction(Sequence::create(
+										MoveTo::create(.5, Vec2(visibleSize.width / 2, visibleSize.height / 2)),
+										CallFunc::create([=]() {
 
-									_remainingCard -= _useCard;
-									_useCard = 0;
+										if (_remainingCard == 0)
+											_menuContext->showScore();
 
-									if (_remainingCard == 0)
-										_menuContext->showScore();
+										removeChild(_spriteDetails.at(i)._sprite);
+										_totalSum = 0;
+										_programFlag = 0;
+										_spriteDetails.at(i)._flag = 0;
 
-								}), NULL));
+										_remainingCard -= _useCard;
+										_useCard = 0;
+
+									}), NULL));
+								}
+								_menuContext->addPoints(2);
 							}
-							_menuContext->addPoints(2);
-						}
 
-						for (int i = 0; i < _toDoDetails.size(); i++)
-						{
-							if (_toDoDetails.at(i)._child == 1)
+							for (int i = 0; i < _toDoDetails.size(); i++)
 							{
-								_toDoDetails.at(i)._sprite->removeChild(_toDoDetails.at(i)._sprite->getChildren().at(0), true);
-								_toDoDetails.at(i)._child = 0;
+								if (_toDoDetails.at(i)._child == 1)
+								{
+									_toDoDetails.at(i)._sprite->removeChild(_toDoDetails.at(i)._sprite->getChildren().at(0), true);
+									_toDoDetails.at(i)._child = 0;
+								}
 							}
-						}
+
+						}), NULL));
 					}
 					else
 					{
@@ -275,13 +284,6 @@ void Card::addEvents(struct SpriteDetails sprite)
 									_spriteDetails.at(i)._flag = 0;
 								}
 							}
-
-/*							for (int i = 0; i < _todoSprite.size(); i++)
-							{
-								_todoSprite.at(i)->setVisible(true);
-								_doneSprite.at(i)->setVisible(false);
-							}
-*/
 
 							for (int i = 0; i < _toDoDetails.size(); i++)
 							{

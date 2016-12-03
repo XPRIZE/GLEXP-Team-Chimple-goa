@@ -7,6 +7,7 @@
 //
 
 #include "MenuContext.h"
+#include "LevelHelpScene.h"
 #include "ui/CocosGUI.h"
 #include "../StartMenuScene.h"
 #include "../MapScene.h"
@@ -775,6 +776,10 @@ void MenuContext::launchGame(std::string gameName) {
 
 
 void MenuContext::launchGameFromJS(std::string gameName) {
+    Director::getInstance()->replaceScene(LevelHelpScene::createScene(gameName));
+}
+
+void MenuContext::launchGameFinally(std::string gameName) {
     CCLOG("gameName %s", gameName.c_str());
         if(gameName == ALPHAMON_COMBAT) {
             Director::getInstance()->replaceScene(SelectAlphamon::createScene());
@@ -988,6 +993,7 @@ void MenuContext::showScore() {
     pauseNodeAndDescendants(_main);
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    CCLOG("Points: %d MaxPoints: %d", _points, _maxPoints);
     int stars = round(_points * 3.0/_maxPoints);
 
     std::string progressStr;

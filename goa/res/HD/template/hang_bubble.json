@@ -1,0 +1,165 @@
+{
+  "ID": "55d6d4ca-d2c2-431f-8d7b-92074adac499",
+  "Version": "3.10.0.0",
+  "Name": "hang_bubble",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 52,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "template/hang_bubble.png",
+              "Plist": "template/template.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -1.1444,
+              "Y": -166.4489
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -675.1444,
+            "RightMargin": -672.8556,
+            "TopMargin": -32.0511,
+            "BottomMargin": -364.9489,
+            "Tag": 53,
+            "ActionTag": -1374448139,
+            "Size": {
+              "X": 1348.0,
+              "Y": 397.0
+            },
+            "Name": "hang_bubble_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "template/sound_button.png",
+              "Plist": "template/template.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 556.6564,
+              "Y": -212.9466
+            },
+            "Scale": {
+              "ScaleX": 0.7768,
+              "ScaleY": 0.7768
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 453.1564,
+            "RightMargin": -660.1564,
+            "TopMargin": 109.4466,
+            "BottomMargin": -316.4466,
+            "Tag": 55,
+            "ActionTag": 1424770592,
+            "Size": {
+              "X": 207.0,
+              "Y": 207.0
+            },
+            "Name": "sound_button_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FontSize": 20,
+            "IsCustomSize": true,
+            "LabelText": "",
+            "PlaceHolderText": "Text Field",
+            "MaxLengthText": 10,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -89.4356,
+              "Y": -207.556
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -639.4356,
+            "RightMargin": -460.5644,
+            "TopMargin": 82.556,
+            "BottomMargin": -332.556,
+            "Tag": 64,
+            "ActionTag": 857958409,
+            "Size": {
+              "X": 1100.0,
+              "Y": 250.0
+            },
+            "Name": "TextField_1",
+            "ctype": "TextFieldObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "template.plist",
+        "template.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

@@ -243,8 +243,8 @@ void Stack::generateWord()
 				flag = false;
 				stackbg->stopAction(treadmill);
 			}), NULL);
-
-			if (_helpFlag == 0)
+/*
+			if (_helpFlag == 0 && _currentLevel == 1)
 			{
 				for (auto i = 0; i < _startName.size(); i++)
 				{
@@ -258,7 +258,7 @@ void Stack::generateWord()
 				addChild(_help, 5);
 				_helpFlag = 1;
 			}
-
+*/
 			int pos = std::find(_startName.begin(), _startName.end(), _word.substr(0, 2)) - _startName.begin();
 			_trayfillbar->setColor(_color.at(pos));
 			_suckpipebar->setColor(_color.at(pos));
@@ -285,7 +285,7 @@ void Stack::generateWord()
 			treadmill->play("treadmill", false);
 			treadmill->setAnimationEndCallFunc("treadmill", CC_CALLBACK_0(Stack::wordShow, this, _wordLabel));
 			
-			if (_helpFlag == 0)
+/*			if (_helpFlag == 0 && _currentLevel == 1)
 			{
 				for (auto i = 0; i < _startName.size(); i++)
 				{
@@ -299,7 +299,7 @@ void Stack::generateWord()
 				addChild(_help, 5);
 				_helpFlag = 1;
 			}
-		}
+*/		}
 		else if (sceneName == "farm")
 		{
 			_wordLabel->setPosition(-200, visibleSize.height * .22);
@@ -314,7 +314,7 @@ void Stack::generateWord()
 			_tray->runAction(treadmill);
 			treadmill->play("treadmill", true);
 			
-			if (_helpFlag == 0)
+			if (_helpFlag == 0 && _currentLevel == 1)
 			{
 				for (auto i = 0; i < _startName.size(); i++)
 				{
@@ -416,6 +416,13 @@ void Stack::addEvents(struct LabelDetails sprite)
 					{
 						auto charTimeline = CSLoader::createTimeline("superheroes/superheroes.csb");
 						charNode->runAction(charTimeline);
+						charTimeline->play("wrong", false);
+					}
+
+					if (sceneName == "farm")
+					{
+						auto charTimeline = CSLoader::createTimeline("stackfarm/cow.csb");
+						_tray->runAction(charTimeline);
 						charTimeline->play("wrong", false);
 					}
 				}

@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 320,
+        "Duration": 405,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "dogstand",
         "Timelines": [
           {
             "ActionTag": 1545119432,
@@ -37,6 +37,21 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -440975646,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fire",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -80,8 +95,24 @@
               {
                 "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "stand",
-                "SingleFrameIndex": 155,
+                "SingleFrameIndex": 100,
                 "FrameIndex": 320,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "stand",
+                "SingleFrameIndex": 100,
+                "FrameIndex": 325,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "stand",
+                "SingleFrameIndex": 100,
+                "FrameIndex": 405,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -137,6 +168,12 @@
           "StartIndex": 0,
           "EndIndex": 320,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 325,
+          "EndIndex": 405,
+          "Name": "dogstand",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -291,7 +328,7 @@
               "X": 388.0,
               "Y": 109.0
             },
-            "Name": "MbwanaMamba_ground1_3",
+            "Name": "ground",
             "ctype": "SpriteObjectData"
           },
           {
@@ -336,8 +373,49 @@
               "X": 216.0,
               "Y": 256.0
             },
-            "Name": "MbwanaMamba_fire_1",
+            "Name": "fire",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mbwa_na_Mamba/fire.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1661.1516,
+              "Y": 937.4489
+            },
+            "Scale": {
+              "ScaleX": 0.7233,
+              "ScaleY": 0.7233
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.6489,
+              "Y": 0.5208
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1661.1516,
+            "RightMargin": 898.8484,
+            "TopMargin": 862.5511,
+            "BottomMargin": 937.4489,
+            "Tag": 520,
+            "ActionTag": -440975646,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_3",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -381,7 +459,7 @@
               "X": 520.0,
               "Y": 367.0
             },
-            "Name": "MbwanaMamba_stove_2",
+            "Name": "stove",
             "ctype": "SpriteObjectData"
           },
           {
@@ -426,7 +504,7 @@
               "X": 732.0,
               "Y": 347.0
             },
-            "Name": "MbwanaMamba_bag2_4",
+            "Name": "bag_2",
             "ctype": "SpriteObjectData"
           },
           {
@@ -753,7 +831,7 @@
               "X": 949.0,
               "Y": 542.0
             },
-            "Name": "MbwanaMamba_mat_12",
+            "Name": "mat",
             "ctype": "SpriteObjectData"
           },
           {
@@ -767,8 +845,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 440.7025,
-              "Y": 420.3979
+              "X": 1502.1757,
+              "Y": 811.2096
             },
             "Scale": {
               "ScaleX": -1.2458,
@@ -777,24 +855,25 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.1721,
-              "Y": 0.2336
+              "X": 0.5868,
+              "Y": 0.4507
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 440.7025,
-            "RightMargin": 2119.2974,
-            "TopMargin": 1379.6021,
-            "BottomMargin": 420.3979,
+            "LeftMargin": 1502.1757,
+            "RightMargin": 1057.8243,
+            "TopMargin": 988.7904,
+            "BottomMargin": 811.2096,
+            "UserData": "main.dogstand",
             "Tag": 79,
             "ActionTag": 542651442,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "dog",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -807,6 +886,7 @@
       },
       "UsedResources": [
         "dog.json",
+        "fire.json",
         "Mbwa_na_Mamba.plist",
         "Mbwa_na_Mamba.png"
       ],
