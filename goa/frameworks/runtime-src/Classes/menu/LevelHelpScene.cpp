@@ -11,7 +11,7 @@
 #include "../GameScene.h"
 #include "storage/local-storage/LocalStorage.h"
 #include "ui/CocosGUI.h"
-
+#include "platform/CCFileUtils.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -52,23 +52,32 @@ bool LevelHelpScene::initWithGame(std::string gameName) {
     if(!currentLevelStr.empty()) {
         _currentLevel = std::atoi( currentLevelStr.c_str());
     }
+    auto plistFile = FileUtils::getInstance()->fullPathForFilename("config/game_levels.plist");
+    ValueMap dict = FileUtils::getInstance()->getValueMapFromFile(plistFile);
+
+    CCASSERT( !dict.empty(), "config/game_levels.plist: file not found");
+    
+    _helpText = dict[gameName + "_" + currentLevelStr].asString();
+    if(_helpText.empty()) {
+        _helpText = dict[gameName + "_1"].asString();
+    }
+    
     return true;
 }
 
 void LevelHelpScene::onEnterTransitionDidFinish() {
-    auto button = Button::create("menu/menu.png", "menu/menu.png", "menu/menu.png", Widget::TextureResType::LOCAL);
+    auto button = Button::create("hadithi_kumhusu_wangari/Hadithi_kumhusu_wangari_thumbnail.png", "hadithi_kumhusu_wangari/Hadithi_kumhusu_wangari_thumbnail.png", "hadithi_kumhusu_wangari/Hadithi_kumhusu_wangari_thumbnail.png", Widget::TextureResType::LOCAL);
     button->addTouchEventListener(CC_CALLBACK_2(LevelHelpScene::gotoGame, this));
     button->setPosition(Vec2(1280, 900));
     addChild(button);
     
-//    auto text = Text::create("At HDFC Bank, it has been our constant endeavour to extend convenience beyond your banking transactions. If you wish to send or receive money, you no longer need to remember bank account numbers or IFSC codes. Presenting HDFC Bank UPI (Unified Payment Interface) - the easiest way to do money transfers with just a Virtual Payment Address (VPA). Click here to know more", "Arial", 64);
-//    text->setPosition(Vec2(1280, 300));
-////    text->setContentSize(Size(1200, 400));
-//    text->setTextAreaSize(Size(1200, 0));
-//    text->ignoreContentAdaptWithSize(true);
-//    addChild(text);
-//    
-//    videoPlayStart("alphamon_duel");
+    auto text = Text::create(_helpText, "Arial", 64);
+    text->setPosition(Vec2(1280, 300));
+//    text->setContentSize(Size(1200, 400));
+    text->setTextAreaSize(Size(1200, 0));
+    text->ignoreContentAdaptWithSize(true);
+    addChild(text);
+//    videoPlayStart(_gameName);
 }
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
@@ -92,9 +101,7 @@ void LevelHelpScene::videoEventCallback(Ref* sender, cocos2d::experimental::ui::
 void LevelHelpScene::videoPlayStart(std::string gameName)
 {
     std::string videoName = "generic";
-    if(!gameName.empty()) {
-        videoName = gameName;
-    }
+    gameName = gameName + "_";
     auto tv = Sprite::create("TV.png");
     tv->setScaleX(0.73);
     tv->setScaleY(0.70);

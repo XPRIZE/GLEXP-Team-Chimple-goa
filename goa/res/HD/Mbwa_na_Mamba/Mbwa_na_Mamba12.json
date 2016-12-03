@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 380,
+        "Duration": 430,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "fish",
         "Timelines": [
           {
             "ActionTag": -827280763,
@@ -111,6 +111,25 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -827280763,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 380,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 385,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 851108339,
             "Property": "ActionValue",
             "Frames": [
@@ -198,6 +217,25 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 851108339,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 380,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 385,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -298,6 +336,25 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1764557922,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 380,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 385,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -404,6 +461,25 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 297794649,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 380,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 385,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -1664497043,
             "Property": "ActionValue",
             "Frames": [
@@ -491,6 +567,25 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1664497043,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 380,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 385,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -597,6 +692,25 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -724676349,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 380,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 385,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 1116151040,
             "Property": "ActionValue",
             "Frames": [
@@ -605,22 +719,6 @@
                 "CurrentAniamtionName": "breath",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              },
-              {
-                "InnerActionType": "NoLoopAction",
-                "CurrentAniamtionName": "stand",
-                "SingleFrameIndex": 155,
-                "FrameIndex": 180,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              },
-              {
-                "InnerActionType": "SingleFrame",
-                "CurrentAniamtionName": "stand",
-                "SingleFrameIndex": 155,
-                "FrameIndex": 240,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -658,6 +756,160 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 5534818,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 809.989,
+                "Y": 1382.4946,
+                "FrameIndex": 385,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 5534818,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.8,
+                "Y": 0.8,
+                "FrameIndex": 380,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 5534818,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Mbwa_na_Mamba/Mbwa_na_Mamba02/character0001.png",
+                  "Plist": "Mbwa_na_Mamba/Mbwa_na_Mamba02/Mbwa_na_Mamba02.plist"
+                },
+                "FrameIndex": 385,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Mbwa_na_Mamba/Mbwa_na_Mamba02/character0002.png",
+                  "Plist": "Mbwa_na_Mamba/Mbwa_na_Mamba02/Mbwa_na_Mamba02.plist"
+                },
+                "FrameIndex": 390,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Mbwa_na_Mamba/Mbwa_na_Mamba02/character0003.png",
+                  "Plist": "Mbwa_na_Mamba/Mbwa_na_Mamba02/Mbwa_na_Mamba02.plist"
+                },
+                "FrameIndex": 395,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Mbwa_na_Mamba/Mbwa_na_Mamba02/character0004.png",
+                  "Plist": "Mbwa_na_Mamba/Mbwa_na_Mamba02/Mbwa_na_Mamba02.plist"
+                },
+                "FrameIndex": 400,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Mbwa_na_Mamba/Mbwa_na_Mamba02/character0005.png",
+                  "Plist": "Mbwa_na_Mamba/Mbwa_na_Mamba02/Mbwa_na_Mamba02.plist"
+                },
+                "FrameIndex": 405,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Mbwa_na_Mamba/Mbwa_na_Mamba02/character0006.png",
+                  "Plist": "Mbwa_na_Mamba/Mbwa_na_Mamba02/Mbwa_na_Mamba02.plist"
+                },
+                "FrameIndex": 410,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Mbwa_na_Mamba/Mbwa_na_Mamba02/character0007.png",
+                  "Plist": "Mbwa_na_Mamba/Mbwa_na_Mamba02/Mbwa_na_Mamba02.plist"
+                },
+                "FrameIndex": 415,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Mbwa_na_Mamba/Mbwa_na_Mamba02/character0008.png",
+                  "Plist": "Mbwa_na_Mamba/Mbwa_na_Mamba02/Mbwa_na_Mamba02.plist"
+                },
+                "FrameIndex": 420,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Mbwa_na_Mamba/Mbwa_na_Mamba02/character0009.png",
+                  "Plist": "Mbwa_na_Mamba/Mbwa_na_Mamba02/Mbwa_na_Mamba02.plist"
+                },
+                "FrameIndex": 425,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 5534818,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 380,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 385,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 430,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -667,6 +919,12 @@
           "StartIndex": 0,
           "EndIndex": 380,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 385,
+          "EndIndex": 445,
+          "Name": "fish",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -719,6 +977,7 @@
             "RightMargin": -833.8914,
             "TopMargin": 966.8091,
             "BottomMargin": -166.8091,
+            "UserData": "main.fish",
             "Tag": 165,
             "ActionTag": 1401043799,
             "Size": {
@@ -779,6 +1038,7 @@
             "RightMargin": 1468.0364,
             "TopMargin": 143.1975,
             "BottomMargin": 1456.8025,
+            "UserData": "main.fish",
             "Tag": 168,
             "ActionTag": -447429008,
             "Size": {
@@ -799,36 +1059,36 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1954.374,
-              "Y": 490.6253
+              "X": 862.3497,
+              "Y": 1104.4408
             },
             "Scale": {
               "ScaleX": 0.2247,
               "ScaleY": 0.2247
             },
-            "RotationSkewX": 13.3172,
-            "RotationSkewY": 13.3038,
+            "RotationSkewX": 13.319,
+            "RotationSkewY": 13.2851,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.7634,
-              "Y": 0.2726
+              "X": 0.3369,
+              "Y": 0.6136
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1954.374,
-            "RightMargin": 605.626,
-            "TopMargin": 1309.3748,
-            "BottomMargin": 490.6253,
+            "LeftMargin": 862.3497,
+            "RightMargin": 1697.6504,
+            "TopMargin": 695.5592,
+            "BottomMargin": 1104.4408,
             "Tag": 2097,
             "ActionTag": -827280763,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_0_1",
+            "Name": "croc",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -842,36 +1102,36 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 2025.9698,
-              "Y": 372.5842
+              "X": 780.2276,
+              "Y": 1045.6995
             },
             "Scale": {
               "ScaleX": 0.2247,
               "ScaleY": 0.2247
             },
-            "RotationSkewX": 13.3172,
-            "RotationSkewY": 13.2962,
+            "RotationSkewX": 13.319,
+            "RotationSkewY": 13.2851,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.7914,
-              "Y": 0.207
+              "X": 0.3048,
+              "Y": 0.5809
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 2025.9698,
-            "RightMargin": 534.0302,
-            "TopMargin": 1427.4158,
-            "BottomMargin": 372.5842,
+            "LeftMargin": 780.2276,
+            "RightMargin": 1779.7725,
+            "TopMargin": 754.3005,
+            "BottomMargin": 1045.6995,
             "Tag": 2118,
             "ActionTag": 851108339,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_0_2",
+            "Name": "croc",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -885,36 +1145,36 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 2236.7837,
-              "Y": 144.5488
+              "X": 266.7418,
+              "Y": 987.1311
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "RotationSkewX": 13.296,
-            "RotationSkewY": 13.3008,
+            "RotationSkewX": 13.289,
+            "RotationSkewY": 13.278,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.8737,
-              "Y": 0.0803
+              "X": 0.1042,
+              "Y": 0.5484
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 2236.7837,
-            "RightMargin": 323.2163,
-            "TopMargin": 1655.4512,
-            "BottomMargin": 144.5488,
+            "LeftMargin": 266.7418,
+            "RightMargin": 2293.2583,
+            "TopMargin": 812.8689,
+            "BottomMargin": 987.1311,
             "Tag": 2034,
             "ActionTag": 1764557922,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "croc",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -928,36 +1188,36 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 2003.6013,
-              "Y": 53.6493
+              "X": 179.8173,
+              "Y": 815.5067
             },
             "Scale": {
               "ScaleX": 0.2247,
               "ScaleY": 0.2247
             },
-            "RotationSkewX": 13.3172,
-            "RotationSkewY": 13.1897,
+            "RotationSkewX": 13.3455,
+            "RotationSkewY": 13.2049,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.7827,
-              "Y": 0.0298
+              "X": 0.0702,
+              "Y": 0.4531
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 2003.6013,
-            "RightMargin": 556.3987,
-            "TopMargin": 1746.3507,
-            "BottomMargin": 53.6493,
+            "LeftMargin": 179.8173,
+            "RightMargin": 2380.1826,
+            "TopMargin": 984.4933,
+            "BottomMargin": 815.5067,
             "Tag": 2139,
             "ActionTag": 297794649,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_0_3",
+            "Name": "croc",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -971,36 +1231,36 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1456.4955,
-              "Y": 153.6471
+              "X": 12.1205,
+              "Y": 808.1514
             },
             "Scale": {
               "ScaleX": 0.2247,
               "ScaleY": 0.2247
             },
-            "RotationSkewX": 13.3172,
-            "RotationSkewY": 13.3152,
+            "RotationSkewX": 13.3492,
+            "RotationSkewY": 13.3172,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.5689,
-              "Y": 0.0854
+              "X": 0.0047,
+              "Y": 0.449
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1456.4955,
-            "RightMargin": 1103.5045,
-            "TopMargin": 1646.3529,
-            "BottomMargin": 153.6471,
+            "LeftMargin": 12.1205,
+            "RightMargin": 2547.8794,
+            "TopMargin": 991.8486,
+            "BottomMargin": 808.1514,
             "Tag": 2055,
             "ActionTag": -1664497043,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_0",
+            "Name": "croc",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1014,36 +1274,36 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1578.7402,
-              "Y": 54.3484
+              "X": 7.0339,
+              "Y": 726.3306
             },
             "Scale": {
               "ScaleX": 0.2247,
               "ScaleY": 0.2247
             },
-            "RotationSkewX": 13.3172,
-            "RotationSkewY": 13.3133,
+            "RotationSkewX": 13.3492,
+            "RotationSkewY": 13.3332,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.6167,
-              "Y": 0.0302
+              "X": 0.0027,
+              "Y": 0.4035
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1578.7402,
-            "RightMargin": 981.2598,
-            "TopMargin": 1745.6516,
-            "BottomMargin": 54.3484,
+            "LeftMargin": 7.0339,
+            "RightMargin": 2552.9661,
+            "TopMargin": 1073.6694,
+            "BottomMargin": 726.3306,
             "Tag": 2076,
             "ActionTag": -724676349,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_0_0",
+            "Name": "croc",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1099,6 +1359,7 @@
             "RightMargin": 1454.8796,
             "TopMargin": 224.6205,
             "BottomMargin": 1375.3795,
+            "UserData": "main.fish",
             "Tag": 2029,
             "ActionTag": 859100226,
             "Size": {
@@ -1152,7 +1413,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_1_1_1",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1199,7 +1460,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_0_1_1",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1246,7 +1507,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_1_1_0",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1293,7 +1554,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_0_1_0",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1329,14 +1590,61 @@
             "RightMargin": 2285.8931,
             "TopMargin": 1706.1891,
             "BottomMargin": 93.8109,
+            "UserData": "main.fish",
             "Tag": 2160,
             "ActionTag": 1116151040,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "croc",
             "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mbwa_na_Mamba/Mbwa_na_Mamba02/character0001.png",
+              "Plist": "Mbwa_na_Mamba/Mbwa_na_Mamba02/Mbwa_na_Mamba02.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 809.989,
+              "Y": 1382.4946
+            },
+            "Scale": {
+              "ScaleX": 0.8,
+              "ScaleY": 0.8
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3164,
+              "Y": 0.7681
+            },
+            "PreSize": {
+              "X": 0.018,
+              "Y": 0.0256
+            },
+            "LeftMargin": 184.489,
+            "RightMargin": 1124.511,
+            "TopMargin": 0.0054,
+            "BottomMargin": 964.9946,
+            "Tag": 5521,
+            "ActionTag": 5534818,
+            "Size": {
+              "X": 1251.0,
+              "Y": 835.0
+            },
+            "VisibleForFrame": false,
+            "Name": "Sprite_1",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
@@ -1350,7 +1658,9 @@
         "croc.json",
         "dog.json",
         "Mbwa_na_Mamba.plist",
-        "Mbwa_na_Mamba.png"
+        "Mbwa_na_Mamba.png",
+        "Mbwa_na_Mamba02/Mbwa_na_Mamba02.plist",
+        "Mbwa_na_Mamba02/Mbwa_na_Mamba02.png"
       ],
       "ctype": "GameFileData"
     }

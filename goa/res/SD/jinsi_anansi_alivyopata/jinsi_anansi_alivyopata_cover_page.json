@@ -392,9 +392,9 @@
           {
             "FlipX": true,
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "jinsi_anansi_alivyopata/jinsi_leaves.png",
-              "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
+              "Type": "Default",
+              "Path": "Default/Sprite.png",
+              "Plist": ""
             },
             "BlendFunc": {
               "Src": 1,
@@ -1527,9 +1527,9 @@
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "jinsi_anansi_alivyopata/jinsi_leaves.png",
-              "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
+              "Type": "Default",
+              "Path": "Default/Sprite.png",
+              "Plist": ""
             },
             "BlendFunc": {
               "Src": 1,
@@ -2121,6 +2121,7 @@
         "ctype": "LayerObjectData"
       },
       "UsedResources": [
+        "../Default/Sprite.png",
         "jinsi_anansi_alivyopata.plist",
         "jinsi_anansi_alivyopata.png",
         "spider.json"

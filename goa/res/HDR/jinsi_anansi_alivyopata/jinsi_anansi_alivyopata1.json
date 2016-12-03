@@ -5,9 +5,8 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 130,
+        "Duration": 260,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -54420598,
@@ -85,6 +84,187 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -243038164,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1116.0586,
+                "Y": 78.0939,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -243038164,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -243038164,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -585889321,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "leaves",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "leaves",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 60,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "leaves",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 130,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -585889321,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -60.105,
+                "Y": 1855.2395,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -60.105,
+                "Y": 1855.2395,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -60.105,
+                "Y": 1855.2395,
+                "FrameIndex": 130,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -585889321,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 130,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -585889321,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 130,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -2093792230,
             "Property": "ActionValue",
             "Frames": [
@@ -112,8 +292,8 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 868.9445,
-                "Y": 2000.0,
+                "X": 837.5109,
+                "Y": 1524.0042,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -174,6 +354,174 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 130,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1286148136,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "leaves",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "leaves",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 60,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "leaves",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 130,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "leaves",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 260,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1286148136,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2616.0049,
+                "Y": 1843.6509,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2616.0049,
+                "Y": 1843.6509,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2616.0049,
+                "Y": 1843.6509,
+                "FrameIndex": 130,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2616.0049,
+                "Y": 1843.6509,
+                "FrameIndex": 260,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1286148136,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 130,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 260,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1286148136,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 130,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 260,
                 "EasingData": {
                   "Type": 0
                 },
@@ -405,97 +753,6 @@
             "ctype": "PanelObjectData"
           },
           {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "jinsi_anansi_alivyopata/jinsi_leaves.png",
-              "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 2339.4551,
-              "Y": 1629.2418
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.9138,
-              "Y": 0.9051
-            },
-            "PreSize": {
-              "X": 0.3137,
-              "Y": 0.2939
-            },
-            "LeftMargin": 1937.9551,
-            "RightMargin": -180.9551,
-            "TopMargin": -93.7418,
-            "BottomMargin": 1364.7418,
-            "Tag": 82,
-            "ActionTag": 318213349,
-            "Size": {
-              "X": 803.0,
-              "Y": 529.0
-            },
-            "Name": "leaves_52",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FlipX": true,
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "jinsi_anansi_alivyopata/jinsi_leaves.png",
-              "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 235.4428,
-              "Y": 1625.6698
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.092,
-              "Y": 0.9031
-            },
-            "PreSize": {
-              "X": 0.3137,
-              "Y": 0.2939
-            },
-            "LeftMargin": -166.0572,
-            "RightMargin": 1923.0571,
-            "TopMargin": -90.1698,
-            "BottomMargin": 1361.1698,
-            "Tag": 83,
-            "ActionTag": -731083432,
-            "Size": {
-              "X": 803.0,
-              "Y": 529.0
-            },
-            "Name": "leaves_52_0",
-            "ctype": "SpriteObjectData"
-          },
-          {
             "ClipAble": false,
             "ComboBoxIndex": 1,
             "SingleColor": {},
@@ -515,7 +772,7 @@
             },
             "Position": {
               "X": 869.7484,
-              "Y": 2003.6968
+              "Y": 800.0
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -525,7 +782,7 @@
             "IconVisible": false,
             "PrePosition": {
               "X": 0.3397,
-              "Y": 1.1132
+              "Y": 0.4444
             },
             "PreSize": {
               "X": 0.0031,
@@ -533,8 +790,8 @@
             },
             "LeftMargin": 865.7499,
             "RightMargin": 1686.2531,
-            "TopMargin": -1501.2319,
-            "BottomMargin": 2003.6968,
+            "TopMargin": -297.5352,
+            "BottomMargin": 800.0,
             "Tag": 80,
             "ActionTag": -54420598,
             "Size": {
@@ -543,48 +800,6 @@
             },
             "Name": "thread",
             "ctype": "PanelObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "jinsi_anansi_alivyopata/spider.json",
-              "Plist": ""
-            },
-            "StretchWidthEnable": false,
-            "StretchHeightEnable": false,
-            "InnerActionSpeed": 1.0,
-            "AnchorPoint": {},
-            "Position": {
-              "X": 868.9445,
-              "Y": 2000.0
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": true,
-            "PrePosition": {
-              "X": 0.3394,
-              "Y": 1.1111
-            },
-            "PreSize": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "LeftMargin": 868.9445,
-            "RightMargin": 1691.0554,
-            "TopMargin": -200.0,
-            "BottomMargin": 2000.0,
-            "UserData": "walking;drag",
-            "Tag": 68,
-            "ActionTag": -2093792230,
-            "Size": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "Name": "spider",
-            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -2236,6 +2451,132 @@
             },
             "Name": "grass_1_1_0_0_1",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "jinsi_anansi_alivyopata/leaves.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -60.105,
+              "Y": 1855.2395
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.0235,
+              "Y": 1.0307
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -60.105,
+            "RightMargin": 2620.105,
+            "TopMargin": -55.2395,
+            "BottomMargin": 1855.2395,
+            "UserData": "leaves",
+            "Tag": 249,
+            "ActionTag": -585889321,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "leaves_0",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "jinsi_anansi_alivyopata/spider.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 868.9445,
+              "Y": 441.3753
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.3394,
+              "Y": 0.2452
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 868.9445,
+            "RightMargin": 1691.0554,
+            "TopMargin": 1358.6248,
+            "BottomMargin": 441.3753,
+            "UserData": "walking;drag",
+            "Tag": 68,
+            "ActionTag": -2093792230,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "spider",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "jinsi_anansi_alivyopata/leaves.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2616.0049,
+              "Y": 1843.6509
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.0219,
+              "Y": 1.0243
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2616.0049,
+            "RightMargin": -56.0049,
+            "TopMargin": -43.6509,
+            "BottomMargin": 1843.6509,
+            "UserData": "fall",
+            "Tag": 485,
+            "ActionTag": -1286148136,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "leaves_0_0",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -2248,6 +2589,7 @@
       "UsedResources": [
         "jinsi_anansi_alivyopata.plist",
         "jinsi_anansi_alivyopata.png",
+        "leaves.json",
         "spider.json"
       ],
       "ctype": "GameFileData"

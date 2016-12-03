@@ -5,7 +5,7 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 200,
+        "Duration": 290,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
@@ -93,6 +93,24 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              },
+              {
+                "X": 1610.2748,
+                "Y": 1572.8658,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1610.2748,
+                "Y": 1572.8658,
+                "FrameIndex": 245,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -181,6 +199,24 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.78,
+                "Y": 0.78,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.01,
+                "Y": 0.01,
+                "FrameIndex": 245,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -265,6 +301,24 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 245,
                 "EasingData": {
                   "Type": 0
                 },
@@ -520,104 +574,6 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 175,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.0,
-                "Y": 0.0,
-                "FrameIndex": 200,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": -66244325,
-            "Property": "ActionValue",
-            "Frames": [
-              {
-                "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "run",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 0,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              },
-              {
-                "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "run",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 200,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": -66244325,
-            "Property": "Position",
-            "Frames": [
-              {
-                "X": -275.0082,
-                "Y": 189.505,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 1624.9771,
-                "Y": 229.5554,
-                "FrameIndex": 200,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": -66244325,
-            "Property": "Scale",
-            "Frames": [
-              {
-                "X": 0.5,
-                "Y": 0.5,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.5,
-                "Y": 0.5,
-                "FrameIndex": 200,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": -66244325,
-            "Property": "RotationSkew",
-            "Frames": [
-              {
-                "X": 0.0,
-                "Y": 0.0,
-                "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
                 },
@@ -652,6 +608,14 @@
                 "CurrentAniamtionName": "run",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 200,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 205,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -679,6 +643,15 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              },
+              {
+                "X": 1300.0149,
+                "Y": 66.4675,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -700,6 +673,15 @@
                 "X": -1.0,
                 "Y": 1.0,
                 "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 205,
                 "EasingData": {
                   "Type": 0
                 },
@@ -729,6 +711,122 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -742559286,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "walk",
+                "FrameIndex": 75,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -914454808,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -117.2772,
+                "Y": 235.4612,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -135.006,
+                "Y": -260.9505,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -914454808,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -914454808,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -914454808,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "Jump",
+                "FrameIndex": 250,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -741,6 +839,18 @@
           "StartIndex": 0,
           "EndIndex": 200,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 205,
+          "EndIndex": 245,
+          "Name": "cloud",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 250,
+          "EndIndex": 290,
+          "Name": "grass",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -811,7 +921,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1583.8794,
+              "X": 1582.6796,
               "Y": 1572.8658
             },
             "Scale": {
@@ -821,15 +931,15 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.6187,
+              "X": 0.6182,
               "Y": 0.8738
             },
             "PreSize": {
               "X": 0.2223,
               "Y": 0.1267
             },
-            "LeftMargin": 1299.3794,
-            "RightMargin": 691.6206,
+            "LeftMargin": 1298.1796,
+            "RightMargin": 692.8204,
             "TopMargin": 113.1342,
             "BottomMargin": 1458.8658,
             "Tag": 4289,
@@ -856,7 +966,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 509.3997,
+              "X": 512.4398,
               "Y": 1297.865
             },
             "Scale": {
@@ -866,15 +976,15 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.199,
+              "X": 0.2002,
               "Y": 0.721
             },
             "PreSize": {
               "X": 0.2223,
               "Y": 0.1267
             },
-            "LeftMargin": 224.8997,
-            "RightMargin": 1766.1003,
+            "LeftMargin": 227.9398,
+            "RightMargin": 1763.0603,
             "TopMargin": 388.135,
             "BottomMargin": 1183.865,
             "Tag": 4290,
@@ -901,8 +1011,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1054.3979,
-              "Y": 154.5386
+              "X": 1054.3973,
+              "Y": 150.5385
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -912,16 +1022,16 @@
             "IconVisible": false,
             "PrePosition": {
               "X": 0.4119,
-              "Y": 0.0859
+              "Y": 0.0836
             },
             "PreSize": {
               "X": 0.8238,
               "Y": 0.17
             },
-            "LeftMargin": -0.1021,
-            "RightMargin": 451.1021,
-            "TopMargin": 1492.4614,
-            "BottomMargin": 1.5386,
+            "LeftMargin": -0.1027,
+            "RightMargin": 451.1025,
+            "TopMargin": 1496.4614,
+            "BottomMargin": -2.4615,
             "Tag": 3291,
             "ActionTag": -1046836029,
             "Size": {
@@ -934,48 +1044,6 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "Kisirusiru_mjinga_Kisirusiru/animal_animation.json",
-              "Plist": ""
-            },
-            "StretchWidthEnable": false,
-            "StretchHeightEnable": false,
-            "InnerActionSpeed": 1.0,
-            "AnchorPoint": {},
-            "Position": {
-              "X": -66.0098,
-              "Y": 193.9106
-            },
-            "Scale": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "CColor": {},
-            "IconVisible": true,
-            "PrePosition": {
-              "X": -0.0258,
-              "Y": 0.1077
-            },
-            "PreSize": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "LeftMargin": -66.0098,
-            "RightMargin": 2626.0098,
-            "TopMargin": 1606.0895,
-            "BottomMargin": 193.9106,
-            "UserData": "run:drag",
-            "Tag": 3738,
-            "ActionTag": -66244325,
-            "Size": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "Name": "goat",
-            "ctype": "ProjectNodeObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
               "Path": "Kisirusiru_mjinga_Kisirusiru/boy.json",
               "Plist": ""
             },
@@ -984,8 +1052,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": -268.4353,
-              "Y": 93.1202
+              "X": 656.774,
+              "Y": 77.3981
             },
             "Scale": {
               "ScaleX": -1.0,
@@ -994,18 +1062,18 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": -0.1049,
-              "Y": 0.0517
+              "X": 0.2566,
+              "Y": 0.043
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -268.4353,
-            "RightMargin": 2828.4353,
-            "TopMargin": 1706.8798,
-            "BottomMargin": 93.1202,
-            "UserData": "run:drag",
+            "LeftMargin": 656.774,
+            "RightMargin": 1903.226,
+            "TopMargin": 1722.6019,
+            "BottomMargin": 77.3981,
+            "UserData": "run;drag",
             "Tag": 3695,
             "ActionTag": -742559286,
             "Size": {
@@ -1014,6 +1082,187 @@
             },
             "Name": "boy",
             "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kisirusiru_mjinga_Kisirusiru/Kisirusiru_grass.png",
+              "Plist": "Kisirusiru_mjinga_Kisirusiru/Kisirusiru_mjinga_Kisirusiru.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -46.8674,
+              "Y": 100.1572
+            },
+            "Scale": {
+              "ScaleX": 0.41,
+              "ScaleY": 0.41
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0183,
+              "Y": 0.0556
+            },
+            "PreSize": {
+              "X": 0.1336,
+              "Y": 0.2783
+            },
+            "LeftMargin": -217.8674,
+            "RightMargin": 2435.8674,
+            "TopMargin": 1449.3428,
+            "BottomMargin": -150.3428,
+            "Tag": 3791,
+            "ActionTag": -763119696,
+            "Size": {
+              "X": 342.0,
+              "Y": 501.0
+            },
+            "Name": "Kisirusiru_grass_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kisirusiru_mjinga_Kisirusiru/Kisirusiru_grass.png",
+              "Plist": "Kisirusiru_mjinga_Kisirusiru/Kisirusiru_mjinga_Kisirusiru.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -158.0816,
+              "Y": 100.7257
+            },
+            "Scale": {
+              "ScaleX": 0.41,
+              "ScaleY": 0.41
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0618,
+              "Y": 0.056
+            },
+            "PreSize": {
+              "X": 0.1336,
+              "Y": 0.2783
+            },
+            "LeftMargin": -329.0816,
+            "RightMargin": 2547.0815,
+            "TopMargin": 1448.7743,
+            "BottomMargin": -149.7743,
+            "Tag": 3792,
+            "ActionTag": 1415507985,
+            "Size": {
+              "X": 342.0,
+              "Y": 501.0
+            },
+            "Name": "Kisirusiru_grass_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kisirusiru_mjinga_Kisirusiru/Kisirusiru_grass.png",
+              "Plist": "Kisirusiru_mjinga_Kisirusiru/Kisirusiru_mjinga_Kisirusiru.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -247.6069,
+              "Y": 99.1366
+            },
+            "Scale": {
+              "ScaleX": 0.41,
+              "ScaleY": 0.41
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0967,
+              "Y": 0.0551
+            },
+            "PreSize": {
+              "X": 0.1336,
+              "Y": 0.2783
+            },
+            "LeftMargin": -418.6069,
+            "RightMargin": 2636.6069,
+            "TopMargin": 1450.3634,
+            "BottomMargin": -151.3634,
+            "Tag": 3793,
+            "ActionTag": -139254515,
+            "Size": {
+              "X": 342.0,
+              "Y": 501.0
+            },
+            "Name": "Kisirusiru_grass_2_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kisirusiru_mjinga_Kisirusiru/Kisirusiru_grass.png",
+              "Plist": "Kisirusiru_mjinga_Kisirusiru/Kisirusiru_mjinga_Kisirusiru.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -117.2772,
+              "Y": 235.4612
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0458,
+              "Y": 0.1308
+            },
+            "PreSize": {
+              "X": 0.1336,
+              "Y": 0.2783
+            },
+            "LeftMargin": -288.2772,
+            "RightMargin": 2506.2773,
+            "TopMargin": 1314.0388,
+            "BottomMargin": -15.0388,
+            "UserData": "main.grass",
+            "Tag": 3790,
+            "ActionTag": -914454808,
+            "Size": {
+              "X": 342.0,
+              "Y": 501.0
+            },
+            "Name": "Kisirusiru_grass_1",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
@@ -1024,7 +1273,6 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "animal_animation.json",
         "boy.json",
         "Kisirusiru_mjinga_Kisirusiru.plist",
         "Kisirusiru_mjinga_Kisirusiru.png"

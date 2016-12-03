@@ -14,23 +14,25 @@
 USING_NS_CC;
 
 bool Alphabet::onTouchBegan(Touch* touch, Event* event){
-    auto n = getParent()->convertTouchToNodeSpace(touch);
-    auto rect = this->getBoundingBox();
-    
-    //adjust for the font height since baloo bhai has extra space
-    if(rect.size.height > _fontSize) {
-        rect.setRect(rect.origin.x, rect.origin.y + (rect.size.height - _fontSize) / 2, rect.size.width, _fontSize);
-    }
-    if(rect.containsPoint(n))
-    {
-//        auto overlay = DrawNode::create();
-//        overlay->drawSolidRect(rect.origin, rect.size, Color4F(128.0, 128.0, 128.0, 128.0));
-//        getParent()->addChild(overlay);
-        selected(!isSelected());
-        auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-        audio->playEffect(LangUtil::getInstance()->getAlphabetSoundFileName(_alphabet).c_str());
-        if(touchBeganCallback) {
-            return touchBeganCallback(touch, event);
+    if(getParent()) {
+        auto n = getParent()->convertTouchToNodeSpace(touch);
+        auto rect = this->getBoundingBox();
+        
+        //adjust for the font height since baloo bhai has extra space
+        if(rect.size.height > _fontSize) {
+            rect.setRect(rect.origin.x, rect.origin.y + (rect.size.height - _fontSize) / 2, rect.size.width, _fontSize);
+        }
+        if(rect.containsPoint(n))
+        {
+            //        auto overlay = DrawNode::create();
+            //        overlay->drawSolidRect(rect.origin, rect.size, Color4F(128.0, 128.0, 128.0, 128.0));
+            //        getParent()->addChild(overlay);
+            selected(!isSelected());
+            auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+            audio->playEffect(LangUtil::getInstance()->getAlphabetSoundFileName(_alphabet).c_str());
+            if(touchBeganCallback) {
+                return touchBeganCallback(touch, event);
+            }
         }
     }
     

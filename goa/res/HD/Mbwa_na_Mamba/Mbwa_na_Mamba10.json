@@ -5,19 +5,111 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 180,
+        "Duration": 300,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "cheetajump",
         "Timelines": [
+          {
+            "ActionTag": 1087172431,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1087172431,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1190.6726,
+                "Y": 908.8927,
+                "FrameIndex": 185,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1187.9286,
+                "Y": 1040.5701,
+                "FrameIndex": 230,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1087172431,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 0.3946,
+                "FrameIndex": 185,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 230,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1087172431,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 180,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 185,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 2134925437,
             "Property": "ActionValue",
             "Frames": [
               {
                 "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "dogwalk",
+                "CurrentAniamtionName": "dogrun",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "dogrun",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 185,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -60,6 +152,14 @@
                 "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "crocwalk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 185,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -97,6 +197,12 @@
           "StartIndex": 0,
           "EndIndex": 180,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 185,
+          "EndIndex": 300,
+          "Name": "cheetajump",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -200,6 +306,8 @@
             "RightMargin": -875.9683,
             "TopMargin": 500.022,
             "BottomMargin": -500.022,
+            "CallBackType": "Click",
+            "UserData": "main.cheetajump",
             "Tag": 123,
             "ActionTag": 1208371915,
             "Size": {
@@ -255,7 +363,7 @@
               "X": 810.0,
               "Y": 689.0
             },
-            "Name": "MbwanaMamba_tree1_5",
+            "Name": "tree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -304,7 +412,7 @@
               "X": 810.0,
               "Y": 689.0
             },
-            "Name": "MbwanaMamba_tree1_5_2",
+            "Name": "tree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -350,7 +458,7 @@
               "X": 810.0,
               "Y": 689.0
             },
-            "Name": "MbwanaMamba_tree1_5_0",
+            "Name": "tree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -395,8 +503,50 @@
               "X": 810.0,
               "Y": 689.0
             },
-            "Name": "MbwanaMamba_tree1_5_1",
+            "Name": "tree",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mbwa_na_Mamba/cheeta.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1190.6726,
+              "Y": 908.8927
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.3946
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.4651,
+              "Y": 0.5049
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1190.6726,
+            "RightMargin": 1369.3274,
+            "TopMargin": 891.1073,
+            "BottomMargin": 908.8927,
+            "Tag": 2863,
+            "ActionTag": 1087172431,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "VisibleForFrame": false,
+            "Name": "cheeta",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -440,7 +590,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_1_1",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -485,7 +635,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_2_1",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -530,7 +680,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_0",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -575,7 +725,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -610,13 +760,14 @@
             "RightMargin": 605.6382,
             "TopMargin": 1200.6555,
             "BottomMargin": 599.3445,
+            "UserData": "main.cheetajump",
             "Tag": 1874,
             "ActionTag": 2134925437,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "dog",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -651,13 +802,14 @@
             "RightMargin": -992.8979,
             "TopMargin": 1155.1104,
             "BottomMargin": 644.8896,
+            "UserData": "main.cheetajump",
             "Tag": 1853,
             "ActionTag": 191358124,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "croc",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -704,7 +856,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_0_0",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -751,7 +903,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_2_0",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -798,7 +950,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_3",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           }
         ],
@@ -810,6 +962,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "cheeta.json",
         "croc.json",
         "dog.json",
         "Mbwa_na_Mamba.plist",

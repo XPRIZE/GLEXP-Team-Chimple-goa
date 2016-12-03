@@ -1,0 +1,591 @@
+{
+  "ID": "df508651-e6e3-4d2c-b21c-c7d61fac7d0e",
+  "Version": "3.10.0.0",
+  "Name": "Siafu_amwokoa_Njiwa_01",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 300,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -1847715270,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 161.9992,
+                "Y": 1187.4639,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2405.0107,
+                "Y": 1519.261,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1847715270,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 15.6887,
+                "Y": 15.7381,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 368.4229,
+                "Y": 368.4803,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 503225370,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 497.1526,
+                "Y": 876.3683,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1753916043,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1217.1406,
+                "Y": 976.3622,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1753916043,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.7403,
+                "Y": 0.742,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1753916043,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 189,
+                  "G": 189,
+                  "B": 189
+                },
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 848654779,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2237.1243,
+                "Y": 976.361,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 848654779,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -0.5584,
+                "Y": 0.742,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 848654779,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 209,
+                  "G": 209,
+                  "B": 209
+                },
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1431440780,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1967.1221,
+                "Y": 936.3634,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1431440780,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.1299,
+                "Y": 1.1204,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 300,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 1524,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 131,
+              "G": 188,
+              "B": 249
+            },
+            "EndColor": {
+              "R": 208,
+              "B": 254
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -633.5238,
+              "Y": 615.8885
+            },
+            "Scale": {
+              "ScaleX": 19.9467,
+              "ScaleY": 5.9273
+            },
+            "CColor": {
+              "B": 195
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.2475,
+              "Y": 0.3422
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -633.5238,
+            "RightMargin": 2993.5239,
+            "TopMargin": 984.1115,
+            "BottomMargin": 615.8885,
+            "Tag": 1525,
+            "ActionTag": 1387969563,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siafu_amwokoa_Njiwa/Siafu/sun.png",
+              "Plist": "Siafu_amwokoa_Njiwa/Siafu/Siafu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 161.9992,
+              "Y": 1187.4639
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 15.6887,
+            "RotationSkewY": 15.7381,
+            "CColor": {
+              "R": 254,
+              "B": 0
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0633,
+              "Y": 0.6597
+            },
+            "PreSize": {
+              "X": 0.2043,
+              "Y": 0.2883
+            },
+            "LeftMargin": -99.5008,
+            "RightMargin": 2136.5007,
+            "TopMargin": 353.0361,
+            "BottomMargin": 927.9639,
+            "Tag": 1527,
+            "ActionTag": -1847715270,
+            "Size": {
+              "X": 523.0,
+              "Y": 519.0
+            },
+            "Name": "sun_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 179,
+              "G": 133,
+              "B": 73
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -627.6494,
+              "Y": 5.8651
+            },
+            "Scale": {
+              "ScaleX": 20.0054,
+              "ScaleY": 3.1997
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.2452,
+              "Y": 0.0033
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -627.6494,
+            "RightMargin": 2987.6494,
+            "TopMargin": 1594.1349,
+            "BottomMargin": 5.8651,
+            "Tag": 1526,
+            "ActionTag": -250076621,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siafu_amwokoa_Njiwa/drytree2.png",
+              "Plist": "Siafu_amwokoa_Njiwa/Siafu_amwokoa_Njiwa.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 497.1526,
+              "Y": 876.3683
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1942,
+              "Y": 0.4869
+            },
+            "PreSize": {
+              "X": 0.4812,
+              "Y": 0.6461
+            },
+            "LeftMargin": -118.8474,
+            "RightMargin": 1446.8474,
+            "TopMargin": 342.1317,
+            "BottomMargin": 294.8683,
+            "Tag": 1547,
+            "ActionTag": 503225370,
+            "Size": {
+              "X": 1232.0,
+              "Y": 1163.0
+            },
+            "Name": "drytree2_16",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siafu_amwokoa_Njiwa/drytree2.png",
+              "Plist": "Siafu_amwokoa_Njiwa/Siafu_amwokoa_Njiwa.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1217.1406,
+              "Y": 976.3622
+            },
+            "Scale": {
+              "ScaleX": 0.7403,
+              "ScaleY": 0.742
+            },
+            "CColor": {
+              "R": 189,
+              "G": 189,
+              "B": 189
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4754,
+              "Y": 0.5424
+            },
+            "PreSize": {
+              "X": 0.4812,
+              "Y": 0.6461
+            },
+            "LeftMargin": 601.1406,
+            "RightMargin": 726.8594,
+            "TopMargin": 242.1378,
+            "BottomMargin": 394.8622,
+            "Tag": 1548,
+            "ActionTag": 1753916043,
+            "Size": {
+              "X": 1232.0,
+              "Y": 1163.0
+            },
+            "Name": "drytree2_16_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siafu_amwokoa_Njiwa/drytree2.png",
+              "Plist": "Siafu_amwokoa_Njiwa/Siafu_amwokoa_Njiwa.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2237.1243,
+              "Y": 976.361
+            },
+            "Scale": {
+              "ScaleX": -0.5584,
+              "ScaleY": 0.742
+            },
+            "CColor": {
+              "R": 209,
+              "G": 209,
+              "B": 209
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8739,
+              "Y": 0.5424
+            },
+            "PreSize": {
+              "X": 0.4812,
+              "Y": 0.6461
+            },
+            "LeftMargin": 1621.1243,
+            "RightMargin": -293.1243,
+            "TopMargin": 242.1389,
+            "BottomMargin": 394.861,
+            "Tag": 1549,
+            "ActionTag": 848654779,
+            "Size": {
+              "X": 1232.0,
+              "Y": 1163.0
+            },
+            "Name": "drytree2_16_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siafu_amwokoa_Njiwa/drytree2.png",
+              "Plist": "Siafu_amwokoa_Njiwa/Siafu_amwokoa_Njiwa.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1967.1221,
+              "Y": 936.3634
+            },
+            "Scale": {
+              "ScaleX": 1.1299,
+              "ScaleY": 1.1204
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7684,
+              "Y": 0.5202
+            },
+            "PreSize": {
+              "X": 0.4812,
+              "Y": 0.6461
+            },
+            "LeftMargin": 1351.1221,
+            "RightMargin": -23.1221,
+            "TopMargin": 282.1366,
+            "BottomMargin": 354.8634,
+            "Tag": 1550,
+            "ActionTag": -1431440780,
+            "Size": {
+              "X": 1232.0,
+              "Y": 1163.0
+            },
+            "Name": "drytree2_16_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Siafu/Siafu.plist",
+        "Siafu/Siafu.png",
+        "Siafu_amwokoa_Njiwa.plist",
+        "Siafu_amwokoa_Njiwa.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
