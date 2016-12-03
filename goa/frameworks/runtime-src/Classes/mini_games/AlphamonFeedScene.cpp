@@ -216,7 +216,7 @@ void AlphamonFeed:: update(float dt) {
                     int mySpriteName = atoi(sprite1->getName().c_str());//std::stoi(sprite1->getName(), &sz);
                     wchar_t monster = (wchar_t)mySpriteName;
                     //	menu->pickAlphabet((sprite1->getName()).at(0), (fruitReff.at(i)->getName()).at(0), true);
-                    menu->pickAlphabet(monster, testing, true);
+                   // menu->pickAlphabet(monster, testing, true);
                     if ((sprite1->getName()).compare(fruitReff.at(i)->getName()) == 0) {
                         sprite1->alphamonMouthAnimation("eat", false);
                         smile->setVisible(false);
