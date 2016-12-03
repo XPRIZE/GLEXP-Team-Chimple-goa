@@ -302,11 +302,17 @@ void Owl::autoPlayerController(float data) {
 	_textCounter2++;
 
 	if (_textCounter2 == (blockChild.size())) {
-		
 		if ((_blockLevel2 >= _data_key.size())) {
 			//this->unschedule(schedule_selector(Owl::autoPlayerController));
 			CCLOG("< ------ DONE COMPLETE -----  >     I AM IN AUTOPLAYERCONTROLLER METHOD");
-			this->runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() { _menuContext->showScore(); }), NULL));
+			this->runAction(Sequence::create(CallFunc::create([=]() {
+				_flagDemo = false;
+				_flagDemoSecond = false;
+				_opponent->runAction(ScaleTo::create(1.0f, _opponent->getScaleX() * 2, _opponent->getScaleY() * 2));
+				_opponent->runAction(MoveTo::create(1, Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2)));
+
+			}), DelayTime::create(3),
+			CallFunc::create([=]() {_menuContext->showScore(); }), NULL));
 		}
 		else {
 			setBuildingBlockSecond(++_blockLevel2);
@@ -319,6 +325,7 @@ void Owl::autoPlayerController(float data) {
 void Owl::update(float delta) {
 	if(_flagDemo)
 	UpdateAnimation(delta);
+	if(_flagDemoSecond)
 	UpdateAnimationSecond(delta);
 }
 
@@ -570,7 +577,20 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 							else if (_textCounter == blockChild.size() && _blockLevel1 == _data_key.size()) {
 								_textCounter = 0;
 								_blockLevel1++;
-								this->runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() { _menuContext->showScore(); }),NULL));
+								this->runAction(Sequence::create(CallFunc::create([=]() {
+									
+									CCParticleSystemQuad *_particle = CCParticleSystemQuad::create("template/template.plist");
+									_particle->setTexture(CCTextureCache::sharedTextureCache()->addImage("template/template.png"));
+									_particle->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
+									this->addChild(_particle, 5);
+
+									_flagDemo = false;
+									_flagDemoSecond = false;
+									_sprite->runAction(ScaleTo::create(1.0f, _sprite->getScaleX()*1.3f , _sprite->getScaleY()*1.3f));
+									_sprite->runAction(MoveTo::create(1, Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2)));
+									
+								}), DelayTime::create(4),
+									CallFunc::create([=]() {_menuContext->showScore(); }), NULL));
 							}
 						});
 						auto pickBoard = CallFunc::create([=]() { 

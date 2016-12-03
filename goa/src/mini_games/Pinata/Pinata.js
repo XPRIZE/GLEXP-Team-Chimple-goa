@@ -301,7 +301,7 @@ xc.Pinata = cc.Layer.extend({
   
     update : function (dt) {
        
-       if(this.shootingFlag){
+       if(this.shootingFlag && !menuContext.isGamePaused()){
            this.stateShootBubble(dt);
            if(!(this.bubblePlayer.y >=0)){               
                this.bubblePlayer.setPosition((this.xPosi/2)+(this.gameBg.node.getChildByName("left").x + this.gameBg.node.getChildByName("right").x) /2,this.gameBg.node.getChildByName("right").y);
