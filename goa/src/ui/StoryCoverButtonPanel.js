@@ -1,6 +1,10 @@
 /// <reference path="../cocos2d-typescript-definitions-master/cocos2d/cocos2d-lib.d.ts" />
 
 var xc = xc || {};
+xc.storyTitleFontName = "Arial";
+xc.storyTitleFontSize = 45;
+xc.storyTitleFontColor = cc.color.WHITE;
+
 
 xc.StoryCoverButtonPanel = ccui.Layout.extend({
     ctor: function (position, size, numButtonsPerRow, numButtonsPerColumn, configuration, buttonHandler, start, numButtons, loadLocalTexture, customButtonChildHandler) {
@@ -19,7 +23,9 @@ xc.StoryCoverButtonPanel = ccui.Layout.extend({
                         var item;
                         var bookNode = ccs.load(xc.CatalogueLayer.res.book_json, xc.path);
                         var book = bookNode.node.getChildByName("book");
-                        // book.setColor(cc.color.YELLOW);
+                        var bookColor = xc.BOOK_COLORS[Math.floor(Math.random()*xc.BOOK_COLORS.length)];
+
+                        book.setColor(bookColor);
                         var bookHeight = book.height;
                         if(configuration[index]. hasOwnProperty('icon') == true) {
                             try {
@@ -33,7 +39,6 @@ xc.StoryCoverButtonPanel = ccui.Layout.extend({
                         item.setScale(2.5);
                         item.setOpacity(0);//hide button
                         item.setEnabled(true);
-                        xc.ParseUtil.disableFavoriteChoiceIfCharacterAlreadyLoadedInPage(item, configuration[index]);                        
                         item.addTouchEventListener(this._buttonHandler.itemSelected, this._buttonHandler);
                         item.setAnchorPoint(cc.p(0.5,0.5));
                         item.setPosition(pageIndex * size.width + (colIndex + 0.5) * size.width / numButtonsPerRow, size.height - (bookHeight * 1.4 +  (rowIndex) * 512));
@@ -49,18 +54,35 @@ xc.StoryCoverButtonPanel = ccui.Layout.extend({
                             item.dataType = "png";
                         }
                         var imageIconUrl = configuration[index]['icon'];
+
+                        //var texture = cc.spriteFrameCache.getSpriteFrame(imageIconUrl);
+
                         index++;
 
                         //configure book
                         var bookImageNode = bookNode.node.getChildByName("Node");
-                        var sprite2 = cc.Sprite.create(imageIconUrl);
+                        bookImageNode.setPosition(cc.p(bookImageNode.getPosition().x, bookImageNode.getPosition().y + 20));
+                        var sprite2 = new cc.Sprite('#' + imageIconUrl);
                         bookImageNode.addChild(sprite2);
 
                         var bookText = bookNode.node.getChildByName("TextField");
-                        bookText.setString("Anansi_Kunguru_na_Mamba_Anansi_the_crows");
-                        bookText.setFontName(xc.storyFontName)
-                        bookText.setTextColor(xc.storyFontColor);
-                        bookText.setFontSize(30);                        
+                        var storyTitle = "";
+                        if(cc.sys.localStorage.getItem('titles')) {
+                            var storyJson = JSON.parse(cc.sys.localStorage.getItem('titles'));
+                            imageIconUrl = imageIconUrl.toLowerCase();
+                            var storyKey = imageIconUrl.replace("_thumbnail.png","");
+                            var storyKey = storyKey.replace("_thumbnail.jpg","");
+                            storyKey = storyKey.replace(/ /g, '_');
+                            storyTitle = storyJson[storyKey.trim()];
+                            if(!storyTitle) {
+                                cc.log('storyTitle didnt found %s', imageIconUrl);
+                            }
+                        }
+                        
+                        bookText.setString(storyTitle);
+                        bookText.setFontName(xc.storyTitleFontName)
+                        bookText.setTextColor(xc.storyTitleFontColor);
+                        bookText.setFontSize(xc.storyTitleFontSize);                        
 
                         bookNode.node.setPosition(item.getPosition());
                         bookNode.node.setAnchorPoint(cc.p(0.5,0.5));
