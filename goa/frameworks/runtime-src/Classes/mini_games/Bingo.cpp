@@ -424,11 +424,11 @@ Bingo::Bingo(void)
 }
 void Bingo::creatHelp(Sprite* letterBox, Sprite* helpBox)
 {
-	auto myGameWidth = (visibleSize.width - 2560) / 2;
+	//auto myGameWidth = (visibleSize.width - 2560) / 2;
 
-	auto box1X = letterBox->getPositionX() + visibleSize.width * 0.058+ myGameWidth; //Vec2(visibleSize.width * 0.058, visibleSize.height * 0.07);
+	auto box1X = letterBox->getPositionX() + visibleSize.width * 0.058; //Vec2(visibleSize.width * 0.058, visibleSize.height * 0.07);
 	auto box1Y = letterBox->getPositionY() + visibleSize.height * 0.07;// Vec2(visibleSize.width * 0.058, visibleSize.height * 0.07);
-	auto box2X = helpBox->getPositionX() + visibleSize.width * 0.024+ myGameWidth;// Vec2(visibleSize.width * 0.024, -visibleSize.height * 0.01);
+	auto box2X = helpBox->getPositionX() + visibleSize.width * 0.024;// Vec2(visibleSize.width * 0.024, -visibleSize.height * 0.01);
 	auto box2Y = helpBox->getPositionY() - visibleSize.height * 0.01;// Vec2(visibleSize.width * 0.024, -visibleSize.height * 0.01);
 
 	_help = HelpLayer::create(Rect(box1X, box1Y, letterBox->getContentSize().width*1.3, letterBox->getContentSize().height*1.3), Rect(box2X, box2Y, helpBox->getContentSize().width*1.4, helpBox->getContentSize().height*1.3));
