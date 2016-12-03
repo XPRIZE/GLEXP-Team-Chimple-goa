@@ -48,7 +48,7 @@ void spot::onEnterTransitionDidFinish() {
 	_answerValue = _level + 10;
 
 
-	_menuContext->setMaxPoints(1);
+	_menuContext->setMaxPoints(3);
 
 	const int numberOfPages = 3;
 
@@ -71,7 +71,7 @@ void spot::onEnterTransitionDidFinish() {
 	Node *questionPlate = CSLoader::createNode("spot/spot.csb");
 	questionPlate->setContentSize(Size(visibleSize.width * numberOfPages, visibleSize.height * 0.1));
 	questionPlate->setAnchorPoint(Vec2(0.5, 0.5));
-	questionPlate->setPosition(Vec2(numberOfPages * visibleSize.width / 2, visibleSize.height / 14));
+	questionPlate->setPosition(Vec2(numberOfPages * visibleSize.width / 2 + visibleSize.width * 0.03, visibleSize.height / 14));
 
 
 
@@ -102,6 +102,8 @@ void spot::onEnterTransitionDidFinish() {
 	auto listener = EventListenerTouchOneByOne::create();
 	listener->onTouchBegan = CC_CALLBACK_2(spot::onTouchBegan, this);
 	listener->setSwallowTouches(false);
+
+	//questionPlate->getChildByName("cal")->setPosition(questionPlate->getChildByName("cal")->getPosition() - Vec2(400,0));
 
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener->clone(), questionPlate->getChildByName("cal"));
 
@@ -161,7 +163,7 @@ void spot::onEnterTransitionDidFinish() {
 
 void spot::update(float delta) {
 
-
+	//isEnterPressed
 	if (_calculateFlag == 0 && _calculator->checkAnswer(_answerValue)) {
 
 		CCLOG("correct answer");
@@ -218,7 +220,7 @@ void spot::addCalculator() {
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	_calculator = new Calculator();
-	_calculator->createCalculator(Vec2(visibleSize.width/2 + 1000, visibleSize.height/3), Vec2(0.5, 0.5), 0.5, 0.5);
+	_calculator->createCalculator(Vec2(visibleSize.width/2 + 1000, visibleSize.height/3 + 100), Vec2(0.5, 0.5), 0.7, 0.7);
 	_scrollView->addChild(_calculator, 15);
 	//_calculator->setGlobalZOrder(2);
 	_calculator->setVisible(false);
@@ -277,7 +279,7 @@ bool spot::onTouchBegan(Touch* touch, Event* event) {
 	auto target = event->getCurrentTarget();
 	Point locationInNode = Vec2(0, 0);
 
-	locationInNode = target->getParent()->getParent()->convertToNodeSpace(touch->getLocation());
+	locationInNode = target->getParent()->convertToNodeSpace(touch->getLocation());
 	
 
 

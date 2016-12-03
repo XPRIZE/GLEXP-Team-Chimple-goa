@@ -122,7 +122,19 @@ std::map<std::string, std::string> TextGenerator::getSynonyms(int maxNum, int le
         {"sad", "unhappy"},
         {"friend", "pal"},
         {"enjoy", "like"},
-        {"error", "mistake"}
+        {"error", "mistake"},
+		{"A","A"},
+		{ "B","B" },
+		{ "C","C" },
+		{ "D","D" },
+		{ "E","E" },
+		{ "F","F" },
+		{ "G","G" },
+		{ "H","H" },
+		{ "I","I" },
+		{ "J","J" },
+		{ "K","K" },
+		{ "L","L" }
     };
     std::map<std::string, std::string> data;
     for (std::map<std::string, std::string>::iterator it=SynonymMap.begin(); it!=SynonymMap.end(); ++it) {
@@ -151,7 +163,16 @@ std::map<std::string, std::string> TextGenerator::getAntonyms(int maxNum, int le
         {"messy", "neat"},
         {"never", "always"},
         {"old", "young"},
-		{ "good", "bad" }
+		{ "good", "bad" },
+		{ "A","A" },
+		{ "B","B" },
+		{ "C","C" },
+		{ "D","D" },
+		{ "E","E" },
+		{ "F","F" },
+		{ "G","G" },
+		{ "H","H" },
+		{ "I","I" }
     };
     std::map<std::string, std::string> data;
     for (std::map<std::string, std::string>::iterator it=AntonymMap.begin(); it!=AntonymMap.end(); ++it) {
@@ -178,9 +199,18 @@ std::map<std::string, std::string> TextGenerator::getHomonyms(int maxNum, int le
         {"road", "rode"},
         {"sail", "sale"},
         {"sea", "see"},
-        {"sail", "sale"},
+        {"knew", "new"},
         {"son", "sun"},
-        {"tail", "tale"}
+        {"tail", "tale"},
+		{ "A","A" },
+		{ "B","B" },
+		{ "C","C" },
+		{ "D","D" },
+		{ "E","E" },
+		{ "F","F" },
+		{ "G","G" },
+		{ "H","H" },
+		{ "I","I" }
     };
     std::map<std::string, std::string> data;
     for (std::map<std::string, std::string>::iterator it=HomonymMap.begin(); it!=HomonymMap.end(); ++it) {

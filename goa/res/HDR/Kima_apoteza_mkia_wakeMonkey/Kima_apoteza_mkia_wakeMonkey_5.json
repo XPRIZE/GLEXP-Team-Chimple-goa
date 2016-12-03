@@ -5,50 +5,18 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 200,
+        "Duration": 360,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "leaf_fall",
         "Timelines": [
           {
-            "ActionTag": 2065143187,
-            "Property": "ActionValue",
-            "Frames": [
-              {
-                "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "rabbit",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 0,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              },
-              {
-                "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "rabbit",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 200,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 2065143187,
+            "ActionTag": -1092168779,
             "Property": "Position",
             "Frames": [
               {
-                "X": 489.8116,
-                "Y": 249.3016,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 1422.8152,
-                "Y": 216.2333,
-                "FrameIndex": 200,
+                "X": 2536.6665,
+                "Y": 887.7338,
+                "FrameIndex": 205,
                 "EasingData": {
                   "Type": 0
                 },
@@ -58,22 +26,13 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": 2065143187,
+            "ActionTag": -1092168779,
             "Property": "Scale",
             "Frames": [
               {
-                "X": 1.0,
-                "Y": 1.0,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 1.0,
-                "Y": 1.0,
-                "FrameIndex": 200,
+                "X": 2.0,
+                "Y": 2.0,
+                "FrameIndex": 205,
                 "EasingData": {
                   "Type": 0
                 },
@@ -83,26 +42,30 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": 2065143187,
+            "ActionTag": -1092168779,
             "Property": "RotationSkew",
             "Frames": [
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 0,
+                "FrameIndex": 205,
                 "EasingData": {
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
-              },
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1092168779,
+            "Property": "FrameEvent",
+            "Frames": [
               {
-                "X": 0.0,
-                "Y": 0.0,
-                "FrameIndex": 200,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
+                "Value": "wind",
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -137,6 +100,33 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              },
+              {
+                "X": 2097.2373,
+                "Y": 1842.4436,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2106.8867,
+                "Y": 1316.5444,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2149.7087,
+                "Y": 297.1641,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -167,6 +157,33 @@
                 "X": 1.0,
                 "Y": 1.0,
                 "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 360,
                 "EasingData": {
                   "Type": 0
                 },
@@ -205,6 +222,52 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 28.0,
+                "Y": 28.0,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 49.0,
+                "Y": 48.989,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1796464509,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "wind",
+                "FrameIndex": 81,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "wind",
+                "FrameIndex": 286,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -235,6 +298,33 @@
                 "X": 2254.23,
                 "Y": 297.1641,
                 "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2254.23,
+                "Y": 1951.3779,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2260.0063,
+                "Y": 971.8925,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2254.23,
+                "Y": 297.1641,
+                "FrameIndex": 360,
                 "EasingData": {
                   "Type": 0
                 },
@@ -273,6 +363,33 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -303,6 +420,33 @@
                 "X": 49.0,
                 "Y": 48.989,
                 "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 28.0009,
+                "Y": 27.9914,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 49.0,
+                "Y": 48.989,
+                "FrameIndex": 360,
                 "EasingData": {
                   "Type": 0
                 },
@@ -341,6 +485,33 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              },
+              {
+                "X": 874.16,
+                "Y": 1835.2178,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 874.16,
+                "Y": 1316.5444,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 874.16,
+                "Y": 297.1641,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -371,6 +542,33 @@
                 "X": 1.0,
                 "Y": 1.0,
                 "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 360,
                 "EasingData": {
                   "Type": 0
                 },
@@ -409,6 +607,33 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 28.0,
+                "Y": 28.0,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 49.0,
+                "Y": 48.989,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -439,6 +664,33 @@
                 "X": 693.92,
                 "Y": 297.1641,
                 "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 693.92,
+                "Y": 1849.1976,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 693.92,
+                "Y": 971.8925,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 693.92,
+                "Y": 297.1641,
+                "FrameIndex": 360,
                 "EasingData": {
                   "Type": 0
                 },
@@ -477,6 +729,33 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -507,6 +786,33 @@
                 "X": 49.0,
                 "Y": 48.989,
                 "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 28.0009,
+                "Y": 27.9914,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 49.0,
+                "Y": 48.989,
+                "FrameIndex": 360,
                 "EasingData": {
                   "Type": 0
                 },
@@ -545,6 +851,33 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              },
+              {
+                "X": 791.64,
+                "Y": 1820.3583,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 791.64,
+                "Y": 971.8925,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 791.64,
+                "Y": 297.1641,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -575,6 +908,33 @@
                 "X": 1.0,
                 "Y": 1.0,
                 "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 360,
                 "EasingData": {
                   "Type": 0
                 },
@@ -613,6 +973,201 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 28.0009,
+                "Y": 27.9914,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 49.0,
+                "Y": 48.989,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1504980276,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rabbit",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rabbit",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 200,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "rabbit",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "rabbit",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 360,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1504980276,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2.1067,
+                "Y": 322.3318,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1738.4932,
+                "Y": 376.8224,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2.1067,
+                "Y": 322.3318,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2.1067,
+                "Y": 322.3318,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1504980276,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1504980276,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -625,6 +1180,12 @@
           "StartIndex": 0,
           "EndIndex": 200,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 205,
+          "EndIndex": 360,
+          "Name": "leaf_fall",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -716,6 +1277,7 @@
             "RightMargin": -234.1665,
             "TopMargin": 568.2661,
             "BottomMargin": 543.7338,
+            "UserData": "main.leaf_fall",
             "Tag": 291,
             "ActionTag": -1092168779,
             "Size": {
@@ -912,48 +1474,6 @@
           },
           {
             "FileData": {
-              "Type": "Normal",
-              "Path": "Kima_apoteza_mkia_wakeMonkey/monkey.json",
-              "Plist": ""
-            },
-            "StretchWidthEnable": false,
-            "StretchHeightEnable": false,
-            "InnerActionSpeed": 1.0,
-            "AnchorPoint": {},
-            "Position": {
-              "X": 489.8116,
-              "Y": 249.3016
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": true,
-            "PrePosition": {
-              "X": 0.1913,
-              "Y": 0.1385
-            },
-            "PreSize": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "LeftMargin": 489.8116,
-            "RightMargin": 2070.1885,
-            "TopMargin": 1550.6984,
-            "BottomMargin": 249.3016,
-            "UserData": "rabbit:drag",
-            "Tag": 103,
-            "ActionTag": 2065143187,
-            "Size": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "Name": "rabbit",
-            "ctype": "ProjectNodeObjectData"
-          },
-          {
-            "FileData": {
               "Type": "MarkedSubImage",
               "Path": "Kima_apoteza_mkia_wakeMonkey/Kato_leaf.png",
               "Plist": "Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey.plist"
@@ -967,27 +1487,29 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2097.2373,
-              "Y": 1842.4436
+              "X": 2122.4097,
+              "Y": 947.019
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
+            "RotationSkewX": 35.6125,
+            "RotationSkewY": 35.6085,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.8192,
-              "Y": 1.0236
+              "X": 0.8291,
+              "Y": 0.5261
             },
             "PreSize": {
               "X": 0.0328,
               "Y": 0.0356
             },
-            "LeftMargin": 2055.2373,
-            "RightMargin": 420.7627,
-            "TopMargin": -74.4436,
-            "BottomMargin": 1810.4436,
+            "LeftMargin": 2080.4097,
+            "RightMargin": 395.5903,
+            "TopMargin": 820.981,
+            "BottomMargin": 915.019,
             "Tag": 106,
             "ActionTag": 1796464509,
             "Size": {
@@ -1012,27 +1534,29 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2254.23,
-              "Y": 1951.3779
+              "X": 2257.9124,
+              "Y": 727.3035
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
+            "RotationSkewX": 35.6131,
+            "RotationSkewY": 35.603,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.8806,
-              "Y": 1.0841
+              "X": 0.882,
+              "Y": 0.4041
             },
             "PreSize": {
               "X": 0.0328,
               "Y": 0.0356
             },
-            "LeftMargin": 2212.23,
-            "RightMargin": 263.77,
-            "TopMargin": -183.3779,
-            "BottomMargin": 1919.3779,
+            "LeftMargin": 2215.9124,
+            "RightMargin": 260.0876,
+            "TopMargin": 1040.6965,
+            "BottomMargin": 695.3035,
             "Tag": 107,
             "ActionTag": 1564519780,
             "Size": {
@@ -1058,17 +1582,19 @@
             },
             "Position": {
               "X": 874.16,
-              "Y": 1835.2178
+              "Y": 947.019
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
+            "RotationSkewX": 35.6125,
+            "RotationSkewY": 35.6085,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
               "X": 0.3415,
-              "Y": 1.0196
+              "Y": 0.5261
             },
             "PreSize": {
               "X": 0.0328,
@@ -1076,8 +1602,8 @@
             },
             "LeftMargin": 832.16,
             "RightMargin": 1643.8401,
-            "TopMargin": -67.2178,
-            "BottomMargin": 1803.2178,
+            "TopMargin": 820.981,
+            "BottomMargin": 915.019,
             "Tag": 108,
             "ActionTag": 83541223,
             "Size": {
@@ -1103,17 +1629,19 @@
             },
             "Position": {
               "X": 693.92,
-              "Y": 1849.1976
+              "Y": 727.3035
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
+            "RotationSkewX": 35.6131,
+            "RotationSkewY": 35.603,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
               "X": 0.2711,
-              "Y": 1.0273
+              "Y": 0.4041
             },
             "PreSize": {
               "X": 0.0328,
@@ -1121,8 +1649,8 @@
             },
             "LeftMargin": 651.92,
             "RightMargin": 1824.0801,
-            "TopMargin": -81.1976,
-            "BottomMargin": 1817.1976,
+            "TopMargin": 1040.6965,
+            "BottomMargin": 695.3035,
             "Tag": 109,
             "ActionTag": -1160638604,
             "Size": {
@@ -1148,17 +1676,19 @@
             },
             "Position": {
               "X": 791.64,
-              "Y": 1820.3583
+              "Y": 727.3035
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
+            "RotationSkewX": 35.6131,
+            "RotationSkewY": 35.603,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
               "X": 0.3092,
-              "Y": 1.0113
+              "Y": 0.4041
             },
             "PreSize": {
               "X": 0.0328,
@@ -1166,8 +1696,8 @@
             },
             "LeftMargin": 749.64,
             "RightMargin": 1726.36,
-            "TopMargin": -52.3583,
-            "BottomMargin": 1788.3583,
+            "TopMargin": 1040.6965,
+            "BottomMargin": 695.3035,
             "Tag": 110,
             "ActionTag": 1904741181,
             "Size": {
@@ -1176,6 +1706,48 @@
             },
             "Name": "Kato_leaf_2_0_0_0",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Kima_apoteza_mkia_wakeMonkey/rabbit.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2.1067,
+              "Y": 322.3318
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0008,
+              "Y": 0.1791
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2.1067,
+            "RightMargin": 2557.8933,
+            "TopMargin": 1477.6682,
+            "BottomMargin": 322.3318,
+            "UserData": "rabbit;drag",
+            "Tag": 1639,
+            "ActionTag": -1504980276,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "rabbit",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -1188,7 +1760,7 @@
       "UsedResources": [
         "Kima_apoteza_mkia_wakeMonkey.plist",
         "Kima_apoteza_mkia_wakeMonkey.png",
-        "monkey.json"
+        "rabbit.json"
       ],
       "ctype": "GameFileData"
     }

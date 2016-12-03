@@ -1,0 +1,403 @@
+{
+  "ID": "e33ba2d9-fe6c-49e1-a04d-e51822789dcf",
+  "Version": "3.10.0.0",
+  "Name": "eyedrop",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 20,
+        "Speed": 1.0,
+        "ActivedAnimationName": "drop",
+        "Timelines": [
+          {
+            "ActionTag": -1504821900,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -16.2432,
+                "Y": -15.8653,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1504821900,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -63.7729,
+                "Y": -63.7734,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1504821900,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.5991,
+                "Y": 0.5991,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1504821900,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 0,
+                "FrameIndex": 19,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 255,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1113605649,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -17.4971,
+                "Y": -15.5498,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -55.8174,
+                "Y": -67.4145,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -68.1371,
+                "Y": -155.2783,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1113605649,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -67.8373,
+                "Y": -67.838,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -82.3644,
+                "Y": -82.3633,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -114.1428,
+                "Y": -114.1395,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1113605649,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.5991,
+                "Y": 0.5991,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1041343067,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -68.453,
+                "Y": -154.0241,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1041343067,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -116.5011,
+                "Y": -116.5029,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1041343067,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 255,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 0,
+                "FrameIndex": 1,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 20,
+          "Name": "drop",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 3547,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mke_Mti/drop.png",
+              "Plist": "Mke_Mti/Mke_Mti.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -16.2432,
+              "Y": -15.8653
+            },
+            "Scale": {
+              "ScaleX": 0.5991,
+              "ScaleY": 0.5991
+            },
+            "RotationSkewX": -63.7729,
+            "RotationSkewY": -63.7734,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -52.2432,
+            "RightMargin": -19.7568,
+            "TopMargin": -8.1347,
+            "BottomMargin": -39.8653,
+            "Tag": 3548,
+            "ActionTag": -1504821900,
+            "Size": {
+              "X": 72.0,
+              "Y": 48.0
+            },
+            "Alpha": 0,
+            "Name": "drop_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mke_Mti/drop.png",
+              "Plist": "Mke_Mti/Mke_Mti.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -17.4971,
+              "Y": -15.5498
+            },
+            "Scale": {
+              "ScaleX": 0.5991,
+              "ScaleY": 0.5991
+            },
+            "RotationSkewX": -67.8373,
+            "RotationSkewY": -67.838,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -53.4971,
+            "RightMargin": -18.5029,
+            "TopMargin": -8.4502,
+            "BottomMargin": -39.5498,
+            "Tag": 3549,
+            "ActionTag": 1113605649,
+            "Size": {
+              "X": 72.0,
+              "Y": 48.0
+            },
+            "Name": "drop_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mke_Mti/drop.png",
+              "Plist": "Mke_Mti/Mke_Mti.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -68.453,
+              "Y": -154.0241
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -116.5011,
+            "RotationSkewY": -116.5029,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -104.453,
+            "RightMargin": 32.453,
+            "TopMargin": 130.0241,
+            "BottomMargin": -178.0241,
+            "Tag": 3550,
+            "ActionTag": 1041343067,
+            "Size": {
+              "X": 72.0,
+              "Y": 48.0
+            },
+            "Name": "drop_1_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Mke_Mti.plist",
+        "Mke_Mti.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

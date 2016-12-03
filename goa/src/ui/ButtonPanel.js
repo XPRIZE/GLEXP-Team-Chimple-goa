@@ -9,8 +9,6 @@ xc.ButtonPanel = ccui.Layout.extend({
         this._buttonHandler = buttonHandler;
         this._customButtonChildHandler = customButtonChildHandler;
         this._loadLocalTexture = loadLocalTexture;
-        // this.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
-        // this.setBackGroundColor(cc.color.GREEN);
         this.setPosition(position);
         start = start || 0;
         numButtons = numButtons || configuration.length;
@@ -24,6 +22,7 @@ xc.ButtonPanel = ccui.Layout.extend({
                             try {
                                 if(this._loadLocalTexture) {
                                     item = new ccui.Button(configuration[index]['icon'], configuration[index]['icon'], configuration[index]['icon'], ccui.Widget.LOCAL_TEXTURE);
+                                    item.setScale(0.5);
                                 } else {
                                     item = new ccui.Button(configuration[index]['icon'], configuration[index]['icon'], configuration[index]['icon'], ccui.Widget.PLIST_TEXTURE);
                                 }                                
@@ -32,18 +31,11 @@ xc.ButtonPanel = ccui.Layout.extend({
                                 item = new ccui.Button('icons/my_pet.png', 'icons/my_pet_onclick.png', 'icons/my_pet_onclick.png', ccui.Widget.PLIST_TEXTURE);
                             }
                         } else {
-                                item = new ccui.Button('icons/my_pet.png', 'icons/my_pet_onclick.png', 'icons/my_pet_onclick.png', ccui.Widget.PLIST_TEXTURE);                                
-                                //var sprite = new cc.Sprite("#animal/zebra.png"); // create sprite                                
-                                //sprite.setPosition(item.getPosition());
-                                
+                                item = new ccui.Button('icons/my_pet.png', 'icons/my_pet_onclick.png', 'icons/my_pet_onclick.png', ccui.Widget.PLIST_TEXTURE);                                                                
                                 if(this._customButtonChildHandler) {
                                     var buttonChild = this._customButtonChildHandler.createCustomChild(item, this._buttonHandler._callBackContext, index, item.getPosition());
                                     item.addChild(buttonChild);
                                 }
-
-                                //var sprite = this._buttonHandler._callBackContext.createSkeletonNode(this._buttonHandler._callBackContext, index, item.getPosition());
-                                //sprite.setAnchorPoint(0.5);
-                                //item.addChild(sprite);
                         }
 
                         if (configuration[index] && configuration[index]['uniqueCharacterID']) {
@@ -54,8 +46,7 @@ xc.ButtonPanel = ccui.Layout.extend({
                         }
 
                         item.setEnabled(true);
-                        xc.ParseUtil.disableFavoriteChoiceIfCharacterAlreadyLoadedInPage(item, configuration[index]);
-
+                        xc.ParseUtil.disableFavoriteChoiceIfCharacterAlreadyLoadedInPage(item, configuration[index]);                        
                         item.addTouchEventListener(this._buttonHandler.itemSelected, this._buttonHandler);
                         item.setPosition(pageIndex * size.width + (colIndex + 0.5) * size.width / numButtonsPerRow, size.height - (rowIndex + 0.5) * size.height / numButtonsPerColumn);
                         item._selectedIndex = index;

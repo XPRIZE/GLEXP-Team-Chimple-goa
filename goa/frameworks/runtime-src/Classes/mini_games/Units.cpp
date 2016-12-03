@@ -87,9 +87,19 @@ void Units::onEnterTransitionDidFinish() {
 	_bg->getChildByName("FileNode_3")->runAction(_openTimeline);
 
 
-	auto handle = _bg->getChildByName("FileNode_3");
-	handle->setContentSize(Size(200, 200));
+	//auto handle = _bg->getChildByName("FileNode_3");
+	auto handle = _bg->getChildByName("click");
+	//handle->setPosition(handle->getPosition() + Vec2(50,50));
+	//handle->setContentSize(Size(218, 101));
 	handle->setName("handle");
+	
+	//auto E = DrawNode::create();
+	//this->addChild(E, 10);
+	//->drawRect(Vec2(handle->getPosition()),
+	//	Vec2(218 + handle->getPositionX(), 101 + handle->getPositionY()),
+	//	Color4F(0, 0, 255, 22));
+
+	
 	auto listener = EventListenerTouchOneByOne::create();
 	listener->onTouchBegan = CC_CALLBACK_2(Units::onTouchBegan, this);
 	listener->setSwallowTouches(false);
@@ -102,6 +112,7 @@ void Units::onEnterTransitionDidFinish() {
 	calculatorButton->setAnchorPoint(Vec2(0.5, 0.5));
 	calculatorButton->setPosition(Vec2(500, 750));
 	this->addChild(calculatorButton);
+	calculatorButton->setVisible(false);
 
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener->clone(), calculatorButton);
 
@@ -112,14 +123,33 @@ void Units::onEnterTransitionDidFinish() {
 
 void Units::update(float delta) {
 	
-		if (_calculateFlag == 0 && _calculator->checkAnswer(_answerValue)) {
+	if (_enterPressedFlag ==0 && _calculator->isEnterPressed() && (_calculator->checkAnswer(_answerValue + 1) == false)) {
+		
+		
+		auto deductPoint = CallFunc::create([=] {
+			_menuContext->addPoints(-1);
+			_enterPressedFlag = 1;
+			CCLOG("point deducted");
+
+		});
+
+
+		auto deductPointSequence = Sequence::create(DelayTime::create(0.5), deductPoint, NULL);
+		this->runAction(deductPointSequence);
+
+	}
+
+		
+		
+		if (_calculateFlag == 0 && _calculator->checkAnswer(_answerValue) && _calculator->isEnterPressed()) {
 		
 		CCLOG("correct answer");
 		_calculateFlag = 1;
 
 		auto ShowScore = CallFunc::create([=] {
 			
-			_menuContext->addPoints(1);
+			//_menuContext->addPoints(1);
+			_menuContext->addPoints(3);
 			_menuContext->showScore();
 
 		});
@@ -310,7 +340,7 @@ bool Units::onTouchBegan(Touch* touch, Event* event) {
 			}
 		}
 
-		if (target->getName() == "calbutton") {
+		if (target->getName() == "calbutton" && _gameOverFlag == 1) {
 
 			_calculator->resetCalculator();
 
@@ -340,7 +370,7 @@ void Units::addCalculator() {
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	_calculator = new Calculator();
-	_calculator->createCalculator(Vec2(500, 1150), Vec2(0.5, 0.5), 0.5, 0.5);
+	_calculator->createCalculator(Vec2(500, 1300), Vec2(0.5, 0.5), 0.7, 0.7);
 	this->addChild(_calculator,10);
 	//_calculator->setGlobalZOrder(2);
 	_calculator->setVisible(false);
@@ -421,6 +451,8 @@ void Units::createPizza() {
 		}
 
 		_openTimeline->play("close", false);
+		this->getChildByName("calbutton")->setVisible(true);
+		_gameOverFlag = 1;
 	}
 
 

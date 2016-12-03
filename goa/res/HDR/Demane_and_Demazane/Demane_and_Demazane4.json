@@ -5,10 +5,1206 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 220,
+        "Duration": 325,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
+          {
+            "ActionTag": -818447538,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 558.2557,
+                "Y": 1489.0,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 303.7671,
+                "Y": 384.9382,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 211.2258,
+                "Y": -16.5387,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 164.9552,
+                "Y": -217.2772,
+                "FrameIndex": 325,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -818447538,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 325,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -818447538,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -354.4901,
+                "Y": -354.4832,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -483.3956,
+                "Y": -483.3862,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -547.8483,
+                "Y": -547.8377,
+                "FrameIndex": 325,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -818447538,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "brick",
+                "FrameIndex": 295,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "brick",
+                "FrameIndex": 315,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1674766005,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 746.2471,
+                "Y": 0.0014,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 746.2471,
+                "Y": 0.0014,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1674766005,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.6793,
+                "Y": 0.7946,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.6793,
+                "Y": 0.7946,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1674766005,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1674766005,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "brick",
+                "FrameIndex": 295,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "brick",
+                "FrameIndex": 315,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -417237064,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 603.2947,
+                "Y": 1234.5161,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 603.2947,
+                "Y": 1234.5161,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -417237064,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -417237064,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -417237064,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "brick",
+                "FrameIndex": 295,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "brick",
+                "FrameIndex": 315,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2139904320,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 553.6068,
+                "Y": 640.2072,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 553.6068,
+                "Y": 640.2072,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2139904320,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2139904320,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2139904320,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "brick",
+                "FrameIndex": 295,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "brick",
+                "FrameIndex": 315,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1966733292,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 652.4581,
+                "Y": 522.4584,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 652.4581,
+                "Y": 522.4584,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1966733292,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.1523,
+                "Y": 0.1604,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.1523,
+                "Y": 0.1604,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1966733292,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1966733292,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "brick",
+                "FrameIndex": 295,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "brick",
+                "FrameIndex": 315,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 651585539,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 558.6738,
+                "Y": 724.5367,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 558.6738,
+                "Y": 724.5367,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 651585539,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.1523,
+                "Y": 0.1604,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.1523,
+                "Y": 0.1604,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 651585539,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 651585539,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "brick",
+                "FrameIndex": 295,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "brick",
+                "FrameIndex": 315,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2005466286,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 961.2469,
+                "Y": 1386.8823,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 961.2469,
+                "Y": 1386.8823,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2005466286,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.3339,
+                "Y": 0.0551,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.3339,
+                "Y": 0.0551,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2005466286,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2005466286,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "brick",
+                "FrameIndex": 295,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "brick",
+                "FrameIndex": 315,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1901274497,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 786.7883,
+                "Y": 179.9716,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 786.7883,
+                "Y": 179.9716,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1901274497,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1901274497,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1901274497,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "brick",
+                "FrameIndex": 295,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "brick",
+                "FrameIndex": 315,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 955637609,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1278.7638,
+                "Y": 1419.9786,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1278.7638,
+                "Y": 1419.9786,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 955637609,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 955637609,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 955637609,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "brick",
+                "FrameIndex": 295,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "brick",
+                "FrameIndex": 315,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 992890096,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 9.0529,
+                "Y": 1029.6676,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 112.6549,
+                "Y": 210.6515,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 150.3284,
+                "Y": -87.1725,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 169.1652,
+                "Y": -236.0845,
+                "FrameIndex": 325,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 992890096,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 325,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 992890096,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -232.2702,
+                "Y": -232.2668,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -316.7321,
+                "Y": -316.7275,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -358.9631,
+                "Y": -358.9578,
+                "FrameIndex": 325,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 992890096,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "brick",
+                "FrameIndex": 295,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "brick",
+                "FrameIndex": 315,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 460128789,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 15.7067,
+                "Y": 573.8809,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 115.0033,
+                "Y": 49.7856,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 151.1112,
+                "Y": -140.7944,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 169.1652,
+                "Y": -236.0845,
+                "FrameIndex": 325,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 460128789,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 325,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 460128789,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -232.2702,
+                "Y": -232.2668,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -316.7321,
+                "Y": -316.7275,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -358.9631,
+                "Y": -358.9578,
+                "FrameIndex": 325,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 460128789,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "brick",
+                "FrameIndex": 295,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "brick",
+                "FrameIndex": 315,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": -1018655887,
             "Property": "ActionValue",
@@ -249,6 +1445,12 @@
           "EndIndex": 220,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 240,
+          "EndIndex": 325,
+          "Name": "brick",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -318,6 +1520,56 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 558.2557,
+              "Y": 1489.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2181,
+              "Y": 0.8272
+            },
+            "PreSize": {
+              "X": 0.0914,
+              "Y": 0.0426
+            },
+            "LeftMargin": 558.2557,
+            "RightMargin": 1767.6876,
+            "TopMargin": 234.2754,
+            "BottomMargin": 1489.0,
+            "UserData": "main.brick",
+            "Tag": 487,
+            "ActionTag": -818447538,
+            "Size": {
+              "X": 234.0567,
+              "Y": 76.7245
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 29,
+              "G": 24,
+              "B": 47
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
             "Scale9Width": 1,
             "Scale9Height": 1,
             "TouchEnable": true,
@@ -344,6 +1596,7 @@
             "RightMargin": -746.2471,
             "TopMargin": -0.0013,
             "BottomMargin": 0.0014,
+            "UserData": "main.brick",
             "Tag": 93,
             "ActionTag": -1674766005,
             "Size": {
@@ -389,6 +1642,7 @@
             "RightMargin": 1724.7053,
             "TopMargin": 416.4839,
             "BottomMargin": 1085.5161,
+            "UserData": "main.brick",
             "Tag": 94,
             "ActionTag": -417237064,
             "Size": {
@@ -434,6 +1688,7 @@
             "RightMargin": 1644.3932,
             "TopMargin": 939.7928,
             "BottomMargin": 420.2072,
+            "UserData": "main.brick",
             "Tag": 95,
             "ActionTag": 2139904320,
             "Size": {
@@ -485,6 +1740,7 @@
             "RightMargin": -652.458,
             "TopMargin": -522.4585,
             "BottomMargin": 522.4584,
+            "UserData": "main.brick",
             "Tag": 96,
             "ActionTag": -1966733292,
             "Size": {
@@ -536,6 +1792,7 @@
             "RightMargin": -558.6738,
             "TopMargin": -724.5366,
             "BottomMargin": 724.5367,
+            "UserData": "main.brick",
             "Tag": 97,
             "ActionTag": 651585539,
             "Size": {
@@ -587,6 +1844,7 @@
             "RightMargin": -961.2468,
             "TopMargin": -1386.8823,
             "BottomMargin": 1386.8823,
+            "UserData": "main.brick",
             "Tag": 98,
             "ActionTag": 2005466286,
             "Size": {
@@ -633,6 +1891,7 @@
             "RightMargin": 1541.2117,
             "TopMargin": 1471.0283,
             "BottomMargin": 30.9716,
+            "UserData": "main.brick",
             "Tag": 100,
             "ActionTag": 1901274497,
             "Size": {
@@ -678,6 +1937,7 @@
             "RightMargin": 919.2362,
             "TopMargin": 160.0214,
             "BottomMargin": 1199.9786,
+            "UserData": "main.brick",
             "Tag": 101,
             "ActionTag": 955637609,
             "Size": {
@@ -686,6 +1946,110 @@
             },
             "Name": "brick_2_2_0",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 29,
+              "G": 24,
+              "B": 47
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 9.0529,
+              "Y": 1029.6676
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0035,
+              "Y": 0.572
+            },
+            "PreSize": {
+              "X": 0.0914,
+              "Y": 0.0426
+            },
+            "LeftMargin": 9.0529,
+            "RightMargin": 2316.8904,
+            "TopMargin": 693.6079,
+            "BottomMargin": 1029.6676,
+            "UserData": "main.brick",
+            "Tag": 488,
+            "ActionTag": 992890096,
+            "Size": {
+              "X": 234.0567,
+              "Y": 76.7245
+            },
+            "Name": "Panel_2_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 29,
+              "G": 24,
+              "B": 47
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 15.7067,
+              "Y": 573.8809
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0061,
+              "Y": 0.3188
+            },
+            "PreSize": {
+              "X": 0.0914,
+              "Y": 0.0426
+            },
+            "LeftMargin": 15.7067,
+            "RightMargin": 2310.2366,
+            "TopMargin": 1149.3945,
+            "BottomMargin": 573.8809,
+            "UserData": "main.brick",
+            "Tag": 489,
+            "ActionTag": 460128789,
+            "Size": {
+              "X": 234.0567,
+              "Y": 76.7245
+            },
+            "Name": "Panel_2_0_0",
+            "ctype": "PanelObjectData"
           },
           {
             "FileData": {

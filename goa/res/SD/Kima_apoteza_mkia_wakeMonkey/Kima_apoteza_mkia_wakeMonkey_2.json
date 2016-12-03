@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 200,
+        "Duration": 290,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "tree",
         "Timelines": [
           {
             "ActionTag": -936704932,
@@ -310,6 +310,203 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -852607801,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2353.9668,
+                "Y": 270.2531,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2353.9668,
+                "Y": 270.2531,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2353.9668,
+                "Y": 270.2531,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2353.9668,
+                "Y": 270.2531,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -852607801,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.46,
+                "Y": 1.46,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -852607801,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -852607801,
+            "Property": "AnchorPoint",
+            "Frames": [
+              {
+                "X": 0.5,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.5,
+                "Y": 0.0,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.5,
+                "Y": 0.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.5,
+                "Y": 0.0,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -852607801,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "Jump",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "Jump",
+                "FrameIndex": 200,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "Jump",
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -922899742,
             "Property": "ActionValue",
             "Frames": [
@@ -326,6 +523,14 @@
                 "CurrentAniamtionName": "walk",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 200,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 205,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -353,6 +558,15 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              },
+              {
+                "X": 1391.3391,
+                "Y": 451.5106,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -374,6 +588,15 @@
                 "X": 1.0,
                 "Y": 1.0,
                 "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 205,
                 "EasingData": {
                   "Type": 0
                 },
@@ -403,12 +626,40 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": 565301624,
+            "ActionTag": -922899742,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "monkey",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1747979006,
             "Property": "ActionValue",
             "Frames": [
               {
@@ -426,17 +677,25 @@
                 "FrameIndex": 200,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "rabbit",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": 565301624,
+            "ActionTag": 1747979006,
             "Property": "Position",
             "Frames": [
               {
-                "X": 489.8116,
-                "Y": 249.3016,
+                "X": 393.6458,
+                "Y": 242.7483,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -444,9 +703,18 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 1422.8152,
-                "Y": 216.2333,
+                "X": 1860.3801,
+                "Y": 235.5137,
                 "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1860.3801,
+                "Y": 235.5137,
+                "FrameIndex": 205,
                 "EasingData": {
                   "Type": 0
                 },
@@ -456,7 +724,7 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": 565301624,
+            "ActionTag": 1747979006,
             "Property": "Scale",
             "Frames": [
               {
@@ -476,12 +744,21 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": 565301624,
+            "ActionTag": 1747979006,
             "Property": "RotationSkew",
             "Frames": [
               {
@@ -501,6 +778,34 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1747979006,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "rabbit",
+                "FrameIndex": 105,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -513,6 +818,12 @@
           "StartIndex": 0,
           "EndIndex": 200,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 205,
+          "EndIndex": 290,
+          "Name": "tree",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -769,7 +1080,7 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 0.0,
+              "X": -260.0,
               "Y": 0.0
             },
             "Scale": {
@@ -779,18 +1090,20 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.0,
+              "X": -0.1016,
               "Y": 0.0
             },
             "PreSize": {
-              "X": 1.0,
+              "X": 1.2109,
               "Y": 0.2778
             },
+            "LeftMargin": -260.0,
+            "RightMargin": -280.0,
             "TopMargin": 1300.0,
             "Tag": 270,
             "ActionTag": -1223185844,
             "Size": {
-              "X": 2560.0,
+              "X": 3100.0,
               "Y": 500.0
             },
             "Name": "Panel_2",
@@ -1032,12 +1345,11 @@
               "Dst": 771
             },
             "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
+              "ScaleX": 0.5
             },
             "Position": {
               "X": 2353.9668,
-              "Y": 614.2531
+              "Y": 270.2531
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1047,7 +1359,7 @@
             "IconVisible": false,
             "PrePosition": {
               "X": 0.9195,
-              "Y": 0.3413
+              "Y": 0.1501
             },
             "PreSize": {
               "X": 0.2012,
@@ -1057,7 +1369,9 @@
             "RightMargin": -51.4668,
             "TopMargin": 841.7469,
             "BottomMargin": 270.2531,
+            "UserData": "main.tree",
             "Tag": 274,
+            "FrameEvent": "Jump",
             "ActionTag": -852607801,
             "Size": {
               "X": 515.0,
@@ -1098,8 +1412,9 @@
             "RightMargin": 2075.4944,
             "TopMargin": 1303.0529,
             "BottomMargin": 496.9471,
-            "UserData": "walk:drag",
+            "UserData": "walk;\ndrag",
             "Tag": 41,
+            "FrameEvent": "monkey",
             "ActionTag": -922899742,
             "Size": {
               "X": 0.0,
@@ -1111,7 +1426,7 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "Kima_apoteza_mkia_wakeMonkey/monkey.json",
+              "Path": "Kima_apoteza_mkia_wakeMonkey/rabbit.json",
               "Plist": ""
             },
             "StretchWidthEnable": false,
@@ -1119,8 +1434,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 489.8116,
-              "Y": 249.3016
+              "X": 393.6458,
+              "Y": 242.7483
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1129,20 +1444,20 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.1913,
-              "Y": 0.1385
+              "X": 0.1538,
+              "Y": 0.1349
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 489.8116,
-            "RightMargin": 2070.1885,
-            "TopMargin": 1550.6984,
-            "BottomMargin": 249.3016,
-            "UserData": "rabbit:drag",
-            "Tag": 55,
-            "ActionTag": 565301624,
+            "LeftMargin": 393.6458,
+            "RightMargin": 2166.3542,
+            "TopMargin": 1557.2517,
+            "BottomMargin": 242.7483,
+            "UserData": "rabbit;\ndrag",
+            "Tag": 1100,
+            "ActionTag": 1747979006,
             "Size": {
               "X": 0.0,
               "Y": 0.0
@@ -1161,7 +1476,8 @@
       "UsedResources": [
         "Kima_apoteza_mkia_wakeMonkey.plist",
         "Kima_apoteza_mkia_wakeMonkey.png",
-        "monkey.json"
+        "monkey.json",
+        "rabbit.json"
       ],
       "ctype": "GameFileData"
     }

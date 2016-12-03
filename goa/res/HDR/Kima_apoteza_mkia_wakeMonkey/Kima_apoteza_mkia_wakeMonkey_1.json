@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 200,
+        "Duration": 300,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "rabbit",
         "Timelines": [
           {
             "ActionTag": 594579610,
@@ -310,7 +310,23 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": -1678186183,
+            "ActionTag": -729307251,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -260.0,
+                "Y": 0.0,
+                "FrameIndex": 188,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2056011183,
             "Property": "ActionValue",
             "Frames": [
               {
@@ -328,17 +344,25 @@
                 "FrameIndex": 200,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "rabbit",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": -1678186183,
+            "ActionTag": 2056011183,
             "Property": "Position",
             "Frames": [
               {
-                "X": 489.8116,
-                "Y": 249.3016,
+                "X": 183.7742,
+                "Y": 135.2721,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -346,9 +370,18 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 1422.8152,
-                "Y": 216.2333,
+                "X": 1265.0792,
+                "Y": 239.6883,
                 "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1265.0792,
+                "Y": 239.6883,
+                "FrameIndex": 205,
                 "EasingData": {
                   "Type": 0
                 },
@@ -358,7 +391,7 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": -1678186183,
+            "ActionTag": 2056011183,
             "Property": "Scale",
             "Frames": [
               {
@@ -378,12 +411,21 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": -1678186183,
+            "ActionTag": 2056011183,
             "Property": "RotationSkew",
             "Frames": [
               {
@@ -403,6 +445,142 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2056011183,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "rabbit",
+                "FrameIndex": 10,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1360271710,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rabbit",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rabbit",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1360271710,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2162.7473,
+                "Y": 101.8066,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1543.1892,
+                "Y": 233.9837,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1360271710,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1360271710,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -315782479,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "rabbit",
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "rabbit",
+                "FrameIndex": 234,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -415,6 +593,12 @@
           "StartIndex": 0,
           "EndIndex": 200,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 205,
+          "EndIndex": 300,
+          "Name": "rabbit",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -484,7 +668,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1692.0905,
+              "X": 1730.09,
               "Y": 1263.3531
             },
             "Scale": {
@@ -494,15 +678,15 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.661,
+              "X": 0.6758,
               "Y": 0.7019
             },
             "PreSize": {
               "X": 0.2223,
               "Y": 0.1267
             },
-            "LeftMargin": 1407.5905,
-            "RightMargin": 583.4095,
+            "LeftMargin": 1445.59,
+            "RightMargin": 545.41,
             "TopMargin": 422.6469,
             "BottomMargin": 1149.3531,
             "Tag": 21,
@@ -529,7 +713,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 585.89,
+              "X": 544.89,
               "Y": 1451.1986
             },
             "Scale": {
@@ -539,15 +723,15 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.2289,
+              "X": 0.2128,
               "Y": 0.8062
             },
             "PreSize": {
               "X": 0.2223,
               "Y": 0.1267
             },
-            "LeftMargin": 301.39,
-            "RightMargin": 1689.61,
+            "LeftMargin": 260.39,
+            "RightMargin": 1730.61,
             "TopMargin": 234.8014,
             "BottomMargin": 1337.1986,
             "Tag": 20,
@@ -574,7 +758,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1035.02,
+              "X": 1070.02,
               "Y": 1114.36
             },
             "Scale": {
@@ -584,15 +768,15 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.4043,
+              "X": 0.418,
               "Y": 0.6191
             },
             "PreSize": {
               "X": 0.2223,
               "Y": 0.1267
             },
-            "LeftMargin": 750.52,
-            "RightMargin": 1240.48,
+            "LeftMargin": 785.52,
+            "RightMargin": 1205.48,
             "TopMargin": 571.64,
             "BottomMargin": 1000.36,
             "Tag": 54,
@@ -619,7 +803,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2199.8,
+              "X": 2154.8,
               "Y": 1033.91
             },
             "Scale": {
@@ -629,15 +813,15 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.8593,
+              "X": 0.8417,
               "Y": 0.5744
             },
             "PreSize": {
               "X": 0.2223,
               "Y": 0.1267
             },
-            "LeftMargin": 1915.3,
-            "RightMargin": 75.7,
+            "LeftMargin": 1870.3,
+            "RightMargin": 120.7,
             "TopMargin": 652.09,
             "BottomMargin": 919.91,
             "Tag": 53,
@@ -760,7 +944,7 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 0.0,
+              "X": -260.0,
               "Y": 0.0
             },
             "Scale": {
@@ -770,18 +954,20 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.0,
+              "X": -0.1016,
               "Y": 0.0
             },
             "PreSize": {
-              "X": 1.0,
+              "X": 1.2109,
               "Y": 0.2778
             },
+            "LeftMargin": -260.0,
+            "RightMargin": -280.0,
             "TopMargin": 1300.0,
             "Tag": 256,
             "ActionTag": -729307251,
             "Size": {
-              "X": 2560.0,
+              "X": 3100.0,
               "Y": 500.0
             },
             "Name": "Panel_2",
@@ -879,6 +1065,48 @@
           },
           {
             "FileData": {
+              "Type": "Normal",
+              "Path": "Kima_apoteza_mkia_wakeMonkey/monkey.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1924.2224,
+              "Y": 201.1407
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7516,
+              "Y": 0.1117
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1924.2224,
+            "RightMargin": 635.7776,
+            "TopMargin": 1598.8594,
+            "BottomMargin": 201.1407,
+            "UserData": "walk;\ndrag",
+            "Tag": 777,
+            "ActionTag": 408841350,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "monkey",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
               "Type": "MarkedSubImage",
               "Path": "Kima_apoteza_mkia_wakeMonkey/Kima_fence.png",
               "Plist": "Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey.plist"
@@ -923,50 +1151,46 @@
             "ctype": "SpriteObjectData"
           },
           {
-            "FlipX": true,
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Kima_apoteza_mkia_wakeMonkey/monkey1.png",
-              "Plist": "Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey.plist"
+              "Type": "Normal",
+              "Path": "Kima_apoteza_mkia_wakeMonkey/rabbit.json",
+              "Plist": ""
             },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
             "Position": {
-              "X": 1951.2542,
-              "Y": 203.8963
+              "X": 1265.0792,
+              "Y": 239.6883
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
             "CColor": {},
-            "IconVisible": false,
+            "IconVisible": true,
             "PrePosition": {
-              "X": 0.7622,
-              "Y": 0.1133
+              "X": 0.4942,
+              "Y": 0.1332
             },
             "PreSize": {
-              "X": 0.1969,
-              "Y": 0.2022
+              "X": 0.0,
+              "Y": 0.0
             },
-            "LeftMargin": 1699.2542,
-            "RightMargin": 356.7458,
-            "TopMargin": 1414.1038,
-            "BottomMargin": 21.8963,
-            "Tag": 44,
-            "ActionTag": -1316848144,
+            "LeftMargin": 1265.0792,
+            "RightMargin": 1294.9208,
+            "TopMargin": 1560.3118,
+            "BottomMargin": 239.6883,
+            "UserData": "rabbit;drag",
+            "Tag": 25,
+            "ActionTag": 2056011183,
             "Size": {
-              "X": 504.0,
-              "Y": 364.0
+              "X": 0.0,
+              "Y": 0.0
             },
-            "Name": "monkey_1_15",
-            "ctype": "SpriteObjectData"
+            "Name": "rabbit",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -1014,6 +1238,47 @@
             "ctype": "SpriteObjectData"
           },
           {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Kima_apoteza_mkia_wakeMonkey/rabbit.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2162.7473,
+              "Y": 101.8066
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8448,
+              "Y": 0.0566
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2162.7473,
+            "RightMargin": 397.2527,
+            "TopMargin": 1698.1935,
+            "BottomMargin": 101.8066,
+            "Tag": 92,
+            "ActionTag": 1360271710,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "rabbit",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
             "FlipX": true,
             "FileData": {
               "Type": "MarkedSubImage",
@@ -1025,12 +1290,11 @@
               "Dst": 771
             },
             "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
+              "ScaleX": 0.5
             },
             "Position": {
               "X": 2159.1487,
-              "Y": 127.6092
+              "Y": -35.3908
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1040,7 +1304,7 @@
             "IconVisible": false,
             "PrePosition": {
               "X": 0.8434,
-              "Y": 0.0709
+              "Y": -0.0197
             },
             "PreSize": {
               "X": 0.3453,
@@ -1050,7 +1314,9 @@
             "RightMargin": -41.1487,
             "TopMargin": 1509.3909,
             "BottomMargin": -35.3908,
+            "UserData": "main.rabbit",
             "Tag": 261,
+            "FrameEvent": "rabbit",
             "ActionTag": -315782479,
             "Size": {
               "X": 884.0,
@@ -1058,48 +1324,6 @@
             },
             "Name": "Kima_grass_4_0",
             "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "Kima_apoteza_mkia_wakeMonkey/monkey.json",
-              "Plist": ""
-            },
-            "StretchWidthEnable": false,
-            "StretchHeightEnable": false,
-            "InnerActionSpeed": 1.0,
-            "AnchorPoint": {},
-            "Position": {
-              "X": 489.8116,
-              "Y": 249.3016
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": true,
-            "PrePosition": {
-              "X": 0.1913,
-              "Y": 0.1385
-            },
-            "PreSize": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "LeftMargin": 489.8116,
-            "RightMargin": 2070.1885,
-            "TopMargin": 1550.6984,
-            "BottomMargin": 249.3016,
-            "UserData": "rabbit:drag",
-            "Tag": 17,
-            "ActionTag": -1678186183,
-            "Size": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "Name": "rabbit",
-            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -1112,7 +1336,8 @@
       "UsedResources": [
         "Kima_apoteza_mkia_wakeMonkey.plist",
         "Kima_apoteza_mkia_wakeMonkey.png",
-        "monkey.json"
+        "monkey.json",
+        "rabbit.json"
       ],
       "ctype": "GameFileData"
     }
