@@ -25,7 +25,7 @@ SmashTheRock::SmashTheRock()
 SmashTheRock::~SmashTheRock()
 {
 	audio->stopBackgroundMusic();
-
+	
 }
 Scene* SmashTheRock::createScene()
 {
@@ -364,6 +364,7 @@ void SmashTheRock::masking()
 }
 void SmashTheRock::change(float dt)
 {
+	
 	stopAllActions();
 	menu->showScore();
 }
@@ -441,7 +442,7 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			flag = true;
 			FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
 			maskedFill->runAction(shake);
-			
+			menu->addPoints(-1);
 			
 			
 			return false;
