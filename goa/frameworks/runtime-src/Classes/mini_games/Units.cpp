@@ -87,15 +87,16 @@ void Units::onEnterTransitionDidFinish() {
 	_bg->getChildByName("FileNode_3")->runAction(_openTimeline);
 
 
-	auto handle = _bg->getChildByName("FileNode_3");
+	//auto handle = _bg->getChildByName("FileNode_3");
+	auto handle = _bg->getChildByName("click");
 	//handle->setPosition(handle->getPosition() + Vec2(50,50));
-	handle->setContentSize(Size(200, 200));
+	//handle->setContentSize(Size(218, 101));
 	handle->setName("handle");
 	
 	//auto E = DrawNode::create();
 	//this->addChild(E, 10);
-	//E->drawRect(Vec2(handle->getPosition()),
-	//	Vec2(200 + handle->getPositionX(), 200 + handle->getPositionY()),
+	//->drawRect(Vec2(handle->getPosition()),
+	//	Vec2(218 + handle->getPositionX(), 101 + handle->getPositionY()),
 	//	Color4F(0, 0, 255, 22));
 
 	
