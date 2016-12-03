@@ -199,7 +199,7 @@ std::map<std::string, std::string> TextGenerator::getHomonyms(int maxNum, int le
         {"road", "rode"},
         {"sail", "sale"},
         {"sea", "see"},
-        {"sail", "sale"},
+        {"knew", "new"},
         {"son", "sun"},
         {"tail", "tale"},
 		{ "A","A" },
