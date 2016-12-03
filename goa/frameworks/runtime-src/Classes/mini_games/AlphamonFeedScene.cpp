@@ -289,6 +289,7 @@ bool AlphamonFeed::onTouchBegan(cocos2d::Touch *touch,cocos2d::Event * event)
 			this->removeChildByName("helpLayer");
 			_helpLayer = false;
 		}
+
 		CCLOG("touch began X = %f", target->getPositionX());
 		touchPosition = touch->getLocation().x;
 		isTouching = true;
@@ -298,6 +299,7 @@ bool AlphamonFeed::onTouchBegan(cocos2d::Touch *touch,cocos2d::Event * event)
 		return true;
 	}else if  ((touch->getLocation().y < Director::getInstance()->getVisibleSize().height - 350) && (!menu->isGamePaused())) {
 		sprite1->alphamonLegAnimation("walk", true);
+		target->setPositionX(touch->getLocation().x);
 		return true;
 	}
 	return false;
@@ -308,7 +310,7 @@ void AlphamonFeed::onTouchMoved(cocos2d::Touch *touch,cocos2d::Event * event)
 
 	cocos2d::Node * target = sprite1;
 	//bool flage = false;
-	if ( (touch->getLocation().x > 150 && touch->getLocation().x < (Director::getInstance()->getVisibleSize().width-200))) {
+	if ( (touch->getLocation().x > (Director::getInstance()->getVisibleSize().width * 0.13) && touch->getLocation().x < (Director::getInstance()->getVisibleSize().width-200))) {
 		
 			int compare = touch->getLocation().x - touchPosition;
 			if (compare > 0 ) {
