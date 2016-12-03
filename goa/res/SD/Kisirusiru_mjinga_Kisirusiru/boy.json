@@ -7921,6 +7921,31 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 1103410760,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "walking",
+                "FrameIndex": 10,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "walking",
+                "FrameIndex": 30,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "hop",
+                "FrameIndex": 220,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -2024856762,
             "Property": "Position",
             "Frames": [
@@ -12416,20 +12441,21 @@
             "Length": 400.0,
             "Position": {
               "X": 0.0089,
-              "Y": 233.4355
+              "Y": 227.6219
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 0.9899
             },
-            "RotationSkewX": -100.054,
-            "RotationSkewY": -100.054,
+            "RotationSkewX": -102.5675,
+            "RotationSkewY": -102.5675,
             "CColor": {},
             "BlendFunc": {
               "Src": 1,
               "Dst": 771
             },
             "Tag": 172,
+            "FrameEvent": "hop",
             "Children": [
               {
                 "Length": 154.0,
@@ -12441,8 +12467,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 200.4576,
-                "RotationSkewY": 200.458,
+                "RotationSkewX": 205.5222,
+                "RotationSkewY": 205.5226,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -12460,8 +12486,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 81.8688,
-                    "RotationSkewY": 81.8688,
+                    "RotationSkewX": 102.336,
+                    "RotationSkewY": 102.336,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -12667,8 +12693,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 197.4664,
-                "RotationSkewY": 557.4663,
+                "RotationSkewX": 201.7832,
+                "RotationSkewY": 561.7831,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -12686,8 +12712,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 73.9721,
-                    "RotationSkewY": 433.9722,
+                    "RotationSkewX": 92.4651,
+                    "RotationSkewY": 452.4653,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -12913,8 +12939,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": -5.2805,
-                    "RotationSkewY": -5.2805,
+                    "RotationSkewX": -6.5774,
+                    "RotationSkewY": -6.5774,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -13342,7 +13368,7 @@
             "Length": 139.0,
             "Position": {
               "X": 0.0089,
-              "Y": 233.4355
+              "Y": 227.6219
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -13367,8 +13393,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 41.6117,
-                "RotationSkewY": 401.6116,
+                "RotationSkewX": 52.0146,
+                "RotationSkewY": 412.0145,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -13386,8 +13412,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": -40.4929,
-                    "RotationSkewY": -40.4929,
+                    "RotationSkewX": -50.6161,
+                    "RotationSkewY": -50.6161,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -13595,8 +13621,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 41.9102,
-                "RotationSkewY": 401.9104,
+                "RotationSkewX": 52.3878,
+                "RotationSkewY": 412.388,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -13614,8 +13640,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": -41.8214,
-                    "RotationSkewY": -41.8214,
+                    "RotationSkewX": -52.2767,
+                    "RotationSkewY": -52.2767,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,

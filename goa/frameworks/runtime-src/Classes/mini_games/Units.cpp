@@ -87,15 +87,16 @@ void Units::onEnterTransitionDidFinish() {
 	_bg->getChildByName("FileNode_3")->runAction(_openTimeline);
 
 
-	auto handle = _bg->getChildByName("FileNode_3");
+	//auto handle = _bg->getChildByName("FileNode_3");
+	auto handle = _bg->getChildByName("click");
 	//handle->setPosition(handle->getPosition() + Vec2(50,50));
-	handle->setContentSize(Size(200, 200));
+	//handle->setContentSize(Size(218, 101));
 	handle->setName("handle");
 	
 	//auto E = DrawNode::create();
 	//this->addChild(E, 10);
-	//E->drawRect(Vec2(handle->getPosition()),
-	//	Vec2(200 + handle->getPositionX(), 200 + handle->getPositionY()),
+	//->drawRect(Vec2(handle->getPosition()),
+	//	Vec2(218 + handle->getPositionX(), 101 + handle->getPositionY()),
 	//	Color4F(0, 0, 255, 22));
 
 	
@@ -350,7 +351,7 @@ void Units::addCalculator() {
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	_calculator = new Calculator();
-	_calculator->createCalculator(Vec2(500, 1150), Vec2(0.5, 0.5), 0.5, 0.5);
+	_calculator->createCalculator(Vec2(500, 1300), Vec2(0.5, 0.5), 0.7, 0.7);
 	this->addChild(_calculator,10);
 	//_calculator->setGlobalZOrder(2);
 	_calculator->setVisible(false);

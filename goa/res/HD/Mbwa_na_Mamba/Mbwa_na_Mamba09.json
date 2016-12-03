@@ -5,16 +5,31 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 230,
+        "Duration": 435,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "pigeon",
         "Timelines": [
+          {
+            "ActionTag": 302270658,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fire",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 1684167852,
             "Property": "ActionValue",
             "Frames": [
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "crocwalk",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
@@ -45,7 +60,7 @@
             "Property": "ActionValue",
             "Frames": [
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "crocwalk",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
@@ -76,7 +91,7 @@
             "Property": "ActionValue",
             "Frames": [
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "crocwalk",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
@@ -123,7 +138,7 @@
             "Property": "ActionValue",
             "Frames": [
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "crocwalk",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
@@ -170,7 +185,7 @@
             "Property": "ActionValue",
             "Frames": [
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "crocwalk",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
@@ -314,6 +329,90 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -494229443,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 230,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 235,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 380,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -494229443,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 267.0645,
+                "Y": 1936.0549,
+                "FrameIndex": 235,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 605.9211,
+                "Y": 820.1699,
+                "FrameIndex": 380,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 693.8063,
+                "Y": 833.3218,
+                "FrameIndex": 435,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -494229443,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 230,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 235,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -323,6 +422,12 @@
           "StartIndex": 0,
           "EndIndex": 230,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 235,
+          "EndIndex": 435,
+          "Name": "pigeon",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -375,6 +480,8 @@
             "RightMargin": -498.3398,
             "TopMargin": 967.2864,
             "BottomMargin": -167.2864,
+            "CallBackType": "Click",
+            "UserData": "main.pigeon",
             "Tag": 96,
             "ActionTag": 1451224690,
             "Size": {
@@ -430,6 +537,8 @@
             "RightMargin": -453.2605,
             "TopMargin": 134.2346,
             "BottomMargin": 865.7654,
+            "CallBackType": "Click",
+            "UserData": "main.pigeon",
             "Tag": 97,
             "ActionTag": 1901895398,
             "Size": {
@@ -481,7 +590,7 @@
               "X": 796.0,
               "Y": 865.0
             },
-            "Name": "MbwanaMamba_window_6",
+            "Name": "window",
             "ctype": "SpriteObjectData"
           },
           {
@@ -526,7 +635,7 @@
               "X": 388.0,
               "Y": 109.0
             },
-            "Name": "MbwanaMamba_ground1_3",
+            "Name": "ground",
             "ctype": "SpriteObjectData"
           },
           {
@@ -544,8 +653,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2378.1272,
-              "Y": 590.6855
+              "X": 2397.4285,
+              "Y": 540.0262
             },
             "Scale": {
               "ScaleX": 1.25,
@@ -554,25 +663,66 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.929,
-              "Y": 0.3282
+              "X": 0.9365,
+              "Y": 0.3
             },
             "PreSize": {
               "X": 0.0844,
               "Y": 0.1422
             },
-            "LeftMargin": 2270.1272,
-            "RightMargin": 73.8728,
-            "TopMargin": 1081.3145,
-            "BottomMargin": 462.6855,
+            "LeftMargin": 2289.4285,
+            "RightMargin": 54.5715,
+            "TopMargin": 1131.9739,
+            "BottomMargin": 412.0262,
             "Tag": 100,
             "ActionTag": 890862790,
             "Size": {
               "X": 216.0,
               "Y": 256.0
             },
-            "Name": "MbwanaMamba_fire_1",
+            "Name": "fire",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mbwa_na_Mamba/fire.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2387.0029,
+              "Y": 573.0014
+            },
+            "Scale": {
+              "ScaleX": 1.2018,
+              "ScaleY": 1.2018
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.9324,
+              "Y": 0.3183
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2387.0029,
+            "RightMargin": 172.9971,
+            "TopMargin": 1226.9985,
+            "BottomMargin": 573.0014,
+            "Tag": 1375,
+            "ActionTag": 302270658,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "fire",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -616,7 +766,7 @@
               "X": 520.0,
               "Y": 367.0
             },
-            "Name": "MbwanaMamba_stove_2",
+            "Name": "stove",
             "ctype": "SpriteObjectData"
           },
           {
@@ -660,7 +810,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2_2",
+            "Name": "croc",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -701,7 +851,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_0",
+            "Name": "croc",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -744,7 +894,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "croc",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -787,7 +937,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2_0",
+            "Name": "croc",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -830,7 +980,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2_1",
+            "Name": "croc",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -844,8 +994,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": -167.5761,
-              "Y": 293.1737
+              "X": 535.6443,
+              "Y": 318.2763
             },
             "Scale": {
               "ScaleX": -1.0,
@@ -854,24 +1004,24 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": -0.0655,
-              "Y": 0.1629
+              "X": 0.2092,
+              "Y": 0.1768
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -167.5761,
-            "RightMargin": 2727.5762,
-            "TopMargin": 1506.8263,
-            "BottomMargin": 293.1737,
+            "LeftMargin": 535.6443,
+            "RightMargin": 2024.3557,
+            "TopMargin": 1481.7236,
+            "BottomMargin": 318.2763,
             "Tag": 1505,
             "ActionTag": 1644848022,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "croc",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -906,13 +1056,55 @@
             "RightMargin": 1160.9801,
             "TopMargin": 1350.2521,
             "BottomMargin": 449.7479,
+            "UserData": "main.dogrun",
             "Tag": 1526,
             "ActionTag": 374508423,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_3",
+            "Name": "dog",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mbwa_na_Mamba/bird.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 267.0645,
+              "Y": 1936.0549
+            },
+            "Scale": {
+              "ScaleX": -0.2,
+              "ScaleY": 0.2
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1043,
+              "Y": 1.0756
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 267.0645,
+            "RightMargin": 2292.9355,
+            "TopMargin": -136.0549,
+            "BottomMargin": 1936.0549,
+            "Tag": 4748,
+            "ActionTag": -494229443,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "pigeon",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -924,8 +1116,10 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "bird.json",
         "croc.json",
         "dog.json",
+        "fire.json",
         "Mbwa_na_Mamba.plist",
         "Mbwa_na_Mamba.png"
       ],

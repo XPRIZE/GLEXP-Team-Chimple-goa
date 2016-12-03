@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 240,
+        "Duration": 375,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "dove",
         "Timelines": [
           {
             "ActionTag": -1142857484,
@@ -141,6 +141,222 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1978823449,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 125,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 240,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 250,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 375,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1978823449,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -136.041,
+                "Y": 276.9305,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1400.0,
+                "Y": 2200.0,
+                "FrameIndex": 125,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1400.0,
+                "Y": 2200.0,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -146.68,
+                "Y": 492.39,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 924.0663,
+                "Y": 492.39,
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1978823449,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -0.5,
+                "Y": 0.5,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.5,
+                "Y": 0.5,
+                "FrameIndex": 125,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.5,
+                "Y": 0.5,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.5,
+                "Y": 0.5,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.5,
+                "Y": 0.5,
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1978823449,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 125,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1978823449,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "birdflap",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -150,6 +366,12 @@
           "StartIndex": 0,
           "EndIndex": 240,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 250,
+          "EndIndex": 375,
+          "Name": "dove",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -196,6 +418,7 @@
             },
             "LeftMargin": -270.92,
             "RightMargin": -269.0801,
+            "UserData": "main.dove",
             "Tag": 2537,
             "ActionTag": 1209849335,
             "Size": {
@@ -216,7 +439,7 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 2260.936,
+              "X": 1500.0,
               "Y": 263.1121
             },
             "Scale": {
@@ -226,18 +449,18 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.8832,
+              "X": 0.5859,
               "Y": 0.1462
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 2260.936,
-            "RightMargin": 299.064,
+            "LeftMargin": 1500.0,
+            "RightMargin": 1060.0,
             "TopMargin": 1536.8879,
             "BottomMargin": 263.1121,
-            "UserData": "hi;drag",
+            "UserData": "walk;drag",
             "Tag": 2581,
             "ActionTag": -1142857484,
             "Size": {
@@ -245,6 +468,48 @@
               "Y": 0.0
             },
             "Name": "farmer",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Demane_and_Demazane/dove.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 144.563,
+              "Y": 492.39
+            },
+            "Scale": {
+              "ScaleX": -0.5,
+              "ScaleY": 0.5
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0565,
+              "Y": 0.2736
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 144.563,
+            "RightMargin": 2415.437,
+            "TopMargin": 1307.61,
+            "BottomMargin": 492.39,
+            "UserData": "fly;drag",
+            "Tag": 1701,
+            "ActionTag": 1978823449,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "dove",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -256,6 +521,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "dove.json",
         "farmer.json"
       ],
       "ctype": "GameFileData"

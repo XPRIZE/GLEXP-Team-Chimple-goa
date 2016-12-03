@@ -5,7 +5,7 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 235,
+        "Duration": 280,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
@@ -553,7 +553,7 @@
                 "InnerActionType": "LoopAction",
                 "CurrentAniamtionName": "run",
                 "SingleFrameIndex": 0,
-                "FrameIndex": 225,
+                "FrameIndex": 280,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -576,7 +576,7 @@
               {
                 "X": 1117.3936,
                 "Y": 163.7486,
-                "FrameIndex": 225,
+                "FrameIndex": 280,
                 "EasingData": {
                   "Type": 0
                 },
@@ -601,7 +601,7 @@
               {
                 "X": 0.5,
                 "Y": 0.5,
-                "FrameIndex": 225,
+                "FrameIndex": 280,
                 "EasingData": {
                   "Type": 0
                 },
@@ -626,7 +626,7 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 225,
+                "FrameIndex": 280,
                 "EasingData": {
                   "Type": 0
                 },
@@ -834,6 +834,19 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 301250316,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "walk",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -841,7 +854,7 @@
       "AnimationList": [
         {
           "StartIndex": 0,
-          "EndIndex": 235,
+          "EndIndex": 280,
           "Name": "master",
           "ctype": "AnimationInfoData"
         }
@@ -1042,7 +1055,7 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "Kisirusiru_mjinga_Kisirusiru/animal_animation.json",
+              "Path": "Kisirusiru_mjinga_Kisirusiru/goat.json",
               "Plist": ""
             },
             "StretchWidthEnable": false,
@@ -1050,8 +1063,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": -389.9882,
-              "Y": 162.8421
+              "X": 1117.3936,
+              "Y": 163.7486
             },
             "Scale": {
               "ScaleX": 0.5,
@@ -1060,18 +1073,18 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": -0.1523,
-              "Y": 0.0905
+              "X": 0.4365,
+              "Y": 0.091
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -389.9882,
-            "RightMargin": 2949.9883,
-            "TopMargin": 1637.158,
-            "BottomMargin": 162.8421,
-            "UserData": "run:drag",
+            "LeftMargin": 1117.3936,
+            "RightMargin": 1442.6064,
+            "TopMargin": 1636.2515,
+            "BottomMargin": 163.7486,
+            "UserData": "run;drag",
             "Tag": 5404,
             "ActionTag": 1554527002,
             "Size": {
@@ -1096,8 +1109,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": -748.1676,
-              "Y": 242.5847
+              "X": 2013.9182,
+              "Y": 242.58
             },
             "Scale": {
               "ScaleX": 0.44,
@@ -1106,17 +1119,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.2923,
+              "X": 0.7867,
               "Y": 0.1348
             },
             "PreSize": {
               "X": 0.5941,
               "Y": 0.5067
             },
-            "LeftMargin": -1508.6676,
-            "RightMargin": 2547.6675,
-            "TopMargin": 1101.4153,
-            "BottomMargin": -213.4153,
+            "LeftMargin": 1253.4182,
+            "RightMargin": -214.4182,
+            "TopMargin": 1101.4199,
+            "BottomMargin": -213.42,
             "Tag": 374,
             "ActionTag": -1522930849,
             "Size": {
@@ -1137,8 +1150,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": -462.2887,
-              "Y": 96.4144
+              "X": 2324.3289,
+              "Y": 78.0199
             },
             "Scale": {
               "ScaleX": -1.0,
@@ -1147,18 +1160,18 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": -0.1806,
-              "Y": 0.0536
+              "X": 0.9079,
+              "Y": 0.0433
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -462.2887,
-            "RightMargin": 3022.2886,
-            "TopMargin": 1703.5856,
-            "BottomMargin": 96.4144,
-            "UserData": "run:drag",
+            "LeftMargin": 2324.3289,
+            "RightMargin": 235.6711,
+            "TopMargin": 1721.9801,
+            "BottomMargin": 78.0199,
+            "UserData": "run;drag",
             "Tag": 5361,
             "ActionTag": 301250316,
             "Size": {
@@ -1177,8 +1190,8 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "animal_animation.json",
         "boy.json",
+        "goat.json",
         "Kisirusiru_mjinga_Kisirusiru.plist",
         "Kisirusiru_mjinga_Kisirusiru.png"
       ],

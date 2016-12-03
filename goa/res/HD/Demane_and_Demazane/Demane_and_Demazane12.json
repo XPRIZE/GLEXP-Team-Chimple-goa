@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 200,
+        "Duration": 305,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "door",
         "Timelines": [
           {
             "ActionTag": 547049982,
@@ -283,6 +283,24 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              },
+              {
+                "X": 2842.4038,
+                "Y": -0.9018,
+                "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2842.4038,
+                "Y": -0.9018,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -313,6 +331,24 @@
                 "X": 1.0,
                 "Y": 1.0,
                 "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.73,
+                "Y": 1.0,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -351,6 +387,43 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": -16.0,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1093820481,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "door",
+                "FrameIndex": 100,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "door",
+                "FrameIndex": 210,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -426,6 +499,12 @@
           "StartIndex": 0,
           "EndIndex": 200,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 210,
+          "EndIndex": 305,
+          "Name": "door",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -922,8 +1001,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1287.7036,
-              "Y": 112.0426
+              "X": 1286.2185,
+              "Y": 116.8816
             },
             "Scale": {
               "ScaleX": 0.7188,
@@ -932,17 +1011,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.503,
-              "Y": 0.0622
+              "X": 0.5024,
+              "Y": 0.0649
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1287.7036,
-            "RightMargin": 1272.2964,
-            "TopMargin": 1687.9574,
-            "BottomMargin": 112.0426,
+            "LeftMargin": 1286.2185,
+            "RightMargin": 1273.7815,
+            "TopMargin": 1683.1184,
+            "BottomMargin": 116.8816,
             "UserData": "fire",
             "Tag": 1752,
             "ActionTag": 547049982,
@@ -1013,7 +1092,7 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 2200.0,
+              "X": 1600.0,
               "Y": 39.243
             },
             "Scale": {
@@ -1023,18 +1102,18 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.8594,
+              "X": 0.625,
               "Y": 0.0218
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 2200.0,
-            "RightMargin": 360.0,
+            "LeftMargin": 1600.0,
+            "RightMargin": 960.0,
             "TopMargin": 1760.757,
             "BottomMargin": 39.243,
-            "UserData": "hi;drag",
+            "UserData": "walk;drag",
             "Tag": 1855,
             "ActionTag": 136551608,
             "Size": {
@@ -1062,10 +1141,9 @@
               "Y": -0.9018
             },
             "Scale": {
-              "ScaleX": 0.73,
+              "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "RotationSkewY": -16.0,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
@@ -1080,7 +1158,9 @@
             "RightMargin": -282.4038,
             "TopMargin": 714.9019,
             "BottomMargin": -0.9018,
+            "UserData": "main.door",
             "Tag": 1750,
+            "FrameEvent": "door",
             "ActionTag": 1093820481,
             "Size": {
               "X": 925.0,
@@ -1121,7 +1201,7 @@
             "RightMargin": 1760.0,
             "TopMargin": 1770.4191,
             "BottomMargin": 29.5809,
-            "UserData": "hi;drag",
+            "UserData": "walk;drag",
             "Tag": 2232,
             "ActionTag": -330435048,
             "Size": {

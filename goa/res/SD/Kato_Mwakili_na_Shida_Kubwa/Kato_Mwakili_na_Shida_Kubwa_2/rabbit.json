@@ -55,6 +55,25 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 217781265,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "rabbit",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 45,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -102,11 +121,12 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -23.0,
-            "RightMargin": -23.0,
-            "TopMargin": -23.0,
-            "BottomMargin": -23.0,
+            "LeftMargin": -163.0,
+            "RightMargin": -163.0,
+            "TopMargin": -116.0,
+            "BottomMargin": -116.0,
             "Tag": 25,
+            "FrameEvent": "rabbit",
             "ActionTag": 217781265,
             "Size": {
               "X": 326.0,
