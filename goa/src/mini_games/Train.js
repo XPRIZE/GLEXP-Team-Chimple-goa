@@ -67,6 +67,9 @@ xc.TrainLayer = cc.Layer.extend({
                         target.setScale(1);
                         target.setPosition(target.xP, target.yP);
                         _menuContext.addPoints(1);
+                        
+                        cc.audioEngine.playEffect("sounds/sfx/success.ogg", false);
+                        
                         if (wordPosition % 3 != 0) {
                             var scaleAnimation = function () {
                                 var increase = new cc.ScaleTo(1, 1.4);
@@ -157,7 +160,7 @@ xc.TrainLayer = cc.Layer.extend({
                     }
                     else if(target.selected==0 && !(layer1.isVisible())){
                         layer1.setVisible(true);
-
+                        cc.audioEngine.playEffect("sounds/sfx/error.ogg", false);
                         var removeLayer = function()
                         {
                             layer1.setVisible(false);
@@ -223,6 +226,7 @@ xc.TrainLayer = cc.Layer.extend({
         cc.log(sentence);
 
         random = sentence.length //Math.floor(Math.random() * 7) + 3;
+        _menuContext.setMaxPoints(random);
         var row = 0, temp = random;
 
         while (temp >= 3) {

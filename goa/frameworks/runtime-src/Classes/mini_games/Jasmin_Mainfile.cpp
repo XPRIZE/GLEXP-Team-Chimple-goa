@@ -90,6 +90,9 @@ void Jasmin_Mainfile::gameOver(bool correct) {
 			animation->play("correct", false);
 			animation->setAnimationEndCallFunc("correct", CC_CALLBACK_0(Jasmin_Mainfile::startFlowerAnimation, this, tree, random_val, item));
 		}
+
+		CocosDenshion::SimpleAudioEngine *success = CocosDenshion::SimpleAudioEngine::getInstance();
+		success->playEffect("sounds/sfx/success.ogg", false);
 	}
 	else
 	{
@@ -111,6 +114,9 @@ void Jasmin_Mainfile::gameOver(bool correct) {
 			animation->play("wrong", false);
 			animation->setAnimationEndCallFunc("wrong", CC_CALLBACK_0(Jasmin_Mainfile::removeAnimation, this, tree));
 		}
+
+		CocosDenshion::SimpleAudioEngine *error = CocosDenshion::SimpleAudioEngine::getInstance();
+		error->playEffect("sounds/sfx/error.ogg", false);
 	}
 }
 
