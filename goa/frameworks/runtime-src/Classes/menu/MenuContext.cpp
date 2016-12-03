@@ -994,7 +994,7 @@ void MenuContext::showScore() {
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     CCLOG("Points: %d MaxPoints: %d", _points, _maxPoints);
-    int stars = round(MAX(_points, 0) * 3.0/_maxPoints);
+    int stars = MIN(round(MAX(_points, 0) * 3.0/_maxPoints), 3);
 
     std::string progressStr;
     localStorageGetItem(gameName + LEVEL, &progressStr);
