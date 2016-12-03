@@ -351,7 +351,7 @@ void Units::addCalculator() {
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	_calculator = new Calculator();
-	_calculator->createCalculator(Vec2(500, 1150), Vec2(0.5, 0.5), 0.5, 0.5);
+	_calculator->createCalculator(Vec2(500, 1300), Vec2(0.5, 0.5), 0.7, 0.7);
 	this->addChild(_calculator,10);
 	//_calculator->setGlobalZOrder(2);
 	_calculator->setVisible(false);
