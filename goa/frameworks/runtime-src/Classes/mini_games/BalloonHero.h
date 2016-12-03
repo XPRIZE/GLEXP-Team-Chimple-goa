@@ -61,6 +61,8 @@ protected:
 	cocostudio::timeline::ActionTimeline * _bgTimeline;
 	std::vector<std::string> _set1;
 	std::vector<std::string> _set2;
+
+	std::string _hint;
 	MenuContext *_menuContext;
 
 };

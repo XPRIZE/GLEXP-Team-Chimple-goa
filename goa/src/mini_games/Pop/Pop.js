@@ -100,11 +100,10 @@ xc.PopLayer = cc.Layer.extend({
 
                 var seqAction = new cc.Sequence(labelAction_1, labelAction_2);
                 this.sentanceInRightOrder.runAction(seqAction);
+                this.addChild(this.sentanceInRightOrder);
 
-
-            this.addChild(this.sentanceInRightOrder);
-            setTimeout(function(){  
-                self.removeChild(self.sentanceInRightOrder)}, 6000);
+            // setTimeout(function(){  
+            //     self.removeChild(self.sentanceInRightOrder)}, 6000);
 
             var listener = cc.EventListener.create({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
@@ -196,7 +195,11 @@ xc.PopLayer = cc.Layer.extend({
                 this.helpFlag = true;
             }
         }
-        
+                       var textRemoval = function()
+                       {
+                          self.removeChild(self.sentanceInRightOrder);
+                       }
+
                         var cloudMotion = function()
                        {
                             for (var i = 0; i < self.cloudContainer.length; i++)
@@ -206,15 +209,19 @@ xc.PopLayer = cc.Layer.extend({
                                 self.cloudContainer[i].runAction(easeAction);
                             }
                        }
-                        var palneMotion = function()
+                        var isClickReady = function()
                        {
-                          self.plane.node.runAction(cc.MoveTo.create(5, cc.p(-220, cc.director.getWinSize().height * multiplyFactor)));
+                         self.clickableFlag = true;
                        }
+                       
+                        var palneMotion = function()
+                        {
+                            self.plane.node.runAction(cc.MoveTo.create(5, cc.p(-220, cc.director.getWinSize().height * multiplyFactor)));
+                        }
 
-                       self.runAction(new cc.Sequence(cc.delayTime(6),new cc.CallFunc(palneMotion, self),cc.delayTime(1.7), new cc.CallFunc(cloudMotion, self)));
+                       self.runAction(new cc.Sequence(cc.delayTime(6),new cc.CallFunc(textRemoval, self),new cc.CallFunc(palneMotion, self),cc.delayTime(1.7), new cc.CallFunc(cloudMotion, self),cc.delayTime(10),new cc.CallFunc(isClickReady, self)));
 
-
-      setTimeout(function () {  self.clickableFlag = true;   }, 17000);
+      //setTimeout(function () {  self.clickableFlag = true;   }, 17000);
       },
 
     getRandomArbitrary: function (min, max) {
