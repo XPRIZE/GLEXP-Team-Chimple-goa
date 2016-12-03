@@ -236,6 +236,10 @@ void Card::addEvents(struct SpriteDetails sprite)
 
 						this->runAction(Sequence::create(DelayTime::create(.5), CallFunc::create([=]() {
 
+							CocosDenshion::SimpleAudioEngine *success = CocosDenshion::SimpleAudioEngine::getInstance();
+							success->playEffect("sounds/sfx/success.ogg", false);
+							_menuContext->addPoints(_pairCard);
+
 							for (int i = 0; i < _spriteDetails.size(); i++)
 							{
 								if (_spriteDetails.at(i)._flag == 1)
@@ -258,7 +262,6 @@ void Card::addEvents(struct SpriteDetails sprite)
 
 									}), NULL));
 								}
-								_menuContext->addPoints(2);
 							}
 
 							for (int i = 0; i < _toDoDetails.size(); i++)
@@ -274,6 +277,9 @@ void Card::addEvents(struct SpriteDetails sprite)
 					}
 					else
 					{
+						CocosDenshion::SimpleAudioEngine *error = CocosDenshion::SimpleAudioEngine::getInstance();
+						error->playEffect("sounds/sfx/error.ogg", false);
+						_menuContext->addPoints(1 - _pairCard);
 						this->runAction(Sequence::create(DelayTime::create(.3), CallFunc::create([=]() {
 
 							for (int i = 0; i < _spriteDetails.size(); i++)
@@ -297,7 +303,6 @@ void Card::addEvents(struct SpriteDetails sprite)
 							_totalSum = 0;
 							_useCard = 0;
 							_programFlag = 0;
-							_menuContext->addPoints(-1);
 						}), NULL));
 					}
 				}

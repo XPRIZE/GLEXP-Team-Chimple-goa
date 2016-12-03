@@ -29,7 +29,7 @@ public:
 
 	HelpLayer *_help;
 	cocos2d::Size visibleSize;
-	int _level, _moveFlag = 0, _startPercent, _percentLevelNo, _helpFlag = 0;
+	int _level, _moveFlag = 0, _startPercent, _percentLevelNo, _helpFlag = 0, _score = 0;
 
 	int _percent[9][3] = {
 		{10, 5, 101},
