@@ -5,10 +5,85 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 515,
+        "Duration": 595,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "pigeonbush",
         "Timelines": [
+          {
+            "ActionTag": 863078276,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 520,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 863078276,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 402.1946,
+                "Y": 815.0225,
+                "FrameIndex": 520,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1592.5667,
+                "Y": 1879.5315,
+                "FrameIndex": 595,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 863078276,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -0.2,
+                "Y": 0.2,
+                "FrameIndex": 520,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 863078276,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 515,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 520,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": -1583258105,
             "Property": "Scale",
@@ -267,6 +342,81 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -273650475,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 520,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -273650475,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2322.7422,
+                "Y": 778.1998,
+                "FrameIndex": 520,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2083.698,
+                "Y": 1879.7185,
+                "FrameIndex": 595,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -273650475,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.2,
+                "Y": 0.2,
+                "FrameIndex": 520,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -273650475,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 515,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 520,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 68347879,
             "Property": "ActionValue",
             "Frames": [
@@ -470,6 +620,12 @@
           "EndIndex": 515,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 520,
+          "EndIndex": 595,
+          "Name": "pigeonbush",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -625,6 +781,7 @@
             "RightMargin": -471.3088,
             "TopMargin": 800.0512,
             "BottomMargin": -0.0512,
+            "UserData": "main.pigeonbush",
             "Tag": 214,
             "Children": [
               {
@@ -974,6 +1131,7 @@
             "RightMargin": 2068.9783,
             "TopMargin": 1303.0396,
             "BottomMargin": 422.9605,
+            "UserData": "drag",
             "Tag": 227,
             "ActionTag": 1962868797,
             "Size": {
@@ -1021,6 +1179,7 @@
             "RightMargin": 2127.3315,
             "TopMargin": 1305.8441,
             "BottomMargin": 420.1559,
+            "UserData": "drag",
             "Tag": 228,
             "ActionTag": 905781439,
             "Size": {
@@ -1068,6 +1227,7 @@
             "RightMargin": 2009.811,
             "TopMargin": 1305.8442,
             "BottomMargin": 420.1557,
+            "UserData": "drag",
             "Tag": 229,
             "ActionTag": -878584443,
             "Size": {
@@ -1115,6 +1275,7 @@
             "RightMargin": 2130.9302,
             "TopMargin": 1319.0356,
             "BottomMargin": 406.9644,
+            "UserData": "drag",
             "Tag": 230,
             "ActionTag": 76873523,
             "Size": {
@@ -1162,6 +1323,7 @@
             "RightMargin": 2037.3933,
             "TopMargin": 1325.0311,
             "BottomMargin": 400.9689,
+            "UserData": "drag",
             "Tag": 231,
             "ActionTag": 709060254,
             "Size": {
@@ -1209,6 +1371,7 @@
             "RightMargin": 2093.7554,
             "TopMargin": 1325.0316,
             "BottomMargin": 400.9684,
+            "UserData": "drag",
             "Tag": 232,
             "ActionTag": -1532665576,
             "Size": {
@@ -1217,6 +1380,48 @@
             },
             "Name": "egg_4_4",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mbwa_na_Mamba/bird.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 402.1946,
+              "Y": 815.0225
+            },
+            "Scale": {
+              "ScaleX": -0.2,
+              "ScaleY": 0.2
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1571,
+              "Y": 0.4528
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 402.1946,
+            "RightMargin": 2157.8054,
+            "TopMargin": 984.9775,
+            "BottomMargin": 815.0225,
+            "Tag": 1656,
+            "ActionTag": 863078276,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "VisibleForFrame": false,
+            "Name": "pigeon1",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -1260,7 +1465,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_1",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1305,7 +1510,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1350,7 +1555,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_0",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1395,7 +1600,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_1_0",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1440,8 +1645,50 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_2",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mbwa_na_Mamba/bird.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2322.7422,
+              "Y": 778.1998
+            },
+            "Scale": {
+              "ScaleX": 0.2,
+              "ScaleY": 0.2
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.9073,
+              "Y": 0.4323
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2322.7422,
+            "RightMargin": 237.2578,
+            "TopMargin": 1021.8002,
+            "BottomMargin": 778.1998,
+            "Tag": 1759,
+            "ActionTag": -273650475,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "VisibleForFrame": false,
+            "Name": "pigeon1",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -1485,7 +1732,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_0_0",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1530,7 +1777,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_1_1",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1575,7 +1822,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_3",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1620,7 +1867,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_0_1",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1657,13 +1904,14 @@
             "RightMargin": -431.3066,
             "TopMargin": 1642.9373,
             "BottomMargin": 157.0627,
+            "UserData": "drag;main.dogwalk",
             "Tag": 223,
             "ActionTag": 68347879,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "dog",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -1675,6 +1923,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "bird.json",
         "dog.json",
         "Mbwa_na_Mamba.plist",
         "Mbwa_na_Mamba.png"

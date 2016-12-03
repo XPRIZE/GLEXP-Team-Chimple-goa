@@ -5,10 +5,169 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 180,
+        "Duration": 380,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "rabbit",
         "Timelines": [
+          {
+            "ActionTag": 2078202419,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 190,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 380,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2078202419,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -602.8209,
+                "Y": 133.86,
+                "FrameIndex": 190,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2996.7847,
+                "Y": 133.86,
+                "FrameIndex": 380,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2078202419,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 190,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 380,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2078202419,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 190,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 380,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1393123525,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -634.5008,
+                "Y": 275.1634,
+                "FrameIndex": 190,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1393123525,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 190,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1393123525,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 190,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1393123525,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "bush",
+                "FrameIndex": 190,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 1261334052,
             "Property": "Position",
@@ -252,6 +411,12 @@
           "StartIndex": 0,
           "EndIndex": 180,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 190,
+          "EndIndex": 380,
+          "Name": "rabbit",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -1114,96 +1279,6 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "jinsi_anansi_alivyopata/jinsi_grass4.png",
-              "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 3057.4446,
-              "Y": 151.4241
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 1.1943,
-              "Y": 0.0841
-            },
-            "PreSize": {
-              "X": 0.7316,
-              "Y": 0.3011
-            },
-            "LeftMargin": 2120.9446,
-            "RightMargin": -1433.9446,
-            "TopMargin": 1377.5759,
-            "BottomMargin": -119.5759,
-            "Tag": 105,
-            "ActionTag": -963349496,
-            "Size": {
-              "X": 1873.0,
-              "Y": 542.0
-            },
-            "Name": "grass_4_12_1",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "jinsi_anansi_alivyopata/jinsi_grass4.png",
-              "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": -553.5814,
-              "Y": 183.1907
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": -0.2162,
-              "Y": 0.1018
-            },
-            "PreSize": {
-              "X": 0.7316,
-              "Y": 0.3011
-            },
-            "LeftMargin": -1490.0814,
-            "RightMargin": 2177.0815,
-            "TopMargin": 1345.8093,
-            "BottomMargin": -87.8093,
-            "Tag": 106,
-            "ActionTag": 1393123525,
-            "Size": {
-              "X": 1873.0,
-              "Y": 542.0
-            },
-            "Name": "grass_4_12_1_0",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
               "Path": "jinsi_anansi_alivyopata/jinsi_rock1.png",
               "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
             },
@@ -1216,27 +1291,27 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 983.147,
-              "Y": 49.7842
+              "X": 877.1622,
+              "Y": 282.7218
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 0.7453,
+              "ScaleY": 0.7453
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.384,
-              "Y": 0.0277
+              "X": 0.3426,
+              "Y": 0.1571
             },
             "PreSize": {
               "X": 0.3363,
               "Y": 0.1611
             },
-            "LeftMargin": 552.647,
-            "RightMargin": 1146.353,
-            "TopMargin": 1605.2158,
-            "BottomMargin": -95.2158,
+            "LeftMargin": 446.6622,
+            "RightMargin": 1252.3379,
+            "TopMargin": 1372.2782,
+            "BottomMargin": 137.7218,
             "Tag": 107,
             "ActionTag": 1329155111,
             "Size": {
@@ -1244,98 +1319,6 @@
               "Y": 290.0
             },
             "Name": "rock_1_18",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "jinsi_anansi_alivyopata/jinsi_tree1.png",
-              "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1737.3479,
-              "Y": 1074.4114
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.6787,
-              "Y": 0.5969
-            },
-            "PreSize": {
-              "X": 0.6434,
-              "Y": 0.5728
-            },
-            "LeftMargin": 913.8479,
-            "RightMargin": -0.8479,
-            "TopMargin": 210.0886,
-            "BottomMargin": 558.9114,
-            "Tag": 108,
-            "ActionTag": 1246870266,
-            "Size": {
-              "X": 1647.0,
-              "Y": 1031.0
-            },
-            "Name": "tree_1_19",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FlipX": true,
-            "FlipY": true,
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "jinsi_anansi_alivyopata/jinsi_tree1.png",
-              "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 96.1526,
-              "Y": 1644.2059
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.0376,
-              "Y": 0.9134
-            },
-            "PreSize": {
-              "X": 0.6434,
-              "Y": 0.5728
-            },
-            "LeftMargin": -727.3474,
-            "RightMargin": 1640.3474,
-            "TopMargin": -359.7061,
-            "BottomMargin": 1128.7059,
-            "Tag": 109,
-            "ActionTag": -958657470,
-            "Size": {
-              "X": 1647.0,
-              "Y": 1031.0
-            },
-            "Name": "tree_1_19_0",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1353,27 +1336,27 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 996.7647,
-              "Y": 272.0876
+              "X": 887.3124,
+              "Y": 448.4102
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 0.7453,
+              "ScaleY": 0.7453
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.3894,
-              "Y": 0.1512
+              "X": 0.3466,
+              "Y": 0.2491
             },
             "PreSize": {
               "X": 0.1586,
               "Y": 0.1928
             },
-            "LeftMargin": 793.7647,
-            "RightMargin": 1360.2354,
-            "TopMargin": 1354.4124,
-            "BottomMargin": 98.5876,
+            "LeftMargin": 684.3124,
+            "RightMargin": 1469.6875,
+            "TopMargin": 1178.0898,
+            "BottomMargin": 274.9102,
             "UserData": "drag",
             "Tag": 399,
             "ActionTag": 1319917950,
@@ -1399,8 +1382,95 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 999.0273,
-              "Y": 378.2147
+              "X": 888.999,
+              "Y": 527.5101
+            },
+            "Scale": {
+              "ScaleX": 0.7453,
+              "ScaleY": 0.7453
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3473,
+              "Y": 0.2931
+            },
+            "PreSize": {
+              "X": 0.1281,
+              "Y": 0.0367
+            },
+            "LeftMargin": 724.999,
+            "RightMargin": 1507.001,
+            "TopMargin": 1239.4899,
+            "BottomMargin": 494.5101,
+            "Tag": 400,
+            "ActionTag": 432858823,
+            "Size": {
+              "X": 328.0,
+              "Y": 66.0
+            },
+            "Name": "pot_2_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "jinsi_anansi_alivyopata/rabbit.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -602.8209,
+              "Y": 133.86
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.2355,
+              "Y": 0.0744
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -602.8209,
+            "RightMargin": 3162.8208,
+            "TopMargin": 1666.14,
+            "BottomMargin": 133.86,
+            "UserData": "run;drag",
+            "Tag": 468,
+            "ActionTag": 2078202419,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "rabbit",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jinsi_anansi_alivyopata/jinsi_grass4.png",
+              "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -634.5008,
+              "Y": 275.1634
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1409,24 +1479,26 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.3902,
-              "Y": 0.2101
+              "X": -0.2479,
+              "Y": 0.1529
             },
             "PreSize": {
-              "X": 0.1281,
-              "Y": 0.0367
+              "X": 0.7316,
+              "Y": 0.3011
             },
-            "LeftMargin": 835.0273,
-            "RightMargin": 1396.9727,
-            "TopMargin": 1388.7853,
-            "BottomMargin": 345.2147,
-            "Tag": 400,
-            "ActionTag": 432858823,
+            "LeftMargin": -1571.0007,
+            "RightMargin": 2258.0007,
+            "TopMargin": 1253.8367,
+            "BottomMargin": 4.1634,
+            "UserData": "main.rabbit",
+            "Tag": 106,
+            "FrameEvent": "bush",
+            "ActionTag": 1393123525,
             "Size": {
-              "X": 328.0,
-              "Y": 66.0
+              "X": 1873.0,
+              "Y": 542.0
             },
-            "Name": "pot_2_2",
+            "Name": "grass_4_12_1_0",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1448,27 +1520,27 @@
               "ScaleX": 0.5
             },
             "Position": {
-              "X": 1800.0,
-              "Y": 2003.6968
+              "X": 1799.9978,
+              "Y": 799.9993
             },
             "Scale": {
               "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleY": 0.0799
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
               "X": 0.7031,
-              "Y": 1.1132
+              "Y": 0.4444
             },
             "PreSize": {
               "X": 0.0031,
               "Y": 0.7209
             },
-            "LeftMargin": 1796.0015,
-            "RightMargin": 756.0015,
-            "TopMargin": -1501.2319,
-            "BottomMargin": 2003.6968,
+            "LeftMargin": 1795.9993,
+            "RightMargin": 756.0037,
+            "TopMargin": -297.5344,
+            "BottomMargin": 799.9993,
             "Tag": 413,
             "ActionTag": 1261334052,
             "Size": {
@@ -1490,7 +1562,7 @@
             "AnchorPoint": {},
             "Position": {
               "X": 1800.0,
-              "Y": 2000.0
+              "Y": 200.0
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1500,7 +1572,7 @@
             "IconVisible": true,
             "PrePosition": {
               "X": 0.7031,
-              "Y": 1.1111
+              "Y": 0.1111
             },
             "PreSize": {
               "X": 0.0,
@@ -1508,8 +1580,8 @@
             },
             "LeftMargin": 1800.0,
             "RightMargin": 760.0,
-            "TopMargin": -200.0,
-            "BottomMargin": 2000.0,
+            "TopMargin": 1600.0,
+            "BottomMargin": 200.0,
             "UserData": "walking;drag",
             "Tag": 401,
             "ActionTag": -927601167,
@@ -1518,6 +1590,90 @@
               "Y": 0.0
             },
             "Name": "spider",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "jinsi_anansi_alivyopata/tree.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -575.3838,
+              "Y": 1636.4139
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.2248,
+              "Y": 0.9091
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -575.3838,
+            "RightMargin": 3135.3838,
+            "TopMargin": 163.5861,
+            "BottomMargin": 1636.4139,
+            "UserData": "fall",
+            "Tag": 589,
+            "ActionTag": -539924928,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "tree",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "jinsi_anansi_alivyopata/tree.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 3008.3833,
+              "Y": 1371.0845
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.1751,
+              "Y": 0.7617
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 3008.3833,
+            "RightMargin": -448.3833,
+            "TopMargin": 428.9155,
+            "BottomMargin": 1371.0845,
+            "UserData": "fall",
+            "Tag": 594,
+            "ActionTag": 424784862,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "tree_0",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -1531,7 +1687,9 @@
       "UsedResources": [
         "jinsi_anansi_alivyopata.plist",
         "jinsi_anansi_alivyopata.png",
-        "spider.json"
+        "rabbit.json",
+        "spider.json",
+        "tree.json"
       ],
       "ctype": "GameFileData"
     }

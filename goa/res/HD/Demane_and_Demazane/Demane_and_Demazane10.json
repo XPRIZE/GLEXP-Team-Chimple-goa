@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 280,
+        "Duration": 390,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "door",
         "Timelines": [
           {
             "ActionTag": -391154053,
@@ -318,6 +318,24 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              },
+              {
+                "X": 2842.4038,
+                "Y": -0.9018,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2842.4038,
+                "Y": -0.9018,
+                "FrameIndex": 390,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -348,6 +366,24 @@
                 "X": 0.73,
                 "Y": 1.0,
                 "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.73,
+                "Y": 1.0,
+                "FrameIndex": 390,
                 "EasingData": {
                   "Type": 0
                 },
@@ -386,6 +422,37 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": -16.0,
+                "FrameIndex": 390,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1809222210,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "door",
+                "FrameIndex": 290,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -398,6 +465,12 @@
           "StartIndex": 0,
           "EndIndex": 280,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 290,
+          "EndIndex": 390,
+          "Name": "door",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -894,8 +967,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1287.7036,
-              "Y": 112.0426
+              "X": 1286.2185,
+              "Y": 116.8816
             },
             "Scale": {
               "ScaleX": 0.7188,
@@ -904,17 +977,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.503,
-              "Y": 0.0622
+              "X": 0.5024,
+              "Y": 0.0649
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1287.7036,
-            "RightMargin": 1272.2964,
-            "TopMargin": 1687.9574,
-            "BottomMargin": 112.0426,
+            "LeftMargin": 1286.2185,
+            "RightMargin": 1273.7815,
+            "TopMargin": 1683.1184,
+            "BottomMargin": 116.8816,
             "UserData": "fire",
             "Tag": 885,
             "ActionTag": -391154053,
@@ -936,7 +1009,7 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 183.2541,
+              "X": 800.0,
               "Y": 29.5809
             },
             "Scale": {
@@ -946,15 +1019,15 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.0716,
+              "X": 0.3125,
               "Y": 0.0164
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 183.2541,
-            "RightMargin": 2376.7458,
+            "LeftMargin": 800.0,
+            "RightMargin": 1760.0,
             "TopMargin": 1770.4191,
             "BottomMargin": 29.5809,
             "UserData": "hi;drag",
@@ -1051,7 +1124,9 @@
             "RightMargin": -282.4038,
             "TopMargin": 714.9019,
             "BottomMargin": -0.9018,
+            "UserData": "main.door",
             "Tag": 5231,
+            "FrameEvent": "door",
             "ActionTag": 1809222210,
             "Size": {
               "X": 925.0,

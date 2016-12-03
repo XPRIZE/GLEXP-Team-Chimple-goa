@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 235,
+        "Duration": 300,
         "Speed": 1.0,
-        "ActivedAnimationName": "stare",
+        "ActivedAnimationName": "dogrun",
         "Timelines": [
           {
             "ActionTag": -1898646886,
@@ -251,6 +251,33 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 43.1954,
+                "Y": 43.1918,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 128.3342,
+                "Y": 128.3306,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 43.1954,
+                "Y": 43.1918,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -418,6 +445,33 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 44.2695,
+                "Y": 44.2659,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 129.8676,
+                "Y": 129.864,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 44.2695,
+                "Y": 44.2659,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -581,6 +635,33 @@
                 "X": 90.0406,
                 "Y": 90.037,
                 "FrameIndex": 235,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 130.6877,
+                "Y": 130.6841,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 55.7893,
+                "Y": 55.7857,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 130.6877,
+                "Y": 130.6841,
+                "FrameIndex": 300,
                 "EasingData": {
                   "Type": 0
                 },
@@ -788,6 +869,33 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 131.2934,
+                "Y": 131.2898,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 50.0227,
+                "Y": 50.0191,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 131.2934,
+                "Y": 131.2898,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -894,6 +1002,33 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 4.5213,
+                "Y": 4.5179,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.8039,
+                "Y": -0.8073,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 4.5213,
+                "Y": 4.5179,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -955,6 +1090,67 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -809622486,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "steps",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 40,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "steps",
+                "FrameIndex": 50,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "k",
+                "FrameIndex": 100,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "Dog",
+                "FrameIndex": 105,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 155,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 175,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 235,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "Dog",
+                "FrameIndex": 240,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -1384,6 +1580,51 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              },
+              {
+                "X": -159.37,
+                "Y": 87.4707,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -159.37,
+                "Y": 57.7396,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -159.37,
+                "Y": 87.4707,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -159.37,
+                "Y": 57.7396,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -159.37,
+                "Y": 87.4707,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -1431,6 +1672,12 @@
           "EndIndex": 235,
           "Name": "stare",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 240,
+          "EndIndex": 300,
+          "Name": "dogrun",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -1454,7 +1701,7 @@
             "Length": 427.0,
             "Position": {
               "X": -159.37,
-              "Y": 52.493
+              "Y": 66.659
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1479,8 +1726,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 0.8082,
-                "RotationSkewY": 0.8048,
+                "RotationSkewX": 2.0362,
+                "RotationSkewY": 2.0328,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 770,
@@ -1621,8 +1868,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 87.7901,
-                    "RotationSkewY": 87.7865,
+                    "RotationSkewX": 82.9268,
+                    "RotationSkewY": 82.9232,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 770,
@@ -1697,8 +1944,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 89.9205,
-                    "RotationSkewY": 89.9169,
+                    "RotationSkewX": 84.2153,
+                    "RotationSkewY": 84.2117,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 770,
@@ -1773,8 +2020,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 90.0406,
-                    "RotationSkewY": 90.037,
+                    "RotationSkewX": 95.7351,
+                    "RotationSkewY": 95.7315,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 770,
@@ -1925,8 +2172,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 90.6463,
-                    "RotationSkewY": 90.6427,
+                    "RotationSkewX": 93.3671,
+                    "RotationSkewY": 93.3635,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 770,
@@ -2070,12 +2317,12 @@
                   {
                     "Length": 21.0,
                     "Position": {
-                      "X": 117.3194,
-                      "Y": -40.5202
+                      "X": 128.732,
+                      "Y": -29.0543
                     },
                     "Scale": {
-                      "ScaleX": 1.0,
-                      "ScaleY": 1.0
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
                     },
                     "RotationSkewX": -227.3866,
                     "RotationSkewY": 132.6163,
@@ -2144,12 +2391,12 @@
                   {
                     "Length": 21.0,
                     "Position": {
-                      "X": 188.7513,
-                      "Y": 19.7891
+                      "X": 182.9901,
+                      "Y": 24.4028
                     },
                     "Scale": {
-                      "ScaleX": 1.0,
-                      "ScaleY": 1.0
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
                     },
                     "RotationSkewX": -227.3866,
                     "RotationSkewY": 132.6163,

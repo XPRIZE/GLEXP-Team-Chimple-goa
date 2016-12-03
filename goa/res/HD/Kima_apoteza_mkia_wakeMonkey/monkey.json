@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 110,
+        "Duration": 70,
         "Speed": 1.0,
-        "ActivedAnimationName": "rabbit",
+        "ActivedAnimationName": "walk",
         "Timelines": [
           {
             "ActionTag": -712852888,
@@ -92,46 +92,6 @@
                 "FrameIndex": 70,
                 "Tween": false,
                 "ctype": "TextureFrameData"
-              },
-              {
-                "TextureFile": {
-                  "Type": "MarkedSubImage",
-                  "Path": "Kima_apoteza_mkia_wakeMonkey/rabbit_1.png",
-                  "Plist": "Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey.plist"
-                },
-                "FrameIndex": 80,
-                "Tween": false,
-                "ctype": "TextureFrameData"
-              },
-              {
-                "TextureFile": {
-                  "Type": "MarkedSubImage",
-                  "Path": "Kima_apoteza_mkia_wakeMonkey/rabbit_2.png",
-                  "Plist": "Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey.plist"
-                },
-                "FrameIndex": 90,
-                "Tween": false,
-                "ctype": "TextureFrameData"
-              },
-              {
-                "TextureFile": {
-                  "Type": "MarkedSubImage",
-                  "Path": "Kima_apoteza_mkia_wakeMonkey/rabbit_3.png",
-                  "Plist": "Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey.plist"
-                },
-                "FrameIndex": 100,
-                "Tween": false,
-                "ctype": "TextureFrameData"
-              },
-              {
-                "TextureFile": {
-                  "Type": "MarkedSubImage",
-                  "Path": "Kima_apoteza_mkia_wakeMonkey/rabbit_1.png",
-                  "Plist": "Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey.plist"
-                },
-                "FrameIndex": 110,
-                "Tween": false,
-                "ctype": "TextureFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -151,12 +111,6 @@
           "EndIndex": 70,
           "Name": "eat",
           "ctype": "AnimationInfoData"
-        },
-        {
-          "StartIndex": 80,
-          "EndIndex": 110,
-          "Name": "rabbit",
-          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -165,7 +119,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Kima_apoteza_mkia_wakeMonkey/rabbit_1.png",
+              "Path": "Kima_apoteza_mkia_wakeMonkey/monkey1.png",
               "Plist": "Kima_apoteza_mkia_wakeMonkey/Kima_apoteza_mkia_wakeMonkey.plist"
             },
             "BlendFunc": {
@@ -194,15 +148,15 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -23.0,
-            "RightMargin": -23.0,
-            "TopMargin": -23.0,
-            "BottomMargin": -23.0,
+            "LeftMargin": -163.0,
+            "RightMargin": -163.0,
+            "TopMargin": -116.0,
+            "BottomMargin": -116.0,
             "Tag": 13,
             "ActionTag": -712852888,
             "Size": {
-              "X": 326.0,
-              "Y": 232.0
+              "X": 504.0,
+              "Y": 364.0
             },
             "Name": "Sprite_1",
             "ctype": "SpriteObjectData"

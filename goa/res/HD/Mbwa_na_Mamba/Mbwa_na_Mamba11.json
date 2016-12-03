@@ -5,10 +5,26 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 100,
+        "Duration": 250,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "fly",
         "Timelines": [
+          {
+            "ActionTag": 460195825,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1209.0542,
+                "Y": 1140.0488,
+                "FrameIndex": 105,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": -1235766810,
             "Property": "ActionValue",
@@ -62,6 +78,14 @@
             "Property": "ActionValue",
             "Frames": [
               {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "dogwalk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
                 "InnerActionType": "NoLoopAction",
                 "CurrentAniamtionName": "stand",
                 "SingleFrameIndex": 0,
@@ -72,7 +96,7 @@
               {
                 "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "stand",
-                "SingleFrameIndex": 155,
+                "SingleFrameIndex": 0,
                 "FrameIndex": 100,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
@@ -85,8 +109,8 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 736.8499,
-                "Y": 307.4598,
+                "X": 567.1964,
+                "Y": 311.5884,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -94,13 +118,167 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 916.0386,
-                "Y": 305.1255,
+                "X": 804.03,
+                "Y": 365.67,
                 "FrameIndex": 25,
                 "EasingData": {
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              },
+              {
+                "X": 804.03,
+                "Y": 365.67,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 796.5627,
+                "Y": 369.7073,
+                "FrameIndex": 105,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1489997092,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 105,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1489997092,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2805.5662,
+                "Y": 1280.0,
+                "FrameIndex": 105,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 645.8597,
+                "Y": 1729.4409,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 453.5315,
+                "Y": 1673.2825,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1489997092,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 100,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 105,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1727042425,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 105,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1727042425,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 3000.1499,
+                "Y": 1105.2885,
+                "FrameIndex": 105,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 840.4579,
+                "Y": 1554.7161,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 648.1268,
+                "Y": 1498.5585,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1727042425,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 100,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 105,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -113,6 +291,12 @@
           "StartIndex": 0,
           "EndIndex": 100,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 105,
+          "EndIndex": 250,
+          "Name": "fly",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -163,6 +347,8 @@
             "RightMargin": -471.2798,
             "TopMargin": -110.9973,
             "BottomMargin": 1110.9973,
+            "CallBackType": "Click",
+            "UserData": "main.fly",
             "Tag": 153,
             "ActionTag": 430024034,
             "Size": {
@@ -195,7 +381,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1210.0542,
+              "X": 1209.0542,
               "Y": 1140.0488
             },
             "Scale": {
@@ -205,17 +391,19 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.4727,
+              "X": 0.4723,
               "Y": 0.6334
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 1110.0542,
-            "RightMargin": 1249.9458,
+            "LeftMargin": 1109.0542,
+            "RightMargin": 1250.9458,
             "TopMargin": 559.9512,
             "BottomMargin": 1040.0488,
+            "CallBackType": "Click",
+            "UserData": "main.fly",
             "Tag": 152,
             "ActionTag": 460195825,
             "Size": {
@@ -269,6 +457,8 @@
             "RightMargin": -471.2996,
             "TopMargin": 904.1915,
             "BottomMargin": -104.1915,
+            "CallBackType": "Click",
+            "UserData": "main.fly",
             "Tag": 145,
             "Children": [
               {
@@ -317,6 +507,8 @@
                 "RightMargin": 623.9316,
                 "TopMargin": 514.6932,
                 "BottomMargin": 285.3068,
+                "CallBackType": "Click",
+                "UserData": "main.fly",
                 "Tag": 149,
                 "ActionTag": 1679108522,
                 "Size": {
@@ -372,6 +564,8 @@
                 "RightMargin": 2651.7573,
                 "TopMargin": 486.9429,
                 "BottomMargin": 313.0571,
+                "CallBackType": "Click",
+                "UserData": "main.fly",
                 "Tag": 150,
                 "ActionTag": -1315471168,
                 "Size": {
@@ -477,7 +671,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_0_1",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -522,7 +716,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_3",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -567,7 +761,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_1_1",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -612,7 +806,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_0_0",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -657,7 +851,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_2",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -702,7 +896,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_1_0",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -747,7 +941,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_0",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -792,7 +986,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -837,7 +1031,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_1",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -882,7 +1076,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_0_1_0",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -927,7 +1121,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_1_1_0",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -972,7 +1166,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_0_1_1",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1017,7 +1211,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_1_1_1",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1062,7 +1256,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_1_1_2",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1076,8 +1270,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1938.3597,
-              "Y": 374.0608
+              "X": 1692.2965,
+              "Y": 405.4219
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1086,24 +1280,25 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.7572,
-              "Y": 0.2078
+              "X": 0.6611,
+              "Y": 0.2252
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1938.3597,
-            "RightMargin": 621.6403,
-            "TopMargin": 1425.9392,
-            "BottomMargin": 374.0608,
+            "LeftMargin": 1692.2965,
+            "RightMargin": 867.7035,
+            "TopMargin": 1394.5781,
+            "BottomMargin": 405.4219,
+            "UserData": "main.fly",
             "Tag": 1967,
             "ActionTag": -1235766810,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "croc",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1148,7 +1343,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_0_1_2",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1193,7 +1388,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_0_1_2_0",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1238,7 +1433,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_0_1_2_1",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1252,8 +1447,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 736.8499,
-              "Y": 307.4598
+              "X": 804.03,
+              "Y": 365.67
             },
             "Scale": {
               "ScaleX": -1.0,
@@ -1262,24 +1457,25 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.2878,
-              "Y": 0.1708
+              "X": 0.3141,
+              "Y": 0.2032
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 736.8499,
-            "RightMargin": 1823.1501,
-            "TopMargin": 1492.5402,
-            "BottomMargin": 307.4598,
+            "LeftMargin": 804.03,
+            "RightMargin": 1755.97,
+            "TopMargin": 1434.33,
+            "BottomMargin": 365.67,
+            "UserData": "main.fly",
             "Tag": 1994,
             "ActionTag": -1820524124,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "dog",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1324,7 +1520,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_0_1_1_0",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1369,7 +1565,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_0_1_1_1",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1414,8 +1610,92 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_12_0_1_1_2",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mbwa_na_Mamba/bird.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2805.5662,
+              "Y": 1280.0
+            },
+            "Scale": {
+              "ScaleX": 0.2,
+              "ScaleY": 0.2
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.0959,
+              "Y": 0.7111
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2805.5662,
+            "RightMargin": -245.5662,
+            "TopMargin": 520.0,
+            "BottomMargin": 1280.0,
+            "Tag": 2964,
+            "ActionTag": 1489997092,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "VisibleForFrame": false,
+            "Name": "FileNode_1",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mbwa_na_Mamba/bird.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 3000.1499,
+              "Y": 1105.2885
+            },
+            "Scale": {
+              "ScaleX": 0.2,
+              "ScaleY": 0.2
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.1719,
+              "Y": 0.614
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 3000.1499,
+            "RightMargin": -440.1499,
+            "TopMargin": 694.7115,
+            "BottomMargin": 1105.2885,
+            "Tag": 3067,
+            "ActionTag": -1727042425,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "VisibleForFrame": false,
+            "Name": "FileNode_1_0",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -1426,6 +1706,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "bird.json",
         "croc.json",
         "dog.json",
         "Mbwa_na_Mamba.plist",

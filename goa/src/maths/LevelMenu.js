@@ -20,7 +20,7 @@ xc.LevelMenuLayer = cc.Node.extend({
     this._clazz = xc[gameConfig.pureJS]
     this._gameName = gameConfig.name
     this._isJSGame = gameConfig.isJSGame
-    cc.spriteFrameCache.addSpriteFrames(xc.LevelMenuLayer.res.hand_plist)
+    cc.spriteFrameCache.addSpriteFrames(xc.LevelMenuLayer.res.level_plist)
     if(gameConfig.menuPlist) {
       cc.spriteFrameCache.addSpriteFrames(xc.path + gameConfig.menuPlist)
     }
@@ -85,47 +85,59 @@ xc.ScrollView = ccui.ScrollView.extend({
     var prevPos = null
     var numDots = 10
     for(var i = 1; i <= this._numLevels; i++) {
-      var but = new ccui.Button("hand/dot.png", "hand/dot.png", "hand/dot.png", ccui.Widget.PLIST_TEXTURE)
-      but.setScale(0.25)
-      var label = new cc.LabelTTF(i.toString(), "Arial", 500, null, cc.TEXT_ALIGNMENT_CENTER, cc.VERTICAL_TEXT_ALIGNMENT_CENTER)
-      label.setPosition(but.getContentSize().width / 2, but.getContentSize().height / 2)
-      but.addChild(label)
+      var levelStatus = parseInt(gameProgress[i])
+      var but
       start = getRandomArbitrary(start, goal)
       if(Math.abs(goal - start) < goalTolerance) {
         goal = getRandomArbitrary(goalTolerance, cc.director.getVisibleSize().height - goalTolerance)
       }
       var newPos = cc.p(gap * i, start)
-      but.setPosition(newPos)
-      if(prevPos) {
-        var line = new cc.DrawNode()
-        line.drawSegment(prevPos, newPos, 20, cc.color(255, 0, 0))
-        this.addChild(line, 1)
-      }
-      this.addChild(but, 2)
-      prevPos = newPos
-      var levelStatus = parseInt(gameProgress[i])
       if(i == gameProgress.length) {
-        but.setColor(cc.color(256, 128, 0))
+        but = new ccui.Button("levelstep/present.png", "levelstep/present.png", "levelstep/present.png", ccui.Widget.PLIST_TEXTURE)
+        // but.setColor(cc.color(256, 128, 0))
+        var label = new cc.LabelTTF(i.toString(), "Arial", 128, null, cc.TEXT_ALIGNMENT_CENTER, cc.VERTICAL_TEXT_ALIGNMENT_CENTER)
+        label.setPosition(but.getContentSize().width / 2, but.getContentSize().height / 2)
+        but.addChild(label)        
+        var mark = new cc.Sprite("#levelstep/mark.png")
+        mark.setPosition(but.getContentSize().width / 2, but.getContentSize().height * 1.5)
+        but.addChild(mark)
         but.addTouchEventListener(this.itemSelected, this)
         this._initPos = cc.p(-Math.max(0, Math.min(cc.director.getVisibleSize().width * ( this._span - 1), newPos.x - cc.director.getVisibleSize().width / 2)), 0)
       } else if(i > gameProgress.length && !xc.LevelMenuLayer.debug) {
-        but.setColor(cc.color(128, 128, 128))
+        // but.setColor(cc.color(128, 128, 128))
+        but = new ccui.Button("levelstep/disabled.png", "levelstep/disabled.png", "levelstep/disabled.png", ccui.Widget.PLIST_TEXTURE)        
+        var label = new cc.LabelTTF(i.toString(), "Arial", 128, null, cc.TEXT_ALIGNMENT_CENTER, cc.VERTICAL_TEXT_ALIGNMENT_CENTER)
+        label.setPosition(but.getContentSize().width / 2, but.getContentSize().height / 2)
+        but.addChild(label)        
       } else {
-        but.setColor(cc.color(128, 0, 0))
+        but = new ccui.Button("levelstep/done.png", "levelstep/done.png", "levelstep/done.png", ccui.Widget.PLIST_TEXTURE)                
+        var label = new cc.LabelTTF(i.toString(), "Arial", 128, null, cc.TEXT_ALIGNMENT_CENTER, cc.VERTICAL_TEXT_ALIGNMENT_CENTER)
+        label.setPosition(but.getContentSize().width / 2, but.getContentSize().height / 2)
+        but.addChild(label)        
+        // but.setColor(cc.color(128, 0, 0))
         var star = new cc.Sprite(levelStatus >= 1 ? xc.LevelMenuLayer.res.white_star_png : xc.LevelMenuLayer.res.gray_star_png)
-        star.setScale(2)
+        star.setScale(0.6)
         star.setPosition(but.getContentSize().width / 4, but.getContentSize().height * 3 / 4)
         but.addChild(star)
         star = new cc.Sprite(levelStatus >= 2 ? xc.LevelMenuLayer.res.white_star_png : xc.LevelMenuLayer.res.gray_star_png)
-        star.setScale(2)
+        star.setScale(0.6)
         star.setPosition(but.getContentSize().width / 2, but.getContentSize().height * 7 / 8)
         but.addChild(star)
         star = new cc.Sprite(levelStatus >= 3 ? xc.LevelMenuLayer.res.white_star_png : xc.LevelMenuLayer.res.gray_star_png)
-        star.setScale(2)
+        star.setScale(0.6)
         star.setPosition(but.getContentSize().width * 3 / 4, but.getContentSize().height * 3 / 4)
         but.addChild(star)
         but.addTouchEventListener(this.itemSelected, this)
       }
+      // but.setScale(0.25)
+      but.setPosition(newPos)
+      if(prevPos) {
+        var line = new cc.DrawNode()
+        line.drawSegment(prevPos, newPos, 20, cc.color("#FFA364"))
+        this.addChild(line, 1)
+      }
+      this.addChild(but, 2)
+      prevPos = newPos
     }
   },
   onEnter: function() {
@@ -156,14 +168,13 @@ xc.ScrollView = ccui.ScrollView.extend({
   }
 })
 
-xc.LevelMenuLayer.debug = true
+xc.LevelMenuLayer.debug = false
 
 xc.LevelMenuLayer.res = {
-  hand_plist: xc.path + "maths/hand.plist",
-  hand_png: xc.path + "maths/hand.png",
-  dot_png: xc.path + "maths/dot.png",
+  level_plist: xc.path + "levelstep/levelstep.plist",
+  level_png: xc.path + "levelstep/levelstep.png",
   gray_star_png: xc.path + "help/gray_star.png",
-  white_star_png: xc.path + "help/white_star.png"
+  white_star_png: xc.path + "help/white_star.png"  
 }
 
 // Returns a random number between min (inclusive) and max (exclusive)
