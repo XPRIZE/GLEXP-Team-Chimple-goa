@@ -552,7 +552,7 @@ void MenuContext::pickAlphabet(char targetAlphabet, char chosenAlphabet, bool ch
 
 void MenuContext::addPoints(int points) {
     _points += points;
-    _points = MAX(MIN(_points, _maxPoints), 0);
+//    _points = MAX(MIN(_points, _maxPoints), 0);
     if(points > 0) {
         auto sequence = Sequence::create(
                                          CallFunc::create(CC_CALLBACK_0(MenuContext::happyFace, this)),
@@ -994,7 +994,7 @@ void MenuContext::showScore() {
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     CCLOG("Points: %d MaxPoints: %d", _points, _maxPoints);
-    int stars = round(_points * 3.0/_maxPoints);
+    int stars = round(MAX(_points, 0) * 3.0/_maxPoints);
 
     std::string progressStr;
     localStorageGetItem(gameName + LEVEL, &progressStr);

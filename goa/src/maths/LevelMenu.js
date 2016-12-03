@@ -93,7 +93,7 @@ xc.ScrollView = ccui.ScrollView.extend({
       }
       var newPos = cc.p(gap * i, start)
       if(i == gameProgress.length) {
-        but = new ccui.Button("levelstep/present.png", "levelstep/present.png", "levelstep/present.png", ccui.Widget.PLIST_TEXTURE)
+        but = new ccui.Button("levelstep/present.png", "levelstep/present_pressed.png", "levelstep/present.png", ccui.Widget.PLIST_TEXTURE)
         // but.setColor(cc.color(256, 128, 0))
         var label = new cc.LabelTTF(i.toString(), "Arial", 128, null, cc.TEXT_ALIGNMENT_CENTER, cc.VERTICAL_TEXT_ALIGNMENT_CENTER)
         label.setPosition(but.getContentSize().width / 2, but.getContentSize().height / 2)
@@ -110,22 +110,22 @@ xc.ScrollView = ccui.ScrollView.extend({
         label.setPosition(but.getContentSize().width / 2, but.getContentSize().height / 2)
         but.addChild(label)        
       } else {
-        but = new ccui.Button("levelstep/done.png", "levelstep/done.png", "levelstep/done.png", ccui.Widget.PLIST_TEXTURE)                
+        but = new ccui.Button("levelstep/done.png", "levelstep/done_pressed.png", "levelstep/done.png", ccui.Widget.PLIST_TEXTURE)                
         var label = new cc.LabelTTF(i.toString(), "Arial", 128, null, cc.TEXT_ALIGNMENT_CENTER, cc.VERTICAL_TEXT_ALIGNMENT_CENTER)
         label.setPosition(but.getContentSize().width / 2, but.getContentSize().height / 2)
         but.addChild(label)        
         // but.setColor(cc.color(128, 0, 0))
-        var star = new cc.Sprite(levelStatus >= 1 ? xc.LevelMenuLayer.res.white_star_png : xc.LevelMenuLayer.res.gray_star_png)
-        star.setScale(0.6)
-        star.setPosition(but.getContentSize().width / 4, but.getContentSize().height * 3 / 4)
+        var star = new cc.Sprite(levelStatus >= 1 ? "#levelstep/star.png" : "#levelstep/star_empty.png")
+        star.setScale(0.8)
+        star.setPosition(but.getContentSize().width / 4, but.getContentSize().height * 3 / 4 - 10)
         but.addChild(star)
-        star = new cc.Sprite(levelStatus >= 2 ? xc.LevelMenuLayer.res.white_star_png : xc.LevelMenuLayer.res.gray_star_png)
-        star.setScale(0.6)
-        star.setPosition(but.getContentSize().width / 2, but.getContentSize().height * 7 / 8)
+        star = new cc.Sprite(levelStatus >= 2 ? "#levelstep/star.png" : "#levelstep/star_empty.png")
+        star.setScale(0.8)
+        star.setPosition(but.getContentSize().width / 2, but.getContentSize().height * 7 / 8 - 10)
         but.addChild(star)
-        star = new cc.Sprite(levelStatus >= 3 ? xc.LevelMenuLayer.res.white_star_png : xc.LevelMenuLayer.res.gray_star_png)
-        star.setScale(0.6)
-        star.setPosition(but.getContentSize().width * 3 / 4, but.getContentSize().height * 3 / 4)
+        star = new cc.Sprite(levelStatus >= 3 ? "#levelstep/star.png" : "#levelstep/star_empty.png")
+        star.setScale(0.8)
+        star.setPosition(but.getContentSize().width * 3 / 4 - 10, but.getContentSize().height * 3 / 4 - 10)
         but.addChild(star)
         but.addTouchEventListener(this.itemSelected, this)
       }
@@ -146,7 +146,7 @@ xc.ScrollView = ccui.ScrollView.extend({
   },
   itemSelected: function (sender, type) {
     switch (type) {
-      case ccui.Widget.TOUCH_BEGAN:
+      case ccui.Widget.TOUCH_ENDED:
         var level = parseInt(sender.getChildren()[0].getString())
         cc.log(this._gameName + '.currentLevel')
         cc.sys.localStorage.setItem(this._gameName + '.currentLevel', level.toString())
@@ -157,7 +157,6 @@ xc.ScrollView = ccui.ScrollView.extend({
           goa.MenuContext.launchGameFromJS(this._gameName)
         }
         break;
-      case ccui.Widget.TOUCH_ENDED:
     }
   },
   levelCompleted: function(level, numStars) {
@@ -168,7 +167,7 @@ xc.ScrollView = ccui.ScrollView.extend({
   }
 })
 
-xc.LevelMenuLayer.debug = false
+xc.LevelMenuLayer.debug = true
 
 xc.LevelMenuLayer.res = {
   level_plist: xc.path + "levelstep/levelstep.plist",
