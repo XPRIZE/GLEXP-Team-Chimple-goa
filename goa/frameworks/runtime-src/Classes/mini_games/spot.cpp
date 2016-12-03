@@ -48,7 +48,7 @@ void spot::onEnterTransitionDidFinish() {
 	_answerValue = _level + 10;
 
 
-	_menuContext->setMaxPoints(1);
+	_menuContext->setMaxPoints(3);
 
 	const int numberOfPages = 3;
 
@@ -163,7 +163,7 @@ void spot::onEnterTransitionDidFinish() {
 
 void spot::update(float delta) {
 
-
+	//isEnterPressed
 	if (_calculateFlag == 0 && _calculator->checkAnswer(_answerValue)) {
 
 		CCLOG("correct answer");
