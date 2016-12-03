@@ -27,7 +27,7 @@ xc.StoryCoverScrollableButtonPanel = cc.LayerColor.extend({
             this.sprite_shelf = cc.Sprite.create(xc.path + "template/shelf.png", xc.path);
             this.sprite_shelf.setAnchorPoint(0,0);
             this.sprite_shelf.setPosition(0, 0);
-            this._page.addChild(this.sprite_shelf, 1);
+            this._page.addChild(this.sprite_shelf, 0);
             this.sprite_shelf.getTexture().setTexParameters({minFilter: gl.LINEAR, magFilter: gl.LINEAR, wrapS: gl.REPEAT, wrapT: gl.REPEAT});
             this.sprite_shelf.setTextureRect(cc.rect(0,0, cc.director.getWinSize().width * xc.pages_width,cc.director.getWinSize().height * 0.85));            
         }
