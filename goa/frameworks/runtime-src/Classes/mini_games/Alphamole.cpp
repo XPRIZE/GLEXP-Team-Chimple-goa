@@ -162,7 +162,7 @@ void Alphamole::showAlpha(float ft)
 			str = _mychar;
 			_helpLayer = true;
 			child = _background->getChildByName(holes.at(cocos2d::RandomHelper::random_int(0, 1)));
-			auto help = HelpLayer::create(Rect(child->getPositionX() + _Xpos, child->getPositionY() + 300, 600, 800), Rect(visibleSize.width/2, visibleSize.height/1.1, 400, 400));
+			auto help = HelpLayer::create(Rect(child->getPositionX() + _Xpos, child->getPositionY() + 300, 600, 800), Rect(visibleSize.width* 0.1, visibleSize.height/1.1, 400, 400));
 			help->click(Vec2(child->getPositionX() + _Xpos, child->getPositionY() + 300));
 			help->setName("helpLayer");
 			this->addChild(help);
