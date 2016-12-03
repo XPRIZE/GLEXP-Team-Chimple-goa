@@ -20,7 +20,8 @@ USING_NS_CC;
 Calculator::Calculator() :
 	_answer(0),
 	_answerText(""),
-	_done(0)
+	_done(0),
+	_enterPressed(0)
 {
 
 }
@@ -62,6 +63,7 @@ Node*  Calculator::createCalculator(Vec2 position, Vec2 anchor, float scaleX, fl
 	
 	auto listener = EventListenerTouchOneByOne::create();
 	listener->onTouchBegan = CC_CALLBACK_2(Calculator::onTouchBegan, this);
+	listener->onTouchEnded = CC_CALLBACK_2(Calculator::onTouchEnded, this);
 	listener->setSwallowTouches(false);
 	
 	
@@ -125,6 +127,7 @@ bool Calculator::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 			}
 			
 		if (target->getName() == "enter"){
+			_enterPressed = 1;
 			if (this->getParent()->getName().compare(TABLE) == 0) {
 				CCLOG("in Tabel");
 				std::ostringstream sstreamb;
@@ -173,10 +176,29 @@ bool Calculator::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 }
 
 
+void Calculator::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
+	
+	auto target = event->getCurrentTarget();
+
+	if (target->getName() == "enter") {
+		_enterPressed = 0;
+	}
+}
+
+
+
 void Calculator::resetCalculator() {
 
 	auto answerText = (cocos2d::ui::Text *)_node->getChildByName("screen")->getChildByName("label");
 	answerText->setString("0");
 	_answer = 0;
+}
+
+bool Calculator::isEnterPressed() {
+
+	if (_enterPressed == 0)
+		return false;
+	else
+		return true;
 }
 
