@@ -52,16 +52,32 @@ bool LevelHelpScene::initWithGame(std::string gameName) {
     if(!currentLevelStr.empty()) {
         _currentLevel = std::atoi( currentLevelStr.c_str());
     }
-    auto plistFile = FileUtils::getInstance()->fullPathForFilename("config/game_levels.plist");
-    ValueMap dict = FileUtils::getInstance()->getValueMapFromFile(plistFile);
-
-    CCASSERT( !dict.empty(), "config/game_levels.plist: file not found");
+    std::string contents = FileUtils::getInstance()->getStringFromFile("config/game_levels.json");
     
-    _helpText = dict[gameName + "_" + currentLevelStr].asString();
-    if(_helpText.empty()) {
-        _helpText = dict[gameName + "_1"].asString();
+    rapidjson::Document d;
+    
+    if (false == d.Parse<0>(contents.c_str()).HasParseError()) {
+        // document is ok
+        
+        if(d.HasMember(gameName.c_str())) {
+            const rapidjson::Value& game = d[gameName.c_str()];
+            std::string lvl = "";
+            if(game.HasMember(currentLevelStr.c_str())) {
+                lvl = currentLevelStr;
+            } else if(game.HasMember("1")) {
+                lvl = "1";
+            }
+            if(!lvl.empty()) {
+                const rapidjson::Value& level = game[lvl.c_str()];
+                if(level.HasMember("help")) {
+                    _helpText = level["help"].GetString();
+                }
+                if(level.HasMember("video")) {
+                    _videoName = level["video"].GetString();
+                }
+            }
+        }
     }
-    
     return true;
 }
 
@@ -77,7 +93,7 @@ void LevelHelpScene::onEnterTransitionDidFinish() {
     text->setTextAreaSize(Size(1200, 0));
     text->ignoreContentAdaptWithSize(true);
     addChild(text);
-//    videoPlayStart(_gameName);
+    videoPlayStart();
 }
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
@@ -98,40 +114,39 @@ void LevelHelpScene::videoEventCallback(Ref* sender, cocos2d::experimental::ui::
 }
 #endif
 
-void LevelHelpScene::videoPlayStart(std::string gameName)
+void LevelHelpScene::videoPlayStart()
 {
-    std::string videoName = "generic";
-    gameName = gameName + "_";
-    auto tv = Sprite::create("TV.png");
-    tv->setScaleX(0.73);
-    tv->setScaleY(0.70);
-    tv->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-    tv->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
-    tv->setName("tv");
+    if(FileUtils::getInstance()->isFileExist("help/" + _videoName)) {
+        auto tv = Sprite::create("TV.png");
+        tv->setScaleX(0.73);
+        tv->setScaleY(0.70);
+        tv->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+        tv->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
+        tv->setName("tv");
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    //auto sprite = CCSprite::create("TV.png");
-    //sprite->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
-    experimental::ui::VideoPlayer* vp = experimental::ui::VideoPlayer::create();
-    this->addChild(tv, 2);
-    vp->setContentSize(cocos2d::Size((tv->getContentSize().width *0.73)-200, (tv->getContentSize().height*0.7) - 180 ));
-    vp->setFileName("help/" + videoName +".webm");
-    vp->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
-    vp->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-    vp->play();
-    vp->setName("video");
-    this->addChild(vp, 2);
-    vp->addEventListener(CC_CALLBACK_2(LevelHelpScene::videoEventCallback, this));
+        //auto sprite = CCSprite::create("TV.png");
+        //sprite->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
+        _vp = experimental::ui::VideoPlayer::create();
+        this->addChild(tv, 2);
+        _vp->setContentSize(cocos2d::Size((tv->getContentSize().width *0.73)-200, (tv->getContentSize().height*0.7) - 180 ));
+        _vp->setFileName("help/" + _videoName);
+        _vp->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
+        _vp->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+        _vp->play();
+        _vp->setName("video");
+        this->addChild(_vp, 2);
+        _vp->addEventListener(CC_CALLBACK_2(LevelHelpScene::videoEventCallback, this));
 #else
-    videoPlayOverCallback();
+        videoPlayOverCallback();
 #endif
-    
+    }
+
 }
 
 void LevelHelpScene::videoPlayOverCallback() {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    this->removeChildByName("video");
-    this->removeChildByName("tv");
-#endif 
+    _vp->play();
+#endif
 }
 
 

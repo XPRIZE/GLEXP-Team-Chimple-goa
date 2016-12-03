@@ -486,7 +486,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 	
 
 
-	_sceneNumber = 1;
+	//_sceneNumber = 2;
 
 	std::string mainSceneplist;
 
@@ -561,9 +561,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 	std::string animationcsb;
 
 
-	if (_sceneNumber == 1) {
-		animationcsb = "balloonhero/firefly.csb";
-	}
+	if (_sceneNumber == 1) {animationcsb = "balloonhero/firefly.csb";}
 	if (_sceneNumber == 2) { animationcsb = "balloonfarm/balloon.csb"; }
 	if (_sceneNumber == 3) { animationcsb = "ballooncandy/fluffyanim.csb"; }
 
@@ -574,7 +572,11 @@ void BalloonHero::onEnterTransitionDidFinish() {
 		//_fireFly->getChildByName("firefly")->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 		
 		_fireFly->setScale(0.5, 0.5);
-		_fireFly->setContentSize(Size( 200, 200));
+
+		if (_sceneNumber == 1) { _fireFly->setContentSize(Size( 400, 400)); }
+		if (_sceneNumber == 2) { _fireFly->setContentSize(Size( 200, 200)); }
+		if (_sceneNumber == 3) { _fireFly->setContentSize(Size( 200, 200)); }
+		
 		
 		for (auto const& child : _fireFly->getChildren()) {
 
@@ -889,8 +891,8 @@ void BalloonHero::generateObjectsAndMove() {
 				_cloud1->setName("m");
 			}
 			label->setFontSize(100);
-			label->setFontName("fonts/Marker Felt.ttf");
-			label->setPosition(Vec2(140, 40));
+			label->setFontName("fonts/digital.ttf");
+			label->setPosition(Vec2(200, 100));
 			label->setAnchorPoint(Vec2(0, 0));
 			label->setTextColor(Color4B::BLUE);
 			label->setScaleX(0.5);
@@ -933,8 +935,8 @@ void BalloonHero::generateObjectsAndMove() {
 				_cloud2->setName("m");
 			}
 			label->setFontSize(100);
-			label->setFontName("fonts/Marker Felt.ttf");
-			label->setPosition(Vec2(140, 40));
+			label->setFontName("fonts/digital.ttf");
+			label->setPosition(Vec2(200, 100));
 			label->setAnchorPoint(Vec2(0, 0));
 			label->setTextColor(Color4B::BLUE);
 			label->setScaleX(0.5);
@@ -977,8 +979,8 @@ void BalloonHero::generateObjectsAndMove() {
 				_cloud3->setName("m");
 			}
 			label->setFontSize(100);
-			label->setFontName("fonts/Marker Felt.ttf");
-			label->setPosition(Vec2(140, 40));
+			label->setFontName("fonts/digital.ttf");
+			label->setPosition(Vec2(200, 100));
 			label->setAnchorPoint(Vec2(0, 0));
 			label->setTextColor(Color4B::BLUE);
 			label->setScaleX(0.5);
@@ -1025,8 +1027,8 @@ void BalloonHero::generateObjectsAndMove() {
 				_cloud4->setName("m");
 			}
 			label->setFontSize(100);
-			label->setFontName("fonts/Marker Felt.ttf");
-			label->setPosition(Vec2(140, 40));
+			label->setFontName("fonts/digital.ttf");
+			label->setPosition(Vec2(200, 100));
 			label->setAnchorPoint(Vec2(0, 0));
 			label->setTextColor(Color4B::BLUE);
 			label->setScaleX(0.5);
