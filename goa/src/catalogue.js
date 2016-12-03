@@ -46,6 +46,7 @@ xc.CatalogueLayer = cc.Layer.extend({
     displayStories: function () {        
         this._stories.forEach(function(story) {
             story.icon = xc.path + story.icon;
+            cc.textureCache.addImage(story.icon);
         });
         this._bookShelf = new xc.StoryCoverScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height), 5, 3, this._stories, this.renderStory, this, false, true);
         this.addChild(this._bookShelf);
@@ -123,5 +124,7 @@ xc.CatalogueLayer.res = {
         play_png: xc.path + "wikitaki/play.png",
         record_animation_png: xc.path + "wikitaki/recording.png",
         record_animation_plist: xc.path + "wikitaki/recording.plist",
-        Config_json: xc.path + "misc/shelfConfig.json"
+        Config_json: xc.path + "misc/shelfConfig.json",
+        book_json: xc.path + "template/book.json"
 };
+

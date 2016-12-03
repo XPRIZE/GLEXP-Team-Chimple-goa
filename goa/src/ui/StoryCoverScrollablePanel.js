@@ -5,7 +5,7 @@ xc.StoryCoverScrollableButtonPanel = cc.LayerColor.extend({
     _page: null,
     _numButtonsPerRow: null,
     _numButtonsPerColumn: null,
-    ctor: function (position, size, numButtonsPerRow, numButtonsPerColumn, configuration, callBackFunction, callBackContext, noPagination, loadLocalTexture, customButtonChildContext) {
+    ctor: function (position, size, numButtonsPerRow, numButtonsPerColumn, configuration, callBackFunction, callBackContext, noPagination, loadLocalTexture) {
         this._super(xc.PRIMARY_COLOR, size.width, size.height);
         this.setPosition(position);
         this.setContentSize(size);
@@ -38,7 +38,7 @@ xc.StoryCoverScrollableButtonPanel = cc.LayerColor.extend({
         this._page.setContentSize(size.width , size.height);
         for (var pageIndex = 0; pageIndex < configuration.length / (numButtonsPerRow * numButtonsPerColumn); pageIndex++) {
 
-            this._page.addPage(new xc.StoryCoverButtonPanel(cc.p(0, 0), cc.size(size.width , size.height), numButtonsPerRow, numButtonsPerColumn, configuration, this._buttonHandler, pageIndex * (numButtonsPerRow * numButtonsPerColumn), (numButtonsPerRow * numButtonsPerColumn), loadLocalTexture, customButtonChildContext));
+            this._page.addPage(new xc.StoryCoverButtonPanel(cc.p(0, 0), cc.size(size.width , size.height), numButtonsPerRow, numButtonsPerColumn, configuration, this._buttonHandler, pageIndex * (numButtonsPerRow * numButtonsPerColumn), (numButtonsPerRow * numButtonsPerColumn), loadLocalTexture));
             
         }
         this._page.setClippingEnabled(true);
