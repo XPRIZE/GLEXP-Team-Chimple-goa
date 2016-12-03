@@ -569,6 +569,9 @@ void Talk::addEvents(struct LabelDetails sprite)
 				int pos = std::find(_scene.begin(), _scene.end(), sceneName) - _scene.begin();
 				if (sprite.answer == 'c')
 				{
+					CocosDenshion::SimpleAudioEngine *success = CocosDenshion::SimpleAudioEngine::getInstance();
+					success->playEffect("sounds/sfx/success.ogg", false);
+
 					_fish->setPosition(Vec2(differntSceneMapping.at(_scene.at(pos)).at("hero") , visibleSize.height));
 					_heroChar->play("h_correct", true);
 					_enemyChar->play("e_wrong", true);
@@ -584,10 +587,15 @@ void Talk::addEvents(struct LabelDetails sprite)
 				}
 				else
 				{
+					CocosDenshion::SimpleAudioEngine *error = CocosDenshion::SimpleAudioEngine::getInstance();
+					error->playEffect("sounds/sfx/error.ogg", false);
+
 					_fish->setPosition(Vec2(differntSceneMapping.at(_scene.at(pos)).at("enemy"), visibleSize.height));
 					_heroChar->play("h_wrong", true);
 					_enemyChar->play("e_correct", true);
 					sprite.label->setColor(Color3B::RED);
+
+					_menuContext->addPoints(-1);
 				}
 				_action = MoveTo::create(3, Vec2(_fish->getPositionX(), 0));
 				_fish->runAction(_action);

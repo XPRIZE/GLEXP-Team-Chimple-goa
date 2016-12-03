@@ -65,7 +65,6 @@ void Shape::update(float d)
 
 void Shape::onEnterTransitionDidFinish()
 {
-	_menuContext->setMaxPoints(10);
 	_level = _menuContext->getCurrentLevel();
 
 	_waterSpeed = .00004;
@@ -286,6 +285,8 @@ void Shape::onEnterTransitionDidFinish()
 	createTrans();
 	this->scheduleUpdate();
 	_moveFlag = 1;
+
+	_menuContext->setMaxPoints(_differntPosition.at(_posmainIndex).at(_differntPosition.at(_posmainIndex).size() - 2));
 }
 
 void Shape::createTrans()
@@ -399,6 +400,9 @@ void Shape::addEvents(struct SpriteDetails sprite)
 					_menuContext->addPoints(1);
 					_waterSpeed -= .00001;
 
+					CocosDenshion::SimpleAudioEngine *success = CocosDenshion::SimpleAudioEngine::getInstance();
+					success->playEffect("sounds/sfx/success.ogg", false);
+
 					if (_totalPatch == _differntPosition.at(_posmainIndex).at(_differntPosition.at(_posmainIndex).size() - 2))
 					{
 						_menuContext->showScore();
@@ -415,6 +419,9 @@ void Shape::addEvents(struct SpriteDetails sprite)
 		{
 			this->removeChild(_spriteDetails._sprite);
 			_moveFlag = 1;
+
+			CocosDenshion::SimpleAudioEngine *error = CocosDenshion::SimpleAudioEngine::getInstance();
+			error->playEffect("sounds/sfx/error.ogg", false);
 
 			if (_spriteMoved == 1)
 				_menuContext->addPoints(-1);
