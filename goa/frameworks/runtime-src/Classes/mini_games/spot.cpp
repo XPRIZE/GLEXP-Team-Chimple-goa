@@ -48,7 +48,7 @@ void spot::onEnterTransitionDidFinish() {
 	_answerValue = _level + 10;
 
 
-	_menuContext->setMaxPoints(1);
+	_menuContext->setMaxPoints(3);
 
 	const int numberOfPages = 3;
 
@@ -97,34 +97,53 @@ void spot::onEnterTransitionDidFinish() {
 	addCalculator();
 
 
+	auto scrollRight = CallFunc::create([=] {
+		_scrollView->scrollToRight(3, true);
+	});
+	
+	auto scrollLeft = CallFunc::create([=] {
+		_scrollView->scrollToLeft(3, true);
+	});
+
+
+	auto scrollSequence = Sequence::create(DelayTime::create(1), scrollRight, DelayTime::create(1), scrollLeft,   NULL);
+	this->runAction(scrollSequence);
+
+	//_scrollView->scrollToRight(3, true);
 	
 
 	auto listener = EventListenerTouchOneByOne::create();
 	listener->onTouchBegan = CC_CALLBACK_2(spot::onTouchBegan, this);
 	listener->setSwallowTouches(false);
 
-	//questionPlate->getChildByName("cal")->setPosition(questionPlate->getChildByName("cal")->getPosition() - Vec2(400,0));
+	Vec2 platePosition = questionPlate->getChildByName("cal")->getPosition();
+
+	questionPlate->getChildByName("cal")->setPosition(platePosition - Vec2(platePosition.x * 0.25,0));
 
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener->clone(), questionPlate->getChildByName("cal"));
 
 	std::string countAnimal;
+	std::string animalIcon;
 
 	switch (_menuContext->getCurrentLevel()) {
 
-	case 1:countAnimal = "buffaloes"; break;
-	case 2:countAnimal = "cows"; break;
-	case 3:countAnimal = "goats"; break;
-	case 4:countAnimal = "horses"; break;
-	case 5:countAnimal = "pigs"; break;
-	case 6:countAnimal = "sheeps"; break;
+	case 1:countAnimal = "buffaloes"; animalIcon = "spot/buffaloicon.png";  break;
+	case 2:countAnimal = "cows"; animalIcon = "spot/cowicon.png";   break;
+	case 3:countAnimal = "goats"; animalIcon = "spot/goaticon.png";   break;
+	case 4:countAnimal = "horses"; animalIcon = "spot/horseicon.png";   break;
+	case 5:countAnimal = "pigs"; animalIcon = "spot/pigicon.png";   break;
+	case 6:countAnimal = "sheeps"; animalIcon = "spot/sheepicon.png";   break;
 
 	}
 
+	
+
+
 	_label = ui::Text::create();
 	_label->setFontName("fonts/Marker Felt.ttf");
-	_label->setString("How many " + countAnimal +" are there?");
+	_label->setString(LangUtil::getInstance()->translateString("How many         are there?"));
 	_label->setFontSize(100);
-	_label->setPosition(Vec2(visibleSize.width / 4, visibleSize.height / 14));
+	_label->setPosition(Vec2(visibleSize.width / 4, visibleSize.height / 25));
 	_label->setAnchorPoint(Vec2(0, 0));
 	_label->setName("label");
 	_label->setTextColor(Color4B::BLUE);
@@ -133,21 +152,38 @@ void spot::onEnterTransitionDidFinish() {
 	_label->setScaleY(1);
 
 
-	_scrollView->addChild(_label,15);
+	//_scrollView->addChild(_label,15);
 
 	_scrollView->addChild(_bg, 10);
 	
-	_scrollView->addChild(questionPlate, 10);
-
+	//_scrollView->addChild(questionPlate, 10);
+	this->addChild(questionPlate, 14);
+	questionPlate->addChild(_label, 15);
 	CCLOG("%d", _answerValue);
+
+	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("spot/spot.plist");
+
+	cocos2d::Sprite * animalSprite = Sprite::createWithSpriteFrameName(animalIcon);
+	//animalSprite->setPosition(400, 1600);
+	animalSprite->setScale(0.7, 0.7);
+	animalSprite->setAnchorPoint(Vec2(0.5, 0.5));
+	animalSprite->setName("animalsprite");
+	questionPlate->addChild(animalSprite);
+
+	questionPlate->getChildByName("animalsprite")->setPosition(platePosition - Vec2(platePosition.x * 0.50, 0));
 
 
 
 	///
-	cocostudio::timeline::ActionTimeline * _windmillTimeline;
-	_windmillTimeline = CSLoader::createTimeline("spot/windmill.csb");
-	_bg->getChildByName("windmill")->runAction(_windmillTimeline);
-	_windmillTimeline->play("fly", true);
+
+	
+
+		cocostudio::timeline::ActionTimeline * _windmillTimeline;
+		_windmillTimeline = CSLoader::createTimeline("spot/windmill.csb");
+		_bg->getChildByName("windmill")->runAction(_windmillTimeline);
+		_windmillTimeline->play("fly", true);
+
+	
 	
 
 	cocostudio::timeline::ActionTimeline * _smokeTimeline;
@@ -163,7 +199,7 @@ void spot::onEnterTransitionDidFinish() {
 
 void spot::update(float delta) {
 
-
+	//isEnterPressed
 	if (_calculateFlag == 0 && _calculator->checkAnswer(_answerValue)) {
 
 		CCLOG("correct answer");
@@ -171,7 +207,7 @@ void spot::update(float delta) {
 
 		auto ShowScore = CallFunc::create([=] {
 
-			_menuContext->addPoints(1);
+			_menuContext->addPoints(3);
 			_menuContext->showScore();
 
 		});
@@ -221,7 +257,7 @@ void spot::addCalculator() {
 
 	_calculator = new Calculator();
 	_calculator->createCalculator(Vec2(visibleSize.width/2 + 1000, visibleSize.height/3 + 100), Vec2(0.5, 0.5), 0.7, 0.7);
-	_scrollView->addChild(_calculator, 15);
+	this->addChild(_calculator, 20);
 	//_calculator->setGlobalZOrder(2);
 	_calculator->setVisible(false);
 

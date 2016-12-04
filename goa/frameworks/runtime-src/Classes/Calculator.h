@@ -33,11 +33,14 @@ public:
 	unsigned long int _answer;
 	std::string _answerText;
 	cocos2d::ui::Text * _label;
-
+	int _enterPressed = 0;
 	Node* createCalculator(cocos2d::Vec2 position, cocos2d::Vec2 anchor,float scaleX, float scaleY);
 	bool checkAnswer(int value);
 	bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
+	void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event);
 	void resetCalculator();
+	bool isEnterPressed();
+	bool _isTouchedFinished = true;
 
 };
 

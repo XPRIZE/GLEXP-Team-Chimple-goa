@@ -9,6 +9,8 @@ xc.DARK_SECONDARY_COLOR = cc.color("#ee0a21");
 xc.TERTIARY_COLOR = cc.color("#F6FF88");
 xc.DEFAULT_BOUNDING_BOX_TAG = 999;
 xc.DARK_BOUNDING_BOX_TAG = 998;
+
+xc.BOOK_COLORS = [cc.color("#E5155A"),cc.color("#0E700B"),cc.color("#0834C1"),cc.color("#C90D0D"),cc.color("#EF6A0F")];
  
 xc.CatalogueLayer = cc.Layer.extend({
     _pageConfigPanel: null,
@@ -44,10 +46,6 @@ xc.CatalogueLayer = cc.Layer.extend({
     },
 
     displayStories: function () {        
-        this._stories.forEach(function(story) {
-            story.icon = xc.path + story.icon;
-            cc.textureCache.addImage(story.icon);
-        });
         this._bookShelf = new xc.StoryCoverScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height), 5, 3, this._stories, this.renderStory, this, false, true);
         this.addChild(this._bookShelf);
     },
@@ -91,19 +89,37 @@ var t_resources = [];
 
     var storyCatalogueObject = null;
 
-    cc.spriteFrameCache.addSpriteFrames(xc.CatalogueLayer.res.thumbnails_plist);
-    cc.spriteFrameCache.addSpriteFrames(xc.CatalogueLayer.res.record_animation_plist);
-    cc.LoaderScene.preload(t_resources, function () {
-        if(cc.sys.isNative) {
-            storyCatalogueObject = cc.loader.getRes(xc.CatalogueLayer.res.Config_json);                    
-        } else {
-            storyCatalogueObject = cc.loader.cache[xc.CatalogueLayer.res.Config_json];
-        }
-                    
-        this._catalogueScene = new xc.CatalogueScene(layer, storyCatalogueObject);
-        this._catalogueScene.layerClass = layer;
-        cc.director.runScene(this._catalogueScene);    
-    }, this);        
+    var langDir = goa.TextGenerator.getInstance().getLang();
+    cc.log("langDir:" + langDir);
+    var titlesFileUrl =  "res/story" + "/" + langDir + "/titles.json";
+
+    cc.loader.loadJson(titlesFileUrl, function(err, json) {            
+        if(!err && json != null && json != undefined) {
+            cc.log('story titles received:' + json);
+            var jsonObj = {};
+            for (var key in json) {
+                if (json.hasOwnProperty(key)) {
+                    jsonObj[key.toLowerCase()] = json[key];
+                }
+            }            
+            cc.sys.localStorage.setItem('titles', JSON.stringify(jsonObj));
+            cc.LoaderScene.preload(t_resources, function () {
+                cc.spriteFrameCache.addSpriteFrames(xc.CatalogueLayer.res.thumbnails_plist);
+                cc.spriteFrameCache.addSpriteFrames(xc.CatalogueLayer.res.record_animation_plist);
+                cc.spriteFrameCache.addSpriteFrames(xc.CatalogueLayer.res.book_cover_plist);
+                
+                if(cc.sys.isNative) {
+                    storyCatalogueObject = cc.loader.getRes(xc.CatalogueLayer.res.Config_json);                    
+                } else {
+                    storyCatalogueObject = cc.loader.cache[xc.CatalogueLayer.res.Config_json];
+                }
+                            
+                this._catalogueScene = new xc.CatalogueScene(layer, storyCatalogueObject);
+                this._catalogueScene.layerClass = layer;
+                cc.director.runScene(this._catalogueScene);    
+            }, this);              
+        }                                
+    });
 }
 
 
@@ -125,6 +141,8 @@ xc.CatalogueLayer.res = {
         record_animation_png: xc.path + "wikitaki/recording.png",
         record_animation_plist: xc.path + "wikitaki/recording.plist",
         Config_json: xc.path + "misc/shelfConfig.json",
-        book_json: xc.path + "template/book.json"
+        book_json: xc.path + "template/book.json",
+        book_cover_plist: xc.path + "template.plist",
+        book_cover_json: xc.path + "template.png"                
 };
 
