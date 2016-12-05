@@ -310,8 +310,7 @@ void Owl::autoPlayerController(float data) {
 				_flagDemoSecond = false;
 				_opponent->runAction(ScaleTo::create(1.0f, _opponent->getScaleX() * 2, _opponent->getScaleY() * 2));
 				_opponent->runAction(MoveTo::create(1, Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2)));
-
-			}), DelayTime::create(3),
+			}), DelayTime::create(2),
 			CallFunc::create([=]() {_menuContext->showScore(); }), NULL));
 		}
 		else {
@@ -579,17 +578,17 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 								_blockLevel1++;
 								this->runAction(Sequence::create(CallFunc::create([=]() {
 									
-									CCParticleSystemQuad *_particle = CCParticleSystemQuad::create("template/template.plist");
-									_particle->setTexture(CCTextureCache::sharedTextureCache()->addImage("template/template.png"));
-									_particle->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
-									this->addChild(_particle, 5);
+								//	CCParticleSystemQuad *_particle = CCParticleSystemQuad::create("");
+								//	_particle->setTexture(CCTextureCache::sharedTextureCache()->addImage(""));
+								//	_particle->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
+								//	this->addChild(_particle, 5);
 
 									_flagDemo = false;
 									_flagDemoSecond = false;
 									_sprite->runAction(ScaleTo::create(1.0f, _sprite->getScaleX()*1.3f , _sprite->getScaleY()*1.3f));
 									_sprite->runAction(MoveTo::create(1, Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2)));
 									
-								}), DelayTime::create(4),
+								}), DelayTime::create(2),
 									CallFunc::create([=]() {_menuContext->showScore(); }), NULL));
 							}
 						});
