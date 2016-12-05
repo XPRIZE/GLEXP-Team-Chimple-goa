@@ -62,18 +62,19 @@ bool LevelHelpScene::initWithGame(std::string gameName) {
         if(d.HasMember(gameName.c_str())) {
             const rapidjson::Value& game = d[gameName.c_str()];
             std::string lvl = "";
-            if(game.HasMember(currentLevelStr.c_str())) {
-                lvl = currentLevelStr;
-            } else if(game.HasMember("1")) {
-                lvl = "1";
-            }
-            if(!lvl.empty()) {
-                const rapidjson::Value& level = game[lvl.c_str()];
-                if(level.HasMember("help")) {
-                    _helpText = level["help"].GetString();
-                }
-                if(level.HasMember("video")) {
-                    _videoName = level["video"].GetString();
+            assert(game.IsArray());
+            for (rapidjson::SizeType i = 0; i < game.Size(); i++) {
+                const rapidjson::Value& helpMap = game[i];
+                if(helpMap.HasMember("levels")) {
+                    const rapidjson::Value& levels = helpMap["levels"];
+                    assert(levels.IsArray());
+                    for (rapidjson::SizeType i = 0; i < levels.Size(); i++) {
+                        int level = levels[i].GetInt();
+                        if(level == _currentLevel || (level == 1 && _helpText.empty())) {
+                            _helpText = helpMap["help"].GetString();
+                            _videoName = helpMap["help"].GetString();
+                        }
+                    }
                 }
             }
         }
