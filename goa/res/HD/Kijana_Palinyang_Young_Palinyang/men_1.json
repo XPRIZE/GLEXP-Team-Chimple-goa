@@ -15403,10 +15403,10 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -9.92,
-                        "RightMargin": -62.08,
-                        "TopMargin": -87.86,
-                        "BottomMargin": -87.14,
+                        "LeftMargin": -0.92,
+                        "RightMargin": -53.08,
+                        "TopMargin": -81.36,
+                        "BottomMargin": -80.64,
                         "Tag": 151,
                         "ActionTag": 1531861036,
                         "Size": {
@@ -15738,10 +15738,10 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": 6.3972,
-                        "RightMargin": -78.3972,
-                        "TopMargin": -86.6412,
-                        "BottomMargin": -88.3588,
+                        "LeftMargin": 15.3972,
+                        "RightMargin": -69.3972,
+                        "TopMargin": -80.1412,
+                        "BottomMargin": -81.8588,
                         "Tag": 150,
                         "ActionTag": 1203751803,
                         "Size": {
@@ -16030,7 +16030,7 @@
                                   "Plist": ""
                                 },
                                 "BlendFunc": {
-                                  "Src": 1,
+                                  "Src": 770,
                                   "Dst": 771
                                 },
                                 "AnchorPoint": {
@@ -16061,15 +16061,15 @@
                                   "X": 0.0,
                                   "Y": 0.0
                                 },
-                                "LeftMargin": -243.4561,
-                                "RightMargin": -589.5438,
-                                "TopMargin": -430.2531,
-                                "BottomMargin": -429.7469,
+                                "LeftMargin": 150.0439,
+                                "RightMargin": -196.0439,
+                                "TopMargin": -23.2531,
+                                "BottomMargin": -22.7469,
                                 "Tag": 2609,
                                 "ActionTag": -1748095891,
                                 "Size": {
-                                  "X": 833.0,
-                                  "Y": 860.0
+                                  "X": 46.0,
+                                  "Y": 46.0
                                 },
                                 "Name": "hair_curtained_hair_0",
                                 "ctype": "SpriteObjectData"
@@ -17278,9 +17278,9 @@
                         "Children": [
                           {
                             "FileData": {
-                              "Type": "Default",
-                              "Path": "Default/Sprite.png",
-                              "Plist": ""
+                              "Type": "MarkedSubImage",
+                              "Path": "Kijana_Palinyang_Young_Palinyang/leg_foot_right.png",
+                              "Plist": "Kijana_Palinyang_Young_Palinyang/Kijana_Palinyang_Young_Palinyang.plist"
                             },
                             "BlendFunc": {
                               "Src": 1,
@@ -17300,7 +17300,11 @@
                             },
                             "RotationSkewX": -180.0,
                             "RotationSkewY": 180.0,
-                            "CColor": {},
+                            "CColor": {
+                              "R": 156,
+                              "G": 94,
+                              "B": 33
+                            },
                             "IconVisible": false,
                             "PrePosition": {
                               "X": 0.0,
@@ -17310,15 +17314,15 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": -34.6921,
-                            "RightMargin": -127.3079,
-                            "TopMargin": -19.7615,
-                            "BottomMargin": -18.2385,
+                            "LeftMargin": 23.3079,
+                            "RightMargin": -69.3079,
+                            "TopMargin": -23.7615,
+                            "BottomMargin": -22.2385,
                             "Tag": 45,
                             "ActionTag": -59163450,
                             "Size": {
-                              "X": 162.0,
-                              "Y": 38.0
+                              "X": 145.0,
+                              "Y": 31.0
                             },
                             "Name": "leg_foot_right",
                             "ctype": "SpriteObjectData"
@@ -17530,9 +17534,9 @@
                         "Children": [
                           {
                             "FileData": {
-                              "Type": "Default",
-                              "Path": "Default/Sprite.png",
-                              "Plist": ""
+                              "Type": "MarkedSubImage",
+                              "Path": "Kijana_Palinyang_Young_Palinyang/leg_foot_left.png",
+                              "Plist": "Kijana_Palinyang_Young_Palinyang/Kijana_Palinyang_Young_Palinyang.plist"
                             },
                             "BlendFunc": {
                               "Src": 1,
@@ -17552,7 +17556,11 @@
                             },
                             "RotationSkewX": -180.0,
                             "RotationSkewY": 180.0,
-                            "CColor": {},
+                            "CColor": {
+                              "R": 156,
+                              "G": 94,
+                              "B": 33
+                            },
                             "IconVisible": false,
                             "PrePosition": {
                               "X": 0.0,
@@ -17562,15 +17570,15 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": -37.2898,
-                            "RightMargin": -126.7102,
-                            "TopMargin": -17.5828,
-                            "BottomMargin": -20.4172,
+                            "LeftMargin": 21.7102,
+                            "RightMargin": -67.7102,
+                            "TopMargin": -21.5828,
+                            "BottomMargin": -24.4172,
                             "Tag": 40,
                             "ActionTag": 621423258,
                             "Size": {
-                              "X": 164.0,
-                              "Y": 38.0
+                              "X": 145.0,
+                              "Y": 31.0
                             },
                             "Name": "leg_foot_left",
                             "ctype": "SpriteObjectData"
