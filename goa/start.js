@@ -261,7 +261,9 @@ cc.game.onStart = function(){
             "sad": "unhappy",
             "friend": "pal",
             "enjoy": "like",
-            "error": "mistake"
+            "error": "mistake",
+            "angry" : "mad",
+            "shop" : "store"
     }  
 
 };
