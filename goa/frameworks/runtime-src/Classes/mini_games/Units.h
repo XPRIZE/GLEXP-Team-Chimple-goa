@@ -38,6 +38,12 @@ public:
 	void update(float delta);
 	Node *_pizza1;
 	Node *_pizza2;
+	Node *_pizza3;
+	Node *_pizza4;
+	Node *pizza1;
+	Node *pizza2;
+	Node *pizza3;
+	Node *pizza4;
 	int _enterPressedFlag = 0;
 	int _gameOverFlag = 0;
 	Vec2 outlet_1;

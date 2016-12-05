@@ -42,13 +42,29 @@ public:
 	void update(float delta);
 	bool _calculatorTouched = false;
 	int _answerValue=0;
-	
+	int nOFbuffalo = 0;
+	int nOFcow = 0; 
+	int nOFgoat = 0; 
+	int nOFhorse = 0; 
+	int nOFpig = 0; 
+	int nOFsheep = 0;
+	int _incrementValue = 0;
 	void addCalculator();
-	
-	
-	int _level;
-	
+	Node *questionPlate;
+	struct levelIterations {
+		
+		std::string animalName;
+		std::string animalIcon;
+		int count;
 
+	};
+	
+	std::vector<struct levelIterations> _slots;
+	
+	int _currentSlot = 0;
+	int _level;
+	Vec2 platePosition;
+	void changeQuestion();
 
 	static const char* gameName() { return SPOT.c_str(); }
 };

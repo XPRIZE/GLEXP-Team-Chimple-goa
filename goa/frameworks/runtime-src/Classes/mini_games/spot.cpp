@@ -40,6 +40,8 @@ bool spot::init()
 
 void spot::onEnterTransitionDidFinish() {
 
+	_slots.resize(6);
+
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
@@ -68,7 +70,7 @@ void spot::onEnterTransitionDidFinish() {
 	//addChild(_layer);
 	
 	
-	Node *questionPlate = CSLoader::createNode("spot/spot.csb");
+	questionPlate = CSLoader::createNode("spot/spot.csb");
 	questionPlate->setContentSize(Size(visibleSize.width * numberOfPages, visibleSize.height * 0.1));
 	questionPlate->setAnchorPoint(Vec2(0.5, 0.5));
 	questionPlate->setPosition(Vec2(numberOfPages * visibleSize.width / 2 + visibleSize.width * 0.03, visibleSize.height / 14));
@@ -77,11 +79,40 @@ void spot::onEnterTransitionDidFinish() {
 
 	Vector <Node*> children = _bg->getChildren();
 	int size = children.size();
+	
 	for (auto item = children.rbegin(); item != children.rend(); ++item) {
 		Node * monsterItem = *item;
 		std::string str = monsterItem->getName().c_str();
 		CCLOG("name : %s", str.c_str());
 	}
+
+
+	switch (_menuContext->getCurrentLevel()) {
+
+	case 1:_incrementValue = 3; break;
+	case 2:_incrementValue = 2; break;
+	case 3:_incrementValue = 1; break;
+	case 4:_incrementValue = 3; break;
+	case 5:_incrementValue = 2; break;
+	case 6:_incrementValue = 1; break;
+
+	}
+
+	for (int i = 0; i < 6; i++) {
+
+		switch (i) {
+
+		case 0:_slots[0].count = 0; _slots[0].animalName = "buffaloes"; _slots[0].animalIcon = "spot/buffaloicon.png"; break;
+		case 1:_slots[1].count = 0; _slots[1].animalName = "cows"; _slots[1].animalIcon = "spot/cowicon.png";   break;
+		case 2:_slots[2].count = 0;  _slots[2].animalName = "goats"; _slots[2].animalIcon = "spot/goaticon.png";   break;
+		case 3:_slots[3].count = 0; _slots[3].animalName = "horses"; _slots[3].animalIcon = "spot/horseicon.png";   break;
+		case 4:_slots[4].count = 0; _slots[4].animalName = "pigs"; _slots[4].animalIcon = "spot/pigicon.png";   break;
+		case 5:_slots[5].count = 0; _slots[5].animalName = "sheeps"; _slots[5].animalIcon = "spot/sheepicon.png";   break;
+
+		}
+
+	}
+	
 
 
 	_scrollView = ui::ScrollView::create();
@@ -116,28 +147,15 @@ void spot::onEnterTransitionDidFinish() {
 	listener->onTouchBegan = CC_CALLBACK_2(spot::onTouchBegan, this);
 	listener->setSwallowTouches(false);
 
-	Vec2 platePosition = questionPlate->getChildByName("cal")->getPosition();
+	platePosition = questionPlate->getChildByName("cal")->getPosition();
 
 	questionPlate->getChildByName("cal")->setPosition(platePosition - Vec2(platePosition.x * 0.25,0));
 
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener->clone(), questionPlate->getChildByName("cal"));
 
-	std::string countAnimal;
-	std::string animalIcon;
-
-	switch (_menuContext->getCurrentLevel()) {
-
-	case 1:countAnimal = "buffaloes"; animalIcon = "spot/buffaloicon.png";  break;
-	case 2:countAnimal = "cows"; animalIcon = "spot/cowicon.png";   break;
-	case 3:countAnimal = "goats"; animalIcon = "spot/goaticon.png";   break;
-	case 4:countAnimal = "horses"; animalIcon = "spot/horseicon.png";   break;
-	case 5:countAnimal = "pigs"; animalIcon = "spot/pigicon.png";   break;
-	case 6:countAnimal = "sheeps"; animalIcon = "spot/sheepicon.png";   break;
-
-	}
-
 	
 
+	
 
 	_label = ui::Text::create();
 	_label->setFontName("fonts/Marker Felt.ttf");
@@ -163,7 +181,7 @@ void spot::onEnterTransitionDidFinish() {
 
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("spot/spot.plist");
 
-	cocos2d::Sprite * animalSprite = Sprite::createWithSpriteFrameName(animalIcon);
+	cocos2d::Sprite * animalSprite = Sprite::createWithSpriteFrameName(_slots[_currentSlot].animalIcon);
 	//animalSprite->setPosition(400, 1600);
 	animalSprite->setScale(0.7, 0.7);
 	animalSprite->setAnchorPoint(Vec2(0.5, 0.5));
@@ -189,6 +207,9 @@ void spot::onEnterTransitionDidFinish() {
 
 	///
 
+	//auto actionRotate = RotateBy::create(3, 360);
+	//questionPlate->runAction(actionRotate);
+
 	this->scheduleUpdate();
 
 }
@@ -196,7 +217,7 @@ void spot::onEnterTransitionDidFinish() {
 void spot::update(float delta) {
 
 	//isEnterPressed
-	if (_calculateFlag == 0 && _calculator->checkAnswer(_answerValue)) {
+	if (_calculateFlag == 0 && _calculator->checkAnswer(_answerValue) && _calculator->isEnterPressed()) {
 
 		CCLOG("correct answer");
 		_calculateFlag = 1;
@@ -204,12 +225,27 @@ void spot::update(float delta) {
 		auto ShowScore = CallFunc::create([=] {
 
 			_menuContext->addPoints(_calculator->getFinalPoints());
-			_menuContext->showScore();
+			
+			if (_currentSlot == 5) {
+				
+				_calculator->setVisible(false);
+				_menuContext->showScore();
+
+			}
+			else {
+
+				changeQuestion();
+			}
 
 		});
 
 
-		auto scoreSequenceOne = Sequence::create(DelayTime::create(0.5), ShowScore, NULL);
+		auto changeQuestionSequence = CallFunc::create([=] {
+
+			_calculateFlag = 0;
+		});
+
+		auto scoreSequenceOne = Sequence::create(DelayTime::create(0.5), ShowScore, DelayTime::create(3),changeQuestionSequence,NULL);
 		this->runAction(scoreSequenceOne);
 
 	}
@@ -252,7 +288,7 @@ void spot::addCalculator() {
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	_calculator = new Calculator();
-	_calculator->createCalculator(Vec2(visibleSize.width/2 + 1000, visibleSize.height/3 + 100), Vec2(0.5, 0.5), 0.7, 0.7);
+	_calculator->createCalculator(Vec2(visibleSize.width/2 + (visibleSize.width * 0.37), visibleSize.height/3 + (visibleSize.height *  0.05)), Vec2(0.5, 0.5), 0.7, 0.7);
 	this->addChild(_calculator, 20);
 	//_calculator->setGlobalZOrder(2);
 	_calculator->setVisible(false);
@@ -265,7 +301,9 @@ void spot::addAnimals() {
 
 	Vector <Node*> children = _bg->getChildren();
 	int size = children.size();
-	for (int i = 1; i<=24; ++i) {
+
+	for (int i = 1; i<=24;) {
+		
 		
 
 		std::ostringstream nodeName;
@@ -279,10 +317,17 @@ void spot::addAnimals() {
 
 		int animalPicker = RandomHelper::random_int(1, 6);
 
+		if (animalPicker == 1) { _slots[0].count++; }
+		if (animalPicker == 2) { _slots[1].count++; }
+		if (animalPicker == 3) { _slots[2].count++; }
+		if (animalPicker == 4) { _slots[3].count++; }
+		if (animalPicker == 5) { _slots[4].count++; }
+		if (animalPicker == 6) { _slots[5].count++; }
 
-		if (_menuContext->getCurrentLevel() == animalPicker) {
-			_answerValue++;
-		}
+
+		//if (_menuContext->getCurrentLevel() == animalPicker) {
+	//		_answerValue++;
+		//}
 
 
 		Node *animal = CSLoader::createNode("spot/" + animalsName[animalPicker] +".csb");
@@ -299,9 +344,10 @@ void spot::addAnimals() {
 		_animalTimeline->play("eat", true);
 		//std::string str = monsterItem->getName().c_str();
 		//CCLOG("name : %s", str.c_str());
+		i += _incrementValue;
 	}
 	
-
+	_answerValue = _slots[_currentSlot].count;
 }
 
 
@@ -350,3 +396,38 @@ bool spot::onTouchBegan(Touch* touch, Event* event) {
 	return false; // to indicate that we have not consumed it.
 }
 
+
+
+void spot::changeQuestion() {
+
+	_calculator->setVisible(false);
+	_calculatorTouched = false;
+	_calculator->deactivateSound();
+
+	auto actionRotateOne = ScaleTo::create(1, 1, -1);
+	auto actionRotateTwo = ScaleTo::create(1, 1, 1);
+	
+	//auto actionRotateTwo = RotateBy::;
+
+	auto rotateSequence = Sequence::create(actionRotateOne, actionRotateTwo, NULL);
+	questionPlate->runAction(rotateSequence);
+
+	//auto actionRotate = ScaleTo::create(3,1,-1);
+	//auto actionRotate = RotateBy::create(3, 360);
+	//questionPlate->runAction(actionRotate);
+
+	questionPlate->removeChild(questionPlate->getChildByName("animalsprite"));
+	_currentSlot++;
+	_answerValue = _slots[_currentSlot].count;
+
+	cocos2d::Sprite * animalSprite = Sprite::createWithSpriteFrameName(_slots[_currentSlot].animalIcon);
+
+	animalSprite->setScale(0.7, 0.7);
+	animalSprite->setAnchorPoint(Vec2(0.5, 0.5));
+	animalSprite->setName("animalsprite");
+	questionPlate->addChild(animalSprite);
+
+	questionPlate->getChildByName("animalsprite")->setPosition(platePosition - Vec2(platePosition.x * 0.50, 0));
+	
+	_answerValue = _slots[_currentSlot].count;
+}
