@@ -41,7 +41,7 @@
       "levels": [
         1
       ],
-      "help": "popcount",
+      "help": "You have to count number of STARFISH and select correct number",
       "video": "popcount_1.webm"
     }
   ],
@@ -138,11 +138,39 @@
     }
   ],
   "blastletter": [
+        {
+      "levels": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26 ],
+      "help": "You have to write correct letter as shown in board",
+      "video": "blastletter_1.webm"
+    },
     {
-      "levels": [
-        1
-      ],
-      "help": "blastletter",
+      "levels": [ 27,28,29,30,31,32,33,34,35,36 ],
+      "help": "You have to write correct number as shown in board",
+      "video": "blastletter_1.webm"
+    },
+    {
+      "levels": [37,38,39,40,41,42,43,44,45,46],
+      "help": "You have to write same word as shown in board",
+      "video": "blastletter_1.webm"
+    },
+    {
+      "levels": [47,48,49,50,51,52,53,54,55,56],
+      "help": "You have to write Plurals word of given singular word",
+      "video": "blastletter_1.webm"
+    },
+    {
+      "levels": [57,58,59,60,61,62,63,64,65,66],
+      "help": "You have to write Antonyms word",
+      "video": "blastletter_1.webm"
+    },
+    {
+      "levels": [67,68,69,70,71,72,73,74,75,76],
+      "help": "You have to write Synonyms word",
+      "video": "blastletter_1.webm"
+    },
+    {
+      "levels": [77,78,79,80,81,82,83,84,85,86],
+      "help": "You have to write Homonyms word",
       "video": "blastletter_1.webm"
     }
   ],
@@ -173,7 +201,7 @@
       "levels": [
         1
       ],
-      "help": "EndlessRunner",
+      "help": "You have to catch correct letter as shown in top board",
       "video": "EndlessRunner_1.webm"
     }
   ],
@@ -182,7 +210,7 @@
       "levels": [
         1
       ],
-      "help": "baja",
+      "help": "Click on the fule to form the word mentioned on the top middle of the screen.",
       "video": "baja_1.webm"
     }
   ],
@@ -191,7 +219,7 @@
       "levels": [
         1
       ],
-      "help": "bubble",
+      "help": "shoot the bubble and match the correct letter or number",
       "video": "bubble_1.webm"
     }
   ],
@@ -299,45 +327,139 @@
   "train": [
     {
       "levels": [
-        1
-      ],
-      "help": "train",
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
+		25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48 ],
+      "help": "You have to click on the word which is popped to complete the sentence.",
       "video": "train_1.webm"
     }
   ],
   "stack": [
     {
       "levels": [
-        1
-      ],
-      "help": "stack",
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
+		25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48,
+		49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72],
+      "help": "You have to click on the letter from which the word start.",
       "video": "stack_1.webm"
     }
   ],
   "talk": [
     {
       "levels": [
-        1
+		1, 12, 18, 26, 31, 35, 40, 45, 47, 52, 56, 60, 64, 66, 69
       ],
-      "help": "talk",
+      "preconditions": [
+        "verb"
+      ],
+      "help": "You have to click all verbs in a sentence",
+      "video": "talk.webm"
+    },
+	
+    {
+      "levels": [
+		2, 16, 21, 25, 29, 34, 38, 41, 48, 51, 55, 57, 63, 67, 72
+      ],
+      "preconditions": [
+        "noun"
+      ],
+      "help": "You have to click all nouns in a sentence",
       "video": "talk_1.webm"
+    },
+	
+    {
+      "levels": [
+		3, 9, 19, 28, 32, 37, 39, 42, 46, 49, 54, 58, 62, 65, 71
+      ],
+      "preconditions": [
+        "pronoun"
+      ],
+      "help": "You have to click all pronouns in a sentence",
+      "video": "talk_2.webm"
+    },
+	
+    {
+      "levels": [
+		  4, 13, 23, 27, 43, 59
+      ],
+      "preconditions": [
+        "adverb"
+      ],
+      "help": "You have to click all adverbs in a sentence",
+      "video": "talk_4.webm"
+    },
+	
+    {
+      "levels": [
+		  5, 10, 22, 30, 33, 68
+      ],
+      "preconditions": [
+        "adjective"
+      ],
+      "help": "You have to click all adjectives in a sentence",
+      "video": "talk_5.webm"
+    },
+	
+    {
+      "levels": [
+		  6, 15, 17, 44, 53, 61
+      ],
+      "preconditions": [
+        "preposition"
+      ],
+      "help": "You have to click all prepositions in a sentence",
+      "video": "talk_6.webm"
+    },
+	
+    {
+      "levels": [
+		  7, 11, 24
+      ],
+      "preconditions": [
+        "conjunction"
+      ],
+      "help": "You have to click all conjunctions in a sentence",
+      "video": "talk_7.webm"
+    },
+	
+    {
+      "levels": [
+		  8, 14, 20
+      ],
+      "preconditions": [
+        "interjection"
+      ],
+      "help": "You have to click all interjections in a sentence",
+      "video": "talk_8.webm"
+    },
+	
+    {
+      "levels": [
+		  70, 36, 50
+      ],
+      "preconditions": [
+        "article"
+      ],
+      "help": "You have to click all articles in a sentence",
+      "video": "talk_9.webm"
     }
+	
   ],
   "jasmine": [
     {
       "levels": [
-        1
+		1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+		21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40
       ],
-      "help": "jasmine",
+      "help": "You have to complete the sentence by choosing correct letters.",
       "video": "jasmine_1.webm"
     }
   ],
   "Cannon Ball": [
     {
       "levels": [
-        1
+        1, 2, 3, 4, 5, 6, 7, 8
       ],
-      "help": "Cannon Ball",
+      "help": "You have to drag the letter and put it on the correct cannon",
       "video": "Cannon Ball_1.webm"
     }
   ],
@@ -759,27 +881,35 @@
   "card": [
     {
       "levels": [
-        1
+        1, 2, 6, 7, 11, 12, 16
       ],
-      "help": "card",
+      "help": "You have to choose two cards whose total animals are equal to the number which is shown in board.",
+      "video": "card_1.webm"
+    },
+	
+    {
+      "levels": [
+        3, 4, 5, 8, 9, 10, 13, 14, 15, 17, 18, 19, 20
+      ],
+      "help": "You have to choose three cards whose total animals are equal to the number which is shown in board.",
       "video": "card_1.webm"
     }
   ],
   "step": [
     {
       "levels": [
-        1
-      ],
-      "help": "step",
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
+		25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45 ],
+      "help": "You have to complete the table by dragging the candy.",
       "video": "step_1.webm"
     }
   ],
   "shape": [
     {
       "levels": [
-        1
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10
       ],
-      "help": "shape",
+      "help": "You have to drag the shape and put it on the correct hole.",
       "video": "shape_1.webm"
     }
   ]
