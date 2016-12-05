@@ -2,7 +2,7 @@
 
 var xc = xc || {};
 xc.storyTitleFontName = "Arial";
-xc.storyTitleFontSize = 45;
+xc.storyTitleFontSize = 40;
 xc.storyTitleFontColor = cc.color.WHITE;
 
 
@@ -78,7 +78,7 @@ xc.StoryCoverButtonPanel = ccui.Layout.extend({
                                 cc.log('storyTitle didnt found %s', imageIconUrl);
                             }
                         }
-                        
+                        bookText.setLocalZOrder(1);
                         bookText.setString(storyTitle);
                         bookText.setFontName(xc.storyTitleFontName)
                         bookText.setTextColor(xc.storyTitleFontColor);
