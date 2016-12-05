@@ -437,8 +437,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Binti_wa_Mflame_Kayanja/Binti3/binti_table.png",
-              "Plist": "Binti_wa_Mflame_Kayanja/Binti3/Binti3.plist"
+              "Path": "Binti_wa_Mflame_Kayanja/Binti4/binti_table.png",
+              "Plist": "Binti_wa_Mflame_Kayanja/Binti4/Binti4.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -477,52 +477,6 @@
               "Y": 744.0
             },
             "Name": "table_1",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Binti_wa_Mflame_Kayanja/Binti2/binti_vase.png",
-              "Plist": "Binti_wa_Mflame_Kayanja/Binti2/Binti2.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 2347.7368,
-              "Y": 1166.1572
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.9171,
-              "Y": 0.6479
-            },
-            "PreSize": {
-              "X": 0.0859,
-              "Y": 0.3078
-            },
-            "LeftMargin": 2237.7368,
-            "RightMargin": 102.2632,
-            "TopMargin": 356.8428,
-            "BottomMargin": 889.1572,
-            "UserData": "drag",
-            "Tag": 34,
-            "ActionTag": 268526249,
-            "Size": {
-              "X": 220.0,
-              "Y": 554.0
-            },
-            "Name": "vase_3",
             "ctype": "SpriteObjectData"
           },
           {
@@ -653,6 +607,47 @@
             },
             "Name": "wife_2",
             "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Binti_wa_Mflame_Kayanja/vase.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2304.0303,
+              "Y": 1128.0859
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.9,
+              "Y": 0.6267
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2304.0303,
+            "RightMargin": 255.9697,
+            "TopMargin": 671.9141,
+            "BottomMargin": 1128.0859,
+            "Tag": 2321,
+            "ActionTag": -2088634308,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_1",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -663,11 +658,12 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "Binti2/Binti2.plist",
-        "Binti2/Binti2.png",
         "Binti3/Binti3.plist",
         "Binti3/Binti3.png",
+        "Binti4/Binti4.plist",
+        "Binti4/Binti4.png",
         "man.json",
+        "vase.json",
         "wife2.json"
       ],
       "ctype": "GameFileData"

@@ -1,0 +1,1137 @@
+{
+  "ID": "47a23d72-b672-4cd0-a812-a1b55590a7dc",
+  "Version": "2.3.4",
+  "Name": "Bi_Simu2",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 285,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": 141772248,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 440.4,
+                "Y": 1163.3,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 440.4,
+                "Y": 1163.3,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 141772248,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 2.2369,
+                "Y": 2.0666,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 2.2369,
+                "Y": 2.0666,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 141772248,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 141772248,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 0,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 255,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1769404,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "talk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 85,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "talk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 285,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1769404,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 3059.5847,
+                "Y": 324.0992,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1800.0,
+                "Y": 324.0992,
+                "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1800.0,
+                "Y": 324.0992,
+                "FrameIndex": 285,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1769404,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 285,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1769404,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 285,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2084289962,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 25,
+                "FrameIndex": 265,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2084289962,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 384.6088,
+                "Y": 1150.6716,
+                "FrameIndex": 265,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2084289962,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 0.8256,
+                "FrameIndex": 265,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2084289962,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 265,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 130,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 140,
+          "EndIndex": 180,
+          "Name": "day",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 45,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 244,
+              "G": 191,
+              "B": 181
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -292.5912,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1143,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -292.5912,
+            "RightMargin": -247.4087,
+            "Tag": 349,
+            "ActionTag": 1446042644,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 235,
+              "G": 245
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 440.3975,
+              "Y": 1163.3
+            },
+            "Scale": {
+              "ScaleX": 2.2369,
+              "ScaleY": 2.0666
+            },
+            "CColor": {
+              "R": 65,
+              "G": 74,
+              "B": 98
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.172,
+              "Y": 0.6463
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 440.3975,
+            "RightMargin": 1919.6025,
+            "TopMargin": 436.7,
+            "BottomMargin": 1163.3,
+            "UserData": "day",
+            "Tag": 450,
+            "ActionTag": -1435557037,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 235,
+              "G": 245
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 440.4,
+              "Y": 1163.3
+            },
+            "Scale": {
+              "ScaleX": 2.2369,
+              "ScaleY": 2.0666
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.172,
+              "Y": 0.6463
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 440.4,
+            "RightMargin": 1919.6,
+            "TopMargin": 436.7,
+            "BottomMargin": 1163.3,
+            "UserData": "day",
+            "Tag": 452,
+            "ActionTag": 141772248,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Alpha": 127,
+            "Name": "Panel_2_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Bi_Simu/Bi_Simu2/window.png",
+              "Plist": "Bi_Simu/Bi_Simu2/Bi_Simu2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 666.7544,
+              "Y": 1367.989
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2605,
+              "Y": 0.76
+            },
+            "PreSize": {
+              "X": 0.1926,
+              "Y": 0.2522
+            },
+            "LeftMargin": 420.2544,
+            "RightMargin": 1646.7456,
+            "TopMargin": 205.011,
+            "BottomMargin": 1140.989,
+            "UserData": "day",
+            "Tag": 20,
+            "ActionTag": -1553565277,
+            "Size": {
+              "X": 493.0,
+              "Y": 454.0
+            },
+            "Name": "msphone_window_page_2_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 135,
+              "G": 124,
+              "B": 114
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -292.5912,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1143,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.3728
+            },
+            "LeftMargin": -292.5912,
+            "RightMargin": -247.4087,
+            "TopMargin": 1128.8987,
+            "Tag": 350,
+            "ActionTag": -1620868156,
+            "Size": {
+              "X": 3100.0,
+              "Y": 671.1014
+            },
+            "Name": "Panel_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Bi_Simu/Bi_Simu2/table.png",
+              "Plist": "Bi_Simu/Bi_Simu2/Bi_Simu2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 695.8942,
+              "Y": 818.6946
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2718,
+              "Y": 0.4548
+            },
+            "PreSize": {
+              "X": 0.4543,
+              "Y": 0.3094
+            },
+            "LeftMargin": 114.3942,
+            "RightMargin": 1282.6057,
+            "TopMargin": 702.8054,
+            "BottomMargin": 540.1946,
+            "Tag": 18,
+            "ActionTag": 2080217179,
+            "Size": {
+              "X": 1163.0,
+              "Y": 557.0
+            },
+            "Name": "msphone_kitchenshelf_page_2_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Bi_Simu/msphone_table_page2.png",
+              "Plist": "Bi_Simu/Bi_Simu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1112.7881,
+              "Y": 447.519
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4347,
+              "Y": 0.2486
+            },
+            "PreSize": {
+              "X": 0.4816,
+              "Y": 0.2983
+            },
+            "LeftMargin": 496.2881,
+            "RightMargin": 830.7119,
+            "TopMargin": 1083.981,
+            "BottomMargin": 179.019,
+            "Tag": 19,
+            "ActionTag": 2071857560,
+            "Size": {
+              "X": 1233.0,
+              "Y": 537.0
+            },
+            "Name": "msphone_table_page_2_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Bi_Simu/pinkphone.png",
+              "Plist": "Bi_Simu/Bi_Simu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1403.0922,
+              "Y": 520.715
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5481,
+              "Y": 0.2893
+            },
+            "PreSize": {
+              "X": 0.0371,
+              "Y": 0.0894
+            },
+            "LeftMargin": 1355.5922,
+            "RightMargin": 1109.4078,
+            "TopMargin": 1198.7849,
+            "BottomMargin": 440.215,
+            "UserData": "drag",
+            "Tag": 21,
+            "ActionTag": -1305230843,
+            "Size": {
+              "X": 95.0,
+              "Y": 161.0
+            },
+            "Name": "pinkphone_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Bi_Simu/purplephone.png",
+              "Plist": "Bi_Simu/Bi_Simu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1102.035,
+              "Y": 584.5767
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4305,
+              "Y": 0.3248
+            },
+            "PreSize": {
+              "X": 0.0371,
+              "Y": 0.0906
+            },
+            "LeftMargin": 1054.535,
+            "RightMargin": 1410.465,
+            "TopMargin": 1133.9233,
+            "BottomMargin": 503.0767,
+            "UserData": "drag",
+            "Tag": 22,
+            "ActionTag": 2030170888,
+            "Size": {
+              "X": 95.0,
+              "Y": 163.0
+            },
+            "Name": "purplephone_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Bi_Simu/redphone.png",
+              "Plist": "Bi_Simu/Bi_Simu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 956.0763,
+              "Y": 560.2488
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3735,
+              "Y": 0.3112
+            },
+            "PreSize": {
+              "X": 0.0371,
+              "Y": 0.0917
+            },
+            "LeftMargin": 908.5763,
+            "RightMargin": 1556.4237,
+            "TopMargin": 1157.2512,
+            "BottomMargin": 477.7488,
+            "UserData": "drag",
+            "Tag": 23,
+            "ActionTag": -1700999993,
+            "Size": {
+              "X": 95.0,
+              "Y": 165.0
+            },
+            "Name": "redphone_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Bi_Simu/whitephone.png",
+              "Plist": "Bi_Simu/Bi_Simu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 810.1058,
+              "Y": 545.0435
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3164,
+              "Y": 0.3028
+            },
+            "PreSize": {
+              "X": 0.0371,
+              "Y": 0.0894
+            },
+            "LeftMargin": 762.6058,
+            "RightMargin": 1702.3943,
+            "TopMargin": 1174.4565,
+            "BottomMargin": 464.5435,
+            "UserData": "drag",
+            "Tag": 24,
+            "ActionTag": 486719553,
+            "Size": {
+              "X": 95.0,
+              "Y": 161.0
+            },
+            "Name": "whitephone_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Bi_Simu/yellowphone.png",
+              "Plist": "Bi_Simu/Bi_Simu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1250.7102,
+              "Y": 552.8381
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4886,
+              "Y": 0.3071
+            },
+            "PreSize": {
+              "X": 0.0371,
+              "Y": 0.0906
+            },
+            "LeftMargin": 1203.2102,
+            "RightMargin": 1261.7898,
+            "TopMargin": 1165.6619,
+            "BottomMargin": 471.3381,
+            "UserData": "drag",
+            "Tag": 25,
+            "ActionTag": -487640945,
+            "Size": {
+              "X": 95.0,
+              "Y": 163.0
+            },
+            "Name": "yellowphone_10",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Bi_Simu/Bi_Simu2/plate.png",
+              "Plist": "Bi_Simu/Bi_Simu2/Bi_Simu2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 720.1191,
+              "Y": 1014.5499
+            },
+            "Scale": {
+              "ScaleX": 0.5698,
+              "ScaleY": 0.5698
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2813,
+              "Y": 0.5636
+            },
+            "PreSize": {
+              "X": 0.1117,
+              "Y": 0.0656
+            },
+            "LeftMargin": 577.1191,
+            "RightMargin": 1696.8809,
+            "TopMargin": 726.4501,
+            "BottomMargin": 955.5499,
+            "Tag": 795,
+            "ActionTag": -567260062,
+            "Size": {
+              "X": 286.0,
+              "Y": 118.0
+            },
+            "Name": "plate_174",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Bi_Simu/wife3.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1800.0,
+              "Y": 324.0992
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7031,
+              "Y": 0.1801
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1800.0,
+            "RightMargin": 760.0,
+            "TopMargin": 1475.9008,
+            "BottomMargin": 324.0992,
+            "UserData": "hi;drag",
+            "Tag": 908,
+            "ActionTag": 1769404,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "wife",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Bi_Simu/water.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 384.6088,
+              "Y": 1150.6716
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.8256
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1502,
+              "Y": 0.6393
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 384.6088,
+            "RightMargin": 2175.3911,
+            "TopMargin": 649.3284,
+            "BottomMargin": 1150.6716,
+            "UserData": "flow",
+            "Tag": 966,
+            "ActionTag": -2084289962,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "water",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Bi_Simu/Bi_Simu2/plate.png",
+              "Plist": "Bi_Simu/Bi_Simu2/Bi_Simu2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 720.5109,
+              "Y": 1026.2805
+            },
+            "Scale": {
+              "ScaleX": 0.5698,
+              "ScaleY": 0.5698
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2814,
+              "Y": 0.5702
+            },
+            "PreSize": {
+              "X": 0.1117,
+              "Y": 0.0656
+            },
+            "LeftMargin": 577.5109,
+            "RightMargin": 1696.489,
+            "TopMargin": 714.7195,
+            "BottomMargin": 967.2805,
+            "Tag": 1371,
+            "ActionTag": 1369625585,
+            "Size": {
+              "X": 286.0,
+              "Y": 118.0
+            },
+            "Name": "plate_174_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Bi_Simu/Bi_Simu2/plate.png",
+              "Plist": "Bi_Simu/Bi_Simu2/Bi_Simu2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 720.1457,
+              "Y": 1039.5281
+            },
+            "Scale": {
+              "ScaleX": 0.5698,
+              "ScaleY": 0.5698
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2813,
+              "Y": 0.5775
+            },
+            "PreSize": {
+              "X": 0.1117,
+              "Y": 0.0656
+            },
+            "LeftMargin": 577.1457,
+            "RightMargin": 1696.8542,
+            "TopMargin": 701.4719,
+            "BottomMargin": 980.5281,
+            "Tag": 1372,
+            "ActionTag": 186736510,
+            "Size": {
+              "X": 286.0,
+              "Y": 118.0
+            },
+            "Name": "plate_174_0_0",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Bi_Simu.plist",
+        "Bi_Simu.png",
+        "Bi_Simu2/Bi_Simu2.plist",
+        "Bi_Simu2/Bi_Simu2.png",
+        "water.json",
+        "wife3.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
