@@ -48,7 +48,7 @@ void spot::onEnterTransitionDidFinish() {
 	_answerValue = _level + 10;
 
 
-	_menuContext->setMaxPoints(3);
+	_menuContext->setMaxPoints(4);
 
 	const int numberOfPages = 3;
 
@@ -203,7 +203,7 @@ void spot::update(float delta) {
 
 		auto ShowScore = CallFunc::create([=] {
 
-			_menuContext->addPoints(3);
+			_menuContext->addPoints(_calculator->getFinalPoints());
 			_menuContext->showScore();
 
 		});

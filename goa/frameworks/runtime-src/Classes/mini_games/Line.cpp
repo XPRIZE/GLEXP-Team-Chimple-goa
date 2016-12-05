@@ -367,7 +367,8 @@ void Line::scaleNumber(int start, int end,int mid)
 		std::string str = ss.str();
 		auto number_label = Label::createWithSystemFont(str, "Arial", 70);
 		number_label->setPositionX(_NumberLine->getChildByName(str)->getPositionX());
-		number_label->setPositionY(_NumberLine->getChildByName(str)->getPositionY() - 20);
+		number_label->setPositionY(_NumberLine->getChildByName(str)->getPositionY() - 50);
+		number_label->setColor(Color3B(0, 0, 0));
 		this->addChild(number_label);
 		
 	}
@@ -392,14 +393,14 @@ void Line::tagCreate(int choice)
 		//_tag->setContentSize(Size(200, 200));
 		//_tag->setAnchorPoint(Vec2(0.5, 1));
 		this->addChild(_tag,1);
-		_tag->setScaleX(0.75);
-		_tag->setScaleY(0.75);
+		_tag->setScaleX(0.9);
+		_tag->setScaleY(0.9);
 		_tagRef.push_back(_tag);
 
 		
 		auto number_label = Label::createWithSystemFont(_five.at(i), "Arial", 90);
 		number_label->setPositionX(_tag->getContentSize().width / 2);
-		number_label->setPositionY(_tag->getContentSize().height / 3.3);
+		number_label->setPositionY(_tag->getContentSize().height / 4);
 		number_label->setColor(Color3B(0, 0, 0));
 		_tag->addChild(number_label);
 		_tag->setName(_five.at(i));
