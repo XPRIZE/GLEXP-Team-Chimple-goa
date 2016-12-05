@@ -274,6 +274,67 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 2080047761,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 377.6,
+                "Y": -14.62,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2080047761,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2080047761,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 7.6374,
+                "Y": 7.6313,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2080047761,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "bird",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -493200565,
             "Property": "Position",
             "Frames": [
@@ -3940,6 +4001,7 @@
                     "TopMargin": -230.88,
                     "BottomMargin": -260.12,
                     "Tag": 76,
+                    "FrameEvent": "bird",
                     "ActionTag": 2080047761,
                     "Size": {
                       "X": 997.0,

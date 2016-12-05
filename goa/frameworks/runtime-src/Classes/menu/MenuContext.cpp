@@ -1091,6 +1091,46 @@ void MenuContext::setMaxPoints(int maxPoints) {
 }
 
 
+Rect MenuContext::getBoundingBox(cocos2d::Sprite* node) const
+{
+    return node->getBoundingBox();
+}
+
+std::vector<cocos2d::Vec2> MenuContext::getPolygonPointsForSprite(cocos2d::Sprite* node, std::string fileName, float threshHold) {
+    
+    AutoPolygon* ap = new AutoPolygon(fileName);
+    node->initWithPolygon(ap->generatePolygon(fileName));
+    std::vector<cocos2d::Vec2> points =  ap->trace(node->getBoundingBox(), 0.5);
+    
+    std::vector<cocos2d::Vec2> normalizedPoints;
+    
+    Rect rect = node->getBoundingBox();
+    for (auto it=points.begin(); it!=points.end(); ++it) {
+        cocos2d::Vec2 p = *it;
+
+        CCLOG("Before p.x %f", p.x);
+        CCLOG("Before p.y %f", p.y);
+        
+        Vec2 cp = node->getParent()->convertToNodeSpace(p);
+        CCLOG("cp p.x %f", cp.x);
+        CCLOG("cp p.y %f", cp.y);
+
+
+        p.x = Director::getInstance()->getContentScaleFactor() * (p.x - rect.origin.x) / rect.size.width;
+        p.y = Director::getInstance()->getContentScaleFactor() * (p.y - rect.origin.y) / rect.size.height;
+        
+        normalizedPoints.push_back(Vec2(p.x, p.y));
+        
+        CCLOG("After p.x %f", p.x);
+        CCLOG("After p.y %f", p.y);
+    }
+    
+    return normalizedPoints;
+}
+
+
+
+
 MenuContext::MenuContext() :
 _points(0),
 _label(nullptr),

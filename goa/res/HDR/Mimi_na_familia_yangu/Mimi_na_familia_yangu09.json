@@ -7,6 +7,7 @@
       "Animation": {
         "Duration": 155,
         "Speed": 1.0,
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -584021487,
@@ -280,7 +281,14 @@
         ],
         "ctype": "TimelineActionData"
       },
-      "AnimationList": [],
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 155,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
       "ObjectData": {
         "Tag": 380,
         "Children": [
@@ -447,7 +455,7 @@
               "X": 340.0,
               "Y": 118.0
             },
-            "Name": "Miminafamiliayangu_grass_11_5",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -496,7 +504,7 @@
               "X": 340.0,
               "Y": 118.0
             },
-            "Name": "Miminafamiliayangu_grass_11_4",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -544,7 +552,7 @@
               "X": 340.0,
               "Y": 118.0
             },
-            "Name": "Miminafamiliayangu_grass_11_3",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -593,7 +601,7 @@
               "X": 340.0,
               "Y": 118.0
             },
-            "Name": "Miminafamiliayangu_grass_11_2",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -642,7 +650,7 @@
               "X": 340.0,
               "Y": 118.0
             },
-            "Name": "Miminafamiliayangu_grass_11_1",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -691,7 +699,7 @@
               "X": 340.0,
               "Y": 118.0
             },
-            "Name": "Miminafamiliayangu_grass_11_0",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -740,7 +748,7 @@
               "X": 340.0,
               "Y": 118.0
             },
-            "Name": "Miminafamiliayangu_grass_11",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1344,8 +1352,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 658.0635,
-              "Y": 256.8879
+              "X": 193.0812,
+              "Y": 250.0301
             },
             "Scale": {
               "ScaleX": 0.5291,
@@ -1354,17 +1362,18 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.2571,
-              "Y": 0.1427
+              "X": 0.0754,
+              "Y": 0.1389
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 658.0635,
-            "RightMargin": 1901.9365,
-            "TopMargin": 1543.1121,
-            "BottomMargin": 256.8879,
+            "LeftMargin": 193.0812,
+            "RightMargin": 2366.9187,
+            "TopMargin": 1549.9698,
+            "BottomMargin": 250.0301,
+            "UserData": "drag;run",
             "Tag": 10847,
             "ActionTag": -584021487,
             "Size": {
@@ -1406,6 +1415,7 @@
             "RightMargin": 1270.0472,
             "TopMargin": 1240.7383,
             "BottomMargin": 559.2617,
+            "UserData": "drag;eat",
             "Tag": 11121,
             "ActionTag": -2085364024,
             "Size": {
@@ -1426,8 +1436,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1717.655,
-              "Y": 298.1779
+              "X": 1834.272,
+              "Y": 284.8182
             },
             "Scale": {
               "ScaleX": -0.5071,
@@ -1436,17 +1446,18 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.671,
-              "Y": 0.1657
+              "X": 0.7165,
+              "Y": 0.1582
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1717.655,
-            "RightMargin": 842.345,
-            "TopMargin": 1501.8221,
-            "BottomMargin": 298.1779,
+            "LeftMargin": 1834.272,
+            "RightMargin": 725.728,
+            "TopMargin": 1515.1818,
+            "BottomMargin": 284.8182,
+            "UserData": "drag;walk",
             "Tag": 12963,
             "ActionTag": -1548248708,
             "Size": {
@@ -1488,6 +1499,7 @@
             "RightMargin": 610.0115,
             "TopMargin": 1624.3419,
             "BottomMargin": 175.6581,
+            "UserData": "drag;hiss",
             "Tag": 12971,
             "ActionTag": -1129923166,
             "Size": {
@@ -1526,9 +1538,10 @@
               "Y": 0.0
             },
             "LeftMargin": 897.1696,
-            "RightMargin": 1662.8304,
+            "RightMargin": 1662.8303,
             "TopMargin": 1713.3801,
             "BottomMargin": 86.6199,
+            "UserData": "drag;jump",
             "Tag": 10811,
             "ActionTag": -1036279605,
             "Size": {
@@ -1549,8 +1562,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1248.7526,
-              "Y": 46.6177
+              "X": 1534.5614,
+              "Y": 48.9512
             },
             "Scale": {
               "ScaleX": 0.4316,
@@ -1559,17 +1572,18 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.4878,
-              "Y": 0.0259
+              "X": 0.5994,
+              "Y": 0.0272
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1248.7526,
-            "RightMargin": 1311.2474,
-            "TopMargin": 1753.3823,
-            "BottomMargin": 46.6177,
+            "LeftMargin": 1534.5614,
+            "RightMargin": 1025.4386,
+            "TopMargin": 1751.0488,
+            "BottomMargin": 48.9512,
+            "UserData": "drag;hi",
             "Tag": 12982,
             "ActionTag": -2004407234,
             "Size": {
@@ -1590,8 +1604,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1660.4268,
-              "Y": 756.7593
+              "X": 2149.9731,
+              "Y": 1157.2102
             },
             "Scale": {
               "ScaleX": 0.1703,
@@ -1600,17 +1614,18 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.6486,
-              "Y": 0.4204
+              "X": 0.8398,
+              "Y": 0.6429
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1660.4268,
-            "RightMargin": 899.5732,
-            "TopMargin": 1043.2407,
-            "BottomMargin": 756.7593,
+            "LeftMargin": 2149.9731,
+            "RightMargin": 410.0269,
+            "TopMargin": 642.7898,
+            "BottomMargin": 1157.2102,
+            "UserData": "drag;fly",
             "Tag": 13028,
             "ActionTag": -539265360,
             "Size": {

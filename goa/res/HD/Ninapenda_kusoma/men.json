@@ -3348,6 +3348,19 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -820931996,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "hammer",
+                "FrameIndex": 665,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 1907865128,
             "Property": "Position",
             "Frames": [
@@ -15391,8 +15404,8 @@
               "ScaleX": 1.0,
               "ScaleY": 0.9899
             },
-            "RotationSkewX": -140.5377,
-            "RotationSkewY": -140.5377,
+            "RotationSkewX": -140.1596,
+            "RotationSkewY": -140.1596,
             "CColor": {},
             "BlendFunc": {
               "Src": 1,
@@ -15772,8 +15785,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": -25.7715,
-                "RotationSkewY": 334.2284,
+                "RotationSkewX": -19.1074,
+                "RotationSkewY": 340.8925,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -16133,6 +16146,7 @@
                     "TopMargin": -127.9105,
                     "BottomMargin": -134.0895,
                     "Tag": 50,
+                    "FrameEvent": "hammer",
                     "ActionTag": -820931996,
                     "Size": {
                       "X": 55.0,

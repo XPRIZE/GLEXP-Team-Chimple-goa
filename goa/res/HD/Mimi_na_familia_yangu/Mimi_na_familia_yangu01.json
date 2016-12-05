@@ -10,47 +10,6 @@
         "ActivedAnimationName": "master",
         "Timelines": [
           {
-            "ActionTag": 486954111,
-            "Property": "Position",
-            "Frames": [
-              {
-                "X": 484.0371,
-                "Y": 1561.1394,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 655.0698,
-                "Y": 1488.3506,
-                "FrameIndex": 320,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 486954111,
-            "Property": "Scale",
-            "Frames": [
-              {
-                "X": 1.3401,
-                "Y": 1.3401,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
             "ActionTag": -1753113372,
             "Property": "Position",
             "Frames": [
@@ -99,47 +58,6 @@
                 "X": -8.2279,
                 "Y": -8.2279,
                 "FrameIndex": 320,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 458065789,
-            "Property": "Position",
-            "Frames": [
-              {
-                "X": 2114.5159,
-                "Y": 1579.0137,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 1971.564,
-                "Y": 1521.1023,
-                "FrameIndex": 320,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 458065789,
-            "Property": "Scale",
-            "Frames": [
-              {
-                "X": 1.5212,
-                "Y": 1.2394,
-                "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
                 },
@@ -882,7 +800,7 @@
               "X": 340.0,
               "Y": 118.0
             },
-            "Name": "Miminafamiliayangu_grass_1",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -928,7 +846,7 @@
               "X": 340.0,
               "Y": 118.0
             },
-            "Name": "Miminafamiliayangu_grass_1_0",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -973,7 +891,7 @@
               "X": 340.0,
               "Y": 118.0
             },
-            "Name": "Miminafamiliayangu_grass_1_1",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1019,7 +937,7 @@
               "X": 340.0,
               "Y": 118.0
             },
-            "Name": "Miminafamiliayangu_grass_1_2",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1065,7 +983,7 @@
               "X": 340.0,
               "Y": 118.0
             },
-            "Name": "Miminafamiliayangu_grass_1_3",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1110,7 +1028,7 @@
               "X": 340.0,
               "Y": 118.0
             },
-            "Name": "Miminafamiliayangu_grass_1_4",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1155,7 +1073,7 @@
               "X": 340.0,
               "Y": 118.0
             },
-            "Name": "Miminafamiliayangu_grass_1_5",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1201,7 +1119,7 @@
               "X": 340.0,
               "Y": 118.0
             },
-            "Name": "Miminafamiliayangu_grass_1_6",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1247,7 +1165,7 @@
               "X": 340.0,
               "Y": 118.0
             },
-            "Name": "Miminafamiliayangu_grass_1_2_0",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1293,52 +1211,7 @@
               "X": 340.0,
               "Y": 118.0
             },
-            "Name": "Miminafamiliayangu_grass_1_2_1",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_cloud.png",
-              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 484.0371,
-              "Y": 1561.1394
-            },
-            "Scale": {
-              "ScaleX": 1.3401,
-              "ScaleY": 1.3401
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.1891,
-              "Y": 0.8673
-            },
-            "PreSize": {
-              "X": 0.2305,
-              "Y": 0.1972
-            },
-            "LeftMargin": 189.0371,
-            "RightMargin": 1780.9629,
-            "TopMargin": 61.3606,
-            "BottomMargin": 1383.6394,
-            "Tag": 102,
-            "ActionTag": 486954111,
-            "Size": {
-              "X": 590.0,
-              "Y": 355.0
-            },
-            "Name": "Miminafamiliayangu_cloud_11",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1390,52 +1263,7 @@
               "X": 590.0,
               "Y": 355.0
             },
-            "Name": "Miminafamiliayangu_cloud_11_0",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_cloud.png",
-              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 2114.5159,
-              "Y": 1579.0137
-            },
-            "Scale": {
-              "ScaleX": 1.5212,
-              "ScaleY": 1.2394
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.826,
-              "Y": 0.8772
-            },
-            "PreSize": {
-              "X": 0.2305,
-              "Y": 0.1972
-            },
-            "LeftMargin": 1819.5159,
-            "RightMargin": 150.4841,
-            "TopMargin": 43.4863,
-            "BottomMargin": 1401.5137,
-            "Tag": 106,
-            "ActionTag": 458065789,
-            "Size": {
-              "X": 590.0,
-              "Y": 355.0
-            },
-            "Name": "Miminafamiliayangu_cloud_11_1",
+            "Name": "cloud",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1487,7 +1315,7 @@
               "X": 590.0,
               "Y": 355.0
             },
-            "Name": "Miminafamiliayangu_cloud_11_0_0",
+            "Name": "cloud",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1539,8 +1367,92 @@
               "X": 590.0,
               "Y": 355.0
             },
-            "Name": "Miminafamiliayangu_cloud_11_0_1",
+            "Name": "cloud",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mimi_na_familia_yangu/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1840.0139,
+              "Y": 1553.3855
+            },
+            "Scale": {
+              "ScaleX": -1.5184,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7188,
+              "Y": 0.863
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1840.0139,
+            "RightMargin": 719.9861,
+            "TopMargin": 246.6145,
+            "BottomMargin": 1553.3855,
+            "UserData": "drag;rain",
+            "Tag": 2521,
+            "ActionTag": -1347766117,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "cloud",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mimi_na_familia_yangu/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 527.7917,
+              "Y": 1533.3406
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.2062,
+              "Y": 0.8519
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 527.7917,
+            "RightMargin": 2032.2083,
+            "TopMargin": 266.6594,
+            "BottomMargin": 1533.3406,
+            "UserData": "drag;rain",
+            "Tag": 2513,
+            "ActionTag": 1390580839,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "cloud",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -1574,13 +1486,14 @@
             "RightMargin": 1820.7034,
             "TopMargin": 1727.9526,
             "BottomMargin": 72.0474,
+            "UserData": "drag;run",
             "Tag": 413,
             "ActionTag": -1377875298,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "boy",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1617,13 +1530,14 @@
             "RightMargin": 642.8906,
             "TopMargin": 667.3729,
             "BottomMargin": 1132.6271,
+            "UserData": "drag;fly",
             "Tag": 1015,
             "ActionTag": -823426653,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_3",
+            "Name": "pigeon",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1660,13 +1574,14 @@
             "RightMargin": 2488.9631,
             "TopMargin": 912.2761,
             "BottomMargin": 887.7239,
+            "UserData": "drag;fly",
             "Tag": 1118,
             "ActionTag": -62781036,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_3_0",
+            "Name": "pigeon",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1703,13 +1618,14 @@
             "RightMargin": 301.7935,
             "TopMargin": -94.7583,
             "BottomMargin": 1894.7583,
+            "UserData": "drag;fly",
             "Tag": 418,
             "ActionTag": -1609200134,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_3_1",
+            "Name": "pigeon",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -1723,6 +1639,7 @@
       "UsedResources": [
         "bird.json",
         "boy.json",
+        "cloud.json",
         "Mimi_na_familia_yangu.plist",
         "Mimi_na_familia_yangu.png"
       ],

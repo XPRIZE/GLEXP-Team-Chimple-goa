@@ -5,7 +5,7 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 350,
+        "Duration": 445,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
@@ -30,7 +30,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "NoLoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "read",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 350,
@@ -114,6 +114,256 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1384616873,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -409.6795,
+                "Y": 527.0969,
+                "FrameIndex": 153,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1384616873,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 17.1705,
+                "Y": 3.3147,
+                "FrameIndex": 153,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1384616873,
+            "Property": "AnchorPoint",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 1.0,
+                "FrameIndex": 153,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1799765936,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1461.9043,
+                "Y": 281.2457,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1461.9043,
+                "Y": 281.2457,
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1461.8977,
+                "Y": 281.244,
+                "FrameIndex": 385,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 621.2695,
+                "Y": 277.0707,
+                "FrameIndex": 391,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -1059.97,
+                "Y": 268.7278,
+                "FrameIndex": 405,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -1059.97,
+                "Y": 293.7582,
+                "FrameIndex": 415,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 4650.0518,
+                "Y": 218.6653,
+                "FrameIndex": 416,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1461.9043,
+                "Y": 281.2457,
+                "FrameIndex": 435,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1064.5372,
+                "Y": 274.9885,
+                "FrameIndex": 441,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1461.9043,
+                "Y": 281.2457,
+                "FrameIndex": 445,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1799765936,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.3607,
+                "Y": 1.0,
+                "FrameIndex": 385,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.9225,
+                "Y": 1.0,
+                "FrameIndex": 391,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 435,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.5867,
+                "Y": 1.0,
+                "FrameIndex": 441,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 445,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1799765936,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1799765936,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "zap",
+                "FrameIndex": 385,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -123,6 +373,12 @@
           "StartIndex": 0,
           "EndIndex": 350,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 365,
+          "EndIndex": 445,
+          "Name": "book",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -180,48 +436,45 @@
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Ninapenda_kusoma/wallpainting.png",
-              "Plist": "Ninapenda_kusoma/Ninapenda_kusoma.plist"
+              "Type": "Normal",
+              "Path": "Ninapenda_kusoma/wallpainting.json",
+              "Plist": ""
             },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
             "Position": {
-              "X": 2101.6091,
-              "Y": 1414.0828
+              "X": 350.7669,
+              "Y": 1400.2451
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 0.8,
+              "ScaleY": 0.8
             },
             "CColor": {},
-            "IconVisible": false,
+            "IconVisible": true,
             "PrePosition": {
-              "X": 0.8209,
-              "Y": 0.7856
+              "X": 0.137,
+              "Y": 0.7779
             },
             "PreSize": {
-              "X": 0.2785,
-              "Y": 0.2594
+              "X": 0.0,
+              "Y": 0.0
             },
-            "LeftMargin": 1745.1091,
-            "RightMargin": 101.8909,
-            "TopMargin": 152.4172,
-            "BottomMargin": 1180.5828,
-            "Tag": 443,
-            "ActionTag": 55377967,
+            "LeftMargin": 350.7669,
+            "RightMargin": 2209.2332,
+            "TopMargin": 399.7549,
+            "BottomMargin": 1400.2451,
+            "UserData": "eye",
+            "Tag": 5990,
+            "ActionTag": -294282925,
             "Size": {
-              "X": 713.0,
-              "Y": 467.0
+              "X": 0.0,
+              "Y": 0.0
             },
-            "Name": "wallpainting_1",
-            "ctype": "SpriteObjectData"
+            "Name": "wallpainting",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -329,29 +582,31 @@
             "Scale9Width": 1,
             "Scale9Height": 1,
             "TouchEnable": true,
-            "AnchorPoint": {},
+            "AnchorPoint": {
+              "ScaleY": 1.0
+            },
             "Position": {
-              "X": -409.6808,
-              "Y": -23.8214
+              "X": -409.6795,
+              "Y": 527.0969
             },
             "Scale": {
               "ScaleX": 17.1705,
-              "ScaleY": 2.7546
+              "ScaleY": 3.3147
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
               "X": -0.16,
-              "Y": -0.0132
+              "Y": 0.2928
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": -409.6808,
-            "RightMargin": 2769.6807,
-            "TopMargin": 1623.8214,
-            "BottomMargin": -23.8214,
+            "LeftMargin": -409.6795,
+            "RightMargin": 2769.6794,
+            "TopMargin": 1272.9031,
+            "BottomMargin": 327.0969,
             "Tag": 125,
             "ActionTag": 1384616873,
             "Size": {
@@ -372,33 +627,32 @@
               "Dst": 771
             },
             "AnchorPoint": {
-              "ScaleX": 0.5,
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 977.4197,
-              "Y": 281.2496
+              "X": 1461.8977,
+              "Y": 281.244
             },
             "Scale": {
-              "ScaleX": -1.0,
+              "ScaleX": -0.3607,
               "ScaleY": 1.0
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.3818,
+              "X": 0.5711,
               "Y": 0.1562
             },
             "PreSize": {
               "X": 0.3785,
               "Y": 0.2328
             },
-            "LeftMargin": 492.9197,
-            "RightMargin": 1098.0803,
-            "TopMargin": 1309.2504,
-            "BottomMargin": 71.7496,
-            "UserData": "drag",
+            "LeftMargin": 1461.8977,
+            "RightMargin": 129.1023,
+            "TopMargin": 1309.256,
+            "BottomMargin": 71.744,
             "Tag": 8138,
+            "FrameEvent": "zap",
             "ActionTag": 1799765936,
             "Size": {
               "X": 969.0,
@@ -406,6 +660,48 @@
             },
             "Name": "bookopen_60",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Ninapenda_kusoma/spider.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2078.3228,
+              "Y": 1317.546
+            },
+            "Scale": {
+              "ScaleX": 0.7,
+              "ScaleY": 0.7
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8118,
+              "Y": 0.732
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2078.3228,
+            "RightMargin": 481.6772,
+            "TopMargin": 482.454,
+            "BottomMargin": 1317.546,
+            "UserData": "swing",
+            "Tag": 9569,
+            "ActionTag": -1474309277,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "spider",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -418,7 +714,9 @@
       "UsedResources": [
         "boy_2.json",
         "Ninapenda_kusoma.plist",
-        "Ninapenda_kusoma.png"
+        "Ninapenda_kusoma.png",
+        "spider.json",
+        "wallpainting.json"
       ],
       "ctype": "GameFileData"
     }
