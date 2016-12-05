@@ -158,6 +158,10 @@ void Alphamole::showAlpha(float ft)
 		std::vector<std::string> holes = { "hole1", "hole3", "hole2" };
 		auto child = _background->getChildByName(holes.at(cocos2d::RandomHelper::random_int(0, 2)));
 		
+		CCParticleSystemQuad *_particle = CCParticleSystemQuad::create("alphamole/animation.plist");
+		_particle->setTexture(CCTextureCache::sharedTextureCache()->addImage("alphamole/animation.png"));
+		
+
 		if (menu->getCurrentLevel() == 1 && _score == 0) {
 			str = _mychar;
 			_helpLayer = true;
@@ -168,6 +172,8 @@ void Alphamole::showAlpha(float ft)
 			this->addChild(help);
 		    
 		}
+		_particle->setPosition(child->getPosition());
+		_alphabetLayer->addChild(_particle);
 		_monsterReff = Alphamon::createWithAlphabet(str);
 		float x = child->getPositionX();
 		float y = child->getPositionY();
