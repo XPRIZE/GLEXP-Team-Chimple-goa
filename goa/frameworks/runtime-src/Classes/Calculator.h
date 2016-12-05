@@ -40,7 +40,13 @@ public:
 	void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event);
 	void resetCalculator();
 	bool isEnterPressed();
+	void activeSound();
+	void deactivateSound();
+	int _activeSoundFlag = 0;
 	bool _isTouchedFinished = true;
+	int _maxPoints = 4;
+	int getFinalPoints();
+
 
 };
 

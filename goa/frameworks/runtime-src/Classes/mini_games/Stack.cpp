@@ -102,7 +102,7 @@ void Stack::onEnterTransitionDidFinish()
 		this->addChild(_stackfarm, 3);
 
 		_tray = (Sprite *)CSLoader::createNode("stackfarm/cow.csb");
-		_tray->setPosition(Vec2(-500, visibleSize.height * .23));
+		_tray->setPosition(Vec2(-500, visibleSize.height * .18));
 		this->addChild(_tray , 2);
 //		_tray = (Sprite*)stackbg->getChildren().at(1)->getChildByName("cow");
 	}
@@ -230,35 +230,20 @@ void Stack::generateWord()
 	if (_allWords.size() != 0)
 	{
 		_word = _allWords.at(rand() % _allWords.size());
-		_wordLabel = LabelTTF::create(_word, "Helvetica", 100);
+		_wordLabel = LabelTTF::create(_word, "Helvetica", 150);
 		_wordLabel->setColor(Color3B::BLACK);
 		this->addChild(_wordLabel);
 
 
 		if (sceneName == "superhero")
 		{
-			_wordLabel->setPosition(-200, visibleSize.height * .26);
+			_wordLabel->setPosition(-200, visibleSize.height * .27);
 
-			auto sequenceFuel = Sequence::create(MoveTo::create(2, Vec2(visibleSize.width * .065, _wordLabel->getPositionY())), CallFunc::create([=]() {
+			auto sequenceFuel = Sequence::create(MoveTo::create(2, Vec2(visibleSize.width * .095, _wordLabel->getPositionY())), CallFunc::create([=]() {
 				flag = false;
 				stackbg->stopAction(treadmill);
 			}), NULL);
-/*
-			if (_helpFlag == 0 && _currentLevel == 1)
-			{
-				for (auto i = 0; i < _startName.size(); i++)
-				{
-					if ((_word.substr(0, _startName.at(i).length()) == _startName.at(i)))
-					{
-						_help = HelpLayer::create(Rect(containerBar.at(i)->getPositionX(), containerBar.at(i)->getPositionY(), containerBar.at(i)->getContentSize().width, containerBar.at(i)->getContentSize().height), Rect(visibleSize.width * .065, _wordLabel->getPositionY(), _wordLabel->getBoundingBox().size.width, _wordLabel->getBoundingBox().size.height));
-						_help->click(Vec2(containerBar.at(i)->getPositionX(), containerBar.at(i)->getPositionY()));
-						break;
-					}
-				}
-				addChild(_help, 5);
-				_helpFlag = 1;
-			}
-*/
+
 			int pos = std::find(_startName.begin(), _startName.end(), _word.substr(0, 2)) - _startName.begin();
 			_trayfillbar->setColor(_color.at(pos));
 			_suckpipebar->setColor(_color.at(pos));
@@ -271,41 +256,26 @@ void Stack::generateWord()
 			_trayfillbar->setPosition(Vec2(-200, visibleSize.height * .27));
 			_tray->setPosition(Vec2(-200, visibleSize.height * .28));
 
-			_trayfillbar->runAction(MoveTo::create(2, Vec2(visibleSize.width * .065, visibleSize.height * .27)));
-			_tray->runAction(MoveTo::create(2, Vec2(visibleSize.width * .065, visibleSize.height * .28)));
+			_trayfillbar->runAction(MoveTo::create(2, Vec2(visibleSize.width * .095, visibleSize.height * .27)));
+			_tray->runAction(MoveTo::create(2, Vec2(visibleSize.width * .095, visibleSize.height * .28)));
 
 			_wordLabel->runAction(sequenceFuel);
 		}
 		else if (sceneName == "island")
 		{
-			_wordLabel->setPosition(visibleSize.width * .08, visibleSize.height * .17);
+			_wordLabel->setPosition(visibleSize.width * .10, visibleSize.height * .22);
 
 			treadmill = CSLoader::createTimeline("stackisland/treadmill.csb");
 			stackbg->runAction(treadmill);
 			treadmill->play("treadmill", false);
 			treadmill->setAnimationEndCallFunc("treadmill", CC_CALLBACK_0(Stack::wordShow, this, _wordLabel));
-			
-/*			if (_helpFlag == 0 && _currentLevel == 1)
-			{
-				for (auto i = 0; i < _startName.size(); i++)
-				{
-					if ((_word.substr(0, _startName.at(i).length()) == _startName.at(i)))
-					{
-						_help = HelpLayer::create(Rect(containerBar.at(i)->getPositionX(), containerBar.at(i)->getPositionY(), containerBar.at(i)->getContentSize().width, containerBar.at(i)->getContentSize().height), Rect(_wordLabel->getPositionX(), _wordLabel->getPositionY(), _wordLabel->getBoundingBox().size.width, _wordLabel->getBoundingBox().size.height));
-						_help->click(Vec2(containerBar.at(i)->getPositionX(), containerBar.at(i)->getPositionY()));
-						break;
-					}
-				}
-				addChild(_help, 5);
-				_helpFlag = 1;
-			}
-*/		}
+		}
 		else if (sceneName == "farm")
 		{
-			_wordLabel->setPosition(-200, visibleSize.height * .22);
+			_wordLabel->setPosition(-200, visibleSize.height * .19);
 			_wordLabel->setZOrder(2);
 
-			auto sequenceFuel = Sequence::create(MoveTo::create(2, Vec2(visibleSize.width * .14, visibleSize.height * .22)), CallFunc::create([=]() {
+			auto sequenceFuel = Sequence::create(MoveTo::create(2, Vec2(visibleSize.width * .15, visibleSize.height * .19)), CallFunc::create([=]() {
 				flag = false;
 				_tray->stopAction(treadmill);
 			}), NULL);
@@ -320,17 +290,24 @@ void Stack::generateWord()
 				{
 					if ((_word.substr(0, _startName.at(i).length()) == _startName.at(i)))
 					{
-						_help = HelpLayer::create(Rect(containerBar.at(i)->getPositionX(), containerBar.at(i)->getPositionY(), containerBar.at(i)->getContentSize().width, containerBar.at(i)->getContentSize().height), Rect(visibleSize.width * .14, _wordLabel->getPositionY(), _wordLabel->getBoundingBox().size.width, _wordLabel->getBoundingBox().size.height));
-						_help->click(Vec2(containerBar.at(i)->getPositionX(), containerBar.at(i)->getPositionY()));
-						break;
+						if (i == 3)
+						{
+							break;
+						}
+						else
+						{
+							_help = HelpLayer::create(Rect(containerBar.at(i)->getPositionX(), containerBar.at(i)->getPositionY() - containerBar.at(i)->getContentSize().height * .10, containerBar.at(i)->getContentSize().width, containerBar.at(i)->getContentSize().height * 1.37), Rect(visibleSize.width * .15, _wordLabel->getPositionY(), _wordLabel->getBoundingBox().size.width, _wordLabel->getBoundingBox().size.height));
+							_help->click(Vec2(containerBar.at(i)->getPositionX(), containerBar.at(i)->getPositionY()));
+							break;
+						}
 					}
 				}
 				addChild(_help, 5);
 				_helpFlag = 1;
 			}
 
-			_tray->setPosition(Vec2(-500, visibleSize.height * .23));
-			_tray->runAction(MoveTo::create(2, Vec2(visibleSize.width * .065, visibleSize.height * .23)));
+			_tray->setPosition(Vec2(-500, visibleSize.height * .18));
+			_tray->runAction(MoveTo::create(2, Vec2(visibleSize.width * .065, visibleSize.height * .18)));
 			_wordLabel->runAction(sequenceFuel);
 		}
 	}
@@ -437,6 +414,7 @@ void Stack::addEvents(struct LabelDetails sprite)
 						auto charTimeline = CSLoader::createTimeline("stackfarm/cow.csb");
 						_tray->runAction(charTimeline);
 						charTimeline->play("wrong", false);
+						charTimeline->setAnimationEndCallFunc("wrong", CC_CALLBACK_0(Stack::wordShow, this, _wordLabel));
 					}
 				}
 			}
@@ -451,9 +429,9 @@ void Stack::addEvents(struct LabelDetails sprite)
 
 void Stack::wordLabelAnim(struct LabelDetails sprite)
 {
-	auto seq = Sequence::create(MoveTo::create(.7, Vec2(containerBar[sprite.sequence]->getPositionX(), Position[sprite.sequence]->getPositionY() + containerBar[sprite.sequence]->getBoundingBox().size.height * (containerBar[sprite.sequence]->getPercent()) / 100)), CallFunc::create([=] {
-		_wordLabel->setColor(_color.at(rand() % 5));
-
+	auto seq = Sequence::create(MoveTo::create(.7, Vec2(containerBar[sprite.sequence]->getPositionX(), Position[sprite.sequence]->getPositionY() + containerBar[sprite.sequence]->getBoundingBox().size.height * (containerBar[sprite.sequence]->getPercent() + containerBar[sprite.sequence]->getPercent() * .10) / 100)), CallFunc::create([=] {
+//		_wordLabel->setColor(_color.at(rand() % 5));
+		_wordLabel->setFontSize(100);
 		if (sceneName == "farm")
 		{
 			auto sequenceFuel1 = Sequence::create(MoveTo::create(4, Vec2(visibleSize.width, visibleSize.height * .22)), CallFunc::create([=]() {

@@ -123,18 +123,20 @@ std::map<std::string, std::string> TextGenerator::getSynonyms(int maxNum, int le
         {"friend", "pal"},
         {"enjoy", "like"},
         {"error", "mistake"},
-		{"A","A"},
-		{ "B","B" },
-		{ "C","C" },
-		{ "D","D" },
-		{ "E","E" },
-		{ "F","F" },
-		{ "G","G" },
-		{ "H","H" },
-		{ "I","I" },
-		{ "J","J" },
-		{ "K","K" },
-		{ "L","L" }
+		{"close","shut"},
+		{ "fast","quick" },
+		{ "small","little" },
+		{ "house","home" },
+		{ "center","middle" },
+		{ "chop","cut" },
+		{ "easy","simple" },
+		{ "quiet","silent" },
+		{ "evil","bad" },
+		{ "see","look" },
+		{ "clever","smart" },
+		{ "mother","mom" },
+		{ "father","dad"},
+		{"hat","cap"}
     };
     std::map<std::string, std::string> data;
     for (std::map<std::string, std::string>::iterator it=SynonymMap.begin(); it!=SynonymMap.end(); ++it) {
@@ -164,15 +166,19 @@ std::map<std::string, std::string> TextGenerator::getAntonyms(int maxNum, int le
         {"never", "always"},
         {"old", "young"},
 		{ "good", "bad" },
-		{ "A","A" },
-		{ "B","B" },
-		{ "C","C" },
-		{ "D","D" },
-		{ "E","E" },
-		{ "F","F" },
-		{ "G","G" },
-		{ "H","H" },
-		{ "I","I" }
+		{ "up","down" },
+		{ "soft","hard" },
+		{ "found","lost" },
+		{ "front","back" },
+		{ "add","subtract" },
+		{ "enemy","friend" },
+		{ "stop","start" },
+		{ "finish","begin" },
+		{ "rich","poor" },
+		{"black", "white"},
+		{"always","never"},
+		{"worst","best"},
+		{"over","under"}
     };
     std::map<std::string, std::string> data;
     for (std::map<std::string, std::string>::iterator it=AntonymMap.begin(); it!=AntonymMap.end(); ++it) {
@@ -202,15 +208,21 @@ std::map<std::string, std::string> TextGenerator::getHomonyms(int maxNum, int le
         {"knew", "new"},
         {"son", "sun"},
         {"tail", "tale"},
-		{ "A","A" },
-		{ "B","B" },
-		{ "C","C" },
-		{ "D","D" },
-		{ "E","E" },
-		{ "F","F" },
-		{ "G","G" },
-		{ "H","H" },
-		{ "I","I" }
+		{ "accept","except" },
+		{ "blew","blue" },
+		{ "ant","aunt" },
+		{ "bare","bear" },
+		{ "beat","beet" },
+		{ "buy","bye" },
+		{ "cell","sell" },
+		{ "pear","pair" },
+		{ "tea","tee" },
+		{"there","their"},
+		{"tied","tide"},
+		{"steal","steel"},
+		{"plane","plain"},
+		{"bawl","ball"},
+		{"knows","nose"}
     };
     std::map<std::string, std::string> data;
     for (std::map<std::string, std::string>::iterator it=HomonymMap.begin(); it!=HomonymMap.end(); ++it) {

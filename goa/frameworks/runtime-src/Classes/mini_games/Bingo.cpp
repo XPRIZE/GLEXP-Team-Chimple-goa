@@ -193,8 +193,8 @@ void Bingo::onEnterTransitionDidFinish()
 	std::map<int, std::string> bingoSceneMapping = {
 
 		{ 0,	"bingofarm" },
-		{ 1,	"bingojungle" },
-		{ 2,    "bingocity" }
+		{ 1,	"bingocity" },
+		{ 2,    "bingojungle" }
 	};
 
 	
@@ -211,21 +211,21 @@ void Bingo::onEnterTransitionDidFinish()
 	{
 		int pairNo = static_cast<int>(_gridBasedValue.at("pairRequired"));
 		_data = TextGenerator::getInstance()->getHomonyms(pairNo);
-		_menuContext->setMaxPoints(pairNo*5);
+		_menuContext->setMaxPoints(pairNo*1);
 	}
 	else if (levelKeyNumber.second == 1)
 	{
-		_bingoCurrentTheme = "bingojungle";
+		//_bingoCurrentTheme = "bingojungle";
 		int pairNo = static_cast<int>(_gridBasedValue.at("pairRequired"));
 		_data = TextGenerator::getInstance()->getSynonyms(pairNo);
-		_menuContext->setMaxPoints(pairNo*5);
+		_menuContext->setMaxPoints(pairNo*1);
 	}
 	else
 	{
-		_bingoCurrentTheme = "bingocity";
+		//_bingoCurrentTheme = "bingocity";
 		int pairNo = static_cast<int>(_gridBasedValue.at("pairRequired"));
 		_data = TextGenerator::getInstance()->getAntonyms(pairNo);
-		_menuContext->setMaxPoints(pairNo*5);
+		_menuContext->setMaxPoints(pairNo*1);
 	}
 
 	//BackGround
@@ -364,7 +364,7 @@ void Bingo::onEnterTransitionDidFinish()
 
 			//Label
 
-			label = LabelTTF::create(_data_key[randomIndex[boxId]], "Helvetica", 100);
+			label = LabelTTF::create(_data_key[randomIndex[boxId]], "Helvetica", 90);
 			label->setPosition(c, d);
 			label->setAnchorPoint(Vec2(0.5, 0.5));
 			box->addChild(label, 3);
@@ -397,14 +397,26 @@ void Bingo::onEnterTransitionDidFinish()
 
 			addX += box->getBoundingBox().size.width + _boxBoard->getBoundingBox().size.width * 0.011;
 			Boxcounter++;
-			if (_menuContext->getCurrentLevel() == 1 && Boxcounter ==1)
-			{
-				creatHelp(box, _helpBoard);
-			}
+			
 		}
 
 		addY = addY + box->getBoundingBox().size.height + _boxBoard->getBoundingBox().size.width *0.013;
 		addX = _boxBoard->getBoundingBox().size.width * _gridBasedValue.at("addXFactor");
+	}
+	if (_menuContext->getCurrentLevel() == 1)
+	{
+		for (int i = 0; i < _boxContainer.size(); i++)
+		{
+			for (int j = 0; j < _boxContainer.size(); j++)
+			{
+				std::string str = _boxContainer[i][j]->getChildren().at(0)->getName();
+				std::string str1 = _label->getString();
+					if (str.compare(str1) == 0)
+					{
+						creatHelp(_boxContainer[i][j], _helpBoard,i,j);
+					}
+			}
+		}
 	}
 	/*Vector <Node*> children = bingoBackground->getChildren().at(0)->getChildren();
 	for (auto item = children.rbegin(); item != children.rend(); ++item) {
@@ -422,17 +434,22 @@ Bingo::Bingo(void)
 {
 
 }
-void Bingo::creatHelp(Sprite* letterBox, Sprite* helpBox)
+void Bingo::creatHelp(Sprite* letterBox, Sprite* helpBox,int i, int j)
 {
-	//auto myGameWidth = (visibleSize.width - 2560) / 2;
+	auto myGameWidth = 0;
+	if(Director::getInstance()->getVisibleSize().width > 2560)
+	 myGameWidth = (visibleSize.width - 2560) / 2;
 
-	auto box1X = letterBox->getPositionX() + visibleSize.width * 0.058; //Vec2(visibleSize.width * 0.058, visibleSize.height * 0.07);
-	auto box1Y = letterBox->getPositionY() + visibleSize.height * 0.07;// Vec2(visibleSize.width * 0.058, visibleSize.height * 0.07);
-	auto box2X = helpBox->getPositionX() + visibleSize.width * 0.024;// Vec2(visibleSize.width * 0.024, -visibleSize.height * 0.01);
-	auto box2Y = helpBox->getPositionY() - visibleSize.height * 0.01;// Vec2(visibleSize.width * 0.024, -visibleSize.height * 0.01);
+	auto initPosiForBoxBoardX = myGameWidth + _boxBoard->getPositionX() - _boxBoard->getContentSize().width / 2;
+	auto intiPosiForSmallBoxXGap = letterBox->getPositionX() - letterBox->getContentSize().width / 2;
+	auto initXforHelpBox = initPosiForBoxBoardX + intiPosiForSmallBoxXGap + letterBox->getContentSize().width / 2;
 
-	_help = HelpLayer::create(Rect(box1X, box1Y, letterBox->getContentSize().width*1.3, letterBox->getContentSize().height*1.3), Rect(box2X, box2Y, helpBox->getContentSize().width*1.4, helpBox->getContentSize().height*1.3));
-	_help->click(Vec2(box1X, box1Y));
+	auto initPosiForBoxBoardY = _boxBoard->getPositionY() - _boxBoard->getContentSize().height / 2;
+	auto intiPosiForSmallBoxYGap = letterBox->getPositionY() - letterBox->getContentSize().height / 2;
+	auto initYforHelpBox = initPosiForBoxBoardY + intiPosiForSmallBoxYGap + letterBox->getContentSize().height / 2;// +letterBox->getContentSize().height*0.075;
+
+	_help = HelpLayer::create(Rect(initXforHelpBox, initYforHelpBox, letterBox->getContentSize().width, letterBox->getContentSize().height*0.9), Rect(visibleSize.width * 0.5, visibleSize.height * 0.91, helpBox->getContentSize().width*0.8, helpBox->getContentSize().height*0.8));
+	_help->click(Vec2(initXforHelpBox, initYforHelpBox));
 	_isHelpDone = 0;
  	 this->addChild(_help);
 }
@@ -479,6 +496,7 @@ void::Bingo::setWordInHelpBoard()
 		_label->setPosition(visibleSize.width / 2 + origin.x, visibleSize.height*_gridBasedValue.at("helpLetterYFactor"));
 		_label->setAnchorPoint(Vec2(0.5, 0.5));
 		this->addChild(_label, 3);
+		_maxPointSetter++;
 	}
 }
 void Bingo::addEvents(Sprite* clickedObject)
@@ -505,7 +523,7 @@ void Bingo::addEvents(Sprite* clickedObject)
 					target->setVisible(false);
 					target->setTag(1);
 					setWordInHelpBoard();
-					_menuContext->addPoints(5);
+					_menuContext->addPoints(1);
 
 					auto targetName = target->getName();
 					for (int i = 0; i < _boxContainer.size(); i++)
@@ -533,7 +551,7 @@ void Bingo::addEvents(Sprite* clickedObject)
 				{
 					FShake* shake = FShake::actionWithDuration(0.5f, 5.0f);
 					target->runAction(shake);
-					_menuContext->addPoints(-2);
+					_menuContext->addPoints(-1);
 				}
 				if (_menuContext->getCurrentLevel() == 1 && _isHelpDone == 0)
 				{
@@ -546,6 +564,12 @@ void Bingo::addEvents(Sprite* clickedObject)
 				{
 					_isBingoDone = true;
 					auto callShowScore = CCCallFunc::create([=] {
+						 auto a = _maxPointSetter;
+						_menuContext->setMaxPoints(1 * (_maxPointSetter-1));
+
+						CocosDenshion::SimpleAudioEngine *success = CocosDenshion::SimpleAudioEngine::getInstance();
+						success->playEffect("sounds/sfx/success.ogg", false);
+
 						_menuContext->showScore();
 					});
 					this->runAction(Sequence::create(DelayTime::create(5), callShowScore, NULL));

@@ -42,7 +42,8 @@ void Units::onEnterTransitionDidFinish() {
 	_answerValue = _level + 10;
 
 
-	_menuContext->setMaxPoints(1);
+	_menuContext->setMaxPoints(4);
+	
 
 	_bg = CSLoader::createNode("unit/unit.csb");
 	_bg->setName("bg");
@@ -123,25 +124,10 @@ void Units::onEnterTransitionDidFinish() {
 
 void Units::update(float delta) {
 	
-	if (_enterPressedFlag ==0 && _calculator->isEnterPressed() && (_calculator->checkAnswer(_answerValue + 1) == false)) {
+	
 		
 		
-		auto deductPoint = CallFunc::create([=] {
-			_menuContext->addPoints(-1);
-			_enterPressedFlag = 1;
-			CCLOG("point deducted");
-
-		});
-
-
-		auto deductPointSequence = Sequence::create(DelayTime::create(0.5), deductPoint, NULL);
-		this->runAction(deductPointSequence);
-
-	}
-
-		
-		
-		if (_calculateFlag == 0 && _calculator->checkAnswer(_answerValue) && _calculator->isEnterPressed()) {
+		if (_calculateFlag == 0 && _calculator->checkAnswer(_answerValue)) {
 		
 		CCLOG("correct answer");
 		_calculateFlag = 1;
@@ -149,7 +135,9 @@ void Units::update(float delta) {
 		auto ShowScore = CallFunc::create([=] {
 			
 			//_menuContext->addPoints(1);
-			_menuContext->addPoints(3);
+			//_menuContext->addPoints(3);
+			CCLOG("points : %d", _calculator->getFinalPoints());
+			_menuContext->addPoints(_calculator->getFinalPoints());
 			_menuContext->showScore();
 
 		});
@@ -160,6 +148,23 @@ void Units::update(float delta) {
 		
 		}
 	
+
+		if (_enterPressedFlag == 0 && _calculator->isEnterPressed() && (_calculator->checkAnswer(_answerValue) == false)) {
+
+
+			auto deductPoint = CallFunc::create([=] {
+				_menuContext->addPoints(-1);
+				_enterPressedFlag = 1;
+				CCLOG("point deducted");
+
+			});
+
+
+			auto deductPointSequence = Sequence::create(DelayTime::create(0.5), deductPoint, NULL);
+			this->runAction(deductPointSequence);
+
+		}
+
 		
 }
 
@@ -333,7 +338,10 @@ bool Units::onTouchBegan(Touch* touch, Event* event) {
 			if (handleTriggered == 0) {
 				
 				_openTimeline->play("open", false);
-			
+				
+				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+				audio->playEffect("sounds/calculator/gear_triggered.mp3", false);
+
 				createNthOrder();
 				handleTriggered = 1;
 
@@ -343,16 +351,21 @@ bool Units::onTouchBegan(Touch* touch, Event* event) {
 		if (target->getName() == "calbutton" && _gameOverFlag == 1) {
 
 			_calculator->resetCalculator();
-
+			
+			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+			audio->playEffect("sounds/calculator/calculator_button_click.mp3", false);
+			
 			if (_calculatorTouched == false) {
 				_calculator->setVisible(true);
 				_calculatorTouched = true;
+				_calculator->activeSound();
 
 			}
 			else {
 
 				_calculator->setVisible(false);
 				_calculatorTouched = false;
+				_calculator->deactivateSound();
 			}
 			
 		}
