@@ -27,7 +27,7 @@ public:
 	std::map<std::string, std::string> _scenePath;
 	std::map<std::string, float> _gridBasedValue;
 	void onEnterTransitionDidFinish();
-	void creatHelp(Sprite* letterBox, Sprite* helpBox);
+	void creatHelp(Sprite* letterBox, Sprite* helpBox,int i, int j);
 	Bingo();
 	~Bingo();
 	int bingoHorizotally();
