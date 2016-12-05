@@ -578,10 +578,10 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 								_blockLevel1++;
 								this->runAction(Sequence::create(CallFunc::create([=]() {
 									
-								//	CCParticleSystemQuad *_particle = CCParticleSystemQuad::create("");
-								//	_particle->setTexture(CCTextureCache::sharedTextureCache()->addImage(""));
-								//	_particle->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
-								//	this->addChild(_particle, 5);
+									CCParticleSystemQuad *_particle = CCParticleSystemQuad::create("res/owllevel/particle_texture.plist");
+									_particle->setTexture(CCTextureCache::sharedTextureCache()->addImage("res/owllevel/particle_texture.png"));
+									_particle->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
+									this->addChild(_particle, 5);
 
 									_flagDemo = false;
 									_flagDemoSecond = false;
