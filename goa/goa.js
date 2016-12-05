@@ -30,6 +30,9 @@ goa.MenuContext = cc.Node.extend({
     },
     showScore: function() {
 
+    },
+    isGamePaused : function(){
+        
     }
 })
 

@@ -166,22 +166,23 @@ xc.Pinata = cc.Layer.extend({
                 var target = event.getCurrentTarget();
 
                 classReference.checkBoundaryBall(target,touch);
+                let checkMoving = classReference.movingOrNot(classReference.player.prevX,classReference.player.prevY,touch.getLocation().x,touch.getLocation().y);
+                if(checkMoving){
+                        if(classReference.rightLine != undefined){
+                            classReference.removeChild(classReference.rightLine);
+                        }
+                        classReference.rightLine = new cc.DrawNode();
+                        classReference.rightLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("right").x,classReference.gameBg.node.getChildByName("right").y), cc.p(classReference.bubblePlayer.x + (classReference.bubblePlayer.width/2),classReference.bubblePlayer.y),5,classReference.stringColor);
+                        classReference.addChild(classReference.rightLine);
 
-                if(classReference.rightLine != undefined){
-                    classReference.removeChild(classReference.rightLine);
+                        if(classReference.leftLine != undefined){
+                            classReference.removeChild(classReference.leftLine);
+                        }
+                        classReference.leftLine = new cc.DrawNode();
+                        classReference.leftLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("left").x,classReference.gameBg.node.getChildByName("left").y), cc.p(classReference.bubblePlayer.x - (classReference.bubblePlayer.width/2),classReference.bubblePlayer.y),5,classReference.stringColor);
+                        classReference.addChild(classReference.leftLine);
+                        return true;
                 }
-                classReference.rightLine = new cc.DrawNode();
-                classReference.rightLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("right").x,classReference.gameBg.node.getChildByName("right").y), cc.p(classReference.bubblePlayer.x + (classReference.bubblePlayer.width/2),classReference.bubblePlayer.y),5,classReference.stringColor);
-                classReference.addChild(classReference.rightLine);
-
-                if(classReference.leftLine != undefined){
-                    classReference.removeChild(classReference.leftLine);
-                }
-                classReference.leftLine = new cc.DrawNode();
-                classReference.leftLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("left").x,classReference.gameBg.node.getChildByName("left").y), cc.p(classReference.bubblePlayer.x - (classReference.bubblePlayer.width/2),classReference.bubblePlayer.y),5,classReference.stringColor);
-                classReference.addChild(classReference.leftLine);
-
-                return true;
             },
             onTouchEnded : function(touch, event){
                 classReference.player.angle = classReference.radToDeg(Math.atan2((touch.getLocation().y - classReference.player.y),(-touch.getLocation().x + classReference.player.x)));
@@ -301,7 +302,7 @@ xc.Pinata = cc.Layer.extend({
   
     update : function (dt) {
        
-       if(this.shootingFlag){
+       if(this.shootingFlag && !menuContext.isGamePaused()){
            this.stateShootBubble(dt);
            if(!(this.bubblePlayer.y >=0)){               
                this.bubblePlayer.setPosition((this.xPosi/2)+(this.gameBg.node.getChildByName("left").x + this.gameBg.node.getChildByName("right").x) /2,this.gameBg.node.getChildByName("right").y);
@@ -338,7 +339,6 @@ xc.Pinata = cc.Layer.extend({
                 setTimeout(function() {
                     if (cc.sys.isNative) {
                           menuContext.showScore();
-
                     }else{
                         xc.GameScene.load(xc.Pinata);
                     }
@@ -346,38 +346,61 @@ xc.Pinata = cc.Layer.extend({
             }
        }
     },
+    movingOrNot : function(prevX,prevY,currentX,currentY){
 
+        let X = 0;
+        let Y = 0;
+        if(prevX < currentX){
+            X = currentX - prevX;
+        }
+        if(prevX > currentX){
+            X = prevX - currentX;
+        }
+        if(prevY < currentY){
+            Y = currentY - prevY
+        }
+        if(prevY > currentY){
+            Y = prevY - currentY;
+        }
+        let distBetween2Points = 0;
+        distBetween2Points = Math.sqrt((X*X) + (Y*Y))
+        if(distBetween2Points > 2){
+            console.log("moving the ball");
+            return true;
+        }
+        return false;
+    },
     checkBoundaryBall : function(target,touch){
 
         if((touch.getLocation().x >= cc.director.getWinSize().width * 0.1 ) && (touch.getLocation().x <= cc.director.getWinSize().width * 0.9 ) && (touch.getLocation().y >= cc.director.getWinSize().height * 0.05 ) && (touch.getLocation().y <= cc.director.getWinSize().height * 0.5 )){
             target.setPosition(touch.getLocation());
-            console.log("default if touch condition ");
+         //   console.log("default if touch condition ");
         }
 
         if(touch.getLocation().x < cc.director.getWinSize().width * 0.1 ){
             if((this.bubblePlayer.y >= cc.director.getWinSize().height * 0.05 ) && (this.bubblePlayer.y <= cc.director.getWinSize().height * 0.5 )){
                 target.y = touch.getLocation().y;
-                console.log(" left X fixed , Y coordinate Changes if condition ");
+           //     console.log(" left X fixed , Y coordinate Changes if condition ");
             }
         }
         if(touch.getLocation().x > cc.director.getWinSize().width * 0.9 ){
             if((this.bubblePlayer.y >= cc.director.getWinSize().height * 0.05 ) && (this.bubblePlayer.y <= cc.director.getWinSize().height * 0.5 )){
                 target.y = touch.getLocation().y;
-                console.log(" right X fixed , Y coordinate Changes if condition ");
+           //     console.log(" right X fixed , Y coordinate Changes if condition ");
             }
         }
 
         if((touch.getLocation().y > cc.director.getWinSize().height * 0.05 )){
             if((touch.getLocation().x >= cc.director.getWinSize().width * 0.1 ) && (touch.getLocation().x <= cc.director.getWinSize().width * 0.9 )){
                 target.x = touch.getLocation().x;
-                console.log(" bottom Y fixed , X coordinate changes if condition ");
+           //     console.log(" bottom Y fixed , X coordinate changes if condition ");
             }
         }
         
         if((touch.getLocation().y < cc.director.getWinSize().height * 0.5 )){
             if((touch.getLocation().x >= cc.director.getWinSize().width * 0.1 ) && (touch.getLocation().x <= cc.director.getWinSize().width * 0.9 )){
                 target.x = touch.getLocation().x;
-                console.log(" top Y fixed , X coordinate changes if condition ");
+           //     console.log(" top Y fixed , X coordinate changes if condition ");
             }
         }
 
