@@ -5,10 +5,154 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 295,
+        "Duration": 440,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "rain",
         "Timelines": [
+          {
+            "ActionTag": 1720976391,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 295,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1720976391,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 540.9564,
+                "Y": 1627.5604,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 308.462,
+                "Y": 1637.2378,
+                "FrameIndex": 440,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1543972735,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 295,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1543972735,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2144.0105,
+                "Y": 1560.8259,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2001.9261,
+                "Y": 1538.222,
+                "FrameIndex": 440,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 166031319,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 295,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 166031319,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1172.5485,
+                "Y": 1910.1765,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1172.5485,
+                "Y": 1832.6758,
+                "FrameIndex": 440,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 460577758,
             "Property": "ActionValue",
@@ -99,6 +243,12 @@
           "EndIndex": 295,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 300,
+          "EndIndex": 440,
+          "Name": "rain",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -131,7 +281,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1309.991,
+              "X": 1280.0,
               "Y": 1186.6667
             },
             "Scale": {
@@ -144,15 +294,15 @@
             },
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5117,
+              "X": 0.5,
               "Y": 0.6593
             },
             "PreSize": {
               "X": 1.5625,
               "Y": 1.0
             },
-            "LeftMargin": -690.009,
-            "RightMargin": -749.991,
+            "LeftMargin": -720.0,
+            "RightMargin": -720.0,
             "TopMargin": -286.6667,
             "BottomMargin": 286.6667,
             "Tag": 211,
@@ -223,8 +373,134 @@
           },
           {
             "FileData": {
+              "Type": "Normal",
+              "Path": "Meno_aina_gani/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 540.9564,
+              "Y": 1627.5604
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.2113,
+              "Y": 0.9042
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 540.9564,
+            "RightMargin": 2019.0436,
+            "TopMargin": 172.4396,
+            "BottomMargin": 1627.5604,
+            "UserData": "main.rain",
+            "Tag": 1285,
+            "ActionTag": 1720976391,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "cloud",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Meno_aina_gani/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2144.0105,
+              "Y": 1560.8259
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8375,
+              "Y": 0.8671
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2144.0105,
+            "RightMargin": 415.9895,
+            "TopMargin": 239.1741,
+            "BottomMargin": 1560.8259,
+            "UserData": "main.rain",
+            "Tag": 1293,
+            "ActionTag": 1543972735,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "cloud",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Meno_aina_gani/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1172.5485,
+              "Y": 1910.1765
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.458,
+              "Y": 1.0612
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1172.5485,
+            "RightMargin": 1387.4515,
+            "TopMargin": -110.1765,
+            "BottomMargin": 1910.1765,
+            "UserData": "main.rain",
+            "Tag": 1301,
+            "ActionTag": 166031319,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "cloud",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -267,13 +543,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -316,13 +592,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_0",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -365,13 +641,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_1",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -414,13 +690,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_2",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -463,13 +739,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_3",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -512,13 +788,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_4",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -561,13 +837,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_5",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -610,13 +886,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_6",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -659,13 +935,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_7",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -708,13 +984,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_8",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -757,13 +1033,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_9",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -806,13 +1082,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_10",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -855,13 +1131,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_11",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -904,13 +1180,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_12",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -953,13 +1229,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_13",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -1002,13 +1278,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_14",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -1051,13 +1327,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_15",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -1100,13 +1376,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_16",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/MbwanaMamba_bush.png",
+              "Path": "Meno_aina_gani/bush.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -1143,19 +1419,20 @@
             "RightMargin": -132.4939,
             "TopMargin": 989.0163,
             "BottomMargin": 356.9837,
+            "UserData": "main.rain",
             "Tag": 188,
             "ActionTag": -461597992,
             "Size": {
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_1",
+            "Name": " bush",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/MbwanaMamba_bush.png",
+              "Path": "Meno_aina_gani/bush.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -1192,19 +1469,20 @@
             "RightMargin": 787.5085,
             "TopMargin": 989.0206,
             "BottomMargin": 356.9794,
+            "UserData": "main.rain",
             "Tag": 191,
             "ActionTag": 1071336722,
             "Size": {
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_1_1",
+            "Name": " bush",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/MbwanaMamba_bush.png",
+              "Path": "Meno_aina_gani/bush.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -1241,19 +1519,20 @@
             "RightMargin": 1817.5005,
             "TopMargin": 979.0114,
             "BottomMargin": 366.9886,
+            "UserData": "main.rain",
             "Tag": 190,
             "ActionTag": 961708061,
             "Size": {
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1",
+            "Name": " bush",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/MbwanaMamba_bush.png",
+              "Path": "Meno_aina_gani/bush.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -1290,19 +1569,20 @@
             "RightMargin": 277.543,
             "TopMargin": 1059.0156,
             "BottomMargin": 286.9843,
+            "UserData": "main.rain",
             "Tag": 187,
             "ActionTag": 968312100,
             "Size": {
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_1_0",
+            "Name": " bush",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/MbwanaMamba_bush.png",
+              "Path": "Meno_aina_gani/bush.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -1339,13 +1619,14 @@
             "RightMargin": 1457.4999,
             "TopMargin": 1069.0104,
             "BottomMargin": 276.9896,
+            "UserData": "main.rain",
             "Tag": 212,
             "ActionTag": 1642717797,
             "Size": {
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_0",
+            "Name": " bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1380,13 +1661,14 @@
             "RightMargin": 139.5354,
             "TopMargin": 1068.7444,
             "BottomMargin": 731.2557,
+            "UserData": "drag;walk",
             "Tag": 224,
             "ActionTag": 460577758,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "crane",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -1398,6 +1680,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "cloud.json",
         "crane.json",
         "Meno_aina_gani.plist",
         "Meno_aina_gani.png"

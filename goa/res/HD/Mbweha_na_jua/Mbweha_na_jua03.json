@@ -5,17 +5,221 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 360,
+        "Duration": 555,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "day",
         "Timelines": [
           {
-            "ActionTag": -916229541,
+            "ActionTag": 295658385,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "G": 208,
+                  "B": 179
+                },
+                "FrameIndex": 435,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 106,
+                  "G": 115,
+                  "B": 179
+                },
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 78,
+                  "G": 85,
+                  "B": 141
+                },
+                "FrameIndex": 555,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1233682860,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "G": 208,
+                  "B": 179
+                },
+                "FrameIndex": 435,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 106,
+                  "G": 115,
+                  "B": 179
+                },
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 78,
+                  "G": 85,
+                  "B": 141
+                },
+                "FrameIndex": 555,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2129275444,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "G": 208,
+                  "B": 179
+                },
+                "FrameIndex": 435,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 106,
+                  "G": 115,
+                  "B": 179
+                },
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 78,
+                  "G": 85,
+                  "B": 141
+                },
+                "FrameIndex": 555,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 388866025,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "sun",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 388866025,
             "Property": "Position",
             "Frames": [
               {
-                "X": 1613.861,
-                "Y": 818.3199,
+                "X": 2010.6436,
+                "Y": 354.3005,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -23,18 +227,72 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 1377.6742,
-                "Y": 1015.1479,
-                "FrameIndex": 105,
+                "X": 1848.3124,
+                "Y": 655.6472,
+                "FrameIndex": 90,
                 "EasingData": {
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
               },
               {
-                "X": 1377.6599,
-                "Y": 1015.1361,
+                "X": 1433.7063,
+                "Y": 1073.8239,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1238.5466,
+                "Y": 1158.1918,
+                "FrameIndex": 175,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1238.5465,
+                "Y": 1159.1918,
                 "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1238.5464,
+                "Y": 1158.1919,
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 836.2633,
+                "Y": 1089.5433,
+                "FrameIndex": 392,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 523.9759,
+                "Y": 819.066,
+                "FrameIndex": 425,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 26.0001,
+                "Y": -26.0,
+                "FrameIndex": 485,
                 "EasingData": {
                   "Type": 0
                 },
@@ -44,35 +302,403 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": -916229541,
-            "Property": "RotationSkew",
+            "ActionTag": 747608375,
+            "Property": "Position",
             "Frames": [
               {
-                "X": 0.0,
-                "Y": -0.0037,
-                "FrameIndex": 0,
+                "X": 1881.546,
+                "Y": 693.5792,
+                "FrameIndex": 480,
                 "EasingData": {
                   "Type": 0
                 },
-                "ctype": "ScaleValueFrameData"
+                "ctype": "PointFrameData"
               },
               {
-                "X": -37.5041,
-                "Y": -37.5079,
-                "FrameIndex": 105,
+                "X": 1535.9142,
+                "Y": 1072.8721,
+                "FrameIndex": 515,
                 "EasingData": {
                   "Type": 0
                 },
-                "ctype": "ScaleValueFrameData"
+                "ctype": "PointFrameData"
               },
               {
-                "X": -77.5295,
-                "Y": -77.525,
+                "X": 1074.2755,
+                "Y": 1223.1504,
+                "FrameIndex": 555,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 747608375,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {},
                 "FrameIndex": 360,
                 "EasingData": {
                   "Type": 0
                 },
-                "ctype": "ScaleValueFrameData"
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1557627981,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "G": 250,
+                  "B": 179
+                },
+                "FrameIndex": 435,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 179,
+                  "G": 204
+                },
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 148312096,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "G": 250,
+                  "B": 179
+                },
+                "FrameIndex": 435,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 179,
+                  "G": 204
+                },
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1303943613,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "G": 250,
+                  "B": 179
+                },
+                "FrameIndex": 435,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 179,
+                  "G": 204
+                },
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1196879484,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "G": 250,
+                  "B": 179
+                },
+                "FrameIndex": 435,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 179,
+                  "G": 204
+                },
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -787031032,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "G": 250,
+                  "B": 179
+                },
+                "FrameIndex": 435,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 179,
+                  "G": 204
+                },
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1123343160,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "G": 250,
+                  "B": 179
+                },
+                "FrameIndex": 435,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 179,
+                  "G": 204
+                },
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2135864772,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "G": 250,
+                  "B": 179
+                },
+                "FrameIndex": 435,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 179,
+                  "G": 204
+                },
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -102,6 +728,14 @@
                 "CurrentAniamtionName": "run",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 180,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 365,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -194,6 +828,12 @@
           "EndIndex": 360,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 365,
+          "EndIndex": 580,
+          "Name": "day",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -229,7 +869,11 @@
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "CColor": {},
+            "CColor": {
+              "R": 81,
+              "G": 88,
+              "B": 145
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.5,
@@ -243,6 +887,8 @@
             "RightMargin": -720.0,
             "TopMargin": 0.0002,
             "BottomMargin": -0.0002,
+            "CallBackType": "Click",
+            "UserData": "main.day",
             "Tag": 710,
             "ActionTag": 295658385,
             "Size": {
@@ -282,7 +928,11 @@
               "ScaleX": 1.0,
               "ScaleY": 0.2929
             },
-            "CColor": {},
+            "CColor": {
+              "R": 81,
+              "G": 88,
+              "B": 145
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.5,
@@ -296,6 +946,8 @@
             "RightMargin": -719.991,
             "TopMargin": -249.9597,
             "BottomMargin": 249.9597,
+            "CallBackType": "Click",
+            "UserData": "main.day",
             "Tag": 708,
             "ActionTag": 1233682860,
             "Size": {
@@ -335,7 +987,11 @@
               "ScaleX": 1.0,
               "ScaleY": 0.2929
             },
-            "CColor": {},
+            "CColor": {
+              "R": 81,
+              "G": 88,
+              "B": 145
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.5,
@@ -349,6 +1005,8 @@
             "RightMargin": -719.991,
             "TopMargin": -776.9463,
             "BottomMargin": 776.9463,
+            "CallBackType": "Click",
+            "UserData": "main.day",
             "Tag": 709,
             "ActionTag": -2129275444,
             "Size": {
@@ -360,8 +1018,50 @@
           },
           {
             "FileData": {
+              "Type": "Normal",
+              "Path": "Mbweha_na_jua/sun.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 26.0001,
+              "Y": -26.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0102,
+              "Y": -0.0144
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 26.0001,
+            "RightMargin": 2534.0,
+            "TopMargin": 1826.0,
+            "BottomMargin": -26.0,
+            "UserData": "main.day",
+            "Tag": 806,
+            "ActionTag": 388866025,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "sun",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Mbweha_na_jua/sun.png",
+              "Path": "Mbweha_na_jua/mooncresent.png",
               "Plist": "Mbweha_na_jua/Mbweha_na_jua.plist"
             },
             "BlendFunc": {
@@ -373,35 +1073,34 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1613.861,
-              "Y": 818.3199
+              "X": 1178.1442,
+              "Y": 1189.3378
             },
             "Scale": {
-              "ScaleX": 0.7477,
-              "ScaleY": 0.7477
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
             },
-            "RotationSkewY": -0.0037,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.6304,
-              "Y": 0.4546
+              "X": 0.4602,
+              "Y": 0.6607
             },
             "PreSize": {
-              "X": 0.3453,
-              "Y": 0.4978
+              "X": 0.1742,
+              "Y": 0.2594
             },
-            "LeftMargin": 1171.861,
-            "RightMargin": 504.1392,
-            "TopMargin": 533.6801,
-            "BottomMargin": 370.3199,
-            "Tag": 714,
-            "ActionTag": -916229541,
+            "LeftMargin": 955.1442,
+            "RightMargin": 1158.8558,
+            "TopMargin": 377.1622,
+            "BottomMargin": 955.8378,
+            "Tag": 828,
+            "ActionTag": 747608375,
             "Size": {
-              "X": 884.0,
-              "Y": 896.0
+              "X": 446.0,
+              "Y": 467.0
             },
-            "Name": "sun_6",
+            "Name": "mooncresent_25",
             "ctype": "SpriteObjectData"
           },
           {
@@ -426,7 +1125,10 @@
               "ScaleX": 3.3036,
               "ScaleY": 3.3036
             },
-            "CColor": {},
+            "CColor": {
+              "R": 179,
+              "G": 204
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.7803,
@@ -472,7 +1174,10 @@
               "ScaleX": 1.6614,
               "ScaleY": 1.6614
             },
-            "CColor": {},
+            "CColor": {
+              "R": 179,
+              "G": 204
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.4326,
@@ -517,7 +1222,10 @@
               "ScaleX": 2.2791,
               "ScaleY": 2.2791
             },
-            "CColor": {},
+            "CColor": {
+              "R": 179,
+              "G": 204
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.1797,
@@ -570,7 +1278,10 @@
               "ScaleX": 1.0,
               "ScaleY": 0.4556
             },
-            "CColor": {},
+            "CColor": {
+              "R": 179,
+              "G": 204
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.5,
@@ -584,6 +1295,8 @@
             "RightMargin": -720.0,
             "TopMargin": 900.0,
             "BottomMargin": -900.0,
+            "CallBackType": "Click",
+            "UserData": "main.day",
             "Tag": 707,
             "ActionTag": 1196879484,
             "Size": {
@@ -623,7 +1336,10 @@
               "ScaleX": 1.0,
               "ScaleY": 0.2537
             },
-            "CColor": {},
+            "CColor": {
+              "R": 179,
+              "G": 204
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.5019,
@@ -637,6 +1353,8 @@
             "RightMargin": -724.8813,
             "TopMargin": 841.8942,
             "BottomMargin": -841.8942,
+            "CallBackType": "Click",
+            "UserData": "main.day",
             "Tag": 706,
             "ActionTag": -787031032,
             "Size": {
@@ -668,7 +1386,10 @@
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "CColor": {},
+            "CColor": {
+              "R": 179,
+              "G": 204
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.9059,
@@ -682,6 +1403,7 @@
             "RightMargin": -164.0366,
             "TopMargin": 785.6078,
             "BottomMargin": 325.3922,
+            "UserData": "main.day",
             "Tag": 704,
             "ActionTag": -1123343160,
             "Size": {
@@ -714,7 +1436,10 @@
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "CColor": {},
+            "CColor": {
+              "R": 179,
+              "G": 204
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.0922,
@@ -728,6 +1453,7 @@
             "RightMargin": 1918.8518,
             "TopMargin": 775.929,
             "BottomMargin": 335.071,
+            "UserData": "main.day",
             "Tag": 705,
             "ActionTag": -2135864772,
             "Size": {
@@ -748,34 +1474,35 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": -372.8527,
-              "Y": 278.2523
+              "X": 1003.2436,
+              "Y": 449.9696
             },
             "Scale": {
-              "ScaleX": -1.0,
-              "ScaleY": 1.0
+              "ScaleX": -0.5701,
+              "ScaleY": 0.5701
             },
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": -0.1456,
-              "Y": 0.1546
+              "X": 0.3919,
+              "Y": 0.25
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -372.8527,
-            "RightMargin": 2932.8528,
-            "TopMargin": 1521.7477,
-            "BottomMargin": 278.2523,
+            "LeftMargin": 1003.2436,
+            "RightMargin": 1556.7563,
+            "TopMargin": 1350.0304,
+            "BottomMargin": 449.9696,
+            "UserData": "run",
             "Tag": 715,
             "ActionTag": -1622859243,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "jackal1",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -789,7 +1516,8 @@
       "UsedResources": [
         "jackal1.json",
         "Mbweha_na_jua.plist",
-        "Mbweha_na_jua.png"
+        "Mbweha_na_jua.png",
+        "sun.json"
       ],
       "ctype": "GameFileData"
     }

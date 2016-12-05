@@ -414,49 +414,45 @@
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Nausikiliza_mwili_wangu/tv.png",
-              "Plist": "Nausikiliza_mwili_wangu/Nausikiliza_mwili_wangu.plist"
+              "Type": "Normal",
+              "Path": "Nausikiliza_mwili_wangu/tv.json",
+              "Plist": ""
             },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
             "Position": {
-              "X": 800.2956,
-              "Y": 836.8573
+              "X": 789.3195,
+              "Y": 846.0448
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
             "CColor": {},
-            "IconVisible": false,
+            "IconVisible": true,
             "PrePosition": {
-              "X": 0.3126,
-              "Y": 0.4649
+              "X": 0.3083,
+              "Y": 0.47
             },
             "PreSize": {
-              "X": 0.2379,
-              "Y": 0.2328
+              "X": 0.0,
+              "Y": 0.0
             },
-            "LeftMargin": 495.7956,
-            "RightMargin": 1455.2043,
-            "TopMargin": 753.6427,
-            "BottomMargin": 627.3573,
-            "UserData": "drag",
-            "Tag": 13,
-            "ActionTag": -1019100231,
+            "LeftMargin": 789.3195,
+            "RightMargin": 1770.6804,
+            "TopMargin": 953.9552,
+            "BottomMargin": 846.0448,
+            "UserData": "off",
+            "Tag": 2549,
+            "ActionTag": -1809263449,
             "Size": {
-              "X": 609.0,
-              "Y": 419.0
+              "X": 0.0,
+              "Y": 0.0
             },
-            "Name": "tv_2",
-            "ctype": "SpriteObjectData"
+            "Name": "tv",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "ClipAble": false,
@@ -609,8 +605,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": -737.7837,
-              "Y": 117.8615
+              "X": 490.1257,
+              "Y": 240.8316
             },
             "Scale": {
               "ScaleX": -1.0,
@@ -619,17 +615,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": -0.2882,
-              "Y": 0.0655
+              "X": 0.1915,
+              "Y": 0.1338
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -737.7837,
-            "RightMargin": 3297.7837,
-            "TopMargin": 1682.1385,
-            "BottomMargin": 117.8615,
+            "LeftMargin": 490.1257,
+            "RightMargin": 2069.8743,
+            "TopMargin": 1559.1685,
+            "BottomMargin": 240.8316,
             "UserData": "walk;drag",
             "Tag": 2865,
             "ActionTag": 241057793,
@@ -652,7 +648,8 @@
         "girl.json",
         "Nausikiliza_mwili_wangu.plist",
         "Nausikiliza_mwili_wangu.png",
-        "spider.json"
+        "spider.json",
+        "tv.json"
       ],
       "ctype": "GameFileData"
     }

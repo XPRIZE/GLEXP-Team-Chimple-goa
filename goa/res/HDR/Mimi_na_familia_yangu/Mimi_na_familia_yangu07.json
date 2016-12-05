@@ -5,10 +5,98 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 520,
+        "Duration": 620,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "rain",
         "Timelines": [
+          {
+            "ActionTag": -1996475358,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 525,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 620,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1996475358,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 3048.593,
+                "Y": 1599.1041,
+                "FrameIndex": 525,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1970.0759,
+                "Y": 1592.6611,
+                "FrameIndex": 620,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 811829700,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 525,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 811829700,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -516.7725,
+                "Y": 1494.5192,
+                "FrameIndex": 525,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 610.1786,
+                "Y": 1601.0845,
+                "FrameIndex": 620,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": -418593798,
             "Property": "ActionValue",
@@ -128,6 +216,12 @@
           "StartIndex": 0,
           "EndIndex": 520,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 525,
+          "EndIndex": 660,
+          "Name": "rain",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -253,6 +347,134 @@
           {
             "FileData": {
               "Type": "Normal",
+              "Path": "Mimi_na_familia_yangu/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 3048.593,
+              "Y": 1599.1041
+            },
+            "Scale": {
+              "ScaleX": -1.621,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.1909,
+              "Y": 0.8884
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 3048.593,
+            "RightMargin": -488.593,
+            "TopMargin": 200.8959,
+            "BottomMargin": 1599.1041,
+            "Tag": 6747,
+            "ActionTag": -1996475358,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "cloud",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mimi_na_familia_yangu/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -516.7725,
+              "Y": 1494.5192
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.2019,
+              "Y": 0.8303
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -516.7725,
+            "RightMargin": 3076.7725,
+            "TopMargin": 305.4808,
+            "BottomMargin": 1494.5192,
+            "Tag": 6739,
+            "ActionTag": 811829700,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "cloud",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_mound.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 502.9971,
+              "Y": 488.1273
+            },
+            "Scale": {
+              "ScaleX": 0.7416,
+              "ScaleY": 0.7416
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1965,
+              "Y": 0.2712
+            },
+            "PreSize": {
+              "X": 0.393,
+              "Y": 0.2672
+            },
+            "LeftMargin": -0.0029,
+            "RightMargin": 1554.0029,
+            "TopMargin": 1071.3728,
+            "BottomMargin": 247.6273,
+            "UserData": "main.rain",
+            "Tag": 6755,
+            "ActionTag": 1801396682,
+            "Size": {
+              "X": 1006.0,
+              "Y": 481.0
+            },
+            "Name": "mound",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
               "Path": "Mimi_na_familia_yangu/snake.json",
               "Plist": ""
             },
@@ -282,13 +504,14 @@
             "RightMargin": 371.5852,
             "TopMargin": 1314.1174,
             "BottomMargin": 485.8825,
+            "UserData": "drag;hiss",
             "Tag": 10549,
             "ActionTag": -418593798,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_3",
+            "Name": "snake",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -302,8 +525,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 353.69,
-              "Y": 287.3554
+              "X": 1178.7966,
+              "Y": 292.1854
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -312,24 +535,25 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.1382,
-              "Y": 0.1596
+              "X": 0.4605,
+              "Y": 0.1623
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 353.69,
-            "RightMargin": 2206.3101,
-            "TopMargin": 1512.6447,
-            "BottomMargin": 287.3554,
+            "LeftMargin": 1178.7966,
+            "RightMargin": 1381.2034,
+            "TopMargin": 1507.8146,
+            "BottomMargin": 292.1854,
+            "UserData": "drag;walk",
             "Tag": 487,
             "ActionTag": 1084979769,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "turtle",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -343,8 +567,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 261.806,
-              "Y": 460.7848
+              "X": 1099.1187,
+              "Y": 471.7237
             },
             "Scale": {
               "ScaleX": 0.7478,
@@ -353,24 +577,25 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.1023,
-              "Y": 0.256
+              "X": 0.4293,
+              "Y": 0.2621
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 261.806,
-            "RightMargin": 2298.1941,
-            "TopMargin": 1339.2152,
-            "BottomMargin": 460.7848,
+            "LeftMargin": 1099.1187,
+            "RightMargin": 1460.8813,
+            "TopMargin": 1328.2764,
+            "BottomMargin": 471.7237,
+            "UserData": "drag;hop",
             "Tag": 495,
             "ActionTag": -590454016,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "boy",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -383,6 +608,9 @@
       },
       "UsedResources": [
         "boy.json",
+        "cloud.json",
+        "Mimi_na_familia_yangu.plist",
+        "Mimi_na_familia_yangu.png",
         "snake.json",
         "turtle.json"
       ],

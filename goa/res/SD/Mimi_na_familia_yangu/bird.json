@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 595,
         "Speed": 1.0,
-        "ActivedAnimationName": "walk",
+        "ActivedAnimationName": "fly",
         "Timelines": [
           {
             "ActionTag": -327721966,
@@ -2662,6 +2662,25 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 1587338143,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "wings",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 50,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -540774031,
             "Property": "Position",
             "Frames": [
@@ -3857,21 +3876,22 @@
               {
                 "Length": 529.0,
                 "Position": {
-                  "X": -138.0775,
-                  "Y": 320.1051
+                  "X": -138.0756,
+                  "Y": 348.9362
                 },
                 "Scale": {
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 6.4587,
-                "RotationSkewY": 6.4592,
+                "RotationSkewX": 7.538,
+                "RotationSkewY": 7.5385,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
                   "Dst": 771
                 },
                 "Tag": 60,
+                "FrameEvent": "wings",
                 "Children": [
                   {
                     "Length": 320.0,
@@ -3926,15 +3946,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -65.72,
-                        "RightMargin": -360.28,
-                        "TopMargin": -218.67,
-                        "BottomMargin": -198.33,
+                        "LeftMargin": 124.28,
+                        "RightMargin": -170.28,
+                        "TopMargin": -33.17,
+                        "BottomMargin": -12.83,
                         "Tag": 50,
                         "ActionTag": -129163312,
                         "Size": {
-                          "X": 426.0,
-                          "Y": 417.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "crow_tail",
@@ -3974,15 +3994,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -65.72,
-                        "RightMargin": -360.28,
-                        "TopMargin": -218.67,
-                        "BottomMargin": -198.33,
+                        "LeftMargin": 124.28,
+                        "RightMargin": -170.28,
+                        "TopMargin": -33.17,
+                        "BottomMargin": -12.83,
                         "Tag": 70,
                         "ActionTag": 398770437,
                         "Size": {
-                          "X": 426.0,
-                          "Y": 417.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "dove_tail",
@@ -4069,15 +4089,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -124.2186,
-                        "RightMargin": -179.7814,
-                        "TopMargin": -138.674,
-                        "BottomMargin": -64.326,
+                        "LeftMargin": 4.7814,
+                        "RightMargin": -50.7814,
+                        "TopMargin": -60.174,
+                        "BottomMargin": 14.174,
                         "Tag": 53,
                         "ActionTag": 490809617,
                         "Size": {
-                          "X": 304.0,
-                          "Y": 203.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "owl_tail",
@@ -4117,15 +4137,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": 18.6659,
-                        "RightMargin": -547.6659,
-                        "TopMargin": -505.9737,
-                        "BottomMargin": -251.0263,
+                        "LeftMargin": 260.1659,
+                        "RightMargin": -306.1659,
+                        "TopMargin": -150.4737,
+                        "BottomMargin": 104.4737,
                         "Tag": 65,
                         "ActionTag": -671987770,
                         "Size": {
-                          "X": 529.0,
-                          "Y": 757.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "peacock_tail",
@@ -4165,15 +4185,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -131.67,
-                        "RightMargin": -171.33,
-                        "TopMargin": -123.3856,
-                        "BottomMargin": -78.6144,
+                        "LeftMargin": -3.17,
+                        "RightMargin": -42.83,
+                        "TopMargin": -45.3856,
+                        "BottomMargin": -0.6144,
                         "Tag": 75,
                         "ActionTag": 1073895804,
                         "Size": {
-                          "X": 303.0,
-                          "Y": 202.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "eagle_tail",
@@ -4213,15 +4233,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -67.38,
-                        "RightMargin": -107.62,
-                        "TopMargin": -23.4412,
-                        "BottomMargin": -117.5588,
+                        "LeftMargin": -2.88,
+                        "RightMargin": -43.12,
+                        "TopMargin": 24.0588,
+                        "BottomMargin": -70.0588,
                         "Tag": 80,
                         "ActionTag": 1195812569,
                         "Size": {
-                          "X": 175.0,
-                          "Y": 141.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "vulture_tail",
@@ -4261,15 +4281,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -97.42,
-                        "RightMargin": -325.58,
-                        "TopMargin": -179.4,
-                        "BottomMargin": -482.6,
+                        "LeftMargin": 91.08,
+                        "RightMargin": -137.08,
+                        "TopMargin": 128.6,
+                        "BottomMargin": -174.6,
                         "Tag": 90,
                         "ActionTag": -1984442806,
                         "Size": {
-                          "X": 423.0,
-                          "Y": 662.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "chicken_tail",
@@ -4309,15 +4329,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -32.6782,
-                        "RightMargin": -497.3218,
-                        "TopMargin": -297.2335,
-                        "BottomMargin": -333.7665,
+                        "LeftMargin": 209.3218,
+                        "RightMargin": -255.3218,
+                        "TopMargin": -4.7335,
+                        "BottomMargin": -41.2665,
                         "Tag": 99,
                         "ActionTag": 2142444178,
                         "Size": {
-                          "X": 530.0,
-                          "Y": 631.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "cock_tail",
@@ -4357,15 +4377,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -75.4398,
-                        "RightMargin": -193.5602,
-                        "TopMargin": -255.0086,
-                        "BottomMargin": -205.9914,
+                        "LeftMargin": 36.0602,
+                        "RightMargin": -82.0602,
+                        "TopMargin": -47.5086,
+                        "BottomMargin": 1.5086,
                         "Tag": 108,
                         "ActionTag": 494434897,
                         "Size": {
-                          "X": 269.0,
-                          "Y": 461.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "hen_tail",
@@ -4415,15 +4435,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -102.9,
-                    "RightMargin": -894.1,
-                    "TopMargin": -350.8823,
-                    "BottomMargin": -230.1177,
+                    "LeftMargin": 372.6,
+                    "RightMargin": -418.6,
+                    "TopMargin": -83.3823,
+                    "BottomMargin": 37.3823,
                     "Tag": 43,
                     "ActionTag": 897612790,
                     "Size": {
-                      "X": 997.0,
-                      "Y": 581.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "crow_body",
@@ -4463,15 +4483,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -102.9,
-                    "RightMargin": -894.1,
-                    "TopMargin": -227.88,
-                    "BottomMargin": -263.12,
+                    "LeftMargin": 372.6,
+                    "RightMargin": -418.6,
+                    "TopMargin": -5.38,
+                    "BottomMargin": -40.62,
                     "Tag": 66,
                     "ActionTag": -1770628715,
                     "Size": {
-                      "X": 997.0,
-                      "Y": 491.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "dove_body",
@@ -4527,15 +4547,15 @@
                   {
                     "Length": 508.0,
                     "Position": {
-                      "X": -22.3343,
-                      "Y": 118.4143
+                      "X": -19.4647,
+                      "Y": 127.009
                     },
                     "Scale": {
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 199.7074,
-                    "RotationSkewY": -160.2939,
+                    "RotationSkewX": 219.1954,
+                    "RotationSkewY": -140.8067,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -4596,15 +4616,15 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": -16.58,
-                            "RightMargin": -69.42,
-                            "TopMargin": -40.07,
-                            "BottomMargin": -45.93,
+                            "LeftMargin": 3.42,
+                            "RightMargin": -49.42,
+                            "TopMargin": -20.07,
+                            "BottomMargin": -25.93,
                             "Tag": 115,
                             "ActionTag": -2018909763,
                             "Size": {
-                              "X": 86.0,
-                              "Y": 86.0
+                              "X": 46.0,
+                              "Y": 46.0
                             },
                             "VisibleForFrame": false,
                             "Name": "crow_eyes",
@@ -4644,15 +4664,15 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": -16.58,
-                            "RightMargin": -69.42,
-                            "TopMargin": -40.07,
-                            "BottomMargin": -45.93,
+                            "LeftMargin": 3.42,
+                            "RightMargin": -49.42,
+                            "TopMargin": -20.07,
+                            "BottomMargin": -25.93,
                             "Tag": 116,
                             "ActionTag": -717251025,
                             "Size": {
-                              "X": 86.0,
-                              "Y": 86.0
+                              "X": 46.0,
+                              "Y": 46.0
                             },
                             "VisibleForFrame": false,
                             "Name": "dove_eyes",
@@ -4739,15 +4759,15 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": -127.58,
-                            "RightMargin": -180.42,
-                            "TopMargin": -151.07,
-                            "BottomMargin": -156.93,
+                            "LeftMargin": 3.42,
+                            "RightMargin": -49.42,
+                            "TopMargin": -20.07,
+                            "BottomMargin": -25.93,
                             "Tag": 47,
                             "ActionTag": -2092406598,
                             "Size": {
-                              "X": 308.0,
-                              "Y": 308.0
+                              "X": 46.0,
+                              "Y": 46.0
                             },
                             "VisibleForFrame": false,
                             "Name": "owl_eyes",
@@ -4788,15 +4808,15 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": -88.0228,
-                            "RightMargin": 11.0228,
-                            "TopMargin": 2.9043,
-                            "BottomMargin": -82.9043,
+                            "LeftMargin": -72.5228,
+                            "RightMargin": 26.5228,
+                            "TopMargin": 19.9043,
+                            "BottomMargin": -65.9043,
                             "Tag": 70,
                             "ActionTag": -1112925811,
                             "Size": {
-                              "X": 77.0,
-                              "Y": 80.0
+                              "X": 46.0,
+                              "Y": 46.0
                             },
                             "VisibleForFrame": false,
                             "Name": "eagle_eyes",
@@ -4836,15 +4856,15 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": 205.99,
-                            "RightMargin": -284.99,
-                            "TopMargin": -181.0775,
-                            "BottomMargin": 102.0775,
+                            "LeftMargin": 222.49,
+                            "RightMargin": -268.49,
+                            "TopMargin": -164.5775,
+                            "BottomMargin": 118.5775,
                             "Tag": 87,
                             "ActionTag": 1986924275,
                             "Size": {
-                              "X": 79.0,
-                              "Y": 79.0
+                              "X": 46.0,
+                              "Y": 46.0
                             },
                             "VisibleForFrame": false,
                             "Name": "chicken_eyes",
@@ -4884,15 +4904,15 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": 127.7957,
-                            "RightMargin": -206.7957,
-                            "TopMargin": -52.8199,
-                            "BottomMargin": -26.1801,
+                            "LeftMargin": 144.2957,
+                            "RightMargin": -190.2957,
+                            "TopMargin": -36.3199,
+                            "BottomMargin": -9.6801,
                             "Tag": 95,
                             "ActionTag": -2127297785,
                             "Size": {
-                              "X": 79.0,
-                              "Y": 79.0
+                              "X": 46.0,
+                              "Y": 46.0
                             },
                             "VisibleForFrame": false,
                             "Name": "cock_eyes",
@@ -4932,15 +4952,15 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": 125.9932,
-                            "RightMargin": -204.9932,
-                            "TopMargin": -49.7029,
-                            "BottomMargin": -29.2971,
+                            "LeftMargin": 142.4932,
+                            "RightMargin": -188.4932,
+                            "TopMargin": -33.2029,
+                            "BottomMargin": -12.7971,
                             "Tag": 104,
                             "ActionTag": 1482162139,
                             "Size": {
-                              "X": 79.0,
-                              "Y": 79.0
+                              "X": 46.0,
+                              "Y": 46.0
                             },
                             "VisibleForFrame": false,
                             "Name": "hen_eyes",
@@ -4966,8 +4986,8 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewX": 308.55,
-                        "RotationSkewY": 308.5511,
+                        "RotationSkewX": 291.5527,
+                        "RotationSkewY": 291.5538,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -5009,15 +5029,15 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": -23.41,
-                            "RightMargin": -130.59,
-                            "TopMargin": -19.52,
-                            "BottomMargin": -46.48,
+                            "LeftMargin": 30.59,
+                            "RightMargin": -76.59,
+                            "TopMargin": -9.52,
+                            "BottomMargin": -36.48,
                             "Tag": 53,
                             "ActionTag": 624768293,
                             "Size": {
-                              "X": 154.0,
-                              "Y": 66.0
+                              "X": 46.0,
+                              "Y": 46.0
                             },
                             "VisibleForFrame": false,
                             "Name": "crow_beak_upper",
@@ -5057,15 +5077,15 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": -23.72,
-                            "RightMargin": -131.28,
-                            "TopMargin": -20.02,
-                            "BottomMargin": -46.98,
+                            "LeftMargin": 30.78,
+                            "RightMargin": -76.78,
+                            "TopMargin": -9.52,
+                            "BottomMargin": -36.48,
                             "Tag": 65,
                             "ActionTag": -1071569971,
                             "Size": {
-                              "X": 155.0,
-                              "Y": 67.0
+                              "X": 46.0,
+                              "Y": 46.0
                             },
                             "VisibleForFrame": false,
                             "Name": "dove_beak_upper",
@@ -5152,15 +5172,15 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": -9.72,
-                            "RightMargin": -117.28,
-                            "TopMargin": -110.02,
-                            "BottomMargin": -34.98,
+                            "LeftMargin": 30.78,
+                            "RightMargin": -76.78,
+                            "TopMargin": -60.52,
+                            "BottomMargin": 14.52,
                             "Tag": 45,
                             "ActionTag": 1423958383,
                             "Size": {
-                              "X": 127.0,
-                              "Y": 145.0
+                              "X": 46.0,
+                              "Y": 46.0
                             },
                             "VisibleForFrame": false,
                             "Name": "owl_beak_upper",
@@ -5200,15 +5220,15 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": -162.3863,
-                            "RightMargin": -140.6137,
-                            "TopMargin": -237.74,
-                            "BottomMargin": -23.26,
+                            "LeftMargin": -33.8863,
+                            "RightMargin": -12.1137,
+                            "TopMargin": -130.24,
+                            "BottomMargin": 84.24,
                             "Tag": 67,
                             "ActionTag": 1455978450,
                             "Size": {
-                              "X": 303.0,
-                              "Y": 261.0
+                              "X": 46.0,
+                              "Y": 46.0
                             },
                             "VisibleForFrame": false,
                             "Name": "eagle_beak_upper",
@@ -5248,15 +5268,15 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": -396.6887,
-                            "RightMargin": 213.6887,
-                            "TopMargin": -20.6741,
-                            "BottomMargin": -111.3259,
+                            "LeftMargin": -328.1887,
+                            "RightMargin": 282.1887,
+                            "TopMargin": 22.3259,
+                            "BottomMargin": -68.3259,
                             "Tag": 84,
                             "ActionTag": -2126862868,
                             "Size": {
-                              "X": 183.0,
-                              "Y": 132.0
+                              "X": 46.0,
+                              "Y": 46.0
                             },
                             "VisibleForFrame": false,
                             "Name": "chicken_beak_upper",
@@ -5296,15 +5316,15 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": -269.2404,
-                            "RightMargin": 86.2404,
-                            "TopMargin": -130.799,
-                            "BottomMargin": -1.201,
+                            "LeftMargin": -200.7404,
+                            "RightMargin": 154.7404,
+                            "TopMargin": -87.799,
+                            "BottomMargin": 41.799,
                             "Tag": 93,
                             "ActionTag": -1399936416,
                             "Size": {
-                              "X": 183.0,
-                              "Y": 132.0
+                              "X": 46.0,
+                              "Y": 46.0
                             },
                             "VisibleForFrame": false,
                             "Name": "cock_beak_upper",
@@ -5344,15 +5364,15 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": -267.4412,
-                            "RightMargin": 84.4412,
-                            "TopMargin": -136.7025,
-                            "BottomMargin": 4.7025,
+                            "LeftMargin": -198.9412,
+                            "RightMargin": 152.9412,
+                            "TopMargin": -93.7025,
+                            "BottomMargin": 47.7025,
                             "Tag": 102,
                             "ActionTag": -464791,
                             "Size": {
-                              "X": 183.0,
-                              "Y": 132.0
+                              "X": 46.0,
+                              "Y": 46.0
                             },
                             "VisibleForFrame": false,
                             "Name": "hen_beak_upper_59",
@@ -5421,15 +5441,15 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": -10.16,
-                            "RightMargin": -94.84,
-                            "TopMargin": -52.32,
-                            "BottomMargin": -78.68,
+                            "LeftMargin": 19.34,
+                            "RightMargin": -65.34,
+                            "TopMargin": -9.82,
+                            "BottomMargin": -36.18,
                             "Tag": 52,
                             "ActionTag": 1686782515,
                             "Size": {
-                              "X": 105.0,
-                              "Y": 131.0
+                              "X": 46.0,
+                              "Y": 46.0
                             },
                             "VisibleForFrame": false,
                             "Name": "crow_beak_lower",
@@ -5469,15 +5489,15 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": -11.72,
-                            "RightMargin": -93.28,
-                            "TopMargin": -54.1,
-                            "BottomMargin": -77.9,
+                            "LeftMargin": 17.78,
+                            "RightMargin": -63.78,
+                            "TopMargin": -11.1,
+                            "BottomMargin": -34.9,
                             "Tag": 64,
                             "ActionTag": -1828403833,
                             "Size": {
-                              "X": 105.0,
-                              "Y": 132.0
+                              "X": 46.0,
+                              "Y": 46.0
                             },
                             "VisibleForFrame": false,
                             "Name": "dove_beak_lower",
@@ -5564,15 +5584,15 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": -20.22,
-                            "RightMargin": -101.78,
-                            "TopMargin": -26.6,
-                            "BottomMargin": -58.4,
+                            "LeftMargin": 17.78,
+                            "RightMargin": -63.78,
+                            "TopMargin": -7.1,
+                            "BottomMargin": -38.9,
                             "Tag": 44,
                             "ActionTag": -455877218,
                             "Size": {
-                              "X": 122.0,
-                              "Y": 85.0
+                              "X": 46.0,
+                              "Y": 46.0
                             },
                             "VisibleForFrame": false,
                             "Name": "owl_beak_lower",
@@ -5612,15 +5632,15 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": -132.021,
-                            "RightMargin": -112.979,
-                            "TopMargin": -197.3571,
-                            "BottomMargin": -37.6429,
+                            "LeftMargin": -32.521,
+                            "RightMargin": -13.479,
+                            "TopMargin": -102.8571,
+                            "BottomMargin": 56.8571,
                             "Tag": 66,
                             "ActionTag": -1483194705,
                             "Size": {
-                              "X": 245.0,
-                              "Y": 235.0
+                              "X": 46.0,
+                              "Y": 46.0
                             },
                             "VisibleForFrame": false,
                             "Name": "eagle_beak_lower",
@@ -5660,15 +5680,15 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": -410.12,
-                            "RightMargin": 226.12,
-                            "TopMargin": -47.35,
-                            "BottomMargin": -90.65,
+                            "LeftMargin": -341.12,
+                            "RightMargin": 295.12,
+                            "TopMargin": -1.35,
+                            "BottomMargin": -44.65,
                             "Tag": 83,
                             "ActionTag": 2017834091,
                             "Size": {
-                              "X": 184.0,
-                              "Y": 138.0
+                              "X": 46.0,
+                              "Y": 46.0
                             },
                             "VisibleForFrame": false,
                             "Name": "chicken_beak_lower",
@@ -5708,15 +5728,15 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": -267.0188,
-                            "RightMargin": 83.0188,
-                            "TopMargin": -134.7699,
-                            "BottomMargin": -3.2301,
+                            "LeftMargin": -198.0188,
+                            "RightMargin": 152.0188,
+                            "TopMargin": -88.7699,
+                            "BottomMargin": 42.7699,
                             "Tag": 92,
                             "ActionTag": -18664116,
                             "Size": {
-                              "X": 184.0,
-                              "Y": 138.0
+                              "X": 46.0,
+                              "Y": 46.0
                             },
                             "VisibleForFrame": false,
                             "Name": "cock_beak_low",
@@ -5756,15 +5776,15 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": -265.5485,
-                            "RightMargin": 81.5485,
-                            "TopMargin": -139.2742,
-                            "BottomMargin": 1.2742,
+                            "LeftMargin": -196.5485,
+                            "RightMargin": 150.5485,
+                            "TopMargin": -93.2742,
+                            "BottomMargin": 47.2742,
                             "Tag": 101,
                             "ActionTag": 1605867907,
                             "Size": {
-                              "X": 184.0,
-                              "Y": 138.0
+                              "X": 46.0,
+                              "Y": 46.0
                             },
                             "VisibleForFrame": false,
                             "Name": "hen_beak_lower",
@@ -5814,15 +5834,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -67.21,
-                        "RightMargin": -560.79,
-                        "TopMargin": -304.41,
-                        "BottomMargin": -323.59,
+                        "LeftMargin": 223.79,
+                        "RightMargin": -269.79,
+                        "TopMargin": -13.41,
+                        "BottomMargin": -32.59,
                         "Tag": 44,
                         "ActionTag": 568825403,
                         "Size": {
-                          "X": 628.0,
-                          "Y": 628.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "crow_face",
@@ -5862,15 +5882,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -65.3701,
-                        "RightMargin": -561.6299,
-                        "TopMargin": -302.46,
-                        "BottomMargin": -325.54,
+                        "LeftMargin": 225.1299,
+                        "RightMargin": -271.1299,
+                        "TopMargin": -11.46,
+                        "BottomMargin": -34.54,
                         "Tag": 67,
                         "ActionTag": 808880482,
                         "Size": {
-                          "X": 627.0,
-                          "Y": 628.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "dove_face",
@@ -5957,15 +5977,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -60.2025,
-                        "RightMargin": -592.7975,
-                        "TopMargin": -305.0184,
-                        "BottomMargin": -421.9816,
+                        "LeftMargin": 243.2975,
+                        "RightMargin": -289.2975,
+                        "TopMargin": 35.4816,
+                        "BottomMargin": -81.4816,
                         "Tag": 48,
                         "ActionTag": 1753466673,
                         "Size": {
-                          "X": 653.0,
-                          "Y": 727.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "owl_face",
@@ -6005,15 +6025,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -16.0,
-                        "RightMargin": -396.0,
-                        "TopMargin": -177.57,
-                        "BottomMargin": -663.43,
+                        "LeftMargin": 167.0,
+                        "RightMargin": -213.0,
+                        "TopMargin": 219.93,
+                        "BottomMargin": -265.93,
                         "Tag": 59,
                         "ActionTag": -1856546600,
                         "Size": {
-                          "X": 412.0,
-                          "Y": 841.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "peacock_face",
@@ -6053,15 +6073,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -124.9685,
-                        "RightMargin": -493.0315,
-                        "TopMargin": -424.9512,
-                        "BottomMargin": -211.0488,
+                        "LeftMargin": 161.0315,
+                        "RightMargin": -207.0315,
+                        "TopMargin": -129.9512,
+                        "BottomMargin": 83.9512,
                         "Tag": 69,
                         "ActionTag": 1739918252,
                         "Size": {
-                          "X": 618.0,
-                          "Y": 636.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "eagle_face",
@@ -6101,15 +6121,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -19.2854,
-                        "RightMargin": -644.7146,
-                        "TopMargin": -270.2581,
-                        "BottomMargin": -588.7419,
+                        "LeftMargin": 289.7146,
+                        "RightMargin": -335.7146,
+                        "TopMargin": 136.2419,
+                        "BottomMargin": -182.2419,
                         "Tag": 77,
                         "ActionTag": 549368835,
                         "Size": {
-                          "X": 664.0,
-                          "Y": 859.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "vulture_face",
@@ -6149,15 +6169,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -144.25,
-                        "RightMargin": -256.75,
-                        "TopMargin": -121.02,
-                        "BottomMargin": -566.98,
+                        "LeftMargin": 33.25,
+                        "RightMargin": -79.25,
+                        "TopMargin": 199.98,
+                        "BottomMargin": -245.98,
                         "Tag": 86,
                         "ActionTag": -1444957237,
                         "Size": {
-                          "X": 401.0,
-                          "Y": 688.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "chicken_face",
@@ -6197,15 +6217,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -134.3575,
-                        "RightMargin": -313.6425,
-                        "TopMargin": -284.0322,
-                        "BottomMargin": -431.9678,
+                        "LeftMargin": 66.6425,
+                        "RightMargin": -112.6425,
+                        "TopMargin": 50.9678,
+                        "BottomMargin": -96.9678,
                         "Tag": 96,
                         "ActionTag": 954851792,
                         "Size": {
-                          "X": 448.0,
-                          "Y": 716.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "cock_face",
@@ -6245,15 +6265,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -104.651,
-                        "RightMargin": -263.349,
-                        "TopMargin": -242.3284,
-                        "BottomMargin": -311.6716,
+                        "LeftMargin": 56.349,
+                        "RightMargin": -102.349,
+                        "TopMargin": 11.6716,
+                        "BottomMargin": -57.6716,
                         "Tag": 105,
                         "ActionTag": -204379448,
                         "Size": {
-                          "X": 368.0,
-                          "Y": 554.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "hen_face",
@@ -6272,15 +6292,15 @@
                   {
                     "Length": 293.0,
                     "Position": {
-                      "X": 87.0455,
+                      "X": 87.0456,
                       "Y": 29.8586
                     },
                     "Scale": {
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 2.6578,
-                    "RotationSkewY": 2.6572,
+                    "RotationSkewX": -22.371,
+                    "RotationSkewY": -22.3693,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -6322,15 +6342,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -73.86,
-                        "RightMargin": -458.14,
-                        "TopMargin": -131.2682,
-                        "BottomMargin": -123.7318,
+                        "LeftMargin": 169.14,
+                        "RightMargin": -215.14,
+                        "TopMargin": -26.7682,
+                        "BottomMargin": -19.2318,
                         "Tag": 47,
                         "ActionTag": -901222932,
                         "Size": {
-                          "X": 532.0,
-                          "Y": 255.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "crow_wing",
@@ -6370,15 +6390,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -73.86,
-                        "RightMargin": -458.14,
-                        "TopMargin": -131.27,
-                        "BottomMargin": -123.73,
+                        "LeftMargin": 169.14,
+                        "RightMargin": -215.14,
+                        "TopMargin": -26.77,
+                        "BottomMargin": -19.23,
                         "Tag": 73,
                         "ActionTag": -282078519,
                         "Size": {
-                          "X": 532.0,
-                          "Y": 255.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "dove_wing",
@@ -6465,15 +6485,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -66.98,
-                        "RightMargin": -596.02,
-                        "TopMargin": -111.32,
-                        "BottomMargin": -210.68,
+                        "LeftMargin": 241.52,
+                        "RightMargin": -287.52,
+                        "TopMargin": 26.68,
+                        "BottomMargin": -72.68,
                         "Tag": 49,
                         "ActionTag": -1470634661,
                         "Size": {
-                          "X": 663.0,
-                          "Y": 322.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "owl_left_wing",
@@ -6513,15 +6533,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -4.48,
-                        "RightMargin": -533.52,
-                        "TopMargin": -87.32,
-                        "BottomMargin": -186.68,
+                        "LeftMargin": 241.52,
+                        "RightMargin": -287.52,
+                        "TopMargin": 26.68,
+                        "BottomMargin": -72.68,
                         "Tag": 60,
                         "ActionTag": -1543645346,
                         "Size": {
-                          "X": 538.0,
-                          "Y": 274.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "peacock_left_wing",
@@ -6561,15 +6581,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -66.48,
-                        "RightMargin": -595.52,
-                        "TopMargin": -111.32,
-                        "BottomMargin": -210.68,
+                        "LeftMargin": 241.52,
+                        "RightMargin": -287.52,
+                        "TopMargin": 26.68,
+                        "BottomMargin": -72.68,
                         "Tag": 71,
                         "ActionTag": 1256843038,
                         "Size": {
-                          "X": 662.0,
-                          "Y": 322.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "eagle_left_wing",
@@ -6609,15 +6629,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -4.48,
-                        "RightMargin": -533.52,
-                        "TopMargin": -87.82,
-                        "BottomMargin": -187.18,
+                        "LeftMargin": 241.52,
+                        "RightMargin": -287.52,
+                        "TopMargin": 26.68,
+                        "BottomMargin": -72.68,
                         "Tag": 82,
                         "ActionTag": 1942576412,
                         "Size": {
-                          "X": 538.0,
-                          "Y": 275.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "vulture_wing",
@@ -6657,15 +6677,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": 86.02,
-                        "RightMargin": -443.02,
-                        "TopMargin": -61.82,
-                        "BottomMargin": -161.18,
+                        "LeftMargin": 241.52,
+                        "RightMargin": -287.52,
+                        "TopMargin": 26.68,
+                        "BottomMargin": -72.68,
                         "Tag": 91,
                         "ActionTag": -285374459,
                         "Size": {
-                          "X": 357.0,
-                          "Y": 223.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "chicken_wing",
@@ -6705,15 +6725,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": 53.7081,
-                        "RightMargin": -470.7081,
-                        "TopMargin": -111.9968,
-                        "BottomMargin": -160.0032,
+                        "LeftMargin": 239.2081,
+                        "RightMargin": -285.2081,
+                        "TopMargin": 1.0032,
+                        "BottomMargin": -47.0032,
                         "Tag": 100,
                         "ActionTag": 2007679833,
                         "Size": {
-                          "X": 417.0,
-                          "Y": 272.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "cock_wing",
@@ -6739,8 +6759,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": -10.0263,
-                    "RotationSkewY": -10.0311,
+                    "RotationSkewX": -30.6539,
+                    "RotationSkewY": -30.6573,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -6782,15 +6802,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -80.95,
-                        "RightMargin": -451.05,
-                        "TopMargin": -134.25,
-                        "BottomMargin": -120.75,
+                        "LeftMargin": 162.05,
+                        "RightMargin": -208.05,
+                        "TopMargin": -29.75,
+                        "BottomMargin": -16.25,
                         "Tag": 46,
                         "ActionTag": -1589912062,
                         "Size": {
-                          "X": 532.0,
-                          "Y": 255.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "crow_wing",
@@ -6830,15 +6850,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -80.95,
-                        "RightMargin": -451.05,
-                        "TopMargin": -134.25,
-                        "BottomMargin": -120.75,
+                        "LeftMargin": 162.05,
+                        "RightMargin": -208.05,
+                        "TopMargin": -29.75,
+                        "BottomMargin": -16.25,
                         "Tag": 72,
                         "ActionTag": 1569993360,
                         "Size": {
-                          "X": 532.0,
-                          "Y": 255.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "dove_wing",
@@ -6925,15 +6945,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -75.65,
-                        "RightMargin": -587.35,
-                        "TopMargin": -96.43,
-                        "BottomMargin": -225.57,
+                        "LeftMargin": 232.85,
+                        "RightMargin": -278.85,
+                        "TopMargin": 41.57,
+                        "BottomMargin": -87.57,
                         "Tag": 52,
                         "ActionTag": 2079186551,
                         "Size": {
-                          "X": 663.0,
-                          "Y": 322.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "owl_right_wing",
@@ -6973,15 +6993,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -13.15,
-                        "RightMargin": -524.85,
-                        "TopMargin": -72.43,
-                        "BottomMargin": -201.57,
+                        "LeftMargin": 232.85,
+                        "RightMargin": -278.85,
+                        "TopMargin": 41.57,
+                        "BottomMargin": -87.57,
                         "Tag": 64,
                         "ActionTag": 1914545095,
                         "Size": {
-                          "X": 538.0,
-                          "Y": 274.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "peacock_right_wing",
@@ -7021,15 +7041,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -55.3,
-                        "RightMargin": -606.7,
-                        "TopMargin": -81.47,
-                        "BottomMargin": -240.53,
+                        "LeftMargin": 252.7,
+                        "RightMargin": -298.7,
+                        "TopMargin": 56.53,
+                        "BottomMargin": -102.53,
                         "Tag": 74,
                         "ActionTag": -97825472,
                         "Size": {
-                          "X": 662.0,
-                          "Y": 322.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "eagle_right_wing",
@@ -7069,15 +7089,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": 6.7,
-                        "RightMargin": -544.7,
-                        "TopMargin": -57.97,
-                        "BottomMargin": -217.03,
+                        "LeftMargin": 252.7,
+                        "RightMargin": -298.7,
+                        "TopMargin": 56.53,
+                        "BottomMargin": -102.53,
                         "Tag": 81,
                         "ActionTag": -149418583,
                         "Size": {
-                          "X": 538.0,
-                          "Y": 275.0
+                          "X": 46.0,
+                          "Y": 46.0
                         },
                         "VisibleForFrame": false,
                         "Name": "vulture_wing",
@@ -7127,15 +7147,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -112.28,
-                    "RightMargin": -519.72,
-                    "TopMargin": -150.373,
-                    "BottomMargin": -238.627,
+                    "LeftMargin": 180.72,
+                    "RightMargin": -226.72,
+                    "TopMargin": 21.127,
+                    "BottomMargin": -67.127,
                     "Tag": 46,
                     "ActionTag": 532615489,
                     "Size": {
-                      "X": 632.0,
-                      "Y": 389.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "owl_body",
@@ -7175,15 +7195,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -109.07,
-                    "RightMargin": -522.93,
-                    "TopMargin": -150.07,
-                    "BottomMargin": -238.93,
+                    "LeftMargin": 183.93,
+                    "RightMargin": -229.93,
+                    "TopMargin": 21.43,
+                    "BottomMargin": -67.43,
                     "Tag": 56,
                     "ActionTag": 1042776293,
                     "Size": {
-                      "X": 632.0,
-                      "Y": 389.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "peacock_body",
@@ -7223,15 +7243,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -109.57,
-                    "RightMargin": -523.43,
-                    "TopMargin": -150.07,
-                    "BottomMargin": -238.93,
+                    "LeftMargin": 183.93,
+                    "RightMargin": -229.93,
+                    "TopMargin": 21.43,
+                    "BottomMargin": -67.43,
                     "Tag": 68,
                     "ActionTag": -1876196471,
                     "Size": {
-                      "X": 633.0,
-                      "Y": 389.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "eagle_body",
@@ -7271,15 +7291,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -112.28,
-                    "RightMargin": -519.72,
-                    "TopMargin": -150.07,
-                    "BottomMargin": -238.93,
+                    "LeftMargin": 180.72,
+                    "RightMargin": -226.72,
+                    "TopMargin": 21.43,
+                    "BottomMargin": -67.43,
                     "Tag": 76,
                     "ActionTag": 1612008539,
                     "Size": {
-                      "X": 632.0,
-                      "Y": 389.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "vulture_body",
@@ -7319,15 +7339,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -179.78,
-                    "RightMargin": -587.22,
-                    "TopMargin": -211.57,
-                    "BottomMargin": -300.43,
+                    "LeftMargin": 180.72,
+                    "RightMargin": -226.72,
+                    "TopMargin": 21.43,
+                    "BottomMargin": -67.43,
                     "Tag": 85,
                     "ActionTag": -515646827,
                     "Size": {
-                      "X": 767.0,
-                      "Y": 512.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "chicken_body",
@@ -7367,15 +7387,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -135.28,
-                    "RightMargin": -512.72,
-                    "TopMargin": -188.07,
-                    "BottomMargin": -212.93,
+                    "LeftMargin": 165.72,
+                    "RightMargin": -211.72,
+                    "TopMargin": -10.57,
+                    "BottomMargin": -35.43,
                     "Tag": 94,
                     "ActionTag": -1693379978,
                     "Size": {
-                      "X": 648.0,
-                      "Y": 401.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "cock_body",
@@ -7415,15 +7435,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -76.134,
-                    "RightMargin": -525.866,
-                    "TopMargin": -158.6187,
-                    "BottomMargin": -229.3813,
+                    "LeftMargin": 201.866,
+                    "RightMargin": -247.866,
+                    "TopMargin": 12.3813,
+                    "BottomMargin": -58.3813,
                     "Tag": 103,
                     "ActionTag": -1485490944,
                     "Size": {
-                      "X": 602.0,
-                      "Y": 388.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "hen_body",
@@ -7449,8 +7469,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 80.76,
-                "RotationSkewY": 80.7576,
+                "RotationSkewX": 76.26,
+                "RotationSkewY": 76.2576,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -7492,15 +7512,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -18.82,
-                    "RightMargin": -125.18,
-                    "TopMargin": -73.23,
-                    "BottomMargin": -78.77,
+                    "LeftMargin": 30.18,
+                    "RightMargin": -76.18,
+                    "TopMargin": -20.23,
+                    "BottomMargin": -25.77,
                     "Tag": 48,
                     "ActionTag": -510077266,
                     "Size": {
-                      "X": 144.0,
-                      "Y": 152.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "crow_leg_left",
@@ -7540,15 +7560,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -18.82,
-                    "RightMargin": -125.18,
-                    "TopMargin": -73.23,
-                    "BottomMargin": -78.77,
+                    "LeftMargin": 30.18,
+                    "RightMargin": -76.18,
+                    "TopMargin": -20.23,
+                    "BottomMargin": -25.77,
                     "Tag": 68,
                     "ActionTag": 1612208450,
                     "Size": {
-                      "X": 144.0,
-                      "Y": 152.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "dove_leg_left",
@@ -7635,15 +7655,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -18.32,
-                    "RightMargin": -124.68,
-                    "TopMargin": -73.23,
-                    "BottomMargin": -78.77,
+                    "LeftMargin": 30.18,
+                    "RightMargin": -76.18,
+                    "TopMargin": -20.23,
+                    "BottomMargin": -25.77,
                     "Tag": 50,
                     "ActionTag": 563500092,
                     "Size": {
-                      "X": 143.0,
-                      "Y": 152.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "owl_leg_leg",
@@ -7683,15 +7703,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -18.32,
-                    "RightMargin": -124.68,
-                    "TopMargin": -73.23,
-                    "BottomMargin": -78.77,
+                    "LeftMargin": 30.18,
+                    "RightMargin": -76.18,
+                    "TopMargin": -20.23,
+                    "BottomMargin": -25.77,
                     "Tag": 62,
                     "ActionTag": -1548071767,
                     "Size": {
-                      "X": 143.0,
-                      "Y": 152.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "peacock_leg_left",
@@ -7731,15 +7751,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -18.82,
-                    "RightMargin": -125.18,
-                    "TopMargin": -73.23,
-                    "BottomMargin": -78.77,
+                    "LeftMargin": 30.18,
+                    "RightMargin": -76.18,
+                    "TopMargin": -20.23,
+                    "BottomMargin": -25.77,
                     "Tag": 72,
                     "ActionTag": -425343621,
                     "Size": {
-                      "X": 144.0,
-                      "Y": 152.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "eagle_leg_left",
@@ -7779,15 +7799,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -18.32,
-                    "RightMargin": -124.68,
-                    "TopMargin": -73.23,
-                    "BottomMargin": -78.77,
+                    "LeftMargin": 30.18,
+                    "RightMargin": -76.18,
+                    "TopMargin": -20.23,
+                    "BottomMargin": -25.77,
                     "Tag": 78,
                     "ActionTag": 1894453548,
                     "Size": {
-                      "X": 143.0,
-                      "Y": 152.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "vulture_leg_left",
@@ -7827,15 +7847,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -26.3199,
-                    "RightMargin": -132.6801,
-                    "TopMargin": -66.23,
-                    "BottomMargin": -71.77,
+                    "LeftMargin": 30.1801,
+                    "RightMargin": -76.1801,
+                    "TopMargin": -20.23,
+                    "BottomMargin": -25.77,
                     "Tag": 88,
                     "ActionTag": -255508315,
                     "Size": {
-                      "X": 159.0,
-                      "Y": 138.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "chicken_leg_left",
@@ -7875,15 +7895,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -12.23,
-                    "RightMargin": -117.77,
-                    "TopMargin": -70.21,
-                    "BottomMargin": -73.79,
+                    "LeftMargin": 29.77,
+                    "RightMargin": -75.77,
+                    "TopMargin": -21.21,
+                    "BottomMargin": -24.79,
                     "Tag": 97,
                     "ActionTag": -1386071526,
                     "Size": {
-                      "X": 130.0,
-                      "Y": 144.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "cock_leg_left",
@@ -7923,15 +7943,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -8.3217,
-                    "RightMargin": -150.6783,
-                    "TopMargin": -50.0387,
-                    "BottomMargin": -87.9613,
+                    "LeftMargin": 48.1783,
+                    "RightMargin": -94.1783,
+                    "TopMargin": -4.0387,
+                    "BottomMargin": -41.9613,
                     "Tag": 106,
                     "ActionTag": -474429612,
                     "Size": {
-                      "X": 159.0,
-                      "Y": 138.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "hen_leg_left",
@@ -7957,8 +7977,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 87.783,
-                "RotationSkewY": 87.7834,
+                "RotationSkewX": 69.56,
+                "RotationSkewY": 69.5604,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -8000,15 +8020,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -19.23,
-                    "RightMargin": -124.77,
-                    "TopMargin": -74.21,
-                    "BottomMargin": -77.79,
+                    "LeftMargin": 29.77,
+                    "RightMargin": -75.77,
+                    "TopMargin": -21.21,
+                    "BottomMargin": -24.79,
                     "Tag": 49,
                     "ActionTag": 1950577453,
                     "Size": {
-                      "X": 144.0,
-                      "Y": 152.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "crow_leg_right",
@@ -8048,15 +8068,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -19.23,
-                    "RightMargin": -124.77,
-                    "TopMargin": -74.21,
-                    "BottomMargin": -77.79,
+                    "LeftMargin": 29.77,
+                    "RightMargin": -75.77,
+                    "TopMargin": -21.21,
+                    "BottomMargin": -24.79,
                     "Tag": 69,
                     "ActionTag": 124845330,
                     "Size": {
-                      "X": 144.0,
-                      "Y": 152.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "dove_leg_right",
@@ -8143,15 +8163,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -19.23,
-                    "RightMargin": -124.77,
-                    "TopMargin": -73.71,
-                    "BottomMargin": -77.29,
+                    "LeftMargin": 29.77,
+                    "RightMargin": -75.77,
+                    "TopMargin": -21.21,
+                    "BottomMargin": -24.79,
                     "Tag": 51,
                     "ActionTag": 1282548196,
                     "Size": {
-                      "X": 144.0,
-                      "Y": 151.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "owl_leg_right",
@@ -8191,15 +8211,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -19.23,
-                    "RightMargin": -124.77,
-                    "TopMargin": -74.21,
-                    "BottomMargin": -77.79,
+                    "LeftMargin": 29.77,
+                    "RightMargin": -75.77,
+                    "TopMargin": -21.21,
+                    "BottomMargin": -24.79,
                     "Tag": 63,
                     "ActionTag": 620266765,
                     "Size": {
-                      "X": 144.0,
-                      "Y": 152.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "peacock_leg_right",
@@ -8239,15 +8259,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -18.73,
-                    "RightMargin": -124.27,
-                    "TopMargin": -74.21,
-                    "BottomMargin": -77.79,
+                    "LeftMargin": 29.77,
+                    "RightMargin": -75.77,
+                    "TopMargin": -21.21,
+                    "BottomMargin": -24.79,
                     "Tag": 73,
                     "ActionTag": 560092540,
                     "Size": {
-                      "X": 143.0,
-                      "Y": 152.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "eagle_leg_right",
@@ -8287,15 +8307,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -19.23,
-                    "RightMargin": -124.77,
-                    "TopMargin": -73.71,
-                    "BottomMargin": -77.29,
+                    "LeftMargin": 29.77,
+                    "RightMargin": -75.77,
+                    "TopMargin": -21.21,
+                    "BottomMargin": -24.79,
                     "Tag": 79,
                     "ActionTag": 728724781,
                     "Size": {
-                      "X": 144.0,
-                      "Y": 151.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "vulture_leg_right",
@@ -8335,15 +8355,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -26.73,
-                    "RightMargin": -132.27,
-                    "TopMargin": -67.21,
-                    "BottomMargin": -70.79,
+                    "LeftMargin": 29.77,
+                    "RightMargin": -75.77,
+                    "TopMargin": -21.21,
+                    "BottomMargin": -24.79,
                     "Tag": 89,
                     "ActionTag": 818940338,
                     "Size": {
-                      "X": 159.0,
-                      "Y": 138.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "chicken_leg_right",
@@ -8383,15 +8403,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -13.6136,
-                    "RightMargin": -116.3864,
-                    "TopMargin": -49.7753,
-                    "BottomMargin": -94.2247,
+                    "LeftMargin": 28.3864,
+                    "RightMargin": -74.3864,
+                    "TopMargin": -0.7753,
+                    "BottomMargin": -45.2247,
                     "Tag": 98,
                     "ActionTag": 1718789241,
                     "Size": {
-                      "X": 130.0,
-                      "Y": 144.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "cock_leg_left",
@@ -8431,15 +8451,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -17.0337,
-                    "RightMargin": -141.9663,
-                    "TopMargin": -48.3585,
-                    "BottomMargin": -89.6415,
+                    "LeftMargin": 39.4663,
+                    "RightMargin": -85.4663,
+                    "TopMargin": -2.3585,
+                    "BottomMargin": -43.6415,
                     "Tag": 107,
                     "ActionTag": 1010452470,
                     "Size": {
-                      "X": 159.0,
-                      "Y": 138.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "hen_leg_right",
