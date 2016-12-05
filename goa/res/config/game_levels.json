@@ -1,342 +1,758 @@
 {
-	"table": {
-		"1": {
+  "table": [
+    {
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
       "help": "In this game try to do this",
       "video": "alphamon_duel.webm"
     },
-		"5": {
+    {
+      "levels": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "preconditions": [
+        "verb",
+        "alphabet"
+      ],
       "help": "And in the fifth level, In this game try to do this",
       "video": "AlphamonCombat.webm"
     }
-	},
-  "story-play": {
-      "1": {
-        "help": "story-play",
-        "video": "story-play_1.webm"
-      }
-  },
-  "choose_character": {
-      "1": {
-        "help": "choose_character",
-        "video": "choose_character_1.webm"
-      }
-  },
-  "story-teller": {
-      "1": {
-        "help": "story-teller",
-        "video": "story-teller_1.webm"
-      }
-  },
-  "popcount": {
-      "1": {
-        "help": "popcount",
-        "video": "popcount_1.webm"
-      }
-  },
-  "jumpingNumbers": {
-      "1": {
-        "help": "jumpingNumbers",
-        "video": "jumpingNumbers_1.webm"
-      }
-  },
-  "atm": {
-      "1": {
-        "help": "atm",
-        "video": "atm_1.webm"
-      }
-  },
-  "Item": {
-      "1": {
-        "help": "Item",
-        "video": "Item_1.webm"
-      }
-  },
-  "cardraw": {
-      "1": {
-        "help": "cardraw",
-        "video": "cardraw_1.webm"
-      }
-  },
-  "Line": {
-      "1": {
-        "help": "Line",
-        "video": "Line_1.webm"
-      }
-  },
-  "blastletter": {
-      "1": {
-        "help": "blastletter",
-        "video": "blastletter_1.webm"
-      }
-  },
-  "Door": {
-      "1": {
-        "help": "Door",
-        "video": "Door_1.webm"
-      }
-  },
-  "EndlessRunner": {
-      "1": {
-        "help": "EndlessRunner",
-        "video": "EndlessRunner_1.webm"
-      }
-  },
-  "baja": {
-      "1": {
-        "help": "baja",
-        "video": "baja_1.webm"
-      }
-  },
-  "bubble": {
-      "1": {
-        "help": "bubble",
-        "video": "bubble_1.webm"
-      }
-  },
-  "shoot": {
-      "1": {
-        "help": "shoot",
-        "video": "shoot_1.webm"
-      }
-  },
-  "owl": {
-      "1": {
-        "help": "Here you make words as same as shown in board",
-        "video": "owl_1.webm"
-      }
-  },
-  "ConnectTheDots": {
-      "1": {
-        "help": "ConnectTheDots",
-        "video": "ConnectTheDots_1.webm"
-      }
-  },
-  "Dots": {
-      "1": {
-        "help": "Dots",
-        "video": "Dots_1.webm"
-      }
-  },
-  "Maze": {
-      "1": {
-        "help": "Maze",
-        "video": "Maze_1.webm"
-      }
-  },
-  "Bounce": {
-      "1": {
-        "help": "Bounce",
-        "video": "Bounce_1.webm"
-      }
-  },
-  "train": {
-      "1": {
-        "help": "train",
-        "video": "train_1.webm"
-      }
-  },
-  "stack": {
-      "1": {
-        "help": "stack",
-        "video": "stack_1.webm"
-      }
-  },
-  "talk": {
-      "1": {
-        "help": "talk",
-        "video": "talk_1.webm"
-      }
-  },
-  "jasmine": {
-      "1": {
-        "help": "jasmine",
-        "video": "jasmine_1.webm"
-      }
-  },
-  "Cannon Ball": {
-      "1": {
-        "help": "Cannon Ball",
-        "video": "Cannon Ball_1.webm"
-      }
-  },
-  "decomone": {
-      "1": {
-        "help": "decomone",
-        "video": "decomone_1.webm"
-      }
-  },
-  "order": {
-      "1": {
-        "help": "order",
-        "video": "order_1.webm"
-      }
-  },
-  "dash": {
-      "1": {
-        "help": "dash",
-        "video": "dash_1.webm"
-      }
-  },
-  "cat": {
-      "1": {
-        "help": "cat",
-        "video": "cat_1.webm"
-      }
-  },
-  "Alphamon Feed": {
-      "1": {
-        "help": "Alphamon Feed",
-        "video": "Alphamon Feed_1.webm"
-      }
-  },
-  "alphamole": {
-      "1": {
-        "help": "alphamole",
-        "video": "alphamole_1.webm"
-      }
-  },
-  "Cross The Bridge": {
-      "1": {
-        "help": "Cross The Bridge",
-        "video": "Cross The Bridge_1.webm"
-      }
-  },
-  "chain": {
-      "1": {
-        "help": "chain",
-        "video": "chain_1.webm"
-      }
-  },
-  "balloonMath": {
-      "1": {
-        "help": "balloonMath",
-        "video": "balloonMath_1.webm"
-      }
-  },
-  "pop": {
-      "1": {
-        "help": "pop",
-        "video": "pop_1.webm"
-      }
-  },
-  "bingo": {
-      "1": {
-        "help": "bingo",
-        "video": "bingo_1.webm"
-      }
-  },
-  "drop": {
-      "1": {
-        "help": "drop",
-        "video": "drop_1.webm"
-      }
-  },
-  "chocolateFactory": {
-      "1": {
-        "help": "chocolateFactory",
-        "video": "chocolateFactory_1.webm"
-      }
-  },
-  "shop": {
-      "1": {
-        "help": "shop",
-        "video": "shop_1.webm"
-      }
-  },
-  "Kung Fu Alpha": {
-      "1": {
-        "help": "Move the ball to trace the alphabet.",
-        "video": "Kung Fu Alpha_1.webm"
-      }
-  },
-  "sortit": {
-      "1": {
-        "help": "Sort the items",
-        "video": "sortit_1.webm"
-      }
-  },
-  "wembley": {
-      "1": {
-        "help": "Click on the footballs to form the word mentioned on the top middle of the screen.",
-        "video": "wembley_1.webm"
-      }
-  },
-  "memory": {
-      "1": {
-        "help": "Match the words.",
-        "video": "memory_1.webm"
-      }
-  },
-  "balloon": {
-      "1": {
-        "help": "Catch the mentioned words.",
-        "video": "balloon_1.webm"
-      }
-  },
-  "TreasureHunt": {
-      "1": {
-        "help": "Trace the shown alphabet on the blank canvas provided.",
-        "video": "TreasureHunt_1.webm"
-      }
-  },
-  "Units": {
-      "1": {
-        "help": "Trigger the handle to prepare pizza and click on calculator button to enter the total number of toppings.",
-        "video": "Units_1.webm"
-      }
-  },
-  "spot": {
-      "1": {
-        "help": "Scroll the screen to answer the asked question at the bottom of screen and click on calculator button to enter the answer.",
-        "video": "spot_1.webm"
-      }
-  },
-  "pillar": {
-      "1": {
-        "help": "pillar",
-        "video": "pillar_1.webm"
-      }
-  },
-  "circle": {
-      "1": {
-        "help": "circle",
-        "video": "circle_1.webm"
-      }
-  },
-  "jazz": {
-      "1": {
-        "help": "jazz",
-        "video": "jazz_1.webm"
-      }
-  },
-  "Smash The Rock": {
-      "1": {
-        "help": "Smash The Rock",
-        "video": "Smash The Rock_1.webm"
-      }
-  },
-  "JumpOnWords": {
-      "1": {
-        "help": "JumpOnWords",
-        "video": "JumpOnWords_1.webm"
-      }
-  },
-  "card": {
-      "1": {
-        "help": "card",
-        "video": "card_1.webm"
-      }
-  },
-  "step": {
-      "1": {
-        "help": "step",
-        "video": "step_1.webm"
-      }
-  },
-  "shape": {
-      "1": {
-        "help": "shape",
-        "video": "shape_1.webm"
-      }
-  }
+  ],
+  "story-play": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "story-play",
+      "video": "story-play_1.webm"
+    }
+  ],
+  "choose_character": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "choose_character",
+      "video": "choose_character_1.webm"
+    }
+  ],
+  "story-teller": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "story-teller",
+      "video": "story-teller_1.webm"
+    }
+  ],
+  "popcount": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "popcount",
+      "video": "popcount_1.webm"
+    }
+  ],
+  "jumpingNumbers": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "jumpingNumbers",
+      "video": "jumpingNumbers_1.webm"
+    }
+  ],
+  "atm": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "atm",
+      "video": "atm_1.webm"
+    }
+  ],
+  "Item": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "Item",
+      "video": "Item_1.webm"
+    }
+  ],
+  "cardraw": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "cardraw",
+      "video": "cardraw_1.webm"
+    }
+  ],
+  "Line": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "Line",
+      "video": "Line_1.webm"
+    }
+  ],
+  "blastletter": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "blastletter",
+      "video": "blastletter_1.webm"
+    }
+  ],
+  "Door": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "Door",
+      "video": "Door_1.webm"
+    }
+  ],
+  "EndlessRunner": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "EndlessRunner",
+      "video": "EndlessRunner_1.webm"
+    }
+  ],
+  "baja": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "baja",
+      "video": "baja_1.webm"
+    }
+  ],
+  "bubble": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "bubble",
+      "video": "bubble_1.webm"
+    }
+  ],
+  "shoot": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "shoot",
+      "video": "shoot_1.webm"
+    }
+  ],
+  "owl": [
+    {
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "help": "Here you have make same words as shown in board",
+      "video": "owl_1.webm"
+    },
+    {
+      "levels": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "preconditions": [
+        "plurals"
+      ],
+      "help": "Here you have to make Plurals word",
+      "video": "AlphamonCombat.webm"
+    },
+    {
+      "levels": [
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "preconditions": [
+        "antonyms"
+      ],
+      "help": "Here you have to make Antonyms word",
+      "video": "AlphamonCombat.webm"
+    },
+    {
+      "levels": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "preconditions": [
+        "synonyms"
+      ],
+      "help": "Here you have to make Synonyms word",
+      "video": "AlphamonCombat.webm"
+    },
+    {
+      "levels": [
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "preconditions": [
+        "homonyms"
+      ],
+      "help": "Here you have to make Homonyms word",
+      "video": "AlphamonCombat.webm"
+    },
+    {
+      "levels": [
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "help": "Here you have make same words as shown in board",
+      "video": "owl_1.webm"
+    },
+    {
+      "levels": [
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "preconditions": [
+        "plurals"
+      ],
+      "help": "Here you have to make Plurals word",
+      "video": "AlphamonCombat.webm"
+    },
+    {
+      "levels": [
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "preconditions": [
+        "antonyms"
+      ],
+      "help": "Here you have to make Antonyms word",
+      "video": "AlphamonCombat.webm"
+    },
+    {
+      "levels": [
+        41,
+        42,
+        43,
+        44,
+        45
+      ],
+      "preconditions": [
+        "synonyms"
+      ],
+      "help": "Here you have to make Synonyms word",
+      "video": "AlphamonCombat.webm"
+    },
+    {
+      "levels": [
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "preconditions": [
+        "homonyms"
+      ],
+      "help": "Here you have to make Homonyms word",
+      "video": "AlphamonCombat.webm"
+    },
+    {
+      "levels": [
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "help": "Here you have make same words as shown in board",
+      "video": "owl_1.webm"
+    },
+    {
+      "levels": [
+        56,
+        57,
+        58,
+        59,
+        60
+      ],
+      "preconditions": [
+        "plurals"
+      ],
+      "help": "Here you have to make Plurals word",
+      "video": "AlphamonCombat.webm"
+    },
+    {
+      "levels": [
+        71,
+        72,
+        73,
+        74,
+        75
+      ],
+      "preconditions": [
+        "antonyms"
+      ],
+      "help": "Here you have to make Antonyms word",
+      "video": "AlphamonCombat.webm"
+    },
+    {
+      "levels": [
+        76,
+        77,
+        78,
+        79,
+        80
+      ],
+      "preconditions": [
+        "synonyms"
+      ],
+      "help": "Here you have to make Synonyms word",
+      "video": "AlphamonCombat.webm"
+    },
+    {
+      "levels": [
+        81,
+        82,
+        83,
+        84,
+        85
+      ],
+      "preconditions": [
+        "homonyms"
+      ],
+      "help": "Here you have to make Homonyms word",
+      "video": "AlphamonCombat.webm"
+    },
+    {
+      "levels": [
+        86,
+        87,
+        88,
+        89,
+        90
+      ],
+      "help": "Here you have make same words as shown in board",
+      "video": "owl_1.webm"
+    },
+    {
+      "levels": [
+        91,
+        92,
+        93,
+        94,
+        95
+      ],
+      "preconditions": [
+        "plurals"
+      ],
+      "help": "Here you have to make Plurals word",
+      "video": "AlphamonCombat.webm"
+    },
+    {
+      "levels": [
+        96,
+        97,
+        98,
+        99,
+        100
+      ],
+      "preconditions": [
+        "antonyms"
+      ],
+      "help": "Here you have to make Antonyms word",
+      "video": "AlphamonCombat.webm"
+    }
+  ],
+  "ConnectTheDots": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "ConnectTheDots",
+      "video": "ConnectTheDots_1.webm"
+    }
+  ],
+  "Dots": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "Dots",
+      "video": "Dots_1.webm"
+    }
+  ],
+  "Maze": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "Maze",
+      "video": "Maze_1.webm"
+    }
+  ],
+  "Bounce": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "Bounce",
+      "video": "Bounce_1.webm"
+    }
+  ],
+  "train": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "train",
+      "video": "train_1.webm"
+    }
+  ],
+  "stack": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "stack",
+      "video": "stack_1.webm"
+    }
+  ],
+  "talk": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "talk",
+      "video": "talk_1.webm"
+    }
+  ],
+  "jasmine": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "jasmine",
+      "video": "jasmine_1.webm"
+    }
+  ],
+  "Cannon Ball": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "Cannon Ball",
+      "video": "Cannon Ball_1.webm"
+    }
+  ],
+  "decomone": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "decomone",
+      "video": "decomone_1.webm"
+    }
+  ],
+  "order": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "order",
+      "video": "order_1.webm"
+    }
+  ],
+  "dash": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "dash",
+      "video": "dash_1.webm"
+    }
+  ],
+  "cat": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "cat",
+      "video": "cat_1.webm"
+    }
+  ],
+  "Alphamon Feed": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "Alphamon Feed",
+      "video": "Alphamon Feed_1.webm"
+    }
+  ],
+  "alphamole": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "alphamole",
+      "video": "alphamole_1.webm"
+    }
+  ],
+  "Cross The Bridge": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "Cross The Bridge",
+      "video": "Cross The Bridge_1.webm"
+    }
+  ],
+  "chain": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "chain",
+      "video": "chain_1.webm"
+    }
+  ],
+  "balloonMath": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "balloonMath",
+      "video": "balloonMath_1.webm"
+    }
+  ],
+  "pop": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "pop",
+      "video": "pop_1.webm"
+    }
+  ],
+  "bingo": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "bingo",
+      "video": "bingo_1.webm"
+    }
+  ],
+  "drop": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "drop",
+      "video": "drop_1.webm"
+    }
+  ],
+  "chocolateFactory": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "chocolateFactory",
+      "video": "chocolateFactory_1.webm"
+    }
+  ],
+  "shop": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "shop",
+      "video": "shop_1.webm"
+    }
+  ],
+  "Kung Fu Alpha": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "Move the ball to trace the alphabet.",
+      "video": "Kung Fu Alpha_1.webm"
+    }
+  ],
+  "sortit": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "Sort the items",
+      "video": "sortit_1.webm"
+    }
+  ],
+  "wembley": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "Click on the footballs to form the word mentioned on the top middle of the screen.",
+      "video": "wembley_1.webm"
+    }
+  ],
+  "memory": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "Match the words.",
+      "video": "memory_1.webm"
+    }
+  ],
+  "balloon": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "Catch the mentioned words.",
+      "video": "balloon_1.webm"
+    }
+  ],
+  "TreasureHunt": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "Trace the shown alphabet on the blank canvas provided.",
+      "video": "TreasureHunt_1.webm"
+    }
+  ],
+  "Units": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "Trigger the handle to prepare pizza and click on calculator button to enter the total number of toppings.",
+      "video": "Units_1.webm"
+    }
+  ],
+  "spot": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "Scroll the screen to answer the asked question at the bottom of screen and click on calculator button to enter the answer.",
+      "video": "spot_1.webm"
+    }
+  ],
+  "pillar": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "pillar",
+      "video": "pillar_1.webm"
+    }
+  ],
+  "circle": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "circle",
+      "video": "circle_1.webm"
+    }
+  ],
+  "jazz": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "jazz",
+      "video": "jazz_1.webm"
+    }
+  ],
+  "Smash The Rock": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "Smash The Rock",
+      "video": "Smash The Rock_1.webm"
+    }
+  ],
+  "JumpOnWords": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "JumpOnWords",
+      "video": "JumpOnWords_1.webm"
+    }
+  ],
+  "card": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "card",
+      "video": "card_1.webm"
+    }
+  ],
+  "step": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "step",
+      "video": "step_1.webm"
+    }
+  ],
+  "shape": [
+    {
+      "levels": [
+        1
+      ],
+      "help": "shape",
+      "video": "shape_1.webm"
+    }
+  ]
 }
