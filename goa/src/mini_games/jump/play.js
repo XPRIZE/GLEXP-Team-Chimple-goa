@@ -26,6 +26,7 @@ xc.playLayer = cc.Layer.extend( {
   helpIsFirst: true,
   bg : null,
   extraX:0,
+  menuContext:null,
     ctor:
     function () {
         this._super();
@@ -41,8 +42,8 @@ xc.playLayer = cc.Layer.extend( {
     /*    this.char = ccs.load(xc.playLayer.res.char,xc.path);
         this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
         this.addChild(this.char.node,1);*/
-
-       // menuContext.setMaxPoints(10);
+    //    menuContext = this.getParent().menuContext;
+       
         this.bg = ccs.load(xc.playLayer.res.jump_game, xc.path);
         if( this.size.width > 2560) {
           this.extraX = (this.size.width - 2560) / 2;
@@ -293,7 +294,10 @@ xc.playLayer = cc.Layer.extend( {
 
     onEnterTransitionDidFinish: function() {
     this._level = this.getParent().menuContext.getCurrentLevel();
+    menuContext = this.getParent().menuContext;
+     menuContext.setMaxPoints(10);
     cc.log("Level = ",this._level);
+
     if(this._level <= 10 ) {
         this.char = ccs.load(xc.playLayer.res.char,xc.path);
         this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
@@ -578,6 +582,7 @@ if(this._level == 1)
        var repeatAction = new cc.Repeat(new cc.Sequence(moveLeft, moveRight), 2);
        var sequenceAction = new cc.Sequence(repeatAction, moveOriginal);
        this.char.node.runAction(sequenceAction);
+       menuContext.addPoints(-1);
        }
         }     
      
@@ -643,7 +648,7 @@ this.remove();
      if(this.score <= -4 )
      {
          if (cc.sys.isNative) {
-                var menuContext = this.getParent().menuContext;
+                menuContext = this.getParent().menuContext;
                 cc.log("showscore");
                 menuContext.showScore();
             }
@@ -676,12 +681,12 @@ this.remove();
   {
          self.correct++;
     this.score += 2 ;
- //   menuContext.addPoints(2);
+    menuContext.addPoints(2);
     scoreLabel.setString(""+ this.score);
     if(this.score >= 10)
     {
         if (cc.sys.isNative) {
-                var menuContext = this.getParent().menuContext;
+                menuContext = this.getParent().menuContext;
                 cc.log("showscore");
                 menuContext.showScore();
             }
@@ -691,6 +696,7 @@ this.remove();
    decrementScore : function()
    {
        this.score -= 1;
+       menuContext.addPoints(-1);
        scoreLabel.setString(""+ this.score);
    },
 
