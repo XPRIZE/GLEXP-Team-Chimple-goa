@@ -81,11 +81,13 @@ xc.Pinata = cc.Layer.extend({
 
     var mapKeyArray = Object.keys(this.map);
     this.mapKey = mapKeyArray[this.getRandomInt(0,(mapKeyArray.length-1))];
-    
+    if(currentLevelValue == 1){
+        this.mapKey = mapKeyArray[1];
+    }
     var board = this.gameBg.node.getChildByName("board");
     var boardText = new cc.LabelTTF(""+this.mapKey,"res/fonts/Marker Felt.ttf",120);
     boardText.setName(board.getName());
-    boardText.setPosition(board.width/2,board.height/2);                    
+    boardText.setPosition(board.width/2,board.height/2);
     board.addChild(boardText);
     if(gameTheme == "pinatacream"){  boardText.setColor(new cc.color(155 ,42,50,255));  }
     if(gameTheme == "pinatacity"){  boardText.setColor(new cc.color(0,0,0,255));  }
@@ -145,7 +147,7 @@ xc.Pinata = cc.Layer.extend({
         help.setName("help");
         help.click((this.xPosi/2)+targetB.x,targetB.y);
     }
-
+    this.pointerMove = false;
     var classReference = this;
     var listnerBg = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY_ONE, swallowTouches: false,
             onTouchBegan :function(touch, event){
@@ -167,6 +169,7 @@ xc.Pinata = cc.Layer.extend({
 
                 classReference.checkBoundaryBall(target,touch);
                 let checkMoving = classReference.movingOrNot(classReference.player.prevX,classReference.player.prevY,touch.getLocation().x,touch.getLocation().y);
+                classReference.pointerMove = checkMoving; 
                 if(checkMoving){
                         if(classReference.rightLine != undefined){
                             classReference.removeChild(classReference.rightLine);
@@ -180,29 +183,31 @@ xc.Pinata = cc.Layer.extend({
                         }
                         classReference.leftLine = new cc.DrawNode();
                         classReference.leftLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("left").x,classReference.gameBg.node.getChildByName("left").y), cc.p(classReference.bubblePlayer.x - (classReference.bubblePlayer.width/2),classReference.bubblePlayer.y),5,classReference.stringColor);
-                        classReference.addChild(classReference.leftLine);
-                        return true;
+                        classReference.addChild(classReference.leftLine); 
                 }
             },
             onTouchEnded : function(touch, event){
                 classReference.player.angle = classReference.radToDeg(Math.atan2((touch.getLocation().y - classReference.player.y),(-touch.getLocation().x + classReference.player.x)));
-                 classReference.player.prevX = Math.abs(classReference.player.prevX - touch.getLocation().x);
-                 classReference.player.prevY = Math.abs(classReference.player.prevY - touch.getLocation().y); 
+                classReference.player.prevX = Math.abs(classReference.player.prevX - touch.getLocation().x);
+                classReference.player.prevY = Math.abs(classReference.player.prevY - touch.getLocation().y); 
 
-                if(classReference.rightLine != undefined){
-                    classReference.removeChild(classReference.rightLine);
-                }
-                classReference.rightLine = new cc.DrawNode();
-                classReference.rightLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("right").x,classReference.gameBg.node.getChildByName("right").y), cc.p(classReference.player.x - 10,classReference.player.y),5,classReference.stringColor);
-                classReference.addChild(classReference.rightLine);
+                if(classReference.pointerMove){
+                    
+                    if(classReference.rightLine != undefined){
+                        classReference.removeChild(classReference.rightLine);
+                    }
+                    classReference.rightLine = new cc.DrawNode();
+                    classReference.rightLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("right").x,classReference.gameBg.node.getChildByName("right").y), cc.p(classReference.player.x - 10,classReference.player.y),5,classReference.stringColor);
+                    classReference.addChild(classReference.rightLine);
 
-                if(classReference.leftLine != undefined){
-                    classReference.removeChild(classReference.leftLine);
+                    if(classReference.leftLine != undefined){
+                        classReference.removeChild(classReference.leftLine);
+                    }
+                    classReference.leftLine = new cc.DrawNode();
+                    classReference.leftLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("left").x,classReference.gameBg.node.getChildByName("left").y),cc.p(classReference.player.x + 10,classReference.player.y),5,classReference.stringColor);
+                    classReference.addChild(classReference.leftLine);
                 }
-                classReference.leftLine = new cc.DrawNode();
-                classReference.leftLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("left").x,classReference.gameBg.node.getChildByName("left").y),cc.p(classReference.player.x + 10,classReference.player.y),5,classReference.stringColor);
-                classReference.addChild(classReference.leftLine);
-              
+            
                 if(classReference.player.prevY != 0 && classReference.player.prevY != 0){
                     classReference.shootingFlag = true;
                     classReference.gameBg.node.getChildByName("board").freezShooting = false;
@@ -302,6 +307,7 @@ xc.Pinata = cc.Layer.extend({
   
     update : function (dt) {
        
+      // if(this.shootingFlag && !menuContext.isGamePaused()){
        if(this.shootingFlag && !menuContext.isGamePaused()){
            this.stateShootBubble(dt);
            if(!(this.bubblePlayer.y >=0)){               

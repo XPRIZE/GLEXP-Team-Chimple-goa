@@ -30,7 +30,10 @@ xc.playLayer = cc.Layer.extend( {
     function () {
         this._super();
         this.helpLayerLetter = 0;
+        this.index = 0;
+        this.wordObj = [];
         this.helpIsFirst = true;
+        this.word = [];
         this.stepRef = [];
         this.size = cc.winSize;
         cc.spriteFrameCache.addSpriteFrames(xc.playLayer.res.jump_plist);
@@ -383,6 +386,7 @@ if(this._level == 1)
         var jump = new cc.jumpBy(1,cc.p(this.size.width /4 - (cc.winSize.width * 0.06),230),150,1);
         this.char.node.runAction(jump);
 
+
      if(this._level <= 10 ) {
         var animation = ccs.load(xc.playLayer.res.char,xc.path);
        this.char.node.runAction(animation.action);
@@ -545,9 +549,13 @@ if(this._level == 1)
         
      }  
      cc.log("done= %s" , words);
+      var x = this.char.node.getPosition().x;
+      var y = this.char.node.getPosition().y;
         if(this.allwords.indexOf(words.toLowerCase()) != -1)
         {
           
+       var audioEngine = cc.AudioEngine.getInstance();
+       audioEngine.playEffect(xc.playLayer.res.jumpSound);
          cc.log(this.allwords[this.allwords.indexOf(words.toLowerCase())]);
          this.jumping();
           cc.log( this.allwords.splice( this.allwords.indexOf(words.toLowerCase()) ,1));
@@ -559,7 +567,18 @@ if(this._level == 1)
      else
         {
         // cc.log("aaaa");
-         
+        var audioEngine = cc.AudioEngine.getInstance();
+       audioEngine.playEffect(xc.playLayer.res.wrongSound);
+
+       if (this.wordObj.length != 0)
+       {
+       var moveLeft = new cc.moveTo(0.1, cc.p(this.char.node.getPosition().x - 5, this.char.node.getPosition().y));
+       var moveRight = new cc.moveTo(0.1, cc.p(this.char.node.getPosition().x + 20, this.char.node.getPosition().y));
+       var moveOriginal = new cc.moveTo(0.1, cc.p(x, y));
+       var repeatAction = new cc.Repeat(new cc.Sequence(moveLeft, moveRight), 2);
+       var sequenceAction = new cc.Sequence(repeatAction, moveOriginal);
+       this.char.node.runAction(sequenceAction);
+       }
         }     
      
    
@@ -671,7 +690,7 @@ this.remove();
   
    decrementScore : function()
    {
-       this.score -= 2;
+       this.score -= 1;
        scoreLabel.setString(""+ this.score);
    },
 
@@ -685,19 +704,20 @@ this.remove();
          if (cc.rectContainsPoint(targetRectangle, location))
          {
            
-                       if(target.id == "Ball1" && self.word.length < 10){ 
+                       if(target.id == "Ball1" && self.word.length < 8){ 
+                           cc.log("in ball1");
                         var letter = new cc.LabelTTF (group[0], 'Arial' , 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x+ self.extraX,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
                         letter.setColor(cc.color(0,0,0)); 
-                         letter.setName("letter");
+                        letter.setName("letter");
                         self.index++;
                         self.word.push(group[0]);
                         self.wordObj.push(letter);
                         cc.log("hello =", self.word); 
                        }
-                        if(target.id == "Ball2"&& self.word.length < 10){ 
+                        if(target.id == "Ball2"&& self.word.length < 8){ 
                          var letter =  new cc.LabelTTF(group[1],'Arial', 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x+ self.extraX,self.square[self.index].y));
@@ -709,7 +729,7 @@ this.remove();
                         self.wordObj.push(letter);
                           
                        }
-                        if(target.id == "Ball3"&& self.word.length < 10){ 
+                        if(target.id == "Ball3"&& self.word.length < 8){ 
                          var letter = new cc.LabelTTF(group[2],'Arial', 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x+ self.extraX,self.square[self.index].y));
@@ -721,7 +741,7 @@ this.remove();
                         self.wordObj.push(letter);
                           
                        }
-                        if(target.id == "Ball4"&& self.word.length < 10){ 
+                        if(target.id == "Ball4"&& self.word.length < 8){ 
                          var letter = new cc.LabelTTF(group[3],'Arial', 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x+ self.extraX,self.square[self.index].y));
@@ -733,7 +753,7 @@ this.remove();
                         self.wordObj.push(letter);
                           
                        }
-                        if(target.id == "Ball5"&& self.word.length < 10){ 
+                        if(target.id == "Ball5"&& self.word.length < 8){ 
                          var letter = new cc.LabelTTF(group[4],'Arial', 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x+ self.extraX,self.square[self.index].y));
@@ -745,7 +765,7 @@ this.remove();
                         self.wordObj.push(letter);
                           
                        }
-                        if(target.id == "Ball6"&& self.word.length < 10){ 
+                        if(target.id == "Ball6"&& self.word.length < 8){ 
                         var letter = new cc.LabelTTF(group[5],'Arial', 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x+ self.extraX,self.square[self.index].y));
@@ -758,7 +778,7 @@ this.remove();
                      
                        }
 
-                         if(target.id == "Ball7"&& self.word.length < 10){ 
+                         if(target.id == "Ball7"&& self.word.length < 8){ 
                         var letter = new cc.LabelTTF(group[6],'Arial', 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x+ self.extraX,self.square[self.index].y));
@@ -770,7 +790,7 @@ this.remove();
                      
                        }
 
-                         if(target.id == "Ball8"&& self.word.length < 10){ 
+                         if(target.id == "Ball8"&& self.word.length < 8){ 
                         var letter = new cc.LabelTTF(group[7], 'Arial', 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x+ self.extraX,self.square[self.index].y));
@@ -783,7 +803,7 @@ this.remove();
                      
                        }
 
-                         if(target.id == "Ball9"&& self.word.length < 10){ 
+                         if(target.id == "Ball9"&& self.word.length < 8){ 
                         var letter = new cc.LabelTTF(group[8],'Arial', 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x+ self.extraX,self.square[self.index].y));
@@ -796,7 +816,7 @@ this.remove();
                      
                        }
 
-                         if(target.id == "Ball10"&& self.word.length < 10){ 
+                         if(target.id == "Ball10"&& self.word.length < 8){ 
                         var letter = new cc.LabelTTF(group[9],'Arial', 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x+ self.extraX,self.square[self.index].y));
@@ -819,6 +839,7 @@ this.remove();
                        self.index--;  
                        if (self.wordObj.length == 0)
                       {
+                          cc.log(self.index);
                           self.index = 0;   
                           cc.eventManager.removeListener(target);
                       }       
@@ -837,6 +858,8 @@ this.remove();
                        }*/
 
                         }
+                        cc.log(self.index);
+                        cc.log(self.word.length);
                        if(target.id == "Tick"){ 
                        
                         self.helpIsFirst = false;
@@ -879,7 +902,8 @@ xc.playLayer.res = {
     char8:xc.path+"jump_on_words/character8.json",
     jump_plist: xc.path +"jump_on_words/jump_on_words.plist",
     jump_png: xc.path +"jump_on_words/jump_on_words.png",
-    dict:xc.path + "english/allwords.json"
-
+    dict:xc.path + "english/allwords.json",
+    jumpSound:xc.path+"sounds/sfx/jump1.ogg",
+    wrongSound:xc.path+"sounds/sfx/error.ogg"
 
 }
