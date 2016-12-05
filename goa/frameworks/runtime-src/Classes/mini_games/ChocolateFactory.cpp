@@ -279,7 +279,7 @@ void ChocolateFactory::addTouchEvents(Sprite* obj)
 				bool flag = false;
 				for (int j = 0; j < _trayBin.size(); j++)
 				{
-					if (myBG->getChildByName(_nodeName.at(i))->getPosition() == _trayBin[j]->getPosition())
+					if ((myBG->getChildByName(_nodeName.at(i))->getPositionX() + myGameWidth) == (_trayBin[j]->getPositionX()))
 					{  flag = true;  }
 				}
 				if (!flag) {
