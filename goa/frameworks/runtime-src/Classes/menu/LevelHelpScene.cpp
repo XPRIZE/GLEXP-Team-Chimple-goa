@@ -83,17 +83,26 @@ bool LevelHelpScene::initWithGame(std::string gameName) {
 }
 
 void LevelHelpScene::onEnterTransitionDidFinish() {
-    auto button = Button::create("hadithi_kumhusu_wangari/Hadithi_kumhusu_wangari_thumbnail.png", "hadithi_kumhusu_wangari/Hadithi_kumhusu_wangari_thumbnail.png", "hadithi_kumhusu_wangari/Hadithi_kumhusu_wangari_thumbnail.png", Widget::TextureResType::LOCAL);
-    button->addTouchEventListener(CC_CALLBACK_2(LevelHelpScene::gotoGame, this));
-    button->setPosition(Vec2(1280, 900));
-    addChild(button);
+    auto bg = CSLoader::createNode("template/video_screen.csb");
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    bg->setName("bg");
+    if (visibleSize.width > 2560) {
+        bg->setPositionX((visibleSize.width - 2560)/2);
+    }
+    this->addChild(bg);
     
+    auto button = static_cast<Button*> (bg->getChildByName("Button_1"));
+    button->addTouchEventListener(CC_CALLBACK_2(LevelHelpScene::gotoGame, this));
+//    button->setPosition(Vec2(1280, 900));
+//    addChild(button);
+    
+    auto textField = static_cast<TextField*> (bg->getChildByName("TextField_1"));
     auto text = Text::create(_helpText, "Arial", 64);
-    text->setPosition(Vec2(1280, 300));
-//    text->setContentSize(Size(1200, 400));
-    text->setTextAreaSize(Size(1200, 0));
+    text->setPosition(textField->getPosition());
+    text->setTextAreaSize(Size(2000, 0));
     text->ignoreContentAdaptWithSize(true);
     addChild(text);
+
     videoPlayStart();
 }
 
