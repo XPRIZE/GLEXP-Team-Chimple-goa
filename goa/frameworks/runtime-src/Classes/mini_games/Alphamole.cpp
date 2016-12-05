@@ -92,7 +92,7 @@ void Alphamole::startGame()
 	auto scoreBord = _background->getChildByName("score_1");
 	float x = scoreBord->getPositionX();
 	scoreBord->setPositionX(x - _Xpos);
-
+	scoreBord->setVisible(false);
 
 	/*auto children = _background->getChildren();
 
@@ -127,7 +127,7 @@ void Alphamole::startGame()
 	_mainChar = Alphamon::createWithAlphabet(_mychar);
 	_mainChar->setScaleX(0.3);
 	_mainChar->setScaleY(0.3);
-	_mainChar->setPositionX(visibleSize.width / 2);
+	_mainChar->setPositionX(visibleSize.width * 0.1);
 	_mainChar->setPositionY(visibleSize.height / 1.2);
 	this->addChild(_mainChar);
 	_mainChar->enableTouch(false);
@@ -162,7 +162,7 @@ void Alphamole::showAlpha(float ft)
 			str = _mychar;
 			_helpLayer = true;
 			child = _background->getChildByName(holes.at(cocos2d::RandomHelper::random_int(0, 1)));
-			auto help = HelpLayer::create(Rect(child->getPositionX() + _Xpos, child->getPositionY() + 300, 600, 800), Rect(visibleSize.width/2, visibleSize.height/1.1, 400, 400));
+			auto help = HelpLayer::create(Rect(child->getPositionX() + _Xpos, child->getPositionY() + 300, 600, 800), Rect(visibleSize.width* 0.1, visibleSize.height/1.1, 400, 400));
 			help->click(Vec2(child->getPositionX() + _Xpos, child->getPositionY() + 300));
 			help->setName("helpLayer");
 			this->addChild(help);
@@ -265,7 +265,7 @@ void Alphamole::onAlphabetSelect(EventCustom *event) {
 	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 	auto path = LangUtil::getInstance()->getAlphabetSoundFileName(buf1[0]);
 	audio->playEffect(path.c_str(), false);
-	menu->pickAlphabet(_mychar, buf1[0], true);
+	//menu->pickAlphabet(_mychar, buf1[0], true);
 	CCLOG("touched letter");
 	if (_mychar == buf1[0]) {
 		_score++;

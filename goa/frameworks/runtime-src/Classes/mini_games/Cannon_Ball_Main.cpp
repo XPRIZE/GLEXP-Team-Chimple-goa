@@ -92,6 +92,8 @@ void MainGame::onEnterTransitionDidFinish()
 	MainGame::originX = origin.x;
 	MainGame::originY = origin.y;
 
+	_menuContext->setMaxPoints(15);
+
 	p1.x = MainGame::originX + MainGame::width * 90 / 100;
 	p1.y = MainGame::originY + MainGame::height * 18 / 100;
 
@@ -758,7 +760,7 @@ void MainGame::update(float dt)
 					_menuContext->pickAlphabet(MainGame::letterArray[i]->id, bulletArray[j]->id, true);
 
 					int score = _menuContext->getPoints();
-					if (score == 30)
+					if (score == 15)
 						_menuContext->showScore();
 
 					int it = find(MainGame::bulletArray.begin(), MainGame::bulletArray.end(), MainGame::bulletArray[j]) - MainGame::bulletArray.begin();	//find bullet index in bulletarray 

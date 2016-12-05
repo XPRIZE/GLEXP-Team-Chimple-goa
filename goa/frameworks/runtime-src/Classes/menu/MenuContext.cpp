@@ -152,7 +152,7 @@ void MenuContext::resumeNodeAndDescendants(Node *pNode)
 void MenuContext::addGreyLayer() {
     if(!_greyLayer) {
         Size visibleSize = Director::getInstance()->getVisibleSize();
-        _greyLayer = LayerColor::create(Color4B(128.0, 128.0, 128.0, 200.0));
+        _greyLayer = LayerColor::create(Color4B(255.0, 255.0, 255.0, 0.0));
         _greyLayer->setContentSize(visibleSize);
         addChild(_greyLayer, -1);
     }
@@ -552,7 +552,7 @@ void MenuContext::pickAlphabet(char targetAlphabet, char chosenAlphabet, bool ch
 
 void MenuContext::addPoints(int points) {
     _points += points;
-    _points = MAX(MIN(_points, _maxPoints), 0);
+//    _points = MAX(MIN(_points, _maxPoints), 0);
     if(points > 0) {
         auto sequence = Sequence::create(
                                          CallFunc::create(CC_CALLBACK_0(MenuContext::happyFace, this)),
@@ -994,7 +994,7 @@ void MenuContext::showScore() {
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     CCLOG("Points: %d MaxPoints: %d", _points, _maxPoints);
-    int stars = round(_points * 3.0/_maxPoints);
+    int stars = MIN(round(MAX(_points, 0) * 3.0/_maxPoints), 3);
 
     std::string progressStr;
     localStorageGetItem(gameName + LEVEL, &progressStr);
@@ -1020,13 +1020,22 @@ void MenuContext::showScore() {
     const char* output = buffer.GetString();
     localStorageSetItem(gameName + LEVEL, output);
 
-    _ps = ParticleFireworks::create();
+    if(FileUtils::getInstance()->isFileExist("scoreboard/" + gameName + "_success.plist")) {
+        _ps = CCParticleSystemQuad::create("scoreboard/" + gameName + "_success.plist");
+    } else {
+        _ps = CCParticleSystemQuad::create("scoreboard/particle_success.plist");
+    }
+    if(FileUtils::getInstance()->isFileExist("scoreboard/" + gameName + "_particle.png")) {
+        _ps->setTexture(CCTextureCache::sharedTextureCache()->addImage("scoreboard/" + gameName + "_particle.png"));
+    }
     _ps->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
     this->addChild(_ps, 10);
     
     runAction(Sequence::create(DelayTime::create(5.0), CallFunc::create([=] {
         this->removeChild(_ps);
         _ps = nullptr;
+        _greyLayer->addChild(LayerColor::create(Color4B(128.0, 128.0, 128.0, 200.0), visibleSize.width, visibleSize.height));
+
         auto scoreNode = ScoreBoardContext::create(stars, this->gameName, this->sceneName);
         scoreNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
         addChild(scoreNode);

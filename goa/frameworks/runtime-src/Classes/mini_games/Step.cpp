@@ -266,15 +266,22 @@ void Step::Events(Sprite *sprite)
 				_blastTime->play("blast", false);
 				_blastTime->setAnimationEndCallFunc("blast", CC_CALLBACK_0(Step::removeAnimation, this));
 
-				_menuContext->addPoints(10);
+				CocosDenshion::SimpleAudioEngine *success = CocosDenshion::SimpleAudioEngine::getInstance();
+				success->playEffect("sounds/sfx/success.ogg", false);
+
+				_menuContext->addPoints(10 - _score);
 				finalAnimation(0);
 			}
 			else
 			{
+				CocosDenshion::SimpleAudioEngine *error = CocosDenshion::SimpleAudioEngine::getInstance();
+				error->playEffect("sounds/sfx/error.ogg", false);
+
 				auto _moveBy = MoveBy::create(.5, Vec2(0, -100));
 				auto delay = DelayTime::create(0.25f);
 				auto _seq = Sequence::create(_moveBy, delay, _moveBy->reverse(), CallFunc::create([=](){
 					_menuContext->addPoints(-1);
+					_score += _score;
 					_moveFlag = 0;
 				}), NULL);
 
@@ -312,6 +319,7 @@ void Step::finalAnimation(int _index)
 		auto _moveTo = MoveTo::create(.4, Vec2(_position.at(_index).x, (visibleSize.height * .14 + (_fluffyNode->getChildByName("body_1")->getContentSize().height * .30) + (_height * _barPercent / 100))));
 		auto _delay = DelayTime::create(.3);
 		auto _sequence = Sequence::create(_moveTo, _delay, CallFunc::create([=]() {
+
 			finalAnimation(_index + 1);
 		}), NULL);
 
@@ -334,6 +342,9 @@ void Step::finalAnimation(int _index)
 		}), NULL);
 
 		_fluffyNode->runAction(_sequence);
+
+		CocosDenshion::SimpleAudioEngine *jump2 = CocosDenshion::SimpleAudioEngine::getInstance();
+		jump2->playEffect("sounds/sfx/jump2.ogg", false);
 	}
 	else
 	{

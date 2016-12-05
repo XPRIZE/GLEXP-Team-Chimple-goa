@@ -42,7 +42,8 @@ void Units::onEnterTransitionDidFinish() {
 	_answerValue = _level + 10;
 
 
-	_menuContext->setMaxPoints(1);
+	_menuContext->setMaxPoints(5);
+	_menuContext->addPoints(5);
 
 	_bg = CSLoader::createNode("unit/unit.csb");
 	_bg->setName("bg");
@@ -87,15 +88,16 @@ void Units::onEnterTransitionDidFinish() {
 	_bg->getChildByName("FileNode_3")->runAction(_openTimeline);
 
 
-	auto handle = _bg->getChildByName("FileNode_3");
+	//auto handle = _bg->getChildByName("FileNode_3");
+	auto handle = _bg->getChildByName("click");
 	//handle->setPosition(handle->getPosition() + Vec2(50,50));
-	handle->setContentSize(Size(200, 200));
+	//handle->setContentSize(Size(218, 101));
 	handle->setName("handle");
 	
 	//auto E = DrawNode::create();
 	//this->addChild(E, 10);
-	//E->drawRect(Vec2(handle->getPosition()),
-	//	Vec2(200 + handle->getPositionX(), 200 + handle->getPositionY()),
+	//->drawRect(Vec2(handle->getPosition()),
+	//	Vec2(218 + handle->getPositionX(), 101 + handle->getPositionY()),
 	//	Color4F(0, 0, 255, 22));
 
 	
@@ -122,14 +124,18 @@ void Units::onEnterTransitionDidFinish() {
 
 void Units::update(float delta) {
 	
-		if (_calculateFlag == 0 && _calculator->checkAnswer(_answerValue)) {
+	
+		
+		
+		if (_calculateFlag == 0 && _calculator->checkAnswer(_answerValue) && _calculator->isEnterPressed()) {
 		
 		CCLOG("correct answer");
 		_calculateFlag = 1;
 
 		auto ShowScore = CallFunc::create([=] {
 			
-			_menuContext->addPoints(1);
+			//_menuContext->addPoints(1);
+			//_menuContext->addPoints(3);
 			_menuContext->showScore();
 
 		});
@@ -140,6 +146,23 @@ void Units::update(float delta) {
 		
 		}
 	
+
+		if (_enterPressedFlag == 0 && _calculator->isEnterPressed() && (_calculator->checkAnswer(_answerValue) == false)) {
+
+
+			auto deductPoint = CallFunc::create([=] {
+				_menuContext->addPoints(-1);
+				_enterPressedFlag = 1;
+				CCLOG("point deducted");
+
+			});
+
+
+			auto deductPointSequence = Sequence::create(DelayTime::create(0.5), deductPoint, NULL);
+			this->runAction(deductPointSequence);
+
+		}
+
 		
 }
 
@@ -350,7 +373,7 @@ void Units::addCalculator() {
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	_calculator = new Calculator();
-	_calculator->createCalculator(Vec2(500, 1150), Vec2(0.5, 0.5), 0.5, 0.5);
+	_calculator->createCalculator(Vec2(500, 1300), Vec2(0.5, 0.5), 0.7, 0.7);
 	this->addChild(_calculator,10);
 	//_calculator->setGlobalZOrder(2);
 	_calculator->setVisible(false);

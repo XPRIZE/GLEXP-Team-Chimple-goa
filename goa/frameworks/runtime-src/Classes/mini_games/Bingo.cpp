@@ -193,8 +193,8 @@ void Bingo::onEnterTransitionDidFinish()
 	std::map<int, std::string> bingoSceneMapping = {
 
 		{ 0,	"bingofarm" },
-		{ 1,	"bingojungle" },
-		{ 2,    "bingocity" }
+		{ 1,	"bingocity" },
+		{ 2,    "bingojungle" }
 	};
 
 	
@@ -215,14 +215,14 @@ void Bingo::onEnterTransitionDidFinish()
 	}
 	else if (levelKeyNumber.second == 1)
 	{
-		_bingoCurrentTheme = "bingojungle";
+		//_bingoCurrentTheme = "bingojungle";
 		int pairNo = static_cast<int>(_gridBasedValue.at("pairRequired"));
 		_data = TextGenerator::getInstance()->getSynonyms(pairNo);
 		_menuContext->setMaxPoints(pairNo*5);
 	}
 	else
 	{
-		_bingoCurrentTheme = "bingocity";
+		//_bingoCurrentTheme = "bingocity";
 		int pairNo = static_cast<int>(_gridBasedValue.at("pairRequired"));
 		_data = TextGenerator::getInstance()->getAntonyms(pairNo);
 		_menuContext->setMaxPoints(pairNo*5);
@@ -364,7 +364,7 @@ void Bingo::onEnterTransitionDidFinish()
 
 			//Label
 
-			label = LabelTTF::create(_data_key[randomIndex[boxId]], "Helvetica", 100);
+			label = LabelTTF::create(_data_key[randomIndex[boxId]], "Helvetica", 90);
 			label->setPosition(c, d);
 			label->setAnchorPoint(Vec2(0.5, 0.5));
 			box->addChild(label, 3);
@@ -397,14 +397,26 @@ void Bingo::onEnterTransitionDidFinish()
 
 			addX += box->getBoundingBox().size.width + _boxBoard->getBoundingBox().size.width * 0.011;
 			Boxcounter++;
-			if (_menuContext->getCurrentLevel() == 1 && Boxcounter ==1)
-			{
-				creatHelp(box, _helpBoard);
-			}
+			
 		}
 
 		addY = addY + box->getBoundingBox().size.height + _boxBoard->getBoundingBox().size.width *0.013;
 		addX = _boxBoard->getBoundingBox().size.width * _gridBasedValue.at("addXFactor");
+	}
+	if (_menuContext->getCurrentLevel() == 1)
+	{
+		for (int i = 0; i < _boxContainer.size(); i++)
+		{
+			for (int j = 0; j < _boxContainer.size(); j++)
+			{
+				std::string str = _boxContainer[i][j]->getChildren().at(0)->getName();
+				std::string str1 = _label->getString();
+					if (str.compare(str1) == 0)
+					{
+						creatHelp(_boxContainer[i][j], _helpBoard,i,j);
+					}
+			}
+		}
 	}
 	/*Vector <Node*> children = bingoBackground->getChildren().at(0)->getChildren();
 	for (auto item = children.rbegin(); item != children.rend(); ++item) {
@@ -422,13 +434,22 @@ Bingo::Bingo(void)
 {
 
 }
-void Bingo::creatHelp(Sprite* letterBox, Sprite* helpBox)
+void Bingo::creatHelp(Sprite* letterBox, Sprite* helpBox,int i, int j)
 {
-	auto box1 = letterBox->getPosition() +Vec2(visibleSize.width * 0.058, visibleSize.height * 0.07);
-	auto box2 = helpBox->getPosition() +Vec2(visibleSize.width * 0.024, -visibleSize.height * 0.01);
+	auto myGameWidth = 0;
+	if(Director::getInstance()->getVisibleSize().width > 2560)
+	 myGameWidth = (visibleSize.width - 2560) / 2;
 
-	_help = HelpLayer::create(Rect(box1.x, box1.y, letterBox->getContentSize().width*1.3, letterBox->getContentSize().height*1.3), Rect(box2.x, box2.y, helpBox->getContentSize().width*1.4, helpBox->getContentSize().height*1.3));
-	_help->click(Vec2(box1.x, box1.y));
+	auto initPosiForBoxBoardX = myGameWidth + _boxBoard->getPositionX() - _boxBoard->getContentSize().width / 2;
+	auto intiPosiForSmallBoxXGap = letterBox->getPositionX() - letterBox->getContentSize().width / 2;
+	auto initXforHelpBox = initPosiForBoxBoardX + intiPosiForSmallBoxXGap + letterBox->getContentSize().width / 2;
+
+	auto initPosiForBoxBoardY = _boxBoard->getPositionY() - _boxBoard->getContentSize().height / 2;
+	auto intiPosiForSmallBoxYGap = letterBox->getPositionY() - letterBox->getContentSize().height / 2;
+	auto initYforHelpBox = initPosiForBoxBoardY + intiPosiForSmallBoxYGap + letterBox->getContentSize().height / 2;// +letterBox->getContentSize().height*0.075;
+
+	_help = HelpLayer::create(Rect(initXforHelpBox, initYforHelpBox, letterBox->getContentSize().width, letterBox->getContentSize().height*0.9), Rect(visibleSize.width * 0.5, visibleSize.height * 0.91, helpBox->getContentSize().width*0.8, helpBox->getContentSize().height*0.8));
+	_help->click(Vec2(initXforHelpBox, initYforHelpBox));
 	_isHelpDone = 0;
  	 this->addChild(_help);
 }
