@@ -566,10 +566,6 @@ void Bingo::addEvents(Sprite* clickedObject)
 					auto callShowScore = CCCallFunc::create([=] {
 						 auto a = _maxPointSetter;
 						_menuContext->setMaxPoints(1 * (_maxPointSetter-1));
-
-						CocosDenshion::SimpleAudioEngine *success = CocosDenshion::SimpleAudioEngine::getInstance();
-						success->playEffect("sounds/sfx/success.ogg", false);
-
 						_menuContext->showScore();
 					});
 					this->runAction(Sequence::create(DelayTime::create(5), callShowScore, NULL));
