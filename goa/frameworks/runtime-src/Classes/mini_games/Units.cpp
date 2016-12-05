@@ -336,7 +336,10 @@ bool Units::onTouchBegan(Touch* touch, Event* event) {
 			if (handleTriggered == 0) {
 				
 				_openTimeline->play("open", false);
-			
+				
+				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+				audio->playEffect("sounds/calculator/gear_triggered.mp3", false);
+
 				createNthOrder();
 				handleTriggered = 1;
 
@@ -346,16 +349,21 @@ bool Units::onTouchBegan(Touch* touch, Event* event) {
 		if (target->getName() == "calbutton" && _gameOverFlag == 1) {
 
 			_calculator->resetCalculator();
-
+			
+			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+			audio->playEffect("sounds/calculator/calculator_button_click.mp3", false);
+			
 			if (_calculatorTouched == false) {
 				_calculator->setVisible(true);
 				_calculatorTouched = true;
+				_calculator->activeSound();
 
 			}
 			else {
 
 				_calculator->setVisible(false);
 				_calculatorTouched = false;
+				_calculator->deactivateSound();
 			}
 			
 		}
