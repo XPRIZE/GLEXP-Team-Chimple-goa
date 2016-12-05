@@ -1113,51 +1113,6 @@
             "ctype": "SpriteObjectData"
           },
           {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Ninapenda_kusoma/light.png",
-              "Plist": "Ninapenda_kusoma/Ninapenda_kusoma.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1690.6864,
-              "Y": 948.3572
-            },
-            "Scale": {
-              "ScaleX": 0.4598,
-              "ScaleY": 0.4598
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.6604,
-              "Y": 0.5269
-            },
-            "PreSize": {
-              "X": 0.0812,
-              "Y": 0.0739
-            },
-            "LeftMargin": 1586.6864,
-            "RightMargin": 765.3136,
-            "TopMargin": 785.1428,
-            "BottomMargin": 881.8572,
-            "Tag": 108,
-            "ActionTag": -1405123436,
-            "Size": {
-              "X": 208.0,
-              "Y": 133.0
-            },
-            "Name": "light_3",
-            "ctype": "SpriteObjectData"
-          },
-          {
             "ClipAble": false,
             "ComboBoxIndex": 1,
             "SingleColor": {
@@ -1258,96 +1213,6 @@
             },
             "Name": "Panel_9_0",
             "ctype": "PanelObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Ninapenda_kusoma/bush.png",
-              "Plist": "Ninapenda_kusoma/Ninapenda_kusoma.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 2024.2307,
-              "Y": 462.8954
-            },
-            "Scale": {
-              "ScaleX": 0.4598,
-              "ScaleY": 0.4598
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.7907,
-              "Y": 0.2572
-            },
-            "PreSize": {
-              "X": 0.307,
-              "Y": 0.1533
-            },
-            "LeftMargin": 1631.2307,
-            "RightMargin": 142.7693,
-            "TopMargin": 1199.1046,
-            "BottomMargin": 324.8954,
-            "Tag": 111,
-            "ActionTag": 1731316575,
-            "Size": {
-              "X": 786.0,
-              "Y": 276.0
-            },
-            "Name": "bush_4",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Ninapenda_kusoma/bush.png",
-              "Plist": "Ninapenda_kusoma/Ninapenda_kusoma.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1383.4176,
-              "Y": 459.5996
-            },
-            "Scale": {
-              "ScaleX": -0.3935,
-              "ScaleY": 0.4598
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.5404,
-              "Y": 0.2553
-            },
-            "PreSize": {
-              "X": 0.307,
-              "Y": 0.1533
-            },
-            "LeftMargin": 990.4176,
-            "RightMargin": 783.5824,
-            "TopMargin": 1202.4004,
-            "BottomMargin": 321.5996,
-            "Tag": 112,
-            "ActionTag": -250322623,
-            "Size": {
-              "X": 786.0,
-              "Y": 276.0
-            },
-            "Name": "bush_4_0",
-            "ctype": "SpriteObjectData"
           },
           {
             "ClipAble": false,
@@ -1689,6 +1554,90 @@
           {
             "FileData": {
               "Type": "Normal",
+              "Path": "Ninapenda_kusoma/bush.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2071.2656,
+              "Y": 441.4626
+            },
+            "Scale": {
+              "ScaleX": 0.6,
+              "ScaleY": 0.6
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8091,
+              "Y": 0.2453
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2071.2656,
+            "RightMargin": 488.7344,
+            "TopMargin": 1358.5374,
+            "BottomMargin": 441.4626,
+            "UserData": "flowerb",
+            "Tag": 8997,
+            "ActionTag": -222420360,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bush",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Ninapenda_kusoma/bush.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1353.4924,
+              "Y": 431.46
+            },
+            "Scale": {
+              "ScaleX": 0.6,
+              "ScaleY": 0.6
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5287,
+              "Y": 0.2397
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1353.4924,
+            "RightMargin": 1206.5076,
+            "TopMargin": 1368.54,
+            "BottomMargin": 431.46,
+            "UserData": "flowera",
+            "Tag": 9004,
+            "ActionTag": -247771986,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bush",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
               "Path": "Ninapenda_kusoma/men.json",
               "Plist": ""
             },
@@ -1697,7 +1646,7 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1194.5901,
+              "X": 1194.59,
               "Y": 273.2551
             },
             "Scale": {
@@ -1714,11 +1663,11 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1194.5901,
-            "RightMargin": 1365.4099,
+            "LeftMargin": 1194.59,
+            "RightMargin": 1365.41,
             "TopMargin": 1526.7449,
             "BottomMargin": 273.2551,
-            "UserData": "walk;drag",
+            "UserData": "hammer",
             "Tag": 1501,
             "ActionTag": -715542847,
             "Size": {
@@ -1760,7 +1709,7 @@
             "RightMargin": 2138.3411,
             "TopMargin": 1505.3154,
             "BottomMargin": 294.6845,
-            "UserData": "walk;drag",
+            "UserData": "hammer",
             "Tag": 1852,
             "ActionTag": 964827886,
             "Size": {
@@ -1857,6 +1806,48 @@
             },
             "Name": "boy",
             "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Ninapenda_kusoma/light.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1681.6218,
+              "Y": 947.019
+            },
+            "Scale": {
+              "ScaleX": 0.4,
+              "ScaleY": 0.4
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.6569,
+              "Y": 0.5261
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1681.6218,
+            "RightMargin": 878.3782,
+            "TopMargin": 852.981,
+            "BottomMargin": 947.019,
+            "UserData": "light",
+            "Tag": 8630,
+            "ActionTag": 21855099,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "light",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -1868,6 +1859,8 @@
       },
       "UsedResources": [
         "boy_2.json",
+        "bush.json",
+        "light.json",
         "men.json",
         "men_1.json",
         "Ninapenda_kusoma.plist",

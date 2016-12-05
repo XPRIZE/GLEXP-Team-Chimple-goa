@@ -5,10 +5,23 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 200,
+        "Duration": 330,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "zz",
         "Timelines": [
+          {
+            "ActionTag": -1215193161,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "sleeping",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": -1888979098,
             "Property": "ActionValue",
@@ -41,6 +54,61 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -1888979098,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 255,
+                "FrameIndex": 175,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 0,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 0,
+                "FrameIndex": 215,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 255,
+                "FrameIndex": 230,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 255,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 0,
+                "FrameIndex": 330,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -531119757,
             "Property": "ActionValue",
             "Frames": [
@@ -49,6 +117,14 @@
                 "CurrentAniamtionName": "look",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "look",
+                "SingleFrameIndex": 1280,
+                "FrameIndex": 215,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -70,6 +146,21 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1522853578,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "poking",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -79,6 +170,12 @@
           "StartIndex": 0,
           "EndIndex": 200,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 215,
+          "EndIndex": 330,
+          "Name": "zz",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -375,7 +472,9 @@
             "RightMargin": 166.9404,
             "TopMargin": 640.6874,
             "BottomMargin": 159.3126,
+            "UserData": "main.zz",
             "Tag": 40,
+            "FrameEvent": "sleeping",
             "ActionTag": -1215193161,
             "Size": {
               "X": 1081.0,
@@ -417,6 +516,7 @@
             "TopMargin": 1282.9285,
             "BottomMargin": 517.0715,
             "Tag": 612,
+            "FrameEvent": "sleeping",
             "ActionTag": -1888979098,
             "Size": {
               "X": 0.0,
@@ -466,6 +566,90 @@
             },
             "Name": "boy",
             "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Ninapenda_kusoma/wallpainting.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 356.2092,
+              "Y": 1331.3679
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1391,
+              "Y": 0.7396
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 356.2092,
+            "RightMargin": 2203.7908,
+            "TopMargin": 468.6321,
+            "BottomMargin": 1331.3679,
+            "UserData": "fall",
+            "Tag": 6726,
+            "ActionTag": 2054421144,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "wallpainting",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Ninapenda_kusoma/spider.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2171.8271,
+              "Y": 1381.7572
+            },
+            "Scale": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8484,
+              "Y": 0.7676
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2171.8271,
+            "RightMargin": 388.1729,
+            "TopMargin": 418.2428,
+            "BottomMargin": 1381.7572,
+            "UserData": "swing",
+            "Tag": 6828,
+            "ActionTag": -1522853578,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "spider",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -479,6 +663,8 @@
         "boy_2.json",
         "Ninapenda_kusoma.plist",
         "Ninapenda_kusoma.png",
+        "spider.json",
+        "wallpainting.json",
         "z.json"
       ],
       "ctype": "GameFileData"

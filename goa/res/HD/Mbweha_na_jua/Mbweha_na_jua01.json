@@ -5,7 +5,7 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 250,
+        "Duration": 400,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
@@ -160,6 +160,97 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1874192770,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 255,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 375,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 400,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1874192770,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1300.0,
+                "Y": 2000.0,
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 463.6191,
+                "Y": 1003.4003,
+                "FrameIndex": 345,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1874192770,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.2,
+                "Y": 0.2,
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1874192770,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 250,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 255,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -169,6 +260,12 @@
           "StartIndex": 0,
           "EndIndex": 250,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 255,
+          "EndIndex": 400,
+          "Name": "pigeon",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -191,6 +288,8 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -217,6 +316,8 @@
             "RightMargin": -720.0,
             "TopMargin": 0.0002,
             "BottomMargin": -0.0002,
+            "CallBackType": "Click",
+            "UserData": "main.pigeon",
             "Tag": 614,
             "ActionTag": 74044683,
             "Size": {
@@ -270,6 +371,8 @@
             "RightMargin": -719.991,
             "TopMargin": -249.9597,
             "BottomMargin": 249.9597,
+            "CallBackType": "Click",
+            "UserData": "main.pigeon",
             "Tag": 627,
             "ActionTag": 1534980298,
             "Size": {
@@ -323,6 +426,8 @@
             "RightMargin": -719.991,
             "TopMargin": -776.9463,
             "BottomMargin": 776.9463,
+            "CallBackType": "Click",
+            "UserData": "main.pigeon",
             "Tag": 628,
             "ActionTag": -98163229,
             "Size": {
@@ -376,6 +481,8 @@
             "RightMargin": -720.0,
             "TopMargin": 900.0,
             "BottomMargin": -900.0,
+            "CallBackType": "Click",
+            "UserData": "main.pigeon",
             "Tag": 615,
             "ActionTag": 1785267002,
             "Size": {
@@ -429,6 +536,8 @@
             "RightMargin": -720.0,
             "TopMargin": 920.0029,
             "BottomMargin": -920.0029,
+            "CallBackType": "Click",
+            "UserData": "main.pigeon",
             "Tag": 618,
             "ActionTag": -258459453,
             "Size": {
@@ -517,7 +626,7 @@
             },
             "LeftMargin": 287.9714,
             "RightMargin": 1426.0286,
-            "TopMargin": 1565.6227,
+            "TopMargin": 1565.6226,
             "BottomMargin": -63.6226,
             "Tag": 617,
             "ActionTag": 411209202,
@@ -558,7 +667,7 @@
             },
             "LeftMargin": 2214.9626,
             "RightMargin": 345.0374,
-            "TopMargin": 1491.8881,
+            "TopMargin": 1491.8879,
             "BottomMargin": 308.112,
             "Tag": 629,
             "ActionTag": 2041150955,
@@ -566,7 +675,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "jackal1",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -609,8 +718,8 @@
             },
             "LeftMargin": 1802.6143,
             "RightMargin": 327.3857,
-            "TopMargin": 1149.4363,
-            "BottomMargin": -365.4363,
+            "TopMargin": 1149.4364,
+            "BottomMargin": -365.4364,
             "Tag": 620,
             "ActionTag": 882210122,
             "Size": {
@@ -660,7 +769,7 @@
             },
             "LeftMargin": 1857.0835,
             "RightMargin": 272.9165,
-            "TopMargin": 1093.7408,
+            "TopMargin": 1093.7407,
             "BottomMargin": -309.7408,
             "Tag": 621,
             "ActionTag": 1309659633,
@@ -814,7 +923,7 @@
             "LeftMargin": 2286.9878,
             "RightMargin": -156.9878,
             "TopMargin": 1083.325,
-            "BottomMargin": -299.325,
+            "BottomMargin": -299.3249,
             "Tag": 624,
             "ActionTag": -1651857748,
             "Size": {
@@ -996,7 +1105,7 @@
             },
             "LeftMargin": 206.5688,
             "RightMargin": 2353.4312,
-            "TopMargin": 1616.1061,
+            "TopMargin": 1616.106,
             "BottomMargin": 183.894,
             "Tag": 639,
             "ActionTag": -1357270901,
@@ -1004,7 +1113,49 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "jackal2",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mbweha_na_jua/bird.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1300.0,
+              "Y": 2000.0
+            },
+            "Scale": {
+              "ScaleX": 0.2,
+              "ScaleY": 0.2
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5078,
+              "Y": 1.1111
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1300.0,
+            "RightMargin": 1260.0,
+            "TopMargin": -200.0,
+            "BottomMargin": 2000.0,
+            "Tag": 358,
+            "ActionTag": 1874192770,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "VisibleForFrame": false,
+            "Name": "pigeon",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -1016,6 +1167,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "bird.json",
         "jackal1.json",
         "jackal2.json",
         "Mbweha_na_jua.plist",

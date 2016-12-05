@@ -1,0 +1,364 @@
+{
+  "ID": "06338991-bce6-4d0b-b0ff-6740e9d75f56",
+  "Version": "3.10.0.0",
+  "Name": "wave",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 120,
+        "Speed": 1.0,
+        "ActivedAnimationName": "wave",
+        "Timelines": [
+          {
+            "ActionTag": 824440646,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -699.9994,
+                "Y": 0.0001,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 4.4162,
+                "Y": 0.7617,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1542088353,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 0.0007,
+                "Y": 0.0001,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 704.4287,
+                "Y": 0.7617,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1257073624,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 700.0002,
+                "Y": 0.0018,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1404.4401,
+                "Y": 0.7634,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2102326124,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -700.0,
+                "Y": 0.0018,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -700.0,
+                "Y": 0.0,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2102326124,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 120,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2102326124,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 255,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 120,
+          "Name": "wave",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 6913,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_wave.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4.4162,
+              "Y": 0.7617
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -190.0838,
+            "RightMargin": -198.9162,
+            "TopMargin": -27.7617,
+            "BottomMargin": -26.2383,
+            "Tag": 6914,
+            "ActionTag": 824440646,
+            "Size": {
+              "X": 389.0,
+              "Y": 54.0
+            },
+            "Name": "wave",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_wave.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 704.4287,
+              "Y": 0.7617
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 509.9287,
+            "RightMargin": -898.9287,
+            "TopMargin": -27.7617,
+            "BottomMargin": -26.2383,
+            "Tag": 6915,
+            "ActionTag": -1542088353,
+            "Size": {
+              "X": 389.0,
+              "Y": 54.0
+            },
+            "Name": "wave_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_wave.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1404.4401,
+              "Y": 0.7634
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1209.9401,
+            "RightMargin": -1598.9401,
+            "TopMargin": -27.7634,
+            "BottomMargin": -26.2366,
+            "Tag": 6916,
+            "ActionTag": 1257073624,
+            "Size": {
+              "X": 389.0,
+              "Y": 54.0
+            },
+            "Name": "wave_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_wave.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -700.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -894.5,
+            "RightMargin": 505.5,
+            "TopMargin": -27.0,
+            "BottomMargin": -27.0,
+            "Tag": 6917,
+            "ActionTag": 2102326124,
+            "Size": {
+              "X": 389.0,
+              "Y": 54.0
+            },
+            "Name": "wave_1_0",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Mimi_na_familia_yangu.plist",
+        "Mimi_na_familia_yangu.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

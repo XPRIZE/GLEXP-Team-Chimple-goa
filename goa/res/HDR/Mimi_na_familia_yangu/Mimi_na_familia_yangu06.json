@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 545,
+        "Duration": 660,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "sweat",
         "Timelines": [
           {
             "ActionTag": -828024890,
@@ -60,6 +60,14 @@
                 "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "drop",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 555,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -89,6 +97,14 @@
                 "CurrentAniamtionName": "drop",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 10,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "drop",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 555,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -154,6 +170,14 @@
                 "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "drop",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 555,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -199,6 +223,22 @@
                 "CurrentAniamtionName": "drop",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 10,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "drop",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 555,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "drop",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 660,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -261,6 +301,12 @@
           "StartIndex": 0,
           "EndIndex": 545,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 555,
+          "EndIndex": 660,
+          "Name": "sweat",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -360,13 +406,14 @@
             "RightMargin": 492.521,
             "TopMargin": 1644.6382,
             "BottomMargin": 155.3618,
+            "UserData": "drag;jump",
             "Tag": 10060,
             "ActionTag": 699993224,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "chimp",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -403,13 +450,14 @@
             "RightMargin": 2134.0107,
             "TopMargin": 819.6824,
             "BottomMargin": 980.3176,
+            "UserData": "drag;eat",
             "Tag": 10096,
             "ActionTag": 1295561676,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_3",
+            "Name": "gorilla",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -460,7 +508,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_4",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -511,7 +559,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_3",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -562,7 +610,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_1_2",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -613,7 +661,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_0_2",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -664,7 +712,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_2_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -715,7 +763,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_1_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -766,7 +814,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_3_2",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -817,7 +865,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_2_2",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -868,7 +916,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_1_0_1",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -919,7 +967,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_0_0_1",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -970,7 +1018,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_3_0_1",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1021,7 +1069,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_2_0_1",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1072,7 +1120,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_1_1_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1123,7 +1171,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_0_1_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1174,7 +1222,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_3_1_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1225,7 +1273,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_2_1_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1276,7 +1324,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_1_0_0_1",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1327,7 +1375,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_0_0_0_1",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1378,7 +1426,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_3_0_0_1",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1429,7 +1477,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_2_0_0_1",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1480,7 +1528,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_1_0_0_0_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1531,7 +1579,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_0_0_0_0_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1581,7 +1629,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_3_0_0_0_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1632,7 +1680,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_2_0_0_0_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1683,7 +1731,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_4_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1734,7 +1782,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_3_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1785,7 +1833,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_1_2_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1836,7 +1884,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_0_2_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1887,7 +1935,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_2_0_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1938,7 +1986,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_1_0_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1989,7 +2037,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_3_2_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2040,7 +2088,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_2_2_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2091,7 +2139,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_1_0_1_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2142,7 +2190,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_0_0_1_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2193,7 +2241,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_3_0_1_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2244,7 +2292,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_2_0_1_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2295,7 +2343,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_1_1_0_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2346,7 +2394,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_0_1_0_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2397,7 +2445,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_3_1_0_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2448,7 +2496,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_2_1_0_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2499,7 +2547,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_1_0_0_1_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2550,7 +2598,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_0_0_0_1_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2601,7 +2649,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_3_0_0_1_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2652,7 +2700,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_2_0_0_1_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2702,7 +2750,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_1_0_0_0_0_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2753,7 +2801,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_0_0_0_0_0_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2803,7 +2851,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_3_0_0_0_0_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2854,7 +2902,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_2_0_0_0_0_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2963,7 +3011,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3014,7 +3062,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3065,7 +3113,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_1",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3112,7 +3160,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3163,7 +3211,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_2",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3214,7 +3262,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_1",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3265,7 +3313,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_3",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3312,7 +3360,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_2",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3363,7 +3411,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_1_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3410,7 +3458,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_0_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3457,7 +3505,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_3_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3508,7 +3556,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_2_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3555,7 +3603,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_1_1",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3606,7 +3654,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_0_1",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3656,7 +3704,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_3_1",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3707,7 +3755,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_2_1",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3750,13 +3798,14 @@
             "RightMargin": 554.0817,
             "TopMargin": 1092.6349,
             "BottomMargin": 226.3651,
+            "UserData": "main.sweat",
             "Tag": 281,
             "ActionTag": 1395715684,
             "Size": {
               "X": 1006.0,
               "Y": 481.0
             },
-            "Name": "Miminafamiliayangu_mound_1",
+            "Name": "mound",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3806,7 +3855,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_1_0_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3856,7 +3905,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_0_0_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3906,7 +3955,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_3_0_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3956,7 +4005,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_2_0_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -4006,7 +4055,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_1_0_0_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -4056,7 +4105,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_0_0_0_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -4106,7 +4155,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_3_0_0_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -4156,7 +4205,7 @@
               "X": 80.0,
               "Y": 197.0
             },
-            "Name": "Miminafamiliayangu_leaf_3_0_2_0_0_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -4188,16 +4237,17 @@
               "Y": 0.0
             },
             "LeftMargin": 385.9669,
-            "RightMargin": 2174.033,
+            "RightMargin": 2174.0332,
             "TopMargin": 1512.8809,
             "BottomMargin": 287.1192,
+            "UserData": "drag;walk",
             "Tag": 477,
             "ActionTag": -828024890,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "turtle",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -4238,7 +4288,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_4",
+            "Name": "drop",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -4281,7 +4331,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_4_0",
+            "Name": "drop",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -4324,7 +4374,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_4_1",
+            "Name": "drop",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -4367,7 +4417,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_4_0_0",
+            "Name": "drop",
             "ctype": "ProjectNodeObjectData"
           }
         ],
