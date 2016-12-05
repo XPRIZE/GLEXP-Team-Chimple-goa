@@ -211,21 +211,21 @@ void Bingo::onEnterTransitionDidFinish()
 	{
 		int pairNo = static_cast<int>(_gridBasedValue.at("pairRequired"));
 		_data = TextGenerator::getInstance()->getHomonyms(pairNo);
-		_menuContext->setMaxPoints(pairNo*5);
+		_menuContext->setMaxPoints(pairNo*1);
 	}
 	else if (levelKeyNumber.second == 1)
 	{
 		//_bingoCurrentTheme = "bingojungle";
 		int pairNo = static_cast<int>(_gridBasedValue.at("pairRequired"));
 		_data = TextGenerator::getInstance()->getSynonyms(pairNo);
-		_menuContext->setMaxPoints(pairNo*5);
+		_menuContext->setMaxPoints(pairNo*1);
 	}
 	else
 	{
 		//_bingoCurrentTheme = "bingocity";
 		int pairNo = static_cast<int>(_gridBasedValue.at("pairRequired"));
 		_data = TextGenerator::getInstance()->getAntonyms(pairNo);
-		_menuContext->setMaxPoints(pairNo*5);
+		_menuContext->setMaxPoints(pairNo*1);
 	}
 
 	//BackGround
@@ -496,6 +496,7 @@ void::Bingo::setWordInHelpBoard()
 		_label->setPosition(visibleSize.width / 2 + origin.x, visibleSize.height*_gridBasedValue.at("helpLetterYFactor"));
 		_label->setAnchorPoint(Vec2(0.5, 0.5));
 		this->addChild(_label, 3);
+		_maxPointSetter++;
 	}
 }
 void Bingo::addEvents(Sprite* clickedObject)
@@ -522,7 +523,7 @@ void Bingo::addEvents(Sprite* clickedObject)
 					target->setVisible(false);
 					target->setTag(1);
 					setWordInHelpBoard();
-					_menuContext->addPoints(5);
+					_menuContext->addPoints(1);
 
 					auto targetName = target->getName();
 					for (int i = 0; i < _boxContainer.size(); i++)
@@ -550,7 +551,7 @@ void Bingo::addEvents(Sprite* clickedObject)
 				{
 					FShake* shake = FShake::actionWithDuration(0.5f, 5.0f);
 					target->runAction(shake);
-					_menuContext->addPoints(-2);
+					_menuContext->addPoints(-1);
 				}
 				if (_menuContext->getCurrentLevel() == 1 && _isHelpDone == 0)
 				{
@@ -563,6 +564,8 @@ void Bingo::addEvents(Sprite* clickedObject)
 				{
 					_isBingoDone = true;
 					auto callShowScore = CCCallFunc::create([=] {
+						 auto a = _maxPointSetter;
+						_menuContext->setMaxPoints(1 * (_maxPointSetter-1));
 						_menuContext->showScore();
 					});
 					this->runAction(Sequence::create(DelayTime::create(5), callShowScore, NULL));
