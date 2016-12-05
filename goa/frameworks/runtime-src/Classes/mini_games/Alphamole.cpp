@@ -172,7 +172,7 @@ void Alphamole::showAlpha(float ft)
 			this->addChild(help);
 		    
 		}
-		_particle->setPosition(child->getPosition());
+		_particle->setPosition(Vec2(child->getPositionX() + _Xpos, child->getPositionY()));
 		_alphabetLayer->addChild(_particle);
 		_monsterReff = Alphamon::createWithAlphabet(str);
 		float x = child->getPositionX();
