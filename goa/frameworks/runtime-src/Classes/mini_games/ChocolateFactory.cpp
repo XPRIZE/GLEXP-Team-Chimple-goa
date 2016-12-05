@@ -220,6 +220,10 @@ void ChocolateFactory::machineDynamicMotion(std::vector<int> randomNumbers, std:
 }
 void ChocolateFactory::addTouchEvents(Sprite* obj)
 {
+	auto myGameWidth = 0;
+	if (visibleSize.width > 2560) {
+		 myGameWidth = (visibleSize.width - 2560) / 2;
+	}
 
 	auto listener = cocos2d::EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(false);
@@ -272,14 +276,20 @@ void ChocolateFactory::addTouchEvents(Sprite* obj)
 		{
 			Rect boxRect = CCRectMake(myBG->getChildByName(_nodeName.at(i))->getPositionX() - 100 + xPosi, myBG->getChildByName(_nodeName.at(i))->getPositionY() - 100, 200, 200);
 			if (rect.intersectsRect(boxRect)) {
+
 				bool flag = false;
+
 				for (int j = 0; j < _trayBin.size(); j++)
 				{
-					if (myBG->getChildByName(_nodeName.at(i))->getPosition() == _trayBin[j]->getPosition())
+					auto nodeX = (myBG->getChildByName(_nodeName.at(i))->getPositionX() + myGameWidth);
+					auto nodeY = myBG->getChildByName(_nodeName.at(i))->getPositionY() + 50;
+					auto targetX = _trayBin[j]->getPositionX();
+					auto targetY = _trayBin[j]->getPositionY();
+					if (nodeX == targetX  && nodeY == targetY)
 					{  flag = true;  }
 				}
 				if (!flag) {
-					target->runAction(Sequence::create(MoveTo::create(0.2, Vec2(myBG->getChildByName(_nodeName.at(i))->getPositionX()+40, myBG->getChildByName(_nodeName.at(i))->getPositionY()+50)), DelayTime::create(0.2), CCCallFunc::create([=] { _touched = true; }), NULL));
+					target->runAction(Sequence::create(MoveTo::create(0.2, Vec2(myBG->getChildByName(_nodeName.at(i))->getPositionX()+ myGameWidth, myBG->getChildByName(_nodeName.at(i))->getPositionY()+50)), DelayTime::create(0.2), CCCallFunc::create([=] { _touched = true; }), NULL));
 					//target->runAction(MoveTo::create(0.0, Vec2(myBG->getChildByName(_nodeName.at(i))->getPosition())));
 					//target->setPosition(myBG->getChildByName(_nodeName.at(i))->getPosition());
 					target->setZOrder(target->getTag() + 2);
@@ -302,7 +312,7 @@ void ChocolateFactory::addTouchEvents(Sprite* obj)
 				{
 					std::string name1 = _trayBin[k]->getName();
 					std::string name2 = _nodeName[j];
-					if (std::floor(_trayBin[k]->getPositionY()) == std::floor(myBG->getChildByName(_nodeName.at(j))->getPositionY()))
+					if (std::floor(_trayBin[k]->getPositionY()) == std::floor(myBG->getChildByName(_nodeName.at(j))->getPositionY()+50))
 					{
 						_setcounter++;
 					}
@@ -316,12 +326,6 @@ void ChocolateFactory::addTouchEvents(Sprite* obj)
 				}), NULL));*/
 			}
 		}), NULL));
-	
-	/*	if (_setcounter == 4)
-		{
-			this->runAction(Sequence::create(DelayTime::create(0.3), CCCallFunc::create([=] {  isTrayInRightSequence();
-		 }), NULL));
-		}*/
 	};
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, obj);
 }
@@ -332,6 +336,7 @@ void ChocolateFactory::rightFloat(Sprite* floatingObj, int time, float positionX
 }
 void ChocolateFactory::isTrayInRightSequence()
 {
+	
 	int orderCounter = 0;
 	auto myBG = this->getChildByName("bg");
 	for (int k = 0; k < _trayBin.size(); k++)
@@ -341,19 +346,12 @@ void ChocolateFactory::isTrayInRightSequence()
 			std::string name1 = _trayBin[k]->getName();
 			std::string name2 = myBG->getChildByName(_nodeName.at(j))->getName();
 
-			if (std::floor(_trayBin[k]->getPositionY()) == std::floor(myBG->getChildByName(_nodeName.at(j))->getPositionY())
+			if (std::floor(_trayBin[k]->getPositionY()) == std::floor(myBG->getChildByName(_nodeName.at(j))->getPositionY()+50)
 				&& !name1.compare(name2))
 			{
 				orderCounter++;
 				std::string str1 = name1.c_str();
-				CCLOG("name : %s", str1.c_str());
-
 				std::string str2 = name2.c_str();
-				CCLOG("name : %s", str2.c_str());
-
-				CCLOG("position of node y  : %f", _trayBin[k]->getPositionY());
-
-				CCLOG("position of tray y:  %f", myBG->getChildByName(_nodeName.at(j))->getPositionY());
 			}
 		}
 	}

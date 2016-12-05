@@ -48,7 +48,7 @@ void spot::onEnterTransitionDidFinish() {
 	_answerValue = _level + 10;
 
 
-	_menuContext->setMaxPoints(3);
+	_menuContext->setMaxPoints(4);
 
 	const int numberOfPages = 3;
 
@@ -176,15 +176,11 @@ void spot::onEnterTransitionDidFinish() {
 
 	///
 
-	
-
 		cocostudio::timeline::ActionTimeline * _windmillTimeline;
 		_windmillTimeline = CSLoader::createTimeline("spot/windmill.csb");
 		_bg->getChildByName("windmill")->runAction(_windmillTimeline);
 		_windmillTimeline->play("fly", true);
 
-	
-	
 
 	cocostudio::timeline::ActionTimeline * _smokeTimeline;
 	_smokeTimeline = CSLoader::createTimeline("spot/smoke.csb");
@@ -207,7 +203,7 @@ void spot::update(float delta) {
 
 		auto ShowScore = CallFunc::create([=] {
 
-			_menuContext->addPoints(3);
+			_menuContext->addPoints(_calculator->getFinalPoints());
 			_menuContext->showScore();
 
 		});
@@ -330,15 +326,20 @@ bool spot::onTouchBegan(Touch* touch, Event* event) {
 
 			_calculator->resetCalculator();
 
+			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+			audio->playEffect("sounds/calculator/calculator_button_click.mp3", false);
+
 			if (_calculatorTouched == false) {
 				_calculator->setVisible(true);
 				_calculatorTouched = true;
+				_calculator->activeSound();
 
 			}
 			else {
 
 				_calculator->setVisible(false);
 				_calculatorTouched = false;
+				_calculator->deactivateSound();
 			}
 
 		}
