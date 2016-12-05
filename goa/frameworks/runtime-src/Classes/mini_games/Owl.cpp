@@ -581,6 +581,7 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 									CCParticleSystemQuad *_particle = CCParticleSystemQuad::create("res/owllevel/particle_texture.plist");
 									_particle->setTexture(CCTextureCache::sharedTextureCache()->addImage("res/owllevel/particle_texture.png"));
 									_particle->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
+									_particle->setName("celebration");
 									this->addChild(_particle, 5);
 
 									_flagDemo = false;
@@ -589,7 +590,7 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 									_sprite->runAction(MoveTo::create(1, Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2)));
 									
 								}), DelayTime::create(2),
-									CallFunc::create([=]() {_menuContext->showScore(); }), NULL));
+									CallFunc::create([=]() {this->removeChildByName("celebration"); _menuContext->showScore(); }), NULL));
 							}
 						});
 						auto pickBoard = CallFunc::create([=]() { 
