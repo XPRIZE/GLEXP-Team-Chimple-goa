@@ -64,6 +64,7 @@ protected:
 	std::string _bingoGridDimension = "";
 	std::string _resourcePath = "";
 	bool _flagForSingleTouch = true;
+	int _maxPointSetter=0;
 
 
 
