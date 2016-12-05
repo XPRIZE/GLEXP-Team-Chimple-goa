@@ -41,7 +41,7 @@ xc.StoryCoverButtonPanel = ccui.Layout.extend({
                         item.setEnabled(true);
                         item.addTouchEventListener(this._buttonHandler.itemSelected, this._buttonHandler);
                         item.setAnchorPoint(cc.p(0.5,0.5));
-                        item.setPosition(pageIndex * size.width + (colIndex + 0.5) * size.width / numButtonsPerRow, size.height - (bookHeight * 1.4 +  (rowIndex) * 512));
+                        item.setPosition(pageIndex * size.width + (colIndex + 0.5) * size.width / numButtonsPerRow, size.height - (bookHeight * 1.2 +  (rowIndex) * 512));
                         item._selectedIndex = index;
                         item.setName(configuration[index]['icon']);
                         item._configuration = configuration[index];
