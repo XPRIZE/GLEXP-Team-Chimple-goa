@@ -171,19 +171,19 @@ xc.Pinata = cc.Layer.extend({
                 let checkMoving = classReference.movingOrNot(classReference.player.prevX,classReference.player.prevY,touch.getLocation().x,touch.getLocation().y);
                 classReference.pointerMove = checkMoving; 
                 if(checkMoving){
-                        if(classReference.rightLine != undefined){
-                            classReference.removeChild(classReference.rightLine);
-                        }
-                        classReference.rightLine = new cc.DrawNode();
-                        classReference.rightLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("right").x,classReference.gameBg.node.getChildByName("right").y), cc.p(classReference.bubblePlayer.x + (classReference.bubblePlayer.width/2),classReference.bubblePlayer.y),5,classReference.stringColor);
-                        classReference.addChild(classReference.rightLine);
+                    if(classReference.rightLine != undefined){
+                        classReference.removeChild(classReference.rightLine);
+                    }
+                    classReference.rightLine = new cc.DrawNode();
+                    classReference.rightLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("right").x,classReference.gameBg.node.getChildByName("right").y), cc.p(classReference.bubblePlayer.x + (classReference.bubblePlayer.width/2),classReference.bubblePlayer.y),5,classReference.stringColor);
+                    classReference.addChild(classReference.rightLine);
 
-                        if(classReference.leftLine != undefined){
-                            classReference.removeChild(classReference.leftLine);
-                        }
-                        classReference.leftLine = new cc.DrawNode();
-                        classReference.leftLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("left").x,classReference.gameBg.node.getChildByName("left").y), cc.p(classReference.bubblePlayer.x - (classReference.bubblePlayer.width/2),classReference.bubblePlayer.y),5,classReference.stringColor);
-                        classReference.addChild(classReference.leftLine); 
+                    if(classReference.leftLine != undefined){
+                        classReference.removeChild(classReference.leftLine);
+                    }
+                    classReference.leftLine = new cc.DrawNode();
+                    classReference.leftLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("left").x,classReference.gameBg.node.getChildByName("left").y), cc.p(classReference.bubblePlayer.x - (classReference.bubblePlayer.width/2),classReference.bubblePlayer.y),5,classReference.stringColor);
+                    classReference.addChild(classReference.leftLine); 
                 }
             },
             onTouchEnded : function(touch, event){
