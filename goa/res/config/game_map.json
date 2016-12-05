@@ -69,8 +69,8 @@
     },  
      {
     "name": "jumpingNumbers",
-    "cIcon": "gameicons/decomone_pressed.png",
-    "icon": "gameicons/decomone.png",
+    "cIcon": "gameicons/jumping numbers_pressed.png",
+    "icon": "gameicons/jumping numbers.png",
     "multiPlayer": false,
     "isJSGame": false,
     "script": "src/NonJSGameLauncher.js",
@@ -85,8 +85,8 @@
   },
    {
     "name": "atm",
-    "cIcon": "gameicons/decomone_pressed.png",
-    "icon": "gameicons/decomone.png",
+    "cIcon": "gameicons/ATM_pressed.png",
+    "icon": "gameicons/ATM.png",
     "multiPlayer": false,
     "isJSGame": false,
     "script": "src/NonJSGameLauncher.js",
@@ -235,7 +235,7 @@
         "multiPlayer": false,
         "isJSGame": true,
         "pureJS": "Pinata",
-        "script": "src/start/pinata.js",
+        "script": "src/start/Pinata.js",
         "span": "9",
         "numLevels": "75",
         "backgroundJson": "pinatacandylevel/background.json",
@@ -878,18 +878,18 @@
   },
    {
         "name": "shape",
-        "cIcon": "gameicons/train_pressed.png",
-        "icon": "gameicons/train.png",
+        "cIcon": "gameicons/shape_pressed.png",
+        "icon": "gameicons/shape.png",
         "multiPlayer":false,
         "isJSGame":false,
         "script":"src/NonJSGameLauncher.js",
         "span": "2",
         "numLevels": "10",
-        "backgroundJson": "cardlevel/Layer1.json",
-        "foregroundJson": "cardlevel/Layer3.json",
-        "frontgroundJson": "cardlevel/Layer4.json",
-        "maingroundJson": "cardlevel/Layer2.json",
-        "menuPlist": "cardlevel/cardlevel.plist",
-        "menuPng": "cardlevel/cardlevel.png"  
+        "backgroundJson": "shapelevel/shapelevelbackground.json",
+        "foregroundJson": "shapelevel/shapelevelforeground.json",
+        "frontgroundJson": "shapelevel/shapelevelfrontground.json",
+        "maingroundJson": "shapelevel/shapelevelmainground.json",
+        "menuPlist": "shapelevel/shapelevel.plist",
+        "menuPng": "shapelevel/shapelevel.png"  
   }
 ]
