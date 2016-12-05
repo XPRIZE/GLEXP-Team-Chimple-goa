@@ -42,8 +42,8 @@ void Units::onEnterTransitionDidFinish() {
 	_answerValue = _level + 10;
 
 
-	_menuContext->setMaxPoints(5);
-	_menuContext->addPoints(5);
+	_menuContext->setMaxPoints(4);
+	
 
 	_bg = CSLoader::createNode("unit/unit.csb");
 	_bg->setName("bg");
@@ -127,7 +127,7 @@ void Units::update(float delta) {
 	
 		
 		
-		if (_calculateFlag == 0 && _calculator->checkAnswer(_answerValue) && _calculator->isEnterPressed()) {
+		if (_calculateFlag == 0 && _calculator->checkAnswer(_answerValue)) {
 		
 		CCLOG("correct answer");
 		_calculateFlag = 1;
@@ -136,6 +136,8 @@ void Units::update(float delta) {
 			
 			//_menuContext->addPoints(1);
 			//_menuContext->addPoints(3);
+			CCLOG("points : %d", _calculator->getFinalPoints());
+			_menuContext->addPoints(_calculator->getFinalPoints());
 			_menuContext->showScore();
 
 		});
