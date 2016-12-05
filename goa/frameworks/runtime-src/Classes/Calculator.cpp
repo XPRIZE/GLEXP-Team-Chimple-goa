@@ -105,7 +105,7 @@ Node*  Calculator::createCalculator(Vec2 position, Vec2 anchor, float scaleX, fl
 
 //Call checkAnswer in update to check answer
 bool Calculator::checkAnswer(int value) {
-	if (_done == 1 && isEnterPressed()) {
+	if (_done == 1) {
 		if (_answer == value)
 			return true;
 		else
