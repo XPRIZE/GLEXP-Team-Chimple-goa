@@ -21,7 +21,8 @@ Calculator::Calculator() :
 	_answer(0),
 	_answerText(""),
 	_done(0),
-	_enterPressed(0)
+	_enterPressed(0),
+	_activeSoundFlag(0)
 {
 
 }
@@ -35,6 +36,8 @@ Calculator::~Calculator() {
 
 Node*  Calculator::createCalculator(Vec2 position, Vec2 anchor, float scaleX, float scaleY) {
 	
+	
+
 	_node = CSLoader::createNode("calculator/calculator.csb");
 	_node->setPosition(position);
 	_node->setScale(scaleX, scaleY);
@@ -119,6 +122,11 @@ bool Calculator::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 	Point locationInNode = target->getParent()-> convertToNodeSpace(touch->getLocation());
 	
 	if (target->getBoundingBox().containsPoint(locationInNode) && _isTouchedFinished) {
+
+		if (_activeSoundFlag == 1) {
+			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+			audio->playEffect("sounds/calculator/calculator_button_click.mp3", false);
+		}
 		_isTouchedFinished = false;
 		auto scale = ScaleBy::create(0.1, 0.75);
 		target->runAction(Sequence::create(scale, scale->reverse(), CallFunc::create([=]() {
@@ -205,3 +213,13 @@ bool Calculator::isEnterPressed() {
 		return true;
 }
 
+void Calculator::activeSound() {
+
+	_activeSoundFlag = 1;
+}
+
+void Calculator::deactivateSound() {
+
+	_activeSoundFlag = 0;
+
+}

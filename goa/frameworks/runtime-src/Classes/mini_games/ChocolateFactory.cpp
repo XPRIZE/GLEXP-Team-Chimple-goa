@@ -65,6 +65,7 @@ void ChocolateFactory::onEnterTransitionDidFinish()
 	CCLOG("name : %s", str.c_str());
 	}
 	
+	
 	cocostudio::timeline::ActionTimeline* conveyorTimeline = CSLoader::createTimeline("chocolatefactory/conveyor.csb");
 	_conveyor = (Sprite*)chocolatefactoryBackground->getChildByName("conveyor");
 	_conveyor->runAction(conveyorTimeline);
@@ -81,19 +82,15 @@ void ChocolateFactory::onEnterTransitionDidFinish()
 
 	Sprite* dummyBox = Sprite::createWithSpriteFrameName("chocolatefactory/boxfront.png");
 	auto reck = chocolatefactoryBackground->getChildByName("rack");
-	/*reck->setZOrder(2);
-	for (int i = 0; i < _nodeName.size(); i++)
-	{
-		chocolatefactoryBackground->getChildByName(_nodeName[i])->setZOrder(3);
-	}*/
+	
 	for (int i=0; i<4; i++)
 	{
 		Sprite* sprite =(Sprite*) CSLoader::createNode("chocolatefactory/box.csb");
-		sprite->setPosition(Vec2(-visibleSize.width*.2-i*dummyBox->getContentSize().width*.78, visibleSize.height*.294));
+		sprite->setPosition(Vec2(-visibleSize.width*.2-i*dummyBox->getContentSize().width*.78, visibleSize.height*.32));
 		sprite->setTag(4-i);
 		sprite->setContentSize(sprite->getChildByName("boxfront_2")->getContentSize());
-		this->addChild(sprite,6-i);
-		rightFloat(sprite, 4, sprite->getPositionX()+ visibleSize.width*.70, visibleSize.height*.294);
+		this->addChild(sprite,5-i);
+		rightFloat(sprite, 4, sprite->getPositionX()+ visibleSize.width*.70, visibleSize.height*.32);
 		_trayBin.push_back(sprite);
 		for (int j=0; j<sprite->getChildren().size(); j++)
 		{ 
@@ -158,8 +155,9 @@ void ChocolateFactory::onEnterTransitionDidFinish()
 		auto pos = _trayPositions[1];
 		auto myBG = this->getChildByName("bg");
 		_help = HelpLayer::create(Rect(pos.first- visibleSize.width*0.02, pos.second, _trayBin[1]->getContentSize().width*0.84, _trayBin[1]->getContentSize().height*1.3),
-			Rect(myBG->getChildByName(_nodeName.at(1))->getPositionX(), myBG->getChildByName(_nodeName.at(1))->getPositionY(), 100, 100));
-		_help->click(Vec2(pos.first, pos.second));
+			Rect(myBG->getChildByName(_nodeName.at(1))->getPositionX(), myBG->getChildByName(_nodeName.at(1))->getPositionY(), 250, 250));
+		_help->clickAndDrag(Vec2(pos.first ,pos.second),
+			Vec2(myBG->getChildByName(_nodeName.at(1))->getPositionX(), myBG->getChildByName(_nodeName.at(1))->getPositionY()));
 		this->addChild(_help, 5);
 	}
 	);
@@ -222,6 +220,10 @@ void ChocolateFactory::machineDynamicMotion(std::vector<int> randomNumbers, std:
 }
 void ChocolateFactory::addTouchEvents(Sprite* obj)
 {
+	auto myGameWidth = 0;
+	if (visibleSize.width > 2560) {
+		 myGameWidth = (visibleSize.width - 2560) / 2;
+	}
 
 	auto listener = cocos2d::EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(false);
@@ -277,14 +279,14 @@ void ChocolateFactory::addTouchEvents(Sprite* obj)
 				bool flag = false;
 				for (int j = 0; j < _trayBin.size(); j++)
 				{
-					if (myBG->getChildByName(_nodeName.at(i))->getPosition() == _trayBin[j]->getPosition())
+					if ((myBG->getChildByName(_nodeName.at(i))->getPositionX() + myGameWidth) == (_trayBin[j]->getPositionX()))
 					{  flag = true;  }
 				}
 				if (!flag) {
-					target->runAction(Sequence::create(MoveTo::create(0.2, Vec2(myBG->getChildByName(_nodeName.at(i))->getPosition())), DelayTime::create(0.2), CCCallFunc::create([=] { _touched = true; }), NULL));
+					target->runAction(Sequence::create(MoveTo::create(0.2, Vec2(myBG->getChildByName(_nodeName.at(i))->getPositionX()+ myGameWidth, myBG->getChildByName(_nodeName.at(i))->getPositionY()+50)), DelayTime::create(0.2), CCCallFunc::create([=] { _touched = true; }), NULL));
 					//target->runAction(MoveTo::create(0.0, Vec2(myBG->getChildByName(_nodeName.at(i))->getPosition())));
 					//target->setPosition(myBG->getChildByName(_nodeName.at(i))->getPosition());
-					target->setZOrder(target->getTag() + 3);
+					target->setZOrder(target->getTag() + 2);
 					isIntersect = true;
 				}
 			}
@@ -292,7 +294,7 @@ void ChocolateFactory::addTouchEvents(Sprite* obj)
 		if (!isIntersect)
 		{
 			auto pos = _trayPositions[4-target->getTag()];
-			target->runAction(Sequence::create(MoveTo::create(0.5, Vec2(pos.first, pos.second)), CCCallFunc::create([=] {	target->setZOrder(target->getTag() + 2); }), DelayTime::create(0.5),CCCallFunc::create([=] {	 _touched = true; }), NULL));
+			target->runAction(Sequence::create(MoveTo::create(0.5, Vec2(pos.first, pos.second)), CCCallFunc::create([=] {	target->setZOrder(target->getTag() + 1); }), DelayTime::create(0.5),CCCallFunc::create([=] {	 _touched = true; }), NULL));
 		}
 		_setcounter = 0;
 		this->runAction(Sequence::create(DelayTime::create(0.3), CCCallFunc::create([=] {
