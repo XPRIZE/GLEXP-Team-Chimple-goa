@@ -42,7 +42,8 @@ void Units::onEnterTransitionDidFinish() {
 	_answerValue = _level + 10;
 
 
-	_menuContext->setMaxPoints(1);
+	_menuContext->setMaxPoints(5);
+	_menuContext->addPoints(5);
 
 	_bg = CSLoader::createNode("unit/unit.csb");
 	_bg->setName("bg");
@@ -123,22 +124,7 @@ void Units::onEnterTransitionDidFinish() {
 
 void Units::update(float delta) {
 	
-	if (_enterPressedFlag ==0 && _calculator->isEnterPressed() && (_calculator->checkAnswer(_answerValue + 1) == false)) {
-		
-		
-		auto deductPoint = CallFunc::create([=] {
-			_menuContext->addPoints(-1);
-			_enterPressedFlag = 1;
-			CCLOG("point deducted");
-
-		});
-
-
-		auto deductPointSequence = Sequence::create(DelayTime::create(0.5), deductPoint, NULL);
-		this->runAction(deductPointSequence);
-
-	}
-
+	
 		
 		
 		if (_calculateFlag == 0 && _calculator->checkAnswer(_answerValue) && _calculator->isEnterPressed()) {
@@ -149,7 +135,7 @@ void Units::update(float delta) {
 		auto ShowScore = CallFunc::create([=] {
 			
 			//_menuContext->addPoints(1);
-			_menuContext->addPoints(3);
+			//_menuContext->addPoints(3);
 			_menuContext->showScore();
 
 		});
@@ -160,6 +146,23 @@ void Units::update(float delta) {
 		
 		}
 	
+
+		if (_enterPressedFlag == 0 && _calculator->isEnterPressed() && (_calculator->checkAnswer(_answerValue) == false)) {
+
+
+			auto deductPoint = CallFunc::create([=] {
+				_menuContext->addPoints(-1);
+				_enterPressedFlag = 1;
+				CCLOG("point deducted");
+
+			});
+
+
+			auto deductPointSequence = Sequence::create(DelayTime::create(0.5), deductPoint, NULL);
+			this->runAction(deductPointSequence);
+
+		}
+
 		
 }
 
