@@ -307,6 +307,10 @@
 		BAFA590A1B319F7E004F9246 /* jsb_cocos2dx_navmesh_conversions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAFA59071B319F7E004F9246 /* jsb_cocos2dx_navmesh_conversions.cpp */; };
 		BAFA590B1B319F7E004F9246 /* jsb_cocos2dx_navmesh_conversions.h in Headers */ = {isa = PBXBuildFile; fileRef = BAFA59081B319F7E004F9246 /* jsb_cocos2dx_navmesh_conversions.h */; };
 		BAFA590C1B319F7E004F9246 /* jsb_cocos2dx_navmesh_conversions.h in Headers */ = {isa = PBXBuildFile; fileRef = BAFA59081B319F7E004F9246 /* jsb_cocos2dx_navmesh_conversions.h */; };
+		F33052471DF5A8A300BA235E /* wordgeneratorautobindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA8581C1DEC37DB00F56255 /* wordgeneratorautobindings.cpp */; };
+		F33052481DF5A8A600BA235E /* chimpleautogenbindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E133B1DBF3A8400C10A81 /* chimpleautogenbindings.cpp */; };
+		F33052491DF5A8AF00BA235E /* wordscenegeneratorautobindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CB54DC41DED4833006B9D59 /* wordscenegeneratorautobindings.cpp */; };
+		F330524A1DF5A8B200BA235E /* textgeneratorautobindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E133F1DBF3ACC00C10A81 /* textgeneratorautobindings.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1118,7 +1122,9 @@
 			files = (
 				ADAC23EE1C2044DC0049A6A2 /* js_module_register.cpp in Sources */,
 				0541A75B19738AD200E45470 /* JavaScriptObjCBridge.mm in Sources */,
+				F33052471DF5A8A300BA235E /* wordgeneratorautobindings.cpp in Sources */,
 				420BBCF81AA48EE900493976 /* jsb_cocos2dx_3d_manual.cpp in Sources */,
+				F33052491DF5A8AF00BA235E /* wordscenegeneratorautobindings.cpp in Sources */,
 				1A119E8A18BDF19200352BAA /* jsb_cocos2dx_builder_auto.cpp in Sources */,
 				1A119EEE18BDF19200352BAA /* js_bindings_system_functions.cpp in Sources */,
 				1A119EB418BDF19200352BAA /* js_bindings_chipmunk_manual.cpp in Sources */,
@@ -1157,10 +1163,12 @@
 				83A5661A18DA878400FC31A0 /* jsb_socketio.cpp in Sources */,
 				1A119EE218BDF19200352BAA /* jsb_opengl_functions.cpp in Sources */,
 				BA4095C31A6F730A005E53F6 /* jsb_cocos2dx_studio_conversions.cpp in Sources */,
+				F330524A1DF5A8B200BA235E /* textgeneratorautobindings.cpp in Sources */,
 				50864CFA1C7CA95200B3BAB1 /* js_bindings_chipmunk_auto_classes.cpp in Sources */,
 				BAFA590A1B319F7E004F9246 /* jsb_cocos2dx_navmesh_conversions.cpp in Sources */,
 				1A119F0018BDF19200352BAA /* ScriptingCore.cpp in Sources */,
 				B38AD56A1B1D384A0057DD7F /* jsb_cocos2dx_experimental_video_manual.cpp in Sources */,
+				F33052481DF5A8A600BA235E /* chimpleautogenbindings.cpp in Sources */,
 				1A1D3B7918C44FD000922D3C /* jsb_event_dispatcher_manual.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
