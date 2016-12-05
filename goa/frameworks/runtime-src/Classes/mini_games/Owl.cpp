@@ -577,20 +577,25 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 								_textCounter = 0;
 								_blockLevel1++;
 								this->runAction(Sequence::create(CallFunc::create([=]() {
-									
-									CCParticleSystemQuad *_particle = CCParticleSystemQuad::create("res/owllevel/particle_texture.plist");
-									_particle->setTexture(CCTextureCache::sharedTextureCache()->addImage("res/owllevel/particle_texture.png"));
-									_particle->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
-									_particle->setName("celebration");
-									this->addChild(_particle, 5);
 
 									_flagDemo = false;
 									_flagDemoSecond = false;
 									_sprite->runAction(ScaleTo::create(1.0f, _sprite->getScaleX()*1.3f , _sprite->getScaleY()*1.3f));
 									_sprite->runAction(MoveTo::create(1, Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2)));
 									
-								}), DelayTime::create(2),
-									CallFunc::create([=]() {this->removeChildByName("celebration"); _menuContext->showScore(); }), NULL));
+								}), 
+									DelayTime::create(1),
+									CallFunc::create([=]() {
+								
+									CCParticleSystemQuad *_particle = CCParticleSystemQuad::create("res/owllevel/particle_texture.plist");
+									_particle->setTexture(CCTextureCache::sharedTextureCache()->addImage("res/owllevel/particle_texture.png"));
+									_particle->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
+									_particle->setName("celebration");
+									this->addChild(_particle, 5);
+
+								}),
+									DelayTime::create(3),
+									CallFunc::create([=]() {this->removeChildByName("celebration");  _menuContext->showScore(); }), NULL));
 							}
 						});
 						auto pickBoard = CallFunc::create([=]() { 
