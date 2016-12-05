@@ -358,7 +358,7 @@
       "levels": [
         1
       ],
-      "help": "Cross The Bridge",
+      "help": "Allow the letter to cross the bridge which is given in board and make wrong letters fall down",
       "video": "Cross The Bridge_1.webm"
     }
   ],
@@ -367,7 +367,7 @@
       "levels": [
         1
       ],
-      "help": "chain",
+      "help": "Choose the letter to make a word given in board",
       "video": "chain_1.webm"
     }
   ],
@@ -376,7 +376,7 @@
       "levels": [
         1
       ],
-      "help": "balloonMath",
+      "help": "Solve the subtraction operation by bursting the ballons",
       "video": "balloonMath_1.webm"
     }
   ],
@@ -385,25 +385,80 @@
       "levels": [
         1
       ],
-      "help": "pop",
+      "help": "Here you have choose the word in right order to make a correct sentance",
       "video": "pop_1.webm"
     }
   ],
   "bingo": [
     {
       "levels": [
-        1
+        1,
+        2,
+        3,
+        4,
+        13,
+        14,
+        15,
+        16,
+        25,
+        26,
+        27,
+        28
       ],
-      "help": "bingo",
+      "preconditions": [
+        "synonyms"
+      ],
+      "help": "Here you have to select Synonym of given word",
+      "video": "bingo_1.webm"
+    },
+    {
+      "levels": [
+        5,6,7,8,17,18,19,20,29,30,31,32
+      ],
+      "preconditions": [
+        "antonyms"
+      ],
+      "help": "Here you have to select Antonym of given word",
+      "video": "bingo_1.webm"
+    },
+    {
+      "levels": [
+       9,10,11,12,21,22,23,24,33,34,35,36
+      ],
+      "preconditions": [
+        "homonyms"
+      ],
+      "help": "Here you have to select Homonym of given word",
       "video": "bingo_1.webm"
     }
   ],
   "drop": [
     {
       "levels": [
-        1
+        1,2,3,4,5,16,17,18,19,20,31,32,33,34,35,46,47,48,49,50
+        
+      ], 
+      "help": "Here you have to select the exact letter above the empty box which is required to make a word given in board",
+      "video": "drop_1.webm"
+    },
+    {
+      "levels": [
+        6,7,8,9,10,21,22,23,24,25,36,37,38,39,40,51,52,53,54,55
       ],
-      "help": "drop",
+      "preconditions": [
+        "synonyms"
+      ],
+      "help": "Here you have to select the exact letter above the empty box which is required to make a Synonyms of given word",
+      "video": "drop_1.webm"
+    },
+    {
+      "levels": [
+       11,12,13,14,15,26,27,28,29,30,41,42,43,44,45,56,57,58,59,60
+      ],
+      "preconditions": [
+        "antonyms"
+      ],
+      "help": "Here you have to select the exact letter above the empty box which is required to make a Antonyms of given word",
       "video": "drop_1.webm"
     }
   ],
@@ -412,7 +467,7 @@
       "levels": [
         1
       ],
-      "help": "chocolateFactory",
+      "help": "Arrange the tray in assending order according to the count of milk bottle present in each tray",
       "video": "chocolateFactory_1.webm"
     }
   ],
@@ -421,7 +476,7 @@
       "levels": [
         1
       ],
-      "help": "shop",
+      "help": "Place the correct vegetable on weighing machine and enter the total price of vegetables on the calculator",
       "video": "shop_1.webm"
     }
   ],
