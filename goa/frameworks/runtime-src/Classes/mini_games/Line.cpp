@@ -274,6 +274,8 @@ void Line::onEnterTransitionDidFinish()
 	auto mid = level.at("mid");
 	_tagNum = level.at("tags");
 
+	menu->setMaxPoints(_tagNum);
+
 	if (menu->getCurrentLevel() <= 4)
 	{
 		_NumberLine = CSLoader::createNode(_scenePath.at("five"));
@@ -344,7 +346,7 @@ void Line::onEnterTransitionDidFinish()
 	scaleNumber(_startNum, _endNum, mid);
 	tagCreate(_tagNum);
 	
-	_NumberLine->setPosition(Vec2(0, 150));
+	_NumberLine->setPosition(Vec2(extraX, 150));
 	this->addChild(_NumberLine);
 
 }
@@ -353,9 +355,9 @@ void Line::gameHelp()
 	auto tag = _five.at(1);
 	auto numberlinechild = _NumberLine->getChildByName(tag);
 	auto onClick = this->getChildByName(tag);
-	auto help = HelpLayer::create(Rect(onClick->getPositionX(), onClick->getPositionY(), onClick->getContentSize().width, onClick->getContentSize().height),Rect(numberlinechild->getPositionX(), numberlinechild->getPositionY()-90,100,200));
+	auto help = HelpLayer::create(Rect(onClick->getPositionX(), onClick->getPositionY(), onClick->getContentSize().width, onClick->getContentSize().height),Rect(numberlinechild->getPositionX() + extraX, numberlinechild->getPositionY()-30,100,200));
 	help->setName("help");
-	help->clickAndDrag(onClick->getPosition(), numberlinechild->getPosition());
+	help->clickAndDrag(Vec2(onClick->getPositionX(), onClick->getPositionY()), Vec2(numberlinechild->getPositionX() + extraX, numberlinechild->getPositionY()));
 	this->addChild(help);
 }
 
@@ -367,8 +369,8 @@ void Line::scaleNumber(int start, int end,int mid)
 		ss << i;
 		std::string str = ss.str();
 		auto number_label = Label::createWithSystemFont(str, "Arial", 70);
-		number_label->setPositionX(_NumberLine->getChildByName(str)->getPositionX());
-		number_label->setPositionY(_NumberLine->getChildByName(str)->getPositionY() - 50);
+		number_label->setPositionX(_NumberLine->getChildByName(str)->getPositionX() + extraX);
+		number_label->setPositionY(_NumberLine->getChildByName(str)->getPositionY() - 60);
 		number_label->setColor(Color3B(0, 0, 0));
 		this->addChild(number_label);
 		
@@ -390,17 +392,17 @@ void Line::tagCreate(int choice)
 	for (int i = 1; i <= choice; i++)
 	{
 		_tag = Sprite::createWithSpriteFrameName("line/candy_1.png");
-		_tag->setPosition(visibleSize.width/(choice +1)*i, 700);
+		_tag->setPosition(visibleSize.width/(choice +1)*i + extraX, 700);
 		//_tag->setContentSize(Size(200, 200));
 		//_tag->setAnchorPoint(Vec2(0.5, 1));
-		this->addChild(_tag,1);
+		this->addChild(_tag);
 		_tag->setScaleX(0.9);
 		_tag->setScaleY(0.9);
 		_tagRef.push_back(_tag);
 
 		
 		auto number_label = Label::createWithSystemFont(_five.at(i), "Arial", 90);
-		number_label->setPositionX(_tag->getContentSize().width / 2);
+		number_label->setPositionX(_tag->getContentSize().width / 2 );
 		number_label->setPositionY(_tag->getContentSize().height / 4);
 		number_label->setColor(Color3B(0, 0, 0));
 		_tag->addChild(number_label);
@@ -470,13 +472,16 @@ void Line::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 			{
 				this->removeChildByName("help");
 			}
-			target->setPosition(_nodeRef.at(i)->getPosition());
+			target->setPositionX(_nodeRef.at(i)->getPositionX()+ extraX);
+			target->setPositionY(_nodeRef.at(i)->getPositionY());
 			target->setAnchorPoint(Vec2(0.5, 0.5));
 			_eventDispatcher->removeEventListenersForTarget(target);
 			CCLOG("correct");
 			flag = true;
 			_score++;
 			menu->addPoints(1);
+			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+			audio->playEffect("sounds/sfx/dropTemp.aif", false);
 			if (_score == _tagNum)
 			{
 				this->scheduleOnce(schedule_selector(Line::scoreBoard), 2);
@@ -488,6 +493,7 @@ void Line::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 			auto name = target->getName();
 			auto action = MoveTo::create(1.0, Vec2(_tagX, _tagY));
 			target->runAction(action);
+			menu->addPoints(-1);
 		}
 	
 
