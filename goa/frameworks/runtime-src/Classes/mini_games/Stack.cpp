@@ -425,7 +425,6 @@ void Stack::addEvents(struct LabelDetails sprite)
 
 void Stack::wordLabelAnim(struct LabelDetails sprite)
 {
-	auto seq = Sequence::create(MoveTo::create(.7, Vec2(containerBar[sprite.sequence]->getPositionX(), Position[sprite.sequence]->getPositionY() + containerBar[sprite.sequence]->getBoundingBox().size.height * (containerBar[sprite.sequence]->getPercent() + containerBar[sprite.sequence]->getPercent() * .10) / 100)), CallFunc::create([=] {
 //		_wordLabel->setColor(_color.at(rand() % 5));
 		_wordLabel->setFontSize(100);
 		if (sceneName == "farm")
