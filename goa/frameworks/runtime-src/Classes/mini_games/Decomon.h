@@ -13,7 +13,7 @@
 #include "cocos2d.h"
 #include "../menu/MenuContext.h"
 #include "editor-support/cocostudio/CocoStudio.h"
-
+#include "SimpleAudioEngine.h"
 
 class Decomon : public cocos2d::Layer
 {
@@ -65,6 +65,7 @@ protected:
 	void gameHelpDrag();
 	bool _helpIconIsClicked = false;
 	int _numberOfItemSelected = 0;
+	CocosDenshion::SimpleAudioEngine * _audioEffect;
 };
 
 #endif 
