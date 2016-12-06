@@ -5,10 +5,196 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 295,
+        "Duration": 454,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "fence_1",
         "Timelines": [
+          {
+            "ActionTag": -1020897692,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 108.9354,
+                "Y": 380.7406,
+                "FrameIndex": 380,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 108.9338,
+                "Y": 380.7398,
+                "FrameIndex": 417,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 108.9354,
+                "Y": 380.7406,
+                "FrameIndex": 454,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1020897692,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 2.3354,
+                "Y": 2.5813,
+                "FrameIndex": 380,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 4.0497,
+                "Y": 4.2762,
+                "FrameIndex": 417,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 2.3354,
+                "Y": 2.5813,
+                "FrameIndex": 454,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1020897692,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 380,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 454,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2131697121,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2578.998,
+                "Y": 380.7404,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2578.9854,
+                "Y": 380.7383,
+                "FrameIndex": 335,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2578.998,
+                "Y": 380.7404,
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2131697121,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 2.3354,
+                "Y": 2.5813,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 4.0973,
+                "Y": 4.5287,
+                "FrameIndex": 335,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 2.3354,
+                "Y": 2.5813,
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2131697121,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 1641464395,
             "Property": "ActionValue",
@@ -23,6 +209,22 @@
               },
               {
                 "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "thick",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 105,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "blink",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 195,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "blink",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 295,
@@ -40,6 +242,24 @@
                 "X": 2184.54,
                 "Y": 82.6807,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2184.54,
+                "Y": 82.6807,
+                "FrameIndex": 105,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2184.54,
+                "Y": 82.6807,
+                "FrameIndex": 195,
                 "EasingData": {
                   "Type": 0
                 },
@@ -73,6 +293,24 @@
               {
                 "X": 1.0,
                 "Y": 1.0,
+                "FrameIndex": 105,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 195,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
                 "FrameIndex": 295,
                 "EasingData": {
                   "Type": 0
@@ -90,6 +328,24 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 105,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 195,
                 "EasingData": {
                   "Type": 0
                 },
@@ -214,6 +470,18 @@
           "EndIndex": 295,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 300,
+          "EndIndex": 375,
+          "Name": "fence",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 380,
+          "EndIndex": 454,
+          "Name": "fence_1",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -245,27 +513,27 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -946.8398,
-              "Y": -10.0001
+              "X": -2226.8149,
+              "Y": -521.6987
             },
             "Scale": {
-              "ScaleX": 22.9326,
-              "ScaleY": 9.2585
+              "ScaleX": 42.6324,
+              "ScaleY": 13.3585
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.3699,
-              "Y": -0.0056
+              "X": -0.8698,
+              "Y": -0.2898
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": -946.8398,
-            "RightMargin": 3306.8398,
-            "TopMargin": 1610.0001,
-            "BottomMargin": -10.0001,
+            "LeftMargin": -2226.8149,
+            "RightMargin": 4586.8149,
+            "TopMargin": 2121.6987,
+            "BottomMargin": -521.6987,
             "Tag": 145,
             "ActionTag": -349710993,
             "Size": {
@@ -277,94 +545,45 @@
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/rainbow.png",
-              "Plist": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/Siku_tuliyouona_upinde_Day_we_saw_the_rainbow.plist"
+              "Type": "Normal",
+              "Path": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/rainbow.json",
+              "Plist": ""
             },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
             "Position": {
-              "X": 554.9924,
-              "Y": 1110.9895
+              "X": 1268.5046,
+              "Y": 547.5976
             },
             "Scale": {
-              "ScaleX": 1.6309,
-              "ScaleY": 1.6309
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
             },
             "CColor": {},
-            "IconVisible": false,
+            "IconVisible": true,
             "PrePosition": {
-              "X": 0.2168,
-              "Y": 0.6172
+              "X": 0.4955,
+              "Y": 0.3042
             },
             "PreSize": {
-              "X": 0.3281,
-              "Y": 0.4711
+              "X": 0.0,
+              "Y": 0.0
             },
-            "LeftMargin": 134.9924,
-            "RightMargin": 1585.0076,
-            "TopMargin": 265.0105,
-            "BottomMargin": 686.9895,
-            "Tag": 146,
-            "ActionTag": 2018882786,
+            "LeftMargin": 1268.5046,
+            "RightMargin": 1291.4954,
+            "TopMargin": 1252.4023,
+            "BottomMargin": 547.5976,
+            "UserData": "pop",
+            "Tag": 4931,
+            "ActionTag": 1689920512,
             "Size": {
-              "X": 840.0,
-              "Y": 848.0
+              "X": 0.0,
+              "Y": 0.0
             },
-            "Name": "rainbow_4",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FlipX": true,
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/rainbow.png",
-              "Plist": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/Siku_tuliyouona_upinde_Day_we_saw_the_rainbow.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1924.9939,
-              "Y": 1110.9895
-            },
-            "Scale": {
-              "ScaleX": 1.6309,
-              "ScaleY": 1.6309
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.752,
-              "Y": 0.6172
-            },
-            "PreSize": {
-              "X": 0.3281,
-              "Y": 0.4711
-            },
-            "LeftMargin": 1504.9939,
-            "RightMargin": 215.0061,
-            "TopMargin": 265.0105,
-            "BottomMargin": 686.9895,
-            "Tag": 147,
-            "ActionTag": -1303479383,
-            "Size": {
-              "X": 840.0,
-              "Y": 848.0
-            },
-            "Name": "rainbow_4_0",
-            "ctype": "SpriteObjectData"
+            "Name": "rainbow",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -527,12 +746,12 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 108.9354,
-              "Y": 380.7406
+              "X": 108.9352,
+              "Y": 380.7405
             },
             "Scale": {
-              "ScaleX": 2.3354,
-              "ScaleY": 2.5813
+              "ScaleX": 2.5207,
+              "ScaleY": 2.7645
             },
             "CColor": {},
             "IconVisible": false,
@@ -544,17 +763,18 @@
               "X": 0.1641,
               "Y": 0.1639
             },
-            "LeftMargin": -101.0646,
+            "LeftMargin": -101.0648,
             "RightMargin": 2241.0647,
-            "TopMargin": 1271.7594,
-            "BottomMargin": 233.2406,
+            "TopMargin": 1271.7595,
+            "BottomMargin": 233.2405,
+            "UserData": "fence_1",
             "Tag": 149,
             "ActionTag": -1020897692,
             "Size": {
               "X": 420.0,
               "Y": 295.0
             },
-            "Name": "fence1_7",
+            "Name": "fence_7",
             "ctype": "SpriteObjectData"
           },
           {
@@ -594,13 +814,14 @@
             "RightMargin": -228.998,
             "TopMargin": 1271.7596,
             "BottomMargin": 233.2404,
+            "UserData": "fence",
             "Tag": 150,
             "ActionTag": 2131697121,
             "Size": {
               "X": 420.0,
               "Y": 295.0
             },
-            "Name": "fence1_7_0",
+            "Name": "fence_7_0",
             "ctype": "SpriteObjectData"
           },
           {
@@ -696,6 +917,7 @@
       },
       "UsedResources": [
         "boy.json",
+        "rainbow.json",
         "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow.plist",
         "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow.png",
         "women.json"
