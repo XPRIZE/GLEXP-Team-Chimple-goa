@@ -10,22 +10,6 @@
         "ActivedAnimationName": "master",
         "Timelines": [
           {
-            "ActionTag": -967860965,
-            "Property": "Position",
-            "Frames": [
-              {
-                "X": 1704.0355,
-                "Y": 519.6483,
-                "FrameIndex": 300,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
             "ActionTag": -1987487902,
             "Property": "ActionValue",
             "Frames": [
@@ -830,48 +814,45 @@
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Nausikiliza_mwili_wangu/bag.png",
-              "Plist": "Nausikiliza_mwili_wangu/Nausikiliza_mwili_wangu.plist"
+              "Type": "Normal",
+              "Path": "Nausikiliza_mwili_wangu/bag.json",
+              "Plist": ""
             },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
             "Position": {
-              "X": 1704.0355,
-              "Y": 519.6483
+              "X": 1644.9104,
+              "Y": 580.9051
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
             "CColor": {},
-            "IconVisible": false,
+            "IconVisible": true,
             "PrePosition": {
-              "X": 0.6656,
-              "Y": 0.2887
+              "X": 0.6425,
+              "Y": 0.3227
             },
             "PreSize": {
-              "X": 0.2391,
-              "Y": 0.4072
+              "X": 0.0,
+              "Y": 0.0
             },
-            "LeftMargin": 1398.0355,
-            "RightMargin": 549.9645,
-            "TopMargin": 913.8517,
-            "BottomMargin": 153.1483,
-            "Tag": 97,
-            "ActionTag": -967860965,
+            "LeftMargin": 1644.9104,
+            "RightMargin": 915.0896,
+            "TopMargin": 1219.095,
+            "BottomMargin": 580.9051,
+            "UserData": "bounce ",
+            "Tag": 858,
+            "ActionTag": -562107991,
             "Size": {
-              "X": 612.0,
-              "Y": 733.0
+              "X": 0.0,
+              "Y": 0.0
             },
-            "Name": "bag_14",
-            "ctype": "SpriteObjectData"
+            "Name": "bag",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -999,6 +980,48 @@
             "VisibleForFrame": false,
             "Name": "girl",
             "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Nausikiliza_mwili_wangu/light.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1518.4924,
+              "Y": 1601.939
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5932,
+              "Y": 0.89
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1518.4924,
+            "RightMargin": 1041.5076,
+            "TopMargin": 198.061,
+            "BottomMargin": 1601.939,
+            "UserData": "light",
+            "Tag": 2121,
+            "ActionTag": -2042629513,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "light",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -1009,10 +1032,10 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "bag.json",
         "girl.json",
         "girl_0.json",
-        "Nausikiliza_mwili_wangu.plist",
-        "Nausikiliza_mwili_wangu.png",
+        "light.json",
         "spider.json"
       ],
       "ctype": "GameFileData"

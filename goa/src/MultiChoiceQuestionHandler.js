@@ -132,9 +132,15 @@ xc.MultipleChoiceQuestionHandler = cc.Layer.extend({
             var moveOriginal = new cc.moveTo(0.1, cc.p(x, y));
             var repeatAction = new cc.Repeat(new cc.Sequence(moveLeft, moveRight), 3);
             var sequenceAction = new cc.Sequence(repeatAction, moveOriginal, new cc.CallFunc(this.showHintAnimation, this));
-            sender.runAction(sequenceAction);                      
+            sender.runAction(sequenceAction);          
+            if(xc.NarrateStoryLayer.res.wrongAnswerSound_json) {
+                cc.audioEngine.playEffect(xc.NarrateStoryLayer.res.wrongAnswerSound_json, false);
+            }                                                                                    
         } else {
             this._numberOfTimesInCorrectAnswered = 0;
+            if(xc.NarrateStoryLayer.res.correctAnswerSound_json) {
+                cc.audioEngine.playEffect(xc.NarrateStoryLayer.res.correctAnswerSound_json, false);
+            }                                                      
         }
 
     },

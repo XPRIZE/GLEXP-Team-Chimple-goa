@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 625,
         "Speed": 1.0,
-        "ActivedAnimationName": "smile",
+        "ActivedAnimationName": "hop",
         "Timelines": [
           {
             "ActionTag": -1299471080,
@@ -7777,6 +7777,49 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 1103410760,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "steps",
+                "FrameIndex": 5,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 45,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "steps",
+                "FrameIndex": 50,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 85,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "steps",
+                "FrameIndex": 180,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 220,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -2024856762,
             "Property": "Position",
             "Frames": [
@@ -12041,7 +12084,7 @@
             "Length": 400.0,
             "Position": {
               "X": 0.0089,
-              "Y": 256.69
+              "Y": 256.6854
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -12657,8 +12700,8 @@
                       {
                         "Length": 425.0,
                         "Position": {
-                          "X": 40.2757,
-                          "Y": 2.5809
+                          "X": 40.2756,
+                          "Y": 2.5808
                         },
                         "Scale": {
                           "ScaleX": 1.0,
@@ -12714,7 +12757,7 @@
                         "Length": 104.0,
                         "Position": {
                           "X": 168.0983,
-                          "Y": -70.2814
+                          "Y": -70.2815
                         },
                         "Scale": {
                           "ScaleX": 1.0,
@@ -12767,7 +12810,7 @@
                       {
                         "Length": 104.0,
                         "Position": {
-                          "X": 162.6863,
+                          "X": 162.6862,
                           "Y": 140.0013
                         },
                         "Scale": {
@@ -12978,8 +13021,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0102
                     },
-                    "RotationSkewX": 101.7699,
-                    "RotationSkewY": 101.7742,
+                    "RotationSkewX": 88.5138,
+                    "RotationSkewY": 88.5181,
                     "CColor": {
                       "R": 168,
                       "G": 149,
@@ -12994,10 +13037,10 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -6.8782,
-                    "RightMargin": -59.1218,
-                    "TopMargin": -65.263,
-                    "BottomMargin": -69.737,
+                    "LeftMargin": -6.8783,
+                    "RightMargin": -59.1217,
+                    "TopMargin": -65.2631,
+                    "BottomMargin": -69.7369,
                     "Tag": 616,
                     "ActionTag": -1917419633,
                     "Size": {
@@ -13078,7 +13121,7 @@
             "Length": 139.0,
             "Position": {
               "X": 0.0089,
-              "Y": 256.69
+              "Y": 256.6854
             },
             "Scale": {
               "ScaleX": 1.0,

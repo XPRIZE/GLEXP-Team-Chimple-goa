@@ -65,9 +65,9 @@
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Ninapenda_kusoma/wallpainting.png",
-              "Plist": "Ninapenda_kusoma/Ninapenda_kusoma.plist"
+              "Type": "Default",
+              "Path": "Default/Sprite.png",
+              "Plist": ""
             },
             "BlendFunc": {
               "Src": 1,
@@ -301,6 +301,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "../Default/Sprite.png",
         "boy_2.json",
         "Ninapenda_kusoma.plist",
         "Ninapenda_kusoma.png"

@@ -48,6 +48,11 @@ public:
     void setCurrentLevel(int level);
     int getMaxPoints();
     void setMaxPoints(int maxPoints);
+
+    std::vector<cocos2d::Point> getPolygonPointsForSprite(cocos2d::Sprite* node, std::string fileName, float threshHold);
+    
+    cocos2d::Rect getBoundingBox(cocos2d::Sprite* node) const;
+    std::vector<cocos2d::Point> getPolygonPointsForSprite1(cocos2d::Sprite* node);
     
 CC_CONSTRUCTOR_ACCESS:
     MenuContext();

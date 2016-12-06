@@ -15,7 +15,7 @@
             "Frames": [
               {
                 "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "-- ALL --",
+                "CurrentAniamtionName": "cow",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
                 "Tween": false,
@@ -23,7 +23,7 @@
               },
               {
                 "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "-- ALL --",
+                "CurrentAniamtionName": "cow",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 300,
                 "Tween": false,
@@ -317,7 +317,7 @@
               },
               {
                 "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "-- ALL --",
+                "CurrentAniamtionName": "jump",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 300,
                 "Tween": false,
@@ -356,7 +356,7 @@
             "Property": "Scale",
             "Frames": [
               {
-                "X": 1.0,
+                "X": -1.0,
                 "Y": 1.0,
                 "FrameIndex": 0,
                 "EasingData": {
@@ -365,7 +365,7 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": 1.0,
+                "X": -1.0,
                 "Y": 1.0,
                 "FrameIndex": 300,
                 "EasingData": {
@@ -431,6 +431,8 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
@@ -547,6 +549,7 @@
             "RightMargin": 235.5645,
             "TopMargin": 1269.2432,
             "BottomMargin": 530.7568,
+            "UserData": "cow",
             "Tag": 16874,
             "ActionTag": 1754444514,
             "Size": {
@@ -586,7 +589,7 @@
             },
             "LeftMargin": 925.8117,
             "RightMargin": 1634.1882,
-            "TopMargin": 1438.2111,
+            "TopMargin": 1438.2109,
             "BottomMargin": 361.789,
             "UserData": "hi",
             "Tag": 13550,
@@ -655,7 +658,7 @@
               "Y": 498.8979
             },
             "Scale": {
-              "ScaleX": 1.0,
+              "ScaleX": -1.0,
               "ScaleY": 1.0
             },
             "CColor": {},
@@ -672,6 +675,7 @@
             "RightMargin": 2281.2041,
             "TopMargin": 1301.1021,
             "BottomMargin": 498.8979,
+            "UserData": "jump",
             "Tag": 16864,
             "ActionTag": 1453826281,
             "Size": {

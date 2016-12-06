@@ -10,38 +10,6 @@
         "ActivedAnimationName": "master",
         "Timelines": [
           {
-            "ActionTag": 2132181737,
-            "Property": "Position",
-            "Frames": [
-              {
-                "X": 2291.2622,
-                "Y": 1524.0045,
-                "FrameIndex": 69,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": -586271162,
-            "Property": "Position",
-            "Frames": [
-              {
-                "X": 738.4493,
-                "Y": 831.7416,
-                "FrameIndex": 80,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
             "ActionTag": 1514280542,
             "Property": "ActionValue",
             "Frames": [
@@ -108,6 +76,25 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1514280542,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "breath",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "breath",
+                "FrameIndex": 180,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -399,52 +386,6 @@
             "ctype": "PanelObjectData"
           },
           {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Nausikiliza_mwili_wangu/wallpainting.png",
-              "Plist": "Nausikiliza_mwili_wangu/Nausikiliza_mwili_wangu.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 2291.2622,
-              "Y": 1524.0045
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.895,
-              "Y": 0.8467
-            },
-            "PreSize": {
-              "X": 0.2785,
-              "Y": 0.2594
-            },
-            "LeftMargin": 1934.7622,
-            "RightMargin": -87.7622,
-            "TopMargin": 42.4955,
-            "BottomMargin": 1290.5045,
-            "UserData": "drag",
-            "Tag": 8803,
-            "ActionTag": 2132181737,
-            "Size": {
-              "X": 713.0,
-              "Y": 467.0
-            },
-            "Name": "wallpainting",
-            "ctype": "SpriteObjectData"
-          },
-          {
             "ClipAble": false,
             "ComboBoxIndex": 1,
             "SingleColor": {
@@ -483,7 +424,7 @@
               "Y": 0.1111
             },
             "LeftMargin": -759.2736,
-            "RightMargin": 3119.2734,
+            "RightMargin": 3119.2737,
             "TopMargin": 1002.601,
             "BottomMargin": 597.399,
             "Tag": 285,
@@ -548,49 +489,87 @@
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Nausikiliza_mwili_wangu/bed.png",
-              "Plist": "Nausikiliza_mwili_wangu/Nausikiliza_mwili_wangu.plist"
+              "Type": "Normal",
+              "Path": "Nausikiliza_mwili_wangu/wallpainting.json",
+              "Plist": ""
             },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
             "Position": {
-              "X": 738.4493,
-              "Y": 831.7416
+              "X": 2360.1978,
+              "Y": 1460.1243
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
             "CColor": {},
-            "IconVisible": false,
+            "IconVisible": true,
             "PrePosition": {
-              "X": 0.2885,
-              "Y": 0.4621
+              "X": 0.922,
+              "Y": 0.8112
             },
             "PreSize": {
-              "X": 0.5668,
-              "Y": 0.53
+              "X": 0.0,
+              "Y": 0.0
             },
-            "LeftMargin": 12.9493,
-            "RightMargin": 1096.0507,
-            "TopMargin": 491.2583,
-            "BottomMargin": 354.7416,
-            "UserData": "drag",
-            "Tag": 10348,
-            "ActionTag": -586271162,
+            "LeftMargin": 2360.1978,
+            "RightMargin": 199.8022,
+            "TopMargin": 339.8757,
+            "BottomMargin": 1460.1243,
+            "UserData": "swipe",
+            "Tag": 1564,
+            "ActionTag": 737229540,
             "Size": {
-              "X": 1451.0,
-              "Y": 954.0
+              "X": 0.0,
+              "Y": 0.0
             },
-            "Name": "bed_122",
-            "ctype": "SpriteObjectData"
+            "Name": "wallpainting",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Nausikiliza_mwili_wangu/bed.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 756.054,
+              "Y": 878.4675
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.2953,
+              "Y": 0.488
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 756.054,
+            "RightMargin": 1803.946,
+            "TopMargin": 921.5325,
+            "BottomMargin": 878.4675,
+            "UserData": "sheep",
+            "Tag": 4762,
+            "ActionTag": 72495982,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bed",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -624,8 +603,9 @@
             "RightMargin": 714.2974,
             "TopMargin": 1456.8512,
             "BottomMargin": 343.1488,
-            "UserData": "swing;drag",
+            "UserData": "breath",
             "Tag": 812,
+            "FrameEvent": "breath",
             "ActionTag": 1514280542,
             "Size": {
               "X": 0.0,
@@ -649,27 +629,27 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1688.5961,
-              "Y": 1086.7231
+              "X": 1876.0283,
+              "Y": 1180.5188
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 0.0262,
+              "ScaleY": 0.0262
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.6596,
-              "Y": 0.6037
+              "X": 0.7328,
+              "Y": 0.6558
             },
             "PreSize": {
               "X": 0.1035,
               "Y": 0.1178
             },
-            "LeftMargin": 1423.5961,
-            "RightMargin": 871.4039,
-            "TopMargin": 607.2769,
-            "BottomMargin": 980.7231,
+            "LeftMargin": 1611.0283,
+            "RightMargin": 683.9717,
+            "TopMargin": 513.4812,
+            "BottomMargin": 1074.5188,
             "Tag": 1158,
             "ActionTag": -769620179,
             "Size": {
@@ -688,9 +668,11 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "bed.json",
         "girl.json",
         "Nausikiliza_mwili_wangu.plist",
-        "Nausikiliza_mwili_wangu.png"
+        "Nausikiliza_mwili_wangu.png",
+        "wallpainting.json"
       ],
       "ctype": "GameFileData"
     }
