@@ -206,8 +206,14 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 	auto target = event->getCurrentTarget();
 	auto  location = target->convertToNodeSpace(touch->getLocation());
 	Size s = target->getContentSize();
-	//CCLOG("Toched Icon Name %s", target->getName().c_str());
 	Rect rect = Rect(0, 0, s.width, s.height);
+	std::string str = target->getName().c_str();
+	if (str.find("decomon/decomon_") == 0) {
+		location = target->convertToNodeSpace(touch->getLocation());
+		//rect = Rect(-(s.width / 2), (-s.height / 2), s.width, s.height);
+	}
+	//CCLOG("Toched Icon Name %s", target->getName().c_str());
+	
 	if (rect.containsPoint(location)) {
 		_colorPicked = false;
 		CCLOG("Toched Icon Name %s",target->getName().c_str());
@@ -456,6 +462,8 @@ void Decomon::itemInAGrid(std::vector<std::string> item, std::string name)
 			eye->setPositionX(x*i + (x/item.size()));
 			eye->setPositionY(Director::getInstance()->getVisibleSize().height * 0.13);
 			if (item.at(i - 1).find("skate") == -1) {
+				eye->setAnchorPoint(Vec2(0, 0));
+				eye->getChildByName("contantsize")->setVisible(true);
 				eye->setContentSize(eye->getChildByName("contantsize")->getContentSize());
 			} else {
 				eye->setContentSize(eye->getChildByName("skate")->getContentSize());
@@ -597,7 +605,7 @@ void Decomon::screenShot()
 	utils::captureScreen(CC_CALLBACK_2(Decomon::captureImage, this), path);
 //#endif
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-	auto render = RenderTexture::create(visibleSize.width / 2, visibleSize.height / 1.5, kCCTexture2DPixelFormat_RGBA8888);
+	auto render = RenderTexture::create(visibleSize.width, visibleSize.height, kCCTexture2DPixelFormat_RGBA8888);
 	render->setPosition(ccp(visibleSize.width / 2, visibleSize.height / 2));
 	render->begin();
 	this->getParent()->visit();
