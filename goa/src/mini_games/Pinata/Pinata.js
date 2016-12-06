@@ -80,7 +80,9 @@ xc.Pinata = cc.Layer.extend({
         y: 0,
         prevX : 0,
         prevY : 0,
-        angle : 90
+        angle : 90,
+        prevXmove : 0,
+        prevYmove : 0
     }
 
     var mapKeyArray = Object.keys(this.map);
@@ -174,7 +176,7 @@ xc.Pinata = cc.Layer.extend({
 
                 classReference.checkBoundaryBall(target,touch);
                 let checkMoving = classReference.movingOrNot(classReference.player.prevX,classReference.player.prevY,touch.getLocation().x,touch.getLocation().y);
-                classReference.pointerMove = checkMoving; 
+                classReference.pointerMove = checkMoving;
                 if(checkMoving){
                     if(classReference.rightLine != undefined){
                         classReference.removeChild(classReference.rightLine);
@@ -189,15 +191,17 @@ xc.Pinata = cc.Layer.extend({
                     classReference.leftLine = new cc.DrawNode();
                     classReference.leftLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("left").x,classReference.gameBg.node.getChildByName("left").y), cc.p(classReference.bubblePlayer.x - (classReference.bubblePlayer.width/2),classReference.bubblePlayer.y),5,classReference.stringColor);
                     classReference.addChild(classReference.leftLine); 
-                }else{
-                    target.x = classReference.player.prevX;
-                    target.y = classReference.player.prevY;
                 }
+               
+                classReference.player.prevXmove = touch.getLocation().x;
+                classReference.player.prevYmove = touch.getLocation().y;
             },
             onTouchEnded : function(touch, event){
                 classReference.player.angle = classReference.radToDeg(Math.atan2((touch.getLocation().y - classReference.player.y),(-touch.getLocation().x + classReference.player.x)));
                 classReference.player.prevX = Math.abs(classReference.player.prevX - touch.getLocation().x);
                 classReference.player.prevY = Math.abs(classReference.player.prevY - touch.getLocation().y); 
+
+                console.log("ANGLE FOR PLAYER "+ classReference.player.angle);
 
                 if(classReference.pointerMove){
                     
@@ -301,7 +305,7 @@ xc.Pinata = cc.Layer.extend({
 
                 setTimeout(function() {
                         classReference.flagSingleTouchFirst = true;
-                },700);
+                },1000);
 
                 return false;
             }
@@ -314,8 +318,7 @@ xc.Pinata = cc.Layer.extend({
   
     this.scheduleUpdate();
     
-    return true;
-    
+    return true;  
   },
   
   reCreateSceneElement : function(){
@@ -333,7 +336,8 @@ xc.Pinata = cc.Layer.extend({
     var board = this.gameBg.node.getChildByName("board");
     var boardText = board.getChildByName(board.getName());
     boardText.setString(""+this.mapKey);
-
+    this.gameBg.node.getChildByName("board").freezShooting = false;
+    
     this.targetPlayer.x = this.targetXcoordSave;
     this.targetPlayer.actionManager.removeAllActions();
     this.targetPlayer.scaleX = 1;   this.targetPlayer.scaleY = 1;
@@ -357,7 +361,7 @@ xc.Pinata = cc.Layer.extend({
 
     this.pointerMove = false;
     
-     this.flagSingleTouchFirst = true;
+    this.flagSingleTouchFirst = true;
 
         this.bubblePlayer.setPosition((this.xPosi/2)+(this.gameBg.node.getChildByName("left").x + this.gameBg.node.getChildByName("right").x) /2,this.gameBg.node.getChildByName("right").y);
 
@@ -377,7 +381,6 @@ xc.Pinata = cc.Layer.extend({
         if(this.bubblePlayer.getName() == "pinatacity")
         this.gameBg.node.getChildByName("slingshot_16").visible = false;
         this.gameBg.node.getChildByName("board").freezShooting = false;
-
         
   },
 
@@ -412,7 +415,7 @@ xc.Pinata = cc.Layer.extend({
             
             if(cc.rectIntersectsRect(playerObject, targetObject)){
                 this.shootingFlag = false;
-
+                this.flagSingleTouchFirst = false;
                 this.runAnimations(ccs.load(path,xc.path),this.targetPlayer.x,this.targetPlayer.y,path);
                 this.gameBg.node.getChildByName("board").freezShooting = false;
                 this.bubblePlayer.setVisible(false);
@@ -609,7 +612,7 @@ xc.Pinata = cc.Layer.extend({
         var classReference = this;
         setTimeout(function() {
             classReference.removeChild(AnimNode.node);
-        }, 1000);
+        }, 800);
     }
 })
 

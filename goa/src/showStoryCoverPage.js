@@ -138,7 +138,7 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
         }
     },    
 
-    showText: function() {        
+    showText: function() {      
         //load text file based on Current Story Id and Page index
         this._isTextShown = true;
         var langDir = goa.TextGenerator.getInstance().getLang();
