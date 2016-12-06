@@ -5,10 +5,39 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 340,
+        "Duration": 585,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "sink",
         "Timelines": [
+          {
+            "ActionTag": 1840510121,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 340,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 89,
+                  "G": 99,
+                  "B": 134
+                },
+                "FrameIndex": 345,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 1980308636,
             "Property": "ActionValue",
@@ -34,6 +63,14 @@
                 "CurrentAniamtionName": "mouthopen",
                 "SingleFrameIndex": 155,
                 "FrameIndex": 340,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "swim",
+                "SingleFrameIndex": 155,
+                "FrameIndex": 345,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -89,6 +126,54 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2046845943,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "sink",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 345,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "sink",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 585,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2046845943,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2027.7395,
+                "Y": 1905.2379,
+                "FrameIndex": 345,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1980.7788,
+                "Y": -105.158,
+                "FrameIndex": 585,
+                "EasingData": {
+                  "Type": 3
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -98,6 +183,12 @@
           "StartIndex": 0,
           "EndIndex": 340,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 345,
+          "EndIndex": 585,
+          "Name": "sink",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -139,7 +230,11 @@
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "CColor": {},
+            "CColor": {
+              "R": 89,
+              "G": 99,
+              "B": 134
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.4961,
@@ -173,40 +268,41 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1601.2483,
-              "Y": 264.0982
+              "X": 1459.6716,
+              "Y": 1206.2819
             },
             "Scale": {
-              "ScaleX": 1.3964,
-              "ScaleY": 1.3964
+              "ScaleX": 2.0868,
+              "ScaleY": 2.0868
             },
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.6255,
-              "Y": 0.1467
+              "X": 0.5702,
+              "Y": 0.6702
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1601.2483,
-            "RightMargin": 958.7517,
-            "TopMargin": 1535.9019,
-            "BottomMargin": 264.0982,
+            "LeftMargin": 1459.6716,
+            "RightMargin": 1100.3284,
+            "TopMargin": 593.7181,
+            "BottomMargin": 1206.2819,
+            "UserData": "drag;swim",
             "Tag": 994,
             "ActionTag": 1980308636,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "shark",
             "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_bubble.png",
+              "Path": "Meno_aina_gani/bubble.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -245,13 +341,13 @@
               "X": 182.0,
               "Y": 182.0
             },
-            "Name": "Menoainagani_bubble_1",
+            "Name": "bubble",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_bubble.png",
+              "Path": "Meno_aina_gani/bubble.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -284,19 +380,20 @@
             "RightMargin": 1142.3793,
             "TopMargin": 1065.3345,
             "BottomMargin": 552.6656,
+            "UserData": "main;sink",
             "Tag": 93,
             "ActionTag": 1006089027,
             "Size": {
               "X": 182.0,
               "Y": 182.0
             },
-            "Name": "Menoainagani_bubble_1_0",
+            "Name": "bubble",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_bubble.png",
+              "Path": "Meno_aina_gani/bubble.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -329,19 +426,20 @@
             "RightMargin": 2040.2642,
             "TopMargin": 1196.9614,
             "BottomMargin": 421.0386,
+            "UserData": "main;sink",
             "Tag": 94,
             "ActionTag": -1757001453,
             "Size": {
               "X": 182.0,
               "Y": 182.0
             },
-            "Name": "Menoainagani_bubble_1_1",
+            "Name": "bubble",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_bubble.png",
+              "Path": "Meno_aina_gani/bubble.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -374,19 +472,20 @@
             "RightMargin": 376.1294,
             "TopMargin": 158.0554,
             "BottomMargin": 1459.9446,
+            "UserData": "main;sink",
             "Tag": 95,
             "ActionTag": -1084951783,
             "Size": {
               "X": 182.0,
               "Y": 182.0
             },
-            "Name": "Menoainagani_bubble_1_2",
+            "Name": "bubble",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_bubble.png",
+              "Path": "Meno_aina_gani/bubble.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -419,19 +518,20 @@
             "RightMargin": 286.814,
             "TopMargin": 1441.4165,
             "BottomMargin": 176.5835,
+            "UserData": "main;sink",
             "Tag": 96,
             "ActionTag": -1084759870,
             "Size": {
               "X": 182.0,
               "Y": 182.0
             },
-            "Name": "Menoainagani_bubble_1_3",
+            "Name": "bubble",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_bubble.png",
+              "Path": "Meno_aina_gani/bubble.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -470,13 +570,13 @@
               "X": 182.0,
               "Y": 182.0
             },
-            "Name": "Menoainagani_bubble_1_4",
+            "Name": "bubble",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_bubble.png",
+              "Path": "Meno_aina_gani/bubble.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -515,13 +615,13 @@
               "X": 182.0,
               "Y": 182.0
             },
-            "Name": "Menoainagani_bubble_1_5",
+            "Name": "bubble",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_bubble.png",
+              "Path": "Meno_aina_gani/bubble.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -560,13 +660,13 @@
               "X": 182.0,
               "Y": 182.0
             },
-            "Name": "Menoainagani_bubble_1_6",
+            "Name": "bubble",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_bubble.png",
+              "Path": "Meno_aina_gani/bubble.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -605,13 +705,13 @@
               "X": 182.0,
               "Y": 182.0
             },
-            "Name": "Menoainagani_bubble_1_7",
+            "Name": "bubble",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_bubble.png",
+              "Path": "Meno_aina_gani/bubble.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -644,19 +744,20 @@
             "RightMargin": 1659.5145,
             "TopMargin": 1530.7399,
             "BottomMargin": 87.2601,
+            "UserData": "main;sink",
             "Tag": 101,
             "ActionTag": 521995187,
             "Size": {
               "X": 182.0,
               "Y": 182.0
             },
-            "Name": "Menoainagani_bubble_1_8",
+            "Name": "bubble",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_bubble.png",
+              "Path": "Meno_aina_gani/bubble.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -695,8 +796,49 @@
               "X": 182.0,
               "Y": 182.0
             },
-            "Name": "Menoainagani_bubble_1_9",
+            "Name": "bubble",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Meno_aina_gani/shoes.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2027.7395,
+              "Y": 1905.2379
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7921,
+              "Y": 1.0585
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2027.7395,
+            "RightMargin": 532.2605,
+            "TopMargin": -105.2379,
+            "BottomMargin": 1905.2379,
+            "Tag": 862,
+            "ActionTag": 2046845943,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_3",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -709,7 +851,8 @@
       "UsedResources": [
         "Meno_aina_gani.plist",
         "Meno_aina_gani.png",
-        "shark.json"
+        "shark.json",
+        "shoes.json"
       ],
       "ctype": "GameFileData"
     }

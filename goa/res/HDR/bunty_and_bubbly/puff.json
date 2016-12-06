@@ -135,6 +135,19 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1387867761,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "puff",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -153,7 +166,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "bunty_and_bubbly/puff10.png",
+              "Path": "bunty_and_bubbly/puff1.png",
               "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
             },
             "BlendFunc": {
@@ -187,6 +200,7 @@
             "TopMargin": -163.5,
             "BottomMargin": -163.5,
             "Tag": 730,
+            "FrameEvent": "puff",
             "ActionTag": -1387867761,
             "Size": {
               "X": 371.0,

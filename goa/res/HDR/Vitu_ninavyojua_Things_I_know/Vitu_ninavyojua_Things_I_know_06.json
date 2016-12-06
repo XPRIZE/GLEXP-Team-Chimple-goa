@@ -7,6 +7,7 @@
       "Animation": {
         "Duration": 300,
         "Speed": 1.0,
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -22174856,
@@ -36,8 +37,8 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 1200.3326,
-                "Y": 898.6057,
+                "X": 1193.4315,
+                "Y": 898.6053,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -109,19 +110,31 @@
         ],
         "ctype": "TimelineActionData"
       },
-      "AnimationList": [],
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 300,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
       "ObjectData": {
         "Tag": 801,
         "Children": [
           {
             "ClipAble": false,
-            "ComboBoxIndex": 1,
+            "ComboBoxIndex": 2,
             "SingleColor": {},
             "FirstColor": {
-              "R": 150,
-              "G": 200
+              "R": 247,
+              "G": 223,
+              "B": 103
             },
-            "EndColor": {},
+            "EndColor": {
+              "R": 241,
+              "G": 181,
+              "B": 31
+            },
             "ColorVector": {
               "ScaleY": 1.0
             },
@@ -130,27 +143,27 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -103.7752,
-              "Y": -100.7296
+              "X": -1108.8601,
+              "Y": -100.7278
             },
             "Scale": {
-              "ScaleX": 13.8828,
+              "ScaleX": 23.9337,
               "ScaleY": 9.5058
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0405,
+              "X": -0.4331,
               "Y": -0.056
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": -103.7752,
-            "RightMargin": 2463.7751,
-            "TopMargin": 1700.7296,
-            "BottomMargin": -100.7296,
+            "LeftMargin": -1108.8601,
+            "RightMargin": 3468.8601,
+            "TopMargin": 1700.7278,
+            "BottomMargin": -100.7278,
             "Tag": 802,
             "ActionTag": -1020481984,
             "Size": {
@@ -158,6 +171,62 @@
               "Y": 200.0
             },
             "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 130,
+              "G": 91,
+              "B": 62
+            },
+            "FirstColor": {
+              "R": 247,
+              "G": 223,
+              "B": 103
+            },
+            "EndColor": {
+              "R": 241,
+              "G": 181,
+              "B": 31
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -1249.952,
+              "Y": -1142.0929
+            },
+            "Scale": {
+              "ScaleX": 23.9337,
+              "ScaleY": 9.5058
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.4883,
+              "Y": -0.6345
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -1249.952,
+            "RightMargin": 3609.9521,
+            "TopMargin": 2742.0928,
+            "BottomMargin": -1142.0929,
+            "Tag": 415,
+            "ActionTag": -142685330,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1_0",
             "ctype": "PanelObjectData"
           },
           {
@@ -171,8 +240,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1200.3326,
-              "Y": 898.6057
+              "X": 1193.4315,
+              "Y": 898.6053
             },
             "Scale": {
               "ScaleX": 2.2411,
@@ -181,17 +250,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.4689,
+              "X": 0.4662,
               "Y": 0.4992
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1200.3326,
-            "RightMargin": 1359.6674,
-            "TopMargin": 901.3943,
-            "BottomMargin": 898.6057,
+            "LeftMargin": 1193.4315,
+            "RightMargin": 1366.5685,
+            "TopMargin": 901.3947,
+            "BottomMargin": 898.6053,
             "UserData": "blink;drag",
             "Tag": 876,
             "ActionTag": -22174856,
@@ -200,6 +269,90 @@
               "Y": 0.0
             },
             "Name": "hen",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Vitu_ninavyojua_Things_I_know/nest.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 381.9263,
+              "Y": 334.9211
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1492,
+              "Y": 0.1861
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 381.9263,
+            "RightMargin": 2178.0737,
+            "TopMargin": 1465.0789,
+            "BottomMargin": 334.9211,
+            "UserData": "rollin",
+            "Tag": 424,
+            "ActionTag": -2034970341,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "nest_1",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Vitu_ninavyojua_Things_I_know/nest.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2139.1746,
+              "Y": 195.5014
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8356,
+              "Y": 0.1086
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2139.1746,
+            "RightMargin": 420.8254,
+            "TopMargin": 1604.4985,
+            "BottomMargin": 195.5014,
+            "UserData": "rollin",
+            "Tag": 434,
+            "ActionTag": 1716003052,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "nest_2",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -211,7 +364,8 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "hen.json"
+        "hen.json",
+        "nest.json"
       ],
       "ctype": "GameFileData"
     }

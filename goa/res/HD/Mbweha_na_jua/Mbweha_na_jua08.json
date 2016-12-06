@@ -389,6 +389,90 @@
           },
           {
             "FileData": {
+              "Type": "Normal",
+              "Path": "Mbweha_na_jua/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 676.8082,
+              "Y": 1343.4067
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.2644,
+              "Y": 0.7463
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 676.8082,
+            "RightMargin": 1883.1918,
+            "TopMargin": 456.5933,
+            "BottomMargin": 1343.4067,
+            "UserData": "drag;rain",
+            "Tag": 1121,
+            "ActionTag": -174141898,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_1_0",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mbweha_na_jua/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1826.51,
+              "Y": 1229.4141
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7135,
+              "Y": 0.683
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1826.51,
+            "RightMargin": 733.49,
+            "TopMargin": 570.5859,
+            "BottomMargin": 1229.4141,
+            "UserData": "drag;rain",
+            "Tag": 1113,
+            "ActionTag": 1551493452,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_1",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
               "Type": "MarkedSubImage",
               "Path": "Mbweha_na_jua/tree_1.png",
               "Plist": "Mbweha_na_jua/Mbweha_na_jua.plist"
@@ -468,13 +552,14 @@
             "RightMargin": -382.1948,
             "TopMargin": 1570.7428,
             "BottomMargin": 229.2572,
+            "UserData": "drag;run",
             "Tag": 844,
             "ActionTag": 225068096,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "jackal2",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -486,6 +571,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "cloud.json",
         "jackal1.json",
         "Mbweha_na_jua.plist",
         "Mbweha_na_jua.png"

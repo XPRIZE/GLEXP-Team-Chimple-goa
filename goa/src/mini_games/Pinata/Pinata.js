@@ -14,6 +14,7 @@ xc.Pinata = cc.Layer.extend({
     this._super();
     menuContext = this.getParent().menuContext;
     var gameTheme = "";
+    this.counterlevelStatus = 1;
     var gameRand = new Array(3);
     gameRand[0] = "pinatacity"; gameRand[1] ="pinatacream"; gameRand[2] ="pinatajungle";
     //gameTheme = "pinatacream";
@@ -22,21 +23,24 @@ xc.Pinata = cc.Layer.extend({
     var playerGUI = "";
     var heightTolrence = 0;
     this.xPosi =0; 
+    this.counterHit = 0;
     this.shootingFlag = false;
     this.flagSingleTouchFirst = true;
+    this.targetXcoordSave = 0;
+    this.targetYcoordSave = 0;
     var currentLevelValue = menuContext.getCurrentLevel();
-    menuContext.setMaxPoints(2);
+    menuContext.setMaxPoints(10);
     var info = this.levelAllInfo(currentLevelValue,3,5,3,10);
     console.log("the pinata category value is : " +     info.category);
     console.log("the pinata scene value is : " +     info.scene);
     console.log("the pinata level value is : " +     info.level);
    
  if(info.category == 1){
-         this.map =  goa.TextGenerator.getInstance().getAntonyms(3);
+         this.map =  goa.TextGenerator.getInstance().getAntonyms(15);
     }else if(info.category == 2){
-         this.map =  goa.TextGenerator.getInstance().getSynonyms(3);
+         this.map =  goa.TextGenerator.getInstance().getSynonyms(15);
     }else if(info.category == 3){
-         this.map =  goa.TextGenerator.getInstance().getHomonyms(3);
+         this.map =  goa.TextGenerator.getInstance().getHomonyms(15);
     }else{
         console.log("ERROR :: Your category is wrong , please check your code : line no : 23");
     }
@@ -80,7 +84,7 @@ xc.Pinata = cc.Layer.extend({
     }
 
     var mapKeyArray = Object.keys(this.map);
-    this.mapKey = mapKeyArray[this.getRandomInt(0,(mapKeyArray.length-1))];
+    this.mapKey = mapKeyArray[this.getRandomInt(0,(3*this.counterlevelStatus-1))];
     if(currentLevelValue == 1){
         this.mapKey = mapKeyArray[1];
     }
@@ -130,6 +134,7 @@ xc.Pinata = cc.Layer.extend({
     this.leftLine.drawSegment(cc.p(this.gameBg.node.getChildByName("left").x+(this.xPosi/2),this.gameBg.node.getChildByName("left").y),cc.p(this.player.x - (this.bubblePlayer.width/2),this.player.y),5,this.stringColor);
     this.addChild(this.leftLine);
 
+    this.targetYcoordSave = targetB.x;
     this.bubblePlayer.visible = false;
     this.rightLine.visible = false;
     this.leftLine.visible = false;
@@ -184,6 +189,9 @@ xc.Pinata = cc.Layer.extend({
                     classReference.leftLine = new cc.DrawNode();
                     classReference.leftLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("left").x,classReference.gameBg.node.getChildByName("left").y), cc.p(classReference.bubblePlayer.x - (classReference.bubblePlayer.width/2),classReference.bubblePlayer.y),5,classReference.stringColor);
                     classReference.addChild(classReference.leftLine); 
+                }else{
+                    target.x = classReference.player.prevX;
+                    target.y = classReference.player.prevY;
                 }
             },
             onTouchEnded : function(touch, event){
@@ -254,18 +262,22 @@ xc.Pinata = cc.Layer.extend({
 
                 if(classReference.map[classReference.gameBg.node.getChildByName("board").getChildByName("board").getString()] == target.getChildByName(target.getName()).getString()){
                     if(target.getName() == "targetc"){
-                        if(!targetA.dead){ classReference.runAnimations(ccs.load(path,xc.path),targetA.x,targetA.y,path); classReference.gameBg.node.removeChild(targetA);}
-                        if(!targetB.dead){ classReference.runAnimations(ccs.load(path,xc.path),targetB.x,targetB.y,path); classReference.gameBg.node.removeChild(targetB);}
+                        if(!targetA.dead){ classReference.runAnimations(ccs.load(path,xc.path),targetA.x,targetA.y,path); targetA.setVisible(false);}
+                        if(!targetB.dead){ classReference.runAnimations(ccs.load(path,xc.path),targetB.x,targetB.y,path); targetB.setVisible(false);}
+                        classReference.targetXcoordSave = targetC.x;
                         classReference.gamePlay(targetC);
                     }else if(target.getName() == "targetb"){
-                        if(!targetA.dead){classReference.runAnimations(ccs.load(path,xc.path),targetA.x,targetA.y,path); classReference.gameBg.node.removeChild(targetA);}
-                        if(!targetC.dead){classReference.runAnimations(ccs.load(path,xc.path),targetC.x,targetC.y,path); classReference.gameBg.node.removeChild(targetC);}
+                        if(!targetA.dead){classReference.runAnimations(ccs.load(path,xc.path),targetA.x,targetA.y,path); targetA.setVisible(false);}
+                        if(!targetC.dead){classReference.runAnimations(ccs.load(path,xc.path),targetC.x,targetC.y,path); targetC.setVisible(false);}
+                        classReference.targetXcoordSave = targetB.x;
                         classReference.gamePlay(targetB);
                     }else if(target.getName() == "targeta"){
-                        if(!targetC.dead){classReference.runAnimations(ccs.load(path,xc.path),targetC.x,targetC.y,path); classReference.gameBg.node.removeChild(targetC);}
-                        if(!targetB.dead){classReference.runAnimations(ccs.load(path,xc.path),targetB.x,targetB.y,path); classReference.gameBg.node.removeChild(targetB);}
+                        if(!targetC.dead){classReference.runAnimations(ccs.load(path,xc.path),targetC.x,targetC.y,path); targetC.setVisible(false);}
+                        if(!targetB.dead){classReference.runAnimations(ccs.load(path,xc.path),targetB.x,targetB.y,path); targetB.setVisible(false);}
+                        classReference.targetXcoordSave = targetA.x;
                         classReference.gamePlay(targetA);
                     }
+                    classReference.counterHit++;
                     menuContext.addPoints(2);
                 }else{
                     console.log("its wrong answer");
@@ -273,16 +285,17 @@ xc.Pinata = cc.Layer.extend({
                     if(target.getName() == "targetc"){
                         targetC.dead = true;
                         classReference.runAnimations(ccs.load(path,xc.path),targetC.x,targetC.y,path);
-                        classReference.gameBg.node.removeChild(targetC);
+                        targetC.setVisible(false);
                     }else if(target.getName() == "targetb"){
                         targetB.dead = true;
                         classReference.runAnimations(ccs.load(path,xc.path),targetB.x,targetB.y,path);
-                        classReference.gameBg.node.removeChild(targetB);
+                        targetB.setVisible(false);
                     }else if(target.getName() == "targeta"){
                          targetA.dead = true;
                          classReference.runAnimations(ccs.load(path,xc.path),targetA.x,targetA.y,path);
-                        classReference.gameBg.node.removeChild(targetA);
+                         targetA.setVisible(false);
                     }
+                    classReference.counterHit++;
                     menuContext.addPoints(-1);
                 }
 
@@ -298,17 +311,80 @@ xc.Pinata = cc.Layer.extend({
     cc.eventManager.addListener(choosingListner,targetA);
     cc.eventManager.addListener(choosingListner.clone(),targetB);
     cc.eventManager.addListener(choosingListner.clone(),targetC);
-
+  
     this.scheduleUpdate();
     
     return true;
     
   },
   
+  reCreateSceneElement : function(){
+   
+    var mapKeyArray = Object.keys(this.map);
+    this.mapKey = mapKeyArray[this.getRandomInt(3*(this.counterlevelStatus-1),(3*this.counterlevelStatus-1))];
+   
+    var targetA = this.gameBg.node.getChildByName("targeta");
+    var targetB = this.gameBg.node.getChildByName("targetb");
+    var targetC = this.gameBg.node.getChildByName("targetc");
+
+    targetA.getChildByName(targetA.getName()).setString(""+this.map[mapKeyArray[3*(this.counterlevelStatus-1)]]);
+    targetB.getChildByName(targetB.getName()).setString(""+this.map[mapKeyArray[3*(this.counterlevelStatus-1)+1]]);
+    targetC.getChildByName(targetC.getName()).setString(""+this.map[mapKeyArray[3*(this.counterlevelStatus-1)+2]]);
+    var board = this.gameBg.node.getChildByName("board");
+    var boardText = board.getChildByName(board.getName());
+    boardText.setString(""+this.mapKey);
+
+    this.targetPlayer.x = this.targetXcoordSave;
+    this.targetPlayer.actionManager.removeAllActions();
+    this.targetPlayer.scaleX = 1;   this.targetPlayer.scaleY = 1;
+
+    if(this.bubblePlayer.getName() == "pinatacream"){
+        this.targetPlayer.scaleX = 1; this.targetPlayer.scaleY = 1;
+        this.targetPlayer.y = this.targetYcoordSave - cc.director.getWinSize().height * 0.11;
+    }
+    if(this.bubblePlayer.getName() == "pinatajungle"){
+        this.targetPlayer.scaleX = 1.2; this.targetPlayer.scaleY = 1.2;
+        this.targetPlayer.y = this.targetYcoordSave - cc.director.getWinSize().height * 0.2;
+    }
+    if(this.bubblePlayer.getName() == "pinatacity"){
+        this.targetPlayer.scaleX = 1; this.targetPlayer.scaleY = 1;
+        this.targetPlayer.y = this.targetYcoordSave - cc.director.getWinSize().height * 0.1;
+    }
+    
+    targetA.setVisible(true);   targetA.dead = false;
+    targetB.setVisible(true);   targetB.dead = false;
+    targetC.setVisible(true);   targetC.dead = false;
+
+    this.pointerMove = false;
+    
+     this.flagSingleTouchFirst = true;
+
+        this.bubblePlayer.setPosition((this.xPosi/2)+(this.gameBg.node.getChildByName("left").x + this.gameBg.node.getChildByName("right").x) /2,this.gameBg.node.getChildByName("right").y);
+
+        this.gameBg.node.getChildByName("board").visible = true;
+        if(this.bubblePlayer.getName() == "pinatacream")
+        this.gameBg.node.getChildByName("Panel_2").visible = true;
+
+        this.bubblePlayer.visible = false;
+        this.rightLine.visible = false;
+        this.leftLine.visible = false;
+        if(this.bubblePlayer.getName() == "pinatajungle"){
+            this.gameBg.node.getChildByName("rightshoot").visible = false;
+            this.gameBg.node.getChildByName("leftshoot").visible = false;
+        }
+        this.gameBg.node.getChildByName("right").visible = false;
+        this.gameBg.node.getChildByName("left").visible = false;
+        if(this.bubblePlayer.getName() == "pinatacity")
+        this.gameBg.node.getChildByName("slingshot_16").visible = false;
+        this.gameBg.node.getChildByName("board").freezShooting = false;
+
+        
+  },
+
     update : function (dt) {
        
-      // if(this.shootingFlag && !menuContext.isGamePaused()){
        if(this.shootingFlag && !menuContext.isGamePaused()){
+      // if(this.shootingFlag ){
            this.stateShootBubble(dt);
            if(!(this.bubblePlayer.y >=0)){               
                this.bubblePlayer.setPosition((this.xPosi/2)+(this.gameBg.node.getChildByName("left").x + this.gameBg.node.getChildByName("right").x) /2,this.gameBg.node.getChildByName("right").y);
@@ -339,14 +415,21 @@ xc.Pinata = cc.Layer.extend({
 
                 this.runAnimations(ccs.load(path,xc.path),this.targetPlayer.x,this.targetPlayer.y,path);
                 this.gameBg.node.getChildByName("board").freezShooting = false;
-                this.removeChild(this.bubblePlayer);
-                this.gameBg.node.removeChild(this.targetPlayer);
+                this.bubblePlayer.setVisible(false);
+                this.targetPlayer.setVisible(false);
                 var classReference = this;
                 setTimeout(function() {
                     if (cc.sys.isNative) {
-                          menuContext.showScore();
+                          if(classReference.counterlevelStatus == 5){
+                              menuContext.setMaxPoints(classReference.counterHit);
+                              menuContext.showScore()
+                          }else{
+                              classReference.counterlevelStatus++;
+                              classReference.reCreateSceneElement();
+                          }                          
                     }else{
                         xc.GameScene.load(xc.Pinata);
+//                       classReference.reCreateSceneElement();
                     }
                 }, 1800);
             }

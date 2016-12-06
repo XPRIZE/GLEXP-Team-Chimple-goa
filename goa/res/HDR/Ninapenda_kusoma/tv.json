@@ -1,0 +1,207 @@
+{
+  "ID": "ccf31f9d-32a6-41fe-99f0-71a97dae9a7b",
+  "Version": "3.10.0.0",
+  "Name": "tv",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 15,
+        "Speed": 1.0,
+        "ActivedAnimationName": "off",
+        "Timelines": [
+          {
+            "ActionTag": 451924792,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -2.1186,
+                "Y": -2.0996,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 451924792,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.3602,
+                "Y": 1.2723,
+                "FrameIndex": 6,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.3602,
+                "Y": 0.0743,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0201,
+                "Y": 0.0743,
+                "FrameIndex": 14,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 451924792,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 5,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 6,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 15,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 3,
+          "EndIndex": 15,
+          "Name": "off",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 2461,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ninapenda_kusoma/tv.png",
+              "Plist": "Ninapenda_kusoma/Ninapenda_kusoma.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -304.5,
+            "RightMargin": -304.5,
+            "TopMargin": -209.5,
+            "BottomMargin": -209.5,
+            "Tag": 2462,
+            "ActionTag": 729746947,
+            "Size": {
+              "X": 609.0,
+              "Y": 419.0
+            },
+            "Name": "tv_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ninapenda_kusoma/tvoff.png",
+              "Plist": "Ninapenda_kusoma/Ninapenda_kusoma.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -2.1186,
+              "Y": -2.0996
+            },
+            "Scale": {
+              "ScaleX": 0.3551,
+              "ScaleY": 0.0743
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -173.1186,
+            "RightMargin": -168.8814,
+            "TopMargin": -26.9004,
+            "BottomMargin": -31.0996,
+            "Tag": 2463,
+            "ActionTag": 451924792,
+            "Size": {
+              "X": 342.0,
+              "Y": 58.0
+            },
+            "Name": "tvoff_2",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Ninapenda_kusoma.plist",
+        "Ninapenda_kusoma.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

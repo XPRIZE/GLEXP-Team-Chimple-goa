@@ -10,22 +10,6 @@
         "ActivedAnimationName": "master",
         "Timelines": [
           {
-            "ActionTag": 1717527406,
-            "Property": "Position",
-            "Frames": [
-              {
-                "X": 2291.2622,
-                "Y": 1524.0045,
-                "FrameIndex": 69,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
             "ActionTag": -4843084,
             "Property": "Position",
             "Frames": [
@@ -69,22 +53,6 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 1225935990,
-            "Property": "Position",
-            "Frames": [
-              {
-                "X": 738.4493,
-                "Y": 831.7416,
-                "FrameIndex": 80,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -252,6 +220,19 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -999633232,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "heartbeat",
+                "FrameIndex": 65,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -1074816392,
             "Property": "Position",
             "Frames": [
@@ -338,6 +319,19 @@
                   "Type": 0
                 },
                 "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1074816392,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "heartbeat",
+                "FrameIndex": 129,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -434,6 +428,19 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 1269983885,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "heartbeat",
+                "FrameIndex": 190,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -1283314006,
             "Property": "Position",
             "Frames": [
@@ -525,6 +532,19 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -1283314006,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "heartbeat",
+                "FrameIndex": 240,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 1393998293,
             "Property": "Position",
             "Frames": [
@@ -611,6 +631,25 @@
                   "Type": 0
                 },
                 "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1393998293,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "heartbeat",
+                "FrameIndex": 240,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "75623__garotasimpatica__heart",
+                "FrameIndex": 289,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -692,52 +731,6 @@
             },
             "Name": "Panel_1",
             "ctype": "PanelObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Nausikiliza_mwili_wangu/wallpainting.png",
-              "Plist": "Nausikiliza_mwili_wangu/Nausikiliza_mwili_wangu.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 2291.2622,
-              "Y": 1524.0045
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.895,
-              "Y": 0.8467
-            },
-            "PreSize": {
-              "X": 0.2785,
-              "Y": 0.2594
-            },
-            "LeftMargin": 1934.7622,
-            "RightMargin": -87.7622,
-            "TopMargin": 42.4955,
-            "BottomMargin": 1290.5045,
-            "UserData": "drag",
-            "Tag": 8873,
-            "ActionTag": 1717527406,
-            "Size": {
-              "X": 713.0,
-              "Y": 467.0
-            },
-            "Name": "wallpainting",
-            "ctype": "SpriteObjectData"
           },
           {
             "ClipAble": false,
@@ -843,49 +836,87 @@
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Nausikiliza_mwili_wangu/bed.png",
-              "Plist": "Nausikiliza_mwili_wangu/Nausikiliza_mwili_wangu.plist"
+              "Type": "Normal",
+              "Path": "Nausikiliza_mwili_wangu/wallpainting.json",
+              "Plist": ""
             },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
             "Position": {
-              "X": 738.4493,
-              "Y": 831.7416
+              "X": 2360.1978,
+              "Y": 1460.1243
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
             "CColor": {},
-            "IconVisible": false,
+            "IconVisible": true,
             "PrePosition": {
-              "X": 0.2885,
-              "Y": 0.4621
+              "X": 0.922,
+              "Y": 0.8112
             },
             "PreSize": {
-              "X": 0.5668,
-              "Y": 0.53
+              "X": 0.0,
+              "Y": 0.0
             },
-            "LeftMargin": 12.9493,
-            "RightMargin": 1096.0507,
-            "TopMargin": 491.2583,
-            "BottomMargin": 354.7416,
-            "UserData": "drag",
-            "Tag": 10278,
-            "ActionTag": 1225935990,
+            "LeftMargin": 2360.1978,
+            "RightMargin": 199.8022,
+            "TopMargin": 339.8757,
+            "BottomMargin": 1460.1243,
+            "UserData": "eye",
+            "Tag": 1758,
+            "ActionTag": -2146394242,
             "Size": {
-              "X": 1451.0,
-              "Y": 954.0
+              "X": 0.0,
+              "Y": 0.0
             },
-            "Name": "bed_122",
-            "ctype": "SpriteObjectData"
+            "Name": "wallpainting",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Nausikiliza_mwili_wangu/bed.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 756.054,
+              "Y": 878.4675
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.2953,
+              "Y": 0.488
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 756.054,
+            "RightMargin": 1803.946,
+            "TopMargin": 921.5325,
+            "BottomMargin": 878.4675,
+            "UserData": "ballout",
+            "Tag": 4943,
+            "ActionTag": -1290182779,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bed",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -944,34 +975,33 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1272.0583,
-              "Y": 843.6381
+              "X": 1149.9187,
+              "Y": 827.2806
             },
             "Scale": {
-              "ScaleX": 0.2558,
-              "ScaleY": 0.2558
+              "ScaleX": 0.1021,
+              "ScaleY": 0.1021
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.4969,
-              "Y": 0.4687
+              "X": 0.4492,
+              "Y": 0.4596
             },
             "PreSize": {
               "X": 0.2562,
               "Y": 0.3072
             },
-            "LeftMargin": 944.0583,
-            "RightMargin": 959.9417,
-            "TopMargin": 679.8619,
-            "BottomMargin": 567.1381,
+            "LeftMargin": 821.9187,
+            "RightMargin": 1082.0813,
+            "TopMargin": 696.2194,
+            "BottomMargin": 550.7806,
             "Tag": 1373,
             "ActionTag": -999633232,
             "Size": {
               "X": 656.0,
               "Y": 553.0
             },
-            "Alpha": 216,
             "Name": "heartbeat_30",
             "ctype": "SpriteObjectData"
           },
@@ -990,27 +1020,27 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1166.8303,
-              "Y": 829.7676
+              "X": 1104.2573,
+              "Y": 820.5657
             },
             "Scale": {
-              "ScaleX": 0.1362,
-              "ScaleY": 0.1362
+              "ScaleX": 0.01,
+              "ScaleY": 0.01
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.4558,
-              "Y": 0.461
+              "X": 0.4314,
+              "Y": 0.4559
             },
             "PreSize": {
               "X": 0.2562,
               "Y": 0.3072
             },
-            "LeftMargin": 838.8303,
-            "RightMargin": 1065.1697,
-            "TopMargin": 693.7324,
-            "BottomMargin": 553.2676,
+            "LeftMargin": 776.2573,
+            "RightMargin": 1127.7427,
+            "TopMargin": 702.9343,
+            "BottomMargin": 544.0657,
             "Tag": 1374,
             "ActionTag": -1074816392,
             "Size": {
@@ -1206,10 +1236,12 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "bed.json",
         "girl.json",
         "Nausikiliza_mwili_wangu.plist",
         "Nausikiliza_mwili_wangu.png",
-        "spider.json"
+        "spider.json",
+        "wallpainting.json"
       ],
       "ctype": "GameFileData"
     }

@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 300,
+        "Duration": 365,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "bush",
         "Timelines": [
           {
             "ActionTag": -1964983545,
@@ -15,7 +15,7 @@
             "Frames": [
               {
                 "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "-- ALL --",
+                "CurrentAniamtionName": "cow",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
                 "Tween": false,
@@ -113,7 +113,7 @@
             "Frames": [
               {
                 "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "-- ALL --",
+                "CurrentAniamtionName": "cow",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
                 "Tween": false,
@@ -211,7 +211,7 @@
             "Frames": [
               {
                 "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "-- ALL --",
+                "CurrentAniamtionName": "cow",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
                 "Tween": false,
@@ -295,6 +295,126 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1897983624,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1000.9259,
+                "Y": 259.1685,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1000.9259,
+                "Y": 259.1685,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1000.9253,
+                "Y": 259.1684,
+                "FrameIndex": 335,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1000.9259,
+                "Y": 259.1685,
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1897983624,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.081,
+                "Y": 1.081,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.081,
+                "Y": 1.081,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.6087,
+                "Y": 1.5472,
+                "FrameIndex": 335,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.081,
+                "Y": 1.081,
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1897983624,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 365,
                 "EasingData": {
                   "Type": 0
                 },
@@ -410,6 +530,12 @@
           "EndIndex": 300,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 305,
+          "EndIndex": 365,
+          "Name": "bush",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -431,30 +557,32 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -570.0114,
-              "Y": -220.0005
+              "X": -976.3408,
+              "Y": -243.0005
             },
             "Scale": {
-              "ScaleX": 17.1499,
+              "ScaleX": 23.5516,
               "ScaleY": 11.6499
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.2227,
-              "Y": -0.1222
+              "X": -0.3814,
+              "Y": -0.135
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": -570.0114,
-            "RightMargin": 2930.0112,
-            "TopMargin": 1820.0005,
-            "BottomMargin": -220.0005,
+            "LeftMargin": -976.3408,
+            "RightMargin": 3336.3408,
+            "TopMargin": 1843.0005,
+            "BottomMargin": -243.0005,
             "Tag": 3191,
             "ActionTag": -20431841,
             "Size": {
@@ -493,9 +621,10 @@
               "Y": 0.0
             },
             "LeftMargin": 499.4969,
-            "RightMargin": 2060.5029,
+            "RightMargin": 2060.5032,
             "TopMargin": 617.7112,
             "BottomMargin": 1182.2888,
+            "UserData": "cow",
             "Tag": 3215,
             "ActionTag": -1964983545,
             "Size": {
@@ -537,6 +666,7 @@
             "RightMargin": 643.7836,
             "TopMargin": 974.8089,
             "BottomMargin": 825.1911,
+            "UserData": "cow",
             "Tag": 3205,
             "ActionTag": 107887598,
             "Size": {
@@ -668,6 +798,7 @@
             "RightMargin": 1794.458,
             "TopMargin": 1313.1196,
             "BottomMargin": 486.8803,
+            "UserData": "cow;drag",
             "Tag": 3225,
             "ActionTag": 1674532900,
             "Size": {
@@ -713,6 +844,7 @@
             "RightMargin": 1312.0741,
             "TopMargin": 1392.8315,
             "BottomMargin": 111.1685,
+            "UserData": "bush",
             "Tag": 3195,
             "ActionTag": -1897983624,
             "Size": {
@@ -754,6 +886,7 @@
             "RightMargin": 368.5063,
             "TopMargin": 1774.0002,
             "BottomMargin": 25.9998,
+            "UserData": "hi;drag",
             "Tag": 3235,
             "ActionTag": 656324691,
             "Size": {

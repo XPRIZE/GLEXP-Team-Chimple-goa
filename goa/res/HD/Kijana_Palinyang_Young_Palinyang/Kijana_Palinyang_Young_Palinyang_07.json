@@ -5,7 +5,7 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 300,
+        "Duration": 385,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
@@ -1282,6 +1282,135 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -248858935,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 765.5017,
+                "Y": 1255.2776,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 765.5007,
+                "Y": 1255.2766,
+                "FrameIndex": 324,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 765.5011,
+                "Y": 1255.2776,
+                "FrameIndex": 350,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 765.5007,
+                "Y": 1255.2766,
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 765.5017,
+                "Y": 1255.2776,
+                "FrameIndex": 385,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -248858935,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.342,
+                "Y": 0.342,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.5675,
+                "Y": 0.5675,
+                "FrameIndex": 324,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.4705,
+                "Y": 0.4705,
+                "FrameIndex": 350,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.5675,
+                "Y": 0.5675,
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.342,
+                "Y": 0.342,
+                "FrameIndex": 385,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -248858935,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 385,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -1291,6 +1420,12 @@
           "StartIndex": 0,
           "EndIndex": 300,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 305,
+          "EndIndex": 385,
+          "Name": "moon",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -1318,27 +1453,27 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -413.858,
-              "Y": -131.3841
+              "X": -2023.8964,
+              "Y": -191.3835
             },
             "Scale": {
-              "ScaleX": 16.9303,
+              "ScaleX": 38.0302,
               "ScaleY": 10.591
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.1617,
-              "Y": -0.073
+              "X": -0.7906,
+              "Y": -0.1063
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": -413.858,
-            "RightMargin": 2773.8579,
-            "TopMargin": 1731.384,
-            "BottomMargin": -131.3841,
+            "LeftMargin": -2023.8964,
+            "RightMargin": 4383.8965,
+            "TopMargin": 1791.3835,
+            "BottomMargin": -191.3835,
             "Tag": 3931,
             "ActionTag": -118769732,
             "Size": {
@@ -1364,32 +1499,34 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -246.9852,
-              "Y": -535.7591
+              "X": -1496.9675,
+              "Y": -1185.7654
             },
             "Scale": {
-              "ScaleX": 17.5392,
-              "ScaleY": 3.8798
+              "ScaleX": 38.7135,
+              "ScaleY": 6.952
             },
-            "RotationSkewX": -8.6488,
+            "RotationSkewX": -8.6548,
             "RotationSkewY": -8.6573,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0965,
-              "Y": -0.2976
+              "X": -0.5848,
+              "Y": -0.6588
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": -246.9852,
-            "RightMargin": 2606.9851,
-            "TopMargin": 2135.759,
-            "BottomMargin": -535.7591,
+            "LeftMargin": -1496.9675,
+            "RightMargin": 3856.9675,
+            "TopMargin": 2785.7654,
+            "BottomMargin": -1185.7654,
             "Tag": 11670,
             "ActionTag": 1869992422,
             "Size": {
@@ -1429,7 +1566,7 @@
             },
             "LeftMargin": 1371.0391,
             "RightMargin": 1188.9609,
-            "TopMargin": 1656.8824,
+            "TopMargin": 1656.8826,
             "BottomMargin": 143.1175,
             "Tag": 4277,
             "ActionTag": -34913901,
@@ -1838,7 +1975,7 @@
               "Y": 0.0
             },
             "LeftMargin": 720.4088,
-            "RightMargin": 1839.5913,
+            "RightMargin": 1839.5912,
             "TopMargin": 748.6477,
             "BottomMargin": 1051.3523,
             "Tag": 11634,
@@ -2300,6 +2437,52 @@
             },
             "Name": "star_0_1_9_0_0_0_0",
             "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kijana_Palinyang_Young_Palinyang/moon.png",
+              "Plist": "Kijana_Palinyang_Young_Palinyang/Kijana_Palinyang_Young_Palinyang.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 765.5017,
+              "Y": 1255.2776
+            },
+            "Scale": {
+              "ScaleX": 0.342,
+              "ScaleY": 0.342
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.299,
+              "Y": 0.6974
+            },
+            "PreSize": {
+              "X": 0.2688,
+              "Y": 0.4389
+            },
+            "LeftMargin": 421.5017,
+            "RightMargin": 1450.4983,
+            "TopMargin": 149.7224,
+            "BottomMargin": 860.2776,
+            "UserData": "moon",
+            "Tag": 7576,
+            "ActionTag": -248858935,
+            "Size": {
+              "X": 688.0,
+              "Y": 790.0
+            },
+            "Name": "moon_2",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
@@ -2314,6 +2497,8 @@
         "boy_3.json",
         "boy_4.json",
         "boy_5.json",
+        "Kijana_Palinyang_Young_Palinyang.plist",
+        "Kijana_Palinyang_Young_Palinyang.png",
         "star.json"
       ],
       "ctype": "GameFileData"
