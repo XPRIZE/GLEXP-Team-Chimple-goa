@@ -49,24 +49,17 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
 
     init: function (menuContext) {
         cc.log('this._storyBaseDir:' + this._storyBaseDir);
-        this._menuContext = menuContext;
-        this.loadCelebrationNode();
+        this._menuContext = menuContext;        
         this.loadQuestions();
+        this._referenceToContext = this;
     },
 
     loadCelebrationNode: function() {
-        this._celebrationNode = ccs.load(xc.StoryQuestionHandlerLayer.res.celebration_json,xc.path);
-        this._celebrationNode.node.retain();
-        this._celebrationNode.action.retain();
-        this._celebrationNode.action._referenceToContext = this;
-        this._celebrationNode.action.setLastFrameCallFunc(this.finishedSuccessAnimation);
-        if(this._celebrationNode.node) {
-            this._celebrationNode.node.setPosition(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2 + 200);
-            this._celebrationNode.node.runAction(this._celebrationNode.action);
-            this._celebrationNode.node.setVisible(false);
-            this.addChild(this._celebrationNode.node, 1);            
-            this._celebrationNode.action.gotoFrameAndPause(0);
-        }
+        this._particleSystem  = new cc.ParticleSystem (xc.StoryQuestionHandlerLayer.res.particle_system_plist);
+        var texture = cc.textureCache.addImage(xc.StoryQuestionHandlerLayer.res.particle_system_png);
+        this._particleSystem.setTexture(texture);
+        this._particleSystem.setPosition(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2 + 200);
+        this.addChild(this._particleSystem, 10);  
     },
 
     questionHandler: function(question) {
@@ -120,9 +113,7 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
     },
 
     finishedSuccessAnimation: function() {
-        this._referenceToContext._celebrationNode.node.setVisible(false);
-        this._referenceToContext._celebrationNode.action.gotoFrameAndPause(0);
-        //move to next
+        this._particleSystem.removeFromParent();
         if(this._referenceToContext._isAllAnswered) {
             this._referenceToContext.nextQuestion();
         }
@@ -133,9 +124,10 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
         this._isAllAnswered = isAllAnswered;
         if(isCorrect) {
             cc.log("play success animation");
-            this._celebrationNode.node.setVisible(true);
-            this._celebrationNode.action.gotoFrameAndPause(0);            
-            this._celebrationNode.action.play("celebration", false);
+            this.loadCelebrationNode();            
+            var delayAction = new cc.DelayTime(5.0);                        
+            var sequenceAction = new cc.Sequence(delayAction, new cc.CallFunc(this.finishedSuccessAnimation, this));
+            this.runAction(sequenceAction);          
         }
     },
 
@@ -145,9 +137,56 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
             var question = this._questions[this._currentQuestionIndex];
             this.questionHandler(question);                
         } else {
-            this._menuContext.showScore();
+            this.showText();                        
         }
     },
+
+
+    processText: function(sender, type) {
+        if(cc.sys.isNative)
+        {
+            this._menuContext.showScore();
+        }        
+    },
+
+    processAudio: function(sender, type) {
+
+    },
+
+    showText: function() {      
+        //load text file based on Current Story Id and Page index
+        this._isTextShown = true;
+        var langDir = goa.TextGenerator.getInstance().getLang();
+        cc.log("langDir:" + langDir);
+        var storyText = "";
+        var that = this;
+        var textFileUrl =  "res/story" + "/" + langDir + "/" + this._storyBaseDir + ".json";
+        cc.log('textFileUrl:' + textFileUrl);
+        if(cc.sys.isNative) {
+            var fileExists = jsb.fileUtils.isFileExist(textFileUrl);
+            if(fileExists) {
+
+                cc.loader.loadJson(textFileUrl, function(err, json) {            
+                    if(!err && json != null && json != undefined) {
+                        storyText = json["copyright"];
+                        cc.log('story text received:' + storyText);
+                        that.parent.addChild(new xc.BubbleSpeech(xc.StoryCoverPageLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that));
+                        // that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that));
+                    }                                
+                });                
+           
+            } 
+        } else {
+
+            cc.loader.loadJson(textFileUrl, function(err, json) {            
+                if(!err && json != null && json != undefined) {
+                    storyText = json["copyright"];
+                    cc.log('story text received:' + storyText);
+                    that.parent.addChild(new xc.BubbleSpeech(xc.StoryCoverPageLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that));
+                }                                
+            });                            
+        }        
+    },    
 
     loadQuestions: function() {
         var langDir = goa.TextGenerator.getInstance().getLang();
@@ -268,6 +307,9 @@ xc.StoryQuestionHandlerScene.load = function(storyBaseDir, layer, enableTransiti
             } else {
                 xc.storyQuestionConfigurationObject = cc.loader.cache[xc.StoryQuestionHandlerLayer.res.storyQuestionsConfig_json];
             }
+
+            cc.spriteFrameCache.addSpriteFrames(xc.StoryQuestionHandlerLayer.res.particle_system_plist);
+
             var scene = new xc.StoryQuestionHandlerScene(storyBaseDir, layer);
             scene.layerClass = layer;            
             if(enableTransition) {
@@ -286,5 +328,7 @@ xc.StoryQuestionHandlerLayer.res = {
         meaning_question_choice_json: xc.path + "template/template_2.json",
         multi_question_choice_plist: xc.path + "template/template.plist",
         multi_question_choice_png: xc.path + "template/template.png",
-        celebration_json: xc.path + "template/celebration.json"    
+        celebration_json: xc.path + "template/celebration.json",
+        particle_system_plist: "res/scoreboard/particle_success.plist",
+        particle_system_png: "res/scoreboard/success_particle.png" 
 };

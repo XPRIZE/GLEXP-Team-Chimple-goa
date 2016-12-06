@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 235,
         "Speed": 1.0,
-        "ActivedAnimationName": "jump",
+        "ActivedAnimationName": "talk",
         "Timelines": [
           {
             "ActionTag": -1936442280,
@@ -3264,6 +3264,79 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 1074549042,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 207.9948,
+                "Y": 12.1657,
+                "FrameIndex": 115,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1074549042,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 115,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1074549042,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -266.4867,
+                "Y": 93.5256,
+                "FrameIndex": 115,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1074549042,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "chimp",
+                "FrameIndex": 5,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 115,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "chimp",
+                "FrameIndex": 125,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 1769503042,
             "Property": "Position",
             "Frames": [
@@ -6423,7 +6496,7 @@
                                   "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
                                 },
                                 "BlendFunc": {
-                                  "Src": 1,
+                                  "Src": 770,
                                   "Dst": 771
                                 },
                                 "AnchorPoint": {
@@ -6450,10 +6523,10 @@
                                   "X": 0.0,
                                   "Y": 0.0
                                 },
-                                "LeftMargin": 38.2506,
-                                "RightMargin": -84.2506,
-                                "TopMargin": -25.9521,
-                                "BottomMargin": -20.0479,
+                                "LeftMargin": -3.7494,
+                                "RightMargin": -126.2506,
+                                "TopMargin": -69.4521,
+                                "BottomMargin": -63.5479,
                                 "Tag": 51,
                                 "ActionTag": 1019700221,
                                 "Size": {
@@ -6480,7 +6553,7 @@
                               "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
                             },
                             "BlendFunc": {
-                              "Src": 1,
+                              "Src": 770,
                               "Dst": 771
                             },
                             "AnchorPoint": {
@@ -6507,10 +6580,10 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": 101.3166,
-                            "RightMargin": -147.3166,
-                            "TopMargin": -25.316,
-                            "BottomMargin": -20.684,
+                            "LeftMargin": 68.8166,
+                            "RightMargin": -179.8166,
+                            "TopMargin": -147.816,
+                            "BottomMargin": -143.184,
                             "Tag": 48,
                             "ActionTag": -1209834534,
                             "Size": {
@@ -6537,7 +6610,7 @@
                           "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
                         },
                         "BlendFunc": {
-                          "Src": 1,
+                          "Src": 770,
                           "Dst": 771
                         },
                         "AnchorPoint": {
@@ -6564,10 +6637,10 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": 106.1563,
-                        "RightMargin": -152.1563,
-                        "TopMargin": -21.9884,
-                        "BottomMargin": -24.0116,
+                        "LeftMargin": -24.3437,
+                        "RightMargin": -282.6563,
+                        "TopMargin": -37.9884,
+                        "BottomMargin": -40.0116,
                         "Tag": 112,
                         "ActionTag": -334686202,
                         "Size": {
@@ -6652,7 +6725,7 @@
                                   "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
                                 },
                                 "BlendFunc": {
-                                  "Src": 1,
+                                  "Src": 770,
                                   "Dst": 771
                                 },
                                 "AnchorPoint": {
@@ -6679,10 +6752,10 @@
                                   "X": 0.0,
                                   "Y": 0.0
                                 },
-                                "LeftMargin": 27.0119,
-                                "RightMargin": -73.0119,
-                                "TopMargin": -23.0508,
-                                "BottomMargin": -22.9492,
+                                "LeftMargin": -14.9881,
+                                "RightMargin": -115.0119,
+                                "TopMargin": -66.5508,
+                                "BottomMargin": -66.4492,
                                 "Tag": 45,
                                 "ActionTag": 2068776154,
                                 "Size": {
@@ -6709,7 +6782,7 @@
                               "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
                             },
                             "BlendFunc": {
-                              "Src": 1,
+                              "Src": 770,
                               "Dst": 771
                             },
                             "AnchorPoint": {
@@ -6736,10 +6809,10 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": 97.9849,
-                            "RightMargin": -143.9849,
-                            "TopMargin": -24.6635,
-                            "BottomMargin": -21.3365,
+                            "LeftMargin": 65.4849,
+                            "RightMargin": -176.4849,
+                            "TopMargin": -147.1635,
+                            "BottomMargin": -143.8365,
                             "Tag": 46,
                             "ActionTag": 596975998,
                             "Size": {
@@ -6766,7 +6839,7 @@
                           "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
                         },
                         "BlendFunc": {
-                          "Src": 1,
+                          "Src": 770,
                           "Dst": 771
                         },
                         "AnchorPoint": {
@@ -6793,10 +6866,10 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": 107.6467,
-                        "RightMargin": -153.6467,
-                        "TopMargin": -24.5217,
-                        "BottomMargin": -21.4783,
+                        "LeftMargin": -2.8533,
+                        "RightMargin": -264.1467,
+                        "TopMargin": -100.0217,
+                        "BottomMargin": -96.9783,
                         "Tag": 111,
                         "ActionTag": 1844651624,
                         "Size": {
@@ -6861,7 +6934,7 @@
                               "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
                             },
                             "BlendFunc": {
-                              "Src": 1,
+                              "Src": 770,
                               "Dst": 771
                             },
                             "AnchorPoint": {
@@ -6888,10 +6961,10 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": 46.5977,
-                            "RightMargin": -92.5977,
-                            "TopMargin": -18.9673,
-                            "BottomMargin": -27.0327,
+                            "LeftMargin": -17.4023,
+                            "RightMargin": -156.5977,
+                            "TopMargin": -20.9673,
+                            "BottomMargin": -29.0327,
                             "Tag": 42,
                             "ActionTag": 521247143,
                             "Size": {
@@ -6918,7 +6991,7 @@
                           "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
                         },
                         "BlendFunc": {
-                          "Src": 1,
+                          "Src": 770,
                           "Dst": 771
                         },
                         "AnchorPoint": {
@@ -6945,10 +7018,10 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": 176.7596,
-                        "RightMargin": -222.7596,
-                        "TopMargin": -19.6826,
-                        "BottomMargin": -26.3174,
+                        "LeftMargin": -57.2404,
+                        "RightMargin": -456.7596,
+                        "TopMargin": -228.6826,
+                        "BottomMargin": -235.3174,
                         "Tag": 43,
                         "ActionTag": -1427145361,
                         "Size": {
@@ -7051,7 +7124,7 @@
                       "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
                     },
                     "BlendFunc": {
-                      "Src": 1,
+                      "Src": 770,
                       "Dst": 771
                     },
                     "AnchorPoint": {
@@ -7078,11 +7151,12 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": 184.9948,
-                    "RightMargin": -230.9948,
-                    "TopMargin": -35.1657,
-                    "BottomMargin": -10.8343,
+                    "LeftMargin": 28.4948,
+                    "RightMargin": -387.4948,
+                    "TopMargin": -236.6657,
+                    "BottomMargin": -212.3343,
                     "Tag": 108,
+                    "FrameEvent": "chimp",
                     "ActionTag": 1074549042,
                     "Size": {
                       "X": 359.0,
@@ -7184,7 +7258,7 @@
                                   "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
                                 },
                                 "BlendFunc": {
-                                  "Src": 1,
+                                  "Src": 770,
                                   "Dst": 771
                                 },
                                 "AnchorPoint": {
@@ -7211,10 +7285,10 @@
                                   "X": 0.0,
                                   "Y": 0.0
                                 },
-                                "LeftMargin": 54.4965,
-                                "RightMargin": -100.4965,
-                                "TopMargin": -37.798,
-                                "BottomMargin": -8.202,
+                                "LeftMargin": 16.4965,
+                                "RightMargin": -138.4965,
+                                "TopMargin": -102.298,
+                                "BottomMargin": -72.702,
                                 "Tag": 110,
                                 "ActionTag": -1008734580,
                                 "Size": {
@@ -7241,7 +7315,7 @@
                               "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
                             },
                             "BlendFunc": {
-                              "Src": 1,
+                              "Src": 770,
                               "Dst": 771
                             },
                             "AnchorPoint": {
@@ -7268,10 +7342,10 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": 89.553,
-                            "RightMargin": -135.553,
-                            "TopMargin": -23.612,
-                            "BottomMargin": -22.388,
+                            "LeftMargin": 2.053,
+                            "RightMargin": -223.053,
+                            "TopMargin": -120.612,
+                            "BottomMargin": -119.388,
                             "Tag": 49,
                             "ActionTag": 569031404,
                             "Size": {
@@ -7298,7 +7372,7 @@
                           "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
                         },
                         "BlendFunc": {
-                          "Src": 1,
+                          "Src": 770,
                           "Dst": 771
                         },
                         "AnchorPoint": {
@@ -7325,10 +7399,10 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": 66.836,
-                        "RightMargin": -112.836,
-                        "TopMargin": -28.7003,
-                        "BottomMargin": -17.2997,
+                        "LeftMargin": -46.164,
+                        "RightMargin": -225.836,
+                        "TopMargin": -123.2003,
+                        "BottomMargin": -111.7997,
                         "Tag": 55,
                         "ActionTag": 830240854,
                         "Size": {
@@ -7412,7 +7486,7 @@
                                   "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
                                 },
                                 "BlendFunc": {
-                                  "Src": 1,
+                                  "Src": 770,
                                   "Dst": 771
                                 },
                                 "AnchorPoint": {
@@ -7439,10 +7513,10 @@
                                   "X": 0.0,
                                   "Y": 0.0
                                 },
-                                "LeftMargin": 48.5043,
-                                "RightMargin": -94.5043,
-                                "TopMargin": -12.4784,
-                                "BottomMargin": -33.5216,
+                                "LeftMargin": 5.5043,
+                                "RightMargin": -137.5043,
+                                "TopMargin": -72.9784,
+                                "BottomMargin": -94.0216,
                                 "Tag": 109,
                                 "ActionTag": -327843777,
                                 "Size": {
@@ -7469,7 +7543,7 @@
                               "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
                             },
                             "BlendFunc": {
-                              "Src": 1,
+                              "Src": 770,
                               "Dst": 771
                             },
                             "AnchorPoint": {
@@ -7496,10 +7570,10 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": 90.7266,
-                            "RightMargin": -136.7266,
-                            "TopMargin": -28.9294,
-                            "BottomMargin": -17.0706,
+                            "LeftMargin": 67.2266,
+                            "RightMargin": -160.2266,
+                            "TopMargin": -152.9294,
+                            "BottomMargin": -141.0706,
                             "Tag": 47,
                             "ActionTag": 1459131527,
                             "Size": {
@@ -7527,7 +7601,7 @@
                           "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
                         },
                         "BlendFunc": {
-                          "Src": 1,
+                          "Src": 770,
                           "Dst": 771
                         },
                         "AnchorPoint": {
@@ -7554,10 +7628,10 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": 78.5652,
-                        "RightMargin": -124.5652,
-                        "TopMargin": -18.209,
-                        "BottomMargin": -27.791,
+                        "LeftMargin": -60.9348,
+                        "RightMargin": -264.0652,
+                        "TopMargin": -59.709,
+                        "BottomMargin": -69.291,
                         "Tag": 53,
                         "ActionTag": -1156065486,
                         "Size": {

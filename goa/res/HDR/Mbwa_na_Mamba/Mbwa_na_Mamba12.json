@@ -115,7 +115,7 @@
             "Property": "VisibleForFrame",
             "Frames": [
               {
-                "Value": true,
+                "Value": false,
                 "FrameIndex": 380,
                 "Tween": false,
                 "ctype": "BoolFrameData"
@@ -226,7 +226,7 @@
             "Property": "VisibleForFrame",
             "Frames": [
               {
-                "Value": true,
+                "Value": false,
                 "FrameIndex": 380,
                 "Tween": false,
                 "ctype": "BoolFrameData"
@@ -345,7 +345,7 @@
             "Property": "VisibleForFrame",
             "Frames": [
               {
-                "Value": true,
+                "Value": false,
                 "FrameIndex": 380,
                 "Tween": false,
                 "ctype": "BoolFrameData"
@@ -465,7 +465,7 @@
             "Property": "VisibleForFrame",
             "Frames": [
               {
-                "Value": true,
+                "Value": false,
                 "FrameIndex": 380,
                 "Tween": false,
                 "ctype": "BoolFrameData"
@@ -576,7 +576,7 @@
             "Property": "VisibleForFrame",
             "Frames": [
               {
-                "Value": true,
+                "Value": false,
                 "FrameIndex": 380,
                 "Tween": false,
                 "ctype": "BoolFrameData"
@@ -696,7 +696,7 @@
             "Property": "VisibleForFrame",
             "Frames": [
               {
-                "Value": true,
+                "Value": false,
                 "FrameIndex": 380,
                 "Tween": false,
                 "ctype": "BoolFrameData"
@@ -1088,6 +1088,7 @@
               "X": 0.0,
               "Y": 0.0
             },
+            "VisibleForFrame": false,
             "Name": "croc",
             "ctype": "ProjectNodeObjectData"
           },
@@ -1131,6 +1132,7 @@
               "X": 0.0,
               "Y": 0.0
             },
+            "VisibleForFrame": false,
             "Name": "croc",
             "ctype": "ProjectNodeObjectData"
           },
@@ -1174,6 +1176,7 @@
               "X": 0.0,
               "Y": 0.0
             },
+            "VisibleForFrame": false,
             "Name": "croc",
             "ctype": "ProjectNodeObjectData"
           },
@@ -1217,6 +1220,7 @@
               "X": 0.0,
               "Y": 0.0
             },
+            "VisibleForFrame": false,
             "Name": "croc",
             "ctype": "ProjectNodeObjectData"
           },
@@ -1260,6 +1264,7 @@
               "X": 0.0,
               "Y": 0.0
             },
+            "VisibleForFrame": false,
             "Name": "croc",
             "ctype": "ProjectNodeObjectData"
           },
@@ -1303,6 +1308,7 @@
               "X": 0.0,
               "Y": 0.0
             },
+            "VisibleForFrame": false,
             "Name": "croc",
             "ctype": "ProjectNodeObjectData"
           },
@@ -1407,6 +1413,7 @@
             "RightMargin": -516.9089,
             "TopMargin": 688.3168,
             "BottomMargin": 657.6832,
+            "UserData": "main.fish",
             "Tag": 2030,
             "ActionTag": -948529990,
             "Size": {
@@ -1454,6 +1461,7 @@
             "RightMargin": -832.7322,
             "TopMargin": 917.0606,
             "BottomMargin": 428.9394,
+            "UserData": "main.fish",
             "Tag": 2031,
             "ActionTag": -1262256688,
             "Size": {
@@ -1501,6 +1509,7 @@
             "RightMargin": 1738.3855,
             "TopMargin": 1470.5002,
             "BottomMargin": -124.5002,
+            "UserData": "main.fish",
             "Tag": 2032,
             "ActionTag": 1977632229,
             "Size": {
@@ -1548,6 +1557,7 @@
             "RightMargin": 1238.197,
             "TopMargin": 1568.8157,
             "BottomMargin": -222.8157,
+            "UserData": "main.fish",
             "Tag": 2033,
             "ActionTag": 907088498,
             "Size": {
@@ -1590,14 +1600,14 @@
             "RightMargin": 2285.8931,
             "TopMargin": 1706.1891,
             "BottomMargin": 93.8109,
-            "UserData": "main.fish",
+            "UserData": "drag;dogwalk",
             "Tag": 2160,
             "ActionTag": 1116151040,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "croc",
+            "Name": "dog",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1629,8 +1639,8 @@
               "Y": 0.7681
             },
             "PreSize": {
-              "X": 0.018,
-              "Y": 0.0256
+              "X": 0.4887,
+              "Y": 0.4639
             },
             "LeftMargin": 184.489,
             "RightMargin": 1124.511,

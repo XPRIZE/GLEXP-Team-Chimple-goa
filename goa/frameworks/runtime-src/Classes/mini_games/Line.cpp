@@ -262,6 +262,7 @@ bool Line::init()
 			{ "tags", 10 }   // "no of tags"
 		} },
 	};
+	return true;
 }
 void Line::onEnterTransitionDidFinish()
 {

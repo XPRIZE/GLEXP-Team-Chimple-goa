@@ -232,15 +232,100 @@
             },
             "LeftMargin": 902.7312,
             "RightMargin": 1657.2688,
-            "TopMargin": 1218.3846,
+            "TopMargin": 1218.3845,
             "BottomMargin": 581.6154,
+            "UserData": "drag;mouthopen",
             "Tag": 928,
             "ActionTag": 1163640378,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "croc",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Meno_aina_gani/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 784.9299,
+              "Y": 1518.8373
+            },
+            "Scale": {
+              "ScaleX": 1.7423,
+              "ScaleY": 1.7423
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.3066,
+              "Y": 0.8438
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 784.9299,
+            "RightMargin": 1775.0701,
+            "TopMargin": 281.1627,
+            "BottomMargin": 1518.8373,
+            "UserData": "drag;rain",
+            "Tag": 182,
+            "ActionTag": 1300960542,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "cloud",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Meno_aina_gani/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2108.7493,
+              "Y": 1380.5618
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8237,
+              "Y": 0.767
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2108.7493,
+            "RightMargin": 451.2507,
+            "TopMargin": 419.4382,
+            "BottomMargin": 1380.5618,
+            "UserData": "drag;rain",
+            "Tag": 190,
+            "ActionTag": 2008722879,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "cloud",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -252,6 +337,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "cloud.json",
         "croc.json"
       ],
       "ctype": "GameFileData"

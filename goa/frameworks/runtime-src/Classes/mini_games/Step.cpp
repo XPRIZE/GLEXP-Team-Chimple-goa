@@ -96,7 +96,7 @@ void Step::onEnterTransitionDidFinish()
 			LoadingBarDetails._loadingBar->setPercent(0);
 			LoadingBarDetails._id = _loadingBarDetails.size() + 1;
 			LoadingBarDetails._answer = _answer[_level - 1][_loadingBarDetails.size()];
-			LoadingBarDetails._label = LabelTTF::create(_labelText.str(), "Arial", 120);
+			LoadingBarDetails._label = LabelTTF::create("?", "Arial", 120);
 			LoadingBarDetails._label->setPosition(Vec2(_position.at(i).x, _stepBar->getPositionY() - LoadingBarDetails._loadingBar->getContentSize().height / 2));
 			this->addChild(LoadingBarDetails._label);
 

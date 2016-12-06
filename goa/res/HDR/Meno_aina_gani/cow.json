@@ -5,7 +5,7 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 240,
+        "Duration": 281,
         "Speed": 1.0,
         "ActivedAnimationName": "mouthopen",
         "Timelines": [
@@ -222,6 +222,25 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -1572944926,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "cowmoo",
+                "FrameIndex": 40,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 281,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 2143115952,
             "Property": "FileData",
             "Frames": [
@@ -398,8 +417,8 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 166.5745,
-            "RightMargin": -261.5745,
+            "LeftMargin": 166.5735,
+            "RightMargin": -261.5735,
             "TopMargin": -47.0977,
             "BottomMargin": -95.9023,
             "Tag": 50,

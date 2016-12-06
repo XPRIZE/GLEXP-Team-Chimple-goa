@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 180,
+        "Duration": 290,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "sandcastle",
         "Timelines": [
           {
             "ActionTag": 538793822,
@@ -169,6 +169,189 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -138381186,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 949.7152,
+                "Y": 1154.114,
+                "FrameIndex": 190,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 949.7143,
+                "Y": 1154.1139,
+                "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 949.7148,
+                "Y": 1154.1138,
+                "FrameIndex": 230,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 949.7143,
+                "Y": 1154.1139,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 949.7148,
+                "Y": 1154.1138,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 949.7152,
+                "Y": 1154.114,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -138381186,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 190,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 230,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -138381186,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 190,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -9.3439,
+                "Y": -9.3508,
+                "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 7.6855,
+                "Y": 7.6815,
+                "FrameIndex": 230,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -9.3439,
+                "Y": -9.3508,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 7.6855,
+                "Y": 7.6815,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -178,6 +361,12 @@
           "StartIndex": 0,
           "EndIndex": 180,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 190,
+          "EndIndex": 290,
+          "Name": "sandcastle",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -1696,7 +1885,7 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 320.2596,
+              "X": 916.0159,
               "Y": 940.17
             },
             "Scale": {
@@ -1706,17 +1895,18 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.1251,
+              "X": 0.3578,
               "Y": 0.5223
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 320.2596,
-            "RightMargin": 2239.7405,
+            "LeftMargin": 916.0159,
+            "RightMargin": 1643.9841,
             "TopMargin": 859.83,
             "BottomMargin": 940.17,
+            "UserData": "drag",
             "Tag": 4921,
             "ActionTag": 1348277643,
             "Size": {
@@ -1741,13 +1931,15 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 949.7152,
-              "Y": 1154.114
+              "X": 949.7147,
+              "Y": 1154.1138
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
+            "RotationSkewX": 4.2796,
+            "RotationSkewY": 4.2751,
             "CColor": {
               "G": 210,
               "B": 210
@@ -1761,10 +1953,11 @@
               "X": 0.1156,
               "Y": 0.2467
             },
-            "LeftMargin": 801.7152,
-            "RightMargin": 1462.2848,
-            "TopMargin": 423.886,
-            "BottomMargin": 932.114,
+            "LeftMargin": 801.7147,
+            "RightMargin": 1462.2854,
+            "TopMargin": 423.8862,
+            "BottomMargin": 932.1138,
+            "UserData": "main.sandcastle",
             "Tag": 4920,
             "ActionTag": -138381186,
             "Size": {

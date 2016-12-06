@@ -96,69 +96,24 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": -1741776875,
-            "Property": "Position",
+            "ActionTag": 1759272281,
+            "Property": "ActionValue",
             "Frames": [
               {
-                "X": 1425.8342,
-                "Y": 1009.6428,
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "sun",
+                "SingleFrameIndex": 0,
                 "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               },
               {
-                "X": 1425.8342,
-                "Y": 1021.6432,
-                "FrameIndex": 90,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 1425.8345,
-                "Y": 971.6434,
-                "FrameIndex": 180,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 1425.835,
-                "Y": 1014.6417,
-                "FrameIndex": 270,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": -1741776875,
-            "Property": "RotationSkew",
-            "Frames": [
-              {
-                "X": 0.0,
-                "Y": 0.0,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 360.0,
-                "Y": 360.0,
-                "FrameIndex": 360,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "sun",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 430,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -496,48 +451,45 @@
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Mbweha_na_jua/sun.png",
-              "Plist": "Mbweha_na_jua/Mbweha_na_jua.plist"
+              "Type": "Normal",
+              "Path": "Mbweha_na_jua/sun.json",
+              "Plist": ""
             },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
             "Position": {
-              "X": 1425.8342,
-              "Y": 1009.6428
+              "X": 1315.2036,
+              "Y": 1014.394
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
             "CColor": {},
-            "IconVisible": false,
+            "IconVisible": true,
             "PrePosition": {
-              "X": 0.557,
-              "Y": 0.5609
+              "X": 0.5138,
+              "Y": 0.5636
             },
             "PreSize": {
-              "X": 0.3453,
-              "Y": 0.4978
+              "X": 0.0,
+              "Y": 0.0
             },
-            "LeftMargin": 983.8342,
-            "RightMargin": 692.1658,
-            "TopMargin": 342.3572,
-            "BottomMargin": 561.6428,
-            "Tag": 804,
-            "ActionTag": -1741776875,
+            "LeftMargin": 1315.2036,
+            "RightMargin": 1244.7964,
+            "TopMargin": 785.606,
+            "BottomMargin": 1014.394,
+            "UserData": "drag;sun",
+            "Tag": 950,
+            "ActionTag": 1759272281,
             "Size": {
-              "X": 884.0,
-              "Y": 896.0
+              "X": 0.0,
+              "Y": 0.0
             },
-            "Name": "sun_10",
-            "ctype": "SpriteObjectData"
+            "Name": "sun",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -571,13 +523,14 @@
             "RightMargin": 1258.842,
             "TopMargin": 1351.9159,
             "BottomMargin": 448.0841,
+            "UserData": "drag;runcolor",
             "Tag": 793,
             "ActionTag": 1237563904,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "jackal1",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -591,7 +544,8 @@
       "UsedResources": [
         "jackal1.json",
         "Mbweha_na_jua.plist",
-        "Mbweha_na_jua.png"
+        "Mbweha_na_jua.png",
+        "sun.json"
       ],
       "ctype": "GameFileData"
     }

@@ -7,6 +7,7 @@
       "Animation": {
         "Duration": 300,
         "Speed": 1.0,
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 1244940095,
@@ -501,7 +502,14 @@
         ],
         "ctype": "TimelineActionData"
       },
-      "AnimationList": [],
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 300,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
       "ObjectData": {
         "Tag": 139,
         "Children": [
@@ -530,27 +538,27 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -1199.9144,
-              "Y": -9.9748
+              "X": -1329.9261,
+              "Y": -249.9986
             },
             "Scale": {
-              "ScaleX": 24.6996,
-              "ScaleY": 9.3234
+              "ScaleX": 29.6994,
+              "ScaleY": 11.7734
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.4687,
-              "Y": -0.0055
+              "X": -0.5195,
+              "Y": -0.1389
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": -1199.9144,
-            "RightMargin": 3559.9146,
-            "TopMargin": 1609.9749,
-            "BottomMargin": -9.9748,
+            "LeftMargin": -1329.9261,
+            "RightMargin": 3689.9263,
+            "TopMargin": 1849.9985,
+            "BottomMargin": -249.9986,
             "Tag": 140,
             "ActionTag": -266676905,
             "Size": {
@@ -674,7 +682,7 @@
             },
             "LeftMargin": 793.6279,
             "RightMargin": 1766.3721,
-            "TopMargin": 1718.9761,
+            "TopMargin": 1718.976,
             "BottomMargin": 81.024,
             "UserData": "hi;drag",
             "Tag": 3944,
