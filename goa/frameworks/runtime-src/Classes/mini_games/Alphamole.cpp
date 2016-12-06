@@ -125,8 +125,8 @@ void Alphamole::startGame()
 
 	_mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
 	_mainChar = Alphamon::createWithAlphabet(_mychar);
-	_mainChar->setScaleX(0.3);
-	_mainChar->setScaleY(0.3);
+	_mainChar->setScaleX(0.5);
+	_mainChar->setScaleY(0.5);
 	_mainChar->setPositionX(visibleSize.width * 0.1);
 	_mainChar->setPositionY(visibleSize.height / 1.2);
 	this->addChild(_mainChar);
