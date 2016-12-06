@@ -114,7 +114,7 @@ bool Item::init()
 
 	
 	
-
+	return true;
 	
 }
 void Item::onEnterTransitionDidFinish()

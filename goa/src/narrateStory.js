@@ -267,9 +267,9 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
                 if (cc.rectContainsPoint(targetRectangle, location)) {
                     if(target.supportAutoPolygon) {
-                        context.updateVerticesForSprite(target);
-                        var result = context.isTouchableAtPoint(target, location);
-                        cc.log("RESULT )*@#($*@#)($*@#$)@#$:" + result);
+                        // context.updateVerticesForSprite(target);
+                        // var result = context.isTouchableAtPoint(target, location);
+                        // cc.log("RESULT )*@#($*@#)($*@#$)@#$:" + result);
                         
                     }                    
                     context._currentTarget = target;                    
@@ -336,12 +336,12 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this._constructedScene.node.retain();
         this._constructedScene.action.retain();
 
-        var sprite = new cc.Sprite("res/kun_tree.png");
-        sprite.setName("kun_tree");
-        sprite.setPosition(900,900);
-        sprite.supportAutoPolygon = true;
-        this._constructedScene.node.addChild(sprite);
-        context._nodeToFileNameMapping[sprite.getName()] = "res/kun_tree.png";
+        // var sprite = new cc.Sprite("res/kun_tree.png");
+        // sprite.setName("kun_tree");
+        // sprite.setPosition(900,900);
+        // sprite.supportAutoPolygon = true;
+        // this._constructedScene.node.addChild(sprite);
+        // context._nodeToFileNameMapping[sprite.getName()] = "res/kun_tree.png";
 
         //rendering info
         var info = cc.loader.getRes(xc.path + contentUrl);

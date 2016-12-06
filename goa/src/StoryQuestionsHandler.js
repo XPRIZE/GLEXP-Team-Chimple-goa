@@ -136,10 +136,57 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
         if(this._currentQuestionIndex < this._questions.length) {
             var question = this._questions[this._currentQuestionIndex];
             this.questionHandler(question);                
-        } else if(cc.sys.isNative) {
-            this._menuContext.showScore();
+        } else {
+            this.showText();                        
         }
     },
+
+
+    processText: function(sender, type) {
+        if(cc.sys.isNative)
+        {
+            this._menuContext.showScore();
+        }        
+    },
+
+    processAudio: function(sender, type) {
+
+    },
+
+    showText: function() {      
+        //load text file based on Current Story Id and Page index
+        this._isTextShown = true;
+        var langDir = goa.TextGenerator.getInstance().getLang();
+        cc.log("langDir:" + langDir);
+        var storyText = "";
+        var that = this;
+        var textFileUrl =  "res/story" + "/" + langDir + "/" + this._storyBaseDir + ".json";
+        cc.log('textFileUrl:' + textFileUrl);
+        if(cc.sys.isNative) {
+            var fileExists = jsb.fileUtils.isFileExist(textFileUrl);
+            if(fileExists) {
+
+                cc.loader.loadJson(textFileUrl, function(err, json) {            
+                    if(!err && json != null && json != undefined) {
+                        storyText = json["copyright"];
+                        cc.log('story text received:' + storyText);
+                        that.parent.addChild(new xc.BubbleSpeech(xc.StoryCoverPageLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that));
+                        // that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that));
+                    }                                
+                });                
+           
+            } 
+        } else {
+
+            cc.loader.loadJson(textFileUrl, function(err, json) {            
+                if(!err && json != null && json != undefined) {
+                    storyText = json["copyright"];
+                    cc.log('story text received:' + storyText);
+                    that.parent.addChild(new xc.BubbleSpeech(xc.StoryCoverPageLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that));
+                }                                
+            });                            
+        }        
+    },    
 
     loadQuestions: function() {
         var langDir = goa.TextGenerator.getInstance().getLang();
