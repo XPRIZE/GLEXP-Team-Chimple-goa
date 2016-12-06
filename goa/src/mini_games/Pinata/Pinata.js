@@ -23,12 +23,13 @@ xc.Pinata = cc.Layer.extend({
     var playerGUI = "";
     var heightTolrence = 0;
     this.xPosi =0; 
+    this.counterHit = 0;
     this.shootingFlag = false;
     this.flagSingleTouchFirst = true;
     this.targetXcoordSave = 0;
     this.targetYcoordSave = 0;
     var currentLevelValue = menuContext.getCurrentLevel();
-    menuContext.setMaxPoints(2);
+    menuContext.setMaxPoints(10);
     var info = this.levelAllInfo(currentLevelValue,3,5,3,10);
     console.log("the pinata category value is : " +     info.category);
     console.log("the pinata scene value is : " +     info.scene);
@@ -188,6 +189,9 @@ xc.Pinata = cc.Layer.extend({
                     classReference.leftLine = new cc.DrawNode();
                     classReference.leftLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("left").x,classReference.gameBg.node.getChildByName("left").y), cc.p(classReference.bubblePlayer.x - (classReference.bubblePlayer.width/2),classReference.bubblePlayer.y),5,classReference.stringColor);
                     classReference.addChild(classReference.leftLine); 
+                }else{
+                    target.x = classReference.player.prevX;
+                    target.y = classReference.player.prevY;
                 }
             },
             onTouchEnded : function(touch, event){
@@ -273,6 +277,7 @@ xc.Pinata = cc.Layer.extend({
                         classReference.targetXcoordSave = targetA.x;
                         classReference.gamePlay(targetA);
                     }
+                    classReference.counterHit++;
                     menuContext.addPoints(2);
                 }else{
                     console.log("its wrong answer");
@@ -290,6 +295,7 @@ xc.Pinata = cc.Layer.extend({
                          classReference.runAnimations(ccs.load(path,xc.path),targetA.x,targetA.y,path);
                          targetA.setVisible(false);
                     }
+                    classReference.counterHit++;
                     menuContext.addPoints(-1);
                 }
 
@@ -377,8 +383,8 @@ xc.Pinata = cc.Layer.extend({
 
     update : function (dt) {
        
-      // if(this.shootingFlag && !menuContext.isGamePaused()){
-       if(this.shootingFlag ){
+       if(this.shootingFlag && !menuContext.isGamePaused()){
+      // if(this.shootingFlag ){
            this.stateShootBubble(dt);
            if(!(this.bubblePlayer.y >=0)){               
                this.bubblePlayer.setPosition((this.xPosi/2)+(this.gameBg.node.getChildByName("left").x + this.gameBg.node.getChildByName("right").x) /2,this.gameBg.node.getChildByName("right").y);
@@ -415,6 +421,7 @@ xc.Pinata = cc.Layer.extend({
                 setTimeout(function() {
                     if (cc.sys.isNative) {
                           if(classReference.counterlevelStatus == 5){
+                              menuContext.setMaxPoints(classReference.counterHit);
                               menuContext.showScore()
                           }else{
                               classReference.counterlevelStatus++;

@@ -410,8 +410,15 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             cc.log("point in updateVerticesForSprite" + point);
             cc.log("point.x" + point.x);
             cc.log("point.y" + point.y);
+            cc.log("rect.width" + rect.width);
+            cc.log("rect.height" + rect.height);
+            cc.log("rect.x" + rect.x);
+            cc.log("rect.y" + rect.y);
             var x = point.x * rect.width + rect.x;
             var y = point.y * rect.height + rect.y;
+
+            cc.log("commputed.x" + x);
+            cc.log("computed.y" + y);
 
             array.push(cc.p(x,y));
         }
@@ -437,9 +444,10 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         if(cc.sys.isNative) {
             vertices = this.getParent()._menuContext.getPolygonPointsForSprite(sprite, fileName, 0.5);
         } else {
-            vertices.push(cc.p(0.015274949371814728, 1.8162651062011719));
-            vertices.push(cc.p(1.8162651062011719, 1.8162651062011719));
-            vertices.push(cc.p(0.01731160841882229, 1.8087348937988281));
+            vertices.push(cc.p(0, 0));
+            vertices.push(cc.p(0.5, 0));
+            vertices.push(cc.p(0.5, 1));
+            vertices.push(cc.p(1, 0));
         }
         
         vertices.forEach(function(a) {
