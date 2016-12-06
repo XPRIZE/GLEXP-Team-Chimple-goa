@@ -60,7 +60,7 @@ void Units::onEnterTransitionDidFinish() {
 		std::string str = monsterItem->getName().c_str();
 		CCLOG("name : %s", str.c_str());
 	}
-	
+	/*
 	for (int i = 21; i <= 40; i++) {
 
 		std::ostringstream cookie;
@@ -83,7 +83,7 @@ void Units::onEnterTransitionDidFinish() {
 
 	}
 
-
+	*/
 	hideUnwated(_level);
 	float delay = 0.5;
 	outlet_1 = _bg->getChildByName("outlet_1")->getPosition();
