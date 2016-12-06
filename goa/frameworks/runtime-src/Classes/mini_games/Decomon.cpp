@@ -431,6 +431,7 @@ void Decomon::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 	//_myLabel->setContentSize(Size(_width * 2, 500));
 	auto target = event->getCurrentTarget();
 	//_paintingTexture->end();
+	_audioEffect->playEffect("sounds/sfx/drop.ogg");
 	if (!_colorPicked)
 	{
 		if (!(target->getBoundingBox().intersectsRect(_alphaNode->getBoundingBox()))) {
