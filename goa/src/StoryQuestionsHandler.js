@@ -136,7 +136,7 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
         if(this._currentQuestionIndex < this._questions.length) {
             var question = this._questions[this._currentQuestionIndex];
             this.questionHandler(question);                
-        } else {
+        } else if(cc.sys.isNative) {
             this._menuContext.showScore();
         }
     },

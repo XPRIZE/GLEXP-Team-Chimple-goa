@@ -106,15 +106,25 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
                         node.setTitleFontName(xc.storyFontName);
                         node.setTouchEnabled(true);
                         node.selectedIndex = index;
-                        var result = [];
                         cc.log('remainingAnswers[0]:' + remainingAnswers[0]);
+                        var output = "";
                         var qText = remainingAnswers[0];
-                        remainingAnswers[0].replace(/(.{30}\w+)\s(.+)/, function(_,a,b) { result.push(a,b); });
-                        if(result.length > 0) {
-                           qText = result.join('\n');     
+                        var iLen = qText.length;
+                        if(qText.length > 30) {
+                            var i = 30;
+                            while(i != qText.length && qText.charAt(i) != " ")
+                            {
+                                i++;
+                            }
+                            output += qText.substring(0,i);
+                            output += "\n";
+                            output += qText.substring(i, qText.length);
+                        } else {
+                            output = qText;
                         }
-                        node.setTitleText(qText);
-                        cc.log("qText setting:" + qText);
+                        cc.log("output:" + output);
+                        node.setTitleText(output);
+                        cc.log("qText setting:" + output);
                         node.addTouchEventListener(this.answerSelected, this);
                     }                    
                 }                             
@@ -187,7 +197,7 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
                this._constructedScene.node.children.forEach(function(child) {                   
                   if(child.getName().startsWith("A"))
                   {                       
-                      var str2 = child.getTitleText().replace(/\n|\r/g, " ");
+                      var str2 = child.getTitleText().replace(/\n|\r/g, "");
                       if(str2.trim().toLowerCase() == aText.trim().toLowerCase()) {
                             aNode = child;
                       }                      
@@ -268,7 +278,7 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
     },
 
     verifyAnswer: function(sender, questionNode) {
-        var str2 = sender.getTitleText().replace(/\n|\r/g, " ");
+        var str2 = sender.getTitleText().replace(/\n|\r/g, "");
         var isCorrectAnswered = str2.trim().toLowerCase() === this._question[questionNode.getTitleText().trim()].toLowerCase();
         if(isCorrectAnswered) {
             this._totalCorrectAnswers++;
