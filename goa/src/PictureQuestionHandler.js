@@ -256,7 +256,7 @@ xc.PictureQuestionHandler = cc.Layer.extend({
     },
 
     verifyAnswer: function(sender, questionNode) {
-        var str2 = sender.getTitleText().replace(/\n|\r/g, " ");
+        var str2 = sender.getTitleText().replace(/\n|\r/g, "");
         var isCorrectAnswered = str2.trim().toLowerCase() === this._question[questionNode.getTitleText().trim()].toLowerCase();
         if(isCorrectAnswered) {
             this._totalCorrectAnswers++;

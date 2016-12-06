@@ -267,9 +267,9 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
                 if (cc.rectContainsPoint(targetRectangle, location)) {
                     if(target.supportAutoPolygon) {
-                        context.updateVerticesForSprite(target);
-                        var result = context.isTouchableAtPoint(target, location);
-                        cc.log("RESULT )*@#($*@#)($*@#$)@#$:" + result);
+                        // context.updateVerticesForSprite(target);
+                        // var result = context.isTouchableAtPoint(target, location);
+                        // cc.log("RESULT )*@#($*@#)($*@#$)@#$:" + result);
                         
                     }                    
                     context._currentTarget = target;                    
@@ -336,12 +336,12 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this._constructedScene.node.retain();
         this._constructedScene.action.retain();
 
-        var sprite = new cc.Sprite("res/kun_tree.png");
-        sprite.setName("kun_tree");
-        sprite.setPosition(900,900);
-        sprite.supportAutoPolygon = true;
-        this._constructedScene.node.addChild(sprite);
-        context._nodeToFileNameMapping[sprite.getName()] = "res/kun_tree.png";
+        // var sprite = new cc.Sprite("res/kun_tree.png");
+        // sprite.setName("kun_tree");
+        // sprite.setPosition(900,900);
+        // sprite.supportAutoPolygon = true;
+        // this._constructedScene.node.addChild(sprite);
+        // context._nodeToFileNameMapping[sprite.getName()] = "res/kun_tree.png";
 
         //rendering info
         var info = cc.loader.getRes(xc.path + contentUrl);
@@ -388,9 +388,9 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this._rightButtonPanel.setBackGroundColor(xc.PRIMARY_COLOR);
         this.addChild(this._rightButtonPanel);
         this._rightButtonPanel.setVisible(false);
-        this.showText();
-        // this.bindTouchListenerToLayer(this);
-        // this.sceneTouched();
+        // this.showText();
+        this.bindTouchListenerToLayer(this);
+        this.sceneTouched();
 
     },
 
@@ -740,8 +740,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             xc.StoryQuestionHandlerScene.load(this._baseDir, xc.StoryQuestionHandlerLayer, true);
             return;
         }
-        // xc.NarrateStoryScene.load(curIndex, this._storyInformation, xc.NarrateStoryLayer, true);
-        xc.StoryQuestionHandlerScene.load(this._baseDir, xc.StoryQuestionHandlerLayer, true);
+        xc.NarrateStoryScene.load(curIndex, this._storyInformation, xc.NarrateStoryLayer, true);
+        // xc.StoryQuestionHandlerScene.load(this._baseDir, xc.StoryQuestionHandlerLayer, true);
     },
 
     playEnded: function () {
