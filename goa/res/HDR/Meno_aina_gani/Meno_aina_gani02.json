@@ -5,19 +5,236 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 240,
+        "Duration": 365,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "pigeon",
         "Timelines": [
+          {
+            "ActionTag": 434818801,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 245,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 434818801,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1895.6597,
+                "Y": 450.7966,
+                "FrameIndex": 245,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1993.5162,
+                "Y": 1992.3145,
+                "FrameIndex": 345,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 434818801,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -0.4,
+                "Y": 0.4,
+                "FrameIndex": 345,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 434818801,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 240,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 245,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1208812125,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 255,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1208812125,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 774.4781,
+                "Y": 460.3865,
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 747.6213,
+                "Y": 1979.2706,
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1208812125,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.4,
+                "Y": 0.4,
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1208812125,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 240,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 255,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1573237388,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 260,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1573237388,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1556.5872,
+                "Y": 510.9347,
+                "FrameIndex": 260,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1547.5609,
+                "Y": 1958.4841,
+                "FrameIndex": 330,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1573237388,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 240,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 260,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": -517910332,
             "Property": "ActionValue",
             "Frames": [
               {
                 "InnerActionType": "NoLoopAction",
-                "CurrentAniamtionName": "-- ALL --",
+                "CurrentAniamtionName": "openmouth",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "tail",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 40,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               },
@@ -40,6 +257,12 @@
           "StartIndex": 0,
           "EndIndex": 240,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 245,
+          "EndIndex": 365,
+          "Name": "pigeon",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -69,7 +292,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1270.0,
+              "X": 1280.0,
               "Y": 899.9993
             },
             "Scale": {
@@ -79,15 +302,15 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.4961,
+              "X": 0.5,
               "Y": 0.5
             },
             "PreSize": {
               "X": 1.5625,
               "Y": 1.0
             },
-            "LeftMargin": -730.0,
-            "RightMargin": -710.0,
+            "LeftMargin": -720.0,
+            "RightMargin": -720.0,
             "TopMargin": 0.0007,
             "BottomMargin": -0.0007,
             "Tag": 85,
@@ -155,7 +378,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -194,13 +417,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -239,13 +462,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_0",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -284,13 +507,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_1",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -329,13 +552,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_2",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -374,13 +597,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_3",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -419,13 +642,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_4",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -464,13 +687,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_5",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -509,13 +732,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_6",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -554,13 +777,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_7",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -599,13 +822,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_8",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -644,13 +867,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_9",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -689,13 +912,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_10",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -734,13 +957,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_11",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -779,13 +1002,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_12",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -824,13 +1047,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_13",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -869,13 +1092,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_14",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -914,13 +1137,13 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_15",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/Menoainagani_grass.png",
+              "Path": "Meno_aina_gani/grass.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -959,13 +1182,139 @@
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_2_16",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
+              "Type": "Normal",
+              "Path": "Meno_aina_gani/bird.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1895.6597,
+              "Y": 450.7966
+            },
+            "Scale": {
+              "ScaleX": -0.4,
+              "ScaleY": 0.4
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7405,
+              "Y": 0.2504
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1895.6597,
+            "RightMargin": 664.3403,
+            "TopMargin": 1349.2034,
+            "BottomMargin": 450.7966,
+            "Tag": 749,
+            "ActionTag": 434818801,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "VisibleForFrame": false,
+            "Name": "pigeon",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Meno_aina_gani/bird.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 774.4781,
+              "Y": 460.3865
+            },
+            "Scale": {
+              "ScaleX": 0.4,
+              "ScaleY": 0.4
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.3025,
+              "Y": 0.2558
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 774.4781,
+            "RightMargin": 1785.5219,
+            "TopMargin": 1339.6135,
+            "BottomMargin": 460.3865,
+            "Tag": 646,
+            "ActionTag": -1208812125,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "VisibleForFrame": false,
+            "Name": "pigeon",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Meno_aina_gani/bird.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1556.5872,
+              "Y": 510.9347
+            },
+            "Scale": {
+              "ScaleX": 0.4,
+              "ScaleY": 0.4
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.608,
+              "Y": 0.2839
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1556.5872,
+            "RightMargin": 1003.4128,
+            "TopMargin": 1289.0653,
+            "BottomMargin": 510.9347,
+            "Tag": 543,
+            "ActionTag": 1573237388,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "VisibleForFrame": false,
+            "Name": "pigeon",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/MbwanaMamba_bush.png",
+              "Path": "Meno_aina_gani/bush.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -998,19 +1347,20 @@
             "RightMargin": 787.5085,
             "TopMargin": 989.0206,
             "BottomMargin": 356.9794,
+            "UserData": "main.pigeon",
             "Tag": 79,
             "ActionTag": 854470055,
             "Size": {
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_1_1",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/MbwanaMamba_bush.png",
+              "Path": "Meno_aina_gani/bush.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -1043,19 +1393,20 @@
             "RightMargin": 1817.5005,
             "TopMargin": 979.0114,
             "BottomMargin": 366.9886,
+            "UserData": "main.pigeon",
             "Tag": 80,
             "ActionTag": 76747320,
             "Size": {
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/MbwanaMamba_bush.png",
+              "Path": "Meno_aina_gani/bush.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -1088,19 +1439,20 @@
             "RightMargin": 1457.4999,
             "TopMargin": 1069.0104,
             "BottomMargin": 276.9896,
+            "UserData": "main.pigeon",
             "Tag": 81,
             "ActionTag": -44041187,
             "Size": {
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_0",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/MbwanaMamba_bush.png",
+              "Path": "Meno_aina_gani/bush.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -1133,19 +1485,20 @@
             "RightMargin": -132.4939,
             "TopMargin": 989.0163,
             "BottomMargin": 356.9837,
+            "UserData": "main.pigeon",
             "Tag": 82,
             "ActionTag": 1635848682,
             "Size": {
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_1",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Meno_aina_gani/MbwanaMamba_bush.png",
+              "Path": "Meno_aina_gani/bush.png",
               "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
             },
             "BlendFunc": {
@@ -1178,13 +1531,14 @@
             "RightMargin": 277.543,
             "TopMargin": 1059.0156,
             "BottomMargin": 286.9843,
+            "UserData": "main.pigeon",
             "Tag": 83,
             "ActionTag": 1409500364,
             "Size": {
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_1_0",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1219,13 +1573,14 @@
             "RightMargin": 1420.2937,
             "TopMargin": 1149.1592,
             "BottomMargin": 650.8409,
+            "UserData": "drag;run",
             "Tag": 962,
             "ActionTag": -517910332,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "lion",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -1237,6 +1592,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "bird.json",
         "lion.json",
         "Meno_aina_gani.plist",
         "Meno_aina_gani.png"

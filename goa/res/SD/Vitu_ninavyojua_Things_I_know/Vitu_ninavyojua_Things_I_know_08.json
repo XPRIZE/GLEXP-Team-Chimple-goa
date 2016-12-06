@@ -7,6 +7,7 @@
       "Animation": {
         "Duration": 300,
         "Speed": 1.0,
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -1769240974,
@@ -36,8 +37,8 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 1516.1475,
-                "Y": 627.2158,
+                "X": 1498.8179,
+                "Y": 639.5129,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -45,8 +46,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 1516.1475,
-                "Y": 627.2158,
+                "X": 1498.8179,
+                "Y": 639.5129,
                 "FrameIndex": 300,
                 "EasingData": {
                   "Type": 0
@@ -105,18 +106,78 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1760480847,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -174.8959,
+                "Y": 1570.2681,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2245.1008,
+                "Y": 1550.2554,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1109809278,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1556.7892,
+                "Y": 1457.5543,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 3976.7483,
+                "Y": 1437.5419,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
       },
-      "AnimationList": [],
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 300,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
       "ObjectData": {
         "Tag": 813,
         "Children": [
           {
             "ClipAble": false,
             "ComboBoxIndex": 1,
-            "SingleColor": {},
+            "SingleColor": {
+              "R": 30,
+              "G": 144
+            },
             "FirstColor": {
               "R": 150,
               "G": 200
@@ -130,27 +191,27 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -103.7752,
-              "Y": -100.7296
+              "X": -2165.7681,
+              "Y": -105.2409
             },
             "Scale": {
-              "ScaleX": 13.8828,
+              "ScaleX": 37.6893,
               "ScaleY": 9.5058
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0405,
-              "Y": -0.056
+              "X": -0.846,
+              "Y": -0.0585
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": -103.7752,
-            "RightMargin": 2463.7751,
-            "TopMargin": 1700.7296,
-            "BottomMargin": -100.7296,
+            "LeftMargin": -2165.7681,
+            "RightMargin": 4525.7681,
+            "TopMargin": 1705.241,
+            "BottomMargin": -105.2409,
             "Tag": 815,
             "ActionTag": 819025824,
             "Size": {
@@ -158,6 +219,57 @@
               "Y": 200.0
             },
             "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 139,
+              "G": 105,
+              "B": 20
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -2247.855,
+              "Y": -969.2366
+            },
+            "Scale": {
+              "ScaleX": 37.6893,
+              "ScaleY": 9.5058
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.8781,
+              "Y": -0.5385
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -2247.855,
+            "RightMargin": 4607.855,
+            "TopMargin": 2569.2366,
+            "BottomMargin": -969.2366,
+            "Tag": 852,
+            "ActionTag": -899632085,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1_0",
             "ctype": "PanelObjectData"
           },
           {
@@ -171,8 +283,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1516.1475,
-              "Y": 627.2158
+              "X": 1498.8179,
+              "Y": 639.5129
             },
             "Scale": {
               "ScaleX": 1.6942,
@@ -181,17 +293,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.5922,
-              "Y": 0.3485
+              "X": 0.5855,
+              "Y": 0.3553
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1516.1475,
-            "RightMargin": 1043.8525,
-            "TopMargin": 1172.7842,
-            "BottomMargin": 627.2158,
+            "LeftMargin": 1498.8179,
+            "RightMargin": 1061.1821,
+            "TopMargin": 1160.4871,
+            "BottomMargin": 639.5129,
             "UserData": "blink;drag",
             "Tag": 861,
             "ActionTag": -1769240974,
@@ -201,6 +313,96 @@
             },
             "Name": "dog",
             "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Vitu_ninavyojua_Things_I_know/cloud1.png",
+              "Plist": "Vitu_ninavyojua_Things_I_know/Vitu_ninavyojua_Things_I_know.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -174.8959,
+              "Y": 1570.2681
+            },
+            "Scale": {
+              "ScaleX": 3.5894,
+              "ScaleY": 3.5894
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0683,
+              "Y": 0.8724
+            },
+            "PreSize": {
+              "X": 0.0664,
+              "Y": 0.0283
+            },
+            "LeftMargin": -259.8959,
+            "RightMargin": 2649.896,
+            "TopMargin": 204.2319,
+            "BottomMargin": 1544.7681,
+            "Tag": 908,
+            "ActionTag": 1760480847,
+            "Size": {
+              "X": 170.0,
+              "Y": 51.0
+            },
+            "Name": "cloud_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Vitu_ninavyojua_Things_I_know/cloud1.png",
+              "Plist": "Vitu_ninavyojua_Things_I_know/Vitu_ninavyojua_Things_I_know.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1556.7892,
+              "Y": 1457.5543
+            },
+            "Scale": {
+              "ScaleX": 3.5894,
+              "ScaleY": 3.5894
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6081,
+              "Y": 0.8098
+            },
+            "PreSize": {
+              "X": 0.0664,
+              "Y": 0.0283
+            },
+            "LeftMargin": 1471.7892,
+            "RightMargin": 918.2108,
+            "TopMargin": 316.9457,
+            "BottomMargin": 1432.0543,
+            "Tag": 909,
+            "ActionTag": -1109809278,
+            "Size": {
+              "X": 170.0,
+              "Y": 51.0
+            },
+            "Name": "cloud_2",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
@@ -211,7 +413,9 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "dog.json"
+        "dog.json",
+        "Vitu_ninavyojua_Things_I_know.plist",
+        "Vitu_ninavyojua_Things_I_know.png"
       ],
       "ctype": "GameFileData"
     }

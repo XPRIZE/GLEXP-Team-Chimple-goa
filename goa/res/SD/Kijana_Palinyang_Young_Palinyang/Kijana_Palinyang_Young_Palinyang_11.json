@@ -5,9 +5,214 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 300,
+        "Duration": 485,
         "Speed": 1.0,
+        "ActivedAnimationName": "master",
         "Timelines": [
+          {
+            "ActionTag": 351995668,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1421.7673,
+                "Y": 1021.8351,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1421.7682,
+                "Y": 1021.8325,
+                "FrameIndex": 329,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1421.7638,
+                "Y": 1021.8323,
+                "FrameIndex": 345,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1421.7673,
+                "Y": 1021.8351,
+                "FrameIndex": 390,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 351995668,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.7187,
+                "Y": 1.7187,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 2.0281,
+                "Y": 2.0281,
+                "FrameIndex": 329,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 2.6162,
+                "Y": 2.6162,
+                "FrameIndex": 345,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.7187,
+                "Y": 1.7187,
+                "FrameIndex": 390,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 351995668,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 390,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1229241717,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2305.7234,
+                "Y": 612.0276,
+                "FrameIndex": 395,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2305.7222,
+                "Y": 612.0103,
+                "FrameIndex": 435,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2305.7234,
+                "Y": 612.0276,
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1229241717,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.5429,
+                "Y": -1.8136,
+                "FrameIndex": 395,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.5429,
+                "Y": 2.9627,
+                "FrameIndex": 435,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.5429,
+                "Y": -1.8136,
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1229241717,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 395,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": -417820589,
             "Property": "ActionValue",
@@ -17,6 +222,14 @@
                 "CurrentAniamtionName": "ooo",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "ooo",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -31,6 +244,15 @@
                 "X": 478.8606,
                 "Y": 487.8185,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 478.8606,
+                "Y": 487.8185,
+                "FrameIndex": 300,
                 "EasingData": {
                   "Type": 0
                 },
@@ -51,6 +273,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -67,6 +298,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -77,9 +317,17 @@
             "Frames": [
               {
                 "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "-- ALL --",
+                "CurrentAniamtionName": "cow",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -94,6 +342,15 @@
                 "X": 1865.9274,
                 "Y": 447.0203,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1865.9274,
+                "Y": 447.0203,
+                "FrameIndex": 300,
                 "EasingData": {
                   "Type": 0
                 },
@@ -114,6 +371,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.745,
+                "Y": 0.745,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -130,6 +396,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -140,9 +415,17 @@
             "Frames": [
               {
                 "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "-- ALL --",
+                "CurrentAniamtionName": "jump",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -161,6 +444,15 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              },
+              {
+                "X": 810.2323,
+                "Y": 393.19,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -173,6 +465,15 @@
                 "X": -0.745,
                 "Y": 0.745,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.745,
+                "Y": 0.745,
+                "FrameIndex": 300,
                 "EasingData": {
                   "Type": 0
                 },
@@ -193,6 +494,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -202,10 +512,18 @@
             "Property": "ActionValue",
             "Frames": [
               {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "cow",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
                 "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "-- ALL --",
                 "SingleFrameIndex": 0,
-                "FrameIndex": 0,
+                "FrameIndex": 300,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -220,6 +538,15 @@
                 "X": 118.9734,
                 "Y": 357.4058,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 118.9734,
+                "Y": 357.4058,
+                "FrameIndex": 300,
                 "EasingData": {
                   "Type": 0
                 },
@@ -240,6 +567,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.745,
+                "Y": 0.745,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -252,6 +588,15 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 300,
                 "EasingData": {
                   "Type": 0
                 },
@@ -281,7 +626,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "animation0",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 300,
@@ -396,7 +741,26 @@
         ],
         "ctype": "TimelineActionData"
       },
-      "AnimationList": [],
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 300,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 305,
+          "EndIndex": 390,
+          "Name": "sun",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 395,
+          "EndIndex": 485,
+          "Name": "fence",
+          "ctype": "AnimationInfoData"
+        }
+      ],
       "ObjectData": {
         "Tag": 12622,
         "Children": [
@@ -480,7 +844,7 @@
               "Y": 0.6788
             },
             "PreSize": {
-              "X": 0.2813,
+              "X": 0.2812,
               "Y": 0.4
             },
             "LeftMargin": 1047.0176,
@@ -532,6 +896,7 @@
             "RightMargin": 781.7327,
             "TopMargin": 421.6649,
             "BottomMargin": 665.3351,
+            "UserData": "sun",
             "Tag": 12625,
             "ActionTag": 351995668,
             "Size": {
@@ -634,7 +999,7 @@
               "X": 1133.0,
               "Y": 191.0
             },
-            "Name": "Sprite_88",
+            "Name": "fence",
             "ctype": "SpriteObjectData"
           },
           {
@@ -673,13 +1038,14 @@
             "RightMargin": -312.2234,
             "TopMargin": 1092.4724,
             "BottomMargin": 516.5276,
+            "UserData": "fence",
             "Tag": 12826,
             "ActionTag": -1229241717,
             "Size": {
               "X": 1133.0,
               "Y": 191.0
             },
-            "Name": "Sprite_88_0",
+            "Name": "fence_1",
             "ctype": "SpriteObjectData"
           },
           {
@@ -756,6 +1122,7 @@
             "RightMargin": 694.0726,
             "TopMargin": 1352.9797,
             "BottomMargin": 447.0203,
+            "UserData": "jump",
             "Tag": 12626,
             "ActionTag": -867546923,
             "Size": {
@@ -795,8 +1162,9 @@
             },
             "LeftMargin": 810.2323,
             "RightMargin": 1749.7677,
-            "TopMargin": 1406.8099,
+            "TopMargin": 1406.8101,
             "BottomMargin": 393.19,
+            "UserData": "jump",
             "Tag": 12636,
             "ActionTag": -1631006130,
             "Size": {
@@ -838,6 +1206,7 @@
             "RightMargin": 2441.0266,
             "TopMargin": 1442.5942,
             "BottomMargin": 357.4058,
+            "UserData": "jump",
             "Tag": 12646,
             "ActionTag": 1468375924,
             "Size": {
@@ -858,8 +1227,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1643.8224,
-              "Y": 67.3887
+              "X": 1752.9546,
+              "Y": 62.7499
             },
             "Scale": {
               "ScaleX": -1.0,
@@ -868,17 +1237,18 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.6421,
-              "Y": 0.0374
+              "X": 0.6847,
+              "Y": 0.0349
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1643.8224,
-            "RightMargin": 916.1776,
-            "TopMargin": 1732.6112,
-            "BottomMargin": 67.3887,
+            "LeftMargin": 1752.9546,
+            "RightMargin": 807.0454,
+            "TopMargin": 1737.2501,
+            "BottomMargin": 62.7499,
+            "UserData": "hi;drag",
             "Tag": 12827,
             "ActionTag": 1565125455,
             "Size": {

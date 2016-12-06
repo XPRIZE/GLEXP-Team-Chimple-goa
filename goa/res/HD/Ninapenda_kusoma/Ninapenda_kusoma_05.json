@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 265,
+        "Duration": 400,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "plant",
         "Timelines": [
           {
             "ActionTag": 249903650,
@@ -184,6 +184,81 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 998198439,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1678.3274,
+                "Y": 558.1713,
+                "FrameIndex": 275,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1671.9836,
+                "Y": 892.7678,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 1
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1671.9836,
+                "Y": 892.7678,
+                "FrameIndex": 363,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1674.1633,
+                "Y": 568.0194,
+                "FrameIndex": 400,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 998198439,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.923,
+                "Y": 0.9412,
+                "FrameIndex": 363,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 998198439,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 363,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -437198937,
             "Property": "Position",
             "Frames": [
@@ -211,6 +286,36 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1949725761,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fire",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -549215054,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fire",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -351,6 +456,12 @@
           "StartIndex": 0,
           "EndIndex": 266,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 275,
+          "EndIndex": 400,
+          "Name": "plant",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -732,6 +843,52 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
+              "Path": "Ninapenda_kusoma/indoorplant.png",
+              "Plist": "Ninapenda_kusoma/Ninapenda_kusoma.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1678.3274,
+              "Y": 558.1713
+            },
+            "Scale": {
+              "ScaleX": 0.923,
+              "ScaleY": 0.9412
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6556,
+              "Y": 0.3101
+            },
+            "PreSize": {
+              "X": 0.1387,
+              "Y": 0.3444
+            },
+            "LeftMargin": 1500.8274,
+            "RightMargin": 704.1726,
+            "TopMargin": 931.8287,
+            "BottomMargin": 248.1713,
+            "Tag": 7640,
+            "FrameEvent": "jump",
+            "ActionTag": 998198439,
+            "Size": {
+              "X": 355.0,
+              "Y": 620.0
+            },
+            "Name": "indoorplant_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
               "Path": "Ninapenda_kusoma/vesselout.png",
               "Plist": "Ninapenda_kusoma/Ninapenda_kusoma.plist"
             },
@@ -765,6 +922,7 @@
             "RightMargin": 470.4087,
             "TopMargin": 641.3428,
             "BottomMargin": 404.6573,
+            "UserData": "main.plant",
             "Tag": 580,
             "ActionTag": -437198937,
             "Size": {
@@ -773,6 +931,92 @@
             },
             "Name": "vesselout_59",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Ninapenda_kusoma/fire.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1089.2632,
+              "Y": 708.5266
+            },
+            "Scale": {
+              "ScaleX": 2.7608,
+              "ScaleY": 0.753
+            },
+            "RotationSkewX": 178.0584,
+            "RotationSkewY": 178.0768,
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.4255,
+              "Y": 0.3936
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1089.2632,
+            "RightMargin": 1470.7368,
+            "TopMargin": 1091.4734,
+            "BottomMargin": 708.5266,
+            "Tag": 7494,
+            "ActionTag": 1949725761,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "fire",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Ninapenda_kusoma/fire.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1669.4895,
+              "Y": 712.6201
+            },
+            "Scale": {
+              "ScaleX": 2.5281,
+              "ScaleY": 0.753
+            },
+            "RotationSkewX": 178.0584,
+            "RotationSkewY": 178.0797,
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.6521,
+              "Y": 0.3959
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1669.4895,
+            "RightMargin": 890.5105,
+            "TopMargin": 1087.3799,
+            "BottomMargin": 712.6201,
+            "Tag": 7637,
+            "ActionTag": -549215054,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "fire",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -876,8 +1120,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": -571.2263,
-              "Y": -11.6271
+              "X": 694.5455,
+              "Y": 13.3239
             },
             "Scale": {
               "ScaleX": -1.0,
@@ -886,17 +1130,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": -0.2231,
-              "Y": -0.0065
+              "X": 0.2713,
+              "Y": 0.0074
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -571.2263,
-            "RightMargin": 3131.2263,
-            "TopMargin": 1811.6271,
-            "BottomMargin": -11.6271,
+            "LeftMargin": 694.5455,
+            "RightMargin": 1865.4546,
+            "TopMargin": 1786.6761,
+            "BottomMargin": 13.3239,
             "UserData": "walk;drag",
             "Tag": 1146,
             "ActionTag": -1149588902,
@@ -917,6 +1161,7 @@
       },
       "UsedResources": [
         "boy_2.json",
+        "fire.json",
         "Ninapenda_kusoma.plist",
         "Ninapenda_kusoma.png",
         "women.json",

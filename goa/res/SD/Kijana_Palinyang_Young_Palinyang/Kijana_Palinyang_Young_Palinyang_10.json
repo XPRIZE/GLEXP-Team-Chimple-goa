@@ -5,16 +5,110 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 300,
+        "Duration": 475,
         "Speed": 1.0,
+        "ActivedAnimationName": "fence",
         "Timelines": [
+          {
+            "ActionTag": 351995668,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1430.0811,
+                "Y": 702.4929,
+                "FrameIndex": 395,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1430.0865,
+                "Y": 702.4936,
+                "FrameIndex": 435,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1430.0811,
+                "Y": 702.4929,
+                "FrameIndex": 475,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 351995668,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.7187,
+                "Y": 1.7187,
+                "FrameIndex": 395,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 2.4253,
+                "Y": 2.4253,
+                "FrameIndex": 435,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.7187,
+                "Y": 1.7187,
+                "FrameIndex": 475,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 351995668,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 395,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 475,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": -867546923,
             "Property": "ActionValue",
             "Frames": [
               {
                 "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "-- ALL --",
+                "CurrentAniamtionName": "cow",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
                 "Tween": false,
@@ -77,7 +171,7 @@
             "Frames": [
               {
                 "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "-- ALL --",
+                "CurrentAniamtionName": "cow",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
                 "Tween": false,
@@ -139,8 +233,8 @@
             "Property": "ActionValue",
             "Frames": [
               {
-                "InnerActionType": "SingleFrame",
-                "CurrentAniamtionName": "-- ALL --",
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "cow",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
                 "Tween": false,
@@ -189,6 +283,99 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1229241717,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2267.4453,
+                "Y": 510.6416,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2267.4458,
+                "Y": 510.641,
+                "FrameIndex": 345,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2267.4453,
+                "Y": 510.6416,
+                "FrameIndex": 390,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1229241717,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.5429,
+                "Y": 2.7288,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.8193,
+                "Y": 3.6555,
+                "FrameIndex": 345,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.5429,
+                "Y": 2.7288,
+                "FrameIndex": 390,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1229241717,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 390,
                 "EasingData": {
                   "Type": 0
                 },
@@ -289,7 +476,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "animation0",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 300,
@@ -431,7 +618,26 @@
         ],
         "ctype": "TimelineActionData"
       },
-      "AnimationList": [],
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 300,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 305,
+          "EndIndex": 390,
+          "Name": "fence",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 395,
+          "EndIndex": 475,
+          "Name": "sun",
+          "ctype": "AnimationInfoData"
+        }
+      ],
       "ObjectData": {
         "Tag": 12622,
         "Children": [
@@ -451,30 +657,32 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -430.5721,
-              "Y": -241.5786
+              "X": -3250.574,
+              "Y": -241.5773
             },
             "Scale": {
-              "ScaleX": 18.65,
+              "ScaleX": 46.7745,
               "ScaleY": 11.75
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.1682,
+              "X": -1.2698,
               "Y": -0.1342
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": -430.5721,
-            "RightMargin": 2790.572,
-            "TopMargin": 1841.5786,
-            "BottomMargin": -241.5786,
+            "LeftMargin": -3250.574,
+            "RightMargin": 5610.5742,
+            "TopMargin": 1841.5773,
+            "BottomMargin": -241.5773,
             "Tag": 12623,
             "ActionTag": -96191488,
             "Size": {
@@ -513,7 +721,7 @@
               "Y": 0.5014
             },
             "PreSize": {
-              "X": 0.2813,
+              "X": 0.2812,
               "Y": 0.4
             },
             "LeftMargin": 1055.3335,
@@ -565,6 +773,7 @@
             "RightMargin": 773.4189,
             "TopMargin": 741.0071,
             "BottomMargin": 345.9929,
+            "UserData": "sun",
             "Tag": 12625,
             "ActionTag": 351995668,
             "Size": {
@@ -595,27 +804,27 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -420.5732,
-              "Y": -251.5785
+              "X": -3225.4966,
+              "Y": -251.5769
             },
             "Scale": {
-              "ScaleX": 18.65,
+              "ScaleX": 46.7745,
               "ScaleY": 4.75
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.1643,
+              "X": -1.26,
               "Y": -0.1398
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": -420.5732,
-            "RightMargin": 2780.5732,
-            "TopMargin": 1851.5785,
-            "BottomMargin": -251.5785,
+            "LeftMargin": -3225.4966,
+            "RightMargin": 5585.4966,
+            "TopMargin": 1851.5769,
+            "BottomMargin": -251.5769,
             "Tag": 12624,
             "ActionTag": -134994464,
             "Size": {
@@ -657,6 +866,7 @@
             "RightMargin": 331.2676,
             "TopMargin": 1165.6559,
             "BottomMargin": 634.3441,
+            "UserData": "jump",
             "Tag": 12626,
             "ActionTag": -867546923,
             "Size": {
@@ -698,6 +908,7 @@
             "RightMargin": 993.6903,
             "TopMargin": 1199.4343,
             "BottomMargin": 600.5656,
+            "UserData": "jump",
             "Tag": 12636,
             "ActionTag": -1631006130,
             "Size": {
@@ -739,6 +950,7 @@
             "RightMargin": 1427.4457,
             "TopMargin": 1221.8893,
             "BottomMargin": 578.1107,
+            "UserData": "jump",
             "Tag": 12646,
             "ActionTag": 1468375924,
             "Size": {
@@ -790,7 +1002,7 @@
               "X": 1133.0,
               "Y": 191.0
             },
-            "Name": "Sprite_88",
+            "Name": "fence_1",
             "ctype": "SpriteObjectData"
           },
           {
@@ -808,12 +1020,12 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2267.4453,
-              "Y": 510.6416
+              "X": 2267.4456,
+              "Y": 510.6412
             },
             "Scale": {
-              "ScaleX": 1.5429,
-              "ScaleY": 2.7288
+              "ScaleX": 1.7272,
+              "ScaleY": 3.3466
             },
             "CColor": {},
             "IconVisible": false,
@@ -825,17 +1037,18 @@
               "X": 0.4426,
               "Y": 0.1061
             },
-            "LeftMargin": 1700.9453,
-            "RightMargin": -273.9453,
-            "TopMargin": 1193.8584,
-            "BottomMargin": 415.1416,
+            "LeftMargin": 1700.9456,
+            "RightMargin": -273.9456,
+            "TopMargin": 1193.8588,
+            "BottomMargin": 415.1412,
+            "UserData": "fence",
             "Tag": 12826,
             "ActionTag": -1229241717,
             "Size": {
               "X": 1133.0,
               "Y": 191.0
             },
-            "Name": "Sprite_88_0",
+            "Name": "fence",
             "ctype": "SpriteObjectData"
           },
           {
@@ -910,8 +1123,9 @@
             },
             "LeftMargin": 1286.6622,
             "RightMargin": 1273.3378,
-            "TopMargin": 1717.4297,
+            "TopMargin": 1717.4296,
             "BottomMargin": 82.5704,
+            "UserData": "hi;drag",
             "Tag": 12827,
             "ActionTag": 1565125455,
             "Size": {

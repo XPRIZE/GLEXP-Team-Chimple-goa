@@ -72,7 +72,7 @@ bool LevelHelpScene::initWithGame(std::string gameName) {
                         int level = levels[i].GetInt();
                         if(level == _currentLevel || (level == 1 && _helpText.empty())) {
                             _helpText = helpMap["help"].GetString();
-                            _videoName = helpMap["help"].GetString();
+                            _videoName = helpMap["video"].GetString();
                         }
                     }
                 }
@@ -130,24 +130,18 @@ void LevelHelpScene::videoEventCallback(Ref* sender, cocos2d::experimental::ui::
 void LevelHelpScene::videoPlayStart()
 {
     if(FileUtils::getInstance()->isFileExist("help/" + _videoName)) {
-        auto tv = Sprite::create("TV.png");
-        tv->setScaleX(0.73);
-        tv->setScaleY(0.70);
-        tv->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-        tv->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
-        tv->setName("tv");
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-        //auto sprite = CCSprite::create("TV.png");
-        //sprite->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
         _vp = experimental::ui::VideoPlayer::create();
-        this->addChild(tv, 2);
-        _vp->setContentSize(cocos2d::Size((tv->getContentSize().width *0.73)-200, (tv->getContentSize().height*0.7) - 180 ));
+        _vp->setContentSize(cocos2d::Size(1280, 800));
         _vp->setFileName("help/" + _videoName);
-        _vp->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
         _vp->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
         _vp->play();
         _vp->setName("video");
-        this->addChild(_vp, 2);
+        auto bg = getChildByName("bg");
+        auto screen_1 = bg->getChildByName("screen_1");
+        screen_1->addChild(_vp);
+        auto cSize = screen_1->getContentSize();
+        _vp->setPosition(Vec2(cSize.width / 2, cSize.height / 2));
         _vp->addEventListener(CC_CALLBACK_2(LevelHelpScene::videoEventCallback, this));
 #else
         videoPlayOverCallback();

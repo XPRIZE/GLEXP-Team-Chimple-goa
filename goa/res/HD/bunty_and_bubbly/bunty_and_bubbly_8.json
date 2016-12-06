@@ -106,6 +106,100 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1775931178,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "wave",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1775931178,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1624.9592,
+                "Y": 652.3492,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1775931178,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.6,
+                "Y": 0.6,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1775931178,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1082855612,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1082855612,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1710.627,
+                "Y": 1058.8337,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -2434,6 +2528,90 @@
             },
             "Name": "girl_2",
             "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bunty_and_bubbly/flower.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1624.9592,
+              "Y": 652.3492
+            },
+            "Scale": {
+              "ScaleX": 0.6,
+              "ScaleY": 0.6
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.6347,
+              "Y": 0.3624
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1624.9592,
+            "RightMargin": 935.0408,
+            "TopMargin": 1147.6508,
+            "BottomMargin": 652.3492,
+            "UserData": "petals ",
+            "Tag": 1721,
+            "ActionTag": -1775931178,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "flower",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bunty_and_bubbly/butterfly.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1710.627,
+              "Y": 1058.8337
+            },
+            "Scale": {
+              "ScaleX": 0.6,
+              "ScaleY": 0.6
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.6682,
+              "Y": 0.5882
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1710.627,
+            "RightMargin": 849.373,
+            "TopMargin": 741.1663,
+            "BottomMargin": 1058.8337,
+            "UserData": "fly;drag",
+            "Tag": 1854,
+            "ActionTag": -1082855612,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "butterfly_1",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -2446,6 +2624,8 @@
       "UsedResources": [
         "bunty_and_bubbly.plist",
         "bunty_and_bubbly.png",
+        "butterfly.json",
+        "flower.json",
         "girl.json"
       ],
       "ctype": "GameFileData"
