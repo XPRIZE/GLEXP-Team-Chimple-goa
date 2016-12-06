@@ -95,7 +95,7 @@ void Shop::onEnterTransitionDidFinish()
 
 										_help = HelpLayer::create(Rect(a,b, visibleSize.width*0.12, visibleSize.height*.2),
 											Rect(c,d-30, visibleSize.width*0.12, visibleSize.height*.12));
-										_help->click(Vec2(a,b));
+										_help->clickAndDrag(Vec2(a, b), Vec2(c, d - 30));
 										this->addChild(_help, 5);
 									}
 	}), NULL));
@@ -110,7 +110,7 @@ void Shop::onEnterTransitionDidFinish()
 
 	auto textOnDisplay = _textString1+" + "+ _textString2 + " = "+ _textString3;
 	_label = setAllLabelProperties(textOnDisplay, 0, labelNode->getPositionX()+visibleSize.width*0.026,labelNode->getPositionY(), true, 0.5, 0.5, 0, 1, 1, 85);
-	_label->setColor(cocos2d::Color3B(200, 30, 50));
+	_label->setColor(cocos2d::Color3B(229, 78, 78));
 	this->addChild(_label, 0);
 	
 
@@ -219,7 +219,7 @@ void Shop::addTouchEvents(Sprite* obj)
 	{
 
 		auto target = event->getCurrentTarget();
-		//target->setZOrder(5);
+		target->setZOrder(5);
 		target->setPosition(Vec2(touch->getLocation().x, touch->getLocation().y));
 		auto gameCurrentLevel = _menuContext->getCurrentLevel();
 		if (gameCurrentLevel == 1)
@@ -342,9 +342,22 @@ void Shop::addTouchEvents(Sprite* obj)
 		else
 		{
 				this->runAction(Sequence::create(CCCallFunc::create([=] {
-				//target->setZOrder(-1);
-				target->runAction(MoveTo::create(0.7, Vec2(_vegeOriginalPos.first, _vegeOriginalPos.second)));
-				}), DelayTime::create(0.7), CCCallFunc::create([=] {  //target->setZOrder(0); 
+					target->runAction(MoveTo::create(0.7, Vec2(_vegeOriginalPos.first, _vegeOriginalPos.second)));
+				}),
+				DelayTime::create(0.8),
+				CCCallFunc::create([=] {
+					for (int k = myBG->getChildren().size()-1; k >= 0; k--)
+					{
+						string s = myBG->getChildren().at(k)->getName();
+						string v = touchedVegeName.substr(0, 4);
+						if (!s.find(v))
+						{
+							this->reorderChild(myBG->getChildren().at(k),0);
+						}
+				}}),
+				CCCallFunc::create([=] {
+					
+					//target->setZOrder(0); 
 				}), NULL));
 		}
 		if (_labelCounter == 2)
@@ -352,7 +365,7 @@ void Shop::addTouchEvents(Sprite* obj)
 			_calculator = new Calculator();
 		    _calculator->createCalculator(Vec2(visibleSize.width*0.85,visibleSize.height*0.20), Vec2(0.5, 0.5),0.5, 0.5);
 			 this->addChild(_calculator, 10);
-			 _calculateFlag = true;
+		    _calculateFlag = true;
 
 		/*	 auto sequence_A = ScaleTo::create(2, 0.5);
 			 EaseElasticOut *easeAction = EaseElasticOut::create(sequence_A);
@@ -370,7 +383,6 @@ string Shop::vegetablePriceValue(string str)
 	std::string name1 = strName1.str();
 
 	return name1;
-
 }
 LabelTTF* Shop::setAllLabelProperties(std::string letterString, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY, int labelSizeInPixel)
 {
