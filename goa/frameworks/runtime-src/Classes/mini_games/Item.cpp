@@ -579,7 +579,7 @@ void Item::addCalculator() {
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	_calculator = new Calculator();
-	_calculator->createCalculator(Vec2(visibleSize.width/2, visibleSize.height -350), Vec2(0.5, 0.5), 0.5, 0.5);
+	_calculator->createCalculator(Vec2(visibleSize.width/2, visibleSize.height - 450), Vec2(0.5, 0.5), 0.7, 0.7);
 	this->addChild(_calculator, 10);
 	_calculator->setName("calculator");
 	//_calculator->setGlobalZOrder(2);
