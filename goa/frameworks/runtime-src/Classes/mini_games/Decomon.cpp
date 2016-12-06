@@ -156,10 +156,10 @@ child = decomon_icon_mouth*/
 		"decomon/decomon_mouth_h.csb" ,
 		"decomon/decomon_mouth_i.csb" };
 
-	_skatePath = { "decomon/decomon_skate_a.csb", "decomon/decomon_skate_b.csb" ,
-		"decomon/decomon_skate_c.csb" , "decomon/decomon_skate_f.csb" ,
-		"decomon/decomon_skate_d.csb" , "decomon/decomon_skate_g.csb" ,
-		"decomon/decomon_skate_e.csb" , "decomon/decomon_skate_h.csb"  };
+	_skatePath = { "decomon/decomon_skate_a.csb", 
+		"decomon/decomon_skate_c.csb" , 
+		"decomon/decomon_skate_d.csb" ,
+		"decomon/decomon_skate_e.csb"   };
 
 	_nosePath = { "decomon/decomon3/decomon_nose_1.png" ,"decomon/decomon3/decomon_nose_2.png"
 	,"decomon/decomon3/decomon_nose_3.png" ,"decomon/decomon3/decomon_nose_4.png" ,
@@ -460,12 +460,10 @@ void Decomon::itemInAGrid(std::vector<std::string> item, std::string name)
 		if (name.compare("csb") == 0) {
 			eye = CSLoader::createNode(item.at(i - 1).c_str());
 			eye->setAnchorPoint(Vec2(0.5, 0.5));
-			eye->setPositionX(x*i + (x/item.size()));
-			eye->setPositionY(Director::getInstance()->getVisibleSize().height * 0.13);
+			eye->setPositionX(x*(i)); //+ (x/item.size()
+			eye->setPositionY(Director::getInstance()->getVisibleSize().height * 0.10);
 			if (item.at(i - 1).find("skate") == -1) {
-				eye->setAnchorPoint(Vec2(0, 0));
-				eye->getChildByName("contantsize")->setVisible(true);
-				eye->setContentSize(eye->getChildByName("contantsize")->getContentSize());
+				eye->setContentSize(eye->getChildByName("contantsize")->getContentSize());	
 			} else {
 				eye->setContentSize(eye->getChildByName("skate")->getContentSize());
 			}
