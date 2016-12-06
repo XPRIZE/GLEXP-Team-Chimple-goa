@@ -192,11 +192,7 @@ xc.Pinata = cc.Layer.extend({
                     classReference.leftLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("left").x,classReference.gameBg.node.getChildByName("left").y), cc.p(classReference.bubblePlayer.x - (classReference.bubblePlayer.width/2),classReference.bubblePlayer.y),5,classReference.stringColor);
                     classReference.addChild(classReference.leftLine); 
                 }
-                if(Math.abs((classReference.player.prevXmove - touch.getLocation().x) < classReference.bubblePlayer.width/2 ) && (Math.abs(classReference.player.prevYmove - touch.getLocation().y) < classReference.bubblePlayer.height/2)){
-                    classReference.bubblePlayer.x = classReference.player.prevXmove;
-                    classReference.bubblePlayer.y = classReference.player.prevYmove;                                      
-                }
-
+               
                 classReference.player.prevXmove = touch.getLocation().x;
                 classReference.player.prevYmove = touch.getLocation().y;
             },
@@ -204,6 +200,8 @@ xc.Pinata = cc.Layer.extend({
                 classReference.player.angle = classReference.radToDeg(Math.atan2((touch.getLocation().y - classReference.player.y),(-touch.getLocation().x + classReference.player.x)));
                 classReference.player.prevX = Math.abs(classReference.player.prevX - touch.getLocation().x);
                 classReference.player.prevY = Math.abs(classReference.player.prevY - touch.getLocation().y); 
+
+                console.log("ANGLE FOR PLAYER "+ classReference.player.angle);
 
                 if(classReference.pointerMove){
                     
