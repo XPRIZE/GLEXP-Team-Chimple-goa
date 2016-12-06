@@ -341,12 +341,7 @@ void Stack::addEvents(struct LabelDetails sprite)
 			{
 				if ((_word.substr(0, sprite.id.length()) == sprite.id) && flag == false)
 				{
-/*					if (_helpFlag == 1)
-					{
-						_helpFlag = -1;
-						removeChild(_help);
-					}
-*/					_menuContext->addPoints(1);
+					_menuContext->addPoints(1);
 					flag = true;
 					sprite.label->setColor(Color3B::GREEN);
 
@@ -400,13 +395,14 @@ void Stack::addEvents(struct LabelDetails sprite)
 				{
 					CocosDenshion::SimpleAudioEngine *error = CocosDenshion::SimpleAudioEngine::getInstance();
 					error->playEffect("sounds/sfx/error.ogg", false);
-
+					flag = true;
 					_menuContext->addPoints(-1);
 					if (sceneName == "superhero")
 					{
 						auto charTimeline = CSLoader::createTimeline("superheroes/superheroes.csb");
 						charNode->runAction(charTimeline);
 						charTimeline->play("wrong", false);
+						charTimeline->setAnimationEndCallFunc("wrong", CC_CALLBACK_0(Stack::wordShow, this, _wordLabel));
 					}
 
 					if (sceneName == "farm")

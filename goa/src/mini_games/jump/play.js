@@ -25,11 +25,13 @@ xc.playLayer = cc.Layer.extend( {
   helpLayerLetter:0,
   helpIsFirst: true,
   bg : null,
+  _clickFlag : true,
   extraX:0,
   menuContext:null,
     ctor:
     function () {
         this._super();
+        _clickFlag = true;
         this.helpLayerLetter = 0;
         this.index = 0;
         this.wordObj = [];
@@ -707,8 +709,17 @@ this.remove();
          var location = target.convertToNodeSpace(touch.getLocation());
          var targetSize = target.getContentSize();
          var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.height);
-         if (cc.rectContainsPoint(targetRectangle, location))
+        
+
+         if (cc.rectContainsPoint(targetRectangle, location) && _clickFlag)
          {
+             _clickFlag = false;
+             var callFunc = new cc.CallFunc(function() {
+             _clickFlag = true ;
+             }, this)
+             var scaleBy = new cc.ScaleBy(0.1, 0.75);
+             var sequence = cc.Sequence.create(scaleBy, scaleBy.reverse(),callFunc);
+             target.runAction(sequence);
            
                        if(target.id == "Ball1" && self.word.length < 8){ 
                            cc.log("in ball1");
