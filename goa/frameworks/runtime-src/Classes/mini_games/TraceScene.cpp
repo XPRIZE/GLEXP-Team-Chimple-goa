@@ -27,7 +27,8 @@ Trace::Trace() :
 _nodes(std::vector<std::vector<Node *>>()),
 _touchActive(false),
 _currentNodeIndex(0),
-_currentStroke(0)
+_currentStroke(0),
+_iterations(0)
 {
     
 }
@@ -159,7 +160,7 @@ void Trace::onEnterTransitionDidFinish() {
 
 	////////help
 
-	if (_menuContext->getCurrentLevel() == 1) {
+	if (_menuContext->getCurrentLevel() == 1 && _iterations==0) {
 
 		auto box1 = _background->getChildByName("ball_1");
 		auto box2 = _background->getChildByName("dot_1_4");
@@ -348,7 +349,7 @@ void Trace::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
                     CCLOG("reached next");
 					
 					auto flag = 0;
-					if (_menuContext->getCurrentLevel() == 1 && flag ==0 && _currentNodeIndex == 1) {
+					if (_menuContext->getCurrentLevel() == 1 && flag ==0 && _currentNodeIndex == 1 && _iterations == 0) {
 						this->removeChild(_help);
 						flag = 1;
 					}
@@ -392,10 +393,10 @@ void Trace::transit(int level) {
 }
 
 
-void Trace::resetLevel() {
-	_level = 0;
-    Director::getInstance()->replaceScene(ScrollableGameMapScene::createScene());
-}
+//void Trace::resetLevel() {
+	//_level = 0;
+    //Director::getInstance()->replaceScene(ScrollableGameMapScene::createScene());
+//}
 void Trace::setDotsVisibility(bool flag) {
 
 	for (int i = 0; i < _nodes[_currentStroke].size(); i++) {
@@ -484,8 +485,18 @@ void Trace::finishedAll() {
 		}
 		_level++;
 		Trace::transit(_level);*/
-		_menuContext->showScore();
-	});
+		if (_iterations == 2) {
+			_menuContext->showScore();
+		}
+		else {
+		
+
+			resetLevel();
+			_iterations++;
+			onEnterTransitionDidFinish();
+
+		}
+	}			);
 	auto redirect = Sequence::create(DelayTime::create(delay), redirectToNextLevel, NULL);
 
 	
@@ -500,3 +511,11 @@ void Trace::finishedAll() {
 
 }
 
+void Trace::resetLevel() {
+
+	_nodes.clear();
+	_touchActive = false;
+	_currentNodeIndex = 0;
+	_currentStroke = 0;
+
+}
