@@ -611,7 +611,6 @@ void Decomon::screenShot()
 	this->getParent()->visit();
 	render->end();
 	CCImage* image = render->newImage();
-
 	std::string filePath = FileUtils::sharedFileUtils()->getWritablePath() + path;
 	if (image->saveToFile(filePath.c_str(), false)) {
 		CCLOG("Succeed!");
@@ -652,6 +651,7 @@ void Decomon::captureImage(bool capture, const std::string & outputFile)
 	{
 		auto action3 = Blink::create(0.5, 1);
 		this->runAction(action3);
+		_audioEffect->playEffect("sounds/sfx/camera.ogg");
 		// show screenshot
 		auto sp = Sprite::create(outputFile);
 	//	addChild(sp, 0);
@@ -659,7 +659,7 @@ void Decomon::captureImage(bool capture, const std::string & outputFile)
 		sp->setPosition(s.width / 2, s.height / 2);
 		sp->setScale(0.25);
 		_screenShoot = true;
-		menu->showScore();
+	//	menu->showScore();
 	}
 	else
 	{
@@ -762,6 +762,7 @@ void Decomon::onEnterTransitionDidFinish()
 	_paintingColour->retain();*/
 	_paintingNode = DrawNode::create();
 	_maskingLayer->addChild(_paintingNode);
+	_audioEffect = CocosDenshion::SimpleAudioEngine::getInstance();
 	if (menu->getCurrentLevel() == 1) {
 		gameHelp();
 	}
