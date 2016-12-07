@@ -438,8 +438,9 @@ bool Line::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 	auto target = event->getCurrentTarget();
 	auto  location = target->convertToNodeSpace(touch->getLocation());
 	Rect rect = Rect(0, 0, target->getContentSize().width, target->getContentSize().height);
-	if (rect.containsPoint(location))
+	if (rect.containsPoint(location) && _flag)
 	{
+		_flag = false;
 		_tagX = target->getPositionX();
 		_tagY = target->getPositionY();
 		return true;
@@ -466,7 +467,7 @@ void Line::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 	Rect rect = Rect(0, 0, target->getContentSize().width, target->getContentSize().height);
 	for (int i = 0; i < _nodeRef.size(); i++)
 	{
-		if ((target->getBoundingBox().containsPoint(_nodeRef.at(i)->getPosition())) && (target->getName().compare(_nodeRef.at(i)->getName()) == 0))
+		if ((target->getBoundingBox().containsPoint(Vec2(_nodeRef.at(i)->getPositionX() + extraX, _nodeRef.at(i)->getPositionY()))) && (target->getName().compare(_nodeRef.at(i)->getName()) == 0))
 		{
 			if (menu->getCurrentLevel() == 1)
 			{
@@ -474,14 +475,15 @@ void Line::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 			}
 			target->setPositionX(_nodeRef.at(i)->getPositionX()+ extraX);
 			target->setPositionY(_nodeRef.at(i)->getPositionY());
-			target->setAnchorPoint(Vec2(0.5, 0.5));
+			target->setAnchorPoint(Vec2(0.5, 0.4));
 			_eventDispatcher->removeEventListenersForTarget(target);
 			CCLOG("correct");
 			flag = true;
 			_score++;
 			menu->addPoints(1);
+			_flag = true;
 			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-			audio->playEffect("sounds/sfx/dropTemp.aif", false);
+			audio->playEffect("sounds/sfx/drop.ogg", false);
 			if (_score == _tagNum)
 			{
 				this->scheduleOnce(schedule_selector(Line::scoreBoard), 2);
@@ -494,6 +496,7 @@ void Line::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 			auto action = MoveTo::create(1.0, Vec2(_tagX, _tagY));
 			target->runAction(action);
 			menu->addPoints(-1);
+			_flag = true;
 		}
 	
 

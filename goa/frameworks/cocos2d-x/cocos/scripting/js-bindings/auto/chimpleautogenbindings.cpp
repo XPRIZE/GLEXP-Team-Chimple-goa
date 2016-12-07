@@ -57,6 +57,62 @@ bool js_chimpleautogenbindings_MenuContext_exitMultiPlayerGame(JSContext *cx, ui
     return false;
 }
 
+bool js_chimpleautogenbindings_MenuContext_getTrianglePointsForSprite(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
+    js_proxy_t *proxy = jsb_get_js_proxy(obj);
+    MenuContext* cobj = (MenuContext *)(proxy ? proxy->ptr : NULL);
+    JSB_PRECONDITION2( cobj, cx, false, "js_chimpleautogenbindings_MenuContext_getTrianglePointsForSprite : Invalid Native Object");
+    if (argc == 3) {
+        cocos2d::Sprite* arg0 = nullptr;
+        std::string arg1;
+        double arg2 = 0;
+        do {
+            if (args.get(0).isNull()) { arg0 = nullptr; break; }
+            if (!args.get(0).isObject()) { ok = false; break; }
+            js_proxy_t *jsProxy;
+            JS::RootedObject tmpObj(cx, args.get(0).toObjectOrNull());
+            jsProxy = jsb_get_js_proxy(tmpObj);
+            arg0 = (cocos2d::Sprite*)(jsProxy ? jsProxy->ptr : NULL);
+            JSB_PRECONDITION2( arg0, cx, false, "Invalid Native Object");
+        } while (0);
+        ok &= jsval_to_std_string(cx, args.get(1), &arg1);
+        ok &= JS::ToNumber( cx, args.get(2), &arg2) && !std::isnan(arg2);
+        JSB_PRECONDITION2(ok, cx, false, "js_chimpleautogenbindings_MenuContext_getTrianglePointsForSprite : Error processing arguments");
+
+        std::vector<std::vector<cocos2d::Vec2>> ret = cobj->getTrianglePointsForSprite(arg0, arg1, arg2);
+        
+        jsval jsret = JSVAL_NULL;
+        if (!ret.empty()) {
+            JS::RootedObject jsretArr(cx, JS_NewArrayObject(cx, ret.size()));
+            int i = 0;
+            for (auto iter = ret.begin(); iter != ret.end(); ++iter)
+            {
+                JS::RootedValue element(cx);
+                std::vector<cocos2d::Vec2> ele = *iter;
+                element = vector_vec2_to_jsval(cx, ele);
+                
+                if (!JS_SetElement(cx, jsretArr, i, element)) {
+                    break;
+                }
+                ++i;
+            }
+            
+            jsret =  OBJECT_TO_JSVAL(jsretArr);
+            
+        } else {
+            jsret = JSVAL_NULL;
+        };
+        args.rval().set(jsret);
+        return true;
+    }
+    
+    JS_ReportError(cx, "js_chimpleautogenbindings_MenuContext_getTrianglePointsForSprite : wrong number of arguments: %d, was expecting %d", argc, 3);
+    return false;
+}
+
 bool js_chimpleautogenbindings_MenuContext_getPolygonPointsForSprite(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -774,6 +830,7 @@ void js_register_chimpleautogenbindings_MenuContext(JSContext *cx, JS::HandleObj
         JS_FN("getCurrentLevel", js_chimpleautogenbindings_MenuContext_getCurrentLevel, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("exitMultiPlayerGame", js_chimpleautogenbindings_MenuContext_exitMultiPlayerGame, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getPolygonPointsForSprite", js_chimpleautogenbindings_MenuContext_getPolygonPointsForSprite, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("getTrianglePointsForSprite", js_chimpleautogenbindings_MenuContext_getTrianglePointsForSprite, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("onChimpTouchEnded", js_chimpleautogenbindings_MenuContext_onChimpTouchEnded, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getMaxPoints", js_chimpleautogenbindings_MenuContext_getMaxPoints, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("launchGame", js_chimpleautogenbindings_MenuContext_launchGame, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),

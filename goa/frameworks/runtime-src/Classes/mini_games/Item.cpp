@@ -7,7 +7,7 @@
 #include "../menu/MenuContext.h"
 #include <algorithm>
 #include "../menu/HelpLayer.h"
-#include "../effects/FShake.h"
+
 USING_NS_CC;
 
 Item::Item()
@@ -66,6 +66,8 @@ bool Item::init()
 				{ "ground2","item_ground1_3_0" },
 				{ "frog1","item/item_frog1.png" },
 				{ "frog2","item/item_frog2.png" },
+				{ "box1Fish","item_box_5" },
+				{ "box2Fish","item_box_5_0" },
 				{ "box1","item_box_5" },
 				{ "box2","item_box_5_1" },
 				{ "box3","item_box_5_0" },
@@ -138,10 +140,13 @@ void Item::onEnterTransitionDidFinish()
 	this->addChild(background, 0);
 	_done = background->getChildByName(_scenePath.at("done"));
 	_done->setName("done");
+	//_done->setPositionX(_done->getPositionX() - extraX);
 	auto listener = EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(true);
 	listener->onTouchBegan = CC_CALLBACK_2(Item::onTouchBegan, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, _done);
+	
+
 	
 
 	if (menu->getCurrentLevel() <= 5)
@@ -150,7 +155,7 @@ void Item::onEnterTransitionDidFinish()
 		auto bubble2 = background->getChildByName("item_bubble_3_2");
 
 		auto fishTop1 = CSLoader::createNode(_scenePath.at("fish1"));
-		fishTop1->setPositionX(bubble1->getPositionX());
+		fishTop1->setPositionX(bubble1->getPositionX()+ extraX);
 		fishTop1->setPositionY(bubble1->getPositionY() + 60);
 		this->addChild(fishTop1);
 		//fishTop1->setScale(0.5);
@@ -159,7 +164,7 @@ void Item::onEnterTransitionDidFinish()
 		timeline1->gotoFrameAndPause(0);
 
 		auto fishTop2 = CSLoader::createNode(_scenePath.at("fish2"));
-		fishTop2->setPositionX(bubble2->getPositionX());
+		fishTop2->setPositionX(bubble2->getPositionX() + extraX);
 		fishTop2->setPositionY(bubble2->getPositionY() + 60);
 		this->addChild(fishTop2);
 		//fishTop2->setScale(0.5);
@@ -205,6 +210,11 @@ void Item::frogCreate()
 	auto ground1 = background->getChildByName(_scenePath.at("ground1"));
 	auto ground2 = background->getChildByName(_scenePath.at("ground2"));
 
+	auto plus = background->getChildByName("item_plus_8");
+//	plus->setPositionX(plus->getPositionX() - extraX);
+	auto equal = background->getChildByName("item_equal_9");
+//	equal->setPositionX(equal->getPositionX() - extraX);
+
 	_frog1Num = RandomHelper::random_int(1, 5);
 	CCLOG("frog1num 1st = %d", _frog1Num);
 	auto num1 = RandomHelper::random_int(0, 7);
@@ -237,6 +247,7 @@ void Item::check()
 {
 	auto box1 = background->getChildByName(_scenePath.at("box1"));
 	box1->setName("box1");
+//	box1->setPositionX(box1->getPositionX() - extraX);
 	_boxRef.push_back(box1);
 	auto listener1 = EventListenerTouchOneByOne::create();
 	listener1->setSwallowTouches(true);
@@ -245,6 +256,7 @@ void Item::check()
 
 	auto box2 = background->getChildByName(_scenePath.at("box2"));
 	box2->setName("box2");
+//	box2->setPositionX(box2->getPositionX() - extraX);
 	_boxRef.push_back(box2);
 	auto listener2 = EventListenerTouchOneByOne::create();
 	listener2->setSwallowTouches(true);
@@ -253,6 +265,7 @@ void Item::check()
 
 	auto box3 = background->getChildByName(_scenePath.at("box3"));
 	box3->setName("box3");
+//	box3->setPositionX(box3->getPositionX() - extraX);
 	_boxRef.push_back(box3);
 	auto listener3 = EventListenerTouchOneByOne::create();
 	listener3->setSwallowTouches(true);
@@ -319,8 +332,8 @@ void Item::check()
 }
 void Item::numCreate()
 {
-	_box1 = background->getChildByName(_scenePath.at("box1"));
-	_box2 = background->getChildByName(_scenePath.at("box2"));
+	_box1 = background->getChildByName(_scenePath.at("box1Fish"));
+	_box2 = background->getChildByName(_scenePath.at("box2Fish"));
 
 	_num1 = cocos2d::RandomHelper::random_int(1, 5);
 	CCLOG("randNum =%d", _num1);
@@ -347,7 +360,7 @@ void Item::fishCreate()
 	auto bubble2 = background->getChildByName("item_bubble_3_2");
 
 	_fish1 = CSLoader::createNode(_scenePath.at("fish1"));
-	_fish1->setPositionX(bubble1->getPositionX());
+	_fish1->setPositionX(bubble1->getPositionX()+ extraX);
 	_fish1->setPositionY(bubble1->getPositionY() + 60);
 	this->addChild(_fish1, 1);
 	//_fish1->setScale(0.5);
@@ -366,7 +379,7 @@ void Item::fishCreate()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, _fish1);
 
 	_fish2 = CSLoader::createNode(_scenePath.at("fish2"));
-	_fish2->setPositionX(bubble2->getPositionX());
+	_fish2->setPositionX(bubble2->getPositionX() + extraX);
 	_fish2->setPositionY(bubble2->getPositionY() + 60);
 	this->addChild(_fish2, 1);
 	_fish2->setName("fish2");
@@ -401,7 +414,11 @@ void Item::result()
 		{
 			auto action = MoveBy::create(4.0, Vec2(3000, 0));
 			_fishMove.at(i)->runAction(action);
-			this->scheduleOnce(schedule_selector(Item::scoreBoard), 2);
+			CCParticleSystemQuad *_particle = CCParticleSystemQuad::create("item/rain.plist");
+			_particle->setTexture(CCTextureCache::sharedTextureCache()->addImage("item/rain.png"));
+			//_particle->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
+			this->addChild(_particle);
+			this->scheduleOnce(schedule_selector(Item::scoreBoard), 4);
 		}
 	}
 	else
@@ -409,6 +426,8 @@ void Item::result()
 		CCLOG("None.........");
 		FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
 		_done->runAction(shake);
+		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		audio->playEffect("sounds/sfx/error.ogg", false);
 		for (int i = 0; i < _fishMove.size(); i++)
 		{
 
@@ -428,13 +447,18 @@ void Item::verify()
 	CCLOG("_frogCount3 = %d", _frogCount3);
 	if (_frog1Num == _frogCount1 && _frog2Num == _frogCount2 && (_frog1Num+ _frog2Num) == _frogCount3)
 	{
+		CCParticleSystemQuad *_particle = CCParticleSystemQuad::create("item/rain.plist");
+		_particle->setTexture(CCTextureCache::sharedTextureCache()->addImage("item/rain.png"));
+		//_particle->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
+		this->addChild(_particle);
 		this->scheduleOnce(schedule_selector(Item::scoreBoard), 2);
 	}
 	else
 	{
 		FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
 		_done->runAction(shake);
-
+		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		audio->playEffect("sounds/sfx/error.ogg", false);
 	}
 }
 
@@ -445,14 +469,20 @@ bool Item::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 	auto target = event->getCurrentTarget();
 	//auto  location = target->convertToNodeSpace(touch->getLocation());
 	auto  location = touch->getLocation();
-	Rect rect = CCRectMake(target->getPositionX()- target->getContentSize().width/2, target->getPositionY()- target->getContentSize().height/2, target->getContentSize().width, target->getContentSize().height);
-	if (rect.containsPoint(location))
+	Rect rect = CCRectMake(target->getPositionX() + extraX- target->getContentSize().width/2, target->getPositionY()- target->getContentSize().height/2, target->getContentSize().width, target->getContentSize().height);
+	if (rect.containsPoint(location) && _clickFlag)
 	{
+		_clickFlag = false;
+		auto scale = ScaleBy::create(0.1, 0.75);
+		target->runAction(Sequence::create(scale, scale->reverse(), CallFunc::create([=]() {
+			_clickFlag = true;
+		}), NULL));
 		if (target->getName().compare("done") == 0)
 		{
 			if (menu->getCurrentLevel() <= 5)
 			{
 				result();
+				//_clickFlag = true;
 			}
 			else if (menu->getCurrentLevel() <= 25)
 			{
@@ -519,6 +549,9 @@ void Item::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 		_fish1->runAction(timeline);
 		_fish1->runAction(Sequence::create(CallFunc::create([=]() {
 			timeline->play("splash", false);
+			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+			audio->playEffect("sounds/sfx/splash.ogg", false);
+			_clickFlag = true;
 		}), DelayTime::create(1.0f), CallFunc::create([=]() {
 			
 		}), CallFunc::create([=]() {
@@ -537,6 +570,9 @@ void Item::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 		_fish2->runAction(timeline);
 		_fish2->runAction(Sequence::create(CallFunc::create([=]() {
 			timeline->play("splash", false);
+			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+			audio->playEffect("sounds/sfx/splash.ogg", false);
+			_clickFlag = true;
 		}), DelayTime::create(1.0f), CallFunc::create([=]() {
 
 		}), CallFunc::create([=]() {
@@ -550,7 +586,7 @@ void Item::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 		_fishMove.push_back(target);
 	}
 
-	if (touch->getLocation().y > visibleSize.height * 0.75 || touch->getLocation().y < visibleSize.height * 0.25)
+	if (touch->getLocation().y > visibleSize.height * 0.5 || touch->getLocation().y < visibleSize.height * 0.25)
 	{
 		if (target->getName().compare("fish1") == 0)
 		{
@@ -563,6 +599,7 @@ void Item::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 
 		this->removeChild(target);
 		_fishMove.pop_back();
+		_clickFlag = true;
 	}
 	
 	if (_num1 == _count1)
@@ -579,7 +616,7 @@ void Item::addCalculator() {
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	_calculator = new Calculator();
-	_calculator->createCalculator(Vec2(visibleSize.width/2, visibleSize.height -350), Vec2(0.5, 0.5), 0.5, 0.5);
+	_calculator->createCalculator(Vec2(visibleSize.width/2, visibleSize.height - 450), Vec2(0.5, 0.5), 0.7, 0.7);
 	this->addChild(_calculator, 10);
 	_calculator->setName("calculator");
 	//_calculator->setGlobalZOrder(2);
@@ -592,21 +629,31 @@ void Item::calculatedResult(std::string result)
 	this->removeChildByName("calculator");
 	if (_box1Name == "box1")
 	{
-		_hintLabel1->setString(result.c_str());
-		_frogCount1 = atoi(result.c_str());
-		CCLOG("_frogCount1 = %d", _frogCount1);
+		if (result.size() < 2)
+		{
+			_hintLabel1->setString(result.c_str());
+			_frogCount1 = atoi(result.c_str());
+			CCLOG("_frogCount1 = %d", _frogCount1);
+		}
+		
 	}
 	else if (_box1Name == "box2")
 	{
-		_hintLabel2->setString(result.c_str());
-		_frogCount2 = atoi(result.c_str());
-		CCLOG("_frogCount2 = %d", _frogCount2);
+		if (result.size() < 2)
+		{
+			_hintLabel2->setString(result.c_str());
+			_frogCount2 = atoi(result.c_str());
+			CCLOG("_frogCount2 = %d", _frogCount2);
+		}
 	}
 	else if (_box1Name == "box3")
 	{
-		_hintLabel3->setString(result.c_str());
-		_frogCount3 = atoi(result.c_str());
-		CCLOG("_frogCount3 = %d", _frogCount3);
+		if (result.size() < 3)
+		{
+			_hintLabel3->setString(result.c_str());
+			_frogCount3 = atoi(result.c_str());
+			CCLOG("_frogCount3 = %d", _frogCount3);
+		}
 	}
 	
 	

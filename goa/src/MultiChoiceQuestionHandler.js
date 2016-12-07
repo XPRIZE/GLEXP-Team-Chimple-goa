@@ -69,7 +69,21 @@ xc.MultipleChoiceQuestionHandler = cc.Layer.extend({
                 node.setTitleColor(xc.storyFontColor);
                 node.setTitleFontName(xc.storyFontName);
                 node.setTouchEnabled(true);
-                node.setTitleText(element);
+                var output = "";
+                if(element.length > 30) {
+                    var i = 30;
+                    while(i != element.length && element.charAt(i) != " ")
+                    {
+                        i++;
+                    }
+                    output += element.substring(0,i);
+                    output += "\n";
+                    output += element.substring(i, element.length);
+                } else {
+                    output = element;
+                }
+                cc.log("output:" + output);
+                node.setTitleText(output);
                 node.addTouchEventListener(this.answerSelected, this);
                 if(element == this._question.answer) {
                     context._correctAnswerNode = nodeName;

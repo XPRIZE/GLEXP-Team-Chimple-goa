@@ -1,0 +1,460 @@
+{
+  "ID": "30e3be45-b07a-4b71-b86d-ce6ff7a15a25",
+  "Version": "3.10.0.0",
+  "Name": "decomon_eye_f",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 80,
+        "Speed": 1.0,
+        "ActivedAnimationName": "sad2",
+        "Timelines": [
+          {
+            "ActionTag": -1194868424,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 0,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 255,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 255,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 0,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1426538571,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "decomon/decomon1/decomon_eye_f_lid.png",
+                  "Plist": "decomon/decomon1/decomon1.plist"
+                },
+                "FrameIndex": 5,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "decomon/decomon1/decomon_eye_f_blink1.png",
+                  "Plist": "decomon/decomon1/decomon1.plist"
+                },
+                "FrameIndex": 9,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "decomon/decomon1/decomon_eye_f_blink2.png",
+                  "Plist": "decomon/decomon1/decomon1.plist"
+                },
+                "FrameIndex": 13,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "decomon/decomon1/decomon_eye_f_blink3.png",
+                  "Plist": "decomon/decomon1/decomon1.plist"
+                },
+                "FrameIndex": 17,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "decomon/decomon1/decomon_eye_f_blink2.png",
+                  "Plist": "decomon/decomon1/decomon1.plist"
+                },
+                "FrameIndex": 29,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "decomon/decomon1/decomon_eye_f_blink1.png",
+                  "Plist": "decomon/decomon1/decomon1.plist"
+                },
+                "FrameIndex": 32,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "decomon/decomon1/decomon_eye_f_lid.png",
+                  "Plist": "decomon/decomon1/decomon1.plist"
+                },
+                "FrameIndex": 35,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 5,
+          "EndIndex": 35,
+          "Name": "blink",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 40,
+          "EndIndex": 65,
+          "Name": "angry1",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 70,
+          "EndIndex": 85,
+          "Name": "angry2",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 90,
+          "EndIndex": 105,
+          "Name": "sad1",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 110,
+          "EndIndex": 125,
+          "Name": "sad2",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 45,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomon/decomon1/decomon_eye_f_ballout.png",
+              "Plist": "decomon/decomon1/decomon1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 125.8118,
+              "Y": 127.457
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 4.8118,
+            "RightMargin": -246.8118,
+            "TopMargin": -248.457,
+            "BottomMargin": 6.457,
+            "Tag": 75,
+            "ActionTag": 670998646,
+            "Size": {
+              "X": 242.0,
+              "Y": 242.0
+            },
+            "Name": "eye_f_ballout_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomon/decomon1/decomon_eye_abcfh_ballout_angry.png",
+              "Plist": "decomon/decomon1/decomon1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 127.6075,
+              "Y": 127.2673
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 6.6075,
+            "RightMargin": -248.6075,
+            "TopMargin": -248.2673,
+            "BottomMargin": 6.2673,
+            "Tag": 167,
+            "ActionTag": -1194868424,
+            "Size": {
+              "X": 242.0,
+              "Y": 242.0
+            },
+            "Alpha": 0,
+            "Name": "eye_abcfh_ballout_angry_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomon/decomon1/decomon_eye_f_ballin.png",
+              "Plist": "decomon/decomon1/decomon1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 125.8117,
+              "Y": 127.4571
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 50.8117,
+            "RightMargin": -200.8117,
+            "TopMargin": -202.9571,
+            "BottomMargin": 51.9571,
+            "Tag": 74,
+            "ActionTag": 259581939,
+            "Size": {
+              "X": 150.0,
+              "Y": 151.0
+            },
+            "Name": "eye_f_ballin_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomon/decomon1/decomon_eye_f_lid.png",
+              "Plist": "decomon/decomon1/decomon1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 125.8108,
+              "Y": 127.4571
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 0.8108,
+            "RightMargin": -250.8108,
+            "TopMargin": -252.9571,
+            "BottomMargin": 1.9571,
+            "Tag": 76,
+            "ActionTag": 430333360,
+            "Size": {
+              "X": 250.0,
+              "Y": 251.0
+            },
+            "Name": "eye_f_lid_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomon/decomon1/decomon_eye_f_lid.png",
+              "Plist": "decomon/decomon1/decomon1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 127.7891,
+              "Y": 125.4794
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2.7891,
+            "RightMargin": -252.7891,
+            "TopMargin": -250.9794,
+            "BottomMargin": -0.0206,
+            "Tag": 41,
+            "ActionTag": 1426538571,
+            "Size": {
+              "X": 250.0,
+              "Y": 251.0
+            },
+            "Name": "Sprite_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -126.3631,
+              "Y": -124.0959
+            },
+            "Scale": {
+              "ScaleX": 1.2573,
+              "ScaleY": 1.2535
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -126.3631,
+            "RightMargin": -73.6369,
+            "TopMargin": -75.9041,
+            "BottomMargin": -124.0959,
+            "Tag": 109,
+            "ActionTag": 218531209,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "VisibleForFrame": false,
+            "Name": "contantsize",
+            "ctype": "PanelObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "decomon1/decomon1.plist",
+        "decomon1/decomon1.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

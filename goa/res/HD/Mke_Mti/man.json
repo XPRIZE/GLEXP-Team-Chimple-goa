@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 585,
         "Speed": 1.0,
-        "ActivedAnimationName": "run2",
+        "ActivedAnimationName": "run",
         "Timelines": [
           {
             "ActionTag": 54264028,
@@ -8250,6 +8250,61 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -1668673693,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "steps",
+                "FrameIndex": 55,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 105,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "hammer",
+                "FrameIndex": 380,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 415,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "steps",
+                "FrameIndex": 480,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 530,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "steps",
+                "FrameIndex": 535,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 585,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 836349740,
             "Property": "Position",
             "Frames": [
@@ -9106,7 +9161,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Mke_Mti/shirt3.png",
+              "Path": "Mke_Mti/shirt2.png",
               "Plist": "Mke_Mti/Mke_Mti.plist"
             },
             "BlendFunc": {
@@ -9144,7 +9199,7 @@
               {
                 "FileData": {
                   "Type": "MarkedSubImage",
-                  "Path": "Mke_Mti/facebad1.png",
+                  "Path": "Mke_Mti/facebad2.png",
                   "Plist": "Mke_Mti/Mke_Mti.plist"
                 },
                 "BlendFunc": {
@@ -9222,8 +9277,8 @@
                 },
                 "LeftMargin": 327.9404,
                 "RightMargin": 28.0596,
-                "TopMargin": 83.2744,
-                "BottomMargin": 241.7256,
+                "TopMargin": 83.2743,
+                "BottomMargin": 241.7257,
                 "Tag": 547,
                 "Children": [
                   {
@@ -9420,8 +9475,8 @@
                 },
                 "LeftMargin": 327.9404,
                 "RightMargin": 28.0596,
-                "TopMargin": 83.2744,
-                "BottomMargin": 241.7256,
+                "TopMargin": 83.2743,
+                "BottomMargin": 241.7257,
                 "Tag": 305,
                 "Children": [
                   {

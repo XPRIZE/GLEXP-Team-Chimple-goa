@@ -7326,6 +7326,19 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 1103410760,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "walking",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -2024856762,
             "Property": "Position",
             "Frames": [
@@ -11586,6 +11599,7 @@
               "Dst": 771
             },
             "Tag": 172,
+            "FrameEvent": "walking",
             "Children": [
               {
                 "Length": 154.0,
@@ -12655,10 +12669,10 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -51.9692,
-                        "RightMargin": 28.9692,
-                        "TopMargin": -94.7842,
-                        "BottomMargin": 16.7842,
+                        "LeftMargin": 20.2147,
+                        "RightMargin": -43.2147,
+                        "TopMargin": -39.1182,
+                        "BottomMargin": -38.8818,
                         "Tag": 55,
                         "ActionTag": -1802528668,
                         "Size": {
@@ -12712,10 +12726,10 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -53.9693,
-                    "RightMargin": 26.9693,
-                    "TopMargin": -169.4732,
-                    "BottomMargin": 62.4732,
+                    "LeftMargin": 41.4368,
+                    "RightMargin": -68.4368,
+                    "TopMargin": -53.0492,
+                    "BottomMargin": -53.9508,
                     "Tag": 54,
                     "ActionTag": 1637153767,
                     "Size": {
@@ -12880,10 +12894,10 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": 30.1997,
-                        "RightMargin": -53.1997,
-                        "TopMargin": -91.3186,
-                        "BottomMargin": 13.3186,
+                        "LeftMargin": 18.8011,
+                        "RightMargin": -41.8011,
+                        "TopMargin": -41.02,
+                        "BottomMargin": -36.98,
                         "Tag": 53,
                         "ActionTag": -1663462681,
                         "Size": {
@@ -12937,10 +12951,10 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": 28.6161,
-                    "RightMargin": -55.6161,
-                    "TopMargin": -172.6224,
-                    "BottomMargin": 65.6224,
+                    "LeftMargin": 33.9772,
+                    "RightMargin": -60.9772,
+                    "TopMargin": -55.9363,
+                    "BottomMargin": -51.0637,
                     "Tag": 52,
                     "ActionTag": 938126014,
                     "Size": {
@@ -12994,10 +13008,10 @@
                   "X": 0.0,
                   "Y": 0.0
                 },
-                "LeftMargin": -142.7998,
-                "RightMargin": -157.2002,
-                "TopMargin": -395.9146,
-                "BottomMargin": 95.9146,
+                "LeftMargin": -139.2292,
+                "RightMargin": -160.7708,
+                "TopMargin": -157.1913,
+                "BottomMargin": -142.8087,
                 "Tag": 190,
                 "ActionTag": 1152257396,
                 "Size": {

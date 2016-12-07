@@ -26,6 +26,10 @@ CC_CONSTRUCTOR_ACCESS:
 
 protected:
 	cocos2d::Layer* _layer;
+	cocos2d::ui::Button *_backButton;
+	static DecomonGallery *_decomonLayer;
+	//DecomonGallery::Layer* _decomonLayer;
 	MenuContext * menu;
+	void backToGame();
 };
 #endif

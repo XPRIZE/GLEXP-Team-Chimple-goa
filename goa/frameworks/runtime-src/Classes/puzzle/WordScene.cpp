@@ -141,7 +141,7 @@ void WordScene::onEnterTransitionDidFinish() {
     }
     _answerGraphemes = tg->getGraphemes(_word);
     _numGraphemes = _answerGraphemes.size();
-    _menuContext->setMaxPoints(_numGraphemes);
+    _menuContext->setMaxPoints(_numGraphemes * 2);
     _background = loadNode();
     addChild(_background);
     createAnswer();
@@ -283,12 +283,18 @@ void WordScene::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 
 void WordScene::processGrapheme(Grapheme* grapheme) {
     if(grapheme->isSelected()) {
+        int i = 0;
         for (auto it = _answerVector.begin() ; it != _answerVector.end(); ++it) {
             if((*it).second == grapheme) {
                 *it = std::pair<Node*, Grapheme*>((*it).first, nullptr);
                 grapheme->selected(false);
                 grapheme->setZOrder(0);
                 grapheme->animateToPositionAndChangeBackground(grapheme->getPrevPosition());
+                if(grapheme->getGraphemeString() == _answerGraphemes.at(i)) {
+                    _menuContext->addPoints(-2);
+                } else {
+                    _menuContext->addPoints(1);
+                }
 //                if(_showHandWriting) {
 //                    _handWritingDialogButton->setEnabled(true);
 //                    clearLipiTKResult();
@@ -298,8 +304,10 @@ void WordScene::processGrapheme(Grapheme* grapheme) {
 //                }
                 return;
             }
+            i++;
         }
     } else {
+        int i = 0;
         for (auto it = _answerVector.begin() ; it != _answerVector.end(); ++it) {
             if((*it).second == nullptr) {
                 auto targetNode = (*it).first;
@@ -308,8 +316,14 @@ void WordScene::processGrapheme(Grapheme* grapheme) {
                 grapheme->selected(true);
                 grapheme->setZOrder(1);
                 grapheme->animateToPositionAndChangeBackground(_grid->convertToNodeSpace(tPos));
+                if(_answerGraphemes.at(i) == grapheme->getGraphemeString()) {
+                    _menuContext->addPoints(2);
+                } else {
+                    _menuContext->addPoints(-2);
+                }
                 return;
             }
+            i++;
         }
     }
 }
@@ -329,9 +343,9 @@ void WordScene::checkAnswer() {
             correct = false;
         }
     }
-    if(correct) {
-        _menuContext->addPoints(_numGraphemes + _numGraphemes - _numTries);
-    }
+//    if(correct) {
+//        _menuContext->addPoints(_numGraphemes + _numGraphemes - _numTries);
+//    }
     gameOver(correct);
 }
 

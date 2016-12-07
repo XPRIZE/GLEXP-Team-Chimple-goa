@@ -125,10 +125,10 @@ void Alphamole::startGame()
 
 	_mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
 	_mainChar = Alphamon::createWithAlphabet(_mychar);
-	_mainChar->setScaleX(0.3);
-	_mainChar->setScaleY(0.3);
+	_mainChar->setScaleX(0.5);
+	_mainChar->setScaleY(0.5);
 	_mainChar->setPositionX(visibleSize.width * 0.1);
-	_mainChar->setPositionY(visibleSize.height / 1.2);
+	_mainChar->setPositionY(visibleSize.height / 1.3);
 	this->addChild(_mainChar);
 	_mainChar->enableTouch(false);
 	menu->showStartupHelp(CC_CALLBACK_0(Alphamole::jumpAlphabet, this));
@@ -166,7 +166,7 @@ void Alphamole::showAlpha(float ft)
 			str = _mychar;
 			_helpLayer = true;
 			child = _background->getChildByName(holes.at(cocos2d::RandomHelper::random_int(0, 1)));
-			auto help = HelpLayer::create(Rect(child->getPositionX() + _Xpos, child->getPositionY() + 300, 600, 800), Rect(visibleSize.width* 0.1, visibleSize.height/1.1, 400, 400));
+			auto help = HelpLayer::create(Rect(child->getPositionX() + _Xpos, child->getPositionY() + 300, 600, 800), Rect(visibleSize.width* 0.1, visibleSize.height/1.2, 400, 400));
 			help->click(Vec2(child->getPositionX() + _Xpos, child->getPositionY() + 300));
 			help->setName("helpLayer");
 			this->addChild(help);
