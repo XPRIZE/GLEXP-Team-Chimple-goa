@@ -1,13 +1,13 @@
 {
   "ID": "db6fa7e5-7026-4f4e-a84e-ef947a2894bf",
-  "Version": "3.10.0.0",
+  "Version": "2.3.4",
   "Name": "Fahali_na_Punda2",
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 300,
+        "Duration": 475,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "spinach",
         "Timelines": [
           {
             "ActionTag": 395019672,
@@ -103,6 +103,398 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2005004741,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1602.114,
+                "Y": 368.7265,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1602.116,
+                "Y": 368.7271,
+                "FrameIndex": 355,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2005004741,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.5735,
+                "Y": 0.5735,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 355,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2005004741,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 355,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2005004741,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 255,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 255,
+                "FrameIndex": 355,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1796344789,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1439.7417,
+                "Y": 375.883,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1439.7438,
+                "Y": 375.8839,
+                "FrameIndex": 395,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1796344789,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.7469,
+                "Y": 0.9457,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 395,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1796344789,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 395,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1796344789,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 255,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 255,
+                "FrameIndex": 395,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1320582888,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1064.0521,
+                "Y": 400.6554,
+                "FrameIndex": 400,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1064.0579,
+                "Y": 400.6586,
+                "FrameIndex": 435,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1320582888,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.4935,
+                "Y": 0.333,
+                "FrameIndex": 400,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 435,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1320582888,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 400,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 435,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1320582888,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 255,
+                "FrameIndex": 400,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 255,
+                "FrameIndex": 435,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1675287687,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1218.7588,
+                "Y": 395.8804,
+                "FrameIndex": 440,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1218.76,
+                "Y": 395.8813,
+                "FrameIndex": 475,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1675287687,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.5423,
+                "Y": 0.5423,
+                "FrameIndex": 440,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 475,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1675287687,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 440,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 475,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1675287687,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 255,
+                "FrameIndex": 440,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 255,
+                "FrameIndex": 475,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -244,6 +636,30 @@
           "StartIndex": 0,
           "EndIndex": 300,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 320,
+          "EndIndex": 355,
+          "Name": "spinach",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 360,
+          "EndIndex": 395,
+          "Name": "plant",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 400,
+          "EndIndex": 435,
+          "Name": "carrot",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 440,
+          "EndIndex": 475,
+          "Name": "beetroot",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -833,8 +1249,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 396.315,
-              "Y": 453.5101
+              "X": -349.0045,
+              "Y": 513.5356
             },
             "Scale": {
               "ScaleX": -0.6,
@@ -843,17 +1259,18 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.1548,
-              "Y": 0.252
+              "X": -0.1363,
+              "Y": 0.2853
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 396.315,
-            "RightMargin": 2163.6851,
-            "TopMargin": 1346.49,
-            "BottomMargin": 453.5101,
+            "LeftMargin": -349.0045,
+            "RightMargin": 2909.0044,
+            "TopMargin": 1286.4644,
+            "BottomMargin": 513.5356,
+            "UserData": "walk;drag",
             "Tag": 418,
             "ActionTag": 395019672,
             "Size": {
@@ -862,6 +1279,186 @@
             },
             "Name": "cow",
             "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fahali_na_Punda/Fahali2/spinach.png",
+              "Plist": "Fahali_na_Punda/Fahali2/Fahali2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5734
+            },
+            "Position": {
+              "X": 1602.116,
+              "Y": 368.7271
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6258,
+              "Y": 0.2048
+            },
+            "PreSize": {
+              "X": 0.0375,
+              "Y": 0.0717
+            },
+            "LeftMargin": 1547.0714,
+            "RightMargin": 916.9286,
+            "TopMargin": 1302.2728,
+            "BottomMargin": 368.7271,
+            "UserData": "main.spinach",
+            "Tag": 1160,
+            "ActionTag": 2005004741,
+            "Size": {
+              "X": 96.0,
+              "Y": 129.0
+            },
+            "Name": "spinach_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fahali_na_Punda/Fahali2/plant.png",
+              "Plist": "Fahali_na_Punda/Fahali2/Fahali2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5764
+            },
+            "Position": {
+              "X": 1439.7417,
+              "Y": 375.883
+            },
+            "Scale": {
+              "ScaleX": 0.7469,
+              "ScaleY": 0.9457
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5624,
+              "Y": 0.2088
+            },
+            "PreSize": {
+              "X": 0.025,
+              "Y": 0.0356
+            },
+            "LeftMargin": 1402.8518,
+            "RightMargin": 1093.1482,
+            "TopMargin": 1360.1169,
+            "BottomMargin": 375.883,
+            "UserData": "main.plant",
+            "Tag": 1159,
+            "ActionTag": 1796344789,
+            "Size": {
+              "X": 64.0,
+              "Y": 64.0
+            },
+            "Name": "plant_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fahali_na_Punda/Fahali2/carrot.png",
+              "Plist": "Fahali_na_Punda/Fahali2/Fahali2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5
+            },
+            "Position": {
+              "X": 1064.0521,
+              "Y": 400.6554
+            },
+            "Scale": {
+              "ScaleX": 0.4935,
+              "ScaleY": 0.333
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4156,
+              "Y": 0.2226
+            },
+            "PreSize": {
+              "X": 0.0266,
+              "Y": 0.1356
+            },
+            "LeftMargin": 1030.0521,
+            "RightMargin": 1461.9479,
+            "TopMargin": 1155.3446,
+            "BottomMargin": 400.6554,
+            "UserData": "main.carrot",
+            "Tag": 1158,
+            "ActionTag": -1320582888,
+            "Size": {
+              "X": 68.0,
+              "Y": 244.0
+            },
+            "Name": "carrot_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fahali_na_Punda/Fahali2/beetroot.png",
+              "Plist": "Fahali_na_Punda/Fahali2/Fahali2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.4645
+            },
+            "Position": {
+              "X": 1218.7588,
+              "Y": 395.8804
+            },
+            "Scale": {
+              "ScaleX": 0.5423,
+              "ScaleY": 0.5423
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4761,
+              "Y": 0.2199
+            },
+            "PreSize": {
+              "X": 0.023,
+              "Y": 0.0794
+            },
+            "LeftMargin": 1191.355,
+            "RightMargin": 1309.645,
+            "TopMargin": 1261.1196,
+            "BottomMargin": 395.8804,
+            "UserData": "main.beetroot",
+            "Tag": 1157,
+            "ActionTag": -1675287687,
+            "Size": {
+              "X": 59.0,
+              "Y": 143.0
+            },
+            "Name": "beetroot_1",
+            "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
@@ -895,10 +1492,10 @@
               "X": 0.8195,
               "Y": 0.0917
             },
-            "LeftMargin": 429.2427,
-            "RightMargin": 32.7573,
-            "TopMargin": 1385.4941,
-            "BottomMargin": 249.5059,
+            "LeftMargin": 429.2577,
+            "RightMargin": 32.7422,
+            "TopMargin": 1385.4886,
+            "BottomMargin": 249.5114,
             "Tag": 174,
             "ActionTag": 1881737873,
             "Size": {
@@ -919,7 +1516,9 @@
       "UsedResources": [
         "cow.json",
         "Fahali_na_Punda.plist",
-        "Fahali_na_Punda.png"
+        "Fahali_na_Punda.png",
+        "Fahali2/Fahali2.plist",
+        "Fahali2/Fahali2.png"
       ],
       "ctype": "GameFileData"
     }

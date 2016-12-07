@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 300,
+        "Duration": 415,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "bird",
         "Timelines": [
           {
             "ActionTag": 1429752880,
@@ -197,6 +197,81 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 409845371,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 305,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 409845371,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2092.9614,
+                "Y": 554.1259,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1189.2229,
+                "Y": 1916.1456,
+                "FrameIndex": 415,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 409845371,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.3,
+                "Y": 0.3,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 409845371,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 305,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -686296084,
             "Property": "Position",
             "Frames": [
@@ -217,6 +292,21 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -745062966,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 3,
+                "FrameIndex": 153,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -381,6 +471,12 @@
           "EndIndex": 300,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 305,
+          "EndIndex": 415,
+          "Name": "bird",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -399,11 +495,11 @@
             },
             "EndColor": {},
             "ColorVector": {
+              "ScaleX": 0.0,
               "ScaleY": -1.0
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -455,7 +551,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -508,8 +603,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": -1295.0344,
-              "Y": 1601.3448
+              "X": 2414.8933,
+              "Y": 1601.3373
             },
             "Scale": {
               "ScaleX": 3.6666,
@@ -518,17 +613,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.5059,
+              "X": 0.9433,
               "Y": 0.8896
             },
             "PreSize": {
               "X": 0.3164,
               "Y": 0.3828
             },
-            "LeftMargin": -1700.0344,
-            "RightMargin": 3450.0344,
-            "TopMargin": -145.8448,
-            "BottomMargin": 1256.8448,
+            "LeftMargin": 2009.8933,
+            "RightMargin": -259.8933,
+            "TopMargin": -145.8373,
+            "BottomMargin": 1256.8373,
             "Tag": 302,
             "ActionTag": 1429752880,
             "Size": {
@@ -556,14 +651,13 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
             },
             "Position": {
-              "X": -2254.8911,
-              "Y": 1189.7314
+              "X": 1099.9797,
+              "Y": 1209.9871
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -573,17 +667,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.8808,
-              "Y": 0.661
+              "X": 0.4297,
+              "Y": 0.6722
             },
             "PreSize": {
               "X": 0.8594,
               "Y": 0.8333
             },
-            "LeftMargin": -3354.8911,
-            "RightMargin": 3714.8911,
-            "TopMargin": -139.7314,
-            "BottomMargin": 439.7314,
+            "LeftMargin": -0.0203,
+            "RightMargin": 360.0203,
+            "TopMargin": -159.9871,
+            "BottomMargin": 459.9871,
             "Tag": 300,
             "Children": [
               {
@@ -604,7 +698,6 @@
                 },
                 "Scale9Width": 1,
                 "Scale9Height": 1,
-                "TouchEnable": true,
                 "AnchorPoint": {
                   "ScaleX": 0.5,
                   "ScaleY": 0.5
@@ -696,6 +789,47 @@
           },
           {
             "FileData": {
+              "Type": "Normal",
+              "Path": "Mke_Mti/bird.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2092.9614,
+              "Y": 554.1259
+            },
+            "Scale": {
+              "ScaleX": 0.3,
+              "ScaleY": 0.3
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8176,
+              "Y": 0.3078
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2092.9614,
+            "RightMargin": 467.0386,
+            "TopMargin": 1245.874,
+            "BottomMargin": 554.1259,
+            "Tag": 364,
+            "ActionTag": 409845371,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bird",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
               "Type": "MarkedSubImage",
               "Path": "Mke_Mti/bush.png",
               "Plist": "Mke_Mti/Mke_Mti.plist"
@@ -709,8 +843,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": -1419.9775,
-              "Y": 571.3842
+              "X": 1817.4392,
+              "Y": 581.3842
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -719,17 +853,18 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.5547,
-              "Y": 0.3174
+              "X": 0.7099,
+              "Y": 0.323
             },
             "PreSize": {
               "X": 0.3848,
               "Y": 0.2522
             },
-            "LeftMargin": -1912.4775,
-            "RightMargin": 3487.4775,
-            "TopMargin": 1001.6158,
-            "BottomMargin": 344.3842,
+            "LeftMargin": 1324.9392,
+            "RightMargin": 250.0608,
+            "TopMargin": 991.6158,
+            "BottomMargin": 354.3842,
+            "UserData": "main.bird",
             "Tag": 303,
             "ActionTag": -686296084,
             "Size": {
@@ -774,7 +909,7 @@
             },
             "LeftMargin": 1574.7971,
             "RightMargin": 626.2029,
-            "TopMargin": 836.0886,
+            "TopMargin": 836.0887,
             "BottomMargin": 47.9113,
             "Tag": 228,
             "ActionTag": 838032315,
@@ -784,47 +919,6 @@
             },
             "Name": "chair_1",
             "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "Mke_Mti/girl.json",
-              "Plist": ""
-            },
-            "StretchWidthEnable": false,
-            "StretchHeightEnable": false,
-            "InnerActionSpeed": 1.0,
-            "AnchorPoint": {},
-            "Position": {
-              "X": 1537.5361,
-              "Y": 595.379
-            },
-            "Scale": {
-              "ScaleX": 0.8,
-              "ScaleY": 0.8
-            },
-            "CColor": {},
-            "IconVisible": true,
-            "PrePosition": {
-              "X": 0.6006,
-              "Y": 0.3308
-            },
-            "PreSize": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "LeftMargin": 1537.5361,
-            "RightMargin": 1022.4639,
-            "TopMargin": 1204.621,
-            "BottomMargin": 595.379,
-            "Tag": 209,
-            "ActionTag": -351678515,
-            "Size": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "Name": "FileNode_1",
-            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -858,13 +952,56 @@
             "RightMargin": 1691.7035,
             "TopMargin": 1135.5022,
             "BottomMargin": 664.4978,
+            "UserData": "drag;bend",
             "Tag": 188,
             "ActionTag": -745062966,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "boy",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mke_Mti/girl.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1537.5361,
+              "Y": 595.379
+            },
+            "Scale": {
+              "ScaleX": 0.8,
+              "ScaleY": 0.8
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.6006,
+              "Y": 0.3308
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1537.5361,
+            "RightMargin": 1022.4639,
+            "TopMargin": 1204.621,
+            "BottomMargin": 595.379,
+            "UserData": "main.bird",
+            "Tag": 209,
+            "ActionTag": -351678515,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "girl",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -882,15 +1019,15 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2996.4497,
-              "Y": 767.1715
+              "X": 1633.5873,
+              "Y": 801.7083
             },
             "Scale": {
               "ScaleX": 0.812,
               "ScaleY": 0.812
             },
-            "RotationSkewX": 3.1543,
-            "RotationSkewY": 3.1712,
+            "RotationSkewX": 3.1629,
+            "RotationSkewY": 3.1717,
             "CColor": {
               "R": 96,
               "G": 203,
@@ -898,17 +1035,18 @@
             },
             "IconVisible": false,
             "PrePosition": {
-              "X": 1.1705,
-              "Y": 0.4262
+              "X": 0.6381,
+              "Y": 0.4454
             },
             "PreSize": {
               "X": 0.1664,
               "Y": 0.3322
             },
-            "LeftMargin": 2783.4497,
-            "RightMargin": -649.4497,
-            "TopMargin": 733.8285,
-            "BottomMargin": 468.1715,
+            "LeftMargin": 1420.5873,
+            "RightMargin": 713.4127,
+            "TopMargin": 699.2917,
+            "BottomMargin": 502.7083,
+            "UserData": "main.bird",
             "Tag": 296,
             "ActionTag": -149314347,
             "Size": {
@@ -933,8 +1071,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1992.316,
-              "Y": 1973.7725
+              "X": 1622.988,
+              "Y": 947.4279
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -943,17 +1081,18 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.7782,
-              "Y": 1.0965
+              "X": 0.634,
+              "Y": 0.5263
             },
             "PreSize": {
               "X": 0.0918,
               "Y": 0.0917
             },
-            "LeftMargin": 1874.816,
-            "RightMargin": 450.1841,
-            "TopMargin": -256.2725,
-            "BottomMargin": 1891.2725,
+            "LeftMargin": 1505.488,
+            "RightMargin": 819.512,
+            "TopMargin": 770.072,
+            "BottomMargin": 864.9279,
+            "UserData": "main.bird",
             "Tag": 297,
             "ActionTag": -1560213287,
             "Size": {
@@ -978,8 +1117,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2960.2803,
-              "Y": 1967.1045
+              "X": 1622.7126,
+              "Y": 1379.1682
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -988,17 +1127,18 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 1.1564,
-              "Y": 1.0928
+              "X": 0.6339,
+              "Y": 0.7662
             },
             "PreSize": {
               "X": 0.1801,
               "Y": 0.0656
             },
-            "LeftMargin": 2729.7803,
-            "RightMargin": -630.7803,
-            "TopMargin": -226.1045,
-            "BottomMargin": 1908.1045,
+            "LeftMargin": 1392.2126,
+            "RightMargin": 706.7874,
+            "TopMargin": 361.8318,
+            "BottomMargin": 1320.1682,
+            "UserData": "main.bird",
             "Tag": 299,
             "ActionTag": 1552044420,
             "Size": {
@@ -1017,6 +1157,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "bird.json",
         "girl.json",
         "man.json",
         "Mke_Mti.plist",
