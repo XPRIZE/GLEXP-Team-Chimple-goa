@@ -71,8 +71,15 @@ xc.PictureQuestionHandler = cc.Layer.extend({
     },    
 
     configureAnswers: function() {
-        var context = this;        
-        this._answers = Object.values(this._question);
+        var context = this;
+        context._answers = [];
+        var obj = this._question;  
+        Object.keys(context._question).forEach(function (key) {
+            var val = context._question[key];
+            context._answers.push(val);
+    
+        });
+        
         this._answers = this._answers.filter(function(e) { return e !== "meanings" });
 
         var alreadySelectedAnswers = [];

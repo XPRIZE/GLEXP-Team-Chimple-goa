@@ -72,7 +72,7 @@ xc.MultipleChoiceQuestionHandler = cc.Layer.extend({
                 var output = "";
                 if(element.length > 30) {
                     var i = 30;
-                    while(i != element.length && element.element(i) != " ")
+                    while(i != element.length && element.charAt(i) != " ")
                     {
                         i++;
                     }
