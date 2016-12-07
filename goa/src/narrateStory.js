@@ -266,12 +266,16 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                     height);
 
                 if (cc.rectContainsPoint(targetRectangle, location)) {
-                    if(target.supportAutoPolygon) {
                         // context.updateVerticesForSprite(target);
-                        // var result = context.isTouchableAtPoint(target, location);
-                        // cc.log("RESULT )*@#($*@#)($*@#$)@#$:" + result);
-                        
-                    }                    
+                    // var result = context.isTouchableAtPoint(target, location);
+                    // cc.log("RESULT " + result);
+                    // if(result) {
+                    //     context._currentTarget = target;                    
+                    //     context[funcName](target, loop);                    
+                    //     return true;                        
+                    // } else {
+                    //     return false;
+                    // }
                     context._currentTarget = target;                    
                     context[funcName](target, loop);                    
                     return true;
@@ -439,24 +443,22 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
     saveNormalizedVertices: function(sprite) {
         var fileName = this._nodeToFileNameMapping[sprite.getName()];
-        cc.log('spritename 111:' + sprite.getName());
-        var vertices = [];
-        if(cc.sys.isNative) {
-            vertices = this.getParent()._menuContext.getPolygonPointsForSprite(sprite, fileName, 0.5);
-        } else {
-            vertices.push(cc.p(0, 0));
-            vertices.push(cc.p(0.5, 0));
-            vertices.push(cc.p(0.5, 1));
-            vertices.push(cc.p(1, 0));
+        if(fileName && fileName.length > 0) {
+            cc.log('spritename 111:' + sprite.getName());
+            var vertices = [];
+            cc.log('sprite 111 x :' + sprite.getBoundingBox().x);
+            cc.log('sprite 111 y :' + sprite.getBoundingBox().y);
+            cc.log('sprite 111 width :' + sprite.getBoundingBox().width);
+            cc.log('sprite 111 height :' + sprite.getBoundingBox().height);
+            if(cc.sys.isNative) {
+                vertices = this.getParent()._menuContext.getPolygonPointsForSprite(sprite, fileName, 0.5);
+            } else {
+                vertices = [];
+            }
+            
+            this._nodeToNormalizedVerticesMapping[sprite.getName()] = vertices;
+            this._nodeToCurrentVerticesMapping[sprite.getName()] = vertices;
         }
-        
-        vertices.forEach(function(a) {
-            cc.log("a1111 is:" + a.x);
-            cc.log("a1111 is:" + a.y);
-        });
-
-        this._nodeToNormalizedVerticesMapping[sprite.getName()] = vertices;
-        this._nodeToCurrentVerticesMapping[sprite.getName()] = vertices;
     },
 
     pointInPolyon: function (n, vertices, touch) {
@@ -560,10 +562,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                         that.bindEventsToTarget(child);
                         that.bindTouchListenerToSubChild(child, "playAnimationOnChild", true);                                        
                     } else {
-                        if(child.supportAutoPolygon) {
-                           that.saveNormalizedVertices(child);     
-                        }
-                        
+                        //that.saveNormalizedVertices(child);                        
                         that.bindEventsToTarget(child);
                         that.bindTouchListener(child, "playAnimiation", true);
                     }                                                        
@@ -655,7 +654,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             var soundFile = eventData;
             if(soundFile.trim() != undefined && soundFile.trim().length > 0) {
                 cc.log('soundFile 111:' + soundFile.trim());
-                var soundFile = xc.path + this._referenceToContext._baseDir + "/sounds/" + soundFile.trim() + ".ogg";
+                var soundFile = "res/sounds/sfx/" + soundFile.trim() + ".ogg";
                 if(soundFile) {
                     
                     cc.loader.load(soundFile, function(err, data) {

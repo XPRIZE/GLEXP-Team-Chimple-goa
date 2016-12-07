@@ -7326,6 +7326,19 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 1103410760,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "walking",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -2024856762,
             "Property": "Position",
             "Frames": [
@@ -11586,6 +11599,7 @@
               "Dst": 771
             },
             "Tag": 172,
+            "FrameEvent": "walking",
             "Children": [
               {
                 "Length": 154.0,
@@ -12468,10 +12482,10 @@
                   "X": 0.0,
                   "Y": 0.0
                 },
-                "LeftMargin": -151.4002,
-                "RightMargin": -158.5998,
-                "TopMargin": -668.9876,
-                "BottomMargin": 239.9876,
+                "LeftMargin": 42.8022,
+                "RightMargin": -352.8022,
+                "TopMargin": -210.8725,
+                "BottomMargin": -218.1275,
                 "Tag": 103,
                 "ActionTag": 416208928,
                 "Size": {

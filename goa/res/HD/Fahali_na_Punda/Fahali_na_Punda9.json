@@ -1,14 +1,89 @@
 {
   "ID": "7ee746c7-ccd2-4d66-9927-78d48a678d41",
-  "Version": "3.10.0.0",
+  "Version": "2.3.4",
   "Name": "Fahali_na_Punda9",
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 190,
+        "Duration": 260,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "sun",
         "Timelines": [
+          {
+            "ActionTag": 1854363109,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1373.8328,
+                "Y": 1204.4758,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1806.3413,
+                "Y": 1616.145,
+                "FrameIndex": 260,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1854363109,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 260,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1854363109,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 260,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": -1743019644,
             "Property": "Position",
@@ -413,6 +488,12 @@
           "EndIndex": 190,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 200,
+          "EndIndex": 260,
+          "Name": "sun",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -470,6 +551,52 @@
             "ctype": "PanelObjectData"
           },
           {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fahali_na_Punda/Fahali2/sun.png",
+              "Plist": "Fahali_na_Punda/Fahali2/Fahali2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1806.3413,
+              "Y": 1616.145
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7056,
+              "Y": 0.8979
+            },
+            "PreSize": {
+              "X": 0.4012,
+              "Y": 0.5706
+            },
+            "LeftMargin": 1292.8413,
+            "RightMargin": 240.1587,
+            "TopMargin": -329.645,
+            "BottomMargin": 1102.645,
+            "UserData": "main.sun",
+            "Tag": 2773,
+            "ActionTag": 1854363109,
+            "Size": {
+              "X": 1027.0,
+              "Y": 1027.0
+            },
+            "Name": "sun_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
             "ClipAble": false,
             "ComboBoxIndex": 1,
             "SingleColor": {
@@ -508,7 +635,7 @@
               "Y": 0.4722
             },
             "LeftMargin": -54.1901,
-            "RightMargin": -485.8101,
+            "RightMargin": -485.8098,
             "TopMargin": 1093.1654,
             "BottomMargin": -143.1654,
             "Tag": 1122,
@@ -552,10 +679,10 @@
               "X": 0.8195,
               "Y": 0.0917
             },
-            "LeftMargin": 429.2427,
-            "RightMargin": 32.7573,
-            "TopMargin": 1576.3835,
-            "BottomMargin": 58.6164,
+            "LeftMargin": 429.2577,
+            "RightMargin": 32.7422,
+            "TopMargin": 1576.3781,
+            "BottomMargin": 58.6219,
             "Tag": 1111,
             "ActionTag": -1743019644,
             "Size": {
@@ -604,6 +731,7 @@
             "RightMargin": -0.3843,
             "TopMargin": 390.3662,
             "BottomMargin": 1261.6338,
+            "UserData": "main.sun",
             "Tag": 1112,
             "ActionTag": 1681670038,
             "Size": {
@@ -651,6 +779,7 @@
             "RightMargin": 1131.5088,
             "TopMargin": 322.2042,
             "BottomMargin": 1329.7958,
+            "UserData": "main.sun",
             "Tag": 1113,
             "ActionTag": -623962443,
             "Size": {
@@ -787,7 +916,7 @@
             },
             "LeftMargin": 838.296,
             "RightMargin": 1250.704,
-            "TopMargin": 1094.3899,
+            "TopMargin": 1094.39,
             "BottomMargin": 583.61,
             "Tag": 1116,
             "ActionTag": -1598555566,
@@ -1045,29 +1174,30 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1775.2897,
-              "Y": 277.912
+              "X": 1044.5417,
+              "Y": 340.5518
             },
             "Scale": {
               "ScaleX": -0.6,
               "ScaleY": 0.6
             },
-            "RotationSkewX": 4.0822,
-            "RotationSkewY": 4.0793,
+            "RotationSkewX": 4.0833,
+            "RotationSkewY": 4.0802,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.6935,
-              "Y": 0.1544
+              "X": 0.408,
+              "Y": 0.1892
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1775.2897,
-            "RightMargin": 784.7103,
-            "TopMargin": 1522.088,
-            "BottomMargin": 277.912,
+            "LeftMargin": 1044.5417,
+            "RightMargin": 1515.4583,
+            "TopMargin": 1459.4482,
+            "BottomMargin": 340.5518,
+            "UserData": "walk;drag",
             "Tag": 1124,
             "ActionTag": -1676999436,
             "Size": {
@@ -1088,8 +1218,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 2812.4917,
-              "Y": 251.5107
+              "X": 1611.0795,
+              "Y": 299.2203
             },
             "Scale": {
               "ScaleX": 0.7,
@@ -1098,17 +1228,18 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 1.0986,
-              "Y": 0.1397
+              "X": 0.6293,
+              "Y": 0.1662
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 2812.4917,
-            "RightMargin": -252.4917,
-            "TopMargin": 1548.4893,
-            "BottomMargin": 251.5107,
+            "LeftMargin": 1611.0795,
+            "RightMargin": 948.9205,
+            "TopMargin": 1500.7797,
+            "BottomMargin": 299.2203,
+            "UserData": "hi;drag",
             "Tag": 1204,
             "ActionTag": 1994690793,
             "Size": {
@@ -1130,6 +1261,8 @@
         "donkey.json",
         "Fahali_na_Punda.plist",
         "Fahali_na_Punda.png",
+        "Fahali2/Fahali2.plist",
+        "Fahali2/Fahali2.png",
         "farmer.json"
       ],
       "ctype": "GameFileData"

@@ -1,14 +1,89 @@
 {
   "ID": "2df1c890-5164-4222-8497-df72a05de3d0",
-  "Version": "3.10.0.0",
+  "Version": "2.3.4",
   "Name": "Fahali_na_Punda7",
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 190,
+        "Duration": 260,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "sun",
         "Timelines": [
+          {
+            "ActionTag": 723232713,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1373.8328,
+                "Y": 1204.4758,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1806.3413,
+                "Y": 1616.145,
+                "FrameIndex": 260,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 723232713,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 260,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 723232713,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 260,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 1700120777,
             "Property": "ActionValue",
@@ -319,6 +394,12 @@
           "EndIndex": 190,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 200,
+          "EndIndex": 260,
+          "Name": "sun",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -363,7 +444,7 @@
               "Y": 1.0
             },
             "LeftMargin": -256.5023,
-            "RightMargin": -283.4976,
+            "RightMargin": -283.4978,
             "TopMargin": 0.0287,
             "BottomMargin": -0.0287,
             "Tag": 753,
@@ -374,6 +455,52 @@
             },
             "Name": "Panel_1",
             "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fahali_na_Punda/Fahali2/sun.png",
+              "Plist": "Fahali_na_Punda/Fahali2/Fahali2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1518.0023,
+              "Y": 1341.6989
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.593,
+              "Y": 0.7454
+            },
+            "PreSize": {
+              "X": 0.4012,
+              "Y": 0.5706
+            },
+            "LeftMargin": 1004.5023,
+            "RightMargin": 528.4977,
+            "TopMargin": -55.1989,
+            "BottomMargin": 828.1989,
+            "UserData": "main.sun",
+            "Tag": 2223,
+            "ActionTag": 723232713,
+            "Size": {
+              "X": 1027.0,
+              "Y": 1027.0
+            },
+            "Name": "sun_1",
+            "ctype": "SpriteObjectData"
           },
           {
             "ClipAble": false,
@@ -656,6 +783,7 @@
             "RightMargin": 1131.5088,
             "TopMargin": 322.2042,
             "BottomMargin": 1329.7958,
+            "UserData": "main.sun",
             "Tag": 747,
             "ActionTag": 138881929,
             "Size": {
@@ -704,6 +832,7 @@
             "RightMargin": -0.3853,
             "TopMargin": 390.3655,
             "BottomMargin": 1261.6345,
+            "UserData": "main.sun",
             "Tag": 748,
             "ActionTag": 281161145,
             "Size": {
@@ -854,7 +983,7 @@
               "Y": 0.3278
             },
             "LeftMargin": -120.9803,
-            "RightMargin": -419.0195,
+            "RightMargin": -419.0198,
             "TopMargin": 1358.4084,
             "BottomMargin": -148.4084,
             "Tag": 751,
@@ -900,6 +1029,7 @@
             "RightMargin": 1881.8479,
             "TopMargin": 1383.7559,
             "BottomMargin": 416.2441,
+            "UserData": "walk;drag",
             "Tag": 679,
             "ActionTag": 1700120777,
             "Size": {
@@ -943,6 +1073,7 @@
             "RightMargin": 760.0001,
             "TopMargin": 1504.7194,
             "BottomMargin": 295.2806,
+            "UserData": "walk;drag",
             "Tag": 711,
             "ActionTag": -1388004362,
             "Size": {
@@ -964,7 +1095,9 @@
         "cow.json",
         "donkey.json",
         "Fahali_na_Punda.plist",
-        "Fahali_na_Punda.png"
+        "Fahali_na_Punda.png",
+        "Fahali2/Fahali2.plist",
+        "Fahali2/Fahali2.png"
       ],
       "ctype": "GameFileData"
     }
