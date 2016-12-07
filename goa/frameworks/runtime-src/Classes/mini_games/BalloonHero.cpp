@@ -486,7 +486,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 	
 
 
-	//_sceneNumber = 2;
+	_sceneNumber = 2;
 
 	std::string mainSceneplist;
 
@@ -567,14 +567,19 @@ void BalloonHero::onEnterTransitionDidFinish() {
 
 		_fireFly = (cocos2d::Sprite *)CSLoader::createNode(animationcsb);
 
-		_fireFly->setAnchorPoint(Vec2(0, 0));
+		
+		_fireFly->setAnchorPoint(Vec2(0.5, 0.5));
 		_fireFly->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 		//_fireFly->getChildByName("firefly")->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 		
 		_fireFly->setScale(0.5, 0.5);
+		_fireFly->setName("firefly");
 
-		if (_sceneNumber == 1) { _fireFly->setContentSize(Size( 400, 400)); }
-		if (_sceneNumber == 2) { _fireFly->setContentSize(Size( 200, 200)); }
+		if (_sceneNumber == 1) {
+			//_fireFly->getChildByName("firefly")->setAnchorPoint(Vec2(0.5, 0.5)); _fireFly->setContentSize(Size(494, 1082));
+		}
+		if (_sceneNumber == 2) { //_fireFly->setContentSize(Size( 400, 400));
+		}
 		if (_sceneNumber == 3) { _fireFly->setContentSize(Size( 200, 200)); }
 		
 		
@@ -609,6 +614,14 @@ void BalloonHero::onEnterTransitionDidFinish() {
 		//_fireFly->setContentSize(_fireFly->getChildByName("Sprite")->getContentSize());
 		this->addChild(_fireFly, 1);
 	
+		Vector <Node*> children = _fireFly->getChildren();
+		int size = children.size();
+		for (auto item = children.rbegin(); item != children.rend(); ++item) {
+			Node * monsterItem = *item;
+			std::string str = monsterItem->getName().c_str();
+			CCLOG("name : %s", str.c_str());
+		}
+
 
 	setupTouch();
 	
@@ -635,7 +648,8 @@ void BalloonHero::onEnterTransitionDidFinish() {
 
 
 			auto box1pos = box1->getPosition();// +Vec2(visibleSize.width * 0.03, visibleSize.height * 0.05);
-			//auto box2pos = box2->getPosition();// +Vec2(visibleSize.width * 0.03, visibleSize.height * 0.05);
+			//auto box2pos = box2->getPosition();// +Vec2(visibleSize.width * 0.03, visibleSize.height * 0.05);ya
+
 
 			//_help = HelpLayer::create(Rect(box1pos.x, box1pos.y, box1->getContentSize().width, box1->getContentSize().height), Rect(0,0,0,0));
 			
@@ -694,7 +708,13 @@ void BalloonHero::setupTouch() {
 	
 	auto listener = EventListenerTouchOneByOne::create();
 	
-	auto firefly = (Sprite* )_fireFly;
+	//Node * firefly = _fireFly;
+	if (_sceneNumber == 1) {
+
+		//firefly = _fireFly->getChildByName("firefly");
+	}
+
+	auto firefly = (Sprite *)_fireFly->getChildByName("firefly");
 	
 	
 	listener->onTouchBegan = CC_CALLBACK_2(BalloonHero::onTouchBegan, this);
@@ -722,16 +742,16 @@ bool BalloonHero::onTouchBegan(Touch* touch, Event* event) {
 
 	if (_sceneNumber == 1) {
 		
-	//	character = "firefly";
-		//bb = target->getChildByName(character)->getBoundingBox();
-		//locationInNode = target->getChildByName(character)->convertToNodeSpace(touch->getLocation());
+		character = "firefly";
+		bb = target->getBoundingBox();
+		locationInNode = target->getParent()->convertToNodeSpace(touch->getLocation());
 
 	}
 	if (_sceneNumber == 2) {
 
 		character = "firefly";
-		//bb = target->getChildByName(character)->getBoundingBox();
-		//locationInNode = target->getChildByName(character)->convertToNodeSpace(touch->getLocation());
+		bb = target->getBoundingBox();
+		locationInNode = target->getParent()->convertToNodeSpace(touch->getLocation());
 
 		//bb = target->getBoundingBox();
 		//locationInNode = target->convertToNodeSpace(touch->getLocation());
@@ -1123,6 +1143,17 @@ void BalloonHero::update(float delta) {
 		_cloud1->setVisible(false);
 		
 
+		///
+		auto enableTrigger = CallFunc::create([=] {
+
+
+		});
+		
+		//auto rotateFirefly = RotateBy::create(1, 360);
+		//_fireFly->runAction(rotateFirefly);
+
+		_fireTimeline->play("shock", false);
+
 		auto  _Timeline = CSLoader::createTimeline(burst);
 		_meteor1->runAction(_Timeline);
 		_Timeline->play("blast", false);
@@ -1151,6 +1182,10 @@ void BalloonHero::update(float delta) {
 		_cloud2->setVisible(false);
 
 
+		//auto rotateFirefly = RotateBy::create(1, 360);
+		//_fireFly->runAction(rotateFirefly);
+		_fireTimeline->play("shock", false);
+
 		auto  _Timeline = CSLoader::createTimeline(burst);
 		_meteor2->runAction(_Timeline);
 		_Timeline->play("blast", false);
@@ -1175,6 +1210,9 @@ void BalloonHero::update(float delta) {
 
 		_cloud3->setVisible(false);
 
+		//auto rotateFirefly = RotateBy::create(1, 360);
+		//_fireFly->runAction(rotateFirefly);
+		_fireTimeline->play("shock", false);
 
 		auto  _Timeline = CSLoader::createTimeline(burst);
 		_meteor3->runAction(_Timeline);
@@ -1197,6 +1235,9 @@ void BalloonHero::update(float delta) {
 
 		_cloud4->setVisible(false);
 
+		//auto rotateFirefly = RotateBy::create(1, 360);
+		//_fireFly->runAction(sad);
+		_fireTimeline->play("shock", false);
 
 		auto  _Timeline = CSLoader::createTimeline(burst);
 		_meteor4->runAction(_Timeline);

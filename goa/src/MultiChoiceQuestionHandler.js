@@ -160,7 +160,7 @@ xc.MultipleChoiceQuestionHandler = cc.Layer.extend({
     },
 
     verifyAnswer: function(sender) {
-        var isCorrectAnswered = sender.getTitleText().toLowerCase() === this._question.answer.toLowerCase();
+        var isCorrectAnswered = sender.getTitleText().trim().toLowerCase() === this._question.answer.trim().toLowerCase();
         this.hintForCorrectAnswer(sender, isCorrectAnswered);        
         this.callback.call(this._callbackContext, sender, isCorrectAnswered, isCorrectAnswered);        
     }
