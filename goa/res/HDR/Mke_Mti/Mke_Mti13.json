@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 220,
+        "Duration": 320,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "bird",
         "Timelines": [
           {
             "ActionTag": 334158536,
@@ -133,6 +133,55 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2031941831,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 225,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2031941831,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2236.1619,
+                "Y": 1043.3303,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2236.1619,
+                "Y": 1043.3303,
+                "FrameIndex": 225,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1780.6353,
+                "Y": 1926.8938,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -1001,6 +1050,12 @@
           "EndIndex": 220,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 225,
+          "EndIndex": 320,
+          "Name": "bird",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -1024,7 +1079,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -1078,7 +1132,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -1134,7 +1187,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -1173,6 +1225,47 @@
           },
           {
             "FileData": {
+              "Type": "Normal",
+              "Path": "Mke_Mti/bird.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2236.1619,
+              "Y": 1043.3303
+            },
+            "Scale": {
+              "ScaleX": 0.3,
+              "ScaleY": 0.3
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8735,
+              "Y": 0.5796
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2236.1619,
+            "RightMargin": 323.8381,
+            "TopMargin": 756.6697,
+            "BottomMargin": 1043.3303,
+            "Tag": 12863,
+            "ActionTag": 2031941831,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bird",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
               "Type": "MarkedSubImage",
               "Path": "Mke_Mti/bush.png",
               "Plist": "Mke_Mti/Mke_Mti.plist"
@@ -1207,6 +1300,7 @@
             "RightMargin": -182.4998,
             "TopMargin": 553.0001,
             "BottomMargin": 792.9999,
+            "UserData": "main.bird",
             "Tag": 241,
             "ActionTag": -72096349,
             "Size": {
@@ -1248,13 +1342,14 @@
             "RightMargin": 1821.38,
             "TopMargin": 874.05,
             "BottomMargin": 925.95,
+            "UserData": "drag;walk",
             "Tag": 2494,
             "ActionTag": -1138504070,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "boy",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1275,7 +1370,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -1328,8 +1422,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": -239.0875,
-              "Y": 336.2737
+              "X": -588.4954,
+              "Y": 303.643
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1340,17 +1434,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0934,
-              "Y": 0.1868
+              "X": -0.2299,
+              "Y": 0.1687
             },
             "PreSize": {
               "X": 0.152,
               "Y": 0.03
             },
-            "LeftMargin": -433.5875,
-            "RightMargin": 2604.5874,
-            "TopMargin": 1436.7263,
-            "BottomMargin": 309.2737,
+            "LeftMargin": -782.9954,
+            "RightMargin": 2953.9954,
+            "TopMargin": 1469.3569,
+            "BottomMargin": 276.643,
             "Tag": 2473,
             "ActionTag": 1838533674,
             "Size": {
@@ -1375,8 +1469,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2763.1875,
-              "Y": 609.3438
+              "X": 2413.7483,
+              "Y": 576.7127
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1387,17 +1481,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 1.0794,
-              "Y": 0.3385
+              "X": 0.9429,
+              "Y": 0.3204
             },
             "PreSize": {
               "X": 0.152,
               "Y": 0.03
             },
-            "LeftMargin": 2568.6875,
-            "RightMargin": -397.6875,
-            "TopMargin": 1163.6562,
-            "BottomMargin": 582.3438,
+            "LeftMargin": 2219.2483,
+            "RightMargin": -48.2483,
+            "TopMargin": 1196.2874,
+            "BottomMargin": 549.7127,
             "Tag": 2472,
             "ActionTag": -155036764,
             "Size": {
@@ -1422,8 +1516,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1993.5793,
-              "Y": 540.5939
+              "X": 1644.1565,
+              "Y": 507.9623
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1434,17 +1528,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.7787,
-              "Y": 0.3003
+              "X": 0.6422,
+              "Y": 0.2822
             },
             "PreSize": {
               "X": 0.152,
               "Y": 0.03
             },
-            "LeftMargin": 1799.0793,
-            "RightMargin": 371.9207,
-            "TopMargin": 1232.4061,
-            "BottomMargin": 513.5939,
+            "LeftMargin": 1449.6565,
+            "RightMargin": 721.3435,
+            "TopMargin": 1265.0377,
+            "BottomMargin": 480.9623,
             "Tag": 2471,
             "ActionTag": 1777512151,
             "Size": {
@@ -1469,8 +1563,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1245.0109,
-              "Y": 478.8924
+              "X": 895.5894,
+              "Y": 446.261
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1481,17 +1575,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.4863,
-              "Y": 0.2661
+              "X": 0.3498,
+              "Y": 0.2479
             },
             "PreSize": {
               "X": 0.152,
               "Y": 0.03
             },
-            "LeftMargin": 1050.5109,
-            "RightMargin": 1120.4891,
-            "TopMargin": 1294.1077,
-            "BottomMargin": 451.8924,
+            "LeftMargin": 701.0894,
+            "RightMargin": 1469.9106,
+            "TopMargin": 1326.739,
+            "BottomMargin": 419.261,
             "Tag": 2470,
             "ActionTag": 1835367049,
             "Size": {
@@ -1516,8 +1610,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 494.6815,
-              "Y": 410.7397
+              "X": 145.2683,
+              "Y": 378.1098
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1528,17 +1622,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.1932,
-              "Y": 0.2282
+              "X": 0.0567,
+              "Y": 0.2101
             },
             "PreSize": {
               "X": 0.152,
               "Y": 0.03
             },
-            "LeftMargin": 300.1815,
-            "RightMargin": 1870.8185,
-            "TopMargin": 1362.2603,
-            "BottomMargin": 383.7397,
+            "LeftMargin": -49.2317,
+            "RightMargin": 2220.2317,
+            "TopMargin": 1394.8901,
+            "BottomMargin": 351.1098,
             "Tag": 2469,
             "ActionTag": 1589129934,
             "Size": {
@@ -1865,13 +1959,14 @@
             "RightMargin": 850.1478,
             "TopMargin": 1579.4021,
             "BottomMargin": 220.5979,
+            "UserData": "main.bird",
             "Tag": 2475,
             "ActionTag": -893758849,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "girl",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1940,6 +2035,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "bird.json",
         "girl.json",
         "man.json",
         "Mke_Mti.plist",

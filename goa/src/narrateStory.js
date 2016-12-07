@@ -654,7 +654,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             var soundFile = eventData;
             if(soundFile.trim() != undefined && soundFile.trim().length > 0) {
                 cc.log('soundFile 111:' + soundFile.trim());
-                var soundFile = xc.path + this._referenceToContext._baseDir + "/sounds/" + soundFile.trim() + ".ogg";
+                var soundFile = "res/sounds/sfx/" + soundFile.trim() + ".ogg";
                 if(soundFile) {
                     
                     cc.loader.load(soundFile, function(err, data) {
