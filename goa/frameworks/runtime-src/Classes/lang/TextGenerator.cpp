@@ -849,4 +849,9 @@ std::string TextGenerator::getLang() {
     return LangUtil::getInstance()->getLang();
 }
 
+std::vector<std::string> TextGenerator::wordsWithGivenLetter(std::string str)
+{
+	return LangUtil::getInstance()->setOfWordsWithGivenLetter(str);
+}
+
 

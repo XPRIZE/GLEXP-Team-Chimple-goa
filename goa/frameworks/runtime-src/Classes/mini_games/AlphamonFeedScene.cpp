@@ -123,7 +123,7 @@ void AlphamonFeed::startGame() {
 	sprite1->setPositionX(visibleSize.width/2);
 	sprite1->setPositionY(50);
 	sprite1->setName(mycharString);
-	sprite1->setContentSize(cocos2d::Size(300.0f, 400.0f));
+	sprite1->setContentSize(cocos2d::Size(400.0f, 400.0f));
 	this->addChild(sprite1);
 	//breath animination
 	sprite1->breatheAction();
@@ -202,7 +202,7 @@ void AlphamonFeed:: update(float dt) {
     if(!menu->isGamePaused()) {
         if (fruitReff.size() != 0) {
             for (int i = 0; i < fruitReff.size(); i++) {
-                monster = CCRectMake(sprite1->getPositionX()-(sprite1->getContentSize().width/2), sprite1->getPositionY(), sprite1->getContentSize().width/2, sprite1->getContentSize().height/2); //+(sprite1->getContentSize().height/4)
+                monster = CCRectMake(sprite1->getPositionX()-(sprite1->getContentSize().width), sprite1->getPositionY(), sprite1->getContentSize().width, sprite1->getContentSize().height); //+(sprite1->getContentSize().height/4)
                 Rect fruit = CCRectMake(fruitReff.at(i)->getPositionX()-100, fruitReff.at(i)->getPositionY()-60, fruitReff.at(i)->getContentSize().width, fruitReff.at(i)->getContentSize().height);
                 
                 if ((monster).intersectsRect(fruit)) {
