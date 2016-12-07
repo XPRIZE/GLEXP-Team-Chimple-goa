@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 595,
         "Speed": 1.0,
-        "ActivedAnimationName": "eat",
+        "ActivedAnimationName": "fly",
         "Timelines": [
           {
             "ActionTag": -327721966,
@@ -2296,6 +2296,15 @@
               {
                 "X": -138.0756,
                 "Y": 348.9362,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -138.0756,
+                "Y": 348.9362,
                 "FrameIndex": 55,
                 "EasingData": {
                   "Type": 0
@@ -2435,6 +2444,15 @@
             "ActionTag": 1587338143,
             "Property": "Scale",
             "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
               {
                 "X": 1.0,
                 "Y": 1.0,
@@ -2580,6 +2598,15 @@
               {
                 "X": 7.538,
                 "Y": 7.5385,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 7.538,
+                "Y": 7.5385,
                 "FrameIndex": 55,
                 "EasingData": {
                   "Type": 0
@@ -2711,6 +2738,19 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1587338143,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "bird",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -3918,14 +3958,15 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": -0.3379,
-                "RotationSkewY": -0.3374,
+                "RotationSkewX": 7.538,
+                "RotationSkewY": 7.5385,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
                   "Dst": 771
                 },
                 "Tag": 60,
+                "FrameEvent": "bird",
                 "Children": [
                   {
                     "Length": 320.0,
@@ -4581,15 +4622,15 @@
                   {
                     "Length": 508.0,
                     "Position": {
-                      "X": -19.4646,
+                      "X": -19.4647,
                       "Y": 127.009
                     },
                     "Scale": {
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 189.7,
-                    "RotationSkewY": -170.3014,
+                    "RotationSkewX": 219.1954,
+                    "RotationSkewY": -140.8067,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -5020,8 +5061,8 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewX": 293.1524,
-                        "RotationSkewY": 293.1535,
+                        "RotationSkewX": 291.5527,
+                        "RotationSkewY": 291.5538,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -6326,15 +6367,15 @@
                   {
                     "Length": 293.0,
                     "Position": {
-                      "X": 87.0455,
+                      "X": 87.0456,
                       "Y": 29.8586
                     },
                     "Scale": {
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": -6.6405,
-                    "RotationSkewY": -6.6411,
+                    "RotationSkewX": -22.371,
+                    "RotationSkewY": -22.3693,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -6793,8 +6834,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": -21.6542,
-                    "RotationSkewY": -21.659,
+                    "RotationSkewX": -30.6539,
+                    "RotationSkewY": -30.6573,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -7503,8 +7544,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 77.16,
-                "RotationSkewY": 77.1576,
+                "RotationSkewX": 76.26,
+                "RotationSkewY": 76.2576,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -8011,8 +8052,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 68.66,
-                "RotationSkewY": 68.6604,
+                "RotationSkewX": 69.56,
+                "RotationSkewY": 69.5604,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,

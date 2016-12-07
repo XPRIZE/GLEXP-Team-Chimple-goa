@@ -217,9 +217,6 @@ xc.PictureQuestionHandler = cc.Layer.extend({
             }                                                                                              
         } else {
             this._numberOfTimesInCorrectAnswered = 0;
-            if(xc.NarrateStoryLayer.res.correctAnswerSound_json) {
-                cc.audioEngine.playEffect(xc.NarrateStoryLayer.res.correctAnswerSound_json, false);
-            }                                                      
         }
 
     },
@@ -259,16 +256,17 @@ xc.PictureQuestionHandler = cc.Layer.extend({
 
         if(this._totalCorrectAnswers == 4) {
             this.callback.call(this._callbackContext, sender, true, true);
-        } else {
-            this.callback.call(this._callbackContext, sender, true, false);
-        }                      
-        
+        } 
     },
 
     verifyAnswer: function(sender, questionNode) {
         var str2 = sender.getTitleText().replace(/\n|\r/g, "");
         var isCorrectAnswered = str2.trim().toLowerCase() === this._question[questionNode.getTitleText().trim()].toLowerCase();
         if(isCorrectAnswered) {
+            if(xc.NarrateStoryLayer.res.correctAnswerSound_json) {
+                cc.audioEngine.playEffect(xc.NarrateStoryLayer.res.correctAnswerSound_json, false);
+            }                                          
+            
             this._totalCorrectAnswers++;
             this.swipeAnswers(sender, questionNode);
         } else {

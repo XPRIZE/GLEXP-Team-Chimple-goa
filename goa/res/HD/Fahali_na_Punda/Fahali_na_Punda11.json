@@ -1,14 +1,112 @@
 {
   "ID": "f5ae74b3-22cd-42b4-ad14-486989aa1af7",
-  "Version": "3.10.0.0",
+  "Version": "2.3.4",
   "Name": "Fahali_na_Punda11",
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 310,
+        "Duration": 465,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "rabbit",
         "Timelines": [
+          {
+            "ActionTag": 133727358,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 320,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 465,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 133727358,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2244.3816,
+                "Y": 725.5488,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -200.0,
+                "Y": 850.0,
+                "FrameIndex": 465,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 133727358,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 465,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 133727358,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 6.0262,
+                "Y": 6.0196,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 6.906,
+                "Y": 6.9094,
+                "FrameIndex": 465,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": -154857225,
             "Property": "ActionValue",
@@ -249,6 +347,12 @@
           "EndIndex": 310,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 320,
+          "EndIndex": 464,
+          "Name": "rabbit",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -344,7 +448,7 @@
               "Y": 0.4722
             },
             "LeftMargin": -54.1901,
-            "RightMargin": -485.8101,
+            "RightMargin": -485.8098,
             "TopMargin": 1093.1654,
             "BottomMargin": -143.1654,
             "Tag": 3625,
@@ -578,7 +682,7 @@
             },
             "LeftMargin": 838.296,
             "RightMargin": 1250.704,
-            "TopMargin": 1094.3899,
+            "TopMargin": 1094.39,
             "BottomMargin": 583.61,
             "Tag": 3622,
             "ActionTag": -294593255,
@@ -692,6 +796,49 @@
           },
           {
             "FileData": {
+              "Type": "Normal",
+              "Path": "Fahali_na_Punda/rabbit.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1772.363,
+              "Y": 749.5807
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 6.1961,
+            "RotationSkewY": 6.1914,
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.6923,
+              "Y": 0.4164
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1772.363,
+            "RightMargin": 787.637,
+            "TopMargin": 1050.4192,
+            "BottomMargin": 749.5807,
+            "Tag": 3895,
+            "ActionTag": 133727358,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "rabbit",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
               "Type": "MarkedSubImage",
               "Path": "Fahali_na_Punda/fahali_house.png",
               "Plist": "Fahali_na_Punda/Fahali_na_Punda.plist"
@@ -746,7 +893,7 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": -204.8198,
+              "X": 600.0,
               "Y": 291.6268
             },
             "Scale": {
@@ -756,17 +903,18 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": -0.08,
+              "X": 0.2344,
               "Y": 0.162
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -204.8198,
-            "RightMargin": 2764.8198,
-            "TopMargin": 1508.3733,
+            "LeftMargin": 600.0,
+            "RightMargin": 1960.0,
+            "TopMargin": 1508.3732,
             "BottomMargin": 291.6268,
+            "UserData": "walk;drag",
             "Tag": 3553,
             "ActionTag": -154857225,
             "Size": {
@@ -787,7 +935,7 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 3128.3567,
+              "X": 1800.0,
               "Y": 272.7209
             },
             "Scale": {
@@ -797,17 +945,18 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 1.222,
+              "X": 0.7031,
               "Y": 0.1515
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 3128.3567,
-            "RightMargin": -568.3567,
+            "LeftMargin": 1800.0,
+            "RightMargin": 760.0,
             "TopMargin": 1527.2791,
             "BottomMargin": 272.7209,
+            "UserData": "walk;drag",
             "Tag": 3585,
             "ActionTag": -929949074,
             "Size": {
@@ -829,7 +978,8 @@
         "cow.json",
         "donkey.json",
         "Fahali_na_Punda.plist",
-        "Fahali_na_Punda.png"
+        "Fahali_na_Punda.png",
+        "rabbit.json"
       ],
       "ctype": "GameFileData"
     }

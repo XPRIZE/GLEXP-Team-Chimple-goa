@@ -5,12 +5,123 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 0,
+        "Duration": 30,
         "Speed": 1.0,
-        "Timelines": [],
+        "ActivedAnimationName": "horn",
+        "Timelines": [
+          {
+            "ActionTag": -1813911463,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 699.9767,
+                "Y": 1140.3887,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 699.9818,
+                "Y": 1140.3862,
+                "FrameIndex": 15,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 699.9767,
+                "Y": 1140.3887,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1813911463,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.3341,
+                "Y": 1.3341,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.7583,
+                "Y": 1.7583,
+                "FrameIndex": 15,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.3341,
+                "Y": 1.3341,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1813911463,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 15,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
         "ctype": "TimelineActionData"
       },
-      "AnimationList": [],
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 30,
+          "Name": "horn",
+          "ctype": "AnimationInfoData"
+        }
+      ],
       "ObjectData": {
         "Tag": 49,
         "Children": [
@@ -173,12 +284,12 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 699.9767,
-              "Y": 1140.3887
+              "X": 699.9797,
+              "Y": 1140.3872
             },
             "Scale": {
-              "ScaleX": 1.3341,
-              "ScaleY": 1.3341
+              "ScaleX": 1.5886,
+              "ScaleY": 1.5886
             },
             "CColor": {},
             "IconVisible": false,
@@ -190,12 +301,13 @@
               "X": 0.2133,
               "Y": 0.2589
             },
-            "LeftMargin": 426.9767,
-            "RightMargin": 1587.0233,
-            "TopMargin": 426.6113,
-            "BottomMargin": 907.3887,
-            "UserData": "drag",
+            "LeftMargin": 426.9797,
+            "RightMargin": 1587.0203,
+            "TopMargin": 426.6128,
+            "BottomMargin": 907.3872,
+            "UserData": "drag;main.horn",
             "Tag": 4245,
+            "FrameEvent": "horn",
             "ActionTag": -1813911463,
             "Size": {
               "X": 546.0,
