@@ -28,6 +28,7 @@ public:
 	void gameHelp();
 	void addCalculator();
 	bool _helpFlage = false;
+	bool _clickFlag = true;
 	void calculatedResult(std::string result);
 	static const char* gameName() { return ITEM.c_str(); }
 protected:
