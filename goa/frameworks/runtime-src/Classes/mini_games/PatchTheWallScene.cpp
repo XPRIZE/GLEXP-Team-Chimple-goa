@@ -10,75 +10,107 @@
 USING_NS_CC;
 //const std::vector<std::string> Alphabets = {"A","B","C","D", "E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
 
-float PatchTheWall::x;
-float PatchTheWall::y;
 PatchTheWall::PatchTheWall() {
 
 }
 PatchTheWall::~PatchTheWall() {
-	backgroundMusic->stopBackgroundMusic();
+//	backgroundMusic->stopBackgroundMusic();
 }
 Scene* PatchTheWall::createScene()
 {
-	// 'scene' is an autorelease object
 	auto scene = Scene::create();
 
-	// 'layer' is an autorelease object
 	auto layer = PatchTheWall::create();
-
-	// add layer as a child to scene
 	scene->addChild(layer);
-    CCLOG("class name %s", typeid(layer).name());
+
     layer->_menuContext = MenuContext::create(layer, PatchTheWall::gameName());
 	scene->addChild(layer->_menuContext);
-	// return the scene
+
 	return scene;
 }
-// on "init" you need to initialize your instance
+
 bool PatchTheWall::init()
 {
 	if (!Layer::init())
 	{
 		return false;
 	}
-	flag = -1;
-	Size visibleSize = Director::getInstance()->getVisibleSize();
-	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	auto temp = CSLoader::createNode("patchthewall.csb");
-	auto alpha1 = temp->getChildren();
-	//temp->setPositionX(-500)
-	this->addChild(temp);
+	return true;
+}
 
-	slideBar = (cocos2d::ui::Slider *)(temp->getChildByName("Slider_3"));
-	slideBar->setPercent(1);
-	slideBar->setEnabled(false);
+void PatchTheWall::onEnterTransitionDidFinish()
+{
+	visibleSize = Director::getInstance()->getVisibleSize();
+	origin = Director::getInstance()->getVisibleOrigin();
 
-	SpriteFrameCache *spriteCache = SpriteFrameCache::getInstance();
-	spriteCache->addSpriteFramesWithFile("fort_plist.plist");
+	_patchBg = CSLoader::createNode("patchthewall/patchthewall.csb");
+	this->addChild(_patchBg);
 
-	auto alphagrids = Sprite::createWithSpriteFrameName("alphagrid.png");
-	alphagrids->setPositionX(visibleSize.width - alphagrids->getContentSize().width/2);
-	alphagrids->setPositionY(visibleSize.height/2);
-	this->addChild(alphagrids, 6);
+	_slideBar = (cocos2d::ui::Slider *)(_patchBg->getChildByName("Slider_3"));
+	_slideBar->setPercent(0);
+	_slideBar->setEnabled(false);
 
-	backgroundMusic = CocosDenshion::SimpleAudioEngine::getInstance();
-	backgroundMusic->playBackgroundMusic("sounds/patchthewall.mp3", true);
-	 
-	matrix = CharGenerator::getInstance()->generateCharMatrix(3, 5);
+	_matrix = CharGenerator::getInstance()->generateCharMatrix(2, 5);
+
+
+	float _gridY = visibleSize.height * .19;
+	for (int i = 0; i < 5; i++)
+	{
+		float _gridX = visibleSize.width * .80;
+
+		for (int j = 0; j < 2; j++)
+		{
+			SpriteDetails._sprite = Sprite::createWithSpriteFrameName("patchthewall/alphagrid.png");
+			SpriteDetails._sprite->setPosition(Vec2(_gridX, _gridY));
+			this->addChild(SpriteDetails._sprite);
+
+			SpriteDetails._label = Alphabet::createWithSize(_matrix[j][i], 200);
+			SpriteDetails._label->setPosition(Vec2(SpriteDetails._sprite->getPositionX(), SpriteDetails._sprite->getPositionY()));
+			this->addChild(SpriteDetails._label);
+			SpriteDetails._id = _matrix[j][i];
+			SpriteDetails.xP = SpriteDetails._sprite->getPositionX();
+			SpriteDetails.yP = SpriteDetails._sprite->getPositionY();
+			SpriteDetails._sequence = _spriteDetails.size();
+			SpriteDetails._label->setName(std::to_string(_spriteDetails.size()));
+
+			_spriteDetails.push_back(SpriteDetails);
+			_gridX += SpriteDetails._sprite->getContentSize().width * 1.05;
+
+			addEvents(SpriteDetails);
+		}
+		_gridY += _spriteDetails.at(0)._sprite->getContentSize().height * 1.02;
+	}
+
+	_gridY = visibleSize.height * .19;
+	for (int i = 0; i < 5; i++)
+	{
+		float _gridX = visibleSize.width * .20;
+		for (int j = 0; j < 5; j++)
+		{
+			Position.x = _gridX;
+			Position.y = _gridY;
+			Position._flag = 0;
+			Position._sequence = _position.size();
+			_position.push_back(Position);
+			_gridX += SpriteDetails._sprite->getContentSize().width * 1.05;
+		}
+		_gridY += _spriteDetails.at(0)._sprite->getContentSize().height * 1.02;
+	}
 
 	// position the sprite on the center of the screen
-	
+
+/*
 	for (int i = 0; i < 5; i++) {
-		int hegbox = (i * 210)+420 ;
+		int hegbox = (i * 210) + 420;
 		for (int j = 0; j < 3; j++)
 		{
 			int randgen = cocos2d::RandomHelper::random_int(0, 25);
 			//const char* level = Alphabets.at(randgen).c_str();
-			int weibox = visibleSize.width -200- (j * 340);
+			int weibox = visibleSize.width - 200 - (j * 340);
 			auto mystr = LangUtil::convertUTF16CharToString(matrix[j][i]);
-			auto label  = Alphabet::createWithSize(matrix[j][i], 300);
-			
+			auto label = Alphabet::createWithSize(matrix[j][i], 300);
+
 			//auto label = Label::createWithTTF(matrix[j][i], "letters.ttf", 200);
 			label->setPositionX(weibox);
 			label->setPositionY(hegbox);
@@ -93,7 +125,7 @@ bool PatchTheWall::init()
 			listener->onTouchEnded = CC_CALLBACK_2(PatchTheWall::onTouchEnded, this);
 			listener->onTouchCancelled = CC_CALLBACK_2(PatchTheWall::onTouchCancelled, this);
 			cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, label);
-		}	
+		}
 	}
 
 	for (int ii = 1; ii < 6; ii++) {
@@ -103,16 +135,167 @@ bool PatchTheWall::init()
 			gameX.push_back(gridwidth);
 			gameY.push_back(gridheight);
 			breakFlag.push_back(false);
-
 		}
-	} 
-	//this->scheduleUpdate();
-	// add the sprite as a child to this layer
-	setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(PatchTheWall::startGame, this));
+	}
+*/
+//	this->schedule(schedule_selector(PatchTheWall::Blast), 5.0f);
+//	this->scheduleUpdate();
 
-	return true;
+	_level = _menuContext->getCurrentLevel();
+	_menuContext->setMaxPoints(15);
+	blastCome(0);
+
+	if (_level != 1)
+		this->schedule(schedule_selector(PatchTheWall::blastCome), 5.0f);
 }
 
+void PatchTheWall::addEvents(struct SpriteDetails sprite)
+{
+	auto listener = cocos2d::EventListenerTouchOneByOne::create();
+	listener->setSwallowTouches(true);
+
+	listener->onTouchBegan = [=](cocos2d::Touch *touch, cocos2d::Event *event)
+	{
+		auto target = static_cast<Sprite*>(event->getCurrentTarget());
+		Point locationInNode = target->convertToNodeSpace(touch->getLocation());
+		Size size = target->getContentSize();
+		Rect rect = Rect(0, 0, size.width, size.height);
+
+		if (rect.containsPoint(locationInNode) && _moveFlag==0)
+		{
+			if (_helpFlag == 0)
+			{
+				this->removeChild(_help);
+				_helpFlag = -1;
+				blastCome(0);
+				this->schedule(schedule_selector(PatchTheWall::blastCome), 5.0f);
+			}
+
+			_moveFlag = 1;
+			return true;
+		}
+		return false;
+	};
+
+	listener->onTouchMoved = [=](cocos2d::Touch *touch, cocos2d::Event *event)
+	{
+		auto target = event->getCurrentTarget();
+		target->setPosition(touch->getLocation());
+	};
+
+	listener->onTouchEnded = [=](cocos2d::Touch *touch, cocos2d::Event *event)
+	{
+		int flag = 0;
+		auto target = event->getCurrentTarget();
+		Rect _targetRect = target->getBoundingBox();
+		std::string _targetName = target->getName();
+		int _index = atoi(_targetName.c_str());
+		for (int i = 0; i < _patchDetails.size(); i++)
+		{
+			Rect _patchRect = _patchDetails.at(i)._label->getBoundingBox();
+
+			if (_patchRect.intersectsRect(_targetRect) && _spriteDetails.at(_index)._id == _patchDetails.at(i)._id)
+			{
+				_spriteDetails.at(_index)._label->runAction(Sequence::create(MoveTo::create(.2, Vec2(_patchDetails.at(i)._label->getPositionX(), _patchDetails.at(i)._label->getPositionY())),
+					CallFunc::create([=] {
+					this->removeChild(_patchDetails.at(i)._label);
+					_position.at(_patchDetails.at(i)._sequence)._flag = 0;
+					_patchDetails.erase(_patchDetails.begin() + i);
+					_moveFlag = 0;
+					_menuContext->addPoints(1);
+					_totalCount++;
+
+					CocosDenshion::SimpleAudioEngine *success = CocosDenshion::SimpleAudioEngine::getInstance();
+					success->playEffect("sounds/sfx/success.ogg", false);
+
+					_spriteDetails.at(_index)._label->setPosition(Vec2(_spriteDetails.at(_index).xP, _spriteDetails.at(_index).yP));
+					_slideBar->setPercent(_slideBar->getPercent() + 15);
+					if (_totalCount == 14)
+					{
+						_menuContext->showScore();
+					}
+
+				}), NULL));
+
+				flag = 1;
+				break;
+			}
+		}
+
+		if (flag == 0)
+		{
+			target->runAction(Sequence::create(MoveTo::create(.5, Vec2(_spriteDetails.at(_index).xP, _spriteDetails.at(_index).yP)), CallFunc::create([=]{
+				_moveFlag = 0;
+				_menuContext->addPoints(-1);
+			}), NULL));
+		}
+	};
+
+	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener->clone(), sprite._label);
+}
+
+
+void PatchTheWall::blastCome(float _time)
+{
+	if (_totalLetter < 15)
+	{
+		int _randomPosition;
+		while (1)
+		{
+			_randomPosition = (rand() % _position.size() - 1);
+			if (_position.at(_randomPosition)._flag == 0)
+			{
+				_position.at(_randomPosition)._flag = 1;
+				break;
+			}
+		}
+
+		Node *_blastNode = CSLoader::createNode("patchthewall/blast.csb");
+		auto _blastTimeline = CSLoader::createTimeline("patchthewall/blast.csb");
+		_blastNode->setPosition(Vec2(_position.at(_randomPosition).x, _position.at(_randomPosition).y));
+		this->addChild(_blastNode);
+
+		_blastNode->runAction(_blastTimeline);
+		_blastTimeline->play("blast", false);
+		_blastTimeline->setAnimationEndCallFunc("blast", CC_CALLBACK_0(PatchTheWall::letterCome, this, _blastNode, _randomPosition));
+	}
+	else
+	{
+
+	}
+}
+
+void PatchTheWall::letterCome(Node *blastNode, int _randomPosition)
+{
+	this->removeChild(blastNode);
+	SpriteDetails._sprite = Sprite::createWithSpriteFrameName("patchthewall/alphagrid.png");
+	SpriteDetails._sprite->setPosition(Vec2(_position.at(_randomPosition).x, _position.at(_randomPosition).y));
+//	this->addChild(SpriteDetails._sprite);
+
+	int _randomRow = cocos2d::RandomHelper::random_int(0, 4);
+	int _randomCol = cocos2d::RandomHelper::random_int(0, 1);
+
+	SpriteDetails._label = Alphabet::createWithSize(_matrix[_randomCol][_randomRow], 200);
+	SpriteDetails._label->setPosition(Vec2(SpriteDetails._sprite->getPositionX(), SpriteDetails._sprite->getPositionY()));
+	this->addChild(SpriteDetails._label);
+	SpriteDetails._id = _matrix[_randomCol][_randomRow];
+	SpriteDetails.xP = SpriteDetails._sprite->getPositionX();
+	SpriteDetails.yP = SpriteDetails._sprite->getPositionY();
+	SpriteDetails._sequence = _randomPosition;
+	_patchDetails.push_back(SpriteDetails);
+	_totalLetter++;
+
+	if (_helpFlag == 0)
+	{
+		_help = HelpLayer::create(Rect(SpriteDetails._sprite->getPositionX() - SpriteDetails._sprite->getContentSize().width / 2, SpriteDetails._sprite->getPositionY() - SpriteDetails._sprite->getContentSize().height / 2, SpriteDetails._sprite->getContentSize().width, SpriteDetails._sprite->getContentSize().height), Rect(0, 0, 0, 0));
+//		_help->clickAndDrag(Vec2(_position[2].x, _position[2].y), Vec2(_position[2].x, _position[2].y + _allBar.at(2)->getContentSize().width));
+		this->addChild(_help);
+		_helpFlag = 0;
+	}
+
+}
+
+/*
 void PatchTheWall::startGame() {
     _menuContext->showStartupHelp(CC_CALLBACK_0(PatchTheWall::callingBlast, this));
 //	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)), CallFunc::create(CC_CALLBACK_0(PatchTheWall::callingBlast, this)), NULL));
@@ -122,6 +305,11 @@ void PatchTheWall::callingBlast()
 	this->schedule(schedule_selector(PatchTheWall::Blast), 5.0f);
 	this->scheduleUpdate();
 }
+*/
+
+
+/*
+
 bool PatchTheWall::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 {
 	//CCLOG("touchdshfdtj= %d", gameX.size());
@@ -285,3 +473,5 @@ void PatchTheWall::menuCloseCallback(Ref* pSender)
     exit(0);
 #endif
 }
+
+*/
