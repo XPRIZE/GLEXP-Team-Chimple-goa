@@ -556,7 +556,7 @@ void MenuContext::addPoints(int points) {
     if(points > 0) {
         auto sequence = Sequence::create(
                                          CallFunc::create(CC_CALLBACK_0(MenuContext::happyFace, this)),
-                                         CallFunc::create(CC_CALLBACK_0(MenuContext::increasePoints, this, 1)),
+                                         CallFunc::create(CC_CALLBACK_0(MenuContext::increasePoints, this, points)),
                                          DelayTime::create(1),
                                          CallFunc::create(CC_CALLBACK_0(MenuContext::normalFace, this)),
                                          NULL);
@@ -564,7 +564,7 @@ void MenuContext::addPoints(int points) {
     } else {
         auto sequence = Sequence::create(
                                          CallFunc::create(CC_CALLBACK_0(MenuContext::sadFace, this)),
-                                         CallFunc::create(CC_CALLBACK_0(MenuContext::increasePoints, this, -1)),
+                                         CallFunc::create(CC_CALLBACK_0(MenuContext::increasePoints, this, points)),
                                          DelayTime::create(1),
                                          CallFunc::create(CC_CALLBACK_0(MenuContext::normalFace, this)),
                                          NULL);
@@ -676,19 +676,19 @@ Node* MenuContext::jumpOut(std::string nodeCsbName, float duration, Vec2 positio
 
 void MenuContext::showHelp(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
-        chimpHelp();
+//        chimpHelp();
     }
 }
 
 void MenuContext::showStartupHelp(std::function<void()> callback) {
-    if(!SafariAnalyticsManager::getInstance()->wasGamePlayedBefore(gameName.c_str())) {
-        _startupCallback = callback;
-        addGreyLayer();
-        pauseNodeAndDescendants(_main);
-        chimpHelp();
-    } else {
+//    if(!SafariAnalyticsManager::getInstance()->wasGamePlayedBefore(gameName.c_str())) {
+//        _startupCallback = callback;
+//        addGreyLayer();
+//        pauseNodeAndDescendants(_main);
+//        chimpHelp();
+//    } else {
         callback();
-    }
+//    }
 }
 
 void MenuContext::chimpHelp() {
