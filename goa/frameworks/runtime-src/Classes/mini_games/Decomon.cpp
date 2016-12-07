@@ -13,6 +13,7 @@
 #include "../puzzle/CharGenerator.h"
 #include "DecomonGallery.h"
 #include "../menu/HelpLayer.h"
+#include "../lang/TextGenerator.h"
 
 USING_NS_CC;
 
@@ -142,9 +143,9 @@ child = decomon_icon_mouth*/
 		"decomon/decomon_eye_d.csb" ,
 		"decomon/decomon_eye_e.csb" ,
 		"decomon/decomon_eye_f.csb" ,
-		"decomon/decomon_eye_g.csb" ,
+		"decomon/decomon_eye_i.csb" ,
 		"decomon/decomon_eye_h.csb" ,
-		"decomon/decomon_eye_i.csb" };
+		"decomon/decomon_eye_g.csb" };
 
 	_mouthPath = { "decomon/decomon_mouth_a.csb",
 		"decomon/decomon_mouth_b.csb" ,
@@ -214,8 +215,9 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 	}
 	//CCLOG("Toched Icon Name %s", target->getName().c_str());
 	
-	if (rect.containsPoint(location)) {
+	if (rect.containsPoint(location) && _onTouch) {
 		_colorPicked = false;
+		_onTouch = false;
 		CCLOG("Toched Icon Name %s",target->getName().c_str());
 		if (target->getName().compare("decomon_icon_eye") == 0) {
 			if (_touched) {
@@ -226,6 +228,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			}
 			itemInAGrid(_eyePath , "csb");
 			_numberOfItemSelected++;
+			_onTouch = true;
 			return false;
 		} else if(target->getName().compare("updated costume") == 0){
 			return true;
@@ -238,6 +241,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			}
 			itemInAGrid(_mouthPath, "csb");
 			_numberOfItemSelected++;
+			_onTouch = true;
 			return false;
 		} else if (target->getName().compare("decomon_icon_skate") == 0) {
 			if (_touched) {
@@ -248,6 +252,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			}
 			itemInAGrid(_skatePath,"csb");
 			_numberOfItemSelected++;
+			_onTouch = true;
 			return false;
 		} else if (target->getName().compare("decomon_icon_headgear") == 0) {
 			if (_touched) {
@@ -262,7 +267,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				gameHelpDrag();
 			}
 			_numberOfItemSelected++;
-			
+			_onTouch = true;
 			return false;
 		}
 		else if (target->getName().compare("decomon_icon_nose") == 0) {
@@ -274,6 +279,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			}
 			itemInAGrid(_nosePath, "_nosePath");
 			_numberOfItemSelected++;
+			_onTouch = true;
 			return false;
 		}
 		else if (target->getName().compare("decomon_icon_paintbrush") == 0) {
@@ -285,6 +291,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			}
 			itemInAGrid(_paintPath, "png");
 			_numberOfItemSelected++;
+			_onTouch = true;
 			return false;
 		}
 		else if (target->getName().compare("decomon_icon_mustache") == 0) {
@@ -296,6 +303,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			}
 			itemInAGrid(_mustachePath, "png");
 			_numberOfItemSelected++;
+			_onTouch = true;
 			return false;
 		}
 		else if (target->getName().compare("decomon_icon_gear") == 0) {
@@ -307,6 +315,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			}
 			itemInAGrid(_gearPath, "png");
 			_numberOfItemSelected++;
+			_onTouch = true;
 			return false;
 		}
 		else if (target->getName().compare("decomon_icon_camera") == 0) {
@@ -319,6 +328,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		else if (target->getName().compare("decomon_icon_gallery") == 0) {
 			//screenShot();
 			decomonGallery();
+			_onTouch = true;
 			return false;
 		}
 		else if (target->getName().compare("updated costume") == 0) {
@@ -340,13 +350,13 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				_pickedColor_G = colour2.at(_colorIndex);
 				_pickedColor_B = colour3.at(_colorIndex);
 				_colorPicked = true;
-				
+				_onTouch = true;
 			//	colourFilling(touch->getLocation().x, touch->getLocation().y, _colorIndex, _costumeLayer);
 				return false;
 			}
 			else {
 				//if target is not a paint bucket set Scale to 1 and also creat duplicate
-				if (target->getScale() > 0 &&(!_colorPicked)) {
+				if (target->getScaleX() > 0 &&(!_colorPicked)) {
 					target->setScale(1);
 				}
 				else {
@@ -356,7 +366,10 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 					this->removeChildByName("helpDragLayer");
 					_helpIconIsClicked = false;
 				}
-				generateDuplicatesInAGrid(target);
+				if (target->getName().compare("updated costume") != 0) {
+					generateDuplicatesInAGrid(target);
+				}
+				
 				_flip = true;
 					return true;
 				}
@@ -446,21 +459,47 @@ void Decomon::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 		else if (target->getName().compare("updated costume") != 0 && target->getName().find("decomon/decomon3/decomon_paintbucket") != 0) {
 			_movedNodes.pushBack(target);
 			_touched = true;
+			if (target->getName().find("decomon/decomon_eye_") == 0 && _eyeFlag) {
+				_eyeFlag = false;
+				menu->addPoints(1);
+			} else if (target->getName().find("decomon/decomon_mouth") == 0 && _mouthFlag) {
+				_mouthFlag = false;
+				menu->addPoints(1);
+			} else if (target->getName().find("decomon/decomon_skate_") == 0 && _skateFlag) {
+				_skateFlag = false;
+				menu->addPoints(1);
+			} else if (target->getName().find("decomon/decomon3/decomon_nose_") == 0 && _noseFlag) {
+				_noseFlag = false;
+				menu->addPoints(1);
+			} else if (target->getName().find("decomon/decomon2/decomon_headgear_") == 0 && _hornFlag) {
+				_hornFlag = false;
+				menu->addPoints(1);
+			} else if (target->getName().find("decomon/decomon1/decomon_gear_") == 0 && _gearFlag) {
+				_gearFlag = false;
+				menu->addPoints(1);
+			} else if (target->getName().find("decomon/decomon3/decomon_hair_") == 0 && _mustacheFlag) {
+				_mustacheFlag = false;
+				menu->addPoints(1);
+			}
+		} else if (target->getName().find("decomon/decomon3/decomon_paintbucket") == 0 && _paintFlag){
+			_paintFlag = false;
+			menu->addPoints(1);
 		}
 	}
+	_onTouch = true;
 	
 }
 
 void Decomon::itemInAGrid(std::vector<std::string> item, std::string name)
 {
-	float x = Director::getInstance()->getVisibleSize().width / (item.size() + 1);
+	float x = Director::getInstance()->getVisibleSize().width / (item.size());
 	_costumeLayer->removeAllChildren();
 	for (int i = 1; i < item.size() + 1 ; i++) {
 		cocos2d::Node * eye;
 		if (name.compare("csb") == 0) {
 			eye = CSLoader::createNode(item.at(i - 1).c_str());
 			eye->setAnchorPoint(Vec2(0.5, 0.5));
-			eye->setPositionX(x*(i)); //+ (x/item.size()
+			eye->setPositionX(x*(i) - (x/2)); //+ (x/item.size()
 			eye->setPositionY(Director::getInstance()->getVisibleSize().height * 0.10);
 			if (item.at(i - 1).find("skate") == -1) {
 				eye->setContentSize(eye->getChildByName("contantsize")->getContentSize());	
@@ -474,7 +513,7 @@ void Decomon::itemInAGrid(std::vector<std::string> item, std::string name)
 			eye = (cocos2d::Node*)Sprite::createWithSpriteFrameName(item.at(i - 1).c_str());
 			eye->setScale(0.85);
 			eye->setPositionY(Director::getInstance()->getVisibleSize().height * 0.1);
-			eye->setPositionX(x*i);
+			eye->setPositionX(x*(i)-(x / 2));
 		}
 		
 
@@ -562,7 +601,7 @@ void Decomon::colourFilling(float x, float y, int index, cocos2d::Layer * layer)
 void Decomon::generateDuplicatesInAGrid(cocos2d::Node * node)
 {
 	cocos2d::Node * eye;
-	if (node->getPositionY() <= Director::getInstance()->getVisibleSize().height * 0.13) {
+	if (node->getPositionY() <= Director::getInstance()->getVisibleSize().height * 0.1) {
 
 
 		if (node->getName().find(".png") == -1) {
@@ -658,6 +697,7 @@ void Decomon::captureImage(bool capture, const std::string & outputFile)
 		sp->setPosition(s.width / 2, s.height / 2);
 		sp->setScale(0.25);
 		_screenShoot = true;
+		wordGenerate();
 	//	menu->showScore();
 	}
 	else
@@ -672,7 +712,7 @@ void Decomon::onEnterTransitionDidFinish()
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 
 	_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1]);
-
+	menu->setMaxPoints(8);
 	//BalooBhai-Regular.ttf
 	cocos2d::ui::TextBMFont * my = cocos2d::ui::TextBMFont::create(_myChar, LangUtil::getInstance()->getBMFontFileName());
 	my->setPositionX(visibleSize.width / 2);
@@ -789,4 +829,39 @@ void Decomon::gameHelpDrag()
 	help->setName("helpDragLayer");
 	this->addChild(help);
 	_helpIconIsClicked = true;
+}
+
+void Decomon::wordGenerate()
+{
+	Size visibelSize = Director::getInstance()->getVisibleSize();
+	std::vector<std::string> listOfWords = TextGenerator::getInstance()->wordsWithGivenLetter(_myChar);
+	int wordsSize = 0;
+	if (listOfWords.size() < 6) {
+		wordsSize = listOfWords.size();
+	} 
+	else {
+		wordsSize = 5;
+	}
+	float x = visibelSize.width* 0.3;
+	float y = visibelSize.height *0.2;
+	for (int i = 0; i <wordsSize; i++) {
+		int size = listOfWords.size() - 1;
+		int index = RandomHelper::random_int(0, size);
+		std::string word = listOfWords.at(index);
+		auto myLabel = Label::createWithSystemFont(word, "Arial", 200);
+		myLabel->setPositionX(x + (x* (i % 2)));
+		myLabel->setPositionY(y + (200 * (i)));
+		myLabel->setColor(Color3B(0, 0, 0));
+		this->addChild(myLabel);
+		listOfWords.erase(listOfWords.begin()+index);
+		auto blink = Blink::create(2, 5);
+		myLabel->runAction(blink);
+	}
+	this->scheduleOnce(schedule_selector(Decomon::gameEnd), 2);
+}
+
+void Decomon::gameEnd(float dt)
+{
+	
+	menu->showScore();
 }

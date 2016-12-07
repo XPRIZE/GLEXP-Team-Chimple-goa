@@ -10,6 +10,7 @@
 
 #include "DecomonGallery.h"
 #include "Decomon.h"
+#include "ui/CocosGUI.h"
 
 USING_NS_CC;
 
@@ -26,12 +27,14 @@ USING_NS_CC;
 //}
 cocos2d::Scene * DecomonGallery::createScene()
 {
+	
 	auto scene = cocos2d::Scene::create();
 	auto layer = DecomonGallery::create();
+	layer->setName("decomonGallery");
 	scene->addChild(layer);
-
 	layer->menu = MenuContext::create(layer, "decomon");
 	scene->addChild(layer->menu);
+	
 	return scene;
 }
 
@@ -42,6 +45,25 @@ DecomonGallery::DecomonGallery()
 DecomonGallery::~DecomonGallery()
 {
 
+}
+
+void DecomonGallery::onEnterTransitionDidFinish()
+{
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	auto scene = Director::getInstance()->getRunningScene();
+	auto layer = Layer::create();
+	scene->addChild(layer);
+	_backButton = cocos2d::ui::Button::create("menu/back.png", "menu/back.png", "menu/back.png", Widget::TextureResType::LOCAL);
+	_backButton->addTouchEventListener(CC_CALLBACK_0(DecomonGallery::backToGame, this));
+	_backButton->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * 0.1));
+	_backButton->setName("menuButton");
+	layer->addChild(_backButton, 1);
+	//scene
+}
+
+void DecomonGallery::backToGame()
+{
+	Director::getInstance()->replaceScene(TransitionFade::create(1.0, Decomon::createScene()));
 }
 
 
@@ -121,7 +143,7 @@ bool DecomonGallery::init() {
 					sp->setPosition(Vec2(k * visibleSize.width + (j + 0.5) * visibleSize.width / numCols, visibleSize.height - (2 * i + initialYOffSet) * (visibleSize.height / numCols) - 30));
 				//	sp->setAnchorPoint(Vec2(0, 0.5));
 					CCLOG("path %s", gameName.c_str());
-					//sp->setScale(1.2);
+					sp->setScale(0.75);
 					this->addChild(sp);
 				}
 				index++;
@@ -137,5 +159,12 @@ bool DecomonGallery::init() {
 	setInnerContainerSize(_layer->getContentSize());
 	setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::GRADIENT);
 	setBackGroundColor(Color3B(255, 159, 0), Color3B::WHITE);
+
+	_backButton = cocos2d::ui::Button::create("menu/back.png", "menu/back.png", "menu/back.png", Widget::TextureResType::LOCAL);
+	_backButton->addTouchEventListener(CC_CALLBACK_0(DecomonGallery::backToGame, this));
+	_backButton->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * 0.1));
+	_backButton->setName("menuButton");
+	this->addChild(_backButton);
+	
 	return true;
 }

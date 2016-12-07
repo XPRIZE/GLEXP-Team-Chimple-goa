@@ -25,6 +25,7 @@ bool js_chimpleautogenbindings_MenuContext_isGamePaused(JSContext *cx, uint32_t 
 bool js_chimpleautogenbindings_MenuContext_onChimpTouchBegan(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_chimpleautogenbindings_MenuContext_jumpOut(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_chimpleautogenbindings_MenuContext_split(JSContext *cx, uint32_t argc, jsval *vp);
+bool js_chimpleautogenbindings_MenuContext_getTrianglePointsForSprite(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_chimpleautogenbindings_MenuContext_transitToScrollableGameMap(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_chimpleautogenbindings_MenuContext_setCurrentLevel(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_chimpleautogenbindings_MenuContext_addPoints(JSContext *cx, uint32_t argc, jsval *vp);
