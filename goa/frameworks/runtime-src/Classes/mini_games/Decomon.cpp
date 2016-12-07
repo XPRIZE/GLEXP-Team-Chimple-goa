@@ -215,8 +215,9 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 	}
 	//CCLOG("Toched Icon Name %s", target->getName().c_str());
 	
-	if (rect.containsPoint(location)) {
+	if (rect.containsPoint(location) && _onTouch) {
 		_colorPicked = false;
+		_onTouch = false;
 		CCLOG("Toched Icon Name %s",target->getName().c_str());
 		if (target->getName().compare("decomon_icon_eye") == 0) {
 			if (_touched) {
@@ -227,6 +228,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			}
 			itemInAGrid(_eyePath , "csb");
 			_numberOfItemSelected++;
+			_onTouch = true;
 			return false;
 		} else if(target->getName().compare("updated costume") == 0){
 			return true;
@@ -239,6 +241,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			}
 			itemInAGrid(_mouthPath, "csb");
 			_numberOfItemSelected++;
+			_onTouch = true;
 			return false;
 		} else if (target->getName().compare("decomon_icon_skate") == 0) {
 			if (_touched) {
@@ -249,6 +252,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			}
 			itemInAGrid(_skatePath,"csb");
 			_numberOfItemSelected++;
+			_onTouch = true;
 			return false;
 		} else if (target->getName().compare("decomon_icon_headgear") == 0) {
 			if (_touched) {
@@ -263,7 +267,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				gameHelpDrag();
 			}
 			_numberOfItemSelected++;
-			
+			_onTouch = true;
 			return false;
 		}
 		else if (target->getName().compare("decomon_icon_nose") == 0) {
@@ -275,6 +279,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			}
 			itemInAGrid(_nosePath, "_nosePath");
 			_numberOfItemSelected++;
+			_onTouch = true;
 			return false;
 		}
 		else if (target->getName().compare("decomon_icon_paintbrush") == 0) {
@@ -286,6 +291,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			}
 			itemInAGrid(_paintPath, "png");
 			_numberOfItemSelected++;
+			_onTouch = true;
 			return false;
 		}
 		else if (target->getName().compare("decomon_icon_mustache") == 0) {
@@ -297,6 +303,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			}
 			itemInAGrid(_mustachePath, "png");
 			_numberOfItemSelected++;
+			_onTouch = true;
 			return false;
 		}
 		else if (target->getName().compare("decomon_icon_gear") == 0) {
@@ -308,6 +315,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			}
 			itemInAGrid(_gearPath, "png");
 			_numberOfItemSelected++;
+			_onTouch = true;
 			return false;
 		}
 		else if (target->getName().compare("decomon_icon_camera") == 0) {
@@ -320,6 +328,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		else if (target->getName().compare("decomon_icon_gallery") == 0) {
 			//screenShot();
 			decomonGallery();
+			_onTouch = true;
 			return false;
 		}
 		else if (target->getName().compare("updated costume") == 0) {
@@ -341,13 +350,13 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				_pickedColor_G = colour2.at(_colorIndex);
 				_pickedColor_B = colour3.at(_colorIndex);
 				_colorPicked = true;
-				
+				_onTouch = true;
 			//	colourFilling(touch->getLocation().x, touch->getLocation().y, _colorIndex, _costumeLayer);
 				return false;
 			}
 			else {
 				//if target is not a paint bucket set Scale to 1 and also creat duplicate
-				if (target->getScale() > 0 &&(!_colorPicked)) {
+				if (target->getScaleX() > 0 &&(!_colorPicked)) {
 					target->setScale(1);
 				}
 				else {
@@ -357,7 +366,10 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 					this->removeChildByName("helpDragLayer");
 					_helpIconIsClicked = false;
 				}
-				generateDuplicatesInAGrid(target);
+				if (target->getName().compare("updated costume") != 0) {
+					generateDuplicatesInAGrid(target);
+				}
+				
 				_flip = true;
 					return true;
 				}
@@ -474,6 +486,7 @@ void Decomon::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 			menu->addPoints(1);
 		}
 	}
+	_onTouch = true;
 	
 }
 
@@ -588,7 +601,7 @@ void Decomon::colourFilling(float x, float y, int index, cocos2d::Layer * layer)
 void Decomon::generateDuplicatesInAGrid(cocos2d::Node * node)
 {
 	cocos2d::Node * eye;
-	if (node->getPositionY() <= Director::getInstance()->getVisibleSize().height * 0.13) {
+	if (node->getPositionY() <= Director::getInstance()->getVisibleSize().height * 0.1) {
 
 
 		if (node->getName().find(".png") == -1) {
