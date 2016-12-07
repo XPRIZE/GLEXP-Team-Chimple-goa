@@ -112,7 +112,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 if(target.draggingEnabled) {
                     var action = target.actionManager.getActionByTag(target.tag, target);
                     action.pause();
-                    target.actionManager.pauseTarget(target);
+                    // target.actionManager.pauseTarget(target);
                 }
                 context._previousTouch = null;
                 if(!this._isDragging) {
@@ -186,7 +186,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 if(target.draggingEnabled) {
                     var action = target.actionManager.getActionByTag(target.tag, target);
                     action.pause();                    
-                    target.actionManager.pauseTarget(target);
+                    // target.actionManager.pauseTarget(target);
                 }
                 context._currentTarget = null;
                 this._isDragging = false;            
@@ -309,7 +309,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                     var action = target.actionManager.getActionByTag(target.tag, target);
                     if(action) {
                         action.pause();
-                        target.actionManager.pauseTarget(target);
+                        // target.actionManager.pauseTarget(target);
                     }                    
                 }
                 
