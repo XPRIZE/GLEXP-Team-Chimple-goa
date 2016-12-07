@@ -137,23 +137,21 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
             var question = this._questions[this._currentQuestionIndex];
             this.questionHandler(question);                
         } else {
-            this.showText();                        
+            this.showCopyRight();                      
         }
     },
 
-
-    processText: function(sender, type) {
+    copyrightShown: function() {
+        cc.log("copy right shown");
         if(cc.sys.isNative)
         {
             this._menuContext.showScore();
-        }        
+        } else {
+            xc.CatalogueScene.load(xc.CatalogueLayer);
+        }               
     },
 
-    processAudio: function(sender, type) {
-
-    },
-
-    showText: function() {      
+    showCopyRight: function() {      
         //load text file based on Current Story Id and Page index
         this._isTextShown = true;
         var langDir = goa.TextGenerator.getInstance().getLang();
@@ -170,19 +168,17 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
                     if(!err && json != null && json != undefined) {
                         storyText = json["copyright"];
                         cc.log('story text received:' + storyText);
-                        that.parent.addChild(new xc.BubbleSpeech(xc.StoryCoverPageLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that));
-                        // that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that));
+                        that.parent.addChild(new xc.CopyRightHandler(xc.StoryQuestionHandlerLayer.res.copyright_json, storyText, cc.director.getWinSize().width, cc.director.getWinSize().height, that.copyrightShown, that));
                     }                                
                 });                
            
             } 
         } else {
-
             cc.loader.loadJson(textFileUrl, function(err, json) {            
                 if(!err && json != null && json != undefined) {
                     storyText = json["copyright"];
                     cc.log('story text received:' + storyText);
-                    that.parent.addChild(new xc.BubbleSpeech(xc.StoryCoverPageLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that));
+                    that.parent.addChild(new xc.CopyRightHandler(xc.StoryQuestionHandlerLayer.res.copyright_json, storyText, cc.director.getWinSize().width, cc.director.getWinSize().height, that.copyrightShown, that));
                 }                                
             });                            
         }        
@@ -321,6 +317,7 @@ xc.StoryQuestionHandlerScene.load = function(storyBaseDir, layer, enableTransiti
     }
 }
 
+
 xc.StoryQuestionHandlerLayer.res = {
         storyQuestionsConfig_json: xc.path + "misc/storyQuestionsConfig.json",
         multi_question_choice_json: xc.path + "template/template.json",
@@ -330,5 +327,6 @@ xc.StoryQuestionHandlerLayer.res = {
         multi_question_choice_png: xc.path + "template/template.png",
         celebration_json: xc.path + "template/celebration.json",
         particle_system_plist: "res/scoreboard/particle_success.plist",
-        particle_system_png: "res/scoreboard/success_particle.png" 
+        particle_system_png: "res/scoreboard/success_particle.png",
+        copyright_json: xc.path + "template/copyright.json"
 };

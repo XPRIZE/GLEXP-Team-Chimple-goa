@@ -109,7 +109,6 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
                         cc.log('remainingAnswers[0]:' + remainingAnswers[0]);
                         var output = "";
                         var qText = remainingAnswers[0];
-                        var iLen = qText.length;
                         if(qText.length > 30) {
                             var i = 30;
                             while(i != qText.length && qText.charAt(i) != " ")
