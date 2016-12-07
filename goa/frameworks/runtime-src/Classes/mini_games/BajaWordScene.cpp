@@ -5,7 +5,7 @@ USING_NS_CC;
 
 Scene* BajaWordScene::createScene() {
 	auto layer = BajaWordScene::create();
-	auto scene = GameScene::createWithChild(layer,"BajaWordScene");
+	auto scene = GameScene::createWithChild(layer,"baja");
 	layer->_menuContext = scene->getMenuContext();
 	return scene;
 }

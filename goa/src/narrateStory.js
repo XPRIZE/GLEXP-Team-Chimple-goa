@@ -112,7 +112,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 if(target.draggingEnabled) {
                     var action = target.actionManager.getActionByTag(target.tag, target);
                     action.pause();
-                    target.actionManager.pauseTarget(target);
+                    // target.actionManager.pauseTarget(target);
                 }
                 context._previousTouch = null;
                 if(!this._isDragging) {
@@ -148,8 +148,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                   if(target.getChildren() != null && target.getChildren().length > 0)
                   {
                         //var targetRectangle = cc.rect(target.getPosition().x - target.getChildren()[0].getBoundingBox().width/2, target.getPosition().y - target.getChildren()[0].getBoundingBox().height/2, target.getChildren()[0].getBoundingBox().width, target.getChildren()[0].getBoundingBox().height);
-                        var targetRectangle = target.getBoundingBoxToWorld();
-                         
+                        var targetRectangle = target.getBoundingBoxToWorld();                             
                         if (cc.rectContainsPoint(targetRectangle, location)) {
                             context._currentTarget = target;
                             context._offsetYInTouch = location.y - target.getPosition().y;
@@ -187,7 +186,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 if(target.draggingEnabled) {
                     var action = target.actionManager.getActionByTag(target.tag, target);
                     action.pause();                    
-                    target.actionManager.pauseTarget(target);
+                    // target.actionManager.pauseTarget(target);
                 }
                 context._currentTarget = null;
                 this._isDragging = false;            
@@ -310,7 +309,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                     var action = target.actionManager.getActionByTag(target.tag, target);
                     if(action) {
                         action.pause();
-                        target.actionManager.pauseTarget(target);
+                        // target.actionManager.pauseTarget(target);
                     }                    
                 }
                 
@@ -550,6 +549,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
         node.getChildren().forEach(function(child)
         {      
+            cc.log("processing child.getName:" + child.getName());
             if(child instanceof ccs.SkeletonNode) {
                 var action = child.actionManager.getActionByTag(child.tag, child);
                 if(action) {
