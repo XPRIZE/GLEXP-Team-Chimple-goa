@@ -699,7 +699,7 @@ void Decomon::onEnterTransitionDidFinish()
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 
 	_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1]);
-
+	menu->setMaxPoints(8);
 	//BalooBhai-Regular.ttf
 	cocos2d::ui::TextBMFont * my = cocos2d::ui::TextBMFont::create(_myChar, LangUtil::getInstance()->getBMFontFileName());
 	my->setPositionX(visibleSize.width / 2);
@@ -849,5 +849,6 @@ void Decomon::wordGenerate()
 
 void Decomon::gameEnd(float dt)
 {
+	
 	menu->showScore();
 }
