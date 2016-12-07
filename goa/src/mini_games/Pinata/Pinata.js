@@ -163,7 +163,8 @@ xc.Pinata = cc.Layer.extend({
                 if(classReference.gameBg.node.getChildByName("board").freezShooting ){
                     if (cc.rectContainsPoint(targetRectangle, location)){
                         classReference.player.prevX = touch.getLocation().x;
-                        classReference.player.prevY = touch.getLocation().y;    
+                        classReference.player.prevY = touch.getLocation().y;
+                        this.setPausedForMenuContext = true; 
                         return true;
                     }
                 }
@@ -372,10 +373,10 @@ xc.Pinata = cc.Layer.extend({
 
     update : function (dt) {
        
-        //if(menuContext.isGamePaused() && !this.shootingFlag && this.gameBg.node.getChildByName("board").freezShooting && this.setPausedForMenuContext){
-         //   this.setPausedForMenuContext = false;
-          //  this.bubblePlayer.setPosition((this.xPosi/2)+(this.gameBg.node.getChildByName("left").x + this.gameBg.node.getChildByName("right").x) /2,this.gameBg.node.getChildByName("right").y);
-        //}
+        if(menuContext.isGamePaused() && !this.shootingFlag && this.gameBg.node.getChildByName("board").freezShooting && this.setPausedForMenuContext){
+            this.setPausedForMenuContext = false;
+            this.bubblePlayer.setPosition((this.xPosi/2)+(this.gameBg.node.getChildByName("left").x + this.gameBg.node.getChildByName("right").x) /2,this.gameBg.node.getChildByName("right").y);
+        }
 
        if(this.shootingFlag && !menuContext.isGamePaused()){
            this.stateShootBubble(dt);
