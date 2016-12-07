@@ -228,7 +228,7 @@ xc.Pinata = cc.Layer.extend({
                 }
             }
      });
-
+     //comment
     var choosingListner = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY_ONE, swallowTouches: false,
             onTouchBegan :function(touch, event){
                 var target = event.getCurrentTarget();
