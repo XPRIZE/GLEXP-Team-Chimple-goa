@@ -80,9 +80,7 @@ xc.Pinata = cc.Layer.extend({
         y: 0,
         prevX : 0,
         prevY : 0,
-        angle : 90,
-        prevXmove : 0,
-        prevYmove : 0
+        angle : 90
     }
 
     var mapKeyArray = Object.keys(this.map);
@@ -105,6 +103,7 @@ xc.Pinata = cc.Layer.extend({
     targetAText.setName(targetA.getName());
     targetAText.setPosition(targetA.width/2,targetA.height/2 - heightTolrence);
     targetA.addChild(targetAText);
+    targetA.dead = false;
 
     var targetB = this.gameBg.node.getChildByName("targetb");
     var targetBText = new cc.LabelTTF(""+this.map[mapKeyArray[1]],"res/fonts/Marker Felt.ttf",120);
@@ -113,6 +112,7 @@ xc.Pinata = cc.Layer.extend({
     targetBText.setName(targetB.getName());
     targetBText.setPosition(targetB.width/2,targetB.height/2 - heightTolrence);                      
     targetB.addChild(targetBText);
+    targetB.dead = false;
 
     var targetC = this.gameBg.node.getChildByName("targetc");
     var targetCText = new cc.LabelTTF(""+this.map[mapKeyArray[2]],"res/fonts/Marker Felt.ttf",120);
@@ -121,6 +121,7 @@ xc.Pinata = cc.Layer.extend({
     targetCText.setName(targetC.getName());
     targetCText.setPosition(targetC.width/2,targetC.height/2 - heightTolrence);                      
     targetC.addChild(targetCText);
+    targetC.dead = false;
 
     this.bubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(playerGUI));
     this.bubblePlayer.setName(gameTheme);
@@ -288,20 +289,31 @@ xc.Pinata = cc.Layer.extend({
                     console.log("its wrong answer");
                 
                     if(target.getName() == "targetc"){
+                        if(!targetC.dead){
+                            classReference.counterHit++;
+                            menuContext.addPoints(-1);
+                            classReference.runAnimations(ccs.load(path,xc.path),targetC.x,targetC.y,path);
+                            targetC.setVisible(false);
+                        }
                         targetC.dead = true;
-                        classReference.runAnimations(ccs.load(path,xc.path),targetC.x,targetC.y,path);
-                        targetC.setVisible(false);
+                        
                     }else if(target.getName() == "targetb"){
-                        targetB.dead = true;
-                        classReference.runAnimations(ccs.load(path,xc.path),targetB.x,targetB.y,path);
+                        if(!targetB.dead){
+                            classReference.counterHit++;
+                            menuContext.addPoints(-1);
+                            classReference.runAnimations(ccs.load(path,xc.path),targetB.x,targetB.y,path);
+                            targetB.dead = true;
+                        }
                         targetB.setVisible(false);
                     }else if(target.getName() == "targeta"){
-                         targetA.dead = true;
-                         classReference.runAnimations(ccs.load(path,xc.path),targetA.x,targetA.y,path);
+                         if(!targetA.dead){
+                            classReference.counterHit++;
+                            menuContext.addPoints(-1);
+                            classReference.runAnimations(ccs.load(path,xc.path),targetA.x,targetA.y,path);
+                            targetA.dead = true;
+                         }
                          targetA.setVisible(false);
                     }
-                    classReference.counterHit++;
-                    menuContext.addPoints(-1);
                 }
 
                 setTimeout(function() {
@@ -387,6 +399,10 @@ xc.Pinata = cc.Layer.extend({
 
     update : function (dt) {
        
+       if(!this.shootingFlag && menuContext.isGamePaused()){
+           this.bubblePlayer.setPosition((this.xPosi/2)+(this.gameBg.node.getChildByName("left").x + this.gameBg.node.getChildByName("right").x) /2,this.gameBg.node.getChildByName("right").y);           
+       }
+
        if(this.shootingFlag && !menuContext.isGamePaused()){
       // if(this.shootingFlag ){
            this.stateShootBubble(dt);
