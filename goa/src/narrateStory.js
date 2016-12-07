@@ -147,8 +147,9 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 var location = target.parent.convertToNodeSpace(touch.getLocation());
                   if(target.getChildren() != null && target.getChildren().length > 0)
                   {
-                        var targetRectangle = cc.rect(target.getPosition().x - target.getChildren()[0].getBoundingBox().width/2, target.getPosition().y - target.getChildren()[0].getBoundingBox().height/2, target.getChildren()[0].getBoundingBox().width, target.getChildren()[0].getBoundingBox().height);
-
+                        //var targetRectangle = cc.rect(target.getPosition().x - target.getChildren()[0].getBoundingBox().width/2, target.getPosition().y - target.getChildren()[0].getBoundingBox().height/2, target.getChildren()[0].getBoundingBox().width, target.getChildren()[0].getBoundingBox().height);
+                        var targetRectangle = target.getBoundingBoxToWorld();
+                         
                         if (cc.rectContainsPoint(targetRectangle, location)) {
                             context._currentTarget = target;
                             context._offsetYInTouch = location.y - target.getPosition().y;
