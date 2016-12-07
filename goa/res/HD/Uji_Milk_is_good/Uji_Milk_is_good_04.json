@@ -5,10 +5,112 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 300,
+        "Duration": 390,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "car",
         "Timelines": [
+          {
+            "ActionTag": -381198376,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1912.993,
+                "Y": 648.9474,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1912.98,
+                "Y": 776.7499,
+                "FrameIndex": 345,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1912.993,
+                "Y": 648.9474,
+                "FrameIndex": 390,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -381198376,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.4158,
+                "Y": 1.4158,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.4158,
+                "Y": 1.7842,
+                "FrameIndex": 345,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.4158,
+                "Y": 1.4158,
+                "FrameIndex": 390,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -381198376,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 345,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 390,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 2058483490,
             "Property": "ActionValue",
@@ -22,7 +124,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "hi",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 300,
@@ -214,6 +316,12 @@
           "EndIndex": 300,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 305,
+          "EndIndex": 390,
+          "Name": "car",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -240,27 +348,27 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -244.9844,
-              "Y": -93.45
+              "X": -1954.9999,
+              "Y": -93.4501
             },
             "Scale": {
-              "ScaleX": 15.4998,
+              "ScaleX": 29.8498,
               "ScaleY": 10.0499
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0957,
+              "X": -0.7637,
               "Y": -0.0519
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": -244.9844,
-            "RightMargin": 2604.9844,
-            "TopMargin": 1693.45,
-            "BottomMargin": -93.45,
+            "LeftMargin": -1954.9999,
+            "RightMargin": 4315.0,
+            "TopMargin": 1693.4501,
+            "BottomMargin": -93.4501,
             "Tag": 2664,
             "ActionTag": 1957412195,
             "Size": {
@@ -306,6 +414,7 @@
             "RightMargin": 190.0068,
             "TopMargin": 804.0526,
             "BottomMargin": 301.9474,
+            "UserData": "car",
             "Tag": 2665,
             "ActionTag": -381198376,
             "Size": {
@@ -387,7 +496,7 @@
             },
             "LeftMargin": 788.2297,
             "RightMargin": 1771.7703,
-            "TopMargin": 1705.566,
+            "TopMargin": 1705.5662,
             "BottomMargin": 94.4339,
             "UserData": "hi",
             "Tag": 2879,

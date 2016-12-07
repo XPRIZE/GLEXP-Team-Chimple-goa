@@ -30,6 +30,7 @@ protected:
 	static DecomonGallery *_decomonLayer;
 	//DecomonGallery::Layer* _decomonLayer;
 	MenuContext * menu;
+	void onEnterTransitionDidFinish();
 	void backToGame();
 };
 #endif
