@@ -15,7 +15,7 @@
                 <key>spriteSourceSize</key>
                 <string>{455,568}</string>
                 <key>textureRect</key>
-                <string>{{1395,863},{455,568}}</string>
+                <string>{{678,1338},{455,568}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -60,9 +60,9 @@
                 <key>spriteSourceSize</key>
                 <string>{804,336}</string>
                 <key>textureRect</key>
-                <string>{{1,1643},{804,336}}</string>
+                <string>{{1,1304},{804,336}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>balloonfarm/hill.png</key>
             <dict>
@@ -79,6 +79,21 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
+            <key>balloonfarm/legbone.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{32,86}</string>
+                <key>spriteSourceSize</key>
+                <string>{32,86}</string>
+                <key>textureRect</key>
+                <string>{{1,2110},{32,86}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
             <key>balloonfarm/lightning.png</key>
             <dict>
                 <key>aliases</key>
@@ -90,9 +105,9 @@
                 <key>spriteSourceSize</key>
                 <string>{137,218}</string>
                 <key>textureRect</key>
-                <string>{{1810,1536},{137,218}}</string>
+                <string>{{1563,1999},{137,218}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>balloonfarm/pigbody.png</key>
             <dict>
@@ -105,54 +120,9 @@
                 <key>spriteSourceSize</key>
                 <string>{439,314}</string>
                 <key>textureRect</key>
-                <string>{{1369,1552},{439,220}}</string>
+                <string>{{678,1908},{439,220}}</string>
                 <key>textureRotated</key>
                 <false/>
-            </dict>
-            <key>balloonfarm/pigeonbody.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{354,117}</string>
-                <key>spriteSourceSize</key>
-                <string>{354,117}</string>
-                <key>textureRect</key>
-                <string>{{1355,1433},{354,117}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>balloonfarm/pigeonhead.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{148,101}</string>
-                <key>spriteSourceSize</key>
-                <string>{148,101}</string>
-                <key>textureRect</key>
-                <string>{{1711,1433},{148,101}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>balloonfarm/pigeonwing.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{144,121}</string>
-                <key>spriteSourceSize</key>
-                <string>{144,121}</string>
-                <key>textureRect</key>
-                <string>{{1812,1756},{144,121}}</string>
-                <key>textureRotated</key>
-                <true/>
             </dict>
             <key>balloonfarm/pighead.png</key>
             <dict>
@@ -165,7 +135,7 @@
                 <key>spriteSourceSize</key>
                 <string>{208,231}</string>
                 <key>textureRect</key>
-                <string>{{1602,1774},{208,231}}</string>
+                <string>{{1697,1766},{208,231}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -180,7 +150,7 @@
                 <key>spriteSourceSize</key>
                 <string>{65,128}</string>
                 <key>textureRect</key>
-                <string>{{722,1143},{65,128}}</string>
+                <string>{{1808,1360},{65,128}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -195,9 +165,9 @@
                 <key>spriteSourceSize</key>
                 <string>{65,128}</string>
                 <key>textureRect</key>
-                <string>{{1369,1774},{65,128}}</string>
+                <string>{{1783,1999},{65,128}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>balloonfarm/shadow.png</key>
             <dict>
@@ -210,7 +180,37 @@
                 <key>spriteSourceSize</key>
                 <string>{793,124}</string>
                 <key>textureRect</key>
-                <string>{{807,1873},{793,124}}</string>
+                <string>{{1135,1640},{793,124}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>balloonfarm/shock.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{629,473}</string>
+                <key>spriteSourceSize</key>
+                <string>{629,473}</string>
+                <key>textureRect</key>
+                <string>{{722,863},{629,473}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>balloonfarm/skeleton.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{442,166}</string>
+                <key>spriteSourceSize</key>
+                <string>{442,166}</string>
+                <key>textureRect</key>
+                <string>{{1119,1999},{442,166}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -240,7 +240,7 @@
                 <key>spriteSourceSize</key>
                 <string>{554,495}</string>
                 <key>textureRect</key>
-                <string>{{799,1143},{554,495}}</string>
+                <string>{{1353,863},{554,495}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -255,7 +255,7 @@
                 <key>spriteSourceSize</key>
                 <string>{560,231}</string>
                 <key>textureRect</key>
-                <string>{{807,1640},{560,231}}</string>
+                <string>{{1135,1766},{560,231}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -270,7 +270,7 @@
                 <key>spriteSourceSize</key>
                 <string>{671,278}</string>
                 <key>textureRect</key>
-                <string>{{722,863},{671,278}}</string>
+                <string>{{1135,1360},{671,278}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -285,9 +285,9 @@
                 <key>spriteSourceSize</key>
                 <string>{796,337}</string>
                 <key>textureRect</key>
-                <string>{{1,1304},{796,337}}</string>
+                <string>{{339,1304},{796,337}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>balloonfarm/wrongballoon3.png</key>
             <dict>
@@ -316,9 +316,9 @@
             <key>realTextureFileName</key>
             <string>balloonfarm.png</string>
             <key>size</key>
-            <string>{1948,2006}</string>
+            <string>{1942,2166}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:81cccbcf44a2b1f631e4ac2c25dff342:ed540ce9699e81259006b34bd87e564d:2e3afb85e463d7d3c3e891dc899c9b3e$</string>
+            <string>$TexturePacker:SmartUpdate:16af863c1a246770833dcf09807b4690:567c0645172fa740ead21386860698ac:2e3afb85e463d7d3c3e891dc899c9b3e$</string>
             <key>textureFileName</key>
             <string>balloonfarm.png</string>
         </dict>
