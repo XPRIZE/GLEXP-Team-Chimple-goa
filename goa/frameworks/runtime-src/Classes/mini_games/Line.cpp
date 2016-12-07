@@ -475,7 +475,7 @@ void Line::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 			}
 			target->setPositionX(_nodeRef.at(i)->getPositionX()+ extraX);
 			target->setPositionY(_nodeRef.at(i)->getPositionY());
-			target->setAnchorPoint(Vec2(0.5, 0.5));
+			target->setAnchorPoint(Vec2(0.5, 0.4));
 			_eventDispatcher->removeEventListenersForTarget(target);
 			CCLOG("correct");
 			flag = true;
