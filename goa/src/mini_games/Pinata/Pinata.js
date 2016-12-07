@@ -175,9 +175,9 @@ xc.Pinata = cc.Layer.extend({
                 var target = event.getCurrentTarget();
 
                 classReference.checkBoundaryBall(target,touch);
-                let checkMoving = classReference.movingOrNot(classReference.player.prevX,classReference.player.prevY,touch.getLocation().x,touch.getLocation().y);
-                classReference.pointerMove = checkMoving;
-                if(checkMoving){
+           //     let checkMoving = classReference.movingOrNot(classReference.player.prevX,classReference.player.prevY,touch.getLocation().x,touch.getLocation().y);
+             //   classReference.pointerMove = checkMoving;
+             //   if(checkMoving){
                     if(classReference.rightLine != undefined){
                         classReference.removeChild(classReference.rightLine);
                     }
@@ -191,10 +191,11 @@ xc.Pinata = cc.Layer.extend({
                     classReference.leftLine = new cc.DrawNode();
                     classReference.leftLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("left").x,classReference.gameBg.node.getChildByName("left").y), cc.p(classReference.bubblePlayer.x - (classReference.bubblePlayer.width/2),classReference.bubblePlayer.y),5,classReference.stringColor);
                     classReference.addChild(classReference.leftLine); 
-                }
+                    return true;
+            //    }
                
-                classReference.player.prevXmove = touch.getLocation().x;
-                classReference.player.prevYmove = touch.getLocation().y;
+             //   classReference.player.prevXmove = touch.getLocation().x;
+              //  classReference.player.prevYmove = touch.getLocation().y;
             },
             onTouchEnded : function(touch, event){
                 classReference.player.angle = classReference.radToDeg(Math.atan2((touch.getLocation().y - classReference.player.y),(-touch.getLocation().x + classReference.player.x)));
@@ -203,8 +204,8 @@ xc.Pinata = cc.Layer.extend({
 
                 console.log("ANGLE FOR PLAYER "+ classReference.player.angle);
 
-                if(classReference.pointerMove){
-                    
+           //     if(classReference.pointerMove){
+              //      console.log("move in end touch ");
                     if(classReference.rightLine != undefined){
                         classReference.removeChild(classReference.rightLine);
                     }
@@ -218,9 +219,9 @@ xc.Pinata = cc.Layer.extend({
                     classReference.leftLine = new cc.DrawNode();
                     classReference.leftLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("left").x,classReference.gameBg.node.getChildByName("left").y),cc.p(classReference.player.x + 10,classReference.player.y),5,classReference.stringColor);
                     classReference.addChild(classReference.leftLine);
-                }
+            //    }
             
-                if(classReference.player.prevY != 0 && classReference.player.prevY != 0){
+                if(classReference.player.prevY != 0 && classReference.player.prevX != 0){
                     classReference.shootingFlag = true;
                     classReference.gameBg.node.getChildByName("board").freezShooting = false;
 
@@ -456,7 +457,7 @@ xc.Pinata = cc.Layer.extend({
         }
         let distBetween2Points = 0;
         distBetween2Points = Math.sqrt((X*X) + (Y*Y))
-        if(distBetween2Points > 2){
+        if(distBetween2Points > this.bubblePlayer.width/2){
             console.log("moving the ball");
             return true;
         }

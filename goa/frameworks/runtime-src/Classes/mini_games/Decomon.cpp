@@ -156,10 +156,10 @@ child = decomon_icon_mouth*/
 		"decomon/decomon_mouth_h.csb" ,
 		"decomon/decomon_mouth_i.csb" };
 
-	_skatePath = { "decomon/decomon_skate_a.csb", "decomon/decomon_skate_b.csb" ,
-		"decomon/decomon_skate_c.csb" , "decomon/decomon_skate_f.csb" ,
-		"decomon/decomon_skate_d.csb" , "decomon/decomon_skate_g.csb" ,
-		"decomon/decomon_skate_e.csb" , "decomon/decomon_skate_h.csb"  };
+	_skatePath = { "decomon/decomon_skate_a.csb", 
+		"decomon/decomon_skate_c.csb" , 
+		"decomon/decomon_skate_d.csb" ,
+		"decomon/decomon_skate_e.csb"   };
 
 	_nosePath = { "decomon/decomon3/decomon_nose_1.png" ,"decomon/decomon3/decomon_nose_2.png"
 	,"decomon/decomon3/decomon_nose_3.png" ,"decomon/decomon3/decomon_nose_4.png" ,
@@ -206,8 +206,14 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 	auto target = event->getCurrentTarget();
 	auto  location = target->convertToNodeSpace(touch->getLocation());
 	Size s = target->getContentSize();
-	//CCLOG("Toched Icon Name %s", target->getName().c_str());
 	Rect rect = Rect(0, 0, s.width, s.height);
+	std::string str = target->getName().c_str();
+	if (str.find("decomon/decomon_") == 0) {
+		location = target->convertToNodeSpace(touch->getLocation());
+		//rect = Rect(-(s.width / 2), (-s.height / 2), s.width, s.height);
+	}
+	//CCLOG("Toched Icon Name %s", target->getName().c_str());
+	
 	if (rect.containsPoint(location)) {
 		_colorPicked = false;
 		CCLOG("Toched Icon Name %s",target->getName().c_str());
@@ -425,6 +431,7 @@ void Decomon::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 	//_myLabel->setContentSize(Size(_width * 2, 500));
 	auto target = event->getCurrentTarget();
 	//_paintingTexture->end();
+	_audioEffect->playEffect("sounds/sfx/drop.ogg");
 	if (!_colorPicked)
 	{
 		if (!(target->getBoundingBox().intersectsRect(_alphaNode->getBoundingBox()))) {
@@ -453,10 +460,10 @@ void Decomon::itemInAGrid(std::vector<std::string> item, std::string name)
 		if (name.compare("csb") == 0) {
 			eye = CSLoader::createNode(item.at(i - 1).c_str());
 			eye->setAnchorPoint(Vec2(0.5, 0.5));
-			eye->setPositionX(x*i + (x/item.size()));
-			eye->setPositionY(Director::getInstance()->getVisibleSize().height * 0.13);
+			eye->setPositionX(x*(i)); //+ (x/item.size()
+			eye->setPositionY(Director::getInstance()->getVisibleSize().height * 0.10);
 			if (item.at(i - 1).find("skate") == -1) {
-				eye->setContentSize(eye->getChildByName("contantsize")->getContentSize());
+				eye->setContentSize(eye->getChildByName("contantsize")->getContentSize());	
 			} else {
 				eye->setContentSize(eye->getChildByName("skate")->getContentSize());
 			}
@@ -597,13 +604,12 @@ void Decomon::screenShot()
 	utils::captureScreen(CC_CALLBACK_2(Decomon::captureImage, this), path);
 //#endif
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-	auto render = RenderTexture::create(visibleSize.width / 2, visibleSize.height / 1.5, kCCTexture2DPixelFormat_RGBA8888);
+	auto render = RenderTexture::create(visibleSize.width, visibleSize.height, kCCTexture2DPixelFormat_RGBA8888);
 	render->setPosition(ccp(visibleSize.width / 2, visibleSize.height / 2));
 	render->begin();
 	this->getParent()->visit();
 	render->end();
 	CCImage* image = render->newImage();
-
 	std::string filePath = FileUtils::sharedFileUtils()->getWritablePath() + path;
 	if (image->saveToFile(filePath.c_str(), false)) {
 		CCLOG("Succeed!");
@@ -644,6 +650,7 @@ void Decomon::captureImage(bool capture, const std::string & outputFile)
 	{
 		auto action3 = Blink::create(0.5, 1);
 		this->runAction(action3);
+		_audioEffect->playEffect("sounds/sfx/camera.ogg");
 		// show screenshot
 		auto sp = Sprite::create(outputFile);
 	//	addChild(sp, 0);
@@ -651,7 +658,7 @@ void Decomon::captureImage(bool capture, const std::string & outputFile)
 		sp->setPosition(s.width / 2, s.height / 2);
 		sp->setScale(0.25);
 		_screenShoot = true;
-		menu->showScore();
+	//	menu->showScore();
 	}
 	else
 	{
@@ -754,6 +761,7 @@ void Decomon::onEnterTransitionDidFinish()
 	_paintingColour->retain();*/
 	_paintingNode = DrawNode::create();
 	_maskingLayer->addChild(_paintingNode);
+	_audioEffect = CocosDenshion::SimpleAudioEngine::getInstance();
 	if (menu->getCurrentLevel() == 1) {
 		gameHelp();
 	}
