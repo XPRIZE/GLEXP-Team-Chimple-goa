@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 200,
+        "Duration": 320,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "cloud",
         "Timelines": [
           {
             "ActionTag": 1629818206,
@@ -57,6 +57,33 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              },
+              {
+                "X": 583.2363,
+                "Y": 1259.5415,
+                "FrameIndex": 275,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 583.2363,
+                "Y": 1259.5415,
+                "FrameIndex": 297,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 583.2363,
+                "Y": 1259.5415,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -105,6 +132,33 @@
                 "X": 1.0,
                 "Y": 1.0,
                 "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 275,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 2.46,
+                "Y": 2.46,
+                "FrameIndex": 297,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 320,
                 "EasingData": {
                   "Type": 0
                 },
@@ -161,6 +215,46 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 275,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 297,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1629818206,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "hop",
+                "FrameIndex": 275,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -317,6 +411,19 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -322760496,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -385,6 +492,19 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -2113283971,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "water",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -1836564394,
             "Property": "ActionValue",
             "Frames": [
@@ -443,6 +563,19 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1836564394,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "water",
+                "FrameIndex": 115,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -519,6 +652,132 @@
                 "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "EventFrameData"
+              },
+              {
+                "Value": "elephant",
+                "FrameIndex": 115,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 377379465,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "frog",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "frog",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 259,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 377379465,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2374.1738,
+                "Y": 296.7394,
+                "FrameIndex": 187,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2374.1738,
+                "Y": 296.7394,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2374.1738,
+                "Y": 296.7394,
+                "FrameIndex": 259,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 377379465,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 259,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 377379465,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 259,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 377379465,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "frog",
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -531,6 +790,18 @@
           "StartIndex": 0,
           "EndIndex": 200,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 205,
+          "EndIndex": 270,
+          "Name": "frog",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 275,
+          "EndIndex": 320,
+          "Name": "cloud",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -622,7 +893,9 @@
             "RightMargin": 1692.2637,
             "TopMargin": 426.4585,
             "BottomMargin": 1145.5415,
+            "UserData": "main.cloud",
             "Tag": 240,
+            "FrameEvent": "hop",
             "ActionTag": 1629818206,
             "Size": {
               "X": 569.0,
@@ -714,6 +987,51 @@
             "BottomMargin": 452.1838,
             "Tag": 247,
             "Children": [
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_grass.png",
+                  "Plist": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2715.4658,
+                  "Y": 243.7009
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 7.94,
+                  "Y": 0.4864
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2544.4658,
+                "RightMargin": -2544.4658,
+                "TopMargin": 6.7991,
+                "BottomMargin": -6.7991,
+                "Tag": 110,
+                "ActionTag": -1939636553,
+                "Size": {
+                  "X": 342.0,
+                  "Y": 501.0
+                },
+                "Name": "Kuhesabu_grass_7_0_1_0",
+                "ctype": "SpriteObjectData"
+              },
               {
                 "FileData": {
                   "Type": "MarkedSubImage",
@@ -1074,6 +1392,51 @@
                 },
                 "Name": "Kuhesabu_grass_7_0_6",
                 "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_grass.png",
+                  "Plist": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": -121.4797,
+                  "Y": 231.8846
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": -0.3552,
+                  "Y": 0.4628
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": -292.4797,
+                "RightMargin": 292.4797,
+                "TopMargin": 18.6154,
+                "BottomMargin": -18.6154,
+                "Tag": 111,
+                "ActionTag": -762361967,
+                "Size": {
+                  "X": 342.0,
+                  "Y": 501.0
+                },
+                "Name": "Kuhesabu_grass_7_0_1_1",
+                "ctype": "SpriteObjectData"
               }
             ],
             "ActionTag": -688262896,
@@ -1105,7 +1468,7 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 0.0,
+              "X": -260.0,
               "Y": 0.0
             },
             "Scale": {
@@ -1115,18 +1478,20 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.0,
+              "X": -0.1016,
               "Y": 0.0
             },
             "PreSize": {
-              "X": 1.0,
+              "X": 1.2109,
               "Y": 0.2639
             },
+            "LeftMargin": -260.0,
+            "RightMargin": -280.0,
             "TopMargin": 1325.0,
             "Tag": 246,
             "ActionTag": 206761590,
             "Size": {
-              "X": 2560.0,
+              "X": 3100.0,
               "Y": 475.0
             },
             "Name": "Panel_2",
@@ -1282,8 +1647,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2164.2083,
-              "Y": 193.4482
+              "X": 2441.2871,
+              "Y": 185.6973
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1292,17 +1657,18 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.8454,
-              "Y": 0.1075
+              "X": 0.9536,
+              "Y": 0.1032
             },
             "PreSize": {
               "X": 0.3363,
               "Y": 0.21
             },
-            "LeftMargin": 1733.7083,
-            "RightMargin": -34.7083,
-            "TopMargin": 1417.5518,
-            "BottomMargin": 4.4482,
+            "LeftMargin": 2010.7871,
+            "RightMargin": -311.7871,
+            "TopMargin": 1425.3027,
+            "BottomMargin": -3.3027,
+            "UserData": "main.frog",
             "Tag": 245,
             "ActionTag": -322760496,
             "Size": {
@@ -1372,8 +1738,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 450.5907,
-              "Y": 514.8701
+              "X": 213.7046,
+              "Y": 520.4438
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1382,17 +1748,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.176,
-              "Y": 0.286
+              "X": 0.0835,
+              "Y": 0.2891
             },
             "PreSize": {
               "X": 0.3879,
               "Y": 0.1117
             },
-            "LeftMargin": -45.9093,
-            "RightMargin": 1612.9093,
-            "TopMargin": 1184.6299,
-            "BottomMargin": 414.3701,
+            "LeftMargin": -282.7954,
+            "RightMargin": 1849.7954,
+            "TopMargin": 1179.0562,
+            "BottomMargin": 419.9438,
             "Tag": 259,
             "ActionTag": 1625422956,
             "Size": {
@@ -1418,8 +1784,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2088.3059,
-              "Y": 516.5509
+              "X": 2375.5093,
+              "Y": 510.0236
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1428,17 +1794,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.8157,
-              "Y": 0.287
+              "X": 0.9279,
+              "Y": 0.2833
             },
             "PreSize": {
               "X": 0.3879,
               "Y": 0.1117
             },
-            "LeftMargin": 1591.8059,
-            "RightMargin": -24.8059,
-            "TopMargin": 1182.9491,
-            "BottomMargin": 416.0509,
+            "LeftMargin": 1879.0093,
+            "RightMargin": -312.0093,
+            "TopMargin": 1189.4763,
+            "BottomMargin": 409.5236,
             "Tag": 260,
             "ActionTag": 1003425650,
             "Size": {
@@ -1562,15 +1928,56 @@
             "RightMargin": 1392.3813,
             "TopMargin": 1598.7502,
             "BottomMargin": 201.2497,
-            "UserData": "elephant:drag",
+            "UserData": "elephant;drag",
             "Tag": 58,
-            "FrameEvent": "elephant",
             "ActionTag": -1384871452,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
             "Name": "elephant",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Kuhesabu_wanyama_Counting/frog.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2374.1738,
+              "Y": 296.7394
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.9274,
+              "Y": 0.1649
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2374.1738,
+            "RightMargin": 185.8262,
+            "TopMargin": 1503.2605,
+            "BottomMargin": 296.7394,
+            "UserData": "main.frog",
+            "Tag": 112,
+            "ActionTag": 377379465,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "frog",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -1583,6 +1990,7 @@
       },
       "UsedResources": [
         "elephant.json",
+        "frog.json",
         "Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.plist",
         "Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.png",
         "water.json"

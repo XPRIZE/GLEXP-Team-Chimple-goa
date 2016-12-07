@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 300,
+        "Duration": 390,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "bird",
         "Timelines": [
           {
             "ActionTag": -1058308445,
@@ -284,6 +284,14 @@
                 "FrameIndex": 260,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 320,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -305,6 +313,24 @@
                 "X": 283.7667,
                 "Y": 515.599,
                 "FrameIndex": 260,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 283.7667,
+                "Y": 515.599,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1493.8228,
+                "Y": 2395.6167,
+                "FrameIndex": 390,
                 "EasingData": {
                   "Type": 0
                 },
@@ -367,6 +393,14 @@
                 "FrameIndex": 290,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 305,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -390,6 +424,24 @@
                 "FrameIndex": 290,
                 "EasingData": {
                   "Type": 1
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 705.0157,
+                "Y": 186.1783,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1915.0601,
+                "Y": 2066.1907,
+                "FrameIndex": 390,
+                "EasingData": {
+                  "Type": 0
                 },
                 "ctype": "PointFrameData"
               }
@@ -440,6 +492,12 @@
           "EndIndex": 300,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 305,
+          "EndIndex": 390,
+          "Name": "bird",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -458,11 +516,11 @@
             },
             "EndColor": {},
             "ColorVector": {
+              "ScaleX": 0.0,
               "ScaleY": -1.0
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -514,7 +572,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -587,6 +644,7 @@
             "RightMargin": -539.8894,
             "TopMargin": -135.8365,
             "BottomMargin": 1246.8365,
+            "UserData": "main.bird",
             "Tag": 415,
             "ActionTag": -599238173,
             "Size": {
@@ -614,7 +672,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -662,7 +719,6 @@
                 },
                 "Scale9Width": 1,
                 "Scale9Height": 1,
-                "TouchEnable": true,
                 "AnchorPoint": {
                   "ScaleX": 0.5,
                   "ScaleY": 0.5
@@ -788,6 +844,7 @@
             "RightMargin": 250.0608,
             "TopMargin": 991.6158,
             "BottomMargin": 354.3842,
+            "UserData": "main.bird",
             "Tag": 411,
             "ActionTag": 1624867267,
             "Size": {
@@ -808,8 +865,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1459.7689,
-              "Y": 300.3001
+              "X": 2362.8252,
+              "Y": 237.5048
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -818,24 +875,25 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.5702,
-              "Y": 0.1668
+              "X": 0.923,
+              "Y": 0.1319
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1459.7689,
-            "RightMargin": 1100.2311,
-            "TopMargin": 1499.7,
-            "BottomMargin": 300.3001,
+            "LeftMargin": 2362.8252,
+            "RightMargin": 197.1748,
+            "TopMargin": 1562.4952,
+            "BottomMargin": 237.5048,
+            "UserData": "drag;bend",
             "Tag": 418,
             "ActionTag": 1530013840,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "boy",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -878,7 +936,8 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "VisibleForFrame": false,
+            "Name": "drop",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -921,7 +980,8 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2_0_0",
+            "VisibleForFrame": false,
+            "Name": "drop",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -935,8 +995,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": -396.6757,
-              "Y": 976.338
+              "X": -566.4781,
+              "Y": 1091.314
             },
             "Scale": {
               "ScaleX": -0.5,
@@ -945,24 +1005,26 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": -0.155,
-              "Y": 0.5424
+              "X": -0.2213,
+              "Y": 0.6063
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -396.6757,
-            "RightMargin": 2956.6758,
-            "TopMargin": 823.662,
-            "BottomMargin": 976.338,
+            "LeftMargin": -566.4781,
+            "RightMargin": 3126.478,
+            "TopMargin": 708.686,
+            "BottomMargin": 1091.314,
+            "UserData": "drag;eat",
             "Tag": 572,
             "ActionTag": 1025340582,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_3",
+            "VisibleForFrame": false,
+            "Name": "bird",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -976,8 +1038,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 411.7214,
-              "Y": 1613.1329
+              "X": 325.2102,
+              "Y": 2034.0332
             },
             "Scale": {
               "ScaleX": -0.5,
@@ -986,24 +1048,26 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.1608,
-              "Y": 0.8962
+              "X": 0.127,
+              "Y": 1.13
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 411.7214,
-            "RightMargin": 2148.2786,
-            "TopMargin": 186.8671,
-            "BottomMargin": 1613.1329,
+            "LeftMargin": 325.2102,
+            "RightMargin": 2234.7898,
+            "TopMargin": -234.0332,
+            "BottomMargin": 2034.0332,
+            "UserData": "drag;eat",
             "Tag": 718,
             "ActionTag": -833992934,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_3_0",
+            "VisibleForFrame": false,
+            "Name": "bird",
             "ctype": "ProjectNodeObjectData"
           }
         ],

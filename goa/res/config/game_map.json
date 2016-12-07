@@ -1,8 +1,9 @@
 [
     {
         "name": "story-play",
-        "cIcon": "gameicons/EndlessRunner_pressed.png",
-        "icon": "gameicons/EndlessRunner.png",
+        "title": "Stories",
+        "cIcon": "gameicons/story_pressed.png",
+        "icon": "gameicons/story.png",
         "multiPlayer": false,
         "isJSGame": true,
         "pureJS":"",
@@ -10,6 +11,7 @@
     },    
     {
         "name": "choose_character",
+        "title": "",
         "cIcon": "gameicons/EndlessRunner_pressed.png",
         "icon": "gameicons/EndlessRunner.png",
         "multiPlayer": false,
@@ -19,6 +21,7 @@
     },    
     {
         "name": "story-teller",
+        "title": "",
         "cIcon": "gameicons/EndlessRunner_pressed.png",
         "icon": "gameicons/EndlessRunner.png",
         "multiPlayer": false,
@@ -28,6 +31,7 @@
     },
     {
         "name": "show_bluetoothPeers",
+        "title": "",
         "cIcon": "gameicons/EndlessRunner_pressed.png",
         "icon": "gameicons/EndlessRunner.png",
         "multiPlayer": false,
@@ -37,6 +41,7 @@
     },
   {
     "name": "table",
+        "title": "Multiply",
     "cIcon": "gameicons/table_pressed.png",
     "icon": "gameicons/table.png",
     "multiPlayer": false,
@@ -53,6 +58,7 @@
   },
   {
       "name": "popcount",
+        "title": "Count the fish",
       "cIcon": "gameicons/popcount_pressed.png",
       "icon": "gameicons/popcount.png",
       "multiPlayer": false,
@@ -69,6 +75,7 @@
     },  
      {
     "name": "jumpingNumbers",
+        "title": "Stepping Stones",
     "cIcon": "gameicons/jumping numbers_pressed.png",
     "icon": "gameicons/jumping numbers.png",
     "multiPlayer": false,
@@ -85,6 +92,7 @@
   },
    {
     "name": "atm",
+        "title": "Money Machine",
     "cIcon": "gameicons/ATM_pressed.png",
     "icon": "gameicons/ATM.png",
     "multiPlayer": false,
@@ -101,6 +109,7 @@
   },
   {
     "name": "Item",
+        "title": "Fill the Pond",
     "cIcon": "gameicons/item_pressed.png",
     "icon": "gameicons/item.png",
     "multiPlayer": false,
@@ -117,6 +126,7 @@
   },
   {
     "name": "cardraw",
+        "title": "Go Home",
     "cIcon": "gameicons/cardraw_pressed.png",
     "icon": "gameicons/cardraw.png",
     "multiPlayer": false,
@@ -133,6 +143,7 @@
   },
   {
     "name": "Line",
+        "title": "Candy Line",
     "cIcon": "gameicons/line_pressed.png",
     "icon": "gameicons/line.png",
     "multiPlayer": false,
@@ -149,6 +160,7 @@
   },
   {
         "name": "blastletter",
+        "title": "Defuse the Bomb",
         "cIcon": "gameicons/blastletter_pressed.png",
         "icon": "gameicons/blastletter.png",
         "multiPlayer": false,
@@ -165,6 +177,7 @@
     },    
      {
         "name": "Door",
+        "title": "Barn Door",
         "cIcon": "gameicons/doors_pressed.png",
         "icon": "gameicons/doors.png",
         "multiPlayer":false,
@@ -181,6 +194,7 @@
     },  
     {
         "name": "EndlessRunner",
+        "title": "Run and Catch",
         "cIcon": "gameicons/EndlessRunner_pressed.png",
         "icon": "gameicons/EndlessRunner.png",
         "multiPlayer": false,
@@ -197,6 +211,7 @@
     },
     {
         "name": "baja",
+        "title": "Drive",
         "cIcon": "gameicons/baja_pressed.png",
         "icon": "gameicons/baja.png",
         "multiPlayer": false,
@@ -213,6 +228,7 @@
     },
     {
         "name": "bubble",
+        "title": "Pop the Bubble",
         "cIcon": "gameicons/bubble_pressed.png",
         "icon": "gameicons/bubble.png",
         "multiPlayer": false,
@@ -230,6 +246,7 @@
     },
     {
         "name": "shoot",
+        "title": "Shoot",
         "cIcon": "gameicons/shoot_pressed.png",
         "icon": "gameicons/shoot.png",
         "multiPlayer": false,
@@ -247,6 +264,7 @@
     },
     {
         "name": "owl",
+        "title": "Spelling Owl",
         "cIcon": "gameicons/owl_pressed.png",
         "icon": "gameicons/owl.png",
         "multiPlayer": false,
@@ -263,6 +281,7 @@
     },
     {
         "name": "ConnectTheDots",
+        "title": "Connect the Dots",
         "cIcon": "gameicons/jazz_pressed.png",
         "icon": "gameicons/jazz.png",
     	"multiPlayer":false,
@@ -280,6 +299,7 @@
     },
     {
         "name": "Dots",
+        "title": "Number Dots",
         "cIcon": "gameicons/jazz_pressed.png",
         "icon": "gameicons/jazz.png",
     	"multiPlayer":false,
@@ -297,6 +317,7 @@
     },
     {
         "name": "Maze",
+        "title": "Trace the Maze",
         "cIcon": "gameicons/jazz_pressed.png",
         "icon": "gameicons/jazz.png",
     	"multiPlayer":false,
@@ -314,6 +335,7 @@
     },
     {
         "name": "Bounce",
+        "title": "Drop the Icecream",
         "cIcon": "gameicons/jazz_pressed.png",
         "icon": "gameicons/jazz.png",
     	"multiPlayer":false,
@@ -322,15 +344,16 @@
         "script":"src/start/connectTheDots.js",
         "span": "4",
         "numLevels": "20",
-        "backgroundJson": "cityscreen/background.json",
-        "foregroundJson": "cityscreen/foreground.json",
-        "frontgroundJson": "cityscreen/frontground.json",
-        "maingroundJson": "cityscreen/mainground.json",
-        "menuPlist": "cityscreen/cityscreen.plist",
-        "menuPng": "cityscreen/cityscreen.png"
+        "backgroundJson": "icecreamlevel/background.json",
+        "foregroundJson": "icecreamlevel/foreground.json",
+        "frontgroundJson": "icecreamlevel/frontground.json",
+        "maingroundJson": "icecreamlevel/mainground.json",
+        "menuPlist": "icecreamlevel/icecreamlevel.plist",
+        "menuPng": "icecreamlevel/icecreamlevel.png"
     },
     {
         "name": "train",
+        "title": "Train",
         "cIcon": "gameicons/train_pressed.png",
         "icon": "gameicons/train.png",
     	"multiPlayer":false,
@@ -348,6 +371,7 @@
     },
     {
         "name": "stack",
+        "title": "Stack the Words",
         "cIcon": "gameicons/stack_pressed.png",
         "icon": "gameicons/stack.png",
         "multiPlayer":false,
@@ -364,6 +388,7 @@
     },
     {
         "name": "talk",
+        "title": "Feed the Words",
         "cIcon": "gameicons/talk_pressed.png",
         "icon": "gameicons/talk.png",
         "multiPlayer":false,
@@ -380,6 +405,7 @@
     },
     {
         "name": "jasmine",
+        "title": "Grow the Plants",
         "cIcon": "gameicons/jasmine_pressed.png",
         "icon": "gameicons/jasmine.png",
         "multiPlayer":false,
@@ -396,6 +422,7 @@
     },
     {
         "name": "Cannon Ball",
+        "title": "Cannon Ball",
         "cIcon": "gameicons/Cannon Ball_pressed.png",
         "icon": "gameicons/Cannon Ball.png",
         "multiPlayer":false,
@@ -412,6 +439,7 @@
     },
     {
         "name": "decomone",
+        "title": "Decorate the Alphabet",
         "cIcon": "gameicons/decomone_pressed.png",
         "icon": "gameicons/decomone.png",
         "multiPlayer":false,
@@ -428,6 +456,7 @@
     },
     {
         "name": "order",
+        "title": "Arrange in Order",
         "cIcon": "gameicons/order_pressed.png",
         "icon": "gameicons/order.png",
         "multiPlayer":false,
@@ -444,6 +473,7 @@
     },
     {
         "name": "dash",
+        "title": "Dash",
         "cIcon": "gameicons/dash_pressed.png",
         "icon": "gameicons/dash.png",
         "multiPlayer":false,
@@ -460,6 +490,7 @@
     },
     {
         "name": "cat",
+        "title": "Cat on the Roof",
         "cIcon": "gameicons/cat_pressed.png",
         "icon": "gameicons/cat.png",
         "multiPlayer":false,
@@ -476,6 +507,7 @@
     },
     {
         "name": "Alphamon Feed",
+        "title": "Feed the Monsters",
         "cIcon": "gameicons/Alphamon Feed_pressed.png",
         "icon": "gameicons/Alphamon Feed.png",
         "multiPlayer":false,
@@ -492,6 +524,7 @@
     },
     {
         "name": "alphamole",
+        "title": "Whack a Monster",
         "cIcon": "gameicons/alphamole_pressed.png",
         "icon": "gameicons/alphamole.png",
         "multiPlayer": false,
@@ -508,6 +541,7 @@
     },
     {
         "name": "Cross The Bridge",
+        "title": "Cross the Bridge",
         "cIcon": "gameicons/Cross The Bridge_pressed.png",
         "icon": "gameicons/Cross The Bridge.png",
         "multiPlayer": false,
@@ -524,6 +558,7 @@
     },
   {
     "name": "chain",
+        "title": "Animal Chain",
     "cIcon": "gameicons/chain_pressed.png",
     "icon": "gameicons/chain.png",
     "multiPlayer": false,
@@ -540,6 +575,7 @@
   },
   {
         "name": "balloonMath",
+        "title": "Pop the Balloon",
         "cIcon": "gameicons/balloonpop_pressed.png",
         "icon": "gameicons/balloonpop.png",
         "multiPlayer": false,
@@ -556,6 +592,7 @@
     },
     {
         "name": "pop",
+        "title": "Fly Through Clouds",
         "cIcon": "gameicons/pop_pressed.png",
         "icon": "gameicons/pop.png",
         "multiPlayer": false,
@@ -573,6 +610,7 @@
     },
     {
         "name": "bingo",
+        "title": "Bingo",
         "cIcon": "gameicons/bingo_pressed.png",
         "icon": "gameicons/bingo.png",
         "multiPlayer": false,
@@ -588,6 +626,7 @@
         "menuPng": "bingolevel/bingolevel.png" },
   {
     "name": "drop",
+        "title": "Drop",
     "cIcon": "gameicons/drop_pressed.png",
     "icon": "gameicons/drop.png",
     "multiPlayer": false,
@@ -604,6 +643,7 @@
   },
   {
     "name": "chocolateFactory",
+        "title": "Chocolate Factory",
     "cIcon": "gameicons/chocolatefactory_pressed.png",
     "icon": "gameicons/chocolatefacrory.png",
     "multiPlayer": false,
@@ -620,6 +660,7 @@
   },
   {
     "name": "shop",
+        "title": "Grocery Shop",
     "cIcon": "gameicons/shopping_pressed.png",
     "icon": "gameicons/shopping.png",
     "multiPlayer": false,
@@ -636,6 +677,7 @@
   },
   {
     "name": "Kung Fu Alpha",
+        "title": "Trace",
     "cIcon": "gameicons/Kung Fu Alpha_pressed.png",
     "icon": "gameicons/Kung Fu Alpha.png",
     "multiPlayer": false,
@@ -652,6 +694,7 @@
   },
   {
     "name": "sortit",
+        "title": "Sort It",
     "cIcon": "gameicons/sortit_pressed.png",
     "icon": "gameicons/sortit.png",
     "multiPlayer": false,
@@ -669,6 +712,7 @@
   },
   {
     "name": "wembley",
+        "title": "Alphabet Football",
     "cIcon": "gameicons/wembley_pressed.png",
     "icon": "gameicons/wembley.png",
     "multiPlayer": false,
@@ -685,6 +729,7 @@
   },
   {
     "name": "memory",
+        "title": "Memory",
     "cIcon": "gameicons/memory_pressed.png",
     "icon": "gameicons/memory.png",
     "multiPlayer": false,
@@ -701,6 +746,7 @@
   },
   {
     "name": "balloon",
+        "title": "Fly",
     "cIcon": "gameicons/balloon_pressed.png",
     "icon": "gameicons/balloon.png",
     "multiPlayer": false,
@@ -717,6 +763,7 @@
   },
   {
     "name": "TreasureHunt",
+        "title": "Treasure Hunt",
     "cIcon": "gameicons/box_pressed.png",
     "icon": "gameicons/box.png",
     "multiPlayer": false,
@@ -733,6 +780,7 @@
   },
   {
     "name": "Units",
+        "title": "Make a Pizza",
     "cIcon": "gameicons/pizza_pressed.png",
     "icon": "gameicons/pizza.png",
     "multiPlayer": false,
@@ -749,6 +797,7 @@
   },
    {
     "name": "spot",
+        "title": "Spot the Animals",
     "cIcon": "gameicons/spot_pressed.png",
     "icon": "gameicons/spot.png",
     "multiPlayer": false,
@@ -765,6 +814,7 @@
   },
    {
     "name": "pillar",
+        "title": "Layer the Cake",
     "cIcon": "gameicons/pillar_pressed.png",
     "icon": "gameicons/pillar.png",
     "multiPlayer": false,
@@ -781,6 +831,7 @@
   },
    {
     "name": "circle",
+        "title": "Catch",
     "cIcon": "gameicons/circle_pressed.png",
     "icon": "gameicons/circle.png",
     "multiPlayer": false,
@@ -797,6 +848,7 @@
   },
   {
     "name": "jazz",
+        "title": "Drums",
     "cIcon": "gameicons/jazz_pressed.png",
     "icon": "gameicons/jazz.png",
     "multiPlayer": false,
@@ -813,6 +865,7 @@
   },
    {
     "name": "Smash The Rock",
+        "title": "Rock Smash",
     "cIcon": "gameicons/Smash The Rock_pressed.png",
     "icon": "gameicons/Smash The Rock.png",
     "multiPlayer": false,
@@ -829,6 +882,7 @@
   },
    {
     "name": "JumpOnWords",
+        "title": "Jump on Words",
     "cIcon": "gameicons/JumpOnWords_pressed.png",
     "icon": "gameicons/JumpOnWords.png",
     "multiPlayer": false,
@@ -846,6 +900,7 @@
   },
    {
         "name": "card",
+        "title": "Add the Cards",
         "cIcon": "gameicons/card_pressed.png",
         "icon": "gameicons/card.png",
         "multiPlayer":false,
@@ -862,6 +917,7 @@
   },
    {
         "name": "step",
+        "title": "Arrange the Steps",
         "cIcon": "gameicons/step_pressed.png",
         "icon": "gameicons/step.png",
         "multiPlayer":false,
@@ -878,6 +934,7 @@
   },
    {
         "name": "shape",
+        "title": "Patch the Holes",
         "cIcon": "gameicons/shape_pressed.png",
         "icon": "gameicons/shape.png",
         "multiPlayer":false,

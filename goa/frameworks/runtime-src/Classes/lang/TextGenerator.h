@@ -47,6 +47,7 @@ public:
     std::map<std::string, std::string> getSingularPlurals(int maxNum, int level = 0);
     
     std::string getLang();
+	std::vector<std::string> wordsWithGivenLetter(std::string);
     
 protected:
     std::map<int, int> getRandomLocations(int numLoc, int totalNum);

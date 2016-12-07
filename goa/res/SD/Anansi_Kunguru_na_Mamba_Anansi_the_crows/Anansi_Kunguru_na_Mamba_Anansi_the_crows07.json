@@ -5,10 +5,154 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 370,
+        "Duration": 440,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "jug",
         "Timelines": [
+          {
+            "ActionTag": 1723839232,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1260.5962,
+                "Y": 1579.4875,
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1260.5962,
+                "Y": 1579.4875,
+                "FrameIndex": 425,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1260.5962,
+                "Y": 1579.4875,
+                "FrameIndex": 440,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1723839232,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 5.1963,
+                "Y": 5.1394,
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 5.1963,
+                "Y": 5.1394,
+                "FrameIndex": 425,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 5.1963,
+                "Y": 5.1394,
+                "FrameIndex": 440,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1723839232,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 425,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 440,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1723839232,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "B": 240
+                },
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 118,
+                  "G": 237,
+                  "B": 75
+                },
+                "FrameIndex": 425,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "B": 240
+                },
+                "FrameIndex": 440,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 1674082246,
             "Property": "ActionValue",
@@ -277,6 +421,33 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              },
+              {
+                "X": 1204.6267,
+                "Y": 390.936,
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1204.6267,
+                "Y": 390.936,
+                "FrameIndex": 390,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1204.6267,
+                "Y": 390.936,
+                "FrameIndex": 405,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -307,6 +478,33 @@
                 "X": 0.4798,
                 "Y": 0.4798,
                 "FrameIndex": 245,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.4798,
+                "Y": 0.4798,
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.4798,
+                "Y": 0.4798,
+                "FrameIndex": 390,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.4798,
+                "Y": 0.4798,
+                "FrameIndex": 405,
                 "EasingData": {
                   "Type": 0
                 },
@@ -345,6 +543,75 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 390,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 405,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2020255155,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "B": 240
+                },
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 234,
+                  "G": 103,
+                  "B": 51
+                },
+                "FrameIndex": 390,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "B": 240
+                },
+                "FrameIndex": 405,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -764,6 +1031,18 @@
           "EndIndex": 370,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 375,
+          "EndIndex": 405,
+          "Name": "jug",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 410,
+          "EndIndex": 440,
+          "Name": "tree",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -840,7 +1119,9 @@
               "ScaleX": 5.1963,
               "ScaleY": 5.1394
             },
-            "CColor": {},
+            "CColor": {
+              "B": 240
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.4924,
@@ -854,6 +1135,7 @@
             "RightMargin": 1057.4038,
             "TopMargin": -39.9875,
             "BottomMargin": 1318.9875,
+            "UserData": "main.tree",
             "Tag": 43,
             "ActionTag": 1723839232,
             "Size": {
@@ -924,27 +1206,27 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1225.0999,
-              "Y": 475.6402
+              "X": 1208.3861,
+              "Y": 215.598
             },
             "Scale": {
-              "ScaleX": 0.389,
-              "ScaleY": 0.389
+              "ScaleX": 0.7103,
+              "ScaleY": 0.7103
             },
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.4786,
-              "Y": 0.2642
+              "X": 0.472,
+              "Y": 0.1198
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1225.0999,
-            "RightMargin": 1334.9001,
-            "TopMargin": 1324.3599,
-            "BottomMargin": 475.6402,
+            "LeftMargin": 1208.3861,
+            "RightMargin": 1351.6139,
+            "TopMargin": 1584.402,
+            "BottomMargin": 215.598,
             "UserData": "walking;drag",
             "Tag": 4266,
             "ActionTag": 1674082246,
@@ -952,7 +1234,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "spider",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -989,14 +1271,14 @@
             "RightMargin": 448.7605,
             "TopMargin": 1751.0229,
             "BottomMargin": 48.9771,
-            "UserData": "waling;drag",
+            "UserData": "walking;drag",
             "Tag": 4278,
             "ActionTag": -1615402136,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "crocodile",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1033,14 +1315,14 @@
             "RightMargin": 2247.093,
             "TopMargin": 1761.0465,
             "BottomMargin": 38.9535,
-            "UserData": "waling;drag",
+            "UserData": "walking;drag",
             "Tag": 4288,
             "ActionTag": 1040820164,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_3",
+            "Name": "crocodile",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1058,27 +1340,32 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1197.9868,
-              "Y": 119.2109
+              "X": 1204.6267,
+              "Y": 390.936
             },
             "Scale": {
-              "ScaleX": 0.6,
-              "ScaleY": 0.6
+              "ScaleX": 0.4798,
+              "ScaleY": 0.4798
             },
-            "CColor": {},
+            "CColor": {
+              "R": 250,
+              "G": 224,
+              "B": 202
+            },
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.468,
-              "Y": 0.0662
+              "X": 0.4706,
+              "Y": 0.2172
             },
             "PreSize": {
               "X": 0.1652,
               "Y": 0.1811
             },
-            "LeftMargin": 986.4868,
-            "RightMargin": 1150.5132,
-            "TopMargin": 1517.7891,
-            "BottomMargin": -43.7891,
+            "LeftMargin": 993.1267,
+            "RightMargin": 1143.8733,
+            "TopMargin": 1246.064,
+            "BottomMargin": 227.936,
+            "UserData": "drag;main.jug ",
             "Tag": 4298,
             "ActionTag": -2020255155,
             "Size": {
@@ -1099,8 +1386,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 3151.8115,
-              "Y": 440.2014
+              "X": 2109.8142,
+              "Y": 437.7037
             },
             "Scale": {
               "ScaleX": 0.4742,
@@ -1109,24 +1396,24 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 1.2312,
-              "Y": 0.2446
+              "X": 0.8241,
+              "Y": 0.2432
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 3151.8115,
-            "RightMargin": -591.8115,
-            "TopMargin": 1359.7986,
-            "BottomMargin": 440.2014,
+            "LeftMargin": 2109.8142,
+            "RightMargin": 450.1858,
+            "TopMargin": 1362.2963,
+            "BottomMargin": 437.7037,
             "Tag": 4299,
             "ActionTag": -1520225171,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_4",
+            "Name": "crocodile",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1140,8 +1427,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": -590.3161,
-              "Y": 413.6817
+              "X": 557.9611,
+              "Y": 419.7902
             },
             "Scale": {
               "ScaleX": -0.5632,
@@ -1150,24 +1437,24 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": -0.2306,
-              "Y": 0.2298
+              "X": 0.218,
+              "Y": 0.2332
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -590.3161,
-            "RightMargin": 3150.3162,
-            "TopMargin": 1386.3184,
-            "BottomMargin": 413.6817,
+            "LeftMargin": 557.9611,
+            "RightMargin": 2002.0388,
+            "TopMargin": 1380.2098,
+            "BottomMargin": 419.7902,
             "Tag": 4309,
             "ActionTag": 1957548370,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_5",
+            "Name": "crocodile",
             "ctype": "ProjectNodeObjectData"
           }
         ],
