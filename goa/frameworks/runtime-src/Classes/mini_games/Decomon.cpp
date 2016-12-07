@@ -347,7 +347,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			}
 			else {
 				//if target is not a paint bucket set Scale to 1 and also creat duplicate
-				if (target->getScale() > 0 &&(!_colorPicked)) {
+				if (target->getScaleX() > 0 &&(!_colorPicked)) {
 					target->setScale(1);
 				}
 				else {
