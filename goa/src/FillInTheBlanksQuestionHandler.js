@@ -9,6 +9,7 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
     _constructedScene: null,
     _answers:[],
     _numberOfTimesInCorrectAnswered: 0,
+    
     ctor: function (nodeJSON, width, height, question, callback, callbackContext) {
         this._super(width, height);
         this._width = width;
@@ -133,7 +134,7 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
         correctAnswerNode.runAction(sequenceAction);          
     },
 
-    resetNumberOfIncorrectAnswered: function() {
+    resetNumberOfIncorrectAnswered: function() {        
         this._numberOfTimesInCorrectAnswered = 0;        
     },
 
@@ -146,10 +147,16 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
                this.scaleAnimation(correctAnswerNode);                           
             }
         }
+        this._inCorrectAnswerAnimationInProgress = false;
     },
 
     hintForCorrectAnswer: function(sender, isCorrectAnswered) {
+        var context = this;        
         if(!isCorrectAnswered) {
+            if(this._inCorrectAnswerAnimationInProgress) {
+                return;
+            }            
+            this._inCorrectAnswerAnimationInProgress = true;
             this._numberOfTimesInCorrectAnswered++;
             var x = sender.getPosition().x;
             var y = sender.getPosition().y;
@@ -166,7 +173,15 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
             this._numberOfTimesInCorrectAnswered = 0;
             if(xc.NarrateStoryLayer.res.correctAnswerSound_json) {
                 cc.audioEngine.playEffect(xc.NarrateStoryLayer.res.correctAnswerSound_json, false);
-            }                                          
+            }   
+            //disable all buttons
+            context._answers.forEach(function(element, index) {
+               var nodeName = "A"+(index+1);
+                var node = context._constructedScene.node.getChildByName(nodeName);
+                if(node) {
+                    node.setTouchEnabled(false);                    
+                }                                                                
+            });                                                   
         }
 
     },
