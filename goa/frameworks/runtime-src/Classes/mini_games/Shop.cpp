@@ -154,7 +154,7 @@ void Shop::customerEnter(Node* Bg, vector<string> vegetableNodeName)
 		auto b = nodeForHelp->getPositionY() - nodeForHelp->getContentSize().height*.25;
 
 		auto nodeForDropPos = this->getChildByName("bg")->getChildByName("item_1");
-		auto c = nodeForDropPos->getPositionX() + myGameWidth;//+ visibleSize.width*0.049
+		auto c = nodeForDropPos->getPositionX() + myGameWidth + visibleSize.width*0.049;
 		auto d = nodeForDropPos->getPositionY() + visibleSize.height*0.045;
 
 		_help = HelpLayer::create(Rect(a, b, visibleSize.width*0.12, visibleSize.height*.2),
