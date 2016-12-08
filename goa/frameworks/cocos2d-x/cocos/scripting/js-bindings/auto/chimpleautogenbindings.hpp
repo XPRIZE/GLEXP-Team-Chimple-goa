@@ -39,5 +39,6 @@ bool js_chimpleautogenbindings_MenuContext_launchGameFromJS(JSContext *cx, uint3
 bool js_chimpleautogenbindings_MenuContext_launchGameFinally(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_chimpleautogenbindings_MenuContext_MenuContext(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_chimpleautogenbindings_MenuContext_getBoundingBox(JSContext *cx, uint32_t argc, jsval *vp);
+bool js_chimpleautogenbindings_MenuContext_pronounceWord(JSContext *cx, uint32_t argc, jsval *vp);
 
 #endif // __chimpleautogenbindings_h__
