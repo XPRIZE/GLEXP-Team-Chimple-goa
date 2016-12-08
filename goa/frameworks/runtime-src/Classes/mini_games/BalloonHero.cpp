@@ -486,7 +486,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 	
 	_menuContext->setMaxPoints(20);
 
-	_sceneNumber = 3;
+	//_sceneNumber = 2;
 
 	std::string mainSceneplist;
 
@@ -577,10 +577,11 @@ void BalloonHero::onEnterTransitionDidFinish() {
 
 		if (_sceneNumber == 1) {
 			//_fireFly->getChildByName("firefly")->setAnchorPoint(Vec2(0.5, 0.5)); _fireFly->setContentSize(Size(494, 1082));
+			_fireFly->setContentSize(_fireFly->getChildByName("box")->getContentSize());
 		}
 		if (_sceneNumber == 2) {
-			_fireFly->setContentSize(_fireFly->getChildByName("firefly")->getContentSize());
-			_fireFly->setAnchorPoint(Vec2(0, 0));
+			_fireFly->setContentSize(_fireFly->getChildByName("touch")->getContentSize());
+			//_fireFly->setAnchorPoint(Vec2(0, 0));
 			//_fireFly->getChildByName("firefly")->setAnchorPoint(Vec2(0.5, 0.5));
 			//_fireFly->setAnchorPoint(Vec2(0, 0.5));
 		}
@@ -717,7 +718,7 @@ void BalloonHero::setupTouch() {
 	//Node * firefly = _fireFly;
 	if (_sceneNumber == 1) {
 
-		//firefly = _fireFly->getChildByName("firefly");
+		firefly = (Sprite *)_fireFly;
 	}
 
 	if (_sceneNumber == 2) {
@@ -817,7 +818,7 @@ void BalloonHero::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	
 	if (_sceneNumber == 1) {
-		if ((touch->getLocation().x > 150 && touch->getLocation().x < visibleSize.width - 150) && (touch->getLocation().y > 100 && touch->getLocation().y < visibleSize.height - 350)) {
+		if ((touch->getLocation().x > 100 && touch->getLocation().x < visibleSize.width - 150) && (touch->getLocation().y > 250 && touch->getLocation().y < visibleSize.height - 350)) {
 			target->setPosition(Vec2(touch->getLocation().x, touch->getLocation().y));
 			// to indicate that we have consumed it.
 		}
@@ -1188,7 +1189,7 @@ void BalloonHero::update(float delta) {
 		
 		//auto rotateFirefly = RotateBy::create(1, 360);
 		//_fireFly->runAction(rotateFirefly);
-		if (_sceneNumber == 1) { /*_fireTimeline->play("shock", false);*/ }
+		if (_sceneNumber == 1) { _fireTimeline->play("wrong", false); }
 		if (_sceneNumber == 2) { _fireTimeline->play("shock", false); }
 		if (_sceneNumber == 3) { _fireTimeline->play("sad", false); }
 
@@ -1223,7 +1224,7 @@ void BalloonHero::update(float delta) {
 
 		//auto rotateFirefly = RotateBy::create(1, 360);
 		//_fireFly->runAction(rotateFirefly);
-		if (_sceneNumber == 1) { /*_fireTimeline->play("shock", false);*/ }
+		if (_sceneNumber == 1) { _fireTimeline->play("wrong", false); }
 		if (_sceneNumber == 2) { _fireTimeline->play("shock", false); }
 		if (_sceneNumber == 3) { _fireTimeline->play("sad", false); }
 
@@ -1253,7 +1254,7 @@ void BalloonHero::update(float delta) {
 
 		//auto rotateFirefly = RotateBy::create(1, 360);
 		//_fireFly->runAction(rotateFirefly);
-		if (_sceneNumber == 1) { /*_fireTimeline->play("shock", false);*/ }
+		if (_sceneNumber == 1) { _fireTimeline->play("wrong", false); }
 		if (_sceneNumber == 2) { _fireTimeline->play("shock", false); }
 		if (_sceneNumber == 3) { _fireTimeline->play("sad", false); }
 
@@ -1280,7 +1281,7 @@ void BalloonHero::update(float delta) {
 
 		//auto rotateFirefly = RotateBy::create(1, 360);
 		//_fireFly->runAction(sad);
-		if (_sceneNumber == 1) { /*_fireTimeline->play("shock", false);*/ }
+		if (_sceneNumber == 1) { _fireTimeline->play("wrong", false); }
 		if (_sceneNumber == 2) { _fireTimeline->play("shock", false); }
 		if (_sceneNumber == 3) { _fireTimeline->play("sad", false); }
 
