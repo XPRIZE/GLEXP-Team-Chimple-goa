@@ -83,7 +83,7 @@ xc.StoryCoverButtonPanel = ccui.Layout.extend({
                         bookText.setFontName(xc.storyTitleFontName)
                         bookText.setTextColor(xc.storyTitleFontColor);
                         bookText.setFontSize(xc.storyTitleFontSize);                        
-
+                        bookText.setTouchEnabled(false);
                         bookNode.node.setPosition(item.getPosition());
                         bookNode.node.setAnchorPoint(cc.p(0.5,0.5));
                         this.addChild(bookNode.node,2);                        

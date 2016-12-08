@@ -181,6 +181,9 @@ void Card::addEvents(struct SpriteDetails sprite)
 		{
 			if (_programFlag == 0)
 			{
+				CocosDenshion::SimpleAudioEngine *drop = CocosDenshion::SimpleAudioEngine::getInstance();
+				drop->playEffect("sounds/sfx/drop.ogg", false);
+
 				if (_spriteDetails.at(sprite._index)._flag == 0)
 				{
 					for (int i = 0; i < _toDoDetails.size(); i++)
