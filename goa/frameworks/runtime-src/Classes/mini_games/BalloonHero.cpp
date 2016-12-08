@@ -484,7 +484,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 
 	}
 	
-
+	_menuContext->setMaxPoints(20);
 
 	_sceneNumber = 3;
 
@@ -1293,29 +1293,53 @@ void BalloonHero::update(float delta) {
 	
 
 
-	if (_fireflyBB.intersectsRect(_cloud1BB) && _cloud1->getName() == "balloon") {
+	if (_fireflyBB.intersectsRect(_cloud1BB) && _cloud1->getName() == "balloon" && _flagCorrect1) {
 		fuelMeterPlus();
 		_menuContext->addPoints(1);
 		_cloud1->setVisible(false);
+
+		auto turnOffscoreAdd = CallFunc::create([=] {_flagCorrect1 = false; });
+		auto turnOnscoreAdd = CallFunc::create([=] {_flagCorrect1 = true; });
+
+		auto scoreSequence = Sequence::create(turnOffscoreAdd, DelayTime::create(0.5), turnOnscoreAdd, NULL);
+		this->runAction(scoreSequence);
 	}
 	
 
-	if (_fireflyBB.intersectsRect(_cloud2BB) && _cloud2->getName() == "balloon") {
+	if (_fireflyBB.intersectsRect(_cloud2BB) && _cloud2->getName() == "balloon" && _flagCorrect2) {
 		fuelMeterPlus();
 		_menuContext->addPoints(1);
 		_cloud2->setVisible(false);
+
+		auto turnOffscoreAdd = CallFunc::create([=] {_flagCorrect2 = false; });
+		auto turnOnscoreAdd = CallFunc::create([=] {_flagCorrect2 = true; });
+
+		auto scoreSequence = Sequence::create(turnOffscoreAdd, DelayTime::create(0.5), turnOnscoreAdd, NULL);
+		this->runAction(scoreSequence);
 	}
 
-	if (_fireflyBB.intersectsRect(_cloud3BB) && _cloud3->getName() == "balloon") {
+	if (_fireflyBB.intersectsRect(_cloud3BB) && _cloud3->getName() == "balloon" && _flagCorrect3) {
 		fuelMeterPlus();
 		_menuContext->addPoints(1);
 		_cloud3->setVisible(false);
+
+		auto turnOffscoreAdd = CallFunc::create([=] {_flagCorrect3 = false; });
+		auto turnOnscoreAdd = CallFunc::create([=] {_flagCorrect3 = true; });
+
+		auto scoreSequence = Sequence::create(turnOffscoreAdd, DelayTime::create(0.5), turnOnscoreAdd, NULL);
+		this->runAction(scoreSequence);
 	}
 
-	if (_fireflyBB.intersectsRect(_cloud4BB) && _cloud4->getName() == "balloon") {
+	if (_fireflyBB.intersectsRect(_cloud4BB) && _cloud4->getName() == "balloon" && _flagCorrect4) {
 		fuelMeterPlus();
 		_menuContext->addPoints(1);
 		_cloud4->setVisible(false);
+
+		auto turnOffscoreAdd = CallFunc::create([=] {_flagCorrect4 = false; });
+		auto turnOnscoreAdd = CallFunc::create([=] {_flagCorrect4 = true; });
+
+		auto scoreSequence = Sequence::create(turnOffscoreAdd, DelayTime::create(0.5), turnOnscoreAdd, NULL);
+		this->runAction(scoreSequence);
 	}
 }
 
@@ -1379,3 +1403,5 @@ void BalloonHero::fuelMeterPlus()
 	
 	_fuelBar->setPercent(_fuelBar->getPercent() + 0.1);
 }
+
+

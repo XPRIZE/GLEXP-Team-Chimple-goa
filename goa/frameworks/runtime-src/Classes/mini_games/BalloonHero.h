@@ -45,6 +45,7 @@ protected:
 	Node * _foreGround;
 	int _sceneNumber;
 	bool _flag1 = true, _flag2 = true, _flag3 = true, _flag4 = true;
+	bool _flagCorrect1 = true, _flagCorrect2 = true, _flagCorrect3 = true, _flagCorrect4 = true;
 	std::vector<std::string> _objects;
 	cocos2d::ui::LoadingBar* _fuelBar;
 	std::vector<int> _randomIndex;
