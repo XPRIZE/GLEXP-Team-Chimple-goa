@@ -1134,6 +1134,21 @@ std::vector<std::vector<cocos2d::Point>> MenuContext::getTrianglePointsForSprite
 }
 
 
+void MenuContext::pronounceWord(std::string word) {
+    std::string fileName = LangUtil::getInstance()->getPronounciationFileNameForWord(word);
+    if(FileUtils::getInstance()->isFileExist(fileName)) {
+        auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+        audio->playEffect(fileName.c_str());
+    }
+    else {
+        CCLOG("file doesn't exists with word %s", fileName.c_str());
+        #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+            //JSB call to Android TTS Support
+        
+        #endif
+    }
+}
+
 std::vector<cocos2d::Vec2> MenuContext::getPolygonPointsForSprite(cocos2d::Sprite* node, std::string fileName, float threshHold) {
     
     AutoPolygon* ap = new AutoPolygon(fileName);
