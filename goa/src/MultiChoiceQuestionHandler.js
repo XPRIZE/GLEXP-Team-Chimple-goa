@@ -62,7 +62,7 @@ xc.MultipleChoiceQuestionHandler = cc.Layer.extend({
 
         this._answers.forEach(function(element, index) {
             var nodeName = "A"+(index+1);
-            var node = this._constructedScene.node.getChildByName(nodeName);
+            var node = context._constructedScene.node.getChildByName(nodeName);
             if(node) {
                 node.setAnchorPoint(cc.p(0.5,0.5));
                 node.setTitleFontSize(xc.storyFontSize);
@@ -84,7 +84,7 @@ xc.MultipleChoiceQuestionHandler = cc.Layer.extend({
                 }
                 cc.log("output:" + output);
                 node.setTitleText(output);
-                node.addTouchEventListener(this.answerSelected, this);
+                node.addTouchEventListener(context.answerSelected, context);
                 if(element == this._question.answer) {
                     context._correctAnswerNode = nodeName;
                 } 
@@ -134,10 +134,17 @@ xc.MultipleChoiceQuestionHandler = cc.Layer.extend({
                this.scaleAnimation(correctAnswerNode);                           
             }
         }
+
+        this._inCorrectAnswerAnimationInProgress = false;
     },
 
     hintForCorrectAnswer: function(sender, isCorrectAnswered) {
+        var context = this;
         if(!isCorrectAnswered) {
+            if(this._inCorrectAnswerAnimationInProgress) {
+                return;
+            }            
+            this._inCorrectAnswerAnimationInProgress = true;            
             this._numberOfTimesInCorrectAnswered++;
             var x = sender.getPosition().x;
             var y = sender.getPosition().y;
@@ -154,7 +161,15 @@ xc.MultipleChoiceQuestionHandler = cc.Layer.extend({
             this._numberOfTimesInCorrectAnswered = 0;
             if(xc.NarrateStoryLayer.res.correctAnswerSound_json) {
                 cc.audioEngine.playEffect(xc.NarrateStoryLayer.res.correctAnswerSound_json, false);
-            }                                                      
+            }  
+            //disable all buttons
+            context._answers.forEach(function(element, index) {
+               var nodeName = "A"+(index+1);
+                var node = context._constructedScene.node.getChildByName(nodeName);
+                if(node) {
+                    node.setTouchEnabled(false);                    
+                }                                                                
+            });
         }
 
     },

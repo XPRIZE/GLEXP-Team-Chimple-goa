@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 300,
+        "Duration": 445,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "popbrom",
         "Timelines": [
           {
             "ActionTag": 619967841,
@@ -22,7 +22,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "hit",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 300,
@@ -108,6 +108,99 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 1759732398,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1246.5403,
+                "Y": 361.7957,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1246.5397,
+                "Y": 361.7952,
+                "FrameIndex": 335,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1246.5403,
+                "Y": 361.7957,
+                "FrameIndex": 370,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1759732398,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.3836,
+                "Y": 1.3836,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 2.6735,
+                "Y": 2.6735,
+                "FrameIndex": 335,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.3836,
+                "Y": 1.3836,
+                "FrameIndex": 370,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1759732398,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 370,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -249177748,
             "Property": "ActionValue",
             "Frames": [
@@ -120,7 +213,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "dig",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 300,
@@ -218,7 +311,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "dustin",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 300,
@@ -299,6 +392,174 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1534761283,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 537.873,
+                "Y": 149.2716,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 537.873,
+                "Y": 149.2716,
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 537.8723,
+                "Y": 149.2715,
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 537.873,
+                "Y": 149.2716,
+                "FrameIndex": 445,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1534761283,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 2.4304,
+                "Y": 2.0261,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 2.4304,
+                "Y": 2.0261,
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 3.3258,
+                "Y": 2.7725,
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 2.4304,
+                "Y": 2.0261,
+                "FrameIndex": 445,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1534761283,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 87.3207,
+                "Y": 87.3184,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 87.3207,
+                "Y": 87.3184,
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 87.3199,
+                "Y": 87.3262,
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 87.3207,
+                "Y": 87.3184,
+                "FrameIndex": 445,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1534761283,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 0,
+                "FrameIndex": 299,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 255,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 255,
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 255,
+                "FrameIndex": 445,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -311,6 +572,18 @@
           "StartIndex": 0,
           "EndIndex": 300,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 305,
+          "EndIndex": 370,
+          "Name": "pop",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 375,
+          "EndIndex": 445,
+          "Name": "popbrom",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -341,27 +614,27 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -265.0,
-              "Y": -241.9103
+              "X": -1585.0054,
+              "Y": -241.9093
             },
             "Scale": {
-              "ScaleX": 16.6999,
+              "ScaleX": 29.8998,
               "ScaleY": 10.6999
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.1035,
+              "X": -0.6191,
               "Y": -0.1344
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": -265.0,
-            "RightMargin": 2625.0,
-            "TopMargin": 1841.9103,
-            "BottomMargin": -241.9103,
+            "LeftMargin": -1585.0054,
+            "RightMargin": 3945.0054,
+            "TopMargin": 1841.9093,
+            "BottomMargin": -241.9093,
             "Tag": 1390,
             "ActionTag": 2076878131,
             "Size": {
@@ -396,27 +669,27 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -101.1538,
-              "Y": -112.1964
+              "X": -1273.7495,
+              "Y": -112.1967
             },
             "Scale": {
-              "ScaleX": 15.1735,
+              "ScaleX": 27.1669,
               "ScaleY": 3.8413
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0395,
+              "X": -0.4976,
               "Y": -0.0623
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": -101.1538,
-            "RightMargin": 2461.1538,
-            "TopMargin": 1712.1964,
-            "BottomMargin": -112.1964,
+            "LeftMargin": -1273.7495,
+            "RightMargin": 3633.7495,
+            "TopMargin": 1712.1967,
+            "BottomMargin": -112.1967,
             "Tag": 1391,
             "ActionTag": -86694628,
             "Size": {
@@ -684,6 +957,7 @@
             "RightMargin": 1218.4597,
             "TopMargin": 1358.2043,
             "BottomMargin": 281.7957,
+            "UserData": "main.pop",
             "Tag": 1948,
             "ActionTag": 1759732398,
             "Size": {
@@ -776,6 +1050,54 @@
             },
             "Name": "boy_3",
             "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Watoto_wa_Nta_Children_of_wax/03-06.png",
+              "Plist": "Watoto_wa_Nta_Children_of_wax/Watoto_wa_Nta_Children_of_wax.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 537.873,
+              "Y": 149.2716
+            },
+            "Scale": {
+              "ScaleX": 2.456,
+              "ScaleY": 2.0474
+            },
+            "RotationSkewX": 87.3207,
+            "RotationSkewY": 87.3186,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2101,
+              "Y": 0.0829
+            },
+            "PreSize": {
+              "X": 0.025,
+              "Y": 0.2011
+            },
+            "LeftMargin": 505.873,
+            "RightMargin": 1990.127,
+            "TopMargin": 1469.7284,
+            "BottomMargin": -31.7284,
+            "UserData": "main.popbrom",
+            "Tag": 1128,
+            "ActionTag": -1534761283,
+            "Size": {
+              "X": 64.0,
+              "Y": 362.0
+            },
+            "Name": "broom",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
