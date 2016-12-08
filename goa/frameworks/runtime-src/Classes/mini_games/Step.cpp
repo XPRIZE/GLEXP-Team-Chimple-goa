@@ -80,7 +80,7 @@ void Step::onEnterTransitionDidFinish()
 	else
 		_percentLevelNo = (_level / 5);
 
-	_startPercent = _percent[_percentLevelNo][0];
+	_startPercent = 10;	// _percent[_percentLevelNo][0];
 
 	for (int i = 0; i < _position.size(); i++)
 	{
@@ -97,8 +97,14 @@ void Step::onEnterTransitionDidFinish()
 			LoadingBarDetails._id = _loadingBarDetails.size() + 1;
 			LoadingBarDetails._answer = _answer[_level - 1][_loadingBarDetails.size()];
 			LoadingBarDetails._label = LabelTTF::create("?", "Arial", 120);
+			LoadingBarDetails._upLabel = LabelTTF::create("?", "Arial", 120);
+			LoadingBarDetails._upLabel->setColor(Color3B::BLACK);
 			LoadingBarDetails._label->setPosition(Vec2(_position.at(i).x, _stepBar->getPositionY() - LoadingBarDetails._loadingBar->getContentSize().height / 2));
+			LoadingBarDetails._upLabel->setPosition(Vec2(_position.at(i).x, _stepBar->getPositionY() + LoadingBarDetails._loadingBar->getContentSize().height));
 			this->addChild(LoadingBarDetails._label);
+			this->addChild(LoadingBarDetails._upLabel);
+
+			LoadingBarDetails._upLabel->runAction(RepeatForever::create(Sequence::create(ScaleTo::create(1, 1.3), DelayTime::create(.2f), ScaleTo::create(1, 1), NULL)));
 
 			_loadingBarDetails.push_back(LoadingBarDetails);
 			addEvents(LoadingBarDetails);
@@ -116,7 +122,7 @@ void Step::onEnterTransitionDidFinish()
 
 			_allBar.push_back(_loadingBar);
 		}
-		_startPercent += _percent[_percentLevelNo][0];
+		_startPercent += 10;	// _percent[_percentLevelNo][0];
 	}
 
 	_fluffyNode = CSLoader::createNode("bar/fluffy.csb");
@@ -168,7 +174,7 @@ void Step::addEvents(struct LoadingBarDetails sprite)
 		auto target = static_cast<Sprite*>(event->getCurrentTarget());
 		Point locationInNode = target->convertToNodeSpace(touch->getLocation());
 		Size size = target->getContentSize();
-		Rect rect = Rect(0, 0, target->getContentSize().width * _percent[_percentLevelNo][2] / 100, target->getContentSize().height);
+		Rect rect = Rect(0, 0, target->getContentSize().width, target->getContentSize().height * 1.05);
 
 		if (rect.containsPoint(locationInNode) && _moveFlag==0)
 		{
@@ -178,13 +184,28 @@ void Step::addEvents(struct LoadingBarDetails sprite)
 				_helpFlag = 1;
 			}
 			std::ostringstream _textValue;
-			if (sprite._loadingBar->getPercent() <= _percent[_percentLevelNo][2] && sprite._loadingBar->getPercent() >= 0)
+			if (sprite._loadingBar->getPercent() <= 100 && sprite._loadingBar->getPercent() >= 0)
 			{
 					_moveFlag = 1;
 
-					sprite._loadingBar->setPercent((int)(locationInNode.x / target->getContentSize().width * 100));
-					_textValue << (int)(sprite._loadingBar->getPercent() / _percent[_percentLevelNo][1]);
-					sprite._label->setString(_textValue.str());
+					int _percentValue = (int)(locationInNode.x / target->getContentSize().width * 100);
+					if (_percentValue >= 98)
+					{
+						sprite._loadingBar->setPercent(100);
+						_textValue << 10 * _differentLevel[_level - 1][0];
+						sprite._label->setString(_textValue.str());
+					}
+					else if (_percentValue >= 10)
+					{
+						sprite._loadingBar->setPercent(_percentValue / 10 * 10);
+						_textValue << (int)_percentValue / 10 * _differentLevel[_level - 1][0];
+						sprite._label->setString(_textValue.str());
+					}
+					else
+					{
+						sprite._loadingBar->setPercent(0);
+						sprite._label->setString("0");
+					}
 
 					return true;
 			}
@@ -198,31 +219,83 @@ void Step::addEvents(struct LoadingBarDetails sprite)
 		auto target = static_cast<Sprite*>(event->getCurrentTarget());
 		Point locationInNode = target->convertToNodeSpace(touch->getLocation());
 		Size size = target->getContentSize();
-		Rect rect = Rect(0, 0, target->getContentSize().width * _percent[_percentLevelNo][2] / 100, target->getContentSize().height);
+		Rect rect = Rect(0, 0, target->getContentSize().width, target->getContentSize().height * 1.05);
 
 		if (rect.containsPoint(locationInNode) && _moveFlag == 1)
 		{
 			std::ostringstream _textValue;
-			if (sprite._loadingBar->getPercent() <= _percent[_percentLevelNo][2] && sprite._loadingBar->getPercent() >= 0)
+			if (sprite._loadingBar->getPercent() <= 100 && sprite._loadingBar->getPercent() >= 0)
 			{
-				int _updatePer = (int)(locationInNode.x / target->getContentSize().width * 100);
+				int _percentValue = (int)(locationInNode.x / target->getContentSize().width * 100);
+
+				if (_percentValue >= 98)
+				{
+					sprite._loadingBar->setPercent(100);
+					_textValue << 10 * _differentLevel[_level - 1][0];
+					sprite._label->setString(_textValue.str());
+				}
+				else if (_percentValue >= 10)
+				{
+					sprite._loadingBar->setPercent(_percentValue / 10 * 10);
+					_textValue << (int)_percentValue / 10 * _differentLevel[_level - 1][0];
+					sprite._label->setString(_textValue.str());
+				}
+				else
+				{
+					sprite._loadingBar->setPercent(0);
+					sprite._label->setString("0");
+				}
+/*				int _updatePer = (int)(locationInNode.x / target->getContentSize().width * 100);
 				if (_updatePer > _percent[_percentLevelNo][2])
 				{
 
 				}
 				else
 				{
-					sprite._loadingBar->setPercent((int)(locationInNode.x / target->getContentSize().width * 100));
-					_textValue << (int)(sprite._loadingBar->getPercent() / _percent[_percentLevelNo][1]);
-					sprite._label->setString(_textValue.str());
+					if (sprite._loadingBar->getPercent() == 0)
+					{
+//						sprite._loadingBar->setPercent((int)(locationInNode.x / target->getContentSize().width * 100));
+//						_textValue << (int)(sprite._loadingBar->getPercent() / _percent[_percentLevelNo][1]);
+						sprite._label->setString("?");
+					}
+					else
+					{
+						sprite._loadingBar->setPercent((int)(locationInNode.x / target->getContentSize().width * 100));
+						_textValue << (int)(sprite._loadingBar->getPercent() / _percent[_percentLevelNo][1]);
+						sprite._label->setString(_textValue.str());
+					}
 				}
-			}
+*/			}
 		}
 	};
 
 	listener->onTouchEnded = [=](cocos2d::Touch *touch, cocos2d::Event *event)
 	{
+		int _touchFlag = 0;
+		for (int i = 0; i < _loadingBarDetails.size(); i++)
+		{
+			if (_loadingBarDetails.at(i)._loadingBar->getPercent() == 0)
+			{
+				_loadingBarDetails.at(i)._upLabel->setVisible(true);
+			}
+			else
+			{
+				_loadingBarDetails.at(i)._upLabel->setVisible(false);
+			}
+
+
+			if (atoi(_loadingBarDetails.at(i)._label->getString().c_str()) == _loadingBarDetails.at(i)._answer)
+			{
+				_touchFlag++;
+			}
+		}
 		_moveFlag = 0;
+
+		if (_touchFlag == _loadingBarDetails.size())
+		{
+			auto _scale = ScaleTo::create(1, 1.2);
+			_balloon->runAction(RepeatForever::create(Sequence::create(_scale, DelayTime::create(.2f), ScaleTo::create(1, 1), NULL)));
+		}
 	};
 
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener->clone(), sprite._loadingBar);

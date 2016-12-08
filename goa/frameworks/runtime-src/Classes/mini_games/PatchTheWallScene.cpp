@@ -205,8 +205,8 @@ void PatchTheWall::addEvents(struct SpriteDetails sprite)
 					_menuContext->addPoints(1);
 					_totalCount++;
 
-					CocosDenshion::SimpleAudioEngine *success = CocosDenshion::SimpleAudioEngine::getInstance();
-					success->playEffect("sounds/sfx/success.ogg", false);
+//					CocosDenshion::SimpleAudioEngine *success = CocosDenshion::SimpleAudioEngine::getInstance();
+//					success->playEffect("sounds/sfx/success.ogg", false);
 
 					_spriteDetails.at(_index)._label->setPosition(Vec2(_spriteDetails.at(_index).xP, _spriteDetails.at(_index).yP));
 					_slideBar->setPercent(_slideBar->getPercent() + 15);
