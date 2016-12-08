@@ -231,13 +231,14 @@ xc.Pinata = cc.Layer.extend({
                     let yPositionForBall = classReference.gameBg.node.getChildByName("right").y;
 
                     if(classReference.bubblePlayer.x != xPositionForBall && classReference.bubblePlayer.y != yPositionForBall){
-                        var ballTouchMovementAllow = function()
-                        {
-                            classReference.isItinOriginalPosition = true;
-                        }
-                            classReference.isItinOriginalPosition = false;
-                        classReference.bubblePlayer.runAction(new cc.Sequence(new cc.MoveTo(0.2,cc.p(xPositionForBall,yPositionForBall)),new cc.CallFunc(ballTouchMovementAllow, classReference)));
-                    }
+//                        var ballTouchMovementAllow = function()
+//                        {
+//                            classReference.isItinOriginalPosition = true;
+//                        }
+//                           classReference.isItinOriginalPosition = false;
+//                        classReference.bubblePlayer.runAction(new cc.Sequence(new cc.MoveTo(0.2,cc.p(xPositionForBall,yPositionForBall)),new cc.CallFunc(ballTouchMovementAllow, classReference)));
+                          classReference.bubblePlayer.runAction(new cc.MoveTo(0.2,cc.p(xPositionForBall,yPositionForBall)));
+                   }
                 }
             }
      });
