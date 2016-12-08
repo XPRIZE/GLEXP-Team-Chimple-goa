@@ -151,11 +151,11 @@ xc.ScrollView = ccui.ScrollView.extend({
         cc.log(this._gameName + '.currentLevel')
         cc.sys.localStorage.setItem(this._gameName + '.currentLevel', level.toString())
         cc.log(cc.sys.localStorage.getItem(this._gameName + '.currentLevel'))
-        if(this._isJSGame) {
-          xc.GameScene.load(this._clazz, this._gameName, level)
-        } else {
+        // if(this._isJSGame) {
+        //   xc.GameScene.load(this._clazz, this._gameName, level)
+        // } else {
           goa.MenuContext.launchGameFromJS(this._gameName)
-        }
+        // }
         break;
     }
   },
