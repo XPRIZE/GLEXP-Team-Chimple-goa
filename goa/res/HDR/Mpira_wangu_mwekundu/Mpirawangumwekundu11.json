@@ -5,10 +5,91 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 250,
+        "Duration": 380,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "moon",
         "Timelines": [
+          {
+            "ActionTag": 741986742,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 184,
+                  "G": 185,
+                  "B": 201
+                },
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 380,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 98205971,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1563.6443,
+                "Y": 1650.4789,
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1833.3978,
+                "Y": 1600.1079,
+                "FrameIndex": 285,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2017.1104,
+                "Y": 1453.7224,
+                "FrameIndex": 317,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2196.1531,
+                "Y": 1289.2214,
+                "FrameIndex": 350,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2302.325,
+                "Y": 1103.6362,
+                "FrameIndex": 380,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 1995248427,
             "Property": "ActionValue",
@@ -42,6 +123,14 @@
                 "CurrentAniamtionName": "walk",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 250,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 255,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -100,6 +189,14 @@
                 "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "bounce",
+                "SingleFrameIndex": 4,
+                "FrameIndex": 255,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -145,6 +242,12 @@
           "EndIndex": 250,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 255,
+          "EndIndex": 380,
+          "Name": "moon",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -168,7 +271,8 @@
               "G": 167
             },
             "ColorVector": {
-              "ScaleY": 1.0
+              "ScaleX": 0.0523,
+              "ScaleY": -0.9986
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
@@ -184,7 +288,11 @@
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "CColor": {},
+            "CColor": {
+              "R": 184,
+              "G": 185,
+              "B": 201
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.5,
@@ -206,6 +314,52 @@
             },
             "Name": "Panel_1_0",
             "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mpira_wangu_mwekundu/Mpirawangumwekundu_moon.png",
+              "Plist": "Mpira_wangu_mwekundu/Mpira_wangu_mwekundu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1563.6443,
+              "Y": 1650.4789
+            },
+            "Scale": {
+              "ScaleX": 0.4862,
+              "ScaleY": 0.4862
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6108,
+              "Y": 0.9169
+            },
+            "PreSize": {
+              "X": 0.1742,
+              "Y": 0.2594
+            },
+            "LeftMargin": 1340.6443,
+            "RightMargin": 773.3557,
+            "TopMargin": -83.9789,
+            "BottomMargin": 1416.9789,
+            "UserData": "main.moon",
+            "Tag": 446,
+            "ActionTag": 98205971,
+            "Size": {
+              "X": 446.0,
+              "Y": 467.0
+            },
+            "Name": "moon",
+            "ctype": "SpriteObjectData"
           },
           {
             "ClipAble": false,
@@ -423,13 +577,14 @@
             "RightMargin": 1310.0005,
             "TopMargin": 546.0138,
             "BottomMargin": -299.0138,
+            "UserData": "main.moon",
             "Tag": 443,
             "ActionTag": 127284753,
             "Size": {
               "X": 1460.0,
               "Y": 1553.0
             },
-            "Name": "MbwanaMamba_hut_1",
+            "Name": "hut",
             "ctype": "SpriteObjectData"
           },
           {
@@ -468,58 +623,14 @@
             "RightMargin": -449.9983,
             "TopMargin": -23.9504,
             "BottomMargin": 270.9504,
+            "UserData": "main.moon",
             "Tag": 445,
             "ActionTag": 1232009172,
             "Size": {
               "X": 1460.0,
               "Y": 1553.0
             },
-            "Name": "MbwanaMamba_hut_1_0",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Mpira_wangu_mwekundu/Mpirawangumwekundu_moon.png",
-              "Plist": "Mpira_wangu_mwekundu/Mpira_wangu_mwekundu.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1586.1348,
-              "Y": 1686.4695
-            },
-            "Scale": {
-              "ScaleX": 0.4862,
-              "ScaleY": 0.4862
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.6196,
-              "Y": 0.9369
-            },
-            "PreSize": {
-              "X": 0.1742,
-              "Y": 0.2594
-            },
-            "LeftMargin": 1363.1348,
-            "RightMargin": 750.8652,
-            "TopMargin": -119.9695,
-            "BottomMargin": 1452.9695,
-            "Tag": 446,
-            "ActionTag": 98205971,
-            "Size": {
-              "X": 446.0,
-              "Y": 467.0
-            },
-            "Name": "Mpirawangumwekundu_moon_4",
+            "Name": "hut",
             "ctype": "SpriteObjectData"
           },
           {
@@ -564,7 +675,7 @@
               "X": 336.0,
               "Y": 831.0
             },
-            "Name": "Mpirawangumwekundu_ladder_6",
+            "Name": "ladder",
             "ctype": "SpriteObjectData"
           },
           {
@@ -578,8 +689,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1098.028,
-              "Y": 91.2399
+              "X": 899.9425,
+              "Y": 658.7785
             },
             "Scale": {
               "ScaleX": 0.4205,
@@ -588,24 +699,25 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.4289,
-              "Y": 0.0507
+              "X": 0.3515,
+              "Y": 0.366
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1098.028,
-            "RightMargin": 1461.972,
-            "TopMargin": 1708.7601,
-            "BottomMargin": 91.2399,
+            "LeftMargin": 899.9425,
+            "RightMargin": 1660.0575,
+            "TopMargin": 1141.2214,
+            "BottomMargin": 658.7785,
+            "UserData": "drag;walk    ",
             "Tag": 1483,
             "ActionTag": 1995248427,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "girl",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -640,13 +752,14 @@
             "RightMargin": 194.3428,
             "TopMargin": 958.2395,
             "BottomMargin": 841.7605,
+            "UserData": "drag;bounce                   ",
             "Tag": 1529,
             "ActionTag": 645027134,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "ball",
             "ctype": "ProjectNodeObjectData"
           }
         ],

@@ -72,7 +72,7 @@ void PatchTheWall::onEnterTransitionDidFinish()
 			SpriteDetails.xP = SpriteDetails._sprite->getPositionX();
 			SpriteDetails.yP = SpriteDetails._sprite->getPositionY();
 			SpriteDetails._sequence = _spriteDetails.size();
-			SpriteDetails._label->setName(std::to_string(_spriteDetails.size()));
+//			SpriteDetails._label->setName(std::to_string(_spriteDetails.size()));
 
 			_spriteDetails.push_back(SpriteDetails);
 			_gridX += SpriteDetails._sprite->getContentSize().width * 1.05;

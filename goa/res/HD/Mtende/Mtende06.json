@@ -5,10 +5,98 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 415,
+        "Duration": 680,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "cloud",
         "Timelines": [
+          {
+            "ActionTag": 1685966642,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 420,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 680,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1685966642,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -358.9999,
+                "Y": 1519.9998,
+                "FrameIndex": 420,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 768.0343,
+                "Y": 1570.4664,
+                "FrameIndex": 565,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1805887399,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 420,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1805887399,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2603.3401,
+                "Y": 1073.23,
+                "FrameIndex": 420,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 467.0707,
+                "Y": 977.9142,
+                "FrameIndex": 680,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 519535926,
             "Property": "ActionValue",
@@ -90,6 +178,12 @@
           "StartIndex": 0,
           "EndIndex": 415,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 420,
+          "EndIndex": 680,
+          "Name": "cloud",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -201,6 +295,51 @@
             "ctype": "PanelObjectData"
           },
           {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtende/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -358.9999,
+              "Y": 1519.9998
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 194,
+              "G": 200,
+              "B": 220
+            },
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.1402,
+              "Y": 0.8444
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -358.9999,
+            "RightMargin": 2919.0,
+            "TopMargin": 280.0002,
+            "BottomMargin": 1519.9998,
+            "Tag": 732,
+            "ActionTag": 1685966642,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "cloud",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
             "FlipX": true,
             "FileData": {
               "Type": "MarkedSubImage",
@@ -240,14 +379,56 @@
             "RightMargin": 785.4995,
             "TopMargin": 999.0028,
             "BottomMargin": 258.9972,
+            "UserData": "main.cloud",
             "Tag": 583,
             "ActionTag": 50318295,
             "Size": {
               "X": 949.0,
               "Y": 542.0
             },
-            "Name": "MbwanaMamba_mat_18",
+            "Name": "mat",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtende/jackal1.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2603.3401,
+              "Y": 1073.23
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.0169,
+              "Y": 0.5962
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2603.3401,
+            "RightMargin": -43.3401,
+            "TopMargin": 726.77,
+            "BottomMargin": 1073.23,
+            "Tag": 740,
+            "ActionTag": 1805887399,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "jackal",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -285,13 +466,14 @@
             "RightMargin": -850.0027,
             "TopMargin": -376.4944,
             "BottomMargin": 623.4944,
+            "UserData": "main.cloud",
             "Tag": 585,
             "ActionTag": 694114634,
             "Size": {
               "X": 1460.0,
               "Y": 1553.0
             },
-            "Name": "MbwanaMamba_hut_20",
+            "Name": "hut",
             "ctype": "SpriteObjectData"
           },
           {
@@ -343,7 +525,7 @@
               "Y": 1056.0
             },
             "Alpha": 39,
-            "Name": "Mtende_broom_21_0",
+            "Name": "broom",
             "ctype": "SpriteObjectData"
           },
           {
@@ -390,7 +572,7 @@
               "X": 159.0,
               "Y": 1056.0
             },
-            "Name": "Mtende_broom_21",
+            "Name": "broom",
             "ctype": "SpriteObjectData"
           },
           {
@@ -431,7 +613,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "girl",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -470,13 +652,14 @@
             "RightMargin": 1970.9976,
             "TopMargin": 1281.5023,
             "BottomMargin": 341.4977,
+            "UserData": "main.cloud",
             "Tag": 584,
             "ActionTag": -450678676,
             "Size": {
               "X": 158.0,
               "Y": 177.0
             },
-            "Name": "MbwanaMamba_bag1_19",
+            "Name": "bag",
             "ctype": "SpriteObjectData"
           }
         ],
@@ -489,6 +672,8 @@
       },
       "UsedResources": [
         "boy2.json",
+        "cloud.json",
+        "jackal1.json",
         "Mtende.plist",
         "Mtende.png"
       ],

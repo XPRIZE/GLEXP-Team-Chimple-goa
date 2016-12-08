@@ -128,6 +128,19 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 475342571,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "bounce",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -180,6 +193,7 @@
             "TopMargin": -583.4194,
             "BottomMargin": -688.5806,
             "Tag": 259,
+            "FrameEvent": "bounce",
             "ActionTag": 475342571,
             "Size": {
               "X": 1272.0,
