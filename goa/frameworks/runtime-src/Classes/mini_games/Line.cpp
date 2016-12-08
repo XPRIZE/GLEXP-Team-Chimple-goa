@@ -494,9 +494,12 @@ void Line::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 		{
 			auto name = target->getName();
 			auto action = MoveTo::create(1.0, Vec2(_tagX, _tagY));
-			target->runAction(action);
+			target->runAction(Sequence::create(action, CallFunc::create([=]() {
+				_flag = true;
+			}), NULL));
 			menu->addPoints(-1);
-			_flag = true;
+			//_flag = true;
+			
 		}
 	
 
