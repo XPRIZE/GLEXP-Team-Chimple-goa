@@ -61,6 +61,7 @@ void PatchTheWall::onEnterTransitionDidFinish()
 
 		for (int j = 0; j < 2; j++)
 		{
+			std::ostringstream _labelName;
 			SpriteDetails._sprite = Sprite::createWithSpriteFrameName("patchthewall/alphagrid.png");
 			SpriteDetails._sprite->setPosition(Vec2(_gridX, _gridY));
 			this->addChild(SpriteDetails._sprite);
@@ -72,7 +73,8 @@ void PatchTheWall::onEnterTransitionDidFinish()
 			SpriteDetails.xP = SpriteDetails._sprite->getPositionX();
 			SpriteDetails.yP = SpriteDetails._sprite->getPositionY();
 			SpriteDetails._sequence = _spriteDetails.size();
-			SpriteDetails._label->setName(std::to_string(_spriteDetails.size()));
+			_labelName << _spriteDetails.size();
+			SpriteDetails._label->setName(_labelName.str());
 
 			_spriteDetails.push_back(SpriteDetails);
 			_gridX += SpriteDetails._sprite->getContentSize().width * 1.05;
@@ -82,7 +84,7 @@ void PatchTheWall::onEnterTransitionDidFinish()
 		_gridY += _spriteDetails.at(0)._sprite->getContentSize().height * 1.02;
 	}
 
-	_gridY = visibleSize.height * .19;
+	_gridY = visibleSize.height * .18;
 	for (int i = 0; i < 5; i++)
 	{
 		float _gridX = visibleSize.width * .20;
@@ -142,11 +144,16 @@ void PatchTheWall::onEnterTransitionDidFinish()
 //	this->scheduleUpdate();
 
 	_level = _menuContext->getCurrentLevel();
-	_menuContext->setMaxPoints(15);
+	_menuContext->setMaxPoints(20);
+	_moveFlag = 1;
+	_helpFlag = 0;
 	blastCome(0);
-
 	if (_level != 1)
+	{
+		_helpFlag = -1;
+		_moveFlag = 0;
 		this->schedule(schedule_selector(PatchTheWall::blastCome), 5.0f);
+	}
 }
 
 void PatchTheWall::addEvents(struct SpriteDetails sprite)
@@ -163,7 +170,7 @@ void PatchTheWall::addEvents(struct SpriteDetails sprite)
 
 		if (rect.containsPoint(locationInNode) && _moveFlag==0)
 		{
-			if (_helpFlag == 0)
+			if (_helpFlag == 1)
 			{
 				this->removeChild(_help);
 				_helpFlag = -1;
@@ -209,8 +216,8 @@ void PatchTheWall::addEvents(struct SpriteDetails sprite)
 					success->playEffect("sounds/sfx/success.ogg", false);
 
 					_spriteDetails.at(_index)._label->setPosition(Vec2(_spriteDetails.at(_index).xP, _spriteDetails.at(_index).yP));
-					_slideBar->setPercent(_slideBar->getPercent() + 15);
-					if (_totalCount == 14)
+					_slideBar->setPercent(_slideBar->getPercent() + 5);
+					if (_totalCount == 20)
 					{
 						_menuContext->showScore();
 					}
@@ -226,6 +233,8 @@ void PatchTheWall::addEvents(struct SpriteDetails sprite)
 		{
 			target->runAction(Sequence::create(MoveTo::create(.5, Vec2(_spriteDetails.at(_index).xP, _spriteDetails.at(_index).yP)), CallFunc::create([=]{
 				_moveFlag = 0;
+				CocosDenshion::SimpleAudioEngine *error = CocosDenshion::SimpleAudioEngine::getInstance();
+				error->playEffect("sounds/sfx/error.ogg", false);
 				_menuContext->addPoints(-1);
 			}), NULL));
 		}
@@ -237,7 +246,7 @@ void PatchTheWall::addEvents(struct SpriteDetails sprite)
 
 void PatchTheWall::blastCome(float _time)
 {
-	if (_totalLetter < 15)
+	if (_totalLetter < 20)
 	{
 		int _randomPosition;
 		while (1)
@@ -258,10 +267,6 @@ void PatchTheWall::blastCome(float _time)
 		_blastNode->runAction(_blastTimeline);
 		_blastTimeline->play("blast", false);
 		_blastTimeline->setAnimationEndCallFunc("blast", CC_CALLBACK_0(PatchTheWall::letterCome, this, _blastNode, _randomPosition));
-	}
-	else
-	{
-
 	}
 }
 
@@ -287,12 +292,19 @@ void PatchTheWall::letterCome(Node *blastNode, int _randomPosition)
 
 	if (_helpFlag == 0)
 	{
-		_help = HelpLayer::create(Rect(SpriteDetails._sprite->getPositionX() - SpriteDetails._sprite->getContentSize().width / 2, SpriteDetails._sprite->getPositionY() - SpriteDetails._sprite->getContentSize().height / 2, SpriteDetails._sprite->getContentSize().width, SpriteDetails._sprite->getContentSize().height), Rect(0, 0, 0, 0));
-//		_help->clickAndDrag(Vec2(_position[2].x, _position[2].y), Vec2(_position[2].x, _position[2].y + _allBar.at(2)->getContentSize().width));
-		this->addChild(_help);
-		_helpFlag = 0;
+		for (int i = 0; i < _spriteDetails.size(); i++)
+		{
+			if (SpriteDetails._id == _spriteDetails.at(i)._id)
+			{
+				_help = HelpLayer::create(Rect(_spriteDetails.at(i)._sprite->getPositionX(), _spriteDetails.at(i)._sprite->getPositionY(), _spriteDetails.at(i)._sprite->getContentSize().width, _spriteDetails.at(i)._sprite->getContentSize().height), Rect(SpriteDetails._sprite->getPositionX(), SpriteDetails._sprite->getPositionY(), SpriteDetails._sprite->getContentSize().width, SpriteDetails._sprite->getContentSize().height));
+				_help->clickAndDrag(Vec2(_spriteDetails.at(i)._sprite->getPositionX(), _spriteDetails.at(i)._sprite->getPositionY()), Vec2(SpriteDetails._sprite->getPositionX(), SpriteDetails._sprite->getPositionY()));
+				this->addChild(_help);
+				_moveFlag = 0;
+				_helpFlag = 1;
+				break;
+			}
+		}
 	}
-
 }
 
 /*
