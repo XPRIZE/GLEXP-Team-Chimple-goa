@@ -8,6 +8,7 @@ xc.Pinata = cc.Layer.extend({
   ctor:function () {
   
    this._super();
+   //cc.audioEngine.playEffect("res/bubble_shooter/sounds/bubble_blast.wav");
 //this.gameBg.node.getChildByName("Panel_1").getChildByName("Button_10");
   },
   onEnter: function() {
@@ -231,14 +232,13 @@ xc.Pinata = cc.Layer.extend({
                     let yPositionForBall = classReference.gameBg.node.getChildByName("right").y;
 
                     if(classReference.bubblePlayer.x != xPositionForBall && classReference.bubblePlayer.y != yPositionForBall){
-//                        var ballTouchMovementAllow = function()
-//                        {
-//                            classReference.isItinOriginalPosition = true;
-//                        }
-//                           classReference.isItinOriginalPosition = false;
-//                        classReference.bubblePlayer.runAction(new cc.Sequence(new cc.MoveTo(0.2,cc.p(xPositionForBall,yPositionForBall)),new cc.CallFunc(ballTouchMovementAllow, classReference)));
-                          classReference.bubblePlayer.runAction(new cc.MoveTo(0.2,cc.p(xPositionForBall,yPositionForBall)));
-                   }
+                        var ballTouchMovementAllow = function()
+                        {
+                            classReference.isItinOriginalPosition = true;
+                        }
+                            classReference.isItinOriginalPosition = false;
+                        classReference.bubblePlayer.runAction(new cc.Sequence(new cc.MoveTo(0.2,cc.p(xPositionForBall,yPositionForBall)),new cc.CallFunc(ballTouchMovementAllow, classReference)));
+                    }
                 }
             }
      });
@@ -248,7 +248,7 @@ xc.Pinata = cc.Layer.extend({
                 var target = event.getCurrentTarget();
                 var location = target.convertToNodeSpace(touch.getLocation());
                 var targetRectangle = cc.rect(0,0, target.width, target.height);
-                
+                console.log(classReference.flagSingleTouchFirst + " shooting mode ");
                 if (cc.rectContainsPoint(targetRectangle, location) && !classReference.gameBg.node.getChildByName("board").freezShooting && !classReference.shootingFlag && classReference.flagSingleTouchFirst){
                     classReference.flagSingleTouchFirst = false;
                     return true;
