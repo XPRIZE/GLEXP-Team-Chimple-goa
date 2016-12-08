@@ -50,7 +50,7 @@ void spot::onEnterTransitionDidFinish() {
 	_answerValue = _level + 10;
 
 
-	_menuContext->setMaxPoints(4);
+	_menuContext->setMaxPoints(12);
 
 	const int numberOfPages = 3;
 
@@ -73,7 +73,7 @@ void spot::onEnterTransitionDidFinish() {
 	questionPlate = CSLoader::createNode("spot/spot.csb");
 	questionPlate->setContentSize(Size(visibleSize.width * numberOfPages, visibleSize.height * 0.1));
 	questionPlate->setAnchorPoint(Vec2(0.5, 0.5));
-	questionPlate->setPosition(Vec2(numberOfPages * (visibleSize.width * 0.5) + (visibleSize.width * 0.03), (visibleSize.height * 0.07)));
+	questionPlate->setPosition(Vec2(numberOfPages * visibleSize.width * 0.5 + visibleSize.width * 0.03, (visibleSize.height * 0.07)));
 
 
 
@@ -162,7 +162,7 @@ void spot::onEnterTransitionDidFinish() {
 	_label->setFontName("fonts/Marker Felt.ttf");
 	_label->setString(LangUtil::getInstance()->translateString("How many         are there?"));
 	_label->setFontSize(100);
-	_label->setPosition(Vec2(visibleSize.width / 4, visibleSize.height / 25));
+	_label->setPosition(Vec2((visibleSize.width * 0.24), (visibleSize.height * 0.04)));
 	_label->setAnchorPoint(Vec2(0, 0));
 	_label->setName("label");
 	_label->setTextColor(Color4B::BLUE);
@@ -217,6 +217,19 @@ void spot::onEnterTransitionDidFinish() {
 
 void spot::update(float delta) {
 
+	if (_calculateFlag == 0 && !_calculator->checkAnswer(_answerValue) && _calculator->isEnterPressed()) {
+
+		_calculateFlag = 1;
+		_calculator->deductPoint();
+		auto deductPoints = CallFunc::create([=] {
+
+			_calculateFlag = 0;
+		});
+
+		auto deductPointsSequenceOne = Sequence::create(DelayTime::create(0.5), deductPoints, NULL);
+		this->runAction(deductPointsSequenceOne);
+	}
+
 	//isEnterPressed
 	if (_calculateFlag == 0 && _calculator->checkAnswer(_answerValue) && _calculator->isEnterPressed()) {
 
@@ -225,11 +238,12 @@ void spot::update(float delta) {
 
 		auto ShowScore = CallFunc::create([=] {
 
-			_menuContext->addPoints(_calculator->getFinalPoints());
+			
 			
 			if (_currentSlot == 5) {
 				
 				_calculator->setVisible(false);
+				_menuContext->addPoints(_calculator->getFinalPoints());
 				_menuContext->showScore();
 
 			}
@@ -293,6 +307,7 @@ void spot::addCalculator() {
 	this->addChild(_calculator, 20);
 	//_calculator->setGlobalZOrder(2);
 	_calculator->setVisible(false);
+	_calculator->setMaxPoints(12);
 
 }
 
