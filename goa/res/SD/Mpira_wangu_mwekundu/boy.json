@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 695,
         "Speed": 1.0,
-        "ActivedAnimationName": "walkladder",
+        "ActivedAnimationName": "kick",
         "Timelines": [
           {
             "ActionTag": 175133579,
@@ -8935,6 +8935,55 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 1103410760,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "steps",
+                "FrameIndex": 5,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 45,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "steps",
+                "FrameIndex": 50,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "kick",
+                "FrameIndex": 575,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 650,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "steps",
+                "FrameIndex": 655,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 695,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -2024856762,
             "Property": "Position",
             "Frames": [
@@ -9680,8 +9729,8 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 83.4111,
-                "Y": -0.5689,
+                "X": 93.9397,
+                "Y": 0.5321,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -9689,8 +9738,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.4111,
-                "Y": -0.5689,
+                "X": 93.9397,
+                "Y": 0.5321,
                 "FrameIndex": 4,
                 "EasingData": {
                   "Type": 0
@@ -9698,8 +9747,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.4111,
-                "Y": -0.5689,
+                "X": 93.9397,
+                "Y": 0.5321,
                 "FrameIndex": 90,
                 "EasingData": {
                   "Type": 0
@@ -9707,8 +9756,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.4111,
-                "Y": -0.5689,
+                "X": 93.9397,
+                "Y": 0.5321,
                 "FrameIndex": 130,
                 "EasingData": {
                   "Type": 0
@@ -9716,8 +9765,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.4111,
-                "Y": -0.5689,
+                "X": 93.9397,
+                "Y": 0.5321,
                 "FrameIndex": 135,
                 "EasingData": {
                   "Type": 0
@@ -9725,8 +9774,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.4111,
-                "Y": -0.5689,
+                "X": 93.9397,
+                "Y": 0.5321,
                 "FrameIndex": 175,
                 "EasingData": {
                   "Type": 0
@@ -9734,8 +9783,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.4111,
-                "Y": -0.5689,
+                "X": 93.9397,
+                "Y": 0.5321,
                 "FrameIndex": 180,
                 "EasingData": {
                   "Type": 0
@@ -9743,8 +9792,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.4111,
-                "Y": -0.5689,
+                "X": 93.9397,
+                "Y": 0.5321,
                 "FrameIndex": 220,
                 "EasingData": {
                   "Type": 0
@@ -9752,8 +9801,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.4111,
-                "Y": -0.5689,
+                "X": 93.9397,
+                "Y": 0.5321,
                 "FrameIndex": 225,
                 "EasingData": {
                   "Type": 0
@@ -9761,8 +9810,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.4111,
-                "Y": -0.5689,
+                "X": 93.9397,
+                "Y": 0.5321,
                 "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
@@ -9770,8 +9819,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.4111,
-                "Y": -0.5689,
+                "X": 93.9397,
+                "Y": 0.5321,
                 "FrameIndex": 360,
                 "EasingData": {
                   "Type": 0
@@ -9779,8 +9828,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.4111,
-                "Y": -0.5689,
+                "X": 93.9397,
+                "Y": 0.5321,
                 "FrameIndex": 415,
                 "EasingData": {
                   "Type": 0
@@ -9788,8 +9837,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.4111,
-                "Y": -0.5689,
+                "X": 93.9397,
+                "Y": 0.5321,
                 "FrameIndex": 480,
                 "EasingData": {
                   "Type": 0
@@ -9797,8 +9846,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.4111,
-                "Y": -0.5689,
+                "X": 93.9397,
+                "Y": 0.5321,
                 "FrameIndex": 505,
                 "EasingData": {
                   "Type": 0
@@ -9806,8 +9855,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 95.6617,
-                "Y": 0.1711,
+                "X": 106.1903,
+                "Y": 1.2721,
                 "FrameIndex": 570,
                 "EasingData": {
                   "Type": 0
@@ -9815,8 +9864,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 97.1204,
-                "Y": 2.8279,
+                "X": 107.649,
+                "Y": 3.9289,
                 "FrameIndex": 575,
                 "EasingData": {
                   "Type": 0
@@ -9824,8 +9873,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 97.1108,
-                "Y": 2.5557,
+                "X": 107.6394,
+                "Y": 3.6567,
                 "FrameIndex": 615,
                 "EasingData": {
                   "Type": 0
@@ -9833,8 +9882,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 98.9614,
-                "Y": 0.1605,
+                "X": 109.49,
+                "Y": 1.2615,
                 "FrameIndex": 640,
                 "EasingData": {
                   "Type": 0
@@ -11921,8 +11970,8 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 83.98,
-                "Y": 0.0,
+                "X": 104.0849,
+                "Y": 0.218,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -11930,8 +11979,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.98,
-                "Y": 0.0,
+                "X": 104.0847,
+                "Y": 5.6316,
                 "FrameIndex": 4,
                 "EasingData": {
                   "Type": 0
@@ -11939,8 +11988,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.98,
-                "Y": 0.0,
+                "X": 104.0847,
+                "Y": 5.6316,
                 "FrameIndex": 90,
                 "EasingData": {
                   "Type": 0
@@ -11948,8 +11997,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.98,
-                "Y": 0.0,
+                "X": 104.0847,
+                "Y": 5.6316,
                 "FrameIndex": 130,
                 "EasingData": {
                   "Type": 0
@@ -11957,8 +12006,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.98,
-                "Y": 0.0,
+                "X": 104.0847,
+                "Y": 5.6316,
                 "FrameIndex": 135,
                 "EasingData": {
                   "Type": 0
@@ -11966,8 +12015,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.98,
-                "Y": 0.0,
+                "X": 104.0847,
+                "Y": 5.6316,
                 "FrameIndex": 175,
                 "EasingData": {
                   "Type": 0
@@ -11975,8 +12024,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.98,
-                "Y": 0.0,
+                "X": 104.0847,
+                "Y": 5.6316,
                 "FrameIndex": 180,
                 "EasingData": {
                   "Type": 0
@@ -11984,8 +12033,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.98,
-                "Y": 0.0,
+                "X": 104.0847,
+                "Y": 5.6316,
                 "FrameIndex": 220,
                 "EasingData": {
                   "Type": 0
@@ -11993,8 +12042,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.98,
-                "Y": 0.0,
+                "X": 104.0847,
+                "Y": 5.6316,
                 "FrameIndex": 225,
                 "EasingData": {
                   "Type": 0
@@ -12002,8 +12051,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.98,
-                "Y": 0.0,
+                "X": 104.0847,
+                "Y": 5.6316,
                 "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
@@ -12011,8 +12060,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.98,
-                "Y": 0.0,
+                "X": 104.0847,
+                "Y": 5.6316,
                 "FrameIndex": 360,
                 "EasingData": {
                   "Type": 0
@@ -12020,8 +12069,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.98,
-                "Y": 0.0,
+                "X": 104.0847,
+                "Y": 5.6316,
                 "FrameIndex": 415,
                 "EasingData": {
                   "Type": 0
@@ -12029,8 +12078,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.98,
-                "Y": 0.0,
+                "X": 104.0847,
+                "Y": 5.6316,
                 "FrameIndex": 480,
                 "EasingData": {
                   "Type": 0
@@ -12038,8 +12087,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.98,
-                "Y": 0.0,
+                "X": 104.0847,
+                "Y": 5.6316,
                 "FrameIndex": 505,
                 "EasingData": {
                   "Type": 0
@@ -12047,8 +12096,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 83.98,
-                "Y": 0.0,
+                "X": 104.0847,
+                "Y": 5.6316,
                 "FrameIndex": 570,
                 "EasingData": {
                   "Type": 0
@@ -12056,8 +12105,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 98.5387,
-                "Y": 3.1524,
+                "X": 118.6433,
+                "Y": 8.784,
                 "FrameIndex": 575,
                 "EasingData": {
                   "Type": 0
@@ -12205,8 +12254,8 @@
             "Property": "RotationSkew",
             "Frames": [
               {
-                "X": 0.0,
-                "Y": 0.0,
+                "X": 0.1528,
+                "Y": 0.1528,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -12214,8 +12263,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": 0.0,
-                "Y": 0.0,
+                "X": 0.1528,
+                "Y": 0.1528,
                 "FrameIndex": 4,
                 "EasingData": {
                   "Type": 0
@@ -12223,8 +12272,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -36.0462,
-                "Y": -36.0462,
+                "X": -35.8934,
+                "Y": -35.8934,
                 "FrameIndex": 5,
                 "EasingData": {
                   "Type": 0
@@ -12232,8 +12281,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -66.1229,
-                "Y": -66.1229,
+                "X": -65.9702,
+                "Y": -65.9702,
                 "FrameIndex": 10,
                 "EasingData": {
                   "Type": 0
@@ -12241,8 +12290,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -90.6228,
-                "Y": -90.6228,
+                "X": -90.4701,
+                "Y": -90.4701,
                 "FrameIndex": 15,
                 "EasingData": {
                   "Type": 0
@@ -12250,8 +12299,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -60.3095,
-                "Y": -60.3095,
+                "X": -60.1568,
+                "Y": -60.1568,
                 "FrameIndex": 20,
                 "EasingData": {
                   "Type": 0
@@ -12259,8 +12308,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -6.4262,
-                "Y": -6.4262,
+                "X": -6.2734,
+                "Y": -6.2734,
                 "FrameIndex": 25,
                 "EasingData": {
                   "Type": 0
@@ -12268,8 +12317,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -51.5754,
-                "Y": -51.5754,
+                "X": -51.4226,
+                "Y": -51.4226,
                 "FrameIndex": 30,
                 "EasingData": {
                   "Type": 0
@@ -12277,8 +12326,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -3.5757,
-                "Y": -3.5757,
+                "X": -3.4229,
+                "Y": -3.4229,
                 "FrameIndex": 35,
                 "EasingData": {
                   "Type": 0
@@ -12286,8 +12335,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -6.7468,
-                "Y": -6.7468,
+                "X": -6.594,
+                "Y": -6.594,
                 "FrameIndex": 40,
                 "EasingData": {
                   "Type": 0
@@ -12295,8 +12344,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -36.0462,
-                "Y": -36.0462,
+                "X": -35.8934,
+                "Y": -35.8934,
                 "FrameIndex": 45,
                 "EasingData": {
                   "Type": 0
@@ -12304,8 +12353,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -92.0568,
-                "Y": -92.0568,
+                "X": -91.9041,
+                "Y": -91.9041,
                 "FrameIndex": 50,
                 "EasingData": {
                   "Type": 0
@@ -12313,8 +12362,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -98.647,
-                "Y": -98.647,
+                "X": -98.4943,
+                "Y": -98.4943,
                 "FrameIndex": 54,
                 "EasingData": {
                   "Type": 0
@@ -12322,8 +12371,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -104.1497,
-                "Y": -104.1497,
+                "X": -103.997,
+                "Y": -103.997,
                 "FrameIndex": 58,
                 "EasingData": {
                   "Type": 0
@@ -12331,8 +12380,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -31.4889,
-                "Y": -31.4889,
+                "X": -31.3361,
+                "Y": -31.3361,
                 "FrameIndex": 63,
                 "EasingData": {
                   "Type": 0
@@ -12340,8 +12389,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -4.2031,
-                "Y": -4.2031,
+                "X": -4.0503,
+                "Y": -4.0503,
                 "FrameIndex": 67,
                 "EasingData": {
                   "Type": 0
@@ -12349,8 +12398,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -51.8148,
-                "Y": -51.8148,
+                "X": -51.662,
+                "Y": -51.662,
                 "FrameIndex": 72,
                 "EasingData": {
                   "Type": 0
@@ -12358,8 +12407,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -3.3077,
-                "Y": -3.3077,
+                "X": -3.1549,
+                "Y": -3.1549,
                 "FrameIndex": 76,
                 "EasingData": {
                   "Type": 0
@@ -12367,8 +12416,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -62.994,
-                "Y": -62.994,
+                "X": -62.8413,
+                "Y": -62.8413,
                 "FrameIndex": 81,
                 "EasingData": {
                   "Type": 0
@@ -12376,8 +12425,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -92.0568,
-                "Y": -92.0568,
+                "X": -91.9041,
+                "Y": -91.9041,
                 "FrameIndex": 85,
                 "EasingData": {
                   "Type": 0
@@ -12385,8 +12434,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": 0.0,
-                "Y": 0.0,
+                "X": 0.1528,
+                "Y": 0.1528,
                 "FrameIndex": 90,
                 "EasingData": {
                   "Type": 0
@@ -12394,8 +12443,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": 0.0,
-                "Y": 0.0,
+                "X": 0.1528,
+                "Y": 0.1528,
                 "FrameIndex": 130,
                 "EasingData": {
                   "Type": 0
@@ -12403,8 +12452,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": 0.0,
-                "Y": 0.0,
+                "X": 0.1528,
+                "Y": 0.1528,
                 "FrameIndex": 135,
                 "EasingData": {
                   "Type": 0
@@ -12412,8 +12461,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": 0.0,
-                "Y": 0.0,
+                "X": 0.1528,
+                "Y": 0.1528,
                 "FrameIndex": 175,
                 "EasingData": {
                   "Type": 0
@@ -12421,8 +12470,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -52.2767,
-                "Y": -52.2767,
+                "X": -52.1239,
+                "Y": -52.1239,
                 "FrameIndex": 180,
                 "EasingData": {
                   "Type": 0
@@ -12430,8 +12479,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -13.645,
-                "Y": -13.645,
+                "X": -13.4922,
+                "Y": -13.4922,
                 "FrameIndex": 190,
                 "EasingData": {
                   "Type": 0
@@ -12439,8 +12488,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -47.8051,
-                "Y": -47.8051,
+                "X": -47.6523,
+                "Y": -47.6523,
                 "FrameIndex": 200,
                 "EasingData": {
                   "Type": 0
@@ -12448,8 +12497,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -22.7753,
-                "Y": -22.7753,
+                "X": -22.6225,
+                "Y": -22.6225,
                 "FrameIndex": 210,
                 "EasingData": {
                   "Type": 0
@@ -12457,8 +12506,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -52.2767,
-                "Y": -52.2767,
+                "X": -52.1239,
+                "Y": -52.1239,
                 "FrameIndex": 220,
                 "EasingData": {
                   "Type": 0
@@ -12466,8 +12515,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": 0.0,
-                "Y": 0.0,
+                "X": 0.1528,
+                "Y": 0.1528,
                 "FrameIndex": 225,
                 "EasingData": {
                   "Type": 0
@@ -12475,8 +12524,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -44.8581,
-                "Y": -44.8581,
+                "X": -44.7053,
+                "Y": -44.7053,
                 "FrameIndex": 230,
                 "EasingData": {
                   "Type": 0
@@ -12484,8 +12533,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -44.8581,
-                "Y": -44.8581,
+                "X": -44.7053,
+                "Y": -44.7053,
                 "FrameIndex": 300,
                 "EasingData": {
                   "Type": 0
@@ -12493,8 +12542,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": 0.0,
-                "Y": 0.0,
+                "X": 0.1528,
+                "Y": 0.1528,
                 "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
@@ -12502,8 +12551,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -49.2153,
-                "Y": -49.2153,
+                "X": -49.0625,
+                "Y": -49.0625,
                 "FrameIndex": 315,
                 "EasingData": {
                   "Type": 0
@@ -12511,8 +12560,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -62.7441,
-                "Y": -62.7441,
+                "X": -62.5914,
+                "Y": -62.5914,
                 "FrameIndex": 335,
                 "EasingData": {
                   "Type": 0
@@ -12520,8 +12569,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -44.8581,
-                "Y": -44.8581,
+                "X": -44.7053,
+                "Y": -44.7053,
                 "FrameIndex": 355,
                 "EasingData": {
                   "Type": 0
@@ -12529,8 +12578,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": 0.0,
-                "Y": 0.0,
+                "X": 0.1528,
+                "Y": 0.1528,
                 "FrameIndex": 360,
                 "EasingData": {
                   "Type": 0
@@ -12538,8 +12587,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -19.5553,
-                "Y": -19.5553,
+                "X": -19.4025,
+                "Y": -19.4025,
                 "FrameIndex": 370,
                 "EasingData": {
                   "Type": 0
@@ -12547,8 +12596,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -44.4726,
-                "Y": -44.4726,
+                "X": -44.3198,
+                "Y": -44.3198,
                 "FrameIndex": 380,
                 "EasingData": {
                   "Type": 0
@@ -12556,8 +12605,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -44.4726,
-                "Y": -44.4726,
+                "X": -44.3198,
+                "Y": -44.3198,
                 "FrameIndex": 415,
                 "EasingData": {
                   "Type": 0
@@ -12565,8 +12614,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": 0.0,
-                "Y": 0.0,
+                "X": 0.1528,
+                "Y": 0.1528,
                 "FrameIndex": 480,
                 "EasingData": {
                   "Type": 0
@@ -12574,8 +12623,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -53.7948,
-                "Y": -53.7948,
+                "X": -53.642,
+                "Y": -53.642,
                 "FrameIndex": 490,
                 "EasingData": {
                   "Type": 0
@@ -12583,8 +12632,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -71.8293,
-                "Y": -71.8293,
+                "X": -71.6766,
+                "Y": -71.6766,
                 "FrameIndex": 500,
                 "EasingData": {
                   "Type": 0
@@ -12592,8 +12641,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": 0.0,
-                "Y": 0.0,
+                "X": 0.1528,
+                "Y": 0.1528,
                 "FrameIndex": 505,
                 "EasingData": {
                   "Type": 0
@@ -12601,8 +12650,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": 0.0,
-                "Y": 0.0,
+                "X": 0.1528,
+                "Y": 0.1528,
                 "FrameIndex": 570,
                 "EasingData": {
                   "Type": 0
@@ -12610,8 +12659,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -15.1096,
-                "Y": -15.1096,
+                "X": -14.9568,
+                "Y": -14.9568,
                 "FrameIndex": 575,
                 "EasingData": {
                   "Type": 0
@@ -12619,8 +12668,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -36.0462,
-                "Y": -36.0462,
+                "X": -35.8934,
+                "Y": -35.8934,
                 "FrameIndex": 655,
                 "EasingData": {
                   "Type": 0
@@ -12628,8 +12677,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -66.1229,
-                "Y": -66.1229,
+                "X": -65.9702,
+                "Y": -65.9702,
                 "FrameIndex": 660,
                 "EasingData": {
                   "Type": 0
@@ -12637,8 +12686,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -90.6228,
-                "Y": -90.6228,
+                "X": -90.4701,
+                "Y": -90.4701,
                 "FrameIndex": 665,
                 "EasingData": {
                   "Type": 0
@@ -12646,8 +12695,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -60.3095,
-                "Y": -60.3095,
+                "X": -60.1568,
+                "Y": -60.1568,
                 "FrameIndex": 670,
                 "EasingData": {
                   "Type": 0
@@ -12655,8 +12704,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -6.4262,
-                "Y": -6.4262,
+                "X": -6.2734,
+                "Y": -6.2734,
                 "FrameIndex": 675,
                 "EasingData": {
                   "Type": 0
@@ -12664,8 +12713,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -51.5754,
-                "Y": -51.5754,
+                "X": -51.4226,
+                "Y": -51.4226,
                 "FrameIndex": 680,
                 "EasingData": {
                   "Type": 0
@@ -12673,8 +12722,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -3.5757,
-                "Y": -3.5757,
+                "X": -3.4229,
+                "Y": -3.4229,
                 "FrameIndex": 685,
                 "EasingData": {
                   "Type": 0
@@ -12682,8 +12731,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -6.7468,
-                "Y": -6.7468,
+                "X": -6.594,
+                "Y": -6.594,
                 "FrameIndex": 690,
                 "EasingData": {
                   "Type": 0
@@ -12691,8 +12740,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -36.0462,
-                "Y": -36.0462,
+                "X": -35.8934,
+                "Y": -35.8934,
                 "FrameIndex": 695,
                 "EasingData": {
                   "Type": 0
@@ -14257,8 +14306,8 @@
           {
             "Length": 400.0,
             "Position": {
-              "X": 0.0089,
-              "Y": 256.6854
+              "X": 0.009,
+              "Y": 254.1604
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -14283,8 +14332,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 180.0,
-                "RotationSkewY": 180.0004,
+                "RotationSkewX": 157.7326,
+                "RotationSkewY": 157.733,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -14302,6 +14351,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
+                    "RotationSkewX": 30.3775,
+                    "RotationSkewY": 30.3775,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -14319,6 +14370,8 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
+                        "RotationSkewX": 11.9524,
+                        "RotationSkewY": 11.9524,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -14392,12 +14445,12 @@
                               "ScaleY": 0.5
                             },
                             "Position": {
-                              "X": 63.2256,
-                              "Y": -20.6182
+                              "X": 62.4951,
+                              "Y": -144.6754
                             },
                             "Scale": {
-                              "ScaleX": 0.2366,
-                              "ScaleY": 0.3629
+                              "ScaleX": 0.38,
+                              "ScaleY": 0.3766
                             },
                             "RotationSkewX": -149.5574,
                             "RotationSkewY": -150.068,
@@ -14411,16 +14464,17 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": 40.2256,
-                            "RightMargin": -86.2256,
-                            "TopMargin": -2.3818,
-                            "BottomMargin": -43.6182,
+                            "LeftMargin": 39.4951,
+                            "RightMargin": -85.4951,
+                            "TopMargin": 121.6754,
+                            "BottomMargin": -167.6754,
                             "Tag": 3511,
                             "ActionTag": 175133579,
                             "Size": {
                               "X": 46.0,
                               "Y": 46.0
                             },
+                            "VisibleForFrame": false,
                             "Name": "rattrap_21",
                             "ctype": "SpriteObjectData"
                           }
@@ -14609,8 +14663,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 180.1992,
-                "RotationSkewY": 540.1992,
+                "RotationSkewX": 199.4292,
+                "RotationSkewY": 559.429,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -14628,7 +14682,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewY": 360.0,
+                    "RotationSkewX": 24.3348,
+                    "RotationSkewY": 384.3348,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -14646,7 +14701,8 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewY": 720.0,
+                        "RotationSkewX": 6.4602,
+                        "RotationSkewY": 726.4603,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -14968,8 +15024,8 @@
                       {
                         "Length": 425.0,
                         "Position": {
-                          "X": 40.2756,
-                          "Y": 2.5808
+                          "X": 40.2757,
+                          "Y": 2.5809
                         },
                         "Scale": {
                           "ScaleX": 1.0,
@@ -15025,7 +15081,7 @@
                         "Length": 104.0,
                         "Position": {
                           "X": 168.0983,
-                          "Y": -70.2815
+                          "Y": -70.2814
                         },
                         "Scale": {
                           "ScaleX": 1.0,
@@ -15078,7 +15134,7 @@
                       {
                         "Length": 104.0,
                         "Position": {
-                          "X": 162.6862,
+                          "X": 162.6863,
                           "Y": 140.0013
                         },
                         "Scale": {
@@ -15289,8 +15345,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0102
                     },
-                    "RotationSkewX": 101.7699,
-                    "RotationSkewY": 101.7742,
+                    "RotationSkewX": 89.1649,
+                    "RotationSkewY": 89.1692,
                     "CColor": {
                       "R": 185,
                       "G": 155,
@@ -15388,8 +15444,8 @@
           {
             "Length": 139.0,
             "Position": {
-              "X": 0.0089,
-              "Y": 256.6854
+              "X": 0.009,
+              "Y": 254.1604
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -15407,14 +15463,15 @@
               {
                 "Length": 83.0,
                 "Position": {
-                  "X": 85.7754,
+                  "X": 70.6463,
                   "Y": -40.0274
                 },
                 "Scale": {
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewY": 360.0,
+                "RotationSkewX": 13.3923,
+                "RotationSkewY": 373.3923,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -15425,13 +15482,15 @@
                   {
                     "Length": 76.0,
                     "Position": {
-                      "X": 83.4111,
-                      "Y": -0.5689
+                      "X": 109.49,
+                      "Y": 1.2615
                     },
                     "Scale": {
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
+                    "RotationSkewX": 3.3061,
+                    "RotationSkewY": 3.3061,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -15449,8 +15508,8 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewX": 90.0,
-                        "RotationSkewY": 90.0,
+                        "RotationSkewX": 101.1968,
+                        "RotationSkewY": 101.1968,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -15632,14 +15691,15 @@
               {
                 "Length": 82.0,
                 "Position": {
-                  "X": 90.0858,
+                  "X": 90.09,
                   "Y": 39.671
                 },
                 "Scale": {
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewY": 360.0001,
+                "RotationSkewX": -17.8861,
+                "RotationSkewY": 342.1141,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -15650,13 +15710,15 @@
                   {
                     "Length": 72.0,
                     "Position": {
-                      "X": 83.98,
-                      "Y": 0.0
+                      "X": 118.6433,
+                      "Y": 8.784
                     },
                     "Scale": {
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
+                    "RotationSkewX": -35.8934,
+                    "RotationSkewY": -35.8934,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -15667,15 +15729,15 @@
                       {
                         "Length": 83.0,
                         "Position": {
-                          "X": 72.2514,
+                          "X": 72.25,
                           "Y": 0.0003
                         },
                         "Scale": {
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewX": 90.0,
-                        "RotationSkewY": 90.0,
+                        "RotationSkewX": 123.9536,
+                        "RotationSkewY": 123.9536,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,

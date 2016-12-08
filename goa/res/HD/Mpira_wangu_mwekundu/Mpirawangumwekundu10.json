@@ -5,10 +5,89 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 190,
+        "Duration": 320,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "bounce",
         "Timelines": [
+          {
+            "ActionTag": 1411825638,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 195,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 153,
+                  "G": 152,
+                  "B": 181
+                },
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1254617748,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 222.9929,
+                "Y": 567.6116,
+                "FrameIndex": 195,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1112.9744,
+                "Y": 1502.4054,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1254617748,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -60.3623,
+                "Y": -60.3674,
+                "FrameIndex": 195,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 20.8663,
+                "Y": 20.8597,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": -299368088,
             "Property": "ActionValue",
@@ -18,6 +97,14 @@
                 "CurrentAniamtionName": "bounce",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "bounce",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 195,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -32,6 +119,24 @@
                 "X": 1953.4448,
                 "Y": 1117.2698,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1928.7271,
+                "Y": 1108.4874,
+                "FrameIndex": 195,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1968.4655,
+                "Y": 2034.7196,
+                "FrameIndex": 230,
                 "EasingData": {
                   "Type": 0
                 },
@@ -52,6 +157,25 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -299368088,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 230,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 231,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -112,6 +236,12 @@
           "EndIndex": 190,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 195,
+          "EndIndex": 320,
+          "Name": "bounce",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -135,7 +265,8 @@
               "G": 167
             },
             "ColorVector": {
-              "ScaleY": 1.0
+              "ScaleX": 0.0523,
+              "ScaleY": -0.9986
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
@@ -173,6 +304,53 @@
             },
             "Name": "Panel_1_0",
             "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mpira_wangu_mwekundu/Mpirawangumwekundu_moon.png",
+              "Plist": "Mpira_wangu_mwekundu/Mpira_wangu_mwekundu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 222.9929,
+              "Y": 567.6116
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -60.3623,
+            "RotationSkewY": -60.3674,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0871,
+              "Y": 0.3153
+            },
+            "PreSize": {
+              "X": 0.1742,
+              "Y": 0.2594
+            },
+            "LeftMargin": -0.0071,
+            "RightMargin": 2114.0071,
+            "TopMargin": 998.8884,
+            "BottomMargin": 334.1116,
+            "Tag": 4512,
+            "ActionTag": -1254617748,
+            "Size": {
+              "X": 446.0,
+              "Y": 467.0
+            },
+            "Name": "moon",
+            "ctype": "SpriteObjectData"
           },
           {
             "ClipAble": false,
@@ -391,13 +569,14 @@
             "RightMargin": 1860.0002,
             "TopMargin": 1085.5283,
             "BottomMargin": 25.4717,
+            "UserData": "main.bounce",
             "Tag": 431,
             "ActionTag": -1040048901,
             "Size": {
               "X": 810.0,
               "Y": 689.0
             },
-            "Name": "MbwanaMamba_tree1_1",
+            "Name": "tree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -436,13 +615,14 @@
             "RightMargin": 1160.001,
             "TopMargin": 1125.5288,
             "BottomMargin": -14.5288,
+            "UserData": "main.bounce",
             "Tag": 432,
             "ActionTag": 506153344,
             "Size": {
               "X": 810.0,
               "Y": 689.0
             },
-            "Name": "MbwanaMamba_tree1_1_0",
+            "Name": "tree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -477,13 +657,14 @@
             "RightMargin": 606.5552,
             "TopMargin": 682.7302,
             "BottomMargin": 1117.2698,
+            "UserData": "drag;bounce",
             "Tag": 1336,
             "ActionTag": -299368088,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "ball",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -522,13 +703,14 @@
             "RightMargin": -263.9944,
             "TopMargin": 525.5072,
             "BottomMargin": 585.4928,
+            "UserData": "main.bounce",
             "Tag": 433,
             "ActionTag": -1672732805,
             "Size": {
               "X": 810.0,
               "Y": 689.0
             },
-            "Name": "MbwanaMamba_tree1_3",
+            "Name": "tree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -571,13 +753,14 @@
             "RightMargin": 446.0032,
             "TopMargin": 370.5193,
             "BottomMargin": 740.4807,
+            "UserData": "main.bounce",
             "Tag": 434,
             "ActionTag": -2133346736,
             "Size": {
               "X": 810.0,
               "Y": 689.0
             },
-            "Name": "MbwanaMamba_tree1_3_0",
+            "Name": "tree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -609,16 +792,17 @@
               "Y": 0.0
             },
             "LeftMargin": 754.5323,
-            "RightMargin": 1805.4677,
+            "RightMargin": 1805.4678,
             "TopMargin": 1157.0454,
             "BottomMargin": 642.9545,
+            "UserData": "drag;dizzy",
             "Tag": 1200,
             "ActionTag": 102586924,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "girl",
             "ctype": "ProjectNodeObjectData"
           }
         ],

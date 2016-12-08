@@ -5,10 +5,50 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 265,
+        "Duration": 475,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "jackal",
         "Timelines": [
+          {
+            "ActionTag": -1744140035,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 270,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1744140035,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2966.8696,
+                "Y": 870.0865,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -177.22,
+                "Y": 892.121,
+                "FrameIndex": 475,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 1174041155,
             "Property": "ActionValue",
@@ -89,6 +129,12 @@
           "EndIndex": 265,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 270,
+          "EndIndex": 475,
+          "Name": "jackal",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -112,7 +158,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -164,7 +209,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -199,6 +243,47 @@
             },
             "Name": "Panel_1_0",
             "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtoto_aliyeleta_amani/jackal1.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2522.0959,
+              "Y": 873.2036
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.9852,
+              "Y": 0.4851
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2522.0959,
+            "RightMargin": 37.9041,
+            "TopMargin": 926.7964,
+            "BottomMargin": 873.2036,
+            "Tag": 2044,
+            "ActionTag": -1744140035,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "jackal",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FlipX": true,
@@ -237,6 +322,7 @@
             "RightMargin": 2200.0071,
             "TopMargin": -932.3232,
             "BottomMargin": 2043.3232,
+            "UserData": "main.jackal",
             "Tag": 828,
             "ActionTag": -78646182,
             "Size": {
@@ -287,6 +373,7 @@
             "RightMargin": 285.0178,
             "TopMargin": -471.5049,
             "BottomMargin": 1027.5049,
+            "UserData": "main.jackal",
             "Tag": 827,
             "ActionTag": 1221422950,
             "Size": {
@@ -334,7 +421,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "girl",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -369,13 +456,14 @@
             "RightMargin": 1280.7288,
             "TopMargin": 1396.2277,
             "BottomMargin": 403.7723,
+            "UserData": "drag;run",
             "Tag": 783,
             "ActionTag": 109348880,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "boy",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -389,8 +477,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 2836.2456,
-              "Y": -20.8002
+              "X": 1964.0233,
+              "Y": 293.0413
             },
             "Scale": {
               "ScaleX": 0.8,
@@ -399,24 +487,25 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 1.1079,
-              "Y": -0.0116
+              "X": 0.7672,
+              "Y": 0.1628
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 2836.2456,
-            "RightMargin": -276.2456,
-            "TopMargin": 1820.8002,
-            "BottomMargin": -20.8002,
+            "LeftMargin": 1964.0233,
+            "RightMargin": 595.9767,
+            "TopMargin": 1506.9587,
+            "BottomMargin": 293.0413,
+            "UserData": "drag;run",
             "Tag": 831,
             "ActionTag": 452670318,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_3",
+            "Name": "man",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -430,6 +519,7 @@
       "UsedResources": [
         "baby.json",
         "girl.json",
+        "jackal1.json",
         "man.json",
         "Mtoto_aliyeleta_amani.plist",
         "Mtoto_aliyeleta_amani.png"

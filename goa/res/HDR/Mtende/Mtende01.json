@@ -5,10 +5,66 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 345,
+        "Duration": 560,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "jackal",
         "Timelines": [
+          {
+            "ActionTag": -1982469834,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 350,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 520,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 560,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1982469834,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -438.4387,
+                "Y": 420.5002,
+                "FrameIndex": 350,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2068.9385,
+                "Y": 332.0966,
+                "FrameIndex": 520,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": -1941455954,
             "Property": "ActionValue",
@@ -97,6 +153,12 @@
           "StartIndex": 0,
           "EndIndex": 345,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 350,
+          "EndIndex": 560,
+          "Name": "jackal",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -249,7 +311,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -294,7 +356,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_0",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -339,7 +401,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_1",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -384,7 +446,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_2",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -429,7 +491,7 @@
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_3",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -479,7 +541,7 @@
               "Y": 1578.0
             },
             "Alpha": 68,
-            "Name": "Mtende_palmtree_6_0",
+            "Name": "palmtree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -524,8 +586,49 @@
               "X": 1061.0,
               "Y": 1578.0
             },
-            "Name": "Mtende_palmtree_6",
+            "Name": "palmtree",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtende/jackal1.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -438.4387,
+              "Y": 420.5002
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.1713,
+              "Y": 0.2336
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -438.4387,
+            "RightMargin": 2998.4387,
+            "TopMargin": 1379.4998,
+            "BottomMargin": 420.5002,
+            "Tag": 255,
+            "ActionTag": -1982469834,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "jackal",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -569,7 +672,7 @@
               "X": 1061.0,
               "Y": 1578.0
             },
-            "Name": "Mtende_palmtree_6_1",
+            "Name": "palmtree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -583,8 +686,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 156.7565,
-              "Y": -70.4743
+              "X": 677.9138,
+              "Y": -56.8315
             },
             "Scale": {
               "ScaleX": -1.0,
@@ -593,24 +696,24 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.0612,
-              "Y": -0.0392
+              "X": 0.2648,
+              "Y": -0.0316
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 156.7565,
-            "RightMargin": 2403.2434,
-            "TopMargin": 1870.4744,
-            "BottomMargin": -70.4743,
+            "LeftMargin": 677.9138,
+            "RightMargin": 1882.0862,
+            "TopMargin": 1856.8315,
+            "BottomMargin": -56.8315,
             "Tag": 57,
             "ActionTag": -1941455954,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "man",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -623,6 +726,7 @@
       },
       "UsedResources": [
         "boy1.json",
+        "jackal1.json",
         "Mtende.plist",
         "Mtende.png"
       ],

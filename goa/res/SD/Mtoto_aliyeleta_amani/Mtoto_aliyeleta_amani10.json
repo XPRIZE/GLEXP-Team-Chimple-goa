@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 250,
+        "Duration": 500,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "turtle",
         "Timelines": [
           {
             "ActionTag": 1244465532,
@@ -357,15 +357,80 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 40305539,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 255,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 40305539,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 612.7318,
+                "Y": 105.4204,
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1525.4279,
+                "Y": 111.1647,
+                "FrameIndex": 500,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 40305539,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 250,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 255,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
       },
       "AnimationList": [
         {
-          "StartIndex": 161,
+          "StartIndex": 0,
           "EndIndex": 250,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 255,
+          "EndIndex": 500,
+          "Name": "turtle",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -390,7 +455,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -444,7 +508,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -469,7 +532,7 @@
             },
             "LeftMargin": -720.1519,
             "RightMargin": -719.8481,
-            "TopMargin": 1122.3719,
+            "TopMargin": 1122.3718,
             "BottomMargin": -1122.3719,
             "Tag": 2676,
             "ActionTag": 77657201,
@@ -608,13 +671,14 @@
             "RightMargin": 1254.6301,
             "TopMargin": 1761.3323,
             "BottomMargin": 38.6677,
+            "UserData": "drag;hop",
             "Tag": 2541,
             "ActionTag": -1119852041,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "boy",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -649,13 +713,14 @@
             "RightMargin": 1007.1396,
             "TopMargin": 1739.6694,
             "BottomMargin": 60.3306,
+            "UserData": "drag;walk",
             "Tag": 2585,
             "ActionTag": 1426243574,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_3",
+            "Name": "man",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -690,13 +755,56 @@
             "RightMargin": 1637.89,
             "TopMargin": 1655.53,
             "BottomMargin": 144.47,
+            "UserData": "drag;run",
             "Tag": 2630,
             "ActionTag": 1470441448,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "girl",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtoto_aliyeleta_amani/turtle.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 612.7318,
+              "Y": 105.4204
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.2393,
+              "Y": 0.0586
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 612.7318,
+            "RightMargin": 1947.2682,
+            "TopMargin": 1694.5796,
+            "BottomMargin": 105.4204,
+            "Tag": 5484,
+            "ActionTag": 40305539,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "VisibleForFrame": false,
+            "Name": "turtle",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -712,7 +820,8 @@
         "girl.json",
         "man.json",
         "Mtoto_aliyeleta_amani.plist",
-        "Mtoto_aliyeleta_amani.png"
+        "Mtoto_aliyeleta_amani.png",
+        "turtle.json"
       ],
       "ctype": "GameFileData"
     }

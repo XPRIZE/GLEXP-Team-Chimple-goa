@@ -5,9 +5,106 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 160,
+        "Duration": 320,
         "Speed": 1.0,
+        "ActivedAnimationName": "cloud",
         "Timelines": [
+          {
+            "ActionTag": -1818620357,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 165,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1818620357,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1534.6577,
+                "Y": 1909.5325,
+                "FrameIndex": 165,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1875.7529,
+                "Y": 1605.1226,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1818620357,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.377,
+                "Y": 1.377,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1866845231,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 165,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1866845231,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2862.8853,
+                "Y": 1639.8459,
+                "FrameIndex": 165,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2377.6304,
+                "Y": 1625.1418,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 1640319417,
             "Property": "Position",
@@ -74,7 +171,20 @@
         ],
         "ctype": "TimelineActionData"
       },
-      "AnimationList": [],
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 160,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 165,
+          "EndIndex": 320,
+          "Name": "cloud",
+          "ctype": "AnimationInfoData"
+        }
+      ],
       "ObjectData": {
         "Tag": 2678,
         "Children": [
@@ -96,7 +206,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -150,7 +259,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -175,7 +283,7 @@
             },
             "LeftMargin": -720.1519,
             "RightMargin": -719.8481,
-            "TopMargin": 1122.3719,
+            "TopMargin": 1122.3718,
             "BottomMargin": -1122.3719,
             "Tag": 2902,
             "ActionTag": -1633801685,
@@ -185,6 +293,88 @@
             },
             "Name": "Panel_1_0",
             "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtoto_aliyeleta_amani/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1534.6577,
+              "Y": 1909.5325
+            },
+            "Scale": {
+              "ScaleX": 1.377,
+              "ScaleY": 1.377
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5995,
+              "Y": 1.0609
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1534.6577,
+            "RightMargin": 1025.3423,
+            "TopMargin": -109.5325,
+            "BottomMargin": 1909.5325,
+            "Tag": 5976,
+            "ActionTag": -1818620357,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "cloud",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtoto_aliyeleta_amani/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2862.8853,
+              "Y": 1639.8459
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.1183,
+              "Y": 0.911
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2862.8853,
+            "RightMargin": -302.8853,
+            "TopMargin": 160.1541,
+            "BottomMargin": 1639.8459,
+            "Tag": 5968,
+            "ActionTag": 1866845231,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "cloud",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FlipX": true,
@@ -223,6 +413,7 @@
             "RightMargin": 2438.9329,
             "TopMargin": -761.147,
             "BottomMargin": 1872.147,
+            "UserData": "main.cloud",
             "Tag": 2901,
             "ActionTag": 472760388,
             "Size": {
@@ -273,6 +464,7 @@
             "RightMargin": 402.8318,
             "TopMargin": -235.7992,
             "BottomMargin": 791.7992,
+            "UserData": "main.cloud",
             "Tag": 2900,
             "ActionTag": 1877552749,
             "Size": {
@@ -311,16 +503,17 @@
               "Y": 0.0
             },
             "LeftMargin": 1016.3387,
-            "RightMargin": 1543.6613,
+            "RightMargin": 1543.6614,
             "TopMargin": 1758.3256,
             "BottomMargin": 41.6744,
+            "UserData": "drag;run",
             "Tag": 2767,
             "ActionTag": 1640319417,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "girl",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -355,13 +548,14 @@
             "RightMargin": 802.7996,
             "TopMargin": 1741.5402,
             "BottomMargin": 58.4598,
+            "UserData": "drag;run",
             "Tag": 2811,
             "ActionTag": -367043182,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_3",
+            "Name": "man",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -396,13 +590,14 @@
             "RightMargin": 1254.6301,
             "TopMargin": 1761.3323,
             "BottomMargin": 38.6677,
+            "UserData": "drag;run",
             "Tag": 2856,
             "ActionTag": 740196421,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "boy",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -415,6 +610,7 @@
       },
       "UsedResources": [
         "baby.json",
+        "cloud.json",
         "girl.json",
         "man.json",
         "Mtoto_aliyeleta_amani.plist",
