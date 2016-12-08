@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 205,
+        "Duration": 385,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "ball",
         "Timelines": [
           {
             "ActionTag": 699898777,
@@ -18,6 +18,14 @@
                 "CurrentAniamtionName": "bounce",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "bounce",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 210,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -32,6 +40,33 @@
                 "X": 1163.1018,
                 "Y": 1236.9407,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1163.1018,
+                "Y": 1236.9407,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1163.1018,
+                "Y": 1236.9407,
+                "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1203.7086,
+                "Y": 2300.6519,
+                "FrameIndex": 260,
                 "EasingData": {
                   "Type": 0
                 },
@@ -52,6 +87,148 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 699898777,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 260,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 261,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1046975331,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "bounce",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "bounce",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 261,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "bounce",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 330,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "bounce",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 385,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1046975331,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1163.1018,
+                "Y": 1236.9407,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1163.1018,
+                "Y": 1236.9407,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1203.7086,
+                "Y": 2300.6519,
+                "FrameIndex": 260,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1651.5983,
+                "Y": 247.5374,
+                "FrameIndex": 330,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1046975331,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.7351,
+                "Y": 0.7351,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1046975331,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 260,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 261,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 330,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -121,6 +298,12 @@
           "EndIndex": 205,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 210,
+          "EndIndex": 385,
+          "Name": "ball",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -172,7 +355,7 @@
             },
             "LeftMargin": -905.2131,
             "RightMargin": -534.7869,
-            "TopMargin": 173.4637,
+            "TopMargin": 173.4636,
             "BottomMargin": -173.4637,
             "Tag": 1189,
             "ActionTag": -1748711976,
@@ -456,13 +639,14 @@
             "RightMargin": 1832.0432,
             "TopMargin": -267.095,
             "BottomMargin": 514.095,
+            "UserData": "main.ball",
             "Tag": 1183,
             "ActionTag": -1903547141,
             "Size": {
               "X": 1460.0,
               "Y": 1553.0
             },
-            "Name": "MbwanaMamba_hut_1_0",
+            "Name": "hut",
             "ctype": "SpriteObjectData"
           },
           {
@@ -507,7 +691,7 @@
               "X": 1460.0,
               "Y": 1553.0
             },
-            "Name": "MbwanaMamba_hut_1_1",
+            "Name": "hut",
             "ctype": "SpriteObjectData"
           },
           {
@@ -542,13 +726,14 @@
             "RightMargin": 1396.8982,
             "TopMargin": 563.0593,
             "BottomMargin": 1236.9407,
+            "UserData": "drag;bounce",
             "Tag": 1179,
             "ActionTag": 699898777,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "ball",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -587,14 +772,57 @@
             "RightMargin": 147.6233,
             "TopMargin": 153.3367,
             "BottomMargin": 93.6633,
+            "UserData": "main.ball",
             "Tag": 1182,
             "ActionTag": -349204071,
             "Size": {
               "X": 1460.0,
               "Y": 1553.0
             },
-            "Name": "MbwanaMamba_hut_1",
+            "Name": "hut",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mpira_wangu_mwekundu/ball.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1163.1018,
+              "Y": 1236.9407
+            },
+            "Scale": {
+              "ScaleX": 0.7351,
+              "ScaleY": 0.7351
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.4543,
+              "Y": 0.6872
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1163.1018,
+            "RightMargin": 1396.8982,
+            "TopMargin": 563.0593,
+            "BottomMargin": 1236.9407,
+            "Tag": 4450,
+            "ActionTag": -1046975331,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "VisibleForFrame": false,
+            "Name": "ball_0",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -628,13 +856,14 @@
             "RightMargin": 753.6682,
             "TopMargin": 2213.8047,
             "BottomMargin": -413.8046,
+            "UserData": "drag;hop",
             "Tag": 1133,
             "ActionTag": -264659355,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "girl",
             "ctype": "ProjectNodeObjectData"
           }
         ],

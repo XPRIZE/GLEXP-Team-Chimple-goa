@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 304,
+        "Duration": 470,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "cloud",
         "Timelines": [
           {
             "ActionTag": -117069980,
@@ -32,9 +32,9 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 1274.4779,
+                "X": 1280.0,
                 "Y": 921.3657,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -50,7 +50,7 @@
               {
                 "X": 1.1222,
                 "Y": 1.1222,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -82,9 +82,9 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 1367.7804,
+                "X": 1280.0,
                 "Y": 77.0701,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -100,7 +100,7 @@
               {
                 "X": 1.1222,
                 "Y": 0.5754,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -116,11 +116,99 @@
               {
                 "X": 0.8145,
                 "Y": 0.9524,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1620170973,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 310,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 470,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1620170973,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -487.9219,
+                "Y": 1410.842,
+                "FrameIndex": 310,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 387.1926,
+                "Y": 1641.5959,
+                "FrameIndex": 415,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1307531018,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 310,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1307531018,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 3059.0,
+                "Y": 1499.9998,
+                "FrameIndex": 310,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2049.8486,
+                "Y": 1566.8323,
+                "FrameIndex": 415,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -150,7 +238,7 @@
               {
                 "X": 81.3761,
                 "Y": 745.2801,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -166,7 +254,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -200,7 +288,7 @@
               {
                 "X": -26.2814,
                 "Y": 759.6321,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -216,7 +304,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -250,7 +338,7 @@
               {
                 "X": -133.9459,
                 "Y": 745.2766,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -266,7 +354,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -300,7 +388,7 @@
               {
                 "X": -255.96,
                 "Y": 745.2751,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -316,7 +404,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -350,7 +438,7 @@
               {
                 "X": -370.7971,
                 "Y": 752.4516,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -366,7 +454,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -400,7 +488,7 @@
               {
                 "X": 2492.9121,
                 "Y": 795.52,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -416,7 +504,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -450,7 +538,7 @@
               {
                 "X": 2385.2534,
                 "Y": 809.8729,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -466,7 +554,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -500,7 +588,7 @@
               {
                 "X": 2277.5942,
                 "Y": 795.5169,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -516,7 +604,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -550,7 +638,7 @@
               {
                 "X": 2155.5752,
                 "Y": 795.5157,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -566,7 +654,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -600,7 +688,7 @@
               {
                 "X": 2040.7418,
                 "Y": 802.6915,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -616,7 +704,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -650,7 +738,7 @@
               {
                 "X": 1933.087,
                 "Y": 759.6332,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -666,7 +754,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -700,7 +788,7 @@
               {
                 "X": 1825.4305,
                 "Y": 773.9863,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -716,7 +804,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -750,7 +838,7 @@
               {
                 "X": 1717.7655,
                 "Y": 759.6303,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -766,7 +854,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -800,7 +888,7 @@
               {
                 "X": 1595.7506,
                 "Y": 759.6285,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -816,7 +904,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -850,7 +938,7 @@
               {
                 "X": 1480.9147,
                 "Y": 766.8052,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -866,7 +954,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -900,7 +988,7 @@
               {
                 "X": 2665.1616,
                 "Y": 788.3419,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -916,7 +1004,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -950,7 +1038,7 @@
               {
                 "X": 2557.5024,
                 "Y": 802.6939,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -966,7 +1054,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1000,7 +1088,7 @@
               {
                 "X": 2449.8374,
                 "Y": 788.3387,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1016,7 +1104,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1050,7 +1138,7 @@
               {
                 "X": 2327.8271,
                 "Y": 788.3381,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1066,7 +1154,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1100,7 +1188,7 @@
               {
                 "X": 2212.9868,
                 "Y": 795.5141,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1116,7 +1204,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1150,7 +1238,7 @@
               {
                 "X": 1519.3402,
                 "Y": 756.5023,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1166,7 +1254,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1200,7 +1288,7 @@
               {
                 "X": 1411.682,
                 "Y": 763.6782,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1216,7 +1304,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1250,7 +1338,7 @@
               {
                 "X": 2079.1611,
                 "Y": 778.0311,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1266,7 +1354,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1300,7 +1388,7 @@
               {
                 "X": 1971.5013,
                 "Y": 792.3846,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1316,7 +1404,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1350,7 +1438,7 @@
               {
                 "X": 1863.8419,
                 "Y": 778.0286,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1366,7 +1454,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1400,7 +1488,7 @@
               {
                 "X": 1741.8268,
                 "Y": 778.0273,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1416,7 +1504,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1450,7 +1538,7 @@
               {
                 "X": 1626.9928,
                 "Y": 785.2038,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1466,7 +1554,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1500,7 +1588,7 @@
               {
                 "X": -30.9431,
                 "Y": 770.8488,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1516,7 +1604,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1550,7 +1638,7 @@
               {
                 "X": -113.9377,
                 "Y": 782.071,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1566,7 +1654,7 @@
               {
                 "X": 0.7749,
                 "Y": 0.7749,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1600,7 +1688,7 @@
               {
                 "X": -83.0887,
                 "Y": 731.8311,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1634,7 +1722,7 @@
               {
                 "X": 1.1222,
                 "Y": 1.1222,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1668,7 +1756,7 @@
               {
                 "X": 2533.4604,
                 "Y": 684.7221,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1702,7 +1790,7 @@
               {
                 "X": 1.1222,
                 "Y": 1.1222,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1736,7 +1824,7 @@
               {
                 "X": 835.7062,
                 "Y": 727.7911,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1770,7 +1858,7 @@
               {
                 "X": 1.1222,
                 "Y": 1.1222,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1804,7 +1892,7 @@
               {
                 "X": 208.0602,
                 "Y": 569.8919,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1838,7 +1926,7 @@
               {
                 "X": 1.1222,
                 "Y": 1.1222,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1872,7 +1960,7 @@
               {
                 "X": 1704.1503,
                 "Y": 605.7812,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1906,7 +1994,7 @@
               {
                 "X": 1.1222,
                 "Y": 1.1222,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1940,7 +2028,7 @@
               {
                 "X": 756.6459,
                 "Y": 868.1972,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1974,7 +2062,7 @@
               {
                 "X": 1.1222,
                 "Y": 1.1222,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -2048,7 +2136,7 @@
               {
                 "X": 2119.8242,
                 "Y": -451.8249,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -2082,7 +2170,7 @@
               {
                 "X": 1.1222,
                 "Y": 1.1222,
-                "FrameIndex": 304,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -2097,8 +2185,14 @@
       "AnimationList": [
         {
           "StartIndex": 0,
-          "EndIndex": 304,
+          "EndIndex": 305,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 310,
+          "EndIndex": 470,
+          "Name": "cloud",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -2215,6 +2309,94 @@
           },
           {
             "FileData": {
+              "Type": "Normal",
+              "Path": "Mtende/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -487.9219,
+              "Y": 1410.842
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 218,
+              "G": 225
+            },
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.1906,
+              "Y": 0.7838
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -487.9219,
+            "RightMargin": 3047.9219,
+            "TopMargin": 389.158,
+            "BottomMargin": 1410.842,
+            "Tag": 671,
+            "ActionTag": 1620170973,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "cloud",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtende/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 3059.0,
+              "Y": 1499.9998
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 218,
+              "G": 225
+            },
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.1949,
+              "Y": 0.8333
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 3059.0,
+            "RightMargin": -499.0,
+            "TopMargin": 300.0002,
+            "BottomMargin": 1499.9998,
+            "Tag": 663,
+            "ActionTag": -1307531018,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "cloud",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
               "Type": "MarkedSubImage",
               "Path": "Mtende/Menoainagani_grass.png",
               "Plist": "Mtende/Mtende.plist"
@@ -2249,13 +2431,14 @@
             "RightMargin": 2281.1475,
             "TopMargin": 615.407,
             "BottomMargin": 301.5931,
+            "UserData": "main.cloud",
             "Tag": 545,
             "ActionTag": 1827240786,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_5_3",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2294,13 +2477,14 @@
             "RightMargin": 2377.0781,
             "TopMargin": 602.6179,
             "BottomMargin": 314.382,
+            "UserData": "main.cloud",
             "Tag": 544,
             "ActionTag": 805568419,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_4_3",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2339,13 +2523,14 @@
             "RightMargin": 2473.0156,
             "TopMargin": 615.4099,
             "BottomMargin": 301.59,
+            "UserData": "main.cloud",
             "Tag": 543,
             "ActionTag": 1436923318,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_3_3",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2381,16 +2566,17 @@
               "Y": 0.4906
             },
             "LeftMargin": -145.7401,
-            "RightMargin": 2581.7402,
+            "RightMargin": 2581.74,
             "TopMargin": 615.4111,
             "BottomMargin": 301.5888,
+            "UserData": "main.cloud",
             "Tag": 542,
             "ActionTag": -1183992115,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_2_3",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2429,13 +2615,14 @@
             "RightMargin": 2684.0674,
             "TopMargin": 609.0164,
             "BottomMargin": 307.9837,
+            "UserData": "main.cloud",
             "Tag": 541,
             "ActionTag": -1450140387,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_1_3",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2472,15 +2659,16 @@
             },
             "LeftMargin": 2303.7124,
             "RightMargin": 132.2876,
-            "TopMargin": 570.6394,
+            "TopMargin": 570.6395,
             "BottomMargin": 346.3605,
+            "UserData": "main.cloud",
             "Tag": 540,
             "ActionTag": -863453152,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_5_2",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2519,13 +2707,14 @@
             "RightMargin": 228.2183,
             "TopMargin": 557.8499,
             "BottomMargin": 359.1501,
+            "UserData": "main.cloud",
             "Tag": 539,
             "ActionTag": 2018876536,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_4_2",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2564,13 +2753,14 @@
             "RightMargin": 324.1533,
             "TopMargin": 570.6426,
             "BottomMargin": 346.3575,
+            "UserData": "main.cloud",
             "Tag": 538,
             "ActionTag": 1442313629,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_3_2",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2609,13 +2799,14 @@
             "RightMargin": 432.8784,
             "TopMargin": 570.6436,
             "BottomMargin": 346.3565,
+            "UserData": "main.cloud",
             "Tag": 537,
             "ActionTag": 1140993377,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_2_2",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2654,13 +2845,14 @@
             "RightMargin": 535.204,
             "TopMargin": 564.2488,
             "BottomMargin": 352.7512,
+            "UserData": "main.cloud",
             "Tag": 536,
             "ActionTag": -725330049,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_1_2",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2700,13 +2892,14 @@
             "RightMargin": 631.1329,
             "TopMargin": 602.6174,
             "BottomMargin": 314.3826,
+            "UserData": "main.cloud",
             "Tag": 535,
             "ActionTag": 1125153536,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_5_1",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2746,13 +2939,14 @@
             "RightMargin": 727.0619,
             "TopMargin": 589.8276,
             "BottomMargin": 327.1723,
+            "UserData": "main.cloud",
             "Tag": 534,
             "ActionTag": -1710964689,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_4_1",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2792,13 +2986,14 @@
             "RightMargin": 822.9989,
             "TopMargin": 602.6201,
             "BottomMargin": 314.3799,
+            "UserData": "main.cloud",
             "Tag": 533,
             "ActionTag": -1145288276,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_3_1",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2838,13 +3033,14 @@
             "RightMargin": 931.725,
             "TopMargin": 602.6213,
             "BottomMargin": 314.3787,
+            "UserData": "main.cloud",
             "Tag": 532,
             "ActionTag": -888516504,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_2_1",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2884,13 +3080,14 @@
             "RightMargin": 1034.0504,
             "TopMargin": 596.2266,
             "BottomMargin": 320.7734,
+            "UserData": "main.cloud",
             "Tag": 531,
             "ActionTag": -1303415977,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_1_1",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2929,13 +3126,14 @@
             "RightMargin": -21.1987,
             "TopMargin": 577.0356,
             "BottomMargin": 339.9643,
+            "UserData": "main.cloud",
             "Tag": 530,
             "ActionTag": 1690943567,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_5_0",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2974,13 +3172,14 @@
             "RightMargin": 74.7339,
             "TopMargin": 564.2471,
             "BottomMargin": 352.753,
+            "UserData": "main.cloud",
             "Tag": 529,
             "ActionTag": -935041281,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_4_0",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3019,13 +3218,14 @@
             "RightMargin": 170.6694,
             "TopMargin": 577.0391,
             "BottomMargin": 339.961,
+            "UserData": "main.cloud",
             "Tag": 528,
             "ActionTag": 1071833660,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_3_0",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3064,13 +3264,14 @@
             "RightMargin": 279.3921,
             "TopMargin": 577.0396,
             "BottomMargin": 339.9604,
+            "UserData": "main.cloud",
             "Tag": 527,
             "ActionTag": -829854535,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_2_0",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3109,13 +3310,14 @@
             "RightMargin": 381.7212,
             "TopMargin": 570.645,
             "BottomMargin": 346.355,
+            "UserData": "main.cloud",
             "Tag": 526,
             "ActionTag": -1133368052,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_1_0",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3154,13 +3356,14 @@
             "RightMargin": 999.8116,
             "TopMargin": 605.4075,
             "BottomMargin": 311.5925,
+            "UserData": "main.cloud",
             "Tag": 525,
             "ActionTag": 907897303,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_7",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3199,13 +3402,14 @@
             "RightMargin": 1095.7435,
             "TopMargin": 599.0129,
             "BottomMargin": 317.9871,
+            "UserData": "main.cloud",
             "Tag": 524,
             "ActionTag": -1231090536,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_6",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3244,13 +3448,14 @@
             "RightMargin": 500.9683,
             "TopMargin": 586.2224,
             "BottomMargin": 330.7776,
+            "UserData": "main.cloud",
             "Tag": 523,
             "ActionTag": -1037342369,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_5",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3289,13 +3494,14 @@
             "RightMargin": 596.9008,
             "TopMargin": 573.4333,
             "BottomMargin": 343.5666,
+            "UserData": "main.cloud",
             "Tag": 522,
             "ActionTag": 814991296,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_4",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3334,13 +3540,14 @@
             "RightMargin": 692.8358,
             "TopMargin": 586.2258,
             "BottomMargin": 330.7742,
+            "UserData": "main.cloud",
             "Tag": 521,
             "ActionTag": -96146601,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_3",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3379,13 +3586,14 @@
             "RightMargin": 801.5602,
             "TopMargin": 586.2266,
             "BottomMargin": 330.7734,
+            "UserData": "main.cloud",
             "Tag": 520,
             "ActionTag": -144025975,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_2",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3424,13 +3632,14 @@
             "RightMargin": 903.8868,
             "TopMargin": 579.832,
             "BottomMargin": 337.168,
+            "UserData": "main.cloud",
             "Tag": 519,
             "ActionTag": 1220421280,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_1",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3466,16 +3675,17 @@
               "Y": 0.4906
             },
             "LeftMargin": 54.7682,
-            "RightMargin": 2381.2319,
+            "RightMargin": 2381.2317,
             "TopMargin": 592.6238,
             "BottomMargin": 324.3763,
+            "UserData": "main.cloud",
             "Tag": 518,
             "ActionTag": -2071064496,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8_0",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3514,13 +3724,14 @@
             "RightMargin": 2455.1865,
             "TopMargin": 582.6238,
             "BottomMargin": 334.3763,
+            "UserData": "main.cloud",
             "Tag": 517,
             "ActionTag": 1979814986,
             "Size": {
               "X": 124.0,
               "Y": 883.0
             },
-            "Name": "Menoainagani_grass_8",
+            "Name": "grass",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3559,13 +3770,14 @@
             "RightMargin": 1997.1976,
             "TopMargin": 841.8914,
             "BottomMargin": 504.1086,
+            "UserData": "main.cloud",
             "Tag": 510,
             "ActionTag": -1501439390,
             "Size": {
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3604,13 +3816,14 @@
             "RightMargin": -334.3462,
             "TopMargin": 883.8679,
             "BottomMargin": 462.1321,
+            "UserData": "main.cloud",
             "Tag": 512,
             "ActionTag": -1578680371,
             "Size": {
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_0",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3649,13 +3862,14 @@
             "RightMargin": 1178.4823,
             "TopMargin": 845.4901,
             "BottomMargin": 500.5099,
+            "UserData": "main.cloud",
             "Tag": 513,
             "ActionTag": -1409028528,
             "Size": {
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_1",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3694,13 +3908,14 @@
             "RightMargin": 1737.7626,
             "TopMargin": 986.1909,
             "BottomMargin": 359.8091,
+            "UserData": "main.cloud",
             "Tag": 514,
             "ActionTag": 1419524226,
             "Size": {
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_2",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3739,13 +3954,14 @@
             "RightMargin": 404.6333,
             "TopMargin": 954.2111,
             "BottomMargin": 391.7889,
+            "UserData": "main.cloud",
             "Tag": 515,
             "ActionTag": -2055567961,
             "Size": {
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_3",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3781,16 +3997,17 @@
               "Y": 0.8628
             },
             "LeftMargin": 88.5673,
-            "RightMargin": 1011.4327,
+            "RightMargin": 1011.4326,
             "TopMargin": 170.8774,
             "BottomMargin": 76.1225,
+            "UserData": "main.cloud",
             "Tag": 516,
             "ActionTag": 842626267,
             "Size": {
               "X": 1460.0,
               "Y": 1553.0
             },
-            "Name": "MbwanaMamba_hut_7",
+            "Name": "hut",
             "ctype": "SpriteObjectData"
           },
           {
@@ -3825,13 +4042,14 @@
             "RightMargin": -237.3523,
             "TopMargin": 2128.0889,
             "BottomMargin": -328.0888,
+            "UserData": "drag;run",
             "Tag": 197,
             "ActionTag": 1072624223,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_3",
+            "Name": "boy",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -3844,6 +4062,7 @@
       },
       "UsedResources": [
         "boy1.json",
+        "cloud.json",
         "Mtende.plist",
         "Mtende.png"
       ],

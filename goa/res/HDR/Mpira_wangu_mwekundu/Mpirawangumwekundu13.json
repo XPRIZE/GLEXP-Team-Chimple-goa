@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 200,
+        "Duration": 370,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "girl",
         "Timelines": [
           {
             "ActionTag": 1903145306,
@@ -90,6 +90,97 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1874420737,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "hi",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 290,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "hi",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 370,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1874420737,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -383.219,
+                "Y": -306.0697,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 734.6659,
+                "Y": -293.4379,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1874420737,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1874420737,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 204,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -99,6 +190,12 @@
           "StartIndex": 0,
           "EndIndex": 200,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 205,
+          "EndIndex": 370,
+          "Name": "girl",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -123,7 +220,8 @@
               "G": 167
             },
             "ColorVector": {
-              "ScaleY": 1.0
+              "ScaleX": 0.0523,
+              "ScaleY": -0.9986
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
@@ -139,7 +237,11 @@
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "CColor": {},
+            "CColor": {
+              "R": 149,
+              "G": 151,
+              "B": 194
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.5,
@@ -318,13 +420,14 @@
             "RightMargin": 367.0002,
             "TopMargin": -68.0911,
             "BottomMargin": 1401.0911,
+            "UserData": "main.girl",
             "Tag": 1961,
             "ActionTag": 216303586,
             "Size": {
               "X": 446.0,
               "Y": 467.0
             },
-            "Name": "Mpirawangumwekundu_moon_4",
+            "Name": "moon",
             "ctype": "SpriteObjectData"
           },
           {
@@ -363,13 +466,14 @@
             "RightMargin": -169.9949,
             "TopMargin": 258.8357,
             "BottomMargin": -11.8357,
+            "UserData": "main.girl",
             "Tag": 1967,
             "ActionTag": -226734652,
             "Size": {
               "X": 1460.0,
               "Y": 1553.0
             },
-            "Name": "MbwanaMamba_hut_1_0_0",
+            "Name": "hut",
             "ctype": "SpriteObjectData"
           },
           {
@@ -383,8 +487,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1981.2729,
-              "Y": 674.7889
+              "X": 888.2073,
+              "Y": 1543.2932
             },
             "Scale": {
               "ScaleX": 0.5194,
@@ -393,24 +497,25 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.7739,
-              "Y": 0.3749
+              "X": 0.347,
+              "Y": 0.8574
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1981.2729,
-            "RightMargin": 578.7271,
-            "TopMargin": 1125.2112,
-            "BottomMargin": 674.7889,
+            "LeftMargin": 888.2073,
+            "RightMargin": 1671.7927,
+            "TopMargin": 256.7068,
+            "BottomMargin": 1543.2932,
+            "UserData": "drag;bounce",
             "Tag": 1964,
             "ActionTag": 1903145306,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "ball",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -449,13 +554,14 @@
             "RightMargin": -479.9973,
             "TopMargin": 678.8209,
             "BottomMargin": -431.8209,
+            "UserData": "main.girl",
             "Tag": 1963,
             "ActionTag": -422365311,
             "Size": {
               "X": 1460.0,
               "Y": 1553.0
             },
-            "Name": "MbwanaMamba_hut_1",
+            "Name": "hut",
             "ctype": "SpriteObjectData"
           },
           {
@@ -494,14 +600,56 @@
             "RightMargin": 1460.0024,
             "TopMargin": 328.832,
             "BottomMargin": -81.832,
+            "UserData": "main.girl",
             "Tag": 1962,
             "ActionTag": -891245753,
             "Size": {
               "X": 1460.0,
               "Y": 1553.0
             },
-            "Name": "MbwanaMamba_hut_1_0",
+            "Name": "hut",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mpira_wangu_mwekundu/boy.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 734.6659,
+              "Y": -293.4379
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.287,
+              "Y": -0.163
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 734.6659,
+            "RightMargin": 1825.3341,
+            "TopMargin": 2093.438,
+            "BottomMargin": -293.4379,
+            "Tag": 4961,
+            "ActionTag": -1874420737,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_1",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -513,6 +661,7 @@
       },
       "UsedResources": [
         "ball.json",
+        "boy.json",
         "Mpira_wangu_mwekundu.plist",
         "Mpira_wangu_mwekundu.png"
       ],

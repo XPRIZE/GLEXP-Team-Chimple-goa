@@ -14,6 +14,7 @@
 
 USING_NS_CC;
 
+cocos2d::Layer* DecomonGallery::_decomonLayer;
 
 //DecomonGallery * DecomonGallery::create()
 //{
@@ -29,11 +30,13 @@ cocos2d::Scene * DecomonGallery::createScene()
 {
 	
 	auto scene = cocos2d::Scene::create();
+	DecomonGallery::_decomonLayer = cocos2d::Layer::create();
 	auto layer = DecomonGallery::create();
 	layer->setName("decomonGallery");
 	scene->addChild(layer);
 	layer->menu = MenuContext::create(layer, "decomon");
 	scene->addChild(layer->menu);
+	scene->addChild(DecomonGallery::_decomonLayer,1);
 	
 	return scene;
 }
@@ -50,14 +53,14 @@ DecomonGallery::~DecomonGallery()
 void DecomonGallery::onEnterTransitionDidFinish()
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-	auto scene = Director::getInstance()->getRunningScene();
-	auto layer = Layer::create();
-	scene->addChild(layer);
-	_backButton = cocos2d::ui::Button::create("menu/back.png", "menu/back.png", "menu/back.png", Widget::TextureResType::LOCAL);
+//	auto scene = Director::getInstance()->getRunningScene();
+	//auto layer = Layer::create();
+//	scene->addChild(layer);
+	_backButton = cocos2d::ui::Button::create("decomon/button.png", "decomon/button.png", "decomon/button.png", Widget::TextureResType::LOCAL);
 	_backButton->addTouchEventListener(CC_CALLBACK_0(DecomonGallery::backToGame, this));
 	_backButton->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * 0.1));
 	_backButton->setName("menuButton");
-	layer->addChild(_backButton, 1);
+	DecomonGallery::_decomonLayer->addChild(_backButton, 1);
 	//scene
 }
 
@@ -100,7 +103,7 @@ bool DecomonGallery::init() {
 	const int numberOfPages = ceil((float)elems.size() / (numRows * numCols));
 
 
-	Texture2D *texture = Director::getInstance()->getTextureCache()->addImage("gamemap/game_tile.png");
+	Texture2D *texture = Director::getInstance()->getTextureCache()->addImage("decomon/tile.png");
 	Texture2D::TexParams tp = { GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT };
 	texture->setTexParameters(&tp);
 	Sprite *backgroundSpriteMapTile = Sprite::createWithTexture(texture, Rect(0, 0, visibleSize.width * numberOfPages, visibleSize.height));
@@ -109,12 +112,12 @@ bool DecomonGallery::init() {
 
 	Sprite* backgroundSpriteMap = Sprite::createWithSpriteFrameName("gamemap/game_map_bg2.png");
 	backgroundSpriteMap->setPosition(Vec2(numberOfPages * visibleSize.width / 2, visibleSize.height / 2));
-	addChild(backgroundSpriteMap);
+	//addChild(backgroundSpriteMap);
 
 	Sprite* backgroundSpriteSideLeft = Sprite::createWithSpriteFrameName("gamemap/side.png");
 	backgroundSpriteSideLeft->setAnchorPoint(Vec2(0, 0.5));
 	backgroundSpriteSideLeft->setPosition(Vec2(0, visibleSize.height / 2));
-	addChild(backgroundSpriteSideLeft);
+//	addChild(backgroundSpriteSideLeft);
 
 
 	_layer = Layer::create();
@@ -124,7 +127,7 @@ bool DecomonGallery::init() {
 	backgroundSpriteSideRight->setScaleX(-1.0f);
 	backgroundSpriteSideRight->setAnchorPoint(Vec2(1, 0.5));
 	backgroundSpriteSideRight->setPosition(Vec2((visibleSize.width - backgroundSpriteSideRight->getBoundingBox().size.width / 2) * numberOfPages, visibleSize.height / 2));
-	addChild(backgroundSpriteSideRight);
+	//addChild(backgroundSpriteSideRight);
 
 
 
@@ -160,11 +163,5 @@ bool DecomonGallery::init() {
 	setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::GRADIENT);
 	setBackGroundColor(Color3B(255, 159, 0), Color3B::WHITE);
 
-	_backButton = cocos2d::ui::Button::create("menu/back.png", "menu/back.png", "menu/back.png", Widget::TextureResType::LOCAL);
-	_backButton->addTouchEventListener(CC_CALLBACK_0(DecomonGallery::backToGame, this));
-	_backButton->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * 0.1));
-	_backButton->setName("menuButton");
-	this->addChild(_backButton);
-	
 	return true;
 }

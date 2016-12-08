@@ -5,9 +5,66 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 280,
+        "Duration": 695,
         "Speed": 1.0,
+        "ActivedAnimationName": "turtle",
         "Timelines": [
+          {
+            "ActionTag": 1558533240,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 285,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1558533240,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -426.8608,
+                "Y": 592.0344,
+                "FrameIndex": 285,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2995.345,
+                "Y": 735.9296,
+                "FrameIndex": 630,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1558533240,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 285,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": -19735645,
             "Property": "ActionValue",
@@ -114,6 +171,62 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1628145593,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 285,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 630,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 695,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1628145593,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 3111.9097,
+                "Y": 280.1806,
+                "FrameIndex": 285,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2200.2266,
+                "Y": 282.6314,
+                "FrameIndex": 630,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -123,6 +236,12 @@
           "StartIndex": 0,
           "EndIndex": 280,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 285,
+          "EndIndex": 695,
+          "Name": "turtle",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -153,8 +272,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1296.9465,
-              "Y": 909.9999
+              "X": 1280.0,
+              "Y": 900.0
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -163,17 +282,15 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5066,
-              "Y": 0.5056
+              "X": 0.5,
+              "Y": 0.5
             },
             "PreSize": {
               "X": 1.7578,
               "Y": 1.0
             },
-            "LeftMargin": -953.0535,
-            "RightMargin": -986.9465,
-            "TopMargin": -10.0,
-            "BottomMargin": 9.9999,
+            "LeftMargin": -970.0,
+            "RightMargin": -970.0,
             "Tag": 847,
             "ActionTag": 693149378,
             "Size": {
@@ -206,7 +323,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1363.1354,
+              "X": 1280.0,
               "Y": 147.6677
             },
             "Scale": {
@@ -218,15 +335,15 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5325,
+              "X": 0.5,
               "Y": 0.082
             },
             "PreSize": {
               "X": 1.5625,
               "Y": 1.0
             },
-            "LeftMargin": -636.8646,
-            "RightMargin": -803.1353,
+            "LeftMargin": -720.0,
+            "RightMargin": -720.0,
             "TopMargin": 752.3323,
             "BottomMargin": -752.3323,
             "Tag": 938,
@@ -254,7 +371,7 @@
             },
             "Position": {
               "X": 520.4995,
-              "Y": 1419.9944
+              "Y": 1408.9912
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -264,7 +381,7 @@
             "IconVisible": false,
             "PrePosition": {
               "X": 0.2033,
-              "Y": 0.7889
+              "Y": 0.7828
             },
             "PreSize": {
               "X": 0.4145,
@@ -272,15 +389,15 @@
             },
             "LeftMargin": -10.0005,
             "RightMargin": 1509.0005,
-            "TopMargin": -408.9944,
-            "BottomMargin": 630.9944,
+            "TopMargin": -397.9912,
+            "BottomMargin": 619.9912,
             "Tag": 939,
             "ActionTag": -1382460002,
             "Size": {
               "X": 1061.0,
               "Y": 1578.0
             },
-            "Name": "Mtende_palmtree_39",
+            "Name": "palmtree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -325,7 +442,7 @@
               "X": 1061.0,
               "Y": 1578.0
             },
-            "Name": "Mtende_palmtree_39_0",
+            "Name": "palmtree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -370,7 +487,7 @@
               "X": 1061.0,
               "Y": 1578.0
             },
-            "Name": "Mtende_palmtree_39_1",
+            "Name": "palmtree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -415,7 +532,7 @@
               "X": 1061.0,
               "Y": 1578.0
             },
-            "Name": "Mtende_palmtree_39_2",
+            "Name": "palmtree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -460,8 +577,49 @@
               "X": 1061.0,
               "Y": 1578.0
             },
-            "Name": "Mtende_palmtree_39_3",
+            "Name": "palmtree",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtende/jackal1.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -426.8608,
+              "Y": 592.0344
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.1667,
+              "Y": 0.3289
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -426.8608,
+            "RightMargin": 2986.8608,
+            "TopMargin": 1207.9656,
+            "BottomMargin": 592.0344,
+            "Tag": 991,
+            "ActionTag": 1558533240,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "jackal",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -505,7 +663,7 @@
               "X": 1061.0,
               "Y": 1578.0
             },
-            "Name": "Mtende_palmtree_39_4",
+            "Name": "palmtree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -550,7 +708,7 @@
               "X": 1061.0,
               "Y": 1578.0
             },
-            "Name": "Mtende_palmtree_39_5",
+            "Name": "palmtree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -595,7 +753,7 @@
               "X": 1061.0,
               "Y": 1578.0
             },
-            "Name": "Mtende_palmtree_39_6",
+            "Name": "palmtree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -640,7 +798,7 @@
               "X": 1061.0,
               "Y": 1578.0
             },
-            "Name": "Mtende_palmtree_39_7",
+            "Name": "palmtree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -681,7 +839,48 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "boy",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtende/turtle.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 3111.9097,
+              "Y": 280.1806
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.2156,
+              "Y": 0.1557
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 3111.9097,
+            "RightMargin": -551.9097,
+            "TopMargin": 1519.8193,
+            "BottomMargin": 280.1806,
+            "Tag": 972,
+            "ActionTag": -1628145593,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "turtle",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -694,8 +893,10 @@
       },
       "UsedResources": [
         "boy1.json",
+        "jackal1.json",
         "Mtende.plist",
-        "Mtende.png"
+        "Mtende.png",
+        "turtle.json"
       ],
       "ctype": "GameFileData"
     }
