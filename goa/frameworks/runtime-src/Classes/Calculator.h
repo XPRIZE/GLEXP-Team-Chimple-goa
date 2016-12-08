@@ -44,8 +44,10 @@ public:
 	void deactivateSound();
 	int _activeSoundFlag = 0;
 	bool _isTouchedFinished = true;
-	int _maxPoints = 4;
+	int _maxPoints;
+	void setMaxPoints(int points);
 	int getFinalPoints();
+	void deductPoint();
 
 
 };
