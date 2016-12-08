@@ -43,7 +43,9 @@ public:
     void changeLanguage(SupportedLanguages lang);
     std::string translateParameterizedString(std::string input, std::string param);
     std::string translateTwoParameterizedString(std::string parameterizedString, std::string substituteString1, std::string substituteString2);
-
+	std::vector<std::string> setOfWordsWithGivenLetter(std::string str);
+    
+    virtual std::string getPronounciationFileNameForWord(std::string word) = 0;
     
 protected:
     LangUtil();

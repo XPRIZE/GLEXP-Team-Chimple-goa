@@ -71,8 +71,15 @@ xc.PictureQuestionHandler = cc.Layer.extend({
     },    
 
     configureAnswers: function() {
-        var context = this;        
-        this._answers = Object.values(this._question);
+        var context = this;
+        context._answers = [];
+        var obj = this._question;  
+        Object.keys(context._question).forEach(function (key) {
+            var val = context._question[key];
+            context._answers.push(val);
+    
+        });
+        
         this._answers = this._answers.filter(function(e) { return e !== "meanings" });
 
         var alreadySelectedAnswers = [];
@@ -82,7 +89,7 @@ xc.PictureQuestionHandler = cc.Layer.extend({
             if(this._question.hasOwnProperty(oQuestion)) {
                 var realAnswer = this._question[oQuestion];
                 var remainingAnswers = this._answers.filter(function(e) { 
-                        return e !== realAnswer &&  alreadySelectedAnswers.indexOf(e) < 0;
+                        return alreadySelectedAnswers.indexOf(e) < 0;
                     }
                 );   
 
@@ -97,13 +104,23 @@ xc.PictureQuestionHandler = cc.Layer.extend({
                         node.setTitleFontName(xc.storyFontName);
                         node.setTouchEnabled(true);
                         node.selectedIndex = index;
-                        var result = [];
                         var qText = remainingAnswers[0];
-                        remainingAnswers[0].replace(/(.{30}\w+)\s(.+)/, function(_,a,b) { result.push(a,b); });
-                        if(result.length > 0) {
-                           qText = result.join('\n');     
+                        var output = "";
+                        if(qText.length > 30) {
+                            var i = 30;
+                            while(i != qText.length && qText.charAt(i) != " ")
+                            {
+                                i++;
+                            }
+                            output += qText.substring(0,i);
+                            output += "\n";
+                            output += qText.substring(i, qText.length);
+                        } else {
+                            output = qText;
                         }
-                        node.setTitleText(qText);
+                        cc.log("output:" + output);
+                        node.setTitleText(output);
+                        
                         node.addTouchEventListener(this.answerSelected, this);
                     }                    
                 }                             
@@ -207,9 +224,6 @@ xc.PictureQuestionHandler = cc.Layer.extend({
             }                                                                                              
         } else {
             this._numberOfTimesInCorrectAnswered = 0;
-            if(xc.NarrateStoryLayer.res.correctAnswerSound_json) {
-                cc.audioEngine.playEffect(xc.NarrateStoryLayer.res.correctAnswerSound_json, false);
-            }                                                      
         }
 
     },
@@ -249,16 +263,17 @@ xc.PictureQuestionHandler = cc.Layer.extend({
 
         if(this._totalCorrectAnswers == 4) {
             this.callback.call(this._callbackContext, sender, true, true);
-        } else {
-            this.callback.call(this._callbackContext, sender, true, false);
-        }                      
-        
+        } 
     },
 
     verifyAnswer: function(sender, questionNode) {
         var str2 = sender.getTitleText().replace(/\n|\r/g, "");
         var isCorrectAnswered = str2.trim().toLowerCase() === this._question[questionNode.getTitleText().trim()].toLowerCase();
         if(isCorrectAnswered) {
+            if(xc.NarrateStoryLayer.res.correctAnswerSound_json) {
+                cc.audioEngine.playEffect(xc.NarrateStoryLayer.res.correctAnswerSound_json, false);
+            }                                          
+            
             this._totalCorrectAnswers++;
             this.swipeAnswers(sender, questionNode);
         } else {

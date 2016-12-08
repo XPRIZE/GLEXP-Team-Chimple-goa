@@ -62,15 +62,29 @@ xc.MultipleChoiceQuestionHandler = cc.Layer.extend({
 
         this._answers.forEach(function(element, index) {
             var nodeName = "A"+(index+1);
-            var node = this._constructedScene.node.getChildByName(nodeName);
+            var node = context._constructedScene.node.getChildByName(nodeName);
             if(node) {
                 node.setAnchorPoint(cc.p(0.5,0.5));
                 node.setTitleFontSize(xc.storyFontSize);
                 node.setTitleColor(xc.storyFontColor);
                 node.setTitleFontName(xc.storyFontName);
                 node.setTouchEnabled(true);
-                node.setTitleText(element);
-                node.addTouchEventListener(this.answerSelected, this);
+                var output = "";
+                if(element.length > 30) {
+                    var i = 30;
+                    while(i != element.length && element.charAt(i) != " ")
+                    {
+                        i++;
+                    }
+                    output += element.substring(0,i);
+                    output += "\n";
+                    output += element.substring(i, element.length);
+                } else {
+                    output = element;
+                }
+                cc.log("output:" + output);
+                node.setTitleText(output);
+                node.addTouchEventListener(context.answerSelected, context);
                 if(element == this._question.answer) {
                     context._correctAnswerNode = nodeName;
                 } 
@@ -120,10 +134,17 @@ xc.MultipleChoiceQuestionHandler = cc.Layer.extend({
                this.scaleAnimation(correctAnswerNode);                           
             }
         }
+
+        this._inCorrectAnswerAnimationInProgress = false;
     },
 
     hintForCorrectAnswer: function(sender, isCorrectAnswered) {
+        var context = this;
         if(!isCorrectAnswered) {
+            if(this._inCorrectAnswerAnimationInProgress) {
+                return;
+            }            
+            this._inCorrectAnswerAnimationInProgress = true;            
             this._numberOfTimesInCorrectAnswered++;
             var x = sender.getPosition().x;
             var y = sender.getPosition().y;
@@ -140,13 +161,21 @@ xc.MultipleChoiceQuestionHandler = cc.Layer.extend({
             this._numberOfTimesInCorrectAnswered = 0;
             if(xc.NarrateStoryLayer.res.correctAnswerSound_json) {
                 cc.audioEngine.playEffect(xc.NarrateStoryLayer.res.correctAnswerSound_json, false);
-            }                                                      
+            }  
+            //disable all buttons
+            context._answers.forEach(function(element, index) {
+               var nodeName = "A"+(index+1);
+                var node = context._constructedScene.node.getChildByName(nodeName);
+                if(node) {
+                    node.setTouchEnabled(false);                    
+                }                                                                
+            });
         }
 
     },
 
     verifyAnswer: function(sender) {
-        var isCorrectAnswered = sender.getTitleText().toLowerCase() === this._question.answer.toLowerCase();
+        var isCorrectAnswered = sender.getTitleText().trim().toLowerCase() === this._question.answer.trim().toLowerCase();
         this.hintForCorrectAnswer(sender, isCorrectAnswered);        
         this.callback.call(this._callbackContext, sender, isCorrectAnswered, isCorrectAnswered);        
     }

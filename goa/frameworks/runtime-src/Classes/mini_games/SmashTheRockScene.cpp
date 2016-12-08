@@ -186,7 +186,7 @@ void SmashTheRock::begin()
 			label->setScaleX(0.35);
 			label->setScaleY(0.45);
 			labelRef.pushBack(label);
-			CCLOG("alpha = %d", labelRef.size());
+//			CCLOG("alpha = %d", labelRef.size());
 			keyboard->addChild(label, 2);
 			//		label->setGlobalZOrder(6);
 			auto listener = EventListenerTouchOneByOne::create();
@@ -343,8 +343,8 @@ void SmashTheRock::masking()
 	{
 		flag = false;
 		auto audio1 = CocosDenshion::SimpleAudioEngine::getInstance();
-		audio1->playEffect("smash_de_rock/Concrete break.wav", false);
-		audio1->setEffectsVolume(10.0f);
+		audio1->playEffect("sounds/sfx/concrete_break.ogg", false);
+		//audio1->setEffectsVolume(10.0f);
 		//maskedFill->removeChild(target);
 		for (int i = 0; i < 6; i++)
 		{
@@ -355,7 +355,7 @@ void SmashTheRock::masking()
 		{
 			this->removeChild(labelRef.at(i));
 		}
-		
+		CCLOG("fffffffffffffffffffffffff");
 	
 		this->scheduleOnce(schedule_selector(SmashTheRock::change), 2.0f);
 		

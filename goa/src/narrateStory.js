@@ -17,7 +17,6 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     _playStarted: false,
     _nodeToFileNameMapping: {},
     _nodeToCurrentVerticesMapping: {},
-    _nodeToNormalizedVerticesMapping: {},
     _menuContext: null,
     ctor: function (pageIndex, storyInformation) {
         this._super();
@@ -30,8 +29,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this._contentPanelHeight = cc.director.getWinSize().height; //assuming landscape
         this._configPanelWidth = (cc.director.getWinSize().width - this._contentPanelWidth) / 2;
         this._nodeToFileNameMapping = {};
-        this._nodeToCurrentVerticesMapping =  {};
-        this._nodeToNormalizedVerticesMapping =  {};
+        this._nodeToCurrentVerticesMapping =  {};        
         
         return true;
     },
@@ -49,6 +47,28 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             },
             onTouchEnded: function (touch, event) {
             }            
+        });
+        cc.eventManager.addListener(listener, target);
+    },
+
+    bindTouchListenerToPronounceWord: function(target) {
+        var context = this;
+        var listener = cc.EventListener.create({
+            event: cc.EventListener.TOUCH_ONE_BY_ONE,
+            swallowTouches: true,
+            onTouchBegan: function (touch, event) {                
+                var target = event.getCurrentTarget();                                
+                var targetSize = target.getContentSize();
+                var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
+                    height);
+                var location = target.convertToNodeSpace(touch.getLocation());
+                if (cc.rectContainsPoint(targetRectangle, location)) {
+                        context.pronounceWord();
+                        return true;
+                }
+
+                return false;
+            }          
         });
         cc.eventManager.addListener(listener, target);
     },
@@ -114,7 +134,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 if(target.draggingEnabled) {
                     var action = target.actionManager.getActionByTag(target.tag, target);
                     action.pause();
-                    target.actionManager.pauseTarget(target);
+                    // target.actionManager.pauseTarget(target);
                 }
                 context._previousTouch = null;
                 if(!this._isDragging) {
@@ -149,8 +169,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 var location = target.parent.convertToNodeSpace(touch.getLocation());
                   if(target.getChildren() != null && target.getChildren().length > 0)
                   {
-                        var targetRectangle = cc.rect(target.getPosition().x - target.getChildren()[0].getBoundingBox().width/2, target.getPosition().y - target.getChildren()[0].getBoundingBox().height/2, target.getPosition().x + target.getChildren()[0].getBoundingBox().width, target.getPosition().y + target.getChildren()[0].getBoundingBox().height);
-
+                        //var targetRectangle = cc.rect(target.getPosition().x - target.getChildren()[0].getBoundingBox().width/2, target.getPosition().y - target.getChildren()[0].getBoundingBox().height/2, target.getChildren()[0].getBoundingBox().width, target.getChildren()[0].getBoundingBox().height);
+                        var targetRectangle = target.getBoundingBoxToWorld();                             
                         if (cc.rectContainsPoint(targetRectangle, location)) {
                             context._currentTarget = target;
                             context._offsetYInTouch = location.y - target.getPosition().y;
@@ -188,7 +208,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 if(target.draggingEnabled) {
                     var action = target.actionManager.getActionByTag(target.tag, target);
                     action.pause();                    
-                    target.actionManager.pauseTarget(target);
+                    // target.actionManager.pauseTarget(target);
                 }
                 context._currentTarget = null;
                 this._isDragging = false;            
@@ -228,7 +248,6 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     },
 
     displayTextAnimationFinished: function() {
-        this._referenceToContext._textDisplayAnimationRunning = false;
         this._referenceToContext.scheduleOnce(function(){
             var textDropActionDisappear = new cc.MoveTo(1.5, cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 500));
             var beforeDisplayTextDisapperAction = new cc.CallFunc(this._referenceToContext.beforeDisplayTextDisapperFinished, this._referenceToContext);
@@ -266,15 +285,22 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                     height);
 
                 if (cc.rectContainsPoint(targetRectangle, location)) {
-                    if(target.supportAutoPolygon) {
-                        // context.updateVerticesForSprite(target);
-                        // var result = context.isTouchableAtPoint(target, location);
-                        // cc.log("RESULT )*@#($*@#)($*@#$)@#$:" + result);
-                        
-                    }                    
-                    context._currentTarget = target;                    
-                    context[funcName](target, loop);                    
-                    return true;
+                    var fileName = context._nodeToFileNameMapping[target.getName()];
+                    if(fileName && fileName.length > 0) {
+                        var result = context.isTouchableAtPoint(target, location);
+                        cc.log("RESULT " + result);
+                        if(result) {
+                            context._currentTarget = target;                    
+                            context[funcName](target, loop);                    
+                            return true;                        
+                        } else {
+                            return false;
+                        }
+                    } else {
+                        context._currentTarget = target;                    
+                        context[funcName](target, loop);                    
+                        return true;
+                    }
                 }
 
                 return false;
@@ -305,7 +331,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                     var action = target.actionManager.getActionByTag(target.tag, target);
                     if(action) {
                         action.pause();
-                        target.actionManager.pauseTarget(target);
+                        // target.actionManager.pauseTarget(target);
                     }                    
                 }
                 
@@ -332,16 +358,15 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             }
         }
         cc.log('this._baseDir:' + this._baseDir);
+        context._pixelPerfectImages = [];
+
+        if(xc.pixcelPerfectConfig && xc.pixcelPerfectConfig[this._baseDir])
+        {
+            this._pixelPerfectImages = xc.pixcelPerfectConfig[this._baseDir]
+        }
         this._constructedScene = ccs.load(xc.path + contentUrl, xc.path);
         this._constructedScene.node.retain();
         this._constructedScene.action.retain();
-
-        // var sprite = new cc.Sprite("res/kun_tree.png");
-        // sprite.setName("kun_tree");
-        // sprite.setPosition(900,900);
-        // sprite.supportAutoPolygon = true;
-        // this._constructedScene.node.addChild(sprite);
-        // context._nodeToFileNameMapping[sprite.getName()] = "res/kun_tree.png";
 
         //rendering info
         var info = cc.loader.getRes(xc.path + contentUrl);
@@ -349,7 +374,11 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         info.Content.Content.ObjectData.Children.forEach(function(child) {
             if(child && child.FileData && child.FileData.Path && child.ctype === 'SpriteObjectData')
             {
-                context._nodeToFileNameMapping[child.Name] = child.FileData.Path;
+                
+                if(context._pixelPerfectImages.indexOf("pixelperfect/" + child.FileData.Path) != -1) {
+                    cc.log("filepath 11111 :" + xc.path + "pixelperfect/" + child.FileData.Path);
+                    context._nodeToFileNameMapping[child.Name] = xc.path + "pixelperfect/" + child.FileData.Path;
+                }                
             }
             
         });
@@ -367,11 +396,21 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             this._wordBoard.node.retain();
             //this._wordBoard.node.setPosition(cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height));
             this.addChild(this._wordBoard.node, 1);
-            this._wordBoard.node.getChildByName("TextField_1").setFontName(xc.storyFontName)
-            this._wordBoard.node.getChildByName("TextField_1").setTextColor(xc.storyFontColor);
-            this._wordBoard.node.getChildByName("TextField_1").setFontSize(xc.storyFontSize);
-            this._wordBoard.node.getChildByName("TextField_1").setString("");
+            var textField = this._wordBoard.node.getChildByName("TextField_1");
+            if(textField) {
+                textField.setFontName(xc.storyFontName)
+                textField.setTextColor(xc.storyFontColor);
+                textField.setFontSize(xc.storyFontSize);
+                textField.setString("");
+            }
+
+            var soundButton2 = this._wordBoard.node.getChildByName("sound_button_2");
+            if(soundButton2) {
+                this.bindTouchListenerToPronounceWord(soundButton2);
+            }            
+
             this._wordBoard.node.setVisible(false);
+
         }
 
         this.setUpScene();
@@ -394,72 +433,81 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
     },
 
-    updateVerticesForSprite: function (sprite) {
-        var vertices =  this._nodeToNormalizedVerticesMapping["kun_tree"];
-        var array = [];
-        var rect;
-        if(cc.sys.isNative) {
-            rect = this.getParent()._menuContext.getBoundingBox(sprite);
-        } else {
-            rect = sprite.getBoundingBox();
+    pronounceWord:function() {
+        var textField = this._wordBoard.node.getChildByName("TextField_1");
+        if(textField && textField.getString() !== "" && textField.getString().length > 0)
+        {
+            var word = textField.getString().toLowerCase();
+            cc.log("word to pronounce:" + word);
+            if(cc.sys.isNative) {
+                this.getParent()._menuContext.pronounceWord(word);    
+            }            
         }
-         
-        for (var i = 0; i < vertices.length; ++i) {
-            
-            var point = vertices[i];
-            cc.log("point in updateVerticesForSprite" + point);
-            cc.log("point.x" + point.x);
-            cc.log("point.y" + point.y);
-            cc.log("rect.width" + rect.width);
-            cc.log("rect.height" + rect.height);
-            cc.log("rect.x" + rect.x);
-            cc.log("rect.y" + rect.y);
-            var x = point.x * rect.width + rect.x;
-            var y = point.y * rect.height + rect.y;
-
-            cc.log("commputed.x" + x);
-            cc.log("computed.y" + y);
-
-            array.push(cc.p(x,y));
-        }
-
-
-        this._nodeToCurrentVerticesMapping[sprite.getName()] = array;
     },
-
 
     isTouchableAtPoint:function (sprite, touchPoint) {
         var vertices = this._nodeToCurrentVerticesMapping[sprite.getName()];
-        cc.log("vertices:" + vertices.length);
+
         if(!vertices || vertices.length == 0) {
             return false;
-        }        
-        return this.pointInPolyon(vertices.length, vertices, touchPoint);
+        }
+        cc.log("vertices:" + vertices.length);        
+        //return this.pointInPolygon(vertices.length, vertices, touchPoint);
+        return this.checkIfPointFallsInObject(vertices.length, vertices, touchPoint);        
     },
 
     saveNormalizedVertices: function(sprite) {
         var fileName = this._nodeToFileNameMapping[sprite.getName()];
-        cc.log('spritename 111:' + sprite.getName());
-        var vertices = [];
-        if(cc.sys.isNative) {
-            vertices = this.getParent()._menuContext.getPolygonPointsForSprite(sprite, fileName, 0.5);
-        } else {
-            vertices.push(cc.p(0, 0));
-            vertices.push(cc.p(0.5, 0));
-            vertices.push(cc.p(0.5, 1));
-            vertices.push(cc.p(1, 0));
+        if(fileName && fileName.length > 0) {
+            cc.log('spritename 111:' + sprite.getName());
+            var vertices = [];
+            var tVertices = [];
+            cc.log('sprite 111 x :' + sprite.getBoundingBox().x);
+            cc.log('sprite 111 y :' + sprite.getBoundingBox().y);
+            cc.log('sprite 111 width :' + sprite.getBoundingBox().width);
+            cc.log('sprite 111 height :' + sprite.getBoundingBox().height);
+            if(cc.sys.isNative) {
+                vertices = this.getParent()._menuContext.getPolygonPointsForSprite(sprite, fileName, 0.0);
+                tVertices = this.getParent()._menuContext.getTrianglePointsForSprite(sprite, fileName, 0.0);
+            } 
+            
+            //this._nodeToCurrentVerticesMapping[sprite.getName()] = vertices;
+            this._nodeToCurrentVerticesMapping[sprite.getName()] = tVertices;
         }
-        
-        vertices.forEach(function(a) {
-            cc.log("a1111 is:" + a.x);
-            cc.log("a1111 is:" + a.y);
-        });
-
-        this._nodeToNormalizedVerticesMapping[sprite.getName()] = vertices;
-        this._nodeToCurrentVerticesMapping[sprite.getName()] = vertices;
     },
 
-    pointInPolyon: function (n, vertices, touch) {
+    checkIfPointFallsInObject: function(n, triangles, touchPoint) {
+        var that = this;
+        var pointInTriangle = false;
+        
+        triangles.some(function(trianglePoints, index) {
+            if(trianglePoints && trianglePoints.length == 3) {
+                var t1 = trianglePoints[0];
+                var t2 = trianglePoints[1];
+                var t3 = trianglePoints[2];
+                cc.log('index in loop' + index);
+                if(that.ptInTriangle(touchPoint, t1, t2, t3)) {
+                    cc.log('point in triangle correct');
+                    pointInTriangle =  true;
+                    if(pointInTriangle) {
+                        return true;
+                    }                    
+                }
+            }
+        });
+        return pointInTriangle;
+    },
+
+    ptInTriangle: function (p, p0, p1, p2) {
+        var A = 1/2 * (-p1.y * p2.x + p0.y * (-p1.x + p2.x) + p0.x * (p1.y - p2.y) + p1.x * p2.y);
+        var sign = A < 0 ? -1 : 1;
+        var s = (p0.y * p2.x - p0.x * p2.y + (p2.y - p0.y) * p.x + (p0.x - p2.x) * p.y) * sign;
+        var t = (p0.x * p1.y - p0.y * p1.x + (p0.y - p1.y) * p.x + (p1.x - p0.x) * p.y) * sign;
+    
+        return s > 0 && t > 0 && (s + t) < 2 * A * sign;
+    },    
+
+    pointInPolygon: function (n, vertices, touch) {
         var i, j, c = false;
         vertices.forEach(function(a) {
             cc.log("a is:" + a.x);
@@ -545,6 +593,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
         node.getChildren().forEach(function(child)
         {      
+            cc.log("processing child.getName:" + child.getName());
             if(child instanceof ccs.SkeletonNode) {
                 var action = child.actionManager.getActionByTag(child.tag, child);
                 if(action) {
@@ -560,10 +609,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                         that.bindEventsToTarget(child);
                         that.bindTouchListenerToSubChild(child, "playAnimationOnChild", true);                                        
                     } else {
-                        if(child.supportAutoPolygon) {
-                           that.saveNormalizedVertices(child);     
-                        }
-                        
+                        that.saveNormalizedVertices(child);                        
                         that.bindEventsToTarget(child);
                         that.bindTouchListener(child, "playAnimiation", true);
                     }                                                        
@@ -655,7 +701,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             var soundFile = eventData;
             if(soundFile.trim() != undefined && soundFile.trim().length > 0) {
                 cc.log('soundFile 111:' + soundFile.trim());
-                var soundFile = xc.path + this._referenceToContext._baseDir + "/sounds/" + soundFile.trim() + ".ogg";
+                var soundFile = "res/sounds/sfx/" + soundFile.trim() + ".ogg";
                 if(soundFile) {
                     
                     cc.loader.load(soundFile, function(err, data) {
@@ -906,6 +952,12 @@ xc.NarrateStoryScene.load = function(pageIndex, storyInformation, layer, enableT
                     cc.loader.load(xc.NarrateStoryLayer.res.wrongAnswerSound_json, function(err, data) {
                     }); 
 
+                    cc.loader.load(xc.NarrateStoryLayer.res.pixelPerfectConfig_json, function(err, data) {
+                        cc.log('data:' + data);
+                        if(data && data.length > 0) {
+                            xc.pixcelPerfectConfig = data[0];
+                        }
+                    }); 
 
                     cc.LoaderScene.preload(t_resources, function () {
 
@@ -939,5 +991,7 @@ xc.NarrateStoryLayer.res = {
         textBubble_json: xc.path + "template/bubble_tem.json",
         wordBubble_json: xc.path + "template/hang_bubble.json",
         correctAnswerSound_json: "res/sounds/sfx/success.ogg",
-        wrongAnswerSound_json: "res/sounds/sfx/error.ogg"
+        wrongAnswerSound_json: "res/sounds/sfx/error.ogg",
+        pixelPerfectConfig_json: xc.path + "misc/pixelPerfectConfig.json"
+
 };

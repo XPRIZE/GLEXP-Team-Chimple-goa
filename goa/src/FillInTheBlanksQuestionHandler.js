@@ -9,6 +9,7 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
     _constructedScene: null,
     _answers:[],
     _numberOfTimesInCorrectAnswered: 0,
+    
     ctor: function (nodeJSON, width, height, question, callback, callbackContext) {
         this._super(width, height);
         this._width = width;
@@ -80,7 +81,21 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
                 node.setTitleColor(xc.storyFontColor);
                 node.setTitleFontName(xc.storyFontName);
                 node.setTouchEnabled(true);
-                node.setTitleText(element);
+                var output = "";
+                if(element.length > 30) {
+                    var i = 30;
+                    while(i != element.length && element.charAt(i) != " ")
+                    {
+                        i++;
+                    }
+                    output += element.substring(0,i);
+                    output += "\n";
+                    output += element.substring(i, element.length);
+                } else {
+                    output = element;
+                }
+                cc.log("output:" + output);
+                node.setTitleText(output);
                 node.addTouchEventListener(this.answerSelected, this);
                 if(element == this._question.answer) {
                     context._correctAnswerNode = nodeName;
@@ -119,7 +134,7 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
         correctAnswerNode.runAction(sequenceAction);          
     },
 
-    resetNumberOfIncorrectAnswered: function() {
+    resetNumberOfIncorrectAnswered: function() {        
         this._numberOfTimesInCorrectAnswered = 0;        
     },
 
@@ -132,10 +147,16 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
                this.scaleAnimation(correctAnswerNode);                           
             }
         }
+        this._inCorrectAnswerAnimationInProgress = false;
     },
 
     hintForCorrectAnswer: function(sender, isCorrectAnswered) {
+        var context = this;        
         if(!isCorrectAnswered) {
+            if(this._inCorrectAnswerAnimationInProgress) {
+                return;
+            }            
+            this._inCorrectAnswerAnimationInProgress = true;
             this._numberOfTimesInCorrectAnswered++;
             var x = sender.getPosition().x;
             var y = sender.getPosition().y;
@@ -152,7 +173,15 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
             this._numberOfTimesInCorrectAnswered = 0;
             if(xc.NarrateStoryLayer.res.correctAnswerSound_json) {
                 cc.audioEngine.playEffect(xc.NarrateStoryLayer.res.correctAnswerSound_json, false);
-            }                                          
+            }   
+            //disable all buttons
+            context._answers.forEach(function(element, index) {
+               var nodeName = "A"+(index+1);
+                var node = context._constructedScene.node.getChildByName(nodeName);
+                if(node) {
+                    node.setTouchEnabled(false);                    
+                }                                                                
+            });                                                   
         }
 
     },
@@ -189,7 +218,7 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
     },
 
     verifyAnswer: function(sender) {
-        var isCorrectAnswered = sender.getTitleText().toLowerCase() === this._question.answer.toLowerCase();
+        var isCorrectAnswered = sender.getTitleText().trim().toLowerCase() === this._question.answer.trim().toLowerCase();
         this.hintForCorrectAnswer(sender, isCorrectAnswered);
         this.animateFillInBlanks(isCorrectAnswered, sender);               
     }

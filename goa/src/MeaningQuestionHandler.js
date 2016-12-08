@@ -109,7 +109,6 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
                         cc.log('remainingAnswers[0]:' + remainingAnswers[0]);
                         var output = "";
                         var qText = remainingAnswers[0];
-                        var iLen = qText.length;
                         if(qText.length > 30) {
                             var i = 30;
                             while(i != qText.length && qText.charAt(i) != " ")
@@ -227,11 +226,7 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
                 cc.audioEngine.playEffect(xc.NarrateStoryLayer.res.wrongAnswerSound_json, false);
             }                                                                                        
         } else {
-            this._numberOfTimesInCorrectAnswered = 0;
-            if(xc.NarrateStoryLayer.res.correctAnswerSound_json) {
-                cc.audioEngine.playEffect(xc.NarrateStoryLayer.res.correctAnswerSound_json, false);
-            }                                          
-            
+            this._numberOfTimesInCorrectAnswered = 0;            
         }
 
     },
@@ -271,16 +266,17 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
 
         if(this._totalCorrectAnswers == 4) {
             this.callback.call(this._callbackContext, sender, true, true);
-        } else {
-            this.callback.call(this._callbackContext, sender, true, false);
-        }                      
-        
+        }                              
     },
 
     verifyAnswer: function(sender, questionNode) {
         var str2 = sender.getTitleText().replace(/\n|\r/g, "");
         var isCorrectAnswered = str2.trim().toLowerCase() === this._question[questionNode.getTitleText().trim()].toLowerCase();
         if(isCorrectAnswered) {
+            if(xc.NarrateStoryLayer.res.correctAnswerSound_json) {
+                cc.audioEngine.playEffect(xc.NarrateStoryLayer.res.correctAnswerSound_json, false);
+            }                                          
+
             this._totalCorrectAnswers++;
             this.swipeAnswers(sender, questionNode);
         } else {

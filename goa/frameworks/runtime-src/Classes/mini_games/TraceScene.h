@@ -20,7 +20,7 @@ public:
     static Trace *create();
     void onAlphabetSelected(cocos2d::EventCustom *event);
 	void transit(int level);
-	void resetLevel();
+	
 	void setDotsVisibility(bool flag);
     void dummy();
 	
@@ -45,11 +45,12 @@ protected:
     void setupTouch();
 	void finishedAll();
 	int _touches;
+	void resetLevel();
 	//String _language;
 	//int _languageRange;
 	int _maxNumberOfCharacters;
     CC_SYNTHESIZE(int, _count, Count);
-
+	int _iterations;
 	MenuContext *_menuContext;
     
 };

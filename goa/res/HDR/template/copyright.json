@@ -1,0 +1,121 @@
+{
+  "ID": "a422d18a-3293-40d0-8766-ca373f5f68b7",
+  "Version": "3.10.0.0",
+  "Name": "copyright",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 33,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "B": 240
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.5359,
+              "Y": -0.5804
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0002,
+              "Y": -0.0003
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": 0.5359,
+            "RightMargin": -0.5359,
+            "TopMargin": 0.5804,
+            "BottomMargin": -0.5804,
+            "Tag": 34,
+            "Children": [
+              {
+                "FontSize": 20,
+                "IsCustomSize": true,
+                "LabelText": "",
+                "PlaceHolderText": "Text Field",
+                "MaxLengthText": 10,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1273.1179,
+                  "Y": 897.6975
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4973,
+                  "Y": 0.4987
+                },
+                "PreSize": {
+                  "X": 0.9375,
+                  "Y": 0.8889
+                },
+                "LeftMargin": 73.1179,
+                "RightMargin": 86.8821,
+                "TopMargin": 102.3025,
+                "BottomMargin": 97.6975,
+                "Tag": 35,
+                "ActionTag": 2019554911,
+                "Size": {
+                  "X": 2400.0,
+                  "Y": 1600.0
+                },
+                "Name": "TextField_1",
+                "ctype": "TextFieldObjectData"
+              }
+            ],
+            "ActionTag": 104121830,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

@@ -31,6 +31,7 @@ public:
 	float _tagY = 0;
 	int _tagNum = 0;
 	int _score = 0;
+	bool _flag = true;
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
 	virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event);
 	virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event * event);

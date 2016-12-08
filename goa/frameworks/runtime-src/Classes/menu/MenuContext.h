@@ -51,6 +51,11 @@ public:
 
     std::vector<cocos2d::Point> getPolygonPointsForSprite(cocos2d::Sprite* node, std::string fileName, float threshHold);
     
+    std::vector<std::vector<cocos2d::Point>> getTrianglePointsForSprite(cocos2d::Sprite* node, std::string fileName, float threshHold);
+    
+    void pronounceWord(std::string word);
+
+    
     cocos2d::Rect getBoundingBox(cocos2d::Sprite* node) const;
     std::vector<cocos2d::Point> getPolygonPointsForSprite1(cocos2d::Sprite* node);
     

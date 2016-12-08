@@ -1,0 +1,76 @@
+/// <reference path="cocos2d-typescript-definitions-master/cocos2d/cocos2d-lib.d.ts" />
+var xc = xc || {};
+xc.storyCopyRightFontSize = 70;
+xc.CopyRightHandler = cc.Layer.extend({
+    _width:0,
+    _height: 0,
+    _nodeJSON: "",
+    _copyrightText: "",
+    _constructedScene: null,
+    ctor: function (nodeJSON, copyrightText, width, height, callback, callbackContext) {
+        this._super(width, height);
+        this._width = width;
+        this._height = height;
+        this.callback = callback;
+        this._callbackContext = callbackContext;
+        this._nodeJSON = nodeJSON;
+        this._copyrightText = copyrightText;
+        this.init();
+    },
+
+
+    bindTouchListenerToLayer: function(target) {
+        var context = this;
+        var listener = cc.EventListener.create({
+            event: cc.EventListener.TOUCH_ONE_BY_ONE,
+            swallowTouches: true,
+            onTouchBegan: function (touch, event) {
+                return true;
+            },
+            onTouchEnded: function (touch, event) {
+                context.executeCallBack()
+
+            }            
+        });
+        cc.eventManager.addListener(listener, target);
+    },
+
+    init: function() {
+        this.showCopyRight();
+        this.configureCopyRightText();  
+        this.bindTouchListenerToLayer(this);      
+    },
+
+    showCopyRight: function() {
+        this._constructedScene = ccs.load(this._nodeJSON,xc.path);
+        this._constructedScene.node.retain();
+        
+        if (this._constructedScene.node) {            
+            this._callbackContext.addChild(this._constructedScene.node,0);
+        }                        
+    },
+
+
+    configureCopyRightText: function() {
+        //randomize array
+        //find out question node
+        var panel = this._constructedScene.node.getChildByName("Panel_1");
+        if(panel) {
+            this._copyrightTextNode =  panel.getChildByName("TextField_1");
+            if(this._copyrightTextNode) {
+                this._copyrightTextNode.setAnchorPoint(cc.p(0.5,0.5));
+                this._copyrightTextNode.setFontSize(xc.storyCopyRightFontSize);
+                this._copyrightTextNode.setTextColor(xc.storyFontColor);
+                this._copyrightTextNode.setFontName(xc.storyFontName);
+                this._copyrightTextNode.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_LEFT);
+                this._copyrightTextNode.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
+                this._copyrightTextNode.setTouchEnabled(false);
+                this._copyrightTextNode.setString(this._copyrightText);            
+            }               
+        }
+    },    
+
+    executeCallBack: function() {
+        this.callback.call(this._callbackContext);
+    }
+});

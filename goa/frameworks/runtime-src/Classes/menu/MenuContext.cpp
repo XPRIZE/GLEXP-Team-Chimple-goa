@@ -71,6 +71,8 @@
 #include "../mini_games/Shape.h"
 #include "../mini_games/Balloon.h"
 #include "../mini_games/PopCount.h"
+#include "../mini_games/PatchTheWallScene.h"
+
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -556,7 +558,7 @@ void MenuContext::addPoints(int points) {
     if(points > 0) {
         auto sequence = Sequence::create(
                                          CallFunc::create(CC_CALLBACK_0(MenuContext::happyFace, this)),
-                                         CallFunc::create(CC_CALLBACK_0(MenuContext::increasePoints, this, 1)),
+                                         CallFunc::create(CC_CALLBACK_0(MenuContext::increasePoints, this, points)),
                                          DelayTime::create(1),
                                          CallFunc::create(CC_CALLBACK_0(MenuContext::normalFace, this)),
                                          NULL);
@@ -564,7 +566,7 @@ void MenuContext::addPoints(int points) {
     } else {
         auto sequence = Sequence::create(
                                          CallFunc::create(CC_CALLBACK_0(MenuContext::sadFace, this)),
-                                         CallFunc::create(CC_CALLBACK_0(MenuContext::increasePoints, this, -1)),
+                                         CallFunc::create(CC_CALLBACK_0(MenuContext::increasePoints, this, points)),
                                          DelayTime::create(1),
                                          CallFunc::create(CC_CALLBACK_0(MenuContext::normalFace, this)),
                                          NULL);
@@ -676,19 +678,19 @@ Node* MenuContext::jumpOut(std::string nodeCsbName, float duration, Vec2 positio
 
 void MenuContext::showHelp(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
-        chimpHelp();
+//        chimpHelp();
     }
 }
 
 void MenuContext::showStartupHelp(std::function<void()> callback) {
-    if(!SafariAnalyticsManager::getInstance()->wasGamePlayedBefore(gameName.c_str())) {
-        _startupCallback = callback;
-        addGreyLayer();
-        pauseNodeAndDescendants(_main);
-        chimpHelp();
-    } else {
+//    if(!SafariAnalyticsManager::getInstance()->wasGamePlayedBefore(gameName.c_str())) {
+//        _startupCallback = callback;
+//        addGreyLayer();
+//        pauseNodeAndDescendants(_main);
+//        chimpHelp();
+//    } else {
         callback();
-    }
+//    }
 }
 
 void MenuContext::chimpHelp() {
@@ -943,6 +945,9 @@ void MenuContext::launchGameFinally(std::string gameName) {
 		else if (gameName == POPCOUNT) {
 			Director::getInstance()->replaceScene(PopCount::createScene());
 		}
+		else if (gameName == PATCH_THE_WALL) {
+			Director::getInstance()->replaceScene(PatchTheWall::createScene());
+		}
 		else{
             CCLOG("Failed starting scene: %s", gameName.c_str());
         }
@@ -1096,36 +1101,99 @@ Rect MenuContext::getBoundingBox(cocos2d::Sprite* node) const
     return node->getBoundingBox();
 }
 
+
+std::vector<std::vector<cocos2d::Point>> MenuContext::getTrianglePointsForSprite(cocos2d::Sprite* node, std::string fileName, float threshHold)
+{
+    AutoPolygon* ap = new AutoPolygon(fileName);
+    node->initWithPolygon(ap->generatePolygon(fileName));
+    
+    
+    const PolygonInfo& info = node->getPolygonInfo();
+    
+    auto count = info.triangles.indexCount/3;
+    auto indices = info.triangles.indices;
+    auto verts = info.triangles.verts;
+    
+    std::vector<std::vector<cocos2d::Point>> points;
+    for(ssize_t i = 0; i < count; i++)
+    {
+        std::vector<cocos2d::Vec2> triangles;
+        //draw 3 lines
+        Vec3 p1 =verts[indices[i*3]].vertices;
+        Vec3 p2 = verts[indices[i*3+1]].vertices;
+        Vec3 p3 = verts[indices[i*3+2]].vertices;
+        
+        triangles.push_back(Vec2(p1.x, p1.y));
+        triangles.push_back(Vec2(p2.x, p2.y));
+        triangles.push_back(Vec2(p3.x, p3.y));
+        
+        points.push_back(triangles);
+    }
+    
+    return points;
+}
+
+
+void MenuContext::pronounceWord(std::string word) {
+    std::string fileName = LangUtil::getInstance()->getPronounciationFileNameForWord(word);
+    if(FileUtils::getInstance()->isFileExist(fileName)) {
+        auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+        audio->playEffect(fileName.c_str());
+    }
+    else {
+        CCLOG("file doesn't exists with word %s", fileName.c_str());
+        #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+            //JSB call to Android TTS Support
+        
+        #endif
+    }
+}
+
 std::vector<cocos2d::Vec2> MenuContext::getPolygonPointsForSprite(cocos2d::Sprite* node, std::string fileName, float threshHold) {
     
     AutoPolygon* ap = new AutoPolygon(fileName);
     node->initWithPolygon(ap->generatePolygon(fileName));
-    std::vector<cocos2d::Vec2> points =  ap->trace(node->getBoundingBox(), 0.5);
     
-    std::vector<cocos2d::Vec2> normalizedPoints;
     
-    Rect rect = node->getBoundingBox();
-    for (auto it=points.begin(); it!=points.end(); ++it) {
-        cocos2d::Vec2 p = *it;
-
-        CCLOG("Before p.x %f", p.x);
-        CCLOG("Before p.y %f", p.y);
+    const PolygonInfo& info = node->getPolygonInfo();
+    
+    auto count = info.triangles.indexCount/3;
+    auto indices = info.triangles.indices;
+    auto verts = info.triangles.verts;
+    std::vector<cocos2d::Vec2> points;
+    for(ssize_t i = 0; i < count; i++)
+    {
+        //draw 3 lines
+        Vec3 from =verts[indices[i*3]].vertices;
+        Vec3 to = verts[indices[i*3+1]].vertices;
+        points.push_back(Vec2(from.x, from.y));
+        points.push_back(Vec2(to.x, to.y));
         
-        Vec2 cp = node->convertToNodeSpace(p);
-        CCLOG("cp p.x %f", cp.x);
-        CCLOG("cp p.y %f", cp.y);
+        from =verts[indices[i*3+1]].vertices;
+        points.push_back(Vec2(from.x, from.y));
 
 
-        p.x = (Director::getInstance()->getContentScaleFactor() * (p.x - rect.origin.x)) / rect.size.width;
-        p.y = (Director::getInstance()->getContentScaleFactor() * (p.y - rect.origin.y)) / rect.size.height;
+        to = verts[indices[i*3+2]].vertices;
+        points.push_back(Vec2(to.x, to.y));
         
-        normalizedPoints.push_back(Vec2(p.x, p.y));
-        
-        CCLOG("After p.x %f", p.x);
-        CCLOG("After p.y %f", p.y);
+        from =verts[indices[i*3+2]].vertices;
+        points.push_back(Vec2(from.x, from.y));
+        to = verts[indices[i*3]].vertices;
+        points.push_back(Vec2(to.x, to.y));
+    
     }
     
-    return normalizedPoints;
+
+    std::set<cocos2d::Vec2> sPoints ( points.begin(), points.end() );
+    std::vector<cocos2d::Vec2> output ( sPoints.begin(), sPoints.end() );
+
+//    cocos2d::Vec2* a1 = &points[0];
+//
+//    DrawNode* drawPoly1 = DrawNode::create();
+//    drawPoly1->drawPoly(a1, count * 6, true, Color4F::BLACK);
+//    this->getParent()->addChild(drawPoly1, 10);
+
+    return output;
 }
 
 

@@ -166,9 +166,14 @@ bool ScrollableGameMapScene::init() {
                     cocos2d::ui::Button* button = ui::Button::create(buttonNormalIcon, buttonPressedIcon, buttonDisabledIcon);
                     button->setName(games.at(index));
                     button->setPosition(Vec2(k * visibleSize.width + (j + 0.5) * visibleSize.width / numCols, visibleSize.height - (2 * i + initialYOffSet) * (visibleSize.height / numCols) - 30));
-                    
+                    button->setTitleText(gameMap["title"]);
+                    button->setTitleAlignment(TextHAlignment::CENTER, TextVAlignment::BOTTOM);
+                    button->setTitleFontName("Arial");
+                    button->setTitleColor(Color3B::BLACK);
+                    button->setTitleFontSize(48);
                     button->addTouchEventListener(CC_CALLBACK_2(ScrollableGameMapScene::gameSelected, this));
-                    
+                    auto label = button->getTitleRenderer();
+                    label->setPosition(Vec2(label->getPositionX(), label->getPositionY()-256));
                     _layer->addChild(button);
                     
                     
@@ -269,6 +274,7 @@ std::map<std::string, std::string> ScrollableGameMapScene::parseGameConfigToMap(
         returnMap["name"] = gameConfig["name"].GetString();
         returnMap["cIcon"] = gameConfig["cIcon"].GetString();
         returnMap["icon"] = gameConfig["icon"].GetString();
+        returnMap["title"] = LangUtil::getInstance()->translateString(gameConfig["title"].GetString());
     }else{
         // error
     }

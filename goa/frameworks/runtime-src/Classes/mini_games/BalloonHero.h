@@ -48,7 +48,7 @@ protected:
 	std::vector<std::string> _objects;
 	cocos2d::ui::LoadingBar* _fuelBar;
 	std::vector<int> _randomIndex;
-	cocos2d::Sprite * _fireFly;
+	Sprite * _fireFly;
 	Node * _meteor1;
 	Node * _meteor2;
 	Node * _meteor3;

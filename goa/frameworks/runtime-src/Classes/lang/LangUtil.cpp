@@ -112,6 +112,17 @@ std::string LangUtil::translateTwoParameterizedString(std::string parameterizedS
     return I18N::i18nFormatStr(translateString(parameterizedString), translateString(substituteString1).c_str(), translateString(substituteString2).c_str());
 }
 
+std::vector<std::string> LangUtil::setOfWordsWithGivenLetter(std::string str)
+{
+	std::vector<std::string> listOfWords;
+	for (int i = 0; i < _wordList.size(); i++) {
+		if (_wordList.at(i).find(str) == 0) {
+			listOfWords.push_back(_wordList.at(i));
+		}
+	}
+	return listOfWords;
+}
+
 
 WordInfo* LangUtil::loadLanguageSpecificWordMappingForAWord(const char* word) {
     return this->wordManager->loadLanguageSpecificWordMappingForAWord(word);

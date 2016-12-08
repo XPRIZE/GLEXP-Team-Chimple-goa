@@ -13,7 +13,7 @@
 #include "cocos2d.h"
 #include "../menu/MenuContext.h"
 #include "editor-support/cocostudio/CocoStudio.h"
-
+#include "SimpleAudioEngine.h"
 
 class Decomon : public cocos2d::Layer
 {
@@ -36,7 +36,7 @@ protected:
 	cocos2d::RenderTexture *_paintingTexture;
 	cocos2d::Sprite *_paintingColour;
 	int _pickedColor_R, _pickedColor_G, _pickedColor_B;
-	bool _touched = false, _flip, _colorPicked = false, _screenShoot = true;
+	bool _touched = false, _flip, _colorPicked = false, _screenShoot = true, _onTouch = true;
 	cocos2d::Vector <cocos2d::Node *> _movedNodes;
 	std::vector <std::string> _eyePath;
 	std::vector <std::string> _mouthPath;
@@ -65,6 +65,10 @@ protected:
 	void gameHelpDrag();
 	bool _helpIconIsClicked = false;
 	int _numberOfItemSelected = 0;
+	CocosDenshion::SimpleAudioEngine * _audioEffect;
+	bool _eyeFlag = true, _mouthFlag = true, _skateFlag = true ,_noseFlag = true ,_paintFlag = true, _mustacheFlag = true, _hornFlag = true, _gearFlag = true;
+	void wordGenerate();
+	void gameEnd(float dt);
 };
 
 #endif 
