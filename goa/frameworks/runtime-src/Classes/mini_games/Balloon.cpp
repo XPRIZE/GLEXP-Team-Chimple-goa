@@ -143,16 +143,15 @@ void Balloon::makingBalloons()
 		if (gameCurrentLevel == 1 && _helpFlag)
 		{
 			_helpFlag = false;
-			auto nodeForHelp = this->getChildByName("bg")->getChildByName("corn");
 			auto a = _pin->getPositionX() ;
 			auto b = _pin->getPositionY() ;
 			
-			auto c = _balloonsBin[6]->getPositionX();// -_balloonsBin[6]->getChildByName("Sprite_1")->getContentSize().width / 2 * 0.7;
-			auto d = _balloonsBin[6]->getPositionY() -_balloonsBin[6]->getChildByName("Sprite_1")->getContentSize().height / 2 * 0.35;
+			auto c = _balloonsBin[0]->getPositionX();// -_balloonsBin[6]->getChildByName("Sprite_1")->getContentSize().width / 2 * 0.7;
+			auto d = _balloonsBin[0]->getPositionY() -_balloonsBin[0]->getChildByName("Sprite_1")->getContentSize().height / 2 * 0.35;
 
 			_help = HelpLayer::create(Rect(a, b, _pin->getContentSize().width*1.02
 				, _pin->getContentSize().height*1.02),
-				Rect(c, d , _balloonsBin[0]->getChildByName("Sprite_1")->getContentSize().width, _balloonsBin[6]->getChildByName("Sprite_1")->getContentSize().height / 2 * 0.65));
+				Rect(c, d , _balloonsBin[0]->getChildByName("Sprite_1")->getContentSize().width, _balloonsBin[0]->getChildByName("Sprite_1")->getContentSize().height / 2 * 0.65));
 			_help->clickAndDrag(Vec2(a,b),Vec2(c,d));
 			this->addChild(_help, 5);
 		}
@@ -280,8 +279,7 @@ void Balloon::addTouchEvents(Sprite* obj)
 			target->setOpacity(255);
 			if (_balloonsBin.size() != _answer && _balloonsBin.size() != 12)
 			{
-				if (_answer == 0)
-				{  _label->setString("0");  }
+				
 				_burstFlag = false;
 				_label->setColor(cocos2d::Color3B(237, 33, 53));
 				auto sequence_A = ScaleTo::create(0.3, (1.15));
@@ -296,6 +294,10 @@ void Balloon::addTouchEvents(Sprite* obj)
 			}
 			else if (_balloonsBin.size() == _answer)
 			{
+				if (_answer == 0)
+				{
+					_label->setString("0");
+				}
 				_label->setColor(cocos2d::Color3B(143, 239, 32));
 				auto sequence_A = ScaleTo::create(0.3, (1.15));
 				auto sequence_B = ScaleTo::create(0.3, 1);
