@@ -23,8 +23,8 @@ xc.Pinata = cc.Layer.extend({
     var playerGUI = "";
     var heightTolrence = 0;
     this.xPosi =0;
-    this.setPausedForMenuContext = true;
     this.counterHit = 0;
+    this.isItinOriginalPosition = true;
     this.shootingFlag = false;
     this.flagSingleTouchFirst = true;
     this.targetXcoordSave = 0;
@@ -167,7 +167,6 @@ xc.Pinata = cc.Layer.extend({
                     if (cc.rectContainsPoint(targetRectangle, location)){
                         classReference.player.prevX = touch.getLocation().x;
                         classReference.player.prevY = touch.getLocation().y;
-                        this.setPausedForMenuContext = true; 
                         return true;
                     }
                 }
@@ -226,9 +225,23 @@ xc.Pinata = cc.Layer.extend({
                         }, 3000);                    
                     }
                 }
+
+               if(!classReference.shootingFlag && classReference.gameBg.node.getChildByName("board").freezShooting){
+                    let xPositionForBall = (classReference.xPosi/2)+(classReference.gameBg.node.getChildByName("left").x + classReference.gameBg.node.getChildByName("right").x) /2;
+                    let yPositionForBall = classReference.gameBg.node.getChildByName("right").y;
+
+                    if(classReference.bubblePlayer.x != xPositionForBall && classReference.bubblePlayer.y != yPositionForBall){
+                        var ballTouchMovementAllow = function()
+                        {
+                            classReference.isItinOriginalPosition = true;
+                        }
+                            classReference.isItinOriginalPosition = false;
+                        classReference.bubblePlayer.runAction(new cc.Sequence(new cc.MoveTo(0.2,cc.p(xPositionForBall,yPositionForBall)),new cc.CallFunc(ballTouchMovementAllow, classReference)));
+                    }
+                }
             }
      });
-
+     //comment
     var choosingListner = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY_ONE, swallowTouches: false,
             onTouchBegan :function(touch, event){
                 var target = event.getCurrentTarget();
@@ -386,9 +399,22 @@ xc.Pinata = cc.Layer.extend({
   },
 
     update : function (dt) {
-       
-       if(!this.shootingFlag && menuContext.isGamePaused()){
+       //commet
+       if(!this.shootingFlag && menuContext.isGamePaused() && this.gameBg.node.getChildByName("board").freezShooting){
            this.bubblePlayer.setPosition((this.xPosi/2)+(this.gameBg.node.getChildByName("left").x + this.gameBg.node.getChildByName("right").x) /2,this.gameBg.node.getChildByName("right").y);           
+           if(this.rightLine != undefined){
+                this.removeChild(this.rightLine);
+            }
+            this.rightLine = new cc.DrawNode();
+            this.rightLine.drawSegment(cc.p((this.xPosi/2)+this.gameBg.node.getChildByName("right").x,this.gameBg.node.getChildByName("right").y), cc.p(this.bubblePlayer.x + (this.bubblePlayer.width/2),this.bubblePlayer.y),5,this.stringColor);
+            this.addChild(this.rightLine);
+
+            if(this.leftLine != undefined){
+                this.removeChild(this.leftLine);
+            }
+            this.leftLine = new cc.DrawNode();
+            this.leftLine.drawSegment(cc.p((this.xPosi/2)+this.gameBg.node.getChildByName("left").x,this.gameBg.node.getChildByName("left").y), cc.p(this.bubblePlayer.x - (this.bubblePlayer.width/2),this.bubblePlayer.y),5,this.stringColor);
+            this.addChild(this.leftLine); 
        }
        
        if(this.shootingFlag && !menuContext.isGamePaused()){

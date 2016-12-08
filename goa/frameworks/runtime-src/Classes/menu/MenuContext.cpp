@@ -71,6 +71,8 @@
 #include "../mini_games/Shape.h"
 #include "../mini_games/Balloon.h"
 #include "../mini_games/PopCount.h"
+#include "../mini_games/PatchTheWallScene.h"
+
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -943,6 +945,9 @@ void MenuContext::launchGameFinally(std::string gameName) {
 		else if (gameName == POPCOUNT) {
 			Director::getInstance()->replaceScene(PopCount::createScene());
 		}
+		else if (gameName == PATCH_THE_WALL) {
+			Director::getInstance()->replaceScene(PatchTheWall::createScene());
+		}
 		else{
             CCLOG("Failed starting scene: %s", gameName.c_str());
         }
@@ -1128,6 +1133,21 @@ std::vector<std::vector<cocos2d::Point>> MenuContext::getTrianglePointsForSprite
     return points;
 }
 
+
+void MenuContext::pronounceWord(std::string word) {
+    std::string fileName = LangUtil::getInstance()->getPronounciationFileNameForWord(word);
+    if(FileUtils::getInstance()->isFileExist(fileName)) {
+        auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+        audio->playEffect(fileName.c_str());
+    }
+    else {
+        CCLOG("file doesn't exists with word %s", fileName.c_str());
+        #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+            //JSB call to Android TTS Support
+        
+        #endif
+    }
+}
 
 std::vector<cocos2d::Vec2> MenuContext::getPolygonPointsForSprite(cocos2d::Sprite* node, std::string fileName, float threshHold) {
     

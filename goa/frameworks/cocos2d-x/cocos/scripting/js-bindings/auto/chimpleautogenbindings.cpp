@@ -57,6 +57,27 @@ bool js_chimpleautogenbindings_MenuContext_exitMultiPlayerGame(JSContext *cx, ui
     return false;
 }
 
+bool js_chimpleautogenbindings_MenuContext_pronounceWord(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
+    js_proxy_t *proxy = jsb_get_js_proxy(obj);
+    MenuContext* cobj = (MenuContext *)(proxy ? proxy->ptr : NULL);
+    JSB_PRECONDITION2( cobj, cx, false, "js_chimpleautogenbindings_MenuContext_pronounceWord : Invalid Native Object");
+    if (argc == 1) {
+        std::string arg0;
+        ok &= jsval_to_std_string(cx, args.get(0), &arg0);
+        JSB_PRECONDITION2(ok, cx, false, "js_chimpleautogenbindings_MenuContext_pronounceWord : Error processing arguments");
+        cobj->pronounceWord(arg0);
+        args.rval().setUndefined();
+        return true;
+    }
+    
+    JS_ReportError(cx, "js_chimpleautogenbindings_MenuContext_pronounceWord : wrong number of arguments: %d, was expecting %d", argc, 1);
+    return false;
+}
+
 bool js_chimpleautogenbindings_MenuContext_getTrianglePointsForSprite(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -847,6 +868,7 @@ void js_register_chimpleautogenbindings_MenuContext(JSContext *cx, JS::HandleObj
         JS_FN("addPoints", js_chimpleautogenbindings_MenuContext_addPoints, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("showStartupHelp", js_chimpleautogenbindings_MenuContext_showStartupHelp, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getPoints", js_chimpleautogenbindings_MenuContext_getPoints, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("pronounceWord", js_chimpleautogenbindings_MenuContext_pronounceWord, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("finalizePoints", js_chimpleautogenbindings_MenuContext_finalizePoints, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("showScore", js_chimpleautogenbindings_MenuContext_showScore, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("setMaxPoints", js_chimpleautogenbindings_MenuContext_setMaxPoints, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),

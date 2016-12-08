@@ -22,17 +22,23 @@ protected:
 	HelpLayer* _help;
 
 	bool _touched = true;
-	bool _isItemOnePlaced = false;
-	bool _isItemTwoPlaced = false;
+	bool _isItemOnePlaced = false, _flagForItemOne = true;
+	bool _isItemTwoPlaced = false, _flagForItemTwo = true;
 	bool _calculateFlag = NULL;
 	bool _isListnerReady = NULL;
+	int _isItemOneCompleted = 0;
+	int _isItemTwoCompleted = 0;
 	pair<float, float> _vegeOriginalPos;
-	pair<string, string> _chooseVegePriceTag;
 	std::map< std::string, int> _vegePrice;
 	string _expectedItemOne, _expectedItemTwo, _textString1, _textString2, _textString3;
 	cocos2d::LabelTTF* _label = NULL;
 	int _labelCounter = 0;
-	int _total;
+	int _total, _gameCounter = 0;
+	vector<Sprite*>_vegeOnWeighingMachine;
+	cocostudio::timeline::ActionTimeline* _customerWalkAnim;
+	Sprite* _customer;
+	vector<string> _vegetableNodeName;
+	pair<int, int> _oneOfThePairInt;
 
 public:
 	~Shop();
@@ -42,7 +48,9 @@ public:
 	void update(float dt);
 	void addTouchEvents(Sprite* touchSprite);
 	void chooseVegeForShop(vector<string>);
-	string vegetablePriceValue(string);
+	string vegetablePriceValue(string,int);
+	void textOnMachine();
+	void customerEnter(Node*, vector<string>);
 
 	std::pair<int, int> levelAllInfo(int levelNum, int sceneRepetitionNo, int totalScene, int catagoryRepetitionNo, int totalcatagory);
 	void setAllSpriteProperties(Sprite* object, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY);

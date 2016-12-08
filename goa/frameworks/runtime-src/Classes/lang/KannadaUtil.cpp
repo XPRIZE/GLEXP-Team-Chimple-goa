@@ -14,6 +14,8 @@ static const char* audioExt = ".wav";
 static const char* audioExt = ".m4a";
 #endif
 
+static const char* pronounciationAudioExt = ".ogg";
+
 static const std::map<wchar_t, std::string> langMap = {
     {L'\x0c85',"a"},
     {L'\x0c86',"aa"},
@@ -190,6 +192,12 @@ std::string KannadaUtil::getDir()
 
 std::string KannadaUtil::getLang() {
     return "kan";
+}
+
+std::string KannadaUtil::getPronounciationFileNameForWord(std::string word) {
+    std::transform(word.begin(), word.end(), word.begin(), ::tolower);
+    auto fileName = std::string("kannada/sounds/audio/") + word + pronounciationAudioExt;
+    return fileName;
 }
 
 KannadaUtil::KannadaUtil() {

@@ -666,8 +666,8 @@
     "multiPlayer": false,
     "isJSGame": false,
     "script": "src/NonJSGameLauncher.js",
-    "span": "6",
-    "numLevels": "60",
+    "span": "5",
+    "numLevels": "30",
     "backgroundJson": "droplevel/Layer1.json",
     "foregroundJson": "droplevel/Layer3.json",
     "frontgroundJson": "droplevel/Layer4.json",
@@ -948,5 +948,22 @@
         "maingroundJson": "shapelevel/shapelevelmainground.json",
         "menuPlist": "shapelevel/shapelevel.plist",
         "menuPng": "shapelevel/shapelevel.png"  
+  },
+   {
+        "name": "Patch The Wall",
+        "title": "Patch the Wall",
+        "cIcon": "gameicons/Patch The Wall_pressed.png",
+        "icon": "gameicons/Patch The Wall.png",
+        "multiPlayer":false,
+        "isJSGame":false,
+        "script":"src/NonJSGameLauncher.js",
+        "span": "2",
+        "numLevels": "8",
+        "backgroundJson": "patchthewalllevel/background.json",
+        "foregroundJson": "patchthewalllevel/foreground.json",
+        "frontgroundJson": "patchthewalllevel/frontground.json",
+        "maingroundJson": "patchthewalllevel/mainground.json",
+        "menuPlist": "patchthewalllevel/patchthewalllevel.plist",
+        "menuPng": "patchthewalllevel/patchthewalllevel.png"  
   }
 ]

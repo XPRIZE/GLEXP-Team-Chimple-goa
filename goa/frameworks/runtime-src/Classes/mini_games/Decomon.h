@@ -36,7 +36,7 @@ protected:
 	cocos2d::RenderTexture *_paintingTexture;
 	cocos2d::Sprite *_paintingColour;
 	int _pickedColor_R, _pickedColor_G, _pickedColor_B;
-	bool _touched = false, _flip, _colorPicked = false, _screenShoot = true;
+	bool _touched = false, _flip, _colorPicked = false, _screenShoot = true, _onTouch = true;
 	cocos2d::Vector <cocos2d::Node *> _movedNodes;
 	std::vector <std::string> _eyePath;
 	std::vector <std::string> _mouthPath;
