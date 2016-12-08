@@ -71,10 +71,23 @@ void Balloon::onEnterTransitionDidFinish()
 	vector<string> balloonName = { "green", "red", "yellow" };
 	int randomValue = RandomHelper::random_int(0, 2);
 	_balloonColor = balloonName[randomValue];
-	_removedBalloonsId = { 0,1,2,3,4,5,6,7,8,9,10,11 };
 
-	/*E = DrawNode::create();
-	this->addChild(E, 10);*/
+	//_removedBalloonsId = { 0,1,2,3,4,5,6,7,8,9,10,11 };
+	//std::vector<int> _removedBalloonsId;
+	while (_removedBalloonsId.size() != no1) {
+		bool duplicateCheck = true;
+		int numberPicker = RandomHelper::random_int(0, 11);
+		for (int i = 0; i < _removedBalloonsId.size(); i++) {
+			if (numberPicker == _removedBalloonsId[i])
+				duplicateCheck = false;
+		}
+		if (duplicateCheck)
+			_removedBalloonsId.push_back(numberPicker);
+	}
+
+
+	E = DrawNode::create();
+	this->addChild(E, 10);
 
 	Sprite* check = Sprite::createWithSpriteFrameName("balloonpop/balloonpop_done.png");
 	setAllSpriteProperties(check, 0, visibleSize.width*0.83, visibleSize.height*0.1, true, 0.5, 0.5, 0, 1, 1);
@@ -96,9 +109,11 @@ Balloon::~Balloon()
 
 void Balloon::update(float dt)
 {
+
 }
 void Balloon::makingBalloons()
 {
+	
 	auto balloonBackground = this->getChildByName("bg");
 	for (int i = 0; i < _removedBalloonsId.size(); i++)
 	{
@@ -133,7 +148,7 @@ void Balloon::makingBalloons()
 
 			_help = HelpLayer::create(Rect(a, b, _pin->getContentSize().width*1.02
 				, _pin->getContentSize().height*1.02),
-				Rect(c, d , _balloonsBin[6]->getChildByName("Sprite_1")->getContentSize().width, _balloonsBin[6]->getChildByName("Sprite_1")->getContentSize().height / 2 * 0.65));
+				Rect(c, d , _balloonsBin[0]->getChildByName("Sprite_1")->getContentSize().width, _balloonsBin[6]->getChildByName("Sprite_1")->getContentSize().height / 2 * 0.65));
 			_help->clickAndDrag(Vec2(a,b),Vec2(c,d));
 			this->addChild(_help, 5);
 		}
@@ -213,8 +228,8 @@ void Balloon::addTouchEvents(Sprite* obj)
 			auto a = target->getPositionX() - target->getContentSize().width / 2;
 			auto b = target->getPositionY() - target->getContentSize().height / 2;
 
-			/*E->clear();
-			E->drawRect(Vec2(a, b), Vec2(a + 10, b + 10), Color4F(0, 0, 255, 22));*/
+			E->clear();
+			E->drawRect(Vec2(a, b), Vec2(a + 10, b + 10), Color4F(0, 0, 255, 22));
 
 			Rect pinRect = CCRectMake(a, b, 10, 10);
 
@@ -261,6 +276,8 @@ void Balloon::addTouchEvents(Sprite* obj)
 			target->setOpacity(255);
 			if (_balloonsBin.size() != _answer && _balloonsBin.size() != 12)
 			{
+				if (_answer == 0)
+				{  _label->setString("0");  }
 				_burstFlag = false;
 				_label->setColor(cocos2d::Color3B(237, 33, 53));
 				auto sequence_A = ScaleTo::create(0.3, (1.15));

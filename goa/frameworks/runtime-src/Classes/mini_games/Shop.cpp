@@ -39,9 +39,9 @@ void Shop::onEnterTransitionDidFinish()
 	auto shopingBackground = CSLoader::createNode("shoping/bg.csb");
 	this->addChild(shopingBackground, 0);
 	shopingBackground->setName("bg");
-
+	auto myGameWidth = 0;
 	if (visibleSize.width > 2560) {
-		auto myGameWidth = (visibleSize.width - 2560) / 2;
+		myGameWidth = (visibleSize.width - 2560) / 2;
 		shopingBackground->setPositionX(myGameWidth);
 	}
 	
@@ -82,6 +82,10 @@ Shop::~Shop()
 }
 void Shop::textOnMachine()
 {
+	auto myGameWidth = 0;
+	if (visibleSize.width > 2560) {
+		myGameWidth = (visibleSize.width - 2560) / 2;
+	}
 	if (_label != NULL)
 	{
 		this->removeChild(_label, true);
@@ -92,7 +96,7 @@ void Shop::textOnMachine()
 	_textString3 = "?";
 
 	auto textOnDisplay = _textString1 + " + " + _textString2 + " = " + _textString3;
-	_label = setAllLabelProperties(textOnDisplay, 0, labelNode->getPositionX() + visibleSize.width*0.026, labelNode->getPositionY(), true, 0.5, 0.5, 0, 1, 1, 80);
+	_label = setAllLabelProperties(textOnDisplay, 0, labelNode->getPositionX() + visibleSize.width*0.026 + myGameWidth, labelNode->getPositionY(), true, 0.5, 0.5, 0, 1, 1, 80);
 	_label->setColor(cocos2d::Color3B(229, 78, 78));
 	this->addChild(_label, 0);
 }
