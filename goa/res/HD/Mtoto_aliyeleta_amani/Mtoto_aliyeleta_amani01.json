@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 285,
+        "Duration": 530,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "turtle",
         "Timelines": [
           {
             "ActionTag": 943576832,
@@ -50,6 +50,14 @@
                 "CurrentAniamtionName": "walk",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 290,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -117,6 +125,14 @@
                 "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 290,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -170,6 +186,46 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1929918420,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 290,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1929918420,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2996.1543,
+                "Y": 180.3158,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2213.8789,
+                "Y": 186.3336,
+                "FrameIndex": 530,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -179,6 +235,12 @@
           "StartIndex": 0,
           "EndIndex": 285,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 290,
+          "EndIndex": 530,
+          "Name": "turtle",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -201,7 +263,8 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
-            "TouchEnable": true,
+            "Scale9Width": 1,
+            "Scale9Height": 1,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -253,7 +316,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -325,6 +387,7 @@
             "RightMargin": -650.0083,
             "TopMargin": 353.5038,
             "BottomMargin": -106.5038,
+            "UserData": "main.turtle",
             "Tag": 200,
             "ActionTag": 943576832,
             "Size": {
@@ -370,6 +433,7 @@
             "RightMargin": 2758.0544,
             "TopMargin": 512.1631,
             "BottomMargin": 598.837,
+            "UserData": "main.turtle",
             "Tag": 201,
             "ActionTag": -1408336318,
             "Size": {
@@ -416,6 +480,7 @@
             "RightMargin": 1205.8102,
             "TopMargin": 324.8403,
             "BottomMargin": 786.1597,
+            "UserData": "main.turtle",
             "Tag": 202,
             "ActionTag": -1812513504,
             "Size": {
@@ -461,6 +526,7 @@
             "RightMargin": 1727.6851,
             "TopMargin": 458.6541,
             "BottomMargin": 652.3459,
+            "UserData": "main.turtle",
             "Tag": 203,
             "ActionTag": -895385260,
             "Size": {
@@ -504,8 +570,9 @@
             },
             "LeftMargin": -673.5155,
             "RightMargin": 2423.5156,
-            "TopMargin": 565.7102,
+            "TopMargin": 565.7101,
             "BottomMargin": 545.2899,
+            "UserData": "main.turtle",
             "Tag": 204,
             "ActionTag": -1574098150,
             "Size": {
@@ -549,8 +616,9 @@
             },
             "LeftMargin": 316.7062,
             "RightMargin": 1433.2938,
-            "TopMargin": 498.8103,
+            "TopMargin": 498.8104,
             "BottomMargin": 612.1896,
+            "UserData": "main.turtle",
             "Tag": 205,
             "ActionTag": -232300103,
             "Size": {
@@ -597,6 +665,7 @@
             "RightMargin": 1935.098,
             "TopMargin": 699.5361,
             "BottomMargin": 411.4639,
+            "UserData": "main.turtle",
             "Tag": 206,
             "ActionTag": 159588347,
             "Size": {
@@ -639,9 +708,10 @@
               "Y": 0.3828
             },
             "LeftMargin": -715.8983,
-            "RightMargin": 2465.8984,
+            "RightMargin": 2465.8982,
             "TopMargin": 776.7587,
             "BottomMargin": 334.2413,
+            "UserData": "main.turtle",
             "Tag": 207,
             "ActionTag": -1193167331,
             "Size": {
@@ -687,6 +757,7 @@
             "RightMargin": 2106.8174,
             "TopMargin": 1091.3525,
             "BottomMargin": 254.6475,
+            "UserData": "main.turtle",
             "Tag": 220,
             "ActionTag": 1857948194,
             "Size": {
@@ -730,8 +801,9 @@
             },
             "LeftMargin": -852.3586,
             "RightMargin": 2602.3586,
-            "TopMargin": 1078.4756,
+            "TopMargin": 1078.4755,
             "BottomMargin": 32.5245,
+            "UserData": "main.turtle",
             "Tag": 208,
             "ActionTag": 1493086337,
             "Size": {
@@ -777,6 +849,7 @@
             "RightMargin": 1415.4601,
             "TopMargin": 1004.9371,
             "BottomMargin": 341.0629,
+            "UserData": "main.turtle",
             "Tag": 219,
             "ActionTag": 568760275,
             "Size": {
@@ -823,6 +896,7 @@
             "RightMargin": 596.9579,
             "TopMargin": 372.3337,
             "BottomMargin": 738.6663,
+            "UserData": "main.turtle",
             "Tag": 209,
             "ActionTag": 1494006452,
             "Size": {
@@ -868,6 +942,7 @@
             "RightMargin": 944.8717,
             "TopMargin": 559.676,
             "BottomMargin": 551.3239,
+            "UserData": "main.turtle",
             "Tag": 210,
             "ActionTag": 293004688,
             "Size": {
@@ -911,9 +986,10 @@
               "Y": 0.3828
             },
             "LeftMargin": 69.149,
-            "RightMargin": 1680.851,
+            "RightMargin": 1680.8511,
             "TopMargin": 787.1611,
             "BottomMargin": 323.8389,
+            "UserData": "main.turtle",
             "Tag": 211,
             "ActionTag": -829007423,
             "Size": {
@@ -959,6 +1035,7 @@
             "RightMargin": 385.314,
             "TopMargin": 891.5563,
             "BottomMargin": 454.4437,
+            "UserData": "main.turtle",
             "Tag": 212,
             "ActionTag": -46382171,
             "Size": {
@@ -1004,6 +1081,7 @@
             "RightMargin": 725.6339,
             "TopMargin": 1050.5786,
             "BottomMargin": 295.4214,
+            "UserData": "main.turtle",
             "Tag": 213,
             "ActionTag": -963974751,
             "Size": {
@@ -1046,9 +1124,10 @@
               "Y": 0.2522
             },
             "LeftMargin": 188.7885,
-            "RightMargin": 1386.2115,
-            "TopMargin": 1248.2334,
+            "RightMargin": 1386.2114,
+            "TopMargin": 1248.2335,
             "BottomMargin": 97.7665,
+            "UserData": "main.turtle",
             "Tag": 214,
             "ActionTag": -465965012,
             "Size": {
@@ -1094,6 +1173,7 @@
             "RightMargin": 1703.5011,
             "TopMargin": 1279.4424,
             "BottomMargin": 66.5576,
+            "UserData": "main.turtle",
             "Tag": 215,
             "ActionTag": -1588273794,
             "Size": {
@@ -1139,6 +1219,7 @@
             "RightMargin": 1464.2352,
             "TopMargin": 1425.0823,
             "BottomMargin": -79.0823,
+            "UserData": "main.turtle",
             "Tag": 216,
             "ActionTag": 672225355,
             "Size": {
@@ -1184,6 +1265,7 @@
             "RightMargin": 2410.8979,
             "TopMargin": 1545.0588,
             "BottomMargin": -199.0589,
+            "UserData": "main.turtle",
             "Tag": 217,
             "ActionTag": -230808068,
             "Size": {
@@ -1229,6 +1311,7 @@
             "RightMargin": 2171.6323,
             "TopMargin": 1545.0577,
             "BottomMargin": -199.0577,
+            "UserData": "main.turtle",
             "Tag": 218,
             "ActionTag": 1042303865,
             "Size": {
@@ -1270,13 +1353,14 @@
             "RightMargin": 439.1477,
             "TopMargin": 1632.8086,
             "BottomMargin": 167.1914,
+            "UserData": "drag;run",
             "Tag": 440,
             "ActionTag": -1721417001,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_3",
+            "Name": "boy",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1311,13 +1395,55 @@
             "RightMargin": 217.6309,
             "TopMargin": 1634.6221,
             "BottomMargin": 165.3779,
+            "UserData": "drag;walk",
             "Tag": 484,
             "ActionTag": 1178469707,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_4",
+            "Name": "girl",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtoto_aliyeleta_amani/turtle.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2996.1543,
+              "Y": 180.3158
+            },
+            "Scale": {
+              "ScaleX": -0.7,
+              "ScaleY": 0.7
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.1704,
+              "Y": 0.1002
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2996.1543,
+            "RightMargin": -436.1543,
+            "TopMargin": 1619.6842,
+            "BottomMargin": 180.3158,
+            "Tag": 1456,
+            "ActionTag": -1929918420,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "turtle",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -1332,7 +1458,8 @@
         "baby.json",
         "girl.json",
         "Mtoto_aliyeleta_amani.plist",
-        "Mtoto_aliyeleta_amani.png"
+        "Mtoto_aliyeleta_amani.png",
+        "turtle.json"
       ],
       "ctype": "GameFileData"
     }

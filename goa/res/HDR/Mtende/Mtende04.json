@@ -5,10 +5,101 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 270,
+        "Duration": 455,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "turtle",
         "Timelines": [
+          {
+            "ActionTag": 1064171403,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 275,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 385,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1064171403,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 3129.4888,
+                "Y": 467.7266,
+                "FrameIndex": 275,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2007.8384,
+                "Y": 422.0786,
+                "FrameIndex": 385,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2094675189,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -537.222,
+                "Y": 661.5084,
+                "FrameIndex": 275,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -331.9606,
+                "Y": 762.5647,
+                "FrameIndex": 325,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -335.1183,
+                "Y": 762.5649,
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -553.0031,
+                "Y": 648.8892,
+                "FrameIndex": 455,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 1822388111,
             "Property": "ActionValue",
@@ -138,6 +229,12 @@
           "EndIndex": 270,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 275,
+          "EndIndex": 455,
+          "Name": "turtle",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -249,6 +346,88 @@
           },
           {
             "FileData": {
+              "Type": "Normal",
+              "Path": "Mtende/turtle.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 3129.4888,
+              "Y": 467.7266
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.2225,
+              "Y": 0.2598
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 3129.4888,
+            "RightMargin": -569.4888,
+            "TopMargin": 1332.2734,
+            "BottomMargin": 467.7266,
+            "Tag": 655,
+            "ActionTag": 1064171403,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "turtle",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtende/turtle.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -537.222,
+              "Y": 661.5084
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.2099,
+              "Y": 0.3675
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -537.222,
+            "RightMargin": 3097.2219,
+            "TopMargin": 1138.4916,
+            "BottomMargin": 661.5084,
+            "Tag": 647,
+            "ActionTag": -2094675189,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "turtle",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
               "Type": "MarkedSubImage",
               "Path": "Mtende/Mtende_palmtree.png",
               "Plist": "Mtende/Mtende.plist"
@@ -283,13 +462,14 @@
             "RightMargin": 739.5215,
             "TopMargin": 201.6271,
             "BottomMargin": 20.3729,
+            "UserData": "main.turtle",
             "Tag": 501,
             "ActionTag": 1133765833,
             "Size": {
               "X": 1061.0,
               "Y": 1578.0
             },
-            "Name": "Mtende_palmtree_1",
+            "Name": "palmtree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -333,13 +513,14 @@
             "RightMargin": 1294.3698,
             "TopMargin": 774.4255,
             "BottomMargin": 811.5744,
+            "UserData": "main.turtle",
             "Tag": 502,
             "ActionTag": -1783551606,
             "Size": {
               "X": 81.0,
               "Y": 214.0
             },
-            "Name": "Mtende_palmtreefruit_2",
+            "Name": "palmtreefruit",
             "ctype": "SpriteObjectData"
           },
           {
@@ -382,13 +563,14 @@
             "RightMargin": 961.0444,
             "TopMargin": 780.7096,
             "BottomMargin": 805.2904,
+            "UserData": "main.turtle",
             "Tag": 503,
             "ActionTag": 350826707,
             "Size": {
               "X": 81.0,
               "Y": 214.0
             },
-            "Name": "Mtende_palmtreefruit_2_0",
+            "Name": "palmtreefruit",
             "ctype": "SpriteObjectData"
           },
           {
@@ -433,13 +615,14 @@
             "RightMargin": 1065.1061,
             "TopMargin": 732.4044,
             "BottomMargin": 853.5956,
+            "UserData": "main.turtle",
             "Tag": 504,
             "ActionTag": -2110118705,
             "Size": {
               "X": 81.0,
               "Y": 214.0
             },
-            "Name": "Mtende_palmtreefruit_2_1",
+            "Name": "palmtreefruit",
             "ctype": "SpriteObjectData"
           },
           {
@@ -483,13 +666,14 @@
             "RightMargin": 1385.3572,
             "TopMargin": 646.9346,
             "BottomMargin": 939.0654,
+            "UserData": "main.turtle",
             "Tag": 505,
             "ActionTag": -1289670131,
             "Size": {
               "X": 81.0,
               "Y": 214.0
             },
-            "Name": "Mtende_palmtreefruit_2_2",
+            "Name": "palmtreefruit",
             "ctype": "SpriteObjectData"
           },
           {
@@ -534,13 +718,14 @@
             "RightMargin": 1170.3141,
             "TopMargin": 638.3489,
             "BottomMargin": 947.6511,
+            "UserData": "main.turtle",
             "Tag": 506,
             "ActionTag": 2138154892,
             "Size": {
               "X": 81.0,
               "Y": 214.0
             },
-            "Name": "Mtende_palmtreefruit_2_1_0",
+            "Name": "palmtreefruit",
             "ctype": "SpriteObjectData"
           },
           {
@@ -581,7 +766,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "boy",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -622,7 +807,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "girl",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -637,7 +822,8 @@
         "boy1.json",
         "boy2.json",
         "Mtende.plist",
-        "Mtende.png"
+        "Mtende.png",
+        "turtle.json"
       ],
       "ctype": "GameFileData"
     }

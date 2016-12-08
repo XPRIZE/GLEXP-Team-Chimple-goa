@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 760,
         "Speed": 1.0,
-        "ActivedAnimationName": "hiempty",
+        "ActivedAnimationName": "walk",
         "Timelines": [
           {
             "ActionTag": -1299471080,
@@ -8822,6 +8822,49 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 1103410760,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "steps",
+                "FrameIndex": 5,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 45,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "steps",
+                "FrameIndex": 50,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 85,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "steps",
+                "FrameIndex": 675,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 715,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -2024856762,
             "Property": "Position",
             "Frames": [
@@ -9642,6 +9685,24 @@
                 "X": 83.4111,
                 "Y": -0.5689,
                 "FrameIndex": 480,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 84.7216,
+                "Y": 8.7362,
+                "FrameIndex": 490,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 77.8234,
+                "Y": 11.8049,
+                "FrameIndex": 500,
                 "EasingData": {
                   "Type": 0
                 },
@@ -11889,6 +11950,24 @@
                 "ctype": "PointFrameData"
               },
               {
+                "X": 88.1281,
+                "Y": 13.4085,
+                "FrameIndex": 490,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 80.364,
+                "Y": 14.333,
+                "FrameIndex": 500,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
                 "X": 83.98,
                 "Y": 0.0,
                 "FrameIndex": 505,
@@ -12146,8 +12225,8 @@
             "Property": "RotationSkew",
             "Frames": [
               {
-                "X": 22.0365,
-                "Y": 22.0365,
+                "X": -0.7496,
+                "Y": -0.7496,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -12497,8 +12576,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": 22.0365,
-                "Y": 22.0365,
+                "X": 0.4819,
+                "Y": 0.4819,
                 "FrameIndex": 480,
                 "EasingData": {
                   "Type": 0
@@ -12506,8 +12585,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -31.7583,
-                "Y": -31.7583,
+                "X": -50.6071,
+                "Y": -50.6071,
                 "FrameIndex": 490,
                 "EasingData": {
                   "Type": 0
@@ -12515,8 +12594,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -49.7928,
-                "Y": -49.7928,
+                "X": -73.4233,
+                "Y": -73.4233,
                 "FrameIndex": 500,
                 "EasingData": {
                   "Type": 0
@@ -15578,8 +15657,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 22.0365,
-                    "RotationSkewY": 22.0365,
+                    "RotationSkewX": -0.7496,
+                    "RotationSkewY": -0.7496,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
