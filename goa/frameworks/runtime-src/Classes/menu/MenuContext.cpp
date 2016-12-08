@@ -71,8 +71,8 @@
 #include "../mini_games/Shape.h"
 #include "../mini_games/Balloon.h"
 #include "../mini_games/PopCount.h"
+#include "../mini_games/DinoGame.h"
 #include "../mini_games/PatchTheWallScene.h"
-
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -952,6 +952,9 @@ void MenuContext::launchGameFinally(std::string gameName) {
 		}
 		else if (gameName == POPCOUNT) {
 			Director::getInstance()->replaceScene(PopCount::createScene());
+		}
+		else if (gameName == DINO) {
+			Director::getInstance()->replaceScene(DinoGame::createScene());
 		}
 		else if (gameName == PATCH_THE_WALL) {
 			Director::getInstance()->replaceScene(PatchTheWall::createScene());
