@@ -90,13 +90,14 @@ void Shop::textOnMachine()
 	{
 		this->removeChild(_label, true);
 	}
-	auto labelNode = this->getChildByName("bg")->getChildByName("hit");
+	auto labelNode = this->getChildByName("bg")->getChildByName("weightshow_520");
+	auto labelNode1 = this->getChildByName("bg")->getChildByName("hit");
 	_textString1 = "?";
 	_textString2 = "?";
 	_textString3 = "?";
 
 	auto textOnDisplay = _textString1 + " + " + _textString2 + " = " + _textString3;
-	_label = setAllLabelProperties(textOnDisplay, 0, labelNode->getPositionX() + visibleSize.width*0.026 + myGameWidth, labelNode->getPositionY(), true, 0.5, 0.5, 0, 1, 1, 80);
+	_label = setAllLabelProperties(textOnDisplay, 0, labelNode->getPositionX()+ myGameWidth, labelNode1->getPositionY() + labelNode1->getContentSize().width * 0.35, true, 0.5, 0.5, 0, 1, 1, 80);
 	_label->setColor(cocos2d::Color3B(229, 78, 78));
 	this->addChild(_label, 0);
 }
@@ -126,7 +127,7 @@ void Shop::customerEnter(Node* Bg, vector<string> vegetableNodeName)
 	_customer->setName("customer");
 	 Bg->addChild(_customer);
 
-	_customer->runAction(Sequence::create(MoveTo::create(3, Vec2(visibleSize.width*.77, visibleSize.height*.2)),
+	_customer->runAction(Sequence::create(MoveTo::create(3, Vec2(visibleSize.width*.79, visibleSize.height*.2)),
 		CCCallFunc::create([=] {	_customerWalkAnim->pause();
 
 	for (int j = 0; j < vegetableNodeName.size(); j++)
@@ -142,14 +143,18 @@ void Shop::customerEnter(Node* Bg, vector<string> vegetableNodeName)
 		}
 	}
 	int gameCurrentLevel = _menuContext->getCurrentLevel();
+	auto myGameWidth = 0;
+	if (visibleSize.width > 2560) {
+		myGameWidth = (visibleSize.width - 2560) / 2;
+	}
 	if (gameCurrentLevel == 1)
 	{
 		auto nodeForHelp = this->getChildByName("bg")->getChildByName("corn");
-		auto a = nodeForHelp->getPositionX() + visibleSize.width*.038;
+		auto a = nodeForHelp->getPositionX()+ myGameWidth;// + visibleSize.width*.038
 		auto b = nodeForHelp->getPositionY() - nodeForHelp->getContentSize().height*.25;
 
 		auto nodeForDropPos = this->getChildByName("bg")->getChildByName("item_1");
-		auto c = nodeForDropPos->getPositionX() + visibleSize.width*0.049;
+		auto c = nodeForDropPos->getPositionX() + myGameWidth;//+ visibleSize.width*0.049
 		auto d = nodeForDropPos->getPositionY() + visibleSize.height*0.045;
 
 		_help = HelpLayer::create(Rect(a, b, visibleSize.width*0.12, visibleSize.height*.2),
@@ -396,8 +401,12 @@ void Shop::addTouchEvents(Sprite* obj)
 	};
 	listener->onTouchMoved = [=](cocos2d::Touch* touch, cocos2d::Event* event)
 	{
-
+		
 		auto target = event->getCurrentTarget();
+		if (_menuContext->isGamePaused())
+		{
+			target->setPosition(Vec2(_vegeOriginalPos.first, _vegeOriginalPos.second));
+		}
 		target->setZOrder(5);
 		target->setPosition(Vec2(touch->getLocation().x, touch->getLocation().y));
 		auto gameCurrentLevel = _menuContext->getCurrentLevel();

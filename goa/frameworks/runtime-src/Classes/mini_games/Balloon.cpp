@@ -113,20 +113,24 @@ void Balloon::update(float dt)
 }
 void Balloon::makingBalloons()
 {
+	auto myGameWidth = 0;
+	if (visibleSize.width > 2560) {
+		myGameWidth = (visibleSize.width - 2560) / 2;
+	}
 	
 	auto balloonBackground = this->getChildByName("bg");
 	for (int i = 0; i < _removedBalloonsId.size(); i++)
 	{
 		cocostudio::timeline::ActionTimeline* timeline = CSLoader::createTimeline("balloonpop/balloon.csb");
 		Sprite* balloon = (Sprite *)CSLoader::createNode("balloonpop/balloon.csb");
-		setAllSpriteProperties(balloon, 0, balloonBackground->getChildByName(_nodeName[_removedBalloonsId[i]])->getPositionX() + visibleSize.width*0.03, -visibleSize.height*0.2, true, 0.5, 0.5, 0, 1, 1);
+		setAllSpriteProperties(balloon, 0, balloonBackground->getChildByName(_nodeName[_removedBalloonsId[i]])->getPositionX() + myGameWidth, -visibleSize.height*0.2, true, 0.5, 0.5, 0, 1, 1);
 		this->addChild(balloon, 0);
 		balloon->runAction(timeline);
 		timeline->play(_balloonColor, true);
 		balloon->setName("balloon");
 		balloon->setTag(_removedBalloonsId[i] + 1000);
 		_balloonsBin.push_back(balloon);
-		upFloat(balloon, RandomHelper::random_int(3, 6), balloonBackground->getChildByName(_nodeName[_removedBalloonsId[i]])->getPositionX() + visibleSize.width*0.03, balloonBackground->getChildByName(_nodeName[_removedBalloonsId[i]])->getPositionY());
+		upFloat(balloon, RandomHelper::random_int(3, 6), balloonBackground->getChildByName(_nodeName[_removedBalloonsId[i]])->getPositionX() + myGameWidth, balloonBackground->getChildByName(_nodeName[_removedBalloonsId[i]])->getPositionY());
 		if (i == (_removedBalloonsId.size() - 1))
 		{
 			_removedBalloonsId.clear();
