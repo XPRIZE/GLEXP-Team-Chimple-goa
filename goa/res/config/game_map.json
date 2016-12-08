@@ -39,6 +39,23 @@
         "pureJS":"",
         "script": "src/start/showBlueToothPeers.js"
     },
+    {
+    "name": "dino",
+        "title": "Alphabet",
+    "cIcon": "gameicons/table_pressed.png",
+    "icon": "gameicons/table.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "3",
+    "numLevels": "15",
+   "backgroundJson": "tablelevel/background.json",
+    "foregroundJson": "tablelevel/foreground.json",
+    "frontgroundJson": "tablelevel/frontground.json",
+    "maingroundJson": "tablelevel/mainground.json",
+    "menuPlist": "tablelevel/tablelevel.plist",
+    "menuPng": "tablelevel/tablelevel.png"
+  },
   {
     "name": "table",
         "title": "Multiply",
@@ -336,8 +353,8 @@
     {
         "name": "Bounce",
         "title": "Drop the Icecream",
-        "cIcon": "gameicons/jazz_pressed.png",
-        "icon": "gameicons/jazz.png",
+        "cIcon": "gameicons/icecream_pressed.png",
+        "icon": "gameicons/icecream.png",
     	"multiPlayer":false,
         "isJSGame":true,
         "pureJS": "BounceLayer",

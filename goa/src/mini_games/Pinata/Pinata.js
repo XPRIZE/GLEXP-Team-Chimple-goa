@@ -191,6 +191,7 @@ xc.Pinata = cc.Layer.extend({
                     classReference.leftLine = new cc.DrawNode();
                     classReference.leftLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("left").x,classReference.gameBg.node.getChildByName("left").y), cc.p(classReference.bubblePlayer.x - (classReference.bubblePlayer.width/2),classReference.bubblePlayer.y),5,classReference.stringColor);
                     classReference.addChild(classReference.leftLine); 
+
                     return true;
   
             },
@@ -246,11 +247,6 @@ xc.Pinata = cc.Layer.extend({
                 let xPositionForBall = (classReference.xPosi/2)+(classReference.gameBg.node.getChildByName("left").x + classReference.gameBg.node.getChildByName("right").x) /2;
                 let yPositionForBall = classReference.gameBg.node.getChildByName("right").y;
 
-                if((Math.abs(xPositionForBall-touch.getLocation().x) > 60 && Math.abs(yPositionForBall-touch.getLocation().y) > 60) && classReference.soundReleaseBall){
-                    var audioEngine = cc.AudioEngine.getInstance();
-                    audioEngine.playEffect(xc.Pinata.res.pinata_stretching_sound);
-                    classReference.soundReleaseBall = false;
-                }
             }
      });
      //comment
@@ -298,6 +294,8 @@ xc.Pinata = cc.Layer.extend({
                         classReference.targetXcoordSave = targetA.x;
                         classReference.gamePlay(targetA);
                     }
+                    var audioEngine = cc.AudioEngine.getInstance();
+                    audioEngine.playEffect(xc.Pinata.res.pinata_select_sound);
                     classReference.counterHit++;
                     menuContext.addPoints(2);
                 }else{
@@ -329,6 +327,10 @@ xc.Pinata = cc.Layer.extend({
                          }
                          targetA.setVisible(false);
                     }
+                    var audioEngine1 = cc.AudioEngine.getInstance();
+                    audioEngine1.playEffect(xc.Pinata.res.pinata_select_sound);
+                    var audioEngine2 = cc.AudioEngine.getInstance();
+                    audioEngine2.playEffect(xc.Pinata.res.pinata_select_sound);
                 }
 
                 setTimeout(function() {
@@ -463,6 +465,8 @@ xc.Pinata = cc.Layer.extend({
                 this.bubblePlayer.setVisible(false);
                 this.targetPlayer.setVisible(false);
                 var classReference = this;
+                var audioEngine = cc.AudioEngine.getInstance();
+                audioEngine.playEffect(xc.Pinata.res.pinata_select_sound);
                 setTimeout(function() {
                     if (cc.sys.isNative) {
                           if(classReference.counterlevelStatus == 5){
@@ -602,20 +606,31 @@ xc.Pinata = cc.Layer.extend({
        var size = 0.5;
        if(this.bubblePlayer.getName() == "pinatacity"){size = 0.7};
         if(this.bubblePlayer.getName() == "pinatajungle"){size = 1.0};
-       var  halfAction = new cc.MoveTo(2,cc.p(((correctObject.width * size )/2) - (this.xPosi/2), cc.director.getWinSize().height * 0.85));
-       var  initSequence = new cc.Sequence(new cc.ScaleTo(0.3,size), new cc.MoveTo(0.5,cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height * 0.85)));
+//       var  halfAction = new cc.MoveTo(2,cc.p(((correctObject.width * size )/2) - (this.xPosi/2), cc.director.getWinSize().height * 0.85));
+//       var  initSequence = new cc.Sequence(new cc.ScaleTo(0.3,size), new cc.MoveTo(0.5,cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height * 0.85)));
         
-        var SequenceVal = new cc.Sequence(initSequence,halfAction);
-        correctObject.runAction(SequenceVal);
+//        var SequenceVal = new cc.Sequence(initSequence,halfAction);
+ //       correctObject.runAction(SequenceVal);
         this.targetPlayer = correctObject;
         var classReference = this;
-         setTimeout(function() {
-              var  leftTOright = new cc.MoveTo(4,cc.p(((correctObject.width * size )/2) - (classReference.xPosi/2), cc.director.getWinSize().height * 0.85));
+//         setTimeout(function() {
+//              var  leftTOright = new cc.MoveTo(4,cc.p(((correctObject.width * size )/2) - (classReference.xPosi/2), cc.director.getWinSize().height * 0.85));
+//              var  rightTOleft = new cc.MoveTo(4,cc.p(cc.director.getWinSize().width - (correctObject.width * size/2) - (classReference.xPosi/2), cc.director.getWinSize().height * 0.85));
+//              var repeatForeverAction = new cc.RepeatForever(new cc.Sequence(rightTOleft,leftTOright));
+//              correctObject.runAction(repeatForeverAction);
+//         }, 2800);
+        
+        var sequenceForRepeatMovement = function()
+        {
+             var  leftTOright = new cc.MoveTo(4,cc.p(((correctObject.width * size )/2) - (classReference.xPosi/2), cc.director.getWinSize().height * 0.85));
               var  rightTOleft = new cc.MoveTo(4,cc.p(cc.director.getWinSize().width - (correctObject.width * size/2) - (classReference.xPosi/2), cc.director.getWinSize().height * 0.85));
               var repeatForeverAction = new cc.RepeatForever(new cc.Sequence(rightTOleft,leftTOright));
               correctObject.runAction(repeatForeverAction);
-         }, 2800);
-        
+        }
+
+        var SequenceVal = new cc.Sequence(new cc.ScaleTo(0.3,size), new cc.MoveTo(0.5,cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height * 0.85)),new cc.MoveTo(2,cc.p(((correctObject.width * size )/2) - (this.xPosi/2), cc.director.getWinSize().height * 0.85)),new cc.CallFunc(sequenceForRepeatMovement, this));
+       correctObject.runAction(SequenceVal);
+
         this.gameBg.node.getChildByName("board").visible = false;
         if(this.bubblePlayer.getName() == "pinatacream")
         this.gameBg.node.getChildByName("Panel_2").visible = false;
@@ -680,8 +695,6 @@ xc.Pinata.res = {
 
    pinata_ball_release_sound : "res/sounds/sfx/ball_release_sound.ogg",
    pinata_collide_ball_wall : "res/sounds/sfx/collide_ball_wall.ogg",
-   pinata_drop_obj : "res/sounds/sfx/drop_obj.ogg",
-   pinata_glass_break : "res/sounds/sfx/glass_break.ogg",
-   pinata_stretching_sound : "res/sounds/sfx/stretching_sound.ogg"
+   pinata_select_sound : "res/sounds/sfx/pinata_select.ogg"
 };      
 

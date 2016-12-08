@@ -602,6 +602,9 @@ void Decomon::generateDuplicatesInAGrid(cocos2d::Node * node)
 {
 	cocos2d::Node * eye;
 	if (node->getPositionY() <= Director::getInstance()->getVisibleSize().height * 0.1) {
+
+		CCLOG("duplicates");
+
 		CCLOG("----------------------Duplicate-----------------------------");
 		CCLOG("duplicate object Name = %s", node->getName().c_str());
 
