@@ -25,6 +25,7 @@ xc.Pinata = cc.Layer.extend({
     var heightTolrence = 0;
     this.xPosi =0;
     this.counterHit = 0;
+    this.soundReleaseBall = true;
     this.isItinOriginalPosition = true;
     this.shootingFlag = false;
     this.flagSingleTouchFirst = true;
@@ -215,7 +216,9 @@ xc.Pinata = cc.Layer.extend({
                 if(classReference.player.prevY != 0 && classReference.player.prevX != 0){
                     classReference.shootingFlag = true;
                     classReference.gameBg.node.getChildByName("board").freezShooting = false;
-
+                    classReference.soundReleaseBall = true;
+                    var audioEngine = cc.AudioEngine.getInstance();
+                    audioEngine.playEffect(xc.Pinata.res.pinata_ball_release_sound);
                     if(!((Math.abs(classReference.player.angle) < 175)  && (Math.abs(classReference.player.angle) > 5))){
                         console.log("the range is not correct ");
                         setTimeout(function() {
@@ -239,6 +242,14 @@ xc.Pinata = cc.Layer.extend({
                             classReference.isItinOriginalPosition = false;
                         classReference.bubblePlayer.runAction(new cc.Sequence(new cc.MoveTo(0.2,cc.p(xPositionForBall,yPositionForBall)),new cc.CallFunc(ballTouchMovementAllow, classReference)));
                     }
+                }
+                let xPositionForBall = (classReference.xPosi/2)+(classReference.gameBg.node.getChildByName("left").x + classReference.gameBg.node.getChildByName("right").x) /2;
+                let yPositionForBall = classReference.gameBg.node.getChildByName("right").y;
+
+                if((Math.abs(xPositionForBall-touch.getLocation().x) > 60 && Math.abs(yPositionForBall-touch.getLocation().y) > 60) && classReference.soundReleaseBall){
+                    var audioEngine = cc.AudioEngine.getInstance();
+                    audioEngine.playEffect(xc.Pinata.res.pinata_stretching_sound);
+                    classReference.soundReleaseBall = false;
                 }
             }
      });
@@ -538,13 +549,19 @@ xc.Pinata = cc.Layer.extend({
         if (this.bubblePlayer.x < (this.bubblePlayer.width/2)) {
             // Left edge
             this.player.angle = 180 - this.player.angle;
+            var audioEngine = cc.AudioEngine.getInstance();
+            audioEngine.playEffect(xc.Pinata.res.pinata_collide_ball_wall);
         } else if (this.bubblePlayer.x > cc.director.getWinSize().width - (this.bubblePlayer.width/2)) {
             // Right edge
             this.player.angle = 180 - this.player.angle;
+            var audioEngine = cc.AudioEngine.getInstance();
+            audioEngine.playEffect(xc.Pinata.res.pinata_collide_ball_wall);
         } 
         if (this.bubblePlayer.y > cc.director.getWinSize().height-(this.bubblePlayer.width/2)) {
             // Top collision
             this.player.angle = 360 - this.player.angle;
+            var audioEngine = cc.AudioEngine.getInstance();
+            audioEngine.playEffect(xc.Pinata.res.pinata_collide_ball_wall);
         }
     },
 
@@ -660,5 +677,11 @@ xc.Pinata.res = {
    pinatajungle_png : xc.path +"jungle/junglec/junglec.png",
    pinatajungle_json : xc.path +"jungle/pinatajungle.json",
    pinatajungle_anim : xc.path +"jungle/target.json",
+
+   pinata_ball_release_sound : "res/sounds/sfx/ball_release_sound.ogg",
+   pinata_collide_ball_wall : "res/sounds/sfx/collide_ball_wall.ogg",
+   pinata_drop_obj : "res/sounds/sfx/drop_obj.ogg",
+   pinata_glass_break : "res/sounds/sfx/glass_break.ogg",
+   pinata_stretching_sound : "res/sounds/sfx/stretching_sound.ogg"
 };      
 
