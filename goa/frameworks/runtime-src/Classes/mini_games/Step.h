@@ -155,6 +155,8 @@ public:
 		{ 10, 50, 80 }
 	};
 
+	RepeatForever *_balloonRepeat;
+
 	struct Position
 	{
 		int x, y;
