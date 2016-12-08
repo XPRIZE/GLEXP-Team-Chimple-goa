@@ -73,7 +73,7 @@ void spot::onEnterTransitionDidFinish() {
 	questionPlate = CSLoader::createNode("spot/spot.csb");
 	questionPlate->setContentSize(Size(visibleSize.width * numberOfPages, visibleSize.height * 0.1));
 	questionPlate->setAnchorPoint(Vec2(0.5, 0.5));
-	questionPlate->setPosition(Vec2(numberOfPages * visibleSize.width / 2 + visibleSize.width * 0.03, visibleSize.height / 14));
+	questionPlate->setPosition(Vec2(numberOfPages * (visibleSize.width * 0.5) + (visibleSize.width * 0.03), (visibleSize.height * 0.07)));
 
 
 
@@ -148,6 +148,7 @@ void spot::onEnterTransitionDidFinish() {
 	listener->setSwallowTouches(false);
 
 	platePosition = questionPlate->getChildByName("cal")->getPosition();
+
 
 	questionPlate->getChildByName("cal")->setPosition(platePosition - Vec2(platePosition.x * 0.25,0));
 
@@ -288,7 +289,7 @@ void spot::addCalculator() {
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	_calculator = new Calculator();
-	_calculator->createCalculator(Vec2(visibleSize.width/2 + (visibleSize.width * 0.37), visibleSize.height/3 + (visibleSize.height *  0.05)), Vec2(0.5, 0.5), 0.7, 0.7);
+	_calculator->createCalculator(Vec2((visibleSize.width *  0.5) + (visibleSize.width * 0.37), (visibleSize.height *  0.33) + (visibleSize.height *  0.05)), Vec2(0.5, 0.5), 0.7, 0.7);
 	this->addChild(_calculator, 20);
 	//_calculator->setGlobalZOrder(2);
 	_calculator->setVisible(false);
