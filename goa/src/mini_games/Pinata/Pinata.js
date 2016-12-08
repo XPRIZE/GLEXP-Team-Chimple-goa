@@ -465,6 +465,8 @@ xc.Pinata = cc.Layer.extend({
                 this.bubblePlayer.setVisible(false);
                 this.targetPlayer.setVisible(false);
                 var classReference = this;
+                var audioEngine = cc.AudioEngine.getInstance();
+                audioEngine.playEffect(xc.Pinata.res.pinata_select_sound);
                 setTimeout(function() {
                     if (cc.sys.isNative) {
                           if(classReference.counterlevelStatus == 5){
@@ -604,20 +606,31 @@ xc.Pinata = cc.Layer.extend({
        var size = 0.5;
        if(this.bubblePlayer.getName() == "pinatacity"){size = 0.7};
         if(this.bubblePlayer.getName() == "pinatajungle"){size = 1.0};
-       var  halfAction = new cc.MoveTo(2,cc.p(((correctObject.width * size )/2) - (this.xPosi/2), cc.director.getWinSize().height * 0.85));
-       var  initSequence = new cc.Sequence(new cc.ScaleTo(0.3,size), new cc.MoveTo(0.5,cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height * 0.85)));
+//       var  halfAction = new cc.MoveTo(2,cc.p(((correctObject.width * size )/2) - (this.xPosi/2), cc.director.getWinSize().height * 0.85));
+//       var  initSequence = new cc.Sequence(new cc.ScaleTo(0.3,size), new cc.MoveTo(0.5,cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height * 0.85)));
         
-        var SequenceVal = new cc.Sequence(initSequence,halfAction);
-        correctObject.runAction(SequenceVal);
+//        var SequenceVal = new cc.Sequence(initSequence,halfAction);
+ //       correctObject.runAction(SequenceVal);
         this.targetPlayer = correctObject;
         var classReference = this;
-         setTimeout(function() {
-              var  leftTOright = new cc.MoveTo(4,cc.p(((correctObject.width * size )/2) - (classReference.xPosi/2), cc.director.getWinSize().height * 0.85));
+//         setTimeout(function() {
+//              var  leftTOright = new cc.MoveTo(4,cc.p(((correctObject.width * size )/2) - (classReference.xPosi/2), cc.director.getWinSize().height * 0.85));
+//              var  rightTOleft = new cc.MoveTo(4,cc.p(cc.director.getWinSize().width - (correctObject.width * size/2) - (classReference.xPosi/2), cc.director.getWinSize().height * 0.85));
+//              var repeatForeverAction = new cc.RepeatForever(new cc.Sequence(rightTOleft,leftTOright));
+//              correctObject.runAction(repeatForeverAction);
+//         }, 2800);
+        
+        var sequenceForRepeatMovement = function()
+        {
+             var  leftTOright = new cc.MoveTo(4,cc.p(((correctObject.width * size )/2) - (classReference.xPosi/2), cc.director.getWinSize().height * 0.85));
               var  rightTOleft = new cc.MoveTo(4,cc.p(cc.director.getWinSize().width - (correctObject.width * size/2) - (classReference.xPosi/2), cc.director.getWinSize().height * 0.85));
               var repeatForeverAction = new cc.RepeatForever(new cc.Sequence(rightTOleft,leftTOright));
               correctObject.runAction(repeatForeverAction);
-         }, 2800);
-        
+        }
+
+        var SequenceVal = new cc.Sequence(new cc.ScaleTo(0.3,size), new cc.MoveTo(0.5,cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height * 0.85)),new cc.MoveTo(2,cc.p(((correctObject.width * size )/2) - (this.xPosi/2), cc.director.getWinSize().height * 0.85)),new cc.CallFunc(sequenceForRepeatMovement, this));
+       correctObject.runAction(SequenceVal);
+
         this.gameBg.node.getChildByName("board").visible = false;
         if(this.bubblePlayer.getName() == "pinatacream")
         this.gameBg.node.getChildByName("Panel_2").visible = false;
