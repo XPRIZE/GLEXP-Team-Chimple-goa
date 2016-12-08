@@ -5,10 +5,103 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 300,
+        "Duration": 355,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "cow",
         "Timelines": [
+          {
+            "ActionTag": 612584309,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2096.2788,
+                "Y": 658.8,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2096.2773,
+                "Y": 658.7983,
+                "FrameIndex": 328,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2096.2788,
+                "Y": 658.8,
+                "FrameIndex": 355,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 612584309,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.1069,
+                "Y": 1.1069,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.6032,
+                "Y": 1.6032,
+                "FrameIndex": 328,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.1069,
+                "Y": 1.1069,
+                "FrameIndex": 355,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 612584309,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 355,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 1012641689,
             "Property": "ActionValue",
@@ -116,6 +209,12 @@
           "EndIndex": 300,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 305,
+          "EndIndex": 355,
+          "Name": "cow",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -136,30 +235,32 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -200.0,
-              "Y": -118.168
+              "X": -1780.0,
+              "Y": -118.1679
             },
             "Scale": {
-              "ScaleX": 14.7537,
+              "ScaleX": 33.1801,
               "ScaleY": 10.4536
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0781,
+              "X": -0.6953,
               "Y": -0.0656
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": -200.0,
-            "RightMargin": 2560.0,
-            "TopMargin": 1718.1681,
-            "BottomMargin": -118.168,
+            "LeftMargin": -1780.0,
+            "RightMargin": 4140.0,
+            "TopMargin": 1718.168,
+            "BottomMargin": -118.1679,
             "Tag": 9366,
             "ActionTag": -1584434745,
             "Size": {
@@ -205,6 +306,7 @@
             "RightMargin": -565.2788,
             "TopMargin": 331.2,
             "BottomMargin": -151.2,
+            "UserData": "cow",
             "Tag": 9367,
             "ActionTag": 612584309,
             "Size": {
