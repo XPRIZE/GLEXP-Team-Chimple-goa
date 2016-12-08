@@ -5,10 +5,66 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 165,
+        "Duration": 300,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "bird",
         "Timelines": [
+          {
+            "ActionTag": 308606386,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 170,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 308606386,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2026.5972,
+                "Y": 816.7003,
+                "FrameIndex": 170,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1411.8455,
+                "Y": 1912.3679,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 308606386,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.2,
+                "Y": 0.2,
+                "FrameIndex": 170,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": -2077289174,
             "Property": "ActionValue",
@@ -20,6 +76,22 @@
                 "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1000704719,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1969.9944,
+                "Y": 1599.5861,
+                "FrameIndex": 170,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -89,6 +161,12 @@
           "EndIndex": 165,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 170,
+          "EndIndex": 300,
+          "Name": "bird",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -112,7 +190,8 @@
               "G": 167
             },
             "ColorVector": {
-              "ScaleY": 1.0
+              "ScaleX": 0.0523,
+              "ScaleY": -0.9986
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
@@ -128,7 +207,11 @@
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "CColor": {},
+            "CColor": {
+              "R": 168,
+              "G": 166,
+              "B": 218
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.5,
@@ -273,6 +356,47 @@
           },
           {
             "FileData": {
+              "Type": "Normal",
+              "Path": "Mpira_wangu_mwekundu/bird.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2026.5972,
+              "Y": 816.7003
+            },
+            "Scale": {
+              "ScaleX": 0.2,
+              "ScaleY": 0.2
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7916,
+              "Y": 0.4537
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2026.5972,
+            "RightMargin": 533.4028,
+            "TopMargin": 983.2997,
+            "BottomMargin": 816.7003,
+            "Tag": 4635,
+            "ActionTag": 308606386,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bird",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
               "Type": "MarkedSubImage",
               "Path": "Mpira_wangu_mwekundu/MbwanaMamba_hut.png",
               "Plist": "Mpira_wangu_mwekundu/Mpira_wangu_mwekundu.plist"
@@ -313,7 +437,7 @@
               "X": 1460.0,
               "Y": 1553.0
             },
-            "Name": "MbwanaMamba_hut_1_0_0",
+            "Name": "hut",
             "ctype": "SpriteObjectData"
           },
           {
@@ -348,13 +472,14 @@
             "RightMargin": 182.9399,
             "TopMargin": 1115.9326,
             "BottomMargin": 684.0674,
+            "UserData": "drag;bounce",
             "Tag": 1809,
             "ActionTag": -2077289174,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "ball",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -393,13 +518,14 @@
             "RightMargin": -479.9973,
             "TopMargin": 678.8209,
             "BottomMargin": -431.8209,
+            "UserData": "main.bird",
             "Tag": 454,
             "ActionTag": -953718226,
             "Size": {
               "X": 1460.0,
               "Y": 1553.0
             },
-            "Name": "MbwanaMamba_hut_1",
+            "Name": "hut",
             "ctype": "SpriteObjectData"
           },
           {
@@ -438,13 +564,14 @@
             "RightMargin": 1460.0024,
             "TopMargin": 328.832,
             "BottomMargin": -81.832,
+            "UserData": "main.bird",
             "Tag": 455,
             "ActionTag": 1830106242,
             "Size": {
               "X": 1460.0,
               "Y": 1553.0
             },
-            "Name": "MbwanaMamba_hut_1_0",
+            "Name": "hut",
             "ctype": "SpriteObjectData"
           },
           {
@@ -462,8 +589,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1969.9998,
-              "Y": 1634.5911
+              "X": 1969.9944,
+              "Y": 1599.5861
             },
             "Scale": {
               "ScaleX": 0.6413,
@@ -473,23 +600,23 @@
             "IconVisible": false,
             "PrePosition": {
               "X": 0.7695,
-              "Y": 0.9081
+              "Y": 0.8887
             },
             "PreSize": {
               "X": 0.1742,
               "Y": 0.2594
             },
-            "LeftMargin": 1746.9998,
-            "RightMargin": 367.0002,
-            "TopMargin": -68.0911,
-            "BottomMargin": 1401.0911,
+            "LeftMargin": 1746.9944,
+            "RightMargin": 367.0056,
+            "TopMargin": -33.0861,
+            "BottomMargin": 1366.0861,
             "Tag": 457,
             "ActionTag": 1000704719,
             "Size": {
               "X": 446.0,
               "Y": 467.0
             },
-            "Name": "Mpirawangumwekundu_moon_4",
+            "Name": "moon",
             "ctype": "SpriteObjectData"
           },
           {
@@ -524,13 +651,14 @@
             "RightMargin": 610.6857,
             "TopMargin": 1994.4297,
             "BottomMargin": -194.4297,
+            "UserData": "drag;run",
             "Tag": 1532,
             "ActionTag": 1240989752,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "girl",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -543,6 +671,7 @@
       },
       "UsedResources": [
         "ball.json",
+        "bird.json",
         "boy.json",
         "Mpira_wangu_mwekundu.plist",
         "Mpira_wangu_mwekundu.png"

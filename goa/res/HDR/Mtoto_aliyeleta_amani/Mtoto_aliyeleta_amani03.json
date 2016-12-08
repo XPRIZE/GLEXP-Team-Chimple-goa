@@ -5,10 +5,58 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 165,
+        "Duration": 385,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "sun",
         "Timelines": [
+          {
+            "ActionTag": -43702698,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "sun",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 170,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "sun",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 385,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -43702698,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2829.2529,
+                "Y": -26.0,
+                "FrameIndex": 170,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1964.6844,
+                "Y": 1192.251,
+                "FrameIndex": 330,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 2132072750,
             "Property": "ActionValue",
@@ -39,6 +87,22 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2132072750,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1234.8481,
+                "Y": 863.2962,
+                "FrameIndex": 318,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -48,6 +112,12 @@
           "StartIndex": 0,
           "EndIndex": 165,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 170,
+          "EndIndex": 385,
+          "Name": "sun",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -72,7 +142,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -107,6 +176,47 @@
             "ctype": "PanelObjectData"
           },
           {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtoto_aliyeleta_amani/sun.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2829.2529,
+              "Y": -26.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.1052,
+              "Y": -0.0144
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2829.2529,
+            "RightMargin": -269.2529,
+            "TopMargin": 1826.0,
+            "BottomMargin": -26.0,
+            "Tag": 1911,
+            "ActionTag": -43702698,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "sun",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
             "ClipAble": false,
             "ComboBoxIndex": 1,
             "SingleColor": {
@@ -124,7 +234,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -197,6 +306,7 @@
             "RightMargin": 2210.0081,
             "TopMargin": -242.929,
             "BottomMargin": 1353.929,
+            "UserData": "main.sun",
             "Tag": 646,
             "ActionTag": 1313045601,
             "Size": {
@@ -247,6 +357,7 @@
             "RightMargin": 295.0186,
             "TopMargin": 217.8673,
             "BottomMargin": 338.1327,
+            "UserData": "main.sun",
             "Tag": 647,
             "ActionTag": 1069966940,
             "Size": {
@@ -288,13 +399,14 @@
             "RightMargin": 799.2867,
             "TopMargin": 1784.4,
             "BottomMargin": 15.6,
+            "UserData": "drag;hi",
             "Tag": 650,
             "ActionTag": -1696851232,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "boy",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -309,7 +421,7 @@
             "AnchorPoint": {},
             "Position": {
               "X": 1234.8481,
-              "Y": 863.2961
+              "Y": 863.2962
             },
             "Scale": {
               "ScaleX": -0.7,
@@ -327,15 +439,16 @@
             },
             "LeftMargin": 1234.8481,
             "RightMargin": 1325.1519,
-            "TopMargin": 936.7039,
-            "BottomMargin": 863.2961,
+            "TopMargin": 936.7038,
+            "BottomMargin": 863.2962,
+            "UserData": "drag;hi",
             "Tag": 694,
             "ActionTag": 2132072750,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "girl",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -350,7 +463,8 @@
         "baby.json",
         "girl.json",
         "Mtoto_aliyeleta_amani.plist",
-        "Mtoto_aliyeleta_amani.png"
+        "Mtoto_aliyeleta_amani.png",
+        "sun.json"
       ],
       "ctype": "GameFileData"
     }

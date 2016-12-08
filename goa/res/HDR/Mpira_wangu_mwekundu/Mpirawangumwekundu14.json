@@ -5,17 +5,17 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 150,
+        "Duration": 285,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "night",
         "Timelines": [
           {
             "ActionTag": -1588330429,
             "Property": "Position",
             "Frames": [
               {
-                "X": 1272.593,
-                "Y": 816.3033,
+                "X": 1272.5793,
+                "Y": 838.2958,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -51,6 +51,155 @@
                 "X": 1.3053,
                 "Y": 1.3053,
                 "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1588330429,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 133,
+                  "G": 132,
+                  "B": 178
+                },
+                "FrameIndex": 155,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 285,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 21876307,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2042.8381,
+                "Y": 1636.3137,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2181.2024,
+                "Y": 1611.0667,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2180.1968,
+                "Y": 1611.0646,
+                "FrameIndex": 155,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1719.8713,
+                "Y": 1419.4834,
+                "FrameIndex": 187,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1173.2302,
+                "Y": 1023.5532,
+                "FrameIndex": 225,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 741.6714,
+                "Y": 650.2849,
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 310.1125,
+                "Y": -38.9588,
+                "FrameIndex": 285,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 21876307,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.7159,
+                "Y": 0.7159,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8371,
+                "Y": 0.8371,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 21876307,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 16.9922,
+                "Y": 16.9762,
+                "FrameIndex": 155,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -34.6228,
+                "Y": -34.6207,
+                "FrameIndex": 285,
                 "EasingData": {
                   "Type": 0
                 },
@@ -214,8 +363,8 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 256.7659,
-                "Y": 587.0953,
+                "X": 283.7315,
+                "Y": 557.433,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -250,56 +399,6 @@
               {
                 "X": 0.4113,
                 "Y": 0.4113,
-                "FrameIndex": 150,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": -2023983500,
-            "Property": "Position",
-            "Frames": [
-              {
-                "X": 2422.3655,
-                "Y": 196.409,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 2624.9841,
-                "Y": -72.5906,
-                "FrameIndex": 150,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": -2023983500,
-            "Property": "Scale",
-            "Frames": [
-              {
-                "X": 0.5351,
-                "Y": 0.5351,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.6257,
-                "Y": 0.6257,
                 "FrameIndex": 150,
                 "EasingData": {
                   "Type": 0
@@ -360,12 +459,12 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": 21876307,
+            "ActionTag": -2023983500,
             "Property": "Position",
             "Frames": [
               {
-                "X": 2042.8381,
-                "Y": 1636.3137,
+                "X": 2422.3655,
+                "Y": 196.409,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -373,8 +472,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 2181.2024,
-                "Y": 1611.0667,
+                "X": 2624.9841,
+                "Y": -72.5906,
                 "FrameIndex": 150,
                 "EasingData": {
                   "Type": 0
@@ -385,12 +484,12 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": 21876307,
+            "ActionTag": -2023983500,
             "Property": "Scale",
             "Frames": [
               {
-                "X": 0.7159,
-                "Y": 0.7159,
+                "X": 0.5351,
+                "Y": 0.5351,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -398,8 +497,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": 0.8371,
-                "Y": 0.8371,
+                "X": 0.6257,
+                "Y": 0.6257,
                 "FrameIndex": 150,
                 "EasingData": {
                   "Type": 0
@@ -410,12 +509,27 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": -1627952009,
+            "ActionTag": -1869106450,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 6,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1869106450,
             "Property": "Position",
             "Frames": [
               {
-                "X": 737.0195,
-                "Y": 1147.7764,
+                "X": 764.7958,
+                "Y": 1111.5438,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -423,8 +537,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 1150.1533,
-                "Y": 1364.806,
+                "X": 1157.7434,
+                "Y": 1316.7195,
                 "FrameIndex": 75,
                 "EasingData": {
                   "Type": 0
@@ -432,8 +546,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 1663.5681,
-                "Y": 1506.7534,
+                "X": 1668.8922,
+                "Y": 1444.5028,
                 "FrameIndex": 150,
                 "EasingData": {
                   "Type": 0
@@ -444,21 +558,12 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": -1627952009,
+            "ActionTag": -1869106450,
             "Property": "Scale",
             "Frames": [
               {
-                "X": 0.5371,
-                "Y": 0.5371,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.628,
-                "Y": 0.628,
+                "X": 0.6279,
+                "Y": 0.6279,
                 "FrameIndex": 150,
                 "EasingData": {
                   "Type": 0
@@ -476,6 +581,12 @@
           "StartIndex": 0,
           "EndIndex": 150,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 155,
+          "EndIndex": 285,
+          "Name": "night",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -500,7 +611,7 @@
               "G": 167
             },
             "ColorVector": {
-              "ScaleY": 1.0
+              "ScaleY": -1.0
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
@@ -509,27 +620,31 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1272.593,
-              "Y": 816.3033
+              "X": 1272.5793,
+              "Y": 838.2958
             },
             "Scale": {
               "ScaleX": 1.1163,
               "ScaleY": 1.1163
             },
-            "CColor": {},
+            "CColor": {
+              "R": 133,
+              "G": 132,
+              "B": 178
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.4971,
-              "Y": 0.4535
+              "Y": 0.4657
             },
             "PreSize": {
               "X": 1.5625,
               "Y": 1.0
             },
-            "LeftMargin": -727.407,
-            "RightMargin": -712.593,
-            "TopMargin": 83.6968,
-            "BottomMargin": -83.6967,
+            "LeftMargin": -727.4207,
+            "RightMargin": -712.5793,
+            "TopMargin": 61.7042,
+            "BottomMargin": -61.7042,
             "Tag": 1981,
             "ActionTag": -1588330429,
             "Size": {
@@ -538,6 +653,54 @@
             },
             "Name": "Panel_1_0",
             "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mpira_wangu_mwekundu/Mpirawangumwekundu_moon.png",
+              "Plist": "Mpira_wangu_mwekundu/Mpira_wangu_mwekundu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2042.8381,
+              "Y": 1636.3137
+            },
+            "Scale": {
+              "ScaleX": 0.7159,
+              "ScaleY": 0.7159
+            },
+            "RotationSkewX": 16.9922,
+            "RotationSkewY": 16.9762,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.798,
+              "Y": 0.9091
+            },
+            "PreSize": {
+              "X": 0.1742,
+              "Y": 0.2594
+            },
+            "LeftMargin": 1819.8381,
+            "RightMargin": 294.1619,
+            "TopMargin": -69.8137,
+            "BottomMargin": 1402.8137,
+            "UserData": "main.night",
+            "Tag": 1978,
+            "ActionTag": 21876307,
+            "Size": {
+              "X": 446.0,
+              "Y": 467.0
+            },
+            "Name": "moon",
+            "ctype": "SpriteObjectData"
           },
           {
             "ClipAble": false,
@@ -674,8 +837,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 256.7659,
-              "Y": 587.0953
+              "X": 283.7315,
+              "Y": 557.433
             },
             "Scale": {
               "ScaleX": 0.3517,
@@ -684,69 +847,25 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.1003,
-              "Y": 0.3262
+              "X": 0.1108,
+              "Y": 0.3097
             },
             "PreSize": {
               "X": 0.5703,
               "Y": 0.8628
             },
-            "LeftMargin": -473.2341,
-            "RightMargin": 1573.2341,
-            "TopMargin": 436.4048,
-            "BottomMargin": -189.4047,
+            "LeftMargin": -446.2685,
+            "RightMargin": 1546.2686,
+            "TopMargin": 466.067,
+            "BottomMargin": -219.067,
+            "UserData": "main.night",
             "Tag": 1972,
             "ActionTag": -1997267953,
             "Size": {
               "X": 1460.0,
               "Y": 1553.0
             },
-            "Name": "MbwanaMamba_hut_1_0",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Mpira_wangu_mwekundu/MbwanaMamba_hut.png",
-              "Plist": "Mpira_wangu_mwekundu/Mpira_wangu_mwekundu.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 2422.3655,
-              "Y": 196.409
-            },
-            "Scale": {
-              "ScaleX": 0.5351,
-              "ScaleY": 0.5351
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.9462,
-              "Y": 0.1091
-            },
-            "PreSize": {
-              "X": 0.5703,
-              "Y": 0.8628
-            },
-            "LeftMargin": 1692.3655,
-            "RightMargin": -592.3655,
-            "TopMargin": 827.091,
-            "BottomMargin": -580.091,
-            "Tag": 1973,
-            "ActionTag": -2023983500,
-            "Size": {
-              "X": 1460.0,
-              "Y": 1553.0
-            },
-            "Name": "MbwanaMamba_hut_1",
+            "Name": "hut",
             "ctype": "SpriteObjectData"
           },
           {
@@ -785,19 +904,20 @@
             "RightMargin": -246.3235,
             "TopMargin": 358.2678,
             "BottomMargin": -111.2678,
+            "UserData": "main.night",
             "Tag": 1977,
             "ActionTag": 146064299,
             "Size": {
               "X": 1460.0,
               "Y": 1553.0
             },
-            "Name": "MbwanaMamba_hut_1_0_0",
+            "Name": "hut",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Mpira_wangu_mwekundu/Mpirawangumwekundu_moon.png",
+              "Path": "Mpira_wangu_mwekundu/MbwanaMamba_hut.png",
               "Plist": "Mpira_wangu_mwekundu/Mpira_wangu_mwekundu.plist"
             },
             "BlendFunc": {
@@ -809,80 +929,78 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2042.8381,
-              "Y": 1636.3137
+              "X": 2422.3655,
+              "Y": 196.409
             },
             "Scale": {
-              "ScaleX": 0.7159,
-              "ScaleY": 0.7159
+              "ScaleX": 0.5351,
+              "ScaleY": 0.5351
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.798,
-              "Y": 0.9091
+              "X": 0.9462,
+              "Y": 0.1091
             },
             "PreSize": {
-              "X": 0.1742,
-              "Y": 0.2594
+              "X": 0.5703,
+              "Y": 0.8628
             },
-            "LeftMargin": 1819.8381,
-            "RightMargin": 294.1619,
-            "TopMargin": -69.8137,
-            "BottomMargin": 1402.8137,
-            "Tag": 1978,
-            "ActionTag": 21876307,
+            "LeftMargin": 1692.3655,
+            "RightMargin": -592.3655,
+            "TopMargin": 827.091,
+            "BottomMargin": -580.091,
+            "UserData": "main.night",
+            "Tag": 1973,
+            "ActionTag": -2023983500,
             "Size": {
-              "X": 446.0,
-              "Y": 467.0
+              "X": 1460.0,
+              "Y": 1553.0
             },
-            "Name": "Mpirawangumwekundu_moon_4",
+            "Name": "hut",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Mpira_wangu_mwekundu/Mpirawangumwekundu_ball.png",
-              "Plist": "Mpira_wangu_mwekundu/Mpira_wangu_mwekundu.plist"
+              "Type": "Normal",
+              "Path": "Mpira_wangu_mwekundu/ball.json",
+              "Plist": ""
             },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
             "Position": {
-              "X": 737.0195,
-              "Y": 1147.7764
+              "X": 764.7958,
+              "Y": 1111.5438
             },
             "Scale": {
-              "ScaleX": 0.5371,
-              "ScaleY": 0.5371
+              "ScaleX": 0.6279,
+              "ScaleY": 0.6279
             },
             "CColor": {},
-            "IconVisible": false,
+            "IconVisible": true,
             "PrePosition": {
-              "X": 0.2879,
-              "Y": 0.6377
+              "X": 0.2987,
+              "Y": 0.6175
             },
             "PreSize": {
-              "X": 0.4969,
-              "Y": 0.7067
+              "X": 0.0,
+              "Y": 0.0
             },
-            "LeftMargin": 101.0195,
-            "RightMargin": 1186.9805,
-            "TopMargin": 16.2236,
-            "BottomMargin": 511.7764,
-            "Tag": 1982,
-            "ActionTag": -1627952009,
+            "LeftMargin": 764.7958,
+            "RightMargin": 1795.2041,
+            "TopMargin": 688.4562,
+            "BottomMargin": 1111.5438,
+            "UserData": "drag;bounce",
+            "Tag": 5008,
+            "ActionTag": -1869106450,
             "Size": {
-              "X": 1272.0,
-              "Y": 1272.0
+              "X": 0.0,
+              "Y": 0.0
             },
-            "Name": "Mpirawangumwekundu_ball_6",
-            "ctype": "SpriteObjectData"
+            "Name": "ball",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -893,6 +1011,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "ball.json",
         "Mpira_wangu_mwekundu.plist",
         "Mpira_wangu_mwekundu.png"
       ],

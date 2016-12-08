@@ -5,10 +5,50 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 165,
+        "Duration": 320,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "jackal",
         "Timelines": [
+          {
+            "ActionTag": 270513134,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 170,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 270513134,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 3106.0818,
+                "Y": 604.7931,
+                "FrameIndex": 170,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -589.7715,
+                "Y": 596.7116,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 11075603,
             "Property": "ActionValue",
@@ -109,6 +149,25 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -277681964,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 164,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 165,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -13788796,
             "Property": "Position",
             "Frames": [
@@ -172,6 +231,25 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -13788796,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 164,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 165,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -245,6 +323,25 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -614422613,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 164,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 165,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 1665473508,
             "Property": "Position",
             "Frames": [
@@ -311,6 +408,25 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1665473508,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 164,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 165,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -320,6 +436,12 @@
           "StartIndex": 0,
           "EndIndex": 165,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 170,
+          "EndIndex": 320,
+          "Name": "jackal",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -344,7 +466,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -398,7 +519,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -433,6 +553,47 @@
             },
             "Name": "Panel_1_0",
             "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtoto_aliyeleta_amani/jackal1.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 3106.0818,
+              "Y": 604.7931
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.2133,
+              "Y": 0.336
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 3106.0818,
+            "RightMargin": -546.0818,
+            "TopMargin": 1195.2069,
+            "BottomMargin": 604.7931,
+            "Tag": 5210,
+            "ActionTag": 270513134,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "jackal",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FlipX": true,
@@ -471,6 +632,7 @@
             "RightMargin": 2438.916,
             "TopMargin": -451.2822,
             "BottomMargin": 1562.2822,
+            "UserData": "main.jackal",
             "Tag": 1990,
             "ActionTag": -1713570949,
             "Size": {
@@ -521,6 +683,7 @@
             "RightMargin": 402.814,
             "TopMargin": 74.1265,
             "BottomMargin": 481.8735,
+            "UserData": "main.jackal",
             "Tag": 1989,
             "ActionTag": -469005455,
             "Size": {
@@ -568,7 +731,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "girl",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -609,7 +772,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "boy",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -650,7 +813,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_3",
+            "Name": "man",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -697,6 +860,7 @@
               "X": 81.0,
               "Y": 214.0
             },
+            "VisibleForFrame": false,
             "Name": "palmtreefruit_156",
             "ctype": "SpriteObjectData"
           },
@@ -744,6 +908,7 @@
               "X": 81.0,
               "Y": 214.0
             },
+            "VisibleForFrame": false,
             "Name": "palmtreefruit_156_0",
             "ctype": "SpriteObjectData"
           },
@@ -791,6 +956,7 @@
               "X": 81.0,
               "Y": 214.0
             },
+            "VisibleForFrame": false,
             "Name": "palmtreefruit_156_1",
             "ctype": "SpriteObjectData"
           },
@@ -838,6 +1004,7 @@
               "X": 158.0,
               "Y": 177.0
             },
+            "VisibleForFrame": false,
             "Name": "bag_1_84",
             "ctype": "SpriteObjectData"
           }
@@ -852,6 +1019,7 @@
       "UsedResources": [
         "baby.json",
         "girl.json",
+        "jackal1.json",
         "man.json",
         "Mtoto_aliyeleta_amani.plist",
         "Mtoto_aliyeleta_amani.png"

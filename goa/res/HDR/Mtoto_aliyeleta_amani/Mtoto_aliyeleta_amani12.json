@@ -5,9 +5,191 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 325,
+        "Duration": 485,
         "Speed": 1.0,
+        "ActivedAnimationName": "jackal",
         "Timelines": [
+          {
+            "ActionTag": 1439212785,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 330,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1439212785,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -399.5341,
+                "Y": 764.7976,
+                "FrameIndex": 330,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 3055.9614,
+                "Y": 840.1176,
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1439212785,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 330,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 814880820,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 330,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 814880820,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2970.7278,
+                "Y": 1497.5291,
+                "FrameIndex": 330,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2400.8994,
+                "Y": 1536.8281,
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 814880820,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -1.3,
+                "Y": 1.3,
+                "FrameIndex": 330,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1724855336,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 330,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1724855336,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 326.1207,
+                "Y": 1512.3308,
+                "FrameIndex": 330,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1594.1505,
+                "Y": 1581.4058,
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1724855336,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.5391,
+                "Y": 1.5391,
+                "FrameIndex": 330,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1031401330,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "",
+                "FrameIndex": 330,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": -1569359836,
             "Property": "ActionValue",
@@ -47,7 +229,7 @@
               {
                 "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "walkempty",
-                "SingleFrameIndex": 718,
+                "SingleFrameIndex": 0,
                 "FrameIndex": 325,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
@@ -162,7 +344,20 @@
         ],
         "ctype": "TimelineActionData"
       },
-      "AnimationList": [],
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 325,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 330,
+          "EndIndex": 485,
+          "Name": "jackal",
+          "ctype": "AnimationInfoData"
+        }
+      ],
       "ObjectData": {
         "Tag": 3080,
         "Children": [
@@ -184,7 +379,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -211,6 +405,7 @@
             "RightMargin": -719.8481,
             "TopMargin": -309.9541,
             "BottomMargin": 309.9541,
+            "UserData": "main.jackal",
             "Tag": 3217,
             "ActionTag": 1922370206,
             "Size": {
@@ -238,7 +433,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -263,7 +457,7 @@
             },
             "LeftMargin": -720.1519,
             "RightMargin": -719.8481,
-            "TopMargin": 1122.3719,
+            "TopMargin": 1122.3718,
             "BottomMargin": -1122.3719,
             "Tag": 3216,
             "ActionTag": 2086238946,
@@ -273,6 +467,129 @@
             },
             "Name": "Panel_1_0",
             "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtoto_aliyeleta_amani/jackal1.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -399.5341,
+              "Y": 764.7976
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.1561,
+              "Y": 0.4249
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -399.5341,
+            "RightMargin": 2959.5342,
+            "TopMargin": 1035.2024,
+            "BottomMargin": 764.7976,
+            "Tag": 6114,
+            "ActionTag": 1439212785,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "jackal",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtoto_aliyeleta_amani/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2970.7278,
+              "Y": 1497.5291
+            },
+            "Scale": {
+              "ScaleX": -1.3,
+              "ScaleY": 1.3
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.1604,
+              "Y": 0.832
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2970.7278,
+            "RightMargin": -410.7278,
+            "TopMargin": 302.4709,
+            "BottomMargin": 1497.5291,
+            "Tag": 6133,
+            "ActionTag": 814880820,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "cloud",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtoto_aliyeleta_amani/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 326.1207,
+              "Y": 1512.3308
+            },
+            "Scale": {
+              "ScaleX": 1.5391,
+              "ScaleY": 1.5391
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1274,
+              "Y": 0.8402
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 326.1207,
+            "RightMargin": 2233.8794,
+            "TopMargin": 287.6692,
+            "BottomMargin": 1512.3308,
+            "Tag": 6125,
+            "ActionTag": -1724855336,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "cloud",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FlipX": true,
@@ -311,6 +628,7 @@
             "RightMargin": 2438.9329,
             "TopMargin": -761.147,
             "BottomMargin": 1872.147,
+            "UserData": "main.jackal",
             "Tag": 3215,
             "ActionTag": 141416935,
             "Size": {
@@ -361,6 +679,7 @@
             "RightMargin": 402.8318,
             "TopMargin": -235.7992,
             "BottomMargin": 791.7992,
+            "UserData": "main.jackal",
             "Tag": 3214,
             "ActionTag": 875000847,
             "Size": {
@@ -402,13 +721,14 @@
             "RightMargin": 1254.6301,
             "TopMargin": 1761.3323,
             "BottomMargin": 38.6677,
+            "UserData": "drag;hi",
             "Tag": 3081,
             "ActionTag": 1031401330,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "boy",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -449,7 +769,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_3",
+            "Name": "man",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -481,16 +801,17 @@
               "Y": 0.0
             },
             "LeftMargin": 1016.3387,
-            "RightMargin": 1543.6613,
+            "RightMargin": 1543.6614,
             "TopMargin": 1758.3256,
             "BottomMargin": 41.6744,
+            "UserData": "drag;run",
             "Tag": 3170,
             "ActionTag": 628231102,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "girl",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -503,7 +824,9 @@
       },
       "UsedResources": [
         "baby.json",
+        "cloud.json",
         "girl.json",
+        "jackal1.json",
         "man.json",
         "Mtoto_aliyeleta_amani.plist",
         "Mtoto_aliyeleta_amani.png"

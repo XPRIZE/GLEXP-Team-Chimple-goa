@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 215,
+        "Duration": 350,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "bird",
         "Timelines": [
           {
             "ActionTag": 1290603392,
@@ -94,6 +94,46 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1081327687,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 220,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1081327687,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 667.6003,
+                "Y": 912.1493,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2547.0054,
+                "Y": 1991.5435,
+                "FrameIndex": 350,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -427,8 +467,16 @@
               {
                 "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "kick",
-                "SingleFrameIndex": 700,
+                "SingleFrameIndex": 650,
                 "FrameIndex": 110,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "kick",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 220,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -475,6 +523,12 @@
           "StartIndex": 0,
           "EndIndex": 215,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 220,
+          "EndIndex": 350,
+          "Name": "bird",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -600,6 +654,47 @@
           },
           {
             "FileData": {
+              "Type": "Normal",
+              "Path": "Mpira_wangu_mwekundu/bird.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 667.6003,
+              "Y": 912.1493
+            },
+            "Scale": {
+              "ScaleX": -0.5,
+              "ScaleY": 0.5
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.2608,
+              "Y": 0.5067
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 667.6003,
+            "RightMargin": 1892.3997,
+            "TopMargin": 887.8507,
+            "BottomMargin": 912.1493,
+            "Tag": 4131,
+            "ActionTag": 1081327687,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bird",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
               "Type": "MarkedSubImage",
               "Path": "Mpira_wangu_mwekundu/MbwanaMamba_tree1.png",
               "Plist": "Mpira_wangu_mwekundu/Mpira_wangu_mwekundu.plist"
@@ -633,14 +728,15 @@
             "LeftMargin": -475.88,
             "RightMargin": 2225.8799,
             "TopMargin": 843.9855,
-            "BottomMargin": 267.0146,
+            "BottomMargin": 267.0145,
+            "UserData": "main.bird",
             "Tag": 931,
             "ActionTag": 1740442182,
             "Size": {
               "X": 810.0,
               "Y": 689.0
             },
-            "Name": "MbwanaMamba_tree1_2_0",
+            "Name": "tree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -684,13 +780,14 @@
             "RightMargin": -1191.9287,
             "TopMargin": 795.4915,
             "BottomMargin": 315.5085,
+            "UserData": "main.bird",
             "Tag": 932,
             "ActionTag": -1362800589,
             "Size": {
               "X": 810.0,
               "Y": 689.0
             },
-            "Name": "MbwanaMamba_tree1_2",
+            "Name": "tree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -727,15 +824,16 @@
             },
             "LeftMargin": 1951.6758,
             "RightMargin": -851.6758,
-            "TopMargin": 1422.1957,
-            "BottomMargin": -1175.1957,
+            "TopMargin": 1422.1956,
+            "BottomMargin": -1175.1956,
+            "UserData": "main.bird",
             "Tag": 933,
             "ActionTag": 784170511,
             "Size": {
               "X": 1460.0,
               "Y": 1553.0
             },
-            "Name": "MbwanaMamba_hut_1",
+            "Name": "hut",
             "ctype": "SpriteObjectData"
           },
           {
@@ -782,7 +880,7 @@
               "X": 1272.0,
               "Y": 1272.0
             },
-            "Name": "Mpirawangumwekundu_ball_59",
+            "Name": "ball",
             "ctype": "SpriteObjectData"
           },
           {
@@ -817,13 +915,14 @@
             "RightMargin": 188.3989,
             "TopMargin": 1646.775,
             "BottomMargin": 153.225,
+            "UserData": "drag;hop",
             "Tag": 884,
             "ActionTag": 1959076975,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "girl",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -835,6 +934,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "bird.json",
         "boy.json",
         "Mpira_wangu_mwekundu.plist",
         "Mpira_wangu_mwekundu.png"
