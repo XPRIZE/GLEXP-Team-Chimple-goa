@@ -191,6 +191,12 @@ xc.Pinata = cc.Layer.extend({
                     classReference.leftLine = new cc.DrawNode();
                     classReference.leftLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("left").x,classReference.gameBg.node.getChildByName("left").y), cc.p(classReference.bubblePlayer.x - (classReference.bubblePlayer.width/2),classReference.bubblePlayer.y),5,classReference.stringColor);
                     classReference.addChild(classReference.leftLine); 
+
+                    if((Math.abs(xPositionForBall-touch.getLocation().x) > 60 && Math.abs(yPositionForBall-touch.getLocation().y) > 60) && classReference.soundReleaseBall){
+                        var audioEngine = cc.AudioEngine.getInstance();
+                        audioEngine.playEffect(xc.Pinata.res.pinata_stretching_sound);
+                        classReference.soundReleaseBall = false;
+                    }
                     return true;
   
             },
@@ -246,11 +252,6 @@ xc.Pinata = cc.Layer.extend({
                 let xPositionForBall = (classReference.xPosi/2)+(classReference.gameBg.node.getChildByName("left").x + classReference.gameBg.node.getChildByName("right").x) /2;
                 let yPositionForBall = classReference.gameBg.node.getChildByName("right").y;
 
-                if((Math.abs(xPositionForBall-touch.getLocation().x) > 60 && Math.abs(yPositionForBall-touch.getLocation().y) > 60) && classReference.soundReleaseBall){
-                    var audioEngine = cc.AudioEngine.getInstance();
-                    audioEngine.playEffect(xc.Pinata.res.pinata_stretching_sound);
-                    classReference.soundReleaseBall = false;
-                }
             }
      });
      //comment
