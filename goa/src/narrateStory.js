@@ -218,7 +218,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     },   
 
     displayText:function(text, location) {
-        if(this._referenceToContext._textDisplayAnimationRunning) {
+        if(this._referenceToContext && this._referenceToContext._textDisplayAnimationRunning) {
             return;
         }
         var texts = text.split("_");
@@ -601,17 +601,17 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                     action._referenceToContext = that;
                 }
                 that.bindEventsToTarget(child);
-                that.bindTouchListenerToSkeleton(child, "playAnimiation", true);    
+                that.bindTouchListenerToSkeleton(child, "playAnimiation", false);    
             } else {
                 if(!child.getName().startsWith("Panel")) {
                     cc.log("processing:" + child.getName());
                     if(child.getChildren() != null && child.getChildren().length > 1) {
                         that.bindEventsToTarget(child);
-                        that.bindTouchListenerToSubChild(child, "playAnimationOnChild", true);                                        
+                        that.bindTouchListenerToSubChild(child, "playAnimationOnChild", false);                                        
                     } else {
                         that.saveNormalizedVertices(child);                        
                         that.bindEventsToTarget(child);
-                        that.bindTouchListener(child, "playAnimiation", true);
+                        that.bindTouchListener(child, "playAnimiation", false);
                     }                                                        
                 }
             }
@@ -627,13 +627,22 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 cc.log("playAnimiation" + target.cEvents[target.currentAnimIndex]);
                 var currentAnim = target.cEvents[target.currentAnimIndex];
                 if(action) {
-                    action.play(currentAnim, loop);
+                    if(target.draggingEnabled) {
+                        action.play(currentAnim, true);
+                    } else {
+                        action.play(currentAnim, false);
+                    }
+                    
                 }
                 target.currentAnimIndex = (target.currentAnimIndex + 1)  % target.cEvents.length;
             } else if(target.cEvent) {
                 cc.log("playAnimiation" + target.cEvent);
                 if(action) {
-                    action.play(target.cEvent, loop);
+                    if(target.draggingEnabled) {
+                        action.play(target.cEvent, true);
+                    } else {
+                        action.play(target.cEvent, false);    
+                    }                
                 }                
             }
         } 
@@ -658,13 +667,23 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 target.currentAnimIndex = target.currentAnimIndex == undefined ? 0 : target.currentAnimIndex;              
                 cc.log("playAnimationOnChild" + target.cEvents[target.currentAnimIndex]);
                 if(action) {
-                    action.play(target.cEvents[target.currentAnimIndex], loop);
+                    if(target.draggingEnabled) {
+                        action.play(target.cEvents[target.currentAnimIndex], true);
+                    } else {
+                        action.play(target.cEvents[target.currentAnimIndex], false);
+                    }
+                    
                 }
                 
                 target.currentAnimIndex = (target.currentAnimIndex + 1)  % target.cEvents.length; 
             } else if(target.cEvent) {
-                if(action) {                    
-                    action.play(target.cEvent, loop);
+                if(action) {    
+                    if(target.draggingEnabled) {
+                        action.play(target.cEvent, true);
+                    }  else {
+                        action.play(target.cEvent, false);
+                    }             
+                    
                 }
             }        
         }
@@ -960,7 +979,7 @@ xc.NarrateStoryScene.load = function(pageIndex, storyInformation, layer, enableT
                     }); 
 
                     cc.LoaderScene.preload(t_resources, function () {
-
+                        cc.spriteFrameCache.addSpriteFrames(xc.NarrateStoryLayer.res.template_plist);    
                         //config data
                         if(cc.sys.isNative) {
                             xc.onlyStoryNarrateConfigurationObject = cc.loader.getRes(xc.NarrateStoryLayer.res.OnlyStoryPlayConfig_json);                         
@@ -984,14 +1003,14 @@ xc.NarrateStoryScene.load = function(pageIndex, storyInformation, layer, enableT
 
 
 xc.NarrateStoryLayer.res = {
-        play_png: xc.path + "wikitaki/play.png",
-        record_animation_png: xc.path + "wikitaki/recording.png",
-        record_animation_plist: xc.path + "wikitaki/recording.plist",
-        OnlyStoryPlayConfig_json: xc.path + "wikitaki/misc/onlyPlayConfig.json",
+        OnlyStoryPlayConfig_json: xc.path + "misc/onlyPlayConfig.json",
         textBubble_json: xc.path + "template/bubble_tem.json",
-        wordBubble_json: xc.path + "template/hang_bubble.json",
+        wordBubble_json: xc.path + "template/hang_bubble.json",        
         correctAnswerSound_json: "res/sounds/sfx/success.ogg",
         wrongAnswerSound_json: "res/sounds/sfx/error.ogg",
-        pixelPerfectConfig_json: xc.path + "misc/pixelPerfectConfig.json"
+        pixelPerfectConfig_json: xc.path + "misc/pixelPerfectConfig.json",
+        template_plist: xc.path + "template/template.plist",
+        template_png: xc.path + "template/template.png"
+
 
 };
