@@ -51,6 +51,28 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         cc.eventManager.addListener(listener, target);
     },
 
+    bindTouchListenerToPronounceWord: function(target) {
+        var context = this;
+        var listener = cc.EventListener.create({
+            event: cc.EventListener.TOUCH_ONE_BY_ONE,
+            swallowTouches: true,
+            onTouchBegan: function (touch, event) {                
+                var target = event.getCurrentTarget();                                
+                var targetSize = target.getContentSize();
+                var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
+                    height);
+                var location = target.convertToNodeSpace(touch.getLocation());
+                if (cc.rectContainsPoint(targetRectangle, location)) {
+                        context.pronounceWord();
+                        return true;
+                }
+
+                return false;
+            }          
+        });
+        cc.eventManager.addListener(listener, target);
+    },
+
     bindTouchListenerToSkeleton: function (target, funcName, loop) {
         var context = this;
         var listener = cc.EventListener.create({
@@ -374,11 +396,21 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             this._wordBoard.node.retain();
             //this._wordBoard.node.setPosition(cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height));
             this.addChild(this._wordBoard.node, 1);
-            this._wordBoard.node.getChildByName("TextField_1").setFontName(xc.storyFontName)
-            this._wordBoard.node.getChildByName("TextField_1").setTextColor(xc.storyFontColor);
-            this._wordBoard.node.getChildByName("TextField_1").setFontSize(xc.storyFontSize);
-            this._wordBoard.node.getChildByName("TextField_1").setString("");
+            var textField = this._wordBoard.node.getChildByName("TextField_1");
+            if(textField) {
+                textField.setFontName(xc.storyFontName)
+                textField.setTextColor(xc.storyFontColor);
+                textField.setFontSize(xc.storyFontSize);
+                textField.setString("");
+            }
+
+            var soundButton2 = this._wordBoard.node.getChildByName("sound_button_2");
+            if(soundButton2) {
+                this.bindTouchListenerToPronounceWord(soundButton2);
+            }            
+
             this._wordBoard.node.setVisible(false);
+
         }
 
         this.setUpScene();
@@ -399,6 +431,18 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this.bindTouchListenerToLayer(this);
         this.sceneTouched();
 
+    },
+
+    pronounceWord:function() {
+        var textField = this._wordBoard.node.getChildByName("TextField_1");
+        if(textField && textField.getString() !== "" && textField.getString().length > 0)
+        {
+            var word = textField.getString().toLowerCase();
+            cc.log("word to pronounce:" + word);
+            if(cc.sys.isNative) {
+                this.getParent()._menuContext.pronounceWord(word);    
+            }            
+        }
     },
 
     isTouchableAtPoint:function (sprite, touchPoint) {

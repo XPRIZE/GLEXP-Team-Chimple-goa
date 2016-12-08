@@ -149,9 +149,9 @@ child = decomon_icon_mouth*/
 
 	_mouthPath = { "decomon/decomon_mouth_a.csb",
 		"decomon/decomon_mouth_b.csb" ,
-		"decomon/decomon_mouth_c.csb" ,
-		"decomon/decomon_mouth_d.csb" ,
 		"decomon/decomon_mouth_e.csb" ,
+		"decomon/decomon_mouth_d.csb" ,
+		"decomon/decomon_mouth_c.csb" ,
 		"decomon/decomon_mouth_f.csb" ,
 		"decomon/decomon_mouth_g.csb" ,
 		"decomon/decomon_mouth_h.csb" ,
@@ -181,15 +181,15 @@ child = decomon_icon_mouth*/
 		"decomon/decomon2/decomon_headgear_9.png" };
 
 	_gearPath = { "decomon/decomon1/decomon_gear_1.png" ,"decomon/decomon1/decomon_gear_2.png" ,
-		"decomon/decomon1/decomon_gear_3.png" ,"decomon/decomon1/decomon_gear_4.png" ,
-		"decomon/decomon1/decomon_gear_5.png" ,"decomon/decomon1/decomon_gear_6.png" ,
+		"decomon/decomon1/decomon_gear_5.png" ,"decomon/decomon1/decomon_gear_4.png" ,
+		"decomon/decomon1/decomon_gear_3.png" ,"decomon/decomon1/decomon_gear_6.png" ,
 		"decomon/decomon1/decomon_gear_7.png" ,"decomon/decomon1/decomon_gear_8.png" ,
 		"decomon/decomon1/decomon_gear_9.png" };
 
 	_mustachePath = { "decomon/decomon3/decomon_hair_1.png" ,"decomon/decomon3/decomon_hair_2.png" ,
-		"decomon/decomon3/decomon_hair_3.png" ,"decomon/decomon3/decomon_hair_4.png" ,
+		"decomon/decomon3/decomon_hair_3.png" ,"decomon/decomon3/decomon_hair_8.png" ,
 		"decomon/decomon3/decomon_hair_5.png" ,"decomon/decomon3/decomon_hair_6.png" ,
-		"decomon/decomon3/decomon_hair_7.png" ,"decomon/decomon3/decomon_hair_8.png" ,
+		"decomon/decomon3/decomon_hair_7.png" ,"decomon/decomon3/decomon_hair_4.png" ,
 		"decomon/decomon3/decomon_hair_9.png" };
 
 	
@@ -604,6 +604,10 @@ void Decomon::generateDuplicatesInAGrid(cocos2d::Node * node)
 	if (node->getPositionY() <= Director::getInstance()->getVisibleSize().height * 0.1) {
 
 		CCLOG("duplicates");
+
+		CCLOG("----------------------Duplicate-----------------------------");
+		CCLOG("duplicate object Name = %s", node->getName().c_str());
+
 		if (node->getName().find(".png") == -1) {
 			eye = CSLoader::createNode(node->getName());
 			eye->setAnchorPoint(Vec2(0.5, 0.5));

@@ -15,6 +15,8 @@ static const char* audioExt = ".wav";
 static const char* audioExt = ".m4a";
 #endif
 
+static const char* pronounciationAudioExt = ".ogg";
+
 static const wchar_t* const allCharacters = L"ABCDEFGHIJKLMNOPQRSTUVWXYZ" ;
 
 const wchar_t* EnglishUtil::getAllCharacters() {
@@ -69,6 +71,13 @@ std::string EnglishUtil::getPhoneticSoundFileNameForString(std::string alpha) {
 
 bool EnglishUtil::isGraphemeStart(uint32_t prevCodePoint, uint32_t currentCodePoint) {
     return true;
+}
+
+
+std::string EnglishUtil::getPronounciationFileNameForWord(std::string word) {
+    std::transform(word.begin(), word.end(), word.begin(), ::tolower);
+    auto fileName = std::string("english/sounds/audio/") + word + pronounciationAudioExt;
+    return fileName;
 }
 
 

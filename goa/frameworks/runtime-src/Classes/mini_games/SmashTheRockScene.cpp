@@ -186,7 +186,7 @@ void SmashTheRock::begin()
 			label->setScaleX(0.35);
 			label->setScaleY(0.45);
 			labelRef.pushBack(label);
-			CCLOG("alpha = %d", labelRef.size());
+//			CCLOG("alpha = %d", labelRef.size());
 			keyboard->addChild(label, 2);
 			//		label->setGlobalZOrder(6);
 			auto listener = EventListenerTouchOneByOne::create();
