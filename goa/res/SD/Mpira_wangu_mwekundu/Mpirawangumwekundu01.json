@@ -5,7 +5,7 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 300,
+        "Duration": 390,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
@@ -197,6 +197,42 @@
                 "X": 1310.0004,
                 "Y": 585.4662,
                 "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1309.996,
+                "Y": 617.9905,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1309.9991,
+                "Y": 800.9854,
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1309.9969,
+                "Y": 800.9839,
+                "FrameIndex": 380,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1309.9991,
+                "Y": 800.9854,
+                "FrameIndex": 390,
                 "EasingData": {
                   "Type": 0
                 },
@@ -397,6 +433,67 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0943,
+                "Y": 1.0943,
+                "FrameIndex": 380,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 390,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1840494771,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "bounce",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "bounce",
+                "FrameIndex": 365,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -409,6 +506,12 @@
           "StartIndex": 0,
           "EndIndex": 300,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 305,
+          "EndIndex": 390,
+          "Name": "ball",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -506,13 +609,15 @@
             "RightMargin": 613.9996,
             "TopMargin": 578.5338,
             "BottomMargin": -50.5338,
+            "UserData": "main.ball",
             "Tag": 406,
+            "FrameEvent": "bounce",
             "ActionTag": -1840494771,
             "Size": {
               "X": 1272.0,
               "Y": 1272.0
             },
-            "Name": "Mpirawangumwekundu_ball_1",
+            "Name": "ball",
             "ctype": "SpriteObjectData"
           }
         ],

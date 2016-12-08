@@ -8125,6 +8125,19 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 1103410760,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "walking",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -2024856762,
             "Property": "Position",
             "Frames": [
@@ -12377,7 +12390,7 @@
             "Length": 400.0,
             "Position": {
               "X": 0.0089,
-              "Y": 256.69
+              "Y": 256.6854
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -12391,6 +12404,7 @@
               "Dst": 771
             },
             "Tag": 172,
+            "FrameEvent": "walking",
             "Children": [
               {
                 "Length": 154.0,
@@ -12449,7 +12463,7 @@
                             "FileData": {
                               "Type": "MarkedSubImage",
                               "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/girl_hand.png",
-                              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+                              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
                             },
                             "BlendFunc": {
                               "Src": 1,
@@ -12506,7 +12520,7 @@
                         "FileData": {
                           "Type": "MarkedSubImage",
                           "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/girl_lower_hand.png",
-                          "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+                          "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
                         },
                         "BlendFunc": {
                           "Src": 1,
@@ -12563,7 +12577,7 @@
                     "FileData": {
                       "Type": "MarkedSubImage",
                       "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/girl_upper_hand.png",
-                      "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+                      "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
                     },
                     "BlendFunc": {
                       "Src": 1,
@@ -12675,7 +12689,7 @@
                             "FileData": {
                               "Type": "MarkedSubImage",
                               "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/girl_hand.png",
-                              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+                              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
                             },
                             "BlendFunc": {
                               "Src": 1,
@@ -12732,7 +12746,7 @@
                         "FileData": {
                           "Type": "MarkedSubImage",
                           "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/girl_lower_hand.png",
-                          "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+                          "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
                         },
                         "BlendFunc": {
                           "Src": 1,
@@ -12789,7 +12803,7 @@
                     "FileData": {
                       "Type": "MarkedSubImage",
                       "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/girl_upper_hand.png",
-                      "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+                      "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
                     },
                     "BlendFunc": {
                       "Src": 1,
@@ -12846,14 +12860,14 @@
                 "Length": 82.0,
                 "Position": {
                   "X": 389.3273,
-                  "Y": 1.2003
+                  "Y": 0.5275
                 },
                 "Scale": {
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": -360.3223,
-                "RotationSkewY": -360.3223,
+                "RotationSkewX": -359.8011,
+                "RotationSkewY": -359.8011,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -12930,7 +12944,7 @@
                             "FileData": {
                               "Type": "MarkedSubImage",
                               "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/hair_bun.png",
-                              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+                              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
                             },
                             "BlendFunc": {
                               "Src": 1,
@@ -13027,7 +13041,7 @@
                                 "FileData": {
                                   "Type": "MarkedSubImage",
                                   "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/lightbrown.png",
-                                  "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+                                  "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
                                 },
                                 "BlendFunc": {
                                   "Src": 1,
@@ -13084,7 +13098,7 @@
                             "FileData": {
                               "Type": "MarkedSubImage",
                               "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/eye_girl_outer.png",
-                              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+                              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
                             },
                             "BlendFunc": {
                               "Src": 1,
@@ -13181,7 +13195,7 @@
                                 "FileData": {
                                   "Type": "MarkedSubImage",
                                   "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/lightbrown.png",
-                                  "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+                                  "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
                                 },
                                 "BlendFunc": {
                                   "Src": 1,
@@ -13239,7 +13253,7 @@
                             "FileData": {
                               "Type": "MarkedSubImage",
                               "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/eye_girl_outer.png",
-                              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+                              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
                             },
                             "BlendFunc": {
                               "Src": 1,
@@ -13319,7 +13333,7 @@
                             "FileData": {
                               "Type": "MarkedSubImage",
                               "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/mouth_smile.png",
-                              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+                              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
                             },
                             "BlendFunc": {
                               "Src": 1,
@@ -13376,7 +13390,7 @@
                         "Length": 166.0,
                         "Position": {
                           "X": 92.0941,
-                          "Y": 34.0388
+                          "Y": 34.0389
                         },
                         "Scale": {
                           "ScaleX": 1.0,
@@ -13394,7 +13408,7 @@
                             "FileData": {
                               "Type": "MarkedSubImage",
                               "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/boy_nose.png",
-                              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+                              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
                             },
                             "BlendFunc": {
                               "Src": 1,
@@ -13487,8 +13501,8 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewX": 79.5042,
-                        "RotationSkewY": 79.4971,
+                        "RotationSkewX": 80.7451,
+                        "RotationSkewY": 80.738,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -13500,7 +13514,7 @@
                             "FileData": {
                               "Type": "MarkedSubImage",
                               "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/eyebrow_girl.png",
-                              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+                              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
                             },
                             "BlendFunc": {
                               "Src": 1,
@@ -13567,8 +13581,8 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewX": -78.6341,
-                        "RotationSkewY": -438.6353,
+                        "RotationSkewX": -79.8956,
+                        "RotationSkewY": -439.8968,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -13581,7 +13595,7 @@
                             "FileData": {
                               "Type": "MarkedSubImage",
                               "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/eyebrow_girl.png",
-                              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+                              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
                             },
                             "BlendFunc": {
                               "Src": 1,
@@ -13642,7 +13656,7 @@
                         "FileData": {
                           "Type": "MarkedSubImage",
                           "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/face.png",
-                          "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+                          "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
                         },
                         "BlendFunc": {
                           "Src": 1,
@@ -13702,7 +13716,7 @@
                     "FileData": {
                       "Type": "MarkedSubImage",
                       "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/girl_neck.png",
-                      "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+                      "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
                     },
                     "BlendFunc": {
                       "Src": 1,
@@ -13759,7 +13773,7 @@
                 "FileData": {
                   "Type": "MarkedSubImage",
                   "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/body_female.png",
-                  "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+                  "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
                 },
                 "BlendFunc": {
                   "Src": 1,
@@ -13809,7 +13823,7 @@
                 "FileData": {
                   "Type": "MarkedSubImage",
                   "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/housewife_shirt.png",
-                  "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+                  "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
                 },
                 "BlendFunc": {
                   "Src": 1,
@@ -13866,7 +13880,7 @@
             "Length": 139.0,
             "Position": {
               "X": 0.0089,
-              "Y": 256.69
+              "Y": 256.6854
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -13939,7 +13953,7 @@
                             "FileData": {
                               "Type": "MarkedSubImage",
                               "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/girl_shoe.png",
-                              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+                              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
                             },
                             "BlendFunc": {
                               "Src": 1,
@@ -13969,10 +13983,10 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": 67.1985,
-                            "RightMargin": -172.1985,
-                            "TopMargin": -1.751,
-                            "BottomMargin": -19.249,
+                            "LeftMargin": -12.1011,
+                            "RightMargin": -92.8989,
+                            "TopMargin": -9.2018,
+                            "BottomMargin": -11.7982,
                             "Tag": 2634,
                             "ActionTag": 664275170,
                             "Size": {
@@ -13996,7 +14010,7 @@
                         "FileData": {
                           "Type": "MarkedSubImage",
                           "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/girl_lower_leg.png",
-                          "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+                          "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
                         },
                         "BlendFunc": {
                           "Src": 1,
@@ -14053,7 +14067,7 @@
                     "FileData": {
                       "Type": "MarkedSubImage",
                       "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/girl_upper_leg.png",
-                      "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+                      "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
                     },
                     "BlendFunc": {
                       "Src": 1,
@@ -14083,10 +14097,10 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": 30.5631,
-                    "RightMargin": -51.5631,
-                    "TopMargin": 35.1272,
-                    "BottomMargin": -124.1272,
+                    "LeftMargin": 34.8735,
+                    "RightMargin": -55.8735,
+                    "TopMargin": -44.5712,
+                    "BottomMargin": -44.4288,
                     "Tag": 2635,
                     "ActionTag": -1540868627,
                     "Size": {
@@ -14164,7 +14178,7 @@
                             "FileData": {
                               "Type": "MarkedSubImage",
                               "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/girl_shoe.png",
-                              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+                              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
                             },
                             "BlendFunc": {
                               "Src": 1,
@@ -14221,7 +14235,7 @@
                         "FileData": {
                           "Type": "MarkedSubImage",
                           "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/girl_lower_leg.png",
-                          "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+                          "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
                         },
                         "BlendFunc": {
                           "Src": 1,
@@ -14278,7 +14292,7 @@
                     "FileData": {
                       "Type": "MarkedSubImage",
                       "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/girl_upper_leg.png",
-                      "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+                      "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
                     },
                     "BlendFunc": {
                       "Src": 1,
@@ -14335,7 +14349,7 @@
                 "FileData": {
                   "Type": "MarkedSubImage",
                   "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/housewife_pelvis_hip.png",
-                  "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi.plist"
+                  "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
                 },
                 "BlendFunc": {
                   "Src": 1,
@@ -14397,8 +14411,8 @@
         "ctype": "SkeletonNodeObjectData"
       },
       "UsedResources": [
-        "Anansi_awapa_watu_hadithi.plist",
-        "Anansi_awapa_watu_hadithi.png"
+        "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist",
+        "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.png"
       ],
       "ctype": "GameFileData"
     }

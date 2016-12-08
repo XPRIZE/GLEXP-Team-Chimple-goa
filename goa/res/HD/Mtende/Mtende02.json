@@ -5,10 +5,116 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 370,
+        "Duration": 545,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "sun",
         "Timelines": [
+          {
+            "ActionTag": -1465007840,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 238,
+                  "G": 189,
+                  "B": 154
+                },
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 828669079,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "sun",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 375,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "sun",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 545,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 828669079,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 347.2679,
+                "Y": 603.533,
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1152.1621,
+                "Y": 1575.4066,
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 453963601,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 238,
+                  "G": 189,
+                  "B": 154
+                },
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 1062764251,
             "Property": "FileData",
@@ -791,6 +897,12 @@
           "EndIndex": 370,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 375,
+          "EndIndex": 545,
+          "Name": "sun",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -846,6 +958,47 @@
             },
             "Name": "Panel_1",
             "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtende/sun.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 347.2679,
+              "Y": 603.533
+            },
+            "Scale": {
+              "ScaleX": 0.3175,
+              "ScaleY": 0.3175
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1357,
+              "Y": 0.3353
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 347.2679,
+            "RightMargin": 2212.7322,
+            "TopMargin": 1196.467,
+            "BottomMargin": 603.533,
+            "Tag": 266,
+            "ActionTag": 828669079,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "sun",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "ClipAble": false,
@@ -941,13 +1094,14 @@
             "RightMargin": 2039.2993,
             "TopMargin": 1047.0657,
             "BottomMargin": 488.9343,
+            "UserData": "main.sun",
             "Tag": 486,
             "ActionTag": 1062764251,
             "Size": {
               "X": 516.0,
               "Y": 264.0
             },
-            "Name": "Mtende_mountain_2_0_1",
+            "Name": "mountain",
             "ctype": "SpriteObjectData"
           },
           {
@@ -986,13 +1140,14 @@
             "RightMargin": 1879.775,
             "TopMargin": 1056.374,
             "BottomMargin": 479.6259,
+            "UserData": "main.sun",
             "Tag": 480,
             "ActionTag": -1273985539,
             "Size": {
               "X": 516.0,
               "Y": 264.0
             },
-            "Name": "Mtende_mountain_2",
+            "Name": "mountain",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1036,13 +1191,14 @@
             "RightMargin": 1362.1541,
             "TopMargin": 1085.1782,
             "BottomMargin": 450.8217,
+            "UserData": "main.sun",
             "Tag": 481,
             "ActionTag": -487566092,
             "Size": {
               "X": 516.0,
               "Y": 264.0
             },
-            "Name": "Mtende_mountain_2_0",
+            "Name": "mountain",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1086,13 +1242,14 @@
             "RightMargin": 512.1543,
             "TopMargin": 1085.1785,
             "BottomMargin": 450.8215,
+            "UserData": "main.sun",
             "Tag": 485,
             "ActionTag": -1166948188,
             "Size": {
               "X": 516.0,
               "Y": 264.0
             },
-            "Name": "Mtende_mountain_2_0_0",
+            "Name": "mountain",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1131,13 +1288,14 @@
             "RightMargin": 898.2244,
             "TopMargin": 1047.0657,
             "BottomMargin": 488.9344,
+            "UserData": "main.sun",
             "Tag": 482,
             "ActionTag": 740803769,
             "Size": {
               "X": 516.0,
               "Y": 264.0
             },
-            "Name": "Mtende_mountain_2_1",
+            "Name": "mountain",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1176,13 +1334,14 @@
             "RightMargin": 84.6177,
             "TopMargin": 1057.0657,
             "BottomMargin": 478.9344,
+            "UserData": "main.sun",
             "Tag": 483,
             "ActionTag": -1072787719,
             "Size": {
               "X": 516.0,
               "Y": 264.0
             },
-            "Name": "Mtende_mountain_2_2",
+            "Name": "mountain",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1278,7 +1437,7 @@
               "Y": 1578.0
             },
             "Alpha": 43,
-            "Name": "Mtende_palmtree_9_1_0",
+            "Name": "palmtree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1331,7 +1490,7 @@
               "Y": 1578.0
             },
             "Alpha": 43,
-            "Name": "Mtende_palmtree_9_0_0",
+            "Name": "palmtree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1383,7 +1542,7 @@
               "Y": 1578.0
             },
             "Alpha": 43,
-            "Name": "Mtende_palmtree_9_2",
+            "Name": "palmtree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1424,13 +1583,14 @@
             "RightMargin": 945.7124,
             "TopMargin": 290.0627,
             "BottomMargin": -68.0628,
+            "UserData": "main.sun",
             "Tag": 487,
             "ActionTag": 1320123421,
             "Size": {
               "X": 1061.0,
               "Y": 1578.0
             },
-            "Name": "Mtende_palmtree_9",
+            "Name": "palmtree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1472,13 +1632,14 @@
             "RightMargin": 545.7124,
             "TopMargin": 310.063,
             "BottomMargin": -88.0629,
+            "UserData": "main.sun",
             "Tag": 488,
             "ActionTag": 1070549817,
             "Size": {
               "X": 1061.0,
               "Y": 1578.0
             },
-            "Name": "Mtende_palmtree_9_0",
+            "Name": "palmtree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1517,13 +1678,14 @@
             "RightMargin": 766.2119,
             "TopMargin": 310.0652,
             "BottomMargin": -88.0652,
+            "UserData": "main.sun",
             "Tag": 489,
             "ActionTag": -1597241660,
             "Size": {
               "X": 1061.0,
               "Y": 1578.0
             },
-            "Name": "Mtende_palmtree_9_1",
+            "Name": "palmtree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1582,7 +1744,8 @@
       },
       "UsedResources": [
         "Mtende.plist",
-        "Mtende.png"
+        "Mtende.png",
+        "sun.json"
       ],
       "ctype": "GameFileData"
     }
