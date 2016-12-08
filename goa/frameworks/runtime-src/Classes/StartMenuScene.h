@@ -69,6 +69,7 @@ static const std::string TABLE = "table";
 static const std::string SHAPE = "shape";
 static const std::string BALLOON = "balloonMath";
 static const std::string POPCOUNT = "popcount";
+static const std::string DINO = "dino";
 
 class StartMenu {
 public:

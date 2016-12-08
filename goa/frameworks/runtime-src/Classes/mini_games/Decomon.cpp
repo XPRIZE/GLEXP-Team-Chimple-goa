@@ -603,7 +603,7 @@ void Decomon::generateDuplicatesInAGrid(cocos2d::Node * node)
 	cocos2d::Node * eye;
 	if (node->getPositionY() <= Director::getInstance()->getVisibleSize().height * 0.1) {
 
-
+		CCLOG("duplicates");
 		if (node->getName().find(".png") == -1) {
 			eye = CSLoader::createNode(node->getName());
 			eye->setAnchorPoint(Vec2(0.5, 0.5));
