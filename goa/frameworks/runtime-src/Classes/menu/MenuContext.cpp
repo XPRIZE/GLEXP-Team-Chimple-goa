@@ -71,8 +71,8 @@
 #include "../mini_games/Shape.h"
 #include "../mini_games/Balloon.h"
 #include "../mini_games/PopCount.h"
+#include "../mini_games/DinoGame.h"
 #include "../mini_games/PatchTheWallScene.h"
-
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -823,9 +823,9 @@ void MenuContext::launchGameFinally(std::string gameName) {
         }else if (gameName == CAT) {
     		Director::getInstance()->replaceScene(CatGame::createScene());
         } else if (gameName == TRAIN) {
-            ScriptingCore::getInstance()->runScript("src/start/train.js");
+            ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
         } else if (gameName == POP) {
-            ScriptingCore::getInstance()->runScript("src/start/pop.js");
+            ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
         } else if (gameName == STORY_TELLING) {
             ScriptingCore::getInstance()->runScript("start/storytelling.js");
         } else if (gameName == ALPHAMOLE) {
@@ -835,16 +835,24 @@ void MenuContext::launchGameFinally(std::string gameName) {
         } else if (gameName == PEG) {
             Director::getInstance()->replaceScene(PegWord::createScene());
     	} else if (gameName == JUMP_ON_WORDS) {
-    		ScriptingCore::getInstance()->runScript("src/start/jump.js");
+    		ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
     	} else if (gameName == POP) {
-    		ScriptingCore::getInstance()->runScript("src/start/pop.js");
+    		ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
     	}else if (gameName == CIRCLE) {
     		Director::getInstance()->replaceScene(Circle::createScene());
     	}else if (gameName == BUBBLE) {
-    		ScriptingCore::getInstance()->runScript("src/start/BubbleShooter.js");
+    		ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
     //        ScriptingCore::getInstance()->runScript("src/start/dots.js");
     	}else if (gameName == PINATA) {
-    		ScriptingCore::getInstance()->runScript("src/start/pinata.js");
+    		ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
+        }else if (gameName == DOTS) {
+            ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
+        }else if (gameName == CONNECT_THE_DOTS) {
+            ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
+        }else if (gameName == MAZE) {
+            ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
+        }else if (gameName == BOUNCE) {
+            ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
     	}
     	else if (gameName == STACK) {
     		Director::getInstance()->replaceScene(Stack::createScene());
@@ -904,7 +912,7 @@ void MenuContext::launchGameFinally(std::string gameName) {
 			Director::getInstance()->replaceScene(BalloonHero::createScene());
 		}
 		else if (gameName == SORT_IT) {
-			ScriptingCore::getInstance()->runScript("src/start/sortit.js");
+			ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
 		}
 		else if (gameName == TREASUREHUNT) {
 			Director::getInstance()->replaceScene(TreasureHunt::createScene());
@@ -944,6 +952,9 @@ void MenuContext::launchGameFinally(std::string gameName) {
 		}
 		else if (gameName == POPCOUNT) {
 			Director::getInstance()->replaceScene(PopCount::createScene());
+		}
+		else if (gameName == DINO) {
+			Director::getInstance()->replaceScene(DinoGame::createScene());
 		}
 		else if (gameName == PATCH_THE_WALL) {
 			Director::getInstance()->replaceScene(PatchTheWall::createScene());

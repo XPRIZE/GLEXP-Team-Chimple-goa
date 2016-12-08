@@ -113,7 +113,7 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
     },
 
     finishedSuccessAnimation: function() {
-
+        this._particleSystem.setVisible(false);
         //this._particleSystem.removeFromParent();
         if(this._referenceToContext._isAllAnswered) {
             this._referenceToContext.nextQuestion();

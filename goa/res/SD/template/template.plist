@@ -139,7 +139,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>template/cross_button.png</key>
+            <key>template/click_side_arrow.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -154,6 +154,21 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
+            <key>template/cross_button.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{52,52}</string>
+                <key>spriteSourceSize</key>
+                <string>{52,52}</string>
+                <key>textureRect</key>
+                <string>{{763,911},{52,52}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
             <key>template/flag.png</key>
             <dict>
                 <key>aliases</key>
@@ -165,9 +180,9 @@
                 <key>spriteSourceSize</key>
                 <string>{24,46}</string>
                 <key>textureRect</key>
-                <string>{{921,805},{24,46}}</string>
+                <string>{{709,965},{24,46}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>template/hang_bubble.png</key>
             <dict>
@@ -240,7 +255,7 @@
                 <key>spriteSourceSize</key>
                 <string>{35,34}</string>
                 <key>textureRect</key>
-                <string>{{709,965},{35,34}}</string>
+                <string>{{921,851},{35,34}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -255,7 +270,7 @@
                 <key>spriteSourceSize</key>
                 <string>{31,29}</string>
                 <key>textureRect</key>
-                <string>{{746,965},{31,29}}</string>
+                <string>{{757,965},{31,29}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -270,7 +285,7 @@
                 <key>spriteSourceSize</key>
                 <string>{44,44}</string>
                 <key>textureRect</key>
-                <string>{{871,911},{44,44}}</string>
+                <string>{{921,805},{44,44}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -345,7 +360,7 @@
                 <key>spriteSourceSize</key>
                 <string>{52,52}</string>
                 <key>textureRect</key>
-                <string>{{763,911},{52,52}}</string>
+                <string>{{817,911},{52,52}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -360,7 +375,7 @@
                 <key>spriteSourceSize</key>
                 <string>{52,52}</string>
                 <key>textureRect</key>
-                <string>{{817,911},{52,52}}</string>
+                <string>{{871,911},{52,52}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -375,7 +390,7 @@
                 <key>spriteSourceSize</key>
                 <string>{31,29}</string>
                 <key>textureRect</key>
-                <string>{{779,965},{31,29}}</string>
+                <string>{{790,965},{31,29}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -391,9 +406,9 @@
             <key>realTextureFileName</key>
             <string>template.png</string>
             <key>size</key>
-            <string>{961,1003}</string>
+            <string>{966,1003}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:d461a05e094071afe34a1d585dc6346c:0610dd1cc89a705280efbb812a28f2ee:17517f7c2bf80e0af3cdd4c7637fa865$</string>
+            <string>$TexturePacker:SmartUpdate:c8fc0201260958b7e643c497bbef8fe8:5b381633463feb7ca4be700d76e557c4:17517f7c2bf80e0af3cdd4c7637fa865$</string>
             <key>textureFileName</key>
             <string>template.png</string>
         </dict>
