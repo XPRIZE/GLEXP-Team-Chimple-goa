@@ -488,7 +488,7 @@ xc.Pinata = cc.Layer.extend({
                         xc.GameScene.load(xc.Pinata);
                     }
                 }
-                this.runAction(new cc.Sequence(cc.delayTime(1.8),new cc.CallFunc(checkGameCompleteOrNot, this)));
+                this.runAction(new cc.Sequence(cc.delayTime(1.2),new cc.CallFunc(checkGameCompleteOrNot, this)));
 
             }
        }
