@@ -25,5 +25,8 @@ public:
 protected:
 	cocos2d::Layer* _layer;
 	MenuContext *_menu;
+	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
+	virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event);
+	virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event * event);
 };
 #endif
