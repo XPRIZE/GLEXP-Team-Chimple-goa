@@ -139,7 +139,7 @@ bool Calculator::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 			
 		if (target->getName() == "enter"){
 			_enterPressed = 1;
-			_maxPoints--;
+			//_maxPoints--;
 			if (this->getParent()->getName().compare(TABLE) == 0) {
 				CCLOG("in Tabel");
 				std::ostringstream sstreamb;
@@ -228,4 +228,14 @@ void Calculator::deactivateSound() {
 
 int Calculator::getFinalPoints() {
 	return _maxPoints;
+}
+
+void Calculator::setMaxPoints(int points) {
+
+	_maxPoints = points;
+}
+
+void Calculator::deductPoint() {
+
+	_maxPoints--;
 }
