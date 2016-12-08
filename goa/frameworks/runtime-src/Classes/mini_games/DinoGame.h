@@ -24,9 +24,18 @@ public:
 	void onEnterTransitionDidFinish();
 protected:
 	cocos2d::Layer* _layer;
+	cocos2d::Node * _dinoNode;
+	int _gameScore = 0;
 	MenuContext *_menu;
-	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
-	virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event);
-	virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event * event);
+	cocos2d::Point _previousPosition;
+	bool _isTouched;
+	float _extraX = 0.0f;
+	bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
+	void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event);
+	void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event * event);
+	std::map<int, std::map<std::string, std::string>> _levelConfig;
+	std::map<std::string, std::string> _mapping;
+	std::vector<std::string> _alphabets;
+	void alphabetHint(std::string letter);
 };
 #endif

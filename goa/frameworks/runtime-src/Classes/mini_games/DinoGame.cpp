@@ -55,21 +55,58 @@ bool DinoGame::init() {
 
 	auto bg = CSLoader::createNode("dino/dinobg.csb");
 	this->addChild(bg);
-	
+	_levelConfig = {
+		{1,{
+				{ "csb","dino/level1.csb" },
+				{"png","_1"},
+				{ "random","random_1_" },
+				{ "fixed","dino_1_" },
+			}
+		},
+		{2,{
+				{ "csb","dino/level2.csb" },
+				{ "png","_2" },
+				{ "random","random_2_" },
+				{ "fixed","dino_2_" },
+			}
+		},
+		{3,
+			{
+				{ "csb","dino/level3.csb" },
+				{ "png","_3" },
+				{ "random","random_2_" },
+				{ "fixed","dino_3_" },
+			}
+		}
+	};
 	return true;
 }
 
 void DinoGame::onEnterTransitionDidFinish()
 {
-	std::vector<std::string> alphabets = { "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
-	auto level1 = CSLoader::createNode("dino/level1.csb");
-	this->addChild(level1);
-
-	for (int i = 0; i < alphabets.size(); i++) {
-		std::string child = alphabets.at(i) + "_1";
-		auto alpha = level1->getChildByName(child);
-		std::string alphaNode = "random_1_" + alphabets.at(i);
-		auto randomNode = level1->getChildByName(alphaNode);
+	if (_menu->getCurrentLevel() < 4) {
+		_mapping = _levelConfig.at(_menu->getCurrentLevel());
+	}
+	else {
+		_mapping = _levelConfig.at(1);
+	}
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	_alphabets = { "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
+	_dinoNode = CSLoader::createNode(_mapping.at("csb"));
+	if (visibleSize.width > 2560) {
+		_extraX = (visibleSize.width - 2560) / 2;
+		_dinoNode->setPositionX((visibleSize.width - 2560) / 2);
+	}
+	this->addChild(_dinoNode);
+	if (_menu->getCurrentLevel() == 3) {
+		auto child = _dinoNode->getChildByName("random_2_l");
+		child->setPosition(Vec2(visibleSize.width*0.1, visibleSize.height*0.1));
+	}
+	for (int i = 0; i < _alphabets.size(); i++) {
+		std::string child = _alphabets.at(i) + _mapping.at("png");
+		auto alpha = _dinoNode->getChildByName(child);
+		std::string alphaNode = _mapping.at("random") + _alphabets.at(i);
+		auto randomNode = _dinoNode->getChildByName(alphaNode);
 		auto moveTo = MoveTo::create(2, randomNode->getPosition());
 		alpha->runAction(moveTo);
 
@@ -81,7 +118,11 @@ void DinoGame::onEnterTransitionDidFinish()
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, alpha);
 	}
 
-
+	_isTouched = true;
+	_menu->setMaxPoints(26);
+	if (_menu->getCurrentLevel() == 2) {
+		alphabetHint("a");
+	}
 
 }
 
@@ -91,8 +132,11 @@ bool DinoGame::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 	auto  location = target->convertToNodeSpace(touch->getLocation());
 	Size s = target->getContentSize();
 	Rect rect = Rect(0, 0, s.width, s.height);
-	if (rect.containsPoint(location)) {
-
+	if (rect.containsPoint(location)&& _isTouched) {
+		_isTouched = false;
+		target->stopAllActions();
+		target->setScale(1);
+		_previousPosition = target->getPosition();
 		return true;
 	}
 	return false;
@@ -101,9 +145,76 @@ bool DinoGame::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 void DinoGame::onTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event)
 {
 	auto target = event->getCurrentTarget();
-	target->setPosition(touch->getLocation());
+	target->setPosition(Vec2(touch->getLocation().x - _extraX,touch->getLocation().y));
 }
 
 void DinoGame::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 {
+	CCLOG("touch End");
+//	auto distance = ccpDistance(_previousPosition, touch->getLocation());
+	//CCLOG("distance = %f", distance);
+	if (_previousPosition == touch->getLocation()) {
+		_isTouched = true;
+	}
+	auto target = event->getCurrentTarget();
+	std::string targetName = target->getName();
+	std::stringstream ss;
+	ss << targetName.at(0);
+	std::string mystr = ss.str();
+	std::string str = _mapping.at("fixed") + mystr;
+	auto fixedNode = _dinoNode->getChildByName(str);
+	if (_menu->getCurrentLevel() == 1) {
+		if (target->boundingBox().containsPoint(fixedNode->getPosition())) {
+			target->setPosition(fixedNode->getPosition());
+			CCLOG("letter fixed");
+			_isTouched = true;
+			_eventDispatcher->removeEventListenersForTarget(target);
+			_menu->addPoints(1);
+		}
+		else {
+			_menu->addPoints(-1);
+			auto moveTo = MoveTo::create(2, _previousPosition);
+			target->runAction(Sequence::create(moveTo, CallFunc::create([=]() {
+				_isTouched = true;
+				CCLOG("touch End11111111111111111111111111111");
+			}), NULL));
+		}
+	}
+	else if ((_menu->getCurrentLevel() == 2) || (_menu->getCurrentLevel() == 3)) {
+		str = _mapping.at("fixed") + _alphabets.at(_gameScore);
+		fixedNode = _dinoNode->getChildByName(str);
+		if (target->boundingBox().containsPoint(fixedNode->getPosition()) && (mystr.compare(_alphabets.at(_gameScore)) == 0)) {
+			target->setPosition(fixedNode->getPosition());
+			CCLOG("letter fixed");
+			_isTouched = true;
+			_eventDispatcher->removeEventListenersForTarget(target);
+			_gameScore++;
+			_menu->addPoints(1);
+			if (_menu->getCurrentLevel() == 2 && _gameScore < 26) {
+				alphabetHint(_alphabets.at(_gameScore));
+			}
+			
+		}
+		else {
+			_menu->addPoints(-1);
+			auto moveTo = MoveTo::create(2, _previousPosition);
+			target->runAction(Sequence::create(moveTo, CallFunc::create([=]() {
+				_isTouched = true;
+				if (_menu->getCurrentLevel() == 2) {
+					alphabetHint(_alphabets.at(_gameScore));
+				}
+			}), NULL));
+		}
+	}
+	if (_gameScore == 26) {
+		_menu->showScore();
+	}
+}
+
+void DinoGame::alphabetHint(std::string letter)
+{
+	std::string child = letter + _mapping.at("png");
+	auto alpha = _dinoNode->getChildByName(child);
+	auto scale = ScaleBy::create(1, 0.7);
+	alpha->runAction(RepeatForever::create(Sequence::create(scale, scale->reverse(), NULL)));
 }
