@@ -31,7 +31,7 @@ bool Shape::init()
 
 void Shape::update(float d)
 {
-	if (_water->getScaleY() >= 0.0)
+	if (_transSpriteDetails.size()>=1 && _water->getScaleY() >= 0.0)
 	{
 		_water->setScaleY(_water->getScaleY() - _waterSpeed);
 	}
@@ -283,6 +283,14 @@ void Shape::onEnterTransitionDidFinish()
 	_shapeName->setColor(Color3B(255, 255, 255));
 	_ShapeBg->getChildByName("alphabet_board_4")->addChild(_shapeName);
 
+	int Xstart = _ShapeBg->getChildByName("water_level")->getPositionX() - _water->getBoundingBox().size.width / 2 + _realSpriteDetails.at(0)._sprite->getContentSize().width * 1.1;
+
+	_position.push_back(Xstart + _water->getBoundingBox().size.width * .07);
+	_position.push_back(Xstart + _water->getBoundingBox().size.width * .25);
+	_position.push_back(Xstart + _water->getBoundingBox().size.width * .43);
+	_position.push_back(Xstart + _water->getBoundingBox().size.width * .61);
+	_position.push_back(Xstart + _water->getBoundingBox().size.width * .79);
+
 	this->runAction(RepeatForever::create(Sequence::create(DelayTime::create(_differntPosition.at(_posmainIndex).at(_differntPosition.at(_posmainIndex).size() - 1)), CallFunc::create([=] {
 		createTrans();
 	}), NULL)));
@@ -321,9 +329,12 @@ void Shape::createTrans()
 			float Y = Ystart + (std::rand() % (Yend - Ystart + 1));
 			float X = Xstart + (std::rand() % (Xend - Xstart + 1));
 
-			TransSpriteDetails._sprite->setPosition(Vec2(X, Y));
+			int _ind = std::rand() % _position.size();
+
+			TransSpriteDetails._sprite->setPosition(Vec2(_position.at(_ind), Y));
 			TransSpriteDetails._flag = 0;
 			this->addChild(TransSpriteDetails._sprite);
+			_position.erase(_position.begin() + _ind);
 
 			std::string _shapeName = _differntSceneMapping.at(_level).at(_randNumber);
 			std::transform(_shapeName.begin(), _shapeName.end(), _shapeName.begin(), ::toupper);
@@ -403,6 +414,7 @@ void Shape::addEvents(struct SpriteDetails sprite)
 			{
 				_spriteDetails._sprite->runAction(Sequence::create(MoveTo::create(.5, Vec2(_transSpriteDetails.at(i)._sprite->getPositionX(), _transSpriteDetails.at(i)._sprite->getPositionY())),
 					CallFunc::create([=] {
+					_position.push_back(_transSpriteDetails.at(i)._sprite->getPositionX());
 					this->removeChild(_spriteDetails._sprite);
 					this->removeChild(_transSpriteDetails.at(i)._sprite);
 					_transSpriteDetails.erase(_transSpriteDetails.begin() + i);
@@ -412,7 +424,7 @@ void Shape::addEvents(struct SpriteDetails sprite)
 					_maxTransAtTime--;
 					CocosDenshion::SimpleAudioEngine *success = CocosDenshion::SimpleAudioEngine::getInstance();
 					success->playEffect("sounds/sfx/success.ogg", false);
-
+					
 					if (_totalPatch == _differntPosition.at(_posmainIndex).at(_differntPosition.at(_posmainIndex).size() - 2))
 					{
 						_menuContext->showScore();
