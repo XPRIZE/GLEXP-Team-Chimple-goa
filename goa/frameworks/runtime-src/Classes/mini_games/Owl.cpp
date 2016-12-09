@@ -513,8 +513,9 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 			CCLOG("Touched : %c", x.at(0));
 
 			if (LangUtil::getInstance()->getLang() == "eng") {
-				auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
-				audioBg->playEffect("res/sounds/sfx/drop_obj.ogg", false);
+				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(x.at(0));
+				audio->playEffect(path.c_str(), false);
 			}
 
 			return true;
