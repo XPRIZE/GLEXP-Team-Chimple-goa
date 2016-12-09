@@ -101,6 +101,12 @@ xc.PictureQuestionHandler = cc.Layer.extend({
                     return alreadySelectedAnswers.indexOf(item) === -1;
                 });
 
+                if(remainingAnswers.length == 0) {
+                    remainingAnswers = this._answers.filter(function(item) {
+                        return alreadySelectedAnswers.indexOf(item) === -1;
+                    });
+                }
+
                 if(remainingAnswers.length > 0) {
                     var rIndex = Math.floor(Math.random() * remainingAnswers.length);
                     alreadySelectedAnswers.push(remainingAnswers[rIndex]);
@@ -272,7 +278,9 @@ xc.PictureQuestionHandler = cc.Layer.extend({
 
         if(this._totalCorrectAnswers == 4) {
             this.callback.call(this._callbackContext, sender, true, true);
-        } 
+        } else {
+            this.callback.call(this._callbackContext, sender, true, false);
+        }
     },
 
     verifyAnswer: function(sender, questionNode) {
