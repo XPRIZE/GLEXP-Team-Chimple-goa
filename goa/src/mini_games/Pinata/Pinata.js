@@ -222,12 +222,16 @@ xc.Pinata = cc.Layer.extend({
                     audioEngine.playEffect(xc.Pinata.res.pinata_ball_release_sound);
                     if(!((Math.abs(classReference.player.angle) < 175)  && (Math.abs(classReference.player.angle) > 5))){
                         console.log("the range is not correct ");
-                        setTimeout(function() {
+                       
+                        var againSetToOriginalPosition = function()
+                        {
                             classReference.bubblePlayer.setPosition((classReference.xPosi/2)+(classReference.gameBg.node.getChildByName("left").x + classReference.gameBg.node.getChildByName("right").x) /2,classReference.gameBg.node.getChildByName("right").y);
                             classReference.player.x = classReference.bubblePlayer.x;    classReference.player.y = classReference.bubblePlayer.y;
                             classReference.shootingFlag = false;
                             classReference.gameBg.node.getChildByName("board").freezShooting = true;
-                        }, 3000);                    
+                        }
+                        classReference.runAction(new cc.Sequence(cc.delayTime(3),new cc.CallFunc(againSetToOriginalPosition, classReference)));  
+
                     }
                 }
 
@@ -333,9 +337,11 @@ xc.Pinata = cc.Layer.extend({
                     audioEngine2.playEffect(xc.Pinata.res.pinata_select_sound);
                 }
 
-                setTimeout(function() {
-                        classReference.flagSingleTouchFirst = true;
-                },1000);
+                var changeFlagInTouch = function()
+                {
+                    classReference.flagSingleTouchFirst = true;
+                }
+                classReference.runAction(new cc.Sequence(cc.delayTime(1),new cc.CallFunc(changeFlagInTouch, classReference)));
 
                 return false;
             }
@@ -465,8 +471,12 @@ xc.Pinata = cc.Layer.extend({
                 this.bubblePlayer.setVisible(false);
                 this.targetPlayer.setVisible(false);
                 var classReference = this;
-                setTimeout(function() {
-                    if (cc.sys.isNative) {
+                var audioEngine = cc.AudioEngine.getInstance();
+                audioEngine.playEffect(xc.Pinata.res.pinata_select_sound);
+               
+                var checkGameCompleteOrNot = function()
+                {
+                   if (cc.sys.isNative) {
                           if(classReference.counterlevelStatus == 5){
                               menuContext.setMaxPoints(classReference.counterHit);
                               menuContext.showScore()
@@ -477,7 +487,9 @@ xc.Pinata = cc.Layer.extend({
                     }else{
                         xc.GameScene.load(xc.Pinata);
                     }
-                }, 1800);
+                }
+                this.runAction(new cc.Sequence(cc.delayTime(1.2),new cc.CallFunc(checkGameCompleteOrNot, this)));
+
             }
        }
     },
@@ -604,20 +616,31 @@ xc.Pinata = cc.Layer.extend({
        var size = 0.5;
        if(this.bubblePlayer.getName() == "pinatacity"){size = 0.7};
         if(this.bubblePlayer.getName() == "pinatajungle"){size = 1.0};
-       var  halfAction = new cc.MoveTo(2,cc.p(((correctObject.width * size )/2) - (this.xPosi/2), cc.director.getWinSize().height * 0.85));
-       var  initSequence = new cc.Sequence(new cc.ScaleTo(0.3,size), new cc.MoveTo(0.5,cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height * 0.85)));
+//       var  halfAction = new cc.MoveTo(2,cc.p(((correctObject.width * size )/2) - (this.xPosi/2), cc.director.getWinSize().height * 0.85));
+//       var  initSequence = new cc.Sequence(new cc.ScaleTo(0.3,size), new cc.MoveTo(0.5,cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height * 0.85)));
         
-        var SequenceVal = new cc.Sequence(initSequence,halfAction);
-        correctObject.runAction(SequenceVal);
+//        var SequenceVal = new cc.Sequence(initSequence,halfAction);
+ //       correctObject.runAction(SequenceVal);
         this.targetPlayer = correctObject;
         var classReference = this;
-         setTimeout(function() {
-              var  leftTOright = new cc.MoveTo(4,cc.p(((correctObject.width * size )/2) - (classReference.xPosi/2), cc.director.getWinSize().height * 0.85));
+//         setTimeout(function() {
+//              var  leftTOright = new cc.MoveTo(4,cc.p(((correctObject.width * size )/2) - (classReference.xPosi/2), cc.director.getWinSize().height * 0.85));
+//              var  rightTOleft = new cc.MoveTo(4,cc.p(cc.director.getWinSize().width - (correctObject.width * size/2) - (classReference.xPosi/2), cc.director.getWinSize().height * 0.85));
+//              var repeatForeverAction = new cc.RepeatForever(new cc.Sequence(rightTOleft,leftTOright));
+//              correctObject.runAction(repeatForeverAction);
+//         }, 2800);
+        
+        var sequenceForRepeatMovement = function()
+        {
+             var  leftTOright = new cc.MoveTo(4,cc.p(((correctObject.width * size )/2) - (classReference.xPosi/2), cc.director.getWinSize().height * 0.85));
               var  rightTOleft = new cc.MoveTo(4,cc.p(cc.director.getWinSize().width - (correctObject.width * size/2) - (classReference.xPosi/2), cc.director.getWinSize().height * 0.85));
               var repeatForeverAction = new cc.RepeatForever(new cc.Sequence(rightTOleft,leftTOright));
               correctObject.runAction(repeatForeverAction);
-         }, 2800);
-        
+        }
+
+        var SequenceVal = new cc.Sequence(new cc.ScaleTo(0.3,size), new cc.MoveTo(0.5,cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height * 0.85)),new cc.MoveTo(2,cc.p(((correctObject.width * size )/2) - (this.xPosi/2), cc.director.getWinSize().height * 0.85)),new cc.CallFunc(sequenceForRepeatMovement, this));
+       correctObject.runAction(SequenceVal);
+
         this.gameBg.node.getChildByName("board").visible = false;
         if(this.bubblePlayer.getName() == "pinatacream")
         this.gameBg.node.getChildByName("Panel_2").visible = false;
@@ -634,10 +657,12 @@ xc.Pinata = cc.Layer.extend({
         if(this.bubblePlayer.getName() == "pinatacity")
         this.gameBg.node.getChildByName("slingshot_16").visible = true;
       
-        setTimeout(function() {
-             classReference.gameBg.node.getChildByName("board").freezShooting = true;
-        }, 0.8);
-       
+       var changeFlagInTouchBoard = function()
+        {
+            this.gameBg.node.getChildByName("board").freezShooting = true;
+        }
+         this.runAction(new cc.Sequence(cc.delayTime(0.8),new cc.CallFunc(changeFlagInTouchBoard, this)));
+
     },
 
     radToDeg : function (angle) {
@@ -659,9 +684,12 @@ xc.Pinata = cc.Layer.extend({
         AnimNode.node.setPosition(x + (this.xPosi/2) ,y);
         this.addChild(AnimNode.node);
         var classReference = this;
-        setTimeout(function() {
+       
+        var removeAnimaCallFunc = function()
+        {
             classReference.removeChild(AnimNode.node);
-        }, 800);
+        }
+         classReference.runAction(new cc.Sequence(cc.delayTime(0.8),new cc.CallFunc(removeAnimaCallFunc, classReference)));
     }
 })
 

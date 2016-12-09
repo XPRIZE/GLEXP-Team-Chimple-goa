@@ -56,6 +56,7 @@ void Shop::onEnterTransitionDidFinish()
 	tabel->setZOrder(1);
 	weightMech->setZOrder(1);
 	fruitStand1->setZOrder(1);
+	fruitStand1->setPositionX(fruitStand1->getPositionX() + 50);
 	bag->setZOrder(1);
 
 	//vege dislpay note
@@ -88,7 +89,7 @@ void Shop::textOnMachine()
 	}
 	if (_label != NULL)
 	{
-		this->removeChild(_label, true);
+		this->getChildByName("bg")->removeChild(_label, true);
 	}
 	auto labelNode = this->getChildByName("bg")->getChildByName("weightshow_520");
 	auto labelNode1 = this->getChildByName("bg")->getChildByName("hit");
@@ -97,9 +98,9 @@ void Shop::textOnMachine()
 	_textString3 = "?";
 
 	auto textOnDisplay = _textString1 + " + " + _textString2 + " = " + _textString3;
-	_label = setAllLabelProperties(textOnDisplay, 0, labelNode->getPositionX()+ myGameWidth, labelNode1->getPositionY() + labelNode1->getContentSize().width * 0.35, true, 0.5, 0.5, 0, 1, 1, 80);
+	_label = setAllLabelProperties(textOnDisplay, 0, labelNode1->getPositionX(), labelNode1->getPositionY() + labelNode1->getContentSize().width * 0.35, true, 0.5, 0.5, 0, 1, 1, 80);
 	_label->setColor(cocos2d::Color3B(229, 78, 78));
-	this->addChild(_label, 0);
+	this->getChildByName("bg")->addChild(_label, 0);
 }
 void Shop::customerEnter(Node* Bg, vector<string> vegetableNodeName)
 {
@@ -127,7 +128,7 @@ void Shop::customerEnter(Node* Bg, vector<string> vegetableNodeName)
 	_customer->setName("customer");
 	 Bg->addChild(_customer);
 
-	_customer->runAction(Sequence::create(MoveTo::create(3, Vec2(visibleSize.width*.79, visibleSize.height*.2)),
+	_customer->runAction(Sequence::create(MoveTo::create(3, Vec2(visibleSize.width*.77, visibleSize.height*.2)),
 		CCCallFunc::create([=] {	_customerWalkAnim->pause();
 
 	for (int j = 0; j < vegetableNodeName.size(); j++)
@@ -147,7 +148,7 @@ void Shop::customerEnter(Node* Bg, vector<string> vegetableNodeName)
 	if (visibleSize.width > 2560) {
 		myGameWidth = (visibleSize.width - 2560) / 2;
 	}
-	if (gameCurrentLevel == 1)
+	if (gameCurrentLevel == 1 && _gameCounter==0)
 	{
 		auto nodeForHelp = this->getChildByName("bg")->getChildByName("corn");
 		auto a = nodeForHelp->getPositionX()+ myGameWidth;// + visibleSize.width*.038
@@ -167,14 +168,16 @@ void Shop::customerEnter(Node* Bg, vector<string> vegetableNodeName)
 }
 void Shop::update(float dt)
 {
-
-	auto myBg = this->getChildByName("bg");
-	auto node1 = myBg->getChildByName("bag")->getChildren().at(1);
-	auto node2 = myBg->getChildByName("bag")->getChildren().at(2);
-	auto bag = this->getChildByName("bg")->getChildByName("bag");
-	auto pos = this->getChildByName("bg")->getChildByName("bag")->getPosition();
-	if (_calculateFlag && _calculator->checkAnswer(_total))
+	
+	if (_calculateFlag && _calculator->checkAnswer(_total) && _calculator->isEnterPressed())
 	{
+		_menuContext->addPoints(1);
+		_isEnterPressedCounter++;
+		auto myBg = this->getChildByName("bg");
+		auto node1 = myBg->getChildByName("bag")->getChildren().at(1);
+		auto node2 = myBg->getChildByName("bag")->getChildren().at(2);
+		auto bag = this->getChildByName("bg")->getChildByName("bag");
+		auto pos = this->getChildByName("bg")->getChildByName("bag")->getPosition();
 		_gameCounter++;
 		std::ostringstream total;
 		total << _total;
@@ -268,7 +271,13 @@ void Shop::update(float dt)
 		});
 			auto scoreSequenceOne = Sequence::create(vegeIntoBag, coinAppear, DelayTime::create(1.4), vegeDisappear, vegeAppear, DelayTime::create(3), CallFunc::create([=] {
 				if (_gameCounter == 3)
+				{
+					auto a = _isEnterPressedCounter;
+					_menuContext->setMaxPoints(_isEnterPressedCounter);
 					_menuContext->showScore();
+
+				}
+					
 				else
 				{
 					for (int i = 0; i < node1->getChildren().size(); i++)
@@ -279,7 +288,7 @@ void Shop::update(float dt)
 					{
 						auto a = (Sprite*)node2->getChildren().at(j);	a->setVisible(false);
 					}
-					this->removeChildByName("note", true);
+					myBg->removeChildByName("note", true);
 					this->removeChildByName("customer", true);
 					this->removeChild(_calculator, true);
 					customerEnter(myBg, _vegetableNodeName);
@@ -300,6 +309,11 @@ void Shop::update(float dt)
 			}), NULL);
 			this->runAction(scoreSequenceOne);
 	}
+	if (_calculateFlag && !_calculator->checkAnswer(_total) && _calculator->isEnterPressed())
+	{
+		_menuContext->addPoints(-1);
+		_isEnterPressedCounter++;
+	}
 }
 
 void Shop::chooseVegeForShop(vector<string> vegetableNodeName)
@@ -315,6 +329,8 @@ void Shop::chooseVegeForShop(vector<string> vegetableNodeName)
 		if (duplicateCheck)
 			randomIndex.push_back(numberPicker);
 	}
+	auto labelNode = this->getChildByName("bg")->getChildByName("weightshow_520");
+	auto labelNode1 = this->getChildByName("bg")->getChildByName("hit");
 	int gameCurrentLevel = _menuContext->getCurrentLevel();
 	vector<pair<int, int>> pairOfInt = { make_pair(1,1),make_pair(1,2), make_pair(2,1), make_pair(2,2), make_pair(1,3), make_pair(3,1), make_pair(3,2), make_pair(2,3) };
 	if (gameCurrentLevel <= 10)
@@ -337,8 +353,8 @@ void Shop::chooseVegeForShop(vector<string> vegetableNodeName)
 	
 
 	Sprite* note = (Sprite *)CSLoader::createNode("shoping/note.csb");
-	setAllSpriteProperties(note, 0, visibleSize.width*.64, visibleSize.height*.15, true, 0, 0.5, 0.5, 0.01, 0.01);
-	this->addChild(note, 0);
+	setAllSpriteProperties(note, 0, labelNode->getPositionX(), labelNode->getPositionY()-visibleSize.height*0.32, true, 0, 0.5, 0.5, 0.01, 0.01);
+	this->getChildByName("bg")->addChild(note, 1);
 	note->setName("note");
 	
 	Sprite* vegeFirst = Sprite::createWithSpriteFrameName("shoping/"+ _expectedItemOne +".png");

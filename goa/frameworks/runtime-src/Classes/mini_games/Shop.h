@@ -33,7 +33,7 @@ protected:
 	string _expectedItemOne, _expectedItemTwo, _textString1, _textString2, _textString3;
 	cocos2d::LabelTTF* _label = NULL;
 	int _labelCounter = 0;
-	int _total, _gameCounter = 0;
+	int _total, _gameCounter = 0, _isEnterPressedCounter = 0;
 	vector<Sprite*>_vegeOnWeighingMachine;
 	cocostudio::timeline::ActionTimeline* _customerWalkAnim;
 	Sprite* _customer;

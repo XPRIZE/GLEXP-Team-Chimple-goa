@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 280,
+        "Duration": 445,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "bird",
         "Timelines": [
           {
             "ActionTag": 750301006,
@@ -41,8 +41,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 1242.2649,
-                "Y": 695.0397,
+                "X": 1242.2651,
+                "Y": 695.0696,
                 "FrameIndex": 280,
                 "EasingData": {
                   "Type": 0
@@ -146,12 +146,257 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -432410732,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 242.0771,
+                "Y": 645.7576,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2042.0571,
+                "Y": 655.7574,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2331.1855,
+                "Y": 370.2924,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -432410732,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.6304,
+                "Y": 0.6304,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.923,
+                "Y": 0.923,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -432410732,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 21.8599,
+                "Y": 21.8369,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 21.8612,
+                "Y": 21.8364,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 21.8169,
+                "Y": 21.8422,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 400762655,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -82.7717,
+                "Y": 626.2296,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1717.2212,
+                "Y": 636.2281,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1855.5654,
+                "Y": 341.7016,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 400762655,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.6304,
+                "Y": 0.6304,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.923,
+                "Y": 0.923,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 400762655,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -22.7679,
+                "Y": -22.7419,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -22.7718,
+                "Y": -22.7419,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -22.7998,
+                "Y": -22.7446,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -797678326,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 93.7336,
+                "Y": 449.6899,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1893.7271,
+                "Y": 459.6783,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2114.0112,
+                "Y": 83.2234,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -797678326,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.6304,
+                "Y": 0.6304,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.923,
+                "Y": 0.923,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 302817438,
             "Property": "Position",
             "Frames": [
               {
-                "X": -1458.6129,
-                "Y": 571.6047,
+                "X": -822.3732,
+                "Y": 574.9204,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -230,6 +475,82 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1762649701,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 285,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 445,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1762649701,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -692.6973,
+                "Y": 1272.6958,
+                "FrameIndex": 285,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 261.1267,
+                "Y": 1565.5795,
+                "FrameIndex": 350,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1580.429,
+                "Y": 1486.1722,
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1762649701,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 280,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 285,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -239,6 +560,12 @@
           "StartIndex": 0,
           "EndIndex": 280,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 285,
+          "EndIndex": 445,
+          "Name": "bird",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -355,6 +682,145 @@
           },
           {
             "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 242.0771,
+              "Y": 645.7576
+            },
+            "Scale": {
+              "ScaleX": 0.6304,
+              "ScaleY": 0.6304
+            },
+            "RotationSkewX": 21.8599,
+            "RotationSkewY": 21.8369,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0946,
+              "Y": 0.3588
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 27.0771,
+            "RightMargin": 2102.9229,
+            "TopMargin": 646.2424,
+            "BottomMargin": 137.7576,
+            "Tag": 1887,
+            "ActionTag": -432410732,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -82.7717,
+              "Y": 626.2296
+            },
+            "Scale": {
+              "ScaleX": 0.6304,
+              "ScaleY": 0.6304
+            },
+            "RotationSkewX": -22.7679,
+            "RotationSkewY": -22.7419,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0323,
+              "Y": 0.3479
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": -297.7717,
+            "RightMargin": 2427.7717,
+            "TopMargin": 665.7705,
+            "BottomMargin": 118.2296,
+            "Tag": 1888,
+            "ActionTag": 400762655,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_mound.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 93.7336,
+              "Y": 449.6899
+            },
+            "Scale": {
+              "ScaleX": 0.6304,
+              "ScaleY": 0.6304
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0366,
+              "Y": 0.2498
+            },
+            "PreSize": {
+              "X": 0.393,
+              "Y": 0.2672
+            },
+            "LeftMargin": -409.2664,
+            "RightMargin": 1963.2664,
+            "TopMargin": 1109.8101,
+            "BottomMargin": 209.1899,
+            "Tag": 1886,
+            "ActionTag": -797678326,
+            "Size": {
+              "X": 1006.0,
+              "Y": 481.0
+            },
+            "Name": "mound",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
               "Type": "Normal",
               "Path": "Mtoto_wa_Tembo_Mdadisi/elephant1.json",
               "Plist": ""
@@ -364,8 +830,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": -1458.6129,
-              "Y": 571.6047
+              "X": -822.3732,
+              "Y": 574.9204
             },
             "Scale": {
               "ScaleX": -1.4018,
@@ -374,24 +840,66 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": -0.5698,
-              "Y": 0.3176
+              "X": -0.3212,
+              "Y": 0.3194
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -1458.6129,
-            "RightMargin": 4018.6128,
-            "TopMargin": 1228.3953,
-            "BottomMargin": 571.6047,
+            "LeftMargin": -822.3732,
+            "RightMargin": 3382.373,
+            "TopMargin": 1225.0796,
+            "BottomMargin": 574.9204,
             "Tag": 1117,
             "ActionTag": 302817438,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "elephant",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/bird.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -692.6973,
+              "Y": 1272.6958
+            },
+            "Scale": {
+              "ScaleX": -0.5,
+              "ScaleY": 0.5
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.2706,
+              "Y": 0.7071
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -692.6973,
+            "RightMargin": 3252.6973,
+            "TopMargin": 527.3042,
+            "BottomMargin": 1272.6958,
+            "Tag": 1783,
+            "ActionTag": -1762649701,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "VisibleForFrame": false,
+            "Name": "bird",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -403,7 +911,10 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "elephant1.json"
+        "bird.json",
+        "elephant1.json",
+        "Mtoto_wa_Tembo_Mdadisi.plist",
+        "Mtoto_wa_Tembo_Mdadisi.png"
       ],
       "ctype": "GameFileData"
     }
