@@ -26,6 +26,23 @@
     "menuPlist": "tablelevel/tablelevel.plist",
     "menuPng": "tablelevel/tablelevel.png"
   },
+    {
+    "name": "book",
+    "title": "Alphabet Fight",
+    "cIcon": "gameicons/book_pressed.png",
+    "icon": "gameicons/book.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "3",
+    "numLevels": "26",
+   "backgroundJson": "tablelevel/background.json",
+    "foregroundJson": "tablelevel/foreground.json",
+    "frontgroundJson": "tablelevel/frontground.json",
+    "maingroundJson": "tablelevel/mainground.json",
+    "menuPlist": "tablelevel/tablelevel.plist",
+    "menuPng": "tablelevel/tablelevel.png"
+  },
   {
     "name": "table",
         "title": "Multiply",
