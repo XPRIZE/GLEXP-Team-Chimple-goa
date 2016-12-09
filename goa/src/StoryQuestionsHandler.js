@@ -279,7 +279,7 @@ xc.StoryQuestionHandlerScene = cc.Scene.extend({
         this.addChild(this._sceneLayer);
         if (cc.sys.isNative) {
             this._menuContext = goa.MenuContext.create(this._sceneLayer, "story-play");
-            this.addChild(this._menuContext, 1);
+            this.addChild(this._menuContext, 10);
             this._menuContext.setVisible(true);
         }                                        
         
