@@ -18,6 +18,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     _nodeToFileNameMapping: {},
     _nodeToCurrentVerticesMapping: {},
     _menuContext: null,
+    _wordMapping: {},
     ctor: function (pageIndex, storyInformation) {
         this._super();
         this._name = "NarrateStoryLayer";
@@ -29,7 +30,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this._contentPanelHeight = cc.director.getWinSize().height; //assuming landscape
         this._configPanelWidth = (cc.director.getWinSize().width - this._contentPanelWidth) / 2;
         this._nodeToFileNameMapping = {};
-        this._nodeToCurrentVerticesMapping =  {};        
+        this._nodeToCurrentVerticesMapping =  {};     
+        this._wordMapping = {};   
         
         return true;
     },
@@ -130,8 +132,9 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
             onTouchEnded: function (touch, event) {
                 var target = event.getCurrentTarget();
-                target.setLocalZOrder(this._zOrder);
+                
                 if(target.draggingEnabled) {
+                    target.setLocalZOrder(this._zOrder);
                     var action = target.actionManager.getActionByTag(target.tag, target);
                     action.pause();
                     // target.actionManager.pauseTarget(target);
@@ -198,7 +201,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             },
             onTouchEnded: function (touch, event) {
                 var target = event.getCurrentTarget();
-                target.setLocalZOrder(this._zOrder);
+                
                 context._currentTarget = null;
                 if(!this._isDragging) {
                     var location = target.parent.convertToNodeSpace(touch.getLocation());
@@ -206,6 +209,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 }
                     
                 if(target.draggingEnabled) {
+                    target.setLocalZOrder(this._zOrder);
                     var action = target.actionManager.getActionByTag(target.tag, target);
                     action.pause();                    
                     // target.actionManager.pauseTarget(target);
@@ -217,18 +221,15 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         cc.eventManager.addListener(listener, target);
     },   
 
-    displayText:function(text, location) {
-        if(this._referenceToContext && this._referenceToContext._textDisplayAnimationRunning) {
-            return;
-        }
-        var texts = text.split("_");
-        if(texts && texts.length > 0) {
-            var langText = texts[0];
-            var textField = this._wordBoard.node.getChildByName("TextField_1");
-            cc.log('text:' + langText.toLowerCase());
-            textField.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
-            textField.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
-            textField.setString(langText.toLowerCase());      
+    displayText:function(text, location) {        
+        if(this._referenceToContext._textDisplayAnimationRunning) {
+            this._referenceToContext.unschedule(this.removeDisplayText);            
+            this.buildText(text);
+            this._referenceToContext.displayTextAnimationFinished();
+        }  else 
+        {
+            this.buildText(text);
+            this._referenceToContext.unschedule(this.removeDisplayText);
             this._referenceToContext._textDisplayAnimationRunning = true;      
             this._wordBoard.node.setPosition(cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 500));
             var textDropAction = new cc.MoveTo(0.5, cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height));            
@@ -236,7 +237,22 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             var afterDisplayTextAction = new cc.CallFunc(this._referenceToContext.displayTextAnimationFinished, this._referenceToContext);
             var textSequence = new cc.Sequence(textDropAction, afterDisplayTextAction);
             this._wordBoard.node.runAction(textSequence);                  
-        }        
+        }     
+    },
+
+    buildText: function(text) {
+        var textField = this._wordBoard.node.getChildByName("TextField_1");
+        
+        if(this._wordMapping && this._wordMapping[text]) {
+            text = this._wordMapping[text];
+            text = text.replace(/_/g, ' ');
+        }
+        
+        cc.log('text:' + text.toLowerCase());
+        textField.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
+        textField.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
+        textField.setString(text.toLowerCase());      
+
     },
 
     beforeDisplayTextDisapperFinished: function() {
@@ -247,14 +263,17 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this._referenceToContext._textDisplayAnimationRunning = false;
     },
 
-    displayTextAnimationFinished: function() {
-        this._referenceToContext.scheduleOnce(function(){
-            var textDropActionDisappear = new cc.MoveTo(0.5, cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 500));
-            var beforeDisplayTextDisapperAction = new cc.CallFunc(this._referenceToContext.beforeDisplayTextDisapperFinished, this._referenceToContext);
-            var afterDisplayTextDisapperAction = new cc.CallFunc(this._referenceToContext.afterDisplayTextDisapperFinished, this._referenceToContext);
-            var textSequence = new cc.Sequence(beforeDisplayTextDisapperAction, textDropActionDisappear, afterDisplayTextDisapperAction);
-            this._wordBoard.node.runAction(textSequence);
-        },3);        
+    removeDisplayText: function() {
+        var textDropActionDisappear = new cc.MoveTo(0.5, cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 500));
+        var beforeDisplayTextDisapperAction = new cc.CallFunc(this._referenceToContext.beforeDisplayTextDisapperFinished, this._referenceToContext);
+        var afterDisplayTextDisapperAction = new cc.CallFunc(this._referenceToContext.afterDisplayTextDisapperFinished, this._referenceToContext);
+        var textSequence = new cc.Sequence(beforeDisplayTextDisapperAction, textDropActionDisappear, afterDisplayTextDisapperAction);
+        this._wordBoard.node.runAction(textSequence);
+
+    },
+
+    displayTextAnimationFinished: function() {        
+        this._referenceToContext.scheduleOnce(this.removeDisplayText, 3);                
     },
 
     bindTouchListener: function (target, funcName, loop) {
@@ -324,10 +343,12 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
             onTouchEnded: function (touch, event) {
                 var target = event.getCurrentTarget();
-                target.setLocalZOrder(this._zOrder);
+                
                 var location = target.parent.convertToNodeSpace(touch.getLocation());
+                
                 context._currentTarget = null;
                 if(target.draggingEnabled) {
+                    target.setLocalZOrder(this._zOrder);
                     var action = target.actionManager.getActionByTag(target.tag, target);
                     if(action) {
                         action.pause();
@@ -358,6 +379,35 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             }
         }
         cc.log('this._baseDir:' + this._baseDir);
+
+        var langDir = goa.TextGenerator.getInstance().getLang();
+
+        var mappingFile = "";
+        mappingFile =  "res/story" + "/" + langDir + "/" + this._baseDir + ".mapping.json";
+        cc.log('mappingFile:' + mappingFile);
+        if(cc.sys.isNative) {
+            var fileExists = jsb.fileUtils.isFileExist(mappingFile);
+            if(fileExists) {
+
+                cc.loader.loadJson(mappingFile, function(err, json) {            
+                    if(!err && json != null && json != undefined) {
+                        cc.log("json mapping:" + json);
+                        context._wordMapping = json;
+                    }                                
+                });                           
+            } 
+        } else {
+
+            cc.loader.loadJson(mappingFile, function(err, json) {            
+                if(!err && json != null && json != undefined) {
+                    cc.log("json mapping:" + json);
+                    context._wordMapping = json;
+                }                                
+            });                
+            
+        }  
+
+        
         context._pixelPerfectImages = [];
 
         if(xc.pixcelPerfectConfig && xc.pixcelPerfectConfig[this._baseDir])
@@ -394,7 +444,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this._wordBoard = ccs.load(xc.NarrateStoryLayer.res.wordBubble_json, xc.path);
         if(this._wordBoard) {
             this._wordBoard.node.retain();
-            //this._wordBoard.node.setPosition(cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height));
+            this._wordBoard.node.setPosition(cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 600));
             this.addChild(this._wordBoard.node, 1);
             var textField = this._wordBoard.node.getChildByName("TextField_1");
             if(textField) {
@@ -414,6 +464,12 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         }
 
         this.setUpScene();
+
+        // this._leftButton = new ccui.Button("template/click_side_arrow.png", "template/side_arrow.png", configuration[index]['icon'], ccui.Widget.LOCAL_TEXTURE);
+        // this._leftButton.setEnabled(true);
+        // this._leftButton.addTouchEventListener(this.itemSelected, this);
+        // this._leftButton.setPosition(cc.director.getWinSize().width + (1 + 0.5) * cc.director.getWinSize().width / 1, cc.director.getWinSize().height - (1 + 0.5) * cc.director.getWinSize().height / 1);
+        
 
         this._leftButtonPanel = new xc.ButtonPanel(new cc.p(150, 0), cc.size(this._configPanelWidth, this._contentPanelHeight), 1, 1, xc.onlyStoryNarrateConfigurationObject.prevDefault, new xc.ButtonHandler(this.previousStory, this, false));        
         this._leftButtonPanel.scaleX *= -1;
@@ -439,6 +495,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         {
             var word = textField.getString().toLowerCase();
             cc.log("word to pronounce:" + word);
+            word = word.replace(/ /g, '_');
             if(cc.sys.isNative) {
                 this.getParent()._menuContext.pronounceWord(word);    
             }            
@@ -822,8 +879,6 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this._playStarted = false;
         this._constructedScene.action.clearLastFrameCallFunc();
         this._constructedScene.action.gotoFrameAndPause(this._constructedScene.action.getCurrentFrame());
-        this.renderNextButton();
-        this.renderPreviousButton();                
         
         //load text file based on Current Story Id and Page index
         var langDir = goa.TextGenerator.getInstance().getLang();
@@ -865,6 +920,9 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             cc.audioEngine.stopMusic();
         }        
         this._referenceToContext._wordBoard.node.setVisible(true);
+        this._referenceToContext.renderNextButton();
+        this._referenceToContext.renderPreviousButton();                
+        
     },
 
     processAudio: function(sender, type) {

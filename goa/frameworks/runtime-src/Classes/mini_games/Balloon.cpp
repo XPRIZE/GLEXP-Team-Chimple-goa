@@ -99,7 +99,7 @@ void Balloon::onEnterTransitionDidFinish()
     _pin = Sprite::createWithSpriteFrameName("balloonpop/balloonpop_pin.png");
 	setAllSpriteProperties(_pin, 0, visibleSize.height*0.5, visibleSize.height*0.5, true, 0.5, 0.5, 0, 1, 1);
 	this->addChild(_pin);
-	//_pin->setScale(0.7);
+	_pin->setScale(0.8);
 	addTouchEvents(_pin);
 	makingBalloons();
 }
@@ -117,7 +117,7 @@ void Balloon::makingBalloons()
 	if (visibleSize.width > 2560) {
 		myGameWidth = (visibleSize.width - 2560) / 2;
 	}
-	_label->runAction(Sequence::create(DelayTime::create(2),
+	_label->runAction(Sequence::create(DelayTime::create(1.8),
 		CCCallFunc::create([=] {_label->setString("?"); }), NULL));
 	
 	auto balloonBackground = this->getChildByName("bg");
@@ -139,6 +139,7 @@ void Balloon::makingBalloons()
 		}
 	}
 	_pin->setZOrder(2);
+	_pin->setPosition(Vec2(visibleSize.width*0.5, visibleSize.height*0.5));
 	this->runAction(Sequence::create(DelayTime::create(6), CCCallFunc::create([=] {
 		_burstFlag = true;
 		int gameCurrentLevel = _menuContext->getCurrentLevel();
@@ -202,8 +203,11 @@ void Balloon::addTouchEvents(Sprite* obj)
 		}
 		else
 		{
+			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+			audio->playEffect("sounds/sfx/shop_pick.ogg", false);
 			auto a = target->getPositionX() - target->getContentSize().width / 2;
 			auto b = target->getPositionY() - target->getContentSize().height / 2;
+			target->setScale(1);
 
 			Rect rect = CCRectMake(a, b, target->getContentSize().width, target->getContentSize().height);
 			if (rect.containsPoint(Vec2(touch->getLocation().x, touch->getLocation().y)) && _touched)
@@ -247,6 +251,9 @@ void Balloon::addTouchEvents(Sprite* obj)
 
 				if (pinRect.intersectsRect(balloonRect) && _burstFlag)
 				{
+					auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+					audio->playEffect("sounds/sfx/shop_balloon_burst.ogg", false);
+
 					auto tagNo = _balloonsBin[j]->getTag();
 					_removedBalloonsId.push_back(tagNo - 1000);
 					auto pos = _balloonsBin[j]->getPosition();
@@ -278,10 +285,13 @@ void Balloon::addTouchEvents(Sprite* obj)
 		auto target = event->getCurrentTarget();
 		if (!(target->getName()).compare("done"))
 		{
+			_pointCounter++;
 			target->setOpacity(255);
 			if (_balloonsBin.size() != _answer && _balloonsBin.size() != 12)
 			{
-				
+				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+				audio->playEffect("sounds/sfx/error.ogg", false);
+
 				_burstFlag = false;
 				_label->setColor(cocos2d::Color3B(237, 33, 53));
 				auto sequence_A = ScaleTo::create(0.3, (1.15));
@@ -296,12 +306,15 @@ void Balloon::addTouchEvents(Sprite* obj)
 			}
 			else if (_balloonsBin.size() == _answer)
 			{
+				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+				audio->playEffect("sounds/sfx/success.ogg", false);
+				_menuContext->addPoints(1);
 				if (_answer == _isBiggerNoAnswer)
 				{
 					std::ostringstream firstNo;
 					firstNo << _isBiggerNoAnswer;
-					_textString1 = firstNo.str();
-					_label->setString(_textString1);
+					std::string NoInString = firstNo.str();
+					_label->setString(NoInString);
 				}
 				_label->setColor(cocos2d::Color3B(143, 239, 32));
 				auto sequence_A = ScaleTo::create(0.3, (1.15));
@@ -312,8 +325,14 @@ void Balloon::addTouchEvents(Sprite* obj)
 				auto sequence_F = ScaleTo::create(0.3, 1);
 				_label->runAction(Sequence::create(sequence_A, sequence_B, sequence_C, sequence_D, sequence_E, sequence_F,
 					CCCallFunc::create([=]
-				{_menuContext->showScore(); }), NULL));
+				{
+					_menuContext->setMaxPoints(_pointCounter);
+					_menuContext->showScore(); }), NULL));
 			}
+		}
+		else
+		{
+			target->setScale(0.8);
 		}
 		_touched = true;
 	};

@@ -107,7 +107,7 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
             if(isCorrect) {
                 this._menuContext.addPoints(1);
             } else {
-                this._menuContext.addPoints(-0.5);
+                this._menuContext.addPoints(-1);
             }            
         }
     },
