@@ -21,10 +21,10 @@ xc.ButtonPanel = ccui.Layout.extend({
                         if(configuration[index]. hasOwnProperty('icon') == true) {
                             try {
                                 if(this._loadLocalTexture) {
-                                    item = new ccui.Button(configuration[index]['icon'], configuration[index]['icon'], configuration[index]['icon'], ccui.Widget.LOCAL_TEXTURE);
+                                    item = new ccui.Button(configuration[index]['icon'], configuration[index]['cIcon'], configuration[index]['icon'], ccui.Widget.LOCAL_TEXTURE);
                                     item.setScale(0.5);
                                 } else {
-                                    item = new ccui.Button(configuration[index]['icon'], configuration[index]['icon'], configuration[index]['icon'], ccui.Widget.PLIST_TEXTURE);
+                                    item = new ccui.Button(configuration[index]['icon'], configuration[index]['cIcon'], configuration[index]['icon'], ccui.Widget.PLIST_TEXTURE);
                                 }                                
                             } catch (error) {
                                 cc.log(error);
