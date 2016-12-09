@@ -261,7 +261,7 @@ xc.Pinata = cc.Layer.extend({
                 var targetRectangle = cc.rect(0,0, target.width, target.height);
                 console.log(classReference.flagSingleTouchFirst + " shooting mode ");
                 if (cc.rectContainsPoint(targetRectangle, location) && !classReference.gameBg.node.getChildByName("board").freezShooting && !classReference.shootingFlag && classReference.flagSingleTouchFirst){
-                    classReference.flagSingleTouchFirst = false;
+                   
                     return true;
                 }
 
@@ -269,6 +269,7 @@ xc.Pinata = cc.Layer.extend({
             },
             onTouchEnded : function(touch, event){
                 var target = event.getCurrentTarget();
+                 classReference.flagSingleTouchFirst = false;
                  if(currentLevelValue == 1){
                     classReference.removeChildByName("help");
                  }
@@ -437,6 +438,10 @@ xc.Pinata = cc.Layer.extend({
             this.addChild(this.leftLine); 
        }
        
+    //   if(menuContext.isGamePaused()){
+    //      this.flagSingleTouchFirst = true;
+    //    }
+
        if(this.shootingFlag && !menuContext.isGamePaused()){
            this.stateShootBubble(dt);
            if(!(this.bubblePlayer.y >=0)){
