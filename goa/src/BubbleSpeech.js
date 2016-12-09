@@ -15,6 +15,10 @@ xc.BubbleSpeech = cc.Layer.extend({
             this.addChild(this._constructedScene.node,0);
         }                        
 
+        this._constructedScene.node.setPosition(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2);
+        this._constructedScene.node.setAnchorPoint(cc.p(0.5,0.5));
+
+
         var closeButton = this._constructedScene.node.getChildByName("Button_1");
         closeButton.setTitleText("");
         closeButton.addTouchEventListener(this.close, this);

@@ -63,6 +63,26 @@ xc.GameScene.loadMultiPlayerGame = function(layer, gameName) {
     }
 }
 
+xc.GameScene.loadGameFromStorage = function() {
+    var gameName = cc.sys.localStorage.getItem("currentGame");
+    var gameStr = cc.sys.localStorage.getItem(gameName);
+    var level = cc.sys.localStorage.getItem(gameName + '.currentLevel');
+    var gameConfig;
+    if(gameStr) {
+        gameConfig = JSON.parse(gameStr);
+    } else {
+        var gameMap = cc.loader.cache[xc.GameMap.res.config_json];
+        for (var index = 0; index < gameMap.length; index++) {
+            var element = gameMap[index];
+            if(element.name == gameName) {
+                gameConfig = element;
+            }
+        }
+    }
+
+    xc.GameScene.load(xc[gameConfig.pureJS], gameName, level); 
+}
+
 xc.GameScene.loadMenu = function() {
     var gameName = cc.sys.localStorage.getItem("currentGame");
     var gameStr = cc.sys.localStorage.getItem(gameName);

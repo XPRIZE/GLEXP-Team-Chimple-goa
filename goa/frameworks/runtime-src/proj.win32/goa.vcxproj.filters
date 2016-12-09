@@ -586,6 +586,9 @@
     <ClCompile Include="..\Classes\menu\LevelHelpScene.cpp">
       <Filter>Classes\menu</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\DinoGame.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1176,6 +1179,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\menu\LevelHelpScene.h">
       <Filter>Classes\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\DinoGame.h">
+      <Filter>Classes\mini_games</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

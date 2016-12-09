@@ -7,6 +7,7 @@
       "Animation": {
         "Duration": 20,
         "Speed": 1.0,
+        "ActivedAnimationName": "fire",
         "Timelines": [
           {
             "ActionTag": 2114985773,
@@ -48,7 +49,14 @@
         ],
         "ctype": "TimelineActionData"
       },
-      "AnimationList": [],
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 20,
+          "Name": "fire",
+          "ctype": "AnimationInfoData"
+        }
+      ],
       "ObjectData": {
         "Tag": 3199,
         "Children": [
@@ -84,10 +92,10 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -23.0,
-            "RightMargin": -23.0,
-            "TopMargin": -23.0,
-            "BottomMargin": -23.0,
+            "LeftMargin": -118.0,
+            "RightMargin": -118.0,
+            "TopMargin": -154.0,
+            "BottomMargin": -154.0,
             "Tag": 3200,
             "ActionTag": 2114985773,
             "Size": {

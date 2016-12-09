@@ -42,7 +42,7 @@ void Units::onEnterTransitionDidFinish() {
 	_answerValue = _level + 30;
 
 
-	_menuContext->setMaxPoints(4);
+	_menuContext->setMaxPoints(3);
 	
 
 	_bg = CSLoader::createNode("unit/unit.csb");
@@ -168,7 +168,21 @@ void Units::onEnterTransitionDidFinish() {
 
 void Units::update(float delta) {
 	
-	
+	if (_calculateFlag == 0 && _calculator->isEnterPressed() && !_calculator->checkAnswer(_answerValue)) {
+
+		_calculateFlag = 1;
+		_calculator->deductPoint();
+		
+		auto openSequence = CallFunc::create([=] {
+
+			_calculateFlag = 0;
+		});
+
+		auto deductPointSequence = Sequence::create(DelayTime::create(0.5), openSequence, NULL);
+		this->runAction(deductPointSequence);
+
+	}
+
 		
 		
 		if (_calculateFlag == 0 && _calculator->checkAnswer(_answerValue) && _calculator->isEnterPressed()) {
@@ -181,37 +195,27 @@ void Units::update(float delta) {
 			//_menuContext->addPoints(1);
 			//_menuContext->addPoints(3);
 			CCLOG("points : %d", _calculator->getFinalPoints());
-			_menuContext->addPoints(_calculator->getFinalPoints());
+			
 			
 			if (_gameOverFlag == 1) {
+				_menuContext->addPoints(_calculator->getFinalPoints());
 				_menuContext->showScore();
 			}
 
 		});
 
+		auto openSequence = CallFunc::create([=] {
+
+			_calculateFlag = 0;
+		});
 	
-		auto scoreSequenceOne = Sequence::create(DelayTime::create(0.5), ShowScore, NULL);
+		auto scoreSequenceOne = Sequence::create(DelayTime::create(0.5), ShowScore, openSequence, NULL);
 		this->runAction(scoreSequenceOne);
 		
 		}
 	
 
-		if (_enterPressedFlag == 0 && _calculator->isEnterPressed() && (_calculator->checkAnswer(_answerValue) == false)) {
-
-
-			auto deductPoint = CallFunc::create([=] {
-				_menuContext->addPoints(-1);
-				_enterPressedFlag = 1;
-				CCLOG("point deducted");
-
-			});
-
-
-			auto deductPointSequence = Sequence::create(DelayTime::create(0.5), deductPoint, NULL);
-			this->runAction(deductPointSequence);
-
-		}
-
+		
 		
 }
 
@@ -462,6 +466,7 @@ void Units::addCalculator() {
 	this->addChild(_calculator,10);
 	//_calculator->setGlobalZOrder(2);
 	_calculator->setVisible(false);
+	_calculator->setMaxPoints(3);
 
 }
 

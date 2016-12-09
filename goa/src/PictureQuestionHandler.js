@@ -34,6 +34,9 @@ xc.PictureQuestionHandler = cc.Layer.extend({
         this._constructedScene = ccs.load(this._nodeJSON,xc.path);
         this._constructedScene.node.retain();
         
+        this._constructedScene.node.setPosition(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2);
+        this._constructedScene.node.setAnchorPoint(cc.p(0.5,0.5));
+        
         if (this._constructedScene.node) {
             this._callbackContext.addChild(this._constructedScene.node,0);
         }                        
@@ -75,9 +78,10 @@ xc.PictureQuestionHandler = cc.Layer.extend({
         context._answers = [];
         var obj = this._question;  
         Object.keys(context._question).forEach(function (key) {
-            var val = context._question[key];
-            context._answers.push(val);
-    
+            if(key != 'type') {
+                var val = context._question[key];
+                context._answers.push(val);
+            }    
         });
         
         this._answers = this._answers.filter(function(e) { return e !== "meanings" });
@@ -89,12 +93,17 @@ xc.PictureQuestionHandler = cc.Layer.extend({
             if(this._question.hasOwnProperty(oQuestion)) {
                 var realAnswer = this._question[oQuestion];
                 var remainingAnswers = this._answers.filter(function(e) { 
-                        return alreadySelectedAnswers.indexOf(e) < 0;
+                        return e!= realAnswer;
                     }
                 );   
 
+                remainingAnswers = remainingAnswers.filter(function(item) {
+                    return alreadySelectedAnswers.indexOf(item) === -1;
+                });
+
                 if(remainingAnswers.length > 0) {
-                    alreadySelectedAnswers.push(remainingAnswers[0]);
+                    var rIndex = Math.floor(Math.random() * remainingAnswers.length);
+                    alreadySelectedAnswers.push(remainingAnswers[rIndex]);
                     var nodeName = "A"+(index+1);
                     var node = this._constructedScene.node.getChildByName(nodeName);
                     if(node) {
@@ -104,7 +113,7 @@ xc.PictureQuestionHandler = cc.Layer.extend({
                         node.setTitleFontName(xc.storyFontName);
                         node.setTouchEnabled(true);
                         node.selectedIndex = index;
-                        var qText = remainingAnswers[0];
+                        var qText = remainingAnswers[rIndex];
                         var output = "";
                         if(qText.length > 30) {
                             var i = 30;
