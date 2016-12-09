@@ -5,10 +5,50 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 125,
+        "Duration": 335,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "sun",
         "Timelines": [
+          {
+            "ActionTag": 1786312304,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "sun",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 130,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1786312304,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -569.939,
+                "Y": 527.4756,
+                "FrameIndex": 130,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 861.8135,
+                "Y": 1723.1843,
+                "FrameIndex": 335,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 293371254,
             "Property": "ActionValue",
@@ -32,7 +72,7 @@
               {
                 "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "pull",
-                "SingleFrameIndex": 165,
+                "SingleFrameIndex": 200,
                 "FrameIndex": 125,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
@@ -193,6 +233,12 @@
           "EndIndex": 125,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 130,
+          "EndIndex": 335,
+          "Name": "sun",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -215,7 +261,6 @@
               "B": 169
             },
             "ColorVector": {
-              "ScaleX": 0.0,
               "ScaleY": -1.0
             },
             "Scale9Width": 1,
@@ -225,8 +270,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1314.1548,
-              "Y": 1093.0574
+              "X": 1313.1545,
+              "Y": 1093.0575
             },
             "Scale": {
               "ScaleX": 1.2145,
@@ -235,17 +280,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5133,
+              "X": 0.513,
               "Y": 0.6073
             },
             "PreSize": {
               "X": 1.5625,
               "Y": 1.0
             },
-            "LeftMargin": -685.8452,
-            "RightMargin": -754.1548,
-            "TopMargin": -193.0574,
-            "BottomMargin": 193.0574,
+            "LeftMargin": -686.8455,
+            "RightMargin": -753.1545,
+            "TopMargin": -193.0575,
+            "BottomMargin": 193.0575,
             "Tag": 187,
             "ActionTag": -740601266,
             "Size": {
@@ -254,6 +299,47 @@
             },
             "Name": "Panel",
             "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/sun.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -569.939,
+              "Y": 527.4756
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.2226,
+              "Y": 0.293
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -569.939,
+            "RightMargin": 3129.939,
+            "TopMargin": 1272.5244,
+            "BottomMargin": 527.4756,
+            "Tag": 6805,
+            "ActionTag": 1786312304,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "sun",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "ClipAble": false,
@@ -330,8 +416,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 560.3176,
-              "Y": 851.7422
+              "X": 1290.2908,
+              "Y": 881.7308
             },
             "Scale": {
               "ScaleX": 1.2049,
@@ -342,17 +428,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.2189,
-              "Y": 0.4732
+              "X": 0.504,
+              "Y": 0.4899
             },
             "PreSize": {
               "X": 1.5625,
               "Y": 1.0
             },
-            "LeftMargin": -1439.6824,
-            "RightMargin": -0.3176,
-            "TopMargin": 48.2578,
-            "BottomMargin": -48.2578,
+            "LeftMargin": -709.7092,
+            "RightMargin": -730.2908,
+            "TopMargin": 18.2693,
+            "BottomMargin": -18.2692,
             "Tag": 185,
             "ActionTag": 993466121,
             "Size": {
@@ -394,13 +480,14 @@
             "RightMargin": 1726.1973,
             "TopMargin": 680.3704,
             "BottomMargin": 1119.6296,
+            "UserData": "pull",
             "Tag": 173,
             "ActionTag": 293371254,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "elephant",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -485,13 +572,14 @@
             "RightMargin": 546.814,
             "TopMargin": 1476.4531,
             "BottomMargin": 323.5468,
+            "UserData": "drag;crocwalk",
             "Tag": 152,
             "ActionTag": 1171792230,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "croc",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -532,6 +620,7 @@
             "RightMargin": 1765.1816,
             "TopMargin": 597.6514,
             "BottomMargin": 186.3486,
+            "UserData": "main.sun",
             "Tag": 147,
             "ActionTag": -165416418,
             "Size": {
@@ -579,6 +668,7 @@
             "RightMargin": 1556.0681,
             "TopMargin": 693.4706,
             "BottomMargin": 90.5294,
+            "UserData": "main.sun",
             "Tag": 148,
             "ActionTag": 1831681757,
             "Size": {
@@ -626,6 +716,7 @@
             "RightMargin": 1583.186,
             "TopMargin": 526.9741,
             "BottomMargin": 257.0259,
+            "UserData": "main.sun",
             "Tag": 149,
             "ActionTag": 1213569312,
             "Size": {
@@ -673,6 +764,7 @@
             "RightMargin": 2011.6182,
             "TopMargin": 599.0654,
             "BottomMargin": 184.9346,
+            "UserData": "main.sun",
             "Tag": 150,
             "ActionTag": 1735257558,
             "Size": {
@@ -720,6 +812,7 @@
             "RightMargin": 2138.3809,
             "TopMargin": 573.7643,
             "BottomMargin": 210.2357,
+            "UserData": "main.sun",
             "Tag": 151,
             "ActionTag": -1162878179,
             "Size": {
@@ -765,6 +858,7 @@
             "RightMargin": 1553.9988,
             "TopMargin": 1045.5112,
             "BottomMargin": 273.4888,
+            "UserData": "main.sun",
             "Tag": 146,
             "ActionTag": 1917502735,
             "Size": {
@@ -812,6 +906,7 @@
             "RightMargin": 2261.7412,
             "TopMargin": 696.175,
             "BottomMargin": 87.825,
+            "UserData": "main.sun",
             "Tag": 144,
             "ActionTag": -230887659,
             "Size": {
@@ -859,6 +954,7 @@
             "RightMargin": 1491.1754,
             "TopMargin": 773.9767,
             "BottomMargin": 10.0233,
+            "UserData": "main.sun",
             "Tag": 145,
             "ActionTag": -667294050,
             "Size": {
@@ -934,7 +1030,8 @@
         "croc.json",
         "elephant.json",
         "Mtoto_wa_Tembo_Mdadisi.plist",
-        "Mtoto_wa_Tembo_Mdadisi.png"
+        "Mtoto_wa_Tembo_Mdadisi.png",
+        "sun.json"
       ],
       "ctype": "GameFileData"
     }
