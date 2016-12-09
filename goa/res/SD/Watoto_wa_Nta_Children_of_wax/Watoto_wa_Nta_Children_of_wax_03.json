@@ -15,14 +15,14 @@
             "Frames": [
               {
                 "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "-- ALL --",
+                "CurrentAniamtionName": "fire",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "-- ALL --",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 300,
@@ -707,6 +707,7 @@
             "RightMargin": 2095.3325,
             "TopMargin": 1221.3274,
             "BottomMargin": 578.6726,
+            "UserData": "fire",
             "Tag": 3201,
             "ActionTag": 404107244,
             "Size": {

@@ -145,6 +145,8 @@ void Step::onEnterTransitionDidFinish()
 
 	Events(_balloon);
 
+	_balloonRepeat = RepeatForever::create(Sequence::create(ScaleTo::create(1, 1.2), DelayTime::create(.2f), ScaleTo::create(1, 1), NULL));
+
 	if (_level == 1)
 	{
 		_help = HelpLayer::create(Rect(_position[2].x, _position[2].y + _allBar.at(2)->getContentSize().width / 2, _allBar.at(2)->getContentSize().height, _allBar.at(2)->getContentSize().width), Rect(0, 0, 0, 0));
@@ -186,6 +188,8 @@ void Step::addEvents(struct LoadingBarDetails sprite)
 			std::ostringstream _textValue;
 			if (sprite._loadingBar->getPercent() <= 100 && sprite._loadingBar->getPercent() >= 0)
 			{
+				_balloonRepeat = RepeatForever::create(Sequence::create(ScaleTo::create(1, 1.2), DelayTime::create(.2f), ScaleTo::create(1, 1), NULL));
+
 					_moveFlag = 1;
 
 					int _percentValue = (int)(locationInNode.x / target->getContentSize().width * 100);
@@ -205,6 +209,18 @@ void Step::addEvents(struct LoadingBarDetails sprite)
 					{
 						sprite._loadingBar->setPercent(0);
 						sprite._label->setString("0");
+					}
+
+					for (int i = 0; i < _loadingBarDetails.size(); i++)
+					{
+						if (_loadingBarDetails.at(i)._loadingBar->getPercent() == 0)
+						{
+							_loadingBarDetails.at(i)._upLabel->setVisible(true);
+						}
+						else
+						{
+							_loadingBarDetails.at(i)._upLabel->setVisible(false);
+						}
 					}
 
 					return true;
@@ -283,7 +299,6 @@ void Step::addEvents(struct LoadingBarDetails sprite)
 				_loadingBarDetails.at(i)._upLabel->setVisible(false);
 			}
 
-
 			if (atoi(_loadingBarDetails.at(i)._label->getString().c_str()) == _loadingBarDetails.at(i)._answer)
 			{
 				_touchFlag++;
@@ -293,8 +308,9 @@ void Step::addEvents(struct LoadingBarDetails sprite)
 
 		if (_touchFlag == _loadingBarDetails.size())
 		{
-			auto _scale = ScaleTo::create(1, 1.2);
-			_balloon->runAction(RepeatForever::create(Sequence::create(_scale, DelayTime::create(.2f), ScaleTo::create(1, 1), NULL)));
+			_balloon->stopAction(_balloonRepeat);
+			_balloonRepeat = RepeatForever::create(Sequence::create(ScaleTo::create(1, 1.2), DelayTime::create(.2f), ScaleTo::create(1, 1), NULL));
+			_balloon->runAction(_balloonRepeat);
 		}
 	};
 

@@ -5,9 +5,128 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 215,
+        "Duration": 410,
         "Speed": 1.0,
+        "ActivedAnimationName": "apple",
         "Timelines": [
+          {
+            "ActionTag": -1098584601,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 220,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1098584601,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -357.5826,
+                "Y": 1449.9993,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1162.2781,
+                "Y": 1489.7317,
+                "FrameIndex": 380,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1098584601,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 215,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 220,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -555835079,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 245,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -555835079,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -446.9187,
+                "Y": 1149.4341,
+                "FrameIndex": 245,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 918.9034,
+                "Y": 1265.1508,
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -555835079,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 215,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 245,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": -72488403,
             "Property": "Position",
@@ -36,6 +155,139 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              },
+              {
+                "X": 2279.7712,
+                "Y": 1415.7605,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2291.4329,
+                "Y": 358.2563,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2262.46,
+                "Y": 392.741,
+                "FrameIndex": 275,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2211.9629,
+                "Y": 335.8907,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2173.2659,
+                "Y": 364.4085,
+                "FrameIndex": 285,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2156.5625,
+                "Y": 318.7784,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2156.5625,
+                "Y": 318.7784,
+                "FrameIndex": 340,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2145444392,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0006,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -10.1666,
+                "Y": -10.166,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -10.1669,
+                "Y": -10.166,
+                "FrameIndex": 275,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -10.1669,
+                "Y": -10.166,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -10.1669,
+                "Y": -10.166,
+                "FrameIndex": 285,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -10.1669,
+                "Y": -10.166,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -10.1669,
+                "Y": -10.166,
+                "FrameIndex": 340,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -115,7 +367,20 @@
         ],
         "ctype": "TimelineActionData"
       },
-      "AnimationList": [],
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 215,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 220,
+          "EndIndex": 410,
+          "Name": "apple",
+          "ctype": "AnimationInfoData"
+        }
+      ],
       "ObjectData": {
         "Tag": 1269,
         "Children": [
@@ -231,6 +496,90 @@
           },
           {
             "FileData": {
+              "Type": "Normal",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -357.5826,
+              "Y": 1449.9993
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.1397,
+              "Y": 0.8056
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -357.5826,
+            "RightMargin": 2917.5825,
+            "TopMargin": 350.0007,
+            "BottomMargin": 1449.9993,
+            "Tag": 7429,
+            "ActionTag": -1098584601,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "VisibleForFrame": false,
+            "Name": "cloud",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -446.9187,
+              "Y": 1149.4341
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.1746,
+              "Y": 0.6386
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -446.9187,
+            "RightMargin": 3006.9187,
+            "TopMargin": 650.5659,
+            "BottomMargin": 1149.4341,
+            "Tag": 7437,
+            "ActionTag": -555835079,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "VisibleForFrame": false,
+            "Name": "cloud",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
               "Type": "MarkedSubImage",
               "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_branch.png",
               "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
@@ -265,6 +614,7 @@
             "RightMargin": -512.6445,
             "TopMargin": -187.1985,
             "BottomMargin": 743.1985,
+            "UserData": " main.apple",
             "Tag": 1290,
             "ActionTag": -72488403,
             "Size": {
@@ -296,6 +646,7 @@
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
+            "RotationSkewY": 0.0006,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
@@ -310,6 +661,7 @@
             "RightMargin": 156.729,
             "TopMargin": 221.2397,
             "BottomMargin": 1254.7603,
+            "UserData": "main.apple",
             "Tag": 1291,
             "ActionTag": -2145444392,
             "Size": {
@@ -351,13 +703,14 @@
             "RightMargin": 1849.4154,
             "TopMargin": 1148.48,
             "BottomMargin": 651.52,
+            "UserData": "drag;walk",
             "Tag": 1273,
             "ActionTag": -1122172469,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "elephant",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -369,6 +722,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "cloud.json",
         "elephant.json",
         "Mtoto_wa_Tembo_Mdadisi.plist",
         "Mtoto_wa_Tembo_Mdadisi.png"
