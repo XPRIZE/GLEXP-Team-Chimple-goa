@@ -38,9 +38,9 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "leafblow",
-                "SingleFrameIndex": 135,
+                "SingleFrameIndex": 215,
                 "FrameIndex": 360,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
@@ -378,7 +378,7 @@
               "X": 1457.0,
               "Y": 389.0
             },
-            "Name": "Sprite_1",
+            "Name": "ground_2",
             "ctype": "SpriteObjectData"
           },
           {
@@ -423,7 +423,7 @@
               "X": 1457.0,
               "Y": 389.0
             },
-            "Name": "Sprite_1_0",
+            "Name": "ground_1",
             "ctype": "SpriteObjectData"
           },
           {
@@ -458,6 +458,7 @@
             "RightMargin": 2057.147,
             "TopMargin": 1382.0291,
             "BottomMargin": 417.9709,
+            "UserData": "leafblow",
             "Tag": 250,
             "ActionTag": -311906227,
             "Size": {
@@ -470,7 +471,7 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "Vayu_Upepo_Vayu_the_wind/windchar/wind_char.json",
+              "Path": "Vayu_Upepo_Vayu_the_wind/wind_char.json",
               "Plist": ""
             },
             "StretchWidthEnable": false,
@@ -478,8 +479,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": -813.6074,
-              "Y": 685.6393
+              "X": 1262.874,
+              "Y": 1024.6034
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -488,18 +489,18 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": -0.3178,
-              "Y": 0.3809
+              "X": 0.4933,
+              "Y": 0.5692
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -813.6074,
-            "RightMargin": 3373.6074,
-            "TopMargin": 1114.3607,
-            "BottomMargin": 685.6393,
-            "UserData": "smile;darg",
+            "LeftMargin": 1262.874,
+            "RightMargin": 1297.126,
+            "TopMargin": 775.3966,
+            "BottomMargin": 1024.6034,
+            "UserData": "blow;darg",
             "Tag": 303,
             "ActionTag": -1006662020,
             "Size": {
@@ -521,7 +522,7 @@
         "tree.json",
         "Vayu_Upepo_Vayu_the_wind.plist",
         "Vayu_Upepo_Vayu_the_wind.png",
-        "windchar/wind_char.json"
+        "wind_char.json"
       ],
       "ctype": "GameFileData"
     }
