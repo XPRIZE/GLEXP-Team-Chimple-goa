@@ -316,9 +316,16 @@ void Step::addEvents(struct LoadingBarDetails sprite)
 
 		if (_touchFlag == _loadingBarDetails.size())
 		{
-			_balloon->stopAction(_balloonRepeat);
 			_balloonRepeat = RepeatForever::create(Sequence::create(ScaleTo::create(1, 1.2), DelayTime::create(.2f), ScaleTo::create(1, 1), NULL));
 			_balloon->runAction(_balloonRepeat);
+			_ballonFlag = 1;
+		}
+		else if (_ballonFlag == 1)
+		{
+//			_balloon->stopAction(_balloonRepeat);
+			_balloon->stopAllActions();
+			_balloon->runAction(ScaleTo::create(.01, 1));
+			_ballonFlag = -1;
 		}
 	};
 
@@ -342,6 +349,7 @@ void Step::Events(Sprite *sprite)
 			_moveFlag = 1;
 			for (int i = 0; i < _loadingBarDetails.size(); i++)
 			{
+				auto m = _loadingBarDetails.at(i)._label->getString();
 				if (atoi(_loadingBarDetails.at(i)._label->getString().c_str()) == _loadingBarDetails.at(i)._answer)
 				{
 					_touchFlag++;
