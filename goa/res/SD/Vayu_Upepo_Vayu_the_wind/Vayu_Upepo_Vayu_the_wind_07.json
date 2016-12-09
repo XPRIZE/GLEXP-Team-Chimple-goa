@@ -304,8 +304,8 @@
             "Property": "ActionValue",
             "Frames": [
               {
-                "InnerActionType": "SingleFrame",
-                "CurrentAniamtionName": "-- ALL --",
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "broken",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
                 "Tween": false,
@@ -605,6 +605,7 @@
             "RightMargin": 820.5032,
             "TopMargin": 708.8862,
             "BottomMargin": 1091.1138,
+            "UserData": "windowopen",
             "Tag": 6030,
             "ActionTag": -1545790844,
             "Size": {
@@ -617,7 +618,7 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "Vayu_Upepo_Vayu_the_wind/windchar/wind_char.json",
+              "Path": "Vayu_Upepo_Vayu_the_wind/wind_char.json",
               "Plist": ""
             },
             "StretchWidthEnable": false,
@@ -625,8 +626,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 2236.3254,
-              "Y": 819.2165
+              "X": 579.8106,
+              "Y": 841.1671
             },
             "Scale": {
               "ScaleX": -1.0,
@@ -635,24 +636,24 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.8736,
-              "Y": 0.4551
+              "X": 0.2265,
+              "Y": 0.4673
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 2236.3254,
-            "RightMargin": 323.6746,
-            "TopMargin": 980.7835,
-            "BottomMargin": 819.2165,
+            "LeftMargin": 579.8106,
+            "RightMargin": 1980.1895,
+            "TopMargin": 958.8329,
+            "BottomMargin": 841.1671,
+            "UserData": "blow;drag",
             "Tag": 2744,
             "ActionTag": -747988780,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Alpha": 59,
             "Name": "windchar",
             "ctype": "ProjectNodeObjectData"
           },
@@ -667,8 +668,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": -151.1332,
-              "Y": 8.1205
+              "X": 508.4463,
+              "Y": -1.5558
             },
             "Scale": {
               "ScaleX": -1.0,
@@ -677,17 +678,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": -0.059,
-              "Y": 0.0045
+              "X": 0.1986,
+              "Y": -0.0009
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -151.1332,
-            "RightMargin": 2711.1333,
-            "TopMargin": 1791.8795,
-            "BottomMargin": 8.1205,
+            "LeftMargin": 508.4463,
+            "RightMargin": 2051.5537,
+            "TopMargin": 1801.5558,
+            "BottomMargin": -1.5558,
             "UserData": "hi:drag",
             "Tag": 6047,
             "ActionTag": -955893445,
@@ -709,27 +710,30 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1677.6747,
-              "Y": 703.031
+              "X": 1496.5425,
+              "Y": 239.4127
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
+            "RotationSkewX": -76.4981,
+            "RotationSkewY": -76.5026,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.6553,
-              "Y": 0.3906
+              "X": 0.5846,
+              "Y": 0.133
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1677.6747,
-            "RightMargin": 882.3253,
-            "TopMargin": 1096.969,
-            "BottomMargin": 703.031,
+            "LeftMargin": 1496.5425,
+            "RightMargin": 1063.4575,
+            "TopMargin": 1560.5873,
+            "BottomMargin": 239.4127,
+            "UserData": "glass;drag",
             "Tag": 3190,
             "ActionTag": -2008579308,
             "Size": {
@@ -752,7 +756,7 @@
         "glass.json",
         "Vayu_Upepo_Vayu_the_wind.plist",
         "Vayu_Upepo_Vayu_the_wind.png",
-        "windchar/wind_char.json",
+        "wind_char.json",
         "window.json"
       ],
       "ctype": "GameFileData"

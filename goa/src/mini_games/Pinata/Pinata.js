@@ -222,12 +222,16 @@ xc.Pinata = cc.Layer.extend({
                     audioEngine.playEffect(xc.Pinata.res.pinata_ball_release_sound);
                     if(!((Math.abs(classReference.player.angle) < 175)  && (Math.abs(classReference.player.angle) > 5))){
                         console.log("the range is not correct ");
-                        setTimeout(function() {
+                       
+                        var againSetToOriginalPosition = function()
+                        {
                             classReference.bubblePlayer.setPosition((classReference.xPosi/2)+(classReference.gameBg.node.getChildByName("left").x + classReference.gameBg.node.getChildByName("right").x) /2,classReference.gameBg.node.getChildByName("right").y);
                             classReference.player.x = classReference.bubblePlayer.x;    classReference.player.y = classReference.bubblePlayer.y;
                             classReference.shootingFlag = false;
                             classReference.gameBg.node.getChildByName("board").freezShooting = true;
-                        }, 3000);                    
+                        }
+                        classReference.runAction(new cc.Sequence(cc.delayTime(3),new cc.CallFunc(againSetToOriginalPosition, classReference)));  
+
                     }
                 }
 
@@ -333,9 +337,11 @@ xc.Pinata = cc.Layer.extend({
                     audioEngine2.playEffect(xc.Pinata.res.pinata_select_sound);
                 }
 
-                setTimeout(function() {
-                        classReference.flagSingleTouchFirst = true;
-                },1000);
+                var changeFlagInTouch = function()
+                {
+                    classReference.flagSingleTouchFirst = true;
+                }
+                classReference.runAction(new cc.Sequence(cc.delayTime(1),new cc.CallFunc(changeFlagInTouch, classReference)));
 
                 return false;
             }
@@ -467,8 +473,10 @@ xc.Pinata = cc.Layer.extend({
                 var classReference = this;
                 var audioEngine = cc.AudioEngine.getInstance();
                 audioEngine.playEffect(xc.Pinata.res.pinata_select_sound);
-                setTimeout(function() {
-                    if (cc.sys.isNative) {
+               
+                var checkGameCompleteOrNot = function()
+                {
+                   if (cc.sys.isNative) {
                           if(classReference.counterlevelStatus == 5){
                               menuContext.setMaxPoints(classReference.counterHit);
                               menuContext.showScore()
@@ -479,7 +487,9 @@ xc.Pinata = cc.Layer.extend({
                     }else{
                         xc.GameScene.load(xc.Pinata);
                     }
-                }, 1800);
+                }
+                this.runAction(new cc.Sequence(cc.delayTime(1.2),new cc.CallFunc(checkGameCompleteOrNot, this)));
+
             }
        }
     },
@@ -647,10 +657,12 @@ xc.Pinata = cc.Layer.extend({
         if(this.bubblePlayer.getName() == "pinatacity")
         this.gameBg.node.getChildByName("slingshot_16").visible = true;
       
-        setTimeout(function() {
-             classReference.gameBg.node.getChildByName("board").freezShooting = true;
-        }, 0.8);
-       
+       var changeFlagInTouchBoard = function()
+        {
+            this.gameBg.node.getChildByName("board").freezShooting = true;
+        }
+         this.runAction(new cc.Sequence(cc.delayTime(0.8),new cc.CallFunc(changeFlagInTouchBoard, this)));
+
     },
 
     radToDeg : function (angle) {
@@ -672,9 +684,12 @@ xc.Pinata = cc.Layer.extend({
         AnimNode.node.setPosition(x + (this.xPosi/2) ,y);
         this.addChild(AnimNode.node);
         var classReference = this;
-        setTimeout(function() {
+       
+        var removeAnimaCallFunc = function()
+        {
             classReference.removeChild(AnimNode.node);
-        }, 800);
+        }
+         classReference.runAction(new cc.Sequence(cc.delayTime(0.8),new cc.CallFunc(removeAnimaCallFunc, classReference)));
     }
 })
 

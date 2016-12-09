@@ -71,6 +71,15 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
+                "X": 0.4406,
+                "Y": 0.4406,
+                "FrameIndex": 144,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
                 "X": 1.0,
                 "Y": 1.0,
                 "FrameIndex": 360,
@@ -90,6 +99,15 @@
                 "X": 13.6106,
                 "Y": 13.6196,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 8.1663,
+                "Y": 8.1699,
+                "FrameIndex": 144,
                 "EasingData": {
                   "Type": 0
                 },
@@ -144,6 +162,15 @@
                 "ctype": "PointFrameData"
               },
               {
+                "X": 841.5989,
+                "Y": 1017.1644,
+                "FrameIndex": 185,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
                 "X": 110.5751,
                 "Y": 1498.9192,
                 "FrameIndex": 360,
@@ -188,6 +215,15 @@
                 "X": 1.9097,
                 "Y": 1.9099,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -17.7172,
+                "Y": -17.6984,
+                "FrameIndex": 185,
                 "EasingData": {
                   "Type": 0
                 },
@@ -314,7 +350,7 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "Vayu_Upepo_Vayu_the_wind/windchar/wind_char.json",
+              "Path": "Vayu_Upepo_Vayu_the_wind/wind_char.json",
               "Plist": ""
             },
             "StretchWidthEnable": false,
@@ -322,27 +358,29 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1184.2373,
-              "Y": 420.9289
+              "X": -242.6679,
+              "Y": -16.3809
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
+            "RotationSkewX": 13.6106,
+            "RotationSkewY": 13.6196,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.4626,
-              "Y": 0.2338
+              "X": -0.0948,
+              "Y": -0.0091
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1184.2373,
-            "RightMargin": 1375.7627,
-            "TopMargin": 1379.071,
-            "BottomMargin": 420.9289,
+            "LeftMargin": -242.6679,
+            "RightMargin": 2802.668,
+            "TopMargin": 1816.3809,
+            "BottomMargin": -16.3809,
             "UserData": "smile;darg",
             "Tag": 303,
             "ActionTag": -1006662020,
@@ -356,7 +394,7 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "Vayu_Upepo_Vayu_the_wind/windchar/wind_char.json",
+              "Path": "Vayu_Upepo_Vayu_the_wind/wind_char.json",
               "Plist": ""
             },
             "StretchWidthEnable": false,
@@ -364,29 +402,29 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 110.5751,
-              "Y": 1498.9192
+              "X": 1614.4086,
+              "Y": 507.8799
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "RotationSkewX": -6.5646,
-            "RotationSkewY": -6.5538,
+            "RotationSkewX": 1.9097,
+            "RotationSkewY": 1.9099,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.0432,
-              "Y": 0.8327
+              "X": 0.6306,
+              "Y": 0.2822
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 110.5751,
-            "RightMargin": 2449.4248,
-            "TopMargin": 301.0808,
-            "BottomMargin": 1498.9192,
+            "LeftMargin": 1614.4086,
+            "RightMargin": 945.5914,
+            "TopMargin": 1292.1201,
+            "BottomMargin": 507.8799,
             "UserData": "smile;darg",
             "Tag": 10658,
             "ActionTag": 317031044,
@@ -408,7 +446,7 @@
       "UsedResources": [
         "Vayu_Upepo_Vayu_the_wind.plist",
         "Vayu_Upepo_Vayu_the_wind.png",
-        "windchar/wind_char.json"
+        "wind_char.json"
       ],
       "ctype": "GameFileData"
     }
