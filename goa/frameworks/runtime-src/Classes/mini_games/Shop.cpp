@@ -59,6 +59,8 @@ void Shop::onEnterTransitionDidFinish()
 	fruitStand1->setPositionX(fruitStand1->getPositionX() + 50);
 	bag->setZOrder(1);
 
+	_menuContext->setMaxPoints(9);
+	
 	//vege dislpay note
 	 chooseVegeForShop(_vegetableNodeName);
 	 textOnMachine();
@@ -104,6 +106,9 @@ void Shop::textOnMachine()
 }
 void Shop::customerEnter(Node* Bg, vector<string> vegetableNodeName)
 {
+	auto machine = this->getChildByName("bg")->getChildByName("weightshow_520");
+	auto bag = this->getChildByName("bg")->getChildByName("bag");
+
 	for (int k = 0; k < Bg->getChildren().size(); k++)
 	{
 		std::string str = Bg->getChildren().at(k)->getName().c_str();
@@ -122,13 +127,13 @@ void Shop::customerEnter(Node* Bg, vector<string> vegetableNodeName)
 
 	_customerWalkAnim = CSLoader::createTimeline("shoping/" + characters[randomValue] + ".csb");;
 	_customer = (Sprite *)CSLoader::createNode("shoping/" + characters[randomValue] + ".csb");
-	setAllSpriteProperties(_customer, -1, visibleSize.width*1.3, visibleSize.height*.2, true, 0.5, 0.5, 1, 0.6, 0.6);
+	 setAllSpriteProperties(_customer, -1, visibleSize.width*1.3, visibleSize.height*.2, true, 0.5, 0.5, 1, 0.6, 0.6);
 	_customer->runAction(_customerWalkAnim);
 	_customerWalkAnim->play("walk", true);
 	_customer->setName("customer");
 	 Bg->addChild(_customer);
 
-	_customer->runAction(Sequence::create(MoveTo::create(3, Vec2(visibleSize.width*.77, visibleSize.height*.2)),
+	_customer->runAction(Sequence::create(MoveTo::create(3, Vec2(((bag->getPositionX()-machine->getPositionX())/2), visibleSize.height*.2)),
 		CCCallFunc::create([=] {	_customerWalkAnim->pause();
 
 	for (int j = 0; j < vegetableNodeName.size(); j++)
@@ -164,14 +169,17 @@ void Shop::customerEnter(Node* Bg, vector<string> vegetableNodeName)
 		this->addChild(_help, 5);
 	}
 	}), NULL));
-
 }
 void Shop::update(float dt)
 {
 	
 	if (_calculateFlag && _calculator->checkAnswer(_total) && _calculator->isEnterPressed())
 	{
-		_menuContext->addPoints(1);
+		auto myGameWidth = 0;
+		if (visibleSize.width > 2560) {
+			myGameWidth = (visibleSize.width - 2560) / 2;
+		}
+
 		_isEnterPressedCounter++;
 		auto myBg = this->getChildByName("bg");
 		auto node1 = myBg->getChildByName("bag")->getChildren().at(1);
@@ -183,18 +191,14 @@ void Shop::update(float dt)
 		total << _total;
 		std::string totalPrice = total.str();
 
-
 		_textString3 = totalPrice;
 		_label->setString(_textString1 + " + " + _textString2 + " = " + _textString3);
 		_calculateFlag = false;
-		auto ShowScore = CallFunc::create([=] {
-
-			_menuContext->addPoints(1);
+		 auto ShowScore = CallFunc::create([=] {
 			_menuContext->showScore();
-
 		});
 		auto vegeIntoBag = CallFunc::create([=] {
-			auto posiX = visibleSize.width*0.88;
+			auto posiX = visibleSize.width*0.88 + myGameWidth;
 			auto posiY = visibleSize.height*0.42;
 
 			for (int l = 0; l < _vegeOnWeighingMachine.size(); l++)
@@ -268,16 +272,37 @@ void Shop::update(float dt)
 				if (flag == _total)
 					break;
 			}
+			this->runAction(Sequence::create(
+			CallFunc::create([=] {
+				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+				audio->playEffect("sounds/sfx/shop_coins.ogg", false);
+			}),   
+			DelayTime::create(0.6),
+		    CallFunc::create([=] {
+				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+				audio->playEffect("sounds/sfx/shop_coins.ogg", false);
+			}),
+			NULL));
+			
 		});
 			auto scoreSequenceOne = Sequence::create(vegeIntoBag, coinAppear, DelayTime::create(1.4), vegeDisappear, vegeAppear, DelayTime::create(3), CallFunc::create([=] {
+				
+				
+
 				if (_gameCounter == 3)
 				{
-					auto a = _isEnterPressedCounter;
-					_menuContext->setMaxPoints(_isEnterPressedCounter);
-					_menuContext->showScore();
+					 auto a = _isEnterPressedCounter;
+					 _menuContext->addPoints(9);
 
-				}
+					 if (_menuContext->getPoints() <= 0) {
+
+						 _menuContext->addPoints(_menuContext->getPoints() * -1);
+						 _menuContext->addPoints(9 * 0.33);
+					 }
 					
+					//_menuContext->setMaxPoints(_isEnterPressedCounter);
+					_menuContext->showScore();
+				}
 				else
 				{
 					for (int i = 0; i < node1->getChildren().size(); i++)
@@ -311,7 +336,15 @@ void Shop::update(float dt)
 	}
 	if (_calculateFlag && !_calculator->checkAnswer(_total) && _calculator->isEnterPressed())
 	{
+		_calculateFlag = false;
+		auto openSequence = CallFunc::create([=] {
+			_calculateFlag = true;
+			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+			audio->playEffect("sounds/sfx/error.ogg", false);
+		});
+		this->runAction(Sequence::create(DelayTime::create(0.5), openSequence, NULL));
 		_menuContext->addPoints(-1);
+		CCLOG("points : %d", _menuContext->getPoints());
 		_isEnterPressedCounter++;
 	}
 }
@@ -403,6 +436,9 @@ void Shop::addTouchEvents(Sprite* obj)
 		Rect rect = CCRectMake(a, b, target->getContentSize().width*1.5, target->getContentSize().height*1.5);
 		if (rect.containsPoint(Vec2(touch->getLocation().x, touch->getLocation().y)) && _touched)
 		{
+			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+			audio->playEffect("sounds/sfx/shop_pick.ogg", false);
+
 			_vegeOriginalPos = std::make_pair(target->getPositionX(), target->getPositionY());
 			_touched = false;
 
@@ -492,6 +528,12 @@ void Shop::addTouchEvents(Sprite* obj)
 				target->runAction(MoveTo::create(0.5, Vec2(posiX , b + 18)));
 
 			 
+			auto dropSound = CallFunc::create([=] {
+				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+				audio->playEffect("sounds/sfx/shop_pick.ogg", false);
+			});
+			this->runAction(Sequence::create(DelayTime::create(0.5), dropSound, NULL));
+
 			 target->setZOrder(2);
 			_labelCounter++;
 
@@ -595,7 +637,10 @@ void Shop::addTouchEvents(Sprite* obj)
 				}),
 				DelayTime::create(0.7),
 				CCCallFunc::create([=] {
-					target->setZOrder(0);; 
+					auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+					audio->playEffect("sounds/sfx/shop_pick.ogg", false);
+
+					target->setZOrder(0);
 				}), NULL));
 		}
 		if (_labelCounter == (_oneOfThePairInt.second+ _oneOfThePairInt.first))
