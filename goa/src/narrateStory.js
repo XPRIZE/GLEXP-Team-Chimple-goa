@@ -924,7 +924,7 @@ xc.NarrateStoryScene = cc.Scene.extend({
 
         if (cc.sys.isNative) {
             this._menuContext = goa.MenuContext.create(this._sceneLayer, "story-play");
-            this.addChild(this._menuContext);
+            this.addChild(this._menuContext, 10);
             this._menuContext.setVisible(true);
         }                        
 
