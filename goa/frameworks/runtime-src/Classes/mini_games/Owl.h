@@ -7,6 +7,7 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../lang/LangUtil.h"
 #include "../lang/TextGenerator.h"
+#include "SimpleAudioEngine.h"
 
 using namespace cocos2d;
 using namespace std;

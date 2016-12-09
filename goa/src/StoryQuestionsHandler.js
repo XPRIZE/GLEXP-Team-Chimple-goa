@@ -114,7 +114,6 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
 
     finishedSuccessAnimation: function() {
         this._particleSystem.setVisible(false);
-        //this._particleSystem.removeFromParent();
         if(this._referenceToContext._isAllAnswered) {
             this._referenceToContext.nextQuestion();
         }
@@ -123,7 +122,7 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
     postAnswerAnimation: function(isCorrect, isAllAnswered) {
         cc.log("postAnswerAnimation for answer :" + isCorrect);
         this._isAllAnswered = isAllAnswered;
-        if(isCorrect) {
+        if(this._isAllAnswered) {
             cc.log("play success animation");
             this.loadCelebrationNode();            
             var delayAction = new cc.DelayTime(5.0);                        
@@ -280,7 +279,7 @@ xc.StoryQuestionHandlerScene = cc.Scene.extend({
         this.addChild(this._sceneLayer);
         if (cc.sys.isNative) {
             this._menuContext = goa.MenuContext.create(this._sceneLayer, "story-play");
-            this.addChild(this._menuContext, 1);
+            this.addChild(this._menuContext, 10);
             this._menuContext.setVisible(true);
         }                                        
         

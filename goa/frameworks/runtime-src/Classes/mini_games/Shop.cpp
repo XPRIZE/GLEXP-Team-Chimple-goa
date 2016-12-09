@@ -128,7 +128,7 @@ void Shop::customerEnter(Node* Bg, vector<string> vegetableNodeName)
 	_customer->setName("customer");
 	 Bg->addChild(_customer);
 
-	_customer->runAction(Sequence::create(MoveTo::create(3, Vec2(visibleSize.width*.79, visibleSize.height*.2)),
+	_customer->runAction(Sequence::create(MoveTo::create(3, Vec2(visibleSize.width*.77, visibleSize.height*.2)),
 		CCCallFunc::create([=] {	_customerWalkAnim->pause();
 
 	for (int j = 0; j < vegetableNodeName.size(); j++)
@@ -148,7 +148,7 @@ void Shop::customerEnter(Node* Bg, vector<string> vegetableNodeName)
 	if (visibleSize.width > 2560) {
 		myGameWidth = (visibleSize.width - 2560) / 2;
 	}
-	if (gameCurrentLevel == 1)
+	if (gameCurrentLevel == 1 && _gameCounter==0)
 	{
 		auto nodeForHelp = this->getChildByName("bg")->getChildByName("corn");
 		auto a = nodeForHelp->getPositionX()+ myGameWidth;// + visibleSize.width*.038
@@ -168,14 +168,16 @@ void Shop::customerEnter(Node* Bg, vector<string> vegetableNodeName)
 }
 void Shop::update(float dt)
 {
-
-	auto myBg = this->getChildByName("bg");
-	auto node1 = myBg->getChildByName("bag")->getChildren().at(1);
-	auto node2 = myBg->getChildByName("bag")->getChildren().at(2);
-	auto bag = this->getChildByName("bg")->getChildByName("bag");
-	auto pos = this->getChildByName("bg")->getChildByName("bag")->getPosition();
-	if (_calculateFlag && _calculator->checkAnswer(_total))
+	
+	if (_calculateFlag && _calculator->checkAnswer(_total) && _calculator->isEnterPressed())
 	{
+		_menuContext->addPoints(1);
+		_isEnterPressedCounter++;
+		auto myBg = this->getChildByName("bg");
+		auto node1 = myBg->getChildByName("bag")->getChildren().at(1);
+		auto node2 = myBg->getChildByName("bag")->getChildren().at(2);
+		auto bag = this->getChildByName("bg")->getChildByName("bag");
+		auto pos = this->getChildByName("bg")->getChildByName("bag")->getPosition();
 		_gameCounter++;
 		std::ostringstream total;
 		total << _total;
@@ -269,7 +271,13 @@ void Shop::update(float dt)
 		});
 			auto scoreSequenceOne = Sequence::create(vegeIntoBag, coinAppear, DelayTime::create(1.4), vegeDisappear, vegeAppear, DelayTime::create(3), CallFunc::create([=] {
 				if (_gameCounter == 3)
+				{
+					auto a = _isEnterPressedCounter;
+					_menuContext->setMaxPoints(_isEnterPressedCounter);
 					_menuContext->showScore();
+
+				}
+					
 				else
 				{
 					for (int i = 0; i < node1->getChildren().size(); i++)
@@ -280,7 +288,7 @@ void Shop::update(float dt)
 					{
 						auto a = (Sprite*)node2->getChildren().at(j);	a->setVisible(false);
 					}
-					this->removeChildByName("note", true);
+					myBg->removeChildByName("note", true);
 					this->removeChildByName("customer", true);
 					this->removeChild(_calculator, true);
 					customerEnter(myBg, _vegetableNodeName);
@@ -300,6 +308,11 @@ void Shop::update(float dt)
 
 			}), NULL);
 			this->runAction(scoreSequenceOne);
+	}
+	if (_calculateFlag && !_calculator->checkAnswer(_total) && _calculator->isEnterPressed())
+	{
+		_menuContext->addPoints(-1);
+		_isEnterPressedCounter++;
 	}
 }
 

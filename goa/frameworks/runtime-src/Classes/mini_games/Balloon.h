@@ -26,7 +26,7 @@ protected:
 	bool _touched = true, _burstFlag = false, _helpFlag = true;
 	cocos2d::LabelTTF* _label = NULL;
 	DrawNode* E;
-	int _answer;
+	int _answer, _isBiggerNoAnswer;
 
 public:
 	~Balloon();
