@@ -166,6 +166,14 @@ bool Step::init()
 	return true;
 }
 
+void Step::update(float d)
+{
+	if (_menuContext->isGamePaused())
+	{
+		_moveFlag = 0;
+	}
+}
+
 void Step::addEvents(struct LoadingBarDetails sprite)
 {
 	auto listener = cocos2d::EventListenerTouchOneByOne::create();
