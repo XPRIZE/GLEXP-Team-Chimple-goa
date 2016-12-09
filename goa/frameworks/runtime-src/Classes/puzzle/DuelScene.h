@@ -19,16 +19,21 @@ class DuelScene : public cocos2d::Node
 {
 public:
     static cocos2d::Scene* createScene(wchar_t myMonChar, wchar_t otherMonChar);
+    static cocos2d::Scene* createScene();
 
     static DuelScene *create(wchar_t myMonChar, wchar_t otherMonChar);
+    static DuelScene *create();
+    
     virtual void onAlphabetSelected(cocos2d::EventCustom *eventCustom);
     virtual void onAlphabetUnselected(cocos2d::EventCustom *eventCustom);
     
     static const char* gameName() { return DUEL_SCENE.c_str();}
+    void onEnterTransitionDidFinish() override;
     
 CC_CONSTRUCTOR_ACCESS:
     DuelScene();
     ~DuelScene();
+    bool init() override;
     bool init(wchar_t myMonChar, wchar_t otherMonChar);
     
 protected:

@@ -52,7 +52,6 @@ protected:
 	virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event * event);
 	void itemInAGrid(std::vector<std::string> item, std::string name);
 	void creatSpriteOnAlphabet(std::string, float x, float y, float scale);
-	void colourFilling(float x, float y, int index,cocos2d::Layer * layer);
 	void generateDuplicatesInAGrid(cocos2d::Node * node);
 	cocos2d::Label * _alphabetLabel, *_myLabel;
 	void screenShot();
