@@ -269,7 +269,7 @@ xc.Pinata = cc.Layer.extend({
             },
             onTouchEnded : function(touch, event){
                 var target = event.getCurrentTarget();
-                 classReference.flagSingleTouchFirst = true;
+                 classReference.flagSingleTouchFirst = false;
                  if(currentLevelValue == 1){
                     classReference.removeChildByName("help");
                  }
@@ -438,9 +438,9 @@ xc.Pinata = cc.Layer.extend({
             this.addChild(this.leftLine); 
        }
        
-      if(menuContext.isGamePaused()){
-         this.flagSingleTouchFirst = true;
-       }
+    //   if(menuContext.isGamePaused()){
+    //      this.flagSingleTouchFirst = true;
+    //    }
 
        if(this.shootingFlag && !menuContext.isGamePaused()){
            this.stateShootBubble(dt);
