@@ -178,6 +178,7 @@ public:
 	void Events(cocos2d::Sprite*);
 	void finalAnimation(int);
 	void removeAnimation();
+	void update(float d);
     static const char* gameName() { return STEP.c_str(); };
 	CREATE_FUNC(Step);
 
