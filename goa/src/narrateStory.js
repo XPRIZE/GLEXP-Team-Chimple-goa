@@ -38,7 +38,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         var context = this;
         var listener = cc.EventListener.create({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
-            swallowTouches: true,
+            swallowTouches: false,
             onTouchBegan: function (touch, event) {
                 if(context._playStarted) {
                     return false;
@@ -231,7 +231,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             textField.setString(langText.toLowerCase());      
             this._referenceToContext._textDisplayAnimationRunning = true;      
             this._wordBoard.node.setPosition(cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 500));
-            var textDropAction = new cc.MoveTo(1.5, cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height));            
+            var textDropAction = new cc.MoveTo(0.5, cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height));            
             textDropAction.easing(cc.easeBackOut());
             var afterDisplayTextAction = new cc.CallFunc(this._referenceToContext.displayTextAnimationFinished, this._referenceToContext);
             var textSequence = new cc.Sequence(textDropAction, afterDisplayTextAction);
@@ -249,12 +249,12 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
     displayTextAnimationFinished: function() {
         this._referenceToContext.scheduleOnce(function(){
-            var textDropActionDisappear = new cc.MoveTo(1.5, cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 500));
+            var textDropActionDisappear = new cc.MoveTo(0.5, cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 500));
             var beforeDisplayTextDisapperAction = new cc.CallFunc(this._referenceToContext.beforeDisplayTextDisapperFinished, this._referenceToContext);
             var afterDisplayTextDisapperAction = new cc.CallFunc(this._referenceToContext.afterDisplayTextDisapperFinished, this._referenceToContext);
             var textSequence = new cc.Sequence(beforeDisplayTextDisapperAction, textDropActionDisappear, afterDisplayTextDisapperAction);
             this._wordBoard.node.runAction(textSequence);
-        },5);        
+        },3);        
     },
 
     bindTouchListener: function (target, funcName, loop) {
@@ -605,7 +605,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             } else {
                 if(!child.getName().startsWith("Panel")) {
                     cc.log("processing:" + child.getName());
-                    if(child.getChildren() != null && child.getChildren().length > 1) {
+                    if(child.getChildren() != null && child.getChildren().length > 0) {
                         that.bindEventsToTarget(child);
                         that.bindTouchListenerToSubChild(child, "playAnimationOnChild", false);                                        
                     } else {
