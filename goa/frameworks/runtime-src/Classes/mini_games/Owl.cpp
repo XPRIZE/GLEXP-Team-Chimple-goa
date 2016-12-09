@@ -547,8 +547,8 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 							_flagTurnHelp = false;
 						}
 						_menuContext->addPoints(1);
-						auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
-						audioBg->playEffect("res/sounds/sfx/drop_obj.ogg", false);
+						//auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+						//audioBg->playEffect("res/sounds/sfx/drop_obj.ogg", false);
 						auto y = _sprite->getPositionY() - target->getPositionY();
 						auto x = -_sprite->getPositionX() + target->getPositionX();
 						float dist = sqrt((y*y) + (x*x));
@@ -561,6 +561,10 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 							_flagToControlMuiltipleTouch = true;
 							_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setVisible(false);
 							blockChild.at(_textCounter)->getChildByName("hideBoard")->setVisible(false);
+							
+							auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+							audioBg->playEffect("res/sounds/sfx/drop_obj.ogg", false);
+							
 							_textCounter++;
 							_xStart = _sprite->getPositionX();      // Pixels
 							_yStart = blockBox->getPositionY() + blockBox->getContentSize().height;
@@ -640,8 +644,8 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 
 					else if(blockChild.at(_textCounter)->getName() != target->getName() && _flagToControlMuiltipleTouch ){
 						_menuContext->addPoints(-1);
-						auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
-						audioBg->playEffect("res/sounds/sfx/error.ogg", false);
+						//auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+						//audioBg->playEffect("res/sounds/sfx/error.ogg", false);
 						_flagToControlMuiltipleTouch = false;
 						auto y = _sprite->getPositionY() - target->getPositionY();
 						auto x = -_sprite->getPositionX() + target->getPositionX();
@@ -665,6 +669,9 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 							setSpriteProperties(whiteTrans, (target->getParent()->getChildByName(blockNameInString)->getPositionX() - target->getParent()->getChildByName(blockNameInString)->getContentSize().width/2) + blockChild.at(_textCounter)->getPositionX(), (target->getParent()->getChildByName(blockNameInString)->getPositionY() - target->getParent()->getChildByName(blockNameInString)->getContentSize().height/ 2) + blockChild.at(_textCounter)->getPositionY(),1, 1, 0.5, 0.5, 0, 3);
 							whiteTrans->setOpacity(80);
 							whiteTrans->setName("transImg");
+							
+							auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+							audioBg->playEffect("res/sounds/sfx/error.ogg", false);
 
 							_xStart = _sprite->getPositionX();      // Pixels
 							_yStart = blockBox->getPositionY() + blockBox->getContentSize().height;
