@@ -45,7 +45,7 @@ void Balloon::onEnterTransitionDidFinish()
 	while (no2 >= no1) {
 		no2 = RandomHelper::random_int(0, 12);
 	}
-
+	_isBiggerNoAnswer = no1;
 	std::ostringstream firstNo;
 	firstNo << no1;
 	_textString1 = firstNo.str();
@@ -117,6 +117,8 @@ void Balloon::makingBalloons()
 	if (visibleSize.width > 2560) {
 		myGameWidth = (visibleSize.width - 2560) / 2;
 	}
+	_label->runAction(Sequence::create(DelayTime::create(2),
+		CCCallFunc::create([=] {_label->setString("?"); }), NULL));
 	
 	auto balloonBackground = this->getChildByName("bg");
 	for (int i = 0; i < _removedBalloonsId.size(); i++)
@@ -294,9 +296,12 @@ void Balloon::addTouchEvents(Sprite* obj)
 			}
 			else if (_balloonsBin.size() == _answer)
 			{
-				if (_answer == 0)
+				if (_answer == _isBiggerNoAnswer)
 				{
-					_label->setString("0");
+					std::ostringstream firstNo;
+					firstNo << _isBiggerNoAnswer;
+					_textString1 = firstNo.str();
+					_label->setString(_textString1);
 				}
 				_label->setColor(cocos2d::Color3B(143, 239, 32));
 				auto sequence_A = ScaleTo::create(0.3, (1.15));
