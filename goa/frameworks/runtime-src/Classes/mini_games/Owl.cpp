@@ -119,7 +119,7 @@ void Owl::onEnterTransitionDidFinish()
 			}
 		}
 	};
-
+	
 	std::map<int, std::string> owlSceneMapping = {
 		{ 1,	"owlCity" },
 		{ 2,	"owlisland" },
@@ -511,6 +511,12 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 			target->setColor(Color3B::GRAY);
 			auto x = childText->getName();
 			CCLOG("Touched : %c", x.at(0));
+
+			if (LangUtil::getInstance()->getLang() == "eng") {
+				auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+				audioBg->playEffect("res/sounds/sfx/drop_obj.ogg", false);
+			}
+
 			return true;
 		}
 		return false;
@@ -540,6 +546,8 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 							_flagTurnHelp = false;
 						}
 						_menuContext->addPoints(1);
+						auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+						audioBg->playEffect("res/sounds/sfx/drop_obj.ogg", false);
 						auto y = _sprite->getPositionY() - target->getPositionY();
 						auto x = -_sprite->getPositionX() + target->getPositionX();
 						float dist = sqrt((y*y) + (x*x));
@@ -592,6 +600,8 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 									_particle->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
 									_particle->setName("celebration");
 									this->addChild(_particle, 5);
+									auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+									audioBg->playEffect("res/sounds/sfx/success.ogg", false);
 
 								}),
 									DelayTime::create(3),
@@ -629,6 +639,8 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 
 					else if(blockChild.at(_textCounter)->getName() != target->getName() && _flagToControlMuiltipleTouch ){
 						_menuContext->addPoints(-1);
+						auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+						audioBg->playEffect("res/sounds/sfx/error.ogg", false);
 						_flagToControlMuiltipleTouch = false;
 						auto y = _sprite->getPositionY() - target->getPositionY();
 						auto x = -_sprite->getPositionX() + target->getPositionX();
