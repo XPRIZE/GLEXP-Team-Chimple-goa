@@ -34,7 +34,27 @@ xc.CatalogueLayer = cc.Layer.extend({
         //create new content panel for showing all stories
         //create tile
         this.loadStories();
-        this.displayStories();
+        this.loadingScene();        
+        this.displayStories();        
+    },
+
+    playLoadingAnimation:function() {
+        this._loadingScene.node.setVisible(true);
+        var monkey = this._loadingScene.node.getChildByName("monkey");
+        if(monkey) {
+            var action = monkey.actionManager.getActionByTag(monkey.tag, monkey);
+            action.play('rotate', true);
+        }
+    },
+
+    loadingScene: function() {
+        this._loadingScene = ccs.load(xc.CatalogueLayer.res.loading_scene_json, xc.path);
+        this._loadingScene.node.retain();
+        this._loadingScene.action.retain();
+        this._loadingScene.node.setPosition(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2);
+        this._loadingScene.node.setAnchorPoint(cc.p(0.5,0.5));
+        this._loadingScene.node.setVisible(false);
+        this.addChild(this._loadingScene.node, 5);
     },
 
     loadStories: function() {
@@ -51,6 +71,7 @@ xc.CatalogueLayer = cc.Layer.extend({
     },
 
     renderStory: function (sender) {
+        this.playLoadingAnimation();
         this._curSelectedIndex = sender._selectedIndex;
         cc.log('loading story with index:' + this._curSelectedIndex);
         var storyInfo = this._stories[this._curSelectedIndex];
@@ -107,6 +128,7 @@ var t_resources = [];
                 cc.spriteFrameCache.addSpriteFrames(xc.CatalogueLayer.res.thumbnails_plist);
                 cc.spriteFrameCache.addSpriteFrames(xc.CatalogueLayer.res.record_animation_plist);
                 cc.spriteFrameCache.addSpriteFrames(xc.CatalogueLayer.res.book_cover_plist);
+                cc.spriteFrameCache.addSpriteFrames(xc.CatalogueLayer.res.template_plist);
                 
                 if(cc.sys.isNative) {
                     storyCatalogueObject = cc.loader.getRes(xc.CatalogueLayer.res.Config_json);                    
@@ -143,6 +165,12 @@ xc.CatalogueLayer.res = {
         Config_json: xc.path + "misc/shelfConfig.json",
         book_json: xc.path + "template/book.json",
         book_cover_plist: xc.path + "template.plist",
-        book_cover_json: xc.path + "template.png"                
+        book_cover_json: xc.path + "template.png",
+        loading_button_json: xc.path + "template/loading_button.json",
+        loading_scene_json: xc.path + "template/loading_screen.json",
+        template_png: xc.path + "template/template.png",
+        template_plist: xc.path + "template/template.plist"
+
 };
+
 
