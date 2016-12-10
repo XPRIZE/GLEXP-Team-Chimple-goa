@@ -20,6 +20,7 @@
 #include "ui/CocosGUI.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../StartMenuScene.h"
+#include "../menu/HelpLayer.h"
 
 USING_NS_CC;
 
@@ -32,7 +33,9 @@ const std::string DuelScene::RIGHT_STAND_NAME = "rock_red";
 DuelScene::DuelScene() :
 _turnNumber(0),
 _timer(nullptr),
-_timerAnimation(nullptr)
+_timerAnimation(nullptr),
+_myMonChar(0),
+_otherMonChar(0)
 {
     
 }
@@ -50,6 +53,13 @@ Scene* DuelScene::createScene(wchar_t myMonChar, wchar_t otherMonChar)
     return scene;
 }
 
+Scene* DuelScene::createScene() {
+    auto layer = DuelScene::create();
+    auto scene = GameScene::createWithChild(layer, ALPHAMON_COMBAT);
+    layer->_menuContext = scene->getMenuContext();
+    return scene;
+}
+
 DuelScene* DuelScene::create(wchar_t myMonChar, wchar_t otherMonChar)
 {
     DuelScene* duelScene = new (std::nothrow) DuelScene();
@@ -62,19 +72,31 @@ DuelScene* DuelScene::create(wchar_t myMonChar, wchar_t otherMonChar)
     return nullptr;
 }
 
-bool DuelScene::init(wchar_t myMonChar, wchar_t otherMonChar)
+DuelScene* DuelScene::create()
 {
-    if (!Node::init()) {
-        return false;
+    DuelScene* duelScene = new (std::nothrow) DuelScene();
+    if(duelScene && duelScene->init())
+    {
+        duelScene->autorelease();
+        return duelScene;
     }
-    _myMonChar = myMonChar;
-    _otherMonChar = otherMonChar;
+    CC_SAFE_DELETE(duelScene);
+    return nullptr;
+}
+
+void DuelScene::onEnterTransitionDidFinish() {
+    if(_myMonChar == 0) {
+        auto allChars = LangUtil::getInstance()->getAllCharacters();
+        auto level = _menuContext->getCurrentLevel();
+        _myMonChar = allChars[level-1];
+        _otherMonChar = CharGenerator::getInstance()->generateAChar();
+    }
     _background = CSLoader::createNode("battle_ground.csb");
     addChild(_background);
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-
+    
     auto bg = _background->getChildByName(BG_NAME);
     float offsetX = (visibleSize.width - 2560) / 2;
     bg->setPositionX(bg->getPositionX() + offsetX);
@@ -88,7 +110,7 @@ bool DuelScene::init(wchar_t myMonChar, wchar_t otherMonChar)
     _timer->setPosition(Vec2(_timer->getPositionX() + offsetX, visibleSize.height * 3 / 4));
     _timerPosition = _timer->getPosition();
     _timer->setPosition(Vec2(_timerPosition.x, visibleSize.height + 150));
-
+    
     auto right = _background->getChildByName(RIGHT_STAND_NAME);
     right->setPositionX(right->getPositionX() + offsetX);
     
@@ -99,38 +121,33 @@ bool DuelScene::init(wchar_t myMonChar, wchar_t otherMonChar)
     panel->setContentSize(Size(visibleSize.width, panel->getContentSize().height));
     panel->addChild(_grid);
     _grid->setPosition(Vec2((panel->getContentSize().width - SQUARE_WIDTH * numCols) / 2, (panel->getContentSize().height - SQUARE_WIDTH * numRows) / 2));
-
+    
     _timerAnimation = CSLoader::createTimeline("battle_ground/timer.csb");
     _timer->runAction(_timerAnimation);
     _timerAnimation->setLastFrameCallFunc(CC_CALLBACK_0(DuelScene::armMyMon, this));
     _timerAnimation->setTimeSpeed(0.2);
-//    _timer->setVisible(false);
-
+    
     _eventDispatcher->addCustomEventListener("alphabet_selected", CC_CALLBACK_1(DuelScene::onAlphabetSelected, this));
     _eventDispatcher->addCustomEventListener("alphabet_unselected", CC_CALLBACK_1(DuelScene::onAlphabetUnselected, this));
-    
+    startDuel();
+}
 
-//    auto amon = CSLoader::createNode("english/A.csb");
-//    addChild(amon);
-//    amon->setScale(0.5);
-//    amon->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
-//    auto eyeTimeline = CSLoader::createTimeline("eye_ani/eye_h.csb");
-//    amon->getChildByName("FileNode_2")->runAction(eyeTimeline);
-//    eyeTimeline->gotoFrameAndPlay(0, true);
-//    auto mouthTimeline = CSLoader::createTimeline("mouth_ani/mouth_e.csb");
-//    amon->getChildByName("FileNode_4")->runAction(mouthTimeline);
-////    mouthTimeline->gotoFrameAndPlay(0, true);
-//    mouthTimeline->play("eat", true);
+bool DuelScene::init(wchar_t myMonChar, wchar_t otherMonChar)
+{
+    if (!Node::init()) {
+        return false;
+    }
+    _myMonChar = myMonChar;
+    _otherMonChar = otherMonChar;
     
-//    auto book = CSLoader::createNode("booknode.csb");
-//    auto bookAnim = CSLoader::createTimeline("booknode.csb");
-//    book->runAction(bookAnim);
-//    book->setPosition(1200, 600);
-////    bookAnim->play("book", true);
-//    bookAnim->gotoFrameAndPlay(0, true);
-//    addChild(book);
+    return true;
+}
 
-    setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(DuelScene::startDuel, this));
+bool DuelScene::init()
+{
+    if (!Node::init()) {
+        return false;
+    }
     
     return true;
 }
@@ -240,7 +257,7 @@ void DuelScene::gameOver() {
 
 void DuelScene::returnToPrevScene() {
 //    stopAllActions();
-    Director::getInstance()->replaceScene(SelectAlphamon::createScene());
+    _menuContext->showScore();
 }
 
 void DuelScene::armMyMon() {

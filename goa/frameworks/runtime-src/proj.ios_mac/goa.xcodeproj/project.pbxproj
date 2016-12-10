@@ -66,6 +66,8 @@
 		9C6007A81DC1DBB700F9C184 /* CarDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6007A31DC1DBB700F9C184 /* CarDraw.cpp */; };
 		9C6007A91DC1DBB700F9C184 /* CarDrawNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6007A51DC1DBB700F9C184 /* CarDrawNode.cpp */; };
 		9C6007AA1DC1DBB700F9C184 /* CarDrawNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6007A51DC1DBB700F9C184 /* CarDrawNode.cpp */; };
+		9C66BF601DFAF3EC002405F6 /* StoryWordBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C66BF5E1DFAF3EC002405F6 /* StoryWordBoard.cpp */; };
+		9C66BF611DFAF3EC002405F6 /* StoryWordBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C66BF5E1DFAF3EC002405F6 /* StoryWordBoard.cpp */; };
 		9C6F61981DFA725B00B6A8B6 /* DinoGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6F61961DFA725B00B6A8B6 /* DinoGame.cpp */; };
 		9C6F619B1DFA725D00B6A8B6 /* DinoGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6F61961DFA725B00B6A8B6 /* DinoGame.cpp */; };
 		9C7B1AC71DAA1BCE00EBD1FE /* Order.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */; };
@@ -558,6 +560,8 @@
 		9C6007A41DC1DBB700F9C184 /* CarDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDraw.h; sourceTree = "<group>"; };
 		9C6007A51DC1DBB700F9C184 /* CarDrawNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CarDrawNode.cpp; sourceTree = "<group>"; };
 		9C6007A61DC1DBB700F9C184 /* CarDrawNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDrawNode.h; sourceTree = "<group>"; };
+		9C66BF5E1DFAF3EC002405F6 /* StoryWordBoard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoryWordBoard.cpp; sourceTree = "<group>"; };
+		9C66BF5F1DFAF3EC002405F6 /* StoryWordBoard.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StoryWordBoard.hpp; sourceTree = "<group>"; };
 		9C6F61961DFA725B00B6A8B6 /* DinoGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DinoGame.cpp; sourceTree = "<group>"; };
 		9C6F61971DFA725B00B6A8B6 /* DinoGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DinoGame.h; sourceTree = "<group>"; };
 		9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Order.cpp; sourceTree = "<group>"; };
@@ -1443,6 +1447,8 @@
 				F35247681D6D9D1A0077C333 /* WordBoard.h */,
 				F35247691D6D9D1A0077C333 /* WordScene.cpp */,
 				F352476A1D6D9D1A0077C333 /* WordScene.h */,
+				9C66BF5E1DFAF3EC002405F6 /* StoryWordBoard.cpp */,
+				9C66BF5F1DFAF3EC002405F6 /* StoryWordBoard.hpp */,
 			);
 			path = puzzle;
 			sourceTree = "<group>";
@@ -1984,6 +1990,7 @@
 				F3667D1D1DB4BA6F00EC8908 /* LTKException.cpp in Sources */,
 				F352481D1D6D9D1A0077C333 /* ScrollableGameMapScene.cpp in Sources */,
 				F35247E71D6D9D1A0077C333 /* Spirograph.cpp in Sources */,
+				9C66BF611DFAF3EC002405F6 /* StoryWordBoard.cpp in Sources */,
 				F3667D2B1DB4BA6F00EC8908 /* LipiEngineModule.cpp in Sources */,
 				F3667D2D1DB4BA6F00EC8908 /* LipiTKInterface.cpp in Sources */,
 				F352483B1D6D9D1A0077C333 /* AlphamonSprite.cpp in Sources */,
@@ -2214,6 +2221,7 @@
 				F3667D6E1DB4BA7000EC8908 /* LTKOSUtilFactory.cpp in Sources */,
 				F3667D5A1DB4BA7000EC8908 /* Stroke.cpp in Sources */,
 				F35247E01D6D9D1A0077C333 /* PatchTheWallScene.cpp in Sources */,
+				9C66BF601DFAF3EC002405F6 /* StoryWordBoard.cpp in Sources */,
 				F352484A1D6D9D1A0077C333 /* SkeletonConfiguration.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

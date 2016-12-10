@@ -59,6 +59,15 @@ public:
     cocos2d::Rect getBoundingBox(cocos2d::Sprite* node) const;
     std::vector<cocos2d::Point> getPolygonPointsForSprite1(cocos2d::Sprite* node);
     
+    template <typename T>
+    static inline std::string to_string(T value)
+    {
+        std::ostringstream os ;
+        os << value ;
+        return os.str() ;
+    }
+    
+    
 CC_CONSTRUCTOR_ACCESS:
     MenuContext();
     virtual ~MenuContext();
@@ -125,13 +134,6 @@ protected:
 	void videoPlayStart(std::string gameName);
 	void videoPlayOverCallback();
 
-    template <typename T>
-    static inline std::string to_string(T value)
-    {
-        std::ostringstream os ;
-        os << value ;
-        return os.str() ;
-    }
     
     bool onTouchBeganOnCharacter(cocos2d::Touch *touch, cocos2d::Event *event);
     

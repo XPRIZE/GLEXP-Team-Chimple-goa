@@ -5,10 +5,128 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 180,
+        "Duration": 450,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "bird",
         "Timelines": [
+          {
+            "ActionTag": -2142792326,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 185,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2142792326,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -216.394,
+                "Y": 1212.2521,
+                "FrameIndex": 185,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1069.0531,
+                "Y": 1886.4115,
+                "FrameIndex": 335,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2142792326,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 180,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 185,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -133433103,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -133433103,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -216.394,
+                "Y": 1212.2521,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1069.0531,
+                "Y": 1886.4115,
+                "FrameIndex": 450,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -133433103,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 180,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 690860424,
             "Property": "ActionValue",
@@ -99,6 +217,12 @@
           "EndIndex": 180,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 185,
+          "EndIndex": 450,
+          "Name": "bird",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -121,7 +245,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -173,7 +296,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -211,6 +333,90 @@
           },
           {
             "FileData": {
+              "Type": "Normal",
+              "Path": "Mtu_na_Simba/bird.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -216.394,
+              "Y": 1212.2521
+            },
+            "Scale": {
+              "ScaleX": -0.2,
+              "ScaleY": 0.2
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.0845,
+              "Y": 0.6735
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -216.394,
+            "RightMargin": 2776.394,
+            "TopMargin": 587.7479,
+            "BottomMargin": 1212.2521,
+            "Tag": 864,
+            "ActionTag": -2142792326,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "VisibleForFrame": false,
+            "Name": "bird",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtu_na_Simba/bird.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -216.394,
+              "Y": 1212.2521
+            },
+            "Scale": {
+              "ScaleX": -0.2,
+              "ScaleY": 0.2
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.0845,
+              "Y": 0.6735
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -216.394,
+            "RightMargin": 2776.394,
+            "TopMargin": 587.7479,
+            "BottomMargin": 1212.2521,
+            "Tag": 967,
+            "ActionTag": -133433103,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "VisibleForFrame": false,
+            "Name": "bird",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
               "Type": "MarkedSubImage",
               "Path": "Mtu_na_Simba/MbwanaMamba_tree1.png",
               "Plist": "Mtu_na_Simba/Mtu_na_Simba.plist"
@@ -245,19 +451,20 @@
             "RightMargin": 2406.5166,
             "TopMargin": 416.697,
             "BottomMargin": 694.303,
+            "UserData": "main.bird",
             "Tag": 353,
             "ActionTag": 1839048960,
             "Size": {
               "X": 810.0,
               "Y": 689.0
             },
-            "Name": "MbwanaMamba_tree1_2",
+            "Name": "tree",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Mtu_na_Simba/Mtende_palmtree.png",
+              "Path": "Mtu_na_Simba/palmtree.png",
               "Plist": "Mtu_na_Simba/Mtu_na_Simba.plist"
             },
             "BlendFunc": {
@@ -290,13 +497,14 @@
             "RightMargin": -114.1138,
             "TopMargin": -616.6946,
             "BottomMargin": 838.6946,
+            "UserData": "main.bird",
             "Tag": 354,
             "ActionTag": 2015134304,
             "Size": {
               "X": 1061.0,
               "Y": 1578.0
             },
-            "Name": "Mtende_palmtree_1",
+            "Name": "palmtree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -331,13 +539,14 @@
             "RightMargin": 1413.7214,
             "TopMargin": 1070.7297,
             "BottomMargin": 729.2702,
+            "UserData": "drag;run",
             "Tag": 341,
             "ActionTag": 690860424,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "lion",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -382,13 +591,14 @@
             "RightMargin": 1258.7507,
             "TopMargin": 1039.7764,
             "BottomMargin": -255.7764,
+            "UserData": "main.bird",
             "Tag": 340,
             "ActionTag": -1216471441,
             "Size": {
               "X": 430.0,
               "Y": 1016.0
             },
-            "Name": "Miminafamiliayangu_leaf2_6",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -433,13 +643,14 @@
             "RightMargin": 1084.7209,
             "TopMargin": 974.0364,
             "BottomMargin": -190.0364,
+            "UserData": "main.bird",
             "Tag": 339,
             "ActionTag": 2043207880,
             "Size": {
               "X": 430.0,
               "Y": 1016.0
             },
-            "Name": "Miminafamiliayangu_leaf2_6_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -484,13 +695,14 @@
             "RightMargin": 836.6467,
             "TopMargin": 998.8362,
             "BottomMargin": -214.8362,
+            "UserData": "main.bird",
             "Tag": 338,
             "ActionTag": -287441375,
             "Size": {
               "X": 430.0,
               "Y": 1016.0
             },
-            "Name": "Miminafamiliayangu_leaf2_6_1",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -529,13 +741,14 @@
             "RightMargin": 902.8711,
             "TopMargin": 1457.9064,
             "BottomMargin": -138.9064,
+            "UserData": "main.bird",
             "Tag": 337,
             "ActionTag": 58302334,
             "Size": {
               "X": 1006.0,
               "Y": 481.0
             },
-            "Name": "Miminafamiliayangu_mound_9",
+            "Name": "mound",
             "ctype": "SpriteObjectData"
           }
         ],
@@ -547,6 +760,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "bird.json",
         "lion.json",
         "Mtu_na_Simba.plist",
         "Mtu_na_Simba.png"

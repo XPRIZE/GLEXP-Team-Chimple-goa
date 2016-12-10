@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 710,
         "Speed": 1.0,
-        "ActivedAnimationName": "sit",
+        "ActivedAnimationName": "walkladder",
         "Timelines": [
           {
             "ActionTag": -1299471080,
@@ -7320,6 +7320,16 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
+                  "Path": "Mtu_na_Simba/faceold.png",
+                  "Plist": "Mtu_na_Simba/Mtu_na_Simba.plist"
+                },
+                "FrameIndex": 5,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
                   "Path": "Mtu_na_Simba/faceold3.png",
                   "Plist": "Mtu_na_Simba/Mtu_na_Simba.plist"
                 },
@@ -7441,6 +7451,13 @@
               {
                 "Src": 1,
                 "Dst": 771,
+                "FrameIndex": 5,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              },
+              {
+                "Src": 1,
+                "Dst": 771,
                 "FrameIndex": 50,
                 "Tween": false,
                 "ctype": "BlendFuncFrameData"
@@ -7519,6 +7536,15 @@
                 "X": 263.342,
                 "Y": 2.1699,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 263.342,
+                "Y": 2.1699,
+                "FrameIndex": 5,
                 "EasingData": {
                   "Type": 0
                 },
@@ -9438,6 +9464,49 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1103410760,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "steps",
+                "FrameIndex": 5,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 45,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "steps",
+                "FrameIndex": 50,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 85,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "steps",
+                "FrameIndex": 655,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 695,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -15804,7 +15873,7 @@
                       {
                         "FileData": {
                           "Type": "MarkedSubImage",
-                          "Path": "Mtu_na_Simba/faceold3.png",
+                          "Path": "Mtu_na_Simba/faceold.png",
                           "Plist": "Mtu_na_Simba/Mtu_na_Simba.plist"
                         },
                         "BlendFunc": {
@@ -15880,8 +15949,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0102
                     },
-                    "RotationSkewX": 88.8512,
-                    "RotationSkewY": 88.8555,
+                    "RotationSkewX": 88.7539,
+                    "RotationSkewY": 88.7582,
                     "CColor": {
                       "R": 185,
                       "G": 155,

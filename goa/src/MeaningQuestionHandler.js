@@ -286,7 +286,7 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
 
     verifyAnswer: function(sender, questionNode) {
         var str2 = sender.getTitleText().replace(/\n|\r/g, "");
-        var isCorrectAnswered = str2.trim().toLowerCase() === this._question[questionNode.getTitleText().trim()].toLowerCase();
+        var isCorrectAnswered = str2.trim().toLowerCase() === this._question[questionNode.getTitleText().trim()].trim().toLowerCase();
         if(isCorrectAnswered) {
             if(xc.NarrateStoryLayer.res.correctAnswerSound_json) {
                 cc.audioEngine.playEffect(xc.NarrateStoryLayer.res.correctAnswerSound_json, false);

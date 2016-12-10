@@ -5,10 +5,130 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 170,
+        "Duration": 380,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "sun",
         "Timelines": [
+          {
+            "ActionTag": 188231305,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 175,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 250,
+                  "G": 210,
+                  "B": 201
+                },
+                "FrameIndex": 265,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 179,
+                  "G": 167,
+                  "B": 178
+                },
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 129,
+                  "G": 125,
+                  "B": 154
+                },
+                "FrameIndex": 380,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -862468566,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2780.9346,
+                "Y": 330.5009,
+                "FrameIndex": 265,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2060.8821,
+                "Y": 1260.4966,
+                "FrameIndex": 380,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -156715035,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "sun",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -156715035,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1900.42,
+                "Y": 1472.0533,
+                "FrameIndex": 175,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 687.613,
+                "Y": 1929.3422,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 575869683,
             "Property": "ActionValue",
@@ -41,6 +161,12 @@
           "EndIndex": 170,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 175,
+          "EndIndex": 380,
+          "Name": "sun",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -63,7 +189,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -98,6 +223,93 @@
             "ctype": "PanelObjectData"
           },
           {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtu_na_Simba/moon.png",
+              "Plist": "Mtu_na_Simba/Mtu_na_Simba.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2780.9346,
+              "Y": 330.5009
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0863,
+              "Y": 0.1836
+            },
+            "PreSize": {
+              "X": 0.2582,
+              "Y": 0.3672
+            },
+            "LeftMargin": 2450.4346,
+            "RightMargin": -551.4346,
+            "TopMargin": 1138.9991,
+            "BottomMargin": 0.0009,
+            "Tag": 1236,
+            "ActionTag": -862468566,
+            "Size": {
+              "X": 661.0,
+              "Y": 661.0
+            },
+            "Name": "moon_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtu_na_Simba/sun.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1900.42,
+              "Y": 1472.0533
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7424,
+              "Y": 0.8178
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1900.42,
+            "RightMargin": 659.58,
+            "TopMargin": 327.9467,
+            "BottomMargin": 1472.0533,
+            "UserData": "drag;sun",
+            "Tag": 1233,
+            "ActionTag": -156715035,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "sun",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
             "ClipAble": false,
             "ComboBoxIndex": 1,
             "SingleColor": {
@@ -115,7 +327,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -188,13 +399,14 @@
             "RightMargin": 2206.5308,
             "TopMargin": -0.7717,
             "BottomMargin": 1111.7717,
+            "UserData": "main.sun",
             "Tag": 494,
             "ActionTag": -1136098092,
             "Size": {
               "X": 810.0,
               "Y": 689.0
             },
-            "Name": "MbwanaMamba_tree1_2",
+            "Name": "tree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -229,13 +441,14 @@
             "RightMargin": 1029.998,
             "TopMargin": 1449.9995,
             "BottomMargin": 350.0005,
+            "UserData": "drag;run",
             "Tag": 497,
             "ActionTag": 575869683,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "lion",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -249,7 +462,8 @@
       "UsedResources": [
         "lion.json",
         "Mtu_na_Simba.plist",
-        "Mtu_na_Simba.png"
+        "Mtu_na_Simba.png",
+        "sun.json"
       ],
       "ctype": "GameFileData"
     }
