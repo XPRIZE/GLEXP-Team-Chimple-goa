@@ -132,7 +132,7 @@ void Owl::onEnterTransitionDidFinish()
 	std::tuple<int, int , int> levelKeyNumber = levelAllInfo(gameCurrentLevel,5,5,3,10);
 
 	if (std::get<0>(levelKeyNumber) == 1) {
-		auto listOfWords = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ANY ,1, std::get<2>(levelKeyNumber));
+		auto listOfWords = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ANY ,5, std::get<2>(levelKeyNumber));
 		
 		for (size_t index = 0; index < listOfWords.size(); index++) {
 			_data_key.push_back(getConvertInUpperCase(listOfWords[index]));
