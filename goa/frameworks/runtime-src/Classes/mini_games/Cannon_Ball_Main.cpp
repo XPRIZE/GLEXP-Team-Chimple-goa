@@ -275,7 +275,7 @@ void MainGame::letterCome(float d)
 {
 	if (MainGame::cannonArray.size() == 0)
 	{
-		for (int i = 0; i < MainGame::letterArray.size(); i++)
+/*		for (int i = 0; i < MainGame::letterArray.size(); i++)
 		{
 			this->removeChild(MainGame::letterArray[i]);
 
@@ -304,8 +304,11 @@ void MainGame::letterCome(float d)
 				i--;
 			}
 		}
+*/
+		this->unscheduleUpdate();
+		_menuContext->showScore();
 
-		startGame();
+//		startGame();
 	}
 
 	if (MainGame::letterArray.size() < MainGame::cannonArray.size())
@@ -758,10 +761,14 @@ void MainGame::update(float dt)
 					this->removeChild(MainGame::bulletArray_Animation[j]);
 
 					_menuContext->pickAlphabet(MainGame::letterArray[i]->id, bulletArray[j]->id, true);
-
-					int score = _menuContext->getPoints();
-					if (score == 15)
+					_score++;
+					if (_score == 15)
+					{
 						_menuContext->showScore();
+					}
+
+//					int score = _menuContext->getPoints();
+//					if (score == 15)
 
 					int it = find(MainGame::bulletArray.begin(), MainGame::bulletArray.end(), MainGame::bulletArray[j]) - MainGame::bulletArray.begin();	//find bullet index in bulletarray 
 					MainGame::bulletArray_actualImage.erase(MainGame::bulletArray_actualImage.begin() + it);
