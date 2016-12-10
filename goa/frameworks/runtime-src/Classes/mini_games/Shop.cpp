@@ -132,8 +132,8 @@ void Shop::customerEnter(Node* Bg, vector<string> vegetableNodeName)
 	_customerWalkAnim->play("walk", true);
 	_customer->setName("customer");
 	 Bg->addChild(_customer);
-
-	_customer->runAction(Sequence::create(MoveTo::create(3, Vec2(((bag->getPositionX()-machine->getPositionX())/2), visibleSize.height*.2)),
+	 auto gaps = ((bag->getPositionX() + machine->getPositionX()) / 2);
+	_customer->runAction(Sequence::create(MoveTo::create(3, Vec2(gaps + machine->getContentSize().width*0.4, visibleSize.height*.2)),
 		CCCallFunc::create([=] {	_customerWalkAnim->pause();
 
 	for (int j = 0; j < vegetableNodeName.size(); j++)
@@ -198,13 +198,15 @@ void Shop::update(float dt)
 			_menuContext->showScore();
 		});
 		auto vegeIntoBag = CallFunc::create([=] {
-			auto posiX = visibleSize.width*0.88 + myGameWidth;
+
+			auto bag = this->getChildByName("bg")->getChildByName("bag");
+			auto posiX = bag->getPositionX();
 			auto posiY = visibleSize.height*0.42;
 
 			for (int l = 0; l < _vegeOnWeighingMachine.size(); l++)
 			{
 				_vegeOnWeighingMachine[l]->setZOrder(0);
-				_vegeOnWeighingMachine[l]->runAction(JumpTo::create(1.5, Vec2(posiX, posiY), 300, 1));
+				_vegeOnWeighingMachine[l]->runAction(JumpTo::create(1.5, Vec2(posiX, posiY), 400, 1));
 			}
 		});
 		auto vegeDisappear = CallFunc::create([=] {
@@ -253,26 +255,36 @@ void Shop::update(float dt)
 			bag->runAction(MoveTo::create(3, Vec2(visibleSize.width*1.3, bag->getPositionY())));
 			bag->setZOrder(0);
 		});
+		
 		auto coinAppear = CallFunc::create([=] {
-			auto flag = 0;
+			int counter = 0;
+			float delay = 0.5;
 			for (int k = 0; k < myBg->getChildren().size(); k++)
 			{
-				std::string str = myBg->getChildren().at(k)->getName().c_str();
-				if (str.find("coin") == 0)
+				std::string coinParent = myBg->getChildren().at(k)->getName().c_str();
+				if (coinParent.find("coin") == 0)
 				{
 					for (int v = 0; v < myBg->getChildren().at(k)->getChildren().size(); v++)
 					{
-						auto a = myBg->getChildren().at(k)->getChildren().at(v);
-						a->setVisible(true);
-						flag++;
-						if (flag == _total)
+						this->runAction(Sequence::create(DelayTime::create(delay),
+							CallFunc::create([=] {
+							auto a = myBg->getChildren().at(k)->getChildren().at(v);
+							a->setVisible(true);
+						}),NULL));
+						delay = delay + 0.1;
+						counter++;
+						if (counter == _total) {
 							break;
+						}
 					}
 				}
-				if (flag == _total)
+				if (counter == _total) {
+					counter = 0;
 					break;
+				}
 			}
-			this->runAction(Sequence::create(
+			
+		/*	this->runAction(Sequence::create(
 			CallFunc::create([=] {
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 				audio->playEffect("sounds/sfx/shop_coins.ogg", false);
@@ -282,13 +294,11 @@ void Shop::update(float dt)
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 				audio->playEffect("sounds/sfx/shop_coins.ogg", false);
 			}),
-			NULL));
-			
+			NULL));*/
 		});
-			auto scoreSequenceOne = Sequence::create(vegeIntoBag, coinAppear, DelayTime::create(1.4), vegeDisappear, vegeAppear, DelayTime::create(3), CallFunc::create([=] {
+		auto Wait = _total*0.1 + 0.5;
+		auto scoreSequenceOne = Sequence::create(coinAppear, DelayTime::create(Wait),vegeIntoBag, DelayTime::create(1.5), vegeDisappear, vegeAppear, DelayTime::create(3), CallFunc::create([=] {
 				
-				
-
 				if (_gameCounter == 3)
 				{
 					 auto a = _isEnterPressedCounter;
@@ -299,8 +309,6 @@ void Shop::update(float dt)
 						 _menuContext->addPoints(_menuContext->getPoints() * -1);
 						 _menuContext->addPoints(9 * 0.33);
 					 }
-					
-					//_menuContext->setMaxPoints(_isEnterPressedCounter);
 					_menuContext->showScore();
 				}
 				else
@@ -316,6 +324,8 @@ void Shop::update(float dt)
 					myBg->removeChildByName("note", true);
 					this->removeChildByName("customer", true);
 					this->removeChild(_calculator, true);
+					bag->setZOrder(2);
+					bag->setPosition(Vec2(pos));
 					customerEnter(myBg, _vegetableNodeName);
 					chooseVegeForShop(_vegetableNodeName);
 					bag->setZOrder(2);
