@@ -8,7 +8,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
     this.flagSwitchTwoColor = true;
    imageSprite = ['bubble_shooter/red_ball','bubble_shooter/green_ball','bubble_shooter/yellow_ball','bubble_shooter/purple_ball','bubble_shooter/blue_ball','bubble_shooter/orange_ball',"bubble_shooter/yellow_ball","bubble_shooter/blue_ball"];
 
-   var ScreenMenu = ccs.load(xc.BubbleGame_HomeScreenMenu.res.bubbleShooter_gameMenu_json,xc.path);
+   var ScreenMenu = ccs.load(xc.bubbleShooterLevelInfo.res.bubbleShooter_gameMenu_json,xc.path);
    this.addChild(ScreenMenu.node);
    var xPosi ;
      if (cc.director.getWinSize().width > 2560){
@@ -58,7 +58,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         letterSprite = new Array(numberOfLetter);
        
         for(let i = 0 ; i < numberOfLetter ; i++){
-            var index = LangLetter[((levelValues-1)*numberOfLetter)+i];
+            var index = LangLetter[((bubblelevelValues-1)*numberOfLetter)+i];
             if(index == undefined){
                 letterSprite[i] = LangLetter[this.getRandomInt(0,(LangLetter.length-1))];                
             }else{
@@ -165,7 +165,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         this.gunBase.setPosition(trnspImg.width/2 , cc.director.getWinSize().height * 0.0575);
         this.addChild(this.gunBase);  
   
-       if(levelValues == 1){
+       if(bubblelevelValues == 1){
             var window = cc.director.getWinSize();
             var help = new xc.HelpLayer(cc.rect((window.width - (cc.director.getWinSize().width - 2560)) * 0.5 , window.height *0.75 , window.width - (cc.director.getWinSize().width - 2560),window.height *0.5), cc.rect(this.gunBase.x, this.gunBase.y,this.bubblePlayer.width,this.bubblePlayer.height))
             this.addChild(help,4)
@@ -610,12 +610,14 @@ xc.Bubble_Alphabets = cc.Layer.extend({
                          
 //                           cc.audioEngine.playEffect("res/english/sounds/"+this.LetterName[tile.x][tile.y].name.toLowerCase()+".wav");
 
-                           setTimeout(function() {
+                            var playerDieCallFunc = function()
+                            {
                                 self.playerDie(tile.x,tile.y,tempColorType);
                                 // self.bubbleName[tile.x][tile.y].alpha = 0;
                                 self.finalFlag = true;
                                 // renderPlayer();
-                           }, 1600);
+                            }
+                            this.runAction(new cc.Sequence(cc.delayTime(1.6),new cc.CallFunc(playerDieCallFunc, this)));  
                               
                                // Next bubble
                                this.nextBubble();  
@@ -657,9 +659,11 @@ xc.Bubble_Alphabets = cc.Layer.extend({
                             tile.shift = 0;
                             tile.alpha = 1;
                             
-                             setTimeout(function() {
-                                self.playerDie(tile.x,tile.y,7);
-                             }, 150);      
+                              var playerDieFunc = function()
+                            {
+                                 self.playerDie(tile.x,tile.y,7);
+                            }
+                            this.runAction(new cc.Sequence(cc.delayTime(0.15),new cc.CallFunc(playerDieFunc, this)));  
                         }
                     }
                 }
@@ -719,14 +723,14 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         
    DataCard : function (gamestatus){
        console.log("gamestatus : "+gamestatus + " -------------- ");
-       var level = levelValues;
+       var level = bubblelevelValues;
         if (cc.sys.isNative) {
                 menuContext.setMaxPoints(this.counterhits);
                 menuContext.addPoints(this.counterhits - this.negativePoints);
                 //  menuContext.addPoints(this.negativePoints);
                 menuContext.showScore();
         }else{
-            xc.GameScene.load(xc.BubbleGame_HomeScreenMenu);
+            xc.GameScene.load(xc.bubbleShooterLevelInfo);
         }
     },
     
