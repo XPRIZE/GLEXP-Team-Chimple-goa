@@ -486,7 +486,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 	
 	_menuContext->setMaxPoints(20);
 
-	//_sceneNumber = 2;
+	//_sceneNumber = 1;
 
 	std::string mainSceneplist;
 
@@ -680,6 +680,8 @@ void BalloonHero::onEnterTransitionDidFinish() {
 	generateObjectsAndMove();
 
 
+	addGrid();
+
 	cocos2d::ui::Text * _label;
 
 	//_hint = "Catch the antonyms";
@@ -817,21 +819,23 @@ void BalloonHero::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	
+	
+
 	if (_sceneNumber == 1) {
-		if ((touch->getLocation().x > 100 && touch->getLocation().x < visibleSize.width - 150) && (touch->getLocation().y > 250 && touch->getLocation().y < visibleSize.height - 350)) {
+		if ((touch->getLocation().x > (visibleSize.width * 0.003) && touch->getLocation().x < visibleSize.width - (visibleSize.width * 0.01)) && (touch->getLocation().y >(visibleSize.height * 0.005) && touch->getLocation().y < visibleSize.height - (visibleSize.height * 0.005))) {
 			target->setPosition(Vec2(touch->getLocation().x, touch->getLocation().y));
 			// to indicate that we have consumed it.
 		}
 	}
 
 	if (_sceneNumber == 2) {
-		if ((touch->getLocation().x > 150 && touch->getLocation().x < visibleSize.width - 150) && (touch->getLocation().y > 100 && touch->getLocation().y < visibleSize.height - 350)) {
+		if ((touch->getLocation().x > (visibleSize.width * 0.007) && touch->getLocation().x < visibleSize.width - (visibleSize.width * 0.007)) && (touch->getLocation().y > (visibleSize.height * 0.01) && touch->getLocation().y < visibleSize.height - (visibleSize.height * 0.01))) {
 			target->setPosition(Vec2(touch->getLocation().x, touch->getLocation().y));
 			// to indicate that we have consumed it.
 		}
 	}
 	if (_sceneNumber == 3) {
-		if ((touch->getLocation().x > 200 && touch->getLocation().x < visibleSize.width - 450) && (touch->getLocation().y > 200 && touch->getLocation().y < visibleSize.height - 400)) {
+		if ((touch->getLocation().x >(visibleSize.width * 0.007) && touch->getLocation().x < visibleSize.width - (visibleSize.width * 0.007)) && (touch->getLocation().y >(visibleSize.height * 0.01) && touch->getLocation().y < visibleSize.height - (visibleSize.height * 0.01))) {
 			target->setPosition(Vec2(touch->getLocation().x, touch->getLocation().y));
 			// to indicate that we have consumed it.
 		}
@@ -888,28 +892,28 @@ void BalloonHero::generateObjectsAndMove() {
 	
 	_cloud1 = Sprite::createWithSpriteFrameName(obj1);
 	_cloud1->setPosition(400, 1600);
-	_cloud1->setScale(0.7, 0.7);
+	_cloud1->setScale(0.9, 0.9);
 	_cloud1->setAnchorPoint(Vec2(0.5, 0.5));
 	this->addChild(_cloud1);
 
 
 	_cloud2 = Sprite::createWithSpriteFrameName(obj2);
 	_cloud2->setPosition(1000, 1700);
-	_cloud2->setScale(0.7, 0.7);
+	_cloud2->setScale(0.9, 0.9);
 	_cloud2->setAnchorPoint(Vec2(0.5, 0.5));
 	this->addChild(_cloud2);
 
 
 	_cloud3 = Sprite::createWithSpriteFrameName(obj3);
 	_cloud3->setPosition(1600, 1800);
-	_cloud3->setScale(0.7, 0.7);
+	_cloud3->setScale(0.9, 0.9);
 	_cloud3->setAnchorPoint(Vec2(0.5, 0.5));
 	this->addChild(_cloud3);
 
 
 	_cloud4 = Sprite::createWithSpriteFrameName(obj4);
 	_cloud4->setPosition(2200, 1900);
-	_cloud4->setScale(0.7, 0.7);
+	_cloud4->setScale(0.9, 0.9);
 	_cloud4->setAnchorPoint(Vec2(0.5, 0.5));
 	this->addChild(_cloud4);
 
@@ -926,6 +930,7 @@ void BalloonHero::generateObjectsAndMove() {
 		//cloud1->setSpriteFrame();
 		_cloud1->removeAllChildren();
 		_cloud1->setVisible(true);
+		_flag1 = true;
 		fuelMeterMinus();
 		_cloud1->setName("a");
 		if (numberPicker == 3) {
@@ -948,12 +953,32 @@ void BalloonHero::generateObjectsAndMove() {
 				label->setString(_set2[otherPicker]);
 				_cloud1->setName("m");
 			}
-			label->setFontSize(100);
+			label->setFontSize(_labelFontSize);
 			label->setFontName("fonts/BalooBhai-Regular.ttf");
-			label->setPosition(Vec2(200, 100));
-			label->setAnchorPoint(Vec2(0, 0));
-			label->setTextColor(Color4B::BLUE);
-			label->setScaleX(0.5);
+			
+
+			if (_sceneNumber == 1) {
+				label->setPosition(Vec2(visibleSize.width * 0.079, visibleSize.height * 0.05));
+				label->setAnchorPoint(Vec2(0.5, 0.5));
+				label->setTextColor(Color4B::ORANGE);
+				label->setScaleX(0.5);
+			}
+			
+			if (_sceneNumber == 2) {
+				label->setPosition(Vec2(visibleSize.width * 0.12, visibleSize.height * 0.07));
+				label->setAnchorPoint(Vec2(0.5, 0.5));
+				label->setTextColor(Color4B::BLUE);
+				label->setScaleX(0.5);
+			}
+			
+			if (_sceneNumber == 3) { 
+				label->setPosition(Vec2(visibleSize.width * 0.07, visibleSize.height * 0.4));
+				label->setAnchorPoint(Vec2(0.5, 0.5));
+				label->setTextColor(Color4B::BLUE);
+				label->setScaleX(0.5);
+			}
+			
+			
 			_cloud1->addChild(label);
 
 		}
@@ -970,6 +995,7 @@ void BalloonHero::generateObjectsAndMove() {
 		//cloud1->setSpriteFrame();
 		_cloud2->removeAllChildren();
 		_cloud2->setVisible(true);
+		_flag2 = true;
 		fuelMeterMinus();
 		_cloud2->setName("a");
 		if (numberPicker == 3) {
@@ -992,12 +1018,31 @@ void BalloonHero::generateObjectsAndMove() {
 				label->setString(_set2[otherPicker]);
 				_cloud2->setName("m");
 			}
-			label->setFontSize(100);
+			label->setFontSize(_labelFontSize);
 			label->setFontName("fonts/BalooBhai-Regular.ttf");
-			label->setPosition(Vec2(200, 100));
-			label->setAnchorPoint(Vec2(0, 0));
-			label->setTextColor(Color4B::BLUE);
-			label->setScaleX(0.5);
+
+
+			if (_sceneNumber == 1) {
+				label->setPosition(Vec2(visibleSize.width * 0.079, visibleSize.height * 0.05));
+				label->setAnchorPoint(Vec2(0.5, 0.5));
+				label->setTextColor(Color4B::ORANGE);
+				label->setScaleX(0.5);
+			}
+
+			if (_sceneNumber == 2) {
+				label->setPosition(Vec2(visibleSize.width * 0.12, visibleSize.height * 0.07));
+				label->setAnchorPoint(Vec2(0.5, 0.5));
+				label->setTextColor(Color4B::BLUE);
+				label->setScaleX(0.5);
+			}
+
+
+			if (_sceneNumber == 3) {
+				label->setPosition(Vec2(visibleSize.width * 0.07, visibleSize.height * 0.4));
+				label->setAnchorPoint(Vec2(0.5, 0.5));
+				label->setTextColor(Color4B::BLUE);
+				label->setScaleX(0.5);
+			}
 			_cloud2->addChild(label);
 
 		}
@@ -1015,6 +1060,8 @@ void BalloonHero::generateObjectsAndMove() {
 		//cloud1->setSpriteFrame();
 		_cloud3->removeAllChildren();
 		_cloud3->setVisible(true);
+		_flag3 = true;
+
 		fuelMeterMinus();
 		_cloud3->setName("a");
 		if (numberPicker == 3) {
@@ -1036,12 +1083,30 @@ void BalloonHero::generateObjectsAndMove() {
 				label->setString(_set2[otherPicker]);
 				_cloud3->setName("m");
 			}
-			label->setFontSize(100);
+			label->setFontSize(_labelFontSize);
 			label->setFontName("fonts/BalooBhai-Regular.ttf");
-			label->setPosition(Vec2(200, 100));
-			label->setAnchorPoint(Vec2(0, 0));
-			label->setTextColor(Color4B::BLUE);
-			label->setScaleX(0.5);
+
+			if (_sceneNumber == 1) {
+				label->setPosition(Vec2(visibleSize.width * 0.079, visibleSize.height * 0.05));
+				label->setAnchorPoint(Vec2(0.5, 0.5));
+				label->setTextColor(Color4B::ORANGE);
+				label->setScaleX(0.5);
+			}
+
+			if (_sceneNumber == 2) {
+				label->setPosition(Vec2(visibleSize.width * 0.12, visibleSize.height * 0.07));
+				label->setAnchorPoint(Vec2(0.5, 0.5));
+				label->setTextColor(Color4B::BLUE);
+				label->setScaleX(0.5);
+			}
+
+
+			if (_sceneNumber == 3) {
+				label->setPosition(Vec2(visibleSize.width * 0.07, visibleSize.height * 0.4));
+				label->setAnchorPoint(Vec2(0.5, 0.5));
+				label->setTextColor(Color4B::BLUE);
+				label->setScaleX(0.5);
+			}
 			
 			_cloud3->addChild(label);
 
@@ -1060,6 +1125,8 @@ void BalloonHero::generateObjectsAndMove() {
 		//cloud1->setSpriteFrame();
 		_cloud4->removeAllChildren();
 		_cloud4->setVisible(true);
+		_flag4 = true;
+
 		fuelMeterMinus();
 
 		_cloud4->setName("a");
@@ -1084,12 +1151,29 @@ void BalloonHero::generateObjectsAndMove() {
 				label->setString(_set2[otherPicker]);
 				_cloud4->setName("m");
 			}
-			label->setFontSize(100);
+			label->setFontSize(_labelFontSize);
 			label->setFontName("fonts/BalooBhai-Regular.ttf");
-			label->setPosition(Vec2(200, 100));
-			label->setAnchorPoint(Vec2(0, 0));
-			label->setTextColor(Color4B::BLUE);
-			label->setScaleX(0.5);
+
+			if (_sceneNumber == 1) {
+				label->setPosition(Vec2(visibleSize.width * 0.079, visibleSize.height * 0.05));
+				label->setAnchorPoint(Vec2(0.5, 0.5));
+				label->setTextColor(Color4B::ORANGE);
+				label->setScaleX(0.5);
+			}
+
+			if (_sceneNumber == 2) {
+				label->setPosition(Vec2(visibleSize.width * 0.12, visibleSize.height * 0.07));
+				label->setAnchorPoint(Vec2(0.5, 0.5));
+				label->setTextColor(Color4B::BLUE);
+				label->setScaleX(0.5);
+			}
+
+			if (_sceneNumber == 3) {
+				label->setPosition(Vec2(visibleSize.width * 0.07, visibleSize.height * 0.4));
+				label->setAnchorPoint(Vec2(0.5, 0.5));
+				label->setTextColor(Color4B::BLUE);
+				label->setScaleX(0.5);
+			}
 			
 			_cloud4->addChild(label);
 
@@ -1145,13 +1229,13 @@ void BalloonHero::update(float delta) {
 
 
 	std::string burst;
-	float scalex = 0.5, scaley = 0.5;
+	float scalex = 0.9, scaley = 0.9;
 	if (_sceneNumber == 1) {
 		burst = "balloonhero/meteor.csb";
 	}
 	if (_sceneNumber == 2) {
 		burst = "balloonfarm/wrongballoon.csb";
-		scalex = 0.7, scaley = 0.7;
+		//scalex = 0.7, scaley = 0.7;
 	}
 	if (_sceneNumber == 3) {
 		burst = "ballooncandy/meteor.csb";
@@ -1194,6 +1278,9 @@ void BalloonHero::update(float delta) {
 		if (_sceneNumber == 3) { _fireTimeline->play("sad", false); }
 
 
+		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		audio->playEffect("sounds/baloonhero/blast.mp3", false);
+
 		auto  _Timeline = CSLoader::createTimeline(burst);
 		_meteor1->runAction(_Timeline);
 		_Timeline->play("blast", false);
@@ -1228,6 +1315,10 @@ void BalloonHero::update(float delta) {
 		if (_sceneNumber == 2) { _fireTimeline->play("shock", false); }
 		if (_sceneNumber == 3) { _fireTimeline->play("sad", false); }
 
+
+		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		audio->playEffect("sounds/baloonhero/blast.mp3", false);
+
 		auto  _Timeline = CSLoader::createTimeline(burst);
 		_meteor2->runAction(_Timeline);
 		_Timeline->play("blast", false);
@@ -1258,6 +1349,10 @@ void BalloonHero::update(float delta) {
 		if (_sceneNumber == 2) { _fireTimeline->play("shock", false); }
 		if (_sceneNumber == 3) { _fireTimeline->play("sad", false); }
 
+
+		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		audio->playEffect("sounds/baloonhero/blast.mp3", false);
+
 		auto  _Timeline = CSLoader::createTimeline(burst);
 		_meteor3->runAction(_Timeline);
 		_Timeline->play("blast", false);
@@ -1285,6 +1380,10 @@ void BalloonHero::update(float delta) {
 		if (_sceneNumber == 2) { _fireTimeline->play("shock", false); }
 		if (_sceneNumber == 3) { _fireTimeline->play("sad", false); }
 
+
+		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		audio->playEffect("sounds/baloonhero/blast.mp3", false);
+
 		auto  _Timeline = CSLoader::createTimeline(burst);
 		_meteor4->runAction(_Timeline);
 		_Timeline->play("blast", false);
@@ -1299,6 +1398,10 @@ void BalloonHero::update(float delta) {
 		_menuContext->addPoints(1);
 		_cloud1->setVisible(false);
 
+
+		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		audio->playEffect("sounds/baloonhero/pop_balloon.mp3", false);
+
 		auto turnOffscoreAdd = CallFunc::create([=] {_flagCorrect1 = false; });
 		auto turnOnscoreAdd = CallFunc::create([=] {_flagCorrect1 = true; });
 
@@ -1312,6 +1415,9 @@ void BalloonHero::update(float delta) {
 		_menuContext->addPoints(1);
 		_cloud2->setVisible(false);
 
+		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		audio->playEffect("sounds/baloonhero/pop_balloon.mp3", false);
+
 		auto turnOffscoreAdd = CallFunc::create([=] {_flagCorrect2 = false; });
 		auto turnOnscoreAdd = CallFunc::create([=] {_flagCorrect2 = true; });
 
@@ -1324,6 +1430,9 @@ void BalloonHero::update(float delta) {
 		_menuContext->addPoints(1);
 		_cloud3->setVisible(false);
 
+		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		audio->playEffect("sounds/baloonhero/pop_balloon.mp3", false);
+
 		auto turnOffscoreAdd = CallFunc::create([=] {_flagCorrect3 = false; });
 		auto turnOnscoreAdd = CallFunc::create([=] {_flagCorrect3 = true; });
 
@@ -1335,6 +1444,9 @@ void BalloonHero::update(float delta) {
 		fuelMeterPlus();
 		_menuContext->addPoints(1);
 		_cloud4->setVisible(false);
+
+		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		audio->playEffect("sounds/baloonhero/pop_balloon.mp3", false);
 
 		auto turnOffscoreAdd = CallFunc::create([=] {_flagCorrect4 = false; });
 		auto turnOnscoreAdd = CallFunc::create([=] {_flagCorrect4 = true; });
@@ -1367,28 +1479,28 @@ void BalloonHero::generateRandomNumbers() {
 
 void BalloonHero::removeMeteor1Animation() {
 	this->removeChild(_meteor1);
-	_flag1 = true;
+	//_flag1 = true;
 	//_cloud1->setPosition(400, -300);
 	//_cloud1->setVisible(true);
 }
 
 void BalloonHero::removeMeteor2Animation() {
 	this->removeChild(_meteor2);
-	_flag2 = true;
+	//_flag2 = true;
 	//_cloud2->setPosition(1000, -300);
 	//_cloud2->setVisible(true);
 }
 
 void BalloonHero::removeMeteor3Animation() {
 	this->removeChild(_meteor3);
-	_flag3 = true;
+	//_flag3 = true;
 	//_cloud3->setPosition(1600, -300);
 	//_cloud3->setVisible(true);
 }
 
 void BalloonHero::removeMeteor4Animation() {
 	this->removeChild(_meteor4);
-	_flag4 = true;
+	//_flag4 = true;
 	//_cloud4->setPosition(2200, -300);
 	//_cloud4->setVisible(true);
 }
@@ -1405,4 +1517,14 @@ void BalloonHero::fuelMeterPlus()
 	_fuelBar->setPercent(_fuelBar->getPercent() + 0.1);
 }
 
+void BalloonHero::addGrid() {
 
+	auto gridPanel = Sprite::create();
+	gridPanel->setTextureRect(Rect(0, 0, Director::getInstance()->getVisibleSize().width/2, Director::getInstance()->getVisibleSize().height* 0.15));
+	gridPanel->setColor(Color3B(41, 158, 170));
+	gridPanel->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height * 0.95));
+	gridPanel->setOpacity(60);
+	gridPanel->setName("gridpanel");
+	addChild(gridPanel, 18);
+
+}

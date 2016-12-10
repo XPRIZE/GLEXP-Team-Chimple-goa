@@ -402,6 +402,9 @@ bool MemoryJungle::onTouchBegan(Touch* touch, Event* event) {
 		//CCLOG("NEST CLICKED : %d ", counter++);
 		if (_counter < 2) {
 
+			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+			audio->playEffect("sounds/memory/tap.mp3", false);
+
 			std::ostringstream sstreamc;
 			sstreamc << "board" << target->getTag();
 			std::string queryc = sstreamc.str();

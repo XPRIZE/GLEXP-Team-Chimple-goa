@@ -240,8 +240,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -1616.1987,
-              "Y": -3.5
+              "X": -1699.0144,
+              "Y": 771.219
             },
             "Scale": {
               "ScaleX": 28.4594,
@@ -250,17 +250,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.6313,
-              "Y": -0.0019
+              "X": -0.6637,
+              "Y": 0.4285
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": -1616.1987,
-            "RightMargin": 3976.1987,
-            "TopMargin": 1603.5,
-            "BottomMargin": -3.5,
+            "LeftMargin": -1699.0144,
+            "RightMargin": 4059.0144,
+            "TopMargin": 828.781,
+            "BottomMargin": 771.219,
             "Tag": 5,
             "ActionTag": -1686712436,
             "Size": {
@@ -322,6 +322,96 @@
             "ctype": "PanelObjectData"
           },
           {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Teksi_ya_Nanu_Nanu_s_taxi/Teksi_ya_Nanu_Nanu_s_taxia/stall.png",
+              "Plist": "Teksi_ya_Nanu_Nanu_s_taxi/Teksi_ya_Nanu_Nanu_s_taxia/Teksi_ya_Nanu_Nanu_s_taxia.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -927.6725,
+              "Y": 1895.5823
+            },
+            "Scale": {
+              "ScaleX": 1.4779,
+              "ScaleY": 1.4779
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.3624,
+              "Y": 1.0531
+            },
+            "PreSize": {
+              "X": 0.6777,
+              "Y": 0.6233
+            },
+            "LeftMargin": -1795.1725,
+            "RightMargin": 2620.1724,
+            "TopMargin": -656.5823,
+            "BottomMargin": 1334.5823,
+            "Tag": 873,
+            "ActionTag": 234113190,
+            "Size": {
+              "X": 1735.0,
+              "Y": 1122.0
+            },
+            "Name": "stall_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Teksi_ya_Nanu_Nanu_s_taxi/Teksi_ya_Nanu_Nanu_s_taxia/stallhat.png",
+              "Plist": "Teksi_ya_Nanu_Nanu_s_taxi/Teksi_ya_Nanu_Nanu_s_taxia/Teksi_ya_Nanu_Nanu_s_taxia.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1450.5156,
+              "Y": 1717.4963
+            },
+            "Scale": {
+              "ScaleX": 1.4779,
+              "ScaleY": 1.4779
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5666,
+              "Y": 0.9542
+            },
+            "PreSize": {
+              "X": 0.518,
+              "Y": 0.4772
+            },
+            "LeftMargin": 787.5156,
+            "RightMargin": 446.4844,
+            "TopMargin": -346.9963,
+            "BottomMargin": 1287.9963,
+            "Tag": 874,
+            "ActionTag": 185931866,
+            "Size": {
+              "X": 1326.0,
+              "Y": 859.0
+            },
+            "Name": "stallhat_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
             "ClipAble": false,
             "ComboBoxIndex": 1,
             "SingleColor": {
@@ -372,6 +462,51 @@
             },
             "Name": "Panel_2",
             "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Teksi_ya_Nanu_Nanu_s_taxi/Teksi_ya_Nanu_Nanu_s_taxia/stallshirt.png",
+              "Plist": "Teksi_ya_Nanu_Nanu_s_taxi/Teksi_ya_Nanu_Nanu_s_taxia/Teksi_ya_Nanu_Nanu_s_taxia.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4385.7803,
+              "Y": 1820.4316
+            },
+            "Scale": {
+              "ScaleX": 1.4779,
+              "ScaleY": 1.4779
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.7132,
+              "Y": 1.0114
+            },
+            "PreSize": {
+              "X": 1.123,
+              "Y": 0.6961
+            },
+            "LeftMargin": 2948.2803,
+            "RightMargin": -3263.2803,
+            "TopMargin": -646.9316,
+            "BottomMargin": 1193.9316,
+            "Tag": 872,
+            "ActionTag": 1449771994,
+            "Size": {
+              "X": 2875.0,
+              "Y": 1253.0
+            },
+            "Name": "stallshirt_3",
+            "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
@@ -447,7 +582,6 @@
             "RightMargin": 1366.5557,
             "TopMargin": 877.1116,
             "BottomMargin": 922.8884,
-            "UserData": "hi;drag",
             "Tag": 210,
             "ActionTag": 43641801,
             "Size": {
@@ -655,6 +789,8 @@
       },
       "UsedResources": [
         "boy_2.json",
+        "Teksi_ya_Nanu_Nanu_s_taxia/Teksi_ya_Nanu_Nanu_s_taxia.plist",
+        "Teksi_ya_Nanu_Nanu_s_taxia/Teksi_ya_Nanu_Nanu_s_taxia.png",
         "women_0.json"
       ],
       "ctype": "GameFileData"

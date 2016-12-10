@@ -267,6 +267,8 @@
 		9C0E13421DBF3ACC00C10A81 /* textgeneratorautobindings.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 9C0E13401DBF3ACC00C10A81 /* textgeneratorautobindings.hpp */; };
 		9C44008B1DF5AB4300728B56 /* chimpleautogenbindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C4400891DF5AB4300728B56 /* chimpleautogenbindings.cpp */; };
 		9C44008C1DF5AB4300728B56 /* chimpleautogenbindings.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 9C44008A1DF5AB4300728B56 /* chimpleautogenbindings.hpp */; };
+		9C66BF6E1DFB1E5A002405F6 /* storywordgeneratorautobindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C66BF6C1DFB1E5A002405F6 /* storywordgeneratorautobindings.cpp */; };
+		9C66BF6F1DFB1E5A002405F6 /* storywordgeneratorautobindings.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 9C66BF6D1DFB1E5A002405F6 /* storywordgeneratorautobindings.hpp */; };
 		9CA8581E1DEC37DB00F56255 /* wordgeneratorautobindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA8581C1DEC37DB00F56255 /* wordgeneratorautobindings.cpp */; };
 		9CA8581F1DEC37DB00F56255 /* wordgeneratorautobindings.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 9CA8581D1DEC37DB00F56255 /* wordgeneratorautobindings.hpp */; };
 		9CB54DC61DED4833006B9D59 /* wordscenegeneratorautobindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CB54DC41DED4833006B9D59 /* wordscenegeneratorautobindings.cpp */; };
@@ -308,7 +310,7 @@
 		BAFA590B1B319F7E004F9246 /* jsb_cocos2dx_navmesh_conversions.h in Headers */ = {isa = PBXBuildFile; fileRef = BAFA59081B319F7E004F9246 /* jsb_cocos2dx_navmesh_conversions.h */; };
 		BAFA590C1B319F7E004F9246 /* jsb_cocos2dx_navmesh_conversions.h in Headers */ = {isa = PBXBuildFile; fileRef = BAFA59081B319F7E004F9246 /* jsb_cocos2dx_navmesh_conversions.h */; };
 		F33052471DF5A8A300BA235E /* wordgeneratorautobindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA8581C1DEC37DB00F56255 /* wordgeneratorautobindings.cpp */; };
-		F33052481DF5A8A600BA235E /* chimpleautogenbindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E133B1DBF3A8400C10A81 /* chimpleautogenbindings.cpp */; };
+		F33052481DF5A8A600BA235E /* (null) in Sources */ = {isa = PBXBuildFile; };
 		F33052491DF5A8AF00BA235E /* wordscenegeneratorautobindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CB54DC41DED4833006B9D59 /* wordscenegeneratorautobindings.cpp */; };
 		F330524A1DF5A8B200BA235E /* textgeneratorautobindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E133F1DBF3ACC00C10A81 /* textgeneratorautobindings.cpp */; };
 /* End PBXBuildFile section */
@@ -405,6 +407,8 @@
 		9C0E13401DBF3ACC00C10A81 /* textgeneratorautobindings.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = textgeneratorautobindings.hpp; sourceTree = "<group>"; };
 		9C4400891DF5AB4300728B56 /* chimpleautogenbindings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = chimpleautogenbindings.cpp; sourceTree = "<group>"; };
 		9C44008A1DF5AB4300728B56 /* chimpleautogenbindings.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = chimpleautogenbindings.hpp; sourceTree = "<group>"; };
+		9C66BF6C1DFB1E5A002405F6 /* storywordgeneratorautobindings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = storywordgeneratorautobindings.cpp; sourceTree = "<group>"; };
+		9C66BF6D1DFB1E5A002405F6 /* storywordgeneratorautobindings.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = storywordgeneratorautobindings.hpp; sourceTree = "<group>"; };
 		9CA8581C1DEC37DB00F56255 /* wordgeneratorautobindings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = wordgeneratorautobindings.cpp; sourceTree = "<group>"; };
 		9CA8581D1DEC37DB00F56255 /* wordgeneratorautobindings.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = wordgeneratorautobindings.hpp; sourceTree = "<group>"; };
 		9CB54DC41DED4833006B9D59 /* wordscenegeneratorautobindings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = wordscenegeneratorautobindings.cpp; sourceTree = "<group>"; };
@@ -488,6 +492,8 @@
 				50864CF01C7CA95200B3BAB1 /* js_bindings_chipmunk_auto_classes_registration.h */,
 				50864CF11C7CA95200B3BAB1 /* js_bindings_chipmunk_auto_classes.cpp */,
 				9C4400891DF5AB4300728B56 /* chimpleautogenbindings.cpp */,
+				9C66BF6C1DFB1E5A002405F6 /* storywordgeneratorautobindings.cpp */,
+				9C66BF6D1DFB1E5A002405F6 /* storywordgeneratorautobindings.hpp */,
 				9C44008A1DF5AB4300728B56 /* chimpleautogenbindings.hpp */,
 				50864CF21C7CA95200B3BAB1 /* js_bindings_chipmunk_auto_classes.h */,
 				9CA8581C1DEC37DB00F56255 /* wordgeneratorautobindings.cpp */,
@@ -857,6 +863,7 @@
 				1A119EC718BDF19200352BAA /* jsb_cocos2dx_studio_manual.h in Headers */,
 				BA9FD5D41BAC0A7600996C85 /* CCComponentJS.h in Headers */,
 				9CA8581F1DEC37DB00F56255 /* wordgeneratorautobindings.hpp in Headers */,
+				9C66BF6F1DFB1E5A002405F6 /* storywordgeneratorautobindings.hpp in Headers */,
 				9C44008C1DF5AB4300728B56 /* chimpleautogenbindings.hpp in Headers */,
 				1A119EB918BDF19200352BAA /* js_bindings_chipmunk_registration.h in Headers */,
 				420BBCF21AA48EDE00493976 /* jsb_cocos2dx_3d_auto.hpp in Headers */,
@@ -1074,6 +1081,7 @@
 				0541A7501973876100E45470 /* JavaScriptObjCBridge.mm in Sources */,
 				9C0E13411DBF3ACC00C10A81 /* textgeneratorautobindings.cpp in Sources */,
 				1A119EB318BDF19200352BAA /* js_bindings_chipmunk_manual.cpp in Sources */,
+				9C66BF6E1DFB1E5A002405F6 /* storywordgeneratorautobindings.cpp in Sources */,
 				1A119EE918BDF19200352BAA /* jsb_opengl_registration.cpp in Sources */,
 				1A119EF718BDF19200352BAA /* jsb_websocket.cpp in Sources */,
 				1A119ED318BDF19200352BAA /* js_bindings_core.cpp in Sources */,
@@ -1168,7 +1176,7 @@
 				BAFA590A1B319F7E004F9246 /* jsb_cocos2dx_navmesh_conversions.cpp in Sources */,
 				1A119F0018BDF19200352BAA /* ScriptingCore.cpp in Sources */,
 				B38AD56A1B1D384A0057DD7F /* jsb_cocos2dx_experimental_video_manual.cpp in Sources */,
-				F33052481DF5A8A600BA235E /* chimpleautogenbindings.cpp in Sources */,
+				F33052481DF5A8A600BA235E /* (null) in Sources */,
 				1A1D3B7918C44FD000922D3C /* jsb_event_dispatcher_manual.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
