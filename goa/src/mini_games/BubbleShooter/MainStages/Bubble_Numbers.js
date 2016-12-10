@@ -145,10 +145,27 @@ xc.Bubble_Number = cc.Layer.extend({
             console.log("level management error  - The value if level is : "+bubblelevelValues );
         }
        
+        var trnspImg = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/pixel.png"));
+        trnspImg.setAnchorPoint(0,0);        trnspImg.setPosition(0,0);       trnspImg.setOpacity(0);
+        ScreenMenu.node.getChildByName("Panel_2").addChild(trnspImg);
+       
+         
+        // Set the gun Pointer
+        this.gun = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/gun_tricker.png"));
+        this.gun.setPosition(trnspImg.width/2, cc.director.getWinSize().height *0.090);
+        this.gun.name ="gunPointer";
+        this.gun.anchorY = 0.6;
+        this.addChild(this.gun);
+
+        //Set the gun Base
+        this.gunBase =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/gun.png"));
+        this.gunBase.setPosition(trnspImg.width/2 , cc.director.getWinSize().height * 0.0575);
+        this.addChild(this.gunBase);  
+
         // Init the this.player in gun 
-        this.player.x = this.level.x + this.level.width/2 - this.level.tilewidth/2 ;
+        this.player.x = this.gunBase.x ;
         //console.log("this.player.x = "+(this.level.x + this.level.width/2 - this.level.tilewidth/2) + "  this.level.x : "+this.level.x+" this.level.width/2 : "+this.level.width/2+" this.level.tilewidth/2 : "+this.level.tilewidth/2);
-        this.player.y = this.level.y + this.level.height ;
+        this.player.y = cc.director.getWinSize().height - this.gunBase.y ;
         
         this.player.angle = 90;
         this.player.tiletype = 0;
@@ -211,9 +228,6 @@ xc.Bubble_Number = cc.Layer.extend({
               }
       });
       
-      var trnspImg = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/pixel.png"));
-      trnspImg.setAnchorPoint(0,0);        trnspImg.setPosition(0,0);       trnspImg.setOpacity(0);
-      ScreenMenu.node.getChildByName("Panel_2").addChild(trnspImg);
       cc.eventManager.addListener(listnerBg,trnspImg);
       
       if (cc.director.getWinSize().width > 2560){
@@ -225,18 +239,6 @@ xc.Bubble_Number = cc.Layer.extend({
             this.addChild(this.extendLetter);
          }
       }
-  
-        // Set the gun Pointer
-        this.gun = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/gun_tricker.png"));
-        this.gun.setPosition(trnspImg.width/2, cc.director.getWinSize().height *0.090);
-        this.gun.name ="gunPointer";
-        this.gun.anchorY = 0.6;
-        this.addChild(this.gun);
-
-        //Set the gun Base
-        this.gunBase =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/gun.png"));
-        this.gunBase.setPosition(trnspImg.width/2 , cc.director.getWinSize().height * 0.0575);
-        this.addChild(this.gunBase);  
   
        if(bubblelevelValues == 1){
             var window = cc.director.getWinSize();
@@ -436,10 +438,10 @@ xc.Bubble_Number = cc.Layer.extend({
               this.mainPlayerBubbleDestroy = false;
           }
           
-            this.bubblePlayer.setPosition(this.player.bubble.x, (cc.director.getWinSize().height) - this.player.bubble.y-100);
+            this.bubblePlayer.setPosition(this.player.bubble.x, (cc.director.getWinSize().height) - this.player.bubble.y);
             this.letterPlayer.setPosition(this.bubblePlayer.getContentSize().width/2,this.bubblePlayer.getContentSize().height/2);
-            this.bubblePlayer.anchorX=0.0;
-            this.bubblePlayer.anchorY=0.0;
+            this.bubblePlayer.anchorX=0.5;
+            this.bubblePlayer.anchorY=0.5;
 
     },
        
@@ -690,12 +692,16 @@ xc.Bubble_Number = cc.Layer.extend({
                          
 //                           cc.audioEngine.playEffect("res/english/sounds/"+this.LetterName[tile.x][tile.y].name.toLowerCase()+".wav");
 
-                           setTimeout(function() {
-                                self.playerDie(tile.x,tile.y,tempColorType);
+                           var playerDieCallFunc = function()
+                            {
+                              //  self.playerDie(tile.x,tile.y,tempColorType);
                                 // self.bubbleName[tile.x][tile.y].alpha = 0;
                                 self.finalFlag = true;
+                                self.removeChild(self.bubbleName[tile.x][tile.y]);
+                               // cc.audioEngine.playEffect("res/english/sounds/"+self.LetterName[tile.x][tile.y].name.toLowerCase()+".wav");
                                 // renderPlayer();
-                           }, 1600);
+                            }
+                            this.runAction(new cc.Sequence(cc.delayTime(1.6),new cc.CallFunc(playerDieCallFunc, this)));  
                               
                                // Next bubble
                                this.nextBubble();  
@@ -737,9 +743,11 @@ xc.Bubble_Number = cc.Layer.extend({
                             tile.shift = 0;
                             tile.alpha = 1;
                             
-                             setTimeout(function() {
-                                self.playerDie(tile.x,tile.y,7);
-                             }, 150);      
+                              var playerDieFunc = function()
+                            {
+                                 self.playerDie(tile.x,tile.y,7);
+                            }
+                            this.runAction(new cc.Sequence(cc.delayTime(0.15),new cc.CallFunc(playerDieFunc, this))); 
                         }
                     }
                 }
@@ -1185,8 +1193,8 @@ xc.Bubble_Number = cc.Layer.extend({
             return;
   
      this.nextLetterPlayer = new cc.LabelTTF(""+letterSprite[this.player.nextbubble.tiletype],"res/fonts/Marker Felt.ttf",120);
-     this.nextLetterPlayer.setPosition(this.nextLetterPlayer.getContentSize().width/2,this.nextLetterPlayer.getContentSize().height/2);
-     this.nextLetterPlayer.setAnchorPoint(-0.2,0.4);
+     this.nextLetterPlayer.setPosition(this.nextBubblePlayer.getContentSize().width/2,this.nextBubblePlayer.getContentSize().height/2);
+     this.nextLetterPlayer.setAnchorPoint(0.5,0.5);
      this.nextBubblePlayer.addChild(this.nextLetterPlayer);
     },
 
@@ -1306,8 +1314,6 @@ xc.Bubble_Number = cc.Layer.extend({
         this.finalFlag = false;
         this.killBubble = false;
 
-        
-      
         if(xPosi == undefined){ xPosi = 0; }      
       
         // Level
@@ -1320,8 +1326,8 @@ xc.Bubble_Number = cc.Layer.extend({
             rows: 9,  // Number of tile rows
             tilewidth: bubbleSizeReference.width,  // Visual width of a tile
             tileheight: bubbleSizeReference.height, // Visual height of a tile
-            rowheight: bubbleSizeReference.height * 0.8421,  // Height of a row
-            radius: bubbleSizeReference.width * 0.460526,     // Bubble collision radius
+            rowheight: bubbleSizeReference.height * 0.85,  // Height of a row
+            radius: bubbleSizeReference.width * 0.5,     // Bubble collision radius
             tiles: []       // The two-dimensional tile array
         };
 
