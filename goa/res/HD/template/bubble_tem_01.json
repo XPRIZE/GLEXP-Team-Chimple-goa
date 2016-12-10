@@ -75,19 +75,19 @@
             },
             "PressedFileData": {
               "Type": "MarkedSubImage",
-              "Path": "template/click_play_button.png",
+              "Path": "template/bigplay_clicked.png",
               "Plist": "template/template.plist"
             },
             "NormalFileData": {
               "Type": "MarkedSubImage",
-              "Path": "template/play_button.png",
+              "Path": "template/bigplay.png",
               "Plist": "template/template.plist"
             },
             "Scale9Enable": true,
             "Scale9OriginX": 15,
             "Scale9OriginY": 11,
-            "Scale9Width": 177,
-            "Scale9Height": 185,
+            "Scale9Width": 438,
+            "Scale9Height": 446,
             "OutlineColor": {
               "G": 0,
               "B": 0
@@ -105,34 +105,33 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1288.0795,
-              "Y": 933.6066
+              "X": 2326.772,
+              "Y": 336.551
             },
             "Scale": {
-              "ScaleX": 1.2897,
-              "ScaleY": 1.2897
+              "ScaleX": 0.8557,
+              "ScaleY": 0.8557
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5032,
-              "Y": 0.5187
+              "X": 0.9089,
+              "Y": 0.187
             },
             "PreSize": {
-              "X": 0.1563,
-              "Y": 0.2222
+              "X": 0.1828,
+              "Y": 0.26
             },
-            "LeftMargin": 1088.0795,
-            "RightMargin": 1071.9205,
-            "TopMargin": 666.3933,
-            "BottomMargin": 733.6066,
+            "LeftMargin": 2092.772,
+            "RightMargin": -0.772,
+            "TopMargin": 1229.449,
+            "BottomMargin": 102.551,
             "Tag": 47,
             "ActionTag": -52643977,
             "Size": {
-              "X": 400.0,
-              "Y": 400.0
+              "X": 468.0,
+              "Y": 468.0
             },
-            "Alpha": 128,
             "Name": "Button_1",
             "ctype": "ButtonObjectData"
           },
@@ -181,8 +180,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 139.237,
-              "Y": 784.8895
+              "X": 116.535,
+              "Y": 567.8285
             },
             "Scale": {
               "ScaleX": 1.195,
@@ -191,25 +190,24 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.0544,
-              "Y": 0.436
+              "X": 0.0455,
+              "Y": 0.3155
             },
             "PreSize": {
               "X": 0.0691,
               "Y": 0.0978
             },
-            "LeftMargin": 50.737,
-            "RightMargin": 2332.2629,
-            "TopMargin": 927.1105,
-            "BottomMargin": 696.8895,
+            "LeftMargin": 28.035,
+            "RightMargin": 2354.9648,
+            "TopMargin": 1144.1715,
+            "BottomMargin": 479.8285,
             "Tag": 48,
             "ActionTag": 1976994335,
             "Size": {
               "X": 177.0,
               "Y": 176.0
             },
-            "Alpha": 128,
-            "Name": "Button_2",
+            "Name": "sound",
             "ctype": "ButtonObjectData"
           },
           {
@@ -224,8 +222,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1283.5138,
-              "Y": 339.5707
+              "X": 1161.5023,
+              "Y": 330.6974
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -234,21 +232,21 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5014,
-              "Y": 0.1887
+              "X": 0.4537,
+              "Y": 0.1837
             },
             "PreSize": {
-              "X": 0.9375,
+              "X": 0.7422,
               "Y": 0.4444
             },
-            "LeftMargin": 83.5138,
-            "RightMargin": 76.4863,
-            "TopMargin": 1060.4293,
-            "BottomMargin": -60.4293,
+            "LeftMargin": 211.5023,
+            "RightMargin": 448.4976,
+            "TopMargin": 1069.3025,
+            "BottomMargin": -69.3026,
             "Tag": 45,
             "ActionTag": -1595207015,
             "Size": {
-              "X": 2400.0,
+              "X": 1900.0,
               "Y": 800.0
             },
             "Name": "TextField_2",

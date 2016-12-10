@@ -87,7 +87,7 @@ xc.BubbleSpeech = cc.Layer.extend({
                 }
                 
                 this._constructedScene.node.addChild(this._item);
-                    
+                this._textField.setTextColor(xc.storyFontColor);                    
                 break;
         }        
     },
