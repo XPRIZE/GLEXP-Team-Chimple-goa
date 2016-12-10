@@ -9,7 +9,7 @@ xc.Bubble_Number = cc.Layer.extend({
     this.negativePoints = 0;
     imageSprite = ['bubble_shooter/red_ball','bubble_shooter/green_ball','bubble_shooter/yellow_ball','bubble_shooter/purple_ball','bubble_shooter/blue_ball','bubble_shooter/orange_ball',"bubble_shooter/yellow_ball","bubble_shooter/blue_ball"];
 
-   var ScreenMenu = ccs.load(xc.BubbleGame_HomeScreenMenu.res.bubbleShooter_gameMenu_json,xc.path);
+   var ScreenMenu = ccs.load(xc.bubbleShooterLevelInfo.res.bubbleShooter_gameMenu_json,xc.path);
    this.addChild(ScreenMenu.node);
    var xPosi ;
     // if (cc.director.getWinSize().width > 2560){
@@ -58,7 +58,7 @@ xc.Bubble_Number = cc.Layer.extend({
         this.setGameState(this.gamestates.ready);
         
     
-        if(levelValues ==  1){        
+        if(bubblelevelValues ==  1){        
            levelName = "NumberStarLevel1";            
            letterSprite = ['0','1','2','3','4'];
             let color = 5 , repeat = 3;
@@ -66,7 +66,7 @@ xc.Bubble_Number = cc.Layer.extend({
            // Create the level of bubbles
            this.createLevel(color,repeat);
         
-        }else if(levelValues ==  2){
+        }else if(bubblelevelValues ==  2){
            levelName = "NumberStarLevel2";
            letterSprite = ['5','6','7','8','9'];
             let color = 5 , repeat = 3;
@@ -74,7 +74,7 @@ xc.Bubble_Number = cc.Layer.extend({
             // Create the level of bubbles
            this.createLevel(color,repeat);
         
-        }else if(levelValues ==  3){
+        }else if(bubblelevelValues ==  3){
            levelName = "NumberStarLevel3"; 
             let color = 4 , repeat = 5;
             let numbers = this.rndNumber(color);
@@ -85,7 +85,7 @@ xc.Bubble_Number = cc.Layer.extend({
             // Create the level of bubbles
            this.createLevel(color,repeat);
             
-        }else if(levelValues ==  4){
+        }else if(bubblelevelValues ==  4){
            levelName = "NumberStarLevel4";         
             let color = 4 , repeat = 4;
             let numbers = this.rndNumber(color);
@@ -96,7 +96,7 @@ xc.Bubble_Number = cc.Layer.extend({
             // Create the level of bubbles
            this.createLevel(color,repeat);
         
-        }else if(levelValues ==  5){
+        }else if(bubblelevelValues ==  5){
            levelName = "NumberStarLevel5";        
             let color = 4 , repeat = 3;
             let numbers = this.rndNumber(color);
@@ -107,7 +107,7 @@ xc.Bubble_Number = cc.Layer.extend({
             // Create the level of bubbles
            this.createLevel(color,repeat);
         
-        }else if(levelValues ==  6){
+        }else if(bubblelevelValues ==  6){
            levelName = "NumberStarLevel6";            
             let color = 4 , repeat = 2;
             let numbers = this.rndNumber(color);
@@ -118,7 +118,7 @@ xc.Bubble_Number = cc.Layer.extend({
             // Create the level of bubbles
            this.createLevel(color,repeat);
         
-        }else if(levelValues ==  7){
+        }else if(bubblelevelValues ==  7){
            levelName = "NumberStarLevel7"; 
             let color = 5 , repeat = 2;
             let numbers = this.rndNumber(color);
@@ -129,7 +129,7 @@ xc.Bubble_Number = cc.Layer.extend({
             // Create the level of bubbles
            this.createLevel(color,repeat);
             
-        }else if(levelValues ==  8){
+        }else if(bubblelevelValues ==  8){
            levelName = "NumberStarLevel8";            
             let color = 6 , repeat = 1;
             let numbers = this.rndNumber(color);
@@ -142,7 +142,7 @@ xc.Bubble_Number = cc.Layer.extend({
         
             
         }else{
-            console.log("level management error  - The value if level is : "+levelValues );
+            console.log("level management error  - The value if level is : "+bubblelevelValues );
         }
        
         // Init the this.player in gun 
@@ -238,7 +238,7 @@ xc.Bubble_Number = cc.Layer.extend({
         this.gunBase.setPosition(trnspImg.width/2 , cc.director.getWinSize().height * 0.0575);
         this.addChild(this.gunBase);  
   
-       if(levelValues == 1){
+       if(bubblelevelValues == 1){
             var window = cc.director.getWinSize();
             var help = new xc.HelpLayer(cc.rect((window.width - (cc.director.getWinSize().width - 2560)) * 0.5 , window.height *0.75 , window.width - (cc.director.getWinSize().width - 2560),window.height *0.5), cc.rect(this.gunBase.x, this.gunBase.y,this.bubblePlayer.width,this.bubblePlayer.height))
             this.addChild(help,4)
@@ -799,14 +799,14 @@ xc.Bubble_Number = cc.Layer.extend({
     
    DataCard : function (gamestatus){
        console.log("gamestatus : "+gamestatus + " -------------- ");
-       var level = levelValues;
+       var level = bubblelevelValues;
     if (cc.sys.isNative) {
                menuContext.setMaxPoints(this.counterhits);
                 menuContext.addPoints(this.counterhits - this.negativePoints);
                cc.log("showscore");
                menuContext.showScore();
      }else{
-         xc.GameScene.load(xc.BubbleGame_HomeScreenMenu);
+         xc.GameScene.load(xc.bubbleShooterLevelInfo);
      }  
     },
     
