@@ -181,6 +181,7 @@ void DinoGame::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 			CCLOG("letter fixed");
 			this->removeChildByName("helpLayer");
 			_isTouched = true;
+			_gameScore++;
 			_eventDispatcher->removeEventListenersForTarget(target);
 			_menu->addPoints(1);
 			_audioEffect->playEffect("sounds/sfx/drop_obj.ogg");
