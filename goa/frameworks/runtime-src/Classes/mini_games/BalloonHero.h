@@ -44,6 +44,13 @@ protected:
 	Node * _balloonHero;
 	Node * _foreGround;
 	int _sceneNumber;
+
+	bool animationOneFlag = true;
+	bool animationTwoFlag =  true;
+	bool animationThreeFlag = true;
+	bool animationFourFlag = true;
+
+	int _labelFontSize = 150;
 	bool _flag1 = true, _flag2 = true, _flag3 = true, _flag4 = true;
 	bool _flagCorrect1 = true, _flagCorrect2 = true, _flagCorrect3 = true, _flagCorrect4 = true;
 	std::vector<std::string> _objects;
@@ -62,7 +69,7 @@ protected:
 	cocostudio::timeline::ActionTimeline * _bgTimeline;
 	std::vector<std::string> _set1;
 	std::vector<std::string> _set2;
-
+	void addGrid();
 	std::string _hint;
 	MenuContext *_menuContext;
 
