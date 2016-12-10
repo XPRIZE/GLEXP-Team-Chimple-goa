@@ -10,6 +10,10 @@
 #include "../GameScene.h"
 #include "scripting/js-bindings/manual/ScriptingCore.h"
 #include "storage/local-storage/LocalStorage.h"
+#include "../lang/TextGenerator.h"
+#include "GraphemeGrid.h"
+#include "Grapheme.h"
+
 
 USING_NS_CC;
 
@@ -24,11 +28,45 @@ cocos2d::Scene* StoryWordBoard::createSceneWithWords(std::vector<std::string> wo
     auto layer = StoryWordBoard::createWithWords(words, currentIndex, baseDir, totalPoints, currentPoints);
     auto scene = GameScene::createWithChild(layer, "story-play");
     layer->_menuContext = scene->getMenuContext();
+    CCLOG("total point in createSceneWithWords  %d", totalPoints);
+    CCLOG("currentPoints point in createSceneWithWords %d", currentPoints);
     layer->_menuContext->setMaxPoints(totalPoints);
     layer->_menuContext->addPoints(currentPoints);
     return scene;
 }
 
+void StoryWordBoard::onEnterTransitionDidFinish() {
+    Node::onEnterTransitionDidFinish();
+    
+    auto tg = TextGenerator::getInstance();
+    if(_word.empty()) {
+        _word = tg->generateAWord(_menuContext->getCurrentLevel());
+    }
+    _background = loadNode();
+    _answerGraphemes = tg->getGraphemes(_word);
+    _numGraphemes = _answerGraphemes.size();
+    addChild(_background);
+    createAnswer();
+    createChoice();
+    createGrid();
+    
+    _eventDispatcher->addCustomEventListener("grapheme_anim_done", CC_CALLBACK_0(StoryWordBoard::checkAnswer, this));
+    ;
+    
+    if(_menuContext->getCurrentLevel() == 1 && _score == 0) {
+        auto children = _answer->getChildren();
+        if(children.size() > 0) {
+            auto word = children.at(0);
+            auto bb = word->getBoundingBox();
+            bb.origin = _answer->convertToWorldSpace(word->getPosition());
+            _helpGraphemeText = _answerGraphemes.at(0);
+            auto graphemeRect = _grid->getGraphemeRect(_helpGraphemeText);
+            _helpLayer = HelpLayer::create(graphemeRect, bb);
+            addChild(_helpLayer);
+            _helpLayer->click(graphemeRect.origin);
+        }
+    }
+}
 
 void StoryWordBoard::processGrapheme(Grapheme* grapheme) {
     if(grapheme->isSelected()) {
@@ -40,9 +78,7 @@ void StoryWordBoard::processGrapheme(Grapheme* grapheme) {
                 grapheme->setZOrder(0);
                 grapheme->animateToPositionAndChangeBackground(grapheme->getPrevPosition());
                 if(grapheme->getGraphemeString() == _answerGraphemes.at(i)) {
-                    _menuContext->addPoints(-1);
-                } else {
-                    _menuContext->addPoints(1);
+                    _anyTimeWrongAlphabetChosen = true;
                 }
                 return;
             }
@@ -59,9 +95,9 @@ void StoryWordBoard::processGrapheme(Grapheme* grapheme) {
                 grapheme->setZOrder(1);
                 grapheme->animateToPositionAndChangeBackground(_grid->convertToNodeSpace(tPos));
                 if(_answerGraphemes.at(i) == grapheme->getGraphemeString()) {
-                    _menuContext->addPoints(1);
+                    
                 } else {
-                    _menuContext->addPoints(-1);
+                    _anyTimeWrongAlphabetChosen = true;
                 }
                 return;
             }
@@ -100,7 +136,8 @@ StoryWordBoard* StoryWordBoard::createWithWords(std::vector<std::string> words, 
 
 StoryWordBoard::StoryWordBoard() :
 _currentIndex(0),
-_baseDir("")
+_baseDir(""),
+_anyTimeWrongAlphabetChosen(false)
 {
     
 }
@@ -159,6 +196,11 @@ void StoryWordBoard::checkAnswer() {
 
 void StoryWordBoard::gameOver(bool correct) {
     if(correct) {
+        
+        if(!_anyTimeWrongAlphabetChosen) {
+            _menuContext->addPoints(1);
+        }
+
         Size visibleSize = Director::getInstance()->getVisibleSize();
         Vec2 origin = Director::getInstance()->getVisibleOrigin();
         
@@ -184,6 +226,8 @@ void StoryWordBoard::gameOver(bool correct) {
             runAction(Sequence::create(DelayTime::create(5.0), CallFunc::create([=] {
                 this->removeChild(_ps);
                 _ps = nullptr;
+                CCLOG("_menuContext->getPoints() %d", _menuContext->getPoints());
+                CCLOG("_menuContext->getMaxPoints() %d", _menuContext->getMaxPoints());
                 Director::getInstance()->replaceScene(StoryWordBoard::createSceneWithWords(_words, _currentIndex, _baseDir, _menuContext->getMaxPoints(), _menuContext->getPoints()));
             }), NULL));
             
