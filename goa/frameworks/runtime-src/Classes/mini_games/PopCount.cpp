@@ -259,12 +259,13 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 			if (target->getTag() == _popUpAnswer) {
 				CCLOG(" THIS IS CORRECT ");
 				
-				this->getChildByName("midButton")->runAction(Sequence::create(ScaleTo::create(0.4,1.5), ScaleTo::create(0.2,1), NULL));
+//				this->getChildByName("midButton")->runAction(Sequence::create(ScaleTo::create(0.4,1.5), ScaleTo::create(0.2,1), NULL));
 				_popStartListner = false;
 				_popElementCount = _popElementCount - 1;
-				(this->getChildByName("midButton")->getChildByTag(0))->setName("PLAY");
-				auto texture = SpriteFrameCache::getInstance()->getSpriteFrameByName(_sceneMap.at(_popcountCurrentTheme).at("play"));
-				((Sprite*)this->getChildByName("midButton")->getChildByTag(0))->setSpriteFrame(texture);
+				this->runAction(Sequence::create(DelayTime::create(0.6), NULL));
+//				(this->getChildByName("midButton")->getChildByTag(0))->setName("PLAY");
+//				auto texture = SpriteFrameCache::getInstance()->getSpriteFrameByName(_sceneMap.at(_popcountCurrentTheme).at("play"));
+//				((Sprite*)this->getChildByName("midButton")->getChildByTag(0))->setSpriteFrame(texture);
 			}
 			else {
 				float distance = Director::getInstance()->getVisibleSize().width * 0.8;
