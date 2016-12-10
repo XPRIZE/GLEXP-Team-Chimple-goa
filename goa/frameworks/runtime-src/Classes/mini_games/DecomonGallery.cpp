@@ -53,15 +53,11 @@ DecomonGallery::~DecomonGallery()
 void DecomonGallery::onEnterTransitionDidFinish()
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-//	auto scene = Director::getInstance()->getRunningScene();
-	//auto layer = Layer::create();
-//	scene->addChild(layer);
 	_backButton = cocos2d::ui::Button::create("decomon/button.png", "decomon/button.png", "decomon/button.png", Widget::TextureResType::LOCAL);
 	_backButton->addTouchEventListener(CC_CALLBACK_0(DecomonGallery::backToGame, this));
 	_backButton->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * 0.1));
 	_backButton->setName("menuButton");
 	DecomonGallery::_decomonLayer->addChild(_backButton, 1);
-	//scene
 }
 
 void DecomonGallery::backToGame()
@@ -81,8 +77,6 @@ bool DecomonGallery::init() {
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	std::string ICONS = ICON_FOLDER;
 
-	auto spriteCache = SpriteFrameCache::getInstance();
-	spriteCache->addSpriteFramesWithFile("gamemap/gamemap.plist");
 
 	auto fullpath = FileUtils::sharedFileUtils()->getWritablePath() + "decomon.txt";
 
@@ -110,26 +104,7 @@ bool DecomonGallery::init() {
 	backgroundSpriteMapTile->setPosition(Vec2(numberOfPages * visibleSize.width / 2, visibleSize.height / 2));
 	addChild(backgroundSpriteMapTile);
 
-	Sprite* backgroundSpriteMap = Sprite::createWithSpriteFrameName("gamemap/game_map_bg2.png");
-	backgroundSpriteMap->setPosition(Vec2(numberOfPages * visibleSize.width / 2, visibleSize.height / 2));
-	//addChild(backgroundSpriteMap);
-
-	Sprite* backgroundSpriteSideLeft = Sprite::createWithSpriteFrameName("gamemap/side.png");
-	backgroundSpriteSideLeft->setAnchorPoint(Vec2(0, 0.5));
-	backgroundSpriteSideLeft->setPosition(Vec2(0, visibleSize.height / 2));
-//	addChild(backgroundSpriteSideLeft);
-
-
 	_layer = Layer::create();
-
-
-	Sprite* backgroundSpriteSideRight = Sprite::createWithSpriteFrameName("gamemap/side.png");
-	backgroundSpriteSideRight->setScaleX(-1.0f);
-	backgroundSpriteSideRight->setAnchorPoint(Vec2(1, 0.5));
-	backgroundSpriteSideRight->setPosition(Vec2((visibleSize.width - backgroundSpriteSideRight->getBoundingBox().size.width / 2) * numberOfPages, visibleSize.height / 2));
-	//addChild(backgroundSpriteSideRight);
-
-
 
 	int index = 0;
 	int initialYOffSet = 1;

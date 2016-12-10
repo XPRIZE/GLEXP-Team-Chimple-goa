@@ -18,6 +18,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     _nodeToFileNameMapping: {},
     _nodeToCurrentVerticesMapping: {},
     _menuContext: null,
+    _wordMapping: {},
     ctor: function (pageIndex, storyInformation) {
         this._super();
         this._name = "NarrateStoryLayer";
@@ -29,7 +30,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this._contentPanelHeight = cc.director.getWinSize().height; //assuming landscape
         this._configPanelWidth = (cc.director.getWinSize().width - this._contentPanelWidth) / 2;
         this._nodeToFileNameMapping = {};
-        this._nodeToCurrentVerticesMapping =  {};        
+        this._nodeToCurrentVerticesMapping =  {};     
+        this._wordMapping = {};   
         
         return true;
     },
@@ -38,7 +40,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         var context = this;
         var listener = cc.EventListener.create({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
-            swallowTouches: true,
+            swallowTouches: false,
             onTouchBegan: function (touch, event) {
                 if(context._playStarted) {
                     return false;
@@ -130,8 +132,9 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
             onTouchEnded: function (touch, event) {
                 var target = event.getCurrentTarget();
-                target.setLocalZOrder(this._zOrder);
+                
                 if(target.draggingEnabled) {
+                    target.setLocalZOrder(this._zOrder);
                     var action = target.actionManager.getActionByTag(target.tag, target);
                     action.pause();
                     // target.actionManager.pauseTarget(target);
@@ -198,7 +201,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             },
             onTouchEnded: function (touch, event) {
                 var target = event.getCurrentTarget();
-                target.setLocalZOrder(this._zOrder);
+                
                 context._currentTarget = null;
                 if(!this._isDragging) {
                     var location = target.parent.convertToNodeSpace(touch.getLocation());
@@ -206,6 +209,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 }
                     
                 if(target.draggingEnabled) {
+                    target.setLocalZOrder(this._zOrder);
                     var action = target.actionManager.getActionByTag(target.tag, target);
                     action.pause();                    
                     // target.actionManager.pauseTarget(target);
@@ -217,26 +221,38 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         cc.eventManager.addListener(listener, target);
     },   
 
-    displayText:function(text, location) {
+    displayText:function(text, location) {        
         if(this._referenceToContext._textDisplayAnimationRunning) {
-            return;
-        }
-        var texts = text.split("_");
-        if(texts && texts.length > 0) {
-            var langText = texts[0];
-            var textField = this._wordBoard.node.getChildByName("TextField_1");
-            cc.log('text:' + langText.toLowerCase());
-            textField.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
-            textField.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
-            textField.setString(langText.toLowerCase());      
+            this._referenceToContext.unschedule(this.removeDisplayText);            
+            this.buildText(text);
+            this._referenceToContext.displayTextAnimationFinished();
+        }  else 
+        {
+            this.buildText(text);
+            this._referenceToContext.unschedule(this.removeDisplayText);
             this._referenceToContext._textDisplayAnimationRunning = true;      
             this._wordBoard.node.setPosition(cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 500));
-            var textDropAction = new cc.MoveTo(1.5, cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height));            
+            var textDropAction = new cc.MoveTo(0.5, cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height));            
             textDropAction.easing(cc.easeBackOut());
             var afterDisplayTextAction = new cc.CallFunc(this._referenceToContext.displayTextAnimationFinished, this._referenceToContext);
             var textSequence = new cc.Sequence(textDropAction, afterDisplayTextAction);
             this._wordBoard.node.runAction(textSequence);                  
-        }        
+        }     
+    },
+
+    buildText: function(text) {
+        var textField = this._wordBoard.node.getChildByName("TextField_1");
+        
+        if(this._wordMapping && this._wordMapping[text]) {
+            text = this._wordMapping[text];
+            text = text.replace(/_/g, ' ');
+        }
+        
+        cc.log('text:' + text.toLowerCase());
+        textField.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
+        textField.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
+        textField.setString(text.toLowerCase());      
+
     },
 
     beforeDisplayTextDisapperFinished: function() {
@@ -247,14 +263,17 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this._referenceToContext._textDisplayAnimationRunning = false;
     },
 
-    displayTextAnimationFinished: function() {
-        this._referenceToContext.scheduleOnce(function(){
-            var textDropActionDisappear = new cc.MoveTo(1.5, cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 500));
-            var beforeDisplayTextDisapperAction = new cc.CallFunc(this._referenceToContext.beforeDisplayTextDisapperFinished, this._referenceToContext);
-            var afterDisplayTextDisapperAction = new cc.CallFunc(this._referenceToContext.afterDisplayTextDisapperFinished, this._referenceToContext);
-            var textSequence = new cc.Sequence(beforeDisplayTextDisapperAction, textDropActionDisappear, afterDisplayTextDisapperAction);
-            this._wordBoard.node.runAction(textSequence);
-        },5);        
+    removeDisplayText: function() {
+        var textDropActionDisappear = new cc.MoveTo(0.5, cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 500));
+        var beforeDisplayTextDisapperAction = new cc.CallFunc(this._referenceToContext.beforeDisplayTextDisapperFinished, this._referenceToContext);
+        var afterDisplayTextDisapperAction = new cc.CallFunc(this._referenceToContext.afterDisplayTextDisapperFinished, this._referenceToContext);
+        var textSequence = new cc.Sequence(beforeDisplayTextDisapperAction, textDropActionDisappear, afterDisplayTextDisapperAction);
+        this._wordBoard.node.runAction(textSequence);
+
+    },
+
+    displayTextAnimationFinished: function() {        
+        this._referenceToContext.scheduleOnce(this.removeDisplayText, 3);                
     },
 
     bindTouchListener: function (target, funcName, loop) {
@@ -324,10 +343,12 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
             onTouchEnded: function (touch, event) {
                 var target = event.getCurrentTarget();
-                target.setLocalZOrder(this._zOrder);
+                
                 var location = target.parent.convertToNodeSpace(touch.getLocation());
+                
                 context._currentTarget = null;
                 if(target.draggingEnabled) {
+                    target.setLocalZOrder(this._zOrder);
                     var action = target.actionManager.getActionByTag(target.tag, target);
                     if(action) {
                         action.pause();
@@ -358,6 +379,35 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             }
         }
         cc.log('this._baseDir:' + this._baseDir);
+
+        var langDir = goa.TextGenerator.getInstance().getLang();
+
+        var mappingFile = "";
+        mappingFile =  "res/story" + "/" + langDir + "/" + this._baseDir + ".mapping.json";
+        cc.log('mappingFile:' + mappingFile);
+        if(cc.sys.isNative) {
+            var fileExists = jsb.fileUtils.isFileExist(mappingFile);
+            if(fileExists) {
+
+                cc.loader.loadJson(mappingFile, function(err, json) {            
+                    if(!err && json != null && json != undefined) {
+                        cc.log("json mapping:" + json);
+                        context._wordMapping = json;
+                    }                                
+                });                           
+            } 
+        } else {
+
+            cc.loader.loadJson(mappingFile, function(err, json) {            
+                if(!err && json != null && json != undefined) {
+                    cc.log("json mapping:" + json);
+                    context._wordMapping = json;
+                }                                
+            });                
+            
+        }  
+
+        
         context._pixelPerfectImages = [];
 
         if(xc.pixcelPerfectConfig && xc.pixcelPerfectConfig[this._baseDir])
@@ -394,7 +444,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this._wordBoard = ccs.load(xc.NarrateStoryLayer.res.wordBubble_json, xc.path);
         if(this._wordBoard) {
             this._wordBoard.node.retain();
-            //this._wordBoard.node.setPosition(cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height));
+            this._wordBoard.node.setPosition(cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 600));
             this.addChild(this._wordBoard.node, 1);
             var textField = this._wordBoard.node.getChildByName("TextField_1");
             if(textField) {
@@ -439,6 +489,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         {
             var word = textField.getString().toLowerCase();
             cc.log("word to pronounce:" + word);
+            word = word.replace(/ /g, '_');
             if(cc.sys.isNative) {
                 this.getParent()._menuContext.pronounceWord(word);    
             }            
@@ -601,17 +652,17 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                     action._referenceToContext = that;
                 }
                 that.bindEventsToTarget(child);
-                that.bindTouchListenerToSkeleton(child, "playAnimiation", true);    
+                that.bindTouchListenerToSkeleton(child, "playAnimiation", false);    
             } else {
                 if(!child.getName().startsWith("Panel")) {
                     cc.log("processing:" + child.getName());
-                    if(child.getChildren() != null && child.getChildren().length > 1) {
+                    if(child.getChildren() != null && child.getChildren().length > 0) {
                         that.bindEventsToTarget(child);
-                        that.bindTouchListenerToSubChild(child, "playAnimationOnChild", true);                                        
+                        that.bindTouchListenerToSubChild(child, "playAnimationOnChild", false);                                        
                     } else {
                         that.saveNormalizedVertices(child);                        
                         that.bindEventsToTarget(child);
-                        that.bindTouchListener(child, "playAnimiation", true);
+                        that.bindTouchListener(child, "playAnimiation", false);
                     }                                                        
                 }
             }
@@ -627,13 +678,22 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 cc.log("playAnimiation" + target.cEvents[target.currentAnimIndex]);
                 var currentAnim = target.cEvents[target.currentAnimIndex];
                 if(action) {
-                    action.play(currentAnim, loop);
+                    if(target.draggingEnabled) {
+                        action.play(currentAnim, true);
+                    } else {
+                        action.play(currentAnim, false);
+                    }
+                    
                 }
                 target.currentAnimIndex = (target.currentAnimIndex + 1)  % target.cEvents.length;
             } else if(target.cEvent) {
                 cc.log("playAnimiation" + target.cEvent);
                 if(action) {
-                    action.play(target.cEvent, loop);
+                    if(target.draggingEnabled) {
+                        action.play(target.cEvent, true);
+                    } else {
+                        action.play(target.cEvent, false);    
+                    }                
                 }                
             }
         } 
@@ -658,13 +718,23 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 target.currentAnimIndex = target.currentAnimIndex == undefined ? 0 : target.currentAnimIndex;              
                 cc.log("playAnimationOnChild" + target.cEvents[target.currentAnimIndex]);
                 if(action) {
-                    action.play(target.cEvents[target.currentAnimIndex], loop);
+                    if(target.draggingEnabled) {
+                        action.play(target.cEvents[target.currentAnimIndex], true);
+                    } else {
+                        action.play(target.cEvents[target.currentAnimIndex], false);
+                    }
+                    
                 }
                 
                 target.currentAnimIndex = (target.currentAnimIndex + 1)  % target.cEvents.length; 
             } else if(target.cEvent) {
-                if(action) {                    
-                    action.play(target.cEvent, loop);
+                if(action) {    
+                    if(target.draggingEnabled) {
+                        action.play(target.cEvent, true);
+                    }  else {
+                        action.play(target.cEvent, false);
+                    }             
+                    
                 }
             }        
         }
@@ -803,8 +873,6 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this._playStarted = false;
         this._constructedScene.action.clearLastFrameCallFunc();
         this._constructedScene.action.gotoFrameAndPause(this._constructedScene.action.getCurrentFrame());
-        this.renderNextButton();
-        this.renderPreviousButton();                
         
         //load text file based on Current Story Id and Page index
         var langDir = goa.TextGenerator.getInstance().getLang();
@@ -846,6 +914,9 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             cc.audioEngine.stopMusic();
         }        
         this._referenceToContext._wordBoard.node.setVisible(true);
+        this._referenceToContext.renderNextButton();
+        this._referenceToContext.renderPreviousButton();                
+        
     },
 
     processAudio: function(sender, type) {
@@ -905,7 +976,7 @@ xc.NarrateStoryScene = cc.Scene.extend({
 
         if (cc.sys.isNative) {
             this._menuContext = goa.MenuContext.create(this._sceneLayer, "story-play");
-            this.addChild(this._menuContext);
+            this.addChild(this._menuContext, 10);
             this._menuContext.setVisible(true);
         }                        
 
@@ -960,7 +1031,7 @@ xc.NarrateStoryScene.load = function(pageIndex, storyInformation, layer, enableT
                     }); 
 
                     cc.LoaderScene.preload(t_resources, function () {
-
+                        cc.spriteFrameCache.addSpriteFrames(xc.NarrateStoryLayer.res.template_plist);    
                         //config data
                         if(cc.sys.isNative) {
                             xc.onlyStoryNarrateConfigurationObject = cc.loader.getRes(xc.NarrateStoryLayer.res.OnlyStoryPlayConfig_json);                         
@@ -984,14 +1055,14 @@ xc.NarrateStoryScene.load = function(pageIndex, storyInformation, layer, enableT
 
 
 xc.NarrateStoryLayer.res = {
-        play_png: xc.path + "wikitaki/play.png",
-        record_animation_png: xc.path + "wikitaki/recording.png",
-        record_animation_plist: xc.path + "wikitaki/recording.plist",
-        OnlyStoryPlayConfig_json: xc.path + "wikitaki/misc/onlyPlayConfig.json",
+        OnlyStoryPlayConfig_json: xc.path + "misc/onlyPlayConfig.json",
         textBubble_json: xc.path + "template/bubble_tem.json",
-        wordBubble_json: xc.path + "template/hang_bubble.json",
+        wordBubble_json: xc.path + "template/hang_bubble.json",        
         correctAnswerSound_json: "res/sounds/sfx/success.ogg",
         wrongAnswerSound_json: "res/sounds/sfx/error.ogg",
-        pixelPerfectConfig_json: xc.path + "misc/pixelPerfectConfig.json"
+        pixelPerfectConfig_json: xc.path + "misc/pixelPerfectConfig.json",
+        template_plist: xc.path + "template/template.plist",
+        template_png: xc.path + "template/template.png"
+
 
 };

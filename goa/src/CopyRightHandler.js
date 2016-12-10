@@ -18,32 +18,22 @@ xc.CopyRightHandler = cc.Layer.extend({
         this.init();
     },
 
-
-    bindTouchListenerToLayer: function(target) {
-        var context = this;
-        var listener = cc.EventListener.create({
-            event: cc.EventListener.TOUCH_ONE_BY_ONE,
-            swallowTouches: true,
-            onTouchBegan: function (touch, event) {
-                return true;
-            },
-            onTouchEnded: function (touch, event) {
-                context.executeCallBack()
-
-            }            
-        });
-        cc.eventManager.addListener(listener, target);
-    },
-
     init: function() {
+        var context = this;
         this.showCopyRight();
         this.configureCopyRightText();  
-        this.bindTouchListenerToLayer(this);      
+        this.scheduleOnce(function() {
+            context.executeCallBack();
+        },1.5);
     },
 
     showCopyRight: function() {
         this._constructedScene = ccs.load(this._nodeJSON,xc.path);
         this._constructedScene.node.retain();
+
+        this._constructedScene.node.setPosition(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2);
+        this._constructedScene.node.setAnchorPoint(cc.p(0.5,0.5));
+        
         
         if (this._constructedScene.node) {            
             this._callbackContext.addChild(this._constructedScene.node,0);

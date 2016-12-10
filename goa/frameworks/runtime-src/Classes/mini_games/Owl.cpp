@@ -119,7 +119,7 @@ void Owl::onEnterTransitionDidFinish()
 			}
 		}
 	};
-
+	
 	std::map<int, std::string> owlSceneMapping = {
 		{ 1,	"owlCity" },
 		{ 2,	"owlisland" },
@@ -132,7 +132,7 @@ void Owl::onEnterTransitionDidFinish()
 	std::tuple<int, int , int> levelKeyNumber = levelAllInfo(gameCurrentLevel,5,5,3,10);
 
 	if (std::get<0>(levelKeyNumber) == 1) {
-		auto listOfWords = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ANY ,5, std::get<2>(levelKeyNumber));
+		auto listOfWords = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ANY ,1, std::get<2>(levelKeyNumber));
 		
 		for (size_t index = 0; index < listOfWords.size(); index++) {
 			_data_key.push_back(getConvertInUpperCase(listOfWords[index]));
@@ -302,16 +302,29 @@ void Owl::autoPlayerController(float data) {
 	_textCounter2++;
 
 	if (_textCounter2 == (blockChild.size())) {
-		if ((_blockLevel2 >= _data_key.size())) {
+		if ((_blockLevel2 >= _data_key.size()) && _removeCharacterAnimation) {
 			//this->unschedule(schedule_selector(Owl::autoPlayerController));
+			_removeCharacterAnimation = false;
 			CCLOG("< ------ DONE COMPLETE -----  >     I AM IN AUTOPLAYERCONTROLLER METHOD");
 			this->runAction(Sequence::create(CallFunc::create([=]() {
 				_flagDemo = false;
 				_flagDemoSecond = false;
 				_opponent->runAction(ScaleTo::create(1.0f, _opponent->getScaleX() * 2, _opponent->getScaleY() * 2));
 				_opponent->runAction(MoveTo::create(1, Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2)));
-			}), DelayTime::create(2),
-			CallFunc::create([=]() {_menuContext->showScore(); }), NULL));
+			}), DelayTime::create(1),
+				CallFunc::create([=]() {
+
+				CCParticleSystemQuad *_particle = CCParticleSystemQuad::create("res/owllevel/particle_texture.plist");
+				_particle->setTexture(CCTextureCache::sharedTextureCache()->addImage("res/owllevel/particle_texture.png"));
+				_particle->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
+				_particle->setName("celebration");
+				this->addChild(_particle, 5);
+				auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+				audioBg->playEffect("res/sounds/sfx/owl_loss.ogg", false);
+
+			}),
+				DelayTime::create(3),
+				CallFunc::create([=]() {this->removeChildByName("celebration");  _menuContext->showScore(); }), NULL));
 		}
 		else {
 			setBuildingBlockSecond(++_blockLevel2);
@@ -511,6 +524,13 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 			target->setColor(Color3B::GRAY);
 			auto x = childText->getName();
 			CCLOG("Touched : %c", x.at(0));
+
+			if (LangUtil::getInstance()->getLang() == "eng") {
+				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(x.at(0));
+				audio->playEffect(path.c_str(), false);
+			}
+
 			return true;
 		}
 		return false;
@@ -540,6 +560,8 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 							_flagTurnHelp = false;
 						}
 						_menuContext->addPoints(1);
+						//auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+						//audioBg->playEffect("res/sounds/sfx/drop_obj.ogg", false);
 						auto y = _sprite->getPositionY() - target->getPositionY();
 						auto x = -_sprite->getPositionX() + target->getPositionX();
 						float dist = sqrt((y*y) + (x*x));
@@ -552,6 +574,10 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 							_flagToControlMuiltipleTouch = true;
 							_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setVisible(false);
 							blockChild.at(_textCounter)->getChildByName("hideBoard")->setVisible(false);
+							
+							auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+							audioBg->playEffect("res/sounds/sfx/drop_obj.ogg", false);
+							
 							_textCounter++;
 							_xStart = _sprite->getPositionX();      // Pixels
 							_yStart = blockBox->getPositionY() + blockBox->getContentSize().height;
@@ -573,9 +599,10 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 								crateLetterGridOnBuilding(_blockLevel1, _data_value[_textBoard]);
 								_textCounter = 0;
 							}
-							else if (_textCounter == blockChild.size() && _blockLevel1 == _data_key.size()) {
+							else if (_textCounter == blockChild.size() && _blockLevel1 == _data_key.size() && _removeCharacterAnimation) {
 								_textCounter = 0;
 								_blockLevel1++;
+								_removeCharacterAnimation = false;
 								this->runAction(Sequence::create(CallFunc::create([=]() {
 
 									_flagDemo = false;
@@ -592,6 +619,8 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 									_particle->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
 									_particle->setName("celebration");
 									this->addChild(_particle, 5);
+									auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+									audioBg->playEffect("res/sounds/sfx/success.ogg", false);
 
 								}),
 									DelayTime::create(3),
@@ -629,6 +658,8 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 
 					else if(blockChild.at(_textCounter)->getName() != target->getName() && _flagToControlMuiltipleTouch ){
 						_menuContext->addPoints(-1);
+						//auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+						//audioBg->playEffect("res/sounds/sfx/error.ogg", false);
 						_flagToControlMuiltipleTouch = false;
 						auto y = _sprite->getPositionY() - target->getPositionY();
 						auto x = -_sprite->getPositionX() + target->getPositionX();
@@ -652,6 +683,9 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 							setSpriteProperties(whiteTrans, (target->getParent()->getChildByName(blockNameInString)->getPositionX() - target->getParent()->getChildByName(blockNameInString)->getContentSize().width/2) + blockChild.at(_textCounter)->getPositionX(), (target->getParent()->getChildByName(blockNameInString)->getPositionY() - target->getParent()->getChildByName(blockNameInString)->getContentSize().height/ 2) + blockChild.at(_textCounter)->getPositionY(),1, 1, 0.5, 0.5, 0, 3);
 							whiteTrans->setOpacity(80);
 							whiteTrans->setName("transImg");
+							
+							auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+							audioBg->playEffect("res/sounds/sfx/error.ogg", false);
 
 							_xStart = _sprite->getPositionX();      // Pixels
 							_yStart = blockBox->getPositionY() + blockBox->getContentSize().height;

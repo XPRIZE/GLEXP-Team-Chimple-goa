@@ -7,6 +7,7 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../lang/LangUtil.h"
 #include "../lang/TextGenerator.h"
+#include "SimpleAudioEngine.h"
 
 using namespace cocos2d;
 using namespace std;
@@ -16,7 +17,7 @@ class Owl : public cocos2d::Layer
 protected:
 	MenuContext *_menuContext;
 	int _ticks, _ticksTotal, _ticks2, _ticksTotal2;
-	bool _flagDemo = true,_flagTurnHelp = true, _flagDemoSecond = true;
+	bool _flagDemo = true,_flagTurnHelp = true, _flagDemoSecond = true, _removeCharacterAnimation = true;
 	Node *_sprite = NULL, *_opponent = NULL;
 
 	std::map<std::string, std::string> _data;

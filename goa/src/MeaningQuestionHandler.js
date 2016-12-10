@@ -33,6 +33,9 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
     showQuestionTemplate: function() {
         this._constructedScene = ccs.load(this._nodeJSON,xc.path);
         this._constructedScene.node.retain();
+
+        this._constructedScene.node.setPosition(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2);
+        this._constructedScene.node.setAnchorPoint(cc.p(0.5,0.5));
         
         if (this._constructedScene.node) {
             this._callbackContext.addChild(this._constructedScene.node,0);
@@ -89,14 +92,24 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
             if(this._question.hasOwnProperty(oQuestion)) {
                 var realAnswer = this._question[oQuestion];
                 cc.log('realAnswer:' + realAnswer);
-                var remainingAnswers = this._answers.filter(function(e) {
-                        cc.log('checking alreadySelectedAnswers.indexOf(e) :' + alreadySelectedAnswers.indexOf(e) );
-                        return alreadySelectedAnswers.indexOf(e) < 0;
+                var remainingAnswers = this._answers.filter(function(e) { 
+                        return e!= realAnswer;
                     }
                 );   
 
+                remainingAnswers = remainingAnswers.filter(function(item) {
+                    return alreadySelectedAnswers.indexOf(item) === -1;
+                });
+
+                if(remainingAnswers.length == 0) {
+                    remainingAnswers = this._answers.filter(function(item) {
+                        return alreadySelectedAnswers.indexOf(item) === -1;
+                    });
+                }
+
                 if(remainingAnswers.length > 0) {
-                    alreadySelectedAnswers.push(remainingAnswers[0]);
+                    var rIndex = Math.floor(Math.random() * remainingAnswers.length);
+                    alreadySelectedAnswers.push(remainingAnswers[rIndex]);
                     var nodeName = "A"+(index+1);
                     var node = this._constructedScene.node.getChildByName(nodeName);
                     if(node) {
@@ -106,9 +119,9 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
                         node.setTitleFontName(xc.storyFontName);
                         node.setTouchEnabled(true);
                         node.selectedIndex = index;
-                        cc.log('remainingAnswers[0]:' + remainingAnswers[0]);
+                        cc.log('remainingAnswers[rIndex]:' + remainingAnswers[rIndex]);
                         var output = "";
-                        var qText = remainingAnswers[0];
+                        var qText = remainingAnswers[rIndex];
                         if(qText.length > 30) {
                             var i = 30;
                             while(i != qText.length && qText.charAt(i) != " ")
@@ -266,12 +279,14 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
 
         if(this._totalCorrectAnswers == 4) {
             this.callback.call(this._callbackContext, sender, true, true);
-        }                              
+        } else {
+            this.callback.call(this._callbackContext, sender, true, false);
+        }                           
     },
 
     verifyAnswer: function(sender, questionNode) {
         var str2 = sender.getTitleText().replace(/\n|\r/g, "");
-        var isCorrectAnswered = str2.trim().toLowerCase() === this._question[questionNode.getTitleText().trim()].toLowerCase();
+        var isCorrectAnswered = str2.trim().toLowerCase() === this._question[questionNode.getTitleText().trim()].trim().toLowerCase();
         if(isCorrectAnswered) {
             if(xc.NarrateStoryLayer.res.correctAnswerSound_json) {
                 cc.audioEngine.playEffect(xc.NarrateStoryLayer.res.correctAnswerSound_json, false);

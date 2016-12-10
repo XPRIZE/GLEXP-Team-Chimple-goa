@@ -635,6 +635,7 @@ std::vector<std::string> TextGenerator::getWords(TextGenerator::P_O_S partOfSpee
                 "language",
                 "management"
             };
+		break;
 		case TextGenerator::P_O_S::PRONOUN:
 			WordVec = {
 				"your",
@@ -697,6 +698,7 @@ std::vector<std::string> TextGenerator::getWords(TextGenerator::P_O_S partOfSpee
 				"self",
 				"nowhere"
 			};
+		break;
 		case TextGenerator::P_O_S::ADVERB:
 			WordVec = {
 				"accidentally",
@@ -792,6 +794,7 @@ std::vector<std::string> TextGenerator::getWords(TextGenerator::P_O_S partOfSpee
 				"wildly",
 				"yearly"
 			};
+     	break;
 		case TextGenerator::P_O_S::PREPOSITION:
 			WordVec = {
 				"aboard",
@@ -865,6 +868,7 @@ std::vector<std::string> TextGenerator::getWords(TextGenerator::P_O_S partOfSpee
 				"within",
 				"without"
 			};
+		break;
 		case TextGenerator::P_O_S::CONJUNCTION:
 			WordVec = {
 				"and",
@@ -893,6 +897,7 @@ std::vector<std::string> TextGenerator::getWords(TextGenerator::P_O_S partOfSpee
 				"now",
 				"except"
 			};
+     	break;
 		case TextGenerator::P_O_S::INTERJECTION:
 			WordVec = {
 				"absolutely",
@@ -917,6 +922,7 @@ std::vector<std::string> TextGenerator::getWords(TextGenerator::P_O_S partOfSpee
 				"attaboy",
 				"attagirl"
 			};
+		break;
 		case TextGenerator::P_O_S::ARTICLE:
 			WordVec = {
 				"a",

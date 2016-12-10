@@ -97,15 +97,16 @@ void LevelHelpScene::onEnterTransitionDidFinish() {
 //    addChild(button);
     
     auto textField = static_cast<TextField*> (bg->getChildByName("TextField_1"));
-    textField->setString(_helpText);
     auto text = Text::create(_helpText, "Arial", 64);
     text->setTextColor(Color4B::BLACK);
-//    text->setPosition(Vec2(1280, 600));
     text->setPosition(textField->getPosition());
     text->setTextAreaSize(Size(2000, 0));
     text->ignoreContentAdaptWithSize(true);
+    text->setEnabled(false);
+    text->setTouchEnabled(false);
+    text->setFocusEnabled(false);
     addChild(text);
-    removeChild(textField);
+    bg->removeChild(textField);
     videoPlayStart();
 }
 

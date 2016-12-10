@@ -5,10 +5,69 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 300,
+        "Duration": 585,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "hippo",
         "Timelines": [
+          {
+            "ActionTag": 1399897630,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 305,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1399897630,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 3326.0762,
+                "Y": 1359.1682,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1013.9798,
+                "Y": 1264.7764,
+                "FrameIndex": 585,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1399897630,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 305,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 1440992277,
             "Property": "ActionValue",
@@ -90,6 +149,12 @@
           "StartIndex": 0,
           "EndIndex": 300,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 305,
+          "EndIndex": 585,
+          "Name": "hippo",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -227,8 +292,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 560.3176,
-              "Y": 851.7422
+              "X": 1290.281,
+              "Y": 901.7285
             },
             "Scale": {
               "ScaleX": 1.2049,
@@ -239,17 +304,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.2189,
-              "Y": 0.4732
+              "X": 0.504,
+              "Y": 0.501
             },
             "PreSize": {
               "X": 1.5625,
               "Y": 1.0
             },
-            "LeftMargin": -1439.6824,
-            "RightMargin": -0.3176,
-            "TopMargin": 48.2578,
-            "BottomMargin": -48.2578,
+            "LeftMargin": -709.719,
+            "RightMargin": -730.281,
+            "TopMargin": -1.7285,
+            "BottomMargin": 1.7285,
             "Tag": 971,
             "ActionTag": 498799946,
             "Size": {
@@ -258,6 +323,48 @@
             },
             "Name": "Panel_0_1",
             "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/hippo.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 3326.0762,
+              "Y": 1359.1682
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.2992,
+              "Y": 0.7551
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 3326.0762,
+            "RightMargin": -766.0762,
+            "TopMargin": 440.8318,
+            "BottomMargin": 1359.1682,
+            "Tag": 7152,
+            "ActionTag": 1399897630,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "VisibleForFrame": false,
+            "Name": "FileNode_1",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -297,13 +404,14 @@
             "RightMargin": 1765.1816,
             "TopMargin": 597.6514,
             "BottomMargin": 186.3486,
+            "UserData": "main.hippo",
             "Tag": 933,
             "ActionTag": 517953655,
             "Size": {
               "X": 430.0,
               "Y": 1016.0
             },
-            "Name": "Miminafamiliayangu_leaf2_10_1_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -344,13 +452,14 @@
             "RightMargin": 1556.0681,
             "TopMargin": 693.4706,
             "BottomMargin": 90.5294,
+            "UserData": "main.hippo",
             "Tag": 934,
             "ActionTag": 2038819474,
             "Size": {
               "X": 430.0,
               "Y": 1016.0
             },
-            "Name": "Miminafamiliayangu_leaf2_10_0_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -391,13 +500,14 @@
             "RightMargin": 1583.186,
             "TopMargin": 526.9741,
             "BottomMargin": 257.0259,
+            "UserData": "main.hippo",
             "Tag": 935,
             "ActionTag": -633480742,
             "Size": {
               "X": 430.0,
               "Y": 1016.0
             },
-            "Name": "Miminafamiliayangu_leaf2_10_2",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -438,13 +548,14 @@
             "RightMargin": 2011.6182,
             "TopMargin": 599.0654,
             "BottomMargin": 184.9346,
+            "UserData": "main.hippo",
             "Tag": 936,
             "ActionTag": -1966412539,
             "Size": {
               "X": 430.0,
               "Y": 1016.0
             },
-            "Name": "Miminafamiliayangu_leaf2_10_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -485,13 +596,14 @@
             "RightMargin": 2138.3809,
             "TopMargin": 573.7643,
             "BottomMargin": 210.2357,
+            "UserData": "main.hippo",
             "Tag": 937,
             "ActionTag": 722654409,
             "Size": {
               "X": 430.0,
               "Y": 1016.0
             },
-            "Name": "Miminafamiliayangu_leaf2_10",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -530,13 +642,14 @@
             "RightMargin": 1553.9988,
             "TopMargin": 1045.5112,
             "BottomMargin": 273.4888,
+            "UserData": "main.hippo",
             "Tag": 932,
             "ActionTag": 696524404,
             "Size": {
               "X": 1006.0,
               "Y": 481.0
             },
-            "Name": "Miminafamiliayangu_mound_11",
+            "Name": "mound",
             "ctype": "SpriteObjectData"
           },
           {
@@ -577,13 +690,14 @@
             "RightMargin": 1491.1754,
             "TopMargin": 773.9767,
             "BottomMargin": 10.0233,
+            "UserData": "main.hippo",
             "Tag": 931,
             "ActionTag": -771601059,
             "Size": {
               "X": 430.0,
               "Y": 1016.0
             },
-            "Name": "Miminafamiliayangu_leaf2_10_0_0_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -624,13 +738,14 @@
             "RightMargin": 2261.7412,
             "TopMargin": 696.175,
             "BottomMargin": 87.825,
+            "UserData": "main.hippo",
             "Tag": 930,
             "ActionTag": -2029742550,
             "Size": {
               "X": 430.0,
               "Y": 1016.0
             },
-            "Name": "Miminafamiliayangu_leaf2_10_1",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -667,13 +782,14 @@
             "RightMargin": 514.55,
             "TopMargin": 1418.3297,
             "BottomMargin": 381.6703,
+            "UserData": "drag;crocwalk",
             "Tag": 938,
             "ActionTag": 1440992277,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "croc",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -740,6 +856,7 @@
       },
       "UsedResources": [
         "croc.json",
+        "hippo.json",
         "Mtoto_wa_Tembo_Mdadisi.plist",
         "Mtoto_wa_Tembo_Mdadisi.png"
       ],

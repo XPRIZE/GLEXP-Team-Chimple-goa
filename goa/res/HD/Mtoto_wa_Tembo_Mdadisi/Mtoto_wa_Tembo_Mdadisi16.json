@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 175,
+        "Duration": 475,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "turtle",
         "Timelines": [
           {
             "ActionTag": 1475968838,
@@ -82,6 +82,46 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": -0.0242,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1475968838,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "trunklift2",
+                "SingleFrameIndex": 365,
+                "FrameIndex": 180,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "trunklift2",
+                "SingleFrameIndex": 165,
+                "FrameIndex": 210,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "trunklift2",
+                "SingleFrameIndex": 365,
+                "FrameIndex": 305,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -130,6 +170,15 @@
                 "X": 1645.4058,
                 "Y": 737.4762,
                 "FrameIndex": 175,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1284.2141,
+                "Y": 251.0054,
+                "FrameIndex": 180,
                 "EasingData": {
                   "Type": 0
                 },
@@ -211,6 +260,68 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0035,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1474643081,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 180,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1988961085,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 180,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1988961085,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -534.9104,
+                "Y": 354.7977,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 311.069,
+                "Y": 386.5715,
+                "FrameIndex": 475,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -673,6 +784,12 @@
           "EndIndex": 175,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 180,
+          "EndIndex": 475,
+          "Name": "turtle",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -696,7 +813,6 @@
               "G": 234
             },
             "ColorVector": {
-              "ScaleX": 0.0,
               "ScaleY": -1.0
             },
             "Scale9Width": 1,
@@ -823,13 +939,14 @@
             "RightMargin": 1658.746,
             "TopMargin": 1323.1261,
             "BottomMargin": 476.8739,
+            "UserData": "pull",
             "Tag": 619,
             "ActionTag": 1475968838,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_3",
+            "Name": "elephant",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -876,8 +993,50 @@
               "X": 188.0,
               "Y": 502.0
             },
+            "VisibleForFrame": false,
             "Name": "elephanttrunk1_56",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/turtle.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -534.9104,
+              "Y": 354.7977
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.2089,
+              "Y": 0.1971
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -534.9104,
+            "RightMargin": 3094.9104,
+            "TopMargin": 1445.2024,
+            "BottomMargin": 354.7977,
+            "Tag": 7097,
+            "ActionTag": -1988961085,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "turtle",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -917,6 +1076,7 @@
             "RightMargin": 873.1228,
             "TopMargin": 1140.1296,
             "BottomMargin": -356.1296,
+            "UserData": "main.turtle",
             "Tag": 681,
             "ActionTag": -1419539397,
             "Size": {
@@ -964,6 +1124,7 @@
             "RightMargin": 748.301,
             "TopMargin": 1197.3263,
             "BottomMargin": -413.3263,
+            "UserData": "main.turtle",
             "Tag": 680,
             "ActionTag": 1627459065,
             "Size": {
@@ -1011,6 +1172,7 @@
             "RightMargin": 764.4905,
             "TopMargin": 1097.9414,
             "BottomMargin": -313.9414,
+            "UserData": "main.turtle",
             "Tag": 679,
             "ActionTag": 465515967,
             "Size": {
@@ -1058,6 +1220,7 @@
             "RightMargin": 1020.2249,
             "TopMargin": 1140.9756,
             "BottomMargin": -356.9756,
+            "UserData": "main.turtle",
             "Tag": 678,
             "ActionTag": -172618785,
             "Size": {
@@ -1105,6 +1268,7 @@
             "RightMargin": 1095.8947,
             "TopMargin": 1125.8721,
             "BottomMargin": -341.8721,
+            "UserData": "main.turtle",
             "Tag": 677,
             "ActionTag": 947661708,
             "Size": {
@@ -1150,6 +1314,7 @@
             "RightMargin": 630.978,
             "TopMargin": 1515.2896,
             "BottomMargin": -196.2896,
+            "UserData": "main.turtle",
             "Tag": 676,
             "ActionTag": 1887615171,
             "Size": {
@@ -1197,6 +1362,7 @@
             "RightMargin": 1169.5317,
             "TopMargin": 1198.9408,
             "BottomMargin": -414.9408,
+            "UserData": "main.turtle",
             "Tag": 675,
             "ActionTag": 1870355412,
             "Size": {
@@ -1244,6 +1410,7 @@
             "RightMargin": 709.5696,
             "TopMargin": 1245.3815,
             "BottomMargin": -461.3815,
+            "UserData": "main.turtle",
             "Tag": 674,
             "ActionTag": -163967281,
             "Size": {
@@ -1264,7 +1431,8 @@
       "UsedResources": [
         "elephant.json",
         "Mtoto_wa_Tembo_Mdadisi.plist",
-        "Mtoto_wa_Tembo_Mdadisi.png"
+        "Mtoto_wa_Tembo_Mdadisi.png",
+        "turtle.json"
       ],
       "ctype": "GameFileData"
     }
