@@ -137,30 +137,30 @@ bool Line::init()
 		} },
 		{ 3,  //level number
 		{
-			{ "start", 6 },  //"start"
-			{ "end", 11 },   // "end"
-			{ "mid", 1 },   // "mid"
+			{ "start", 0 },  //"start"
+			{ "end", 5 },   // "end"
+			{ "mid", 3 },   // "mid"
 			{ "tags", 4 }   // "no of tags"
 		} },
 		{ 4,  //level number
 		{
 			{ "start", 6 },  //"start"
 			{ "end", 11 },   // "end"
-			{ "mid", 2 },   // "mid"
+			{ "mid", 1 },   // "mid"
 			{ "tags", 4 }   // "no of tags"
 		} },
 		{ 5,  //level number
 		{
-			{ "start", 0 },  //"start"
-			{ "end", 10 },   // "end"
-			{ "mid", 1 },   // "mid"
+			{ "start", 6 },  //"start"
+			{ "end", 11 },   // "end"
+			{ "mid", 2 },   // "mid"
 			{ "tags", 5 }   // "no of tags"
 		} },
 		{ 6,  //level number
 		{
-			{ "start", 0 },  //"start"
-			{ "end", 10 },   // "end"
-			{ "mid", 1 },   // "mid"
+			{ "start", 6 },  //"start"
+			{ "end", 11 },   // "end"
+			{ "mid", 3 },   // "mid"
 			{ "tags", 5 }   // "no of tags"
 		} },
 		{ 7,  //level number
@@ -271,12 +271,12 @@ void Line::onEnterTransitionDidFinish()
 	this->scheduleUpdate();
 	_startNum = level.at("start");
 	_endNum = level.at("end");
-	auto mid = level.at("mid");
+	_mid = level.at("mid");
 	_tagNum = level.at("tags");
 
-	menu->setMaxPoints(_tagNum);
+	
 
-	if (menu->getCurrentLevel() <= 4)
+	if (menu->getCurrentLevel() <= 6)
 	{
 		_NumberLine = CSLoader::createNode(_scenePath.at("five"));
 		int temp = _startNum;
@@ -343,7 +343,7 @@ void Line::onEnterTransitionDidFinish()
 		}
 	}
 	
-	scaleNumber(_startNum, _endNum, mid);
+	scaleNumber(_startNum, _endNum, _mid);
 	tagCreate(_tagNum);
 	
 	_NumberLine->setPosition(Vec2(extraX, 150));
@@ -363,7 +363,7 @@ void Line::gameHelp()
 
 void Line::scaleNumber(int start, int end,int mid)
 {
-	for(int i=start ; i<=end ; i+= mid)
+	for(int i=start ; i<=end ; i+= _mid)
 	{
 		std::stringstream ss;
 		ss << i;
@@ -373,7 +373,7 @@ void Line::scaleNumber(int start, int end,int mid)
 		number_label->setPositionY(_NumberLine->getChildByName(str)->getPositionY() - 60);
 		number_label->setColor(Color3B(0, 0, 0));
 		this->addChild(number_label);
-		
+		_numRef.push_back(str);
 	}
 	for (int i = start; i <= end; i+= _diff)
 	{
@@ -389,33 +389,76 @@ void Line::tagCreate(int choice)
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	std::random_shuffle(_five.begin(), _five.end());
-	for (int i = 1; i <= choice; i++)
+
+	if (_mid > 1)
 	{
-		_tag = Sprite::createWithSpriteFrameName("line/candy_1.png");
-		_tag->setPosition(visibleSize.width/(choice +1)*i + extraX, 700);
-		//_tag->setContentSize(Size(200, 200));
-		//_tag->setAnchorPoint(Vec2(0.5, 1));
-		this->addChild(_tag);
-		_tag->setScaleX(0.9);
-		_tag->setScaleY(0.9);
-		_tagRef.push_back(_tag);
+		for (int i = 0; i < _numRef.size(); i++)
+		{
+			for (int j = 0; j < _five.size(); j++)
+			{
+				if (_five.at(j) == _numRef.at(i))
+				{
+					_five.erase(_five.begin() + j);
+				}
+			}
+		}
+		for (int i = 1; i <= _five.size(); i++)
+		{
+			_tag = Sprite::createWithSpriteFrameName("line/candy_1.png");
+			_tag->setPosition(visibleSize.width / (_five.size())*(i)-(visibleSize.width / (_five.size()) * 0.5), 700);
+			//_tag->setContentSize(Size(200, 200));
+			//_tag->setAnchorPoint(Vec2(0.5, 1));
+			this->addChild(_tag);
+			_tag->setScaleX(0.9);
+			_tag->setScaleY(0.9);
+			_tagRef.push_back(_tag);
 
-		
-		auto number_label = Label::createWithSystemFont(_five.at(i), "Arial", 90);
-		number_label->setPositionX(_tag->getContentSize().width / 2 );
-		number_label->setPositionY(_tag->getContentSize().height / 4);
-		number_label->setColor(Color3B(0, 0, 0));
-		_tag->addChild(number_label);
-		_tag->setName(_five.at(i));
-		
+
+			auto number_label = Label::createWithSystemFont(_five.at(i - 1), "Arial", 90);
+			number_label->setPositionX(_tag->getContentSize().width / 2);
+			number_label->setPositionY(_tag->getContentSize().height / 4);
+			number_label->setColor(Color3B(0, 0, 0));
+			_tag->addChild(number_label);
+			_tag->setName(_five.at(i - 1));
 
 
-		auto listener = EventListenerTouchOneByOne::create();
-		listener->setSwallowTouches(true);
-		listener->onTouchBegan = CC_CALLBACK_2(Line::onTouchBegan, this);
-		listener->onTouchMoved = CC_CALLBACK_2(Line::onTouchMoved, this);
-		listener->onTouchEnded = CC_CALLBACK_2(Line::onTouchEnded, this);
-		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, _tag);
+
+			auto listener = EventListenerTouchOneByOne::create();
+			listener->setSwallowTouches(true);
+			listener->onTouchBegan = CC_CALLBACK_2(Line::onTouchBegan, this);
+			listener->onTouchMoved = CC_CALLBACK_2(Line::onTouchMoved, this);
+			listener->onTouchEnded = CC_CALLBACK_2(Line::onTouchEnded, this);
+			_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, _tag);
+		}
+	}
+	else
+	{
+		for (int i = 1; i <= choice; i++)
+		{
+			_tag = Sprite::createWithSpriteFrameName("line/candy_1.png");
+			_tag->setPosition(visibleSize.width / (choice + 1)*i + extraX, 700);
+			//_tag->setContentSize(Size(200, 200));
+			//_tag->setAnchorPoint(Vec2(0.5, 1));
+			this->addChild(_tag);
+			_tag->setScaleX(0.9);
+			_tag->setScaleY(0.9);
+			_tagRef.push_back(_tag);
+
+
+			auto number_label = Label::createWithSystemFont(_five.at(i), "Arial", 90);
+			number_label->setPositionX(_tag->getContentSize().width / 2);
+			number_label->setPositionY(_tag->getContentSize().height / 4);
+			number_label->setColor(Color3B(0, 0, 0));
+			_tag->addChild(number_label);
+			_tag->setName(_five.at(i));
+
+			auto listener = EventListenerTouchOneByOne::create();
+			listener->setSwallowTouches(true);
+			listener->onTouchBegan = CC_CALLBACK_2(Line::onTouchBegan, this);
+			listener->onTouchMoved = CC_CALLBACK_2(Line::onTouchMoved, this);
+			listener->onTouchEnded = CC_CALLBACK_2(Line::onTouchEnded, this);
+			_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, _tag);
+		}
 	}
 	if (menu->getCurrentLevel() == 1)
 	{
@@ -428,6 +471,15 @@ void Line::update(float dt)
 }
 void Line::scoreBoard(float dt)
 {
+	if (_mid > 1)
+	{
+		menu->setMaxPoints(_five.size());
+	}
+	else if( _mid == 1)
+	{
+		menu->setMaxPoints(_tagNum);
+	}
+	
 	menu->showScore();
 }
 
@@ -480,12 +532,20 @@ void Line::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 			CCLOG("correct");
 			flag = true;
 			_score++;
+			CCLOG("score = %d", _score);
+			
 			menu->addPoints(1);
 			_flag = true;
 			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 			audio->playEffect("sounds/sfx/drop.ogg", false);
-			if (_score == _tagNum)
+			if ( _mid >1 && _score == _five.size())
 			{
+				CCLOG("_five.size() = %d", _five.size());
+				this->scheduleOnce(schedule_selector(Line::scoreBoard), 2);
+			}
+			else if (_mid ==1 && _score == _tagNum)
+			{
+				CCLOG("_tagNum = %d", _tagNum);
 				this->scheduleOnce(schedule_selector(Line::scoreBoard), 2);
 			}
 		}
