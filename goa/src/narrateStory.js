@@ -465,12 +465,6 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
         this.setUpScene();
 
-        // this._leftButton = new ccui.Button("template/click_side_arrow.png", "template/side_arrow.png", configuration[index]['icon'], ccui.Widget.LOCAL_TEXTURE);
-        // this._leftButton.setEnabled(true);
-        // this._leftButton.addTouchEventListener(this.itemSelected, this);
-        // this._leftButton.setPosition(cc.director.getWinSize().width + (1 + 0.5) * cc.director.getWinSize().width / 1, cc.director.getWinSize().height - (1 + 0.5) * cc.director.getWinSize().height / 1);
-        
-
         this._leftButtonPanel = new xc.ButtonPanel(new cc.p(150, 0), cc.size(this._configPanelWidth, this._contentPanelHeight), 1, 1, xc.onlyStoryNarrateConfigurationObject.prevDefault, new xc.ButtonHandler(this.previousStory, this, false));        
         this._leftButtonPanel.scaleX *= -1;
         this._leftButtonPanel.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);

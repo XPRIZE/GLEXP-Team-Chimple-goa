@@ -5,10 +5,111 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 180,
+        "Duration": 350,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "sun",
         "Timelines": [
+          {
+            "ActionTag": 1453745262,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 223,
+                  "G": 223,
+                  "B": 236
+                },
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 223,
+                  "G": 223,
+                  "B": 236
+                },
+                "FrameIndex": 185,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 350,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1375603037,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "sun",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 185,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1375603037,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -54.125,
+                "Y": 261.5826,
+                "FrameIndex": 185,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 800.4321,
+                "Y": 1479.5444,
+                "FrameIndex": 350,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1375603037,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 180,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 185,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 765418306,
             "Property": "ActionValue",
@@ -18,14 +119,6 @@
                 "CurrentAniamtionName": "sleep",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              },
-              {
-                "InnerActionType": "SingleFrame",
-                "CurrentAniamtionName": "sleep",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 180,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -57,6 +150,12 @@
           "EndIndex": 180,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 185,
+          "EndIndex": 350,
+          "Name": "sun",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -79,7 +178,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -92,7 +190,11 @@
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "CColor": {},
+            "CColor": {
+              "R": 223,
+              "G": 223,
+              "B": 236
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.5,
@@ -114,6 +216,48 @@
             "ctype": "PanelObjectData"
           },
           {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtu_na_Simba/sun.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -54.125,
+              "Y": 261.5826
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.0211,
+              "Y": 0.1453
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -54.125,
+            "RightMargin": 2614.125,
+            "TopMargin": 1538.4175,
+            "BottomMargin": 261.5826,
+            "Tag": 416,
+            "ActionTag": -1375603037,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "VisibleForFrame": false,
+            "Name": "sun",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
             "ClipAble": false,
             "ComboBoxIndex": 1,
             "SingleColor": {
@@ -131,7 +275,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -170,7 +313,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Mtu_na_Simba/Mtende_palmtree.png",
+              "Path": "Mtu_na_Simba/palmtree.png",
               "Plist": "Mtu_na_Simba/Mtu_na_Simba.plist"
             },
             "BlendFunc": {
@@ -182,8 +325,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2143.6138,
-              "Y": 1627.6946
+              "X": 2150.2607,
+              "Y": 1627.6945
             },
             "Scale": {
               "ScaleX": 1.5698,
@@ -192,24 +335,25 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.8373,
+              "X": 0.8399,
               "Y": 0.9043
             },
             "PreSize": {
               "X": 0.4145,
               "Y": 0.8767
             },
-            "LeftMargin": 1613.1138,
-            "RightMargin": -114.1138,
-            "TopMargin": -616.6946,
-            "BottomMargin": 838.6946,
+            "LeftMargin": 1619.7607,
+            "RightMargin": -120.7607,
+            "TopMargin": -616.6943,
+            "BottomMargin": 838.6945,
+            "UserData": "main.sun",
             "Tag": 216,
             "ActionTag": 1346199319,
             "Size": {
               "X": 1061.0,
               "Y": 1578.0
             },
-            "Name": "Mtende_palmtree_1",
+            "Name": "palmtree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -248,13 +392,14 @@
             "RightMargin": 2406.5166,
             "TopMargin": 416.697,
             "BottomMargin": 694.303,
+            "UserData": "main.sun",
             "Tag": 217,
             "ActionTag": 1684942501,
             "Size": {
               "X": 810.0,
               "Y": 689.0
             },
-            "Name": "MbwanaMamba_tree1_2",
+            "Name": "tree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -289,13 +434,14 @@
             "RightMargin": 1413.7214,
             "TopMargin": 1070.7297,
             "BottomMargin": 729.2702,
+            "UserData": "drag;openmouth",
             "Tag": 223,
             "ActionTag": 765418306,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "lion",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -340,13 +486,14 @@
             "RightMargin": 1258.7507,
             "TopMargin": 1039.7764,
             "BottomMargin": -255.7764,
+            "UserData": "main.sun",
             "Tag": 222,
             "ActionTag": 1296356102,
             "Size": {
               "X": 430.0,
               "Y": 1016.0
             },
-            "Name": "Miminafamiliayangu_leaf2_6",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -391,13 +538,14 @@
             "RightMargin": 1084.7209,
             "TopMargin": 974.0364,
             "BottomMargin": -190.0364,
+            "UserData": "main.sun",
             "Tag": 221,
             "ActionTag": 633765715,
             "Size": {
               "X": 430.0,
               "Y": 1016.0
             },
-            "Name": "Miminafamiliayangu_leaf2_6_0",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -442,13 +590,14 @@
             "RightMargin": 836.6467,
             "TopMargin": 998.8362,
             "BottomMargin": -214.8362,
+            "UserData": "main.sun",
             "Tag": 220,
             "ActionTag": 1917768679,
             "Size": {
               "X": 430.0,
               "Y": 1016.0
             },
-            "Name": "Miminafamiliayangu_leaf2_6_1",
+            "Name": "leaf",
             "ctype": "SpriteObjectData"
           },
           {
@@ -487,13 +636,14 @@
             "RightMargin": 902.8711,
             "TopMargin": 1457.9064,
             "BottomMargin": -138.9064,
+            "UserData": "main.sun",
             "Tag": 215,
             "ActionTag": 585566505,
             "Size": {
               "X": 1006.0,
               "Y": 481.0
             },
-            "Name": "Miminafamiliayangu_mound_9",
+            "Name": "mound",
             "ctype": "SpriteObjectData"
           }
         ],
@@ -507,7 +657,8 @@
       "UsedResources": [
         "lion.json",
         "Mtu_na_Simba.plist",
-        "Mtu_na_Simba.png"
+        "Mtu_na_Simba.png",
+        "sun.json"
       ],
       "ctype": "GameFileData"
     }

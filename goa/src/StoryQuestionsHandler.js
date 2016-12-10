@@ -62,6 +62,17 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
         this.addChild(this._particleSystem, 10);  
     },
 
+    wordQuestionHandler: function(questions) {
+        if(this._currentQName) {
+            var oldQuestionChild = this.getChildByName(this._currentQName);
+            oldQuestionChild.removeFromParent();
+        }
+        var handler = new xc.WordQuestionHandler(cc.director.getWinSize().width, cc.director.getWinSize().height, questions, this._storyBaseDir, this._menuContext.getMaxPoints(), this._menuContext.getPoints());
+        handler.setName(this._Q_WORDS); 
+        this._currentQName = this._Q_WORDS;
+        this._hasWordsQuestions = true;
+        this.addChild(handler);        
+    },
     questionHandler: function(question) {
         if(this._currentQName) {
             var oldQuestionChild = this.getChildByName(this._currentQName);
@@ -85,13 +96,7 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
             var handler = new xc.PictureQuestionHandler(xc.StoryQuestionHandlerLayer.res.picture_question_choice_json, cc.director.getWinSize().width, cc.director.getWinSize().height, question, this.questionCallBack, this);
             handler.setName(this._Q_PICTURES); 
             this._currentQName = this._Q_PICTURES;
-        }          
-        // } else if(questionType == this._Q_WORDS && cc.sys.isNative) {
-        //     var handler = new xc.WordQuestionHandler(cc.director.getWinSize().width, cc.director.getWinSize().height, question, this.questionCallBack, this);
-        //     handler.setName(this._Q_WORDS); 
-        //     this._currentQName = this._Q_WORDS;
-        //     this._hasWordsQuestions = true;
-        // } 
+        } 
         this.addChild(handler);        
     },
 
@@ -135,7 +140,12 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
         this._currentQuestionIndex++;
         if(this._currentQuestionIndex < this._questions.length) {
             var question = this._questions[this._currentQuestionIndex];
-            this.questionHandler(question);                
+            if(question["type"] == "words") {
+                this.wordQuestionHandler(this._questions);
+            } else {
+                this.questionHandler(question);
+            }
+                            
         } else {
             this.showCopyRight();                      
         }
@@ -219,17 +229,23 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
         this.processQuestions(json[this._Q_MEANINGS], this._Q_MEANINGS);
         this.processQuestions(json[this._Q_PICTURES], this._Q_PICTURES);
         // if(cc.sys.isNative) {
-        //     this.processQuestions(json[this._Q_WORDS], this._Q_WORDS);
+            this.processQuestions(json[this._Q_WORDS], this._Q_WORDS);
         // }
                 
         cc.log("questions:" + this._questions.length);
+        cc.log("total points:" + this._totalPoints);
         if(cc.sys.isNative) {
             this._menuContext.setMaxPoints(this._totalPoints);
         }
         //create UI for questions
         var question = this._questions[this._currentQuestionIndex];
         if(question) {
-            this.questionHandler(question);
+            if(question["type"] == "words") {
+                this.wordQuestionHandler(this._questions);
+            } else {
+                this.questionHandler(question);
+            }
+            
         } else if(cc.sys.isNative) {
             this._menuContext.showScore();
         }
@@ -237,6 +253,7 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
     },
 
     computePoints:function(array, type) {
+        var context = this;
         if(type == this._Q_MULTIPLE_CHOICE) {
             this._totalPoints += 1 * array.length;
         } else if(type == this._Q_FILL_IN_THE_BLANKS) {
@@ -246,7 +263,10 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
         } else if(type == this._Q_PICTURES) {
             this._totalPoints += 4 * array.length;
         } else if(type == this._Q_WORDS) {
-            this._totalPoints += 1 * array.length;
+            array.forEach(function(ele) {
+                cc.log('ele:' + ele);
+                context._totalPoints += ele.length;
+            });
         }
     },
 
