@@ -198,7 +198,13 @@ void Units::update(float delta) {
 			
 			
 			if (_gameOverFlag == 1) {
-				_menuContext->addPoints(_calculator->getFinalPoints());
+				
+
+				if (_calculator->getFinalPoints() <= 0) {
+					_menuContext->addPoints(3 * 0.33);
+				}else
+					_menuContext->addPoints(_calculator->getFinalPoints());
+
 				_menuContext->showScore();
 			}
 
