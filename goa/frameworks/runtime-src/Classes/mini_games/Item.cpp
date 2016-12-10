@@ -171,7 +171,8 @@ void Item::onEnterTransitionDidFinish()
 		auto timeline2 = CSLoader::createTimeline(_scenePath.at("fish2"));
 		fishTop2->runAction(timeline2);
 		timeline2->gotoFrameAndPause(0);
-		fishCreate();
+		fish1Create();
+		fish2Create();
 		numCreate();
 		if (menu->getCurrentLevel() == 1 )
 		{
@@ -295,8 +296,8 @@ void Item::check()
 
 	if (menu->getCurrentLevel() <= 15)
 	{
-		auto fillNum = cocos2d::RandomHelper::random_int(0, 2);
-		if (fillNum == 0)
+		_fillNum = cocos2d::RandomHelper::random_int(0, 2);
+		if (_fillNum == 0)
 		{
 			Label* box1Label = (Label*)box1->getChildByName("hintLabel1");
 			std::stringstream ss;
@@ -306,7 +307,7 @@ void Item::check()
 			_eventDispatcher->removeEventListenersForTarget(box1);
 			_frogCount1 = atoi(str.c_str());
 		}
-		else if (fillNum == 1)
+		else if (_fillNum == 1)
 		{
 			Label* box1Label = (Label*)box2->getChildByName("hintLabel2");
 			std::stringstream ss;
@@ -316,7 +317,7 @@ void Item::check()
 			_eventDispatcher->removeEventListenersForTarget(box2);
 			_frogCount2 = atoi(str.c_str());
 		}
-		else if (fillNum == 2)
+		else if (_fillNum == 2)
 		{
 			Label* box1Label = (Label*)box3->getChildByName("hintLabel3");
 			std::stringstream ss;
@@ -354,7 +355,7 @@ void Item::numCreate()
 	number_label2->setPositionY(_box2->getContentSize().height / 2);
 	_box2->addChild(number_label2, 2);
 }
-void Item::fishCreate()
+void Item::fish1Create()
 {
 	auto bubble1 = background->getChildByName("item_bubble_3");
 	auto bubble2 = background->getChildByName("item_bubble_3_2");
@@ -378,6 +379,11 @@ void Item::fishCreate()
 	listener1->onTouchEnded = CC_CALLBACK_2(Item::onTouchEnded, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, _fish1);
 
+	
+}
+void Item::fish2Create()
+{
+	auto bubble2 = background->getChildByName("item_bubble_3_2");
 	_fish2 = CSLoader::createNode(_scenePath.at("fish2"));
 	_fish2->setPositionX(bubble2->getPositionX() + extraX);
 	_fish2->setPositionY(bubble2->getPositionY() + 60);
@@ -395,9 +401,40 @@ void Item::fishCreate()
 	listener2->onTouchMoved = CC_CALLBACK_2(Item::onTouchMoved, this);
 	listener2->onTouchEnded = CC_CALLBACK_2(Item::onTouchEnded, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener2, _fish2);
+
 }
+
 void Item::scoreBoard(float dt)
 {
+	if (menu->getCurrentLevel() <= 5)
+	{
+		menu->setMaxPoints(_num1 + _num2);
+	}
+
+	else if (menu->getCurrentLevel() <= 15)
+	{ 
+		auto checkNum = 4;
+		if (_fillNum == 0)
+		{
+			checkNum--;
+			CCLOG("checkNum = %d", checkNum);
+		}
+		else if (_fillNum == 1)
+		{
+			checkNum--;
+			CCLOG("checkNum = %d", checkNum);
+		}
+		else if (_fillNum == 2)
+		{
+			checkNum -= 2;
+			CCLOG("checkNum = %d", checkNum);
+		}
+		menu->setMaxPoints(checkNum);
+	}
+	else if (menu->getCurrentLevel() <= 25)
+	{
+		menu->setMaxPoints(4);
+	}
 	_frog1Num = 0;
 	_frog2Num = 0;
 	_frogCount1 = 0;
@@ -420,20 +457,24 @@ void Item::result()
 			this->addChild(_particle);
 			this->scheduleOnce(schedule_selector(Item::scoreBoard), 4);
 		}
+	
+		_scoreMax++;
 	}
 	else
 	{
 		CCLOG("None.........");
 		FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
 		_done->runAction(shake);
+		
+		_scoreMax++;
 		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 		audio->playEffect("sounds/sfx/error.ogg", false);
 		for (int i = 0; i < _fishMove.size(); i++)
 		{
 
-			this->removeChild(_fishMove.at(i));
-			_count1 = 0;
-			_count2 = 0;
+			//this->removeChild(_fishMove.at(i));
+			//_count1 = 0;
+			//_count2 = 0;
 		}
 		_fishMove.clear();
 	}
@@ -445,18 +486,49 @@ void Item::verify()
 	CCLOG("_frogCount1 = %d", _frogCount1);
 	CCLOG("_frogCount2 = %d", _frogCount2);
 	CCLOG("_frogCount3 = %d", _frogCount3);
+	if (_frog1Num == _frogCount1 && _fillNum !=0)
+	{
+		menu->addPoints(1);
+	}
+	else 
+	{  
+		if(_fillNum != 0)
+		menu->addPoints(-1);
+	}
+	if (_frog2Num == _frogCount2 && _fillNum != 1)
+	{
+		menu->addPoints(1);
+	}
+	else 
+	{
+		if (_fillNum != 1)
+		menu->addPoints(-1);
+	}
+	if ((_frog1Num + _frog2Num) == _frogCount3 && _fillNum != 2)
+	{
+		menu->addPoints(2);
+	}
+	else 
+	{
+		if (_fillNum != 2)
+		menu->addPoints(-2);
+	}
 	if (_frog1Num == _frogCount1 && _frog2Num == _frogCount2 && (_frog1Num+ _frog2Num) == _frogCount3)
 	{
 		CCParticleSystemQuad *_particle = CCParticleSystemQuad::create("item/rain.plist");
 		_particle->setTexture(CCTextureCache::sharedTextureCache()->addImage("item/rain.png"));
 		//_particle->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
 		this->addChild(_particle);
+		
+		_scoreMax++;
 		this->scheduleOnce(schedule_selector(Item::scoreBoard), 2);
 	}
 	else
 	{
 		FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
 		_done->runAction(shake);
+		
+		_scoreMax++;
 		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 		audio->playEffect("sounds/sfx/error.ogg", false);
 	}
@@ -482,7 +554,7 @@ bool Item::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			if (menu->getCurrentLevel() <= 5)
 			{
 				result();
-				//_clickFlag = true;
+				
 			}
 			else if (menu->getCurrentLevel() <= 25)
 			{
@@ -536,21 +608,44 @@ void Item::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	bool flag = false;
+	bool fishFlag = false;
 	auto target = event->getCurrentTarget();
 	auto  location = target->convertToNodeSpace(touch->getLocation());
 	target->setPosition(touch->getLocation());
 	Rect rect = Rect(0, 0, target->getContentSize().width, target->getContentSize().height);
 	
-	
+	if (touch->getLocation().y > visibleSize.height * 0.5 || touch->getLocation().y < visibleSize.height * 0.25)
+	{
+		if (target->getName().compare("fish1") == 0 || target->getName().compare("fish1_in_pond") == 0)
+		{
+			_count1--;
+		}
+		else if (target->getName().compare("fish2") == 0 || target->getName().compare("fish2_in_pond") == 0)
+		{
+			_count2--;
+		}
+		
+		fishFlag = true;
+	//	_fishMove.pop_back();
+		_clickFlag = true;
+	}
 
-	if (target->getName().compare("fish1") == 0)
+	if (target->getName().compare("fish1") == 0 )
 	{
 		auto timeline = CSLoader::createTimeline(_scenePath.at("fish1"));
-		_fish1->runAction(timeline);
+		target->runAction(timeline);
 		_fish1->runAction(Sequence::create(CallFunc::create([=]() {
 			timeline->play("splash", false);
 			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 			audio->playEffect("sounds/sfx/splash.ogg", false);
+			if (_count1 <= _num1)
+			{
+				menu->addPoints(1);
+			}
+			if (_count1 > _num1)
+			{
+				menu->addPoints(-1);
+			}
 			_clickFlag = true;
 		}), DelayTime::create(1.0f), CallFunc::create([=]() {
 			
@@ -559,19 +654,28 @@ void Item::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 			timeline->play("fish1", true);
 
 		}),NULL));
-		_eventDispatcher->removeEventListenersForTarget(target);
-		fishCreate();
+	//	_eventDispatcher->removeEventListenersForTarget(target);
+		fish1Create();
 		_count1++;
+		target->setName("fish1_in_pond");
 		_fishMove.push_back(target);
 	}
 	else if (target->getName().compare("fish2") == 0)
 	{
 		auto timeline = CSLoader::createTimeline(_scenePath.at("fish2"));
-		_fish2->runAction(timeline);
+		target->runAction(timeline);
 		_fish2->runAction(Sequence::create(CallFunc::create([=]() {
 			timeline->play("splash", false);
 			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 			audio->playEffect("sounds/sfx/splash.ogg", false);
+			if (_count2 <= _num2)
+			{
+				menu->addPoints(1);
+			}
+		    if (_count2 > _num2)
+			{
+				menu->addPoints(-1);
+			}
 			_clickFlag = true;
 		}), DelayTime::create(1.0f), CallFunc::create([=]() {
 
@@ -580,33 +684,43 @@ void Item::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 			timeline->play("fish2", true);
 
 		}), NULL));
-		_eventDispatcher->removeEventListenersForTarget(target);
-		fishCreate();
+	//	_eventDispatcher->removeEventListenersForTarget(target);
+		fish2Create();
 		_count2++;
+		target->setName("fish2_in_pond");
 		_fishMove.push_back(target);
 	}
 
-	if (touch->getLocation().y > visibleSize.height * 0.5 || touch->getLocation().y < visibleSize.height * 0.25)
-	{
-		if (target->getName().compare("fish1") == 0)
-		{
-			_count1--;
-		}
-		else if (target->getName().compare("fish2") == 0)
-		{
-			_count2--;
-		}
-
-		this->removeChild(target);
-		_fishMove.pop_back();
-		_clickFlag = true;
-	}
-	
 	if (_num1 == _count1)
 	{
 		this->removeChildByName("help");
 	}
 
+	if (fishFlag)
+	{
+		
+		if ((target->getName().compare("fish1_in_pond") == 0 || target->getName().compare("fish2_in_pond") == 0) && (_fishMove.size() != 0 ))
+		{
+			for (int i = 0; i < _fishMove.size(); i++)
+			{
+				if (target == _fishMove.at(i))
+				{
+					_fishMove.erase(_fishMove.begin() + i);
+				}
+			}
+			//_fishMove.pop_back();
+		}
+		this->removeChild(target);
+    /*	if (target->getName().compare("fish1") == 0 )
+		{
+			fish1Create();
+		}
+	else if (target->getName().compare("fish2") == 0)
+		{
+		fish2Create();
+		}*/
+	}
+	
 }
 	
 

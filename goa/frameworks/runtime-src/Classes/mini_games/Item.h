@@ -54,7 +54,8 @@ protected:
 	std::vector<int>_frogX2 = { 200, 450, 750, 1000, 1250, 900, 600, 350 };
 	std::vector<int>_frogY2 = { 150, 130, 130, 130,  240,  270, 270, 270 };
 	std::vector<Node*> _boxRef;
-	void fishCreate();
+	void fish1Create();
+	void fish2Create();
 	void numCreate();
 	void frogCreate();
 	void result();
@@ -64,6 +65,8 @@ protected:
 	int _frogCount1 = 0, _frogCount2 = 0, _frogCount3 = 0;
 	int _num1 = 0;
 	int _num2 = 0;
+	int _fillNum = 0;
+	int _scoreMax = 0;
 };
 
 #endif
