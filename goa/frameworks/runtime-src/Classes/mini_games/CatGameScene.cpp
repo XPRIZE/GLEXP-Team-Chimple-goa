@@ -96,7 +96,9 @@ void CatGame::generateBuildingLayer(std::string str)
 	_gapNodes.clear();
 	_wordLength = text->getGraphemes(_randomWord).size();
 	_maxPoints += _wordLength;
-	_menuContext->setMaxPoints(_maxPoints * 2);
+	if (_score != 5) {
+		_menuContext->setMaxPoints(_maxPoints * 2);
+	}
 	int randNum = RandomHelper::random_int(0, 4);
 	auto build1 = Sprite::createWithSpriteFrameName(_buildingPath.at(randNum).c_str());
 	build1->setPosition(Vec2(_xPos, _yPos));
