@@ -10,28 +10,28 @@ xc.bubbleShooterLevelInfo = cc.Layer.extend({
         var level = this.getParent().menuContext.getCurrentLevel();
         if(level >= 1 && level <= 9) {
             bubblelevelValues = level
-            xc.GameScene.load(xc.Bubble_Alphabets);
+            xc.GameScene.load(xc.Bubble_Alphabets, this.gameName, level);
         }else if(level >= 10 && level <= 14) {
             bubblelevelValues = level - 9;
-            xc.GameScene.load(xc.Bubble_Number);
+            xc.GameScene.load(xc.Bubble_Number,this.gameName, level);
         }else if(level == 15){
             bubblelevelValues = 10;
-            xc.GameScene.load(xc.Bubble_Alphabets);
+            xc.GameScene.load(xc.Bubble_Alphabets,this.gameName, level);
         }else if(level == 16){
             bubblelevelValues = 6;
-            xc.GameScene.load(xc.Bubble_Number);            
+            xc.GameScene.load(xc.Bubble_Number,this.gameName, level);            
         }else if(level == 17){
             bubblelevelValues = 11;
-            xc.GameScene.load(xc.Bubble_Alphabets);            
+            xc.GameScene.load(xc.Bubble_Alphabets,this.gameName, level);            
         }else if(level == 18){
             bubblelevelValues = 7;
-            xc.GameScene.load(xc.Bubble_Number);            
+            xc.GameScene.load(xc.Bubble_Number,this.gameName, level);            
         }else if(level == 19){
             bubblelevelValues = 12;
-            xc.GameScene.load(xc.Bubble_Alphabets);            
+            xc.GameScene.load(xc.Bubble_Alphabets,this.gameName, level);            
         }else if(level == 20){
             bubblelevelValues = 8;
-            xc.GameScene.load(xc.Bubble_Number);            
+            xc.GameScene.load(xc.Bubble_Number,this.gameName, level);            
         }      
     }
 })

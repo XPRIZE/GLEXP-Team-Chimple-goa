@@ -1,5 +1,5 @@
 {
-  "ID": "a5ad5ea9-42b8-4389-bcc2-77c401900daa",
+  "ID": "8ecb627e-8654-4830-ae8b-229946b6662f",
   "Version": "3.10.0.0",
   "Name": "bubble_tem",
   "Content": {
@@ -29,27 +29,27 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1270.48,
-              "Y": 890.4468
+              "X": 1282.5912,
+              "Y": 875.5991
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 1.0822,
+              "ScaleY": 1.1031
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.4963,
-              "Y": 0.4947
+              "X": 0.501,
+              "Y": 0.4864
             },
             "PreSize": {
               "X": 0.798,
               "Y": 0.8033
             },
-            "LeftMargin": 248.98,
-            "RightMargin": 268.02,
-            "TopMargin": 186.5532,
-            "BottomMargin": 167.4468,
+            "LeftMargin": 261.0912,
+            "RightMargin": 255.9087,
+            "TopMargin": 201.4009,
+            "BottomMargin": 152.5991,
             "Tag": 46,
             "ActionTag": -1241815232,
             "Size": {
@@ -73,84 +73,9 @@
               "Plist": ""
             },
             "PressedFileData": {
-              "Type": "Default",
-              "Path": "Default/Button_Press.png",
-              "Plist": ""
-            },
-            "NormalFileData": {
               "Type": "MarkedSubImage",
-              "Path": "template/play_button.png",
+              "Path": "template/click_sound_button.png",
               "Plist": "template/template.plist"
-            },
-            "Scale9Enable": true,
-            "Scale9OriginX": 15,
-            "Scale9OriginY": 11,
-            "Scale9Width": 147,
-            "Scale9Height": 155,
-            "OutlineColor": {
-              "G": 0,
-              "B": 0
-            },
-            "ShadowColor": {
-              "R": 110,
-              "G": 110,
-              "B": 110
-            },
-            "ShadowOffsetX": 2.0,
-            "ShadowOffsetY": -2.0,
-            "TouchEnable": true,
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 2031.7212,
-              "Y": 1418.4377
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.7936,
-              "Y": 0.788
-            },
-            "PreSize": {
-              "X": 0.0691,
-              "Y": 0.0983
-            },
-            "LeftMargin": 1943.2212,
-            "RightMargin": 439.7788,
-            "TopMargin": 293.0623,
-            "BottomMargin": 1329.9377,
-            "Tag": 47,
-            "ActionTag": -52643977,
-            "Size": {
-              "X": 177.0,
-              "Y": 177.0
-            },
-            "Name": "Button_1",
-            "ctype": "ButtonObjectData"
-          },
-          {
-            "FontSize": 14,
-            "ButtonText": "Button",
-            "TextColor": {
-              "R": 65,
-              "G": 65,
-              "B": 70
-            },
-            "DisabledFileData": {
-              "Type": "Default",
-              "Path": "Default/Button_Disable.png",
-              "Plist": ""
-            },
-            "PressedFileData": {
-              "Type": "Default",
-              "Path": "Default/Button_Press.png",
-              "Plist": ""
             },
             "NormalFileData": {
               "Type": "MarkedSubImage",
@@ -179,80 +104,152 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2031.7184,
-              "Y": 434.4413
+              "X": 293.1886,
+              "Y": 1551.4485
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 1.195,
+              "ScaleY": 1.195
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.7936,
-              "Y": 0.2414
+              "X": 0.1145,
+              "Y": 0.8619
             },
             "PreSize": {
               "X": 0.0691,
               "Y": 0.0978
             },
-            "LeftMargin": 1943.2184,
-            "RightMargin": 439.7817,
-            "TopMargin": 1277.5587,
-            "BottomMargin": 346.4413,
+            "LeftMargin": 204.6886,
+            "RightMargin": 2178.3115,
+            "TopMargin": 160.5515,
+            "BottomMargin": 1463.4485,
             "Tag": 48,
             "ActionTag": 1976994335,
             "Size": {
               "X": 177.0,
               "Y": 176.0
             },
-            "Name": "Button_2",
+            "Name": "sound",
             "ctype": "ButtonObjectData"
           },
           {
-            "FileData": {
-              "Type": "Default",
-              "Path": "Default/Sprite.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
+            "FontSize": 20,
+            "IsCustomSize": true,
+            "LabelText": "",
+            "PlaceHolderText": "Text Field",
+            "MaxLengthText": 10,
+            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1309.5698,
-              "Y": 1638.2997
+              "X": 1275.4004,
+              "Y": 871.058
             },
             "Scale": {
-              "ScaleX": 2.3276,
-              "ScaleY": 2.3276
+              "ScaleX": 1.0,
+              "ScaleY": 0.7152
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5116,
-              "Y": 0.9102
+              "X": 0.4982,
+              "Y": 0.4839
             },
             "PreSize": {
-              "X": 0.1348,
-              "Y": 0.1089
+              "X": 0.6836,
+              "Y": 1.1111
             },
-            "LeftMargin": 1137.0698,
-            "RightMargin": 1077.9302,
-            "TopMargin": 63.7003,
-            "BottomMargin": 1540.2997,
-            "Tag": 51,
-            "ActionTag": 551174107,
+            "LeftMargin": 400.4004,
+            "RightMargin": 409.5996,
+            "TopMargin": -71.0581,
+            "BottomMargin": -128.942,
+            "Tag": 45,
+            "ActionTag": -1595207015,
             "Size": {
-              "X": 46.0,
-              "Y": 46.0
+              "X": 1750.0,
+              "Y": 2000.0
             },
-            "Name": "alphabet_board_1",
-            "ctype": "SpriteObjectData"
+            "Name": "TextField_2",
+            "ctype": "TextFieldObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "Button",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "template/click_cross.png",
+              "Plist": "template/template.plist"
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "template/cross.png",
+              "Plist": "template/template.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 141,
+            "Scale9Height": 149,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2259.6255,
+              "Y": 1548.9376
+            },
+            "Scale": {
+              "ScaleX": 1.2006,
+              "ScaleY": 1.2006
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8827,
+              "Y": 0.8605
+            },
+            "PreSize": {
+              "X": 0.0668,
+              "Y": 0.095
+            },
+            "LeftMargin": 2174.1255,
+            "RightMargin": 214.8745,
+            "TopMargin": 165.5624,
+            "BottomMargin": 1463.4376,
+            "Tag": 108,
+            "ActionTag": -143117844,
+            "Size": {
+              "X": 171.0,
+              "Y": 171.0
+            },
+            "Name": "Button_1",
+            "ctype": "ButtonObjectData"
           }
         ],
         "Size": {
@@ -264,8 +261,6 @@
       },
       "UsedResources": [
         "../Default/Button_Disable.png",
-        "../Default/Button_Press.png",
-        "../Default/Sprite.png",
         "template.plist",
         "template.png"
       ],

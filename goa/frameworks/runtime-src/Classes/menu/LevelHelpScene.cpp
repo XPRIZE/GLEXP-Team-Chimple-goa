@@ -99,7 +99,9 @@ void LevelHelpScene::onEnterTransitionDidFinish() {
     auto textField = static_cast<TextField*> (bg->getChildByName("TextField_1"));
     auto text = Text::create(_helpText, "Arial", 64);
     text->setTextColor(Color4B::BLACK);
-    text->setPosition(textField->getPosition());
+    auto pos = textField->getPosition();
+    auto wpos = bg->convertToWorldSpace(pos);
+    text->setPosition(wpos);
     text->setTextAreaSize(Size(2000, 0));
     text->ignoreContentAdaptWithSize(true);
     text->setEnabled(false);
@@ -153,6 +155,7 @@ void LevelHelpScene::videoPlayStart()
 
 void LevelHelpScene::videoPlayOverCallback() {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    _vp->seekTo(0.0);
     _vp->play();
 #endif
 }
