@@ -54,6 +54,7 @@ LOCAL_SRC_FILES := ../auto/jsb_cocos2dx_3d_auto.cpp \
                    ../auto/textgeneratorautobindings.cpp \
                    ../auto/wordgeneratorautobindings.cpp \
                    ../auto/wordscenegeneratorautobindings.cpp \
+				   ../auto/storywordgeneratorautobindings.cpp \
                    ../manual/ScriptingCore.cpp \
                    ../manual/cocos2d_specifics.cpp \
                    ../manual/js_manual_conversions.cpp \
