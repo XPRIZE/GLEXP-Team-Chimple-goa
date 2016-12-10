@@ -182,6 +182,9 @@
     <ClCompile Include="..\auto\wordscenegeneratorautobindings.cpp">
       <Filter>auto</Filter>
     </ClCompile>
+    <ClCompile Include="..\auto\storywordgeneratorautobindings.cpp">
+      <Filter>auto</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\auto\jsb_cocos2dx_auto.hpp">
@@ -341,6 +344,9 @@
       <Filter>auto</Filter>
     </ClInclude>
     <ClInclude Include="..\auto\wordscenegeneratorautobindings.hpp">
+      <Filter>auto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\auto\storywordgeneratorautobindings.hpp">
       <Filter>auto</Filter>
     </ClInclude>
   </ItemGroup>
