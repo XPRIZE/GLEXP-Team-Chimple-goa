@@ -680,7 +680,7 @@ void Decomon::onEnterTransitionDidFinish()
 
 	};
 	node->drawPolygon(vertices, 4, Color4F(1.0f, 0.3f, 0.3f, 0), 3, Color4F(0.2f, 0.2f, 0.2f, 1));
-	addChild(node);
+	//addChild(node);
 
 	_paintingNode = DrawNode::create();
 	_maskingLayer->addChild(_paintingNode);
@@ -730,11 +730,20 @@ void Decomon::wordGenerate()
 		int size = listOfWords.size() - 1;
 		int index = RandomHelper::random_int(0, size);
 		std::string word = listOfWords.at(index);
+		auto sprite = Sprite::create("decomon/splash.png");
+		sprite->setPositionX(x + ((x* (i % 2))* 1.2));
+		sprite->setPositionY(y + (300 * (i)));
+		int colorR = RandomHelper::random_int(0, 255);
+		int colorG = RandomHelper::random_int(0, 255);
+		int colorB = RandomHelper::random_int(0, 255);
+		sprite->setColor(Color3B(colorR, colorG, colorB));
+		this->addChild(sprite);
+		sprite->setScale(0.5, 0.5);
 		auto myLabel = Label::createWithSystemFont(word, "Arial", 200);
-		myLabel->setPositionX(x + (x* (i % 2)));
-		myLabel->setPositionY(y + (200 * (i)));
+		myLabel->setPositionX(sprite->getContentSize().width/2);
+		myLabel->setPositionY(sprite->getContentSize().height / 2);
 		myLabel->setColor(Color3B(0, 0, 0));
-		this->addChild(myLabel);
+		sprite->addChild(myLabel);
 		listOfWords.erase(listOfWords.begin()+index);
 		auto blink = Blink::create(2, 5);
 		myLabel->runAction(blink);

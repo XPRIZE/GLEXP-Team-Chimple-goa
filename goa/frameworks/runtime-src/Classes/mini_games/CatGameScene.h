@@ -19,7 +19,7 @@ public:
 	//Hippo * _hippo;
 	CatGame();
 	~CatGame();
-	int _wordLength;
+	int _wordLength, _maxPoints = 0;
 	int _score = 0;
 	std::string _gameState;
 	float _sceneToScenDiff = 0.0f, _distanceY = 0.0f, _positionAfterGap = 0.0f;
@@ -52,5 +52,6 @@ protected:
 	void buildingAfterGap(std::string str);
 	static const char* gameName() { return CAT.c_str(); }
 	void onEnterTransitionDidFinish();
+	void gameEnd(float ft);
 };
 #endif 
