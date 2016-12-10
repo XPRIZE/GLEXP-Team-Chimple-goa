@@ -58,7 +58,7 @@ protected:
 	virtual GraphemeGrid* createGraphemeGrid(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes, std::string graphemeUnselectedBackground, std::string graphemeSelectedBackground);
 
     void clearLipiTKResult();
-    void processGrapheme(Grapheme* grapheme);
+    virtual void processGrapheme(Grapheme* grapheme);
     void charactersRecognized(cocos2d::EventCustom* event);
     void characterSelected(cocos2d::Ref *sender);
 

@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 400,
         "Speed": 1.0,
-        "ActivedAnimationName": "eyeopen",
+        "ActivedAnimationName": "run",
         "Timelines": [
           {
             "ActionTag": -1967052853,
@@ -849,6 +849,66 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              },
+              {
+                "X": 90.6158,
+                "Y": -158.7144,
+                "FrameIndex": 400,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1973280381,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 400,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1973280381,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 400,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1973280381,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "steps",
+                "FrameIndex": 350,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 400,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -2218,15 +2278,13 @@
               "ScaleY": 0.8288
             },
             "Position": {
-              "X": -115.6714,
+              "X": -115.6722,
               "Y": -223.5921
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "RotationSkewX": 57.0932,
-            "RotationSkewY": 57.0932,
             "CColor": {
               "R": 240,
               "G": 240,
@@ -2241,17 +2299,17 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -165.321,
-            "RightMargin": 60.321,
-            "TopMargin": 180.2688,
-            "BottomMargin": -433.2688,
+            "LeftMargin": -165.3267,
+            "RightMargin": 60.3267,
+            "TopMargin": 180.2785,
+            "BottomMargin": -433.2785,
             "Tag": 959,
             "ActionTag": -1967052853,
             "Size": {
               "X": 105.0,
               "Y": 253.0
             },
-            "Name": "MbwanaMamba_lionleg_3_1",
+            "Name": "lionleg_3_1",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2269,15 +2327,13 @@
               "ScaleY": 0.8323
             },
             "Position": {
-              "X": 164.8731,
-              "Y": -187.1856
+              "X": 164.873,
+              "Y": -187.1854
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "RotationSkewX": 45.3573,
-            "RotationSkewY": 45.3573,
             "CColor": {
               "R": 240,
               "G": 240,
@@ -2292,17 +2348,17 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 125.2967,
-            "RightMargin": -230.2967,
-            "TopMargin": 144.7507,
-            "BottomMargin": -397.7507,
+            "LeftMargin": 125.2985,
+            "RightMargin": -230.2985,
+            "TopMargin": 144.7573,
+            "BottomMargin": -397.7573,
             "Tag": 960,
             "ActionTag": 638804106,
             "Size": {
               "X": 105.0,
               "Y": 253.0
             },
-            "Name": "MbwanaMamba_lionleg_3_2",
+            "Name": "lionleg_3_2",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2348,7 +2404,7 @@
               "X": 196.0,
               "Y": 323.0
             },
-            "Name": "MbwanaMamba_liontail_5",
+            "Name": "liontail_5",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2393,7 +2449,7 @@
               "X": 504.0,
               "Y": 269.0
             },
-            "Name": "MbwanaMamba_lionbody_1",
+            "Name": "lionbody_1",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2411,15 +2467,14 @@
               "ScaleY": 0.8739
             },
             "Position": {
-              "X": 271.9473,
-              "Y": -202.1772
+              "X": 271.9495,
+              "Y": -202.1766
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "RotationSkewX": 45.2683,
-            "RotationSkewY": 45.2621,
+            "RotationSkewY": -0.0062,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
@@ -2430,17 +2485,17 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 218.6239,
-            "RightMargin": -323.6239,
-            "TopMargin": 170.2666,
-            "BottomMargin": -423.2666,
+            "LeftMargin": 218.6305,
+            "RightMargin": -323.6305,
+            "TopMargin": 170.2733,
+            "BottomMargin": -423.2733,
             "Tag": 955,
             "ActionTag": 1979594688,
             "Size": {
               "X": 105.0,
               "Y": 253.0
             },
-            "Name": "MbwanaMamba_lionleg_3",
+            "Name": "lionleg_3",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2485,7 +2540,7 @@
               "X": 187.0,
               "Y": 163.0
             },
-            "Name": "MbwanaMamba_lionneck_4",
+            "Name": "lionneck_4",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2530,7 +2585,7 @@
               "X": 491.0,
               "Y": 394.0
             },
-            "Name": "MbwanaMamba_lionhead_2",
+            "Name": "lionhead_2",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2548,15 +2603,13 @@
               "ScaleY": 0.867
             },
             "Position": {
-              "X": -8.594,
-              "Y": -223.5923
+              "X": -8.5941,
+              "Y": -223.5921
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "RotationSkewX": 43.9842,
-            "RotationSkewY": 43.9842,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
@@ -2567,17 +2620,17 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -55.5326,
-            "RightMargin": -49.4674,
-            "TopMargin": 189.955,
-            "BottomMargin": -442.955,
+            "LeftMargin": -55.5291,
+            "RightMargin": -49.4709,
+            "TopMargin": 189.9431,
+            "BottomMargin": -442.9431,
             "Tag": 958,
             "ActionTag": -1689683586,
             "Size": {
               "X": 105.0,
               "Y": 253.0
             },
-            "Name": "MbwanaMamba_lionleg_3_0",
+            "Name": "lionleg_3_0",
             "ctype": "SpriteObjectData"
           },
           {
@@ -2595,8 +2648,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": -152.8409,
-              "Y": 38.8491
+              "X": -153.3807,
+              "Y": 38.4518
             },
             "Scale": {
               "ScaleX": 1.0848,
@@ -2612,10 +2665,10 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -209.3409,
-            "RightMargin": 96.3409,
-            "TopMargin": -51.3491,
-            "BottomMargin": 26.3491,
+            "LeftMargin": -209.8807,
+            "RightMargin": 96.8807,
+            "TopMargin": -50.9518,
+            "BottomMargin": 25.9518,
             "Tag": 961,
             "ActionTag": -460591861,
             "Size": {

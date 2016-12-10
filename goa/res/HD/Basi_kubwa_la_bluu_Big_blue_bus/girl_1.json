@@ -7326,6 +7326,19 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 1103410760,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "walking",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -2024856762,
             "Property": "Position",
             "Frames": [
@@ -11578,14 +11591,15 @@
               "ScaleX": 1.0,
               "ScaleY": 0.9899
             },
-            "RotationSkewX": -89.4,
-            "RotationSkewY": -89.4,
+            "RotationSkewX": -90.0,
+            "RotationSkewY": -90.0,
             "CColor": {},
             "BlendFunc": {
               "Src": 1,
               "Dst": 771
             },
             "Tag": 172,
+            "FrameEvent": "walking",
             "Children": [
               {
                 "Length": 154.0,
@@ -11597,8 +11611,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 287.1681,
-                "RotationSkewY": 287.1685,
+                "RotationSkewX": 180.1992,
+                "RotationSkewY": 180.1996,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -11616,8 +11630,6 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 34.5733,
-                    "RotationSkewY": 34.5733,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -11823,8 +11835,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 166.8955,
-                "RotationSkewY": 526.8955,
+                "RotationSkewX": 180.1992,
+                "RotationSkewY": 540.1992,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -11842,8 +11854,7 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 15.2523,
-                    "RotationSkewY": 375.2523,
+                    "RotationSkewY": 360.0,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -12069,8 +12080,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": -1.7241,
-                    "RotationSkewY": -1.7241,
+                    "RotationSkewX": -0.0931,
+                    "RotationSkewY": -0.0931,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -12081,8 +12092,8 @@
                       {
                         "Length": 425.0,
                         "Position": {
-                          "X": 40.2757,
-                          "Y": 2.5809
+                          "X": 40.2756,
+                          "Y": 2.5808
                         },
                         "Scale": {
                           "ScaleX": 1.0,
@@ -12138,7 +12149,7 @@
                         "Length": 104.0,
                         "Position": {
                           "X": 168.0983,
-                          "Y": -70.2814
+                          "Y": -70.2815
                         },
                         "Scale": {
                           "ScaleX": 1.0,
@@ -12191,7 +12202,7 @@
                       {
                         "Length": 104.0,
                         "Position": {
-                          "X": 162.6863,
+                          "X": 162.6862,
                           "Y": 140.0013
                         },
                         "Scale": {
@@ -12471,10 +12482,10 @@
                   "X": 0.0,
                   "Y": 0.0
                 },
-                "LeftMargin": -163.0076,
-                "RightMargin": -163.9924,
-                "TopMargin": -694.095,
-                "BottomMargin": 66.095,
+                "LeftMargin": -40.0904,
+                "RightMargin": -286.9096,
+                "TopMargin": -313.5117,
+                "BottomMargin": -314.4883,
                 "Tag": 614,
                 "ActionTag": -1955099127,
                 "Size": {

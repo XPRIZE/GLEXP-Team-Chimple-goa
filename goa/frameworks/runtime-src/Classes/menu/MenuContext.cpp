@@ -784,7 +784,7 @@ void MenuContext::launchGameFromJS(std::string gameName) {
 void MenuContext::launchGameFinally(std::string gameName) {
     CCLOG("gameName %s", gameName.c_str());
         if(gameName == ALPHAMON_COMBAT) {
-            Director::getInstance()->replaceScene(SelectAlphamon::createScene());
+            Director::getInstance()->replaceScene(DuelScene::createScene());
         } else if(gameName == DUEL_SCENE) {
 //            std::u16string firstParamUTF16;
 //            StringUtils::UTF8ToUTF16(firstParam, firstParamUTF16);

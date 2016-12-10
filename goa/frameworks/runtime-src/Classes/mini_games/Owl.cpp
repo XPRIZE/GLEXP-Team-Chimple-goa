@@ -302,8 +302,9 @@ void Owl::autoPlayerController(float data) {
 	_textCounter2++;
 
 	if (_textCounter2 == (blockChild.size())) {
-		if ((_blockLevel2 >= _data_key.size())) {
+		if ((_blockLevel2 >= _data_key.size()) && _removeCharacterAnimation) {
 			//this->unschedule(schedule_selector(Owl::autoPlayerController));
+			_removeCharacterAnimation = false;
 			CCLOG("< ------ DONE COMPLETE -----  >     I AM IN AUTOPLAYERCONTROLLER METHOD");
 			this->runAction(Sequence::create(CallFunc::create([=]() {
 				_flagDemo = false;
@@ -598,9 +599,10 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 								crateLetterGridOnBuilding(_blockLevel1, _data_value[_textBoard]);
 								_textCounter = 0;
 							}
-							else if (_textCounter == blockChild.size() && _blockLevel1 == _data_key.size()) {
+							else if (_textCounter == blockChild.size() && _blockLevel1 == _data_key.size() && _removeCharacterAnimation) {
 								_textCounter = 0;
 								_blockLevel1++;
+								_removeCharacterAnimation = false;
 								this->runAction(Sequence::create(CallFunc::create([=]() {
 
 									_flagDemo = false;
