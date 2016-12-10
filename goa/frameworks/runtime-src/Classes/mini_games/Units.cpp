@@ -93,7 +93,7 @@ void Units::onEnterTransitionDidFinish() {
 
 	_pizza1->setScale(0.6, 0.6);
 	_pizza1->setAnchorPoint(Vec2(0.5, 0.5));
-	_pizza1->setPosition(Vec2(visibleSize.width / 2 + origin.x, outlet_2.y - 550 + origin.y));
+	_pizza1->setPosition(Vec2(visibleSize.width / 2 + origin.x, outlet_2.y - (visibleSize.height * 0.30) + origin.y));
 
 	this->addChild(_pizza1);
 
@@ -102,7 +102,7 @@ void Units::onEnterTransitionDidFinish() {
 
 	_pizza2->setScale(0.6, 0.6);
 	_pizza2->setAnchorPoint(Vec2(0.5, 0.5));
-	_pizza2->setPosition(Vec2(visibleSize.width / 2 + origin.x + 400, outlet_2.y - 550 + origin.y));
+	_pizza2->setPosition(Vec2(visibleSize.width / 2 + origin.x + (visibleSize.width * 0.14), outlet_2.y - (visibleSize.height * 0.30) + origin.y));
 
 	this->addChild(_pizza2);
 
@@ -112,7 +112,7 @@ void Units::onEnterTransitionDidFinish() {
 
 	_pizza3->setScale(0.6, 0.6);
 	_pizza3->setAnchorPoint(Vec2(0.5, 0.5));
-	_pizza3->setPosition(Vec2(visibleSize.width / 2 + origin.x + 800, outlet_2.y - 550 + origin.y));
+	_pizza3->setPosition(Vec2(visibleSize.width / 2 + origin.x + (visibleSize.width * 0.29), outlet_2.y - (visibleSize.height * 0.30) + origin.y));
 
 	this->addChild(_pizza3);
 
@@ -121,7 +121,7 @@ void Units::onEnterTransitionDidFinish() {
 
 	_pizza4->setScale(0.6, 0.6);
 	_pizza4->setAnchorPoint(Vec2(0.5, 0.5));
-	_pizza4->setPosition(Vec2(visibleSize.width / 2 + origin.x + 1200, outlet_2.y - 550 + origin.y));
+	_pizza4->setPosition(Vec2(visibleSize.width / 2 + origin.x + (visibleSize.width * 0.44), outlet_2.y - (visibleSize.height * 0.30) + origin.y));
 
 	this->addChild(_pizza4);
 
@@ -155,7 +155,7 @@ void Units::onEnterTransitionDidFinish() {
 	Sprite* calculatorButton = Sprite::createWithSpriteFrameName("unit/cal.png");
 	calculatorButton->setName("calbutton");
 	calculatorButton->setAnchorPoint(Vec2(0.5, 0.5));
-	calculatorButton->setPosition(Vec2(500, 750));
+	calculatorButton->setPosition(Vec2((visibleSize.width * 0.18), (visibleSize.height * 0.41)));
 	this->addChild(calculatorButton);
 	calculatorButton->setVisible(false);
 
@@ -543,7 +543,7 @@ void Units::createPizza() {
 		pizza4->setScale(0.6, 0.6);
 		pizza4->setAnchorPoint(Vec2(0.5, 0.5));
 		//_pizza1->setPosition(Vec2(visibleSize.width / 2 + origin.x + 700, outlet_2.y - 550 + origin.y));
-		pizza4->setPosition(Vec2(visibleSize.width / 2 + origin.x, outlet_2.y - 550 + origin.y));
+		pizza4->setPosition(Vec2(visibleSize.width / 2 + origin.x, outlet_2.y - (visibleSize.height * 0.30) + origin.y));
 		//bg->setScale(0.5, 0.5);
 
 
@@ -590,7 +590,7 @@ void Units::createPizza() {
 		pizza3->setScale(0.6, 0.6);
 		pizza3->setAnchorPoint(Vec2(0.5, 0.5));
 		//_pizza1->setPosition(Vec2(visibleSize.width / 2 + origin.x + 700, outlet_2.y - 550 + origin.y));
-		pizza3->setPosition(Vec2(visibleSize.width / 2 + origin.x, outlet_2.y - 550 + origin.y));
+		pizza3->setPosition(Vec2(visibleSize.width / 2 + origin.x, outlet_2.y - (visibleSize.height * 0.30) + origin.y));
 		//bg->setScale(0.5, 0.5);
 
 
@@ -684,7 +684,7 @@ void Units::createPizza() {
 		pizza2->setScale(0.6, 0.6);
 		pizza2->setAnchorPoint(Vec2(0.5, 0.5));
 		//_pizza1->setPosition(Vec2(visibleSize.width / 2 + origin.x + 700, outlet_2.y - 550 + origin.y));
-		pizza2->setPosition(Vec2(visibleSize.width / 2 + origin.x, outlet_2.y - 550 + origin.y));
+		pizza2->setPosition(Vec2(visibleSize.width / 2 + origin.x, outlet_2.y - (visibleSize.height * 0.30) + origin.y));
 		//bg->setScale(0.5, 0.5);
 
 
@@ -777,7 +777,7 @@ void Units::createPizza() {
 		pizza1->setScale(0.6, 0.6);
 		pizza1->setAnchorPoint(Vec2(0.5, 0.5));
 		//_pizza1->setPosition(Vec2(visibleSize.width / 2 + origin.x + 700, outlet_2.y - 550 + origin.y));
-		pizza1->setPosition(Vec2(visibleSize.width / 2 + origin.x, outlet_2.y - 550 + origin.y));
+		pizza1->setPosition(Vec2(visibleSize.width / 2 + origin.x, outlet_2.y - (visibleSize.height * 0.30) + origin.y));
 		//bg->setScale(0.5, 0.5);
 
 

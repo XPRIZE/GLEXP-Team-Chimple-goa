@@ -694,7 +694,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 	_label->setAnchorPoint(Vec2(0.5, 0.5));
 	_label->setName("label");
 	_label->setTextColor(Color4B::BLUE);
-	_label->setColor(Color3B::RED);
+	_label->setColor(Color3B(211, 32, 79));
 
 	this->addChild(_label,20);
 
@@ -936,6 +936,7 @@ void BalloonHero::generateObjectsAndMove() {
 		if (numberPicker == 3) {
 
 			_cloud1->setName("m");
+			_cloud1->setTag(1);
 			
 		}
 		if (numberPicker == 5 || numberPicker == 1 || numberPicker == 0) {
@@ -952,6 +953,7 @@ void BalloonHero::generateObjectsAndMove() {
 			if (numberPicker == 0) {
 				label->setString(_set2[otherPicker]);
 				_cloud1->setName("m");
+				_cloud1->setTag(2);
 			}
 			label->setFontSize(_labelFontSize);
 			label->setFontName("fonts/BalooBhai-Regular.ttf");
@@ -1001,6 +1003,7 @@ void BalloonHero::generateObjectsAndMove() {
 		if (numberPicker == 3) {
 
 			_cloud2->setName("m");
+			_cloud1->setTag(1);
 
 		}
 
@@ -1017,6 +1020,7 @@ void BalloonHero::generateObjectsAndMove() {
 			if (numberPicker == 0) {
 				label->setString(_set2[otherPicker]);
 				_cloud2->setName("m");
+				_cloud1->setTag(2);
 			}
 			label->setFontSize(_labelFontSize);
 			label->setFontName("fonts/BalooBhai-Regular.ttf");
@@ -1067,6 +1071,7 @@ void BalloonHero::generateObjectsAndMove() {
 		if (numberPicker == 3) {
 
 			_cloud3->setName("m");
+			_cloud1->setTag(1);
 
 		}
 
@@ -1082,6 +1087,7 @@ void BalloonHero::generateObjectsAndMove() {
 			if (numberPicker == 0) {
 				label->setString(_set2[otherPicker]);
 				_cloud3->setName("m");
+				_cloud1->setTag(2);
 			}
 			label->setFontSize(_labelFontSize);
 			label->setFontName("fonts/BalooBhai-Regular.ttf");
@@ -1133,6 +1139,7 @@ void BalloonHero::generateObjectsAndMove() {
 		if (numberPicker == 3) {
 
 			_cloud4->setName("m");
+			_cloud1->setTag(1);
 
 		}
 
@@ -1150,6 +1157,7 @@ void BalloonHero::generateObjectsAndMove() {
 			if (numberPicker == 0) {
 				label->setString(_set2[otherPicker]);
 				_cloud4->setName("m");
+				_cloud1->setTag(2);
 			}
 			label->setFontSize(_labelFontSize);
 			label->setFontName("fonts/BalooBhai-Regular.ttf");
@@ -1254,23 +1262,28 @@ void BalloonHero::update(float delta) {
 		_flag1 = false;
 		fuelMeterMinus();
 		_menuContext->addPoints(-1);
-		_meteor1 = (cocos2d::Node *)CSLoader::createNode(burst);
-		float x = _cloud1->getPositionX();
-		float y = _cloud1->getPositionY();
-		_meteor1->setPosition(Vec2(x, y));
-		_meteor1->setAnchorPoint(Vec2(0.5, 0.5));
-		_meteor1->setScale(scalex, scaley);
-		this->addChild(_meteor1, 4);
-
 		_cloud1->setVisible(false);
-		
 
-		///
-		auto enableTrigger = CallFunc::create([=] {
+		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		audio->playEffect("sounds/baloonhero/blast.mp3", false);
 
+		if (_cloud1->getTag() == 1) {
 
-		});
-		
+			_meteor1 = (cocos2d::Node *)CSLoader::createNode(burst);
+			float x = _cloud1->getPositionX();
+			float y = _cloud1->getPositionY();
+			_meteor1->setPosition(Vec2(x, y));
+			_meteor1->setAnchorPoint(Vec2(0.5, 0.5));
+			_meteor1->setScale(scalex, scaley);
+			this->addChild(_meteor1, 4);
+
+			auto  _Timeline = CSLoader::createTimeline(burst);
+			_meteor1->runAction(_Timeline);
+			_Timeline->play("blast", false);
+
+			_Timeline->setAnimationEndCallFunc("blast", CC_CALLBACK_0(BalloonHero::removeMeteor1Animation, this));
+		}
+
 		//auto rotateFirefly = RotateBy::create(1, 360);
 		//_fireFly->runAction(rotateFirefly);
 		if (_sceneNumber == 1) { _fireTimeline->play("wrong", false); }
@@ -1278,14 +1291,9 @@ void BalloonHero::update(float delta) {
 		if (_sceneNumber == 3) { _fireTimeline->play("sad", false); }
 
 
-		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-		audio->playEffect("sounds/baloonhero/blast.mp3", false);
+		
 
-		auto  _Timeline = CSLoader::createTimeline(burst);
-		_meteor1->runAction(_Timeline);
-		_Timeline->play("blast", false);
-
-		_Timeline->setAnimationEndCallFunc("blast", CC_CALLBACK_0(BalloonHero::removeMeteor1Animation, this));
+		
 
 		
 
@@ -1296,17 +1304,30 @@ void BalloonHero::update(float delta) {
 		_flag2 = false;
 		fuelMeterMinus();
 		_menuContext->addPoints(-1);
-		
-		
-		_meteor2 = (cocos2d::Node *)CSLoader::createNode(burst);
-		float x = _cloud2->getPositionX();
-		float y = _cloud2->getPositionY();
-		_meteor2->setPosition(Vec2(x,y));
-		_meteor2->setAnchorPoint(Vec2(0.5, 0.5));
-		_meteor2->setScale(scalex, scaley);
-		this->addChild(_meteor2, 4);
-
 		_cloud2->setVisible(false);
+		
+		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		audio->playEffect("sounds/baloonhero/blast.mp3", false);
+
+		if (_cloud2->getTag() == 1) {
+
+			_meteor2 = (cocos2d::Node *)CSLoader::createNode(burst);
+			float x = _cloud2->getPositionX();
+			float y = _cloud2->getPositionY();
+			_meteor2->setPosition(Vec2(x, y));
+			_meteor2->setAnchorPoint(Vec2(0.5, 0.5));
+			_meteor2->setScale(scalex, scaley);
+			this->addChild(_meteor2, 4);
+
+			auto  _Timeline = CSLoader::createTimeline(burst);
+			_meteor2->runAction(_Timeline);
+			_Timeline->play("blast", false);
+
+			_Timeline->setAnimationEndCallFunc("blast", CC_CALLBACK_0(BalloonHero::removeMeteor2Animation, this));
+		}
+
+		
+		
 
 
 		//auto rotateFirefly = RotateBy::create(1, 360);
@@ -1316,32 +1337,38 @@ void BalloonHero::update(float delta) {
 		if (_sceneNumber == 3) { _fireTimeline->play("sad", false); }
 
 
-		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-		audio->playEffect("sounds/baloonhero/blast.mp3", false);
+		
 
-		auto  _Timeline = CSLoader::createTimeline(burst);
-		_meteor2->runAction(_Timeline);
-		_Timeline->play("blast", false);
-
-		_Timeline->setAnimationEndCallFunc("blast", CC_CALLBACK_0(BalloonHero::removeMeteor2Animation, this));
+		
 	}
 	if (_fireflyBB.intersectsRect(_cloud3BB) && _cloud3->getName() == "m" && _flag3) {
 		_flag3 = false;
 		
 		fuelMeterMinus();
 		_menuContext->addPoints(-1);
-
-
-		
-		_meteor3 = (cocos2d::Node *)CSLoader::createNode(burst);
-		float x = _cloud3->getPositionX();
-		float y = _cloud3->getPositionY();
-		_meteor3->setPosition(Vec2(x, y));
-		_meteor3->setAnchorPoint(Vec2(0.5, 0.5));
-		_meteor3->setScale(scalex, scaley);
-		this->addChild(_meteor3, 4);
-
 		_cloud3->setVisible(false);
+
+		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		audio->playEffect("sounds/baloonhero/blast.mp3", false);
+		
+
+		if (_cloud3->getTag() == 1) {
+
+			_meteor3 = (cocos2d::Node *)CSLoader::createNode(burst);
+			float x = _cloud3->getPositionX();
+			float y = _cloud3->getPositionY();
+			_meteor3->setPosition(Vec2(x, y));
+			_meteor3->setAnchorPoint(Vec2(0.5, 0.5));
+			_meteor3->setScale(scalex, scaley);
+			this->addChild(_meteor3, 4);
+
+			auto  _Timeline = CSLoader::createTimeline(burst);
+			_meteor3->runAction(_Timeline);
+			_Timeline->play("blast", false);
+
+			_Timeline->setAnimationEndCallFunc("blast", CC_CALLBACK_0(BalloonHero::removeMeteor3Animation, this));
+		}
+	
 
 		//auto rotateFirefly = RotateBy::create(1, 360);
 		//_fireFly->runAction(rotateFirefly);
@@ -1350,29 +1377,37 @@ void BalloonHero::update(float delta) {
 		if (_sceneNumber == 3) { _fireTimeline->play("sad", false); }
 
 
-		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-		audio->playEffect("sounds/baloonhero/blast.mp3", false);
+		
 
-		auto  _Timeline = CSLoader::createTimeline(burst);
-		_meteor3->runAction(_Timeline);
-		_Timeline->play("blast", false);
-
-		_Timeline->setAnimationEndCallFunc("blast", CC_CALLBACK_0(BalloonHero::removeMeteor3Animation, this));
+		
 	}
 	if (_fireflyBB.intersectsRect(_cloud4BB) && _cloud4->getName() == "m" && _flag4) {
 		
 		_flag4 = false;
 		fuelMeterMinus();
 		_menuContext->addPoints(-1);
-		_meteor4 = (cocos2d::Node *)CSLoader::createNode(burst);
-		float x = _cloud4->getPositionX();
-		float y = _cloud4->getPositionY();
-		_meteor4->setPosition(Vec2(x, y));
-		_meteor4->setAnchorPoint(Vec2(0.5, 0.5));
-		_meteor4->setScale(scalex, scaley);
-		this->addChild(_meteor4, 4);
-
 		_cloud4->setVisible(false);
+
+		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		audio->playEffect("sounds/baloonhero/blast.mp3", false);
+
+		if (_cloud4->getTag() == 1) {
+
+			_meteor4 = (cocos2d::Node *)CSLoader::createNode(burst);
+			float x = _cloud4->getPositionX();
+			float y = _cloud4->getPositionY();
+			_meteor4->setPosition(Vec2(x, y));
+			_meteor4->setAnchorPoint(Vec2(0.5, 0.5));
+			_meteor4->setScale(scalex, scaley);
+			this->addChild(_meteor4, 4);
+
+			auto  _Timeline = CSLoader::createTimeline(burst);
+			_meteor4->runAction(_Timeline);
+			_Timeline->play("blast", false);
+
+			_Timeline->setAnimationEndCallFunc("blast", CC_CALLBACK_0(BalloonHero::removeMeteor4Animation, this));
+
+		}
 
 		//auto rotateFirefly = RotateBy::create(1, 360);
 		//_fireFly->runAction(sad);
@@ -1381,14 +1416,8 @@ void BalloonHero::update(float delta) {
 		if (_sceneNumber == 3) { _fireTimeline->play("sad", false); }
 
 
-		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-		audio->playEffect("sounds/baloonhero/blast.mp3", false);
-
-		auto  _Timeline = CSLoader::createTimeline(burst);
-		_meteor4->runAction(_Timeline);
-		_Timeline->play("blast", false);
-
-		_Timeline->setAnimationEndCallFunc("blast", CC_CALLBACK_0(BalloonHero::removeMeteor4Animation, this));
+	
+		
 	}
 	
 
@@ -1399,8 +1428,8 @@ void BalloonHero::update(float delta) {
 		_cloud1->setVisible(false);
 
 
-		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-		audio->playEffect("sounds/baloonhero/pop_balloon.mp3", false);
+		//auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		//audio->playEffect("sounds/baloonhero/pop_balloon.mp3", false);
 
 		auto turnOffscoreAdd = CallFunc::create([=] {_flagCorrect1 = false; });
 		auto turnOnscoreAdd = CallFunc::create([=] {_flagCorrect1 = true; });
@@ -1415,8 +1444,8 @@ void BalloonHero::update(float delta) {
 		_menuContext->addPoints(1);
 		_cloud2->setVisible(false);
 
-		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-		audio->playEffect("sounds/baloonhero/pop_balloon.mp3", false);
+		//auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		//audio->playEffect("sounds/baloonhero/pop_balloon.mp3", false);
 
 		auto turnOffscoreAdd = CallFunc::create([=] {_flagCorrect2 = false; });
 		auto turnOnscoreAdd = CallFunc::create([=] {_flagCorrect2 = true; });
@@ -1430,8 +1459,8 @@ void BalloonHero::update(float delta) {
 		_menuContext->addPoints(1);
 		_cloud3->setVisible(false);
 
-		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-		audio->playEffect("sounds/baloonhero/pop_balloon.mp3", false);
+		//auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		//audio->playEffect("sounds/baloonhero/pop_balloon.mp3", false);
 
 		auto turnOffscoreAdd = CallFunc::create([=] {_flagCorrect3 = false; });
 		auto turnOnscoreAdd = CallFunc::create([=] {_flagCorrect3 = true; });
@@ -1445,8 +1474,8 @@ void BalloonHero::update(float delta) {
 		_menuContext->addPoints(1);
 		_cloud4->setVisible(false);
 
-		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-		audio->playEffect("sounds/baloonhero/pop_balloon.mp3", false);
+		//auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		//audio->playEffect("sounds/baloonhero/pop_balloon.mp3", false);
 
 		auto turnOffscoreAdd = CallFunc::create([=] {_flagCorrect4 = false; });
 		auto turnOnscoreAdd = CallFunc::create([=] {_flagCorrect4 = true; });
