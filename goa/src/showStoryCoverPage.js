@@ -113,29 +113,33 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
         this.sceneTouched();
     },
 
-    processAudio: function(sender, type) {
-        switch (type) {
-            case ccui.Widget.TOUCH_ENDED:
-                var langDir = goa.TextGenerator.getInstance().getLang();
-                var soundFile = "res/story/" + langDir + "/" + this._baseDir + "/" + this._baseDir + "_0.ogg";
-                if(cc.sys.isNative) {
-                    var fileExists = jsb.fileUtils.isFileExist(soundFile);
-                    if(fileExists) {
-                        cc.loader.load(soundFile, function(err, data) {
-                            if(!err) {
-                                cc.audioEngine.playMusic(soundFile, false);
-                            }
-                        }); 
-                    }
-                } else {
-                    cc.loader.load(soundFile, function(err, data) {
-                        if(!err) {
+    processAudio: function(soundEnabled) {
+        var langDir = goa.TextGenerator.getInstance().getLang();
+        var soundFile = "res/story/" + langDir + "/" + this._baseDir + "/" + this._baseDir + "_0.ogg";
+        if(cc.sys.isNative) {
+            var fileExists = jsb.fileUtils.isFileExist(soundFile);
+            if(fileExists) {
+                cc.loader.load(soundFile, function(err, data) {
+                    if(!err) {
+                        if(soundEnabled) {
                             cc.audioEngine.playMusic(soundFile, false);
-                        }
-                    }); 
-                }             
-                break;
-        }
+                        } else {
+                            cc.audioEngine.stopMusic();
+                        }                        
+                    }
+                }); 
+            }
+        } else {
+            cc.loader.load(soundFile, function(err, data) {
+                if(!err) {
+                    if(soundEnabled) {
+                        cc.audioEngine.playMusic(soundFile, false);
+                    } else {
+                        cc.audioEngine.stopMusic();
+                    }
+                }
+            }); 
+        }         
     },    
 
     showText: function() {      
@@ -238,5 +242,5 @@ xc.StoryCoverPageScene.load = function(pageIndex, storyInformation, layer, enabl
 
 xc.StoryCoverPageLayer.res = {
     play_png: xc.path + "wikitaki/play.png",
-    textBubble_json: xc.path + "template/bubble_tem.json"
+    textBubble_json: xc.path + "template/bubble_tem_01.json"
 };
