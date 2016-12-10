@@ -17,7 +17,8 @@ public:
     static cocos2d::Scene* createSceneWithWords(std::vector<std::string> words, int currentIndex, std::string baseDir, int totalPoints, int currentPoints);
     static StoryWordBoard* create();
     static StoryWordBoard* createWithWords(std::vector<std::string> words, int currentIndex, std::string baseDir,int totalPoints, int currentPoints);
-    void checkAnswer() override;
+    void checkAnswer() override;    
+    void onEnterTransitionDidFinish() override;
     
 CC_CONSTRUCTOR_ACCESS:
     StoryWordBoard();
@@ -39,6 +40,7 @@ protected:
     std::string _baseDir;
     cocos2d::ParticleSystem* _ps;
     
+    bool _anyTimeWrongAlphabetChosen;
     int _totalPoints;
     int _currentPoints;
 };

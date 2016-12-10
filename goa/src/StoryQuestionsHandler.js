@@ -111,8 +111,10 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
         if(cc.sys.isNative) {
             if(isCorrect) {
                 this._menuContext.addPoints(1);
+                cc.log("current point in Story Question Handler: %d",  this._menuContext.getPoints());
             } else {
                 this._menuContext.addPoints(-1);
+                cc.log("current point in Story Question Handler: %d",  this._menuContext.getPoints());
             }            
         }
     },
@@ -263,10 +265,7 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
         } else if(type == this._Q_PICTURES) {
             this._totalPoints += 4 * array.length;
         } else if(type == this._Q_WORDS) {
-            array.forEach(function(ele) {
-                cc.log('ele:' + ele);
-                context._totalPoints += ele.length;
-            });
+            this._totalPoints += 1 * array.length;
         }
     },
 
