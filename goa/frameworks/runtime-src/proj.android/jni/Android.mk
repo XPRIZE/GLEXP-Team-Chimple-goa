@@ -34,6 +34,7 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/puzzle/Grapheme.cpp \
 					../../Classes/puzzle/GraphemeGrid.cpp \
 					../../Classes/puzzle/PegWord.cpp \
+					../../Classes/puzzle/StoryWordBoard.cpp \
 					../../Classes/RPGConfig.cpp \
 					../../Classes/RPGSprite.cpp \
 					../../Classes/RunningState.cpp \

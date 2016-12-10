@@ -243,7 +243,13 @@ void spot::update(float delta) {
 			if (_currentSlot == 5) {
 				
 				_calculator->setVisible(false);
+				if (_calculator->getFinalPoints() <= 0) {
+
+					_menuContext->addPoints(12  * 0.33);
+
+				}else
 				_menuContext->addPoints(_calculator->getFinalPoints());
+
 				_menuContext->showScore();
 
 			}

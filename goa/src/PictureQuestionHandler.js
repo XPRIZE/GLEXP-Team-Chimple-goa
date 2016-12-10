@@ -236,7 +236,8 @@ xc.PictureQuestionHandler = cc.Layer.extend({
             sender.runAction(sequenceAction);
             if(xc.NarrateStoryLayer.res.wrongAnswerSound_json) {
                 cc.audioEngine.playEffect(xc.NarrateStoryLayer.res.wrongAnswerSound_json, false);
-            }                                                                                              
+            }
+            this.callback.call(this._callbackContext, sender, false, false);                                                                                              
         } else {
             this._numberOfTimesInCorrectAnswered = 0;
         }
