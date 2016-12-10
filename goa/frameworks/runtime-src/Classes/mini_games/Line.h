@@ -16,6 +16,7 @@ public:
 	std::vector<cocos2d::Node *>  _nodeRef;
 	std::vector<cocos2d::Sprite *>  _tagRef;
 	std::vector<std::string> _five;
+	std::vector<std::string> _numRef;
 	void tagCreate(int choice);
 	std::map<int, std::map<std::string, int>> _levelMapping;
 	void update(float dt);
@@ -26,6 +27,7 @@ public:
 	int _diff = 0;
 	int _startNum;
 	int _endNum;
+	int _mid;
 	int _level = 0;
 	float _tagX = 0;
 	float _tagY = 0;
