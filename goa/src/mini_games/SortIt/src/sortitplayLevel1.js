@@ -52,7 +52,7 @@ xc.sortitlevel1Layer = cc.Layer.extend({
                 if (self.counterLevel1 == 7) {
               
                     
-                    xc.GameScene.load(xc.sortitlevel2Layer);
+                   // xc.GameScene.load(xc.sortitlevel2Layer);
 
                 }
                  

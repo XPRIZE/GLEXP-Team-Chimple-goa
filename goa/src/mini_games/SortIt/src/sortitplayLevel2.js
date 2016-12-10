@@ -28,7 +28,7 @@ xc.sortitlevel2Layer = cc.Layer.extend({
                     
                  
                     
-                   xc.GameScene.load(xc.sortitlevel3Layer);
+                  // xc.GameScene.load(xc.sortitlevel3Layer);
                     
                 }
                    
