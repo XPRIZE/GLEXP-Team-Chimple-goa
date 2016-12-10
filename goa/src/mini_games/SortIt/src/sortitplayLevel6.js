@@ -26,7 +26,7 @@ xc.sortitlevel6Layer = cc.Layer.extend({
                     
                  
                     
-                    xc.GameScene.load(xc.sortitlevel1Layer);
+                   // xc.GameScene.load(xc.sortitlevel1Layer);
                     
                 }
                 //console.log('touche po oe: ' + targetSize);   
