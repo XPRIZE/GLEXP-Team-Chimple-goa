@@ -95,6 +95,8 @@ void CatGame::generateBuildingLayer(std::string str)
 	_randomWord = text->generateAWord(_menuContext->getCurrentLevel());
 	_gapNodes.clear();
 	_wordLength = text->getGraphemes(_randomWord).size();
+	_maxPoints += _wordLength;
+	_menuContext->setMaxPoints(_maxPoints * 2);
 	int randNum = RandomHelper::random_int(0, 4);
 	auto build1 = Sprite::createWithSpriteFrameName(_buildingPath.at(randNum).c_str());
 	build1->setPosition(Vec2(_xPos, _yPos));
@@ -213,12 +215,11 @@ void CatGame::update(float ft) {
 							_buildingLayer->removeChildByName(str);
 						}
 					}
-					if (_score == 5) {
-						_menuContext->showScore();
-					}
 					callAPI("stright");
 				}), NULL));
-
+				if (_score == 5) {
+					this->scheduleOnce(schedule_selector(CatGame::gameEnd), 1.5);
+				}
 			}else {
 				float yPosition = _positionAfterGap;
 				generateBuildingLayer("up");
@@ -243,11 +244,13 @@ void CatGame::update(float ft) {
 							_buildingLayer->removeChildByName(str);
 						}
 					}
-					if (_score == 5) {
-						_menuContext->showScore();
-					}
+					
 				}), NULL));
-						}
+				if (_score == 5) {
+					this->scheduleOnce(schedule_selector(CatGame::gameEnd), 1.5);
+				}
+				
+			}
 		}
 	}
 }
@@ -284,5 +287,12 @@ void CatGame::onEnterTransitionDidFinish()
 {
 	Node::onEnterTransitionDidFinish();
 	generateBuildingLayer("stright");
+}
+
+void CatGame::gameEnd(float ft)
+{
+	_catAnimation->pause();
+	tailAnimation();
+	_menuContext->showScore();
 }
 
