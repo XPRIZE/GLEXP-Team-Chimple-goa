@@ -291,8 +291,18 @@ void Order::onEnterTransitionDidFinish()
 {
 	Node::onEnterTransitionDidFinish();
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-	std::vector<std::string> theme = { "farm","hero","candy" };
-	_themeName = theme.at(cocos2d::RandomHelper::random_int(0, 2));
+	//std::vector<std::string> theme = { "farm","hero","candy" };
+	int themesNumber = menu->getCurrentLevel() % 15;
+	if (themesNumber > 1 && themesNumber < 6) {
+		_themeName = "farm";
+	}
+	else if (themesNumber > 5 && themesNumber < 11) {
+		_themeName = "hero";
+	}
+	else {
+		_themeName = "candy";
+	}
+	//_themeName = theme.at(cocos2d::RandomHelper::random_int(0, 2));
 	_scenePath = _differntSceneMapping.at(_themeName);//cocos2d::RandomHelper::random_int(0, 2)));
 
 	auto spritecache1 = SpriteFrameCache::getInstance();
