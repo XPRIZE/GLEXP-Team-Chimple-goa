@@ -16,27 +16,33 @@
         "Children": [
           {
             "ClipAble": false,
-            "ComboBoxIndex": 1,
+            "ComboBoxIndex": 2,
             "SingleColor": {
               "R": 224,
               "G": 213,
               "B": 124
             },
             "FirstColor": {
-              "R": 150,
-              "G": 200
+              "R": 187,
+              "G": 233,
+              "B": 43
             },
-            "EndColor": {},
+            "EndColor": {
+              "R": 232,
+              "G": 223,
+              "B": 74
+            },
             "ColorVector": {
-              "ScaleY": 1.0
+              "ScaleX": -0.5446,
+              "ScaleY": -0.8387
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -1930.0706,
-              "Y": -0.0003
+              "X": -1935.7854,
+              "Y": -5.7151
             },
             "Scale": {
               "ScaleX": 34.3235,
@@ -45,17 +51,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.7539,
-              "Y": 0.0
+              "X": -0.7562,
+              "Y": -0.0032
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": -1930.0706,
-            "RightMargin": 4290.0703,
-            "TopMargin": 1600.0002,
-            "BottomMargin": -0.0003,
+            "LeftMargin": -1935.7854,
+            "RightMargin": 4295.7852,
+            "TopMargin": 1605.7151,
+            "BottomMargin": -5.7151,
             "Tag": 6582,
             "ActionTag": 1036177258,
             "Size": {
@@ -68,8 +74,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "jungle/jungleb/bg 2-02.png",
-              "Plist": "jungle/jungleb/jungleb.plist"
+              "Path": "jungle/junglea/bg 2-04.png",
+              "Plist": "jungle/junglea/junglea.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -80,42 +86,41 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 968.3796,
-              "Y": 1477.7379
+              "X": 1300.6157,
+              "Y": 1608.28
             },
             "Scale": {
               "ScaleX": 1.0,
-              "ScaleY": 1.7058
+              "ScaleY": 1.0
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.3783,
-              "Y": 0.821
+              "X": 0.5081,
+              "Y": 0.8935
             },
             "PreSize": {
-              "X": 0.4008,
-              "Y": 1.0706
+              "X": 0.6516,
+              "Y": 0.3456
             },
-            "LeftMargin": 455.3796,
-            "RightMargin": 1078.6204,
-            "TopMargin": -641.2378,
-            "BottomMargin": 514.2379,
-            "Tag": 6572,
-            "ActionTag": 1150098665,
+            "LeftMargin": 466.6157,
+            "RightMargin": 425.3843,
+            "TopMargin": -119.28,
+            "BottomMargin": 1297.28,
+            "Tag": 79,
+            "ActionTag": 1397640160,
             "Size": {
-              "X": 1026.0,
-              "Y": 1927.0
+              "X": 1668.0,
+              "Y": 622.0
             },
-            "Alpha": 143,
-            "Name": "Sprite_3_1_0",
+            "Name": "Sprite_29",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "jungle/jungleb/bg 2-02.png",
-              "Plist": "jungle/jungleb/jungleb.plist"
+              "Path": "jungle/junglea/bg 2-04.png",
+              "Plist": "jungle/junglea/junglea.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -126,35 +131,34 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1420.0286,
-              "Y": 1457.739
+              "X": 314.8917,
+              "Y": 1433.8165
             },
             "Scale": {
               "ScaleX": 1.0,
-              "ScaleY": 1.7058
+              "ScaleY": 1.0
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5547,
-              "Y": 0.8099
+              "X": 0.123,
+              "Y": 0.7966
             },
             "PreSize": {
-              "X": 0.4008,
-              "Y": 1.0706
+              "X": 0.6516,
+              "Y": 0.3456
             },
-            "LeftMargin": 907.0286,
-            "RightMargin": 626.9714,
-            "TopMargin": -621.239,
-            "BottomMargin": 494.239,
-            "Tag": 6571,
-            "ActionTag": 400213651,
+            "LeftMargin": -519.1083,
+            "RightMargin": 1411.1083,
+            "TopMargin": 55.1835,
+            "BottomMargin": 1122.8165,
+            "Tag": 82,
+            "ActionTag": 782963514,
             "Size": {
-              "X": 1026.0,
-              "Y": 1927.0
+              "X": 1668.0,
+              "Y": 622.0
             },
-            "Alpha": 195,
-            "Name": "Sprite_3_1",
+            "Name": "Sprite_29_0",
             "ctype": "SpriteObjectData"
           },
           {
@@ -199,54 +203,7 @@
               "X": 1026.0,
               "Y": 1927.0
             },
-            "Alpha": 143,
             "Name": "Sprite_3_1_0_0",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "jungle/jungleb/bg 2-02.png",
-              "Plist": "jungle/jungleb/jungleb.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1860.0344,
-              "Y": 1437.7344
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.7058
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.7266,
-              "Y": 0.7987
-            },
-            "PreSize": {
-              "X": 0.4008,
-              "Y": 1.0706
-            },
-            "LeftMargin": 1347.0344,
-            "RightMargin": 186.9656,
-            "TopMargin": -601.2344,
-            "BottomMargin": 474.2344,
-            "Tag": 6575,
-            "ActionTag": 1735665350,
-            "Size": {
-              "X": 1026.0,
-              "Y": 1927.0
-            },
-            "Alpha": 143,
-            "Name": "Sprite_3_1_0_1",
             "ctype": "SpriteObjectData"
           },
           {
@@ -291,7 +248,6 @@
               "X": 1026.0,
               "Y": 1927.0
             },
-            "Alpha": 143,
             "Name": "Sprite_3_1_0_2",
             "ctype": "SpriteObjectData"
           },
@@ -310,27 +266,29 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2440.0215,
-              "Y": 1660.7228
+              "X": 2804.5046,
+              "Y": 1466.8953
             },
             "Scale": {
-              "ScaleX": 1.4376,
-              "ScaleY": 1.0
+              "ScaleX": 1.5536,
+              "ScaleY": 2.0047
             },
+            "RotationSkewX": 18.7615,
+            "RotationSkewY": 18.8307,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.9531,
-              "Y": 0.9226
+              "X": 1.0955,
+              "Y": 0.8149
             },
             "PreSize": {
               "X": 0.8,
               "Y": 0.17
             },
-            "LeftMargin": 1416.0215,
-            "RightMargin": -904.0215,
-            "TopMargin": -13.7228,
-            "BottomMargin": 1507.7228,
+            "LeftMargin": 1780.5046,
+            "RightMargin": -1268.5046,
+            "TopMargin": 180.1047,
+            "BottomMargin": 1313.8953,
             "Tag": 6568,
             "ActionTag": 1390863884,
             "Size": {
@@ -338,51 +296,6 @@
               "Y": 306.0
             },
             "Name": "Sprite_1_0",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "jungle/junglea/bg 2-04.png",
-              "Plist": "jungle/junglea/junglea.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 224.4167,
-              "Y": 1336.2802
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.0877,
-              "Y": 0.7424
-            },
-            "PreSize": {
-              "X": 0.6516,
-              "Y": 0.3456
-            },
-            "LeftMargin": -609.5833,
-            "RightMargin": 1501.5833,
-            "TopMargin": 152.7198,
-            "BottomMargin": 1025.2802,
-            "Tag": 6577,
-            "ActionTag": 2093267363,
-            "Size": {
-              "X": 1668.0,
-              "Y": 622.0
-            },
-            "Name": "Sprite_11",
             "ctype": "SpriteObjectData"
           },
           {
@@ -400,27 +313,29 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": -164.1166,
-              "Y": 1660.7228
+              "X": -107.812,
+              "Y": 1562.5054
             },
             "Scale": {
-              "ScaleX": 1.4376,
-              "ScaleY": 1.0
+              "ScaleX": 1.5668,
+              "ScaleY": 2.5176
             },
+            "RotationSkewX": -18.5846,
+            "RotationSkewY": -18.6005,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0641,
-              "Y": 0.9226
+              "X": -0.0421,
+              "Y": 0.8681
             },
             "PreSize": {
               "X": 0.8,
               "Y": 0.17
             },
-            "LeftMargin": -1188.1166,
-            "RightMargin": 1700.1166,
-            "TopMargin": -13.7228,
-            "BottomMargin": 1507.7228,
+            "LeftMargin": -1131.812,
+            "RightMargin": 1643.812,
+            "TopMargin": 84.4946,
+            "BottomMargin": 1409.5054,
             "Tag": 6567,
             "ActionTag": 164815400,
             "Size": {
@@ -472,7 +387,6 @@
               "X": 1026.0,
               "Y": 1927.0
             },
-            "Alpha": 195,
             "Name": "Sprite_3",
             "ctype": "SpriteObjectData"
           },
@@ -492,8 +406,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2188.4897,
-              "Y": 418.1345
+              "X": 2048.4556,
+              "Y": 549.4631
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -502,121 +416,29 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.8549,
-              "Y": 0.2323
+              "X": 0.8002,
+              "Y": 0.3053
             },
             "PreSize": {
               "X": 0.4008,
               "Y": 1.0706
             },
-            "LeftMargin": 1675.4897,
-            "RightMargin": -141.4897,
-            "TopMargin": 418.3655,
-            "BottomMargin": -545.3655,
+            "LeftMargin": 1535.4556,
+            "RightMargin": -1.4556,
+            "TopMargin": 287.0369,
+            "BottomMargin": -414.0369,
             "Tag": 6570,
             "ActionTag": 693225004,
             "Size": {
               "X": 1026.0,
               "Y": 1927.0
             },
-            "Alpha": 174,
             "Name": "Sprite_3_0",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "jungle/junglea/bg 2-04.png",
-              "Plist": "jungle/junglea/junglea.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1434.4143,
-              "Y": 1676.2721
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.5603,
-              "Y": 0.9313
-            },
-            "PreSize": {
-              "X": 0.6516,
-              "Y": 0.3456
-            },
-            "LeftMargin": 600.4143,
-            "RightMargin": 291.5857,
-            "TopMargin": -187.2721,
-            "BottomMargin": 1365.2721,
-            "Tag": 6578,
-            "ActionTag": -611575877,
-            "Size": {
-              "X": 1668.0,
-              "Y": 622.0
-            },
-            "Name": "Sprite_11_0",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "jungle/junglea/bg 2-04.png",
-              "Plist": "jungle/junglea/junglea.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 2384.4148,
-              "Y": 1386.2689
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.9314,
-              "Y": 0.7701
-            },
-            "PreSize": {
-              "X": 0.6516,
-              "Y": 0.3456
-            },
-            "LeftMargin": 1550.4148,
-            "RightMargin": -658.4148,
-            "TopMargin": 102.7311,
-            "BottomMargin": 1075.2689,
-            "Tag": 6579,
-            "ActionTag": -2013144281,
-            "Size": {
-              "X": 1668.0,
-              "Y": 622.0
-            },
-            "Alpha": 195,
-            "Name": "Sprite_11_1",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
               "Path": "jungle/junglea/bg-02.png",
               "Plist": "jungle/junglea/junglea.plist"
             },
@@ -629,13 +451,15 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 109.6854,
-              "Y": 1663.4882
+              "X": 2829.8691,
+              "Y": 1711.5581
             },
             "Scale": {
-              "ScaleX": 1.2729,
-              "ScaleY": 1.0
+              "ScaleX": 2.0709,
+              "ScaleY": 2.0047
             },
+            "RotationSkewX": 18.7615,
+            "RotationSkewY": 18.7778,
             "CColor": {
               "R": 190,
               "G": 175,
@@ -643,66 +467,17 @@
             },
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.0428,
-              "Y": 0.9242
+              "X": 1.1054,
+              "Y": 0.9509
             },
             "PreSize": {
               "X": 0.8,
               "Y": 0.1783
             },
-            "LeftMargin": -914.3146,
-            "RightMargin": 1426.3146,
-            "TopMargin": -23.9882,
-            "BottomMargin": 1502.9882,
-            "Tag": 6580,
-            "ActionTag": 1299179329,
-            "Size": {
-              "X": 2048.0,
-              "Y": 321.0
-            },
-            "Name": "Sprite_14",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "jungle/junglea/bg-02.png",
-              "Plist": "jungle/junglea/junglea.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 2557.7402,
-              "Y": 1663.4882
-            },
-            "Scale": {
-              "ScaleX": 1.2729,
-              "ScaleY": 1.0
-            },
-            "CColor": {
-              "R": 190,
-              "G": 175,
-              "B": 175
-            },
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.9991,
-              "Y": 0.9242
-            },
-            "PreSize": {
-              "X": 0.8,
-              "Y": 0.1783
-            },
-            "LeftMargin": 1533.7402,
-            "RightMargin": -1021.7402,
-            "TopMargin": -23.9882,
-            "BottomMargin": 1502.9882,
+            "LeftMargin": 1805.8691,
+            "RightMargin": -1293.8691,
+            "TopMargin": -72.0581,
+            "BottomMargin": 1551.0581,
             "Tag": 6581,
             "ActionTag": -389747017,
             "Size": {
@@ -710,6 +485,57 @@
               "Y": 321.0
             },
             "Name": "Sprite_14_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jungle/junglea/bg-02.png",
+              "Plist": "jungle/junglea/junglea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 52.8257,
+              "Y": 1823.23
+            },
+            "Scale": {
+              "ScaleX": 2.2831,
+              "ScaleY": 2.5176
+            },
+            "RotationSkewX": -18.5841,
+            "RotationSkewY": -18.5499,
+            "CColor": {
+              "R": 190,
+              "G": 175,
+              "B": 175
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0206,
+              "Y": 1.0129
+            },
+            "PreSize": {
+              "X": 0.8,
+              "Y": 0.1783
+            },
+            "LeftMargin": -971.1743,
+            "RightMargin": 1483.1743,
+            "TopMargin": -183.73,
+            "BottomMargin": 1662.73,
+            "Tag": 6580,
+            "ActionTag": 1299179329,
+            "Size": {
+              "X": 2048.0,
+              "Y": 321.0
+            },
+            "Name": "Sprite_14",
             "ctype": "SpriteObjectData"
           },
           {
@@ -788,7 +614,7 @@
             },
             "LeftMargin": 1413.623,
             "RightMargin": 1146.377,
-            "TopMargin": 1711.0288,
+            "TopMargin": 1711.0287,
             "BottomMargin": 88.9713,
             "Tag": 6830,
             "ActionTag": 1373362626,
@@ -855,7 +681,7 @@
             },
             "LeftMargin": 1603.0295,
             "RightMargin": 956.9705,
-            "TopMargin": 1458.0983,
+            "TopMargin": 1458.0981,
             "BottomMargin": 341.9018,
             "Tag": 6638,
             "ActionTag": -1258748586,
@@ -1030,13 +856,13 @@
               "Y": 0.5032
             },
             "PreSize": {
-              "X": 0.1211,
-              "Y": 0.1217
+              "X": 0.1555,
+              "Y": 0.0928
             },
-            "LeftMargin": 1971.77,
-            "RightMargin": 278.23,
-            "TopMargin": 784.7,
-            "BottomMargin": 796.3,
+            "LeftMargin": 1927.77,
+            "RightMargin": 234.23,
+            "TopMargin": 810.7,
+            "BottomMargin": 822.3,
             "Tag": 6791,
             "ActionTag": 1715108601,
             "Size": {

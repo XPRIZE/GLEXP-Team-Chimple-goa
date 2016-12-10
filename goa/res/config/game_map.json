@@ -10,36 +10,6 @@
         "script": "src/start/catalogue.js"
     },    
     {
-        "name": "choose_character",
-        "title": "",
-        "cIcon": "gameicons/EndlessRunner_pressed.png",
-        "icon": "gameicons/EndlessRunner.png",
-        "multiPlayer": false,
-        "isJSGame": true,
-        "pureJS":"",
-        "script": "src/start/characterConfigure.js"
-    },    
-    {
-        "name": "story-teller",
-        "title": "",
-        "cIcon": "gameicons/EndlessRunner_pressed.png",
-        "icon": "gameicons/EndlessRunner.png",
-        "multiPlayer": false,
-        "isJSGame": true,
-        "pureJS":"",
-        "script": "src/start/storytelling.js"
-    },
-    {
-        "name": "show_bluetoothPeers",
-        "title": "",
-        "cIcon": "gameicons/EndlessRunner_pressed.png",
-        "icon": "gameicons/EndlessRunner.png",
-        "multiPlayer": false,
-        "isJSGame": true,
-        "pureJS":"",
-        "script": "src/start/showBlueToothPeers.js"
-    },
-    {
     "name": "dino",
         "title": "Alphabet",
     "cIcon": "gameicons/table_pressed.png",
@@ -49,6 +19,23 @@
     "script": "src/NonJSGameLauncher.js",
     "span": "3",
     "numLevels": "15",
+   "backgroundJson": "tablelevel/background.json",
+    "foregroundJson": "tablelevel/foreground.json",
+    "frontgroundJson": "tablelevel/frontground.json",
+    "maingroundJson": "tablelevel/mainground.json",
+    "menuPlist": "tablelevel/tablelevel.plist",
+    "menuPng": "tablelevel/tablelevel.png"
+  },
+    {
+    "name": "book",
+    "title": "Alphabet Fight",
+    "cIcon": "gameicons/book_pressed.png",
+    "icon": "gameicons/book.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "3",
+    "numLevels": "26",
    "backgroundJson": "tablelevel/background.json",
     "foregroundJson": "tablelevel/foreground.json",
     "frontgroundJson": "tablelevel/frontground.json",
@@ -660,9 +647,9 @@
   },
   {
     "name": "chocolateFactory",
-        "title": "Chocolate Factory",
+     "title": "Chocolate Factory",
     "cIcon": "gameicons/chocolatefactory_pressed.png",
-    "icon": "gameicons/chocolatefacrory.png",
+    "icon": "gameicons/chocolatefactory.png",
     "multiPlayer": false,
     "isJSGame": false,
     "script": "src/NonJSGameLauncher.js",

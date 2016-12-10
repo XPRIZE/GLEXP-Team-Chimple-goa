@@ -10,6 +10,69 @@
         "ActivedAnimationName": "master",
         "Timelines": [
           {
+            "ActionTag": 1395435972,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "blink",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1395435972,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2410.9734,
+                "Y": 474.5635,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1395435972,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1395435972,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 960706855,
             "Property": "ActionValue",
             "Frames": [
@@ -364,27 +427,27 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -101.5036,
-              "Y": -59.7173
+              "X": -1917.9651,
+              "Y": -59.7169
             },
             "Scale": {
-              "ScaleX": 14.8522,
+              "ScaleX": 31.0634,
               "ScaleY": 10.1207
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0396,
+              "X": -0.7492,
               "Y": -0.0332
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": -101.5036,
-            "RightMargin": 2461.5037,
-            "TopMargin": 1659.7173,
-            "BottomMargin": -59.7173,
+            "LeftMargin": -1917.9651,
+            "RightMargin": 4277.9648,
+            "TopMargin": 1659.7168,
+            "BottomMargin": -59.7169,
             "Tag": 5,
             "ActionTag": -1686712436,
             "Size": {
@@ -415,27 +478,27 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -205.5332,
-              "Y": -176.4442
+              "X": -2135.5408,
+              "Y": -176.4438
             },
             "Scale": {
-              "ScaleX": 17.6819,
+              "ScaleX": 36.9817,
               "ScaleY": 2.804
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0803,
+              "X": -0.8342,
               "Y": -0.098
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": -205.5332,
-            "RightMargin": 2565.5332,
-            "TopMargin": 1776.4442,
-            "BottomMargin": -176.4442,
+            "LeftMargin": -2135.5408,
+            "RightMargin": 4495.541,
+            "TopMargin": 1776.4438,
+            "BottomMargin": -176.4438,
             "Tag": 488,
             "ActionTag": 1517193696,
             "Size": {
@@ -444,6 +507,141 @@
             },
             "Name": "Panel_2_0",
             "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Teksi_ya_Nanu_Nanu_s_taxi/Teksi_ya_Nanu_Nanu_s_taxia/stallhat.png",
+              "Plist": "Teksi_ya_Nanu_Nanu_s_taxi/Teksi_ya_Nanu_Nanu_s_taxia/Teksi_ya_Nanu_Nanu_s_taxia.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1726.8508,
+              "Y": 950.8208
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6746,
+              "Y": 0.5282
+            },
+            "PreSize": {
+              "X": 0.518,
+              "Y": 0.4772
+            },
+            "LeftMargin": 1063.8508,
+            "RightMargin": 170.1492,
+            "TopMargin": 419.6792,
+            "BottomMargin": 521.3208,
+            "Tag": 2154,
+            "ActionTag": 255197659,
+            "Size": {
+              "X": 1326.0,
+              "Y": 859.0
+            },
+            "Name": "stallhat_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Teksi_ya_Nanu_Nanu_s_taxi/Teksi_ya_Nanu_Nanu_s_taxia/stall.png",
+              "Plist": "Teksi_ya_Nanu_Nanu_s_taxi/Teksi_ya_Nanu_Nanu_s_taxia/Teksi_ya_Nanu_Nanu_s_taxia.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3447.707,
+              "Y": 1081.3198
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3468,
+              "Y": 0.6007
+            },
+            "PreSize": {
+              "X": 0.6777,
+              "Y": 0.6233
+            },
+            "LeftMargin": 2580.207,
+            "RightMargin": -1755.207,
+            "TopMargin": 157.6802,
+            "BottomMargin": 520.3198,
+            "Tag": 2155,
+            "ActionTag": 1191160032,
+            "Size": {
+              "X": 1735.0,
+              "Y": 1122.0
+            },
+            "Name": "stall_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Teksi_ya_Nanu_Nanu_s_taxi/Teksi_ya_Nanu_Nanu_s_taxia/stall.png",
+              "Plist": "Teksi_ya_Nanu_Nanu_s_taxi/Teksi_ya_Nanu_Nanu_s_taxia/Teksi_ya_Nanu_Nanu_s_taxia.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 117.7219,
+              "Y": 1071.3206
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.046,
+              "Y": 0.5952
+            },
+            "PreSize": {
+              "X": 0.6777,
+              "Y": 0.6233
+            },
+            "LeftMargin": -749.7781,
+            "RightMargin": 1574.7781,
+            "TopMargin": 167.6794,
+            "BottomMargin": 510.3206,
+            "Tag": 2153,
+            "ActionTag": -1451220382,
+            "Size": {
+              "X": 1735.0,
+              "Y": 1122.0
+            },
+            "Name": "stall_1",
+            "ctype": "SpriteObjectData"
           },
           {
             "ClipAble": false,
@@ -467,27 +665,27 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -145.5283,
-              "Y": 376.7176
+              "X": -2010.0439,
+              "Y": 376.717
             },
             "Scale": {
-              "ScaleX": 17.1819,
+              "ScaleX": 35.936,
               "ScaleY": 0.7737
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0568,
+              "X": -0.7852,
               "Y": 0.2093
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": -145.5283,
-            "RightMargin": 2505.5283,
-            "TopMargin": 1223.2825,
-            "BottomMargin": 376.7176,
+            "LeftMargin": -2010.0439,
+            "RightMargin": 4370.0439,
+            "TopMargin": 1223.283,
+            "BottomMargin": 376.717,
             "Tag": 487,
             "ActionTag": -1800244347,
             "Size": {
@@ -688,6 +886,48 @@
           {
             "FileData": {
               "Type": "Normal",
+              "Path": "Teksi_ya_Nanu_Nanu_s_taxi/chicken.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2410.9734,
+              "Y": 474.5635
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.9418,
+              "Y": 0.2636
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2410.9734,
+            "RightMargin": 149.0266,
+            "TopMargin": 1325.4365,
+            "BottomMargin": 474.5635,
+            "UserData": "fly;drag",
+            "Tag": 2064,
+            "ActionTag": 1395435972,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "chicken",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
               "Path": "Teksi_ya_Nanu_Nanu_s_taxi/men.json",
               "Plist": ""
             },
@@ -820,9 +1060,12 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "chicken.json",
         "men.json",
         "men_0.json",
-        "men_1.json"
+        "men_1.json",
+        "Teksi_ya_Nanu_Nanu_s_taxia/Teksi_ya_Nanu_Nanu_s_taxia.plist",
+        "Teksi_ya_Nanu_Nanu_s_taxia/Teksi_ya_Nanu_Nanu_s_taxia.png"
       ],
       "ctype": "GameFileData"
     }

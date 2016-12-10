@@ -7,6 +7,7 @@
 //
 
 #include "DinoGame.h"
+#include "../menu/HelpLayer.h"
 
 USING_NS_CC;
 
@@ -54,6 +55,10 @@ bool DinoGame::init() {
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	auto bg = CSLoader::createNode("dino/dinobg.csb");
+	if (visibleSize.width > 2560) {
+		//_extraX = (visibleSize.width - 2560) / 2;
+		bg->setPositionX((visibleSize.width - 2560) / 2);
+	}
 	this->addChild(bg);
 	_levelConfig = {
 		{1,{
@@ -123,6 +128,11 @@ void DinoGame::onEnterTransitionDidFinish()
 	if (_menu->getCurrentLevel() == 2) {
 		alphabetHint("a");
 	}
+	_audioEffect = CocosDenshion::SimpleAudioEngine::getInstance();
+
+	if (_menu->getCurrentLevel() == 1 && _gameScore == 0) {
+		this->scheduleOnce(schedule_selector(DinoGame::gameStart), 2.1);
+	}
 
 }
 
@@ -137,6 +147,13 @@ bool DinoGame::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		target->stopAllActions();
 		target->setScale(1);
 		_previousPosition = target->getPosition();
+		std::string targetName = target->getName();
+		std::stringstream ss;
+		ss << targetName.at(0);
+		std::string mystr = ss.str();
+		std::string path = "english/sounds/" + mystr + ".m4a";
+		CCLOG("path = %s", path.c_str());
+		_audioEffect->playEffect(path.c_str());
 		return true;
 	}
 	return false;
@@ -150,12 +167,6 @@ void DinoGame::onTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event)
 
 void DinoGame::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 {
-	CCLOG("touch End");
-//	auto distance = ccpDistance(_previousPosition, touch->getLocation());
-	//CCLOG("distance = %f", distance);
-	if (_previousPosition == touch->getLocation()) {
-		_isTouched = true;
-	}
 	auto target = event->getCurrentTarget();
 	std::string targetName = target->getName();
 	std::stringstream ss;
@@ -164,15 +175,19 @@ void DinoGame::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 	std::string str = _mapping.at("fixed") + mystr;
 	auto fixedNode = _dinoNode->getChildByName(str);
 	if (_menu->getCurrentLevel() == 1) {
+	
 		if (target->boundingBox().containsPoint(fixedNode->getPosition())) {
 			target->setPosition(fixedNode->getPosition());
 			CCLOG("letter fixed");
+			this->removeChildByName("helpLayer");
 			_isTouched = true;
 			_eventDispatcher->removeEventListenersForTarget(target);
 			_menu->addPoints(1);
+			_audioEffect->playEffect("sounds/sfx/drop_obj.ogg");
 		}
 		else {
 			_menu->addPoints(-1);
+			_audioEffect->playEffect("sounds/sfx/error.ogg");
 			auto moveTo = MoveTo::create(2, _previousPosition);
 			target->runAction(Sequence::create(moveTo, CallFunc::create([=]() {
 				_isTouched = true;
@@ -190,12 +205,14 @@ void DinoGame::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 			_eventDispatcher->removeEventListenersForTarget(target);
 			_gameScore++;
 			_menu->addPoints(1);
+			_audioEffect->playEffect("sounds/sfx/drop_obj.ogg");
 			if (_menu->getCurrentLevel() == 2 && _gameScore < 26) {
 				alphabetHint(_alphabets.at(_gameScore));
 			}
 			
 		}
 		else {
+			_audioEffect->playEffect("sounds/sfx/error.ogg");
 			_menu->addPoints(-1);
 			auto moveTo = MoveTo::create(2, _previousPosition);
 			target->runAction(Sequence::create(moveTo, CallFunc::create([=]() {
@@ -217,4 +234,19 @@ void DinoGame::alphabetHint(std::string letter)
 	auto alpha = _dinoNode->getChildByName(child);
 	auto scale = ScaleBy::create(1, 0.7);
 	alpha->runAction(RepeatForever::create(Sequence::create(scale, scale->reverse(), NULL)));
+}
+
+void DinoGame::helpLayer()
+{
+	auto child = _dinoNode->getChildByName("a_1");
+	auto fixed = _dinoNode->getChildByName("dino_1_a");
+	auto helpLayer = HelpLayer::create(Rect(child->getPositionX() + _extraX, child->getPositionY(), child->getContentSize().width, child->getContentSize().height), Rect(0, 0, 0, 0));
+	helpLayer->clickAndDrag(Vec2(child->getPositionX() + _extraX, child->getPositionY()), Vec2(fixed->getPositionX() + _extraX, fixed->getPositionY()));
+	helpLayer->setName("helpLayer");
+	this->addChild(helpLayer);
+}
+
+void DinoGame::gameStart(float ft)
+{
+	helpLayer();
 }

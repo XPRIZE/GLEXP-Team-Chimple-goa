@@ -105,7 +105,7 @@ bool ScrollableGameMapScene::init() {
     std::string ICONS = ICON_FOLDER;
     
     auto spriteCache = SpriteFrameCache::getInstance();
-    spriteCache->addSpriteFramesWithFile("gamemap/gamemap.plist");
+    spriteCache->addSpriteFramesWithFile("gamemap/gamemap/gamemap.plist");
     
     std::string gameNamesStr;
     localStorageGetItem("gameNames", &gameNamesStr);
@@ -120,31 +120,37 @@ bool ScrollableGameMapScene::init() {
     const int numberOfPages = ceil((float) games.size() / (numRows * numCols));
 
     
-    Texture2D *texture = Director::getInstance()->getTextureCache()->addImage("gamemap/game_tile.png");
+    Texture2D *texture = Director::getInstance()->getTextureCache()->addImage("black_concrete.png");
     Texture2D::TexParams tp = {GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT};
     texture->setTexParameters(&tp);
     Sprite *backgroundSpriteMapTile = Sprite::createWithTexture(texture, Rect(0, 0, visibleSize.width * numberOfPages, visibleSize.height));
     backgroundSpriteMapTile->setPosition(Vec2( numberOfPages * visibleSize.width/2, visibleSize.height/2 ));
     addChild(backgroundSpriteMapTile);
     
-    Sprite* backgroundSpriteMap = Sprite::createWithSpriteFrameName("gamemap/game_map_bg2.png");
-    backgroundSpriteMap->setPosition(Vec2(numberOfPages * visibleSize.width/2, visibleSize.height/2));
-    addChild(backgroundSpriteMap);
-
-    Sprite* backgroundSpriteSideLeft = Sprite::createWithSpriteFrameName("gamemap/side.png");
-    backgroundSpriteSideLeft->setAnchorPoint(Vec2(0,0.5));
-    backgroundSpriteSideLeft->setPosition(Vec2(0,visibleSize.height/2));
-    addChild(backgroundSpriteSideLeft);
+//    Sprite* backgroundSpriteMap = Sprite::createWithSpriteFrameName("gamemap/gamemap/gamemap.png");
+//    backgroundSpriteMap->setPosition(Vec2(numberOfPages * visibleSize.width/2, visibleSize.height/2));
+//    addChild(backgroundSpriteMap);
+    
+    for (int i = 0; i < numberOfPages; i++) {
+        auto node = CSLoader::createNode("gamemap/gamemap_bg.csb");
+        node->setPosition(Vec2(visibleSize.width * i, 0));
+        addChild(node);
+    }
+    
+//    Sprite* backgroundSpriteSideLeft = Sprite::createWithSpriteFrameName("gamemap/side.png");
+//    backgroundSpriteSideLeft->setAnchorPoint(Vec2(0,0.5));
+//    backgroundSpriteSideLeft->setPosition(Vec2(0,visibleSize.height/2));
+//    addChild(backgroundSpriteSideLeft);
     
 
     _layer = Layer::create();
     
     
-    Sprite* backgroundSpriteSideRight = Sprite::createWithSpriteFrameName("gamemap/side.png");
-    backgroundSpriteSideRight->setScaleX(-1.0f);
-    backgroundSpriteSideRight->setAnchorPoint(Vec2(1,0.5));
-    backgroundSpriteSideRight->setPosition(Vec2((visibleSize.width - backgroundSpriteSideRight->getBoundingBox().size.width/2) * numberOfPages,visibleSize.height/2));
-    addChild(backgroundSpriteSideRight);
+//    Sprite* backgroundSpriteSideRight = Sprite::createWithSpriteFrameName("gamemap/side.png");
+//    backgroundSpriteSideRight->setScaleX(-1.0f);
+//    backgroundSpriteSideRight->setAnchorPoint(Vec2(1,0.5));
+//    backgroundSpriteSideRight->setPosition(Vec2((visibleSize.width - backgroundSpriteSideRight->getBoundingBox().size.width/2) * numberOfPages,visibleSize.height/2));
+//    addChild(backgroundSpriteSideRight);
 
     
     
@@ -169,7 +175,7 @@ bool ScrollableGameMapScene::init() {
                     button->setTitleText(gameMap["title"]);
                     button->setTitleAlignment(TextHAlignment::CENTER, TextVAlignment::BOTTOM);
                     button->setTitleFontName("Arial");
-                    button->setTitleColor(Color3B::BLACK);
+                    button->setTitleColor(Color3B(0xFF, 0xF2, 0x00));
                     button->setTitleFontSize(48);
                     button->addTouchEventListener(CC_CALLBACK_2(ScrollableGameMapScene::gameSelected, this));
                     auto label = button->getTitleRenderer();

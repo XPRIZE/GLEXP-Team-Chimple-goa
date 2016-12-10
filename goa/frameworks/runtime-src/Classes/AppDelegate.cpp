@@ -34,6 +34,7 @@
 #include "scripting/js-bindings/auto/textgeneratorautobindings.hpp"
 #include "scripting/js-bindings/auto/wordgeneratorautobindings.hpp"
 #include "scripting/js-bindings/auto/wordscenegeneratorautobindings.hpp"
+#include "scripting/js-bindings/auto/storywordgeneratorautobindings.hpp"
 #include "storage/local-storage/LocalStorage.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
@@ -171,7 +172,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     
     FileUtils::getInstance()->addSearchPath("res");
 
-    director->setDisplayStats(true);
+    director->setDisplayStats(false);
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0f / 60);
 
@@ -251,6 +252,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     sc->addRegisterCallback(register_all_textgeneratorautobindings);
     sc->addRegisterCallback(register_all_wordgeneratorautobindings);
     sc->addRegisterCallback(register_all_wordscenegeneratorautobindings);
+    sc->addRegisterCallback(register_all_storywordgeneratorautobindings);
     
     sc->start();
     sc->runScript("script/jsb_boot.js");

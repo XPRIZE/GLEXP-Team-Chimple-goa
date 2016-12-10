@@ -31,7 +31,7 @@ bool Shape::init()
 
 void Shape::update(float d)
 {
-	if (_water->getScaleY() >= 0.0)
+	if (_transSpriteDetails.size()>=1 && _water->getScaleY() >= 0.0)
 	{
 		_water->setScaleY(_water->getScaleY() - _waterSpeed);
 	}
@@ -60,6 +60,11 @@ void Shape::update(float d)
 			_transSpriteDetails.at(i)._flag = 1;
 			_transSpriteDetails.at(i)._sprite->removeChild(_transSpriteDetails.at(i)._sprite->getChildren().at(0), true);
 		}
+	}
+
+	if (_menuContext->isGamePaused())
+	{
+		_moveFlag = 1;
 	}
 }
 
@@ -278,6 +283,14 @@ void Shape::onEnterTransitionDidFinish()
 	_shapeName->setColor(Color3B(255, 255, 255));
 	_ShapeBg->getChildByName("alphabet_board_4")->addChild(_shapeName);
 
+	int Xstart = _ShapeBg->getChildByName("water_level")->getPositionX() - _water->getBoundingBox().size.width / 2 + _realSpriteDetails.at(0)._sprite->getContentSize().width * 1.1;
+
+	_position.push_back(Xstart + _water->getBoundingBox().size.width * .07);
+	_position.push_back(Xstart + _water->getBoundingBox().size.width * .25);
+	_position.push_back(Xstart + _water->getBoundingBox().size.width * .43);
+	_position.push_back(Xstart + _water->getBoundingBox().size.width * .61);
+	_position.push_back(Xstart + _water->getBoundingBox().size.width * .79);
+
 	this->runAction(RepeatForever::create(Sequence::create(DelayTime::create(_differntPosition.at(_posmainIndex).at(_differntPosition.at(_posmainIndex).size() - 1)), CallFunc::create([=] {
 		createTrans();
 	}), NULL)));
@@ -291,54 +304,61 @@ void Shape::onEnterTransitionDidFinish()
 
 void Shape::createTrans()
 {
-	if (_totalCount < _differntPosition.at(_posmainIndex).at(_differntPosition.at(_posmainIndex).size() - 2))
+	if (_maxTransAtTime < 5)
 	{
-		int _randNumber;
-
-		if (_level == 1 && _helpFlag == 0)
-			_randNumber = 0;
-		else
-			_randNumber = rand() % _differntSceneMapping.at(_level).size();
-
-		std::ostringstream _trans;
-		_trans << "Shape/" << _differntSceneMapping.at(_level).at(_randNumber) << "_trans.png";
-
-		TransSpriteDetails._sprite = Sprite::createWithSpriteFrameName(_trans.str());
-
-		int Xstart = _ShapeBg->getChildByName("water_level")->getPositionX() - _water->getBoundingBox().size.width / 2 + TransSpriteDetails._sprite->getContentSize().width;
-		int Xend = _ShapeBg->getChildByName("water_level")->getPositionX() + _water->getBoundingBox().size.width / 2 - TransSpriteDetails._sprite->getContentSize().width;
-
-		int Ystart = _ShapeBg->getChildByName("water_level")->getPositionY() + TransSpriteDetails._sprite->getContentSize().height / 2;
-		int Yend = _ShapeBg->getChildByName("water_level")->getPositionY() + _water->getBoundingBox().size.height - TransSpriteDetails._sprite->getContentSize().height / 2;
-
-		float Y = Ystart + (std::rand() % (Yend - Ystart + 1));
-		float X = Xstart + (std::rand() % (Xend - Xstart + 1));
-
-		TransSpriteDetails._sprite->setPosition(Vec2(X, Y));
-		TransSpriteDetails._flag = 0;
-		this->addChild(TransSpriteDetails._sprite);
-
-		std::string _shapeName = _differntSceneMapping.at(_level).at(_randNumber);
-		std::transform(_shapeName.begin(), _shapeName.end(), _shapeName.begin(), ::toupper);
-		TransSpriteDetails._name = _shapeName;
-		_transSpriteDetails.push_back(TransSpriteDetails);
-
-		CCParticleSystemQuad *_particle = CCParticleSystemQuad::create("Shape/particle_texture.plist");
-		_particle->setTexture(CCTextureCache::sharedTextureCache()->addImage("Shape/particle_texture.png"));
-		_particle->setPosition(Vec2(TransSpriteDetails._sprite->getContentSize().width / 2, TransSpriteDetails._sprite->getContentSize().height / 2));
-		TransSpriteDetails._sprite->addChild(_particle);
-
-
-		if (_level == 1 && _helpFlag == 0)
+		if (_totalCount < _differntPosition.at(_posmainIndex).at(_differntPosition.at(_posmainIndex).size() - 2))
 		{
-			_help = HelpLayer::create(Rect(_realSpriteDetails.at(0)._sprite->getPositionX(), visibleSize.height * .08, _realSpriteDetails.at(0)._sprite->getContentSize().height, _realSpriteDetails.at(0)._sprite->getContentSize().width), Rect(_transSpriteDetails.at(0)._sprite->getPositionX(), _transSpriteDetails.at(0)._sprite->getPositionY(), _transSpriteDetails.at(0)._sprite->getContentSize().height, _transSpriteDetails.at(0)._sprite->getContentSize().width));
-			_help->clickAndDrag(Vec2(_realSpriteDetails.at(0)._sprite->getPositionX(), _realSpriteDetails.at(0)._sprite->getPositionY()), Vec2(_transSpriteDetails.at(0)._sprite->getPositionX(), _transSpriteDetails.at(0)._sprite->getPositionY()));
-			this->addChild(_help, 3);
-			_helpFlag = 1;
-		}
+			int _randNumber;
 
-		_waterSpeed += .00001;
-		_totalCount++;
+			if (_level == 1 && _helpFlag == 0)
+				_randNumber = 0;
+			else
+				_randNumber = rand() % _differntSceneMapping.at(_level).size();
+
+			std::ostringstream _trans;
+			_trans << "Shape/" << _differntSceneMapping.at(_level).at(_randNumber) << "_trans.png";
+
+			TransSpriteDetails._sprite = Sprite::createWithSpriteFrameName(_trans.str());
+
+			int Xstart = _ShapeBg->getChildByName("water_level")->getPositionX() - _water->getBoundingBox().size.width / 2 + TransSpriteDetails._sprite->getContentSize().width;
+			int Xend = _ShapeBg->getChildByName("water_level")->getPositionX() + _water->getBoundingBox().size.width / 2 - TransSpriteDetails._sprite->getContentSize().width;
+
+			int Ystart = _ShapeBg->getChildByName("water_level")->getPositionY() + TransSpriteDetails._sprite->getContentSize().height / 2;
+			int Yend = _ShapeBg->getChildByName("water_level")->getPositionY() + _water->getBoundingBox().size.height - TransSpriteDetails._sprite->getContentSize().height / 2;
+
+			float Y = Ystart + (std::rand() % (Yend - Ystart + 1));
+			float X = Xstart + (std::rand() % (Xend - Xstart + 1));
+
+			int _ind = std::rand() % _position.size();
+
+			TransSpriteDetails._sprite->setPosition(Vec2(_position.at(_ind), Y));
+			TransSpriteDetails._flag = 0;
+			this->addChild(TransSpriteDetails._sprite);
+			_position.erase(_position.begin() + _ind);
+
+			std::string _shapeName = _differntSceneMapping.at(_level).at(_randNumber);
+			std::transform(_shapeName.begin(), _shapeName.end(), _shapeName.begin(), ::toupper);
+			TransSpriteDetails._name = _shapeName;
+			_transSpriteDetails.push_back(TransSpriteDetails);
+
+			CCParticleSystemQuad *_particle = CCParticleSystemQuad::create("Shape/particle_texture.plist");
+			_particle->setTexture(CCTextureCache::sharedTextureCache()->addImage("Shape/particle_texture.png"));
+			_particle->setPosition(Vec2(TransSpriteDetails._sprite->getContentSize().width / 2, TransSpriteDetails._sprite->getContentSize().height / 2));
+			TransSpriteDetails._sprite->addChild(_particle);
+
+
+			if (_level == 1 && _helpFlag == 0)
+			{
+				_help = HelpLayer::create(Rect(_realSpriteDetails.at(0)._sprite->getPositionX(), visibleSize.height * .08, _realSpriteDetails.at(0)._sprite->getContentSize().height, _realSpriteDetails.at(0)._sprite->getContentSize().width), Rect(_transSpriteDetails.at(0)._sprite->getPositionX(), _transSpriteDetails.at(0)._sprite->getPositionY(), _transSpriteDetails.at(0)._sprite->getContentSize().height, _transSpriteDetails.at(0)._sprite->getContentSize().width));
+				_help->clickAndDrag(Vec2(_realSpriteDetails.at(0)._sprite->getPositionX(), _realSpriteDetails.at(0)._sprite->getPositionY()), Vec2(_transSpriteDetails.at(0)._sprite->getPositionX(), _transSpriteDetails.at(0)._sprite->getPositionY()));
+				this->addChild(_help, 3);
+				_helpFlag = 1;
+			}
+
+			_waterSpeed += .00001;
+			_totalCount++;
+		}
+		_maxTransAtTime++;
 	}
 }
 
@@ -387,22 +407,24 @@ void Shape::addEvents(struct SpriteDetails sprite)
 		int _flag = 0;
 		for (int i = 0; i < _transSpriteDetails.size(); i++)
 		{
+			_transSpriteDetails.at(i)._sprite->setScale(.7);
 			Rect _transRect = _transSpriteDetails.at(i)._sprite->getBoundingBox();
-
+			_transSpriteDetails.at(i)._sprite->setScale(1);
 			if (_transRect.intersectsRect(_targetRect) && _spriteDetails._name == _transSpriteDetails.at(i)._name)
 			{
 				_spriteDetails._sprite->runAction(Sequence::create(MoveTo::create(.5, Vec2(_transSpriteDetails.at(i)._sprite->getPositionX(), _transSpriteDetails.at(i)._sprite->getPositionY())),
 					CallFunc::create([=] {
+					_position.push_back(_transSpriteDetails.at(i)._sprite->getPositionX());
 					this->removeChild(_spriteDetails._sprite);
 					this->removeChild(_transSpriteDetails.at(i)._sprite);
 					_transSpriteDetails.erase(_transSpriteDetails.begin() + i);
 					_moveFlag = 1;
 					_menuContext->addPoints(1);
 					_waterSpeed -= .00001;
-
+					_maxTransAtTime--;
 					CocosDenshion::SimpleAudioEngine *success = CocosDenshion::SimpleAudioEngine::getInstance();
 					success->playEffect("sounds/sfx/success.ogg", false);
-
+					
 					if (_totalPatch == _differntPosition.at(_posmainIndex).at(_differntPosition.at(_posmainIndex).size() - 2))
 					{
 						_menuContext->showScore();

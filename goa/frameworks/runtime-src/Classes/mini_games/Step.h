@@ -29,7 +29,7 @@ public:
 
 	HelpLayer *_help;
 	cocos2d::Size visibleSize;
-	int _level, _moveFlag = 0, _startPercent, _percentLevelNo, _helpFlag = 0, _score = 0;
+	int _level, _moveFlag = 0, _startPercent, _percentLevelNo, _helpFlag = 0, _score = 0, _ballonFlag = -1;
 
 	int _percent[9][3] = {
 		{10, 5, 101},
@@ -110,29 +110,29 @@ public:
 		{ 15 },
 		{ 9, 24 },
 		{ 12, 21, 30 },
-		{ 3, 18, 27 },
+		{ 6, 18, 27 },
 
 		{ 20 },
 		{ 12 },
 		{ 16, 36 },
-		{ 4, 28, 40 },
+		{ 12, 28, 40 },
 		{ 8, 24, 32 },
 
 		{ 20 },
 		{ 35 },
 		{ 10, 45 },
 		{ 15, 30, 50 },
-		{ 5, 25, 40 },
+		{ 15, 25, 40 },
 
 		{ 18 },
 		{ 36 },
 		{ 12, 54 },
-		{ 6, 24, 48 },
+		{ 24, 36, 48 },
 		{ 30, 42, 60 },
 
 		{ 70 },
 		{ 28 },
-		{ 7, 49 },
+		{ 21, 49 },
 		{ 14, 35, 63 },
 		{ 21, 42, 56 },
 
@@ -140,11 +140,11 @@ public:
 		{ 64 },
 		{ 16, 80 },
 		{ 32, 48, 72 },
-		{ 8, 40, 56 },
+		{ 16, 40, 56 },
 
 		{ 54},
 		{ 36 },
-		{ 9, 72 },
+		{ 18, 72 },
 		{ 27, 63, 90 },
 		{ 18, 45, 81 },
 
@@ -152,7 +152,7 @@ public:
 		{ 70 },
 		{ 20, 100 },
 		{ 40, 60, 90 },
-		{ 10, 50, 80 }
+		{ 30, 50, 80 }
 	};
 
 	RepeatForever *_balloonRepeat;
@@ -178,6 +178,7 @@ public:
 	void Events(cocos2d::Sprite*);
 	void finalAnimation(int);
 	void removeAnimation();
+	void update(float d);
     static const char* gameName() { return STEP.c_str(); };
 	CREATE_FUNC(Step);
 

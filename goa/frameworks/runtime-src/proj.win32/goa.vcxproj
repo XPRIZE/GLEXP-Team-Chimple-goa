@@ -302,6 +302,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClCompile Include="..\Classes\puzzle\Grapheme.cpp" />
     <ClCompile Include="..\Classes\puzzle\GraphemeGrid.cpp" />
     <ClCompile Include="..\Classes\puzzle\PegWord.cpp" />
+    <ClCompile Include="..\Classes\puzzle\StoryWordBoard.cpp" />
     <ClCompile Include="..\Classes\puzzle\WordBoard.cpp" />
     <ClCompile Include="..\Classes\puzzle\WordScene.cpp" />
     <ClCompile Include="..\Classes\reco\shaperec\common\LTKShapeRecoConfig.cpp" />
@@ -505,6 +506,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClInclude Include="..\Classes\puzzle\Grapheme.h" />
     <ClInclude Include="..\Classes\puzzle\GraphemeGrid.h" />
     <ClInclude Include="..\Classes\puzzle\PegWord.h" />
+    <ClInclude Include="..\Classes\puzzle\StoryWordBoard.hpp" />
     <ClInclude Include="..\Classes\puzzle\WordBoard.h" />
     <ClInclude Include="..\Classes\puzzle\WordScene.h" />
     <ClInclude Include="..\Classes\reco\shaperec\common\LTKShapeSample.h" />

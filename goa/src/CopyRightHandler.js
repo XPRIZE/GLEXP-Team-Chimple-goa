@@ -18,27 +18,13 @@ xc.CopyRightHandler = cc.Layer.extend({
         this.init();
     },
 
-
-    bindTouchListenerToLayer: function(target) {
-        var context = this;
-        var listener = cc.EventListener.create({
-            event: cc.EventListener.TOUCH_ONE_BY_ONE,
-            swallowTouches: true,
-            onTouchBegan: function (touch, event) {
-                return true;
-            },
-            onTouchEnded: function (touch, event) {
-                context.executeCallBack()
-
-            }            
-        });
-        cc.eventManager.addListener(listener, target);
-    },
-
     init: function() {
+        var context = this;
         this.showCopyRight();
         this.configureCopyRightText();  
-        this.bindTouchListenerToLayer(this);      
+        this.scheduleOnce(function() {
+            context.executeCallBack();
+        },1.5);
     },
 
     showCopyRight: function() {
