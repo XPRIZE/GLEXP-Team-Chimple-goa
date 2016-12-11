@@ -356,6 +356,14 @@ void Drop::update(float delta) {
 	removeFallingLetter();
 	if (_helpFlag )
 	{
+	/*	int index = 0;
+		for (int i = 0; i < _basketBin.size(); i++)
+		{
+			if (!_basketBin[i]->getString().compare(_levelOneString))
+			{
+				index = i; break;
+			}
+		}*/
 		if (_letterHolderSpriteBin[0]->getPositionX() < (_middleBasketIndex*_gapBetweenTwoBasket + _gapBetweenTwoBasket / 2))
 		{
 			_helpFlag = false;
@@ -368,7 +376,6 @@ void Drop::update(float delta) {
 			letterBoardSprite->setOpacity(0);
 			addEvents(letterBoardSprite);
 			addChild(letterBoardSprite,3);
-
 		}
 	}
 }
