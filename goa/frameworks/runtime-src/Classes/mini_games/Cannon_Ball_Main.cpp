@@ -94,19 +94,19 @@ void MainGame::onEnterTransitionDidFinish()
 
 	_menuContext->setMaxPoints(15);
 
-	p1.x = MainGame::originX + MainGame::width * 90 / 100;
+	p1.x = MainGame::originX + MainGame::width * 88 / 100;
 	p1.y = MainGame::originY + MainGame::height * 18 / 100;
 
-	p2.x = MainGame::originX + MainGame::width * 90 / 100;
+	p2.x = MainGame::originX + MainGame::width * 88 / 100;
 	p2.y = MainGame::originY + MainGame::height * 32 / 100;
 
-	p3.x = MainGame::originX + MainGame::width * 90 / 100;
+	p3.x = MainGame::originX + MainGame::width * 88 / 100;
 	p3.y = MainGame::originY + MainGame::height * 46 / 100;
 
-	p4.x = MainGame::originX + MainGame::width * 90 / 100;
+	p4.x = MainGame::originX + MainGame::width * 88 / 100;
 	p4.y = MainGame::originY + MainGame::height * 60 / 100;
 
-	p5.x = MainGame::originX + MainGame::width * 90 / 100;
+	p5.x = MainGame::originX + MainGame::width * 88 / 100;
 	p5.y = MainGame::originY + MainGame::height * 74 / 100;
 
 	p8.x = MainGame::originX + MainGame::width * 96 / 100;
@@ -195,7 +195,7 @@ void MainGame::displayHelp()
 			{
 				MainGame::_help = HelpLayer::create(Rect(MainGame::cannon_ballArray[i]->getPositionX(), MainGame::cannon_ballArray[i]->getPositionY(), MainGame::cannon_ballArray[i]->getContentSize().width, MainGame::cannon_ballArray[i]->getContentSize().height), Rect(MainGame::width * .10, lett->getPositionY(), lett->getBoundingBox().size.width, lett->getBoundingBox().size.height));
 				MainGame::_help->clickAndDrag(Vec2(MainGame::cannon_ballArray[i]->getPositionX(), MainGame::cannon_ballArray[i]->getPositionY()), Vec2(MainGame::cannon2->getPositionX(), MainGame::cannon2->getPositionY()));
-				this->addChild(MainGame::_help);
+				this->addChild(MainGame::_help, 4);
 				MainGame::_helpFlag = 1;
 				break;
 			}
@@ -235,7 +235,7 @@ void MainGame::startGame()	// starting of game
 	// front background
 	backGround_front = Sprite::createWithSpriteFrameName("cannonball/cannonball_mainasset/background_front.png");
 	backGround_front->setPosition(origin.x + visibleSize.width * 43 / 100, origin.y + visibleSize.height / 2);
-	this->addChild(backGround_front, 3);
+	this->addChild(backGround_front);
 
 
 	for (int i = 0; i < position.size(); i++)
@@ -245,13 +245,13 @@ void MainGame::startGame()	// starting of game
 		this->addChild(mm);
 	}
 
-	cannon1 = EventListenerClass::createCannon("cannon1.png", 0, 0, 1, 0, origin.x + (visibleSize.width * 73 / 100), origin.y + (visibleSize.height * 15 / 100));
+	cannon1 = EventListenerClass::createCannon("cannon1.png", 0, 0, 1, 0, origin.x + (visibleSize.width * 71 / 100), (visibleSize.height * 15 / 100));
 	this->addChild(cannon1, 3);
 
-	cannon2 = EventListenerClass::createCannon("cannon1.png", 0, 0, 1, 1, origin.x + (visibleSize.width * 73 / 100), origin.y + (visibleSize.height * 50 / 100));
+	cannon2 = EventListenerClass::createCannon("cannon1.png", 0, 0, 1, 1, origin.x + (visibleSize.width * 71 / 100), (visibleSize.height * 50 / 100));
 	this->addChild(cannon2, 3);
 
-	cannon3 = EventListenerClass::createCannon("cannon1.png", 0, 0, 1, 2, origin.x + (visibleSize.width * 73 / 100), origin.y + (visibleSize.height * 85 / 100));
+	cannon3 = EventListenerClass::createCannon("cannon1.png", 0, 0, 1, 2, origin.x + (visibleSize.width * 71 / 100), (visibleSize.height * 85 / 100));
 	this->addChild(cannon3, 3);
 
 	cannonArray.push_back(cannon1);
@@ -275,7 +275,7 @@ void MainGame::letterCome(float d)
 {
 	if (MainGame::cannonArray.size() == 0)
 	{
-		for (int i = 0; i < MainGame::letterArray.size(); i++)
+/*		for (int i = 0; i < MainGame::letterArray.size(); i++)
 		{
 			this->removeChild(MainGame::letterArray[i]);
 
@@ -304,8 +304,11 @@ void MainGame::letterCome(float d)
 				i--;
 			}
 		}
+*/
+		this->unscheduleUpdate();
+		_menuContext->showScore();
 
-		startGame();
+//		startGame();
 	}
 
 	if (MainGame::letterArray.size() < MainGame::cannonArray.size())
@@ -758,10 +761,14 @@ void MainGame::update(float dt)
 					this->removeChild(MainGame::bulletArray_Animation[j]);
 
 					_menuContext->pickAlphabet(MainGame::letterArray[i]->id, bulletArray[j]->id, true);
-
-					int score = _menuContext->getPoints();
-					if (score == 15)
+					_score++;
+					if (_score == 15)
+					{
 						_menuContext->showScore();
+					}
+
+//					int score = _menuContext->getPoints();
+//					if (score == 15)
 
 					int it = find(MainGame::bulletArray.begin(), MainGame::bulletArray.end(), MainGame::bulletArray[j]) - MainGame::bulletArray.begin();	//find bullet index in bulletarray 
 					MainGame::bulletArray_actualImage.erase(MainGame::bulletArray_actualImage.begin() + it);

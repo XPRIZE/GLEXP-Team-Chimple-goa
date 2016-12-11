@@ -31,6 +31,19 @@ bool Shape::init()
 
 void Shape::update(float d)
 {
+	if (_transSpriteDetails.size() >= 1 && _waterSoundFlag == 0)
+	{
+		_waterSound = CocosDenshion::SimpleAudioEngine::getInstance();
+		_waterSound->playEffect("sounds/sfx/water.ogg", true);
+		_waterSoundFlag = 1;
+	}
+	else if (_transSpriteDetails.size() == 0 && _waterSoundFlag == 1)
+	{
+		_waterSound->stopAllEffects();
+		_waterSoundFlag = 0;
+	}
+
+
 	if (_transSpriteDetails.size()>=1 && _water->getScaleY() >= 0.0)
 	{
 		_water->setScaleY(_water->getScaleY() - _waterSpeed);

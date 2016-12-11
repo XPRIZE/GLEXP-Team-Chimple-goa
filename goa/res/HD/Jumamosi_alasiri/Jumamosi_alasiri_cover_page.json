@@ -384,9 +384,9 @@
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Jumamosi_alasiri/Jumamosi2/jumamosi_land1.png",
-              "Plist": "Jumamosi_alasiri/Jumamosi2/Jumamosi2.plist"
+              "Type": "Default",
+              "Path": "Default/Sprite.png",
+              "Plist": ""
             },
             "BlendFunc": {
               "Src": 1,
@@ -559,11 +559,10 @@
         "ctype": "LayerObjectData"
       },
       "UsedResources": [
+        "../Default/Sprite.png",
         "birdsmall.json",
         "boy.json",
         "girl.json",
-        "Jumamosi2/Jumamosi2.plist",
-        "Jumamosi2/Jumamosi2.png",
         "man.json"
       ],
       "ctype": "GameFileData"
