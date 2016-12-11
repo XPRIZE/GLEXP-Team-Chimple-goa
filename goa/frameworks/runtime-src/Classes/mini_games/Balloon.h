@@ -7,6 +7,7 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../lang/LangUtil.h"
 #include "../lang/TextGenerator.h"
+#include "Calculator.h"
 
 using namespace cocos2d;
 using namespace std;
@@ -18,15 +19,17 @@ protected:
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	MenuContext *_menuContext;
 	HelpLayer* _help;
+	Calculator *_calculator ;
+
 	std::vector<std::string> _nodeName;
 	vector<Sprite*>_balloonsBin;
 	vector<int>_removedBalloonsId;
 	string _textString1, _textString2, _textString3, _balloonColor;
 	Sprite* _pin;
-	bool _touched = true, _burstFlag = false, _helpFlag = true;
+	bool _touched = true, _burstFlag = false, _helpFlag = true, _isCalculatorThere = false;
 	cocos2d::LabelTTF* _label = NULL;
 	DrawNode* E;
-	int _answer, _isBiggerNoAnswer,_pointCounter = 0;
+	int _answer, _isBiggerNoAnswer, _pointCounter = 0; int _gameCurrentLevel = NULL;
 
 public:
 	~Balloon();

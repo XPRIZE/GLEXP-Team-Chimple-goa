@@ -38,12 +38,51 @@ void Balloon::onEnterTransitionDidFinish()
 			_nodeName.push_back(str);
 		CCLOG("name : %s", str.c_str());
 	}
-
-	//text math question
-	int no1 = RandomHelper::random_int(1, 12);
-	int no2 = RandomHelper::random_int(0, 12);
-	while (no2 >= no1) {
+	int no1, no2, no3;
+	string  textOnDisplay;
+	if (gameCurrentLevel >= 1 && gameCurrentLevel <= 6)
+	{
+		 no1 = RandomHelper::random_int(1, 6);
+		 no2 = RandomHelper::random_int(0, 6);
+		 while (no2 >= no1) {
+			 no2 = RandomHelper::random_int(0, 6);
+		 }
+	}
+	else if (gameCurrentLevel >= 7 && gameCurrentLevel <= 12)
+	{
+		no1 = RandomHelper::random_int(6, 12);
+		no2 = RandomHelper::random_int(5, 12);
+		while (no2 >= no1) {
+			no2 = RandomHelper::random_int(5,12);
+		}
+	}
+	else if (gameCurrentLevel >= 13 && gameCurrentLevel <= 18)
+	{
+		no1 = RandomHelper::random_int(6, 12);
+		no2 = RandomHelper::random_int(0, 6);
+		while (no2 >= no1) {
+			no2 = RandomHelper::random_int(0, 6);
+		}
+	}
+	else if (gameCurrentLevel >= 19 && gameCurrentLevel <= 24)
+	{
+		no1 = RandomHelper::random_int(1, 12);
 		no2 = RandomHelper::random_int(0, 12);
+		while (no2 >= no1) {
+			no2 = RandomHelper::random_int(0, 12);
+		}
+	}
+	else
+	{
+		no1 = RandomHelper::random_int(6, 12);
+		no2 = RandomHelper::random_int(0, 6);
+		no3 = RandomHelper::random_int(0, 4);
+		while (no2 >= (no1-1) || no2 == 0) {
+			no2 = RandomHelper::random_int(0, 6);
+		}
+		while (no3 > no2 || no1 < (no2+no3)) {
+			no3 = RandomHelper::random_int(0, 4);
+		}
 	}
 	_isBiggerNoAnswer = no1;
 	std::ostringstream firstNo;
@@ -54,18 +93,26 @@ void Balloon::onEnterTransitionDidFinish()
 	secondNo << no2;
 	_textString2 = secondNo.str();
 
-	_answer = no1 - no2;
 	_textString3 = "?";
+	
+	if (gameCurrentLevel < 25 )
+	{
+		textOnDisplay = _textString1 + " - " + _textString2 + " = ";
+		_answer = no1 - no2;
+	}
+	else if(gameCurrentLevel >= 25 && gameCurrentLevel <= 30)
+	{
+		std::ostringstream thirddNo;
+		thirddNo << no3;
+		string string3 = thirddNo.str();
 
-	auto textOnDisplay = _textString1 + " - " + _textString2 + " = ";
+		textOnDisplay = _textString1 + " - " + _textString2 + " - " + string3 + " = ";
+		_answer = no1 - no2 - no3;
+	}
+	
 	auto label = setAllLabelProperties(textOnDisplay, 0, visibleSize.width*0.43, visibleSize.height*0.1, true, 0.5, 0.5, 0, 1, 1, 220);
 	label->setColor(cocos2d::Color3B(253, 255, 233));
 	this->addChild(label, 0);
-
-	auto textOnDisplayAnswer = _textString3;
-	_label = setAllLabelProperties(textOnDisplayAnswer, 0, visibleSize.width*0.615, visibleSize.height*0.1, true, 0.5, 0.5, 0, 1, 1, 220);
-	_label->setColor(cocos2d::Color3B(253, 255, 233));
-	this->addChild(_label, 0);
 
 	auto node = balloonBackground->getChildByName(_nodeName[0]);
 	vector<string> balloonName = { "green", "red", "yellow" };
@@ -85,16 +132,37 @@ void Balloon::onEnterTransitionDidFinish()
 			_removedBalloonsId.push_back(numberPicker);
 	}
 
-
 	/*E = DrawNode::create();
 	this->addChild(E, 10);*/
 
-	Sprite* check = Sprite::createWithSpriteFrameName("balloonpop/balloonpop_done.png");
-	setAllSpriteProperties(check, 0, visibleSize.width*0.83, visibleSize.height*0.1, true, 0.5, 0.5, 0, 1, 1);
-	this->addChild(check, 0);
-	check->setName("done");
-	//_pin->setScale(0.7);
-	addTouchEvents(check);
+	if (gameCurrentLevel < 19)
+	{
+		 auto textOnDisplayAnswer = _textString3;
+		_label = setAllLabelProperties(textOnDisplayAnswer, 0, visibleSize.width*0.615, visibleSize.height*0.1, true, 0.5, 0.5, 0, 1, 1, 220);
+		_label->setColor(cocos2d::Color3B(253, 255, 233));
+		this->addChild(_label, 0);
+
+		Sprite* check = Sprite::createWithSpriteFrameName("balloonpop/balloonpop_done.png");
+		setAllSpriteProperties(check, 0, visibleSize.width*0.83, visibleSize.height*0.1, true, 0.5, 0.5, 0, 1, 1);
+		this->addChild(check, 0);
+		check->setName("done");
+		//_pin->setScale(0.7);
+		addTouchEvents(check);
+	}
+	else
+	{
+		float x;
+		Sprite* calculator = Sprite::createWithSpriteFrameName("balloonpop/icon.png");
+		if (gameCurrentLevel > 25)
+			 x = visibleSize.width*0.69;
+		else
+			 x = visibleSize.width*0.61;
+		setAllSpriteProperties(calculator, 0, x, visibleSize.height*0.1, true, 0.5, 0.5, 0, 1, 1);
+		this->addChild(calculator, 0);
+		calculator->setName("calculator");
+		calculator->setScale(0.8);
+		addTouchEvents(calculator);
+	}
 
     _pin = Sprite::createWithSpriteFrameName("balloonpop/balloonpop_pin.png");
 	setAllSpriteProperties(_pin, 0, visibleSize.height*0.5, visibleSize.height*0.5, true, 0.5, 0.5, 0, 1, 1);
@@ -102,6 +170,8 @@ void Balloon::onEnterTransitionDidFinish()
 	_pin->setScale(0.8);
 	addTouchEvents(_pin);
 	makingBalloons();
+	this->scheduleUpdate();
+
 }
 Balloon::~Balloon()
 {
@@ -109,7 +179,31 @@ Balloon::~Balloon()
 
 void Balloon::update(float dt)
 {
-
+	if (_isCalculatorThere && _calculator->checkAnswer(_answer) && _calculator->isEnterPressed() && _balloonsBin.size() == _answer)
+	{
+		_pointCounter++;
+		_menuContext->addPoints(1);
+		this->runAction(Sequence::create(DelayTime::create(1),
+			CCCallFunc::create([=]	{
+			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+			audio->playEffect("sounds/sfx/success.ogg", false);
+			_menuContext->setMaxPoints(_pointCounter);
+			_menuContext->showScore(); }), NULL));
+	}
+	else if(_isCalculatorThere && !_calculator->checkAnswer(_answer) && _calculator->isEnterPressed() )
+	{
+		_pointCounter++;
+		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		audio->playEffect("sounds/sfx/error.ogg", false);
+		makingBalloons();
+	}
+	else if (_isCalculatorThere && _calculator->checkAnswer(_answer) && _calculator->isEnterPressed() && _balloonsBin.size() != _answer)
+	{
+		_pointCounter++;
+		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		audio->playEffect("sounds/sfx/error.ogg", false);
+		makingBalloons();
+	}
 }
 void Balloon::makingBalloons()
 {
@@ -117,9 +211,12 @@ void Balloon::makingBalloons()
 	if (visibleSize.width > 2560) {
 		myGameWidth = (visibleSize.width - 2560) / 2;
 	}
-	_label->runAction(Sequence::create(DelayTime::create(1.8),
-		CCCallFunc::create([=] {_label->setString("?"); }), NULL));
-	
+	int gameCurrentLevel = _menuContext->getCurrentLevel();
+	if (gameCurrentLevel < 19)
+	{
+			_label->runAction(Sequence::create(DelayTime::create(1.8),
+			CCCallFunc::create([=] {_label->setString("?"); }), NULL));
+	}
 	auto balloonBackground = this->getChildByName("bg");
 	for (int i = 0; i < _removedBalloonsId.size(); i++)
 	{
@@ -201,13 +298,24 @@ void Balloon::addTouchEvents(Sprite* obj)
 				return true;
 			}
 		}
-		else
-		{
-			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-			audio->playEffect("sounds/sfx/shop_pick.ogg", false);
-			auto a = target->getPositionX() - target->getContentSize().width / 2;
-			auto b = target->getPositionY() - target->getContentSize().height / 2;
-			target->setScale(1);
+			else if (!(target->getName()).compare("calculator"))
+			{
+				auto a = target->getPositionX() - target->getContentSize().width / 2;
+				auto b = target->getPositionY() - target->getContentSize().height / 2;
+
+				Rect rect = CCRectMake(a, b, target->getContentSize().width, target->getContentSize().height);
+				if (rect.containsPoint(Vec2(touch->getLocation().x, touch->getLocation().y)) && _touched)
+				{
+					target->setOpacity(100); _touched = false;
+					return true;
+				}
+			}
+			else
+			{
+				
+				auto a = target->getPositionX() - target->getContentSize().width / 2;
+				auto b = target->getPositionY() - target->getContentSize().height / 2;
+				target->setScale(1);
 
 			Rect rect = CCRectMake(a, b, target->getContentSize().width, target->getContentSize().height);
 			if (rect.containsPoint(Vec2(touch->getLocation().x, touch->getLocation().y)) && _touched)
@@ -227,7 +335,7 @@ void Balloon::addTouchEvents(Sprite* obj)
 		{
 			this->removeChild(_help,true);
 		}
-		if (!(target->getName()).compare("done"))
+		if (!(target->getName()).compare("done") || !(target->getName()).compare("calculator"))
 		{
 		}
 		else
@@ -269,13 +377,16 @@ void Balloon::addTouchEvents(Sprite* obj)
 					timeline->play(_balloonColor, false);
 					timeline->setAnimationEndCallFunc(_balloonColor, CC_CALLBACK_0(Balloon::removeBalloon, this, balloonBurst));
 
-					std::ostringstream balloonsRemaining;
-					balloonsRemaining << _balloonsBin.size();
-					_textString3 = balloonsRemaining.str();
-					_label->setString(_textString3);
-					auto sequence_E = ScaleTo::create(0.1, (1.1));
-					auto sequence_F = ScaleTo::create(0.1, 1);
-					_label->runAction(Sequence::create(sequence_E, sequence_F, NULL));
+					if (gameCurrentLevel < 19)
+					{
+						std::ostringstream balloonsRemaining;
+						balloonsRemaining << _balloonsBin.size();
+						_textString3 = balloonsRemaining.str();
+						_label->setString(_textString3);
+						auto sequence_E = ScaleTo::create(0.1, (1.1));
+						auto sequence_F = ScaleTo::create(0.1, 1);
+						_label->runAction(Sequence::create(sequence_E, sequence_F, NULL));
+					}
 				}
 			}
 		}
@@ -330,10 +441,24 @@ void Balloon::addTouchEvents(Sprite* obj)
 					_menuContext->showScore(); }), NULL));
 			}
 		}
-		else
+		else if(!(target->getName()).compare("calculator"))
 		{
-			target->setScale(0.8);
+			target->setOpacity(255);
+			if (!_isCalculatorThere)
+			{
+				_calculator = new Calculator();
+				_calculator->createCalculator(Vec2(visibleSize.width*0.85, visibleSize.height*0.20), Vec2(0.5, 0.5), 0.5, 0.5);
+				 this->addChild(_calculator, 10);
+				_isCalculatorThere = true;
+			}
+			else
+			{
+				_isCalculatorThere = false;
+				this->removeChild(_calculator, true);
+			}
 		}
+		else
+		{   	target->setScale(0.8);  	}
 		_touched = true;
 	};
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, obj);
