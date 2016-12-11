@@ -5,10 +5,125 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 220,
+        "Duration": 270,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "pillow",
         "Timelines": [
+          {
+            "ActionTag": 1390036623,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2166.0264,
+                "Y": 378.8865,
+                "FrameIndex": 230,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2166.0264,
+                "Y": 378.8865,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2166.0264,
+                "Y": 378.8865,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1390036623,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 230,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.93,
+                "Y": 1.0,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1390036623,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 230,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 5.0,
+                "Y": -3.0,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1390036623,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "pillow",
+                "FrameIndex": 230,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": -14222138,
             "Property": "ActionValue",
@@ -178,7 +293,7 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 953.0188,
+                "X": 953.0189,
                 "Y": 318.9323,
                 "FrameIndex": 0,
                 "EasingData": {
@@ -213,7 +328,7 @@
             "Frames": [
               {
                 "X": 1.0,
-                "Y": 1.0,
+                "Y": 0.7363,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -283,6 +398,12 @@
           "StartIndex": 0,
           "EndIndex": 220,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 230,
+          "EndIndex": 270,
+          "Name": "pillow",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -400,12 +521,11 @@
               "Dst": 771
             },
             "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
+              "ScaleX": 0.8326
             },
             "Position": {
-              "X": 1963.1281,
-              "Y": 492.3862
+              "X": 2166.0264,
+              "Y": 378.8865
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -414,18 +534,20 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.7668,
-              "Y": 0.2735
+              "X": 0.8461,
+              "Y": 0.2105
             },
             "PreSize": {
               "X": 0.2383,
               "Y": 0.1261
             },
-            "LeftMargin": 1658.1281,
-            "RightMargin": 291.8721,
-            "TopMargin": 1194.1138,
-            "BottomMargin": 378.8862,
+            "LeftMargin": 1658.1404,
+            "RightMargin": 291.8596,
+            "TopMargin": 1194.1135,
+            "BottomMargin": 378.8865,
+            "UserData": "main.pillow",
             "Tag": 501,
+            "FrameEvent": "pillow",
             "ActionTag": 1390036623,
             "Size": {
               "X": 610.0,
@@ -506,7 +628,7 @@
             },
             "LeftMargin": 953.0188,
             "RightMargin": 1606.9812,
-            "TopMargin": 1481.0677,
+            "TopMargin": 1481.0676,
             "BottomMargin": 318.9323,
             "UserData": "cover_off",
             "Tag": 2951,

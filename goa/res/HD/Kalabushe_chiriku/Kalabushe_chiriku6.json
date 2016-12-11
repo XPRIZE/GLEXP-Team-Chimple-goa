@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 260,
+        "Duration": 335,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "cloud",
         "Timelines": [
           {
             "ActionTag": 846068894,
@@ -46,8 +46,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 3000.0,
-                "Y": 319.9999,
+                "X": 2322.5469,
+                "Y": 322.7433,
                 "FrameIndex": 160,
                 "EasingData": {
                   "Type": 0
@@ -144,8 +144,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 3000.0,
-                "Y": 317.81,
+                "X": 2026.9514,
+                "Y": 304.8258,
                 "FrameIndex": 260,
                 "EasingData": {
                   "Type": 0
@@ -204,6 +204,108 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1668479539,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1905.2097,
+                "Y": 1605.96,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1764.0596,
+                "Y": 1605.96,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 1
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 3235.3499,
+                "Y": 1605.96,
+                "FrameIndex": 335,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1668479539,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 1
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 335,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1668479539,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 1
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 335,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -213,6 +315,12 @@
           "StartIndex": 0,
           "EndIndex": 260,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 270,
+          "EndIndex": 335,
+          "Name": "cloud",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -823,8 +931,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1500.0,
-              "Y": 319.9999
+              "X": 2322.5469,
+              "Y": 322.7433
             },
             "Scale": {
               "ScaleX": -0.6,
@@ -833,17 +941,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.5859,
-              "Y": 0.1778
+              "X": 0.9072,
+              "Y": 0.1793
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1500.0,
-            "RightMargin": 1060.0,
-            "TopMargin": 1480.0001,
-            "BottomMargin": 319.9999,
+            "LeftMargin": 2322.5469,
+            "RightMargin": 237.4531,
+            "TopMargin": 1477.2566,
+            "BottomMargin": 322.7433,
             "UserData": "hi;drag",
             "Tag": 210,
             "ActionTag": 846068894,
@@ -865,8 +973,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1000.0,
-              "Y": 317.81
+              "X": 2026.9514,
+              "Y": 304.8258
             },
             "Scale": {
               "ScaleX": -0.7,
@@ -875,17 +983,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.3906,
-              "Y": 0.1766
+              "X": 0.7918,
+              "Y": 0.1693
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1000.0,
-            "RightMargin": 1560.0,
-            "TopMargin": 1482.1899,
-            "BottomMargin": 317.81,
+            "LeftMargin": 2026.9514,
+            "RightMargin": 533.0486,
+            "TopMargin": 1495.1742,
+            "BottomMargin": 304.8258,
             "UserData": "hi;drag",
             "Tag": 759,
             "ActionTag": -61699379,
@@ -895,6 +1003,97 @@
             },
             "Name": "man",
             "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kalabushe_chiriku/Kalabushe2/clouds1.png",
+              "Plist": "Kalabushe_chiriku/Kalabushe2/Kalabushe2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 641.1531,
+              "Y": 1585.2366
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2505,
+              "Y": 0.8807
+            },
+            "PreSize": {
+              "X": 0.1953,
+              "Y": 0.0789
+            },
+            "LeftMargin": 391.1531,
+            "RightMargin": 1668.8469,
+            "TopMargin": 143.7634,
+            "BottomMargin": 1514.2366,
+            "Tag": 2095,
+            "ActionTag": -1757188299,
+            "Size": {
+              "X": 500.0,
+              "Y": 142.0
+            },
+            "Name": "clouds1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kalabushe_chiriku/Kalabushe2/clouds2.png",
+              "Plist": "Kalabushe_chiriku/Kalabushe2/Kalabushe2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1905.2097,
+              "Y": 1605.96
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7442,
+              "Y": 0.8922
+            },
+            "PreSize": {
+              "X": 0.2656,
+              "Y": 0.1056
+            },
+            "LeftMargin": 1565.2097,
+            "RightMargin": 314.7903,
+            "TopMargin": 99.04,
+            "BottomMargin": 1510.96,
+            "UserData": "main.cloud",
+            "Tag": 2096,
+            "ActionTag": -1668479539,
+            "Size": {
+              "X": 680.0,
+              "Y": 190.0
+            },
+            "Name": "clouds2_2",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
@@ -908,6 +1107,8 @@
         "girl.json",
         "Kalabushe_chiriku.plist",
         "Kalabushe_chiriku.png",
+        "Kalabushe2/Kalabushe2.plist",
+        "Kalabushe2/Kalabushe2.png",
         "man.json"
       ],
       "ctype": "GameFileData"
