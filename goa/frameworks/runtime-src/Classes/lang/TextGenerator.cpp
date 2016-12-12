@@ -144,7 +144,7 @@ std::map<std::string, std::string> TextGenerator::getPairs(std::string type, int
         while (std::getline(sline, item, ';')) {
             elems.push_back(item);
         }
-        if(std::stoi(elems[0]) == level) {
+        if(atoi(elems[0].c_str()) == level) {
             pairs.push_back(std::pair<std::string, std::string>(elems[1], elems[2]));
         }
     }
@@ -237,7 +237,7 @@ std::map<std::string, std::map<std::string, std::string>> TextGenerator::getMapO
         while (std::getline(sline, item, ';')) {
             elems.push_back(item);
         }
-        if(std::stoi(elems[0]) == level) {
+        if(atoi(elems[0].c_str()) == level) {
             pairMap[elems[1]].push_back(elems[2]);
             auto valueVector = pairMap[elems[1]];
             if(valueVector.size() == 1) {
@@ -320,7 +320,7 @@ std::vector<std::string> TextGenerator::getWords(TextGenerator::P_O_S partOfSpee
         while (std::getline(sline, item, ';')) {
             elems.push_back(item);
         }
-        if(std::stoi(elems[0]) == level && (pos.empty() || pos == elems[1])) {
+        if(atoi(elems[0].c_str()) == level && (pos.empty() || pos == elems[1])) {
             words.push_back(elems[2]);
         }
     }
@@ -469,7 +469,7 @@ std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> TextGener
         while (std::getline(sline, item, ';')) {
             elems.push_back(item);
         }
-        if(std::stoi(elems[0]) == level) {
+        if(atoi(elems[0].c_str()) == level) {
             bool foundPos = false;
             if(!pos.empty()) {
                 for (auto it=elems.begin() + 1; it!=elems.end(); ++it) {
