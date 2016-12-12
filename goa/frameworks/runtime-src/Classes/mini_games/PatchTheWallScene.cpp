@@ -221,7 +221,7 @@ void PatchTheWall::blastCome(float _time)
         this->addChild(_blastNode);
         
 		auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
-		-audioBg->playEffect("cannonball/gamesound/meteorblast.ogg", false, 1, 1, .2);
+		-audioBg->playEffect("cannonball/gamesound/meteorblast.ogg", false);
 
         _blastNode->runAction(_blastTimeline);
         _blastTimeline->play("blast", false);
