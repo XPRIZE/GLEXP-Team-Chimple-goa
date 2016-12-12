@@ -1,7 +1,7 @@
 {
   "ID": "b96d3fd8-b3a1-448e-9cbc-3cf84dc116fe",
   "Version": "3.10.0.0",
-  "Name": "bubble_shooter_game_menu",
+  "Name": "bubble_shooter",
   "Content": {
     "Content": {
       "Animation": {
@@ -36,7 +36,7 @@
             "AnchorPoint": {},
             "Position": {
               "X": -268.4282,
-              "Y": -0.614
+              "Y": 0.0
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -46,7 +46,7 @@
             "IconVisible": false,
             "PrePosition": {
               "X": -0.0866,
-              "Y": -0.0003
+              "Y": 0.0
             },
             "PreSize": {
               "X": 1.0,
@@ -54,8 +54,6 @@
             },
             "LeftMargin": -268.4282,
             "RightMargin": 268.4282,
-            "TopMargin": 0.614,
-            "BottomMargin": -0.614,
             "Tag": 111,
             "ActionTag": -158719604,
             "Size": {
@@ -138,7 +136,7 @@
             "AnchorPoint": {},
             "Position": {
               "X": 2561.6946,
-              "Y": -1.429
+              "Y": 0.0
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -148,7 +146,7 @@
             "IconVisible": false,
             "PrePosition": {
               "X": 0.8264,
-              "Y": -0.0008
+              "Y": 0.0
             },
             "PreSize": {
               "X": 0.171,
@@ -156,8 +154,6 @@
             },
             "LeftMargin": 2561.6946,
             "RightMargin": 8.3054,
-            "TopMargin": 1.429,
-            "BottomMargin": -1.429,
             "Tag": 113,
             "ActionTag": -1743395420,
             "Size": {
@@ -189,8 +185,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -0.7004,
-              "Y": -3.0695
+              "X": 0.0,
+              "Y": 0.0
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -199,17 +195,14 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0002,
-              "Y": -0.0017
+              "X": 0.0,
+              "Y": 0.0
             },
             "PreSize": {
               "X": 0.8258,
               "Y": 1.0
             },
-            "LeftMargin": -0.7004,
-            "RightMargin": 540.7004,
-            "TopMargin": 3.0695,
-            "BottomMargin": -3.0695,
+            "RightMargin": 540.0,
             "Tag": 26,
             "ActionTag": -1264754022,
             "Size": {
@@ -444,145 +437,6 @@
               "Y": 222.0
             },
             "Name": "grass_base_5",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "bubble_shooter/cloud.png",
-              "Plist": "bubble_shooter/bubble_shooter.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 324.222,
-              "Y": 1384.4648
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.1046,
-              "Y": 0.7691
-            },
-            "PreSize": {
-              "X": 0.1642,
-              "Y": 0.1478
-            },
-            "LeftMargin": 69.722,
-            "RightMargin": 2521.2781,
-            "TopMargin": 282.5352,
-            "BottomMargin": 1251.4648,
-            "Tag": 120,
-            "ActionTag": 1184750515,
-            "Size": {
-              "X": 509.0,
-              "Y": 266.0
-            },
-            "Alpha": 178,
-            "Name": "cloud_6",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FlipX": true,
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "bubble_shooter/cloud.png",
-              "Plist": "bubble_shooter/bubble_shooter.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 2292.0251,
-              "Y": 1399.3616
-            },
-            "Scale": {
-              "ScaleX": 0.846,
-              "ScaleY": 0.846
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.7394,
-              "Y": 0.7774
-            },
-            "PreSize": {
-              "X": 0.1642,
-              "Y": 0.1478
-            },
-            "LeftMargin": 2037.5251,
-            "RightMargin": 553.4749,
-            "TopMargin": 267.6384,
-            "BottomMargin": 1266.3616,
-            "Tag": 121,
-            "ActionTag": 1182140730,
-            "Size": {
-              "X": 509.0,
-              "Y": 266.0
-            },
-            "Alpha": 102,
-            "Name": "cloud_7",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "bubble_shooter/cloud.png",
-              "Plist": "bubble_shooter/bubble_shooter.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1297.1895,
-              "Y": 1026.9171
-            },
-            "Scale": {
-              "ScaleX": 0.8652,
-              "ScaleY": 0.8652
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.4184,
-              "Y": 0.5705
-            },
-            "PreSize": {
-              "X": 0.1642,
-              "Y": 0.1478
-            },
-            "LeftMargin": 1042.6895,
-            "RightMargin": 1548.3105,
-            "TopMargin": 640.0829,
-            "BottomMargin": 893.9171,
-            "Tag": 122,
-            "ActionTag": -589711267,
-            "Size": {
-              "X": 509.0,
-              "Y": 266.0
-            },
-            "Alpha": 139,
-            "Name": "cloud_8",
             "ctype": "SpriteObjectData"
           },
           {
