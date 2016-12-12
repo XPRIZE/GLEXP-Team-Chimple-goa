@@ -58,11 +58,12 @@ std::map<int, int> TextGenerator::getRandomLocations(int numLoc, int totalNum) {
 }
 
 std::string TextGenerator::generateAWord(int level, int length) {
-    return LangUtil::getInstance()->getAWord();
+    level = 1;
+    return getSingle("words", level);
 }
 
 std::string TextGenerator::generateASentence(int level) {
-    return LangUtil::getInstance()->getASentence();
+    return getSingle("sentences", level);
 }
 
 
@@ -109,855 +110,205 @@ std::vector<std::string> TextGenerator::getValidCombinations(std::string chars, 
 }
 
 std::map<std::string, std::string> TextGenerator::getSynonyms(int maxNum, int level) {
-    std::map<std::string, std::string> SynonymMap = {
-        {"end", "finish"},
-        {"cry", "sob"},
-        {"cold", "icy"},
-        {"begin", "start"},
-        {"save", "keep"},
-        {"hope", "wish"},
-        {"choose", "pick"},
-        {"paste", "glue"},
-        {"hurry", "rush"},
-        {"sad", "unhappy"},
-        {"friend", "pal"},
-        {"enjoy", "like"},
-        {"error", "mistake"},
-		{"close","shut"},
-		{ "fast","quick" },
-		{ "small","little" },
-		{ "house","home" },
-		{ "center","middle" },
-		{ "chop","cut" },
-		{ "easy","simple" },
-		{ "quiet","silent" },
-		{ "evil","bad" },
-		{ "see","look" },
-		{ "clever","smart" },
-		{ "mother","mom" },
-		{ "father","dad"},
-		{"hat","cap"}
-    };
-    std::map<std::string, std::string> data;
-    for (std::map<std::string, std::string>::iterator it=SynonymMap.begin(); it!=SynonymMap.end(); ++it) {
-        data[it->first] = it->second;
-        if(data.size() >= maxNum) {
-            break;
-        }
-    }
-    return data;
+    return getPairs("synonyms", maxNum, 1);
 }
 
 std::map<std::string, std::string> TextGenerator::getAntonyms(int maxNum, int level) {
-    std::map<std::string, std::string> AntonymMap = {
-        {"big", "small"},
-        {"loud", "quiet"},
-        {"dark", "light"},
-        {"fast", "slow"},
-        {"happy", "sad"},
-        {"long", "short"},
-        {"hot", "cold"},
-        {"wet", "dry"},
-        {"over", "under"},
-        {"sink", "float"},
-        {"far", "near"},
-        {"empty", "full"},
-        {"messy", "neat"},
-        {"never", "always"},
-        {"old", "young"},
-		{ "good", "bad" },
-		{ "up","down" },
-		{ "soft","hard" },
-		{ "found","lost" },
-		{ "front","back" },
-		{ "add","subtract" },
-		{ "enemy","friend" },
-		{ "stop","start" },
-		{ "finish","begin" },
-		{ "rich","poor" },
-		{"black", "white"},
-		{"always","never"},
-		{"worst","best"},
-		{"over","under"}
-    };
-    std::map<std::string, std::string> data;
-    for (std::map<std::string, std::string>::iterator it=AntonymMap.begin(); it!=AntonymMap.end(); ++it) {
-        data[it->first] = it->second;
-        if(data.size() >= maxNum) {
-            break;
-        }
-    }
-    return data;
+    return getPairs("antonyms", maxNum, level);
 }
 
 std::map<std::string, std::string> TextGenerator::getHomonyms(int maxNum, int level) {
-    std::map<std::string, std::string> HomonymMap = {
-        {"be", "bee"},
-        {"bean", "bean"},
-        {"buy", "by"},
-        {"hear", "here"},
-        {"hour", "our"},
-        {"know", "no"},
-        {"mail", "male"},
-        {"meat", "meet"},
-        {"plain", "plane"},
-        {"right", "write"},
-        {"road", "rode"},
-        {"sail", "sale"},
-        {"sea", "see"},
-        {"knew", "new"},
-        {"son", "sun"},
-        {"tail", "tale"},
-		{ "accept","except" },
-		{ "blew","blue" },
-		{ "ant","aunt" },
-		{ "bare","bear" },
-		{ "beat","beet" },
-		{ "buy","bye" },
-		{ "cell","sell" },
-		{ "pear","pair" },
-		{ "tea","tee" },
-		{"there","their"},
-		{"tied","tide"},
-		{"steal","steel"},
-		{"plane","plain"},
-		{"bawl","ball"},
-		{"knows","nose"}
-    };
-    std::map<std::string, std::string> data;
-    for (std::map<std::string, std::string>::iterator it=HomonymMap.begin(); it!=HomonymMap.end(); ++it) {
-        data[it->first] = it->second;
-        if(data.size() >= maxNum) {
-            break;
+    return getPairs("homonyms", maxNum, 1);
+}
+
+std::map<std::string, std::string> TextGenerator::getSingularPlurals(int maxNum, int level) {
+    return getPairs("plurals", maxNum, 1);
+}
+
+std::map<std::string, std::string> TextGenerator::getPairs(std::string type, int maxNum, int level) {
+    std::string contents = cocos2d::FileUtils::getInstance()->getStringFromFile(LangUtil::getInstance()->getDir() + "/" + type + ".csv");
+    std::vector<std::pair<std::string, std::string>> pairs;
+    std::stringstream ss;
+    ss.str(contents);
+    std::string line;
+    while (std::getline(ss, line)) {
+        std::stringstream sline;
+        sline.str(line);
+        std::string item;
+        std::vector<std::string> elems;
+        while (std::getline(sline, item, ';')) {
+            elems.push_back(item);
         }
+        if(std::stoi(elems[0]) == level) {
+            pairs.push_back(std::pair<std::string, std::string>(elems[1], elems[2]));
+        }
+    }
+
+    std::map<std::string, std::string> data;
+    for(int i = 0; i < maxNum; i++) {
+        int rIndex = rand() % pairs.size();
+        auto pair = pairs[rIndex];
+        pairs.erase(pairs.begin() + rIndex);
+        data.insert(pair);
+    }
+    
+    return data;
+}
+
+std::vector<std::string> TextGenerator::getWordList(std::string type, int level) {
+    std::string contents = cocos2d::FileUtils::getInstance()->getStringFromFile(LangUtil::getInstance()->getDir() + "/" + type + ".csv");
+    std::vector<std::string> pairs;
+    std::stringstream ss;
+    ss.str(contents);
+    std::string line;
+    while (std::getline(ss, line)) {
+        std::stringstream sline;
+        sline.str(line);
+        std::string item;
+        std::vector<std::string> elems;
+        while (std::getline(sline, item, ';')) {
+            elems.push_back(item);
+        }
+        if(atoi(elems[0].c_str()) == level) {
+            pairs.push_back(elems[1]);
+        }
+    }
+    
+    return pairs;
+}
+
+std::string TextGenerator::getSingle(std::string type, int level) {
+    std::string contents = cocos2d::FileUtils::getInstance()->getStringFromFile(LangUtil::getInstance()->getDir() + "/" + type + ".csv");
+    std::vector<std::string> pairs;
+    std::stringstream ss;
+    ss.str(contents);
+    std::string line;
+    while (std::getline(ss, line)) {
+        std::stringstream sline;
+        sline.str(line);
+        std::string item;
+        std::vector<std::string> elems;
+        while (std::getline(sline, item, ';')) {
+            elems.push_back(item);
+        }
+        if(atoi(elems[0].c_str()) == level) {
+            pairs.push_back(elems[1]);
+        }
+    }
+    
+    int rIndex = rand() % pairs.size();
+    return pairs[rIndex];
+}
+
+
+
+std::map<std::string, std::map<std::string, std::string>> TextGenerator::getMapOfWords(std::string type, int maxNum, int maxChoices, int level) {
+    std::string contents = cocos2d::FileUtils::getInstance()->getStringFromFile(LangUtil::getInstance()->getDir() + "/" + type + ".csv");
+    std::map<std::string, std::vector<std::string>> pairMap;
+    std::vector<std::string> keys;
+    std::stringstream ss;
+    ss.str(contents);
+    std::string line;
+    while (std::getline(ss, line)) {
+        std::stringstream sline;
+        sline.str(line);
+        std::string item;
+        std::vector<std::string> elems;
+        while (std::getline(sline, item, ';')) {
+            elems.push_back(item);
+        }
+        if(std::stoi(elems[0]) == level) {
+            pairMap[elems[1]].push_back(elems[2]);
+            auto valueVector = pairMap[elems[1]];
+            if(valueVector.size() == 1) {
+                keys.push_back(elems[1]);
+            }
+        }
+    }
+    
+    std::vector<std::vector<std::string>> pairs;
+    std::map<std::string, std::map<std::string, std::string>> data;
+    for(int i = 0; i < maxNum; i++) {
+        int rIndex = rand() % keys.size();
+        auto key = keys[rIndex];
+        auto choices = pairMap[key];
+        keys.erase(keys.begin() + rIndex);
+        std::map<std::string, std::string> newChoices;
+        for(int j = 0; j < maxChoices; j++) {
+            int rx = rand() % choices.size();
+            auto choice = choices[rx];
+            choices.erase(choices.begin() + rx);
+            newChoices[choice] = "dummy";
+        }
+        data[key] = newChoices;
     }
     return data;
 }
 
 std::map<std::string, std::map<std::string, std::string>> TextGenerator::getInitialSyllableWords(int maxNum, int maxChoices, int level) {
-    std::map<std::string, std::map<std::string, std::string>> InitialSyllableMap = {
-        {
-            {"be",
-                {
-                    {"beach", "english/sounds/b.wav"},
-                    {"beard", "english/sounds/b.wav"},
-                    {"been", "english/sounds/b.wav"},
-                    {"beetroot", "english/sounds/b.wav"},
-                    {"beast", "english/sounds/b.wav"},
-                    {"beat", "english/sounds/b.wav"}
-                }},
-            {"fr",
-                {
-                    {"french", "english/sounds/f.wav"},
-                    {"fruit", "english/sounds/f.wav"},
-                    {"frown", "english/sounds/f.wav"},
-                    {"free", "english/sounds/f.wav"},
-                    {"frisbee", "english/sounds/f.wav"},
-                    {"fringe", "english/sounds/f.wav"}
-                }},
-            {"gr",
-                {
-                    {"greet", "english/sounds/g.wav"},
-                    {"great", "english/sounds/g.wav"},
-                    {"grow", "english/sounds/g.wav"},
-                    {"grease", "english/sounds/g.wav"},
-                    {"growl", "english/sounds/g.wav"},
-                    {"grunge", "english/sounds/g.wav"}
-                }},
-            {"sc",
-                {
-                    {"scare", "english/sounds/s.wav"},
-                    {"scowl", "english/sounds/s.wav"},
-                    {"scream", "english/sounds/s.wav"},
-                    {"scone", "english/sounds/s.wav"},
-                    {"scarf", "english/sounds/s.wav"},
-                    {"scam", "english/sounds/s.wav"}
-                }},
-            {"ar",
-                {
-                    {"art", "english/sounds/a.wav"},
-                    {"argue", "english/sounds/a.wav"},
-                    {"arm", "english/sounds/a.wav"},
-                    {"arson", "english/sounds/a.wav"},
-                    {"arbor", "english/sounds/a.wav"},
-                    {"ark", "english/sounds/a.wav"}
-                }}
-        }
-    };
-    std::map<std::string, std::map<std::string, std::string>> data;
-    for (std::map<std::string, std::map<std::string, std::string>>::iterator it=InitialSyllableMap.begin(); it!=InitialSyllableMap.end(); ++it) {
-        std::map<std::string, std::string> innerData;
-        for(std::map<std::string, std::string>::iterator inIt=it->second.begin(); inIt!=it->second.end(); ++inIt) {
-            innerData[inIt->first] = inIt->second;
-            if(innerData.size() >= maxChoices) {
-                break;
-            }
-        }
-        data[it->first] = innerData;
-        if(data.size() >= maxNum) {
-            break;
-        }
-    }
-    return data;
+    /* 3 levels */
+    return getMapOfWords("initial_syllables", maxNum, maxChoices, 1);
 }
 
 std::vector<std::string> TextGenerator::getWords(TextGenerator::P_O_S partOfSpeech, int maxLength, int level) {
-    std::vector<std::string> WordVec;
+    level = 1;
+    std::string pos = "";
     switch( partOfSpeech ) {
         case TextGenerator::P_O_S::NOUN:
-            WordVec = {
-                "people",
-                "history",
-                "way",
-                "art",
-                "world",
-                "information",
-                "map",
-                "two",
-                "family",
-                "government",
-                "health",
-                "system",
-                "computer",
-                "meat",
-                "year",
-                "thanks",
-                "music",
-                "person",
-                "reading",
-                "method",
-                "data",
-                "food",
-                "understanding",
-                "theory",
-                "law",
-                "bird",
-                "literature",
-                "problem",
-                "software",
-                "control",
-                "knowledge",
-                "power",
-                "ability",
-                "economics",
-                "love",
-                "internet",
-                "television",
-                "science",
-                "library",
-                "nature",
-                "fact",
-                "product",
-                "idea",
-                "temperature",
-                "investment",
-                "area",
-                "society",
-                "activity",
-                "story",
-                "industry",
-                "media",
-                "thing",
-                "oven",
-                "community",
-                "definition",
-                "safety",
-                "quality",
-                "development",
-                "language",
-                "management"
-            };
-        break;
+            pos = "NOUN";
+            break;
         case TextGenerator::P_O_S::VERB:
-            WordVec = {
-                "accept",
-                "add",
-                "admire",
-                "admit",
-                "advise",
-                "afford",
-                "agree",
-                "alert",
-                "allow",
-                "amuse",
-                "analyze",
-                "announce",
-                "annoy",
-                "answer",
-                "apologise",
-                "appear",
-                "applaud",
-                "appreciate",
-                "approve",
-                "argue",
-                "arrange",
-                "arrest",
-                "arrive",
-                "ask",
-                "attach",
-                "attack",
-                "attempt",
-                "attend",
-                "attract",
-                "avoid",
-                "back",
-                "bake",
-                "balance",
-                "ban",
-                "bang",
-                "bare",
-                "bat",
-                "bathe",
-                "battle",
-                "beam",
-                "beg",
-                "behave",
-                "belong",
-                "bleach",
-                "bless",
-                "blind",
-                "blink",
-                "blot",
-                "blush",
-                "boast",
-                "boil",
-                "bolt",
-                "bomb",
-                "book",
-                "bore",
-                "borrow",
-                "bounce",
-                "bow",
-                "box",
-                "brake",
-                "branch",
-                "breathe",
-                "bruise",
-                "brush",
-                "bubble",
-                "bump",
-                "burn",
-                "bury",
-                "buzz"
-            };
-        break;
+            pos = "VERB";
+            break;
         case TextGenerator::P_O_S::ADJECTIVE:
-            WordVec = {
-                "used",
-                "important",
-                "every",
-                "large",
-                "available",
-                "popular",
-                "able",
-                "basic",
-                "known",
-                "various",
-                "difficult",
-                "several",
-                "united",
-                "historical",
-                "hot",
-                "useful",
-                "mental",
-                "scared",
-                "additional",
-                "emotional",
-                "old",
-                "political",
-                "similar",
-                "healthy",
-                "financial",
-                "medical",
-                "traditional",
-                "federal",
-                "entire",
-                "strong",
-                "actual",
-                "significant",
-                "successful",
-                "electrical",
-                "expensive",
-                "pregnant",
-                "intelligent",
-                "interesting",
-                "poor",
-                "happy",
-                "responsible",
-                "cute",
-                "helpful",
-                "recent",
-                "willing",
-                "nice",
-                "wonderful",
-                "impossible",
-                "serious",
-                "huge",
-                "rare",
-                "technical",
-                "typical",
-                "competitive",
-                "critical",
-                "electronic",
-                "immediate",
-                "aware",
-                "educational",
-                "environmental",
-                "global",
-                "legal",
-                "relevant",
-                "accurate",
-                "capable",
-                "dangerous",
-                "dramatic",
-                "efficient",
-                "powerful",
-                "foreign",
-                "hungry",
-                "practical",
-                "psychological",
-                "severe",
-                "suitable",
-                "numerous",
-                "sufficient",
-                "unusual",
-                "consistent",
-                "cultural",
-                "existing",
-                "famous",
-                "pure",
-                "afraid",
-                "obvious",
-                "careful",
-                "latter",
-                "unhappy",
-                "acceptable",
-                "aggressive",
-                "boring",
-                "distinct",
-                "eastern",
-                "logical",
-                "reasonable",
-                "strict",
-                "administrative",
-                "automatic",
-                "civil",
-                "former",
-                "massive",
-                "southern",
-                "unfair",
-                "visible",
-                "alive",
-                "angry",
-                "desperate",
-                "exciting",
-                "friendly",
-                "lucky",
-                "realistic",
-                "sorry",
-                "ugly",
-                "unlikely",
-                "anxious",
-                "comprehensive",
-                "curious",
-                "impressive",
-                "informal",
-                "inner",
-                "pleasant",
-                "sexual",
-                "sudden",
-                "terrible",
-                "unable",
-                "weak",
-                "wooden"
-            };
-        break;
-        case TextGenerator::P_O_S::ANY:
-            WordVec = {
-                "people",
-                "history",
-                "way",
-                "art",
-                "world",
-                "information",
-                "map",
-                "two",
-                "family",
-                "government",
-                "health",
-                "system",
-                "computer",
-                "meat",
-                "year",
-                "thanks",
-                "music",
-                "person",
-                "reading",
-                "method",
-                "data",
-                "food",
-                "understanding",
-                "theory",
-                "law",
-                "bird",
-                "literature",
-                "problem",
-                "software",
-                "control",
-                "knowledge",
-                "power",
-                "ability",
-                "economics",
-                "love",
-                "internet",
-                "television",
-                "science",
-                "library",
-                "nature",
-                "fact",
-                "product",
-                "idea",
-                "temperature",
-                "investment",
-                "area",
-                "society",
-                "activity",
-                "story",
-                "industry",
-                "media",
-                "thing",
-                "oven",
-                "community",
-                "definition",
-                "safety",
-                "quality",
-                "development",
-                "language",
-                "management"
-            };
-		break;
-		case TextGenerator::P_O_S::PRONOUN:
-			WordVec = {
-				"your",
-				"I",
-				"they",	
-				"their",
-				"we",
-				"who",
-				"them",
-				"its",
-				"our",
-				"my",
-				"those",
-				"he",
-				"us",
-				"her",
-				"something",
-				"me",
-				"yourself",
-				"someone",
-				"everything",
-				"itself",
-				"everyone",
-				"themselves",
-				"anyone",
-				"him",
-				"whose",
-				"myself",
-				"everybody",
-				"ourselves",
-				"himself",
-				"somebody",
-				"yours",
-				"herself",
-				"whoever",
-				"you",
-				"that",
-				"it",
-				"this",
-				"what",
-				"which",
-				"these",
-				"his",
-				"she",
-				"lot",
-				"anything",
-				"whatever",
-				"nobody",
-				"none",
-				"mine",
-				"anybody",
-				"some",
-				"there",
-				"all",
-				"where",
-				"another",
-				"same",
-				"certain",
-				"nothing",
-				"self",
-				"nowhere"
-			};
-		break;
-		case TextGenerator::P_O_S::ADVERB:
-			WordVec = {
-				"accidentally",
-				"always",
-				"angrily",
-				"anxiously",
-				"awkwardly",
-				"badly",
-				"blindly",
-				"boastfully",
-				"boldly",
-				"bravely",
-				"brightly",
-				"cheerfully",
-				"coyly",
-				"crazily",
-				"defiantly",
-				"deftly",
-				"deliberately",
-				"devotedly",
-				"doubtfully",
-				"dramatically",
-				"dutifully",
-				"eagerly",
-				"elegantly",
-				"enormously",
-				"evenly",
-				"eventually",
-				"exactly",
-				"faithfully",
-				"finally",
-				"foolishly",
-				"fortunately",
-				"frequently",
-				"gleefully",
-				"gracefully",
-				"happily",
-				"hastily",
-				"honestly",
-				"hopelessly",
-				"hourly",
-				"hungrily",
-				"innocently",
-				"inquisitively",
-				"irritably",
-				"jealously",
-				"justly",
-				"kindly",
-				"lazily",
-				"loosely",
-				"madly",
-				"merrily",
-				"mortally",
-				"mysteriously",
-				"nervously",
-				"never",
-				"obediently",
-				"obnoxiously",
-				"occasionally",
-				"often",
-				"only",
-				"perfectly",
-				"politely",
-				"poorly",
-				"powerfully",
-				"promptly",
-				"quickly",
-				"rapidly",
-				"rarely",
-				"regularly",
-				"rudely",
-				"safely",
-				"seldom",
-				"selfishly",
-				"seriously",
-				"shakily",
-				"sharply",
-				"silently",
-				"slowly",
-				"solemnly",
-				"sometimes",
-				"speedily",
-				"sternly",
-				"technically",
-				"tediously",
-				"unexpectedly",
-				"usually",
-				"victoriously",
-				"vivaciously",
-				"warmly",
-				"wearily",
-				"weekly",
-				"wildly",
-				"yearly"
-			};
-     	break;
-		case TextGenerator::P_O_S::PREPOSITION:
-			WordVec = {
-				"aboard",
-				"about",
-				"above",
-				"across",
-				"after",
-				"against",
-				"along",
-				"amid",
-				"among",
-				"anti",
-				"around",
-				"as",
-				"at",
-				"before",
-				"behind",
-				"below",
-				"beneath",
-				"beside",
-				"besides",
-				"between",
-				"beyond",
-				"but",
-				"by",
-				"concerning",
-				"considering",
-				"despite",
-				"down",
-				"during",
-				"except",
-				"excepting",
-				"excluding",
-				"following",
-				"for",
-				"from",
-				"in",
-				"inside",
-				"into",
-				"like",
-				"minus",
-				"near",
-				"of",
-				"off",
-				"on",
-				"onto",
-				"opposite",
-				"outside",
-				"over",
-				"past",
-				"per",
-				"plus",
-				"regarding",
-				"round",
-				"save",
-				"since",
-				"than",
-				"through",
-				"to",
-				"toward",
-				"towards",
-				"under",
-				"underneath",
-				"unlike",
-				"until",
-				"up",
-				"upon",
-				"versus",
-				"via",
-				"with",
-				"within",
-				"without"
-			};
-		break;
-		case TextGenerator::P_O_S::CONJUNCTION:
-			WordVec = {
-				"and",
-				"that",
-				"but",
-				"or",
-				"as",
-				"if",
-				"when",
-				"than",
-				"because",
-				"while",
-				"where",
-				"after",
-				"so",
-				"though",
-				"since",
-				"until",
-				"whether",
-				"before",
-				"although",
-				"nor",
-				"like",
-				"once",
-				"unless",
-				"now",
-				"except"
-			};
-     	break;
-		case TextGenerator::P_O_S::INTERJECTION:
-			WordVec = {
-				"absolutely",
-				"achoo",
-				"ack",
-				"ahh",
-				"aha",
-				"ahem",
-				"ahoy",
-				"agreed",
-				"alas",
-				"alright",
-				"alrighty",
-				"alack",
-				"amen",
-				"anytime",
-				"argh",
-				"anyhoo",
-				"anyhow",
-				"as",
-				"if",
-				"attaboy",
-				"attagirl"
-			};
-		break;
-		case TextGenerator::P_O_S::ARTICLE:
-			WordVec = {
-				"a",
-				"an",
-				"the",
-				"a",
-				"an",
-				"the",
-				"a",
-				"an",
-				"the",
-				"a",
-				"an",
-				"the",
-				"a",
-				"an",
-				"the",
-				"a",
-				"an",
-				"the",
-				"a",
-				"an",
-				"the",
-			};
+            pos = "ADJ";
+            break;
+        case TextGenerator::P_O_S::PRONOUN:
+            pos = "PRON";
+            break;
+        case TextGenerator::P_O_S::ADVERB:
+            pos = "ADV";
+            break;
+        case TextGenerator::P_O_S::PREPOSITION:
+            pos = "ADP";
+            break;
+        case TextGenerator::P_O_S::CONJUNCTION:
+            pos = "CONJ";
+            break;
+        case TextGenerator::P_O_S::INTERJECTION:
+            pos = "INT";
+            break;
+        case TextGenerator::P_O_S::ARTICLE:
+            pos = "DET";
             break;
     }
-    std::vector<std::string> data;
-    for (auto it=WordVec.begin(); it!=WordVec.end(); ++it) {
-        data.push_back(*it);
-        if(data.size() >= maxLength) {
-            break;
+    std::string contents = cocos2d::FileUtils::getInstance()->getStringFromFile(LangUtil::getInstance()->getDir() + "/pos.csv");
+    std::vector<std::string> words;
+    std::stringstream ss;
+    ss.str(contents);
+    std::string line;
+    while (std::getline(ss, line)) {
+        std::stringstream sline;
+        sline.str(line);
+        std::string item;
+        std::vector<std::string> elems;
+        while (std::getline(sline, item, ';')) {
+            elems.push_back(item);
+        }
+        if(std::stoi(elems[0]) == level && (pos.empty() || pos == elems[1])) {
+            words.push_back(elems[2]);
         }
     }
-    return data;
     
+    std::vector<std::string> data;
+    for(int i = 0; i < maxLength; i++) {
+        int rIndex = rand() % words.size();
+        auto word = words[rIndex];
+        words.erase(words.begin() + rIndex);
+        data.push_back(word);
+    }
+    
+    return data;
 }
 
 std::vector<std::string> TextGenerator::getOrderedConcepts(int level) {
@@ -1042,117 +393,107 @@ std::vector<std::string> TextGenerator::getOrderedConcepts(int level) {
 }
 
 std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> TextGenerator::getSentenceWithPOS(TextGenerator::P_O_S partOfSpeech, int maxLength, int level) {
-    std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> Sentences = {
-        {
-            {"The", TextGenerator::P_O_S::ARTICLE},
-            {"young", TextGenerator::P_O_S::ADJECTIVE},
-            {"boy", TextGenerator::P_O_S::NOUN},
-            {"rode", TextGenerator::P_O_S::VERB},
-            {"his", TextGenerator::P_O_S::PRONOUN},
-            {"red", TextGenerator::P_O_S::ADJECTIVE},
-            {"bike", TextGenerator::P_O_S::NOUN}
-        },
-        {
-            {"The", TextGenerator::P_O_S::ARTICLE},
-            {"girl", TextGenerator::P_O_S::NOUN},
-            {"with", TextGenerator::P_O_S::PREPOSITION},
-            {"the", TextGenerator::P_O_S::ARTICLE},
-            {"curly", TextGenerator::P_O_S::ADJECTIVE},
-            {"hair", TextGenerator::P_O_S::NOUN},
-            {"ate", TextGenerator::P_O_S::VERB},
-            {"lunch", TextGenerator::P_O_S::NOUN},
-            {"in", TextGenerator::P_O_S::PREPOSITION},
-            {"the", TextGenerator::P_O_S::ARTICLE},
-            {"park", TextGenerator::P_O_S::NOUN}
-        },
-        {
-            {"A", TextGenerator::P_O_S::ARTICLE},
-            {"bird", TextGenerator::P_O_S::NOUN},
-            {"flew", TextGenerator::P_O_S::VERB},
-            {"in", TextGenerator::P_O_S::PREPOSITION},
-            {"the", TextGenerator::P_O_S::ARTICLE},
-            {"clear", TextGenerator::P_O_S::ADJECTIVE},
-            {"sky", TextGenerator::P_O_S::NOUN}
-        },
-        {
-            {"Vincent", TextGenerator::P_O_S::NOUN},
-            {"painted", TextGenerator::P_O_S::VERB},
-            {"a", TextGenerator::P_O_S::ARTICLE},
-            {"beautiful", TextGenerator::P_O_S::ADJECTIVE},
-            {"scene", TextGenerator::P_O_S::NOUN}
-        },
-        {
-            {"Jay", TextGenerator::P_O_S::NOUN},
-            {"ran", TextGenerator::P_O_S::VERB},
-            {"a", TextGenerator::P_O_S::ARTICLE},
-            {"fast", TextGenerator::P_O_S::ADJECTIVE},
-            {"race", TextGenerator::P_O_S::NOUN}
-        },
-        {
-            {"Rita", TextGenerator::P_O_S::NOUN},
-            {"jumped", TextGenerator::P_O_S::VERB},
-            {"a", TextGenerator::P_O_S::ARTICLE},
-            {"high", TextGenerator::P_O_S::ADJECTIVE},
-            {"obstacle", TextGenerator::P_O_S::NOUN}
-        },
-        {
-            {"Don", TextGenerator::P_O_S::NOUN},
-            {"wore", TextGenerator::P_O_S::VERB},
-            {"a", TextGenerator::P_O_S::ARTICLE},
-            {"rough", TextGenerator::P_O_S::ADJECTIVE},
-            {"sweater", TextGenerator::P_O_S::NOUN}
-        },
-        {
-            {"Maria", TextGenerator::P_O_S::NOUN},
-            {"read", TextGenerator::P_O_S::VERB},
-            {"a", TextGenerator::P_O_S::ARTICLE},
-            {"difficult", TextGenerator::P_O_S::ADJECTIVE},
-            {"word", TextGenerator::P_O_S::NOUN}
-        },
-        {
-            {"Gloria", TextGenerator::P_O_S::NOUN},
-            {"walked", TextGenerator::P_O_S::VERB},
-            {"an", TextGenerator::P_O_S::ARTICLE},
-            {"uphill", TextGenerator::P_O_S::ADJECTIVE},
-            {"road", TextGenerator::P_O_S::NOUN}
+    /* minimum 10 sentences per level and 10 levels */
+    level = 1;
+    std::string pos = "";
+    switch( partOfSpeech ) {
+        case TextGenerator::P_O_S::NOUN:
+            pos = "NOUN";
+            break;
+        case TextGenerator::P_O_S::VERB:
+            pos = "VERB";
+            break;
+        case TextGenerator::P_O_S::ADJECTIVE:
+            pos = "ADJ";
+            break;
+        case TextGenerator::P_O_S::PRONOUN:
+            pos = "PRON";
+            break;
+        case TextGenerator::P_O_S::ADVERB:
+            pos = "ADV";
+            break;
+        case TextGenerator::P_O_S::PREPOSITION:
+            pos = "ADP";
+            break;
+        case TextGenerator::P_O_S::CONJUNCTION:
+            pos = "CONJ";
+            break;
+        case TextGenerator::P_O_S::INTERJECTION:
+            pos = "INT";
+            break;
+        case TextGenerator::P_O_S::ARTICLE:
+            pos = "DET";
+            break;
+    }
+    std::string contents = cocos2d::FileUtils::getInstance()->getStringFromFile(LangUtil::getInstance()->getDir() + "/sentences.csv");
+    std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> Sentences;
+    std::vector<std::string> words;
+    std::stringstream ss;
+    ss.str(contents);
+    std::string line;
+    while (std::getline(ss, line)) {
+        std::stringstream sline;
+        sline.str(line);
+        std::string item;
+        std::vector<std::string> elems;
+        while (std::getline(sline, item, ';')) {
+            elems.push_back(item);
         }
-    };
+        if(std::stoi(elems[0]) == level) {
+            bool foundPos = false;
+            if(!pos.empty()) {
+                for (auto it=elems.begin() + 1; it!=elems.end(); ++it) {
+                    if(pos == *it) {
+                        foundPos = true;
+                        break;
+                    }
+                }
+            }
+            if(pos.empty() || foundPos) {
+                std::vector<std::pair<std::string, TextGenerator::P_O_S>> sentence;
+                std::string word = "";
+                bool odd = true;
+                for (auto it=elems.begin() + 1; it!=elems.end(); ++it) {
+                    if(odd) {
+                        word = *it;
+                        odd = false;
+                    } else {
+                        TextGenerator::P_O_S wordPos;
+                        if("NOUN" == *it)
+                            wordPos = TextGenerator::P_O_S::NOUN;
+                        else if("VERB" == *it)
+                            wordPos = TextGenerator::P_O_S::VERB;
+                        else if("ADJ" == *it)
+                            wordPos = TextGenerator::P_O_S::ADJECTIVE;
+                        else if("PRON" == *it)
+                            wordPos = TextGenerator::P_O_S::PRONOUN;
+                        else if("ADP" == *it)
+                            wordPos = TextGenerator::P_O_S::PREPOSITION;
+                        else if("CONJ" == *it)
+                            wordPos = TextGenerator::P_O_S::CONJUNCTION;
+                        else if("INT" == *it)
+                            wordPos = TextGenerator::P_O_S::INTERJECTION;
+                        else if("DET" == *it)
+                            wordPos = TextGenerator::P_O_S::ARTICLE;
+                        else
+                            wordPos = TextGenerator::P_O_S::ANY;
+                        sentence.push_back(std::make_pair(word, wordPos));
+                        odd = true;
+                    }
+                }
+                Sentences.push_back(sentence);
+            }
+        }
+    }
+    
     std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> data;
-    for (auto it=Sentences.begin(); it!=Sentences.end(); ++it) {
-        data.push_back(*it);
-        if(data.size() >= maxLength) {
-            break;
-        }
+    for(int i = 0; i < maxLength; i++) {
+        int rIndex = rand() % Sentences.size();
+        auto word = Sentences[rIndex];
+        Sentences.erase(Sentences.begin() + rIndex);
+        data.push_back(word);
     }
-    return data;
-}
-
-std::map<std::string, std::string> TextGenerator::getSingularPlurals(int maxNum, int level) {
-    std::map<std::string, std::string> SingularPluralMap = {
-        {"apple", "apples"},
-        {"banana", "bananas"},
-        {"toy", "toys"},
-        {"deer", "deers"},
-        {"hour", "hours"},
-        {"phone", "phones"},
-        {"computer", "computers"},
-        {"bottle", "bottles"},
-        {"plain", "plains"},
-        {"tree", "trees"},
-        {"road", "roads"},
-        {"sail", "sails"},
-        {"sea", "seas"},
-        {"octopus", "octopi"},
-        {"son", "sons"},
-        {"tail", "tails"}
-    };
-    std::map<std::string, std::string> data;
-    for (std::map<std::string, std::string>::iterator it=SingularPluralMap.begin(); it!=SingularPluralMap.end(); ++it) {
-        data[it->first] = it->second;
-        if(data.size() >= maxNum) {
-            break;
-        }
-    }
+    
     return data;
 }
 
@@ -1163,7 +504,15 @@ std::string TextGenerator::getLang() {
 
 std::vector<std::string> TextGenerator::wordsWithGivenLetter(std::string str)
 {
-	return LangUtil::getInstance()->setOfWordsWithGivenLetter(str);
+    auto wordList = getWordList("words", 1);
+    std::vector<std::string> listOfWords;
+    for (int i = 0; i < wordList.size(); i++) {
+        if (wordList.at(i).find(str) == 0) {
+            listOfWords.push_back(wordList.at(i));
+        }
+    }
+    
+	return listOfWords;
 }
 
 

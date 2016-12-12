@@ -83,16 +83,16 @@ xc.StoryCoverButtonPanel = ccui.Layout.extend({
                             var star = new cc.Sprite(levelStatus >= 1 ? "#levelstep/star.png" : "#levelstep/star_empty.png")
                             star.setAnchorPoint(cc.p(0.5,0.5));
                             star.setScale(0.3);
-                            star.setPosition(item.width / 4, item.height * 3 / 4 + 50);
+                            star.setPosition(item.width / 4, item.height * 3 / 4 + 60);
                             item.addChild(star);
                             star = new cc.Sprite(levelStatus >= 2 ? "#levelstep/star.png" : "#levelstep/star_empty.png")
                             star.setScale(0.3);
                             star.setAnchorPoint(cc.p(0.5,0.5));
-                            star.setPosition(item.width / 2, item.height * 7 / 8 + 50);
+                            star.setPosition(item.width / 2, item.height * 3 / 4 + 60);
                             item.addChild(star);
                             star = new cc.Sprite(levelStatus >= 3 ? "#levelstep/star.png" : "#levelstep/star_empty.png")
                             star.setScale(0.3);
-                            star.setPosition(item.width * 3 / 4, item.height * 3 / 4 + 50);
+                            star.setPosition(item.width * 3 / 4, item.height * 3 / 4 + 60);
                             item.addChild(star);                            
                         }
 

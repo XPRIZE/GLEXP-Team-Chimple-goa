@@ -144,12 +144,14 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
         this._currentQuestionIndex++;
         if(this._currentQuestionIndex < this._questions.length) {
             var question = this._questions[this._currentQuestionIndex];
+            cc.log('question["type"]:' + question["type"]);
             if(question["type"] == "words") {
+                cc.log('11111111111');
                 this.wordQuestionHandler(this._questions);
             } else {
+                cc.log('22222222');
                 this.questionHandler(question);
-            }
-                            
+            }                            
         } else {
             this.showCopyRight();                      
         }
