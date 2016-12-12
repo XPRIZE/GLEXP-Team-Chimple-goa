@@ -71,11 +71,27 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         // Create the level of bubbles
         this.createLevel(color,repeat);
        
+        var trnspImg = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/pixel.png"));
+        trnspImg.setAnchorPoint(0,0);        trnspImg.setPosition(0,0);       trnspImg.setOpacity(0);
+        ScreenMenu.node.getChildByName("Panel_2").addChild(trnspImg);
        
+         
+        // Set the gun Pointer
+        this.gun = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/gun_tricker.png"));
+        this.gun.setPosition(trnspImg.width/2, cc.director.getWinSize().height *0.090);
+        this.gun.name ="gunPointer";
+        this.gun.anchorY = 0.6;
+        this.addChild(this.gun);
+
+        //Set the gun Base
+        this.gunBase =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/gun.png"));
+        this.gunBase.setPosition(trnspImg.width/2 , cc.director.getWinSize().height * 0.0575);
+        this.addChild(this.gunBase);  
+
         // Init the this.player in gun 
-        this.player.x = this.level.x + this.level.width/2 - this.level.tilewidth/2 ;
+        this.player.x = this.gunBase.x ;
         //console.log("this.player.x = "+(this.level.x + this.level.width/2 - this.level.tilewidth/2) + "  this.level.x : "+this.level.x+" this.level.width/2 : "+this.level.width/2+" this.level.tilewidth/2 : "+this.level.tilewidth/2);
-        this.player.y = this.level.y + this.level.height ;
+        this.player.y = cc.director.getWinSize().height - this.gunBase.y ;
         
         this.player.angle = 90;
         this.player.tiletype = 0;
@@ -95,11 +111,11 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         }
 
         this.bubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(imageSprite[this.player.bubble.tiletype]+".png"));
-        this.bubblePlayer.setPosition(cc.director.getWinSize().width * 0.5,cc.director.getWinSize().height * 0.5);
+       // this.bubblePlayer.setPosition(cc.director.getWinSize().width * 0.5,cc.director.getWinSize().height * 0.5);
         this.addChild(this.bubblePlayer,1);
 
         this.letterPlayer =  new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/Marker Felt.ttf",150);
-        this.letterPlayer.setPosition(this.bubblePlayer.getContentSize().width/2,this.bubblePlayer.getContentSize().height/2);
+        //this.letterPlayer.setPosition(this.bubblePlayer.getContentSize().width/2,this.bubblePlayer.getContentSize().height/2);
         this.bubblePlayer.addChild(this.letterPlayer);
         
         if(this.player.nextbubble.tiletype == undefined){
@@ -108,8 +124,8 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         
         this.nextBubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(imageSprite[this.player.nextbubble.tiletype]+".png"));
         this.nextLetterPlayer =   new cc.LabelTTF(""+letterSprite[this.player.nextbubble.tiletype],"res/fonts/Marker Felt.ttf",150);
-        this.nextBubblePlayer.setPosition((this.level.width/2) - 150  , cc.director.getWinSize().height - 1127);
-        this.nextLetterPlayer.setPosition((this.level.width/2) - 150  , cc.director.getWinSize().height - 1127);
+       // this.nextBubblePlayer.setPosition((this.level.width/2) - 150  , cc.director.getWinSize().height - 1127);
+        //this.nextLetterPlayer.setPosition((this.level.width/2) - 150  , cc.director.getWinSize().height - 1127);
     
         this.addChild(this.nextBubblePlayer);
         this.nextBubblePlayer.addChild(this.nextLetterPlayer);
@@ -137,11 +153,8 @@ xc.Bubble_Alphabets = cc.Layer.extend({
                 return false;
               }
       });
-      
-      var trnspImg = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/pixel.png"));
-      trnspImg.setAnchorPoint(0,0);        trnspImg.setPosition(0,0);       trnspImg.setOpacity(0);
-      ScreenMenu.node.getChildByName("Panel_2").addChild(trnspImg);
-      cc.eventManager.addListener(listnerBg,trnspImg);
+       cc.eventManager.addListener(listnerBg,trnspImg);
+ 
       
       if (cc.director.getWinSize().width > 2560){
          var xPosi = cc.director.getWinSize().width - 2560;
@@ -152,18 +165,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
             this.addChild(this.extendLetter);
           }
       }
-  
-        // Set the gun Pointer
-        this.gun = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/gun_tricker.png"));
-        this.gun.setPosition(trnspImg.width/2, cc.director.getWinSize().height *0.090);
-        this.gun.name ="gunPointer";
-        this.gun.anchorY = 0.6;
-        this.addChild(this.gun);
 
-        //Set the gun Base
-        this.gunBase =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/gun.png"));
-        this.gunBase.setPosition(trnspImg.width/2 , cc.director.getWinSize().height * 0.0575);
-        this.addChild(this.gunBase);  
   
        if(bubblelevelValues == 1){
             var window = cc.director.getWinSize();
@@ -357,10 +359,10 @@ xc.Bubble_Alphabets = cc.Layer.extend({
               this.mainPlayerBubbleDestroy = false;
           }
           
-            this.bubblePlayer.setPosition(this.player.bubble.x, (cc.director.getWinSize().height) - this.player.bubble.y-100);
+            this.bubblePlayer.setPosition(this.player.bubble.x, (cc.director.getWinSize().height) - this.player.bubble.y);
             this.letterPlayer.setPosition(this.bubblePlayer.getContentSize().width/2,this.bubblePlayer.getContentSize().height/2);
-            this.bubblePlayer.anchorX=0.0;
-            this.bubblePlayer.anchorY=0.0;
+            this.bubblePlayer.anchorX=0.5;
+            this.bubblePlayer.anchorY=0.5;
 
     },
        
@@ -607,14 +609,13 @@ xc.Bubble_Alphabets = cc.Layer.extend({
                           this.bubbleName[tile.x][tile.y].runAction(new cc.ScaleTo(1.5,3));
                          
                           this.bubbleName[tile.x][tile.y].runAction(new cc.MoveTo(1,cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2)));
+                          cc.audioEngine.playEffect("res/english/sounds/"+this.LetterName[tile.x][tile.y].name.toLowerCase()+".wav");
                          
-//                           cc.audioEngine.playEffect("res/english/sounds/"+this.LetterName[tile.x][tile.y].name.toLowerCase()+".wav");
 
                             var playerDieCallFunc = function()
                             {
-                                self.playerDie(tile.x,tile.y,tempColorType);
-                                // self.bubbleName[tile.x][tile.y].alpha = 0;
                                 self.finalFlag = true;
+                                self.removeChild(self.bubbleName[tile.x][tile.y]);
                                 // renderPlayer();
                             }
                             this.runAction(new cc.Sequence(cc.delayTime(1.6),new cc.CallFunc(playerDieCallFunc, this)));  
@@ -738,7 +739,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
        
      //   this.animationBubbleBlast(bubbleName[tilex][tiley],type);       
         this.removeChild(this.bubbleName[tilex][tiley]);
-       cc.audioEngine.playEffect("res/bubble_shooter/sounds/bubble_blast.wav");
+        cc.audioEngine.playEffect("res/bubble_shooter/sounds/bubble_blast.wav");
         
     },
     
@@ -1095,7 +1096,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
          this.removeChild(this.nextBubblePlayer);
      
      this.nextBubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(imageSprite[index]+".png"));
-     this.nextBubblePlayer.setPosition(this.gunBase.x - 380 ,cc.director.getWinSize().height * 0.0575);
+     this.nextBubblePlayer.setPosition(this.gunBase.x - 380 ,this.gunBase.y);
      this.nextBubblePlayer.anchorX=0.5;
      this.nextBubblePlayer.anchorY=0.5;
      //  console.log("the value for y in playe : "+ this.player.bubble.y);
@@ -1107,9 +1108,9 @@ xc.Bubble_Alphabets = cc.Layer.extend({
             return;
   
      this.nextLetterPlayer = new cc.LabelTTF(""+letterSprite[this.player.nextbubble.tiletype],"res/fonts/Marker Felt.ttf",120);
-     this.nextLetterPlayer.setPosition(this.nextLetterPlayer.getContentSize().width/2,this.nextLetterPlayer.getContentSize().height/2);
+     this.nextLetterPlayer.setPosition(this.nextBubblePlayer.getContentSize().width/2,this.nextBubblePlayer.getContentSize().height/2);
      this.nextBubblePlayer.addChild(this.nextLetterPlayer);
-     this.nextLetterPlayer.setAnchorPoint(-0.1,0.4);
+     this.nextLetterPlayer.setAnchorPoint(0.5,0.5);
     },
 
     /**
@@ -1220,8 +1221,8 @@ xc.Bubble_Alphabets = cc.Layer.extend({
             rows: 9,  // Number of tile rows
             tilewidth: bubbleSizeReference.width,  // Visual width of a tile
             tileheight: bubbleSizeReference.height, // Visual height of a tile
-            rowheight: bubbleSizeReference.height * 0.8421,  // Height of a row
-            radius: bubbleSizeReference.width * 0.460526,     // Bubble collision radius
+            rowheight: bubbleSizeReference.height * 0.85,  // Height of a row
+            radius: bubbleSizeReference.width * 0.5,     // Bubble collision radius
             tiles: []       // The two-dimensional tile array
         };
 

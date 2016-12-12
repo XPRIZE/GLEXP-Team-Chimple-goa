@@ -12,11 +12,13 @@ xc.PictureQuestionHandler = cc.Layer.extend({
     _selectedQuestionForAnswer: null,
     _selectedAnswer: null,
     _totalCorrectAnswers: 0,
-    ctor: function (nodeJSON, width, height, question, callback, callbackContext) {
+    _baseDir: "",
+    ctor: function (baseDir, nodeJSON, width, height, question, callback, callbackContext) {
         this._super(width, height);
         this._width = width;
         this._height = height;
         this.callback = callback;
+        this._baseDir = baseDir;
         this._callbackContext = callbackContext;
         this._question = question;
         this._nodeJSON = nodeJSON;
@@ -63,7 +65,25 @@ xc.PictureQuestionHandler = cc.Layer.extend({
             if(node) {
                 node.selectedIndex = index;
                 node.setAnchorPoint(cc.p(0.5,0.5));
-                node.setTitleFontSize(xc.storyFontSize);
+                var imageUrl = xc.path + this._baseDir + "/" + question;
+                if(cc.sys.isNative) {
+                    var fileExists = jsb.fileUtils.isFileExist(imageUrl);
+                    if(fileExists) {
+                        var imageSprite = new cc.Sprite(xc.path + this._baseDir + "/" + question);
+                        imageSprite.setAnchorPoint(cc.p(0.5,0.5));
+                        imageSprite.setPosition(node.width/2, node.height/2);
+                        node.addChild(imageSprite, 1);
+                        node.setTitleFontSize(1.0);
+                    } else {
+                        node.setTitleFontSize(xc.storyFontSize);
+                    }
+                } else {
+                        var imageSprite = new cc.Sprite(xc.path + this._baseDir + "/" + question);
+                        imageSprite.setAnchorPoint(cc.p(0.5,0.5));
+                        imageSprite.setPosition(node.width/2, node.height/2);
+                        node.addChild(imageSprite, 1);
+                        node.setTitleFontSize(xc.storyFontSize);
+                }
                 node.setTitleColor(xc.storyFontColor);
                 node.setTitleFontName(xc.storyFontName);
                 node.setTouchEnabled(true);
@@ -111,7 +131,7 @@ xc.PictureQuestionHandler = cc.Layer.extend({
                     var rIndex = Math.floor(Math.random() * remainingAnswers.length);
                     alreadySelectedAnswers.push(remainingAnswers[rIndex]);
                     var nodeName = "A"+(index+1);
-                    var node = this._constructedScene.node.getChildByName(nodeName);
+                    var node =  this._constructedScene.node.getChildByName(nodeName);
                     if(node) {
                         node.setAnchorPoint(cc.p(0.5,0.5));
                         node.setTitleFontSize(xc.storyFontSize);

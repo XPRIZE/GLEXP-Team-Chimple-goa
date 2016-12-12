@@ -2,6 +2,7 @@
 var xc = xc || {};
 xc.storyFontName = "Arial";
 xc.storyFontSize = 85;
+xc.storyCoverPageFontSize = 120;
 xc.storyFontColor = cc.color.BLACK;
 
 xc.NarrateStoryLayer = cc.Layer.extend({
@@ -852,12 +853,13 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         var pages = this._storyInformation["pages"];
         var curIndex = this._pageIndex;
         curIndex++;
-        if (curIndex >= pages.length) {
-            xc.StoryQuestionHandlerScene.load(this._baseDir, xc.StoryQuestionHandlerLayer, true);
+        var storyId = this._storyInformation["storyId"];
+        if (curIndex >= pages.length) {            
+            xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
             return;
         }
         xc.NarrateStoryScene.load(curIndex, this._storyInformation, xc.NarrateStoryLayer, true);
-        // xc.StoryQuestionHandlerScene.load(this._baseDir, xc.StoryQuestionHandlerLayer, true);
+        // xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
     },
 
     playEnded: function () {
@@ -889,20 +891,29 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                     if(!err && json != null && json != undefined) {
                         storyText = json[xc.pageIndex + 1];
                         cc.log('story text received:' + storyText);
-                        that.parent.addChild(new xc.BubbleSpeech(xc.NarrateStoryLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that));
-                    }                                
+                        if(storyText && storyText.length > 0) {
+                            that.parent.addChild(new xc.BubbleSpeech(xc.NarrateStoryLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that));
+                        }                        
+                    } else {
+                        that._wordBoard.node.setVisible(true);
+                        that.renderNextButton();
+                        that.renderPreviousButton();                                        
+                    }                            
                 });                
            
-            } else {
-                that.parent.addChild(new xc.BubbleSpeech(xc.NarrateStoryLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that));             
-            }
+            } 
         } else {
-
             cc.loader.loadJson(textFileUrl, function(err, json) {            
                 if(!err && json != null && json != undefined) {
                     storyText = json[xc.pageIndex + 1];
                     cc.log('story text received:' + storyText);
-                    that.parent.addChild(new xc.BubbleSpeech(xc.NarrateStoryLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that));
+                    if(storyText && storyText.length > 0) {
+                        that.parent.addChild(new xc.BubbleSpeech(xc.NarrateStoryLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that));
+                    } else {
+                        that._wordBoard.node.setVisible(true);
+                        that.renderNextButton();
+                        that.renderPreviousButton();                                        
+                    }
                 }                                
             });                
             
@@ -919,29 +930,33 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         
     },
 
-    processAudio: function(sender, type) {
-        switch (type) {
-            case ccui.Widget.TOUCH_ENDED:
-                var langDir = goa.TextGenerator.getInstance().getLang();
-                var soundFile = "res/story/" + langDir + "/" + this._baseDir + "/" + this._baseDir + "_" + (xc.pageIndex + 1) + ".ogg";
-                if(cc.sys.isNative) {
-                    var fileExists = jsb.fileUtils.isFileExist(soundFile);
-                    if(fileExists) {
-                        cc.loader.load(soundFile, function(err, data) {
-                            if(!err) {
-                                cc.audioEngine.playMusic(soundFile, false);
-                            }
-                        }); 
-                    }
-                } else {
-                    cc.loader.load(soundFile, function(err, data) {
-                        if(!err) {
+    processAudio: function(soundEnabled) {
+        var langDir = goa.TextGenerator.getInstance().getLang();
+        var soundFile = "res/story/" + langDir + "/" + this._baseDir + "/" + this._baseDir + "_" + (xc.pageIndex + 1) + ".ogg";
+        if(cc.sys.isNative) {
+            var fileExists = jsb.fileUtils.isFileExist(soundFile);
+            if(fileExists) {
+                cc.loader.load(soundFile, function(err, data) {
+                    if(!err) {
+                        if(soundEnabled) {
                             cc.audioEngine.playMusic(soundFile, false);
+                        } else {
+                            cc.audioEngine.stopMusic();
                         }
-                    }); 
-                }             
-                break;
-        }
+                    }
+                }); 
+            }
+        } else {
+            cc.loader.load(soundFile, function(err, data) {
+                if(!err) {
+                    if(soundEnabled) {
+                        cc.audioEngine.playMusic(soundFile, false);
+                    } else {
+                        cc.audioEngine.stopMusic();
+                    }
+                }
+            }); 
+        }         
     },
 
 
@@ -975,7 +990,8 @@ xc.NarrateStoryScene = cc.Scene.extend({
         
 
         if (cc.sys.isNative) {
-            this._menuContext = goa.MenuContext.create(this._sceneLayer, "story-play");
+            var storyId = storyInformation["storyId"];
+            this._menuContext = goa.MenuContext.create(this._sceneLayer, storyId);
             this.addChild(this._menuContext, 10);
             this._menuContext.setVisible(true);
         }                        
