@@ -29,7 +29,7 @@ protected:
 	int _fillUpFlag = 0;
 	bool _touched = true;
 	bool _helpFlag = true;
-	int _setcounter;
+	int _setcounter, _pointCounter=0;
 	HelpLayer* _help;
 
 public:

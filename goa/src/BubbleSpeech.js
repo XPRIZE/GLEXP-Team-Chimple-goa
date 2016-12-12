@@ -1,6 +1,6 @@
 var xc = xc || {};
 xc.BubbleSpeech = cc.Layer.extend({
-    ctor: function (jsonNode, width, height, position, existingText, callback, audiocallback, callbackContext, fontSize) {
+    ctor: function (jsonNode, width, height, position, existingText, callback, audiocallback, callbackContext, fontSize, enableOutline) {
         this._super(width, height);
         this.callback = callback;
         this.audiocallback = audiocallback;
@@ -10,7 +10,7 @@ xc.BubbleSpeech = cc.Layer.extend({
         this._fontSize = fontSize;
         this._constructedScene = ccs.load(this._nodeJSON,xc.path);
         this._constructedScene.node.retain();
-        
+        this._enableOutline = enableOutline;
         if (this._constructedScene.node) {
             this.addChild(this._constructedScene.node,0);
         }                        
@@ -35,7 +35,7 @@ xc.BubbleSpeech = cc.Layer.extend({
         soundButton.addTouchEventListener(this.toggleButton, this);
         
         this._textField = this._constructedScene.node.getChildByName("TextField_2");
-        this._textField.setFontName(xc.storyFontName)
+        this._textField.setFontName(xc.storyFontName);
         this._textField.setTextColor(xc.storyFontColor);
         if(this._fontSize > 0) {
             this._textField.setFontSize(this._fontSize);    
@@ -48,10 +48,24 @@ xc.BubbleSpeech = cc.Layer.extend({
         this._textField.ignoreContentAdaptWithSize(false);
         this._textField.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_LEFT);
         this._textField.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
-        if (this._text) {
+        if (!this._enableOutline && this._text) {
             this._textField.setString(this._text);
         }
         this._textField.setTouchEnabled(false);
+
+        if(this._enableOutline) {
+            this._label = new ccui.Text(this._text, "Arial", 100);
+            if(this._fontSize > 0) {
+                this._label.setFontSize(this._fontSize);    
+            } else {
+                this._label.setFontSize(xc.storyFontSize);
+            }        
+            this._label.enableOutline(cc.color.RED, 10);
+            this._label.color = cc.color.WHITE;
+            this._label.setPosition(this._textField.getPosition());
+            this.addChild(this._label);
+        }
+
     },
 
     configAutoSound: function() {
