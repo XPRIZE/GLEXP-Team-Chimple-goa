@@ -5,10 +5,184 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 340,
+        "Duration": 565,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
+          {
+            "ActionTag": 1871837492,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 345,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 248,
+                  "G": 214,
+                  "B": 204
+                },
+                "FrameIndex": 465,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 114,
+                  "G": 113,
+                  "B": 156
+                },
+                "FrameIndex": 540,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 114,
+                  "G": 114,
+                  "B": 135
+                },
+                "FrameIndex": 565,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -849382543,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1202.0349,
+                "Y": 1573.7365,
+                "FrameIndex": 465,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 475.6533,
+                "Y": 1390.4537,
+                "FrameIndex": 540,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -849382543,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.8151,
+                "Y": 0.8151,
+                "FrameIndex": 540,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -849382543,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 460,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 465,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -879987248,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "sun",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 345,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -879987248,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1339.4824,
+                "Y": 1524.9797,
+                "FrameIndex": 345,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -541.6047,
+                "Y": 1281.3088,
+                "FrameIndex": 465,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -879987248,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 465,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 470,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 40378282,
             "Property": "Position",
@@ -189,7 +363,7 @@
                 "InnerActionType": "LoopAction",
                 "CurrentAniamtionName": "run",
                 "SingleFrameIndex": 2,
-                "FrameIndex": 0,
+                "FrameIndex": 160,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               },
@@ -209,9 +383,9 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": -1647.3075,
-                "Y": 150.7361,
-                "FrameIndex": 0,
+                "X": -696.3173,
+                "Y": 106.443,
+                "FrameIndex": 160,
                 "EasingData": {
                   "Type": 0
                 },
@@ -228,6 +402,25 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -822778305,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 160,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -237,6 +430,12 @@
           "StartIndex": 0,
           "EndIndex": 340,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 345,
+          "EndIndex": 565,
+          "Name": "moon",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -403,6 +602,93 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
+              "Path": "Mwezi_na_Kofia/moon.png",
+              "Plist": "Mwezi_na_Kofia/Mwezi_na_Kofia.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1202.0349,
+              "Y": 1573.7365
+            },
+            "Scale": {
+              "ScaleX": 0.8151,
+              "ScaleY": 0.8151
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4695,
+              "Y": 0.8743
+            },
+            "PreSize": {
+              "X": 0.2582,
+              "Y": 0.3672
+            },
+            "LeftMargin": 871.5349,
+            "RightMargin": 1027.4651,
+            "TopMargin": -104.2365,
+            "BottomMargin": 1243.2365,
+            "Tag": 2331,
+            "ActionTag": -849382543,
+            "Size": {
+              "X": 661.0,
+              "Y": 661.0
+            },
+            "VisibleForFrame": false,
+            "Name": "moon_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mwezi_na_Kofia/sun.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1339.4824,
+              "Y": 1524.9797
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5232,
+              "Y": 0.8472
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1339.4824,
+            "RightMargin": 1220.5176,
+            "TopMargin": 275.0203,
+            "BottomMargin": 1524.9797,
+            "Tag": 2328,
+            "ActionTag": -879987248,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "sun",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
               "Path": "Mwezi_na_Kofia/MbwanaMamba_tree1.png",
               "Plist": "Mwezi_na_Kofia/Mwezi_na_Kofia.plist"
             },
@@ -436,13 +722,14 @@
             "RightMargin": -29.9705,
             "TopMargin": 113.3646,
             "BottomMargin": 997.6354,
+            "UserData": "main.moon",
             "Tag": 2357,
             "ActionTag": 40378282,
             "Size": {
               "X": 810.0,
               "Y": 689.0
             },
-            "Name": "MbwanaMamba_tree1_206",
+            "Name": "tree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -483,6 +770,7 @@
             "RightMargin": 2716.8801,
             "TopMargin": 458.3535,
             "BottomMargin": 1083.6465,
+            "UserData": "main.moon",
             "Tag": 2404,
             "ActionTag": -1238121267,
             "Size": {
@@ -503,8 +791,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": -1647.3075,
-              "Y": 150.7361
+              "X": -696.3173,
+              "Y": 106.443
             },
             "Scale": {
               "ScaleX": -1.0,
@@ -513,24 +801,26 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": -0.6435,
-              "Y": 0.0837
+              "X": -0.272,
+              "Y": 0.0591
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -1647.3075,
-            "RightMargin": 4207.3076,
-            "TopMargin": 1649.2639,
-            "BottomMargin": 150.7361,
+            "LeftMargin": -696.3173,
+            "RightMargin": 3256.3174,
+            "TopMargin": 1693.557,
+            "BottomMargin": 106.443,
+            "UserData": "drag;walk",
             "Tag": 2405,
             "ActionTag": -822778305,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "VisibleForFrame": false,
+            "Name": "boy",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -544,7 +834,8 @@
       "UsedResources": [
         "boy2.json",
         "Mwezi_na_Kofia.plist",
-        "Mwezi_na_Kofia.png"
+        "Mwezi_na_Kofia.png",
+        "sun.json"
       ],
       "ctype": "GameFileData"
     }

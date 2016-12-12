@@ -5,10 +5,58 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 245,
+        "Duration": 450,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "cloud",
         "Timelines": [
+          {
+            "ActionTag": 1410445582,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -371.6147,
+                "Y": 1568.3352,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 909.8782,
+                "Y": 1547.6658,
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 903923437,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "sun",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "sun",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 450,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": -333966804,
             "Property": "Position",
@@ -1302,6 +1350,12 @@
                 "FrameIndex": 140,
                 "Tween": false,
                 "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 180,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -1384,21 +1438,37 @@
                 "FrameIndex": 140,
                 "Tween": false,
                 "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 180,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": 903923437,
-            "Property": "ActionValue",
+            "ActionTag": 1717862809,
+            "Property": "Position",
             "Frames": [
               {
-                "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "sun",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 0,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
+                "X": 2927.0244,
+                "Y": 1622.4989,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1715.8008,
+                "Y": 1622.4998,
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -1411,6 +1481,12 @@
           "StartIndex": 0,
           "EndIndex": 245,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 250,
+          "EndIndex": 450,
+          "Name": "cloud",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -1466,6 +1542,93 @@
             },
             "Name": "Panel_1",
             "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/cloud.png",
+              "Plist": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -371.6147,
+              "Y": 1568.3352
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1452,
+              "Y": 0.8713
+            },
+            "PreSize": {
+              "X": 0.2305,
+              "Y": 0.1972
+            },
+            "LeftMargin": -666.6147,
+            "RightMargin": 2636.6147,
+            "TopMargin": 54.1648,
+            "BottomMargin": 1390.8352,
+            "Tag": 737,
+            "ActionTag": 1410445582,
+            "Size": {
+              "X": 590.0,
+              "Y": 355.0
+            },
+            "Name": "cloud_57",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/sun.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1280.0,
+              "Y": 1925.6587
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 1.0698
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1280.0,
+            "RightMargin": 1280.0,
+            "TopMargin": -125.6587,
+            "BottomMargin": 1925.6587,
+            "UserData": "drag;sun",
+            "Tag": 1306,
+            "ActionTag": 903923437,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "sun",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "ClipAble": false,
@@ -1596,8 +1759,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1283.1569,
-              "Y": 355.2911
+              "X": 1280.0,
+              "Y": 327.1182
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1606,17 +1769,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5012,
-              "Y": 0.1974
+              "X": 0.5,
+              "Y": 0.1817
             },
             "PreSize": {
               "X": 1.5625,
               "Y": 1.0
             },
-            "LeftMargin": -716.8431,
-            "RightMargin": -723.1567,
-            "TopMargin": 544.709,
-            "BottomMargin": -544.7089,
+            "LeftMargin": -720.0,
+            "RightMargin": -720.0,
+            "TopMargin": 572.8818,
+            "BottomMargin": -572.8818,
             "Tag": 958,
             "ActionTag": 535944993,
             "Size": {
@@ -1641,8 +1804,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 376.239,
-              "Y": 1207.6143
+              "X": 119.5745,
+              "Y": 1211.3896
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1651,17 +1814,18 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.147,
-              "Y": 0.6709
+              "X": 0.0467,
+              "Y": 0.673
             },
             "PreSize": {
               "X": 0.152,
               "Y": 0.03
             },
-            "LeftMargin": 181.739,
-            "RightMargin": 1989.261,
-            "TopMargin": 565.3857,
-            "BottomMargin": 1180.6143,
+            "LeftMargin": -74.9255,
+            "RightMargin": 2245.9255,
+            "TopMargin": 561.6104,
+            "BottomMargin": 1184.3896,
+            "UserData": "main.cloud",
             "Tag": 952,
             "ActionTag": 1645351527,
             "Size": {
@@ -1686,8 +1850,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 961.8451,
-              "Y": 1210.1521
+              "X": 705.0776,
+              "Y": 1213.9263
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1696,17 +1860,18 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.3757,
-              "Y": 0.6723
+              "X": 0.2754,
+              "Y": 0.6744
             },
             "PreSize": {
               "X": 0.152,
               "Y": 0.03
             },
-            "LeftMargin": 767.3451,
-            "RightMargin": 1403.6549,
-            "TopMargin": 562.8479,
-            "BottomMargin": 1183.1521,
+            "LeftMargin": 510.5776,
+            "RightMargin": 1660.4224,
+            "TopMargin": 559.0737,
+            "BottomMargin": 1186.9263,
+            "UserData": "main.cloud",
             "Tag": 953,
             "ActionTag": -1992223199,
             "Size": {
@@ -1731,8 +1896,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1542.1681,
-              "Y": 1210.1509
+              "X": 1285.3291,
+              "Y": 1213.9247
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1741,17 +1906,18 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.6024,
-              "Y": 0.6723
+              "X": 0.5021,
+              "Y": 0.6744
             },
             "PreSize": {
               "X": 0.152,
               "Y": 0.03
             },
-            "LeftMargin": 1347.6681,
-            "RightMargin": 823.3319,
-            "TopMargin": 562.8491,
-            "BottomMargin": 1183.1509,
+            "LeftMargin": 1090.8291,
+            "RightMargin": 1080.1709,
+            "TopMargin": 559.0753,
+            "BottomMargin": 1186.9247,
+            "UserData": "main.cloud",
             "Tag": 954,
             "ActionTag": 867987989,
             "Size": {
@@ -1776,8 +1942,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2128.6079,
-              "Y": 1206.3398
+              "X": 1871.6804,
+              "Y": 1210.1143
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1786,17 +1952,18 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.8315,
-              "Y": 0.6702
+              "X": 0.7311,
+              "Y": 0.6723
             },
             "PreSize": {
               "X": 0.152,
               "Y": 0.03
             },
-            "LeftMargin": 1934.1079,
-            "RightMargin": 236.8921,
-            "TopMargin": 566.6602,
-            "BottomMargin": 1179.3398,
+            "LeftMargin": 1677.1804,
+            "RightMargin": 493.8196,
+            "TopMargin": 562.8857,
+            "BottomMargin": 1183.1143,
+            "UserData": "main.cloud",
             "Tag": 955,
             "ActionTag": -1536035792,
             "Size": {
@@ -1821,8 +1988,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2702.938,
-              "Y": 1204.7529
+              "X": 2445.9578,
+              "Y": 1206.3022
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1831,17 +1998,18 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 1.0558,
-              "Y": 0.6693
+              "X": 0.9555,
+              "Y": 0.6702
             },
             "PreSize": {
               "X": 0.152,
               "Y": 0.03
             },
-            "LeftMargin": 2508.438,
-            "RightMargin": -337.438,
-            "TopMargin": 568.2471,
-            "BottomMargin": 1177.7529,
+            "LeftMargin": 2251.4578,
+            "RightMargin": -80.4578,
+            "TopMargin": 566.6978,
+            "BottomMargin": 1179.3022,
+            "UserData": "main.cloud",
             "Tag": 956,
             "ActionTag": -907549921,
             "Size": {
@@ -1866,8 +2034,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": -200.8212,
-              "Y": 1207.613
+              "X": -447.4951,
+              "Y": 1211.3896
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1876,17 +2044,18 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0784,
-              "Y": 0.6709
+              "X": -0.1748,
+              "Y": 0.673
             },
             "PreSize": {
               "X": 0.152,
               "Y": 0.03
             },
-            "LeftMargin": -395.3212,
-            "RightMargin": 2566.3213,
-            "TopMargin": 565.387,
-            "BottomMargin": 1180.613,
+            "LeftMargin": -641.9951,
+            "RightMargin": 2812.9951,
+            "TopMargin": 561.6104,
+            "BottomMargin": 1184.3896,
+            "UserData": "main.cloud",
             "Tag": 957,
             "ActionTag": 1218437268,
             "Size": {
@@ -1928,13 +2097,14 @@
             "RightMargin": 1831.7139,
             "TopMargin": 1192.2134,
             "BottomMargin": 607.7867,
+            "UserData": "drag;bubbles",
             "Tag": 928,
             "ActionTag": 734900417,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_6",
+            "Name": "bubble",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1969,13 +2139,14 @@
             "RightMargin": 1091.8853,
             "TopMargin": 1717.048,
             "BottomMargin": 82.952,
+            "UserData": "drag;bubbles",
             "Tag": 931,
             "ActionTag": 363575992,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_5",
+            "Name": "bubble",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -2010,13 +2181,14 @@
             "RightMargin": 124.4199,
             "TopMargin": 1321.8406,
             "BottomMargin": 478.1594,
+            "UserData": "drag;bubbles",
             "Tag": 934,
             "ActionTag": -1727451524,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_4",
+            "Name": "bubble",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -2051,13 +2223,14 @@
             "RightMargin": 184.4883,
             "TopMargin": 1774.0001,
             "BottomMargin": 25.9999,
+            "UserData": "drag;bubbles",
             "Tag": 937,
             "ActionTag": -1400117740,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_3",
+            "Name": "bubble",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -2092,13 +2265,14 @@
             "RightMargin": 1224.6755,
             "TopMargin": 1195.3738,
             "BottomMargin": 604.6262,
+            "UserData": "drag;bubbles",
             "Tag": 940,
             "ActionTag": -1651705895,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_2",
+            "Name": "bubble",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -2133,13 +2307,14 @@
             "RightMargin": 646.0911,
             "TopMargin": 1340.8104,
             "BottomMargin": 459.1896,
+            "UserData": "drag;bubbles",
             "Tag": 943,
             "ActionTag": -1771402210,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_1",
+            "Name": "bubble",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -2174,13 +2349,14 @@
             "RightMargin": 2293.3152,
             "TopMargin": 1331.3256,
             "BottomMargin": 468.6744,
+            "UserData": "drag;bubbles",
             "Tag": 946,
             "ActionTag": 1193256039,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_0",
+            "Name": "bubble",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -2215,13 +2391,14 @@
             "RightMargin": 1683.1162,
             "TopMargin": 1622.1982,
             "BottomMargin": 177.8017,
+            "UserData": "drag;bubbles",
             "Tag": 949,
             "ActionTag": 1197383833,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "bubble",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -2235,8 +2412,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 994.3022,
-              "Y": 504.0814
+              "X": 1029.7649,
+              "Y": 127.0919
             },
             "Scale": {
               "ScaleX": -0.756,
@@ -2245,25 +2422,25 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.3884,
-              "Y": 0.28
+              "X": 0.4023,
+              "Y": 0.0706
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 994.3022,
-            "RightMargin": 1565.6978,
-            "TopMargin": 1295.9187,
-            "BottomMargin": 504.0814,
+            "LeftMargin": 1029.7649,
+            "RightMargin": 1530.2351,
+            "TopMargin": 1672.9081,
+            "BottomMargin": 127.0919,
+            "UserData": "main.hiss",
             "Tag": 917,
             "ActionTag": -161728354,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "VisibleForFrame": false,
-            "Name": "FileNode_2",
+            "Name": "snake",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -2277,8 +2454,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1617.28,
-              "Y": 460.2203
+              "X": 1566.1194,
+              "Y": 95.6577
             },
             "Scale": {
               "ScaleX": 0.6048,
@@ -2287,25 +2464,25 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.6317,
-              "Y": 0.2557
+              "X": 0.6118,
+              "Y": 0.0531
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1617.28,
-            "RightMargin": 942.72,
-            "TopMargin": 1339.7797,
-            "BottomMargin": 460.2203,
+            "LeftMargin": 1566.1194,
+            "RightMargin": 993.8806,
+            "TopMargin": 1704.3423,
+            "BottomMargin": 95.6577,
+            "UserData": "main.hiss",
             "Tag": 906,
             "ActionTag": -1683957927,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "VisibleForFrame": false,
-            "Name": "FileNode_3",
+            "Name": "bubble",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -2319,34 +2496,36 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1489.85,
-              "Y": 291.9959
+              "X": 1658.998,
+              "Y": -190.8934
             },
             "Scale": {
-              "ScaleX": 0.6598,
-              "ScaleY": 0.6598
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
             },
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.582,
-              "Y": 0.1622
+              "X": 0.648,
+              "Y": -0.1061
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1489.85,
-            "RightMargin": 1070.15,
-            "TopMargin": 1508.004,
-            "BottomMargin": 291.9959,
+            "LeftMargin": 1658.998,
+            "RightMargin": 901.002,
+            "TopMargin": 1990.8934,
+            "BottomMargin": -190.8934,
+            "UserData": "drag;run",
             "Tag": 1777,
             "ActionTag": 286081692,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_9",
+            "VisibleForFrame": false,
+            "Name": "girl",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -2360,34 +2539,36 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1051.9403,
-              "Y": 340.0397
+              "X": 1099.0851,
+              "Y": -185.5526
             },
             "Scale": {
-              "ScaleX": -0.6598,
-              "ScaleY": 0.6598
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
             },
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.4109,
-              "Y": 0.1889
+              "X": 0.4293,
+              "Y": -0.1031
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1051.9403,
-            "RightMargin": 1508.0597,
-            "TopMargin": 1459.9602,
-            "BottomMargin": 340.0397,
+            "LeftMargin": 1099.0851,
+            "RightMargin": 1460.9149,
+            "TopMargin": 1985.5526,
+            "BottomMargin": -185.5526,
+            "UserData": "drag;run",
             "Tag": 1821,
             "ActionTag": 1229495996,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_10",
+            "VisibleForFrame": false,
+            "Name": "boy",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -2430,7 +2611,8 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_4",
+            "VisibleForFrame": false,
+            "Name": "puff",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -2465,7 +2647,7 @@
             },
             "LeftMargin": 1510.2729,
             "RightMargin": 1049.7271,
-            "TopMargin": 1227.6307,
+            "TopMargin": 1227.6306,
             "BottomMargin": 572.3693,
             "Tag": 969,
             "ActionTag": 91393751,
@@ -2473,49 +2655,54 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_5",
+            "VisibleForFrame": false,
+            "Name": "puff",
             "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
-              "Type": "Normal",
-              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/sun.json",
-              "Plist": ""
+              "Type": "MarkedSubImage",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/cloud.png",
+              "Plist": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza.plist"
             },
-            "StretchWidthEnable": false,
-            "StretchHeightEnable": false,
-            "InnerActionSpeed": 1.0,
-            "AnchorPoint": {},
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
             "Position": {
-              "X": 1334.191,
-              "Y": 1925.6587
+              "X": 2927.0244,
+              "Y": 1622.4989
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
             "CColor": {},
-            "IconVisible": true,
+            "IconVisible": false,
             "PrePosition": {
-              "X": 0.5212,
-              "Y": 1.0698
+              "X": 1.1434,
+              "Y": 0.9014
             },
             "PreSize": {
-              "X": 0.0,
-              "Y": 0.0
+              "X": 0.2305,
+              "Y": 0.1972
             },
-            "LeftMargin": 1334.191,
-            "RightMargin": 1225.809,
-            "TopMargin": -125.6587,
-            "BottomMargin": 1925.6587,
-            "Tag": 1306,
-            "ActionTag": 903923437,
+            "LeftMargin": 2632.0244,
+            "RightMargin": -662.0244,
+            "TopMargin": 0.0011,
+            "BottomMargin": 1444.9989,
+            "Tag": 738,
+            "ActionTag": 1717862809,
             "Size": {
-              "X": 0.0,
-              "Y": 0.0
+              "X": 590.0,
+              "Y": 355.0
             },
-            "Name": "FileNode_6",
-            "ctype": "ProjectNodeObjectData"
+            "Name": "cloud_58",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {

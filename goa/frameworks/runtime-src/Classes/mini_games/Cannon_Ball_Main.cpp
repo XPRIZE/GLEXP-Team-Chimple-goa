@@ -268,6 +268,9 @@ void MainGame::startGame()	// starting of game
 	letterComespeed = 5;
 	tweenSpeed = 40;
 
+	if(_menuContext->getCurrentLevel() ==4)
+		letterComespeed = 3;
+
 	cannonLetterCome();
 }
 

@@ -41,7 +41,7 @@ protected:
 	void helpLayer();
 	std::vector<cocos2d::EventListenerTouchOneByOne *> _listner;
 	float _hundredXPosition, _ten_XPosition, _one_XPosition;
-	int _hundredCount = 0, _oneCount = 0,_tensCount = 0, _totalCount = 0, _targetedNumber;
+	int _hundredCount = 0, _oneCount = 0, _tensCount = 0, _totalCount = 0, _targetedNumber, _gameScore = 0;
 	cocos2d::Label * _hundreadLabel;
 	std::map<int, std::map<int, int>> _levelMapping;
 	std::vector<cocos2d::Sprite *> _onesSprite, _tensSprite, _hundredsSprite;

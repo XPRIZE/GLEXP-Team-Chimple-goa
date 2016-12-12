@@ -62,10 +62,28 @@ void ChocolateFactory::onEnterTransitionDidFinish()
 	{
 		_nodeName.push_back(str);
 	}
+	else if (str.find("conveyor") == 0)
+	{
+		for (int j = 0; j < monsterItem->getChildren().size(); j++)
+		{
+			auto obj = monsterItem->getChildren().at(j);
+			if (obj->getName().find("gear") == 0)
+			obj->setPositionY(obj->getPositionY() - 20);
+		}
+	}
 	CCLOG("name : %s", str.c_str());
 	}
-	
-	
+	/*Vector <Node*> children1 = chocolatefactoryBackground->getChildByName("conveyor")->getChildren();
+	int size1 = children1.size();
+	for (auto item = children1.rbegin(); item != children1.rend(); ++item) {
+		Node * monsterItem = *item;
+		std::string str = monsterItem->getName().c_str();
+		if (str.find("gear") == 0)
+		{
+			monsterItem->setGlobalZOrder(1);
+		}
+		CCLOG("name : %s", str.c_str());
+	}*/
 	cocostudio::timeline::ActionTimeline* conveyorTimeline = CSLoader::createTimeline("chocolatefactory/conveyor.csb");
 	_conveyor = (Sprite*)chocolatefactoryBackground->getChildByName("conveyor");
 	_conveyor->runAction(conveyorTimeline);
@@ -137,6 +155,8 @@ void ChocolateFactory::onEnterTransitionDidFinish()
 				Vec2(a+ _trayBin[3]->getContentSize().width*0.77,b+ _trayBin[3]->getContentSize().height*0.95),
 				Color4F(0, 0, 255, 22));*/
 		}
+		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		audio->playEffect("sounds/sfx/machine.ogg", false);
 			fillUpMachineTimeline->play("forward", false);
 			fillUpMachineTimeline->setAnimationEndCallFunc("forward", CC_CALLBACK_0(ChocolateFactory::machineDynamicMotion, this,randomIndex, sortedRandomNumber,(_fillUpFlag-1),fillUpMachineTimeline ));
 	});
@@ -173,7 +193,7 @@ void ChocolateFactory::onEnterTransitionDidFinish()
 			DelayTime::create(3.5), sequence_A, DelayTime::create(1), fillProduct, DelayTime::create(3.5), sequence_A, DelayTime::create(1),
 			fillProduct, DelayTime::create(3.5), sequence_A, DelayTime::create(1), fillProduct, NULL));
 	}
-	for (int i = 0; i <_trayBin.size(); i++) {
+	for (int i=0; i <_trayBin.size(); i++) {
 	std::string str = _trayBin[i]->getName().c_str();
 	CCLOG("name : %s", str.c_str());
 	}
@@ -289,11 +309,30 @@ void ChocolateFactory::addTouchEvents(Sprite* obj)
 					{  flag = true;  }
 				}
 				if (!flag) {
-					target->runAction(Sequence::create(MoveTo::create(0.2, Vec2(myBG->getChildByName(_nodeName.at(i))->getPositionX()+ myGameWidth, myBG->getChildByName(_nodeName.at(i))->getPositionY()+50)), DelayTime::create(0.2), CCCallFunc::create([=] { _touched = true; }), NULL));
+					target->runAction(Sequence::create(MoveTo::create(0.18, Vec2(myBG->getChildByName(_nodeName.at(i))->getPositionX()+ myGameWidth, myBG->getChildByName(_nodeName.at(i))->getPositionY()+50)), DelayTime::create(0.2), CCCallFunc::create([=] { _touched = true; }), NULL));
 					//target->runAction(MoveTo::create(0.0, Vec2(myBG->getChildByName(_nodeName.at(i))->getPosition())));
 					//target->setPosition(myBG->getChildByName(_nodeName.at(i))->getPosition());
 					target->setZOrder(target->getTag() + 2);
 					isIntersect = true;
+					this->runAction(Sequence::create(DelayTime::create(0.20), CCCallFunc::create([=](){
+						auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+						for (int j = 0; j < _nodeName.size(); j++)
+						{
+							std::string name1 = target->getName();
+							std::string name2 = myBG->getChildByName(_nodeName.at(j))->getName();
+
+							if (std::floor(target->getPositionY()) == std::floor(myBG->getChildByName(_nodeName.at(j))->getPositionY() + 50)
+								&& !name1.compare(name2))
+							{
+								audio->playEffect("sounds/sfx/success.ogg", false);
+							}
+							else
+							{
+								audio->playEffect("sounds/sfx/error.ogg", false);
+							}
+						}
+					}), NULL));
+					
 				}
 			}
 		}
@@ -321,6 +360,7 @@ void ChocolateFactory::addTouchEvents(Sprite* obj)
 
 			if (_setcounter == 4)
 			{
+				_pointCounter++;
 				isTrayInRightSequence();
 				/*this->runAction(Sequence::create(DelayTime::create(0.3), CCCallFunc::create([=] {  isTrayInRightSequence();
 				}), NULL));*/
@@ -358,10 +398,13 @@ void ChocolateFactory::isTrayInRightSequence()
 	if (orderCounter == 4) {
 		CCLOG("G A M E  IS O V E R");
 		auto callShowScore = CCCallFunc::create([=] {
+			_menuContext->addPoints(1);
+			_menuContext->setMaxPoints(_pointCounter);
 			_menuContext->showScore();
 		});
 		this->runAction(Sequence::create(DelayTime::create(0.5), callShowScore, NULL));
 	 }
+	
 	}
 		
 void ChocolateFactory::setAllSpriteProperties(Sprite* sprite, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY)

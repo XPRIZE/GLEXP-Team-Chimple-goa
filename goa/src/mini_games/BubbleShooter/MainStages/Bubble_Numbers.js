@@ -9,7 +9,7 @@ xc.Bubble_Number = cc.Layer.extend({
     this.negativePoints = 0;
     imageSprite = ['bubble_shooter/red_ball','bubble_shooter/green_ball','bubble_shooter/yellow_ball','bubble_shooter/purple_ball','bubble_shooter/blue_ball','bubble_shooter/orange_ball',"bubble_shooter/yellow_ball","bubble_shooter/blue_ball"];
 
-   var ScreenMenu = ccs.load(xc.bubbleShooterLevelInfo.res.bubbleShooter_gameMenu_json,xc.path);
+   var ScreenMenu = ccs.load(xc.bubbleShooterLevelInfo.res.bubble_shooter_json,xc.path);
    this.addChild(ScreenMenu.node);
    var xPosi ;
     // if (cc.director.getWinSize().width > 2560){
