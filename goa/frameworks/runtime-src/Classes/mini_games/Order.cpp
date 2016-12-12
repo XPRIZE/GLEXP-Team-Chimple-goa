@@ -525,6 +525,7 @@ void Order::winAnimation()
 		//if (_themeName.compare("candy") != 0) {
 			//cart1->runAction(timeline);
 	//	}
+		_touched = false;
 		_characterAnimation->play(_scenePath.at("winning_animation"), true);
 
 	}), DelayTime::create(2), CallFunc::create([=]() {

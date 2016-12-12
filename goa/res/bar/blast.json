@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 23,
+        "Duration": 30,
         "Speed": 1.0,
-        "ActivedAnimationName": "blast",
+        "ActivedAnimationName": "go",
         "Timelines": [
           {
             "ActionTag": 1584650611,
@@ -238,6 +238,14 @@
                   "Type": 0
                 },
                 "ctype": "IntFrameData"
+              },
+              {
+                "Value": 0,
+                "FrameIndex": 24,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -371,6 +379,120 @@
                   "Type": 0
                 },
                 "ctype": "IntFrameData"
+              },
+              {
+                "Value": 0,
+                "FrameIndex": 29,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 255,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1885095248,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 237.04,
+                "Y": 227.54,
+                "FrameIndex": 29,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 237.04,
+                "Y": 227.54,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1885095248,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 29,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1885095248,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 29,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1885095248,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 0,
+                "FrameIndex": 29,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 255,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -384,6 +506,12 @@
           "EndIndex": 23,
           "Name": "blast",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 30,
+          "EndIndex": 30,
+          "Name": "go",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -392,7 +520,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "bar/blast2.png",
+              "Path": "bar/blast3.png",
               "Plist": "bar/bar.plist"
             },
             "BlendFunc": {
@@ -404,8 +532,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 278.2638,
-              "Y": 347.0759
+              "X": 278.2647,
+              "Y": 347.0765
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -421,16 +549,17 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 127.2638,
-            "RightMargin": -429.2638,
-            "TopMargin": -485.5759,
-            "BottomMargin": 208.5759,
+            "LeftMargin": 127.2647,
+            "RightMargin": -429.2647,
+            "TopMargin": -485.5765,
+            "BottomMargin": 208.5765,
             "Tag": 26,
             "ActionTag": 1584650611,
             "Size": {
               "X": 302.0,
               "Y": 277.0
             },
+            "Alpha": 0,
             "Name": "Sprite_1",
             "ctype": "SpriteObjectData"
           },
@@ -476,8 +605,52 @@
               "X": 267.0,
               "Y": 426.0
             },
-            "Alpha": 0,
             "Name": "balloons_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bar/go.png",
+              "Plist": "bar/bar.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 237.04,
+              "Y": 227.54
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 103.54,
+            "RightMargin": -370.54,
+            "TopMargin": -440.54,
+            "BottomMargin": 14.54,
+            "Tag": 28,
+            "ActionTag": 1885095248,
+            "Size": {
+              "X": 267.0,
+              "Y": 426.0
+            },
+            "Name": "go_1",
             "ctype": "SpriteObjectData"
           }
         ],
