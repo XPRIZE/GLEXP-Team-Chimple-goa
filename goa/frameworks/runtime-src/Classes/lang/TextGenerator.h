@@ -51,6 +51,8 @@ public:
     
 protected:
     std::map<int, int> getRandomLocations(int numLoc, int totalNum);
+    std::map<std::string, std::map<std::string, std::string>> getMapOfWords(std::string type, int maxNum, int maxChoices, int level);
+    std::map<std::string, std::string> getPairs(std::string type, int maxNum, int level);
 
 };
 
