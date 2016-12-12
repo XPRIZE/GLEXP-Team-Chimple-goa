@@ -237,11 +237,11 @@ void Owl::onEnterTransitionDidFinish()
 	boardName << _sentence << _data_key[_textBoard];
 
 	_textLabel = LabelTTF::create(boardName.str(), "Helvetica", board->getContentSize().height *0.5);
-	_textLabel->setPosition(board->getContentSize().width/2,board->getContentSize().height/2);
 	_textLabel->setAnchorPoint(Vec2(0.5, 0.5));
+	_textLabel->setPosition(Vec2(visibleSize.width*0.5, visibleSize.width*0.9));
 	_textLabel->setName("text");
 
-	board->addChild(_textLabel);
+	this->addChild(_textLabel);
 
 	_textOwlBoard = LabelTTF::create("", "Helvetica", _sprite->getChildByName(themeResourcePath.at("whiteBoard"))->getContentSize().height *0.8);
 	_textOwlBoard->setPosition(Vec2(_sprite->getChildByName(themeResourcePath.at("whiteBoard"))->getContentSize().width/2, _sprite->getChildByName(themeResourcePath.at("whiteBoard"))->getContentSize().height / 2));
