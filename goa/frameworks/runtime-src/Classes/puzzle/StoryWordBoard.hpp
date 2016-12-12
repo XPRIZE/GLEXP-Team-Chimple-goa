@@ -14,9 +14,9 @@
 class StoryWordBoard : public WordScene {
 public:
     static cocos2d::Scene* createScene();
-    static cocos2d::Scene* createSceneWithWords(std::vector<std::string> words, int currentIndex, std::string baseDir, int totalPoints, int currentPoints);
+    static cocos2d::Scene* createSceneWithWords(std::string storyId, std::vector<std::string> words, int currentIndex, std::string baseDir, int totalPoints, int currentPoints);
     static StoryWordBoard* create();
-    static StoryWordBoard* createWithWords(std::vector<std::string> words, int currentIndex, std::string baseDir,int totalPoints, int currentPoints);
+    static StoryWordBoard* createWithWords(std::string storyId, std::vector<std::string> words, int currentIndex, std::string baseDir,int totalPoints, int currentPoints);
     void checkAnswer() override;    
     void onEnterTransitionDidFinish() override;
     
@@ -36,6 +36,7 @@ protected:
     int _currentIndex;
     void processGrapheme(Grapheme* grapheme) override;
     
+    std::string _storyId;
     std::vector<std::string> _words;
     std::string _baseDir;
     cocos2d::ParticleSystem* _ps;

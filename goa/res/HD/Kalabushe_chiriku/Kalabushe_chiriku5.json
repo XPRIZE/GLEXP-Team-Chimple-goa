@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 180,
+        "Duration": 290,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "basket",
         "Timelines": [
           {
             "ActionTag": 846068894,
@@ -331,6 +331,60 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              },
+              {
+                "X": 1285.3545,
+                "Y": 346.4452,
+                "FrameIndex": 190,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1285.3547,
+                "Y": 346.4451,
+                "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1285.3545,
+                "Y": 346.4451,
+                "FrameIndex": 230,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1285.3547,
+                "Y": 346.4451,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1285.3545,
+                "Y": 346.4451,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1285.3545,
+                "Y": 346.4452,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -352,6 +406,60 @@
                 "X": 0.6809,
                 "Y": 0.6809,
                 "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.6809,
+                "Y": 0.6809,
+                "FrameIndex": 190,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.6809,
+                "Y": 0.6809,
+                "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.6809,
+                "Y": 0.6809,
+                "FrameIndex": 230,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.6809,
+                "Y": 0.6809,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.6809,
+                "Y": 0.6809,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.6809,
+                "Y": 0.6809,
+                "FrameIndex": 290,
                 "EasingData": {
                   "Type": 0
                 },
@@ -381,6 +489,60 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -380.7045,
+                "Y": -380.6835,
+                "FrameIndex": 190,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -368.3498,
+                "Y": -368.3266,
+                "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -383.5317,
+                "Y": -383.527,
+                "FrameIndex": 230,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -368.3498,
+                "Y": -368.3266,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -383.5317,
+                "Y": -383.527,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -380.7045,
+                "Y": -380.6835,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -393,6 +555,12 @@
           "StartIndex": 0,
           "EndIndex": 180,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 190,
+          "EndIndex": 290,
+          "Name": "basket",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -1003,28 +1171,28 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1500.0,
+              "X": 2800.0,
               "Y": 319.9999
             },
             "Scale": {
-              "ScaleX": 0.6,
+              "ScaleX": -0.6,
               "ScaleY": 0.6
             },
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.5859,
+              "X": 1.0938,
               "Y": 0.1778
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1500.0,
-            "RightMargin": 1060.0,
+            "LeftMargin": 2800.0,
+            "RightMargin": -240.0,
             "TopMargin": 1480.0001,
             "BottomMargin": 319.9999,
-            "UserData": "hi;drag",
+            "UserData": "walk;drag",
             "Tag": 210,
             "ActionTag": 846068894,
             "Size": {
@@ -1066,7 +1234,7 @@
             "RightMargin": 1560.0,
             "TopMargin": 1482.1899,
             "BottomMargin": 317.81,
-            "UserData": "hi;drag",
+            "UserData": "walk;drag",
             "Tag": 759,
             "ActionTag": -61699379,
             "Size": {
@@ -1091,28 +1259,30 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1381.4406,
-              "Y": 612.6815
+              "X": 1285.3547,
+              "Y": 346.4451
             },
             "Scale": {
               "ScaleX": 0.6809,
               "ScaleY": 0.6809
             },
+            "RotationSkewX": -372.1453,
+            "RotationSkewY": -372.1267,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5396,
-              "Y": 0.3404
+              "X": 0.5021,
+              "Y": 0.1925
             },
             "PreSize": {
               "X": 0.175,
               "Y": 0.1056
             },
-            "LeftMargin": 1157.4406,
-            "RightMargin": 954.5594,
-            "TopMargin": 1092.3185,
-            "BottomMargin": 517.6815,
-            "UserData": "drag",
+            "LeftMargin": 1061.3547,
+            "RightMargin": 1050.6453,
+            "TopMargin": 1358.5549,
+            "BottomMargin": 251.4451,
+            "UserData": "drag;main.basket",
             "Tag": 965,
             "ActionTag": -1276606406,
             "Size": {

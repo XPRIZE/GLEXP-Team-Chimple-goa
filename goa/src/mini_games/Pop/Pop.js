@@ -29,7 +29,7 @@ xc.PopLayer = cc.Layer.extend({
         this.wordInOrder = [];
         this.clickableFlag = false;
         this.currentLevel = null; 
-
+        var audioEngine1 = cc.AudioEngine.getInstance();       
         // S T A R T
         if (cc.sys.isNative)
         {
@@ -82,7 +82,7 @@ xc.PopLayer = cc.Layer.extend({
        // var wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence();
         wordForSentanceArray = wordForSentanceArray.split(" ");
         var dummySentance = "";
-        menuContext.setMaxPoints(wordForSentanceArray.length*5);
+        menuContext.setMaxPoints(wordForSentanceArray.length*1);
         for(var i=0; i<wordForSentanceArray.length; i++)
         {
             dummySentance = dummySentance +" "+ wordForSentanceArray[i];
@@ -216,6 +216,8 @@ xc.PopLayer = cc.Layer.extend({
                        
                         var palneMotion = function()
                         {
+                             
+                            audioEngine1.playEffect(xc.PopLayer.res.pop_helicopter);
                             self.plane.node.runAction(cc.MoveTo.create(5, cc.p(-220, cc.director.getWinSize().height * multiplyFactor)));
                         }
 
@@ -234,29 +236,36 @@ xc.PopLayer = cc.Layer.extend({
     },
 
     setWordInRightOrder: function (wordObject) {
+        var audioEngine = cc.AudioEngine.getInstance();
         if (this.wordInOrder.length == 0 ) {
             //wordObject.id == 0 ||
             if( wordObject.children[0].getString() == this.stringContainer[this.wordInOrder.length])
             {
+                   
+                audioEngine.playEffect(xc.PopLayer.res.pop_success);
                  this.makeSentance(wordObject);
-                 menuContext.addPoints(5);
+                 menuContext.addPoints(1);
             }
             else
             {
+                  audioEngine.playEffect(xc.PopLayer.res.pop_errora);
                   this.cloudShake(wordObject);
-                  menuContext.addPoints(-2);
+                  menuContext.addPoints(-1);
             }
         }
         else if (this.wordInOrder.length != 0) {
             //this.wordInOrder.length == wordObject.id
+            var audioEngine = cc.AudioEngine.getInstance();
             if ( wordObject.children[0].getString() == this.stringContainer[this.wordInOrder.length])
              {
+                audioEngine.playEffect(xc.PopLayer.res.pop_success);
                 this.makeSentance(wordObject);
-                menuContext.addPoints(5);
+                menuContext.addPoints(1);
              }
            else{
+                  audioEngine.playEffect(xc.PopLayer.res.pop_error);
                   this.cloudShake(wordObject);
-                  menuContext.addPoints(-2);
+                  menuContext.addPoints(-1);
              }
         }
     },
@@ -327,4 +336,8 @@ xc.PopLayer.res = {
     pop_plane: xc.path + "pop/plane.json",
     pop_scene_plist: xc.path + "pop/pop.plist",
     pop_scene_png: xc.path + "pop/pop.png",
+
+    pop_helicopter : "res/sounds/sfx/pop_helicopter.ogg",
+    pop_success : "res/sounds/sfx/success.ogg",
+    pop_error : "res/sounds/sfx/error.ogg"
 }

@@ -5,10 +5,125 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 195,
+        "Duration": 250,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "pillow",
         "Timelines": [
+          {
+            "ActionTag": -833319032,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2166.0264,
+                "Y": 378.8865,
+                "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2166.0264,
+                "Y": 378.8865,
+                "FrameIndex": 230,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2166.0264,
+                "Y": 378.8865,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -833319032,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.93,
+                "Y": 1.0,
+                "FrameIndex": 230,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -833319032,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 5.0,
+                "Y": -3.0,
+                "FrameIndex": 230,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -833319032,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "pillow",
+                "FrameIndex": 210,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 1144077027,
             "Property": "ActionValue",
@@ -214,6 +329,12 @@
           "EndIndex": 195,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 210,
+          "EndIndex": 250,
+          "Name": "pillow",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -330,12 +451,11 @@
               "Dst": 771
             },
             "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
+              "ScaleX": 0.8326
             },
             "Position": {
-              "X": 1963.1281,
-              "Y": 492.3862
+              "X": 2166.0264,
+              "Y": 378.8865
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -344,24 +464,26 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.7668,
-              "Y": 0.2735
+              "X": 0.8461,
+              "Y": 0.2105
             },
             "PreSize": {
               "X": 0.2383,
               "Y": 0.1261
             },
-            "LeftMargin": 1658.1281,
-            "RightMargin": 291.8721,
-            "TopMargin": 1194.1138,
-            "BottomMargin": 378.8862,
-            "Tag": 1963,
-            "ActionTag": 1037535339,
+            "LeftMargin": 1658.1404,
+            "RightMargin": 291.8596,
+            "TopMargin": 1194.1135,
+            "BottomMargin": 378.8865,
+            "UserData": "main.pillow",
+            "Tag": 3212,
+            "FrameEvent": "pillow",
+            "ActionTag": -833319032,
             "Size": {
               "X": 610.0,
               "Y": 227.0
             },
-            "Name": "pillow_28",
+            "Name": "pillow_28_0",
             "ctype": "SpriteObjectData"
           },
           {
@@ -436,8 +558,9 @@
             },
             "LeftMargin": 990.0,
             "RightMargin": 1570.0,
-            "TopMargin": 1550.0,
+            "TopMargin": 1550.0001,
             "BottomMargin": 249.9999,
+            "UserData": "cover_off",
             "Tag": 1101,
             "ActionTag": 786311929,
             "Size": {
@@ -458,8 +581,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": -149.6483,
-              "Y": 255.4341
+              "X": 1239.7405,
+              "Y": 259.279
             },
             "Scale": {
               "ScaleX": -0.7,
@@ -468,17 +591,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": -0.0585,
-              "Y": 0.1419
+              "X": 0.4843,
+              "Y": 0.144
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -149.6483,
-            "RightMargin": 2709.6484,
-            "TopMargin": 1544.5659,
-            "BottomMargin": 255.4341,
+            "LeftMargin": 1239.7405,
+            "RightMargin": 1320.2595,
+            "TopMargin": 1540.7209,
+            "BottomMargin": 259.279,
             "UserData": "hi;drag",
             "Tag": 1759,
             "ActionTag": -159068241,

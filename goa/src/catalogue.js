@@ -1,5 +1,6 @@
 /// <reference path="cocos2d-typescript-definitions-master/cocos2d/cocos2d-lib.d.ts" />
 var xc = xc || {};
+xc.storyLevel = ".level";
 xc.HAND_GEAR_LEFT = "hand_gear_left"; 
 xc.LAYER_INIT = false;
 xc.PRIMARY_COLOR = cc.color("#FF8E88");
@@ -57,11 +58,37 @@ xc.CatalogueLayer = cc.Layer.extend({
         this.addChild(this._loadingScene.node, 5);
     },
 
+    getUnLockedStories: function() {
+        var unlockedStories = [];
+        // unlockedStories.push("storyId_1");
+        // unlockedStories.push("storyId_2");  
+        // unlockedStories.push("storyId_6");  
+        return unlockedStories;      
+    },
+
     loadStories: function() {
+        var context = this;
         this._stories = [];
         if(this._storyCatalogueObject != undefined && this._storyCatalogueObject.stories != undefined
             && this._storyCatalogueObject.stories.length > 0) {
             this._stories = this._storyCatalogueObject.stories;
+
+            this._stories.forEach(function(config) {
+                var unlockedStories = context.getUnLockedStories(); 
+                var storyStatus = cc.sys.localStorage.getItem(config["storyId"] + xc.storyLevel);
+                if(!storyStatus) {
+                    // if(unlockedStories.indexOf(config.storyId) != -1) {
+                    if(unlockedStories.indexOf(config.storyId) == -1) {
+                        var storyInfo = {};
+                        storyInfo.locked = false;
+                        cc.sys.localStorage.setItem(config["storyId"] + xc.storyLevel, JSON.stringify(storyInfo));
+                    } else {
+                        var storyInfo = {};
+                        storyInfo.locked = true;
+                        cc.sys.localStorage.setItem(config["storyId"] + xc.storyLevel, JSON.stringify(storyInfo));
+                    }                    
+                }              
+            });
         }
     },
 
@@ -129,6 +156,7 @@ var t_resources = [];
                 cc.spriteFrameCache.addSpriteFrames(xc.CatalogueLayer.res.record_animation_plist);
                 cc.spriteFrameCache.addSpriteFrames(xc.CatalogueLayer.res.book_cover_plist);
                 cc.spriteFrameCache.addSpriteFrames(xc.CatalogueLayer.res.template_plist);
+                cc.spriteFrameCache.addSpriteFrames(xc.CatalogueLayer.res.level_plist);                
                 
                 if(cc.sys.isNative) {
                     storyCatalogueObject = cc.loader.getRes(xc.CatalogueLayer.res.Config_json);                    
@@ -169,8 +197,9 @@ xc.CatalogueLayer.res = {
         loading_button_json: xc.path + "template/loading_button.json",
         loading_scene_json: xc.path + "template/loading_screen.json",
         template_png: xc.path + "template/template.png",
-        template_plist: xc.path + "template/template.plist"
-
+        template_plist: xc.path + "template/template.plist",
+        level_plist: xc.path + "levelstep/levelstep.plist",
+        level_png: xc.path + "levelstep/levelstep.png"        
 };
 
 

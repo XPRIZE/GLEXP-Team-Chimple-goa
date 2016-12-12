@@ -601,7 +601,7 @@
             },
             "LeftMargin": 990.0,
             "RightMargin": 1570.0,
-            "TopMargin": 1550.0,
+            "TopMargin": 1550.0001,
             "BottomMargin": 249.9999,
             "UserData": "cover_in",
             "Tag": 1677,
@@ -701,6 +701,48 @@
             },
             "Name": "basket_1",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Kalabushe_chiriku/vase.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 254.5168,
+              "Y": 774.0692
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0994,
+              "Y": 0.43
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 254.5168,
+            "RightMargin": 2305.4832,
+            "TopMargin": 1025.9309,
+            "BottomMargin": 774.0692,
+            "UserData": "bloom",
+            "Tag": 4683,
+            "ActionTag": 1361049822,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "vase",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -715,7 +757,8 @@
         "girl.json",
         "Kalabushe_chiriku.plist",
         "Kalabushe_chiriku.png",
-        "man.json"
+        "man.json",
+        "vase.json"
       ],
       "ctype": "GameFileData"
     }

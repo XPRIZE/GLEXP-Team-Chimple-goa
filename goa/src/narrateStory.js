@@ -2,6 +2,7 @@
 var xc = xc || {};
 xc.storyFontName = "Arial";
 xc.storyFontSize = 85;
+xc.storyCoverPageFontSize = 120;
 xc.storyFontColor = cc.color.BLACK;
 
 xc.NarrateStoryLayer = cc.Layer.extend({
@@ -852,12 +853,13 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         var pages = this._storyInformation["pages"];
         var curIndex = this._pageIndex;
         curIndex++;
-        if (curIndex >= pages.length) {
-            xc.StoryQuestionHandlerScene.load(this._baseDir, xc.StoryQuestionHandlerLayer, true);
+        var storyId = this._storyInformation["storyId"];
+        if (curIndex >= pages.length) {            
+            xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
             return;
         }
         xc.NarrateStoryScene.load(curIndex, this._storyInformation, xc.NarrateStoryLayer, true);
-        // xc.StoryQuestionHandlerScene.load(this._baseDir, xc.StoryQuestionHandlerLayer, true);
+        // xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
     },
 
     playEnded: function () {
@@ -988,7 +990,8 @@ xc.NarrateStoryScene = cc.Scene.extend({
         
 
         if (cc.sys.isNative) {
-            this._menuContext = goa.MenuContext.create(this._sceneLayer, "story-play");
+            var storyId = storyInformation["storyId"];
+            this._menuContext = goa.MenuContext.create(this._sceneLayer, storyId);
             this.addChild(this._menuContext, 10);
             this._menuContext.setVisible(true);
         }                        

@@ -5,10 +5,112 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 240,
+        "Duration": 335,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "bag",
         "Timelines": [
+          {
+            "ActionTag": -1991979192,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1967.4149,
+                "Y": 388.6247,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1967.417,
+                "Y": 388.6244,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1967.4149,
+                "Y": 388.6247,
+                "FrameIndex": 335,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1991979192,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.6513,
+                "Y": 1.6513,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 335,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1991979192,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 335,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 72999868,
             "Property": "ActionValue",
@@ -221,6 +323,12 @@
           "EndIndex": 300,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 305,
+          "EndIndex": 335,
+          "Name": "bag",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -325,49 +433,87 @@
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Barua_kwa_mama_Letter_to_mum/barua_watch.png",
-              "Plist": "Barua_kwa_mama_Letter_to_mum/Barua_kwa_mama_Letter_to_mum.plist"
+              "Type": "Normal",
+              "Path": "Barua_kwa_mama_Letter_to_mum/window.json",
+              "Plist": ""
             },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
             "Position": {
-              "X": 1354.6874,
-              "Y": 1574.4133
+              "X": 1519.2059,
+              "Y": 1324.2627
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 1.1446,
+              "ScaleY": 1.1446
             },
             "CColor": {},
-            "IconVisible": false,
+            "IconVisible": true,
             "PrePosition": {
-              "X": 0.5292,
-              "Y": 0.8747
+              "X": 0.5934,
+              "Y": 0.7357
             },
             "PreSize": {
-              "X": 0.1094,
-              "Y": 0.1556
+              "X": 0.0,
+              "Y": 0.0
             },
-            "LeftMargin": 1214.6874,
-            "RightMargin": 1065.3126,
-            "TopMargin": 85.5867,
-            "BottomMargin": 1434.4133,
-            "UserData": "drag",
-            "Tag": 29,
-            "ActionTag": 1147035747,
+            "LeftMargin": 1519.2059,
+            "RightMargin": 1040.7941,
+            "TopMargin": 475.7373,
+            "BottomMargin": 1324.2627,
+            "UserData": "window",
+            "Tag": 3116,
+            "ActionTag": -42192539,
             "Size": {
-              "X": 280.0,
-              "Y": 280.0
+              "X": 0.0,
+              "Y": 0.0
             },
-            "Name": "watch_2",
-            "ctype": "SpriteObjectData"
+            "Name": "window",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Barua_kwa_mama_Letter_to_mum/watch.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 514.5409,
+              "Y": 1494.759
+            },
+            "Scale": {
+              "ScaleX": 1.2389,
+              "ScaleY": 1.2389
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.201,
+              "Y": 0.8304
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 514.5409,
+            "RightMargin": 2045.4591,
+            "TopMargin": 305.241,
+            "BottomMargin": 1494.759,
+            "UserData": "watch;drag",
+            "Tag": 3111,
+            "ActionTag": 1921763444,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "watch",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FlipX": true,
@@ -385,12 +531,12 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1967.4149,
-              "Y": 388.6247
+              "X": 1967.416,
+              "Y": 388.6245
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 1.3474,
+              "ScaleY": 1.3474
             },
             "CColor": {},
             "IconVisible": false,
@@ -402,11 +548,11 @@
               "X": 0.1082,
               "Y": 0.1844
             },
-            "LeftMargin": 1828.9149,
-            "RightMargin": 454.085,
-            "TopMargin": 1245.3752,
-            "BottomMargin": 222.6247,
-            "UserData": "drag",
+            "LeftMargin": 1828.916,
+            "RightMargin": 454.084,
+            "TopMargin": 1245.3755,
+            "BottomMargin": 222.6245,
+            "UserData": "drag;main.bag",
             "Tag": 30,
             "ActionTag": -1991979192,
             "Size": {
@@ -514,7 +660,9 @@
         "Barua_kwa_mama_Letter_to_mum.plist",
         "Barua_kwa_mama_Letter_to_mum.png",
         "girl1.json",
-        "wife2.json"
+        "watch.json",
+        "wife2.json",
+        "window.json"
       ],
       "ctype": "GameFileData"
     }

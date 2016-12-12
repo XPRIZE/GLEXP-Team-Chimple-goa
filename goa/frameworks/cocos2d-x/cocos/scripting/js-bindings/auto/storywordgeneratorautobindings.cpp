@@ -26,20 +26,22 @@ bool js_storywordgeneratorautobindings_StoryWordBoard_createWithWords(JSContext 
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
     bool ok = true;
-    if (argc == 5) {
-        std::vector<std::string> arg0;
-        int arg1 = 0;
-        std::string arg2;
-        int arg3 = 0;
+    if (argc == 6) {
+        std::string arg0;
+        std::vector<std::string> arg1;
+        int arg2 = 0;
+        std::string arg3;
         int arg4 = 0;
-        ok &= jsval_to_std_vector_string(cx, args.get(0), &arg0);
-        ok &= jsval_to_int32(cx, args.get(1), (int32_t *)&arg1);
-        ok &= jsval_to_std_string(cx, args.get(2), &arg2);
-        ok &= jsval_to_int32(cx, args.get(3), (int32_t *)&arg3);
+        int arg5 = 0;
+        ok &= jsval_to_std_string(cx, args.get(0), &arg0);
+        ok &= jsval_to_std_vector_string(cx, args.get(1), &arg1);
+        ok &= jsval_to_int32(cx, args.get(2), (int32_t *)&arg2);
+        ok &= jsval_to_std_string(cx, args.get(3), &arg3);
         ok &= jsval_to_int32(cx, args.get(4), (int32_t *)&arg4);
+        ok &= jsval_to_int32(cx, args.get(5), (int32_t *)&arg5);
         JSB_PRECONDITION2(ok, cx, false, "js_storywordgeneratorautobindings_StoryWordBoard_createWithWords : Error processing arguments");
 
-        auto ret = StoryWordBoard::createWithWords(arg0, arg1, arg2, arg3, arg4);
+        auto ret = StoryWordBoard::createWithWords(arg0, arg1, arg2, arg3, arg4,arg5);
         js_type_class_t *typeClass = js_get_type_from_native(ret);
         JS::RootedObject jsret(cx, jsb_ref_autoreleased_create_jsobject(cx, ret, typeClass, "StoryWordBoard"));
         args.rval().set(OBJECT_TO_JSVAL(jsret));
@@ -68,20 +70,23 @@ bool js_storywordgeneratorautobindings_StoryWordBoard_createSceneWithWords(JSCon
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
     bool ok = true;
-    if (argc == 5) {
-        std::vector<std::string> arg0;
-        int arg1 = 0;
-        std::string arg2;
-        int arg3 = 0;
+    if (argc == 6) {
+        
+        std::string arg0;
+        std::vector<std::string> arg1;
+        int arg2 = 0;
+        std::string arg3;
         int arg4 = 0;
-        ok &= jsval_to_std_vector_string(cx, args.get(0), &arg0);
-        ok &= jsval_to_int32(cx, args.get(1), (int32_t *)&arg1);
-        ok &= jsval_to_std_string(cx, args.get(2), &arg2);
-        ok &= jsval_to_int32(cx, args.get(3), (int32_t *)&arg3);
+        int arg5 = 0;
+        ok &= jsval_to_std_string(cx, args.get(0), &arg0);
+        ok &= jsval_to_std_vector_string(cx, args.get(1), &arg1);
+        ok &= jsval_to_int32(cx, args.get(2), (int32_t *)&arg2);
+        ok &= jsval_to_std_string(cx, args.get(3), &arg3);
         ok &= jsval_to_int32(cx, args.get(4), (int32_t *)&arg4);
+        ok &= jsval_to_int32(cx, args.get(5), (int32_t *)&arg5);
         JSB_PRECONDITION2(ok, cx, false, "js_storywordgeneratorautobindings_StoryWordBoard_createSceneWithWords : Error processing arguments");
 
-        auto ret = StoryWordBoard::createSceneWithWords(arg0, arg1, arg2, arg3, arg4);
+        auto ret = StoryWordBoard::createSceneWithWords(arg0, arg1, arg2, arg3, arg4, arg5);
         js_type_class_t *typeClass = js_get_type_from_native(ret);
         JS::RootedObject jsret(cx, jsb_ref_autoreleased_create_jsobject(cx, ret, typeClass, "StoryWordBoard"));
         args.rval().set(OBJECT_TO_JSVAL(jsret));
