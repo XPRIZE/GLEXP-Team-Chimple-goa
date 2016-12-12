@@ -24,9 +24,9 @@ cocos2d::Scene* StoryWordBoard::createScene() {
     return scene;
 }
 
-cocos2d::Scene* StoryWordBoard::createSceneWithWords(std::vector<std::string> words, int currentIndex, std::string baseDir, int totalPoints, int currentPoints) {
-    auto layer = StoryWordBoard::createWithWords(words, currentIndex, baseDir, totalPoints, currentPoints);
-    auto scene = GameScene::createWithChild(layer, "story-play");
+cocos2d::Scene* StoryWordBoard::createSceneWithWords(std::string storyId, std::vector<std::string> words, int currentIndex, std::string baseDir, int totalPoints, int currentPoints) {
+    auto layer = StoryWordBoard::createWithWords(storyId, words, currentIndex, baseDir, totalPoints, currentPoints);
+    auto scene = GameScene::createWithChild(layer, storyId);
     layer->_menuContext = scene->getMenuContext();
     CCLOG("total point in createSceneWithWords  %d", totalPoints);
     CCLOG("currentPoints point in createSceneWithWords %d", currentPoints);
@@ -117,13 +117,14 @@ StoryWordBoard* StoryWordBoard::create() {
     return nullptr;
 }
 
-StoryWordBoard* StoryWordBoard::createWithWords(std::vector<std::string> words, int currentIndex, std::string baseDir, int totalPoints, int currentPoints) {
+StoryWordBoard* StoryWordBoard::createWithWords(std::string storyId, std::vector<std::string> words, int currentIndex, std::string baseDir, int totalPoints, int currentPoints) {
     StoryWordBoard* word = new (std::nothrow) StoryWordBoard();
     word->_currentIndex = currentIndex;
     word->_words = words;
     word->_baseDir = baseDir;
     word->_totalPoints = totalPoints;
     word->_currentPoints = currentPoints;
+    word->_storyId = storyId;
     std::string wordStr = word->_words.at(word->_currentIndex);
     if(word && word->initWithWord(wordStr))
     {
@@ -215,6 +216,7 @@ void StoryWordBoard::gameOver(bool correct) {
             localStorageSetItem("xc.story.totalPoints", MenuContext::to_string(_menuContext->getMaxPoints()));
             localStorageSetItem("xc.story.currentPoints", MenuContext::to_string(_menuContext->getPoints()));
             localStorageSetItem("xc.story.baseDir", _baseDir);
+            localStorageSetItem("xc.story.curStoryId", _storyId);
             runAction(Sequence::create(DelayTime::create(5.0), CallFunc::create([=] {
                 this->removeChild(_ps);
                 _ps = nullptr;
@@ -228,7 +230,7 @@ void StoryWordBoard::gameOver(bool correct) {
                 _ps = nullptr;
                 CCLOG("_menuContext->getPoints() %d", _menuContext->getPoints());
                 CCLOG("_menuContext->getMaxPoints() %d", _menuContext->getMaxPoints());
-                Director::getInstance()->replaceScene(StoryWordBoard::createSceneWithWords(_words, _currentIndex, _baseDir, _menuContext->getMaxPoints(), _menuContext->getPoints()));
+                Director::getInstance()->replaceScene(StoryWordBoard::createSceneWithWords(_storyId, _words, _currentIndex, _baseDir, _menuContext->getMaxPoints(), _menuContext->getPoints()));
             }), NULL));
             
         }

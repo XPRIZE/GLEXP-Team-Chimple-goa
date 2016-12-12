@@ -198,7 +198,8 @@ void Shop::update(float dt)
 			_menuContext->showScore();
 		});
 		auto vegeIntoBag = CallFunc::create([=] {
-
+			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+			audio->playEffect("sounds/sfx/success.ogg", false);
 			auto bag = this->getChildByName("bg")->getChildByName("bag");
 			auto posiX = bag->getPositionX();
 			auto posiY = visibleSize.height*0.42;
@@ -270,6 +271,8 @@ void Shop::update(float dt)
 							CallFunc::create([=] {
 							auto a = myBg->getChildren().at(k)->getChildren().at(v);
 							a->setVisible(true);
+							auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+							audio->playEffect("sounds/sfx/coins_on_coins.ogg", false);
 						}),NULL));
 						delay = delay + 0.1;
 						counter++;
@@ -299,6 +302,7 @@ void Shop::update(float dt)
 		auto Wait = _total*0.1 + 0.5;
 		auto scoreSequenceOne = Sequence::create(coinAppear, DelayTime::create(Wait),vegeIntoBag, DelayTime::create(1.5), vegeDisappear, vegeAppear, DelayTime::create(3), CallFunc::create([=] {
 				
+			
 				if (_gameCounter == 3)
 				{
 					 auto a = _isEnterPressedCounter;

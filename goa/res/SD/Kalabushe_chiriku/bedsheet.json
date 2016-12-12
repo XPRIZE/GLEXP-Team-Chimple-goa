@@ -137,6 +137,25 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1364429953,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "blanket",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "blanket",
+                "FrameIndex": 60,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -172,11 +191,11 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": -671.0459,
-              "Y": 187.3339
+              "X": -671.043,
+              "Y": 187.334
             },
             "Scale": {
-              "ScaleX": 0.7775,
+              "ScaleX": 0.6291,
               "ScaleY": 1.0
             },
             "CColor": {},
@@ -189,11 +208,12 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -671.0459,
-            "RightMargin": -668.9541,
-            "TopMargin": -384.8339,
-            "BottomMargin": -10.1661,
+            "LeftMargin": -671.043,
+            "RightMargin": -668.957,
+            "TopMargin": -384.834,
+            "BottomMargin": -10.166,
             "Tag": 910,
+            "FrameEvent": "blanket",
             "ActionTag": 1364429953,
             "Size": {
               "X": 1340.0,

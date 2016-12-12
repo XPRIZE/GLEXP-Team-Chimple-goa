@@ -125,6 +125,19 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1415023231,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "wave",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -177,6 +190,7 @@
             "TopMargin": -134.8655,
             "BottomMargin": -1.1345,
             "Tag": 4468,
+            "FrameEvent": "wave",
             "ActionTag": -1415023231,
             "Size": {
               "X": 342.0,

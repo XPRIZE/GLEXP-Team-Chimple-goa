@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 110,
+        "Duration": 220,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "basket",
         "Timelines": [
           {
             "ActionTag": 1144077027,
@@ -130,7 +130,7 @@
               {
                 "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "-- ALL --",
-                "SingleFrameIndex": 0,
+                "SingleFrameIndex": 50,
                 "FrameIndex": 110,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
@@ -315,6 +315,60 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              },
+              {
+                "X": 1450.9607,
+                "Y": 586.6642,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1450.96,
+                "Y": 586.6638,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1450.9587,
+                "Y": 586.6635,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1450.96,
+                "Y": 586.6638,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1450.9587,
+                "Y": 586.6635,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1450.9607,
+                "Y": 586.6642,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -327,6 +381,60 @@
                 "X": 0.6809,
                 "Y": 0.6809,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.6809,
+                "Y": 0.6809,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.6809,
+                "Y": 0.6809,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.6809,
+                "Y": 0.6809,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.6809,
+                "Y": 0.6809,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.6809,
+                "Y": 0.6809,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.6809,
+                "Y": 0.6809,
+                "FrameIndex": 220,
                 "EasingData": {
                   "Type": 0
                 },
@@ -347,6 +455,60 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0205,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -11.7299,
+                "Y": -11.7038,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 2.096,
+                "Y": 2.1165,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -11.7299,
+                "Y": -11.7038,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 2.096,
+                "Y": 2.1165,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0205,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -359,6 +521,12 @@
           "StartIndex": 0,
           "EndIndex": 110,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 120,
+          "EndIndex": 220,
+          "Name": "basket",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -582,7 +750,7 @@
             },
             "LeftMargin": 990.0,
             "RightMargin": 1570.0,
-            "TopMargin": 1550.0,
+            "TopMargin": 1550.0001,
             "BottomMargin": 249.9999,
             "UserData": "cover_in",
             "Tag": 1484,
@@ -651,14 +819,15 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1450.9607,
-              "Y": 586.6642
+              "X": 1450.9595,
+              "Y": 586.6638
             },
             "Scale": {
               "ScaleX": 0.6809,
               "ScaleY": 0.6809
             },
-            "RotationSkewY": 0.0205,
+            "RotationSkewX": 1.3624,
+            "RotationSkewY": 1.3829,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
@@ -669,11 +838,11 @@
               "X": 0.175,
               "Y": 0.1056
             },
-            "LeftMargin": 1226.9607,
-            "RightMargin": 885.0393,
-            "TopMargin": 1118.3358,
-            "BottomMargin": 491.6642,
-            "UserData": "drag",
+            "LeftMargin": 1226.9595,
+            "RightMargin": 885.0405,
+            "TopMargin": 1118.3362,
+            "BottomMargin": 491.6638,
+            "UserData": "main.basket",
             "Tag": 2165,
             "ActionTag": -490626553,
             "Size": {
