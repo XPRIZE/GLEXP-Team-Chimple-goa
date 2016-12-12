@@ -5,8 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 280,
+        "Duration": 455,
         "Speed": 1.0,
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 2057884497,
@@ -43,6 +44,89 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -802820789,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 285,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 455,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -802820789,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 3000.5322,
+                "Y": 701.4183,
+                "FrameIndex": 285,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 528.0886,
+                "Y": 701.4218,
+                "FrameIndex": 455,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -802820789,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.8,
+                "Y": 0.8,
+                "FrameIndex": 285,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -802820789,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 280,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 285,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -203,7 +287,20 @@
         ],
         "ctype": "TimelineActionData"
       },
-      "AnimationList": [],
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 280,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 285,
+          "EndIndex": 455,
+          "Name": "jackal",
+          "ctype": "AnimationInfoData"
+        }
+      ],
       "ObjectData": {
         "Tag": 1990,
         "Children": [
@@ -289,6 +386,7 @@
             "RightMargin": 1863.9518,
             "TopMargin": 500.5198,
             "BottomMargin": 1299.4802,
+            "UserData": "drag;sun",
             "Tag": 2006,
             "ActionTag": 2057884497,
             "Size": {
@@ -334,6 +432,7 @@
             "RightMargin": 369.5378,
             "TopMargin": 905.7739,
             "BottomMargin": 630.2261,
+            "UserData": "main.jackal",
             "Tag": 2005,
             "ActionTag": -1244253174,
             "Size": {
@@ -380,6 +479,7 @@
             "RightMargin": 933.1531,
             "TopMargin": 829.1877,
             "BottomMargin": 706.8123,
+            "UserData": "main.jackal",
             "Tag": 2004,
             "ActionTag": 690863481,
             "Size": {
@@ -426,6 +526,7 @@
             "RightMargin": 1802.0369,
             "TopMargin": 887.3883,
             "BottomMargin": 648.6117,
+            "UserData": "main.jackal",
             "Tag": 2003,
             "ActionTag": -950453900,
             "Size": {
@@ -525,6 +626,7 @@
             "RightMargin": 2266.4165,
             "TopMargin": 851.0665,
             "BottomMargin": 684.9335,
+            "UserData": "main.jackal",
             "Tag": 1998,
             "ActionTag": 1983622374,
             "Size": {
@@ -570,6 +672,7 @@
             "RightMargin": 1417.7109,
             "TopMargin": 849.1827,
             "BottomMargin": 686.8173,
+            "UserData": "main.jackal",
             "Tag": 1999,
             "ActionTag": -1131112930,
             "Size": {
@@ -616,6 +719,7 @@
             "RightMargin": 759.5208,
             "TopMargin": 921.2485,
             "BottomMargin": 614.7515,
+            "UserData": "main.jackal",
             "Tag": 2000,
             "ActionTag": 1208111690,
             "Size": {
@@ -661,6 +765,7 @@
             "RightMargin": 115.0176,
             "TopMargin": 890.7398,
             "BottomMargin": 645.2602,
+            "UserData": "main.jackal",
             "Tag": 2001,
             "ActionTag": 2038956011,
             "Size": {
@@ -669,6 +774,48 @@
             },
             "Name": "mountain_7_2",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/jackal1.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 3000.5322,
+              "Y": 701.4183
+            },
+            "Scale": {
+              "ScaleX": 0.8,
+              "ScaleY": 0.8
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.1721,
+              "Y": 0.3897
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 3000.5322,
+            "RightMargin": -440.5322,
+            "TopMargin": 1098.5818,
+            "BottomMargin": 701.4183,
+            "Tag": 1028,
+            "ActionTag": -802820789,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "VisibleForFrame": false,
+            "Name": "jackal",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -706,6 +853,7 @@
             "RightMargin": -397.054,
             "TopMargin": 267.0479,
             "BottomMargin": 843.9521,
+            "UserData": "main.jackal",
             "Tag": 1997,
             "ActionTag": -1060842776,
             "Size": {
@@ -804,6 +952,7 @@
             "RightMargin": 1143.2288,
             "TopMargin": 1503.1934,
             "BottomMargin": 242.8066,
+            "UserData": "main.jackal",
             "Tag": 1991,
             "ActionTag": 1680538499,
             "Size": {
@@ -849,6 +998,7 @@
             "RightMargin": 697.2223,
             "TopMargin": 1745.9999,
             "BottomMargin": 0.0001,
+            "UserData": "main.jackal",
             "Tag": 1992,
             "ActionTag": 954241900,
             "Size": {
@@ -894,6 +1044,7 @@
             "RightMargin": 1586.4131,
             "TopMargin": 1745.9998,
             "BottomMargin": 0.0002,
+            "UserData": "main.jackal",
             "Tag": 1993,
             "ActionTag": 1141468976,
             "Size": {
@@ -939,6 +1090,7 @@
             "RightMargin": 132.5508,
             "TopMargin": 1501.0398,
             "BottomMargin": 244.9602,
+            "UserData": "main.jackal",
             "Tag": 1994,
             "ActionTag": 1655075294,
             "Size": {
@@ -984,6 +1136,7 @@
             "RightMargin": 2005.2996,
             "TopMargin": 1517.0017,
             "BottomMargin": 228.9983,
+            "UserData": "main.jackal",
             "Tag": 1995,
             "ActionTag": -1335936259,
             "Size": {
@@ -1023,15 +1176,16 @@
             },
             "LeftMargin": 1099.0851,
             "RightMargin": 1460.9149,
-            "TopMargin": 1985.5525,
+            "TopMargin": 1985.5526,
             "BottomMargin": -185.5526,
+            "UserData": "main.walk",
             "Tag": 2026,
             "ActionTag": 1569749095,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_10",
+            "Name": "man",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1064,15 +1218,16 @@
             },
             "LeftMargin": 1658.998,
             "RightMargin": 901.002,
-            "TopMargin": 1990.8933,
+            "TopMargin": 1990.8934,
             "BottomMargin": -190.8934,
+            "UserData": "main.walk",
             "Tag": 2070,
             "ActionTag": 1305172477,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_9",
+            "Name": "girl",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1098,7 +1253,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1289.9988,
+              "X": 1280.0,
               "Y": -94.3765
             },
             "Scale": {
@@ -1108,17 +1263,18 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5039,
+              "X": 0.5,
               "Y": -0.0524
             },
             "PreSize": {
               "X": 1.5625,
               "Y": 1.0
             },
-            "LeftMargin": -710.0012,
-            "RightMargin": -729.9988,
+            "LeftMargin": -720.0,
+            "RightMargin": -720.0,
             "TopMargin": 994.3765,
             "BottomMargin": -994.3765,
+            "UserData": "main.jackal",
             "Tag": 2114,
             "ActionTag": 739542492,
             "Size": {
@@ -1139,6 +1295,7 @@
       },
       "UsedResources": [
         "girl.json",
+        "jackal1.json",
         "man.json",
         "Mwanamme_na_Mwanamke_wa_Kwanza.plist",
         "Mwanamme_na_Mwanamke_wa_Kwanza.png",

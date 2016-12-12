@@ -7992,6 +7992,16 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
+                  "Path": "Mwezi_na_Kofia/bluecap.png",
+                  "Plist": "Mwezi_na_Kofia/Mwezi_na_Kofia.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
                   "Path": "Mwezi_na_Kofia/redcap.png",
                   "Plist": "Mwezi_na_Kofia/Mwezi_na_Kofia.plist"
                 },
@@ -8026,6 +8036,13 @@
             "ActionTag": -1686843736,
             "Property": "BlendFunc",
             "Frames": [
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              },
               {
                 "Src": 1,
                 "Dst": 771,
@@ -16516,7 +16533,7 @@
             "Length": 400.0,
             "Position": {
               "X": 0.0089,
-              "Y": 244.8373
+              "Y": 256.6854
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -16541,8 +16558,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 146.9458,
-                "RotationSkewY": 146.9462,
+                "RotationSkewX": 180.0,
+                "RotationSkewY": 180.0004,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -16560,8 +16577,6 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 85.5465,
-                    "RotationSkewY": 85.5465,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -16579,8 +16594,6 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewX": 20.719,
-                        "RotationSkewY": 20.719,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -16824,8 +16837,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 188.3485,
-                "RotationSkewY": 548.3483,
+                "RotationSkewX": 180.1992,
+                "RotationSkewY": 540.1992,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -16843,8 +16856,7 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 91.2209,
-                    "RotationSkewY": 451.221,
+                    "RotationSkewY": 360.0,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -16862,8 +16874,7 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewX": 11.6458,
-                        "RotationSkewY": 731.6459,
+                        "RotationSkewY": 720.0,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -17138,8 +17149,8 @@
                       {
                         "Length": 425.0,
                         "Position": {
-                          "X": 40.2757,
-                          "Y": 2.5809
+                          "X": 40.2756,
+                          "Y": 2.5808
                         },
                         "Scale": {
                           "ScaleX": 1.0,
@@ -17195,7 +17206,7 @@
                         "Length": 104.0,
                         "Position": {
                           "X": 168.0983,
-                          "Y": -70.2814
+                          "Y": -70.2815
                         },
                         "Scale": {
                           "ScaleX": 1.0,
@@ -17248,7 +17259,7 @@
                       {
                         "Length": 104.0,
                         "Position": {
-                          "X": 162.6863,
+                          "X": 162.6862,
                           "Y": 140.0013
                         },
                         "Scale": {
@@ -17395,8 +17406,8 @@
                           "ScaleY": 0.5
                         },
                         "Position": {
-                          "X": 274.1986,
-                          "Y": 2.1896
+                          "X": 263.342,
+                          "Y": 2.1699
                         },
                         "Scale": {
                           "ScaleX": 1.0,
@@ -17414,10 +17425,10 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -43.3014,
-                        "RightMargin": -591.6986,
-                        "TopMargin": -295.1896,
-                        "BottomMargin": -290.8104,
+                        "LeftMargin": -54.158,
+                        "RightMargin": -580.842,
+                        "TopMargin": -295.1699,
+                        "BottomMargin": -290.8301,
                         "Tag": 1321,
                         "ActionTag": -1365546774,
                         "Size": {
@@ -17449,7 +17460,7 @@
                           {
                             "FileData": {
                               "Type": "MarkedSubImage",
-                              "Path": "Mwezi_na_Kofia/redcap.png",
+                              "Path": "Mwezi_na_Kofia/bluecap.png",
                               "Plist": "Mwezi_na_Kofia/Mwezi_na_Kofia.plist"
                             },
                             "BlendFunc": {
@@ -17535,8 +17546,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0102
                     },
-                    "RotationSkewX": 89.1649,
-                    "RotationSkewY": 89.1692,
+                    "RotationSkewX": 88.7539,
+                    "RotationSkewY": 88.7582,
                     "CColor": {
                       "R": 185,
                       "G": 155,
@@ -17635,7 +17646,7 @@
             "Length": 139.0,
             "Position": {
               "X": 0.0089,
-              "Y": 244.8373
+              "Y": 256.6854
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -17653,15 +17664,14 @@
               {
                 "Length": 83.0,
                 "Position": {
-                  "X": 70.6463,
+                  "X": 85.7754,
                   "Y": -40.0274
                 },
                 "Scale": {
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 25.4184,
-                "RotationSkewY": 385.4184,
+                "RotationSkewY": 360.0,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -17672,15 +17682,13 @@
                   {
                     "Length": 76.0,
                     "Position": {
-                      "X": 98.9614,
-                      "Y": 0.1605
+                      "X": 83.4111,
+                      "Y": -0.5689
                     },
                     "Scale": {
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": -21.1444,
-                    "RotationSkewY": -21.1444,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -17698,8 +17706,8 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewX": 102.3638,
-                        "RotationSkewY": 102.3638,
+                        "RotationSkewX": 90.0,
+                        "RotationSkewY": 90.0,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -17881,15 +17889,14 @@
               {
                 "Length": 82.0,
                 "Position": {
-                  "X": 90.09,
+                  "X": 90.0858,
                   "Y": 39.671
                 },
                 "Scale": {
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": -25.1545,
-                "RotationSkewY": 334.8456,
+                "RotationSkewY": 360.0001,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -17900,15 +17907,13 @@
                   {
                     "Length": 72.0,
                     "Position": {
-                      "X": 98.5387,
-                      "Y": 3.1524
+                      "X": 83.98,
+                      "Y": 0.0
                     },
                     "Scale": {
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": -95.3519,
-                    "RotationSkewY": -95.3519,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -17919,15 +17924,15 @@
                       {
                         "Length": 83.0,
                         "Position": {
-                          "X": 72.25,
+                          "X": 72.2514,
                           "Y": 0.0003
                         },
                         "Scale": {
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewX": 103.8761,
-                        "RotationSkewY": 103.8761,
+                        "RotationSkewX": 90.0,
+                        "RotationSkewY": 90.0,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,

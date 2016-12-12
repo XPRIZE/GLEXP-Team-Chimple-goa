@@ -5,10 +5,52 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 280,
+        "Duration": 590,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
+          {
+            "ActionTag": 417386746,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 285,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 187,
+                  "G": 162,
+                  "B": 158
+                },
+                "FrameIndex": 445,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 113,
+                  "G": 104,
+                  "B": 182
+                },
+                "FrameIndex": 590,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": -1327251264,
             "Property": "ActionValue",
@@ -26,6 +68,14 @@
                 "CurrentAniamtionName": "sun",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 280,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "sun",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 285,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -53,6 +103,112 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              },
+              {
+                "X": 683.1711,
+                "Y": 1301.6265,
+                "FrameIndex": 285,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -788.2919,
+                "Y": 596.6085,
+                "FrameIndex": 445,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1327251264,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 445,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 447,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -401028331,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "moon",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 430,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -401028331,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1935.7485,
+                "Y": 482.6465,
+                "FrameIndex": 430,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 886.2305,
+                "Y": 1444.037,
+                "FrameIndex": 590,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1448657084,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 285,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 217,
+                  "G": 220,
+                  "B": 239
+                },
+                "FrameIndex": 590,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -65,6 +221,12 @@
           "StartIndex": 0,
           "EndIndex": 280,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 285,
+          "EndIndex": 590,
+          "Name": "sun",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -164,6 +326,47 @@
           },
           {
             "FileData": {
+              "Type": "Normal",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/moon.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1935.7485,
+              "Y": 482.6465
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7562,
+              "Y": 0.2681
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1935.7485,
+            "RightMargin": 624.2515,
+            "TopMargin": 1317.3535,
+            "BottomMargin": 482.6465,
+            "Tag": 81,
+            "ActionTag": -401028331,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_3",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
               "Type": "MarkedSubImage",
               "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/mountain.png",
               "Plist": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza.plist"
@@ -184,7 +387,11 @@
               "ScaleX": 1.6943,
               "ScaleY": 1.6943
             },
-            "CColor": {},
+            "CColor": {
+              "R": 224,
+              "G": 224,
+              "B": 224
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.7549,
@@ -204,7 +411,6 @@
               "X": 516.0,
               "Y": 264.0
             },
-            "Alpha": 204,
             "Name": "mountain_7_1_0",
             "ctype": "SpriteObjectData"
           },
@@ -230,7 +436,11 @@
               "ScaleX": 1.9036,
               "ScaleY": 1.9036
             },
-            "CColor": {},
+            "CColor": {
+              "R": 224,
+              "G": 224,
+              "B": 224
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.5347,
@@ -250,7 +460,6 @@
               "X": 516.0,
               "Y": 264.0
             },
-            "Alpha": 204,
             "Name": "mountain_7_0_0",
             "ctype": "SpriteObjectData"
           },
@@ -276,7 +485,11 @@
               "ScaleX": 1.2213,
               "ScaleY": 1.2213
             },
-            "CColor": {},
+            "CColor": {
+              "R": 224,
+              "G": 224,
+              "B": 224
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.1953,
@@ -296,7 +509,6 @@
               "X": 516.0,
               "Y": 264.0
             },
-            "Alpha": 204,
             "Name": "mountain_7_3",
             "ctype": "SpriteObjectData"
           },
@@ -866,6 +1078,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "moon.json",
         "Mwanamme_na_Mwanamke_wa_Kwanza.plist",
         "Mwanamme_na_Mwanamke_wa_Kwanza.png",
         "sun.json"
