@@ -237,8 +237,8 @@ void Owl::onEnterTransitionDidFinish()
 	boardName << _sentence << _data_key[_textBoard];
 
 	_textLabel = LabelTTF::create(boardName.str(), "Helvetica", board->getContentSize().height *0.5);
-	_textLabel->setPosition(board->getContentSize().width/2,board->getContentSize().height/2);
 	_textLabel->setAnchorPoint(Vec2(0.5, 0.5));
+	_textLabel->setPosition(Vec2(board->getContentSize().width/2, board->getContentSize().height/ 2));
 	_textLabel->setName("text");
 
 	board->addChild(_textLabel);
