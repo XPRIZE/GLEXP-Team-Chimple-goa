@@ -26,7 +26,6 @@ void ChocolateFactory::onEnterTransitionDidFinish()
 		CCSpriteFrameCache* framecache1 = CCSpriteFrameCache::sharedSpriteFrameCache();
 		framecache1->addSpriteFramesWithFile("chocolatefactory/chocolatefactory.plist");
 	}
-
 	int gameCurrentLevel = _menuContext->getCurrentLevel();
 
 	// BackGround
@@ -42,7 +41,14 @@ void ChocolateFactory::onEnterTransitionDidFinish()
 	std::vector<int> randomIndex;
 	while (randomIndex.size() != 4) {
 		bool duplicateCheck = true;
-		int numberPicker = RandomHelper::random_int(0, 9);
+		int numberPicker;
+		if(gameCurrentLevel>=1 && gameCurrentLevel <=5)
+			numberPicker = RandomHelper::random_int(0, 4);
+		else if(gameCurrentLevel >= 6 && gameCurrentLevel <= 10)
+			numberPicker = RandomHelper::random_int(5,9);
+		else 
+			numberPicker = RandomHelper::random_int(0, 9);
+		
 		for (int i = 0; i < randomIndex.size(); i++) {
 			if (numberPicker == randomIndex[i])
 				duplicateCheck = false;
@@ -100,7 +106,6 @@ void ChocolateFactory::onEnterTransitionDidFinish()
 
 	Sprite* dummyBox = Sprite::createWithSpriteFrameName("chocolatefactory/boxfront.png");
 	auto reck = chocolatefactoryBackground->getChildByName("rack");
-	
 	for (int i=0; i<4; i++)
 	{
 		Sprite* sprite =(Sprite*) CSLoader::createNode("chocolatefactory/box.csb");
