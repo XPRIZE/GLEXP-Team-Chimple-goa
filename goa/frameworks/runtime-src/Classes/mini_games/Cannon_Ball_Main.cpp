@@ -211,7 +211,7 @@ void MainGame::PlayVideo()
 
 void MainGame::AfterPlayVideo()
 {
-	MainGame::audioBg->playEffect("cannonball/gamesound/background1.wav", true);
+//	MainGame::audioBg->playEffect("cannonball/gamesound/background1.ogg", true);
 } 
 
 void MainGame::startGame()	// starting of game
@@ -267,6 +267,9 @@ void MainGame::startGame()	// starting of game
 	MainChars = CharGenerator::getInstance()->generateCharMatrix(1, 10, true);
 	letterComespeed = 5;
 	tweenSpeed = 40;
+
+	if(_menuContext->getCurrentLevel() ==4)
+		letterComespeed = 3;
 
 	cannonLetterCome();
 }
@@ -493,7 +496,7 @@ void MainGame::loadCannon(EventListenerClass* letterObject)
 	timeline->gotoFrameAndPause(0);
 	timeline->play("cannon_shoot", false);
 	timeline->setAnimationEndCallFunc("cannon_shoot", CC_CALLBACK_0(MainGame::startFire, this, letterObject, mycannon));
-	MainGame::audioBg->playEffect("cannonball/gamesound/cannonshoot.wav", false);
+	MainGame::audioBg->playEffect("cannonball/gamesound/cannonshoot.ogg", false);
 }
 
 void MainGame::startFire(EventListenerClass* letterObject, Node *mycannon)
@@ -626,7 +629,7 @@ void MainGame::update(float dt)
 				mycannon->runAction(timeline);
 				timeline->gotoFrameAndPlay(46, false);
 				timeline->setAnimationEndCallFunc("forcefield", CC_CALLBACK_0(MainGame::cannonBallHitAnimation, this, mycannon));
-				MainGame::audioBg->playEffect("cannonball/gamesound/forceshield.wav", false);
+				MainGame::audioBg->playEffect("cannonball/gamesound/forceshield.ogg", false);
 				if (MainGame::cannonArray[i]->totalShoot == MainGame::cannonArray[i]->currentShoot)
 				{
 					this->removeChild(MainGame::letterArray[j]);
@@ -754,7 +757,7 @@ void MainGame::update(float dt)
 					timeline->gotoFrameAndPlay(00, false);
 					_menuContext->addPoints(1);
 					timeline->setAnimationEndCallFunc("meteor_blast", CC_CALLBACK_0(MainGame::meteorBlast, this, mycannon));
-					MainGame::audioBg->playEffect("cannonball/gamesound/meteorblast.wav", false, 1, 1, .2);
+					MainGame::audioBg->playEffect("cannonball/gamesound/meteorblast.ogg", false, 1, 1, .2);
 
 					this->removeChild(MainGame::bulletArray_actualImage[j]);
 					this->removeChild(MainGame::letterArray[i]);
@@ -826,7 +829,7 @@ void MainGame::update(float dt)
 
 					timeline->setAnimationEndCallFunc("meteor_strike", CC_CALLBACK_0(MainGame::meteorBlast, this, mycannon));
 
-					MainGame::audioBg->playEffect("cannonball/gamesound/meteorstrike.wav", false, 1, 1, .2);
+					MainGame::audioBg->playEffect("cannonball/gamesound/meteorstrike.ogg", false, 1, 1, .2);
 					_menuContext->addPoints(-1);
 					this->removeChild(MainGame::bulletArray_actualImage[j]);
 					this->removeChild(MainGame::bulletArray_Animation[j]);

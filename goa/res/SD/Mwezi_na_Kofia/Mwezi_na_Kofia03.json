@@ -5,10 +5,133 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 195,
+        "Duration": 350,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
+          {
+            "ActionTag": 2109548389,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 200,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2109548389,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -661.902,
+                "Y": 539.837,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2972.2261,
+                "Y": 540.5336,
+                "FrameIndex": 350,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2109548389,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2109548389,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2109548389,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 195,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 200,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -41461511,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 511.75,
+                "Y": 1208.7335,
+                "FrameIndex": 97,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -41461511,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 3.1481,
+                "Y": 3.1481,
+                "FrameIndex": 97,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": -700524030,
             "Property": "ActionValue",
@@ -18,6 +141,14 @@
                 "CurrentAniamtionName": "run",
                 "SingleFrameIndex": 2,
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 3,
+                "FrameIndex": 195,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -90,8 +221,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 2661.4443,
-                "Y": 1312.0537,
+                "X": 2940.0107,
+                "Y": 1303.7777,
                 "FrameIndex": 195,
                 "EasingData": {
                   "Type": 0
@@ -152,6 +283,25 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -132076237,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 195,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 200,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -161,6 +311,12 @@
           "StartIndex": 0,
           "EndIndex": 195,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 200,
+          "EndIndex": 350,
+          "Name": "jackal",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -209,6 +365,7 @@
             },
             "LeftMargin": -720.0,
             "RightMargin": -720.0,
+            "UserData": "main.jackal",
             "Tag": 1586,
             "ActionTag": -1131159712,
             "Size": {
@@ -327,6 +484,93 @@
           {
             "FileData": {
               "Type": "Normal",
+              "Path": "Mwezi_na_Kofia/jackal1.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -661.902,
+              "Y": 539.837
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.2586,
+              "Y": 0.2999
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -661.902,
+            "RightMargin": 3221.9019,
+            "TopMargin": 1260.163,
+            "BottomMargin": 539.837,
+            "Tag": 2264,
+            "ActionTag": 2109548389,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "VisibleForFrame": false,
+            "Name": "jackal",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mwezi_na_Kofia/MbwanaMamba_tree1.png",
+              "Plist": "Mwezi_na_Kofia/Mwezi_na_Kofia.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 511.75,
+              "Y": 1208.7335
+            },
+            "Scale": {
+              "ScaleX": 3.1481,
+              "ScaleY": 3.1481
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1999,
+              "Y": 0.6715
+            },
+            "PreSize": {
+              "X": 0.3164,
+              "Y": 0.3828
+            },
+            "LeftMargin": 106.75,
+            "RightMargin": 1643.25,
+            "TopMargin": 246.7665,
+            "BottomMargin": 864.2335,
+            "Tag": 2263,
+            "ActionTag": -41461511,
+            "Size": {
+              "X": 810.0,
+              "Y": 689.0
+            },
+            "Name": "tree",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
               "Path": "Mwezi_na_Kofia/boy2.json",
               "Plist": ""
             },
@@ -353,16 +597,17 @@
               "Y": 0.0
             },
             "LeftMargin": 343.5221,
-            "RightMargin": 2216.4778,
+            "RightMargin": 2216.478,
             "TopMargin": 1630.5436,
             "BottomMargin": 169.4564,
+            "UserData": "drag;run",
             "Tag": 1766,
             "ActionTag": -700524030,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "boy",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -422,6 +667,7 @@
       },
       "UsedResources": [
         "boy2.json",
+        "jackal1.json",
         "Mwezi_na_Kofia.plist",
         "Mwezi_na_Kofia.png"
       ],

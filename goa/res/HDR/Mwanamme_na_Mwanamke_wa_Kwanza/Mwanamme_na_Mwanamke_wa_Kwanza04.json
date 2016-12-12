@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 120,
+        "Duration": 335,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "jackal",
         "Timelines": [
           {
             "ActionTag": 1736104124,
@@ -200,6 +200,26 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -1003958011,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 240,
+                  "G": 228,
+                  "B": 228
+                },
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 1274752010,
             "Property": "Position",
             "Frames": [
@@ -211,6 +231,26 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1274752010,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 240,
+                  "G": 228,
+                  "B": 228
+                },
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -232,6 +272,26 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -178975787,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 240,
+                  "G": 228,
+                  "B": 228
+                },
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 1131329732,
             "Property": "Position",
             "Frames": [
@@ -243,6 +303,26 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1131329732,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 240,
+                  "G": 228,
+                  "B": 228
+                },
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -312,6 +392,21 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -1508116426,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 255,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 2042871250,
             "Property": "Position",
             "Frames": [
@@ -328,6 +423,21 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 2042871250,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 255,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -1685308814,
             "Property": "Position",
             "Frames": [
@@ -339,6 +449,21 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1685308814,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 255,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -1187,6 +1312,193 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -504562264,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 175,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 230,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -504562264,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1741.14,
+                "Y": 997.16,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1741.14,
+                "Y": 997.16,
+                "FrameIndex": 175,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1741.14,
+                "Y": 997.16,
+                "FrameIndex": 230,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 283.1323,
+                "Y": 984.0596,
+                "FrameIndex": 335,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -504562264,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.5745,
+                "Y": 0.5745,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -504562264,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 150,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 175,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 500963745,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "puff",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 150,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "puff",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 280,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 500963745,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1738.1021,
+                "Y": 1003.5482,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 500963745,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.6162,
+                "Y": 1.6162,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 500963745,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 125,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 150,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 180,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 280,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -1196,6 +1508,12 @@
           "StartIndex": 0,
           "EndIndex": 120,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 125,
+          "EndIndex": 335,
+          "Name": "jackal",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -1232,8 +1550,9 @@
               "ScaleY": 1.0
             },
             "CColor": {
-              "R": 202,
-              "G": 225
+              "R": 107,
+              "G": 109,
+              "B": 151
             },
             "IconVisible": false,
             "PrePosition": {
@@ -1272,12 +1591,12 @@
               "ScaleY": 0.8938
             },
             "Position": {
-              "X": 1758.8401,
-              "Y": 1804.0742
+              "X": 1758.8384,
+              "Y": 1804.0673
             },
             "Scale": {
-              "ScaleX": 0.8423,
-              "ScaleY": 0.8423
+              "ScaleX": 0.4595,
+              "ScaleY": 0.4595
             },
             "CColor": {},
             "IconVisible": false,
@@ -1289,17 +1608,18 @@
               "X": 0.225,
               "Y": 0.3444
             },
-            "LeftMargin": 1253.7646,
-            "RightMargin": 730.2354,
-            "TopMargin": -69.922,
-            "BottomMargin": 1249.9221,
+            "LeftMargin": 1253.7439,
+            "RightMargin": 730.256,
+            "TopMargin": -69.9113,
+            "BottomMargin": 1249.9113,
+            "UserData": "main.jackal",
             "Tag": 294,
             "ActionTag": -262116398,
             "Size": {
               "X": 576.0,
               "Y": 620.0
             },
-            "Alpha": 141,
+            "Alpha": 0,
             "Name": "lightning_1",
             "ctype": "SpriteObjectData"
           },
@@ -1325,7 +1645,11 @@
               "ScaleX": 1.5174,
               "ScaleY": 1.5174
             },
-            "CColor": {},
+            "CColor": {
+              "R": 240,
+              "G": 228,
+              "B": 228
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.0139,
@@ -1339,6 +1663,7 @@
             "RightMargin": 2266.4053,
             "TopMargin": 491.0671,
             "BottomMargin": 1044.9329,
+            "UserData": "main.jackal",
             "Tag": 331,
             "ActionTag": -1003958011,
             "Size": {
@@ -1370,7 +1695,11 @@
               "ScaleX": 1.5586,
               "ScaleY": 1.5586
             },
-            "CColor": {},
+            "CColor": {
+              "R": 240,
+              "G": 228,
+              "B": 228
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.3454,
@@ -1384,6 +1713,7 @@
             "RightMargin": 1417.7109,
             "TopMargin": 489.1836,
             "BottomMargin": 1046.8164,
+            "UserData": "main.jackal",
             "Tag": 332,
             "ActionTag": 1274752010,
             "Size": {
@@ -1416,7 +1746,11 @@
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "CColor": {},
+            "CColor": {
+              "R": 240,
+              "G": 228,
+              "B": 228
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.6025,
@@ -1430,6 +1764,7 @@
             "RightMargin": 759.5208,
             "TopMargin": 561.249,
             "BottomMargin": 974.751,
+            "UserData": "main.jackal",
             "Tag": 333,
             "ActionTag": -178975787,
             "Size": {
@@ -1461,7 +1796,11 @@
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "CColor": {},
+            "CColor": {
+              "R": 240,
+              "G": 228,
+              "B": 228
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.8543,
@@ -1475,6 +1814,7 @@
             "RightMargin": 115.0164,
             "TopMargin": 530.7407,
             "BottomMargin": 1005.2593,
+            "UserData": "main.jackal",
             "Tag": 334,
             "ActionTag": 1131329732,
             "Size": {
@@ -1573,6 +1913,7 @@
             "RightMargin": -477.0618,
             "TopMargin": 127.5967,
             "BottomMargin": 983.4033,
+            "UserData": "main.jackal",
             "Tag": 330,
             "ActionTag": -2103027442,
             "Size": {
@@ -1618,13 +1959,13 @@
             "RightMargin": 1832.0369,
             "TopMargin": 537.3965,
             "BottomMargin": 998.6035,
+            "UserData": "main.jackal",
             "Tag": 336,
             "ActionTag": -1508116426,
             "Size": {
               "X": 516.0,
               "Y": 264.0
             },
-            "Alpha": 204,
             "Name": "mountain_7_3",
             "ctype": "SpriteObjectData"
           },
@@ -1664,13 +2005,13 @@
             "RightMargin": 963.1538,
             "TopMargin": 479.1929,
             "BottomMargin": 1056.8071,
+            "UserData": "main.jackal",
             "Tag": 337,
             "ActionTag": 2042871250,
             "Size": {
               "X": 516.0,
               "Y": 264.0
             },
-            "Alpha": 204,
             "Name": "mountain_7_0_0",
             "ctype": "SpriteObjectData"
           },
@@ -1710,13 +2051,13 @@
             "RightMargin": 399.5408,
             "TopMargin": 555.7808,
             "BottomMargin": 980.2192,
+            "UserData": "main.jackal",
             "Tag": 338,
             "ActionTag": -1685308814,
             "Size": {
               "X": 516.0,
               "Y": 264.0
             },
-            "Alpha": 204,
             "Name": "mountain_7_1_0",
             "ctype": "SpriteObjectData"
           },
@@ -1894,8 +2235,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": -22.2082,
-              "Y": 790.5839
+              "X": -459.34,
+              "Y": 790.5846
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1904,17 +2245,18 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0087,
+              "X": -0.1794,
               "Y": 0.4392
             },
             "PreSize": {
               "X": 0.152,
               "Y": 0.03
             },
-            "LeftMargin": -216.7082,
-            "RightMargin": 2387.7083,
-            "TopMargin": 982.4161,
-            "BottomMargin": 763.5839,
+            "LeftMargin": -653.84,
+            "RightMargin": 2824.8401,
+            "TopMargin": 982.4154,
+            "BottomMargin": 763.5846,
+            "UserData": "main.jackal",
             "Tag": 149,
             "ActionTag": -337724706,
             "Size": {
@@ -1939,8 +2281,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2875.9937,
-              "Y": 786.4974
+              "X": 2452.4624,
+              "Y": 789.4974
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1949,17 +2291,18 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 1.1234,
-              "Y": 0.4369
+              "X": 0.958,
+              "Y": 0.4386
             },
             "PreSize": {
               "X": 0.152,
               "Y": 0.03
             },
-            "LeftMargin": 2681.4937,
-            "RightMargin": -510.4937,
-            "TopMargin": 986.5026,
-            "BottomMargin": 759.4974,
+            "LeftMargin": 2257.9624,
+            "RightMargin": -86.9624,
+            "TopMargin": 983.5026,
+            "BottomMargin": 762.4974,
+            "UserData": "main.jackal",
             "Tag": 150,
             "ActionTag": 1403889579,
             "Size": {
@@ -1984,7 +2327,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2301.6821,
+              "X": 1878.1063,
               "Y": 789.3104
             },
             "Scale": {
@@ -1994,17 +2337,18 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.8991,
+              "X": 0.7336,
               "Y": 0.4385
             },
             "PreSize": {
               "X": 0.152,
               "Y": 0.03
             },
-            "LeftMargin": 2107.1821,
-            "RightMargin": 63.8179,
+            "LeftMargin": 1683.6063,
+            "RightMargin": 487.3936,
             "TopMargin": 983.6896,
             "BottomMargin": 762.3104,
+            "UserData": "main.jackal",
             "Tag": 151,
             "ActionTag": -497743906,
             "Size": {
@@ -2029,7 +2373,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1715.2646,
+              "X": 1291.6334,
               "Y": 793.1223
             },
             "Scale": {
@@ -2039,17 +2383,18 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.67,
+              "X": 0.5045,
               "Y": 0.4406
             },
             "PreSize": {
               "X": 0.152,
               "Y": 0.03
             },
-            "LeftMargin": 1520.7646,
-            "RightMargin": 650.2354,
+            "LeftMargin": 1097.1334,
+            "RightMargin": 1073.8666,
             "TopMargin": 979.8777,
             "BottomMargin": 766.1223,
+            "UserData": "main.jackal",
             "Tag": 152,
             "ActionTag": -498901131,
             "Size": {
@@ -2074,7 +2419,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1134.9572,
+              "X": 711.2893,
               "Y": 793.1235
             },
             "Scale": {
@@ -2084,17 +2429,18 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.4433,
+              "X": 0.2778,
               "Y": 0.4406
             },
             "PreSize": {
               "X": 0.152,
               "Y": 0.03
             },
-            "LeftMargin": 940.4572,
-            "RightMargin": 1230.5428,
+            "LeftMargin": 516.7893,
+            "RightMargin": 1654.2107,
             "TopMargin": 979.8765,
             "BottomMargin": 766.1235,
+            "UserData": "main.jackal",
             "Tag": 153,
             "ActionTag": -317980177,
             "Size": {
@@ -2119,7 +2465,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 549.3683,
+              "X": 125.6602,
               "Y": 790.5848
             },
             "Scale": {
@@ -2129,17 +2475,18 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.2146,
+              "X": 0.0491,
               "Y": 0.4392
             },
             "PreSize": {
               "X": 0.152,
               "Y": 0.03
             },
-            "LeftMargin": 354.8683,
-            "RightMargin": 1816.1317,
+            "LeftMargin": -68.8398,
+            "RightMargin": 2239.8398,
             "TopMargin": 982.4152,
             "BottomMargin": 763.5848,
+            "UserData": "main.jackal",
             "Tag": 154,
             "ActionTag": -1075886964,
             "Size": {
@@ -2181,13 +2528,14 @@
             "RightMargin": 1683.1162,
             "TopMargin": 1622.1982,
             "BottomMargin": 177.8017,
+            "UserData": "drag;bubbles",
             "Tag": 145,
             "ActionTag": 271051149,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "bubble",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -2222,13 +2570,14 @@
             "RightMargin": 2293.3152,
             "TopMargin": 1331.3256,
             "BottomMargin": 468.6744,
+            "UserData": "drag;bubbles",
             "Tag": 142,
             "ActionTag": -1025446967,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_0",
+            "Name": "bubble",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -2263,13 +2612,14 @@
             "RightMargin": 646.0911,
             "TopMargin": 1340.8104,
             "BottomMargin": 459.1896,
+            "UserData": "drag;bubbles",
             "Tag": 139,
             "ActionTag": 942193286,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_1",
+            "Name": "bubble",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -2304,13 +2654,14 @@
             "RightMargin": 1224.6755,
             "TopMargin": 1195.3738,
             "BottomMargin": 604.6262,
+            "UserData": "drag;bubbles",
             "Tag": 136,
             "ActionTag": -795930767,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_2",
+            "Name": "bubble",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -2345,13 +2696,14 @@
             "RightMargin": 184.4883,
             "TopMargin": 1774.0001,
             "BottomMargin": 25.9999,
+            "UserData": "drag;bubbles",
             "Tag": 133,
             "ActionTag": 1524608607,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_3",
+            "Name": "bubble",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -2386,13 +2738,14 @@
             "RightMargin": 124.4199,
             "TopMargin": 1321.8406,
             "BottomMargin": 478.1594,
+            "UserData": "drag;bubbles",
             "Tag": 130,
             "ActionTag": 916580478,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_4",
+            "Name": "bubble",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -2427,13 +2780,14 @@
             "RightMargin": 1091.8853,
             "TopMargin": 1717.048,
             "BottomMargin": 82.952,
+            "UserData": "drag;bubbles",
             "Tag": 127,
             "ActionTag": -974011613,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_5",
+            "Name": "bubble",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -2468,13 +2822,14 @@
             "RightMargin": 1831.7139,
             "TopMargin": 1192.2134,
             "BottomMargin": 607.7867,
+            "UserData": "drag;bubbles",
             "Tag": 124,
             "ActionTag": -889522300,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_6",
+            "Name": "bubble",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -2511,13 +2866,98 @@
             "RightMargin": 1557.4885,
             "TopMargin": 2035.8781,
             "BottomMargin": -235.8781,
+            "UserData": "drag;hiss",
             "Tag": 417,
             "ActionTag": 1739103084,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "snake",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/jackal1.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1741.14,
+              "Y": 997.16
+            },
+            "Scale": {
+              "ScaleX": 0.5745,
+              "ScaleY": 0.5745
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.6801,
+              "Y": 0.554
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1741.14,
+            "RightMargin": 818.86,
+            "TopMargin": 802.84,
+            "BottomMargin": 997.16,
+            "Tag": 512,
+            "ActionTag": -504562264,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "VisibleForFrame": false,
+            "Name": "jackal",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1738.1021,
+              "Y": 1003.5482
+            },
+            "Scale": {
+              "ScaleX": 1.6162,
+              "ScaleY": 1.6162
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.6789,
+              "Y": 0.5575
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1738.1021,
+            "RightMargin": 821.8979,
+            "TopMargin": 796.4518,
+            "BottomMargin": 1003.5482,
+            "Tag": 311,
+            "ActionTag": 500963745,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "VisibleForFrame": false,
+            "Name": "puff",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -2530,6 +2970,8 @@
       },
       "UsedResources": [
         "bubble.json",
+        "cloud.json",
+        "jackal1.json",
         "Mwanamme_na_Mwanamke_wa_Kwanza.plist",
         "Mwanamme_na_Mwanamke_wa_Kwanza.png",
         "snake.json"

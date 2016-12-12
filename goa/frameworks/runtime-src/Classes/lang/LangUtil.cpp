@@ -25,18 +25,6 @@ LangUtil::~LangUtil() {
 LangUtil* LangUtil::getInstance() {
     if(!_instance) {
         _instance = new EnglishUtil();
-        auto ss = FileUtils::getInstance()->getStringFromFile(_instance->getDir() + "/words.txt");
-        std::stringstream stream(ss);
-        std::string line;
-        while (std::getline(stream, line)) {
-            _instance->_wordList.push_back(line);
-        }
-        auto sss = FileUtils::getInstance()->getStringFromFile(_instance->getDir() + "/sentences.txt");
-        std::stringstream sstream(sss);
-        std::string sline;
-        while (std::getline(sstream, sline)) {
-            _instance->_sentenceList.push_back(sline);
-        }
     }
     return _instance;
 }
@@ -51,15 +39,6 @@ std::string LangUtil::convertUTF16CharToString(wchar_t alpha) {
 wchar_t LangUtil::convertStringToUTF16Char(std::string alphaString) {
     return alphaString.c_str()[0];
 }
-
-std::string LangUtil::getAWord() {
-    return _wordList.at(rand() % _wordList.size());
-}
-
-std::string LangUtil::getASentence() {
-    return _sentenceList.at(rand() % _sentenceList.size());
-}
-
 
 std::string LangUtil::translateString(std::string input) {
     return I18N::__(input);
@@ -111,18 +90,6 @@ std::string LangUtil::translateTwoParameterizedString(std::string parameterizedS
     
     return I18N::i18nFormatStr(translateString(parameterizedString), translateString(substituteString1).c_str(), translateString(substituteString2).c_str());
 }
-
-std::vector<std::string> LangUtil::setOfWordsWithGivenLetter(std::string str)
-{
-	std::vector<std::string> listOfWords;
-	for (int i = 0; i < _wordList.size(); i++) {
-		if (_wordList.at(i).find(str) == 0) {
-			listOfWords.push_back(_wordList.at(i));
-		}
-	}
-	return listOfWords;
-}
-
 
 WordInfo* LangUtil::loadLanguageSpecificWordMappingForAWord(const char* word) {
     return this->wordManager->loadLanguageSpecificWordMappingForAWord(word);

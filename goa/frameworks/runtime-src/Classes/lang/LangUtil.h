@@ -35,23 +35,18 @@ public:
     virtual std::string getLang() = 0;
     virtual std::string getDir() = 0;
     virtual void initializeWordManager() = 0;
-    virtual std::string getAWord();
-    virtual std::string getASentence();
     virtual WordInfo* loadLanguageSpecificWordMappingForAWord(const char* word);
     virtual bool isGraphemeStart(uint32_t prevCodePoint, uint32_t currentCodePoint) = 0;
     std::string translateString(std::string input);
     void changeLanguage(SupportedLanguages lang);
     std::string translateParameterizedString(std::string input, std::string param);
     std::string translateTwoParameterizedString(std::string parameterizedString, std::string substituteString1, std::string substituteString2);
-	std::vector<std::string> setOfWordsWithGivenLetter(std::string str);
     
     virtual std::string getPronounciationFileNameForWord(std::string word) = 0;
     
 protected:
     LangUtil();
     WordManager* wordManager;
-    std::vector<std::string> _wordList;
-    std::vector<std::string> _sentenceList;
     SupportedLanguages currentLanguage;
 };
 
