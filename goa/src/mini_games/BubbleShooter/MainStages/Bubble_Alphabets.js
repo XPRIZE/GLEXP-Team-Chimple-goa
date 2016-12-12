@@ -609,8 +609,10 @@ xc.Bubble_Alphabets = cc.Layer.extend({
                           this.bubbleName[tile.x][tile.y].runAction(new cc.ScaleTo(1.5,3));
                          
                           this.bubbleName[tile.x][tile.y].runAction(new cc.MoveTo(1,cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2)));
-                         // cc.audioEngine.playEffect("res/english/sounds/"+this.LetterName[tile.x][tile.y].name.toLowerCase()+".wav");
-                         
+                          
+                          if(this.LetterName[tile.x][tile.y].name.toLowerCase() != undefined){
+                              cc.audioEngine.playEffect("res/english/sounds/"+this.LetterName[tile.x][tile.y].name.toLowerCase()+".wav");
+                          }
 
                             var playerDieCallFunc = function()
                             {
