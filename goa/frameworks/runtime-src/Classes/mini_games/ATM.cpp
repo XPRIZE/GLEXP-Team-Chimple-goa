@@ -179,12 +179,18 @@ void ATM::onEnterTransitionDidFinish()
 	}
 	this->addChild(bg);
 	_touched = true;
-	menu->setMaxPoints(1);
+	
 	auto level = _levelMapping.at(menu->getCurrentLevel());
 	auto firstNumber = level.begin()->first;
 	auto lastNumber = level.begin()->second;
 
+	
 	_targetedNumber = cocos2d::RandomHelper::random_int(firstNumber, lastNumber);
+	
+	
+
+	menu->setMaxPoints(_targetedNumber);
+
 	std::vector<std::string> childName = { "correct_button" , "ten","hundred","one" };
 	for (int i = 0; i < 4; i++) {
 		auto listenChild = bg->getChildByName(childName.at(i));
@@ -194,9 +200,9 @@ void ATM::onEnterTransitionDidFinish()
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, listenChild);
 		_listner.push_back(listener);
 	}
-	_ten_XPosition = visibleSize.width / 1.35;
-	_hundredXPosition = visibleSize.width / 1.35;
-	_one_XPosition = visibleSize.width / 1.35;
+	_ten_XPosition = (2560 / 1.41) + _extraX;//(2560 / 1.41) + _extraX;
+	_hundredXPosition = (2560 / 1.41) + _extraX;
+	_one_XPosition = (2560 / 1.41) + _extraX;
 	_hundreadLabel = Label::createWithTTF("0", "fonts/digital.ttf", 200);
 	_hundreadLabel->setColor(Color3B(0, 0, 0));
 	_hundreadLabel->setPositionX(bg->getChildByName("board_7")->getContentSize().width/2 );
@@ -235,26 +241,32 @@ bool ATM::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		CCLOG(" target Name = %s", target->getName().c_str());
 		if (target->getName().compare("one") == 0) {
 			audio->playEffect("sounds/sfx/atm.ogg", false);
+			menu->addPoints(1);
 			oneNotePressed();
 		}
 		else if (target->getName().compare("hundred") == 0) {
 			audio->playEffect("sounds/sfx/atm.ogg", false);
+			menu->addPoints(100);
 			hundredNotePressed();
 		}
 		else if (target->getName().compare("ten") == 0) {
 			audio->playEffect("sounds/sfx/atm.ogg", false);
+			menu->addPoints(10);
 			tenNotePressed();
 		}
 		else if (target->getName().compare("oneNote") == 0) {
 			//tenNotePressed();
+			menu->addPoints(-1);
 			rePositionOneNotes(target);
 		}
 		else if (target->getName().compare("tenNote") == 0) {
 			//tenNotePressed();
+			menu->addPoints(-10);
 			rePositionTenNotes(target);
 		}
 		else if (target->getName().compare("hundredNote") == 0) {
 			//tenNotePressed();
+			menu->addPoints(-100);
 			rePositionHundredNotes(target);
 		}
 		else if (target->getName().compare("correct_button") == 0) {
@@ -287,14 +299,14 @@ void ATM::oneNotePressed()
 
 	cocos2d::MoveTo * move;
 	if (_oneCount < 6) {
-		move = MoveTo::create(1, Vec2(_one_XPosition, 600));
+		move = MoveTo::create(1, Vec2(_one_XPosition, 1350));
 	 }
 	else if (_oneCount == 6) {
-		_one_XPosition = visibleSize.width / 1.35;
-		move = MoveTo::create(1, Vec2(_one_XPosition, 400));
+		_one_XPosition = (2560 / 1.41) + _extraX;
+		move = MoveTo::create(1, Vec2(_one_XPosition, 1150));
 	}
 	else if (_oneCount > 6 && _oneCount < 11) {
-		move = MoveTo::create(1, Vec2(_one_XPosition, 400));
+		move = MoveTo::create(1, Vec2(_one_XPosition, 1150));
 	}
 	if (_oneCount == 10) {
 		///
@@ -337,14 +349,14 @@ void ATM::tenNotePressed()
 
 	cocos2d::MoveTo * move;
 	if (_tensCount < 6) {
-		move = MoveTo::create(1, Vec2(_ten_XPosition, 1000));
+		move = MoveTo::create(1, Vec2(_ten_XPosition, 950));
 	}
 	else if (_tensCount == 6) {
-		_ten_XPosition = visibleSize.width / 1.35;
-		move = MoveTo::create(1, Vec2(_ten_XPosition, 800));
+		_ten_XPosition = (2560 / 1.41) + _extraX;
+		move = MoveTo::create(1, Vec2(_ten_XPosition, 750));
 	}
 	else if (_tensCount > 6 ) {
-		move = MoveTo::create(1, Vec2(_ten_XPosition, 800));
+		move = MoveTo::create(1, Vec2(_ten_XPosition, 750));
 	}
 	if (_tensCount == 10) {
 		CCLOG("disable the listener");
@@ -382,14 +394,14 @@ void ATM::hundredNotePressed()
 	_hundreadLabel->setString(str);
 	cocos2d::MoveTo * move;
 	if (_hundredCount < 6) {
-		move = MoveTo::create(1, Vec2(_hundredXPosition, 1400));
+		move = MoveTo::create(1, Vec2(_hundredXPosition, 550));
 	}
 	else if (_hundredCount == 6) {
-		_hundredXPosition = visibleSize.width / 1.35;
-		move = MoveTo::create(1, Vec2(_hundredXPosition, 1200));	
+		_hundredXPosition = (2560 / 1.41) + _extraX;
+		move = MoveTo::create(1, Vec2(_hundredXPosition, 350));	
 	}
 	else if (_hundredCount > 6) {
-		move = MoveTo::create(1, Vec2(_hundredXPosition, 1200));
+		move = MoveTo::create(1, Vec2(_hundredXPosition, 350));
 	}
 	if (_hundredCount == 10) {
 		CCLOG("disable the listener");
@@ -422,7 +434,7 @@ void ATM::rePositionOneNotes(cocos2d::Node * note)
 
 	_hundreadLabel->setString(str);
 	if (_oneCount == 0) {
-		_one_XPosition = visibleSize.width / 1.35;
+		_one_XPosition = (2560 / 1.41) + _extraX;
 	}
 
 	auto notes = _onesSprite.at(_onesSprite.size() - 1);
@@ -450,7 +462,7 @@ void ATM::rePositionTenNotes(cocos2d::Node * note)
 
 	_hundreadLabel->setString(str);
 	if (_tensCount == 0) {
-		_ten_XPosition = visibleSize.width / 1.35;
+		_ten_XPosition = (2560 / 1.41) + _extraX;
 	}
 
 	auto notes = _tensSprite.at(_tensSprite.size() - 1);
@@ -480,7 +492,7 @@ void ATM::rePositionHundredNotes(cocos2d::Node * note)
 
 	auto notes = _hundredsSprite.at(_hundredsSprite.size() - 1);
 	if (_hundredCount == 0) {
-		_hundredXPosition = visibleSize.width / 1.35;
+		_hundredXPosition = (2560 / 1.41) + _extraX;
 	}
 	auto move = MoveTo::create(1, Vec2(one->getPositionX() + _extraX, one->getPositionY()));
 	notes->runAction(move);
@@ -494,14 +506,16 @@ void ATM::rePositionHundredNotes(cocos2d::Node * note)
 
 void ATM::answerCheck()
 {
+	auto  audio = CocosDenshion::SimpleAudioEngine::getInstance();
 	if (_targetedNumber == _totalCount) {
 		//winning
 		CCLOG("win !!!!");
-		menu->addPoints(1);
+		//menu->addPoints(1);
 		auto star = this->getChildByName("bg")->getChildByName("star");
 		auto timeLine = CSLoader::createTimeline("ATM/star.csb");
 		star->runAction(timeLine);
 		timeLine->play("win", true);
+		audio->playEffect("sounds/sfx/success.ogg", false);
 		this->runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() {
 			menu->showScore();
 		}), NULL));
@@ -509,9 +523,11 @@ void ATM::answerCheck()
 	else {
 		auto star = this->getChildByName("bg")->getChildByName("correct_button");
 		FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
-		star->runAction(shake);
-		menu->addPoints(-1);
-		_touched = true;
+		star->runAction(Sequence::create(shake, CallFunc::create([=]() {
+			_touched = true;
+		}), NULL));
+		audio->playEffect("sounds/sfx/error.ogg", false);
+		//menu->addPoints(-1);	
 	}
 }
 
