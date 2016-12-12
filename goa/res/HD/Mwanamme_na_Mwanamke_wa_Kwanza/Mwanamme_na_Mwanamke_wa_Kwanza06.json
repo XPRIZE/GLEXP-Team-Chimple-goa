@@ -5,10 +5,162 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 200,
+        "Duration": 510,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
+          {
+            "ActionTag": -836198312,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 188,
+                  "G": 100,
+                  "B": 108
+                },
+                "FrameIndex": 350,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 92,
+                  "G": 104,
+                  "B": 167
+                },
+                "FrameIndex": 470,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 87,
+                  "G": 94,
+                  "B": 151
+                },
+                "FrameIndex": 510,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1362772235,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "moon",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 350,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "moon",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 510,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1362772235,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1280.0001,
+                "Y": 2160.1753,
+                "FrameIndex": 350,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1280.0002,
+                "Y": 1899.176,
+                "FrameIndex": 510,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 22176666,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "sun",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 22176666,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1280.0,
+                "Y": 1925.6587,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1280.0,
+                "Y": 1925.6587,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1280.0,
+                "Y": 761.6057,
+                "FrameIndex": 350,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": -809104986,
             "Property": "Position",
@@ -1002,21 +1154,6 @@
               }
             ],
             "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 22176666,
-            "Property": "ActionValue",
-            "Frames": [
-              {
-                "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "sun",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 0,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -1026,6 +1163,12 @@
           "StartIndex": 0,
           "EndIndex": 200,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 205,
+          "EndIndex": 510,
+          "Name": "moon",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -1081,6 +1224,90 @@
             },
             "Name": "Panel_1",
             "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/moon.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1280.0001,
+              "Y": 2160.1753
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 1.2001
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1280.0001,
+            "RightMargin": 1279.9999,
+            "TopMargin": -360.1753,
+            "BottomMargin": 2160.1753,
+            "UserData": "drag;moon",
+            "Tag": 84,
+            "ActionTag": -1362772235,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "moon",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/sun.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1280.0,
+              "Y": 1925.6587
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 1.0698
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1280.0,
+            "RightMargin": 1280.0,
+            "TopMargin": -125.6587,
+            "BottomMargin": 1925.6587,
+            "UserData": "drag;sun",
+            "Tag": 1325,
+            "ActionTag": 22176666,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "sun",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "ClipAble": false,
@@ -1277,6 +1504,7 @@
             "RightMargin": 2812.9951,
             "TopMargin": 561.6104,
             "BottomMargin": 1184.3896,
+            "UserData": "main.moon",
             "Tag": 592,
             "ActionTag": 1631527895,
             "Size": {
@@ -1322,6 +1550,7 @@
             "RightMargin": -80.4578,
             "TopMargin": 566.6978,
             "BottomMargin": 1179.3022,
+            "UserData": "main.moon",
             "Tag": 593,
             "ActionTag": 1069150285,
             "Size": {
@@ -1367,6 +1596,7 @@
             "RightMargin": 493.8196,
             "TopMargin": 562.8857,
             "BottomMargin": 1183.1143,
+            "UserData": "main.moon",
             "Tag": 594,
             "ActionTag": 2079537089,
             "Size": {
@@ -1412,6 +1642,7 @@
             "RightMargin": 1080.1709,
             "TopMargin": 559.0753,
             "BottomMargin": 1186.9247,
+            "UserData": "main.moon",
             "Tag": 595,
             "ActionTag": -938865527,
             "Size": {
@@ -1457,6 +1688,7 @@
             "RightMargin": 1660.4224,
             "TopMargin": 559.0737,
             "BottomMargin": 1186.9263,
+            "UserData": "main.moon",
             "Tag": 596,
             "ActionTag": 196832469,
             "Size": {
@@ -1502,6 +1734,7 @@
             "RightMargin": 2245.9255,
             "TopMargin": 561.6104,
             "BottomMargin": 1184.3896,
+            "UserData": "main.moon",
             "Tag": 597,
             "ActionTag": 1754331273,
             "Size": {
@@ -1543,13 +1776,14 @@
             "RightMargin": 1683.1162,
             "TopMargin": 1622.1982,
             "BottomMargin": 177.8017,
+            "UserData": "drag;bubbles",
             "Tag": 598,
             "ActionTag": -572629886,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "bubble",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1584,13 +1818,14 @@
             "RightMargin": 2293.3152,
             "TopMargin": 1331.3256,
             "BottomMargin": 468.6744,
+            "UserData": "drag;bubbles",
             "Tag": 601,
             "ActionTag": -2047345201,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_0",
+            "Name": "bubble",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1625,13 +1860,14 @@
             "RightMargin": 646.0911,
             "TopMargin": 1340.8104,
             "BottomMargin": 459.1896,
+            "UserData": "drag;bubbles",
             "Tag": 604,
             "ActionTag": -1455619628,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_1",
+            "Name": "bubble",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1666,13 +1902,14 @@
             "RightMargin": 1224.6755,
             "TopMargin": 1195.3738,
             "BottomMargin": 604.6262,
+            "UserData": "drag;bubbles",
             "Tag": 607,
             "ActionTag": 1065110193,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_2",
+            "Name": "bubble",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1707,13 +1944,14 @@
             "RightMargin": 184.4883,
             "TopMargin": 1774.0001,
             "BottomMargin": 25.9999,
+            "UserData": "drag;bubbles",
             "Tag": 610,
             "ActionTag": 1762906671,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_3",
+            "Name": "bubble",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1748,13 +1986,14 @@
             "RightMargin": 124.4199,
             "TopMargin": 1321.8406,
             "BottomMargin": 478.1594,
+            "UserData": "drag;bubbles",
             "Tag": 613,
             "ActionTag": -1225013598,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_4",
+            "Name": "bubble",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1789,13 +2028,14 @@
             "RightMargin": 1091.8853,
             "TopMargin": 1717.048,
             "BottomMargin": 82.952,
+            "UserData": "drag;bubbles",
             "Tag": 616,
             "ActionTag": -1042302404,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_5",
+            "Name": "bubble",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1830,13 +2070,14 @@
             "RightMargin": 1831.7139,
             "TopMargin": 1192.2134,
             "BottomMargin": 607.7867,
+            "UserData": "drag;bubbles",
             "Tag": 619,
             "ActionTag": -128104550,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1_6",
+            "Name": "bubble",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1871,13 +2112,14 @@
             "RightMargin": 1530.2351,
             "TopMargin": 1672.9081,
             "BottomMargin": 127.0919,
+            "UserData": "drag;hiss",
             "Tag": 581,
             "ActionTag": -1920573002,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "snake",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1912,54 +2154,14 @@
             "RightMargin": 993.8806,
             "TopMargin": 1704.3423,
             "BottomMargin": 95.6577,
+            "UserData": "drag;hiss",
             "Tag": 570,
             "ActionTag": 2071229825,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_3",
-            "ctype": "ProjectNodeObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/sun.json",
-              "Plist": ""
-            },
-            "StretchWidthEnable": false,
-            "StretchHeightEnable": false,
-            "InnerActionSpeed": 1.0,
-            "AnchorPoint": {},
-            "Position": {
-              "X": 1334.191,
-              "Y": 1925.6587
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": true,
-            "PrePosition": {
-              "X": 0.5212,
-              "Y": 1.0698
-            },
-            "PreSize": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "LeftMargin": 1334.191,
-            "RightMargin": 1225.809,
-            "TopMargin": -125.6587,
-            "BottomMargin": 1925.6587,
-            "Tag": 1325,
-            "ActionTag": 22176666,
-            "Size": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "Name": "FileNode_6",
+            "Name": "snake",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -1972,6 +2174,7 @@
       },
       "UsedResources": [
         "bubble.json",
+        "moon.json",
         "Mwanamme_na_Mwanamke_wa_Kwanza.plist",
         "Mwanamme_na_Mwanamke_wa_Kwanza.png",
         "snake.json",

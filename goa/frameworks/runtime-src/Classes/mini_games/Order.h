@@ -52,6 +52,7 @@ protected:
 	void onEnterTransitionDidFinish();
 	void gameHelp();
 	bool _helpLayer = false;
+	int _enemyScore11 = 0;
 };
 
 #endif 

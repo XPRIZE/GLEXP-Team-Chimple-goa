@@ -5,7 +5,7 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 280,
+        "Duration": 495,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
@@ -55,6 +55,91 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1986716455,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 380,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 495,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1986716455,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1921.5154,
+                "Y": 48.5842,
+                "FrameIndex": 285,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1722.49,
+                "Y": 425.95,
+                "FrameIndex": 350,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1722.49,
+                "Y": 425.95,
+                "FrameIndex": 380,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 693.7811,
+                "Y": 451.7916,
+                "FrameIndex": 495,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1986716455,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 280,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 285,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -115,6 +200,12 @@
           "StartIndex": 0,
           "EndIndex": 280,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 285,
+          "EndIndex": 495,
+          "Name": "jackal",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -210,6 +301,7 @@
             "RightMargin": 38.3337,
             "TopMargin": 795.3151,
             "BottomMargin": 343.6849,
+            "UserData": "main.jackal",
             "Tag": 3635,
             "ActionTag": 281247365,
             "Size": {
@@ -255,13 +347,14 @@
             "RightMargin": -200.0068,
             "TopMargin": 508.8665,
             "BottomMargin": 602.1335,
+            "UserData": "main.jackal",
             "Tag": 3632,
             "ActionTag": 888772633,
             "Size": {
               "X": 810.0,
               "Y": 689.0
             },
-            "Name": "MbwanaMamba_tree1_1",
+            "Name": "tree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -302,6 +395,7 @@
             "RightMargin": 568.2764,
             "TopMargin": 593.5706,
             "BottomMargin": 948.4294,
+            "UserData": "main.jackal",
             "Tag": 3634,
             "ActionTag": 1892506522,
             "Size": {
@@ -310,6 +404,48 @@
             },
             "Name": "bluecap_2",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mwezi_na_Kofia/jackal1.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1921.5154,
+              "Y": 48.5842
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7506,
+              "Y": 0.027
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1921.5154,
+            "RightMargin": 638.4846,
+            "TopMargin": 1751.4158,
+            "BottomMargin": 48.5842,
+            "Tag": 317,
+            "ActionTag": -1986716455,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "VisibleForFrame": false,
+            "Name": "jackal",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "ClipAble": false,
@@ -663,13 +799,14 @@
             "RightMargin": 2890.7632,
             "TopMargin": 2012.6755,
             "BottomMargin": -212.6755,
+            "UserData": "drag;run",
             "Tag": 3638,
             "ActionTag": -1476023227,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "man",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -682,6 +819,7 @@
       },
       "UsedResources": [
         "boy2.json",
+        "jackal1.json",
         "Mwezi_na_Kofia.plist",
         "Mwezi_na_Kofia.png"
       ],

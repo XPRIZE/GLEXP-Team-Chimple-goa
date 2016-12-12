@@ -293,7 +293,7 @@ void Order::onEnterTransitionDidFinish()
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	//std::vector<std::string> theme = { "farm","hero","candy" };
 	int themesNumber = menu->getCurrentLevel() % 15;
-	if (themesNumber > 1 && themesNumber < 6) {
+	if (themesNumber > 0 && themesNumber < 6) {
 		_themeName = "farm";
 	}
 	else if (themesNumber > 5 && themesNumber < 11) {
@@ -399,10 +399,11 @@ void Order::onEnterTransitionDidFinish()
 	}
 	_cartMove = _differentPointsConfig.at(_themeName).at("targetDistance") / _boxes.size();
 
-	runAction(RepeatForever::create(Sequence::create(DelayTime::create(10 + (rand() % 60) / 30.0), CallFunc::create([=]() {
-		int size = _sortedList.size();
-		int score = cocos2d::RandomHelper::random_int(0, size);
-		otherPlayer(score);
+	runAction(RepeatForever::create(Sequence::create(DelayTime::create(5), CallFunc::create([=]() {
+		int size = _sortedList.size();//80/menu->getCurrentLevel()
+		_enemyScore11++;
+		//int score = cocos2d::RandomHelper::random_int(0, size);
+		otherPlayer(_enemyScore11);
 	}
 	
 	), NULL)));
@@ -524,6 +525,7 @@ void Order::winAnimation()
 		//if (_themeName.compare("candy") != 0) {
 			//cart1->runAction(timeline);
 	//	}
+		_touched = false;
 		_characterAnimation->play(_scenePath.at("winning_animation"), true);
 
 	}), DelayTime::create(2), CallFunc::create([=]() {
