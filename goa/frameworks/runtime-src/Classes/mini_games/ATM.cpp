@@ -558,6 +558,7 @@ void ATM::answerCheck()
 		//timeLine->play("win", true);
 		audio->playEffect("sounds/sfx/success.ogg", false);
 		this->runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() {
+			this->removeChild(_particle);
 			menu->showScore();
 		}), NULL));
 	}
