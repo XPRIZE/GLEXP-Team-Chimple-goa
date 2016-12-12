@@ -220,6 +220,9 @@ void PatchTheWall::blastCome(float _time)
         _blastNode->setPosition(Vec2(_position.at(_randomPosition).x, _position.at(_randomPosition).y));
         this->addChild(_blastNode);
         
+		auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+		-audioBg->playEffect("cannonball/gamesound/meteorblast.ogg", false, 1, 1, .2);
+
         _blastNode->runAction(_blastTimeline);
         _blastTimeline->play("blast", false);
         _blastTimeline->setAnimationEndCallFunc("blast", CC_CALLBACK_0(PatchTheWall::letterCome, this, _blastNode, _randomPosition));
