@@ -60,9 +60,9 @@ xc.CatalogueLayer = cc.Layer.extend({
 
     getUnLockedStories: function() {
         var unlockedStories = [];
-        unlockedStories.push("storyId_1");
-        unlockedStories.push("storyId_2");  
-        unlockedStories.push("storyId_6");  
+        // unlockedStories.push("storyId_1");
+        // unlockedStories.push("storyId_2");  
+        // unlockedStories.push("storyId_6");  
         return unlockedStories;      
     },
 
@@ -77,7 +77,8 @@ xc.CatalogueLayer = cc.Layer.extend({
                 var unlockedStories = context.getUnLockedStories(); 
                 var storyStatus = cc.sys.localStorage.getItem(config["storyId"] + xc.storyLevel);
                 if(!storyStatus) {
-                    if(unlockedStories.indexOf(config.storyId) != -1) {
+                    // if(unlockedStories.indexOf(config.storyId) != -1) {
+                    if(unlockedStories.indexOf(config.storyId) == -1) {
                         var storyInfo = {};
                         storyInfo.locked = false;
                         cc.sys.localStorage.setItem(config["storyId"] + xc.storyLevel, JSON.stringify(storyInfo));
