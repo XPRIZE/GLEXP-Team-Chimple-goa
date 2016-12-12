@@ -323,6 +323,8 @@ void Drop::layingOutBasket(bool flag, float gap, std::string letter, int i)
 		_basketBin.push_back(label);
 		_wordOptionBin.push_back(letter);
 
+		_middleBasketIndex = i;
+
 		//auto aa = DrawNode::create();
 		//this->addChild(aa, 20);
 		////aa->drawRect(Vec2(i*gap + gap / 2 - basketImg->getContentSize().width / 2, visibleSize.height*0.08) , Vec2(i*gap + gap / 2 + basketImg->getContentSize().width / 2, visibleSize.height*0.08 + basketImg->getContentSize().height), Color4F(0, 0, 255, 22)); //jungle drop
