@@ -30,5 +30,6 @@ protected:
     cocos2d::Node* makePanel(const cocos2d::Rect windowRect, const cocos2d::Rect grayRect);
     bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event);
     void removeFinger(cocos2d::Node* finger);
+    void hideFinger(cocos2d::Node* finger);
 };
 #endif /* HelpLayer_h */

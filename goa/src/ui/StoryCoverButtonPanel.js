@@ -1,6 +1,7 @@
 /// <reference path="../cocos2d-typescript-definitions-master/cocos2d/cocos2d-lib.d.ts" />
 
 var xc = xc || {};
+xc.storyLevel = ".level";
 xc.storyTitleFontName = "Arial";
 xc.storyTitleFontSize = 40;
 xc.storyTitleFontColor = cc.color.WHITE;
@@ -21,7 +22,9 @@ xc.StoryCoverButtonPanel = ccui.Layout.extend({
                 for (var colIndex = 0; colIndex < numButtonsPerRow; colIndex++) {
                     if (index < configuration.length - pageIndex * (numButtonsPerRow * numButtonsPerColumn)) {
                         var item;
+                        var storyId = configuration[index]['storyId'];
                         var bookNode = ccs.load(xc.CatalogueLayer.res.book_json, xc.path);
+                        bookNode.node.setName("bookNode." + storyId);                                                
                         var book = bookNode.node.getChildByName("book");
                         var bookColor = xc.BOOK_COLORS[Math.floor(Math.random()*xc.BOOK_COLORS.length)];
 
@@ -37,6 +40,7 @@ xc.StoryCoverButtonPanel = ccui.Layout.extend({
                         }
 
                         item.setScale(2.5);
+                        item.locked = false;
                         item.setOpacity(0);//hide button
                         item.setEnabled(true);
                         item.addTouchEventListener(this._buttonHandler.itemSelected, this._buttonHandler);
@@ -54,8 +58,7 @@ xc.StoryCoverButtonPanel = ccui.Layout.extend({
                             item.dataType = "png";
                         }
                         var imageIconUrl = configuration[index]['icon'];
-
-                        //var texture = cc.spriteFrameCache.getSpriteFrame(imageIconUrl);
+                        
 
                         index++;
 
@@ -64,7 +67,36 @@ xc.StoryCoverButtonPanel = ccui.Layout.extend({
                         bookImageNode.setPosition(cc.p(bookImageNode.getPosition().x, bookImageNode.getPosition().y + 20));
                         var sprite2 = new cc.Sprite('#' + imageIconUrl);
                         bookImageNode.addChild(sprite2);
+                        var key = storyId + xc.storyLevel;
+                        cc.log("key is " + key);
+                        cc.log('333333 value from local storage %s', cc.sys.localStorage.getItem(storyId + xc.storyLevel) );
+                        var storyStatus = JSON.parse(cc.sys.localStorage.getItem(storyId + xc.storyLevel)) || {};
+                        if(storyStatus.locked) {
+                            var lockSprite = new cc.Sprite(xc.path + "template/lock.png");
+                            lockSprite.setAnchorPoint(cc.p(0.5,0.5));
+                            lockSprite.setPosition(cc.p(bookImageNode.getPosition().x, bookImageNode.getPosition().y + 150));
+                            bookImageNode.addChild(lockSprite, 1);
+                            item.locked = true;
+                        } 
+                        else if(storyStatus.star) {
+                            var levelStatus = storyStatus.star; 
+                            var star = new cc.Sprite(levelStatus >= 1 ? "#levelstep/star.png" : "#levelstep/star_empty.png")
+                            star.setAnchorPoint(cc.p(0.5,0.5));
+                            star.setScale(0.3);
+                            star.setPosition(item.width / 4, item.height * 3 / 4 + 60);
+                            item.addChild(star);
+                            star = new cc.Sprite(levelStatus >= 2 ? "#levelstep/star.png" : "#levelstep/star_empty.png")
+                            star.setScale(0.3);
+                            star.setAnchorPoint(cc.p(0.5,0.5));
+                            star.setPosition(item.width / 2, item.height * 3 / 4 + 60);
+                            item.addChild(star);
+                            star = new cc.Sprite(levelStatus >= 3 ? "#levelstep/star.png" : "#levelstep/star_empty.png")
+                            star.setScale(0.3);
+                            star.setPosition(item.width * 3 / 4, item.height * 3 / 4 + 60);
+                            item.addChild(star);                            
+                        }
 
+                        
                         var bookText = bookNode.node.getChildByName("TextField");
                         var storyTitle = "";
                         if(cc.sys.localStorage.getItem('titles')) {
@@ -181,11 +213,27 @@ xc.ButtonHandler = cc.Class.extend({
             }
         }
 
-        if (this._callBackFunction != null && this._callBackContext != null) {
-            if (sender._configurationType == "scene") {
-                this._callBackContext.disableOrEnableAllButtons(this._callBackContext._buttonPanel, true);
+        if(sender.locked) {
+            if(sender._configuration && sender._configuration['storyId']) {
+                var bookNode = sender.getParent().getChildByName("bookNode." + sender._configuration['storyId']);
+                if(bookNode) {
+                    var x = sender.getPosition().x;
+                    var y = sender.getPosition().y;
+                    var moveLeft = new cc.moveTo(0.1, cc.p(sender.getPosition().x - 20, sender.getPosition().y));
+                    var moveRight = new cc.moveTo(0.1, cc.p(sender.getPosition().x + 40, sender.getPosition().y));
+                    var moveOriginal = new cc.moveTo(0.1, cc.p(x, y));
+                    var repeatAction = new cc.Repeat(new cc.Sequence(moveLeft, moveRight), 2);
+                    var sequenceAction = new cc.Sequence(repeatAction, moveOriginal);
+                    bookNode.runAction(sequenceAction);                              
+                }
             }
-            this._callBackFunction.call(this._callBackContext, sender);
+        } else {
+            if (this._callBackFunction != null && this._callBackContext != null) {
+                if (sender._configurationType == "scene") {
+                    this._callBackContext.disableOrEnableAllButtons(this._callBackContext._buttonPanel, true);
+                }
+                this._callBackFunction.call(this._callBackContext, sender);
+            }
         }
     }
 })
