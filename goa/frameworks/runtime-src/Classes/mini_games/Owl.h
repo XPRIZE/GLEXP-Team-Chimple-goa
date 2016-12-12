@@ -24,7 +24,7 @@ protected:
 	std::vector<std::string> _data_key;
 	std::vector<std::string> _data_value;
 
-	string _owlCurrentTheme = "";
+	string _owlCurrentTheme = "" , _sentence = "";
 	string _displayWord[5] = { "A","AB","ABC","ABCD","ABCDE"};
 	int _blockLevel1 = 0, _heightBlock1 =0, _heightBlock2=0, counter = 0, counter2 = 0, _textCounter = 0, _textCounter2 = 0,_textBoard=0, _textBoard2 =0, _blockLevel2 = 0;
 	double _xStart=0, _yStart=0, _xStop=0;
