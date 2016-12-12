@@ -57,15 +57,15 @@ void Stack::onEnterTransitionDidFinish()
 
 	if (_currentLevel >= 1 && _currentLevel <= 24)
 	{
-		_textToSHow = TextGenerator::getInstance()->getInitialSyllableWords(5, 4);	//1 starting word
+		_textToSHow = TextGenerator::getInstance()->getInitialSyllableWords(5, 4, 1);	//1 starting word
 	}
 	else if (_currentLevel >= 25 && _currentLevel <= 48)
 	{
-		_textToSHow = TextGenerator::getInstance()->getInitialSyllableWords(5, 4);	//2 starting word
+		_textToSHow = TextGenerator::getInstance()->getInitialSyllableWords(5, 4, 2);	//2 starting word
 	}
 	else if (_currentLevel >= 49 && _currentLevel <= 72)
 	{
-		_textToSHow = TextGenerator::getInstance()->getInitialSyllableWords(5, 4);	//3 starting word
+		_textToSHow = TextGenerator::getInstance()->getInitialSyllableWords(5, 4, 3);	//3 starting word
 	}
 
 	if (sceneName == "island")

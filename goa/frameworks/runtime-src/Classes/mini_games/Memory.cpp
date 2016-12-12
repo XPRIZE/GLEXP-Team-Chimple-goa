@@ -93,17 +93,17 @@ void Memory::onEnterTransitionDidFinish() {
 
 		if (_menuContext->getCurrentLevel() >= 1 && _menuContext->getCurrentLevel() <= 2) {
 			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the antonyms");
+			_hint = LangUtil::getInstance()->translateString("Match the opposites");
 		}
 
 		if (_menuContext->getCurrentLevel() >= 3 && _menuContext->getCurrentLevel() <= 4) {
 			_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the synonyms");
+			_hint = LangUtil::getInstance()->translateString("Match the same meaning words");
 		}
 
 		if (_menuContext->getCurrentLevel() >= 5 && _menuContext->getCurrentLevel() <= 6) {
 			_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the homonyms");
+			_hint = LangUtil::getInstance()->translateString("Match the same sounding words");
 		}
 
 	}
@@ -117,17 +117,17 @@ void Memory::onEnterTransitionDidFinish() {
 
 		if (_menuContext->getCurrentLevel() >= 7 && _menuContext->getCurrentLevel() <= 8) {
 			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the antonyms");
+			_hint = LangUtil::getInstance()->translateString("Match the opposites");
 		}
 
 		if (_menuContext->getCurrentLevel() >= 9 && _menuContext->getCurrentLevel() <= 10) {
 			_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the synonyms");
+			_hint = LangUtil::getInstance()->translateString("Match the same meaning words");
 		}
 
 		if (_menuContext->getCurrentLevel() >= 11 && _menuContext->getCurrentLevel() <= 12) {
 			_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the homonyms");
+			_hint = LangUtil::getInstance()->translateString("Match the same sounding words");
 		}
 	}
 
@@ -140,17 +140,17 @@ void Memory::onEnterTransitionDidFinish() {
 		_menuContext->setMaxPoints(_pairCount);
 		if (_menuContext->getCurrentLevel() >= 13 && _menuContext->getCurrentLevel() <= 14) {
 			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the antonyms");
+			_hint = LangUtil::getInstance()->translateString("Match the opposites");
 		}
 
 		if (_menuContext->getCurrentLevel() >= 15 && _menuContext->getCurrentLevel() <= 16) {
 			_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the synonyms");
+			_hint = LangUtil::getInstance()->translateString("Match the same meaning words");
 		}
 
 		if (_menuContext->getCurrentLevel() >= 17 && _menuContext->getCurrentLevel() <= 18) {
 			_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the homonyms");
+			_hint = LangUtil::getInstance()->translateString("Match the same sounding words");
 		}
 	}
 
@@ -164,17 +164,17 @@ void Memory::onEnterTransitionDidFinish() {
 
 		if (_menuContext->getCurrentLevel() >= 19 && _menuContext->getCurrentLevel() <= 20) {
 			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the antonyms");
+			_hint = LangUtil::getInstance()->translateString("Match the opposites");
 		}
 
 		if (_menuContext->getCurrentLevel() >= 21 && _menuContext->getCurrentLevel() <= 22) {
 			_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the synonyms");
+			_hint = LangUtil::getInstance()->translateString("Match the same meaning words");
 		}
 
 		if (_menuContext->getCurrentLevel() >= 23 && _menuContext->getCurrentLevel() <= 24) {
 			_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the homonyms");
+			_hint = LangUtil::getInstance()->translateString("Match the same sounding words");
 		}
 	}
 
@@ -187,17 +187,17 @@ void Memory::onEnterTransitionDidFinish() {
 
 		if (_menuContext->getCurrentLevel() >= 25 && _menuContext->getCurrentLevel() <= 26) {
 			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the antonyms");
+			_hint = LangUtil::getInstance()->translateString("Match the opposites");
 		}
 
 		if (_menuContext->getCurrentLevel() >= 27 && _menuContext->getCurrentLevel() <= 28) {
 			_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the synonyms");
+			_hint = LangUtil::getInstance()->translateString("Match the same meaning words");
 		}
 
 		if (_menuContext->getCurrentLevel() >= 29 && _menuContext->getCurrentLevel() <= 30) {
 			_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the homonyms");
+			_hint = LangUtil::getInstance()->translateString("Match the same sounding words");
 		}
 	}
 
@@ -211,17 +211,17 @@ void Memory::onEnterTransitionDidFinish() {
 
 		if (_menuContext->getCurrentLevel() >= 31 && _menuContext->getCurrentLevel() <= 32) {
 			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the antonyms");
+			_hint = LangUtil::getInstance()->translateString("Match the opposites");
 		}
 
 		if (_menuContext->getCurrentLevel() >= 33 && _menuContext->getCurrentLevel() <= 34) {
 			_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the synonyms");
+			_hint = LangUtil::getInstance()->translateString("Match the same meaning words");
 		}
 
 		if (_menuContext->getCurrentLevel() >= 35 && _menuContext->getCurrentLevel() <= 36) {
 			_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the homonyms");
+			_hint = LangUtil::getInstance()->translateString("Match the same sounding words");
 		}
 	}
 	
@@ -357,7 +357,7 @@ void Memory::onEnterTransitionDidFinish() {
 	_label = ui::Text::create();
 	_label->setFontName("fonts/BalooBhai-Regular.ttf");
 	_label->setString(_hint);
-	_label->setFontSize(100);
+	_label->setFontSize(70);
 
 	_label->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * 0.95));
 	_label->setAnchorPoint(Vec2(0.5, 0.5));

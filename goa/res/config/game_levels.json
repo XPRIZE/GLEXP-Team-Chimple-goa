@@ -346,8 +346,8 @@
   "talk": [
     {
       "levels": [
-		1, 12, 18, 26, 31, 35, 40, 45, 47, 52, 56, 60, 64, 66, 69
-      ],
+		1, 2, 3, 4, 5, 6, 55, 56, 57, 58, 59, 60
+    ],
       "preconditions": [
         "verb"
       ],
@@ -357,7 +357,7 @@
 	
     {
       "levels": [
-		2, 16, 21, 25, 29, 34, 38, 41, 48, 51, 55, 57, 63, 67, 72
+		7, 8, 9, 10, 11, 12, 61, 62, 63, 64, 65, 66
       ],
       "preconditions": [
         "noun"
@@ -368,7 +368,7 @@
 	
     {
       "levels": [
-		3, 9, 19, 28, 32, 37, 39, 42, 46, 49, 54, 58, 62, 65, 71
+		13, 14, 15, 16, 17, 18, 67, 68, 69, 70, 71, 72
       ],
       "preconditions": [
         "pronoun"
@@ -379,7 +379,7 @@
 	
     {
       "levels": [
-		  4, 13, 23, 27, 43, 59
+		  19, 20, 21, 22, 23, 24
       ],
       "preconditions": [
         "adverb"
@@ -390,7 +390,7 @@
 	
     {
       "levels": [
-		  5, 10, 22, 30, 33, 68
+		  25, 26, 27, 28, 29, 30
       ],
       "preconditions": [
         "adjective"
@@ -401,7 +401,7 @@
 	
     {
       "levels": [
-		  6, 15, 17, 44, 53, 61
+		  31, 32, 33, 34, 35, 36
       ],
       "preconditions": [
         "preposition"
@@ -412,7 +412,7 @@
 	
     {
       "levels": [
-		  7, 11, 24
+		  37, 38, 39, 40, 41, 42
       ],
       "preconditions": [
         "conjunction"
@@ -423,7 +423,7 @@
 	
     {
       "levels": [
-		  8, 14, 20
+		  43, 44, 45, 46, 47, 48,
       ],
       "preconditions": [
         "interjection"
@@ -434,7 +434,7 @@
 	
     {
       "levels": [
-		  70, 36, 50
+		  49, 50, 51, 52, 53, 54
       ],
       "preconditions": [
         "article"
@@ -457,10 +457,19 @@
   "Cannon Ball": [
     {
       "levels": [
-        1, 2, 3, 4, 5, 6, 7, 8
+        1, 2, 3, 4
       ],
       "help": "Drag the alphabet and put it on the correct cannon.",
       "video": "Cannon Ball_1.webm"
+    }
+  ],
+  "Patch the Wall": [
+    {
+      "levels": [
+        1, 2, 3, 4
+      ],
+      "help": "Drag the alphabet and put it on the correct alphabet.",
+      "video": "Patch_Wall.webm"
     }
   ],
   "decomone": [

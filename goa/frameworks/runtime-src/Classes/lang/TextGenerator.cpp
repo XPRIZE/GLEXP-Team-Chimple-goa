@@ -58,11 +58,12 @@ std::map<int, int> TextGenerator::getRandomLocations(int numLoc, int totalNum) {
 }
 
 std::string TextGenerator::generateAWord(int level, int length) {
-    return LangUtil::getInstance()->getAWord();
+    level = 1;
+    return getSingle("words", level);
 }
 
 std::string TextGenerator::generateASentence(int level) {
-    return LangUtil::getInstance()->getASentence();
+    return getSingle("sentences", level);
 }
 
 
@@ -131,6 +132,11 @@ std::map<std::string, std::string> TextGenerator::getPairs(std::string type, int
     ss.str(contents);
     std::string line;
     while (std::getline(ss, line)) {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+    if ( line.size() && line[line.size()-1] == '\r' ) {
+        line = line.substr( 0, line.size() - 1 );
+    }
+#endif
         std::stringstream sline;
         sline.str(line);
         std::string item;
@@ -154,6 +160,61 @@ std::map<std::string, std::string> TextGenerator::getPairs(std::string type, int
     return data;
 }
 
+std::vector<std::string> TextGenerator::getWordList(std::string type, int level) {
+    std::string contents = cocos2d::FileUtils::getInstance()->getStringFromFile(LangUtil::getInstance()->getDir() + "/" + type + ".csv");
+    std::vector<std::string> pairs;
+    std::stringstream ss;
+    ss.str(contents);
+    std::string line;
+    while (std::getline(ss, line)) {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+        if ( line.size() && line[line.size()-1] == '\r' ) {
+            line = line.substr( 0, line.size() - 1 );
+        }
+#endif
+        std::stringstream sline;
+        sline.str(line);
+        std::string item;
+        std::vector<std::string> elems;
+        while (std::getline(sline, item, ';')) {
+            elems.push_back(item);
+        }
+        if(atoi(elems[0].c_str()) == level) {
+            pairs.push_back(elems[1]);
+        }
+    }
+    
+    return pairs;
+}
+
+std::string TextGenerator::getSingle(std::string type, int level) {
+    std::string contents = cocos2d::FileUtils::getInstance()->getStringFromFile(LangUtil::getInstance()->getDir() + "/" + type + ".csv");
+    std::vector<std::string> pairs;
+    std::stringstream ss;
+    ss.str(contents);
+    std::string line;
+    while (std::getline(ss, line)) {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+        if ( line.size() && line[line.size()-1] == '\r' ) {
+            line = line.substr( 0, line.size() - 1 );
+        }
+#endif
+        std::stringstream sline;
+        sline.str(line);
+        std::string item;
+        std::vector<std::string> elems;
+        while (std::getline(sline, item, ';')) {
+            elems.push_back(item);
+        }
+        if(atoi(elems[0].c_str()) == level) {
+            pairs.push_back(elems[1]);
+        }
+    }
+    
+    int rIndex = rand() % pairs.size();
+    return pairs[rIndex];
+}
+
 
 
 std::map<std::string, std::map<std::string, std::string>> TextGenerator::getMapOfWords(std::string type, int maxNum, int maxChoices, int level) {
@@ -164,6 +225,11 @@ std::map<std::string, std::map<std::string, std::string>> TextGenerator::getMapO
     ss.str(contents);
     std::string line;
     while (std::getline(ss, line)) {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+        if ( line.size() && line[line.size()-1] == '\r' ) {
+            line = line.substr( 0, line.size() - 1 );
+        }
+#endif
         std::stringstream sline;
         sline.str(line);
         std::string item;
@@ -200,6 +266,7 @@ std::map<std::string, std::map<std::string, std::string>> TextGenerator::getMapO
 }
 
 std::map<std::string, std::map<std::string, std::string>> TextGenerator::getInitialSyllableWords(int maxNum, int maxChoices, int level) {
+    /* 3 levels */
     return getMapOfWords("initial_syllables", maxNum, maxChoices, 1);
 }
 
@@ -241,6 +308,11 @@ std::vector<std::string> TextGenerator::getWords(TextGenerator::P_O_S partOfSpee
     ss.str(contents);
     std::string line;
     while (std::getline(ss, line)) {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+        if ( line.size() && line[line.size()-1] == '\r' ) {
+            line = line.substr( 0, line.size() - 1 );
+        }
+#endif
         std::stringstream sline;
         sline.str(line);
         std::string item;
@@ -346,6 +418,7 @@ std::vector<std::string> TextGenerator::getOrderedConcepts(int level) {
 }
 
 std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> TextGenerator::getSentenceWithPOS(TextGenerator::P_O_S partOfSpeech, int maxLength, int level) {
+    /* minimum 10 sentences per level and 10 levels */
     level = 1;
     std::string pos = "";
     switch( partOfSpeech ) {
@@ -384,6 +457,11 @@ std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> TextGener
     ss.str(contents);
     std::string line;
     while (std::getline(ss, line)) {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+        if ( line.size() && line[line.size()-1] == '\r' ) {
+            line = line.substr( 0, line.size() - 1 );
+        }
+#endif
         std::stringstream sline;
         sline.str(line);
         std::string item;
@@ -456,7 +534,15 @@ std::string TextGenerator::getLang() {
 
 std::vector<std::string> TextGenerator::wordsWithGivenLetter(std::string str)
 {
-	return LangUtil::getInstance()->setOfWordsWithGivenLetter(str);
+    auto wordList = getWordList("words", 1);
+    std::vector<std::string> listOfWords;
+    for (int i = 0; i < wordList.size(); i++) {
+        if (wordList.at(i).find(str) == 0) {
+            listOfWords.push_back(wordList.at(i));
+        }
+    }
+    
+	return listOfWords;
 }
 
 
