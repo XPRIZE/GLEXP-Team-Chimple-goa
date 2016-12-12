@@ -159,7 +159,7 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
                     if(!err && json != null && json != undefined) {
                         storyText = json[0];
                         cc.log('story text received:' + storyText);
-                        that.parent.addChild(new xc.BubbleSpeech(xc.StoryCoverPageLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that));
+                        that.parent.addChild(new xc.BubbleSpeech(xc.StoryCoverPageLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that, xc.storyCoverPageFontSize));
                     }                                
                 });                
            

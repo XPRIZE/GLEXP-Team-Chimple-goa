@@ -2,6 +2,7 @@
 var xc = xc || {};
 xc.storyFontName = "Arial";
 xc.storyFontSize = 85;
+xc.storyCoverPageFontSize = 120;
 xc.storyFontColor = cc.color.BLACK;
 
 xc.NarrateStoryLayer = cc.Layer.extend({

@@ -1,13 +1,13 @@
 var xc = xc || {};
 xc.BubbleSpeech = cc.Layer.extend({
-    ctor: function (jsonNode, width, height, position, existingText, callback, audiocallback, callbackContext) {
+    ctor: function (jsonNode, width, height, position, existingText, callback, audiocallback, callbackContext, fontSize) {
         this._super(width, height);
         this.callback = callback;
         this.audiocallback = audiocallback;
         this._callbackContext = callbackContext;
         this._text = existingText;
         this._nodeJSON = jsonNode;
-
+        this._fontSize = fontSize;
         this._constructedScene = ccs.load(this._nodeJSON,xc.path);
         this._constructedScene.node.retain();
         
@@ -37,7 +37,12 @@ xc.BubbleSpeech = cc.Layer.extend({
         this._textField = this._constructedScene.node.getChildByName("TextField_2");
         this._textField.setFontName(xc.storyFontName)
         this._textField.setTextColor(xc.storyFontColor);
-        this._textField.setFontSize(xc.storyFontSize);
+        if(this._fontSize > 0) {
+            this._textField.setFontSize(this._fontSize);    
+        } else {
+            this._textField.setFontSize(xc.storyFontSize);
+        }
+        
         this._textField.setAnchorPoint(0.5, 0.5);
         this._textField.setPlaceHolder("");
         this._textField.ignoreContentAdaptWithSize(false);
