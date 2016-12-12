@@ -356,12 +356,13 @@ void Drop::update(float delta) {
 	removeFallingLetter();
 	if (_helpFlag )
 	{
-	/*	int index = 0;
-		for (int i = 0; i < _basketBin.size(); i++)
+		/*for (int i = 0; i < _basketBin.size(); i++)
 		{
-			if (!_basketBin[i]->getString().compare(_levelOneString))
+			if (!_basketBin[i]->getString().compare(_levelOneString) && _flagForIndex)
 			{
-				index = i; break;
+				_index = i;
+				_flagForIndex = false;
+				break;
 			}
 		}*/
 		if (_letterHolderSpriteBin[0]->getPositionX() < (_middleBasketIndex*_gapBetweenTwoBasket + _gapBetweenTwoBasket / 2))
