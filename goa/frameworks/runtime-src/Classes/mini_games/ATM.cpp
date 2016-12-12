@@ -287,14 +287,14 @@ void ATM::oneNotePressed()
 
 	cocos2d::MoveTo * move;
 	if (_oneCount < 6) {
-		move = MoveTo::create(1, Vec2(_one_XPosition, 600));
+		move = MoveTo::create(1, Vec2(_one_XPosition, 1400));
 	 }
 	else if (_oneCount == 6) {
 		_one_XPosition = visibleSize.width / 1.35;
-		move = MoveTo::create(1, Vec2(_one_XPosition, 400));
+		move = MoveTo::create(1, Vec2(_one_XPosition, 1200));
 	}
 	else if (_oneCount > 6 && _oneCount < 11) {
-		move = MoveTo::create(1, Vec2(_one_XPosition, 400));
+		move = MoveTo::create(1, Vec2(_one_XPosition, 1200));
 	}
 	if (_oneCount == 10) {
 		///
@@ -382,14 +382,14 @@ void ATM::hundredNotePressed()
 	_hundreadLabel->setString(str);
 	cocos2d::MoveTo * move;
 	if (_hundredCount < 6) {
-		move = MoveTo::create(1, Vec2(_hundredXPosition, 1400));
+		move = MoveTo::create(1, Vec2(_hundredXPosition, 600));
 	}
 	else if (_hundredCount == 6) {
 		_hundredXPosition = visibleSize.width / 1.35;
-		move = MoveTo::create(1, Vec2(_hundredXPosition, 1200));	
+		move = MoveTo::create(1, Vec2(_hundredXPosition, 400));	
 	}
 	else if (_hundredCount > 6) {
-		move = MoveTo::create(1, Vec2(_hundredXPosition, 1200));
+		move = MoveTo::create(1, Vec2(_hundredXPosition, 400));
 	}
 	if (_hundredCount == 10) {
 		CCLOG("disable the listener");
