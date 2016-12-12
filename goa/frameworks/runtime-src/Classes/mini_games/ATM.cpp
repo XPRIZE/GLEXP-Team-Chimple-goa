@@ -241,32 +241,69 @@ bool ATM::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		CCLOG(" target Name = %s", target->getName().c_str());
 		if (target->getName().compare("one") == 0) {
 			audio->playEffect("sounds/sfx/atm.ogg", false);
-			menu->addPoints(1);
+			_gameScore = _gameScore + 1;
+			if (_targetedNumber < _gameScore) {
+				menu->addPoints(-1);
+			}
+			else {
+				menu->addPoints(1);
+			}
 			oneNotePressed();
 		}
 		else if (target->getName().compare("hundred") == 0) {
 			audio->playEffect("sounds/sfx/atm.ogg", false);
-			menu->addPoints(100);
+			_gameScore = _gameScore + 100;
+			if (_targetedNumber < _gameScore) {
+				menu->addPoints(-100);
+			}
+			else {
+				menu->addPoints(100);
+			}
 			hundredNotePressed();
 		}
 		else if (target->getName().compare("ten") == 0) {
 			audio->playEffect("sounds/sfx/atm.ogg", false);
-			menu->addPoints(10);
+			_gameScore = _gameScore + 10;
+			if (_targetedNumber < _gameScore) {
+				menu->addPoints(-10);
+			}
+			else {
+				menu->addPoints(10);
+			}
 			tenNotePressed();
 		}
 		else if (target->getName().compare("oneNote") == 0) {
 			//tenNotePressed();
-			menu->addPoints(-1);
+			_gameScore = _gameScore - 1;
+			//menu->addPoints(-1);
+			if (_targetedNumber < _gameScore) {
+				menu->addPoints(0.5);
+			}
+			else {
+				menu->addPoints(-1);
+			}
 			rePositionOneNotes(target);
 		}
 		else if (target->getName().compare("tenNote") == 0) {
 			//tenNotePressed();
-			menu->addPoints(-10);
+			_gameScore = _gameScore - 1;
+			if (_targetedNumber < _gameScore) {
+				menu->addPoints(5);
+			}
+			else {
+				menu->addPoints(-10);
+			}
 			rePositionTenNotes(target);
 		}
 		else if (target->getName().compare("hundredNote") == 0) {
 			//tenNotePressed();
-			menu->addPoints(-100);
+			_gameScore = _gameScore - 1;
+			if (_targetedNumber < _gameScore) {
+				menu->addPoints(50);
+			}
+			else {
+				menu->addPoints(-100);
+			}
 			rePositionHundredNotes(target);
 		}
 		else if (target->getName().compare("correct_button") == 0) {
@@ -511,10 +548,14 @@ void ATM::answerCheck()
 		//winning
 		CCLOG("win !!!!");
 		//menu->addPoints(1);
+		CCParticleSystemQuad *_particle = CCParticleSystemQuad::create("ATM/particle_atm.plist");
+		_particle->setTexture(CCTextureCache::sharedTextureCache()->addImage("ATM/particle_atm.png"));
+		//_particle->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
+		this->addChild(_particle);
 		auto star = this->getChildByName("bg")->getChildByName("star");
 		auto timeLine = CSLoader::createTimeline("ATM/star.csb");
 		star->runAction(timeLine);
-		timeLine->play("win", true);
+		//timeLine->play("win", true);
 		audio->playEffect("sounds/sfx/success.ogg", false);
 		this->runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() {
 			menu->showScore();
