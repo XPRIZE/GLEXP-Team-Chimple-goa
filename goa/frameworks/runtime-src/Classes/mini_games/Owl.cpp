@@ -71,7 +71,7 @@ void Owl::onEnterTransitionDidFinish()
 					{ "gridOrange","owljungle/smallbar_green.png" },
 					{ "gridGreen","owljungle/smallbar_orange.png" },
 					{ "gridWhite","owljungle/smallbar_orange.png" },
-					{ "topBoard","board" },
+					{ "topBoard","board_8" },
 					{ "whiteBoard","smallbar_white" },
 					{ "whiteBoard2","smallbar_white" },
 					{ "bodyCharacter","bird_1"},
@@ -130,7 +130,7 @@ void Owl::onEnterTransitionDidFinish()
 	
 	int gameCurrentLevel = _menuContext->getCurrentLevel();
 	std::tuple<int, int , int> levelKeyNumber = levelAllInfo(gameCurrentLevel,5,5,3,10);
-
+	string categoryTitle = "";
 	if (std::get<0>(levelKeyNumber) == 1) {
 		auto listOfWords = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ANY ,5, std::get<2>(levelKeyNumber));
 		
@@ -138,17 +138,22 @@ void Owl::onEnterTransitionDidFinish()
 			_data_key.push_back(getConvertInUpperCase(listOfWords[index]));
 		}
 		_data_value = _data_key;
+		categoryTitle = "Make same word : ";
 	}
 	else if (std::get<0>(levelKeyNumber) == 2) {
+		categoryTitle = "Make plural of : ";
 		_data = TextGenerator::getInstance()->getSingularPlurals(5, std::get<2>(levelKeyNumber));
 	}
 	else if (std::get<0>(levelKeyNumber) == 3) {
+		categoryTitle = "Make opposite of : ";
 		_data = TextGenerator::getInstance()->getAntonyms(5, std::get<2>(levelKeyNumber));
 	}
 	else if (std::get<0>(levelKeyNumber) == 4) {
+		categoryTitle = "Make word of same meaning as : ";
 		_data = TextGenerator::getInstance()->getSynonyms(5, std::get<2>(levelKeyNumber));
 	}
 	else if (std::get<0>(levelKeyNumber) == 5) {
+		categoryTitle = "Make same sounding word as : ";
 		_data = TextGenerator::getInstance()->getHomonyms(5, std::get<2>(levelKeyNumber));
 	}
 
@@ -225,10 +230,17 @@ void Owl::onEnterTransitionDidFinish()
 	}
 	auto board = bg->getChildByName(themeResourcePath.at("topBoard"));
 	board->setName("topBoard");
-	_textLabel = LabelTTF::create(_data_key[_textBoard], "Helvetica", board->getContentSize().height *0.8);
+
+	_sentence = LangUtil::getInstance()->translateString(categoryTitle);
+
+	std::ostringstream boardName;	
+	boardName << _sentence << _data_key[_textBoard];
+
+	_textLabel = LabelTTF::create(boardName.str(), "Helvetica", board->getContentSize().height *0.5);
 	_textLabel->setPosition(board->getContentSize().width/2,board->getContentSize().height/2);
 	_textLabel->setAnchorPoint(Vec2(0.5, 0.5));
 	_textLabel->setName("text");
+
 	board->addChild(_textLabel);
 
 	_textOwlBoard = LabelTTF::create("", "Helvetica", _sprite->getChildByName(themeResourcePath.at("whiteBoard"))->getContentSize().height *0.8);
@@ -594,7 +606,10 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 							}
 
 							if (_textCounter == blockChild.size() && _blockLevel1 < _data_key.size()) {
-								_textLabel->setString(_data_key[++_textBoard]);
+								std::ostringstream boardName;
+								boardName << _sentence << _data_key[++_textBoard];
+
+								_textLabel->setString(boardName.str());
 								setBuildingBlock(++_blockLevel1);
 								crateLetterGridOnBuilding(_blockLevel1, _data_value[_textBoard]);
 								_textCounter = 0;
