@@ -68,9 +68,7 @@ xc.StoryCoverButtonPanel = ccui.Layout.extend({
                         var sprite2 = new cc.Sprite('#' + imageIconUrl);
                         bookImageNode.addChild(sprite2);
                         var key = storyId + xc.storyLevel;
-                        cc.log("key is " + key);
-                        cc.log('333333 value from local storage %s', cc.sys.localStorage.getItem(storyId + xc.storyLevel) );
-                        var storyStatus = JSON.parse(cc.sys.localStorage.getItem(storyId + xc.storyLevel)) || {};
+                        var storyStatus = JSON.parse(cc.sys.localStorage.getItem(storyId + xc.storyLevel)) || {};                        
                         if(storyStatus.locked) {
                             var lockSprite = new cc.Sprite(xc.path + "template/lock.png");
                             lockSprite.setAnchorPoint(cc.p(0.5,0.5));

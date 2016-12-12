@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 500,
+        "Duration": 720,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "jackal",
         "Timelines": [
           {
             "ActionTag": 736636338,
@@ -197,6 +197,46 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -1222667781,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 505,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1222667781,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -332.6288,
+                "Y": 725.455,
+                "FrameIndex": 505,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2920.353,
+                "Y": 654.4767,
+                "FrameIndex": 720,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 208675056,
             "Property": "ActionValue",
             "Frames": [
@@ -325,6 +365,12 @@
           "EndIndex": 500,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 505,
+          "EndIndex": 720,
+          "Name": "jackal",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -360,9 +406,8 @@
               "ScaleY": 1.0
             },
             "CColor": {
-              "R": 252,
-              "G": 223,
-              "B": 218
+              "R": 237,
+              "G": 245
             },
             "IconVisible": false,
             "PrePosition": {
@@ -395,8 +440,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1315.4122,
-              "Y": 1436.7324
+              "X": 508.4841,
+              "Y": 1070.4954
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -405,17 +450,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.5138,
-              "Y": 0.7982
+              "X": 0.1986,
+              "Y": 0.5947
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1315.4122,
-            "RightMargin": 1244.5878,
-            "TopMargin": 363.2676,
-            "BottomMargin": 1436.7324,
+            "LeftMargin": 508.4841,
+            "RightMargin": 2051.5159,
+            "TopMargin": 729.5046,
+            "BottomMargin": 1070.4954,
             "Tag": 2331,
             "ActionTag": 1060867074,
             "Size": {
@@ -841,6 +886,47 @@
           },
           {
             "FileData": {
+              "Type": "Normal",
+              "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/jackal1.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -332.6288,
+              "Y": 725.455
+            },
+            "Scale": {
+              "ScaleX": -0.8,
+              "ScaleY": 0.8
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.1299,
+              "Y": 0.403
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -332.6288,
+            "RightMargin": 2892.6289,
+            "TopMargin": 1074.5449,
+            "BottomMargin": 725.455,
+            "Tag": 1436,
+            "ActionTag": -1222667781,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "jackal",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
               "Type": "MarkedSubImage",
               "Path": "Mwanamme_na_Mwanamke_wa_Kwanza/tree_1.png",
               "Plist": "Mwanamme_na_Mwanamke_wa_Kwanza/Mwanamme_na_Mwanamke_wa_Kwanza.plist"
@@ -926,7 +1012,7 @@
             },
             "LeftMargin": -720.0,
             "RightMargin": -720.0,
-            "TopMargin": 1149.9991,
+            "TopMargin": 1149.999,
             "BottomMargin": -1149.9991,
             "Tag": 2321,
             "ActionTag": -1303694010,
@@ -1163,7 +1249,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_10",
+            "Name": "man",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1204,7 +1290,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_9",
+            "Name": "girl",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -1217,6 +1303,7 @@
       },
       "UsedResources": [
         "girl.json",
+        "jackal1.json",
         "man.json",
         "moon.json",
         "Mwanamme_na_Mwanamke_wa_Kwanza.plist",
