@@ -81,7 +81,8 @@ protected:
 	
     
 	void setupTouch();
-	
+	int _wrong;
+	int _right;
 
 	MenuContext *_menuContext;
 

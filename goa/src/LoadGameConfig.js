@@ -2,6 +2,8 @@
 cc.loader.loadJson("res/config/game_map.json", function(error, data) {
     data.forEach(function(e) {
         cc.log(e.name);
+        cc.log('11111' + e.name);
+        cc.log('2222' + JSON.stringify(e));
         cc.sys.localStorage.setItem(e.name, JSON.stringify(e));
     });
 
