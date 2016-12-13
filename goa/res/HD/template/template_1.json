@@ -16,8 +16,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "template/background_image.png",
-              "Plist": "template/template.plist"
+              "Path": "template/template_02/background_image.png",
+              "Plist": "template/template_02/template_02.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -28,7 +28,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1375.0,
+              "X": 1308.0002,
               "Y": 900.1991
             },
             "Scale": {
@@ -38,15 +38,15 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5371,
+              "X": 0.5109,
               "Y": 0.5001
             },
             "PreSize": {
               "X": 1.0008,
               "Y": 1.0011
             },
-            "LeftMargin": 94.0,
-            "RightMargin": -96.0,
+            "LeftMargin": 27.0002,
+            "RightMargin": -29.0002,
             "TopMargin": -1.1991,
             "BottomMargin": -0.8009,
             "Tag": 12,
@@ -700,7 +700,9 @@
       },
       "UsedResources": [
         "template.plist",
-        "template.png"
+        "template.png",
+        "template_02/template_02.plist",
+        "template_02/template_02.png"
       ],
       "ctype": "GameFileData"
     }

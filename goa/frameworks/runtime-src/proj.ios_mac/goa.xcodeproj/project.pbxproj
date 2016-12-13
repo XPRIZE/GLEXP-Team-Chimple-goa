@@ -274,6 +274,8 @@
 		F35248591D6D9D1A0077C333 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = F35247BA1D6D9D1A0077C333 /* sqlite3.c */; };
 		F352485A1D6D9D1A0077C333 /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35247BD1D6D9D1A0077C333 /* State.cpp */; };
 		F352485B1D6D9D1A0077C333 /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35247BD1D6D9D1A0077C333 /* State.cpp */; };
+		F36405AA1DFFEB1E0075CEF1 /* SwahiliUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36405A91DFFEB1E0075CEF1 /* SwahiliUtil.cpp */; };
+		F36405AB1DFFEB1E0075CEF1 /* SwahiliUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36405A91DFFEB1E0075CEF1 /* SwahiliUtil.cpp */; };
 		F3667D161DB4BA6F00EC8908 /* AsyncTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3667C931DB4BA6F00EC8908 /* AsyncTask.cpp */; };
 		F3667D171DB4BA6F00EC8908 /* AsyncTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3667C931DB4BA6F00EC8908 /* AsyncTask.cpp */; };
 		F3667D181DB4BA6F00EC8908 /* LTKCaptureDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3667C961DB4BA6F00EC8908 /* LTKCaptureDevice.cpp */; };
@@ -771,6 +773,8 @@
 		F35247BD1D6D9D1A0077C333 /* State.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = State.cpp; sourceTree = "<group>"; };
 		F35247BE1D6D9D1A0077C333 /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
 		F35247BF1D6D9D1A0077C333 /* WalkingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkingState.h; sourceTree = "<group>"; };
+		F36405A61DFFEAEC0075CEF1 /* SwahiliUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwahiliUtil.h; sourceTree = "<group>"; };
+		F36405A91DFFEB1E0075CEF1 /* SwahiliUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SwahiliUtil.cpp; sourceTree = "<group>"; };
 		F3667C931DB4BA6F00EC8908 /* AsyncTask.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AsyncTask.cpp; sourceTree = "<group>"; };
 		F3667C941DB4BA6F00EC8908 /* AsyncTask.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AsyncTask.hpp; sourceTree = "<group>"; };
 		F3667C961DB4BA6F00EC8908 /* LTKCaptureDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LTKCaptureDevice.cpp; sourceTree = "<group>"; };
@@ -1422,6 +1426,8 @@
 				F35247531D6D9D1A0077C333 /* WordInfo.h */,
 				F35247541D6D9D1A0077C333 /* WordManager.cpp */,
 				F35247551D6D9D1A0077C333 /* WordManager.h */,
+				F36405A61DFFEAEC0075CEF1 /* SwahiliUtil.h */,
+				F36405A91DFFEB1E0075CEF1 /* SwahiliUtil.cpp */,
 			);
 			path = lang;
 			sourceTree = "<group>";
@@ -1973,6 +1979,7 @@
 				F3667D391DB4BA6F00EC8908 /* LTKShapeRecoResult.cpp in Sources */,
 				F36840BF1D8A812F00969162 /* Alphamole.cpp in Sources */,
 				F3F7ED7D1D9F891000727A7C /* MemoryHero.cpp in Sources */,
+				F36405AB1DFFEB1E0075CEF1 /* SwahiliUtil.cpp in Sources */,
 				F3667D3B1DB4BA6F00EC8908 /* LTKShapeRecoUtil.cpp in Sources */,
 				F307808B1DB5C2C90078DF62 /* HelpLayer.cpp in Sources */,
 				F35247DD1D6D9D1A0077C333 /* Jasmin_Mainfile.cpp in Sources */,
@@ -2105,6 +2112,7 @@
 				F3667D3E1DB4BA6F00EC8908 /* LTKShapeFeatureExtractor.cpp in Sources */,
 				3740AD351D912A8B005BDCBA /* Stack.cpp in Sources */,
 				F3667D6A1DB4BA7000EC8908 /* LTKLinuxUtil.cpp in Sources */,
+				F36405AA1DFFEB1E0075CEF1 /* SwahiliUtil.cpp in Sources */,
 				F3F7ED941DA65FF400727A7C /* Owl.cpp in Sources */,
 				F373B9041DD982440027D32C /* Line.cpp in Sources */,
 				F3E210311DCC60D300C301F8 /* TreasureHuntNode.cpp in Sources */,

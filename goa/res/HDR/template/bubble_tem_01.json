@@ -17,7 +17,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "template/bubble_tem.png",
+              "Path": "template/background_image1.png",
               "Plist": "template/template.plist"
             },
             "BlendFunc": {
@@ -29,35 +29,35 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1327.6433,
-              "Y": 334.7647
+              "X": 1319.51,
+              "Y": 303.8886
             },
             "Scale": {
-              "ScaleX": 1.6558,
-              "ScaleY": 0.4777
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5186,
-              "Y": 0.186
+              "X": 0.5154,
+              "Y": 0.1688
             },
             "PreSize": {
-              "X": 0.798,
-              "Y": 0.8033
+              "X": 1.3672,
+              "Y": 0.375
             },
-            "LeftMargin": 306.1433,
-            "RightMargin": 210.8567,
-            "TopMargin": 742.2354,
-            "BottomMargin": -388.2353,
-            "Tag": 46,
-            "ActionTag": -1241815232,
+            "LeftMargin": -430.49,
+            "RightMargin": -509.51,
+            "TopMargin": 1158.6113,
+            "BottomMargin": -33.6114,
+            "Tag": 37,
+            "ActionTag": 1460762118,
             "Size": {
-              "X": 2043.0,
-              "Y": 1446.0
+              "X": 3500.0,
+              "Y": 675.0
             },
-            "Alpha": 128,
-            "Name": "bubble_tem_1",
+            "Alpha": 204,
+            "Name": "background_image1_1",
             "ctype": "SpriteObjectData"
           },
           {
@@ -75,13 +75,13 @@
             },
             "PressedFileData": {
               "Type": "MarkedSubImage",
-              "Path": "template/bigplay_clicked.png",
-              "Plist": "template/template.plist"
+              "Path": "template/template_02/bigplay_clicked.png",
+              "Plist": "template/template_02/template_02.plist"
             },
             "NormalFileData": {
               "Type": "MarkedSubImage",
-              "Path": "template/bigplay.png",
-              "Plist": "template/template.plist"
+              "Path": "template/template_02/bigplay.png",
+              "Plist": "template/template_02/template_02.plist"
             },
             "Scale9Enable": true,
             "Scale9OriginX": 15,
@@ -150,13 +150,13 @@
             },
             "PressedFileData": {
               "Type": "MarkedSubImage",
-              "Path": "template/click_sound_button.png",
-              "Plist": "template/template.plist"
+              "Path": "template/template_02/click_sound_button.png",
+              "Plist": "template/template_02/template_02.plist"
             },
             "NormalFileData": {
               "Type": "MarkedSubImage",
-              "Path": "template/sound_button.png",
-              "Plist": "template/template.plist"
+              "Path": "template/template_02/sound_button.png",
+              "Plist": "template/template_02/template_02.plist"
             },
             "Scale9Enable": true,
             "Scale9OriginX": 15,
@@ -180,8 +180,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 116.535,
-              "Y": 567.8285
+              "X": 114.6409,
+              "Y": 535.6281
             },
             "Scale": {
               "ScaleX": 1.195,
@@ -190,17 +190,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.0455,
-              "Y": 0.3155
+              "X": 0.0448,
+              "Y": 0.2976
             },
             "PreSize": {
               "X": 0.0691,
               "Y": 0.0978
             },
-            "LeftMargin": 28.035,
-            "RightMargin": 2354.9648,
-            "TopMargin": 1144.1715,
-            "BottomMargin": 479.8285,
+            "LeftMargin": 26.1409,
+            "RightMargin": 2356.8591,
+            "TopMargin": 1176.3719,
+            "BottomMargin": 447.6281,
             "Tag": 48,
             "ActionTag": 1976994335,
             "Size": {
@@ -241,7 +241,7 @@
             },
             "LeftMargin": 211.5023,
             "RightMargin": 448.4976,
-            "TopMargin": 1069.3025,
+            "TopMargin": 1069.3026,
             "BottomMargin": -69.3026,
             "Tag": 45,
             "ActionTag": -1595207015,
@@ -263,7 +263,9 @@
       "UsedResources": [
         "../Default/Button_Disable.png",
         "template.plist",
-        "template.png"
+        "template.png",
+        "template_02/template_02.plist",
+        "template_02/template_02.png"
       ],
       "ctype": "GameFileData"
     }

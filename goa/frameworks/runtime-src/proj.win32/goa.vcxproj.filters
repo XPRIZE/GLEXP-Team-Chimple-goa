@@ -592,6 +592,9 @@
     <ClCompile Include="..\Classes\puzzle\StoryWordBoard.cpp">
       <Filter>Classes\puzzle</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\lang\SwahiliUtil.cpp">
+      <Filter>Classes\lang</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1188,6 +1191,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\puzzle\StoryWordBoard.hpp">
       <Filter>Classes\puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lang\SwahiliUtil.h">
+      <Filter>Classes\lang</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

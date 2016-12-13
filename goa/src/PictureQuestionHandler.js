@@ -30,6 +30,32 @@ xc.PictureQuestionHandler = cc.Layer.extend({
         this.showQuestionTemplate();
         this.configureQuestions();
         this.configureAnswers();
+        this.scheduleOnce(this.initQuestionHelp, 2);
+    },
+
+    initQuestionHelp: function() {
+        if(!xc._PICTURE_HELP_SHOWN)
+        {
+            var context = this;
+            var box = this._questionHelpNode.getBoundingBox();
+            this._questionHelp = new xc.HelpLayer(cc.rect(box.x + box.width/2, box.y + box.height/2, box.width, box.height), cc.rect(0,0,10,10));
+            this.addChild(this._questionHelp,4)
+            this._questionHelp.click(this._questionHelpNode.x,this._questionHelpNode.y);
+        }
+    },    
+
+    initAnswerHelp: function() {
+        if(!xc._PICTURE_HELP_SHOWN)
+        {
+            var context = this;
+            if(this._answerHelpNode != null) {
+                var box = this._answerHelpNode.getBoundingBox();
+                this._answerHelp = new xc.HelpLayer(cc.rect(box.x + box.width/2, box.y + box.height/2, box.width, box.height), cc.rect(0,0,10,10));
+                this.addChild(this._answerHelp,4)
+                this._answerHelp.click(this._answerHelpNode.x,this._answerHelpNode.y);
+                xc._PICTURE_HELP_SHOWN = true;
+            }
+        }
     },
 
     showQuestionTemplate: function() {
@@ -63,6 +89,10 @@ xc.PictureQuestionHandler = cc.Layer.extend({
             var nodeName = "Q"+(index+1);
             var node = this._constructedScene.node.getChildByName(nodeName);
             if(node) {
+                if(index == 0) {
+                    this._questionHelpNode = node;
+                }
+                
                 node.selectedIndex = index;
                 node.setAnchorPoint(cc.p(0.5,0.5));
                 var imageUrl = xc.path + this._baseDir + "/" + question;
@@ -112,6 +142,15 @@ xc.PictureQuestionHandler = cc.Layer.extend({
             var oQuestion = this._questions[index];
             if(this._question.hasOwnProperty(oQuestion)) {
                 var realAnswer = this._question[oQuestion];
+
+                if(oQuestion == this._questionHelpNode.getTitleText()) {
+                    context._correctAnswer = this._answers.filter(function(e) {
+                        return e == realAnswer;
+                    });
+
+                    cc.log('correctAnswer:' + context._correctAnswer);      
+                }
+                
                 var remainingAnswers = this._answers.filter(function(e) { 
                         return e!= realAnswer;
                     }
@@ -162,12 +201,37 @@ xc.PictureQuestionHandler = cc.Layer.extend({
             };
             
         }, this);
+
+
+        var ans1 = this._constructedScene.node.getChildByName("A1");
+        var ans2 = this._constructedScene.node.getChildByName("A2");
+        var ans3 = this._constructedScene.node.getChildByName("A3");
+        var ans4 = this._constructedScene.node.getChildByName("A4");
+        
+
+        if(ans1.getTitleText().replace(/\n|\r/g, "") == this._correctAnswer) {
+            context._answerHelpNode = ans1;
+        } else if(ans2.getTitleText().replace(/\n|\r/g, "") == this._correctAnswer) {
+            context._answerHelpNode = ans2;
+        } else if(ans3.getTitleText().replace(/\n|\r/g, "") == this._correctAnswer) {
+            context._answerHelpNode = ans3;
+        } else if(ans4.getTitleText().replace(/\n|\r/g, "") == this._correctAnswer) {
+            context._answerHelpNode = ans4;
+        }         
+        
     },
 
     questionSelected:function(sender, type) {
         switch (type)
         {
             case ccui.Widget.TOUCH_BEGAN:
+                if(this._questionHelp != null) {
+                    this._questionHelp.setVisible(false);
+                    this._questionHelp.setPosition(cc.p(0,0));                    
+                    this._questionHelp.removeFromParent();
+                    this._questionHelp = null;
+                }
+
                 if(this._selectedQuestionForAnswer != null) {
                     this._selectedQuestionForAnswer.setEnabled(true);
                     this._selectedQuestionForAnswer.setHighlighted(false);
@@ -178,6 +242,11 @@ xc.PictureQuestionHandler = cc.Layer.extend({
                 this._selectedQuestionForAnswer = sender;                   
                 sender.setHighlighted(true);
                 sender.setEnabled(false);
+
+                if(!xc._PICTURE_HELP_SHOWN) {
+                    this.initAnswerHelp();
+                }
+                
             break;
         }
     },
@@ -193,6 +262,13 @@ xc.PictureQuestionHandler = cc.Layer.extend({
                 break;
 
             case ccui.Widget.TOUCH_ENDED:
+                if(this._answerHelp != null) {
+                    this._answerHelp.setVisible(false);
+                    this._answerHelp.setPosition(cc.p(0,0));
+                    this._answerHelp.removeFromParent();
+                    this._answerHelp = null;
+                }
+            
                 if(this._selectedQuestionForAnswer != null) {
                     this.verifyAnswer(sender, this._selectedQuestionForAnswer);
                     this._selectedQuestionForAnswer.setEnabled(true);
