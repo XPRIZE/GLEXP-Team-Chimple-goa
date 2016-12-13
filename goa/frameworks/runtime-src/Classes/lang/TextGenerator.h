@@ -31,26 +31,30 @@ public:
     static TextGenerator* getInstance();
     
     std::vector<std::vector<std::string>> generateMatrix(std::string word, int numRows, int numCols);
-    std::string generateAWord(int level = 0, int length = 0);
+    std::string generateAWord(int level = 1, int length = 0);
     int getNumGraphemesInString(std::string word);
     std::vector<std::string> getGraphemes(std::string word);
-    std::string generateASentence(int level = 0);
+    std::string generateASentence(int level = 1);
     std::vector<std::string> getAllChars();
     std::vector<std::string> getValidCombinations(std::string chars, int maxLength);
-    std::map<std::string, std::string> getSynonyms(int maxNum, int level = 0);
-    std::map<std::string, std::string> getAntonyms(int maxNum, int level = 0);
-    std::map<std::string, std::string> getHomonyms(int maxNum, int level = 0);
-    std::map<std::string, std::map<std::string, std::string>> getInitialSyllableWords(int maxNum, int maxChoices, int level = 0);
-    std::vector<std::string> getWords(TextGenerator::P_O_S partOfSpeech, int maxLength, int level = 0);
-    std::vector<std::string> getOrderedConcepts(int level = 0);
-    std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> getSentenceWithPOS(TextGenerator::P_O_S partOfSpeech, int maxLength, int level = 0);
-    std::map<std::string, std::string> getSingularPlurals(int maxNum, int level = 0);
+    std::map<std::string, std::string> getSynonyms(int maxNum, int level = 1);
+    std::map<std::string, std::string> getAntonyms(int maxNum, int level = 1);
+    std::map<std::string, std::string> getHomonyms(int maxNum, int level = 1);
+    std::map<std::string, std::map<std::string, std::string>> getInitialSyllableWords(int maxNum, int maxChoices, int level = 1);
+    std::vector<std::string> getWords(TextGenerator::P_O_S partOfSpeech, int maxLength, int level = 1);
+    std::vector<std::string> getOrderedConcepts(int level = 1);
+    std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> getSentenceWithPOS(TextGenerator::P_O_S partOfSpeech, int maxLength, int level = 1);
+    std::map<std::string, std::string> getSingularPlurals(int maxNum, int level = 1);
     
     std::string getLang();
 	std::vector<std::string> wordsWithGivenLetter(std::string);
     
 protected:
     std::map<int, int> getRandomLocations(int numLoc, int totalNum);
+    std::map<std::string, std::map<std::string, std::string>> getMapOfWords(std::string type, int maxNum, int maxChoices, int level);
+    std::map<std::string, std::string> getPairs(std::string type, int maxNum, int level);
+    std::string getSingle(std::string type, int level);
+    std::vector<std::string> getWordList(std::string type, int level);
 
 };
 

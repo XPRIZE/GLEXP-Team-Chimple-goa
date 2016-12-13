@@ -66,8 +66,10 @@ void HelpLayer::click(Vec2 point) {
     finger->setAnchorPoint(Vec2::ANCHOR_MIDDLE_TOP);
     addChild(finger);
     auto scaleBy = ScaleBy::create(0.5, 0.8);
-    auto callFunc = CallFunc::create(CC_CALLBACK_0(HelpLayer::removeFinger, this, finger));
-    finger->runAction(Sequence::create(scaleBy, DelayTime::create(0.5), callFunc, NULL));
+    auto hideCallFunc = CallFunc::create(CC_CALLBACK_0(HelpLayer::hideFinger, this, finger));
+    auto repeatCallFunc = CallFunc::create(CC_CALLBACK_0(HelpLayer::click, this, point));
+    auto removeCallFunc = CallFunc::create(CC_CALLBACK_0(HelpLayer::removeFinger, this, finger));
+    finger->runAction(Sequence::create(scaleBy, DelayTime::create(0.5), hideCallFunc, DelayTime::create(4.0), repeatCallFunc, removeCallFunc,  NULL));
 }
 void HelpLayer::clickTwice(cocos2d::Vec2 point1, cocos2d::Vec2 point2) {
     _animating = true;
@@ -78,7 +80,10 @@ void HelpLayer::clickTwice(cocos2d::Vec2 point1, cocos2d::Vec2 point2) {
     auto scaleBy = ScaleBy::create(0.5, 0.8);
     auto moveTo = MoveTo::create(0.5, point2);
     auto callFunc = CallFunc::create(CC_CALLBACK_0(HelpLayer::removeFinger, this, finger));
-    finger->runAction(Sequence::create(scaleBy, DelayTime::create(0.5), scaleBy->reverse(), moveTo, scaleBy, DelayTime::create(0.5), scaleBy->reverse(), callFunc, NULL));
+    auto hideCallFunc = CallFunc::create(CC_CALLBACK_0(HelpLayer::hideFinger, this, finger));
+    auto repeatCallFunc = CallFunc::create(CC_CALLBACK_0(HelpLayer::clickTwice, this, point1, point2));
+    
+    finger->runAction(Sequence::create(scaleBy, DelayTime::create(0.5), scaleBy->reverse(), moveTo, scaleBy, DelayTime::create(0.5), scaleBy->reverse(), hideCallFunc, DelayTime::create(4.0), repeatCallFunc, callFunc, NULL));
 }
 
 void HelpLayer::clickAndDrag(Vec2 startPoint, Vec2 endPoint) {
@@ -90,7 +95,10 @@ void HelpLayer::clickAndDrag(Vec2 startPoint, Vec2 endPoint) {
     auto scaleBy = ScaleBy::create(0.5, 0.8);
     auto moveTo = MoveTo::create(0.5, endPoint);
     auto callFunc = CallFunc::create(CC_CALLBACK_0(HelpLayer::removeFinger, this, finger));
-    finger->runAction(Sequence::create(scaleBy, DelayTime::create(0.5), moveTo, scaleBy->reverse(), callFunc, NULL));
+    auto hideCallFunc = CallFunc::create(CC_CALLBACK_0(HelpLayer::hideFinger, this, finger));
+    auto repeatCallFunc = CallFunc::create(CC_CALLBACK_0(HelpLayer::clickAndDrag, this, startPoint, endPoint));
+    
+    finger->runAction(Sequence::create(scaleBy, DelayTime::create(0.5), moveTo, scaleBy->reverse(), hideCallFunc, DelayTime::create(4.0), repeatCallFunc, callFunc, NULL));
 }
 
 /*
@@ -128,10 +136,15 @@ void HelpLayer::writing(std::vector<cocos2d::Vec2> points)
 	}
 }
 
-void HelpLayer::removeFinger(Node* finger) {
+void HelpLayer::hideFinger(Node* finger) {
     _animating = false;
+    finger->setVisible(false);
+}
+
+void HelpLayer::removeFinger(Node* finger) {
     removeChild(finger);
 }
+
 
 static const float GW_WIDTH = 800.0;
 static const float GW_HEIGHT = 800.0;

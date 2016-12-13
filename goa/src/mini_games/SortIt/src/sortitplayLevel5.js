@@ -24,7 +24,7 @@ xc.sortitlevel5Layer = cc.Layer.extend({
                 if (self.counterLevel5 == 6) {
                     
                 
-                    xc.GameScene.load(xc.sortitlevel6Layer);
+                  //  xc.GameScene.load(xc.sortitlevel6Layer);
                     
                 }
                  

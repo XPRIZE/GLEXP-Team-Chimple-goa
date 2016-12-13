@@ -42,7 +42,7 @@ protected:
 	std::vector<std::string> _currentSelectedNestNames;
 	std::vector<cocostudio::timeline::ActionTimeline *> _chickenTimeline;
 	std::vector<int> _randomIndex;
-	
+	void addGrid(float sizex, float sizey, float posx, float posy);
 	std::vector<std::string> _data_key;
 	std::vector<std::string> _data_value;
 	Node *_background;
@@ -50,7 +50,7 @@ protected:
 	Node * _mainground;
 	Node * _memoryfarm;
 	int _currentNest;
-
+	std::string _hint;
 	int _counter;
 	int _helpflag;
 

@@ -8124,6 +8124,19 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 1103410760,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "walking",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -2024856762,
             "Property": "Position",
             "Frames": [
@@ -12390,6 +12403,7 @@
               "Dst": 771
             },
             "Tag": 172,
+            "FrameEvent": "walking",
             "Children": [
               {
                 "Length": 154.0,

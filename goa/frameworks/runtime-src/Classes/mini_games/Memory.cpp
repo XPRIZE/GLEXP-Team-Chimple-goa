@@ -83,7 +83,7 @@ void Memory::onEnterTransitionDidFinish() {
 
 	auto x = _menuContext->getCurrentLevel();
 
-
+	_data.clear();
 	if (_menuContext->getCurrentLevel() <= 6 && _menuContext->getCurrentLevel() >= 1) {
 		_gridTwoByTwoIds.resize(_gridTwoByTwoIds_Size);
 		_gridTwoByTwoIds = { 9, 10, 15, 16 };
@@ -91,14 +91,20 @@ void Memory::onEnterTransitionDidFinish() {
 		_finalGridIds = _gridTwoByTwoIds;
 		_menuContext->setMaxPoints(_pairCount);
 
-		if (_menuContext->getCurrentLevel() >= 1 && _menuContext->getCurrentLevel() <= 2)
+		if (_menuContext->getCurrentLevel() >= 1 && _menuContext->getCurrentLevel() <= 2) {
 			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
+			_hint = LangUtil::getInstance()->translateString("Match the opposites");
+		}
 
-		if (_menuContext->getCurrentLevel() >= 3 && _menuContext->getCurrentLevel() <= 4)
+		if (_menuContext->getCurrentLevel() >= 3 && _menuContext->getCurrentLevel() <= 4) {
 			_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
+			_hint = LangUtil::getInstance()->translateString("Match the same meaning words");
+		}
 
-		if (_menuContext->getCurrentLevel() >= 5 && _menuContext->getCurrentLevel() <= 6)
+		if (_menuContext->getCurrentLevel() >= 5 && _menuContext->getCurrentLevel() <= 6) {
 			_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
+			_hint = LangUtil::getInstance()->translateString("Match the same sounding words");
+		}
 
 	}
 
@@ -109,14 +115,20 @@ void Memory::onEnterTransitionDidFinish() {
 		_finalGridIds = _gridTwoByThreeIds;
 		_menuContext->setMaxPoints(_pairCount);
 
-		if (_menuContext->getCurrentLevel() >= 7 && _menuContext->getCurrentLevel() <= 8)
+		if (_menuContext->getCurrentLevel() >= 7 && _menuContext->getCurrentLevel() <= 8) {
 			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
+			_hint = LangUtil::getInstance()->translateString("Match the opposites");
+		}
 
-		if (_menuContext->getCurrentLevel() >= 9 && _menuContext->getCurrentLevel() <= 10)
+		if (_menuContext->getCurrentLevel() >= 9 && _menuContext->getCurrentLevel() <= 10) {
 			_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
+			_hint = LangUtil::getInstance()->translateString("Match the same meaning words");
+		}
 
-		if (_menuContext->getCurrentLevel() >= 11 && _menuContext->getCurrentLevel() <= 12)
+		if (_menuContext->getCurrentLevel() >= 11 && _menuContext->getCurrentLevel() <= 12) {
 			_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
+			_hint = LangUtil::getInstance()->translateString("Match the same sounding words");
+		}
 	}
 
 	if (_menuContext->getCurrentLevel() <= 18 && _menuContext->getCurrentLevel() > 12) {
@@ -126,14 +138,20 @@ void Memory::onEnterTransitionDidFinish() {
 		_finalGridIds = _gridThreeByFourIds;
 
 		_menuContext->setMaxPoints(_pairCount);
-		if (_menuContext->getCurrentLevel() >= 13 && _menuContext->getCurrentLevel() <= 14)
+		if (_menuContext->getCurrentLevel() >= 13 && _menuContext->getCurrentLevel() <= 14) {
 			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
+			_hint = LangUtil::getInstance()->translateString("Match the opposites");
+		}
 
-		if (_menuContext->getCurrentLevel() >= 15 && _menuContext->getCurrentLevel() <= 16)
+		if (_menuContext->getCurrentLevel() >= 15 && _menuContext->getCurrentLevel() <= 16) {
 			_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
+			_hint = LangUtil::getInstance()->translateString("Match the same meaning words");
+		}
 
-		if (_menuContext->getCurrentLevel() >= 17 && _menuContext->getCurrentLevel() <= 18)
+		if (_menuContext->getCurrentLevel() >= 17 && _menuContext->getCurrentLevel() <= 18) {
 			_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
+			_hint = LangUtil::getInstance()->translateString("Match the same sounding words");
+		}
 	}
 
 	if (_menuContext->getCurrentLevel() <= 24 && _menuContext->getCurrentLevel() > 18) {
@@ -144,14 +162,20 @@ void Memory::onEnterTransitionDidFinish() {
 
 		_menuContext->setMaxPoints(_pairCount);
 
-		if (_menuContext->getCurrentLevel() >= 19 && _menuContext->getCurrentLevel() <= 20)
+		if (_menuContext->getCurrentLevel() >= 19 && _menuContext->getCurrentLevel() <= 20) {
 			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
+			_hint = LangUtil::getInstance()->translateString("Match the opposites");
+		}
 
-		if (_menuContext->getCurrentLevel() >= 21 && _menuContext->getCurrentLevel() <= 22)
+		if (_menuContext->getCurrentLevel() >= 21 && _menuContext->getCurrentLevel() <= 22) {
 			_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
+			_hint = LangUtil::getInstance()->translateString("Match the same meaning words");
+		}
 
-		if (_menuContext->getCurrentLevel() >= 23 && _menuContext->getCurrentLevel() <= 24)
+		if (_menuContext->getCurrentLevel() >= 23 && _menuContext->getCurrentLevel() <= 24) {
 			_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
+			_hint = LangUtil::getInstance()->translateString("Match the same sounding words");
+		}
 	}
 
 	if (_menuContext->getCurrentLevel() <= 30 && _menuContext->getCurrentLevel() > 24) {
@@ -161,14 +185,20 @@ void Memory::onEnterTransitionDidFinish() {
 		_finalGridIds = _gridFourByFiveIds;
 		_menuContext->setMaxPoints(_pairCount);
 
-		if (_menuContext->getCurrentLevel() >= 25 && _menuContext->getCurrentLevel() <= 26)
+		if (_menuContext->getCurrentLevel() >= 25 && _menuContext->getCurrentLevel() <= 26) {
 			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
+			_hint = LangUtil::getInstance()->translateString("Match the opposites");
+		}
 
-		if (_menuContext->getCurrentLevel() >= 27 && _menuContext->getCurrentLevel() <= 28)
+		if (_menuContext->getCurrentLevel() >= 27 && _menuContext->getCurrentLevel() <= 28) {
 			_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
+			_hint = LangUtil::getInstance()->translateString("Match the same meaning words");
+		}
 
-		if (_menuContext->getCurrentLevel() >= 29 && _menuContext->getCurrentLevel() <= 30)
+		if (_menuContext->getCurrentLevel() >= 29 && _menuContext->getCurrentLevel() <= 30) {
 			_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
+			_hint = LangUtil::getInstance()->translateString("Match the same sounding words");
+		}
 	}
 
 	if (_menuContext->getCurrentLevel() <= 36 && _menuContext->getCurrentLevel() > 30) {
@@ -179,16 +209,22 @@ void Memory::onEnterTransitionDidFinish() {
 
 		_menuContext->setMaxPoints(_pairCount);
 
-		if (_menuContext->getCurrentLevel() >= 31 && _menuContext->getCurrentLevel() <= 32)
+		if (_menuContext->getCurrentLevel() >= 31 && _menuContext->getCurrentLevel() <= 32) {
 			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
+			_hint = LangUtil::getInstance()->translateString("Match the opposites");
+		}
 
-		if (_menuContext->getCurrentLevel() >= 33 && _menuContext->getCurrentLevel() <= 34)
+		if (_menuContext->getCurrentLevel() >= 33 && _menuContext->getCurrentLevel() <= 34) {
 			_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
+			_hint = LangUtil::getInstance()->translateString("Match the same meaning words");
+		}
 
-		if (_menuContext->getCurrentLevel() >= 35 && _menuContext->getCurrentLevel() <= 36)
+		if (_menuContext->getCurrentLevel() >= 35 && _menuContext->getCurrentLevel() <= 36) {
 			_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
+			_hint = LangUtil::getInstance()->translateString("Match the same sounding words");
+		}
 	}
-
+	
 
 	//_menuContext->setCurrentLevel(_menuContext->getCurrentLevel() + 1);
 	Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -259,14 +295,17 @@ void Memory::onEnterTransitionDidFinish() {
 			j++;
 		}
 
+		auto nestWidth = _memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("nestfront")->getContentSize().width;
+
+		auto nestHeight = _memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("nestfront")->getContentSize().height;
 
 
 		auto label = ui::Text::create();
 		label->setString(labelName);
 		label->setFontSize(100);
 		label->setFontName("fonts/Marker Felt.ttf");
-		label->setPosition(Vec2(30, 20));
-		label->setAnchorPoint(Vec2(0, 0));
+		label->setPosition(Vec2(nestWidth * 0.47, nestHeight * 0.48));
+		label->setAnchorPoint(Vec2(0.5, 0.5));
 		label->setTextColor(Color4B::BLUE);
 		label->setName(labelName);
 
@@ -275,7 +314,7 @@ void Memory::onEnterTransitionDidFinish() {
 
 		//_memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("egg")->setVisible(true);
 
-		_memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("egg")->setPositionY(105);
+		_memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("egg")->setPositionY(visibleSize.height * 0.05);
 
 
 		label->setVisible(false);
@@ -310,6 +349,23 @@ void Memory::onEnterTransitionDidFinish() {
 	_counter = 0;
 	_helpflag = 0;
 
+	addGrid(visibleSize.width/2, visibleSize.height * 0.10, visibleSize.width / 2, visibleSize.height * 0.95);
+
+	cocos2d::ui::Text * _label;
+
+	//_hint = "Catch the antonyms";
+	_label = ui::Text::create();
+	_label->setFontName("fonts/BalooBhai-Regular.ttf");
+	_label->setString(_hint);
+	_label->setFontSize(70);
+
+	_label->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * 0.95));
+	_label->setAnchorPoint(Vec2(0.5, 0.5));
+	_label->setName("label");
+	_label->setTextColor(Color4B::BLUE);
+	_label->setColor(Color3B::BLACK);
+
+	this->addChild(_label, 20);
 
 
 }
@@ -448,7 +504,43 @@ bool Memory::onTouchBegan(Touch* touch, Event* event) {
 			auto finishcallfunc = CallFunc::create([=] {
 				
 				if (_level == _pairCount) {
-					_menuContext->showScore();
+
+					auto createMatchLayer = CallFunc::create([=] {
+					
+						addGrid(visibleSize.width/2, visibleSize.height, visibleSize.width / 2, visibleSize.height / 2);
+						auto heightpercent = 0.90;
+						for(auto& x : _data) {
+							cocos2d::ui::Text * _label;
+
+							
+							_label = ui::Text::create();
+							_label->setFontName("fonts/BalooBhai-Regular.ttf");
+
+							auto first = x.first;
+							auto second = x.second;
+
+							_label->setString(x.first + " ------- " + x.second);
+							_label->setFontSize(60);
+
+							_label->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * heightpercent));
+							_label->setAnchorPoint(Vec2(0.5, 0.5));
+							_label->setName("label");
+							_label->setTextColor(Color4B::BLACK);
+							_label->setColor(Color3B::BLACK);
+
+							this->addChild(_label, 20);
+							heightpercent -= 0.05;
+					}
+
+					});
+
+					auto showScore = CallFunc::create([=] {
+						_menuContext->showScore();
+					});
+
+					auto completeSequence = Sequence::create(createMatchLayer, DelayTime::create(5.0), showScore, NULL);
+
+					this->runAction(completeSequence);
 				}
 			});
 
@@ -756,5 +848,20 @@ void Memory::generateGrid(std::vector<int> grid) {
 		}
 		
 	}
+
+}
+
+
+
+
+void Memory::addGrid(float sizex, float sizey, float posx, float posy) {
+
+	auto gridPanel = Sprite::create();
+	gridPanel->setTextureRect(Rect(0, 0, sizex, sizey));
+	gridPanel->setColor(Color3B::WHITE);
+	gridPanel->setPosition(Vec2(posx, posy));
+	gridPanel->setOpacity(60);
+	gridPanel->setName("gridpanel");
+	addChild(gridPanel, 1);
 
 }

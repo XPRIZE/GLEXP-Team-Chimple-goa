@@ -19,8 +19,8 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
     var targetSize = target.getContentSize();
     var targetRectangle = cc.rect(0,0, target.width, target.height);
 
-     if (cc.rectContainsPoint(targetRectangle, location) && _enableFlag){
-         _enableFlag =false;
+     if (cc.rectContainsPoint(targetRectangle, location) && target._enableFlag){
+         target._enableFlag =false;
          return true;}
       
      return false;
@@ -42,7 +42,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
             var x = transparentSprite.getPosition().x;
             var y = transparentSprite.getPosition().y;
             target.setPosition(x, y);
-             _enableFlag =true;
+             target._enableFlag =true;
             this.audioEngine = cc.audioEngine;
             this.audioEngine.playEffect(xc.sortitlevel1Layer.res.comedyBubble_mp3);
 
@@ -84,7 +84,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                      that.getParent().menuContext.addPoints(-1);
                      var toy = cc.MoveTo.create(2,cc.p(target.xP,target.yP));
         target.runAction(new cc.Sequence( toy, new cc.CallFunc(function(){ 
-                    _enableFlag = true; }, this)));this.audioEngine = cc.audioEngine;
+                    target._enableFlag = true; }, this)));this.audioEngine = cc.audioEngine;
             this.audioEngine.playEffect(xc.sortitlevel1Layer.res.failure_mp3);
 return true;}
 

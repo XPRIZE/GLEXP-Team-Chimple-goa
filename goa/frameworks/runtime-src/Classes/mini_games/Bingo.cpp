@@ -524,6 +524,8 @@ void Bingo::addEvents(Sprite* clickedObject)
 					target->setTag(1);
 					setWordInHelpBoard();
 					_menuContext->addPoints(1);
+					auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+					audio->playEffect("sounds/sfx/success.ogg", false);
 
 					auto targetName = target->getName();
 					for (int i = 0; i < _boxContainer.size(); i++)
@@ -552,6 +554,8 @@ void Bingo::addEvents(Sprite* clickedObject)
 					FShake* shake = FShake::actionWithDuration(0.5f, 5.0f);
 					target->runAction(shake);
 					_menuContext->addPoints(-1);
+					auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+					audio->playEffect("sounds/sfx/error.ogg", false);
 				}
 				if (_menuContext->getCurrentLevel() == 1 && _isHelpDone == 0)
 				{

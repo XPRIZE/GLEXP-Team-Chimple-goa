@@ -125,7 +125,7 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 		{
 			cannon1 = 0, cannon2 = 0, cannon3 = 0;
 //			target->setScale(2, 2);
-			target->setZOrder(2);
+			target->setZOrder(4);
 			for (int i = 0; i < callerObject->cannonArray.size(); i++)
 			{
 				if (callerObject->cannonArray[i]->cannonID == 0)
@@ -156,14 +156,21 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 	{
 		EventListenerClass* target = static_cast<EventListenerClass*>(event->getCurrentTarget());
 		target->setPosition(target->getPosition() + touch->getDelta());
-
+		target->setZOrder(2);
 		Rect targetRect = target->getBoundingBox();
 
 		Rect targetRect1 = Rect(cannon1Target->getPositionX() - cannon1Target->getBoundingBox().size.width / 2, cannon1Target->getPositionY() - cannon1Target->getContentSize().height / 2, cannon1Target->getBoundingBox().size.width, cannon1Target->getBoundingBox().size.height);
 		Rect targetRect2 = Rect(cannon2Target->getPositionX() - cannon2Target->getBoundingBox().size.width / 2, cannon2Target->getPositionY() - cannon2Target->getContentSize().height / 2, cannon2Target->getBoundingBox().size.width, cannon2Target->getBoundingBox().size.height);
 		Rect targetRect3 = Rect(cannon3Target->getPositionX() - cannon3Target->getBoundingBox().size.width / 2, cannon3Target->getPositionY() - cannon3Target->getContentSize().height / 2, cannon3Target->getBoundingBox().size.width, cannon3Target->getBoundingBox().size.height);
 
-		if (cannon1 == 1 && targetRect1.intersectsRect(target->getBoundingBox()) && cannon1Target->flag == 0)
+		if (!(targetRect2.intersectsRect(target->getBoundingBox())) && MainGame::_helpFlag == 1)
+		{
+			auto target = static_cast<EventListenerClass*>(event->getCurrentTarget());
+			target->runAction(MoveTo::create(.2, Vec2(target->xP, target->yP)));
+			//			target->setScale(1, 1);
+			target->setZOrder(1);
+		}
+		else if (cannon1 == 1 && targetRect1.intersectsRect(target->getBoundingBox()) && cannon1Target->flag == 0)
 		{
 			target->placedNumber = 0;
 

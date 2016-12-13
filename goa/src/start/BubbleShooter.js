@@ -1,3 +1,3 @@
 var xc = xc || {};
 
-xc.GameScene.load(xc.BubbleGame_HomeScreenMenu);
+xc.GameScene.load(xc.bubbleShooterLevelInfo);

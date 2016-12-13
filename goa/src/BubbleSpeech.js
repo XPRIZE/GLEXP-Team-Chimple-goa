@@ -1,16 +1,16 @@
 var xc = xc || {};
 xc.BubbleSpeech = cc.Layer.extend({
-    ctor: function (jsonNode, width, height, position, existingText, callback, audiocallback, callbackContext) {
+    ctor: function (jsonNode, width, height, position, existingText, callback, audiocallback, callbackContext, fontSize, enableOutline) {
         this._super(width, height);
         this.callback = callback;
         this.audiocallback = audiocallback;
         this._callbackContext = callbackContext;
         this._text = existingText;
         this._nodeJSON = jsonNode;
-
+        this._fontSize = fontSize;
         this._constructedScene = ccs.load(this._nodeJSON,xc.path);
         this._constructedScene.node.retain();
-        
+        this._enableOutline = enableOutline;
         if (this._constructedScene.node) {
             this.addChild(this._constructedScene.node,0);
         }                        
@@ -23,30 +23,92 @@ xc.BubbleSpeech = cc.Layer.extend({
         closeButton.setTitleText("");
         closeButton.addTouchEventListener(this.close, this);
 
-        var soundButton = this._constructedScene.node.getChildByName("Button_2");
+        var soundButton = this._constructedScene.node.getChildByName("sound");
         soundButton.setTitleText("");
-        soundButton.addTouchEventListener(this.audiocallback, this._callbackContext);
+        var autoSoundEnabled = cc.sys.localStorage.getItem("autoSoundEnabled");
+        if(autoSoundEnabled == "true") {
+            soundButton.setHighlighted(true);
+            this.audiocallback.call(this._callbackContext, true);
+        } else {
+            soundButton.setHighlighted(false);
+        }
+        soundButton.addTouchEventListener(this.toggleButton, this);
         
-        var textContentMargin = 10; 
-
-        this._textField = new ccui.TextField();
-        this._textField.setFontName(xc.storyFontName)
+        this._textField = this._constructedScene.node.getChildByName("TextField_2");
+        this._textField.setFontName(xc.storyFontName);
         this._textField.setTextColor(xc.storyFontColor);
-        this._textField.setFontSize(xc.storyFontSize);
+        if(this._fontSize > 0) {
+            this._textField.setFontSize(this._fontSize);    
+        } else {
+            this._textField.setFontSize(xc.storyFontSize);
+        }
+        
         this._textField.setAnchorPoint(0.5, 0.5);
-        this._textField.setPosition(cc.director.getWinSize().width / 2 - 2 * textContentMargin + textContentMargin, cc.director.getWinSize().height/2 - 2 * textContentMargin);
-        this._textField.setMaxLengthEnabled(true);
-        this._textField.setMaxLength(2500);
+        this._textField.setPlaceHolder("");
         this._textField.ignoreContentAdaptWithSize(false);
-        this._textField.setPlaceHolderColor(cc.color.BLUE);
         this._textField.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_LEFT);
         this._textField.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
-        this._textField.setContentSize(cc.size(cc.director.getWinSize().width  * 0.6 , cc.director.getWinSize().height * 0.75));
-        if (this._text) {
+        if (!this._enableOutline && this._text) {
             this._textField.setString(this._text);
         }
         this._textField.setTouchEnabled(false);
-        this.addChild(this._textField, 0);
+
+        if(this._enableOutline) {
+            this._label = new ccui.Text(this._text, "Arial", 100);
+            if(this._fontSize > 0) {
+                this._label.setFontSize(this._fontSize);    
+            } else {
+                this._label.setFontSize(xc.storyFontSize);
+            }        
+            this._label.enableOutline(cc.color.RED, 10);
+            this._label.color = cc.color.WHITE;
+            this._label.setPosition(this._textField.getPosition());
+            this.addChild(this._label);
+        }
+
+    },
+
+    configAutoSound: function() {
+        var autoSoundEnabled = cc.sys.localStorage.getItem("autoSoundEnabled");
+        if(autoSoundEnabled == "true") {            
+            autoSoundEnabled = "false";
+        } else {
+            autoSoundEnabled = "true";
+        }
+        cc.sys.localStorage.setItem("autoSoundEnabled", autoSoundEnabled);
+    },
+
+    toggleButton: function(sender, type) {
+        switch (type) {
+            case ccui.Widget.TOUCH_ENDED:  
+                //replace Button
+                var soundButton = this._constructedScene.node.getChildByName("sound");
+                soundButton.setVisible(false);
+
+                if(this._item) {
+                    this._item.removeFromParent();
+
+                }
+                //toggle value
+                this.configAutoSound();
+
+                var autoEnabled = cc.sys.localStorage.getItem("autoSoundEnabled") == "true"? true : false;
+                if(autoEnabled) {
+                    this._item = new ccui.Button('template/click_sound_button.png', 'template/sound_button.png', null, ccui.Widget.PLIST_TEXTURE);
+                    this._item.setPosition(soundButton.getPosition());
+                    this._item.addTouchEventListener(this.toggleButton, this);
+                    this.audiocallback.call(this._callbackContext, true);                                    
+                } else {
+                    this._item = new ccui.Button('template/sound_button.png', 'template/sound_button.png', null, ccui.Widget.PLIST_TEXTURE);
+                    this._item.setPosition(soundButton.getPosition());
+                    this._item.addTouchEventListener(this.toggleButton, this);
+                    this.audiocallback.call(this._callbackContext, false);
+                }
+                
+                this._constructedScene.node.addChild(this._item);
+                this._textField.setTextColor(xc.storyFontColor);                    
+                break;
+        }        
     },
 
 

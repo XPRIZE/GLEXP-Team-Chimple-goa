@@ -907,6 +907,8 @@ void MenuContext::launchGameFinally(std::string gameName) {
     		}
 			
 			
+			
+			
     	}
 		else if (gameName == BALLONHERO) {
 			Director::getInstance()->replaceScene(BalloonHero::createScene());
@@ -1015,26 +1017,47 @@ void MenuContext::showScore() {
     std::string progressStr;
     localStorageGetItem(gameName + LEVEL, &progressStr);
 
-    rapidjson::Document d;
-    rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
-    if(progressStr.empty()) {
-        d.SetArray();
-        int x = d.Size();
-        d.PushBack(0, allocator);
-        int y = d.Size();
+    std::size_t found = gameName.find("storyId");
+    if (found!=std::string::npos)
+    {
+        rapidjson::Document d;
+        rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
+        if (false == d.Parse<0>(progressStr.c_str()).HasParseError()) {
+            // document is ok
+            rapidjson::Document document;
+            document.SetObject();
+            printf("locked = %d\n", d["locked"].GetBool());
+            document.AddMember("locked", d["locked"].GetBool(), allocator);
+            document.AddMember("star", stars, allocator);
+            rapidjson::StringBuffer buffer;
+            rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+            document.Accept(writer);
+            const char* output = buffer.GetString();
+            localStorageSetItem(gameName + LEVEL, output);
+        }
     } else {
-        d.Parse(progressStr.c_str());
+        rapidjson::Document d;
+        rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
+        if(progressStr.empty()) {
+            d.SetArray();
+            int x = d.Size();
+            d.PushBack(0, allocator);
+            int y = d.Size();
+        } else {
+            d.Parse(progressStr.c_str());
+        }
+        while(d.Size() <= _currentLevel) {
+            d.PushBack(0, allocator);
+        }
+        int currentStar = d[_currentLevel].GetInt();
+        d[_currentLevel] = MAX(currentStar, stars);
+        rapidjson::StringBuffer buffer;
+        rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+        d.Accept(writer);
+        const char* output = buffer.GetString();
+        localStorageSetItem(gameName + LEVEL, output);
     }
-    while(d.Size() <= _currentLevel) {
-        d.PushBack(0, allocator);
-    }
-    int currentStar = d[_currentLevel].GetInt();
-    d[_currentLevel] = MAX(currentStar, stars);
-    rapidjson::StringBuffer buffer;
-    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
-    d.Accept(writer);
-    const char* output = buffer.GetString();
-    localStorageSetItem(gameName + LEVEL, output);
+    
 
     if(FileUtils::getInstance()->isFileExist("scoreboard/" + gameName + "_success.plist")) {
         _ps = CCParticleSystemQuad::create("scoreboard/" + gameName + "_success.plist");

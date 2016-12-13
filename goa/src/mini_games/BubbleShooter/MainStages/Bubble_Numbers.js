@@ -9,7 +9,7 @@ xc.Bubble_Number = cc.Layer.extend({
     this.negativePoints = 0;
     imageSprite = ['bubble_shooter/red_ball','bubble_shooter/green_ball','bubble_shooter/yellow_ball','bubble_shooter/purple_ball','bubble_shooter/blue_ball','bubble_shooter/orange_ball',"bubble_shooter/yellow_ball","bubble_shooter/blue_ball"];
 
-   var ScreenMenu = ccs.load(xc.BubbleGame_HomeScreenMenu.res.bubbleShooter_gameMenu_json,xc.path);
+   var ScreenMenu = ccs.load(xc.bubbleShooterLevelInfo.res.bubble_shooter_json,xc.path);
    this.addChild(ScreenMenu.node);
    var xPosi ;
     // if (cc.director.getWinSize().width > 2560){
@@ -58,7 +58,7 @@ xc.Bubble_Number = cc.Layer.extend({
         this.setGameState(this.gamestates.ready);
         
     
-        if(levelValues ==  1){        
+        if(bubblelevelValues ==  1){        
            levelName = "NumberStarLevel1";            
            letterSprite = ['0','1','2','3','4'];
             let color = 5 , repeat = 3;
@@ -66,7 +66,7 @@ xc.Bubble_Number = cc.Layer.extend({
            // Create the level of bubbles
            this.createLevel(color,repeat);
         
-        }else if(levelValues ==  2){
+        }else if(bubblelevelValues ==  2){
            levelName = "NumberStarLevel2";
            letterSprite = ['5','6','7','8','9'];
             let color = 5 , repeat = 3;
@@ -74,7 +74,7 @@ xc.Bubble_Number = cc.Layer.extend({
             // Create the level of bubbles
            this.createLevel(color,repeat);
         
-        }else if(levelValues ==  3){
+        }else if(bubblelevelValues ==  3){
            levelName = "NumberStarLevel3"; 
             let color = 4 , repeat = 5;
             let numbers = this.rndNumber(color);
@@ -85,7 +85,7 @@ xc.Bubble_Number = cc.Layer.extend({
             // Create the level of bubbles
            this.createLevel(color,repeat);
             
-        }else if(levelValues ==  4){
+        }else if(bubblelevelValues ==  4){
            levelName = "NumberStarLevel4";         
             let color = 4 , repeat = 4;
             let numbers = this.rndNumber(color);
@@ -96,7 +96,7 @@ xc.Bubble_Number = cc.Layer.extend({
             // Create the level of bubbles
            this.createLevel(color,repeat);
         
-        }else if(levelValues ==  5){
+        }else if(bubblelevelValues ==  5){
            levelName = "NumberStarLevel5";        
             let color = 4 , repeat = 3;
             let numbers = this.rndNumber(color);
@@ -107,7 +107,7 @@ xc.Bubble_Number = cc.Layer.extend({
             // Create the level of bubbles
            this.createLevel(color,repeat);
         
-        }else if(levelValues ==  6){
+        }else if(bubblelevelValues ==  6){
            levelName = "NumberStarLevel6";            
             let color = 4 , repeat = 2;
             let numbers = this.rndNumber(color);
@@ -118,7 +118,7 @@ xc.Bubble_Number = cc.Layer.extend({
             // Create the level of bubbles
            this.createLevel(color,repeat);
         
-        }else if(levelValues ==  7){
+        }else if(bubblelevelValues ==  7){
            levelName = "NumberStarLevel7"; 
             let color = 5 , repeat = 2;
             let numbers = this.rndNumber(color);
@@ -129,7 +129,7 @@ xc.Bubble_Number = cc.Layer.extend({
             // Create the level of bubbles
            this.createLevel(color,repeat);
             
-        }else if(levelValues ==  8){
+        }else if(bubblelevelValues ==  8){
            levelName = "NumberStarLevel8";            
             let color = 6 , repeat = 1;
             let numbers = this.rndNumber(color);
@@ -142,13 +142,30 @@ xc.Bubble_Number = cc.Layer.extend({
         
             
         }else{
-            console.log("level management error  - The value if level is : "+levelValues );
+            console.log("level management error  - The value if level is : "+bubblelevelValues );
         }
        
+        var trnspImg = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/pixel.png"));
+        trnspImg.setAnchorPoint(0,0);        trnspImg.setPosition(0,0);       trnspImg.setOpacity(0);
+        ScreenMenu.node.getChildByName("Panel_2").addChild(trnspImg);
+       
+         
+        // Set the gun Pointer
+        this.gun = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/gun_tricker.png"));
+        this.gun.setPosition(trnspImg.width/2, cc.director.getWinSize().height *0.090);
+        this.gun.name ="gunPointer";
+        this.gun.anchorY = 0.6;
+        this.addChild(this.gun);
+
+        //Set the gun Base
+        this.gunBase =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/gun.png"));
+        this.gunBase.setPosition(trnspImg.width/2 , cc.director.getWinSize().height * 0.0575);
+        this.addChild(this.gunBase);  
+
         // Init the this.player in gun 
-        this.player.x = this.level.x + this.level.width/2 - this.level.tilewidth/2 ;
+        this.player.x = this.gunBase.x ;
         //console.log("this.player.x = "+(this.level.x + this.level.width/2 - this.level.tilewidth/2) + "  this.level.x : "+this.level.x+" this.level.width/2 : "+this.level.width/2+" this.level.tilewidth/2 : "+this.level.tilewidth/2);
-        this.player.y = this.level.y + this.level.height ;
+        this.player.y = cc.director.getWinSize().height - this.gunBase.y ;
         
         this.player.angle = 90;
         this.player.tiletype = 0;
@@ -211,9 +228,6 @@ xc.Bubble_Number = cc.Layer.extend({
               }
       });
       
-      var trnspImg = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/pixel.png"));
-      trnspImg.setAnchorPoint(0,0);        trnspImg.setPosition(0,0);       trnspImg.setOpacity(0);
-      ScreenMenu.node.getChildByName("Panel_2").addChild(trnspImg);
       cc.eventManager.addListener(listnerBg,trnspImg);
       
       if (cc.director.getWinSize().width > 2560){
@@ -226,19 +240,7 @@ xc.Bubble_Number = cc.Layer.extend({
          }
       }
   
-        // Set the gun Pointer
-        this.gun = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/gun_tricker.png"));
-        this.gun.setPosition(trnspImg.width/2, cc.director.getWinSize().height *0.090);
-        this.gun.name ="gunPointer";
-        this.gun.anchorY = 0.6;
-        this.addChild(this.gun);
-
-        //Set the gun Base
-        this.gunBase =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/gun.png"));
-        this.gunBase.setPosition(trnspImg.width/2 , cc.director.getWinSize().height * 0.0575);
-        this.addChild(this.gunBase);  
-  
-       if(levelValues == 1){
+       if(bubblelevelValues == 1){
             var window = cc.director.getWinSize();
             var help = new xc.HelpLayer(cc.rect((window.width - (cc.director.getWinSize().width - 2560)) * 0.5 , window.height *0.75 , window.width - (cc.director.getWinSize().width - 2560),window.height *0.5), cc.rect(this.gunBase.x, this.gunBase.y,this.bubblePlayer.width,this.bubblePlayer.height))
             this.addChild(help,4)
@@ -436,10 +438,10 @@ xc.Bubble_Number = cc.Layer.extend({
               this.mainPlayerBubbleDestroy = false;
           }
           
-            this.bubblePlayer.setPosition(this.player.bubble.x, (cc.director.getWinSize().height) - this.player.bubble.y-100);
+            this.bubblePlayer.setPosition(this.player.bubble.x, (cc.director.getWinSize().height) - this.player.bubble.y);
             this.letterPlayer.setPosition(this.bubblePlayer.getContentSize().width/2,this.bubblePlayer.getContentSize().height/2);
-            this.bubblePlayer.anchorX=0.0;
-            this.bubblePlayer.anchorY=0.0;
+            this.bubblePlayer.anchorX=0.5;
+            this.bubblePlayer.anchorY=0.5;
 
     },
        
@@ -690,12 +692,16 @@ xc.Bubble_Number = cc.Layer.extend({
                          
 //                           cc.audioEngine.playEffect("res/english/sounds/"+this.LetterName[tile.x][tile.y].name.toLowerCase()+".wav");
 
-                           setTimeout(function() {
-                                self.playerDie(tile.x,tile.y,tempColorType);
+                           var playerDieCallFunc = function()
+                            {
+                              //  self.playerDie(tile.x,tile.y,tempColorType);
                                 // self.bubbleName[tile.x][tile.y].alpha = 0;
                                 self.finalFlag = true;
+                                self.removeChild(self.bubbleName[tile.x][tile.y]);
+                               // cc.audioEngine.playEffect("res/english/sounds/"+self.LetterName[tile.x][tile.y].name.toLowerCase()+".wav");
                                 // renderPlayer();
-                           }, 1600);
+                            }
+                            this.runAction(new cc.Sequence(cc.delayTime(1.6),new cc.CallFunc(playerDieCallFunc, this)));  
                               
                                // Next bubble
                                this.nextBubble();  
@@ -737,9 +743,11 @@ xc.Bubble_Number = cc.Layer.extend({
                             tile.shift = 0;
                             tile.alpha = 1;
                             
-                             setTimeout(function() {
-                                self.playerDie(tile.x,tile.y,7);
-                             }, 150);      
+                              var playerDieFunc = function()
+                            {
+                                 self.playerDie(tile.x,tile.y,7);
+                            }
+                            this.runAction(new cc.Sequence(cc.delayTime(0.15),new cc.CallFunc(playerDieFunc, this))); 
                         }
                     }
                 }
@@ -799,14 +807,14 @@ xc.Bubble_Number = cc.Layer.extend({
     
    DataCard : function (gamestatus){
        console.log("gamestatus : "+gamestatus + " -------------- ");
-       var level = levelValues;
+       var level = bubblelevelValues;
     if (cc.sys.isNative) {
                menuContext.setMaxPoints(this.counterhits);
                 menuContext.addPoints(this.counterhits - this.negativePoints);
                cc.log("showscore");
                menuContext.showScore();
      }else{
-         xc.GameScene.load(xc.BubbleGame_HomeScreenMenu);
+         xc.GameScene.load(xc.bubbleShooterLevelInfo);
      }  
     },
     
@@ -1185,8 +1193,8 @@ xc.Bubble_Number = cc.Layer.extend({
             return;
   
      this.nextLetterPlayer = new cc.LabelTTF(""+letterSprite[this.player.nextbubble.tiletype],"res/fonts/Marker Felt.ttf",120);
-     this.nextLetterPlayer.setPosition(this.nextLetterPlayer.getContentSize().width/2,this.nextLetterPlayer.getContentSize().height/2);
-     this.nextLetterPlayer.setAnchorPoint(-0.2,0.4);
+     this.nextLetterPlayer.setPosition(this.nextBubblePlayer.getContentSize().width/2,this.nextBubblePlayer.getContentSize().height/2);
+     this.nextLetterPlayer.setAnchorPoint(0.5,0.5);
      this.nextBubblePlayer.addChild(this.nextLetterPlayer);
     },
 
@@ -1306,8 +1314,6 @@ xc.Bubble_Number = cc.Layer.extend({
         this.finalFlag = false;
         this.killBubble = false;
 
-        
-      
         if(xPosi == undefined){ xPosi = 0; }      
       
         // Level
@@ -1320,8 +1326,8 @@ xc.Bubble_Number = cc.Layer.extend({
             rows: 9,  // Number of tile rows
             tilewidth: bubbleSizeReference.width,  // Visual width of a tile
             tileheight: bubbleSizeReference.height, // Visual height of a tile
-            rowheight: bubbleSizeReference.height * 0.8421,  // Height of a row
-            radius: bubbleSizeReference.width * 0.460526,     // Bubble collision radius
+            rowheight: bubbleSizeReference.height * 0.85,  // Height of a row
+            radius: bubbleSizeReference.width * 0.5,     // Bubble collision radius
             tiles: []       // The two-dimensional tile array
         };
 

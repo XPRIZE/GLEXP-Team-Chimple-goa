@@ -8,22 +8,22 @@ xc.sortitlevelLayer = cc.Layer.extend({
         var level = this.getParent().menuContext.getCurrentLevel();
         if(level == 1) {
             this.getParent().menuContext.setMaxPoints(6);
-            xc.GameScene.load(xc.sortitlevel1Layer);
+            xc.GameScene.load(xc.sortitlevel1Layer,"sortit",level);
         } else if(level == 2) {
             this.getParent().menuContext.setMaxPoints(5);
-            xc.GameScene.load(xc.sortitlevel2Layer);
+            xc.GameScene.load(xc.sortitlevel2Layer,"sortit",level);
         } else if(level == 3) {
             this.getParent().menuContext.setMaxPoints(6);
-            xc.GameScene.load(xc.sortitlevel3Layer);
+            xc.GameScene.load(xc.sortitlevel3Layer,"sortit",level);
         } else if(level == 4) {
             this.getParent().menuContext.setMaxPoints(5);
-            xc.GameScene.load(xc.sortitlevel4Layer);
+            xc.GameScene.load(xc.sortitlevel4Layer,"sortit",level);
         } else if(level == 5) {
             this.getParent().menuContext.setMaxPoints(5);
-            xc.GameScene.load(xc.sortitlevel5Layer);
+            xc.GameScene.load(xc.sortitlevel5Layer,"sortit",level);
         } else if(level == 6) {
             this.getParent().menuContext.setMaxPoints(5);
-            xc.GameScene.load(xc.sortitlevel6Layer);
+            xc.GameScene.load(xc.sortitlevel6Layer,"sortit",level);
         }        
     }
 })
@@ -52,7 +52,7 @@ xc.sortitlevel1Layer = cc.Layer.extend({
                 if (self.counterLevel1 == 7) {
               
                     
-                    xc.GameScene.load(xc.sortitlevel2Layer);
+                   // xc.GameScene.load(xc.sortitlevel2Layer);
 
                 }
                  

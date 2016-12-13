@@ -6,11 +6,13 @@ xc.WordQuestionHandler = cc.Layer.extend({
     _baseDir: "",
     _totalPoints: 0,
     _currentPoint: 0,
-    ctor: function (width, height, question, baseDir, totalPoints, currentPoint) {
+    _storyId: null,
+    ctor: function (storyId, width, height, question, baseDir, totalPoints, currentPoint) {
         this._super(width, height);
         this._width = width;
         this._height = height;
         this._question = question;
+        this._storyId = storyId;
         this._baseDir = baseDir;
         this._totalPoints = totalPoints;
         this._currentPoint = currentPoint;
@@ -26,7 +28,7 @@ xc.WordQuestionHandler = cc.Layer.extend({
 
         cc.log("totalPoints in WordQuestionHandler %d", this._totalPoints);
         cc.log("currentPoint in WordQuestionHandler %d", this._currentPoint);
-        var board = goa.StoryWordBoard.createSceneWithWords(array, 0, this._baseDir, this._totalPoints, this._currentPoint);
+        var board = goa.StoryWordBoard.createSceneWithWords(this._storyId, array, 0, this._baseDir, this._totalPoints, this._currentPoint);
         this.addChild(board,0);
     }
 });

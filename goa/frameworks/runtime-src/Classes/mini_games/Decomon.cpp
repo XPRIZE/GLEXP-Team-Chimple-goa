@@ -748,7 +748,7 @@ void Decomon::wordGenerate()
 		auto blink = Blink::create(2, 5);
 		myLabel->runAction(blink);
 	}
-	this->scheduleOnce(schedule_selector(Decomon::gameEnd), 2);
+	this->scheduleOnce(schedule_selector(Decomon::gameEnd), 4);
 }
 
 void Decomon::gameEnd(float dt)

@@ -1,0 +1,122 @@
+{
+  "ID": "c3cf3dad-d91e-4faf-bf29-b41d12584323",
+  "Version": "3.10.0.0",
+  "Name": "loading_screen",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 46,
+        "Children": [
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -267.4564,
+              "Y": -0.6037
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1045,
+              "Y": -0.0003
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -267.4564,
+            "RightMargin": -272.5435,
+            "TopMargin": 0.6036,
+            "BottomMargin": -0.6037,
+            "Tag": 123,
+            "ActionTag": 1552430172,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "template/loading_button.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1282.35,
+              "Y": 833.581
+            },
+            "Scale": {
+              "ScaleX": 1.8014,
+              "ScaleY": 1.8014
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5009,
+              "Y": 0.4631
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1282.35,
+            "RightMargin": 1277.65,
+            "TopMargin": 966.419,
+            "BottomMargin": 833.581,
+            "Tag": 124,
+            "ActionTag": -1808970503,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "monkey",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "loading_button.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

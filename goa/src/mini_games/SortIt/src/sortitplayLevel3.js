@@ -29,7 +29,7 @@ xc.sortitlevel3Layer = cc.Layer.extend({
                  
                     
                    xc.GameScene.load(xc.sortitlevel4Layer);
-                    
+                 //   
                 }
                   
                 return true;

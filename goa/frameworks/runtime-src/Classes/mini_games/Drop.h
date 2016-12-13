@@ -10,6 +10,7 @@
 #include "../menu/HelpLayer.h"
 
 using namespace cocos2d;
+using namespace std;
 
 
 class Drop : public cocos2d::Layer
@@ -37,9 +38,10 @@ protected:
 	int _dropHelpSelector = 0;
 	Sprite* _basketImg;
 	HelpLayer* _help;
-	int _middleBasketIndex = NULL;
-	bool _helpFlag = false, _initObj = true;
+	int _middleBasketIndex = NULL, _index =0, _pointCounter = 0;
+	bool _helpFlag = false, _initObj = true, _flagForIndex= true;
 	float _gapBetweenTwoBasket;
+	string _levelOneString;
 
 public:
 	~Drop();

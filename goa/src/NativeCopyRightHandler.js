@@ -61,13 +61,13 @@ xc.NativeCopyRightHandlerLayer = cc.Layer.extend({
 xc.NativeCopyRightHandlerScene = cc.Scene.extend({
     layerClass: null,
     _menuContext: null,
-    ctor: function (nodeJSON, copyrightText, storyBaseDir, layer, totalPoints, currentPoints) {
+    ctor: function (storyId, nodeJSON, copyrightText, storyBaseDir, layer, totalPoints, currentPoints) {
         this._super();
         this.layerClass = layer;
         this._sceneLayer = new this.layerClass(nodeJSON, copyrightText, storyBaseDir);
         this.addChild(this._sceneLayer);
         if (cc.sys.isNative) {
-            this._menuContext = goa.MenuContext.create(this._sceneLayer, "story-play");
+            this._menuContext = goa.MenuContext.create(this._sceneLayer, storyId);
             this._menuContext.setMaxPoints(totalPoints);
             this._menuContext.addPoints(currentPoints);
             this.addChild(this._menuContext, 10);
@@ -79,7 +79,7 @@ xc.NativeCopyRightHandlerScene = cc.Scene.extend({
 });
 
 
-xc.NativeCopyRightHandlerScene.load = function(storyBaseDir, layer, totalPoints, currentPoints) {
+xc.NativeCopyRightHandlerScene.load = function(storyId, storyBaseDir, layer, totalPoints, currentPoints) {
     var that = this;
     var t_resources = [];
    
@@ -103,7 +103,7 @@ xc.NativeCopyRightHandlerScene.load = function(storyBaseDir, layer, totalPoints,
                         if(!err && json != null && json != undefined) {
                             copyrightText = json["copyright"];
                             cc.log('copyrightTextreceived:' + copyrightText);
-                            var scene = new xc.NativeCopyRightHandlerScene(xc.NativeCopyRightHandlerLayer.res.copyright_json, copyrightText, storyBaseDir, layer, totalPoints, currentPoints);
+                            var scene = new xc.NativeCopyRightHandlerScene(storyId, xc.NativeCopyRightHandlerLayer.res.copyright_json, copyrightText, storyBaseDir, layer, totalPoints, currentPoints);
                             scene.layerClass = layer;
                             cc.director.runScene(scene);                                    
 

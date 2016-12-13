@@ -4,7 +4,7 @@ var sortitMovableItem1 = cc.Sprite.extend({
             this._super(cc.spriteFrameCache.getSpriteFrame(imageFile));
             
             var transparentSprite = transparentSprite;
-
+           
             var overlapped = 0;
  _enableFlag = true;
 
