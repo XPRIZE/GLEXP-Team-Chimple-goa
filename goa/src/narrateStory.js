@@ -119,8 +119,6 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                     context._previousTouch = touch.getLocationInView();
                 }
                 var locationPoint = touch.getLocationInView();
-                var deltaX = locationPoint.x - context._previousTouch.x;
-                var deltaY = locationPoint.y - context._previousTouch.y;
 
                 var boundingBox = target.getBoundingBoxToWorld();
                 if(target.draggingEnabled) {
@@ -137,8 +135,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 if(target.draggingEnabled) {
                     target.setLocalZOrder(this._zOrder);
                     var action = target.actionManager.getActionByTag(target.tag, target);
-                    action.pause();
-                    // target.actionManager.pauseTarget(target);
+                    action.pause();                                        
                 }
                 context._previousTouch = null;
                 if(!this._isDragging) {
@@ -173,7 +170,6 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 var location = target.parent.convertToNodeSpace(touch.getLocation());
                   if(target.getChildren() != null && target.getChildren().length > 0)
                   {
-                        //var targetRectangle = cc.rect(target.getPosition().x - target.getChildren()[0].getBoundingBox().width/2, target.getPosition().y - target.getChildren()[0].getBoundingBox().height/2, target.getChildren()[0].getBoundingBox().width, target.getChildren()[0].getBoundingBox().height);
                         var targetRectangle = target.getBoundingBoxToWorld();                             
                         if (cc.rectContainsPoint(targetRectangle, location)) {
                             context._currentTarget = target;
@@ -212,8 +208,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 if(target.draggingEnabled) {
                     target.setLocalZOrder(this._zOrder);
                     var action = target.actionManager.getActionByTag(target.tag, target);
-                    action.pause();                    
-                    // target.actionManager.pauseTarget(target);
+                    action.pause();                                        
                 }
                 context._currentTarget = null;
                 this._isDragging = false;            
@@ -310,6 +305,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                         var result = context.isTouchableAtPoint(target, location);
                         cc.log("RESULT " + result);
                         if(result) {
+                            context._offsetYInTouch = location.y - target.getPosition().y;
+                            context._offsetXInTouch = location.x - target.getPosition().x;
                             context._currentTarget = target;                    
                             context[funcName](target, loop);                    
                             return true;                        
@@ -317,6 +314,9 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                             return false;
                         }
                     } else {
+                        context._offsetYInTouch = location.y - target.getPosition().y;
+                        context._offsetXInTouch = location.x - target.getPosition().x;
+                        
                         context._currentTarget = target;                    
                         context[funcName](target, loop);                    
                         return true;
@@ -336,7 +336,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 if (cc.rectContainsPoint(targetRectangle, location)) {
                     if(target.draggingEnabled) {
                         target.setLocalZOrder(1);
-                        var location = target.parent.convertToNodeSpace(touch.getLocation());
+                        var location = target.parent.convertToNodeSpace(touch.getLocation());                        
+                        var locationTo = cc.p(location.x - context._offsetXInTouch, location.y - context._offsetYInTouch);                          
                         target.setPosition(location.x, location.y);
                     }
                 }            
@@ -353,8 +354,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                     var action = target.actionManager.getActionByTag(target.tag, target);
                     if(action) {
                         action.pause();
-                        // target.actionManager.pauseTarget(target);
-                    }                    
+                    }
                 }
                 
                 if(!this._isDragging) {
@@ -478,9 +478,9 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this._rightButtonPanel.setBackGroundColor(xc.PRIMARY_COLOR);
         this.addChild(this._rightButtonPanel);
         this._rightButtonPanel.setVisible(false);
-        // this.showText();
-        this.bindTouchListenerToLayer(this);
-        this.sceneTouched();
+        this.showText();
+        // this.bindTouchListenerToLayer(this);
+        // this.sceneTouched();
 
     },
 
@@ -606,6 +606,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 child.cEvents = [];  
                 child.mEvents = [];                          
             }
+            child.draggingEnabled = false;
             events.forEach(function(event){
                 if(event.trim() == 'drag') {
                     child.draggingEnabled = true;
@@ -699,8 +700,12 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             }
         } 
         
-        if(target.mEvent || (target.mEvents && target.mEvents.length > 0)) {    
-            if(target.mEvent) {
+        if(target.mEvent || (target.mEvents && target.mEvents.length > 0)) {
+            if(target.mEvents && target.mEvents.length > 0) {
+                target.mEvent = target.mEvents[0];
+            }
+                
+            if(target.mEvent && !target.draggingEnabled) {
                 var action = this._constructedScene.node.actionManager.getActionByTag(this._constructedScene.node.tag, this._constructedScene.node);
                 if(action) {
                     cc.log("playAnimiation" + target.mEvent);
@@ -740,18 +745,20 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             }        
         }
         
-        if(target.mEvent || (target.mEvents && target.mEvents.length > 0)) {    
-            if(target.mEvent) {
+        if(target.mEvent || (target.mEvents && target.mEvents.length > 0)) {
+            if(target.mEvents && target.mEvents.length > 0) {
+                target.mEvent = target.mEvents[0];
+            }
+            if(target.mEvent && !target.draggingEnabled) {
                 var action = this._constructedScene.node.actionManager.getActionByTag(this._constructedScene.node.tag, this._constructedScene.node);
                 if(action) {
-                    cc.log("playAnimiation" + target.mEvent);
+                    cc.log("playAnimationOnChild" + target.mEvent);
                     var eventForMainScene = target.mEvent.replace("main.","");
-                    action.play(eventForMainScene, false);
+                    action.play(eventForMainScene, false);                    
                 }
             }            
         }        
     },
-
 
     setUpScene: function () {
         if (this._constructedScene.node) {
@@ -829,7 +836,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         }
     },
 
-    sceneTouched: function (target) {
+    sceneTouched: function () {
         //load content        
         this._playStarted = true;
         var delayAction = new cc.DelayTime(2);
@@ -851,15 +858,15 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
     nextStory: function () {        
         var pages = this._storyInformation["pages"];
-        var curIndex = this._pageIndex;
+        var curIndex = this._pageIndex; 
         curIndex++;
         var storyId = this._storyInformation["storyId"];
         if (curIndex >= pages.length) {            
             xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
             return;
         }
-        xc.NarrateStoryScene.load(curIndex, this._storyInformation, xc.NarrateStoryLayer, true);
-        // xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
+        // xc.NarrateStoryScene.load(curIndex, this._storyInformation, xc.NarrateStoryLayer, true);
+        xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
     },
 
     playEnded: function () {
@@ -1047,7 +1054,9 @@ xc.NarrateStoryScene.load = function(pageIndex, storyInformation, layer, enableT
                     }); 
 
                     cc.LoaderScene.preload(t_resources, function () {
-                        cc.spriteFrameCache.addSpriteFrames(xc.NarrateStoryLayer.res.template_plist);    
+                        cc.spriteFrameCache.addSpriteFrames(xc.NarrateStoryLayer.res.template_plist);
+                        cc.spriteFrameCache.addSpriteFrames(xc.NarrateStoryLayer.res.template_01_plist);
+                        cc.spriteFrameCache.addSpriteFrames(xc.NarrateStoryLayer.res.template_02_plist);    
                         //config data
                         if(cc.sys.isNative) {
                             xc.onlyStoryNarrateConfigurationObject = cc.loader.getRes(xc.NarrateStoryLayer.res.OnlyStoryPlayConfig_json);                         
@@ -1078,7 +1087,9 @@ xc.NarrateStoryLayer.res = {
         wrongAnswerSound_json: "res/sounds/sfx/error.ogg",
         pixelPerfectConfig_json: xc.path + "misc/pixelPerfectConfig.json",
         template_plist: xc.path + "template/template.plist",
-        template_png: xc.path + "template/template.png"
-
-
+        template_png: xc.path + "template/template.png",
+        template_01_png: xc.path + "template/template_01/template_01.png",
+        template_01_plist: xc.path + "template/template_01/template_01.plist",
+        template_02_png: xc.path + "template/template_02/template_02.png",
+        template_02_plist: xc.path + "template/template_02/template_02.plist",
 };

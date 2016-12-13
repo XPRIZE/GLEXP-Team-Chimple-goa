@@ -62,6 +62,8 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
         this._constructedScene.action.retain();
         
         if (this._constructedScene.node) {
+            this._constructedScene.node.setPosition(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2);
+            this._constructedScene.node.setAnchorPoint(cc.p(0.5,0.5));            
             this.addChild(this._constructedScene.node,0);
         }        
         
