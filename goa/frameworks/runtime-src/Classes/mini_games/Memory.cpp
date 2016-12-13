@@ -340,7 +340,36 @@ void Memory::onEnterTransitionDidFinish() {
 	if (_menuContext->getCurrentLevel() == 1) {
 
 		auto box1 = _memoryfarm->getChildByName("background")->getChildByName("nest9");
-		auto box2 = _memoryfarm->getChildByName("background")->getChildByName("nest16");
+
+		auto matchNode = box1->getChildByName("nestfront")->getChildren();
+		auto stringOne = matchNode.at(0)->getName();
+
+		auto stringTwo = _data[stringOne];
+		int ids[3] = { 10, 15, 16 };
+		int  i;
+		for (i = 0; i < 3; i++) {
+
+			std::ostringstream sstreamc;
+			sstreamc << "nest" << ids[i];
+			std::string queryc = sstreamc.str();
+
+
+			auto tempBox = _memoryfarm->getChildByName("background")->getChildByName(queryc);
+
+			auto matchNode = tempBox->getChildByName("nestfront")->getChildren();
+			auto tempString = matchNode.at(0)->getName();
+
+			if (tempString == stringTwo) {
+				break;
+			}
+
+		}
+
+		std::ostringstream sstreamd;
+		sstreamd << "nest" << ids[i];
+		std::string queryd = sstreamd.str();
+
+		auto box2 = _memoryfarm->getChildByName("background")->getChildByName(queryd);
 
 
 		box1pos = box1->getPosition() + Vec2(visibleSize.width * 0.03, visibleSize.height * 0.05);
@@ -441,9 +470,40 @@ bool Memory::onTouchBegan(Touch* touch, Event* event) {
 
 		if (_menuContext->getCurrentLevel() == 1 && _helpflag == 0 && _counter == 0) {
 			this->removeChild(help1);
-
+			
 			auto box1 = _memoryfarm->getChildByName("background")->getChildByName("nest9");
-			auto box2 = _memoryfarm->getChildByName("background")->getChildByName("nest16");
+
+			auto matchNode = box1->getChildByName("nestfront")->getChildren();
+			auto stringOne = matchNode.at(0)->getName();
+
+			auto stringTwo = _data[stringOne];
+			int ids[3] = { 10, 15, 16 };
+			int  i;
+			for (i = 0; i < 3; i++) {
+
+				std::ostringstream sstreamc;
+				sstreamc << "nest" << ids[i];
+				std::string queryc = sstreamc.str();
+
+
+				auto tempBox = _memoryfarm->getChildByName("background")->getChildByName(queryc);
+
+				auto matchNode = tempBox->getChildByName("nestfront")->getChildren();
+				auto tempString = matchNode.at(0)->getName();
+
+				if (tempString == stringTwo) {
+					break;
+				}
+
+			}
+
+
+
+			std::ostringstream sstreamd;
+			sstreamd << "nest" << ids[i];
+			std::string queryd = sstreamd.str();
+
+			auto box2 = _memoryfarm->getChildByName("background")->getChildByName(queryd);
 
 
 			box1pos = box1->getPosition() + Vec2(visibleSize.width * 0.03, visibleSize.height * 0.05);
