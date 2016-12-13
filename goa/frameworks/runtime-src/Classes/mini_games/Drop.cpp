@@ -495,7 +495,7 @@ void Drop::addEvents(Sprite* clickedObject)
 			sprite->setPosition(Vec2((target->getPosition().x), (target->getPosition().y)));
 			this->addChild(sprite, 0);
 
-			 sprite->runAction(MoveTo::create(1, Vec2(sprite->getPosition().x, -visibleSize.height*0.002)));
+			 sprite->runAction(MoveTo::create(1, Vec2(sprite->getPosition().x, -visibleSize.height*0.015)));
 			_FallingLetter.push_back(sprite);
 			 target->setVisible(false);
 			
@@ -608,13 +608,15 @@ void Drop::basketLetterCollisionChecker()
 	}
 	if (_basketRect.size() == 0)
 	{
-		this->unschedule(schedule_selector(Drop::letterAndHolderMaker));
-		this->unscheduleUpdate();
+		Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
+			this->unschedule(schedule_selector(Drop::letterAndHolderMaker));
+			this->unscheduleUpdate();
+
 		auto callShowScore = CCCallFunc::create([=] {
 			_menuContext->setMaxPoints(_pointCounter * 1);
 			_menuContext->showScore();
 		});
-		this->runAction(Sequence::create(DelayTime::create(2), callShowScore, NULL));
+		this->runAction(Sequence::create(DelayTime::create(1), callShowScore, NULL));
 	}
 
 }
