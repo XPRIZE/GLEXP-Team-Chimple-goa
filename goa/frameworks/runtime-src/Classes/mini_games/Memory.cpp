@@ -742,6 +742,7 @@ void Memory::chickenFly() {
 	chicken2->runAction(moveTonest2);
 
 	_menuContext->addPoints(1);
+	
 
 }
 
