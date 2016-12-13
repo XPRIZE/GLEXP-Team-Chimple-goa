@@ -973,7 +973,7 @@ void MenuContext::launchGameFinally(std::string gameName) {
 }
 
 void MenuContext::transitToScrollableGameMap() {
-    Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
+    Director::getInstance()->replaceScene(TransitionFade::create(0.5, ScrollableGameMapScene::createScene(), Color3B::BLACK));
 }
 
 void MenuContext::showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
