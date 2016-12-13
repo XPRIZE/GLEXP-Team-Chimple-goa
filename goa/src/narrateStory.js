@@ -227,8 +227,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             this.buildText(text);
             this._referenceToContext.unschedule(this.removeDisplayText);
             this._referenceToContext._textDisplayAnimationRunning = true;      
-            this._wordBoard.node.setPosition(cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 500));
-            var textDropAction = new cc.MoveTo(0.5, cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height));            
+            this._wordBoard.node.setPosition(cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 650));
+            var textDropAction = new cc.MoveTo(0.5, cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 50));            
             textDropAction.easing(cc.easeBackOut());
             var afterDisplayTextAction = new cc.CallFunc(this._referenceToContext.displayTextAnimationFinished, this._referenceToContext);
             var textSequence = new cc.Sequence(textDropAction, afterDisplayTextAction);
@@ -260,7 +260,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     },
 
     removeDisplayText: function() {
-        var textDropActionDisappear = new cc.MoveTo(0.5, cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 500));
+        var textDropActionDisappear = new cc.MoveTo(0.5, cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 650));
         var beforeDisplayTextDisapperAction = new cc.CallFunc(this._referenceToContext.beforeDisplayTextDisapperFinished, this._referenceToContext);
         var afterDisplayTextDisapperAction = new cc.CallFunc(this._referenceToContext.afterDisplayTextDisapperFinished, this._referenceToContext);
         var textSequence = new cc.Sequence(beforeDisplayTextDisapperAction, textDropActionDisappear, afterDisplayTextDisapperAction);
@@ -445,7 +445,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this._wordBoard = ccs.load(xc.NarrateStoryLayer.res.wordBubble_json, xc.path);
         if(this._wordBoard) {
             this._wordBoard.node.retain();
-            this._wordBoard.node.setPosition(cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 600));
+            this._wordBoard.node.setPosition(cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 650));
             this.addChild(this._wordBoard.node, 1);
             var textField = this._wordBoard.node.getChildByName("TextField_1");
             if(textField) {
