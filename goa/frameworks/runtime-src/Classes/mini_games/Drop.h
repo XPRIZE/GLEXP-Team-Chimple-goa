@@ -38,7 +38,7 @@ protected:
 	int _dropHelpSelector = 0;
 	Sprite* _basketImg;
 	HelpLayer* _help;
-	int _middleBasketIndex = NULL, _index =0;
+	int _middleBasketIndex = NULL, _index =0, _pointCounter = 0;
 	bool _helpFlag = false, _initObj = true, _flagForIndex= true;
 	float _gapBetweenTwoBasket;
 	string _levelOneString;

@@ -70,7 +70,8 @@ bool Order::init()
 			{ "winning_animation","eat" },
 			{ "child1", "mainground"},
 			{ "child2", "cart1"},
-			{ "otherCharacter", "cart2" }
+			{ "otherCharacter", "cart2" },
+			{ "png", "orderfarm/egg.png" }
 		} },
 		{ "hero",  //prathap designs
 		{
@@ -83,7 +84,8 @@ bool Order::init()
 			{ "winning_animation","win" },
 			{ "child1", "FileNode_2" },
 			{ "child2", "ramp1" },
-			{ "otherCharacter", "ramp2" }
+			{ "otherCharacter", "ramp2" },
+			{ "png", "orderhero/orb.png" }
 		} },
 		{ "candy",  //teju design
 		{
@@ -98,24 +100,25 @@ bool Order::init()
 			{ "child2", "character1" },
 			{ "otherCharacter", "character2" },
 			{ "child3", "cart1" },
-			{ "child4", "cart2" }
+			{ "child4", "cart2" },
+			{ "png", "shoping/Pineapple.png" }
 		} },
 	};
 
 	_differentPointsConfig = {
 		{"farm",
 			{
-				{"targetDistance", 1350.0f}
+				{"targetDistance", 1250.0f}
 			}
 		},
 		{ "hero",
 			{
-				{ "targetDistance", 1125.0f }
+				{ "targetDistance", 1250.0f }
 			} 
 		},
 		{ "candy",
 			{
-				{ "targetDistance", 800.0f }
+				{ "targetDistance", 600.0f }
 			} 
 		}
 	};
@@ -221,7 +224,14 @@ void Order::onTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event)
 void Order::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 {
 	bool flag = false;
-
+	_iteration++;
+	if (_iteration > _sortedList.size()) {
+		menu->addPoints(-1);
+	}
+	else
+	{
+		menu->addPoints(1);
+	}
 	std::vector<int> overlapChecking = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
 	std::vector<int> userArrayIndex;
 	std::vector<int> missedIndex;
@@ -293,7 +303,7 @@ void Order::onEnterTransitionDidFinish()
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	//std::vector<std::string> theme = { "farm","hero","candy" };
 	int themesNumber = menu->getCurrentLevel() % 15;
-	if (themesNumber > 1 && themesNumber < 6) {
+	if (themesNumber > 0 && themesNumber < 6) {
 		_themeName = "farm";
 	}
 	else if (themesNumber > 5 && themesNumber < 11) {
@@ -322,13 +332,15 @@ void Order::onEnterTransitionDidFinish()
 		//animationWithRandomInterval();
 		auto cart = _bg->getChildByName(_scenePath.at("child1"))->getChildByName(_scenePath.at("child3"));
 		auto character = CSLoader::createNode(_scenePath.at("character"));
-		character->setPosition(cart->getPosition());
+		character->setPosition(Vec2(visibleSize.width * 0.1, cart->getPositionY()));
 		character->setName("character1");
 		_bg->getChildByName(_scenePath.at("child1"))->addChild(character);
 		auto cart1 = _bg->getChildByName(_scenePath.at("child1"))->getChildByName(_scenePath.at("child4"));
 		auto character1 = CSLoader::createNode(_scenePath.at("character"));
-		character1->setPosition(cart1->getPosition());
+		character1->setPosition(Vec2(visibleSize.width * 0.7, cart1->getPositionY()));
 		character1->setName("character2");
+		character1->setOpacity(150);
+		//character1->setColor(Color3B(0, 0, 0));
 		_bg->getChildByName(_scenePath.at("child1"))->addChild(character1);
 	}
 
@@ -342,6 +354,7 @@ void Order::onEnterTransitionDidFinish()
 	*/
 	_sortedList = TextGenerator::getInstance()->getOrderedConcepts(menu->getCurrentLevel());
 //	_sortedList = { "1","2","3","4","5" };
+	menu->setMaxPoints(_sortedList.size());
 	auto randomList = _sortedList;
 	std::random_shuffle(randomList.begin(), randomList.end());
 
@@ -370,7 +383,7 @@ void Order::onEnterTransitionDidFinish()
 			auto pngNode = Node::create();
 			float width = 0.0f;
 			for (int i = 0; i < i_dec; i++) {
-				auto fruit = Sprite::createWithSpriteFrameName("shoping/Pineapple.png");
+				auto fruit = Sprite::createWithSpriteFrameName(_scenePath.at("png"));
 				fruit->setPositionX(i * (75));
 				fruit->setPositionY(obj1->getContentSize().height / 2);
 				pngNode->addChild(fruit);
@@ -399,10 +412,11 @@ void Order::onEnterTransitionDidFinish()
 	}
 	_cartMove = _differentPointsConfig.at(_themeName).at("targetDistance") / _boxes.size();
 
-	runAction(RepeatForever::create(Sequence::create(DelayTime::create(10 + (rand() % 60) / 30.0), CallFunc::create([=]() {
-		int size = _sortedList.size();
-		int score = cocos2d::RandomHelper::random_int(0, size);
-		otherPlayer(score);
+	runAction(RepeatForever::create(Sequence::create(DelayTime::create(5), CallFunc::create([=]() {
+		int size = _sortedList.size();//80/menu->getCurrentLevel()
+		_enemyScore11++;
+		//int score = cocos2d::RandomHelper::random_int(0, size);
+		otherPlayer(_enemyScore11);
 	}
 	
 	), NULL)));
@@ -519,21 +533,23 @@ void Order::cartAnimation(std::string animationName, bool loop)
 
 void Order::winAnimation()
 {
-	
-	runAction(Sequence::create(CallFunc::create([=]() {
-		//if (_themeName.compare("candy") != 0) {
-			//cart1->runAction(timeline);
-	//	}
+	if (_iteration < _sortedList.size()) {
+		menu->setMaxPoints(_iteration);
+	}
+	auto  audio = CocosDenshion::SimpleAudioEngine::getInstance();
+	audio->playEffect("sounds/sfx/success.ogg", false);
+	runAction(Sequence::create(DelayTime::create(1),CallFunc::create([=]() {
+		_touched = false;
 		_characterAnimation->play(_scenePath.at("winning_animation"), true);
 
-	}), DelayTime::create(2), CallFunc::create([=]() {
+	}), DelayTime::create(3), CallFunc::create([=]() {
 		menu->showScore();
 	}), NULL));
 	
 	if (_themeName.compare("hero") == 0) {
 		auto moveBucket = MoveBy::create(2, Vec2(-200, 0));
 		auto bucket = _bg->getChildByName("FileNode_2")->getChildByName("paintbucket");
-		bucket->runAction(moveBucket);
+		bucket->runAction(Sequence::create(DelayTime::create(1.5),moveBucket, NULL));
 	}
 
 }
