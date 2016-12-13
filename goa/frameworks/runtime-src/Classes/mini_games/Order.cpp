@@ -101,7 +101,7 @@ bool Order::init()
 			{ "otherCharacter", "character2" },
 			{ "child3", "cart1" },
 			{ "child4", "cart2" },
-			{ "png", "shoping/Pineapple.png" }
+			{ "png", "ordercandy/candy.png" }
 		} },
 	};
 

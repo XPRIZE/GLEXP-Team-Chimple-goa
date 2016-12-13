@@ -310,7 +310,13 @@ void Drop::layingOutBasket(bool flag, float gap, std::string letter, int i)
 		std::pair<Sprite*, cocostudio::timeline::ActionTimeline*>animationData = setAnimationAndProperties(_scenePath.at("basketAnimation"), (i*gap + gap / 2), (visibleSize.height*0.08), 1);
 		cocostudio::timeline::ActionTimeline* basketTimeline = animationData.second;
 		Sprite* basket = animationData.first;
-
+		if (!_dropCurrentTheme.compare("dropjungle")) {
+			auto texture = SpriteFrameCache::getInstance()->getSpriteFrameByName("dropjungle/basketouter.png");
+			//((Sprite*)basket->getChildren().at(0))->setSpriteFrame(texture);
+			//basket->runAction(basketTimeline);
+			basketTimeline->play("idle",false);
+		}
+		
 	    _basketImg = (Sprite *)basket->getChildByName(_scenePath.at("basketImageName"));
 		auto label = setAllLabelProperties(letter, 0, (i*gap + gap / 2), (visibleSize.height*_sceneBasedNumericalVal.at("boxLabelYFactor")), true, 0.5, 0.5, 0, 1, 1, 100);
 		this->addChild(label, 1);
@@ -339,7 +345,7 @@ void Drop::layingOutBasket(bool flag, float gap, std::string letter, int i)
 			std::pair<Sprite*, cocostudio::timeline::ActionTimeline*>animationData = setAnimationAndProperties(_scenePath.at("basketAnimation"), (i*gap + gap / 2), (visibleSize.height*0.08), 1);
 			cocostudio::timeline::ActionTimeline* basketTimeline = animationData.second;
 			auto basket = animationData.first;
-			basketTimeline->setCurrentFrame(45);
+			basketTimeline->play("full", false);
 		}
 		else
 		{
@@ -371,7 +377,7 @@ void Drop::update(float delta) {
 		if (_letterHolderSpriteBin[0]->getPositionX() < (_middleBasketIndex*_gapBetweenTwoBasket + _gapBetweenTwoBasket / 2))
 		{
 			_helpFlag = false;
-			_letterHolderSpriteBin[0]->pause();
+				_letterHolderSpriteBin[0]->pause();
 			auto letterBoardSprite = Sprite::create();
 			letterBoardSprite->setTextureRect(Rect(0, 0, _letterHolderSpriteBin[0]->getContentSize().width, _letterHolderSpriteBin[0]->getContentSize().height));
 			letterBoardSprite->setColor(Color3B(219, 224, 252));
@@ -452,10 +458,17 @@ void Drop::addEvents(Sprite* clickedObject)
 		
 		if (rect.containsPoint(locationInNode))
 		{
+			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+
 			cocostudio::timeline::ActionTimeline* holderTimeline;
 			Sprite* holderImage;
 			if (!_dropCurrentTheme.compare("dropjungle") || !_dropCurrentTheme.compare("dropcity"))
 			{
+				if(!_dropCurrentTheme.compare("dropjungle"))
+					audio->playEffect("sounds/sfx/drop_jungle_touch.mp3", false);
+				else
+					audio->playEffect("sounds/sfx/shop_balloon_burst.ogg", false);
+
 				std::pair<Sprite*, cocostudio::timeline::ActionTimeline*> animationData = setAnimationAndProperties(_scenePath.at("holderAnimation"), (target->getPosition().x), (target->getPosition().y), 0);
 				holderTimeline = animationData.second;
 				holderImage = animationData.first;
@@ -468,6 +481,8 @@ void Drop::addEvents(Sprite* clickedObject)
 				{
 					if (_dropHeroTrailerImageBin[i]->getTag() == target->getTag())
 					{
+						audio->playEffect("sounds/sfx/drop_hero_touch.mp3", false);
+
 						cocostudio::timeline::ActionTimeline* holderTimeline = CSLoader::createTimeline(_scenePath.at("holderAnimation"));
 						_dropHeroTrailerImageBin[i]->runAction(holderTimeline);
 						//auto sp = std::make_tuple(_dropHeroTrailerImageBin[i], _dropHeroTrailerImageBin[i], i);
@@ -480,11 +495,9 @@ void Drop::addEvents(Sprite* clickedObject)
 			sprite->setPosition(Vec2((target->getPosition().x), (target->getPosition().y)));
 			this->addChild(sprite, 0);
 
-			
-
-			sprite->runAction(MoveTo::create(1, Vec2(sprite->getPosition().x, -visibleSize.height*0.002)));
+			 sprite->runAction(MoveTo::create(1, Vec2(sprite->getPosition().x, -visibleSize.height*0.002)));
 			_FallingLetter.push_back(sprite);
-			target->setVisible(false);
+			 target->setVisible(false);
 			
 			if (_initObj && _letterHolderSpriteBin.size() > 0 && _menuContext->getCurrentLevel() == 1) {
 				_letterHolderSpriteBin[0]->setVisible(false);
@@ -565,10 +578,13 @@ void Drop::basketLetterCollisionChecker()
 			if (_basketRect[i].intersectsRect(alphaBox))
 			{
 				_pointCounter++;
+				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 				auto str = _basketBin[i]->getString();
 				auto str1 = _FallingLetter[j]->getChildren().at(0)->getName();
 				if (!str.compare(str1))
 				{
+					 audio->playEffect("sounds/sfx/success.ogg", false);
+
 					_basketAnimBin[i]->play(_scenePath.at("rightAnimName"), false);
 					_basketBin[i]->setVisible(true);
 					_basketRect.erase(_basketRect.begin() + i);
@@ -579,6 +595,8 @@ void Drop::basketLetterCollisionChecker()
 				}
 				else
 				{
+					audio->playEffect("sounds/sfx/error.ogg", false);
+
 					_basketAnimBin[i]->play(_scenePath.at("wrongAnimName"), false);
 					//_basketAnimBin[i]->gotoFrameAndPlay(0, false);
 					CCLOG("NO");
