@@ -37,9 +37,9 @@ void PopCount::onEnterTransitionDidFinish() {
 			{ "popcountIsland",
 				{
 					{ "bg", "popcount/popcount.csb" },
-					{ "character", "popcount/starfish.csb" },
-					{ "character2", "popcount/starfish.csb" },
-					{ "character3", "popcount/starfish.csb" },
+					{ "character1", "popcount/starfish.csb" },
+					{ "character2", "popcount/starfish1.csb" },
+					{ "character3", "popcount/starfish2.csb" },
 					{ "characterSpriteName", "Sprite_1" },
 					{ "waterAnimation" , "popcount/water.csb" },
 					{ "midboard" , "popcount/board.png" },
@@ -101,7 +101,29 @@ void PopCount::onEnterTransitionDidFinish() {
 		bg->setPositionX(myGameWidth);
 	}
 
-	_popUpAnswer = RandomHelper::random_int(1,10);
+	_popUpAnswer = RandomHelper::random_int(1, _maxPopStarLimits);
+
+	int gameCurrentLevel = _menuContext->getCurrentLevel();
+	
+	if (gameCurrentLevel >= 1 && gameCurrentLevel <= 3) {
+		_popCharacter = "character1";
+		_popStayDelay = 4.0f;
+		_maxPopStarLimits = 5;
+
+	}else if (gameCurrentLevel >= 4 && gameCurrentLevel <= 6) {
+		_popCharacter = "character2";
+		_popStayDelay = 3.0f;
+		_maxPopStarLimits = 7;
+		if (gameCurrentLevel == 6)
+			_popStayDelay = 2.3f;
+	}else if (gameCurrentLevel >= 7 && gameCurrentLevel <= 10) {
+		_popCharacter = "character3";
+		_popStayDelay = 2.0f;
+		
+		if(gameCurrentLevel == 10)
+			_popStayDelay = 1.0f;
+		_maxPopStarLimits = 10;
+	}
 
 	setIslandScene();
 
@@ -111,8 +133,26 @@ void PopCount::onEnterTransitionDidFinish() {
 }
 
 void PopCount::update(float delta) {
-	if (_popElementCount == 0) {
-		_menuContext->showScore();
+	if (_popElementCount == 0 && _popStartListner) {
+
+		auto setInMid = CallFunc::create([=]() {
+			auto star = this->getChildByName("centerStar");
+			star->runAction(ScaleTo::create(1.0f, star->getScaleX() * 1.4, star->getScaleY() * 1.4));
+			star->runAction(MoveTo::create(1, Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height *0.4)));
+		});
+
+		auto particleEffect = CallFunc::create([=]() {
+			CCParticleSystemQuad *_particle = CCParticleSystemQuad::create("res/owllevel/particle_texture.plist");
+			_particle->setTexture(CCTextureCache::sharedTextureCache()->addImage("res/owllevel/particle_texture.png"));
+			_particle->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
+			_particle->setName("celebration");
+			addChild(_particle, 5);
+			_menuContext-> setMaxPoints(_totalHit);
+			_menuContext-> addPoints(-_wrongHit);
+		});
+
+		this->runAction(Sequence::create(setInMid, DelayTime::create(1), particleEffect,DelayTime::create(_popStayDelay + 2), CallFunc::create([=]() { this->removeChildByName("celebration"); _menuContext->showScore(); }), NULL));
+		_popStartListner = false;
 	}
 }
 
@@ -138,7 +178,7 @@ void PopCount::popUpCharacter(Node* character, string animationName) {
 	timelineWater->gotoFrameAndPlay(0, false);
 
 	auto popUp = CallFunc::create([=]() {
-		auto timelinecharacter = CSLoader::createTimeline(_sceneMap.at(_popcountCurrentTheme).at("character"));
+		auto timelinecharacter = CSLoader::createTimeline(_sceneMap.at(_popcountCurrentTheme).at(_popCharacter));
 		character->runAction(timelinecharacter);
 		timelinecharacter->play(animationName, true);
 		character->runAction(MoveTo::create(0.5f, Vec2(character->getPositionX(), character->getPositionY() + height)));
@@ -157,7 +197,7 @@ vector<int> PopCount::getRandomValueRange(int min, int max, int getValue) {
 	int count = 0;
 	vector<int> objectVector;
 	while (count < getValue) {
-		int temp = RandomHelper::random_int(0, 9);
+		int temp = RandomHelper::random_int(min, max);
 		bool flag = true;
 
 		for (size_t index = 0; index < objectVector.size(); index++) {
@@ -258,42 +298,53 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 		if (target->getBoundingBox().containsPoint(locationInNode) && (target->getName() == "smallGrid") && _popStartListner) {
 			if (target->getTag() == _popUpAnswer) {
 				CCLOG(" THIS IS CORRECT ");
-				
-//				this->getChildByName("midButton")->runAction(Sequence::create(ScaleTo::create(0.4,1.5), ScaleTo::create(0.2,1), NULL));
-				_popStartListner = false;
+				_popMidButtonClickPermision = false;
+				this->getChildByName("midButton")->setVisible(false);
+				_timelineCenterStarFish->play("correct", true);
+
 				_popElementCount = _popElementCount - 1;
-				this->runAction(Sequence::create(DelayTime::create(0.6), NULL));
-//				(this->getChildByName("midButton")->getChildByTag(0))->setName("PLAY");
-//				auto texture = SpriteFrameCache::getInstance()->getSpriteFrameByName(_sceneMap.at(_popcountCurrentTheme).at("play"));
-//				((Sprite*)this->getChildByName("midButton")->getChildByTag(0))->setSpriteFrame(texture);
+				_totalHit++;
+				if (_popElementCount != 0) {
+					this->runAction(Sequence::create(DelayTime::create(_popStayDelay + 2), CallFunc::create([=]() {this->getChildByName("midButton")->setVisible(true); _popMidButtonClickPermision = true; _timelineCenterStarFish->play("blink", true); }), NULL));
+					_popUpAnswer = RandomHelper::random_int(1, _maxPopStarLimits);
+					popUpCall(_popUpAnswer);
+				}
 			}
 			else {
 				float distance = Director::getInstance()->getVisibleSize().width * 0.8;
 				FShake* shake = FShake::actionWithDuration(0.5f,10.0f);
 				this->getChildByName("gridpanel")->runAction(shake);
+				_timelineCenterStarFish->play("wrong", true);
+				_wrongHit++;
+//				this->runAction(Sequence::create(DelayTime::create(_popStayDelay + 2), CallFunc::create([=]() {_timelineCenterStarFish->play("blink", true); }), NULL));
 				CCLOG(" ------------------- CLICKED WRONG ---------------");
 			}
 		}
 		else if (target->getBoundingBox().containsPoint(locationInNode) && (target->getName() == "midButton")) {
 			if ((target->getChildByTag(0))->getName() == "WATCH AGAIN") {
+
 				auto texture = SpriteFrameCache::getInstance()->getSpriteFrameByName(_sceneMap.at(_popcountCurrentTheme).at("watchagain"));
 				((Sprite*)target->getChildByTag(0))->setSpriteFrame(texture);
 				popUpCall(_popUpAnswer);
+				target->setVisible(false);
+				_popMidButtonClickPermision = false;
+
 			}
 			else if ((target->getChildByTag(0))->getName() == "PLAY") {
+
 				_popStartListner = true;
 				(target->getChildByTag(0))->setName("WATCH AGAIN");
 				auto texture = SpriteFrameCache::getInstance()->getSpriteFrameByName(_sceneMap.at(_popcountCurrentTheme).at("watchagain"));
 				((Sprite*)target->getChildByTag(0))->setSpriteFrame(texture);
-				_popUpAnswer = RandomHelper::random_int(1, 10);
+				_popUpAnswer = RandomHelper::random_int(1, _maxPopStarLimits);
 				popUpCall(_popUpAnswer);
+				target->setVisible(false);
+				_popMidButtonClickPermision = false;
+
 			}else{
 				CCLOG("Wrong in condition , check in listner");
 			}
-			target->setVisible(false);
-			_popMidButtonClickPermision = false;
 		}
-
 		return false;
 	};
 
@@ -301,6 +352,15 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 }
 
 void PopCount::setIslandScene() {
+	auto themeResourcePath = _sceneMap.at(_popcountCurrentTheme);
+	_timelineCenterStarFish = CSLoader::createTimeline(themeResourcePath.at(_popCharacter));
+	auto centerStarFish = CSLoader::createNode(themeResourcePath.at(_popCharacter));
+	centerStarFish->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height * 0.76));
+	this->addChild(centerStarFish, 3);
+	centerStarFish->setScale(0.9);
+	centerStarFish->setName("centerStar");
+	centerStarFish->runAction(_timelineCenterStarFish);
+	_timelineCenterStarFish->play("blink", true);
 
 	auto timelineWater1 = CSLoader::createTimeline(_sceneMap.at(_popcountCurrentTheme).at("waterAnimation"));
 	this->getChildByName("bg")->getChildByName("mainground")->getChildByName("water_1")->runAction(timelineWater1);
@@ -310,15 +370,14 @@ void PopCount::setIslandScene() {
 	this->getChildByName("bg")->getChildByName("mainground")->getChildByName("water_2")->runAction(timelineWater2);
 	timelineWater2->gotoFrameAndPlay(0, true);
 
-	auto themeResourcePath = _sceneMap.at(_popcountCurrentTheme);
-	auto starFish = CSLoader::createNode(themeResourcePath.at("character"));
+	auto starFish = CSLoader::createNode(themeResourcePath.at(_popCharacter));
 	starFish->setScale(0.5);
 	int space = Director::getInstance()->getVisibleSize().width - ((starFish->getChildByName(themeResourcePath.at("characterSpriteName"))->getContentSize().width * 0.5) * 10);
 	int indiSpace = space / (10 + 2);
 	auto positionX = ((starFish->getChildByName(themeResourcePath.at("characterSpriteName"))->getContentSize().width * 0.5) / 2);
 
 	for (int i = 0; i < 10; i++) {
-		auto starFish = CSLoader::createNode(themeResourcePath.at("character"));
+		auto starFish = CSLoader::createNode(themeResourcePath.at(_popCharacter));
 		starFish->setTag(i + 1000);
 		this->getChildByName("bg")->getChildByName("background")->addChild(starFish);
 		starFish->setScale(0.5);
@@ -348,7 +407,7 @@ void PopCount::popUpCall(int popNumberOfCharacter) {
 
 	this->runAction(Sequence::create(DelayTime::create(1), CallFunc::create([=]() {
 
-		auto getElementObject = getRandomValueRange(0, 9, popNumberOfCharacter);
+		auto getElementObject = getRandomValueRange(0, _maxPopStarLimits-1, popNumberOfCharacter);
 
 		for (size_t i = 0; i < getElementObject.size(); i++) {
 			popUpCharacter(this->getChildByName("bg")->getChildByName("background")->getChildByTag(getElementObject[i] + 1000), "blink");
