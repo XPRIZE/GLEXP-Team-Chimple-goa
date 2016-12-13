@@ -332,13 +332,15 @@ void Order::onEnterTransitionDidFinish()
 		//animationWithRandomInterval();
 		auto cart = _bg->getChildByName(_scenePath.at("child1"))->getChildByName(_scenePath.at("child3"));
 		auto character = CSLoader::createNode(_scenePath.at("character"));
-		character->setPosition(Vec2(cart->getPositionX() - ((visibleSize.width - 2560) / 2), cart->getPositionY()));
+		character->setPosition(Vec2(visibleSize.width * 0.1, cart->getPositionY()));
 		character->setName("character1");
 		_bg->getChildByName(_scenePath.at("child1"))->addChild(character);
 		auto cart1 = _bg->getChildByName(_scenePath.at("child1"))->getChildByName(_scenePath.at("child4"));
 		auto character1 = CSLoader::createNode(_scenePath.at("character"));
-		character1->setPosition(Vec2(cart1->getPositionX() - ((visibleSize.width - 2560) / 2), cart1->getPositionY()));
+		character1->setPosition(Vec2(visibleSize.width * 0.7, cart1->getPositionY()));
 		character1->setName("character2");
+		character1->setOpacity(150);
+		//character1->setColor(Color3B(0, 0, 0));
 		_bg->getChildByName(_scenePath.at("child1"))->addChild(character1);
 	}
 
@@ -534,6 +536,8 @@ void Order::winAnimation()
 	if (_iteration < _sortedList.size()) {
 		menu->setMaxPoints(_iteration);
 	}
+	auto  audio = CocosDenshion::SimpleAudioEngine::getInstance();
+	audio->playEffect("sounds/sfx/success.ogg", false);
 	runAction(Sequence::create(DelayTime::create(1),CallFunc::create([=]() {
 		_touched = false;
 		_characterAnimation->play(_scenePath.at("winning_animation"), true);
