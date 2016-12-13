@@ -23,7 +23,7 @@ public:
 	static Order* create();
 	virtual bool init();
 	static cocos2d::Scene* createScene();
-	int _myScore, _enemyScore;
+	int _myScore, _enemyScore, _iteration = 0;
 protected:
 	MenuContext * menu;
 	cocos2d::Color3B _color;

@@ -1,0 +1,999 @@
+{
+  "ID": "b8ac9e37-b1d2-402e-8079-b777ca014491",
+  "Version": "3.10.0.0",
+  "Name": "mainground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [
+          {
+            "ActionTag": -1255463753,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "orderhero/treadmillrun1.png",
+                  "Plist": "orderhero/orderhero.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1601495003,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "orderhero/treadmillrun1.png",
+                  "Plist": "orderhero/orderhero.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1729998358,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 5.9514,
+                "Y": 1473.7385,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1729998358,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 771372249,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -536.0621,
+                "Y": 1476.2129,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 771372249,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 816851947,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "orderhero/treadmillrun1.png",
+                  "Plist": "orderhero/orderhero.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 679613403,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "orderhero/treadmillrun1.png",
+                  "Plist": "orderhero/orderhero.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 101713566,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 5.9514,
+                "Y": 1473.7385,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 101713566,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 64554541,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -536.0621,
+                "Y": 1476.2129,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 64554541,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 11,
+        "Children": [
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "orderhero/platform.png",
+              "Plist": "orderhero/orderhero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2726.3459,
+              "Y": 1390.0282
+            },
+            "Scale": {
+              "ScaleX": 0.8994,
+              "ScaleY": 0.8994
+            },
+            "CColor": {
+              "R": 223,
+              "G": 223,
+              "B": 223
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.065,
+              "Y": 0.7722
+            },
+            "PreSize": {
+              "X": 0.3445,
+              "Y": 0.1606
+            },
+            "LeftMargin": 2285.3459,
+            "RightMargin": -607.3459,
+            "TopMargin": 265.4718,
+            "BottomMargin": 1245.5282,
+            "Tag": 29,
+            "ActionTag": -1734253715,
+            "Size": {
+              "X": 882.0,
+              "Y": 289.0
+            },
+            "Name": "platform2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "orderhero/ramp.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2073.5652,
+              "Y": -749.3646
+            },
+            "Scale": {
+              "ScaleX": -0.8994,
+              "ScaleY": 0.8994
+            },
+            "CColor": {
+              "R": 222,
+              "G": 222,
+              "B": 222
+            },
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.81,
+              "Y": -0.4163
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2073.5652,
+            "RightMargin": 486.4348,
+            "TopMargin": 2549.3647,
+            "BottomMargin": -749.3646,
+            "Tag": 30,
+            "ActionTag": 1022946778,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "ramp2",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "orderhero/paintbucket2.png",
+              "Plist": "orderhero/orderhero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2043.2869,
+              "Y": 410.6154
+            },
+            "Scale": {
+              "ScaleX": 0.8817,
+              "ScaleY": 0.8817
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7982,
+              "Y": 0.2281
+            },
+            "PreSize": {
+              "X": 0.0996,
+              "Y": 0.1456
+            },
+            "LeftMargin": 1915.7869,
+            "RightMargin": 389.2131,
+            "TopMargin": 1258.3846,
+            "BottomMargin": 279.6154,
+            "Tag": 144,
+            "ActionTag": -616083834,
+            "Size": {
+              "X": 255.0,
+              "Y": 262.0
+            },
+            "Name": "paintbucket2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "orderhero/grass.png",
+              "Plist": "orderhero/orderhero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1282.4688,
+              "Y": 91.3617
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.501,
+              "Y": 0.0508
+            },
+            "PreSize": {
+              "X": 1.0008,
+              "Y": 0.1594
+            },
+            "LeftMargin": 1.4688,
+            "RightMargin": -3.4688,
+            "TopMargin": 1565.1383,
+            "BottomMargin": -52.1383,
+            "Tag": 47,
+            "ActionTag": 538601992,
+            "Size": {
+              "X": 2562.0,
+              "Y": 287.0
+            },
+            "Name": "grass",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "orderhero/platform.png",
+              "Plist": "orderhero/orderhero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -218.8116,
+              "Y": 1322.3787
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0855,
+              "Y": 0.7347
+            },
+            "PreSize": {
+              "X": 0.3445,
+              "Y": 0.1606
+            },
+            "LeftMargin": -659.8116,
+            "RightMargin": 2337.8115,
+            "TopMargin": 333.1213,
+            "BottomMargin": 1177.8787,
+            "Tag": 12,
+            "ActionTag": 1298108114,
+            "Size": {
+              "X": 882.0,
+              "Y": 289.0
+            },
+            "Name": "platform1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "orderhero/ramp.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 501.4673,
+              "Y": -900.0033
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1959,
+              "Y": -0.5
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 501.4673,
+            "RightMargin": 2058.5327,
+            "TopMargin": 2700.0034,
+            "BottomMargin": -900.0033,
+            "Tag": 21,
+            "ActionTag": 1110762346,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "ramp1",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "orderhero/paintbucket.png",
+              "Plist": "orderhero/orderhero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 475.8453,
+              "Y": 390.482
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1859,
+              "Y": 0.2169
+            },
+            "PreSize": {
+              "X": 0.0996,
+              "Y": 0.1456
+            },
+            "LeftMargin": 348.3453,
+            "RightMargin": 1956.6547,
+            "TopMargin": 1278.5181,
+            "BottomMargin": 259.482,
+            "Tag": 143,
+            "ActionTag": 2091829002,
+            "Size": {
+              "X": 255.0,
+              "Y": 262.0
+            },
+            "Name": "paintbucket",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "orderhero/treadmill.png",
+              "Plist": "orderhero/orderhero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -242.1164,
+              "Y": 1469.0626
+            },
+            "Scale": {
+              "ScaleX": 1.2309,
+              "ScaleY": 0.7386
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0946,
+              "Y": 0.8161
+            },
+            "PreSize": {
+              "X": 0.3105,
+              "Y": 0.1094
+            },
+            "LeftMargin": -639.6164,
+            "RightMargin": 2404.6165,
+            "TopMargin": 232.4374,
+            "BottomMargin": 1370.5626,
+            "Tag": 81,
+            "ActionTag": 1442791244,
+            "Size": {
+              "X": 795.0,
+              "Y": 197.0
+            },
+            "Name": "treadmill_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "orderhero/treadmillrun1.png",
+              "Plist": "orderhero/orderhero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 106.3806,
+              "Y": 1500.0492
+            },
+            "Scale": {
+              "ScaleX": 0.7386,
+              "ScaleY": 0.7386
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0416,
+              "Y": 0.8334
+            },
+            "PreSize": {
+              "X": 0.0398,
+              "Y": 0.05
+            },
+            "LeftMargin": 55.3806,
+            "RightMargin": 2402.6194,
+            "TopMargin": 254.9508,
+            "BottomMargin": 1455.0492,
+            "Tag": 78,
+            "ActionTag": -1255463753,
+            "Size": {
+              "X": 102.0,
+              "Y": 90.0
+            },
+            "Name": "Sprite_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "orderhero/treadmillrun1.png",
+              "Plist": "orderhero/orderhero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -554.3939,
+              "Y": 1500.5168
+            },
+            "Scale": {
+              "ScaleX": 0.7386,
+              "ScaleY": 0.7386
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.2166,
+              "Y": 0.8336
+            },
+            "PreSize": {
+              "X": 0.0398,
+              "Y": 0.05
+            },
+            "LeftMargin": -605.3939,
+            "RightMargin": 3063.3938,
+            "TopMargin": 254.4832,
+            "BottomMargin": 1455.5168,
+            "Tag": 77,
+            "ActionTag": 1601495003,
+            "Size": {
+              "X": 102.0,
+              "Y": 90.0
+            },
+            "Name": "Sprite_5_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "orderhero/treadmillwheel.png",
+              "Plist": "orderhero/orderhero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 208.64,
+              "Y": 1418.2745
+            },
+            "Scale": {
+              "ScaleX": 0.7386,
+              "ScaleY": 0.7386
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0815,
+              "Y": 0.7879
+            },
+            "PreSize": {
+              "X": 0.0492,
+              "Y": 0.07
+            },
+            "LeftMargin": 145.64,
+            "RightMargin": 2288.3601,
+            "TopMargin": 318.7255,
+            "BottomMargin": 1355.2745,
+            "Tag": 80,
+            "ActionTag": 1729998358,
+            "Size": {
+              "X": 126.0,
+              "Y": 126.0
+            },
+            "Name": "treadmillwheel_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "orderhero/treadmillwheel.png",
+              "Plist": "orderhero/orderhero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -702.889,
+              "Y": 1419.2054
+            },
+            "Scale": {
+              "ScaleX": 0.7386,
+              "ScaleY": 0.7386
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.2746,
+              "Y": 0.7884
+            },
+            "PreSize": {
+              "X": 0.0492,
+              "Y": 0.07
+            },
+            "LeftMargin": -765.889,
+            "RightMargin": 3199.8892,
+            "TopMargin": 317.7946,
+            "BottomMargin": 1356.2054,
+            "Tag": 79,
+            "ActionTag": 771372249,
+            "Size": {
+              "X": 126.0,
+              "Y": 126.0
+            },
+            "Name": "treadmillwheel_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "orderhero/treadmill.png",
+              "Plist": "orderhero/orderhero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2786.5774,
+              "Y": 1533.0054
+            },
+            "Scale": {
+              "ScaleX": 1.2309,
+              "ScaleY": 0.7386
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0885,
+              "Y": 0.8517
+            },
+            "PreSize": {
+              "X": 0.3105,
+              "Y": 0.1094
+            },
+            "LeftMargin": 2389.0774,
+            "RightMargin": -624.0774,
+            "TopMargin": 168.4946,
+            "BottomMargin": 1434.5054,
+            "Tag": 82,
+            "ActionTag": 1877585059,
+            "Size": {
+              "X": 795.0,
+              "Y": 197.0
+            },
+            "Name": "treadmill_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "orderhero/treadmillrun1.png",
+              "Plist": "orderhero/orderhero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3135.0747,
+              "Y": 1563.9908
+            },
+            "Scale": {
+              "ScaleX": 0.7386,
+              "ScaleY": 0.7386
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.2246,
+              "Y": 0.8689
+            },
+            "PreSize": {
+              "X": 0.0398,
+              "Y": 0.05
+            },
+            "LeftMargin": 3084.0747,
+            "RightMargin": -626.0747,
+            "TopMargin": 191.0092,
+            "BottomMargin": 1518.9908,
+            "Tag": 83,
+            "ActionTag": 816851947,
+            "Size": {
+              "X": 102.0,
+              "Y": 90.0
+            },
+            "Name": "Sprite_5_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "orderhero/treadmillrun1.png",
+              "Plist": "orderhero/orderhero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2474.2981,
+              "Y": 1564.4589
+            },
+            "Scale": {
+              "ScaleX": 0.7386,
+              "ScaleY": 0.7386
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9665,
+              "Y": 0.8691
+            },
+            "PreSize": {
+              "X": 0.0398,
+              "Y": 0.05
+            },
+            "LeftMargin": 2423.2981,
+            "RightMargin": 34.7019,
+            "TopMargin": 190.5411,
+            "BottomMargin": 1519.4589,
+            "Tag": 84,
+            "ActionTag": 679613403,
+            "Size": {
+              "X": 102.0,
+              "Y": 90.0
+            },
+            "Name": "Sprite_5_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "orderhero/treadmillwheel.png",
+              "Plist": "orderhero/orderhero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3227.3452,
+              "Y": 1495.4789
+            },
+            "Scale": {
+              "ScaleX": 0.7386,
+              "ScaleY": 0.7386
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.2607,
+              "Y": 0.8308
+            },
+            "PreSize": {
+              "X": 0.0492,
+              "Y": 0.07
+            },
+            "LeftMargin": 3164.3452,
+            "RightMargin": -730.3452,
+            "TopMargin": 241.5211,
+            "BottomMargin": 1432.4789,
+            "Tag": 85,
+            "ActionTag": 101713566,
+            "Size": {
+              "X": 126.0,
+              "Y": 126.0
+            },
+            "Name": "treadmillwheel_3_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "orderhero/treadmillwheel.png",
+              "Plist": "orderhero/orderhero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2315.8018,
+              "Y": 1493.1503
+            },
+            "Scale": {
+              "ScaleX": 0.7386,
+              "ScaleY": 0.7386
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9046,
+              "Y": 0.8295
+            },
+            "PreSize": {
+              "X": 0.0492,
+              "Y": 0.07
+            },
+            "LeftMargin": 2252.8018,
+            "RightMargin": 181.1982,
+            "TopMargin": 243.8497,
+            "BottomMargin": 1430.1503,
+            "Tag": 86,
+            "ActionTag": 64554541,
+            "Size": {
+              "X": 126.0,
+              "Y": 126.0
+            },
+            "Name": "treadmillwheel_4_0",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "orderhero.plist",
+        "orderhero.png",
+        "ramp.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}
