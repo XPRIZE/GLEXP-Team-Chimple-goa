@@ -18,6 +18,7 @@ public:
 	float extraX;
 	int _num = 0;
 	int _score = 0;
+	int _count = 0;
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
     cocos2d::Node* background;
 	cocos2d::Sprite* _cake;
@@ -27,6 +28,7 @@ public:
 	cocos2d::Label* _topLabel;
 	cocos2d::Sprite* _pointRef;
 	std::vector<cocos2d::Node *>  _Ref;
+	std::vector<cocos2d::Sprite *>  _pillarRef;
 	std::vector<std::string> _wordCorrect;
 	std::vector<std::string> _wordList;
 	void ladderMove();
@@ -34,6 +36,7 @@ public:
 	void onEnterTransitionDidFinish();
 	void gameHelp();
 	bool _helpFlage = false;
+	bool _cakeFlag = false;
 	void blink(std::string animationName, bool loop);
 	static const char* gameName() { return PILLAR.c_str(); }
 protected:
