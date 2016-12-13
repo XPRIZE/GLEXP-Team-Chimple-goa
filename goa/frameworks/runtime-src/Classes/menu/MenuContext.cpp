@@ -898,14 +898,14 @@ void MenuContext::launchGameFinally(std::string gameName) {
 			Director::getInstance()->replaceScene(Door::createScene());
 		}
     	else if (gameName == MEMORY) {
-    		
+    		/*
 			int numberPicker = RandomHelper::random_int(0, 2);
     		switch (numberPicker) {
     		case 0: Director::getInstance()->replaceScene(MemoryJungle::createScene());  break;
     		case 1: Director::getInstance()->replaceScene(MemoryHero::createScene());  break;
     		case 2: Director::getInstance()->replaceScene(Memory::createScene());  break;
-    		}
-			
+    		}*/
+			Director::getInstance()->replaceScene(Memory::createScene());
 			
 			
 			
@@ -973,7 +973,7 @@ void MenuContext::launchGameFinally(std::string gameName) {
 }
 
 void MenuContext::transitToScrollableGameMap() {
-    Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
+    Director::getInstance()->replaceScene(TransitionFade::create(0.5, ScrollableGameMapScene::createScene(), Color3B::BLACK));
 }
 
 void MenuContext::showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {

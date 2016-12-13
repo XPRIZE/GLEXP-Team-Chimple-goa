@@ -157,7 +157,8 @@ enum SupportedLanguages
 {
     ENGLISH = 0,
     KANNADA = 1,
-    GERMAN = 2
+    GERMAN = 2,
+    SWAHILI = 3
 };
 
 

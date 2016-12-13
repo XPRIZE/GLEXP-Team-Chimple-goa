@@ -16,8 +16,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "template/background_image.png",
-              "Plist": "template/template.plist"
+              "Path": "template/template_02/background_image.png",
+              "Plist": "template/template_02/template_02.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -700,7 +700,9 @@
       },
       "UsedResources": [
         "template.plist",
-        "template.png"
+        "template.png",
+        "template_02/template_02.plist",
+        "template_02/template_02.png"
       ],
       "ctype": "GameFileData"
     }

@@ -53,6 +53,8 @@ protected:
 	std::string _hint;
 	int _counter;
 	int _helpflag;
+	int _wrong;
+	int _right;
 
 	cocos2d::Sprite * nest;
 	int _sceneNumber;

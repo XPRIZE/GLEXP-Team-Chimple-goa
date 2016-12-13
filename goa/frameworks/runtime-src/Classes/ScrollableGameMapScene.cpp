@@ -172,7 +172,7 @@ bool ScrollableGameMapScene::init() {
                     cocos2d::ui::Button* button = ui::Button::create(buttonNormalIcon, buttonPressedIcon, buttonDisabledIcon);
                     button->setName(games.at(index));
                     button->setPosition(Vec2(k * visibleSize.width + (j + 0.5) * visibleSize.width / numCols, visibleSize.height - (2 * i + initialYOffSet) * (visibleSize.height / numCols) - 30));
-                    button->setTitleText(gameMap["title"]);
+                    button->setTitleText(LangUtil::getInstance()->translateString(gameMap["title"]));
                     button->setTitleAlignment(TextHAlignment::CENTER, TextVAlignment::BOTTOM);
                     button->setTitleFontName("Arial");
                     button->setTitleColor(Color3B(0xFF, 0xF2, 0x00));

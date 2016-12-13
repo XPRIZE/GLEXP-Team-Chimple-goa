@@ -9,6 +9,7 @@
 #include "LangUtil.h"
 #include "EnglishUtil.h"
 #include "KannadaUtil.h"
+#include "SwahiliUtil.h"
 #include "cocos2d.h"
 
 USING_NS_CC;
@@ -24,7 +25,7 @@ LangUtil::~LangUtil() {
 
 LangUtil* LangUtil::getInstance() {
     if(!_instance) {
-        _instance = new EnglishUtil();
+        _instance = new SwahiliUtil();
     }
     return _instance;
 }
@@ -55,6 +56,13 @@ void LangUtil::changeLanguage(SupportedLanguages lang) {
         case SupportedLanguages::ENGLISH:
         {
             LangUtil::_instance = new EnglishUtil();
+            break;
+        }
+        case SupportedLanguages::SWAHILI:
+        {
+            LangUtil::_instance = new SwahiliUtil();
+            Data moData = FileUtils::getInstance()->getDataFromFile("res/swahili/swa.mo");
+            I18N::I18nUtils::getInstance()->addMO(moData.getBytes());
             break;
         }
             
