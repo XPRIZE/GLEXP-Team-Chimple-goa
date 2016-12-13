@@ -490,7 +490,7 @@ void::Bingo::setWordInHelpBoard()
 		}
 	}
 	int size = _data_value.size() - 1;
-	if (size != -1)
+	if (size != -1 && !_isBingoDone)
 	{
 		_label = LabelTTF::create(_data_value[RandomHelper::random_int(0, size)], "Helvetica", 200);
 		_label->setPosition(visibleSize.width / 2 + origin.x, visibleSize.height*_gridBasedValue.at("helpLetterYFactor"));
@@ -517,12 +517,14 @@ void Bingo::addEvents(Sprite* clickedObject)
 			{
 				_flagForSingleTouch = false;
 				bool bingo = false;
+				bool needLabel = false;
 				std::string helpLabelPair = target->getChildren().at(0)->getName();
 				if (helpLabelPair.compare(_label->getString()) == 0)
 				{
 					target->setVisible(false);
 					target->setTag(1);
-					setWordInHelpBoard();
+					//setWordInHelpBoard();
+					needLabel = true;
 					_menuContext->addPoints(1);
 					auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 					audio->playEffect("sounds/sfx/success.ogg", false);
@@ -562,6 +564,7 @@ void Bingo::addEvents(Sprite* clickedObject)
 					this->removeChild(_help, true);
 					_isHelpDone = 1;
 				}
+				
 				bingo = bingoChecker(bingo);
 
 				if (bingo)
@@ -577,6 +580,10 @@ void Bingo::addEvents(Sprite* clickedObject)
 						_menuContext->showScore();
 					});
 					this->runAction(Sequence::create(DelayTime::create(5), callShowScore, NULL));
+				}
+				if (needLabel && !_isBingoDone)
+				{
+					setWordInHelpBoard();
 				}
 				/* this->runAction(Sequence::create(DelayTime::create(4), CallFunc::create([=]() {_flagForSingleTouch = true; }), NULL));*/
 			}
