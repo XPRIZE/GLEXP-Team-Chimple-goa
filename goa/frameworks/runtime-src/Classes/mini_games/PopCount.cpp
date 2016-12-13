@@ -304,6 +304,11 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 
 				_popElementCount = _popElementCount - 1;
 				_totalHit++;
+
+				auto star = this->getChildByName("centerStar");
+				star->runAction(Sequence::create(ScaleTo::create(1.0f, star->getScaleX() * 1.2, star->getScaleY() * 1.2), ScaleTo::create(1.0f, star->getScaleX() * 1, star->getScaleY() * 1),NULL));
+			//	star->runAction(Sequence::create(MoveTo::create(1.0f, Vec2(1,1)), MoveTo::create(1.0f, Vec2(1,1)), NULL));
+
 				if (_popElementCount != 0) {
 					this->runAction(Sequence::create(DelayTime::create(_popStayDelay + 2), CallFunc::create([=]() {this->getChildByName("midButton")->setVisible(true); _popMidButtonClickPermision = true; _timelineCenterStarFish->play("blink", true); }), NULL));
 					_popUpAnswer = RandomHelper::random_int(1, _maxPopStarLimits);
@@ -312,10 +317,14 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 			}
 			else {
 				float distance = Director::getInstance()->getVisibleSize().width * 0.8;
-				FShake* shake = FShake::actionWithDuration(0.5f,10.0f);
-				this->getChildByName("gridpanel")->runAction(shake);
+				FShake* shake1 = FShake::actionWithDuration(0.5f,10.0f);
+				this->getChildByName("gridpanel")->runAction(shake1);
 				_timelineCenterStarFish->play("wrong", true);
 				_wrongHit++;
+
+				FShake* shake2 = FShake::actionWithDuration(0.5f, 10.0f);
+				this->getChildByName("centerStar")->runAction(shake2);
+
 //				this->runAction(Sequence::create(DelayTime::create(_popStayDelay + 2), CallFunc::create([=]() {_timelineCenterStarFish->play("blink", true); }), NULL));
 				CCLOG(" ------------------- CLICKED WRONG ---------------");
 			}
