@@ -105,7 +105,7 @@
             },
             "LeftMargin": 2480.5396,
             "RightMargin": -2480.5396,
-            "TopMargin": 1272.5249,
+            "TopMargin": 1272.5248,
             "BottomMargin": -2.5248,
             "Tag": 55,
             "ActionTag": 1239377260,
@@ -576,50 +576,44 @@
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "sortit/charcterone.png",
-              "Plist": "sortit/sortit.plist"
+              "Type": "Normal",
+              "Path": "sortit/character1.json",
+              "Plist": ""
             },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
             "Position": {
-              "X": 2184.8042,
-              "Y": 751.3146
+              "X": 2162.5325,
+              "Y": 286.6007
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "RotationSkewX": 1.357,
-            "RotationSkewY": 1.3604,
             "CColor": {},
-            "IconVisible": false,
+            "IconVisible": true,
             "PrePosition": {
-              "X": 0.8534,
-              "Y": 0.4174
+              "X": 0.8447,
+              "Y": 0.1592
             },
             "PreSize": {
-              "X": 0.2617,
-              "Y": 0.53
+              "X": 0.0,
+              "Y": 0.0
             },
-            "LeftMargin": 1849.8042,
-            "RightMargin": 40.1958,
-            "TopMargin": 571.6853,
-            "BottomMargin": 274.3146,
-            "Tag": 51,
-            "ActionTag": -864319679,
+            "LeftMargin": 2162.5325,
+            "RightMargin": 397.4675,
+            "TopMargin": 1513.3993,
+            "BottomMargin": 286.6007,
+            "Tag": 315,
+            "ActionTag": 393192525,
             "Size": {
-              "X": 670.0,
-              "Y": 954.0
+              "X": 0.0,
+              "Y": 0.0
             },
-            "Name": "charcterone_1",
-            "ctype": "SpriteObjectData"
+            "Name": "character1",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -630,8 +624,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "sortit.plist",
-        "sortit.png"
+        "character1.json"
       ],
       "ctype": "GameFileData"
     }
