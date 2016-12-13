@@ -107,7 +107,7 @@ bool Pillar::init()
 	};
 
 	std::vector<std::string> theme = { "candy","iceLand","farm" };
-	_scenePath = differntSceneMapping.at(theme.at(cocos2d::RandomHelper::random_int(0, 2)));
+	_scenePath = differntSceneMapping.at(theme.at(cocos2d::RandomHelper::random_int(0, 2)));//cocos2d::RandomHelper::random_int(0, 2)
 
 	
 
@@ -230,7 +230,7 @@ void Pillar::onEnterTransitionDidFinish()
 	newCake();
 	ladderMove();
 	this->scheduleUpdate();
-	menu->setMaxPoints(5);
+	menu->setMaxPoints(4);
 	
 }
 void Pillar::gameHelp()
@@ -265,9 +265,9 @@ void Pillar::blink(std::string animationName, bool loop)
 void Pillar::ladderMove()
 {
    
-	auto rotate = RotateBy::create(0.7, 20);
+	auto rotate = RotateBy::create(0.7, 30);
 	auto rev = rotate->reverse();
-	auto rotate1 = RotateBy::create(0.7, -20);
+	auto rotate1 = RotateBy::create(0.7, -30);
 	auto rev1 = rotate1->reverse();
 	auto seq = Sequence::create(rotate, rev, rotate1, rev1, NULL);
     auto action = RepeatForever::create(seq);
@@ -298,10 +298,10 @@ void Pillar::newCake()
 	_num = cocos2d::RandomHelper::random_int(0, size-1);
 	//int num = rand() % _wordList.size();
 	_topLabel = Label::createWithSystemFont(_wordList.at(_num).c_str(), "Arial", 100);
-	_topLabel->setPositionX(_ladder->getContentSize().width / 2);
-	_topLabel->setPositionY(_ladder->getContentSize().height);
+	_topLabel->setPositionX(_cake->getContentSize().width / 2);
+	_topLabel->setPositionY(_cake->getContentSize().height/2);
 	_topLabel->setColor(Color3B(255, 255, 255));
-	_ladder->addChild(_topLabel);
+	_cake->addChild(_topLabel);
 
 	if (menu->getCurrentLevel() == 1 && _score == 0) {
 		this->removeChildByName("helpLayer");
@@ -313,29 +313,97 @@ void Pillar::update(float dt)
 {
 	if (_cakeMove != nullptr)
 	{
+		
 		if (_cakeMove->getBoundingBox().intersectsRect((_pointRef)->getBoundingBox()) && _rotateFlag)
 		{
 			CCLOG("caaakeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+			
+			
 			_cakeMove->stopAllActions();
-			auto timeline = CSLoader::createTimeline(_scenePath.at("character"));
-			_character->runAction(timeline);
-			timeline->play(_scenePath.at("happy"), false);
-			runAction(Sequence::create(DelayTime::create(2),CallFunc::create([=]() {
-				_pointRef = _cakeMove;
-				_cakeMove = nullptr;
-				
-				_score++;
-				menu->addPoints(1);
-				if (_score == 5)
+			if (_count == 0)
+			{
+				if (_scenePath.at("animation_select").compare("two") == 0)
 				{
-					menu->showScore();
+					_cakeMove->setPositionX(_pointRef->getContentSize().width / 2 + 200 + extraX);
+					_cakeMove->setPositionY(_pointRef->getContentSize().height / 2 + 250 );
 				}
-				newCake();
-				ladderMove();
-			}),NULL));
-			
-			_rotateFlag = false;
-			
+				else if (_scenePath.at("animation_select").compare("three") == 0)
+				{
+					_cakeMove->setPositionX(_pointRef->getContentSize().width / 2 + 850 + extraX);
+					_cakeMove->setPositionY(_pointRef->getContentSize().height / 2 + 200);
+				}
+				else
+				{
+					_cakeMove->setPositionX(_pointRef->getContentSize().width / 2 + 200 + extraX);
+					_cakeMove->setPositionY(_pointRef->getContentSize().height / 2 + 395);
+				}
+			}
+			else
+			{
+				
+				_cakeMove->setPositionX(_pointRef->getPositionX() );
+				_cakeMove->setPositionY(_pointRef->getPositionY() + 100);
+			}
+			if (_cakeFlag == false)
+			{
+				
+				auto timeline = CSLoader::createTimeline(_scenePath.at("character"));
+				_character->runAction(timeline);
+				timeline->play(_scenePath.at("happy"), false);
+				runAction(Sequence::create(DelayTime::create(2), CallFunc::create([=]() {
+					_pointRef = _cakeMove;
+					//_cakeMove = nullptr;
+					_pillarRef.push_back(_cakeMove);
+				//	_cakeMove = nullptr;
+					_score++;
+					_count++;
+					menu->addPoints(1);
+					CCLOG("score = %d", _score);
+					newCake();
+					ladderMove();
+				}), NULL));
+
+				_rotateFlag = false;
+			}
+			else
+			{
+				
+				this->removeChild(_cakeMove);
+				
+				if (_pillarRef.size() != 0 )
+				{
+					this->removeChild(_pillarRef.at(_pillarRef.size() - 1));
+					_pillarRef.pop_back();
+					CCLOG("size pop = % d", _pillarRef.size());
+					if (_pillarRef.size() == 0)
+					{
+						CCLOG("size if pop = % d", _pillarRef.size());
+						_pointRef = (Sprite*)_Ref.at(0);
+						_count = 0;
+					}
+					else
+					{
+						CCLOG("size else pop = % d", _pillarRef.size());
+						_pointRef = _pillarRef.at(_pillarRef.size() - 1);
+					}
+					
+				}
+				else
+				{
+					_pointRef = (Sprite*)_Ref.at(0);
+				}
+				_cakeMove = nullptr;
+				//_score--;
+				menu->addPoints(-1);
+				CCLOG("score = %d", _score);
+				_rotateFlag = false;
+			}
+			CCLOG("size = %d", _pillarRef.size());
+			if (_pillarRef.size() == 4)
+			{
+				CCLOG("size = %d", _pillarRef.size());
+				menu->showScore();
+			}
 			//_cakeMove->setPosition(_Ref.at(0)->getPositionX(), _Ref.at(0)->getPositionY());
 		}
 		
@@ -357,11 +425,13 @@ bool Pillar::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			if (std::find(_wordCorrect.begin(), _wordCorrect.end(),check) != _wordCorrect.end())
 			{
 				CCLOG("done\\\\\\\\");
+				_cakeFlag = false;
 				_ladder->stopAllActions();
 				_ladder->removeChild(_cake);
 				_ladder->removeChild(_topLabel);
 				_cakeMove = Sprite::createWithSpriteFrameName(_scenePath.at("cakePath"));
 				//_cakeMove->setScale(0.55);
+				
 				auto size = _cakeMove->getContentSize();
 				if (_scenePath.at("animation_select").compare("two") == 0)
 				{
@@ -376,6 +446,11 @@ bool Pillar::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				_cakeMove->setPositionX(touch->getLocation().x);
 				_cakeMove->setPositionY(touch->getLocation().y);
 				this->addChild(_cakeMove);
+				auto labelCake = Label::createWithSystemFont(check.c_str(), "Arial", 100);
+				labelCake->setPositionX(_cakeMove->getContentSize().width/2);
+				labelCake->setPositionY(_cakeMove->getContentSize().height/2);
+				labelCake->setColor(Color3B(255, 255, 255));
+				_cakeMove->addChild(labelCake);
 				auto callbackStart = CallFunc::create(CC_CALLBACK_0(Pillar::newCake, this));
 				auto callbackStart1 = CallFunc::create(CC_CALLBACK_0(Pillar::ladderMove, this));
 				
@@ -387,15 +462,48 @@ bool Pillar::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				_cakeMove->runAction(seq);
 				_rotateFlag = true;
 				
-					this->removeChildByName("helpLayer");
-					_helpFlage = false;
+				this->removeChildByName("helpLayer");
+				_helpFlage = false;
 			}
 
 			else
 			{
-			//	_ladder->stopAllActions();
-				_ladder->removeChild(_topLabel);
+				_cakeFlag = true;
+				_ladder->stopAllActions();
 				_ladder->removeChild(_cake);
+				_ladder->removeChild(_topLabel);
+				_cakeMove = Sprite::createWithSpriteFrameName(_scenePath.at("cakePath"));
+				//_cakeMove->setScale(0.55);
+
+				auto size = _cakeMove->getContentSize();
+				if (_scenePath.at("animation_select").compare("two") == 0)
+				{
+					_cakeMove->setContentSize(Size(size.width, size.height - 30));
+				}
+				else
+				{
+					_cakeMove->setContentSize(Size(size.width, size.height - 60));
+				}
+
+				//_cakeMove->setColor(Color3B(212, 232, 222));
+				_cakeMove->setPositionX(touch->getLocation().x);
+				_cakeMove->setPositionY(touch->getLocation().y);
+				this->addChild(_cakeMove);
+				auto labelCake = Label::createWithSystemFont(check.c_str(), "Arial", 100);
+				labelCake->setPositionX(_cakeMove->getContentSize().width / 2);
+				labelCake->setPositionY(_cakeMove->getContentSize().height / 2);
+				labelCake->setColor(Color3B(255, 255, 255));
+				_cakeMove->addChild(labelCake);
+				auto callbackStart = CallFunc::create(CC_CALLBACK_0(Pillar::newCake, this));
+				auto callbackStart1 = CallFunc::create(CC_CALLBACK_0(Pillar::ladderMove, this));
+
+
+				auto cakeFall = MoveBy::create(1.5, Vec2(0, -1800));
+				//_cakeMove->runAction(cakeFall);
+				auto seq = Sequence::create(cakeFall, NULL);
+				//auto action = RepeatForever::create(seq);
+				_cakeMove->runAction(seq);
+				_rotateFlag = true;
 				if (_scenePath.at("animation_select").compare("one") == 0)
 				{
 					auto puff = CSLoader::createNode("circlecandy/puff.csb");
@@ -410,6 +518,7 @@ bool Pillar::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				timeline1->play(_scenePath.at("cry"), false);
 				runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() {
 					newCake();
+					ladderMove();
 				}), NULL));
 			}
 		
