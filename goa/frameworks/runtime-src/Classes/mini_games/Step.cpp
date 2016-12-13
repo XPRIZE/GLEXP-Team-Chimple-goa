@@ -135,7 +135,7 @@ void Step::onEnterTransitionDidFinish()
 	_fluffyTime->play("blink", true);
 
 	_blastNode = CSLoader::createNode("bar/blast.csb");
-	_blastNode->setPosition(Vec2(visibleSize.width * .05, visibleSize.height * .60));
+	_blastNode->setPosition(Vec2(visibleSize.width * .01, visibleSize.height * .67));
 	_blastNode->setVisible(false);
 	this->addChild(_blastNode);
 
@@ -316,14 +316,24 @@ void Step::addEvents(struct LoadingBarDetails sprite)
 
 		if (_touchFlag == _loadingBarDetails.size())
 		{
-			_balloonRepeat = RepeatForever::create(Sequence::create(ScaleTo::create(1, 1.2), DelayTime::create(.2f), ScaleTo::create(1, 1), NULL));
-			_balloon->runAction(_balloonRepeat);
+//			_balloonRepeat = RepeatForever::create(Sequence::create(ScaleTo::create(1, 1.2), DelayTime::create(.2f), ScaleTo::create(1, 1), NULL));
+//			_balloon->runAction(_balloonRepeat);
 			_ballonFlag = 1;
+
+//			this->removeChild(_balloon);
+			_balloon->setVisible(false);
+			_blastNode->setVisible(true);
+			_blastTime = CSLoader::createTimeline("bar/blast.csb");
+			_blastNode->runAction(_blastTime);
+			_blastTime->play("go", true);
+
 		}
 		else if (_ballonFlag == 1)
 		{
 //			_balloon->stopAction(_balloonRepeat);
-			_balloon->stopAllActions();
+			_balloon->setVisible(true);
+			_blastNode->setVisible(false);
+			_blastNode->stopAllActions();
 			_balloon->runAction(ScaleTo::create(.01, 1));
 			_ballonFlag = -1;
 		}
