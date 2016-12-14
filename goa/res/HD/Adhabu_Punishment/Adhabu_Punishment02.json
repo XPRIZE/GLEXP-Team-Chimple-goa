@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 765,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "basket",
         "Timelines": [
           {
             "ActionTag": -104217017,
@@ -85,8 +85,8 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 8.8729,
-                "Y": 746.3121,
+                "X": 232.5732,
+                "Y": 715.7964,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -94,8 +94,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 219.1023,
-                "Y": 638.6281,
+                "X": 301.1074,
+                "Y": 633.0895,
                 "FrameIndex": 80,
                 "EasingData": {
                   "Type": 0
@@ -412,8 +412,8 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 413.6691,
-                "Y": 771.9896,
+                "X": 539.2891,
+                "Y": 722.5347,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -421,8 +421,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 623.8976,
-                "Y": 664.3069,
+                "X": 694.8236,
+                "Y": 660.9854,
                 "FrameIndex": 80,
                 "EasingData": {
                   "Type": 0
@@ -975,8 +975,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 2334.439,
-                "Y": 1357.2817,
+                "X": 2334.4365,
+                "Y": 1357.2812,
                 "FrameIndex": 595,
                 "EasingData": {
                   "Type": 0
@@ -1072,7 +1072,7 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -0.4466,
+                "X": -0.379,
                 "Y": 1.0,
                 "FrameIndex": 595,
                 "EasingData": {
@@ -2298,30 +2298,29 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 8.8729,
-              "Y": 746.3121
+              "X": 815.5123,
+              "Y": 207.5359
             },
             "Scale": {
-              "ScaleX": -0.6367,
-              "ScaleY": 0.6367
+              "ScaleX": -0.9754,
+              "ScaleY": 0.9755
             },
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.0035,
-              "Y": 0.4146
+              "X": 0.3186,
+              "Y": 0.1153
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 8.8729,
-            "RightMargin": 2551.1272,
-            "TopMargin": 1053.688,
-            "BottomMargin": 746.3121,
+            "LeftMargin": 815.5123,
+            "RightMargin": 1744.4877,
+            "TopMargin": 1592.4641,
+            "BottomMargin": 207.5359,
             "UserData": "walk;drag",
             "Tag": 155,
-            "FrameEvent": "walking",
             "ActionTag": -104217017,
             "Size": {
               "X": 0.0,
@@ -2341,30 +2340,29 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 413.6691,
-              "Y": 771.9896
+              "X": 1435.6683,
+              "Y": 246.8769
             },
             "Scale": {
-              "ScaleX": -0.568,
-              "ScaleY": 0.568
+              "ScaleX": -0.8702,
+              "ScaleY": 0.8702
             },
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.1616,
-              "Y": 0.4289
+              "X": 0.5608,
+              "Y": 0.1372
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 413.6691,
-            "RightMargin": 2146.3308,
-            "TopMargin": 1028.0104,
-            "BottomMargin": 771.9896,
+            "LeftMargin": 1435.6683,
+            "RightMargin": 1124.3317,
+            "TopMargin": 1553.123,
+            "BottomMargin": 246.8769,
             "UserData": "walk;drag",
             "Tag": 198,
-            "FrameEvent": "walking",
             "ActionTag": -1803298663,
             "Size": {
               "X": 0.0,
@@ -2384,11 +2382,12 @@
               "Dst": 771
             },
             "AnchorPoint": {
-              "ScaleX": 0.5
+              "ScaleX": 0.5,
+              "ScaleY": 0.0556
             },
             "Position": {
               "X": 1331.897,
-              "Y": 19.1787
+              "Y": 50.9482
             },
             "Scale": {
               "ScaleX": 0.8077,
@@ -2398,7 +2397,7 @@
             "IconVisible": false,
             "PrePosition": {
               "X": 0.5203,
-              "Y": 0.0107
+              "Y": 0.0283
             },
             "PreSize": {
               "X": 0.5297,
@@ -2406,8 +2405,8 @@
             },
             "LeftMargin": 653.897,
             "RightMargin": 550.103,
-            "TopMargin": 1072.8213,
-            "BottomMargin": 19.1787,
+            "TopMargin": 1080.3851,
+            "BottomMargin": 11.6149,
             "UserData": "main.table",
             "Tag": 11,
             "ActionTag": -68316327,
@@ -2524,27 +2523,27 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2038.4124,
-              "Y": 1360.2839
+              "X": 2334.4365,
+              "Y": 1357.2812
             },
             "Scale": {
-              "ScaleX": 1.0,
+              "ScaleX": -0.379,
               "ScaleY": 1.0
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.7963,
-              "Y": 0.7557
+              "X": 0.9119,
+              "Y": 0.754
             },
             "PreSize": {
               "X": 0.2313,
               "Y": 0.2861
             },
-            "LeftMargin": 1446.4124,
-            "RightMargin": 521.5876,
-            "TopMargin": 182.2161,
-            "BottomMargin": 1102.7839,
+            "LeftMargin": 1742.4365,
+            "RightMargin": 225.5635,
+            "TopMargin": 185.2188,
+            "BottomMargin": 1099.7812,
             "UserData": "main.window",
             "Tag": 3894,
             "ActionTag": 498434219,
@@ -2552,7 +2551,6 @@
               "X": 592.0,
               "Y": 515.0
             },
-            "Alpha": 0,
             "Name": "window_bar_2",
             "ctype": "SpriteObjectData"
           },
