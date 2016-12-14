@@ -313,9 +313,16 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 					auto popUpProperty = CallFunc::create([=]() {
 						_timelineCenterStarFish->play("blink", true);
 						_popUpAnswer = RandomHelper::random_int(1, _maxPopStarLimits);
+						this->getChildByName("gridpanel")->setVisible(false);
 						popUpCall(_popUpAnswer);
 					});
-					this->runAction(Sequence::create(DelayTime::create(2),popUpProperty,DelayTime::create(_popStayDelay + 2), CallFunc::create([=]() {this->getChildByName("midButton")->setVisible(true); _popMidButtonClickPermision = true;}), NULL));
+					this->runAction(Sequence::create(DelayTime::create(2), popUpProperty, DelayTime::create(_popStayDelay + 2), 
+						CallFunc::create([=]() {
+						this->getChildByName("midButton")->setVisible(true); 
+						_popMidButtonClickPermision = true;   
+						this->getChildByName("gridpanel")->setVisible(true); 		
+						this->getChildByName("gridpanel")->runAction(Sequence::create(ScaleTo::create(0.3f, 1.1, 1.1), ScaleTo::create(0.3f, 1, 1), NULL)); 
+					}), NULL));
 				}
 			}
 			else {
@@ -340,7 +347,7 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 				popUpCall(_popUpAnswer);
 				target->setVisible(false);
 				_popMidButtonClickPermision = false;
-
+				this->getChildByName("gridpanel")->setVisible(false);
 			}
 			else if ((target->getChildByTag(0))->getName() == "PLAY") {
 
@@ -352,7 +359,7 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 				popUpCall(_popUpAnswer);
 				target->setVisible(false);
 				_popMidButtonClickPermision = false;
-
+				this->getChildByName("gridpanel")->setVisible(false);
 			}else{
 				CCLOG("Wrong in condition , check in listner");
 			}
@@ -436,7 +443,8 @@ void PopCount::popUpCall(int popNumberOfCharacter) {
 	
 		this->getChildByName("midButton")->setVisible(true);
 		_popMidButtonClickPermision = true;
-	
+		this->getChildByName("gridpanel")->setVisible(true);
+		this->getChildByName("gridpanel")->runAction(Sequence::create(ScaleTo::create(0.3f, 1.1, 1.1), ScaleTo::create(0.3f,1,1), NULL));
 	}),NULL));
 }
 
