@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 300,
+        "Duration": 610,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "squirrel",
         "Timelines": [
           {
             "ActionTag": -773076305,
@@ -482,6 +482,344 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -39393921,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 314,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 315,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -39393921,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1731.007,
+                "Y": 680.101,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -44.1757,
+                "Y": 1908.1641,
+                "FrameIndex": 475,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -39393921,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.2,
+                "Y": 0.2,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1548548747,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 612.6556,
+                "Y": 765.0056,
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 659.3795,
+                "Y": 898.8128,
+                "FrameIndex": 520,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 672.1228,
+                "Y": 905.1841,
+                "FrameIndex": 585,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 612.6556,
+                "Y": 765.0056,
+                "FrameIndex": 610,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1548548747,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.686,
+                "Y": 0.7014,
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.686,
+                "Y": 0.7014,
+                "FrameIndex": 610,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1548548747,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 9.1878,
+                "Y": 9.2159,
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 12.1665,
+                "Y": 12.1937,
+                "FrameIndex": 520,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 9.1878,
+                "Y": 9.2159,
+                "FrameIndex": 610,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1253907080,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1935.7744,
+                "Y": 148.7707,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1935.7729,
+                "Y": 148.7706,
+                "FrameIndex": 330,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1935.7681,
+                "Y": 148.7706,
+                "FrameIndex": 340,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1935.7744,
+                "Y": 148.7707,
+                "FrameIndex": 350,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1253907080,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0621,
+                "Y": 1.0621,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.9327,
+                "Y": 1.2911,
+                "FrameIndex": 330,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.1811,
+                "Y": 0.9224,
+                "FrameIndex": 340,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0621,
+                "Y": 1.0621,
+                "FrameIndex": 350,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 464562213,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 568.4536,
+                "Y": 174.5517,
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 568.453,
+                "Y": 174.5517,
+                "FrameIndex": 495,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 568.4526,
+                "Y": 174.5517,
+                "FrameIndex": 505,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 568.4536,
+                "Y": 174.5517,
+                "FrameIndex": 511,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 464562213,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 0.9943,
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0468,
+                "Y": 0.9427,
+                "FrameIndex": 495,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.9844,
+                "Y": 1.0572,
+                "FrameIndex": 505,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 0.9943,
+                "FrameIndex": 511,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -491,6 +829,18 @@
           "StartIndex": 0,
           "EndIndex": 300,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 315,
+          "EndIndex": 475,
+          "Name": "bird",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 485,
+          "EndIndex": 610,
+          "Name": "squirrel",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -773,6 +1123,7 @@
             "RightMargin": 1075.4343,
             "TopMargin": 326.6685,
             "BottomMargin": 1473.3315,
+            "UserData": "shine",
             "Tag": 451,
             "ActionTag": 162617254,
             "Size": {
@@ -1570,6 +1921,184 @@
             },
             "Name": "eyes_11_0_0_0",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Siku_ambayo_Jua_lilipotea/dove.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1731.007,
+              "Y": 680.101
+            },
+            "Scale": {
+              "ScaleX": 0.2,
+              "ScaleY": 0.2
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.6762,
+              "Y": 0.3778
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1731.007,
+            "RightMargin": 828.993,
+            "TopMargin": 1119.8989,
+            "BottomMargin": 680.101,
+            "Tag": 2704,
+            "ActionTag": -39393921,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bird",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/squirrel.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 612.6556,
+              "Y": 765.0056
+            },
+            "Scale": {
+              "ScaleX": 0.686,
+              "ScaleY": 0.7014
+            },
+            "RotationSkewX": 9.1878,
+            "RotationSkewY": 9.2159,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2393,
+              "Y": 0.425
+            },
+            "PreSize": {
+              "X": 0.143,
+              "Y": 0.1628
+            },
+            "LeftMargin": 429.6556,
+            "RightMargin": 1764.3444,
+            "TopMargin": 888.4944,
+            "BottomMargin": 618.5056,
+            "Tag": 2717,
+            "ActionTag": 1548548747,
+            "Size": {
+              "X": 366.0,
+              "Y": 293.0
+            },
+            "Name": "squirrel_14",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/tree.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5
+            },
+            "Position": {
+              "X": 1935.7744,
+              "Y": 148.7707
+            },
+            "Scale": {
+              "ScaleX": 1.0621,
+              "ScaleY": 1.0621
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7562,
+              "Y": 0.0827
+            },
+            "PreSize": {
+              "X": 0.4348,
+              "Y": 0.4122
+            },
+            "LeftMargin": 1379.2744,
+            "RightMargin": 67.7256,
+            "TopMargin": 909.2293,
+            "BottomMargin": 148.7707,
+            "UserData": "main.bird",
+            "Tag": 2702,
+            "ActionTag": 1253907080,
+            "Size": {
+              "X": 1113.0,
+              "Y": 742.0
+            },
+            "Name": "tree_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/tree.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5104
+            },
+            "Position": {
+              "X": 568.4536,
+              "Y": 174.5517
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.9943
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2221,
+              "Y": 0.097
+            },
+            "PreSize": {
+              "X": 0.4348,
+              "Y": 0.4122
+            },
+            "LeftMargin": 0.4331,
+            "RightMargin": 1446.5669,
+            "TopMargin": 883.4482,
+            "BottomMargin": 174.5517,
+            "UserData": "main.squirrel",
+            "Tag": 2703,
+            "ActionTag": 464562213,
+            "Size": {
+              "X": 1113.0,
+              "Y": 742.0
+            },
+            "Name": "tree_2",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
@@ -1580,6 +2109,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "dove.json",
         "Siku_ambayo_Jua_lilipotea.plist",
         "Siku_ambayo_Jua_lilipotea.png",
         "sun.json"

@@ -208,9 +208,9 @@
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Rangi_za_upinde/bush.png",
-              "Plist": "Rangi_za_upinde/Rangi_za_upinde.plist"
+              "Type": "Default",
+              "Path": "Default/Sprite.png",
+              "Plist": ""
             },
             "BlendFunc": {
               "Src": 1,
@@ -257,9 +257,9 @@
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Rangi_za_upinde/bush.png",
-              "Plist": "Rangi_za_upinde/Rangi_za_upinde.plist"
+              "Type": "Default",
+              "Path": "Default/Sprite.png",
+              "Plist": ""
             },
             "BlendFunc": {
               "Src": 1,
@@ -551,6 +551,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "../Default/Sprite.png",
         "girl2.json",
         "Rangi_za_upinde.plist",
         "Rangi_za_upinde.png"

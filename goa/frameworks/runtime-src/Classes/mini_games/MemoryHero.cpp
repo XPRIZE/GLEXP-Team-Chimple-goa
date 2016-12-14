@@ -340,7 +340,35 @@ void MemoryHero::onEnterTransitionDidFinish() {
     if (_menuContext->getCurrentLevel() == 1) {
 
 		auto box1 = _memoryfarm->getChildByName("mainground")->getChildByName("board7");
-		auto box2 = _memoryfarm->getChildByName("mainground")->getChildByName("board15");
+		auto matchNode = box1->getChildByName("window")->getChildByName("windowborder")->getChildren();
+		auto stringOne = matchNode.at(0)->getName();
+
+		auto stringTwo = _data[stringOne];
+		int ids[3] = { 9, 13, 15 };
+		int  i;
+		for (i = 0; i < 3; i++) {
+
+			std::ostringstream sstreamc;
+			sstreamc << "board" << ids[i];
+			std::string queryc = sstreamc.str();
+
+
+			auto tempBox = _memoryfarm->getChildByName("mainground")->getChildByName(queryc);
+
+			auto matchNode = tempBox->getChildByName("window")->getChildByName("windowborder")->getChildren();
+			auto tempString = matchNode.at(0)->getName();
+
+			if (tempString == stringTwo) {
+				break;
+			}
+
+		}
+
+		std::ostringstream sstreamd;
+		sstreamd << "board" << ids[i];
+		std::string queryd = sstreamd.str();
+
+		auto box2 = _memoryfarm->getChildByName("mainground")->getChildByName(queryd);
 
 
 		box1pos = box1->getPosition() + Vec2(visibleSize.width * 0.03, 0);
@@ -430,8 +458,35 @@ bool MemoryHero::onTouchBegan(Touch* touch, Event* event) {
 			this->removeChild(help1);
 
 			auto box1 = _memoryfarm->getChildByName("mainground")->getChildByName("board7");
-		auto box2 = _memoryfarm->getChildByName("mainground")->getChildByName("board15");
+			auto matchNode = box1->getChildByName("window")->getChildByName("windowborder")->getChildren();
+			auto stringOne = matchNode.at(0)->getName();
 
+			auto stringTwo = _data[stringOne];
+			int ids[3] = { 9, 13, 15 };
+			int  i;
+			for (i = 0; i < 3; i++) {
+
+				std::ostringstream sstreamc;
+				sstreamc << "board" << ids[i];
+				std::string queryc = sstreamc.str();
+
+
+				auto tempBox = _memoryfarm->getChildByName("mainground")->getChildByName(queryc);
+
+				auto matchNode = tempBox->getChildByName("window")->getChildByName("windowborder")->getChildren();
+				auto tempString = matchNode.at(0)->getName();
+
+				if (tempString == stringTwo) {
+					break;
+				}
+
+			}
+
+			std::ostringstream sstreamd;
+			sstreamd << "board" << ids[i];
+			std::string queryd = sstreamd.str();
+
+			auto box2 = _memoryfarm->getChildByName("mainground")->getChildByName(queryd);
 
 		box1pos = box1->getPosition() + Vec2(visibleSize.width * 0.03, 0);
 		box2pos = box2->getPosition() + Vec2(visibleSize.width * 0.03, 0);

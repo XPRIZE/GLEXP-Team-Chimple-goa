@@ -898,14 +898,14 @@ void MenuContext::launchGameFinally(std::string gameName) {
 			Director::getInstance()->replaceScene(Door::createScene());
 		}
     	else if (gameName == MEMORY) {
-    		/*
+    		
 			int numberPicker = RandomHelper::random_int(0, 2);
     		switch (numberPicker) {
     		case 0: Director::getInstance()->replaceScene(MemoryJungle::createScene());  break;
     		case 1: Director::getInstance()->replaceScene(MemoryHero::createScene());  break;
     		case 2: Director::getInstance()->replaceScene(Memory::createScene());  break;
-    		}*/
-			Director::getInstance()->replaceScene(Memory::createScene());
+    		}
+			
 			
 			
 			
