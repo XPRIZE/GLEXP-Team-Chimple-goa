@@ -97,10 +97,14 @@ protected:
     cocos2d::ui::Button* _mapMenu;
     cocos2d::ui::Button* _bookMenu;
     cocos2d::ui::Button* _gamesMenu;
+	cocos2d::ui::Button* _settingMenu;
     cocos2d::Node* _photoMenu;
+	cocos2d::Node* _settingNode;
     cocos2d::LayerColor* _greyLayer;
+	cocos2d::LayerColor* _settingLayer;
     cocos2d::Node* _chimp;
     cocos2d::ParticleSystem* _ps;
+	cocos2d::Sprite *_radio1Select, *_radio2Select;
     int _chimpAudioId;
     void expandMenu(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void pauseNodeAndDescendants(Node *pNode);
@@ -108,9 +112,11 @@ protected:
     void showMap(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void showBook(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+	void showSettingMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void changePhoto(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void showHelp(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void waitForAudioLoad(std::string audioFileName, std::function<void(bool isSuccess)>callback);
+	void radioButton(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void chimpHelp();
     void tellHelp();
     void stopTellHelp();
@@ -134,7 +140,7 @@ protected:
 	void videoPlayStart(std::string gameName);
 	void videoPlayOverCallback();
 
-    
+	bool onTouchBeganOnSubmitButton(cocos2d::Touch *touch, cocos2d::Event *event);
     bool onTouchBeganOnCharacter(cocos2d::Touch *touch, cocos2d::Event *event);
     
     cocos2d::ui::Button* createMenuItem(const std::string normalImage,
