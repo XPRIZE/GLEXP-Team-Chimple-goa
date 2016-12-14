@@ -7,286 +7,25 @@
       "Animation": {
         "Duration": 615,
         "Speed": 1.0,
-        "ActivedAnimationName": "table",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
-            "ActionTag": 803533631,
-            "Property": "ActionValue",
-            "Frames": [
-              {
-                "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "walk",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 0,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              },
-              {
-                "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "walk",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 80,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              },
-              {
-                "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "walk",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 160,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              },
-              {
-                "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "walk",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 240,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              },
-              {
-                "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "blink",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 241,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              },
-              {
-                "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "blink",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 360,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 803533631,
-            "Property": "Position",
-            "Frames": [
-              {
-                "X": 2356.6611,
-                "Y": 453.9325,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 2154.9702,
-                "Y": 423.5894,
-                "FrameIndex": 80,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 1988.9275,
-                "Y": 393.4003,
-                "FrameIndex": 160,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 1819.3386,
-                "Y": 341.7838,
-                "FrameIndex": 240,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 1819.3386,
-                "Y": 341.7838,
-                "FrameIndex": 241,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 1819.3386,
-                "Y": 341.7838,
-                "FrameIndex": 360,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 803533631,
-            "Property": "Scale",
-            "Frames": [
-              {
-                "X": 0.8194,
-                "Y": 0.8194,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.8194,
-                "Y": 0.8194,
-                "FrameIndex": 80,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.8194,
-                "Y": 0.8194,
-                "FrameIndex": 160,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.8194,
-                "Y": 0.8194,
-                "FrameIndex": 240,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.8194,
-                "Y": 0.8194,
-                "FrameIndex": 241,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.8194,
-                "Y": 0.8194,
-                "FrameIndex": 360,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 803533631,
-            "Property": "RotationSkew",
-            "Frames": [
-              {
-                "X": 0.0,
-                "Y": 0.0,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.0,
-                "Y": 0.0,
-                "FrameIndex": 80,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.0,
-                "Y": 0.0,
-                "FrameIndex": 160,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.0,
-                "Y": 0.0,
-                "FrameIndex": 240,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.0,
-                "Y": 0.0,
-                "FrameIndex": 241,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.0,
-                "Y": 0.0,
-                "FrameIndex": 360,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 803533631,
-            "Property": "FrameEvent",
-            "Frames": [
-              {
-                "Value": "walking",
-                "FrameIndex": 0,
-                "Tween": false,
-                "ctype": "EventFrameData"
-              },
-              {
-                "Value": "walking",
-                "FrameIndex": 240,
-                "Tween": false,
-                "ctype": "EventFrameData"
-              },
-              {
-                "Value": "",
-                "FrameIndex": 241,
-                "Tween": false,
-                "ctype": "EventFrameData"
-              },
-              {
-                "Value": "",
-                "FrameIndex": 360,
-                "Tween": false,
-                "ctype": "EventFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
             "ActionTag": 921809716,
             "Property": "ActionValue",
             "Frames": [
               {
                 "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "walk",
+                "CurrentAniamtionName": "blink",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "blink",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 79,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               },
@@ -338,9 +77,18 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 153.5331,
-                "Y": 420.7286,
+                "X": 352.6278,
+                "Y": 386.3189,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 352.6278,
+                "Y": 386.3189,
+                "FrameIndex": 79,
                 "EasingData": {
                   "Type": 0
                 },
@@ -410,6 +158,15 @@
               {
                 "X": -1.0,
                 "Y": 1.0,
+                "FrameIndex": 79,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.0,
+                "Y": 1.0,
                 "FrameIndex": 80,
                 "EasingData": {
                   "Type": 0
@@ -471,6 +228,15 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
+                "FrameIndex": 79,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
                 "FrameIndex": 80,
                 "EasingData": {
                   "Type": 0
@@ -521,8 +287,14 @@
             "Property": "FrameEvent",
             "Frames": [
               {
-                "Value": "walking",
+                "Value": "",
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 79,
                 "Tween": false,
                 "ctype": "EventFrameData"
               },
@@ -543,6 +315,244 @@
                 "FrameIndex": 360,
                 "Tween": false,
                 "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 97386372,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 80,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 160,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 240,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "blink",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 241,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "blink",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 360,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 97386372,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2278.1531,
+                "Y": 487.6109,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2124.4863,
+                "Y": 453.9136,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1887.2577,
+                "Y": 370.3465,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1708.085,
+                "Y": 262.8507,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1708.085,
+                "Y": 262.8507,
+                "FrameIndex": 241,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1708.085,
+                "Y": 262.8507,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 97386372,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.8265,
+                "Y": 0.8265,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8265,
+                "Y": 0.8265,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8265,
+                "Y": 0.8265,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8265,
+                "Y": 0.8265,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8265,
+                "Y": 0.8265,
+                "FrameIndex": 241,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8265,
+                "Y": 0.8265,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 97386372,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 241,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -1190,48 +1200,6 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "Adhabu_Punishment/boy.json",
-              "Plist": ""
-            },
-            "StretchWidthEnable": false,
-            "StretchHeightEnable": false,
-            "InnerActionSpeed": 1.0,
-            "AnchorPoint": {},
-            "Position": {
-              "X": 1819.3386,
-              "Y": 341.7838
-            },
-            "Scale": {
-              "ScaleX": 0.8194,
-              "ScaleY": 0.8194
-            },
-            "CColor": {},
-            "IconVisible": true,
-            "PrePosition": {
-              "X": 0.7107,
-              "Y": 0.1899
-            },
-            "PreSize": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "LeftMargin": 1819.3386,
-            "RightMargin": 740.6614,
-            "TopMargin": 1458.2162,
-            "BottomMargin": 341.7838,
-            "UserData": "walk;drag",
-            "Tag": 1473,
-            "ActionTag": 803533631,
-            "Size": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "Name": "boy",
-            "ctype": "ProjectNodeObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
               "Path": "Adhabu_Punishment/girl.json",
               "Plist": ""
             },
@@ -1240,8 +1208,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 823.1836,
-              "Y": 268.035
+              "X": 352.6278,
+              "Y": 386.3189
             },
             "Scale": {
               "ScaleX": -1.0,
@@ -1250,17 +1218,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.3216,
-              "Y": 0.1489
+              "X": 0.1377,
+              "Y": 0.2146
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 823.1836,
-            "RightMargin": 1736.8164,
-            "TopMargin": 1531.965,
-            "BottomMargin": 268.035,
+            "LeftMargin": 352.6278,
+            "RightMargin": 2207.3721,
+            "TopMargin": 1413.6812,
+            "BottomMargin": 386.3189,
             "UserData": "walk;drag",
             "Tag": 1387,
             "ActionTag": 921809716,
@@ -1269,6 +1237,47 @@
               "Y": 0.0
             },
             "Name": "girl",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Adhabu_Punishment/boy_1.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2278.1531,
+              "Y": 487.6109
+            },
+            "Scale": {
+              "ScaleX": 0.8265,
+              "ScaleY": 0.8265
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8899,
+              "Y": 0.2709
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2278.1531,
+            "RightMargin": 281.8469,
+            "TopMargin": 1312.3892,
+            "BottomMargin": 487.6109,
+            "Tag": 3729,
+            "ActionTag": 97386372,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "boy",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1286,12 +1295,12 @@
               "ScaleY": 1.0
             },
             "Position": {
-              "X": 1169.7925,
-              "Y": 564.0939
+              "X": 1169.7921,
+              "Y": 564.094
             },
             "Scale": {
               "ScaleX": 0.7581,
-              "ScaleY": 0.6966
+              "ScaleY": 0.7581
             },
             "CColor": {},
             "IconVisible": false,
@@ -1303,10 +1312,10 @@
               "X": 0.5297,
               "Y": 0.3933
             },
-            "LeftMargin": 491.7925,
-            "RightMargin": 712.2075,
+            "LeftMargin": 491.7921,
+            "RightMargin": 712.2079,
             "TopMargin": 1235.906,
-            "BottomMargin": -143.9061,
+            "BottomMargin": -143.906,
             "UserData": "main.table",
             "Tag": 21,
             "ActionTag": 1603960697,
@@ -1353,7 +1362,7 @@
             "RightMargin": 1290.051,
             "TopMargin": 1268.3546,
             "BottomMargin": 408.6454,
-            "UserData": "drag;main.apple",
+            "UserData": "main.apple",
             "Tag": 427,
             "ActionTag": 1160366185,
             "Size": {
@@ -1374,12 +1383,12 @@
               "Dst": 771
             },
             "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
+              "ScaleX": 0.8346,
+              "ScaleY": 0.3954
             },
             "Position": {
-              "X": 1385.8975,
-              "Y": 532.6252
+              "X": 1404.5227,
+              "Y": 521.4821
             },
             "Scale": {
               "ScaleX": 0.7953,
@@ -1388,17 +1397,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5414,
-              "Y": 0.2959
+              "X": 0.5486,
+              "Y": 0.2897
             },
             "PreSize": {
               "X": 0.0273,
               "Y": 0.0744
             },
-            "LeftMargin": 1350.8975,
-            "RightMargin": 1139.1025,
-            "TopMargin": 1200.3748,
-            "BottomMargin": 465.6252,
+            "LeftMargin": 1346.104,
+            "RightMargin": 1143.896,
+            "TopMargin": 1197.5067,
+            "BottomMargin": 468.4933,
             "UserData": "drag",
             "Tag": 428,
             "ActionTag": -1535477329,
@@ -1445,7 +1454,7 @@
             "RightMargin": 1491.3025,
             "TopMargin": 1147.6953,
             "BottomMargin": 472.3047,
-            "UserData": "drag;main.mango",
+            "UserData": "main.mango",
             "Tag": 429,
             "ActionTag": 1607777010,
             "Size": {
@@ -1467,6 +1476,7 @@
         "Adhabu_Punishment.plist",
         "Adhabu_Punishment.png",
         "boy.json",
+        "boy_1.json",
         "girl.json"
       ],
       "ctype": "GameFileData"

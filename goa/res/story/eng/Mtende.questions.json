@@ -1,50 +1,74 @@
 {
-	"multiple_choice": [
-		{
-			"question": "How is the shade of the palm tree?",
-			"choices": ["hot", "warm", "wet"],
-			"answer": "cool"
-		},
-		{
-			"question": "What do we use palm tree seeds for?",
-			"choices": ["eat", "drink", "play"],
-			"answer": "fuel"			
-		},
-		{
-			"question": "What do we make from palm leaves?",
-			"choices": ["clothes", "books", "shoes"],
-			"answer": "mats"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "The palm tree lives when everything else is dry",
-			"choices": ["wet", "dirty", "cold"],
-			"answer": "dry"
-		},
-		{
-			"question": "We use palm leaves to thatch our houses",
-			"choices": ["floor", "field", "tree"],
-			"answer": "houses"
-		},
-		{
-			"question": "Do you see why the palm tree is important ?",
-			"choices": ["safe", "waste", "not useful"],
-			"answer": "important"
-		}
-	],
-	"picture": [
-		{
-			"bush.png": "banana",
-			"mat.png": "apple",
-			"broom.png": "table",
-			"palmtree.png": "palm tree"
-		}
-	],
-	"words": [
-		"tell",
-		"fruit",
-		"see",
-		"broom"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "dry",
+            "choices": [
+                "wet",
+                "dirty",
+                "cold"
+            ],
+            "question": "The palm tree lives when everything else is dry"
+        },
+        {
+            "answer": "houses",
+            "choices": [
+                "floor",
+                "field",
+                "tree"
+            ],
+            "question": "We use palm leaves to thatch our houses"
+        },
+        {
+            "answer": "important",
+            "choices": [
+                "safe",
+                "waste",
+                "not useful"
+            ],
+            "question": "Do you see why the palm tree is important ?"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "cool",
+            "choices": [
+                "hot",
+                "warm",
+                "wet"
+            ],
+            "question": "How is the shade of the palm tree?"
+        },
+        {
+            "answer": "fuel",
+            "choices": [
+                "eat",
+                "drink",
+                "play"
+            ],
+            "question": "What do we use palm tree seeds for?"
+        },
+        {
+            "answer": "mats",
+            "choices": [
+                "clothes",
+                "books",
+                "shoes"
+            ],
+            "question": "What do we make from palm leaves?"
+        }
+    ],
+    "picture": [
+        {
+            "broom.png": "broom",
+            "palm tree.png": "palm tree",
+            "palmtreefruit.png": "palmtreefruit",
+            "stove.png": "stove"
+        }
+    ],
+    "words": [
+        "tell",
+        "fruit",
+        "see",
+        "broom"
+    ]
 }

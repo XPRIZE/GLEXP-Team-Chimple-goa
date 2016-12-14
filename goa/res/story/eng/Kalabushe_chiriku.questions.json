@@ -1,56 +1,80 @@
 {
-	"multiple_choice": [
-		{
-			"question": "What sort of girl was Kalabushe?",
-			"choices": ["lazy", "clever", "tall"],
-			"answer": "talkative"
-		},
-		{
-			"question": "Who was Kalabushe visiting?",
-			"choices": ["her mother", "her teacher", "her friend"],
-			"answer": "her sick aunt"			
-		},
-		{
-			"question": "What was Kalabushe carrying?",
-			"choices": ["sweets", "empty bag", "clothes"],
-			"answer": "meat, eggs and milk"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "Sinson was a hyena who had changed into a person",
-			"choices": ["rabbit", "rooster", "snake"],
-			"answer": "hyena"
-		},
-		{
-			"question": "When Kalabushe arrived, the house was very quiet",
-			"choices": ["noisy", "crowded", "dirty"],
-			"answer": "quiet"
-		},
-		{
-			"question": "Kalabushe kept talking even when she was inside Sinson's stomach",
-			"choices": ["house", "garden", "bag"],
-			"answer": "stomach"
-		}
-	],
-	"meanings": [
-		{
-			"talkative": "fond of or given to talking",
-			"warn": "inform someone in advance of a possible danger",
-			"valley": "a low area of land between hills or mountains",
-			"blanket": "a large piece of woollen or similar material used as a covering on a bed"
-		},
-		{
-			"surprise": "an unexpected or astonishing event, fact",
-			"stomach": "the internal organ in which the major part of the digestion of food occurs",
-			"rescue": "save someone from a dangerous or difficult situation",
-			"tired": "in need of sleep or rest"
-		}
-	],
-	"words": [
-		"listen",
-		"hyena",
-		"covered",
-		"replied"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "hyena",
+            "choices": [
+                "rabbit",
+                "rooster",
+                "snake"
+            ],
+            "question": "Sinson was a hyena who had changed into a person"
+        },
+        {
+            "answer": "quiet",
+            "choices": [
+                "noisy",
+                "crowded",
+                "dirty"
+            ],
+            "question": "When Kalabushe arrived, the house was very quiet"
+        },
+        {
+            "answer": "stomach",
+            "choices": [
+                "house",
+                "garden",
+                "bag"
+            ],
+            "question": "Kalabushe kept talking even when she was inside Sinson\ufffd\u06eas stomach"
+        }
+    ],
+    "meanings": [
+        {
+            "blanket": "a large piece of woollen or similar material used as a covering on a bed",
+            "talkative": "fond of or given to talking",
+            "valley": "a low area of land between hills or mountains",
+            "warn": "inform someone in advance of a possible danger"
+        },
+        {
+            "rescue": "save someone from a dangerous or difficult situation",
+            "stomach": "the internal organ in which the major part of the digestion of food occurs",
+            "surprise": "an unexpected or astonishing event, fact",
+            "tired": "in need of sleep or rest"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "talkative",
+            "choices": [
+                "lazy",
+                "clever",
+                "tall"
+            ],
+            "question": "What sort of girl was Kalabushe?"
+        },
+        {
+            "answer": "her sick aunt",
+            "choices": [
+                "her mother",
+                "her teacher",
+                "her friend"
+            ],
+            "question": "Who was Kalabushe visiting?"
+        },
+        {
+            "answer": "meat, eggs and milk",
+            "choices": [
+                "sweets",
+                "empty bag",
+                "clothes"
+            ],
+            "question": "What was Kalabushe carrying?"
+        }
+    ],
+    "words": [
+        "listen",
+        "hyena",
+        "covered",
+        "replied"
+    ]
 }

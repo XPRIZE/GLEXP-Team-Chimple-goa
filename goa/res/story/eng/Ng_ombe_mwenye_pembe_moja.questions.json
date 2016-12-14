@@ -1,40 +1,56 @@
 {
-	"multiple_choice": [
-		{
-			"question": "How many horns does the cow have?",
-			"choices": ["two", "three", "four"],
-			"answer": "one"
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "There is a beautiful cow at home",
-			"choices": ["ugly", "black", "yellow"],
-			"answer": "beautiful"
-		},
-		{
-			"question": "The shepherd loves this cow the most",
-			"choices": ["father", "mother", "brother"],
-			"answer": "shepherd"
-		},
-		{
-			"question": "When the other cattle graze, this one eats alone",
-			"choices": ["walks", "runs", "sleeps"],
-			"answer": "eats"
-		}
-	],
-	"picture": [
-		{
-			"cow.png": "cow",
-			"boy.png": "boy",
-			"girl.png": "girl",
-			"fence.png": "fence"
-		}
-	],
-	"words": [
-		"horn",
-		"tail",
-		"stomach",
-		"fighter"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "beautiful",
+            "choices": [
+                "ugly",
+                "black",
+                "yellow"
+            ],
+            "question": "There is a beautiful cow at home"
+        },
+        {
+            "answer": "shepherd",
+            "choices": [
+                "father",
+                "mother",
+                "brother"
+            ],
+            "question": "The shepherd loves this cow the most"
+        },
+        {
+            "answer": "eats",
+            "choices": [
+                "walks",
+                "runs",
+                "sleeps"
+            ],
+            "question": "When the other cattle graze, this one eats alone"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "one",
+            "choices": [
+                "two",
+                "three",
+                "four"
+            ],
+            "question": "How many horns does the cow have?"
+        }
+    ],
+    "picture": [
+        {
+            "boy.png": "boy",
+            "cow.png": "cow",
+            "fence.png": "fence",
+            "girl.png": "girl"
+        }
+    ],
+    "words": [
+        "horn",
+        "tail",
+        "stomach",
+        "fighter"
+    ]
 }

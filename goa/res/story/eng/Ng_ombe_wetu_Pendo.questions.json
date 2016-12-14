@@ -1,50 +1,74 @@
 {
-	"multiple_choice": [
-		{
-			"question": "What does Ndalo like to do?",
-			"choices": ["play outside", "go to school", "throw stones"],
-			"answer": "read books"
-		},
-		{
-			"question": "What does Pendo like to eat?",
-			"choices": ["grass", "beans", "rice"],
-			"answer": "carrots"			
-		},
-		{
-			"question": "What does Father give Pendo?",
-			"choices": ["apple", "orange", "carrot"],
-			"answer": "grain"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "Ndalo grazes Pendo after school",
-			"choices": ["before", "during", "at"],
-			"answer": "after"
-		},
-		{
-			"question": "Pendo gives a lot of milk",
-			"choices": ["water", "pudding", "soda"],
-			"answer": "milk"
-		},
-		{
-			"question": "Ndalo drinks fresh milk every day",
-			"choices": ["stale", "bad", "green"],
-			"answer": "fresh"
-		}
-	],
-	"picture": [
-		{
-			"cow.png": "cow",
-			"milk.png": "milk",
-			"carrot.png": "carrot",
-			"water.png": "water"
-		}
-	],
-	"words": [
-		"grazes",
-		"milk",
-		"water",
-		"grain"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "after",
+            "choices": [
+                "before",
+                "during",
+                "at"
+            ],
+            "question": "Ndalo grazes Pendo after school"
+        },
+        {
+            "answer": "milk",
+            "choices": [
+                "water",
+                "pudding",
+                "soda"
+            ],
+            "question": "Pendo gives a lot of milk"
+        },
+        {
+            "answer": "fresh",
+            "choices": [
+                "stale",
+                "bad",
+                "green"
+            ],
+            "question": "Ndalo drinks fresh milk every day"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "read books",
+            "choices": [
+                "play outside",
+                "go to school",
+                "throw stones"
+            ],
+            "question": "What does Ndalo like to do?"
+        },
+        {
+            "answer": "carrots",
+            "choices": [
+                "grass",
+                "beans",
+                "rice"
+            ],
+            "question": "What does Pendo like to eat?"
+        },
+        {
+            "answer": "grain",
+            "choices": [
+                "apple",
+                "orange",
+                "carrot"
+            ],
+            "question": "What does Father give Pendo?"
+        }
+    ],
+    "picture": [
+        {
+            "carrot.png": "carrot",
+            "cow.png": "cow",
+            "milk.png": "milk",
+            "water.png": "water"
+        }
+    ],
+    "words": [
+        "grazes",
+        "milk",
+        "water",
+        "grain"
+    ]
 }

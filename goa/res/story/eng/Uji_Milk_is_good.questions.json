@@ -1,48 +1,64 @@
 {
-	"multiple_choice": [
-		{
-			"question": "What is dad cooking for breakfast?",
-			"choices": ["bread", "egg", "cereal"],
-			"answer": "porridge"
-		},
-		{
-			"question": "How does Dad pour milk?",
-			"choices": ["quickly", "slowly", "carefully"],
-			"answer": "with love"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "Zama thinks this porridge needs more sugar and milk",
-			"choices": ["water", "rice", "beans"],
-			"answer": "milk"
-		},
-		{
-			"question": "Milk has got fats, vitamins and calcium",
-			"choices": ["sand", "rock", "dust"],
-			"answer": "vitamins"
-		}
-	],
-	"meanings": [
-		{
-			"porridge": "a dish consisting of cereal boiled in water or milk",
-			"vitamins": "a compound which is essential for normal growth",
-			"energy": "the strength required for physical or mental activity",
-			"calcium": "a mineral good for bones"
-		}
-	],
-	"picture": [
-		{
-			"cup.png": "banana",
-			"milk.png": "apple",
-			"sugar.png": "table",
-			"table.png": "sofa"
-		}
-	],
-	"words": [
-		"breakfast",
-		"sweetest",
-		"mummy",
-		"vitamins"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "milk",
+            "choices": [
+                "water",
+                "rice",
+                "beans"
+            ],
+            "question": "Zama thinks this porridge needs more sugar and milk"
+        },
+        {
+            "answer": "vitamins",
+            "choices": [
+                "sand",
+                "rock",
+                "dust"
+            ],
+            "question": "Milk has got fats, vitamins and calcium"
+        }
+    ],
+    "meanings": [
+        {
+            "calcium": "a mineral good for bones",
+            "energy": "the strength required for physical or mental activity",
+            "porridge": "a dish consisting of cereal boiled in water or milk",
+            "vitamins": "a compound which is essential for normal growth"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "porridge",
+            "choices": [
+                "bread",
+                "egg",
+                "cereal"
+            ],
+            "question": "What is dad cooking for breakfast?"
+        },
+        {
+            "answer": "with love",
+            "choices": [
+                "quickly",
+                "slowly",
+                "carefully"
+            ],
+            "question": "How does Dad pour milk?"
+        }
+    ],
+    "picture": [
+        {
+            "apple.png": "apple",
+            "banana.png": "banana",
+            "sofa.png": "sofa",
+            "table.png": "table"
+        }
+    ],
+    "words": [
+        "breakfast",
+        "sweetest",
+        "mummy",
+        "vitamins"
+    ]
 }

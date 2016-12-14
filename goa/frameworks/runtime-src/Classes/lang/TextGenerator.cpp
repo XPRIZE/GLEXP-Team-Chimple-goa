@@ -64,6 +64,7 @@ std::string TextGenerator::generateAWord(int level, int length) {
 
 std::string TextGenerator::generateASentence(int level) {
     /* TODO: make the level as the number of words */
+    level = 1;
     return getSingle("sentences", level);
 }
 
@@ -133,11 +134,9 @@ std::map<std::string, std::string> TextGenerator::getPairs(std::string type, int
     ss.str(contents);
     std::string line;
     while (std::getline(ss, line)) {
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
     if ( line.size() && line[line.size()-1] == '\r' ) {
         line = line.substr( 0, line.size() - 1 );
     }
-#endif
         std::stringstream sline;
         sline.str(line);
         std::string item;
@@ -168,11 +167,9 @@ std::vector<std::string> TextGenerator::getWordList(std::string type, int level)
     ss.str(contents);
     std::string line;
     while (std::getline(ss, line)) {
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
         if ( line.size() && line[line.size()-1] == '\r' ) {
             line = line.substr( 0, line.size() - 1 );
         }
-#endif
         std::stringstream sline;
         sline.str(line);
         std::string item;
@@ -195,11 +192,9 @@ std::string TextGenerator::getSingle(std::string type, int level) {
     ss.str(contents);
     std::string line;
     while (std::getline(ss, line)) {
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
         if ( line.size() && line[line.size()-1] == '\r' ) {
             line = line.substr( 0, line.size() - 1 );
         }
-#endif
         std::stringstream sline;
         sline.str(line);
         std::string item;
@@ -226,11 +221,9 @@ std::map<std::string, std::map<std::string, std::string>> TextGenerator::getMapO
     ss.str(contents);
     std::string line;
     while (std::getline(ss, line)) {
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
         if ( line.size() && line[line.size()-1] == '\r' ) {
             line = line.substr( 0, line.size() - 1 );
         }
-#endif
         std::stringstream sline;
         sline.str(line);
         std::string item;
@@ -309,11 +302,9 @@ std::vector<std::string> TextGenerator::getWords(TextGenerator::P_O_S partOfSpee
     ss.str(contents);
     std::string line;
     while (std::getline(ss, line)) {
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
         if ( line.size() && line[line.size()-1] == '\r' ) {
             line = line.substr( 0, line.size() - 1 );
         }
-#endif
         std::stringstream sline;
         sline.str(line);
         std::string item;
@@ -350,13 +341,13 @@ std::vector<std::string> TextGenerator::getOrderedConcepts(int level) {
 			{ "Q","R","S","T","U","V","W","X","Y","Z" } 
 		},
 		{ 4,
-			{ "a","b","c","d","e","f","g","h","i","j" }
+			{ "A == a","B == b","C == c","D == d","E == e","F == f","G == g","H == h","I == i","J == j" }
 		},
 		{ 5,
-			{ "k","l","m","n","o","p","q","r","s","t" }
+			{ "K == k","L == l","M == m","N == n","O == o","P == p","Q == q","R == r","S == s","T == t" }
 		},
 		{ 6,
-			{ "q","r","s","t","u","v","w","x","y","z" }
+			{ "Q == q","R == r","S == s","T == t","U == u","V == v","W == w","X == x","Y == y","Z == z" }
 		},
 		{ 7,
 			{ "1","2","3","4","5","6","7","8","9" }
@@ -451,18 +442,16 @@ std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> TextGener
             pos = "DET";
             break;
     }
-    std::string contents = cocos2d::FileUtils::getInstance()->getStringFromFile(LangUtil::getInstance()->getDir() + "/sentences.csv");
+    std::string contents = cocos2d::FileUtils::getInstance()->getStringFromFile(LangUtil::getInstance()->getDir() + "/sentences_pos.csv");
     std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> Sentences;
     std::vector<std::string> words;
     std::stringstream ss;
     ss.str(contents);
     std::string line;
     while (std::getline(ss, line)) {
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
         if ( line.size() && line[line.size()-1] == '\r' ) {
             line = line.substr( 0, line.size() - 1 );
         }
-#endif
         std::stringstream sline;
         sline.str(line);
         std::string item;
