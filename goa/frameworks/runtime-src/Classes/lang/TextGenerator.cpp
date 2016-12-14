@@ -133,11 +133,9 @@ std::map<std::string, std::string> TextGenerator::getPairs(std::string type, int
     ss.str(contents);
     std::string line;
     while (std::getline(ss, line)) {
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
     if ( line.size() && line[line.size()-1] == '\r' ) {
         line = line.substr( 0, line.size() - 1 );
     }
-#endif
         std::stringstream sline;
         sline.str(line);
         std::string item;
@@ -168,11 +166,9 @@ std::vector<std::string> TextGenerator::getWordList(std::string type, int level)
     ss.str(contents);
     std::string line;
     while (std::getline(ss, line)) {
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
         if ( line.size() && line[line.size()-1] == '\r' ) {
             line = line.substr( 0, line.size() - 1 );
         }
-#endif
         std::stringstream sline;
         sline.str(line);
         std::string item;
@@ -195,11 +191,9 @@ std::string TextGenerator::getSingle(std::string type, int level) {
     ss.str(contents);
     std::string line;
     while (std::getline(ss, line)) {
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
         if ( line.size() && line[line.size()-1] == '\r' ) {
             line = line.substr( 0, line.size() - 1 );
         }
-#endif
         std::stringstream sline;
         sline.str(line);
         std::string item;
@@ -226,11 +220,9 @@ std::map<std::string, std::map<std::string, std::string>> TextGenerator::getMapO
     ss.str(contents);
     std::string line;
     while (std::getline(ss, line)) {
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
         if ( line.size() && line[line.size()-1] == '\r' ) {
             line = line.substr( 0, line.size() - 1 );
         }
-#endif
         std::stringstream sline;
         sline.str(line);
         std::string item;
@@ -309,11 +301,9 @@ std::vector<std::string> TextGenerator::getWords(TextGenerator::P_O_S partOfSpee
     ss.str(contents);
     std::string line;
     while (std::getline(ss, line)) {
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
         if ( line.size() && line[line.size()-1] == '\r' ) {
             line = line.substr( 0, line.size() - 1 );
         }
-#endif
         std::stringstream sline;
         sline.str(line);
         std::string item;
@@ -458,11 +448,9 @@ std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> TextGener
     ss.str(contents);
     std::string line;
     while (std::getline(ss, line)) {
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
         if ( line.size() && line[line.size()-1] == '\r' ) {
             line = line.substr( 0, line.size() - 1 );
         }
-#endif
         std::stringstream sline;
         sline.str(line);
         std::string item;
