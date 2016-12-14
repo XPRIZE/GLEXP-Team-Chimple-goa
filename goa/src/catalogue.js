@@ -156,7 +156,10 @@ var t_resources = [];
                 cc.spriteFrameCache.addSpriteFrames(xc.CatalogueLayer.res.record_animation_plist);
                 cc.spriteFrameCache.addSpriteFrames(xc.CatalogueLayer.res.book_cover_plist);
                 cc.spriteFrameCache.addSpriteFrames(xc.CatalogueLayer.res.template_plist);
-                cc.spriteFrameCache.addSpriteFrames(xc.CatalogueLayer.res.level_plist);                
+                cc.spriteFrameCache.addSpriteFrames(xc.CatalogueLayer.res.level_plist);
+                cc.spriteFrameCache.addSpriteFrames(xc.CatalogueLayer.res.template_01_plist);
+                cc.spriteFrameCache.addSpriteFrames(xc.CatalogueLayer.res.template_02_plist);    
+                
                 
                 if(cc.sys.isNative) {
                     storyCatalogueObject = cc.loader.getRes(xc.CatalogueLayer.res.Config_json);                    
@@ -198,6 +201,10 @@ xc.CatalogueLayer.res = {
         loading_scene_json: xc.path + "template/loading_screen.json",
         template_png: xc.path + "template/template.png",
         template_plist: xc.path + "template/template.plist",
+        template_01_png: xc.path + "template/template_01/template_01.png",
+        template_01_plist: xc.path + "template/template_01/template_01.plist",
+        template_02_png: xc.path + "template/template_02/template_02.png",
+        template_02_plist: xc.path + "template/template_02/template_02.plist",        
         level_plist: xc.path + "levelstep/levelstep.plist",
         level_png: xc.path + "levelstep/levelstep.png"        
 };

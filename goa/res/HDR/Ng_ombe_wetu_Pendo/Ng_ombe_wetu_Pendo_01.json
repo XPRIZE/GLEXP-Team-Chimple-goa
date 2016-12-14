@@ -1,0 +1,1697 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "Ng_ombe_wetu_Pendo_01",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 510,
+        "Speed": 1.0,
+        "ActivedAnimationName": "hut",
+        "Timelines": [
+          {
+            "ActionTag": 773207256,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Ng_ombe_wetu_Pendo/hut.png",
+                  "Plist": "Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo.plist"
+                },
+                "FrameIndex": 142,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 773207256,
+            "Property": "BlendFunc",
+            "Frames": [
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 142,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1973377121,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Ng_ombe_wetu_Pendo/hut.png",
+                  "Plist": "Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo.plist"
+                },
+                "FrameIndex": 142,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1973377121,
+            "Property": "BlendFunc",
+            "Frames": [
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 142,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 405463321,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Ng_ombe_wetu_Pendo/hut.png",
+                  "Plist": "Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo.plist"
+                },
+                "FrameIndex": 142,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 405463321,
+            "Property": "BlendFunc",
+            "Frames": [
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 142,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1377958372,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Ng_ombe_wetu_Pendo/tree.png",
+                  "Plist": "Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo.plist"
+                },
+                "FrameIndex": 142,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1377958372,
+            "Property": "BlendFunc",
+            "Frames": [
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 142,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -557287771,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 251.3741,
+                "Y": 823.0535,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Points": [
+                    {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    {
+                      "X": 1.0,
+                      "Y": 1.0
+                    },
+                    {
+                      "X": 1.0,
+                      "Y": 1.0
+                    }
+                  ],
+                  "Type": -1
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 568.5693,
+                "Y": 909.1334,
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 568.5693,
+                "Y": 909.1334,
+                "FrameIndex": 480,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 251.3741,
+                "Y": 823.0535,
+                "FrameIndex": 510,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -557287771,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "jump",
+                "FrameIndex": 360,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1963145733,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Ng_ombe_wetu_Pendo/hut.png",
+                  "Plist": "Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo.plist"
+                },
+                "FrameIndex": 142,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1963145733,
+            "Property": "BlendFunc",
+            "Frames": [
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 142,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1207548659,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "hi",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 250,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "hi",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 350,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1207548659,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -909.1844,
+                "Y": 103.4014,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1359.6418,
+                "Y": 94.9946,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1359.6418,
+                "Y": 94.9946,
+                "FrameIndex": 350,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1207548659,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 350,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1207548659,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 350,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 350,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 360,
+          "EndIndex": 510,
+          "Name": "hut",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": -563.2306,
+              "Y": 1862.1134
+            },
+            "Scale": {
+              "ScaleX": 18.4606,
+              "ScaleY": 4.0909
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.22,
+              "Y": 1.0345
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -563.2306,
+            "RightMargin": 2923.2305,
+            "TopMargin": -62.1134,
+            "BottomMargin": 1662.1134,
+            "Tag": 5822,
+            "ActionTag": 1852463612,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_32",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 36,
+              "G": 154,
+              "B": 14
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -587.613,
+              "Y": 0.0715
+            },
+            "Scale": {
+              "ScaleX": 18.5862,
+              "ScaleY": 5.4462
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.2295,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -587.613,
+            "RightMargin": 2947.613,
+            "TopMargin": 1599.9285,
+            "BottomMargin": 0.0715,
+            "Tag": 172,
+            "ActionTag": -114095691,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ng_ombe_wetu_Pendo/hut.png",
+              "Plist": "Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1053.8589,
+              "Y": 1158.821
+            },
+            "Scale": {
+              "ScaleX": 0.5575,
+              "ScaleY": 0.5136
+            },
+            "CColor": {
+              "R": 196,
+              "G": 194,
+              "B": 194
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4117,
+              "Y": 0.6438
+            },
+            "PreSize": {
+              "X": 0.275,
+              "Y": 0.4139
+            },
+            "LeftMargin": 701.8589,
+            "RightMargin": 1154.1411,
+            "TopMargin": 268.679,
+            "BottomMargin": 786.321,
+            "Tag": 182,
+            "ActionTag": 773207256,
+            "Size": {
+              "X": 704.0,
+              "Y": 745.0
+            },
+            "Name": "hut_10",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ng_ombe_wetu_Pendo/hut.png",
+              "Plist": "Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -247.8796,
+              "Y": 1181.7408
+            },
+            "Scale": {
+              "ScaleX": 0.6591,
+              "ScaleY": 0.6285
+            },
+            "CColor": {
+              "R": 187,
+              "G": 186
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0968,
+              "Y": 0.6565
+            },
+            "PreSize": {
+              "X": 0.275,
+              "Y": 0.4139
+            },
+            "LeftMargin": -599.8796,
+            "RightMargin": 2455.8796,
+            "TopMargin": 245.7592,
+            "BottomMargin": 809.2408,
+            "Tag": 6010,
+            "ActionTag": 1973377121,
+            "Size": {
+              "X": 704.0,
+              "Y": 745.0
+            },
+            "Name": "hut_10_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ng_ombe_wetu_Pendo/hut.png",
+              "Plist": "Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2892.9839,
+              "Y": 1164.7809
+            },
+            "Scale": {
+              "ScaleX": 0.6591,
+              "ScaleY": 0.6285
+            },
+            "CColor": {
+              "R": 192,
+              "B": 186
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1301,
+              "Y": 0.6471
+            },
+            "PreSize": {
+              "X": 0.275,
+              "Y": 0.4139
+            },
+            "LeftMargin": 2540.9839,
+            "RightMargin": -684.9839,
+            "TopMargin": 262.7191,
+            "BottomMargin": 792.2809,
+            "Tag": 6011,
+            "ActionTag": 405463321,
+            "Size": {
+              "X": 704.0,
+              "Y": 745.0
+            },
+            "Name": "hut_10_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ng_ombe_wetu_Pendo/tree.png",
+              "Plist": "Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 731.3983,
+              "Y": 1188.106
+            },
+            "Scale": {
+              "ScaleX": 0.7172,
+              "ScaleY": 0.8329
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2857,
+              "Y": 0.6601
+            },
+            "PreSize": {
+              "X": 0.4348,
+              "Y": 0.4122
+            },
+            "LeftMargin": 174.8983,
+            "RightMargin": 1272.1017,
+            "TopMargin": 240.894,
+            "BottomMargin": 817.106,
+            "Tag": 181,
+            "ActionTag": -1377958372,
+            "Size": {
+              "X": 1113.0,
+              "Y": 742.0
+            },
+            "Name": "tree_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Ng_ombe_wetu_Pendo/cow.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 251.3741,
+              "Y": 823.0535
+            },
+            "Scale": {
+              "ScaleX": 0.4,
+              "ScaleY": 0.4
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0982,
+              "Y": 0.4573
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 251.3741,
+            "RightMargin": 2308.626,
+            "TopMargin": 976.9465,
+            "BottomMargin": 823.0535,
+            "Tag": 9431,
+            "ActionTag": -557287771,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "cow",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ng_ombe_wetu_Pendo/hut.png",
+              "Plist": "Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 336.1202,
+              "Y": 1131.7451
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1313,
+              "Y": 0.6287
+            },
+            "PreSize": {
+              "X": 0.275,
+              "Y": 0.4139
+            },
+            "LeftMargin": -15.8798,
+            "RightMargin": 1871.8798,
+            "TopMargin": 295.7549,
+            "BottomMargin": 759.2451,
+            "UserData": "hut",
+            "Tag": 5621,
+            "ActionTag": 1963145733,
+            "Size": {
+              "X": 704.0,
+              "Y": 745.0
+            },
+            "Name": "hut_10_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 206,
+              "G": 191,
+              "B": 64
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 2488.4543,
+              "Y": 1269.6355
+            },
+            "Scale": {
+              "ScaleX": 3.8231,
+              "ScaleY": 3.4916
+            },
+            "RotationSkewX": 37.2769,
+            "RotationSkewY": 35.0688,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9721,
+              "Y": 0.7054
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 2288.4543,
+            "RightMargin": 71.5457,
+            "TopMargin": 530.3645,
+            "BottomMargin": 1069.6355,
+            "Tag": 5994,
+            "ActionTag": -971453062,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1_0_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 206,
+              "G": 191,
+              "B": 64
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 1285.9512,
+              "Y": 1267.5157
+            },
+            "Scale": {
+              "ScaleX": -3.8949,
+              "ScaleY": 3.5266
+            },
+            "RotationSkewX": -38.0016,
+            "RotationSkewY": -34.3335,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5023,
+              "Y": 0.7042
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 1085.9512,
+            "RightMargin": 1274.0488,
+            "TopMargin": 532.4843,
+            "BottomMargin": 1067.5157,
+            "Tag": 5995,
+            "ActionTag": 1038698796,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1_0_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 206,
+              "G": 191,
+              "B": 64
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 1.0
+            },
+            "Position": {
+              "X": 2548.4094,
+              "Y": 665.1693
+            },
+            "Scale": {
+              "ScaleX": 6.5018,
+              "ScaleY": 2.947
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9955,
+              "Y": 0.3695
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 2348.4094,
+            "RightMargin": 11.5906,
+            "TopMargin": 934.8307,
+            "BottomMargin": 665.1693,
+            "Tag": 5996,
+            "ActionTag": 1392432516,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_4",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 109,
+              "G": 55,
+              "B": 25
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 1902.6541,
+              "Y": 1745.2305
+            },
+            "Scale": {
+              "ScaleX": -4.5966,
+              "ScaleY": 0.4457
+            },
+            "RotationSkewX": -37.8241,
+            "RotationSkewY": -34.367,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7432,
+              "Y": 0.9696
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 1902.6541,
+            "RightMargin": 457.3459,
+            "TopMargin": 54.7695,
+            "BottomMargin": 1545.2305,
+            "Tag": 5997,
+            "ActionTag": -1137657879,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1_0_0_0_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 109,
+              "G": 55,
+              "B": 25
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1847.0408,
+              "Y": 1677.0542
+            },
+            "Scale": {
+              "ScaleX": 4.7658,
+              "ScaleY": 0.442
+            },
+            "RotationSkewX": 37.2338,
+            "RotationSkewY": 35.0997,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7215,
+              "Y": 0.9317
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 1847.0408,
+            "RightMargin": 512.9592,
+            "TopMargin": -77.0542,
+            "BottomMargin": 1677.0542,
+            "Tag": 5998,
+            "ActionTag": 883478488,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1_0_0_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ng_ombe_wetu_Pendo/window.png",
+              "Plist": "Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1543.1472,
+              "Y": 947.6746
+            },
+            "Scale": {
+              "ScaleX": 0.5208,
+              "ScaleY": 0.5208
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6028,
+              "Y": 0.5265
+            },
+            "PreSize": {
+              "X": 0.2117,
+              "Y": 0.2856
+            },
+            "LeftMargin": 1272.1472,
+            "RightMargin": 745.8528,
+            "TopMargin": 595.3254,
+            "BottomMargin": 690.6746,
+            "Tag": 5999,
+            "ActionTag": -1356466753,
+            "Size": {
+              "X": 542.0,
+              "Y": 514.0
+            },
+            "Name": "window_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 229,
+              "G": 229,
+              "B": 229
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1702.5461,
+              "Y": 676.4977
+            },
+            "Scale": {
+              "ScaleX": 0.2081,
+              "ScaleY": 2.503
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6651,
+              "Y": 0.3758
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 1702.5461,
+            "RightMargin": 657.4539,
+            "TopMargin": 923.5023,
+            "BottomMargin": 676.4977,
+            "Tag": 6000,
+            "ActionTag": 1970580740,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_5",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 229,
+              "G": 229,
+              "B": 229
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2044.3044,
+              "Y": 675.7532
+            },
+            "Scale": {
+              "ScaleX": 0.2081,
+              "ScaleY": 2.503
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7986,
+              "Y": 0.3754
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 2044.3044,
+            "RightMargin": 315.6956,
+            "TopMargin": 924.2468,
+            "BottomMargin": 675.7532,
+            "Tag": 6001,
+            "ActionTag": -1676717938,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_5_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 229,
+              "G": 229,
+              "B": 229
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1702.988,
+              "Y": 1144.713
+            },
+            "Scale": {
+              "ScaleX": 1.9158,
+              "ScaleY": 0.1641
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6652,
+              "Y": 0.636
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 1702.988,
+            "RightMargin": 657.012,
+            "TopMargin": 455.287,
+            "BottomMargin": 1144.713,
+            "Tag": 6002,
+            "ActionTag": -563155037,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_5_0_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 117,
+              "G": 106,
+              "B": 72
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1736.3792,
+              "Y": 674.9551
+            },
+            "Scale": {
+              "ScaleX": 1.588,
+              "ScaleY": 2.384
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6783,
+              "Y": 0.375
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 1736.3792,
+            "RightMargin": 623.6208,
+            "TopMargin": 925.0449,
+            "BottomMargin": 674.9551,
+            "Tag": 6003,
+            "ActionTag": 1973652667,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_8",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ng_ombe_wetu_Pendo/window.png",
+              "Plist": "Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2248.0481,
+              "Y": 952.1509
+            },
+            "Scale": {
+              "ScaleX": 0.5208,
+              "ScaleY": 0.5208
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8781,
+              "Y": 0.529
+            },
+            "PreSize": {
+              "X": 0.2117,
+              "Y": 0.2856
+            },
+            "LeftMargin": 1977.0481,
+            "RightMargin": 40.9519,
+            "TopMargin": 590.8491,
+            "BottomMargin": 695.1509,
+            "Tag": 6004,
+            "ActionTag": -2087957329,
+            "Size": {
+              "X": 542.0,
+              "Y": 514.0
+            },
+            "Name": "window_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ng_ombe_wetu_Pendo/light.png",
+              "Plist": "Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1896.2693,
+              "Y": 1257.2793
+            },
+            "Scale": {
+              "ScaleX": 0.5208,
+              "ScaleY": 0.5208
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7407,
+              "Y": 0.6985
+            },
+            "PreSize": {
+              "X": 0.0812,
+              "Y": 0.0739
+            },
+            "LeftMargin": 1792.2693,
+            "RightMargin": 559.7307,
+            "TopMargin": 476.2207,
+            "BottomMargin": 1190.7793,
+            "Tag": 6005,
+            "ActionTag": -1704028356,
+            "Size": {
+              "X": 208.0,
+              "Y": 133.0
+            },
+            "Name": "light_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 106,
+              "G": 106,
+              "B": 106
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1718.6765,
+              "Y": 665.4346
+            },
+            "Scale": {
+              "ScaleX": 1.7663,
+              "ScaleY": 0.2794
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6714,
+              "Y": 0.3697
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 1718.6765,
+            "RightMargin": 641.3235,
+            "TopMargin": 934.5654,
+            "BottomMargin": 665.4346,
+            "Tag": 6006,
+            "ActionTag": -777861480,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_9",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 76,
+              "G": 76,
+              "B": 76
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1700.8372,
+              "Y": 614.1399
+            },
+            "Scale": {
+              "ScaleX": 1.9694,
+              "ScaleY": 0.2684
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6644,
+              "Y": 0.3412
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 1700.8372,
+            "RightMargin": 659.1628,
+            "TopMargin": 985.8601,
+            "BottomMargin": 614.1399,
+            "Tag": 6007,
+            "ActionTag": 973543180,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_9_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Ng_ombe_wetu_Pendo/bush.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2324.1299,
+              "Y": 675.2667
+            },
+            "Scale": {
+              "ScaleX": 0.65,
+              "ScaleY": 0.65
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.9079,
+              "Y": 0.3751
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2324.1299,
+            "RightMargin": 235.8701,
+            "TopMargin": 1124.7333,
+            "BottomMargin": 675.2667,
+            "Tag": 118,
+            "ActionTag": 135064214,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bush",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Ng_ombe_wetu_Pendo/bush.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1479.478,
+              "Y": 681.184
+            },
+            "Scale": {
+              "ScaleX": 0.65,
+              "ScaleY": 0.65
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5779,
+              "Y": 0.3784
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1479.478,
+            "RightMargin": 1080.522,
+            "TopMargin": 1118.8159,
+            "BottomMargin": 681.184,
+            "Tag": 111,
+            "ActionTag": 513908957,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bush",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Ng_ombe_wetu_Pendo/chicken.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 998.7723,
+              "Y": 639.6516
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.3901,
+              "Y": 0.3554
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 998.7723,
+            "RightMargin": 1561.2278,
+            "TopMargin": 1160.3484,
+            "BottomMargin": 639.6516,
+            "UserData": "fly;drag",
+            "Tag": 6012,
+            "ActionTag": 1537726978,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "hen",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Ng_ombe_wetu_Pendo/chicken.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 88.9054,
+              "Y": 738.4225
+            },
+            "Scale": {
+              "ScaleX": -0.6922,
+              "ScaleY": 0.6922
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0347,
+              "Y": 0.4102
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 88.9054,
+            "RightMargin": 2471.0945,
+            "TopMargin": 1061.5775,
+            "BottomMargin": 738.4225,
+            "UserData": "fly;drag",
+            "Tag": 6019,
+            "ActionTag": 1446706840,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "hen",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Ng_ombe_wetu_Pendo/boy_2.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -909.1844,
+              "Y": 103.4014
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.3552,
+              "Y": 0.0574
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -909.1844,
+            "RightMargin": 3469.1843,
+            "TopMargin": 1696.5986,
+            "BottomMargin": 103.4014,
+            "UserData": "walk;drag",
+            "Tag": 1498,
+            "ActionTag": -1207548659,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "boy",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "boy_2.json",
+        "bush.json",
+        "chicken.json",
+        "cow.json",
+        "Ng_ombe_wetu_Pendo.plist",
+        "Ng_ombe_wetu_Pendo.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

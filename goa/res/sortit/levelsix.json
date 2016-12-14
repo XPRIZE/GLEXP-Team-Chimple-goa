@@ -54,7 +54,7 @@
             },
             "LeftMargin": -245.6016,
             "RightMargin": 245.6016,
-            "TopMargin": 1280.0,
+            "TopMargin": 1280.0001,
             "BottomMargin": -10.0001,
             "Tag": 68,
             "ActionTag": 1978623014,
@@ -106,7 +106,7 @@
             },
             "LeftMargin": 1821.7876,
             "RightMargin": -1821.7876,
-            "TopMargin": 1332.0576,
+            "TopMargin": 1332.0577,
             "BottomMargin": -62.0577,
             "Tag": 69,
             "ActionTag": 1417734012,
@@ -418,7 +418,7 @@
             },
             "LeftMargin": 777.0544,
             "RightMargin": -777.0544,
-            "TopMargin": 1366.6198,
+            "TopMargin": 1366.6199,
             "BottomMargin": -96.6198,
             "Tag": 75,
             "ActionTag": -1520781283,
@@ -688,51 +688,6 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "sortit/sortittwo/charactersix.png",
-              "Plist": "sortit/sortittwo/sortittwo.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 424.0504,
-              "Y": 803.1141
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.1656,
-              "Y": 0.4462
-            },
-            "PreSize": {
-              "X": 0.3652,
-              "Y": 0.6756
-            },
-            "LeftMargin": -43.4496,
-            "RightMargin": 1668.4496,
-            "TopMargin": 388.886,
-            "BottomMargin": 195.1141,
-            "Tag": 78,
-            "ActionTag": -755505756,
-            "Size": {
-              "X": 935.0,
-              "Y": 1216.0
-            },
-            "Name": "charactersix_1",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
               "Path": "sortit/sortittwo/table.png",
               "Plist": "sortit/sortittwo/sortittwo.plist"
             },
@@ -764,7 +719,7 @@
             },
             "LeftMargin": 926.0713,
             "RightMargin": -130.0713,
-            "TopMargin": -25.6563,
+            "TopMargin": -25.6562,
             "BottomMargin": 158.6563,
             "Tag": 80,
             "ActionTag": 532495495,
@@ -774,6 +729,47 @@
             },
             "Name": "table_3",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "sortit/character4.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 463.5647,
+              "Y": 265.7732
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1811,
+              "Y": 0.1477
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 463.5647,
+            "RightMargin": 2096.4353,
+            "TopMargin": 1534.2268,
+            "BottomMargin": 265.7732,
+            "Tag": 319,
+            "ActionTag": -39803591,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "character4",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -784,6 +780,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "character4.json",
         "sortittwo/sortittwo.plist",
         "sortittwo/sortittwo.png"
       ],

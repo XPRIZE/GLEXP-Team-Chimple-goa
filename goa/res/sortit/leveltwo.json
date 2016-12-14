@@ -65,48 +65,44 @@
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "sortit/charactertwo.png",
-              "Plist": "sortit/sortit.plist"
+              "Type": "Normal",
+              "Path": "sortit/character2.json",
+              "Plist": ""
             },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
             "Position": {
-              "X": 2113.2153,
-              "Y": 772.5074
+              "X": 2077.9539,
+              "Y": 314.9281
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
             "CColor": {},
-            "IconVisible": false,
+            "IconVisible": true,
             "PrePosition": {
-              "X": 0.8255,
-              "Y": 0.4292
+              "X": 0.8117,
+              "Y": 0.175
             },
             "PreSize": {
-              "X": 0.3094,
-              "Y": 0.5222
+              "X": 0.0,
+              "Y": 0.0
             },
-            "LeftMargin": 1717.2153,
-            "RightMargin": 50.7847,
-            "TopMargin": 557.4927,
-            "BottomMargin": 302.5074,
-            "Tag": 32,
-            "ActionTag": -341702719,
+            "LeftMargin": 2077.9539,
+            "RightMargin": 482.0461,
+            "TopMargin": 1485.0719,
+            "BottomMargin": 314.9281,
+            "Tag": 303,
+            "ActionTag": 1320627946,
             "Size": {
-              "X": 792.0,
-              "Y": 940.0
+              "X": 0.0,
+              "Y": 0.0
             },
-            "Name": "charactertwo_1",
-            "ctype": "SpriteObjectData"
+            "Name": "character2",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -258,6 +254,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "character2.json",
         "sortit.plist",
         "sortit.png"
       ],

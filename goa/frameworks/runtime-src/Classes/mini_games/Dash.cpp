@@ -246,22 +246,52 @@ void Dash::onEnterTransitionDidFinish()
 	int level = menu->getCurrentLevel();
 	int division = ((level - 1) % 15)+1;
 	if (division >= 1 && division < 6) {
-		int roundLevel = (level / 15) + 1;
+		int roundLevel = std::ceil(level / 15.0);
 		int inner = division + ((roundLevel - 1) * 5);
-		CCLOG("Sysnonyms Level = %d", inner);
-		_synonyms = TextGenerator::getInstance()->getSynonyms(10,inner);
+		int subLevel = 1;
+		if (inner < 16) {
+			subLevel = (std::ceil(inner / 3.0));
+		}
+		else {
+			inner = inner - 15;
+			subLevel = (std::ceil(inner / 2.0));
+			subLevel += 5;
+		}
+		CCLOG("Sysnonyms sub Level = %d", subLevel);
+		_synonyms = TextGenerator::getInstance()->getSynonyms(10, subLevel);
 	} 
 	else if (division >5 && division < 11) {
-		int roundLevel = (level / 15) + 1;
+		int roundLevel = std::ceil(level / 15.0);
 		int inner = division - 5 + ((roundLevel - 1) * 5);
-		CCLOG("Antonyms Level = %d", inner);
-		_synonyms = TextGenerator::getInstance()->getAntonyms(10,inner);
+		
+		int subLevel = 1;
+		if (inner < 16) {
+			subLevel = (std::ceil(inner / 3.0));
+		}
+		else {
+			inner = inner - 15;
+			subLevel = (std::ceil(inner / 2.0));
+			subLevel += 5;
+		}
+		CCLOG("Antonyms Sub Level = %d", subLevel);
+		_synonyms = TextGenerator::getInstance()->getAntonyms(10, subLevel);
 	}
 	else {
-		int roundLevel = (level / 15) + 1;
+		int roundLevel = std::ceil(level / 15.0);
 		int inner = division - 10 + ((roundLevel - 1) * 5);
-		CCLOG("Homonyms Level = %d", inner);
-		_synonyms = TextGenerator::getInstance()->getHomonyms(10,inner);
+		
+		int subLevel = 1;
+		if (inner < 16) {
+			subLevel = (std::ceil(inner / 3.0));
+		}
+		else {
+			inner = inner - 15;
+			subLevel = (std::ceil(inner / 2.0));
+			subLevel += 5;
+		}
+		CCLOG("Homonyms SubLevel = %d", subLevel);
+
+		_synonyms = TextGenerator::getInstance()->getHomonyms(10, subLevel);
 	}
 	
 	

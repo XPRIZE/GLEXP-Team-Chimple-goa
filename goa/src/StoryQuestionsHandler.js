@@ -1,5 +1,10 @@
 /// <reference path="cocos2d-typescript-definitions-master/cocos2d/cocos2d-lib.d.ts" />
 var xc = xc || {};
+xc._MULTIPLE_CHOICE_HELP_SHOWN=false;
+xc._FILL_IN_THE_BLANKS_HELP_SHOWN=false;
+xc._MEANING_HELP_SHOWN=false;
+xc._PICTURE_HELP_SHOWN=false;
+xc._READING_STORY_FIRST_TIME=true;
 xc.StoryQuestionHandlerLayer = cc.Layer.extend({
     _contentPanel: null,
     _pageConfigPanel: null,
@@ -67,9 +72,12 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
     wordQuestionHandler: function(questions) {
         if(this._currentQName) {
             var oldQuestionChild = this.getChildByName(this._currentQName);
-            oldQuestionChild.removeFromParent();
+            if(oldQuestionChild) {
+                oldQuestionChild.removeFromParent();
+            }
+            
         }
-        var handler = new xc.WordQuestionHandler(this._storyId, cc.director.getWinSize().width, cc.director.getWinSize().height, questions, this._storyBaseDir, this._menuContext.getMaxPoints(), this._menuContext.getPoints());
+        var handler = new xc.WordQuestionHandler(this._storyId, cc.director.getWinSize().width, cc.director.getWinSize().height, questions, this._storyBaseDir, this.getParent()._menuContext.getMaxPoints(), this.getParent()._menuContext.getPoints());
         handler.setName(this._Q_WORDS); 
         this._currentQName = this._Q_WORDS;
         this._hasWordsQuestions = true;
@@ -328,7 +336,9 @@ xc.StoryQuestionHandlerScene.load = function(storyId, storyBaseDir, layer, enabl
             }
 
             cc.spriteFrameCache.addSpriteFrames(xc.StoryQuestionHandlerLayer.res.particle_system_plist);
-
+            cc.spriteFrameCache.addSpriteFrames(xc.StoryQuestionHandlerLayer.res.template_plist);
+            cc.spriteFrameCache.addSpriteFrames(xc.StoryQuestionHandlerLayer.res.template_01_plist);                        
+            cc.spriteFrameCache.addSpriteFrames(xc.StoryQuestionHandlerLayer.res.template_02_plist);
             var scene = new xc.StoryQuestionHandlerScene(storyId, storyBaseDir, layer);
             scene.layerClass = layer;            
             if(enableTransition) {
@@ -351,5 +361,11 @@ xc.StoryQuestionHandlerLayer.res = {
         celebration_json: xc.path + "template/celebration.json",
         particle_system_plist: "res/scoreboard/particle_success.plist",
         particle_system_png: "res/scoreboard/success_particle.png",
-        copyright_json: xc.path + "template/copyright.json"
+        copyright_json: xc.path + "template/copyright.json",
+        template_plist: xc.path + "template/template.plist",
+        template_png: xc.path + "template/template.png",
+        template_01_png: xc.path + "template/template_01/template_01.png",
+        template_01_plist: xc.path + "template/template_01/template_01.plist",
+        template_02_png: xc.path + "template/template_02/template_02.png",
+        template_02_plist: xc.path + "template/template_02/template_02.plist"        
 };

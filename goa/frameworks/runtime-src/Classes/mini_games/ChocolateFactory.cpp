@@ -319,15 +319,14 @@ void ChocolateFactory::addTouchEvents(Sprite* obj)
 					//target->setPosition(myBG->getChildByName(_nodeName.at(i))->getPosition());
 					target->setZOrder(target->getTag() + 2);
 					isIntersect = true;
-					this->runAction(Sequence::create(DelayTime::create(0.20), CCCallFunc::create([=](){
+					this->runAction(Sequence::create(DelayTime::create(0.22), CCCallFunc::create([=](){
 						auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-						for (int j = 0; j < _nodeName.size(); j++)
-						{
+						/*for (int j = 0; j < _nodeName.size(); j++)
+						{*/
 							std::string name1 = target->getName();
-							std::string name2 = myBG->getChildByName(_nodeName.at(j))->getName();
+							auto obj = myBG->getChildByName(name1);
 
-							if (std::floor(target->getPositionY()) == std::floor(myBG->getChildByName(_nodeName.at(j))->getPositionY() + 50)
-								&& !name1.compare(name2))
+							if (std::floor(target->getPositionY()) == std::floor(obj->getPositionY() + 50))
 							{
 								audio->playEffect("sounds/sfx/success.ogg", false);
 							}
@@ -335,9 +334,8 @@ void ChocolateFactory::addTouchEvents(Sprite* obj)
 							{
 								audio->playEffect("sounds/sfx/error.ogg", false);
 							}
-						}
+						//}
 					}), NULL));
-					
 				}
 			}
 		}

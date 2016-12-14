@@ -97,7 +97,7 @@ void LevelHelpScene::onEnterTransitionDidFinish() {
 //    addChild(button);
     
     auto textField = static_cast<TextField*> (bg->getChildByName("TextField_1"));
-    auto text = Text::create(_helpText, "Arial", 64);
+    auto text = Text::create(LangUtil::getInstance()->translateString(_helpText), "Arial", 64);
     text->setTextColor(Color4B::BLACK);
     auto pos = textField->getPosition();
     auto wpos = bg->convertToWorldSpace(pos);

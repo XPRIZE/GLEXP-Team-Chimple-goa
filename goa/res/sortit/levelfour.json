@@ -219,48 +219,44 @@
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "sortit/sortittwo/characterfour.png",
-              "Plist": "sortit/sortittwo/sortittwo.plist"
+              "Type": "Normal",
+              "Path": "sortit/character4.json",
+              "Plist": ""
             },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
             "Position": {
-              "X": 567.8795,
-              "Y": 757.1716
+              "X": 644.0458,
+              "Y": 198.695
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
             "CColor": {},
-            "IconVisible": false,
+            "IconVisible": true,
             "PrePosition": {
-              "X": 0.2218,
-              "Y": 0.4207
+              "X": 0.2516,
+              "Y": 0.1104
             },
             "PreSize": {
-              "X": 0.3652,
-              "Y": 0.6756
+              "X": 0.0,
+              "Y": 0.0
             },
-            "LeftMargin": 100.3795,
-            "RightMargin": 1524.6205,
-            "TopMargin": 434.8284,
-            "BottomMargin": 149.1716,
-            "Tag": 49,
-            "ActionTag": -335740148,
+            "LeftMargin": 644.0458,
+            "RightMargin": 1915.9542,
+            "TopMargin": 1601.3051,
+            "BottomMargin": 198.695,
+            "Tag": 311,
+            "ActionTag": 446512799,
             "Size": {
-              "X": 935.0,
-              "Y": 1216.0
+              "X": 0.0,
+              "Y": 0.0
             },
-            "Name": "characterfour_2",
-            "ctype": "SpriteObjectData"
+            "Name": "character4",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -271,8 +267,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "sortittwo/sortittwo.plist",
-        "sortittwo/sortittwo.png"
+        "character4.json"
       ],
       "ctype": "GameFileData"
     }

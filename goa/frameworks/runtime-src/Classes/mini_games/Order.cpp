@@ -101,7 +101,7 @@ bool Order::init()
 			{ "otherCharacter", "character2" },
 			{ "child3", "cart1" },
 			{ "child4", "cart2" },
-			{ "png", "shoping/Pineapple.png" }
+			{ "png", "ordercandy/candy.png" }
 		} },
 	};
 
@@ -293,7 +293,7 @@ void Order::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 }
 ////////////////////////////////////////
 	overlapBlockChecking();
-	_touched = true;
+	
 	checkUserSortList(userArrayIndex);
 }
 
@@ -500,8 +500,12 @@ void Order::checkUserSortList(std::vector<int> list)
 	_myScore = score;
 	cart->runAction(Sequence::create(moveBy, CallFunc::create([=]() {
 		if (_myScore == _sortedList.size()) {
+			_touched = false;
 			winAnimation();
 			//cartAnimation("eat", true);
+		}
+		else {
+			_touched = true;
 		}
 	}), NULL));
 	
@@ -533,13 +537,14 @@ void Order::cartAnimation(std::string animationName, bool loop)
 
 void Order::winAnimation()
 {
+	_touched = false;
 	if (_iteration < _sortedList.size()) {
 		menu->setMaxPoints(_iteration);
 	}
 	auto  audio = CocosDenshion::SimpleAudioEngine::getInstance();
 	audio->playEffect("sounds/sfx/success.ogg", false);
 	runAction(Sequence::create(DelayTime::create(1),CallFunc::create([=]() {
-		_touched = false;
+		
 		_characterAnimation->play(_scenePath.at("winning_animation"), true);
 
 	}), DelayTime::create(3), CallFunc::create([=]() {

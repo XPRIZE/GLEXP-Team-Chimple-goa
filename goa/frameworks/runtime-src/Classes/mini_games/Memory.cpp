@@ -36,7 +36,9 @@ Memory::Memory() :
     _gridFourByFiveIds(20),
     _gridFourBySixIds(24),
 	_counter(0),
-	_helpflag(0)
+	_helpflag(0),
+	_right(0),
+	_wrong(0)
 {
 
 }
@@ -76,7 +78,7 @@ void Memory::onEnterTransitionDidFinish() {
 
 	_finalGridIds.resize(0);
 
-
+	_wrong = 0;
 	//SpriteFrameCache::getInstance()->addSpriteFramesWithFile("balloonhero/balloonhero.plist");
 	//_sceneNumber = RandomHelper::random_int(1, 2);
 	//_sceneNumber = 3;
@@ -89,7 +91,9 @@ void Memory::onEnterTransitionDidFinish() {
 		_gridTwoByTwoIds = { 9, 10, 15, 16 };
 		_pairCount = 2;
 		_finalGridIds = _gridTwoByTwoIds;
-		_menuContext->setMaxPoints(_pairCount);
+		_right = _pairCount * 2;
+		_menuContext->setMaxPoints(_right);
+		
 
 		if (_menuContext->getCurrentLevel() >= 1 && _menuContext->getCurrentLevel() <= 2) {
 			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
@@ -113,7 +117,8 @@ void Memory::onEnterTransitionDidFinish() {
 		_gridTwoByThreeIds = { 8, 9, 10, 14, 15, 16 };
 		_pairCount = 3;
 		_finalGridIds = _gridTwoByThreeIds;
-		_menuContext->setMaxPoints(_pairCount);
+		_right = _pairCount * 2;
+		_menuContext->setMaxPoints(_right);
 
 		if (_menuContext->getCurrentLevel() >= 7 && _menuContext->getCurrentLevel() <= 8) {
 			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
@@ -137,7 +142,9 @@ void Memory::onEnterTransitionDidFinish() {
 		_pairCount = 6;
 		_finalGridIds = _gridThreeByFourIds;
 
-		_menuContext->setMaxPoints(_pairCount);
+		_right = _pairCount * 2;
+		_menuContext->setMaxPoints(_right);
+
 		if (_menuContext->getCurrentLevel() >= 13 && _menuContext->getCurrentLevel() <= 14) {
 			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
 			_hint = LangUtil::getInstance()->translateString("Match the opposites");
@@ -160,7 +167,8 @@ void Memory::onEnterTransitionDidFinish() {
 		_pairCount = 9;
 		_finalGridIds = _gridThreeBySixIds;
 
-		_menuContext->setMaxPoints(_pairCount);
+		_right = _pairCount * 2;
+		_menuContext->setMaxPoints(_right);
 
 		if (_menuContext->getCurrentLevel() >= 19 && _menuContext->getCurrentLevel() <= 20) {
 			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
@@ -183,7 +191,8 @@ void Memory::onEnterTransitionDidFinish() {
 		_gridFourByFiveIds = { 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 19, 20, 21, 22, 23 };
 		_pairCount = 10;
 		_finalGridIds = _gridFourByFiveIds;
-		_menuContext->setMaxPoints(_pairCount);
+		_right = _pairCount * 2;
+		_menuContext->setMaxPoints(_right);
 
 		if (_menuContext->getCurrentLevel() >= 25 && _menuContext->getCurrentLevel() <= 26) {
 			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
@@ -207,7 +216,8 @@ void Memory::onEnterTransitionDidFinish() {
 		_pairCount = 12;
 		_finalGridIds = _gridFourBySixIds;
 
-		_menuContext->setMaxPoints(_pairCount);
+		_right = _pairCount * 2;
+		_menuContext->setMaxPoints(_right);
 
 		if (_menuContext->getCurrentLevel() >= 31 && _menuContext->getCurrentLevel() <= 32) {
 			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
@@ -330,7 +340,36 @@ void Memory::onEnterTransitionDidFinish() {
 	if (_menuContext->getCurrentLevel() == 1) {
 
 		auto box1 = _memoryfarm->getChildByName("background")->getChildByName("nest9");
-		auto box2 = _memoryfarm->getChildByName("background")->getChildByName("nest16");
+
+		auto matchNode = box1->getChildByName("nestfront")->getChildren();
+		auto stringOne = matchNode.at(0)->getName();
+
+		auto stringTwo = _data[stringOne];
+		int ids[3] = { 10, 15, 16 };
+		int  i;
+		for (i = 0; i < 3; i++) {
+
+			std::ostringstream sstreamc;
+			sstreamc << "nest" << ids[i];
+			std::string queryc = sstreamc.str();
+
+
+			auto tempBox = _memoryfarm->getChildByName("background")->getChildByName(queryc);
+
+			auto matchNode = tempBox->getChildByName("nestfront")->getChildren();
+			auto tempString = matchNode.at(0)->getName();
+
+			if (tempString == stringTwo) {
+				break;
+			}
+
+		}
+
+		std::ostringstream sstreamd;
+		sstreamd << "nest" << ids[i];
+		std::string queryd = sstreamd.str();
+
+		auto box2 = _memoryfarm->getChildByName("background")->getChildByName(queryd);
 
 
 		box1pos = box1->getPosition() + Vec2(visibleSize.width * 0.03, visibleSize.height * 0.05);
@@ -431,9 +470,40 @@ bool Memory::onTouchBegan(Touch* touch, Event* event) {
 
 		if (_menuContext->getCurrentLevel() == 1 && _helpflag == 0 && _counter == 0) {
 			this->removeChild(help1);
-
+			
 			auto box1 = _memoryfarm->getChildByName("background")->getChildByName("nest9");
-			auto box2 = _memoryfarm->getChildByName("background")->getChildByName("nest16");
+
+			auto matchNode = box1->getChildByName("nestfront")->getChildren();
+			auto stringOne = matchNode.at(0)->getName();
+
+			auto stringTwo = _data[stringOne];
+			int ids[3] = { 10, 15, 16 };
+			int  i;
+			for (i = 0; i < 3; i++) {
+
+				std::ostringstream sstreamc;
+				sstreamc << "nest" << ids[i];
+				std::string queryc = sstreamc.str();
+
+
+				auto tempBox = _memoryfarm->getChildByName("background")->getChildByName(queryc);
+
+				auto matchNode = tempBox->getChildByName("nestfront")->getChildren();
+				auto tempString = matchNode.at(0)->getName();
+
+				if (tempString == stringTwo) {
+					break;
+				}
+
+			}
+
+
+
+			std::ostringstream sstreamd;
+			sstreamd << "nest" << ids[i];
+			std::string queryd = sstreamd.str();
+
+			auto box2 = _memoryfarm->getChildByName("background")->getChildByName(queryd);
 
 
 			box1pos = box1->getPosition() + Vec2(visibleSize.width * 0.03, visibleSize.height * 0.05);
@@ -519,22 +589,38 @@ bool Memory::onTouchBegan(Touch* touch, Event* event) {
 							auto first = x.first;
 							auto second = x.second;
 
-							_label->setString(x.first + " ------- " + x.second);
-							_label->setFontSize(60);
+							if (first.length() != 0 && second.length() !=0 ) {
+								_label->setString(x.first + " ------- " + x.second);
+								_label->setFontSize(60);
 
-							_label->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * heightpercent));
-							_label->setAnchorPoint(Vec2(0.5, 0.5));
-							_label->setName("label");
-							_label->setTextColor(Color4B::BLACK);
-							_label->setColor(Color3B::BLACK);
+								_label->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * heightpercent));
+								_label->setAnchorPoint(Vec2(0.5, 0.5));
+								_label->setName("label");
+								_label->setTextColor(Color4B::BLACK);
+								_label->setColor(Color3B::BLACK);
 
-							this->addChild(_label, 20);
-							heightpercent -= 0.05;
+								this->addChild(_label, 20);
+								heightpercent -= 0.05;
+							}
 					}
 
 					});
 
 					auto showScore = CallFunc::create([=] {
+
+						
+						if (_wrong > _right/2) {
+							_menuContext->addPoints(0.33 * _right);
+						}
+
+						if (_wrong <=  _right/2) {
+							_menuContext->addPoints(0.66 * _right);
+						}
+
+						if (_wrong == 0) {
+							_menuContext->addPoints(_right);
+						}
+
 						_menuContext->showScore();
 					});
 
@@ -596,6 +682,8 @@ bool Memory::onTouchBegan(Touch* touch, Event* event) {
 
 				_chickenTimeline[_currentClickedPair[0]]->play("sit", false);
 				_chickenTimeline[_currentClickedPair[1]]->play("sit", false);
+				
+				_wrong++;
 
 			});
 
@@ -741,7 +829,6 @@ void Memory::chickenFly() {
 	Sprite *chicken2 = (Sprite *)_memoryfarm->getChildByName("background")->getChildByName(querynest2)->getChildByName("chicken");
 	chicken2->runAction(moveTonest2);
 
-	_menuContext->addPoints(1);
 	
 
 }
