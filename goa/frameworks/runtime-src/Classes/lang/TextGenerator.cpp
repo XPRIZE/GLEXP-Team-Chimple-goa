@@ -64,6 +64,7 @@ std::string TextGenerator::generateAWord(int level, int length) {
 
 std::string TextGenerator::generateASentence(int level) {
     /* TODO: make the level as the number of words */
+    level = 1;
     return getSingle("sentences", level);
 }
 
@@ -441,7 +442,7 @@ std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> TextGener
             pos = "DET";
             break;
     }
-    std::string contents = cocos2d::FileUtils::getInstance()->getStringFromFile(LangUtil::getInstance()->getDir() + "/sentences.csv");
+    std::string contents = cocos2d::FileUtils::getInstance()->getStringFromFile(LangUtil::getInstance()->getDir() + "/sentences_pos.csv");
     std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> Sentences;
     std::vector<std::string> words;
     std::stringstream ss;
