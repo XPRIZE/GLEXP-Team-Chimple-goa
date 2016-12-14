@@ -1,58 +1,82 @@
 {
-	"multiple_choice": [
-		{
-			"question": "Who was friends with the Lizard?",
-			"choices": ["Bird", "Lion", "Hippo"],
-			"answer": "Frog"
-		},
-		{
-			"question": "Where did they go to look for girlfriends?",
-			"choices": ["hill", "river", "village"],
-			"answer": "city"			
-		},
-		{
-			"question": "What did the frog do to make his skin beautiful?",
-			"choices": ["Eat apples", "Visit a doctor", "Sit in the sun"],
-			"answer": "Throw himself into boiling water"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "The Frog was jealous of the Lizard's shining and brilliant skin",
-			"choices": ["burning", "dull", "hot"],
-			"answer": "shining"
-		},
-		{
-			"question": "Put some water in a pot and put it on the fire",
-			"choices": ["soup", "beans", "vegetables"],
-			"answer": "water"
-		},
-		{
-			"question": "His skin was burnt and his tail came off",
-			"choices": ["leg", "eye", "tongue"],
-			"answer": "tail"
-		}
-	],
-	"meanings": [
-		{
-			"shining": "giving out or reflecting bright light",
-			"brilliant": "very bright",
-			"already": "before or by now",
-			"instead": "as an alternative or substitute"
-		}
-	],
-	"picture": [
-		{
-			"frog.png": "banana",
-			"lizard.png": "apple",
-			"pot.png": "table",
-			"fire.png": "sofa"
-		}
-	],
-	"words": [
-		"friends",
-		"listen",
-		"arrived",
-		"beautiful"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "shining",
+            "choices": [
+                "burning",
+                "dull",
+                "hot"
+            ],
+            "question": "The Frog was jealous of the Lizard's shining and brilliant skin"
+        },
+        {
+            "answer": "water",
+            "choices": [
+                "soup",
+                "beans",
+                "vegetables"
+            ],
+            "question": "Put some water in a pot and put it on the fire"
+        },
+        {
+            "answer": "tail",
+            "choices": [
+                "leg",
+                "eye",
+                "tongue"
+            ],
+            "question": "His skin was burnt and his tail came off"
+        }
+    ],
+    "meanings": [
+        {
+            "already": "before or by now",
+            "brilliant": "very bright",
+            "instead": "as an alternative or substitute",
+            "shining": "giving out or reflecting bright light"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "Frog",
+            "choices": [
+                "Bird",
+                "Lion",
+                "Hippo"
+            ],
+            "question": "Who was friends with the Lizard?"
+        },
+        {
+            "answer": "city",
+            "choices": [
+                "hill",
+                "river",
+                "village"
+            ],
+            "question": "Where did they go to look for girlfriends?"
+        },
+        {
+            "answer": "Throw himself into boiling water",
+            "choices": [
+                "Eat apples",
+                "Visit a doctor",
+                "Sit in the sun"
+            ],
+            "question": "What did the frog do to make his skin beautiful?"
+        }
+    ],
+    "picture": [
+        {
+            "apple.png": "apple",
+            "banana.png": "banana",
+            "sofa.png": "sofa",
+            "table.png": "table"
+        }
+    ],
+    "words": [
+        "friends",
+        "listen",
+        "arrived",
+        "beautiful"
+    ]
 }

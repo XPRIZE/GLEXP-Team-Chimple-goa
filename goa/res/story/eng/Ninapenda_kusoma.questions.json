@@ -1,33 +1,45 @@
 {
-	"multiple_choice": [
-		{
-			"question": "What is baby doing?",
-			"choices": ["playing", "eating", "drinking"],
-			"answer": "sleeping"
-		},
-		{
-			"question": "What is mom doing?",
-			"choices": ["cleaning", "sleeping", "eating"],
-			"answer": "cooking"			
-		},
-		{
-			"question": "What is father doing?",
-			"choices": ["reading the paper", "going to work", "talking"],
-			"answer": "fixing the car"			
-		}
-	],
-	"picture": [
-		{
-			"baby.png": "baby",
-			"car.png": "car",
-			"cup.png": "cup",
-			"knife.png": "knife"
-		}
-	],
-	"words": [
-		"read",
-		"cooking",
-		"myself",
-		"sleeping"
-	]
+    "multiple_choice": [
+        {
+            "answer": "sleeping",
+            "choices": [
+                "playing",
+                "eating",
+                "drinking"
+            ],
+            "question": "What is baby doing?"
+        },
+        {
+            "answer": "cooking",
+            "choices": [
+                "cleaning",
+                "sleeping",
+                "eating"
+            ],
+            "question": "What is mom doing?"
+        },
+        {
+            "answer": "fixing the car",
+            "choices": [
+                "reading the paper",
+                "going to work",
+                "talking"
+            ],
+            "question": "What is father doing?"
+        }
+    ],
+    "picture": [
+        {
+            "baby.png": "baby",
+            "car.png": "car",
+            "cup.png": "cup",
+            "knife.png": "knife"
+        }
+    ],
+    "words": [
+        "read",
+        "cooking",
+        "myself",
+        "sleeping"
+    ]
 }

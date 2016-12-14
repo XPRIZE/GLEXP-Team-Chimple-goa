@@ -1,58 +1,82 @@
 {
-	"multiple_choice": [
-		{
-			"question": "Who was Nanu waiting for?",
-			"choices": ["bus", "boat", "truck"],
-			"answer": "taxi"
-		},
-		{
-			"question": "Where were the ladies carrying their supper?",
-			"choices": ["in their bag", "in their hand", "in their pocket"],
-			"answer": "on their heads"			
-		},
-		{
-			"question": "What colour is the taxi?",
-			"choices": ["blue", "green", "yellow"],
-			"answer": "red"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "The cold drinks are cold and sweet",
-			"choices": ["sour", "bitter", "hot"],
-			"answer": "sweet"
-		},
-		{
-			"question": "The birds are must get home before it is dark",
-			"choices": ["bright", "morning", "afternoon"],
-			"answer": "dark"
-		},
-		{
-			"question": "When I grow up I will buy many earrings for me and my mother",
-			"choices": ["sweets", "dresses", "hats"],
-			"answer": "earrings"
-		}
-	],
-	"meanings": [
-		{
-			"chicken": "having a excessive desire",
-			"clever": "badly behaved",
-			"smart": "lacking consideration for other people",
-			"earrings": "inform someone of a possible danger"
-		}
-	],
-	"picture": [
-		{
-			"chicken.png": "chicken",
-			"bottle.png": "bottle",
-			"taxi.png": "taxi",
-			"bowl.png": "bowl"
-		}
-	],
-	"words": [
-		"selling",
-		"waiting",
-		"resting",
-		"goodbye"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "sweet",
+            "choices": [
+                "sour",
+                "bitter",
+                "hot"
+            ],
+            "question": "The cold drinks are cold and sweet"
+        },
+        {
+            "answer": "dark",
+            "choices": [
+                "bright",
+                "morning",
+                "afternoon"
+            ],
+            "question": "The birds are must get home before it is dark"
+        },
+        {
+            "answer": "earrings",
+            "choices": [
+                "sweets",
+                "dresses",
+                "hats"
+            ],
+            "question": "When I grow up I will buy many earrings for me and my mother"
+        }
+    ],
+    "meanings": [
+        {
+            "chicken": "a domestic fowl kept for its eggs or meat",
+            "clever": "quick to understand",
+            "earrings": "a piece of jewellery worn on the ear",
+            "smart": "clean, tidy, and well dressed"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "taxi",
+            "choices": [
+                "bus",
+                "boat",
+                "truck"
+            ],
+            "question": "Who was Nanu waiting for?"
+        },
+        {
+            "answer": "on their heads",
+            "choices": [
+                "in their bag",
+                "in their hand",
+                "in their pocket"
+            ],
+            "question": "Where were the ladies carrying their supper?"
+        },
+        {
+            "answer": "red",
+            "choices": [
+                "blue",
+                "green",
+                "yellow"
+            ],
+            "question": "What colour is the taxi?"
+        }
+    ],
+    "picture": [
+        {
+            "bottle.png": "bottle",
+            "chicken.png": "chicken",
+            "stall.png": "stall",
+            "taxi.png": "taxi"
+        }
+    ],
+    "words": [
+        "selling",
+        "waiting",
+        "resting",
+        "goodbye"
+    ]
 }
