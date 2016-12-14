@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 300,
+        "Duration": 421,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "rain",
         "Timelines": [
           {
             "ActionTag": 1328663592,
@@ -118,6 +118,234 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -1153760557,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "hop",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 309,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "hop",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 310,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1153760557,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 211.9066,
+                "Y": -55.3557,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 220.9821,
+                "Y": -59.3477,
+                "FrameIndex": 310,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 281.4328,
+                "Y": 299.2266,
+                "FrameIndex": 340,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 313.4865,
+                "Y": -79.4795,
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1153760557,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -0.5,
+                "Y": 0.5,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1340138531,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 346,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "hop",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 347,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1340138531,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1589.6499,
+                "Y": -77.4482,
+                "FrameIndex": 348,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1152.4574,
+                "Y": 297.9554,
+                "FrameIndex": 382,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 943.0437,
+                "Y": -106.19,
+                "FrameIndex": 412,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1789446824,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 320,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "hop",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 321,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1789446824,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2086.032,
+                "Y": -98.1773,
+                "FrameIndex": 322,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1920.314,
+                "Y": 331.7691,
+                "FrameIndex": 356,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1667.3632,
+                "Y": -93.3854,
+                "FrameIndex": 386,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1789446824,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.6,
+                "Y": 0.6,
+                "FrameIndex": 321,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2145892724,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 19.2835,
+                "Y": 0.7259,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -2055652127,
             "Property": "ActionValue",
             "Frames": [
@@ -126,6 +354,14 @@
                 "CurrentAniamtionName": "rain",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -159,6 +395,14 @@
                 "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -188,6 +432,14 @@
                 "CurrentAniamtionName": "rain",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -223,7 +475,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "rain",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 300,
@@ -301,6 +553,14 @@
                 "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -330,6 +590,14 @@
                 "CurrentAniamtionName": "rain",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -363,6 +631,14 @@
                 "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -392,6 +668,14 @@
                 "CurrentAniamtionName": "rain",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -425,6 +709,14 @@
                 "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -454,6 +746,14 @@
                 "CurrentAniamtionName": "rain",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -487,6 +787,14 @@
                 "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -518,6 +826,14 @@
                 "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -537,6 +853,69 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1620377732,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -641.7278,
+                "Y": -86.1942,
+                "FrameIndex": 421,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1620377732,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 37.3378,
+                "Y": 3.2591,
+                "FrameIndex": 421,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1620377732,
+            "Property": "AnchorPoint",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 421,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1620377732,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 0,
+                "FrameIndex": 421,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -546,6 +925,18 @@
           "StartIndex": 0,
           "EndIndex": 300,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 309,
+          "EndIndex": 421,
+          "Name": "frog",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 0,
+          "EndIndex": 60,
+          "Name": "rain",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -1126,6 +1517,180 @@
           {
             "FileData": {
               "Type": "Normal",
+              "Path": "Siku_ambayo_Jua_lilipotea/frog.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 211.9066,
+              "Y": -55.3557
+            },
+            "Scale": {
+              "ScaleX": -0.5,
+              "ScaleY": 0.5
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0828,
+              "Y": -0.0308
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 211.9066,
+            "RightMargin": 2348.0933,
+            "TopMargin": 1855.3557,
+            "BottomMargin": -55.3557,
+            "Tag": 1666,
+            "ActionTag": -1153760557,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "frog",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Siku_ambayo_Jua_lilipotea/frog.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1589.6499,
+              "Y": -77.4482
+            },
+            "Scale": {
+              "ScaleX": 0.4,
+              "ScaleY": 0.4
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.621,
+              "Y": -0.043
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1589.6499,
+            "RightMargin": 970.3501,
+            "TopMargin": 1877.4482,
+            "BottomMargin": -77.4482,
+            "Tag": 1708,
+            "ActionTag": 1340138531,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "frog",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Siku_ambayo_Jua_lilipotea/frog.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2086.032,
+              "Y": -98.1773
+            },
+            "Scale": {
+              "ScaleX": 0.6,
+              "ScaleY": 0.6
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8149,
+              "Y": -0.0545
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2086.032,
+            "RightMargin": 473.968,
+            "TopMargin": 1898.1772,
+            "BottomMargin": -98.1773,
+            "Tag": 2234,
+            "ActionTag": 1789446824,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "frog_0",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 28,
+              "G": 180,
+              "B": 222
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -624.9713,
+              "Y": -86.6995
+            },
+            "Scale": {
+              "ScaleX": 19.2835,
+              "ScaleY": 0.7259
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.2441,
+              "Y": -0.0482
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -624.9713,
+            "RightMargin": 2984.9712,
+            "TopMargin": 1686.6995,
+            "BottomMargin": -86.6995,
+            "Tag": 1665,
+            "ActionTag": 2145892724,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_2_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
               "Path": "Siku_ambayo_Jua_lilipotea/rain.json",
               "Plist": ""
             },
@@ -1155,6 +1720,7 @@
             "RightMargin": 24.0371,
             "TopMargin": -740.0308,
             "BottomMargin": 2540.0308,
+            "UserData": "main.rain",
             "Tag": 1567,
             "ActionTag": -2055652127,
             "Size": {
@@ -1196,6 +1762,7 @@
             "RightMargin": 24.0371,
             "TopMargin": 159.9534,
             "BottomMargin": 1640.0466,
+            "UserData": "main.rain",
             "Tag": 1594,
             "ActionTag": -124504419,
             "Size": {
@@ -1237,6 +1804,7 @@
             "RightMargin": 24.0371,
             "TopMargin": 1059.9238,
             "BottomMargin": 740.0762,
+            "UserData": "main.rain",
             "Tag": 1621,
             "ActionTag": -1132108484,
             "Size": {
@@ -1278,6 +1846,7 @@
             "RightMargin": 24.0371,
             "TopMargin": 1959.9153,
             "BottomMargin": -159.9153,
+            "UserData": "main.rain",
             "Tag": 1648,
             "ActionTag": -239065088,
             "Size": {
@@ -1319,6 +1888,7 @@
             "RightMargin": 1211.6449,
             "TopMargin": -304.7842,
             "BottomMargin": 2104.7842,
+            "UserData": "main.rain",
             "Tag": 1675,
             "ActionTag": 1279204414,
             "Size": {
@@ -1360,6 +1930,7 @@
             "RightMargin": 1211.6449,
             "TopMargin": 595.1848,
             "BottomMargin": 1204.8152,
+            "UserData": "main.rain",
             "Tag": 1702,
             "ActionTag": -672928518,
             "Size": {
@@ -1401,6 +1972,7 @@
             "RightMargin": 1211.6449,
             "TopMargin": 1495.1759,
             "BottomMargin": 304.8241,
+            "UserData": "main.rain",
             "Tag": 1729,
             "ActionTag": -829762748,
             "Size": {
@@ -1442,6 +2014,7 @@
             "RightMargin": 1211.6449,
             "TopMargin": 2395.1646,
             "BottomMargin": -595.1647,
+            "UserData": "main.rain",
             "Tag": 1756,
             "ActionTag": 1925232357,
             "Size": {
@@ -1483,6 +2056,7 @@
             "RightMargin": 2392.7051,
             "TopMargin": -842.0752,
             "BottomMargin": 2642.0752,
+            "UserData": "main.rain",
             "Tag": 1783,
             "ActionTag": -1832371024,
             "Size": {
@@ -1524,6 +2098,7 @@
             "RightMargin": 2392.7051,
             "TopMargin": 57.9235,
             "BottomMargin": 1742.0765,
+            "UserData": "main.rain",
             "Tag": 1810,
             "ActionTag": 591522936,
             "Size": {
@@ -1565,6 +2140,7 @@
             "RightMargin": 2392.7051,
             "TopMargin": 957.9103,
             "BottomMargin": 842.0897,
+            "UserData": "main.rain",
             "Tag": 1837,
             "ActionTag": 660798595,
             "Size": {
@@ -1604,8 +2180,9 @@
             },
             "LeftMargin": 167.2948,
             "RightMargin": 2392.7051,
-            "TopMargin": 1857.9103,
+            "TopMargin": 1857.9102,
             "BottomMargin": -57.9102,
+            "UserData": "main.rain",
             "Tag": 1864,
             "ActionTag": 897897838,
             "Size": {
@@ -1614,6 +2191,50 @@
             },
             "Name": "rain_3",
             "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/dummy.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {},
+            "Position": {
+              "X": -641.7278,
+              "Y": -86.1942
+            },
+            "Scale": {
+              "ScaleX": 37.3378,
+              "ScaleY": 3.2591
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.2507,
+              "Y": -0.0479
+            },
+            "PreSize": {
+              "X": 0.0406,
+              "Y": 0.0611
+            },
+            "LeftMargin": -641.7278,
+            "RightMargin": 3097.7278,
+            "TopMargin": 1776.1942,
+            "BottomMargin": -86.1942,
+            "UserData": "main.frog",
+            "Tag": 2318,
+            "ActionTag": -1620377732,
+            "Size": {
+              "X": 104.0,
+              "Y": 110.0
+            },
+            "Alpha": 0,
+            "Name": "water",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
@@ -1624,6 +2245,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "frog.json",
         "rain.json",
         "Siku_ambayo_Jua_lilipotea.plist",
         "Siku_ambayo_Jua_lilipotea.png"
