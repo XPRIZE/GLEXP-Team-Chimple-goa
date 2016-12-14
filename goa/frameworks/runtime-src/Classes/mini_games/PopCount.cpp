@@ -1,5 +1,5 @@
 #include "PopCount.h"
-
+#include "../menu/HelpLayer.h"
 USING_NS_CC;
 
 Scene* PopCount::createScene()
@@ -306,13 +306,16 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 				_totalHit++;
 
 				auto star = this->getChildByName("centerStar");
-				star->runAction(Sequence::create(ScaleTo::create(1.0f, star->getScaleX() * 1.2, star->getScaleY() * 1.2), ScaleTo::create(1.0f, star->getScaleX() * 1, star->getScaleY() * 1),NULL));
-			//	star->runAction(Sequence::create(MoveTo::create(1.0f, Vec2(1,1)), MoveTo::create(1.0f, Vec2(1,1)), NULL));
+				star->runAction(Sequence::create(ScaleTo::create(1.0f, star->getScaleX() * 1.2,star->getScaleY() * 1.2), CallFunc::create([=]() {}), ScaleTo::create(1.0f, star->getScaleX() * 1, star->getScaleY() * 1), NULL));
 
 				if (_popElementCount != 0) {
-					this->runAction(Sequence::create(DelayTime::create(_popStayDelay + 2), CallFunc::create([=]() {this->getChildByName("midButton")->setVisible(true); _popMidButtonClickPermision = true; _timelineCenterStarFish->play("blink", true); }), NULL));
-					_popUpAnswer = RandomHelper::random_int(1, _maxPopStarLimits);
-					popUpCall(_popUpAnswer);
+					
+					auto popUpProperty = CallFunc::create([=]() {
+						_timelineCenterStarFish->play("blink", true);
+						_popUpAnswer = RandomHelper::random_int(1, _maxPopStarLimits);
+						popUpCall(_popUpAnswer);
+					});
+					this->runAction(Sequence::create(DelayTime::create(2),popUpProperty,DelayTime::create(_popStayDelay + 2), CallFunc::create([=]() {this->getChildByName("midButton")->setVisible(true); _popMidButtonClickPermision = true;}), NULL));
 				}
 			}
 			else {
@@ -329,7 +332,7 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 				CCLOG(" ------------------- CLICKED WRONG ---------------");
 			}
 		}
-		else if (target->getBoundingBox().containsPoint(locationInNode) && (target->getName() == "midButton")) {
+		else if (target->getBoundingBox().containsPoint(locationInNode) && (target->getName() == "midButton") && !_tempToHoldCenterButton) {
 			if ((target->getChildByTag(0))->getName() == "WATCH AGAIN") {
 
 				auto texture = SpriteFrameCache::getInstance()->getSpriteFrameByName(_sceneMap.at(_popcountCurrentTheme).at("watchagain"));
@@ -382,8 +385,8 @@ void PopCount::setIslandScene() {
 	auto starFish = CSLoader::createNode(themeResourcePath.at(_popCharacter));
 	starFish->setScale(0.5);
 	int space = Director::getInstance()->getVisibleSize().width - ((starFish->getChildByName(themeResourcePath.at("characterSpriteName"))->getContentSize().width * 0.5) * 10);
-	int indiSpace = space / (10 + 2);
-	auto positionX = ((starFish->getChildByName(themeResourcePath.at("characterSpriteName"))->getContentSize().width * 0.5) / 2);
+	int indiSpace = space / (10 + 1);
+	auto positionX = ((starFish->getChildByName(themeResourcePath.at("characterSpriteName"))->getContentSize().width * 0.5) * 0.5)+ indiSpace;
 
 	for (int i = 0; i < 10; i++) {
 		auto starFish = CSLoader::createNode(themeResourcePath.at(_popCharacter));
@@ -409,6 +412,13 @@ void PopCount::setIslandScene() {
 	midButton->addChild(buttonSymbl);
 
 //	popUpCall(_popUpAnswer);
+
+	//if (_menuContext->getCurrentLevel() == 1) {
+	//	auto help = HelpLayer::create(Rect(downGrid->getPositionX(), downGrid->getPositionY(), downGrid->getContentSize().width, downGrid->getContentSize().height), Rect(visibleSize.width * 0.5, board->getContentSize().height / 2 + board->getPositionY(), board->getContentSize().width, board->getContentSize().height));
+	//	help->click(Vec2(downGrid->getPositionX(), downGrid->getPositionY()));
+	//	help->setName("helpLayer");
+	//	this->addChild(help, 4);
+	//}
 	
 }
 
