@@ -5,10 +5,91 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 160,
+        "Duration": 285,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "pig",
         "Timelines": [
+          {
+            "ActionTag": 1886714153,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 778.3731,
+                "Y": 1101.4518,
+                "FrameIndex": 170,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1192.2697,
+                "Y": 1292.793,
+                "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1192.2697,
+                "Y": 1292.793,
+                "FrameIndex": 265,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 778.3731,
+                "Y": 1101.4518,
+                "FrameIndex": 285,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1886714153,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 44.3357,
+                "Y": 44.3264,
+                "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 44.3357,
+                "Y": 44.3264,
+                "FrameIndex": 265,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1886714153,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "jump",
+                "FrameIndex": 210,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": -84013673,
             "Property": "ActionValue",
@@ -18,6 +99,14 @@
                 "CurrentAniamtionName": "walk",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 160,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -153,6 +242,12 @@
           "StartIndex": 0,
           "EndIndex": 160,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 170,
+          "EndIndex": 285,
+          "Name": "pig",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -314,6 +409,100 @@
           },
           {
             "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Panya/pighead.png",
+              "Plist": "Panya/Panya.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1192.2697,
+              "Y": 1292.793
+            },
+            "Scale": {
+              "ScaleX": 2.019,
+              "ScaleY": 1.9729
+            },
+            "RotationSkewX": 44.3357,
+            "RotationSkewY": 44.3264,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4657,
+              "Y": 0.7182
+            },
+            "PreSize": {
+              "X": 0.0777,
+              "Y": 0.1222
+            },
+            "LeftMargin": 1092.7697,
+            "RightMargin": 1268.2303,
+            "TopMargin": 397.207,
+            "BottomMargin": 1182.793,
+            "Tag": 12020,
+            "FrameEvent": "jump",
+            "ActionTag": 1886714153,
+            "Size": {
+              "X": 199.0,
+              "Y": 220.0
+            },
+            "Name": "pig",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Panya/ricebag.png",
+              "Plist": "Panya/Panya.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 679.3894,
+              "Y": 906.7468
+            },
+            "Scale": {
+              "ScaleX": 1.2903,
+              "ScaleY": 1.3101
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2654,
+              "Y": 0.5037
+            },
+            "PreSize": {
+              "X": 0.2422,
+              "Y": 0.43
+            },
+            "LeftMargin": 369.3894,
+            "RightMargin": 1570.6106,
+            "TopMargin": 506.2532,
+            "BottomMargin": 519.7468,
+            "UserData": "main.pig",
+            "Tag": 12018,
+            "ActionTag": 463434565,
+            "Size": {
+              "X": 620.0,
+              "Y": 774.0
+            },
+            "Name": "ricebag_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
               "Type": "Normal",
               "Path": "Panya/rat2.json",
               "Plist": ""
@@ -323,8 +512,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": -523.584,
-              "Y": 581.4381
+              "X": 1659.4802,
+              "Y": 618.5628
             },
             "Scale": {
               "ScaleX": -1.0,
@@ -333,17 +522,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": -0.2045,
-              "Y": 0.323
+              "X": 0.6482,
+              "Y": 0.3436
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -523.584,
-            "RightMargin": 3083.584,
-            "TopMargin": 1218.5619,
-            "BottomMargin": 581.4381,
+            "LeftMargin": 1659.4802,
+            "RightMargin": 900.5198,
+            "TopMargin": 1181.4373,
+            "BottomMargin": 618.5628,
             "UserData": "walk;drag",
             "Tag": 1071,
             "ActionTag": -84013673,
@@ -365,8 +554,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": -825.2068,
-              "Y": 465.4642
+              "X": 1222.1635,
+              "Y": 338.2569
             },
             "Scale": {
               "ScaleX": -1.0,
@@ -375,17 +564,18 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": -0.3223,
-              "Y": 0.2586
+              "X": 0.4774,
+              "Y": 0.1879
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -825.2068,
-            "RightMargin": 3385.2068,
-            "TopMargin": 1334.5358,
-            "BottomMargin": 465.4642,
+            "LeftMargin": 1222.1635,
+            "RightMargin": 1337.8365,
+            "TopMargin": 1461.7432,
+            "BottomMargin": 338.2569,
+            "UserData": "walk;drag",
             "Tag": 366,
             "ActionTag": -236721453,
             "Size": {
@@ -404,6 +594,8 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "Panya.plist",
+        "Panya.png",
         "rat1.json",
         "rat2.json"
       ],

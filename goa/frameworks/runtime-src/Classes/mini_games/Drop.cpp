@@ -410,6 +410,7 @@ void Drop::letterAndHolderMaker(float dt)
 	{
 		std::pair<Sprite*, cocostudio::timeline::ActionTimeline*>animationData = setAnimationAndProperties(_scenePath.at("holderAnimation"), visibleSize.width*1.1, visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"), 0);
 		Sprite* trailer = animationData.first;
+		trailer->setZOrder(2);
 		trailer->setTag(letterHolderId);
 		leftFloat(trailer, 12, -(visibleSize.width*0.2), visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"));//0.75
 		_dropHeroTrailerImageBin.push_back(trailer);
@@ -417,7 +418,7 @@ void Drop::letterAndHolderMaker(float dt)
 		Sprite* floatBox = Sprite::createWithSpriteFrameName(_scenePath.at("pseudoHolderImage"));
 		setAllSpriteProperties(floatBox, 0, visibleSize.width*1.1, visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"), true, 0.5, 0.5, 0, 1, 1);//0.75, true
 		leftFloat(floatBox, 12, -(visibleSize.width*0.2), visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"));//0.75
-		this->addChild(floatBox, 1);
+		this->addChild(floatBox, 2);
 		
 		floatBox->setTag(letterHolderId);
 
@@ -609,9 +610,11 @@ void Drop::basketLetterCollisionChecker()
 	if (_basketRect.size() == 0)
 	{
 		Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
+		auto unschedule = CCCallFunc::create([=] {
 			this->unschedule(schedule_selector(Drop::letterAndHolderMaker));
 			this->unscheduleUpdate();
-
+		});
+		this->runAction(Sequence::create(DelayTime::create(1.2), unschedule, NULL));
 		auto callShowScore = CCCallFunc::create([=] {
 			_menuContext->setMaxPoints(_pointCounter * 1);
 			_menuContext->showScore();

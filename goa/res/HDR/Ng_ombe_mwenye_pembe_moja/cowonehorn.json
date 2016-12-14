@@ -219,6 +219,31 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 71732975,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "",
+                "FrameIndex": 140,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "cow",
+                "FrameIndex": 217,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "cow",
+                "FrameIndex": 400,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -1403257724,
             "Property": "Position",
             "Frames": [
@@ -3514,6 +3539,19 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1766334347,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "cow",
+                "FrameIndex": 140,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -11376,8 +11414,8 @@
           {
             "Length": 236.0,
             "Position": {
-              "X": -42.3125,
-              "Y": 347.0042
+              "X": -42.3124,
+              "Y": 361.4321
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -11913,8 +11951,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 145.6686,
-                "RotationSkewY": 145.6685,
+                "RotationSkewX": 167.5804,
+                "RotationSkewY": 167.5803,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 770,
@@ -11997,6 +12035,7 @@
                   "Dst": 771
                 },
                 "Tag": 59,
+                "FrameEvent": "cow",
                 "Children": [
                   {
                     "Length": 103.0,

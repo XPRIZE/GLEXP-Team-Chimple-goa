@@ -1,56 +1,80 @@
 {
-	"multiple_choice": [
-		{
-			"question": "How many elephants are going to drink water?",
-			"choices": ["five", "ten", "six"],
-			"answer": "one"
-		},
-		{
-			"question": "Who is swimming in the water?",
-			"choices": ["Lion", "Elephant", "Giraffe"],
-			"answer": "Frogs"			
-		},
-		{
-			"question": "Who is roaring?",
-			"choices": ["Fish", "Zebra", "Impala"],
-			"answer": "Lion"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "Two giraffes are going to drink water",
-			"choices": ["lions", "buffaloes", "birds"],
-			"answer": "giraffes"
-		},
-		{
-			"question": "Five impalas and warthogs are walking to the water",
-			"choices": ["swimming", "sitting", "flying"],
-			"answer": "walking"
-		},
-		{
-			"question": "One elephant is drinking water with the lion",
-			"choices": ["buffalo", "bird", "giraffe"],
-			"answer": "elephant"
-		}
-	],
-	"picture": [
-		{
-			"buffalo.png": "buffalo",
-			"giraffe.png": "giraffe",
-			"elephant.png": "elephant",
-			"lion.png": "lion"
-		},
-		{
-			"frog.png": "frog",
-			"fish.png": "fish",
-			"zebra.png": "zebra",
-			"impala.png": "impala"
-		}
-	],
-	"words": [
-		"elephant",
-		"giraffe",
-		"buffalo",
-		"impala"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "giraffes",
+            "choices": [
+                "lions",
+                "buffaloes",
+                "birds"
+            ],
+            "question": "Two giraffes are going to drink water"
+        },
+        {
+            "answer": "walking",
+            "choices": [
+                "swimming",
+                "sitting",
+                "flying"
+            ],
+            "question": "Five impalas and warthogs are walking to the water"
+        },
+        {
+            "answer": "elephant",
+            "choices": [
+                "buffalo",
+                "bird",
+                "giraffe"
+            ],
+            "question": "One elephant is drinking water with the lion"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "one",
+            "choices": [
+                "five",
+                "ten",
+                "six"
+            ],
+            "question": "How many elephants are going to drink water?"
+        },
+        {
+            "answer": "Frogs",
+            "choices": [
+                "Lion",
+                "Elephant",
+                "Giraffe"
+            ],
+            "question": "Who is swimming in the water?"
+        },
+        {
+            "answer": "Lion",
+            "choices": [
+                "Fish",
+                "Zebra",
+                "Impala"
+            ],
+            "question": "Who is roaring?"
+        }
+    ],
+    "picture": [
+        {
+            "buffalo.png": "buffalo",
+            "elephant.png": "elephant",
+            "giraffe.png": "giraffe",
+            "lion.png": "lion"
+        },
+        {
+            "deer.png": "deer",
+            "fish.png": "fish",
+            "frog.png": "frog",
+            "zebra.png": "zebra"
+        }
+    ],
+    "words": [
+        "elephant",
+        "giraffe",
+        "buffalo",
+        "impala"
+    ]
 }

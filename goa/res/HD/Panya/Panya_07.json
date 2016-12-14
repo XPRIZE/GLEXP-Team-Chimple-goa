@@ -5,10 +5,96 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 350,
+        "Duration": 485,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "ball",
         "Timelines": [
+          {
+            "ActionTag": -1892102302,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2166.3223,
+                "Y": 741.2671,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 1
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -722.7001,
+                "Y": 763.6111,
+                "FrameIndex": 446,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 3320.1306,
+                "Y": 799.3942,
+                "FrameIndex": 447,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2166.3223,
+                "Y": 741.2671,
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1892102302,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": -0.015,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 1
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -360.7319,
+                "Y": -360.7619,
+                "FrameIndex": 446,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 90.4272,
+                "Y": 90.3697,
+                "FrameIndex": 447,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": -0.015,
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": -84013673,
             "Property": "ActionValue",
@@ -204,6 +290,12 @@
           "EndIndex": 350,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 360,
+          "EndIndex": 485,
+          "Name": "ball",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -364,6 +456,53 @@
           },
           {
             "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Panya/Ball.png",
+              "Plist": "Panya/Panya.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2166.3223,
+              "Y": 741.2671
+            },
+            "Scale": {
+              "ScaleX": 1.4,
+              "ScaleY": 1.4
+            },
+            "RotationSkewY": -0.015,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8462,
+              "Y": 0.4118
+            },
+            "PreSize": {
+              "X": 0.1707,
+              "Y": 0.2428
+            },
+            "LeftMargin": 1947.8223,
+            "RightMargin": 175.1777,
+            "TopMargin": 840.2329,
+            "BottomMargin": 522.7671,
+            "UserData": "main.ball",
+            "Tag": 12228,
+            "ActionTag": -1892102302,
+            "Size": {
+              "X": 437.0,
+              "Y": 437.0
+            },
+            "Name": "Ball_22",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
               "Type": "Normal",
               "Path": "Panya/rat2.json",
               "Plist": ""
@@ -436,6 +575,7 @@
             "RightMargin": 3385.2068,
             "TopMargin": 1334.5358,
             "BottomMargin": 465.4642,
+            "UserData": "walk;drag",
             "Tag": 366,
             "ActionTag": -236721453,
             "Size": {
@@ -481,6 +621,7 @@
             "RightMargin": 174.3164,
             "TopMargin": 1537.7109,
             "BottomMargin": 125.2891,
+            "UserData": "drag",
             "Tag": 1199,
             "ActionTag": 1869235004,
             "Size": {
@@ -489,6 +630,48 @@
             },
             "Name": "rattrap_1",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Panya/wallpainting.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 445.1646,
+              "Y": 1537.1462
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1739,
+              "Y": 0.854
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 445.1646,
+            "RightMargin": 2114.8354,
+            "TopMargin": 262.8538,
+            "BottomMargin": 1537.1462,
+            "UserData": "eye",
+            "Tag": 12133,
+            "ActionTag": -1043857000,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_1",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -502,7 +685,8 @@
         "Panya.plist",
         "Panya.png",
         "rat1.json",
-        "rat2.json"
+        "rat2.json",
+        "wallpainting.json"
       ],
       "ctype": "GameFileData"
     }

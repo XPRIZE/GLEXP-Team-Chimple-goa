@@ -1,0 +1,173 @@
+{
+  "ID": "43f5b3a2-5470-48d2-90ea-b0d229bf78be",
+  "Version": "3.10.0.0",
+  "Name": "character3",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 55,
+        "Speed": 1.0,
+        "ActivedAnimationName": "blink",
+        "Timelines": [
+          {
+            "ActionTag": -586365920,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "sortit/eyes_1.png",
+                  "Plist": "sortit/sortit.plist"
+                },
+                "FrameIndex": 45,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "sortit/eyes_2.png",
+                  "Plist": "sortit/sortit.plist"
+                },
+                "FrameIndex": 50,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "sortit/eyes_1.png",
+                  "Plist": "sortit/sortit.plist"
+                },
+                "FrameIndex": 55,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 125,
+          "Name": "blink",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 281,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "sortit/character3.png",
+              "Plist": "sortit/sortit.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -6.9774,
+              "Y": 450.0615
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 2.0265,
+            "RotationSkewY": 2.027,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -328.9774,
+            "RightMargin": -315.0226,
+            "TopMargin": -906.5615,
+            "BottomMargin": -6.4385,
+            "Tag": 293,
+            "ActionTag": 931607101,
+            "Size": {
+              "X": 644.0,
+              "Y": 913.0
+            },
+            "Name": "character3_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "sortit/eyes_1.png",
+              "Plist": "sortit/sortit.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -7.0214,
+              "Y": 555.9756
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 0.0651,
+            "RotationSkewY": 0.0699,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -221.0214,
+            "RightMargin": -206.9786,
+            "TopMargin": -610.4756,
+            "BottomMargin": 501.4756,
+            "Tag": 283,
+            "ActionTag": -586365920,
+            "Size": {
+              "X": 428.0,
+              "Y": 109.0
+            },
+            "Name": "Sprite_2",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "sortit.plist",
+        "sortit.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

@@ -1,64 +1,88 @@
 {
-	"multiple_choice": [
-		{
-			"question": "A long time ago, how was the elephant's nose?",
-			"choices": ["long", "thin", "white"],
-			"answer": "short and fat"
-		},
-		{
-			"question": "Who took baby elephant to the river?",
-			"choices": ["hippo", "rhino", "giraffe"],
-			"answer": "crow"			
-		},
-		{
-			"question": "Who caught the baby elephant's nose?",
-			"choices": ["crow", "mother", "hippo"],
-			"answer": "crocodile"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "She had a question for every animal",
-			"choices": ["gift", "fruit", "flower"],
-			"answer": "question"
-		},
-		{
-			"question": "Can you tell me what Crocodile eats for dinner ?",
-			"choices": ["breakfast", "lunch", "fun"],
-			"answer": "dinner"
-		},
-		{
-			"question": "Her nose was so long she could shower her back with water",
-			"choices": ["head", "leg", "teeth"],
-			"answer": "back"
-		}
-	],
-	"meanings": [
-		{
-			"middle": "at an equal distance from the end of something",
-			"curious": "eager to know or learn something",
-			"point": "the sharp end of a object",
-			"frown": "furrow one's brows in an expression"
-		},
-		{
-			"squawk": "make a loud, harsh noise",
-			"reed": "a tall, slender-leaved plant of the grass family",
-			"jaws": "the upper and lower bony structures in the mouth",
-			"useful": "able to be used for a practical purpose or in several ways"
-		}
-	],
-	"picture": [
-		{
-			"elephant.png": "elephant",
-			"rhino.png": "rhino",
-			"giraffe.png": "giraffe",
-			"crocodile.png": "crocodile"
-		}
-	],
-	"words": [
-		"shoe",
-		"question",
-		"walked",
-		"lower"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "question",
+            "choices": [
+                "gift",
+                "fruit",
+                "flower"
+            ],
+            "question": "She had a question for every animal"
+        },
+        {
+            "answer": "dinner",
+            "choices": [
+                "breakfast",
+                "lunch",
+                "fun"
+            ],
+            "question": "Can you tell me what Crocodile eats for dinner ?"
+        },
+        {
+            "answer": "back",
+            "choices": [
+                "head",
+                "leg",
+                "teeth"
+            ],
+            "question": "Her nose was so long she could shower her back with water"
+        }
+    ],
+    "meanings": [
+        {
+            "curious": "eager to know or learn something",
+            "frown": "furrow one's brows in an expression",
+            "middle": "at an equal distance from the end of something",
+            "point": "the sharp end of a object"
+        },
+        {
+            "jaws": "the upper and lower bony structures in the mouth",
+            "reed": "a tall, slender-leaved plant of the grass family",
+            "squawk": "make a loud, harsh noise",
+            "useful": "able to be used for a practical purpose or in several ways"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "short and fat",
+            "choices": [
+                "long",
+                "thin",
+                "white"
+            ],
+            "question": "A long time ago, how was the elephant's nose?"
+        },
+        {
+            "answer": "crow",
+            "choices": [
+                "hippo",
+                "rhino",
+                "giraffe"
+            ],
+            "question": "Who took baby elephant to the river?"
+        },
+        {
+            "answer": "crocodile",
+            "choices": [
+                "crow",
+                "mother",
+                "hippo"
+            ],
+            "question": "Who caught the baby elephant's nose?"
+        }
+    ],
+    "picture": [
+        {
+            "crocodile.png": "crocodile",
+            "elephant.png": "elephant",
+            "giraffe.png": "giraffe",
+            "rhino.png": "rhino"
+        }
+    ],
+    "words": [
+        "shoe",
+        "question",
+        "walked",
+        "lower"
+    ]
 }

@@ -1,64 +1,88 @@
 {
-	"multiple_choice": [
-		{
-			"question": "Which animal had left the eggs?",
-			"choices": ["Duck", "Dog", "Hyena"],
-			"answer": "Crocodile"
-		},
-		{
-			"question": "What were the young crocodiles feeling all the time?",
-			"choices": ["happy", "thirsty", "angry"],
-			"answer": "hungry"			
-		},
-		{
-			"question": "Where did Crocodile take her offspring?",
-			"choices": ["shop", "restaurant", "walking"],
-			"answer": "swimming lesson"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "One day at the river, Dog came across some eggs in the sand",
-			"choices": ["water", "grass", "pebbles"],
-			"answer": "sand"
-		},
-		{
-			"question": "Crocodile started visiting all the animals asking about her eggs",
-			"choices": ["bags", "teeth", "tail"],
-			"answer": "eggs"
-		},
-		{
-			"question": "Crocodile stormed inside and hit Dog with her tail",
-			"choices": ["teeth", "hand", "leg"],
-			"answer": "tail"
-		}
-	],
-	"meanings": [
-		{
-			"hatch": "emerge from its egg",
-			"rumbling": "a continuous deep, resonant sound",
-			"stormed": "move angrily or forcefully in a specified direction",
-			"yelped": "utter a sharp cry"
-		}
-	],
-	"picture": [
-		{
-			"bag.png": "banana",
-			"bush.png": "apple",
-			"egg.png": "table",
-			"fire.png": "sofa"
-		},
-		{
-			"stove.png": "table",
-			"mat.png": "house",
-			"cave.png": "flower",
-			"window.png": "window"
-		}
-	],
-	"words": [
-		"across",
-		"belong",
-		"hungry",
-		"offspring"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "sand",
+            "choices": [
+                "water",
+                "grass",
+                "pebbles"
+            ],
+            "question": "One day at the river, Dog came across some eggs in the sand"
+        },
+        {
+            "answer": "eggs",
+            "choices": [
+                "bags",
+                "teeth",
+                "tail"
+            ],
+            "question": "Crocodile started visiting all the animals asking about her eggs"
+        },
+        {
+            "answer": "tail",
+            "choices": [
+                "teeth",
+                "hand",
+                "leg"
+            ],
+            "question": "Crocodile stormed inside and hit Dog with her tail"
+        }
+    ],
+    "meanings": [
+        {
+            "hatch": "emerge from its egg",
+            "rumbling": "a continuous deep, resonant sound",
+            "stormed": "move angrily or forcefully in a specified direction",
+            "yelped": "utter a sharp cry"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "Crocodile",
+            "choices": [
+                "Duck",
+                "Dog",
+                "Hyena"
+            ],
+            "question": "Which animal had left the eggs?"
+        },
+        {
+            "answer": "hungry",
+            "choices": [
+                "happy",
+                "thirsty",
+                "angry"
+            ],
+            "question": "What were the young crocodiles feeling all the time?"
+        },
+        {
+            "answer": "swimming lesson",
+            "choices": [
+                "shop",
+                "restaurant",
+                "walking"
+            ],
+            "question": "Where did Crocodile take her offspring?"
+        }
+    ],
+    "picture": [
+        {
+            "apple.png": "apple",
+            "banana.png": "banana",
+            "sofa.png": "sofa",
+            "table.png": "table"
+        },
+        {
+            "flower.png": "flower",
+            "house.png": "house",
+            "table.png": "table",
+            "window.png": "window"
+        }
+    ],
+    "words": [
+        "across",
+        "belong",
+        "hungry",
+        "offspring"
+    ]
 }

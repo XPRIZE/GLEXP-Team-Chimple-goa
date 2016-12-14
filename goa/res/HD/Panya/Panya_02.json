@@ -5,10 +5,60 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 305,
+        "Duration": 455,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "ball",
         "Timelines": [
+          {
+            "ActionTag": -503688467,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 668.8744,
+                "Y": 694.1933,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 3083.7917,
+                "Y": 680.7598,
+                "FrameIndex": 455,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -503688467,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 3.1209,
+                "Y": 3.1209,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 361.1051,
+                "Y": 360.9828,
+                "FrameIndex": 455,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 576673685,
             "Property": "ActionValue",
@@ -30,7 +80,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "eat",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 305,
@@ -141,6 +191,12 @@
           "StartIndex": 0,
           "EndIndex": 305,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 315,
+          "EndIndex": 455,
+          "Name": "ball",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -303,6 +359,53 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
+              "Path": "Panya/Ball.png",
+              "Plist": "Panya/Panya.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 668.8744,
+              "Y": 694.1933
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 3.1209,
+            "RotationSkewY": 3.1209,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2613,
+              "Y": 0.3857
+            },
+            "PreSize": {
+              "X": 0.1707,
+              "Y": 0.2428
+            },
+            "LeftMargin": 450.3744,
+            "RightMargin": 1672.6256,
+            "TopMargin": 887.3067,
+            "BottomMargin": 475.6933,
+            "Tag": 4187,
+            "ActionTag": -503688467,
+            "Size": {
+              "X": 437.0,
+              "Y": 437.0
+            },
+            "Name": "Ball_86",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
               "Path": "Panya/ricebag.png",
               "Plist": "Panya/Panya.plist"
             },
@@ -336,7 +439,7 @@
             "RightMargin": 1607.3082,
             "TopMargin": 593.8541,
             "BottomMargin": 432.1459,
-            "UserData": "drag",
+            "UserData": "main.ball",
             "Tag": 144,
             "ActionTag": -247968260,
             "Size": {
@@ -345,6 +448,48 @@
             },
             "Name": "ricebag_2",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Panya/wallpainting.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2050.5793,
+              "Y": 1529.8638
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.801,
+              "Y": 0.8499
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2050.5793,
+            "RightMargin": 509.4207,
+            "TopMargin": 270.1362,
+            "BottomMargin": 1529.8638,
+            "UserData": "eye",
+            "Tag": 4160,
+            "ActionTag": -1753302616,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "wallpainting",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -445,7 +590,8 @@
       "UsedResources": [
         "Panya.plist",
         "Panya.png",
-        "rat2.json"
+        "rat2.json",
+        "wallpainting.json"
       ],
       "ctype": "GameFileData"
     }

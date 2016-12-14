@@ -70,6 +70,9 @@ void CrossTheBridge::onEnterTransitionDidFinish()
 			auto gameBG = CSLoader::createNode("crossthebridge/MainScene.csb");
 			this->addChild(gameBG, 1);
 
+			CCSpriteFrameCache* framecache1 = CCSpriteFrameCache::sharedSpriteFrameCache();
+			framecache1->addSpriteFramesWithFile("crossthebridge/crossthebridge.plist");
+
 			//Vector <Node*> children = gameBG->getChildren();
 			//for (auto item = children.rbegin(); item != children.rend(); ++item) {
 			//	Node * monsterItem = *item;
@@ -81,12 +84,15 @@ void CrossTheBridge::onEnterTransitionDidFinish()
 			//setAllSpriteProperties(letterBoard, 3, visibleSize.width / 2, 1703.02, true, 0.5, 0, 0.6, 0.6);
 
 			Sprite* house_wall = (Sprite *)gameBG->getChildByName("house_Wall");
-			house_wall->setGlobalZOrder(1);
-			house_wall->setPosition(Vec2(house_wall->getPosition().x + origin.x, house_wall->getPosition().y - 5 + origin.y));
-
 			Sprite* house_front = (Sprite *)gameBG->getChildByName("house_front_1");
-			house_front->setGlobalZOrder(1);
-			house_front->setPosition(Vec2(house_front->getPosition().x + origin.x, house_front->getPosition().y - 5 + origin.y));
+		
+			Sprite* wall = Sprite::createWithSpriteFrameName("crossthebridge/house_Wall.png");
+			wall->setPosition(Vec2(house_wall->getPosition()));
+			this->addChild(wall,2);
+
+			Sprite* front = Sprite::createWithSpriteFrameName("crossthebridge/house_front.png");
+			front->setPosition(Vec2(house_front->getPosition()));
+			this->addChild(front,2);
 
 			water_splash = CSLoader::createTimeline("crossthebridge/watersplash.csb");
 			splash = (Sprite *)CSLoader::createNode("crossthebridge/watersplash.csb");
@@ -97,23 +103,23 @@ void CrossTheBridge::onEnterTransitionDidFinish()
 
 			punch = CSLoader::createTimeline("crossthebridge/punch.csb");
 			punchForBack = (Sprite *)CSLoader::createNode("crossthebridge/punch.csb");
-			this->addChild(punchForBack, 8);
-			punchForBack->setGlobalZOrder(8);
+			this->addChild(punchForBack, 1);
+			//punchForBack->setGlobalZOrder(8);
 			punchForBack->runAction(punch);
 			punchForBack->setVisible(false);
 			punch->setTimeSpeed(2);
 
 			smoke = CSLoader::createTimeline("crossthebridge/blast.csb");
 			zeher = (Sprite *)CSLoader::createNode("crossthebridge/blast.csb");
-			this->addChild(zeher, 16);
-			zeher->setGlobalZOrder(16);
+			this->addChild(zeher, 1);
+			//zeher->setGlobalZOrder(16);
 			zeher->setVisible(false);
 			zeher->runAction(smoke);
 
 			star = CSLoader::createTimeline("crossthebridge/stars.csb");
 			sparkle = (Sprite *)CSLoader::createNode("crossthebridge/stars.csb");
-			this->addChild(sparkle, 8);
-			sparkle->setGlobalZOrder(8);
+			this->addChild(sparkle, 1);
+			//sparkle->setGlobalZOrder(8);
 			sparkle->setVisible(false);
 			sparkle->runAction(star);
 

@@ -131,7 +131,6 @@ void Balloon::onEnterTransitionDidFinish()
 		if (duplicateCheck)
 			_removedBalloonsId.push_back(numberPicker);
 	}
-
 	/*E = DrawNode::create();
 	this->addChild(E, 10);*/
 
@@ -179,7 +178,7 @@ Balloon::~Balloon()
 
 void Balloon::update(float dt)
 {
-	if (_isCalculatorThere && _calculator->checkAnswer(_answer) && _calculator->isEnterPressed() && _balloonsBin.size() == _answer)
+	if (_isCalculatorThere && _calculator->checkAnswer(_answer) && _calculator->isEnterPressed() && _balloonsBin.size() == _answer && _burstFlag)
 	{
 		_pointCounter++;
 		_menuContext->addPoints(1);
@@ -192,6 +191,7 @@ void Balloon::update(float dt)
 	}
 	else if(_isCalculatorThere && !_calculator->checkAnswer(_answer) && _calculator->isEnterPressed() )
 	{
+		_burstFlag = false;
 		_pointCounter++;
 		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 		audio->playEffect("sounds/sfx/error.ogg", false);
@@ -199,6 +199,7 @@ void Balloon::update(float dt)
 	}
 	else if (_isCalculatorThere && _calculator->checkAnswer(_answer) && _calculator->isEnterPressed() && _balloonsBin.size() != _answer)
 	{
+		_burstFlag = false;
 		_pointCounter++;
 		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 		audio->playEffect("sounds/sfx/error.ogg", false);
@@ -207,6 +208,7 @@ void Balloon::update(float dt)
 }
 void Balloon::makingBalloons()
 {
+	
 	auto myGameWidth = 0;
 	if (visibleSize.width > 2560) {
 		myGameWidth = (visibleSize.width - 2560) / 2;

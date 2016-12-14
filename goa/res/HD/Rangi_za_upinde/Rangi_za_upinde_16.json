@@ -245,6 +245,25 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1782351246,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 293,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 294,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -419,8 +438,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 1278.0995,
-              "Y": 242.9059
+              "X": 1252.4529,
+              "Y": 233.3167
             },
             "Scale": {
               "ScaleX": 6.4154,
@@ -431,24 +450,23 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.4993,
-              "Y": 0.1349
+              "X": 0.4892,
+              "Y": 0.1296
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 1278.0995,
-            "RightMargin": 1081.9005,
-            "TopMargin": 1357.0941,
-            "BottomMargin": 242.9059,
+            "LeftMargin": 1252.4529,
+            "RightMargin": 1107.5471,
+            "TopMargin": 1366.6833,
+            "BottomMargin": 233.3167,
             "Tag": 107,
             "ActionTag": -1512108056,
             "Size": {
               "X": 200.0,
               "Y": 200.0
             },
-            "VisibleForFrame": false,
             "Name": "Panel_1_0_0",
             "ctype": "PanelObjectData"
           },
@@ -469,34 +487,33 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 1.0
             },
             "Position": {
-              "X": 1249.083,
-              "Y": 229.6488
+              "X": 1253.2167,
+              "Y": 226.9485
             },
             "Scale": {
               "ScaleX": 6.0556,
               "ScaleY": 7.2458
             },
-            "RotationSkewX": 134.4745,
-            "RotationSkewY": 134.4774,
+            "RotationSkewX": -0.1593,
+            "RotationSkewY": -0.1588,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.4879,
-              "Y": 0.1276
+              "X": 0.4895,
+              "Y": 0.1261
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 1049.083,
-            "RightMargin": 1310.917,
-            "TopMargin": 1370.3512,
-            "BottomMargin": 229.6488,
+            "LeftMargin": 1053.2167,
+            "RightMargin": 1306.7833,
+            "TopMargin": 1373.0515,
+            "BottomMargin": 226.9485,
             "Tag": 106,
             "ActionTag": -1782351246,
             "Size": {
