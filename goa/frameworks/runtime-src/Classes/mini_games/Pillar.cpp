@@ -107,7 +107,7 @@ bool Pillar::init()
 	};
 
 	std::vector<std::string> theme = { "candy","iceLand","farm" };
-	_scenePath = differntSceneMapping.at(theme.at(0));//cocos2d::RandomHelper::random_int(0, 2)
+	_scenePath = differntSceneMapping.at(theme.at(cocos2d::RandomHelper::random_int(0, 2)));//cocos2d::RandomHelper::random_int(0, 2)
 
 	
 
