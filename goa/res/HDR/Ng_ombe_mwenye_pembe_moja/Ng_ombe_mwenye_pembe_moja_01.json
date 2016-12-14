@@ -5,10 +5,224 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 358,
+        "Duration": 600,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "hut",
         "Timelines": [
+          {
+            "ActionTag": -754584924,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1674.1342,
+                "Y": 1545.5977,
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -754584924,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.25,
+                "Y": 1.25,
+                "FrameIndex": 405,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8,
+                "Y": 0.8,
+                "FrameIndex": 415,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.15,
+                "Y": 1.15,
+                "FrameIndex": 425,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.9,
+                "Y": 0.9,
+                "FrameIndex": 435,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.06,
+                "Y": 1.06,
+                "FrameIndex": 445,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.97,
+                "Y": 0.97,
+                "FrameIndex": 455,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.02,
+                "Y": 1.02,
+                "FrameIndex": 462,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 465,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -754584924,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -754584924,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "hop",
+                "FrameIndex": 405,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 893142653,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2230.4888,
+                "Y": 784.6768,
+                "FrameIndex": 475,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2060.762,
+                "Y": 885.8807,
+                "FrameIndex": 519,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2060.762,
+                "Y": 885.8807,
+                "FrameIndex": 555,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2230.4888,
+                "Y": 784.6768,
+                "FrameIndex": 600,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 893142653,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -0.3,
+                "Y": 0.3,
+                "FrameIndex": 475,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.3,
+                "Y": 0.3,
+                "FrameIndex": 600,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 893142653,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "jump",
+                "FrameIndex": 475,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 2111164380,
             "Property": "ActionValue",
@@ -18,6 +232,14 @@
                 "CurrentAniamtionName": "hi",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 1,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "hi",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 360,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -126,7 +348,7 @@
             "Frames": [
               {
                 "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "Walk",
+                "CurrentAniamtionName": "walk",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
                 "Tween": false,
@@ -167,6 +389,19 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -659764378,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "cow",
+                "FrameIndex": 230,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -176,6 +411,18 @@
           "StartIndex": 0,
           "EndIndex": 360,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 375,
+          "EndIndex": 465,
+          "Name": "sun",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 475,
+          "EndIndex": 600,
+          "Name": "hut",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -267,6 +514,7 @@
             "RightMargin": 624.3658,
             "TopMargin": -5.0977,
             "BottomMargin": 1286.0977,
+            "UserData": "main.sun",
             "Tag": 704,
             "ActionTag": -754584924,
             "Size": {
@@ -374,6 +622,47 @@
           },
           {
             "FileData": {
+              "Type": "Normal",
+              "Path": "Ng_ombe_mwenye_pembe_moja/cow.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2230.4888,
+              "Y": 784.6768
+            },
+            "Scale": {
+              "ScaleX": -0.3,
+              "ScaleY": 0.3
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8713,
+              "Y": 0.4359
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2230.4888,
+            "RightMargin": 329.5112,
+            "TopMargin": 1015.3232,
+            "BottomMargin": 784.6768,
+            "Tag": 17172,
+            "ActionTag": 893142653,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "cow",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
               "Type": "MarkedSubImage",
               "Path": "Ng_ombe_mwenye_pembe_moja/hut.png",
               "Plist": "Ng_ombe_mwenye_pembe_moja/Ng_ombe_mwenye_pembe_moja.plist"
@@ -408,6 +697,7 @@
             "RightMargin": 54.9341,
             "TopMargin": 429.7063,
             "BottomMargin": 625.2937,
+            "UserData": "main.hut",
             "Tag": 182,
             "ActionTag": 773207256,
             "Size": {
@@ -869,6 +1159,7 @@
       "UsedResources": [
         "boy_1.json",
         "boy_2.json",
+        "cow.json",
         "cowonehorn.json",
         "Ng_ombe_mwenye_pembe_moja.plist",
         "Ng_ombe_mwenye_pembe_moja.png"

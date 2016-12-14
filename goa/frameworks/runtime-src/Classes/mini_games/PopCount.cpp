@@ -148,10 +148,10 @@ void PopCount::update(float delta) {
 			_particle->setName("celebration");
 			addChild(_particle, 5);
 			_menuContext-> setMaxPoints(_totalHit);
-			_menuContext-> addPoints(-_wrongHit);
+			_menuContext-> addPoints(_totalHit -_wrongHit);
 		});
 
-		this->runAction(Sequence::create(setInMid, DelayTime::create(1), particleEffect,DelayTime::create(_popStayDelay + 2), CallFunc::create([=]() { this->removeChildByName("celebration"); _menuContext->showScore(); }), NULL));
+		this->runAction(Sequence::create(setInMid, DelayTime::create(1), particleEffect,DelayTime::create(3), CallFunc::create([=]() { this->removeChildByName("celebration"); _menuContext->showScore(); }), NULL));
 		_popStartListner = false;
 	}
 }
