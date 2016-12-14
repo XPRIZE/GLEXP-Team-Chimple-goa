@@ -1,3 +1,3 @@
 var xc = xc || {};
 
-xc.GameScene.load(xc.sortitlevel1Layer);
+xc.GameScene.load(xc.sortitlevelLayer);

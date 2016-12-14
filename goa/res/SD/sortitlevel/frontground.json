@@ -1,0 +1,215 @@
+{
+  "ID": "9d7c7508-0cdd-45cb-8455-c0a615097a3b",
+  "Version": "3.10.0.0",
+  "Name": "frontground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 443,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "sortitlevel/bush1.png",
+              "Plist": "sortitlevel/sortitlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1411.6733,
+              "Y": 77.1974
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5514,
+              "Y": 0.0429
+            },
+            "PreSize": {
+              "X": 0.1988,
+              "Y": 0.0894
+            },
+            "LeftMargin": 1157.1733,
+            "RightMargin": 893.8267,
+            "TopMargin": 1642.3026,
+            "BottomMargin": -3.3026,
+            "Tag": 444,
+            "ActionTag": 1287098224,
+            "Size": {
+              "X": 509.0,
+              "Y": 161.0
+            },
+            "Name": "bush1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "sortitlevel/bush2.png",
+              "Plist": "sortitlevel/sortitlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5113.2129,
+              "Y": 111.8297
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.9973,
+              "Y": 0.0621
+            },
+            "PreSize": {
+              "X": 0.1328,
+              "Y": 0.1217
+            },
+            "LeftMargin": 4943.2129,
+            "RightMargin": -2723.2129,
+            "TopMargin": 1578.6704,
+            "BottomMargin": 2.3297,
+            "Tag": 445,
+            "ActionTag": 975063503,
+            "Size": {
+              "X": 340.0,
+              "Y": 219.0
+            },
+            "Name": "bush2_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "sortitlevel/bush1.png",
+              "Plist": "sortitlevel/sortitlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7401.6621,
+              "Y": 82.8326
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.8913,
+              "Y": 0.046
+            },
+            "PreSize": {
+              "X": 0.1988,
+              "Y": 0.0894
+            },
+            "LeftMargin": 7147.1621,
+            "RightMargin": -5096.1621,
+            "TopMargin": 1636.6674,
+            "BottomMargin": 2.3326,
+            "Tag": 446,
+            "ActionTag": 1500841524,
+            "Size": {
+              "X": 509.0,
+              "Y": 161.0
+            },
+            "Name": "bush1_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "sortitlevel/bush2.png",
+              "Plist": "sortitlevel/sortitlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 11103.1641,
+              "Y": 117.4634
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 4.3372,
+              "Y": 0.0653
+            },
+            "PreSize": {
+              "X": 0.1328,
+              "Y": 0.1217
+            },
+            "LeftMargin": 10933.1641,
+            "RightMargin": -8713.1641,
+            "TopMargin": 1573.0366,
+            "BottomMargin": 7.9634,
+            "Tag": 447,
+            "ActionTag": 686867252,
+            "Size": {
+              "X": 340.0,
+              "Y": 219.0
+            },
+            "Name": "bush2_2_0",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "sortitlevel.plist",
+        "sortitlevel.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}
