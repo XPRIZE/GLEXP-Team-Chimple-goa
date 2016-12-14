@@ -1,70 +1,94 @@
 {
-	"multiple_choice": [
-		{
-			"question": "Why did Demane and Demazane run away from their uncle's house?",
-			"choices": ["because they wanted to go to the city", "because they wanted to see the circus", "because they wanted to eat ice cream"],
-			"answer": "because they were badly treated"
-		},
-		{
-			"question": "Where did Demane and Demazane stay in the forest?",
-			"choices": ["on a tree", "in a hole", "in the river"],
-			"answer": "in a cave"			
-		},
-		{
-			"question": "Who grabbed Demazane from the cave?",
-			"choices": ["A lion", "A bear", "A friend"],
-			"answer": "A huge hairy man"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "The swallows can enter it. It has two holes",
-			"choices": ["bees", "men", "children"],
-			"answer": "swallows"
-		},
-		{
-			"question": "As she was being carried away, she dropped some ashes here and there along the path",
-			"choices": ["stones", "coffee", "water"],
-			"answer": "ashes"
-		},
-		{
-			"question": "Demane replaced the bag with his own bag full of bees",
-			"choices": ["birds", "butterflies", "rats"],
-			"answer": "bees"
-		}
-	],
-	"meanings": [
-		{
-			"porridge": "a dish consisting of cereal boiled in water or milk",
-			"swallow": "a migratory songbird with a forked tail and long pointed wings",
-			"cave": "a natural underground chamber in a hillside or cliff",
-			"argue": "give reasons or cite evidence in support of an idea"
-		},
-		{
-			"trap": "a device or enclosure designed to catch and retain animals",
-			"promise": "a declaration or assurance that one will do something",
-			"howl": "a loud cry of pain, fear, anger, or amusement",
-			"honey": "a sweet, sticky yellowish-brown fluid made by bees"
-		}
-	],
-	"picture": [
-		{
-			"tree.png": "tree",
-			"fire.png": "fire",
-			"cave.png": "cave",
-			"door.png": "door"
-		},
-		{
-			"hive.png": "hive",
-			"bag.png": "bag",
-			"bee.png": "bee",
-			"wood.png": "wood"
-		}
-	],
-	"words": [
-		"strong",
-		"boring",
-		"perhaps",
-		"distance"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "swallows",
+            "choices": [
+                "bees",
+                "men",
+                "children"
+            ],
+            "question": "The swallows can enter it. It has two holes"
+        },
+        {
+            "answer": "ashes",
+            "choices": [
+                "stones",
+                "coffee",
+                "water"
+            ],
+            "question": "As she was being carried away, she dropped some ashes here and there along the path"
+        },
+        {
+            "answer": "bees",
+            "choices": [
+                "birds",
+                "butterflies",
+                "rats"
+            ],
+            "question": "Demane replaced the bag with his own bag full of bees"
+        }
+    ],
+    "meanings": [
+        {
+            "argue": "give reasons or cite evidence in support of an idea",
+            "cave": "a natural underground chamber in a hillside or cliff",
+            "porridge": "a dish consisting of cereal boiled in water or milk",
+            "swallow": "a migratory songbird with a forked tail and long pointed wings"
+        },
+        {
+            "honey": "a sweet, sticky yellowish-brown fluid made by bees",
+            "howl": "a loud cry of pain, fear, anger, or amusement",
+            "promise": "a declaration or assurance that one will do something",
+            "trap": "a device or enclosure designed to catch and retain animals"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "because they were badly treated",
+            "choices": [
+                "because they wanted to go to the city",
+                "because they wanted to see the circus",
+                "because they wanted to eat ice cream"
+            ],
+            "question": "Why did Demane and Demazane run away from their uncle's house?"
+        },
+        {
+            "answer": "in a cave",
+            "choices": [
+                "on a tree",
+                "in a hole",
+                "in the river"
+            ],
+            "question": "Where did Demane and Demazane stay in the forest?"
+        },
+        {
+            "answer": "A huge hairy man",
+            "choices": [
+                "A lion",
+                "A bear",
+                "A friend"
+            ],
+            "question": "Who grabbed Demazane from the cave?"
+        }
+    ],
+    "picture": [
+        {
+            "cave.png": "cave",
+            "door.png": "door",
+            "fire.png": "fire",
+            "tree.png": "tree"
+        },
+        {
+            "bag.png": "bag",
+            "hive.png": "hive",
+            "rat.png": "rat",
+            "wood.png": "wood"
+        }
+    ],
+    "words": [
+        "strong",
+        "boring",
+        "perhaps",
+        "distance"
+    ]
 }

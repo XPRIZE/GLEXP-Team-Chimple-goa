@@ -1,58 +1,82 @@
 {
-	"multiple_choice": [
-		{
-			"question": "What type of teeth does a crocodile have?",
-			"choices": ["dull", "bright", "long"],
-			"answer": "sharp"
-		},
-		{
-			"question": "Who does not have teeth",
-			"choices": ["shark", "cow", "lion"],
-			"answer": "bird"			
-		},
-		{
-			"question": "What happened to my front teeth?",
-			"choices": ["became dirty", "feel fine", "they broke"],
-			"answer": "fell out"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "A lion has sharp teeth",
-			"choices": ["tail", "legs", "face"],
-			"answer": "teeth"
-		},
-		{
-			"question": "A cow has strong teeth for grinding food",
-			"choices": ["books", "horns", "water"],
-			"answer": "food"
-		},
-		{
-			"question": "Rats have long front teeth",
-			"choices": ["Cows", "Lions", "Sharks"],
-			"answer": "Rats"
-		}
-	],
-	"meanings": [
-		{
-			"sharp": "having an edge or point that is able to cut or pierce something",
-			"grind": "reduce something to small particles or powder by crushing it",
-			"front": "the side or part of an object that is normally seen first",
-			"long": "measuring a great distance from end to end"
-		}
-	],
-	"picture": [
-		{
-			"shark.png": "shark",
-			"rat.png": "rat",
-			"cow.png": "cow",
-			"crocodile.png": "crocodile"
-		}
-	],
-	"words": [
-		"teeth",
-		"sharp",
-		"strong",
-		"fell"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "teeth",
+            "choices": [
+                "tail",
+                "legs",
+                "face"
+            ],
+            "question": "A lion has sharp teeth"
+        },
+        {
+            "answer": "food",
+            "choices": [
+                "books",
+                "horns",
+                "water"
+            ],
+            "question": "A cow has strong teeth for grinding food"
+        },
+        {
+            "answer": "Rats",
+            "choices": [
+                "Cows",
+                "Lions",
+                "Sharks"
+            ],
+            "question": "Rats have long front teeth"
+        }
+    ],
+    "meanings": [
+        {
+            "front": "the side or part of an object that is normally seen first",
+            "grind": "reduce something to small particles or powder by crushing it",
+            "long": "measuring a great distance from end to end",
+            "sharp": "having an edge or point that is able to cut or pierce something"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "sharp",
+            "choices": [
+                "dull",
+                "bright",
+                "long"
+            ],
+            "question": "What type of teeth does a crocodile have?"
+        },
+        {
+            "answer": "bird",
+            "choices": [
+                "shark",
+                "cow",
+                "lion"
+            ],
+            "question": "Who does not have teeth"
+        },
+        {
+            "answer": "fell out",
+            "choices": [
+                "became dirty",
+                "feel fine",
+                "they broke"
+            ],
+            "question": "What happened to my front teeth?"
+        }
+    ],
+    "picture": [
+        {
+            "cow.png": "cow",
+            "crocodile.png": "crocodile",
+            "rat.png": "rat",
+            "shark.png": "shark"
+        }
+    ],
+    "words": [
+        "teeth",
+        "sharp",
+        "strong",
+        "fell"
+    ]
 }

@@ -1,58 +1,82 @@
 {
-	"multiple_choice": [
-		{
-			"question": "What was my friend's name?",
-			"choices": ["Sarah", "Alice", "Farah"],
-			"answer": "Muthoni"
-		},
-		{
-			"question": "What would Muthoni and I play?",
-			"choices": ["football", "running", "cards"],
-			"answer": "hide and seek"			
-		},
-		{
-			"question": "Where did I wait for Muthoni?",
-			"choices": ["home", "park", "shop"],
-			"answer": "school"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "I hid in big trees, while Muthoni went behind huts",
-			"choices": ["stones", "walls", "grass"],
-			"answer": "trees"
-		},
-		{
-			"question": "I told my mother about my friend Muthoni",
-			"choices": ["father", "brother", "sister"],
-			"answer": "mother"
-		},
-		{
-			"question": "We went to fetch firewood together",
-			"choices": ["coffee", "books", "paper"],
-			"answer": "firewood"
-		}
-	],
-	"meanings": [
-		{
-			"hurry": "move or act with great haste",
-			"forget": "fail to remember",
-			"fetch": "go for and then bring back",
-			"graduate": "successfully complete an academic degree"
-		}
-	],
-	"picture": [
-		{
-			"tree.png": "tree",
-			"hut.png": "hut",
-			"school.png": "s",
-			"book.png": "book"
-		}
-	],
-	"words": [
-		"morning",
-		"breakfast",
-		"behind",
-		"continue"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "trees",
+            "choices": [
+                "stones",
+                "walls",
+                "grass"
+            ],
+            "question": "I hid in big trees, while Muthoni went behind huts"
+        },
+        {
+            "answer": "mother",
+            "choices": [
+                "father",
+                "brother",
+                "sister"
+            ],
+            "question": "I told my mother about my friend Muthoni"
+        },
+        {
+            "answer": "firewood",
+            "choices": [
+                "coffee",
+                "books",
+                "paper"
+            ],
+            "question": "We went to fetch firewood together"
+        }
+    ],
+    "meanings": [
+        {
+            "fetch": "go for and then bring back",
+            "forget": "fail to remember",
+            "graduate": "successfully complete an academic degree",
+            "hurry": "move or act with great haste"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "Muthoni",
+            "choices": [
+                "Sarah",
+                "Alice",
+                "Farah"
+            ],
+            "question": "What was my friend's name?"
+        },
+        {
+            "answer": "hide and seek",
+            "choices": [
+                "football",
+                "running",
+                "cards"
+            ],
+            "question": "What would Muthoni and I play?"
+        },
+        {
+            "answer": "school",
+            "choices": [
+                "home",
+                "park",
+                "shop"
+            ],
+            "question": "Where did I wait for Muthoni?"
+        }
+    ],
+    "picture": [
+        {
+            "book.png": "book",
+            "hut.png": "hut",
+            "s.png": "s",
+            "tree.png": "tree"
+        }
+    ],
+    "words": [
+        "morning",
+        "breakfast",
+        "behind",
+        "continue"
+    ]
 }

@@ -1,70 +1,94 @@
 {
-	"multiple_choice": [
-		{
-			"question": "Where did Wangari Mathai live?",
-			"choices": ["city", "island", "town"],
-			"answer": "village on the slopes of Mount Kenya"
-		},
-		{
-			"question": "Where did Wangari go to study?",
-			"choices": ["England", "Germany", "India"],
-			"answer": "America"			
-		},
-		{
-			"question": "What did Wangari teach the women to do?",
-			"choices": ["cooking", "how to read", "a foreign language"],
-			"answer": "plant trees from seeds"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "Wangari loved being outside",
-			"choices": ["inside", "at home", "in her room"],
-			"answer": "outside"
-		},
-		{
-			"question": "Wangari was a clever child and couldn't wait to go to school",
-			"choices": ["park", "restaurant", "circus"],
-			"answer": "school"
-		},
-		{
-			"question": "Today, millions of trees have grown from Wangari's seeds",
-			"choices": ["rocks", "paper", "clothes"],
-			"answer": "trees"
-		}
-	],
-	"meanings": [
-		{
-			"slope": "a surface of which one end or side is at a higher level than another",
-			"garden": "a piece of ground adjoining a house, used for growing flowers, fruit, or vegetables",
-			"machete": "a broad, heavy knife used as an implement or weapon",
-			"narrow": "of small width in relation to length"
-		},
-		{
-			"persuade": "induce someone to do something through reasoning or argument",
-			"remember": "be able to bring to one's mind an awareness of someone or something from the past",
-			"hungry": "feeling or showing the need for food",
-			"powerful": "having great power or strength"
-		}
-	],
-	"picture": [
-		{
-			"tree.png": "tree",
-			"flower.png": "flower",
-			"grass.png": "grass",
-			"bird.png": "bird"
-		},
-		{
-			"book.png": "book",
-			"carrot.png": "carrot",
-			"beetroot.png": "beetroot",
-			"hill.png": "hill"
-		}
-	],
-	"words": [
-		"warm",
-		"sunset",
-		"invited",
-		"finished"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "outside",
+            "choices": [
+                "inside",
+                "at home",
+                "in her room"
+            ],
+            "question": "Wangari loved being outside"
+        },
+        {
+            "answer": "school",
+            "choices": [
+                "park",
+                "restaurant",
+                "circus"
+            ],
+            "question": "Wangari was a clever child and couldn\ufffd\u06eat wait to go to school"
+        },
+        {
+            "answer": "trees",
+            "choices": [
+                "rocks",
+                "paper",
+                "clothes"
+            ],
+            "question": "Today, millions of trees have grown from Wangari\ufffd\u06eas seeds"
+        }
+    ],
+    "meanings": [
+        {
+            "garden": "a piece of ground adjoining a house, used for growing flowers, fruit, or vegetables",
+            "machete": "a broad, heavy knife used as an implement or weapon",
+            "narrow": "of small width in relation to length",
+            "slope": "a surface of which one end or side is at a higher level than another"
+        },
+        {
+            "hungry": "feeling or showing the need for food",
+            "persuade": "induce someone to do something through reasoning or argument",
+            "powerful": "having great power or strength",
+            "remember": "be able to bring to one's mind an awareness of someone or something from the past"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "village on the slopes of Mount Kenya",
+            "choices": [
+                "city",
+                "island",
+                "town"
+            ],
+            "question": "Where did Wangari Mathai live?"
+        },
+        {
+            "answer": "America",
+            "choices": [
+                "England",
+                "Germany",
+                "India"
+            ],
+            "question": "Where did Wangari go to study?"
+        },
+        {
+            "answer": "plant trees from seeds",
+            "choices": [
+                "cooking",
+                "how to read",
+                "a foreign language"
+            ],
+            "question": "What did Wangari teach the women to do?"
+        }
+    ],
+    "picture": [
+        {
+            "bird.png": "bird",
+            "flower.png": "flower",
+            "grass.png": "grass",
+            "tree.png": "tree"
+        },
+        {
+            "beetroot.png": "beetroot",
+            "book.png": "book",
+            "carrot.png": "carrot",
+            "hill.png": "hill"
+        }
+    ],
+    "words": [
+        "warm",
+        "sunset",
+        "invited",
+        "finished"
+    ]
 }

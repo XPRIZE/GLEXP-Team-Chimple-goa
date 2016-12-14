@@ -1,64 +1,88 @@
 {
-	"multiple_choice": [
-		{
-			"question": "What did Palinyang enjoy doing?",
-			"choices": ["Walking to school", "Playing with monkeys", "Sleeping at home"],
-			"answer": "Grazing animals in the fields"
-		},
-		{
-			"question": "Where were the cows after the rain?",
-			"choices": ["In the shed", "In the island", "In the sky"],
-			"answer": "In a small village"			
-		},
-		{
-			"question": "What did Lokeyokoni buy for Palinyang?",
-			"choices": ["A drum", "A cow", "A book"],
-			"answer": "A red bag"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "Sausau lived in the forest long before trees were cut down",
-			"choices": ["town", "village", "city"],
-			"answer": "forest"
-		},
-		{
-			"question": "Lokeyokoni had many sons and daughters",
-			"choices": ["brothers", "sisters", "books"],
-			"answer": "daughters"
-		},
-		{
-			"question": "All the animals broke from the enclosure and followed Palinyang",
-			"choices": ["birds", "children", "elders"],
-			"answer": "animals"
-		}
-	],
-	"meanings": [
-		{
-			"orphan": "a child whose parents are dead",
-			"robber": "a person who commits robbery",
-			"mourn": "feel or show sorrow for the death of someone",
-			"wonder": "a feeling of amazement and admiration"
-		},
-		{
-			"respect": "a feeling of deep admiration for someone",
-			"adopt": "legally take another's child and bring it up as one's own",
-			"trace": "find or discover by investigation",
-			"enclosure": "an area that is surrounded by a barrier"
-		}
-	],
-	"picture": [
-		{
-			"cow.png": "cow",
-			"grass.png": "grass",
-			"tree.png": "tree",
-			"bag.png": "bag"
-		}
-	],
-	"words": [
-		"believed",
-		"graze",
-		"shelter",
-		"favourite"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "forest",
+            "choices": [
+                "town",
+                "village",
+                "city"
+            ],
+            "question": "Sausau lived in the forest long before trees were cut down"
+        },
+        {
+            "answer": "daughters",
+            "choices": [
+                "brothers",
+                "sisters",
+                "books"
+            ],
+            "question": "Lokeyokoni had many sons and daughters"
+        },
+        {
+            "answer": "animals",
+            "choices": [
+                "birds",
+                "children",
+                "elders"
+            ],
+            "question": "All the animals broke from the enclosure and followed Palinyang"
+        }
+    ],
+    "meanings": [
+        {
+            "mourn": "feel or show sorrow for the death of someone",
+            "orphan": "a child whose parents are dead",
+            "robber": "a person who commits robbery",
+            "wonder": "a feeling of amazement and admiration"
+        },
+        {
+            "adopt": "legally take another's child and bring it up as one's own",
+            "enclosure": "an area that is surrounded by a barrier",
+            "respect": "a feeling of deep admiration for someone",
+            "trace": "find or discover by investigation"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "Grazing animals in the fields",
+            "choices": [
+                "Walking to school",
+                "Playing with monkeys",
+                "Sleeping at home"
+            ],
+            "question": "What did Palinyang enjoy doing?"
+        },
+        {
+            "answer": "In a small village",
+            "choices": [
+                "In the shed",
+                "In the island",
+                "In the sky"
+            ],
+            "question": "Where were the cows after the rain?"
+        },
+        {
+            "answer": "A red bag",
+            "choices": [
+                "A drum",
+                "A cow",
+                "A book"
+            ],
+            "question": "What did Lokeyokoni buy for Palinyang?"
+        }
+    ],
+    "picture": [
+        {
+            "bag.png": "bag",
+            "bush.png": "bush",
+            "cow.png": "cow",
+            "tree.png": "tree"
+        }
+    ],
+    "words": [
+        "believed",
+        "graze",
+        "shelter",
+        "favourite"
+    ]
 }

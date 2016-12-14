@@ -1,64 +1,88 @@
 {
-	"multiple_choice": [
-		{
-			"question": "What did the crows get everyday?",
-			"choices": ["Apples", "oranges", "stones"],
-			"answer": "Ripe figs"
-		},
-		{
-			"question": "Where did Anansi the Spider fall?",
-			"choices": ["On a boat", "On a car", "In a box"],
-			"answer": "Into the river"			
-		},
-		{
-			"question": "What did the crocodiles give Anansi to eat?",
-			"choices": ["figs", "oranges", "apples"],
-			"answer": "mud soup"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "The sight of so many figs made Anansi's mouth water",
-			"choices": ["eyes", "legs", "ears"],
-			"answer": "mouth"
-		},
-		{
-			"question": "Anansi fell into the river right among the crocodiles",
-			"choices": ["crows", "lions", "elephants"],
-			"answer": "crocodiles"
-		},
-		{
-			"question": "I want to go and fetch my wife and children from across the river",
-			"choices": ["friend", "teacher", "father"],
-			"answer": "wife"
-		}
-	],
-	"meanings": [
-		{
-			"distance": "the length of the space between two points",
-			"suspicious": "showing a cautious distrust of someone",
-			"luscious": "having a pleasingly rich, sweet taste",
-			"eventually": "in the end"
-		},
-		{
-			"morsel": "a small piece or amount of food",
-			"beneath": "extending or directly underneath",
-			"exclaim": "cry out suddenly in surprise",
-			"grumpy": "bad-tempered and sulky"
-		}
-	],
-	"picture": [
-		{
-			"crow.png": "crow",
-			"spider.png": "spider",
-			"fire.png": "fire",
-			"crocodile.png": "crocodile"
-		}
-	],	
-	"words": [
-		"morning",
-		"beeswax",
-		"darkness",
-		"disappear"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "mouth",
+            "choices": [
+                "eyes",
+                "legs",
+                "ears"
+            ],
+            "question": "The sight of so many figs made Anansi's mouth water"
+        },
+        {
+            "answer": "crocodiles",
+            "choices": [
+                "crows",
+                "lions",
+                "elephants"
+            ],
+            "question": "Anansi fell into the river right among the crocodiles"
+        },
+        {
+            "answer": "wife",
+            "choices": [
+                "friend",
+                "teacher",
+                "father"
+            ],
+            "question": "I want to go and fetch my wife and children from across the river"
+        }
+    ],
+    "meanings": [
+        {
+            "distance": "the length of the space between two points",
+            "eventually": "in the end",
+            "luscious": "having a pleasingly rich, sweet taste",
+            "suspicious": "showing a cautious distrust of someone"
+        },
+        {
+            "beneath": "extending or directly underneath",
+            "exclaim": "cry out suddenly in surprise",
+            "grumpy": "bad-tempered and sulky",
+            "morsel": "a small piece or amount of food"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "Ripe figs",
+            "choices": [
+                "Apples",
+                "oranges",
+                "stones"
+            ],
+            "question": "What did the crows get everyday?"
+        },
+        {
+            "answer": "Into the river",
+            "choices": [
+                "On a boat",
+                "On a car",
+                "In a box"
+            ],
+            "question": "Where did Anansi the Spider fall?"
+        },
+        {
+            "answer": "mud soup",
+            "choices": [
+                "figs",
+                "oranges",
+                "apples"
+            ],
+            "question": "What did the crocodiles give Anansi to eat?"
+        }
+    ],
+    "picture": [
+        {
+            "crocodile.png": "crocodile",
+            "crow.png": "crow",
+            "fire.png": "fire",
+            "spider.png": "spider"
+        }
+    ],
+    "words": [
+        "morning",
+        "beeswax",
+        "darkness",
+        "disappear"
+    ]
 }
