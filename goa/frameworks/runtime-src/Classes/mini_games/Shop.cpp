@@ -456,7 +456,7 @@ void Shop::addTouchEvents(Sprite* obj)
 			_vegeOriginalPos = std::make_pair(target->getPositionX(), target->getPositionY());
 			_touched = false;
 
-		/*	auto E = DrawNode::create();
+			/*auto E = DrawNode::create();
 			this->addChild(E, 10);
 			E->drawRect(Vec2(a, b),
 				Vec2(a + target->getContentSize().width*1.5, b + target->getContentSize().height*1.5),
@@ -543,8 +543,8 @@ void Shop::addTouchEvents(Sprite* obj)
 
 			 
 			auto dropSound = CallFunc::create([=] {
-				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-				audio->playEffect("sounds/sfx/shop_pick.ogg", false);
+				/*auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+				audio->playEffect("sounds/sfx/shop_pick.ogg", false);*/
 			});
 			this->runAction(Sequence::create(DelayTime::create(0.5), dropSound, NULL));
 
