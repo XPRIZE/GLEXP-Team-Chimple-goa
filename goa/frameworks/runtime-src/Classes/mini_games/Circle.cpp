@@ -104,7 +104,7 @@ bool Circle::init()
 	};
 
 	std::vector<std::string> theme = { "city","iceLand","candy"};
-	_scenePath = differntSceneMapping.at(theme.at(cocos2d::RandomHelper::random_int(0, 2)));
+	_scenePath = differntSceneMapping.at(theme.at(1));
 
 	auto spritecache1 = SpriteFrameCache::getInstance();
 	spritecache1->addSpriteFramesWithFile(_scenePath.at("plist"));
@@ -195,25 +195,55 @@ void Circle::onEnterTransitionDidFinish()
 	int level = 24;
 
 	int division = ((level - 1) % 15) + 1;
+
 	if (division >= 1 && division < 6) {
-		int roundLevel = (level / 15) + 1;
+		int roundLevel = std::ceil(level / 15.0);
 		int inner = division + ((roundLevel - 1) * 5);
-		CCLOG("Synonyms Level = %d", inner);
-		_synonyms = TextGenerator::getInstance()->getSynonyms(10);
+		int subLevel = 1;
+		if (inner < 16) {
+			subLevel = (std::ceil(inner / 3.0));
+		}
+		else {
+			inner = inner - 15;
+			subLevel = (std::ceil(inner / 2.0));
+			subLevel += 5;
+		}
+		CCLOG("Sysnonyms sub Level = %d", subLevel);
+		_synonyms = TextGenerator::getInstance()->getSynonyms(10, subLevel);
 	}
 	else if (division >5 && division < 11) {
-		int roundLevel = (level / 15) + 1;
+		int roundLevel = std::ceil(level / 15.0);
 		int inner = division - 5 + ((roundLevel - 1) * 5);
-		CCLOG("Antonyms Level = %d", inner);
-		_synonyms = TextGenerator::getInstance()->getAntonyms(10);
+
+		int subLevel = 1;
+		if (inner < 16) {
+			subLevel = (std::ceil(inner / 3.0));
+		}
+		else {
+			inner = inner - 15;
+			subLevel = (std::ceil(inner / 2.0));
+			subLevel += 5;
+		}
+		CCLOG("Antonyms Sub Level = %d", subLevel);
+		_synonyms = TextGenerator::getInstance()->getAntonyms(10, subLevel);
 	}
 	else {
-		int roundLevel = (level / 15) + 1;
+		int roundLevel = std::ceil(level / 15.0);
 		int inner = division - 10 + ((roundLevel - 1) * 5);
-		CCLOG("Homonyms Level = %d", inner);
-		_synonyms = TextGenerator::getInstance()->getHomonyms(10);
-	}
 
+		int subLevel = 1;
+		if (inner < 16) {
+			subLevel = (std::ceil(inner / 3.0));
+		}
+		else {
+			inner = inner - 15;
+			subLevel = (std::ceil(inner / 2.0));
+			subLevel += 5;
+		}
+		CCLOG("Homonyms SubLevel = %d", subLevel);
+
+		_synonyms = TextGenerator::getInstance()->getHomonyms(10, subLevel);
+	}
 
 	for (auto it = _synonyms.begin(); it != _synonyms.end(); ++it) {
 		_mapKey.push_back(it->first);
@@ -281,19 +311,30 @@ void Circle::eat(char str)
 	if (_score == 5)
 	{
 	//	this->scheduleOnce(schedule_selector(Circle::bigpuff), 1.5f);
-		auto correct = CSLoader::createNode("circle/correct.csb");
-		correct->setPositionX(_friend->getPositionX());
-		correct->setPositionY(_friend->getPositionY());
-		this->addChild(correct);
-		auto timeline = CSLoader::createTimeline("circle/correct.csb");
-		correct->runAction(timeline);
-		timeline->play("correct", true);
-		_friend->setVisible(false);
-		this->scheduleOnce(schedule_selector(Circle::scoreBoard), 3.0f);
+		
+		
+		this->runAction(Sequence::create(DelayTime::create(3.0f), CallFunc::create([=]() {
+			auto correct = CSLoader::createNode("circle/correct.csb");
+			correct->setPositionX(_friend->getPositionX());
+			correct->setPositionY(_friend->getPositionY());
+			this->addChild(correct);
+			auto timeline = CSLoader::createTimeline("circle/correct.csb");
+			correct->runAction(timeline);
+			timeline->play("correct", true);
+			_friend->setVisible(false);
+		}), CallFunc::create([=]() {
+			this->scheduleOnce(schedule_selector(Circle::scoreBoard), 3.0f);
+		}), NULL));
+
+
+		
+		
 	}
 	else
 	{
+		this->runAction(Sequence::create(DelayTime::create(1.0f), CallFunc::create([=]() {
 		wordGenerateWithOptions();
+		}), NULL));
 	}
 
 
@@ -462,10 +503,10 @@ void Circle::bigpuff(float dt)
 	}
 	if (_scenePath.at("animation_select").compare("two") == 0)
 	{
-		auto timeline = CSLoader::createTimeline("circle/correct.csb");
+		/*auto timeline = CSLoader::createTimeline("circle/correct.csb");
 		_friend->runAction(timeline);
 		timeline->gotoFrameAndPlay(0, false);
-		this->scheduleOnce(schedule_selector(Circle::scoreBoard), 2.0f);
+		this->scheduleOnce(schedule_selector(Circle::scoreBoard), 4.0f);*/
 	}
 }
 void Circle::wordGenerateWithOptions()
@@ -577,6 +618,8 @@ bool Circle::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			{
 				_score++;
 				menu->addPoints(1);
+				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+				audio->playEffect("sounds/sfx/success.ogg", false);
 				change(ssss);
 				
 			}
@@ -584,12 +627,16 @@ bool Circle::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			{
 				_score++;
 				menu->addPoints(1);
+				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+				audio->playEffect("sounds/sfx/success.ogg", false);
 				eat(ssss);
 			}
 			else
 			{ 
 				_score++;
 				menu->addPoints(1);
+				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+				audio->playEffect("sounds/sfx/success.ogg", false);
 				topping(ssss);
 				
 			}
@@ -598,9 +645,12 @@ bool Circle::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		}
 		else
 		{
+			auto audio1 = CocosDenshion::SimpleAudioEngine::getInstance();
+			audio1->playEffect("sounds/sfx/error.ogg", false);
 			menu->addPoints(-1);
 			FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
 			_friend->runAction(shake);
+			
 		}
 		return true;
 	}

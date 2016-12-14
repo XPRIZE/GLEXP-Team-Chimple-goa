@@ -25,7 +25,7 @@ protected:
 	int _popUpAnswer = 0, _popElementCount = 5 , _maxPopStarLimits = 10 , _totalHit = 0 , _wrongHit = 0;
 	float _popStayDelay = 4.0f;
 	cocostudio::timeline::ActionTimeline *_timelineCenterStarFish;
-	bool _popMidButtonClickPermision = true , _popStartListner = false;
+	bool _popMidButtonClickPermision = true , _popStartListner = false , _tempToHoldCenterButton = false;
 
 public:
 	~PopCount();
