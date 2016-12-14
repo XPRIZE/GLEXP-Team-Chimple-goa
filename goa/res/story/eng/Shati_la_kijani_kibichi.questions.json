@@ -1,50 +1,74 @@
 {
-	"multiple_choice": [
-		{
-			"question": "What did Hamisi need?",
-			"choices": ["toy", "book", "bag"],
-			"answer": "school uniform"
-		},
-		{
-			"question": "What did Hamisi see?",
-			"choices": ["a dog", "a fruit", "a sweet"],
-			"answer": "a beautiful shirt"			
-		},
-		{
-			"question": "What sort of day is it for Hamisi?",
-			"choices": ["unlucky", "boring", "sad"],
-			"answer": "lucky"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "Hamisi's dad takes him to the market",
-			"choices": ["restaurant", "school", "meeting"],
-			"answer": "market"
-		},
-		{
-			"question": "I do not have enough money for that shirt",
-			"choices": ["beans", "cloth", "buttons"],
-			"answer": "money"
-		},
-		{
-			"question": "He is surprised when he gets the change",
-			"choices": ["guilty", "confused", "sad"],
-			"answer": "surprised"
-		}
-	],
-	"picture": [
-		{
-			"shirt.png": "shirt",
-			"uniform.png": "uniform",
-			"money.png": "money",
-			"shop.png": "shop"
-		}
-	],
-	"words": [
-		"uniform",
-		"market",
-		"surprised",
-		"choose"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "market",
+            "choices": [
+                "restaurant",
+                "school",
+                "meeting"
+            ],
+            "question": "Hamisi's dad takes him to the market"
+        },
+        {
+            "answer": "money",
+            "choices": [
+                "beans",
+                "cloth",
+                "buttons"
+            ],
+            "question": "I do not have enough money for that shirt"
+        },
+        {
+            "answer": "surprised",
+            "choices": [
+                "guilty",
+                "confused",
+                "sad"
+            ],
+            "question": "He is surprised when he gets the change"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "school uniform",
+            "choices": [
+                "toy",
+                "book",
+                "bag"
+            ],
+            "question": "What did Hamisi need?"
+        },
+        {
+            "answer": "a beautiful shirt",
+            "choices": [
+                "a dog",
+                "a fruit",
+                "a sweet"
+            ],
+            "question": "What did Hamisi see?"
+        },
+        {
+            "answer": "lucky",
+            "choices": [
+                "unlucky",
+                "boring",
+                "sad"
+            ],
+            "question": "What sort of day is it for Hamisi?"
+        }
+    ],
+    "picture": [
+        {
+            "money.png": "money",
+            "shirt.png": "shirt",
+            "shop.png": "shop",
+            "uniform.png": "uniform"
+        }
+    ],
+    "words": [
+        "uniform",
+        "market",
+        "surprised",
+        "choose"
+    ]
 }

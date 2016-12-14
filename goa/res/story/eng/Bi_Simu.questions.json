@@ -1,64 +1,88 @@
 {
-	"multiple_choice": [
-		{
-			"question": "How many cellphones does she have?",
-			"choices": ["one", "two", "three"],
-			"answer": "five"
-		},
-		{
-			"question": "What was the pink phone for?",
-			"choices": ["talking to her boss", "talking to the police", "communicating with her parents"],
-			"answer": "communicating with her best friends"			
-		},
-		{
-			"question": "What does Ms Phone like?",
-			"choices": ["fighting", "running", "walking"],
-			"answer": "happy people"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "The yellow one is for communicating with family",
-			"choices": ["animals", "trees", "dogs"],
-			"answer": "family"
-		},
-		{
-			"question": "The purple one is for communicating with people who need her help",
-			"choices": ["white", "black", "green"],
-			"answer": "purple"
-		},
-		{
-			"question": "She lets the children watch television at her shop",
-			"choices": ["adults", "cats", "birds"],
-			"answer": "children"
-		}
-	],
-	"meanings": [
-		{
-			"arrange": "put things in a neat, attractive, or required order",
-			"communicate": "share or exchange information, news, or ideas",
-			"owe": "have an obligation to pay or repay",
-			"fight": "take part in a violent struggle"
-		},
-		{
-			"visit": "go to see and spend time with someone",
-			"home": "the place where one lives permanently",
-			"sick": "affected by physical or mental illness",
-			"work": "activity involving mental or physical effort done in order to achieve a result"
-		}
-	],
-	"picture": [
-		{
-			"phone.png": "phone",
-			"table.png": "table",
-			"television.png": "television",
-			"cup.png": "cup"
-		}
-	],
-	"words": [
-		"yellow",
-		"family",
-		"something",
-		"elderly"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "family",
+            "choices": [
+                "animals",
+                "trees",
+                "dogs"
+            ],
+            "question": "The yellow one is for communicating with family"
+        },
+        {
+            "answer": "purple",
+            "choices": [
+                "white",
+                "black",
+                "green"
+            ],
+            "question": "The purple one is for communicating with people who need her help"
+        },
+        {
+            "answer": "children",
+            "choices": [
+                "adults",
+                "cats",
+                "birds"
+            ],
+            "question": "She lets the children watch television at her shop"
+        }
+    ],
+    "meanings": [
+        {
+            "arrange": "put things in a neat, attractive, or required order",
+            "communicate": "share or exchange information, news, or ideas",
+            "fight": "take part in a violent struggle",
+            "owe": "have an obligation to pay or repay"
+        },
+        {
+            "home": "the place where one lives permanently",
+            "sick": "affected by physical or mental illness",
+            "visit": "go to see and spend time with someone",
+            "work": "activity involving mental or physical effort done in order to achieve a result"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "five",
+            "choices": [
+                "one",
+                "two",
+                "three"
+            ],
+            "question": "How many cellphones does she have?"
+        },
+        {
+            "answer": "communicating with her best friends",
+            "choices": [
+                "talking to her boss",
+                "talking to the police",
+                "communicating with her parents"
+            ],
+            "question": "What was the pink phone for?"
+        },
+        {
+            "answer": "happy people",
+            "choices": [
+                "fighting",
+                "running",
+                "walking"
+            ],
+            "question": "What does Ms Phone like?"
+        }
+    ],
+    "picture": [
+        {
+            "bed.png": "bed",
+            "phone.png": "phone",
+            "plate.png": "plate",
+            "table.png": "table"
+        }
+    ],
+    "words": [
+        "yellow",
+        "family",
+        "something",
+        "elderly"
+    ]
 }

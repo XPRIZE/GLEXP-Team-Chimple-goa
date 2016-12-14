@@ -1,64 +1,88 @@
 {
-	"multiple_choice": [
-		{
-			"question": "Who makes my wet body feels so cool, cool, cool?",
-			"choices": ["the sun", "the moon", "the stars"],
-			"answer": "the wind"
-		},
-		{
-			"question": "What do the window curtains do?",
-			"choices": ["they fall down", "they get burnt down", "they fly"],
-			"answer": "they flutter"			
-		},
-		{
-			"question": "What rolls in when the whistle blows?",
-			"choices": ["a car", "a bus", "a cloud"],
-			"answer": "a train"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "I finish my hot, hot bath",
-			"choices": ["lunch", "ride", "drink"],
-			"answer": "bath"
-		},
-		{
-			"question": "I can smell the food mother is preparing",
-			"choices": ["taste", "hear", "touch"],
-			"answer": "smell"
-		},
-		{
-			"question": "Works without saying a word",
-			"choices": ["breathing", "walking", "playing"],
-			"answer": "saying"
-		}
-	],
-	"meanings": [
-		{
-			"flutter": "fly unsteadily by flapping the wings quickly",
-			"tremble": "shake involuntarily",
-			"gently": "with a mild, kind, or tender manner",
-			"prepare": "make something ready for use"
-		}
-	],
-	"picture": [
-		{
-			"bucket.png": "bucket",
-			"cup.png": "cup",
-			"window.png": "window",
-			"lightning.png": "lightning"
-		},
-		{
-			"branch.png": "branch",
-			"house.png": "house",
-			"flower.png": "flower",
-			"glass.png": "glass"
-		}
-	],
-	"words": [
-		"happen",
-		"curtains",
-		"flowers",
-		"windowsill"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "bath",
+            "choices": [
+                "lunch",
+                "ride",
+                "drink"
+            ],
+            "question": "I finish my hot, hot bath"
+        },
+        {
+            "answer": "smell",
+            "choices": [
+                "taste",
+                "hear",
+                "touch"
+            ],
+            "question": "I can smell the food mother is preparing"
+        },
+        {
+            "answer": "saying",
+            "choices": [
+                "breathing",
+                "walking",
+                "playing"
+            ],
+            "question": "Works without saying a word"
+        }
+    ],
+    "meanings": [
+        {
+            "flutter": "fly unsteadily by flapping the wings quickly",
+            "gently": "with a mild, kind, or tender manner",
+            "prepare": "make something ready for use",
+            "tremble": "shake involuntarily"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "the wind",
+            "choices": [
+                "the sun",
+                "the moon",
+                "the stars"
+            ],
+            "question": "Who makes my wet body feels so cool, cool, cool?"
+        },
+        {
+            "answer": "they flutter",
+            "choices": [
+                "they fall down",
+                "they get burnt down",
+                "they fly"
+            ],
+            "question": "What do the window curtains do?"
+        },
+        {
+            "answer": "a train",
+            "choices": [
+                "a car",
+                "a bus",
+                "a cloud"
+            ],
+            "question": "What rolls in when the whistle blows?"
+        }
+    ],
+    "picture": [
+        {
+            "bucket.png": "bucket",
+            "cup.png": "cup",
+            "lightning.png": "lightning",
+            "window.png": "window"
+        },
+        {
+            "branch.png": "branch",
+            "flower.png": "flower",
+            "glass.png": "glass",
+            "house.png": "house"
+        }
+    ],
+    "words": [
+        "happen",
+        "curtains",
+        "flowers",
+        "windowsill"
+    ]
 }

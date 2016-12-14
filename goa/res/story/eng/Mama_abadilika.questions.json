@@ -1,58 +1,82 @@
 {
-	"multiple_choice": [
-		{
-			"question": "When mother was younger, whom did we visit?",
-			"choices": ["her brother", "her sister", "her teacher"],
-			"answer": "her friends"
-		},
-		{
-			"question": "When mother grew older, what happened to her back?",
-			"choices": ["It was straight", "It was fine", "It did not trouble her"],
-			"answer": "It bent"			
-		},
-		{
-			"question": "What did mother's neighbours bring from the shop?",
-			"choices": ["coffee", "bread", "beans"],
-			"answer": "milk"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "She took me to the market to buy vegetables",
-			"choices": ["milk", "bread", "fruits"],
-			"answer": "vegetables"
-		},
-		{
-			"question": "She taught me the names of plants",
-			"choices": ["animals", "books", "cities"],
-			"answer": "plants"
-		},
-		{
-			"question": "When mother was younger, she was stronger",
-			"choices": ["weaker", "thinner", "taller"],
-			"answer": "stronger"
-		}
-	],
-	"meanings": [
-		{
-			"young": "having lived or existed for only a short time",
-			"neighbour": "a person living next door to",
-			"holiday": " a day of festivity or recreation when no work is done",
-			"weak": "lacking the power to perform physically demanding tasks"
-		}
-	],
-	"picture": [
-		{
-			"table.png": "table",
-			"shop.png": "s",
-			"basket.png": "basket",
-			"bag.png": "bag"
-		}
-	],
-	"words": [
-		"younger",
-		"taught",
-		"stayed",
-		"weaker"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "vegetables",
+            "choices": [
+                "milk",
+                "bread",
+                "fruits"
+            ],
+            "question": "She took me to the market to buy vegetables"
+        },
+        {
+            "answer": "plants",
+            "choices": [
+                "animals",
+                "books",
+                "cities"
+            ],
+            "question": "She taught me the names of plants"
+        },
+        {
+            "answer": "stronger",
+            "choices": [
+                "weaker",
+                "thinner",
+                "taller"
+            ],
+            "question": "When mother was younger, she was stronger"
+        }
+    ],
+    "meanings": [
+        {
+            "holiday": " a day of festivity or recreation when no work is done",
+            "neighbour": "a person living next door to",
+            "weak": "lacking the power to perform physically demanding tasks",
+            "young": "having lived or existed for only a short time"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "her friends",
+            "choices": [
+                "her brother",
+                "her sister",
+                "her teacher"
+            ],
+            "question": "When mother was younger, whom did we visit?"
+        },
+        {
+            "answer": "It bent",
+            "choices": [
+                "It was straight",
+                "It was fine",
+                "It did not trouble her"
+            ],
+            "question": "When mother grew older, what happened to her back?"
+        },
+        {
+            "answer": "milk",
+            "choices": [
+                "coffee",
+                "bread",
+                "beans"
+            ],
+            "question": "What did mother's neighbours bring from the shop?"
+        }
+    ],
+    "picture": [
+        {
+            "bag.png": "bag",
+            "basket.png": "basket",
+            "s.png": "s",
+            "table.png": "table"
+        }
+    ],
+    "words": [
+        "younger",
+        "taught",
+        "stayed",
+        "weaker"
+    ]
 }

@@ -1,58 +1,82 @@
 {
-	"multiple_choice": [
-		{
-			"question": "What did Elephant have with him?",
-			"choices": ["bananas", "sugarcane", "bamboo"],
-			"answer": "a pot of honey"
-		},
-		{
-			"question": "Who did they see in the river?",
-			"choices": ["giraffe", "zebra", "dog"],
-			"answer": "buffalo"			
-		},
-		{
-			"question": "What did hare tie between Elephant and Buffalo?",
-			"choices": ["a thread", "a paper", "a hair"],
-			"answer": "a long rope"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "Hare started eating Elephant's honey straight away",
-			"choices": ["banana", "apple", "mango"],
-			"answer": "honey"
-		},
-		{
-			"question": "Hare ran and hid himself in a tree",
-			"choices": ["rock", "river", "cloud"],
-			"answer": "tree"
-		},
-		{
-			"question": "Hare went to Buffalo and praised her, saying that she was stronger",
-			"choices": ["Elephant", "Bird", "Frog"],
-			"answer": "Buffalo"
-		}
-	],
-	"meanings": [
-		{
-			"wound": "an injury to skin caused by a cut",
-			"waist": "the part of the human body below the ribs and above the hips",
-			"neither": "not the one nor the other of two people or things",
-			"drip": "let fall or be so wet as to shed small drops of liquid"
-		}
-	],
-	"picture": [
-		{
-			"hare.png": "hare",
-			"elephant.png": "elephant",
-			"pot.png": "png",
-			"buffalo.png": "buffalo"
-		}
-	],
-	"words": [
-		"drinking",
-		"stronger",
-		"arguing",
-		"around"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "honey",
+            "choices": [
+                "banana",
+                "apple",
+                "mango"
+            ],
+            "question": "Hare started eating Elephant\ufffd\u06eas honey straight away"
+        },
+        {
+            "answer": "tree",
+            "choices": [
+                "rock",
+                "river",
+                "cloud"
+            ],
+            "question": "Hare ran and hid himself in a tree"
+        },
+        {
+            "answer": "Buffalo",
+            "choices": [
+                "Elephant",
+                "Bird",
+                "Frog"
+            ],
+            "question": "Hare went to Buffalo and praised her, saying that she was stronger"
+        }
+    ],
+    "meanings": [
+        {
+            "drip": "let fall or be so wet as to shed small drops of liquid",
+            "neither": "not the one nor the other of two people or things",
+            "waist": "the part of the human body below the ribs and above the hips",
+            "wound": "an injury to skin caused by a cut"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "a pot of honey",
+            "choices": [
+                "bananas",
+                "sugarcane",
+                "bamboo"
+            ],
+            "question": "What did Elephant have with him?"
+        },
+        {
+            "answer": "buffalo",
+            "choices": [
+                "giraffe",
+                "zebra",
+                "dog"
+            ],
+            "question": "Who did they see in the river?"
+        },
+        {
+            "answer": "a long rope",
+            "choices": [
+                "a thread",
+                "a paper",
+                "a hair"
+            ],
+            "question": "What did hare tie between Elephant and Buffalo?"
+        }
+    ],
+    "picture": [
+        {
+            "buffalo.png": "buffalo",
+            "elephant.png": "elephant",
+            "hare.png": "hare",
+            "pot.png": "pot"
+        }
+    ],
+    "words": [
+        "drinking",
+        "stronger",
+        "arguing",
+        "around"
+    ]
 }

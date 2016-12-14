@@ -1,58 +1,82 @@
 {
-	"multiple_choice": [
-		{
-			"question": "One day how did goat, dog and cow go on a journey?",
-			"choices": ["In a bus", "By walk", "On a cart"],
-			"answer": "In a taxi"
-		},
-		{
-			"question": "What did the driver ask them?",
-			"choices": ["To eat", "To come again", "To walk away"],
-			"answer": "To pay their fares"			
-		},
-		{
-			"question": "How did the driver feel when goat ran away?",
-			"choices": ["happy", "sad", "funny"],
-			"answer": "annoyed"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "Cow paid her fare",
-			"choices": ["Goat", "Driver", "Teacher"],
-			"answer": "Cow"
-		},
-		{
-			"question": "He drove away without giving Dog his change",
-			"choices": ["Goat", "Driver", "Teacher"],
-			"answer": "Dog"
-		},
-		{
-			"question": "Even today, Dog runs towards a car to peep inside",
-			"choices": ["bus", "cart", "truck"],
-			"answer": "car"
-		}
-	],
-	"meanings": [
-		{
-			"journey": "an act of travelling from one place to another",
-			"fare": "the money paid for a journey on public transport",
-			"change": "money given in exchange for the same sum in larger units",
-			"bothered": "cause trouble or annoyance to someone"
-		}
-	],
-	"picture": [
-		{
-			"taxi.png": "taxi",
-			"dog.png": "dog",
-			"cow.png": "cow",
-			"goat.png": "goat"
-		}
-	],
-	"words": [
-		"reached",
-		"extra",
-		"sound",
-		"crossing"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "Cow",
+            "choices": [
+                "Goat",
+                "Driver",
+                "Teacher"
+            ],
+            "question": "Cow paid her fare"
+        },
+        {
+            "answer": "Dog",
+            "choices": [
+                "Goat",
+                "Driver",
+                "Teacher"
+            ],
+            "question": "He drove away without giving Dog his change"
+        },
+        {
+            "answer": "car",
+            "choices": [
+                "bus",
+                "cart",
+                "truck"
+            ],
+            "question": "Even today, Dog runs towards a car to peep inside"
+        }
+    ],
+    "meanings": [
+        {
+            "bothered": "cause trouble or annoyance to someone",
+            "change": "money given in exchange for the same sum in larger units",
+            "fare": "the money paid for a journey on public transport",
+            "journey": "an act of travelling from one place to another"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "In a taxi",
+            "choices": [
+                "In a bus",
+                "By walk",
+                "On a cart"
+            ],
+            "question": "One day how did goat, dog and cow go on a journey?"
+        },
+        {
+            "answer": "To pay their fares",
+            "choices": [
+                "To eat",
+                "To come again",
+                "To walk away"
+            ],
+            "question": "What did the driver ask them?"
+        },
+        {
+            "answer": "annoyed",
+            "choices": [
+                "happy",
+                "sad",
+                "funny"
+            ],
+            "question": "How did the driver feel when goat ran away?"
+        }
+    ],
+    "picture": [
+        {
+            "cow.png": "cow",
+            "dog.png": "dog",
+            "goat.png": "goat",
+            "taxi.png": "taxi"
+        }
+    ],
+    "words": [
+        "reached",
+        "extra",
+        "sound",
+        "crossing"
+    ]
 }

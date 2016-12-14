@@ -1,70 +1,94 @@
 {
-	"multiple_choice": [
-		{
-			"question": "What did the goat's horn tear?",
-			"choices": ["hat", "blanket", "carpet"],
-			"answer": "shirt"
-		},
-		{
-			"question": "What happened to the pot?",
-			"choices": ["Was safe", "Flew away", "Was eaten"],
-			"answer": "Broke into pieces"			
-		},
-		{
-			"question": "Where did Kisirusiru and his mother sleep?",
-			"choices": ["Palace", "Garden", "Shed"],
-			"answer": "Tree"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "The needle fell out of his pocket and was lost",
-			"choices": ["pot", "goat", "door"],
-			"answer": "needle"
-		},
-		{
-			"question": "Goats are tied and pulled with ropes",
-			"choices": ["thread", "chain", "silk"],
-			"answer": "ropes"
-		},
-		{
-			"question": "The door crashed to the ground",
-			"choices": ["window", "house", "bag"],
-			"answer": "door"
-		}
-	],
-	"meanings": [
-		{
-			"needle": "a very fine slender piece of polished metal with a point at one end and a hole or eye for thread at the other",
-			"understand": "perceive the intended meaning",
-			"remember": "have in or be able to bring to one's mind an awareness of something from the past",
-			"patiently": "in a way that shows tolerance of delays, problems, or suffering without becoming annoyed"
-		},
-		{
-			"stupidity": "behaviour that shows a lack of good sense or judgement",
-			"behave": "act or conduct oneself in a specified way",
-			"imagine": "form a mental image or concept of",
-			"dangerous": "able or likely to cause harm or injury"
-		}
-	],
-	"picture": [
-		{
-			"bag.png": "bag",
-			"meat.png": "meat",
-			"paper.png": "paper",
-			"stone.png": "stone"
-		},
-		{
-			"sun.png": "sun",
-			"tree.png": "tree",
-			"grass.png": "grass",
-			"cloud.png": "cloud"
-		}
-	],
-	"words": [
-		"pocket",
-		"trickling",
-		"waiting",
-		"anywhere"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "needle",
+            "choices": [
+                "pot",
+                "goat",
+                "door"
+            ],
+            "question": "The needle fell out of his pocket and was lost"
+        },
+        {
+            "answer": "ropes",
+            "choices": [
+                "thread",
+                "chain",
+                "silk"
+            ],
+            "question": "Goats are tied and pulled with ropes"
+        },
+        {
+            "answer": "door",
+            "choices": [
+                "window",
+                "house",
+                "bag"
+            ],
+            "question": "The door crashed to the ground"
+        }
+    ],
+    "meanings": [
+        {
+            "needle": "a very fine slender piece of polished metal with a point at one end and a hole or eye for thread at the other",
+            "patiently": "in a way that shows tolerance of delays, problems, or suffering without becoming annoyed",
+            "remember": "have in or be able to bring to one's mind an awareness of something from the past",
+            "understand": "perceive the intended meaning"
+        },
+        {
+            "behave": "act or conduct oneself in a specified way",
+            "dangerous": "able or likely to cause harm or injury",
+            "imagine": "form a mental image or concept of",
+            "stupidity": "behaviour that shows a lack of good sense or judgement"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "shirt",
+            "choices": [
+                "hat",
+                "blanket",
+                "carpet"
+            ],
+            "question": "What did the goat's horn tear?"
+        },
+        {
+            "answer": "Broke into pieces",
+            "choices": [
+                "Was safe",
+                "Flew away",
+                "Was eaten"
+            ],
+            "question": "What happened to the pot?"
+        },
+        {
+            "answer": "Tree",
+            "choices": [
+                "Palace",
+                "Garden",
+                "Shed"
+            ],
+            "question": "Where did Kisirusiru and his mother sleep?"
+        }
+    ],
+    "picture": [
+        {
+            "bag.png": "bag",
+            "meat.png": "meat",
+            "paper.png": "paper",
+            "stone.png": "stone"
+        },
+        {
+            "cloud.png": "cloud",
+            "grass.png": "grass",
+            "sun.png": "sun",
+            "tree.png": "tree"
+        }
+    ],
+    "words": [
+        "pocket",
+        "trickling",
+        "waiting",
+        "anywhere"
+    ]
 }
