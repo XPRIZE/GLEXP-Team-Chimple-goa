@@ -1,58 +1,82 @@
 {
-	"multiple_choice": [
-		{
-			"question": "What was the truck driver doing?",
-			"choices": ["eating his food", "sleeping", "writing"],
-			"answer": "talking on his cell phone"
-		},
-		{
-			"question": "What was coming up the hill?",
-			"choices": ["A horse", "A ship", "A cart"],
-			"answer": "A car"			
-		},
-		{
-			"question": "Who came to help?",
-			"choices": ["Teacher", "Barber", "Carpenter"],
-			"answer": "The police"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "One day my sister and I were walking near the road",
-			"choices": ["friend", "mother", "father"],
-			"answer": "sister"
-		},
-		{
-			"question": "The truck smashed into the car",
-			"choices": ["man", "lion", "boat"],
-			"answer": "truck"
-		},
-		{
-			"question": "We were shocked",
-			"choices": ["happy", "jumping", "laughing"],
-			"answer": "shocked"
-		}
-	],
-	"meanings": [
-		{
-			"truck": "a large, heavy road vehicle",
-			"speed": "move quickly",
-			"smash": " crash and severely damage",
-			"everything": "all things"
-		}
-	],
-	"picture": [
-		{
-			"truck.png": "truck",
-			"car.png": "car",
-			"ambulance.png": "ambulance",
-			"tire.png": "tire"
-		}
-	],
-	"words": [
-		"walking",
-		"looking",
-		"talking",
-		"speeding"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "sister",
+            "choices": [
+                "friend",
+                "mother",
+                "father"
+            ],
+            "question": "One day my sister and I were walking near the road"
+        },
+        {
+            "answer": "truck",
+            "choices": [
+                "man",
+                "lion",
+                "boat"
+            ],
+            "question": "The truck smashed into the car"
+        },
+        {
+            "answer": "shocked",
+            "choices": [
+                "happy",
+                "jumping",
+                "laughing"
+            ],
+            "question": "We were shocked"
+        }
+    ],
+    "meanings": [
+        {
+            "everything": "all things",
+            "smash": " crash and severely damage",
+            "speed": "move quickly",
+            "truck": "a large, heavy road vehicle"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "talking on his cell phone",
+            "choices": [
+                "eating his food",
+                "sleeping",
+                "writing"
+            ],
+            "question": "What was the truck driver doing?"
+        },
+        {
+            "answer": "A car",
+            "choices": [
+                "A horse",
+                "A ship",
+                "A cart"
+            ],
+            "question": "What was coming up the hill?"
+        },
+        {
+            "answer": "The police",
+            "choices": [
+                "Teacher",
+                "Barber",
+                "Carpenter"
+            ],
+            "question": "Who came to help?"
+        }
+    ],
+    "picture": [
+        {
+            "ambulance.png": "ambulance",
+            "car.png": "car",
+            "tire.png": "tire",
+            "truck.png": "truck"
+        }
+    ],
+    "words": [
+        "walking",
+        "looking",
+        "talking",
+        "speeding"
+    ]
 }

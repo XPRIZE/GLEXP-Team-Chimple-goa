@@ -1,58 +1,82 @@
 {
-	"multiple_choice": [
-		{
-			"question": "What does the wind tear from my hand?",
-			"choices": ["cap", "book", "watch"],
-			"answer": "kite"
-		},
-		{
-			"question": "What swallows me up?",
-			"choices": ["The cloud", "The hill", "The cave"],
-			"answer": "The tornado"			
-		},
-		{
-			"question": "Where must I go, before the wind starts to roar again?",
-			"choices": ["school", "park", "outside"],
-			"answer": "home"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "The wind is powerful",
-			"choices": ["cloud", "bird", "kite"],
-			"answer": "wind"
-		},
-		{
-			"question": "Perhaps my kite is still flying in the sky",
-			"choices": ["ground", "field", "park"],
-			"answer": "sky"
-		},
-		{
-			"question": "I cannot hear the wind anymore",
-			"choices": ["drum", "sound", "voice"],
-			"answer": "wind"
-		}
-	],
-	"meanings": [
-		{
-			"tornado": "violently rotating winds",
-			"perhaps": "used to express uncertainty or possibility",
-			"swallow": "cause or allow something to pass down the throat",
-			"spinning": "turning or whirling round quickly"
-		}
-	],
-	"picture": [
-		{
-			"kite.png": "kite",
-			"tree.png": "tree",
-			"sun.png": "sun",
-			"house.png": "house"
-		}
-	],
-	"words": [
-		"powerful",
-		"becomes",
-		"nothing",
-		"tomorrow"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "wind",
+            "choices": [
+                "cloud",
+                "bird",
+                "kite"
+            ],
+            "question": "The wind is powerful"
+        },
+        {
+            "answer": "sky",
+            "choices": [
+                "ground",
+                "field",
+                "park"
+            ],
+            "question": "Perhaps my kite is still flying in the sky"
+        },
+        {
+            "answer": "wind",
+            "choices": [
+                "drum",
+                "sound",
+                "voice"
+            ],
+            "question": "I cannot hear the wind anymore"
+        }
+    ],
+    "meanings": [
+        {
+            "perhaps": "used to express uncertainty or possibility",
+            "spinning": "turning or whirling round quickly",
+            "swallow": "cause or allow something to pass down the throat",
+            "tornado": "violently rotating winds"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "kite",
+            "choices": [
+                "cap",
+                "book",
+                "watch"
+            ],
+            "question": "What does the wind tear from my hand?"
+        },
+        {
+            "answer": "The tornado",
+            "choices": [
+                "The cloud",
+                "The hill",
+                "The cave"
+            ],
+            "question": "What swallows me up?"
+        },
+        {
+            "answer": "home",
+            "choices": [
+                "school",
+                "park",
+                "outside"
+            ],
+            "question": "Where must I go, before the wind starts to roar again?"
+        }
+    ],
+    "picture": [
+        {
+            "kite.png": "kite",
+            "sun.png": "sun",
+            "tap.png": "tap",
+            "tree.png": "tree"
+        }
+    ],
+    "words": [
+        "powerful",
+        "becomes",
+        "nothing",
+        "tomorrow"
+    ]
 }

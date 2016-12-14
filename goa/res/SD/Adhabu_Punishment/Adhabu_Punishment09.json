@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 555,
         "Speed": 1.0,
-        "ActivedAnimationName": "sofa",
+        "ActivedAnimationName": "door",
         "Timelines": [
           {
             "ActionTag": 1695366777,
@@ -543,7 +543,7 @@
               },
               {
                 "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "fall",
+                "CurrentAniamtionName": "blink",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 365,
                 "Tween": false,
@@ -574,8 +574,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 726.3399,
-                "Y": 55.4925,
+                "X": 792.9727,
+                "Y": 51.7208,
                 "FrameIndex": 80,
                 "EasingData": {
                   "Type": 0
@@ -1069,10 +1069,10 @@
             },
             "Position": {
               "X": 2348.6453,
-              "Y": 1094.2535
+              "Y": 1094.2549
             },
             "Scale": {
-              "ScaleX": 0.2429,
+              "ScaleX": 0.3944,
               "ScaleY": 1.0
             },
             "CColor": {},
@@ -1087,8 +1087,8 @@
             },
             "LeftMargin": 1750.6453,
             "RightMargin": 211.3547,
-            "TopMargin": 210.9402,
-            "BottomMargin": 598.0598,
+            "TopMargin": 210.9388,
+            "BottomMargin": 598.0612,
             "UserData": "main.door",
             "Tag": 29,
             "FrameEvent": "door_open",
@@ -1169,9 +1169,7 @@
               "ScaleY": 1.0893
             },
             "CColor": {
-              "R": 190,
-              "G": 210,
-              "B": 129
+              "B": 240
             },
             "IconVisible": false,
             "PrePosition": {
@@ -1186,7 +1184,7 @@
             "RightMargin": 1636.9287,
             "TopMargin": 693.3867,
             "BottomMargin": 453.6132,
-            "UserData": "drag",
+            "UserData": "main.sofa",
             "Tag": 31,
             "ActionTag": 1464857112,
             "Size": {

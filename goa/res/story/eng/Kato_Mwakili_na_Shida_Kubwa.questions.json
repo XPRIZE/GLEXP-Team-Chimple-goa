@@ -1,70 +1,94 @@
 {
-	"multiple_choice": [
-		{
-			"question": "Where did Kato come from?",
-			"choices": ["Town", "Village", "Hills"],
-			"answer": "Far Forest"
-		},
-		{
-			"question": "What were the men going to do?",
-			"choices": ["Eat dinner", "Go shopping", "Watch a movie"],
-			"answer": "Build a parking lot"			
-		},
-		{
-			"question": "How did the animals reach Far Forest?",
-			"choices": ["by bus", "by car", "by walk"],
-			"answer": "by train"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "In a small garden in the city, there was a big tree",
-			"choices": ["shop", "road", "school"],
-			"answer": "garden"
-		},
-		{
-			"question": "The machines were first spotted by the mole family",
-			"choices": ["butterflies", "leaves", "river"],
-			"answer": "machines"
-		},
-		{
-			"question": "The moles, mice and the grass snake family can go by the underground Mole Express",
-			"choices": ["air", "river", "ocean"],
-			"answer": "underground"
-		}
-	],
-	"meanings": [
-		{
-			"machine": "an apparatus using mechanical power and having several parts",
-			"parking": "bringing a vehicle to a halt and leaving it temporarily",
-			"spot": "see, notice, or recognize",
-			"exact": "accurate or correct in all details"
-		},
-		{
-			"panic": "sudden uncontrollable fear or anxiety",
-			"surely": "in a pure manner",
-			"underground": "beneath the surface of the ground",
-			"splendid": "magnificent; very impressive"
-		}
-	],
-	"picture": [
-		{
-			"moon.png": "moon",
-			"star.png": "star",
-			"train.png": "train",
-			"butterfly.png": "butterfly"
-		},
-		{
-			"cloud.png": "cloud",
-			"leaf.png": "leaf",
-			"flower.png": "flower",
-			"jcb.png": "machine"
-		}
-	],
-	"words": [
-		"together",
-		"sounds",
-		"street",
-		"youngest"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "garden",
+            "choices": [
+                "shop",
+                "road",
+                "school"
+            ],
+            "question": "In a small garden in the city, there was a big tree"
+        },
+        {
+            "answer": "machines",
+            "choices": [
+                "butterflies",
+                "leaves",
+                "river"
+            ],
+            "question": "The machines were first spotted by the mole family"
+        },
+        {
+            "answer": "underground",
+            "choices": [
+                "air",
+                "river",
+                "ocean"
+            ],
+            "question": "The moles, mice and the grass snake family can go by the underground Mole Express"
+        }
+    ],
+    "meanings": [
+        {
+            "exact": "accurate or correct in all details",
+            "machine": "an apparatus using mechanical power and having several parts",
+            "parking": "bringing a vehicle to a halt and leaving it temporarily",
+            "spotted": "see, notice, or recognize"
+        },
+        {
+            "panic": "sudden uncontrollable fear or anxiety",
+            "splendid": "magnificent; very impressive",
+            "surely": "in a pure manner",
+            "underground": "beneath the surface of the ground"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "Far Forest",
+            "choices": [
+                "Town",
+                "Village",
+                "Hills"
+            ],
+            "question": "Where did Kato come from?"
+        },
+        {
+            "answer": "Build a parking lot",
+            "choices": [
+                "Eat dinner",
+                "Go shopping",
+                "Watch a movie"
+            ],
+            "question": "What were the men going to do?"
+        },
+        {
+            "answer": "by train",
+            "choices": [
+                "by bus",
+                "by car",
+                "by walk"
+            ],
+            "question": "How did the animals reach Far Forest?"
+        }
+    ],
+    "picture": [
+        {
+            "butterfly.png": "butterfly",
+            "moon.png": "moon",
+            "star.png": "star",
+            "train.png": "train"
+        },
+        {
+            "cloud.png": "cloud",
+            "flower.png": "flower",
+            "leaf.png": "leaf",
+            "machine.png": "machine"
+        }
+    ],
+    "words": [
+        "together",
+        "sounds",
+        "street",
+        "youngest"
+    ]
 }

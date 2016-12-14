@@ -1,56 +1,80 @@
 {
-	"multiple_choice": [
-		{
-			"question": "What were the names of the daughters?",
-			"choices": ["Grace and Irene", "Rehema and Farida", "Mary and Sarah"],
-			"answer": "Adie and Adhoch"
-		},
-		{
-			"question": "Where did Adie go to fetch water?",
-			"choices": ["Well", "River", "Ocean"],
-			"answer": "Lake"			
-		},
-		{
-			"question": "When did Adhoch go to look for her sister?",
-			"choices": ["Morning", "Afternoon", "Evening"],
-			"answer": "Night"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "The step sisters loved each other very much",
-			"choices": ["hated", "praised", "called"],
-			"answer": "loved"
-		},
-		{
-			"question": "Adie was hard working, neat, kind and well behaved",
-			"choices": ["dirty", "rude", "lazy"],
-			"answer": "neat"
-		},
-		{
-			"question": "Adhoch studied and played when Adie was busy working",
-			"choices": ["jumping", "falling", "sleeping"],
-			"answer": "working"
-		}
-	],
-	"meanings": [
-		{
-			"daughter": "female child",
-			"jealous": "feeling or showing an envious resentment of someone",
-			"receive": "be given",
-			"drown": "die through submersion in water"
-		},
-		{
-			"reply": "say something in response to something",
-			"present": "a thing given to someone as a gift",
-			"teacher": "a person who teaches",
-			"unkind": "harsh to others"
-		}
-	],
-	"words": [
-		"water",
-		"mother",
-		"daughter",
-		"angry"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "loved",
+            "choices": [
+                "hated",
+                "praised",
+                "called"
+            ],
+            "question": "The step sisters loved each other very much"
+        },
+        {
+            "answer": "neat",
+            "choices": [
+                "dirty",
+                "rude",
+                "lazy"
+            ],
+            "question": "Adie was hard working, neat, kind and well behaved"
+        },
+        {
+            "answer": "working",
+            "choices": [
+                "jumping",
+                "falling",
+                "sleeping"
+            ],
+            "question": "Adhoch studied and played when Adie was busy working"
+        }
+    ],
+    "meanings": [
+        {
+            "daughter": "female child",
+            "drown": "die through submersion in water",
+            "jealous": "feeling or showing an envious, resentment of someone",
+            "receive": "be given"
+        },
+        {
+            "present": "a thing given to someone as a gift",
+            "reply": "say something in response to something",
+            "teacher": "a person who teaches",
+            "unkind": "harsh to others"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "Adie and Adhoch",
+            "choices": [
+                "Grace and Irene",
+                "Rehema and Farida",
+                "Mary and Sarah"
+            ],
+            "question": "What were the names of the daughters?"
+        },
+        {
+            "answer": "Lake",
+            "choices": [
+                "Well",
+                "River",
+                "Ocean"
+            ],
+            "question": "Where did Adie go to fetch water?"
+        },
+        {
+            "answer": "Night",
+            "choices": [
+                "Morning",
+                "Afternoon",
+                "Evening"
+            ],
+            "question": "When did Adhoch go to look for her sister?"
+        }
+    ],
+    "words": [
+        "water",
+        "mother",
+        "daughter",
+        "angry"
+    ]
 }

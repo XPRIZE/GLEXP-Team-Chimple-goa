@@ -1,70 +1,94 @@
 {
-	"multiple_choice": [
-		{
-			"question": "What did mama bring?",
-			"choices": ["vegetables", "fish", "rocks"],
-			"answer": "fruits"
-		},
-		{
-			"question": "Who ate the fruits?",
-			"choices": ["Mama", "Dog", "Cat"],
-			"answer": "Rahim"			
-		},
-		{
-			"question": "How did Rahim's tummy feel?",
-			"choices": ["Full", "Empty", "Light"],
-			"answer": "Sore"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "My brother Rahim is greedy",
-			"choices": ["happy", "sad", "angry"],
-			"answer": "greedy"
-		},
-		{
-			"question": "Mama was angry with Rahim",
-			"choices": ["pleased", "disappointed", "friendly"],
-			"answer": "angry"
-		},
-		{
-			"question": "Rahim started feeling unwell",
-			"choices": ["guilty", "bad", "delighted"],
-			"answer": "unwell"
-		}
-	],
-	"meanings": [
-		{
-			"greedy": "having a excessive desire",
-			"naughty": "badly behaved",
-			"selfish": "lacking consideration for other people",
-			"warn": "inform someone of a possible danger"
-		},
-		{
-			"punish": "inflict a penalty on someone",
-			"sorry": "feeling regret or penitence",
-			"angry": "feeling or showing strong annoyance, displeasure, or hostility",
-			"taste": "the sensation of flavour perceived in the mouth"
-		}
-	],
-	"picture": [
-		{
-			"banana.png": "banana",
-			"apple.png": "apple",
-			"table.png": "table",
-			"sofa.png": "sofa"
-		},
-		{
-			"table.png": "table",
-			"house.png": "house",
-			"flower.png": "flower",
-			"mango.png": "mango"
-		}
-	],
-	"words": [
-		"shout",
-		"sorry",
-		"punish",
-		"tummy"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "greedy",
+            "choices": [
+                "happy",
+                "sad",
+                "angry"
+            ],
+            "question": "My brother Rahim is greedy"
+        },
+        {
+            "answer": "angry",
+            "choices": [
+                "pleased",
+                "disappointed",
+                "friendly"
+            ],
+            "question": "Mama was angry with Rahim"
+        },
+        {
+            "answer": "unwell",
+            "choices": [
+                "guilty",
+                "bad",
+                "delighted"
+            ],
+            "question": "Rahim started feeling unwell"
+        }
+    ],
+    "meanings": [
+        {
+            "greedy": "having a excessive desire",
+            "naughty": "badly behaved",
+            "selfish": "lacking consideration for other people",
+            "warn": "inform someone of a possible danger"
+        },
+        {
+            "angry": "feeling or showing strong annoyance, displeasure, or hostility",
+            "punish": "inflict a penalty on someone",
+            "sorry": "feeling regret or penitence",
+            "taste": "the sensation of flavour perceived in the mouth"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "fruits",
+            "choices": [
+                "vegetables",
+                "fish",
+                "rocks"
+            ],
+            "question": "What did mama bring?"
+        },
+        {
+            "answer": "Rahim",
+            "choices": [
+                "Mama",
+                "Dog",
+                "Cat"
+            ],
+            "question": "Who ate the fruits?"
+        },
+        {
+            "answer": "Sore",
+            "choices": [
+                "Full",
+                "Empty",
+                "Light"
+            ],
+            "question": "How did Rahim's tummy feel?"
+        }
+    ],
+    "picture": [
+        {
+            "apple.png": "apple",
+            "banana.png": "banana",
+            "sofa.png": "sofa",
+            "table.png": "table"
+        },
+        {
+            "flower.png": "flower",
+            "house.png": "house",
+            "mango.png": "mango",
+            "table.png": "table"
+        }
+    ],
+    "words": [
+        "shout",
+        "sorry",
+        "punish",
+        "tummy"
+    ]
 }

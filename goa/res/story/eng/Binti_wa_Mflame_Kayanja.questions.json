@@ -1,70 +1,94 @@
 {
-	"multiple_choice": [
-		{
-			"question": "What was King Kayanja's daughter's name?",
-			"choices": ["Farida", "Sarah", "Beatrice"],
-			"answer": "Princess Apenyo"
-		},
-		{
-			"question": "What did Chief Aludah agree to give King Kayanja?",
-			"choices": ["a car", "a village", "a box"],
-			"answer": "half his wealth"			
-		},
-		{
-			"question": "What did Trevor give Kategga for crossing the river?",
-			"choices": ["a coin", "a stone", "a pearl"],
-			"answer": "a cowrie shell"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "That night Apenyo crept out of the palace",
-			"choices": ["shop", "tent", "hut"],
-			"answer": "palace"
-		},
-		{
-			"question": "A heavy storm was coming",
-			"choices": ["animal", "vehicle", "man"],
-			"answer": "storm"
-		},
-		{
-			"question": "Princess Apenyo was such a beautiful young woman that every man wanted to marry her",
-			"choices": ["short", "tall", "ugly"],
-			"answer": "beautiful"
-		}
-	],
-	"meanings": [
-		{
-			"princess": "free from disturbance",
-			"drizzle": "light rain falling in very fine drops",
-			"precious": "of great value",
-			"protect": "keep safe from harm"
-		},
-		{
-			"furious": "extremely angry",
-			"discuss": "talk about something with people",
-			"decision": "a conclusion or resolution reached after consideration",
-			"judgement": "a decision of a law court or judge"
-		}
-	],
-	"picture": [
-		{
-			"money.png": "money",
-			"house.png": "house",
-			"road.png": "road",
-			"basket.png": "basket"
-		},
-		{
-			"vulture.png": "vulture",
-			"rabbit.png": "rabbit",
-			"cloud.png": "cloud",
-			"hill.png": "hill"
-		}
-	],
-	"words": [
-		"friend",
-		"maize",
-		"downpour",
-		"vegetables"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "palace",
+            "choices": [
+                "shop",
+                "tent",
+                "hut"
+            ],
+            "question": "That night Apenyo crept out of the palace"
+        },
+        {
+            "answer": "storm",
+            "choices": [
+                "animal",
+                "vehicle",
+                "man"
+            ],
+            "question": "A heavy storm was coming"
+        },
+        {
+            "answer": "beautiful",
+            "choices": [
+                "short",
+                "tall",
+                "ugly"
+            ],
+            "question": "Princess Apenyo was such a beautiful young woman that every man wanted to marry her"
+        }
+    ],
+    "meanings": [
+        {
+            "drizzle": "light rain falling in very fine drops",
+            "precious": "of great value",
+            "princess": "free from disturbance",
+            "protect": "keep safe from harm"
+        },
+        {
+            "decision": "a conclusion or resolution reached after consideration",
+            "discuss": "talk about something with people",
+            "furious": "extremely angry",
+            "judgement": "a decision of a law court or judge"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "Princess Apenyo",
+            "choices": [
+                "Farida",
+                "Sarah",
+                "Beatrice"
+            ],
+            "question": "What was King Kayanja's daughter's name?"
+        },
+        {
+            "answer": "half his wealth",
+            "choices": [
+                "a car",
+                "a village",
+                "a box"
+            ],
+            "question": "What did Chief Aludah agree to give King Kayanja?"
+        },
+        {
+            "answer": "a cowrie shell",
+            "choices": [
+                "a coin",
+                "a stone",
+                "a pearl"
+            ],
+            "question": "What did Trevor give Kategga for crossing the river?"
+        }
+    ],
+    "picture": [
+        {
+            "basket.png": "basket",
+            "box.png": "box",
+            "bridge.png": "bridge",
+            "castle.png": "castle"
+        },
+        {
+            "cloud.png": "cloud",
+            "hill.png": "hill",
+            "rabbit.png": "rabbit",
+            "vulture.png": "vulture"
+        }
+    ],
+    "words": [
+        "friend",
+        "maize",
+        "forgive",
+        "vegetables"
+    ]
 }

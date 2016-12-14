@@ -226,7 +226,10 @@ xc.StoryCoverPageScene.load = function(pageIndex, storyInformation, layer, enabl
             }
             
             cc.LoaderScene.preload(t_resources, function () {
-
+                cc.spriteFrameCache.addSpriteFrames(xc.StoryCoverPageLayer.res.template_plist);
+                cc.spriteFrameCache.addSpriteFrames(xc.StoryCoverPageLayer.res.template_01_plist);
+                cc.spriteFrameCache.addSpriteFrames(xc.StoryCoverPageLayer.res.template_02_plist);
+                
                 var scene = new xc.StoryCoverPageScene(pageIndex, storyInformation, layer);
                 scene.layerClass = layer;            
                 if(enableTransition) {
@@ -243,5 +246,11 @@ xc.StoryCoverPageScene.load = function(pageIndex, storyInformation, layer, enabl
 
 xc.StoryCoverPageLayer.res = {
     play_png: xc.path + "wikitaki/play.png",
-    textBubble_json: xc.path + "template/bubble_tem_01.json"
+    textBubble_json: xc.path + "template/bubble_tem_01.json",
+        template_plist: xc.path + "template/template.plist",
+        template_png: xc.path + "template/template.png",
+        template_01_png: xc.path + "template/template_01/template_01.png",
+        template_01_plist: xc.path + "template/template_01/template_01.plist",
+        template_02_png: xc.path + "template/template_02/template_02.png",
+        template_02_plist: xc.path + "template/template_02/template_02.plist"    
 };

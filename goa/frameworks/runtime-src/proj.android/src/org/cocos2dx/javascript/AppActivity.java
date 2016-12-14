@@ -119,6 +119,8 @@ public class AppActivity extends Cocos2dxActivity {
 
 	private List bluetoothAddresses;
 
+	private TextToSpeech textToSpeechInstance;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -141,6 +143,15 @@ public class AppActivity extends Cocos2dxActivity {
 		v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
+		textToSpeechInstance = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+         @Override
+         public void onInit(int status) {
+            if(status != TextToSpeech.ERROR) {
+               //textToSpeechInstance.setLanguage(Locale.US);
+            }
+         }
+      });
 
         blueToothSupport = BlueToothSupport.getInstance(this, null);		
         blueToothSupport.setBluetoothChatService();
@@ -298,6 +309,10 @@ public class AppActivity extends Cocos2dxActivity {
 	@Override
 	public void onPause() {
 		super.onPause();
+		if(textToSpeechInstance != null) {
+			textToSpeechInstance.stop();
+			textToSpeechInstance.shutdown();			
+		}
 	}
 
 	public void showToast(final String msg) {

@@ -1,70 +1,94 @@
 {
-	"multiple_choice": [
-		{
-			"question": "What did the ox like to do?",
-			"choices": ["work", "play", "plough the field"],
-			"answer": "stay at home and rest"
-		},
-		{
-			"question": "Where would the donkey carry things to?",
-			"choices": ["field", "house", "garden"],
-			"answer": "market"			
-		},
-		{
-			"question": "Whose idea was it for the ox to rest at home?",
-			"choices": ["ox", "farmer", "farmer's wife"],
-			"answer": "donkey"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "The donkey and the ox were friends",
-			"choices": ["enemies", "brothers", "sisters"],
-			"answer": "friends"
-		},
-		{
-			"question": "The farmer thought his poor old ox was sick",
-			"choices": ["happy", "sad", "resting"],
-			"answer": "sick"
-		},
-		{
-			"question": "The ox rested at home while the donkey ploughed the field",
-			"choices": ["played", "swam", "worked"],
-			"answer": "rested"
-		}
-	],
-	"meanings": [
-		{
-			"farmer": "a person who owns or manages a farm",
-			"plough": "a large farming implement with one or more blades fixed in a frame, drawn over soil to turn it over",
-			"lazy": "unwilling to work or use energy",
-			"master": "a man who has people working for him"
-		},
-		{
-			"tired": "in need of sleep or rest",
-			"idea": "a thought or suggestion as to a possible course of action",
-			"field": "an area of open land",
-			"whip": "a strip of leather or length of cord fastened to a handle, used for flogging"
-		}
-	],
-	"picture": [
-		{
-			"ox.png": "ox",
-			"donkey.png": "donkey",
-			"grass.png": "grass",
-			"plough.png": "plough"
-		},
-		{
-			"sack.png": "sack",
-			"stone.png": "stone",
-			"whip.png": "whip",
-			"tree.png": "tree"
-		}
-	],
-	"words": [
-		"grass",
-		"heavy",
-		"tomorrow",
-		"better"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "friends",
+            "choices": [
+                "enemies",
+                "brothers",
+                "sisters"
+            ],
+            "question": "The donkey and the ox were friends"
+        },
+        {
+            "answer": "sick",
+            "choices": [
+                "happy",
+                "sad",
+                "resting"
+            ],
+            "question": "The farmer thought his poor old ox was sick"
+        },
+        {
+            "answer": "rested",
+            "choices": [
+                "played",
+                "swam",
+                "worked"
+            ],
+            "question": "The ox rested at home while the donkey ploughed the field"
+        }
+    ],
+    "meanings": [
+        {
+            "farmer": "a person who owns or manages a farm",
+            "lazy": "unwilling to work or use energy",
+            "master": "a man who has people working for him",
+            "plough": "a large farming implement with one or more blades fixed in a frame, drawn over soil to turn it over"
+        },
+        {
+            "field": "an area of open land",
+            "idea": "a thought or suggestion as to a possible course of action",
+            "tired": "in need of sleep or rest",
+            "whip": "a strip of leather or length of cord fastened to a handle, used for flogging"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "stay at home and rest",
+            "choices": [
+                "work",
+                "play",
+                "plough the field"
+            ],
+            "question": "What did the ox like to do?"
+        },
+        {
+            "answer": "market",
+            "choices": [
+                "field",
+                "house",
+                "garden"
+            ],
+            "question": "Where would the donkey carry things to?"
+        },
+        {
+            "answer": "donkey",
+            "choices": [
+                "ox",
+                "farmer",
+                "farmer's wife"
+            ],
+            "question": "Whose idea was it for the ox to rest at home?"
+        }
+    ],
+    "picture": [
+        {
+            "cow.png": "cow",
+            "donkey.png": "donkey",
+            "grass.png": "grass",
+            "plough.png": "plough"
+        },
+        {
+            "bowl.png": "bowl",
+            "sack.png": "sack",
+            "stone.png": "stone",
+            "tree.png": "tree"
+        }
+    ],
+    "words": [
+        "grass",
+        "heavy",
+        "tomorrow",
+        "better"
+    ]
 }

@@ -94,12 +94,12 @@ xc.BubbleSpeech = cc.Layer.extend({
 
                 var autoEnabled = cc.sys.localStorage.getItem("autoSoundEnabled") == "true"? true : false;
                 if(autoEnabled) {
-                    this._item = new ccui.Button('template/click_sound_button.png', 'template/sound_button.png', null, ccui.Widget.PLIST_TEXTURE);
+                    this._item = new ccui.Button('template/template_02/click_sound_button.png', 'template/template_02/sound_button.png', null, ccui.Widget.PLIST_TEXTURE);
                     this._item.setPosition(soundButton.getPosition());
                     this._item.addTouchEventListener(this.toggleButton, this);
                     this.audiocallback.call(this._callbackContext, true);                                    
                 } else {
-                    this._item = new ccui.Button('template/sound_button.png', 'template/sound_button.png', null, ccui.Widget.PLIST_TEXTURE);
+                    this._item = new ccui.Button('template/template_02/sound_button.png', 'template/template_02/sound_button.png', null, ccui.Widget.PLIST_TEXTURE);
                     this._item.setPosition(soundButton.getPosition());
                     this._item.addTouchEventListener(this.toggleButton, this);
                     this.audiocallback.call(this._callbackContext, false);

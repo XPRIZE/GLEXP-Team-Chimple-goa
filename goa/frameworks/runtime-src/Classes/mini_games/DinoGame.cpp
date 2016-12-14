@@ -218,7 +218,8 @@ void DinoGame::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 			auto moveTo = MoveTo::create(2, _previousPosition);
 			target->runAction(Sequence::create(moveTo, CallFunc::create([=]() {
 				_isTouched = true;
-				if (_menu->getCurrentLevel() == 2) {
+				std::string child = _alphabets.at(_gameScore) + _mapping.at("png");
+				if (_menu->getCurrentLevel() == 2 && target->getName().compare(child) == 0) {
 					alphabetHint(_alphabets.at(_gameScore));
 				}
 			}), NULL));
