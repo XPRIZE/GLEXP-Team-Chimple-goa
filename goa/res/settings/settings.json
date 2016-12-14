@@ -1,0 +1,541 @@
+{
+  "ID": "9afde28d-7cdf-4e22-bcde-c1cef5690b5f",
+  "Version": "3.10.0.0",
+  "Name": "settings",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 32,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "settings/settingboard.png",
+              "Plist": "settings/settings.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1280.0,
+              "Y": 900.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 0.9609,
+              "Y": 0.8872
+            },
+            "LeftMargin": 50.0,
+            "RightMargin": 50.0,
+            "TopMargin": 101.5,
+            "BottomMargin": 101.5,
+            "Tag": 33,
+            "ActionTag": -399445602,
+            "Size": {
+              "X": 2460.0,
+              "Y": 1597.0
+            },
+            "Name": "settingboard",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "settings/closepressed.png",
+              "Plist": "settings/settings.plist"
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "settings/closenormal.png",
+              "Plist": "settings/settings.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 240,
+            "Scale9Height": 248,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2254.0586,
+              "Y": 1472.9979
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8805,
+              "Y": 0.8183
+            },
+            "PreSize": {
+              "X": 0.1055,
+              "Y": 0.15
+            },
+            "LeftMargin": 2119.0586,
+            "RightMargin": 170.9414,
+            "TopMargin": 192.0021,
+            "BottomMargin": 1337.9979,
+            "Tag": 34,
+            "ActionTag": -426489705,
+            "Size": {
+              "X": 270.0,
+              "Y": 270.0
+            },
+            "Name": "close",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "settings/submitdisable.png",
+              "Plist": "settings/settings.plist"
+            },
+            "PressedFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "settings/submitpressed.png",
+              "Plist": "settings/settings.plist"
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "settings/submitnormal.png",
+              "Plist": "settings/settings.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 1097,
+            "Scale9Height": 248,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1280.0,
+              "Y": 389.4499
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.2164
+            },
+            "PreSize": {
+              "X": 0.4402,
+              "Y": 0.15
+            },
+            "LeftMargin": 716.5,
+            "RightMargin": 716.5,
+            "TopMargin": 1275.55,
+            "BottomMargin": 254.4499,
+            "Tag": 35,
+            "ActionTag": 150550697,
+            "Size": {
+              "X": 1127.0,
+              "Y": 270.0
+            },
+            "Name": "submit",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "CheckedState": true,
+            "NormalBackFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "settings/check_box_normal.png",
+              "Plist": "settings/settings.plist"
+            },
+            "PressedBackFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "settings/check_box_active.png",
+              "Plist": "settings/settings.plist"
+            },
+            "DisableBackFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "settings/check_box_normal_press.png",
+              "Plist": "settings/settings.plist"
+            },
+            "NodeNormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "settings/check_box_active_disable.png",
+              "Plist": "settings/settings.plist"
+            },
+            "NodeDisableFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "settings/check_box_normal_disable.png",
+              "Plist": "settings/settings.plist"
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 947.7346,
+              "Y": 1344.7498
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3702,
+              "Y": 0.7471
+            },
+            "PreSize": {
+              "X": 0.1055,
+              "Y": 0.15
+            },
+            "LeftMargin": 812.7346,
+            "RightMargin": 1477.2654,
+            "TopMargin": 320.2502,
+            "BottomMargin": 1209.7498,
+            "Tag": 36,
+            "ActionTag": -1129780749,
+            "Size": {
+              "X": 270.0,
+              "Y": 270.0
+            },
+            "Name": "CheckBox_1",
+            "ctype": "CheckBoxObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "settings/radiopressed.png",
+              "Plist": "settings/settings.plist"
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "settings/radionormal.png",
+              "Plist": "settings/settings.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 246,
+            "Scale9Height": 254,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 947.7379,
+              "Y": 1027.0723
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3702,
+              "Y": 0.5706
+            },
+            "PreSize": {
+              "X": 0.1078,
+              "Y": 0.1533
+            },
+            "LeftMargin": 809.7379,
+            "RightMargin": 1474.2622,
+            "TopMargin": 634.9277,
+            "BottomMargin": 889.0723,
+            "Tag": 37,
+            "ActionTag": 1589858197,
+            "Size": {
+              "X": 276.0,
+              "Y": 276.0
+            },
+            "Name": "radio1",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "settings/radiopressed.png",
+              "Plist": "settings/settings.plist"
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "settings/radionormal.png",
+              "Plist": "settings/settings.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 246,
+            "Scale9Height": 254,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 947.7379,
+              "Y": 709.2643
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3702,
+              "Y": 0.394
+            },
+            "PreSize": {
+              "X": 0.1078,
+              "Y": 0.1533
+            },
+            "LeftMargin": 809.7379,
+            "RightMargin": 1474.2622,
+            "TopMargin": 952.7357,
+            "BottomMargin": 571.2643,
+            "Tag": 38,
+            "ActionTag": 199652117,
+            "Size": {
+              "X": 276.0,
+              "Y": 276.0
+            },
+            "Name": "radio2",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1271.6302,
+              "Y": 1361.655
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.4967,
+              "Y": 0.7565
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1271.6302,
+            "RightMargin": 1288.3698,
+            "TopMargin": 438.345,
+            "BottomMargin": 1361.655,
+            "Tag": 40,
+            "ActionTag": -2022653011,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "Node_1",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1271.6301,
+              "Y": 1031.3867
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.4967,
+              "Y": 0.573
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1271.6301,
+            "RightMargin": 1288.3699,
+            "TopMargin": 768.6133,
+            "BottomMargin": 1031.3867,
+            "Tag": 41,
+            "ActionTag": 43706529,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "Node_2",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1271.6304,
+              "Y": 707.3127
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.4967,
+              "Y": 0.393
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1271.6304,
+            "RightMargin": 1288.3696,
+            "TopMargin": 1092.6873,
+            "BottomMargin": 707.3127,
+            "Tag": 42,
+            "ActionTag": 1096826125,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "Node_3",
+            "ctype": "SingleNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "../Default/Button_Disable.png",
+        "settings.plist",
+        "settings.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

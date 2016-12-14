@@ -82,6 +82,8 @@ static const int MAX_POINTS_TO_SHOW = 16;
 static const int POINTS_TO_LEFT = 300.0f;
 static const std::string CURRENT_LEVEL = ".currentLevel";
 static const std::string LEVEL = ".level";
+static const std::string LEVEL_STATUS = ".levelStatus";
+static const std::string LANGUAGE = "language";
 
 MenuContext* MenuContext::create(Node* main, std::string gameName, bool launchCustomEventOnExit, std::string sceneName) {
     MenuContext* menuContext = new (std::nothrow) MenuContext();
@@ -175,14 +177,14 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 auto targetHelpCloseAction = TargetedAction::create(_helpMenu, elastic->clone());
                 auto targetBookCloseAction = TargetedAction::create(_mapMenu, elastic->clone());
                 auto targetMapCloseAction = TargetedAction::create(_bookMenu, elastic->clone());
-//                auto targetExitCloseAction = TargetedAction::create(_exitMenu, elastic);
+                auto targetSettingCloseAction = TargetedAction::create(_settingMenu, elastic);
                 auto targetGamesCloseAction = TargetedAction::create(_gamesMenu, elastic->clone());
                 if(_photoMenu) {
                     auto targetPhotoCloseAction = TargetedAction::create(_photoMenu, elastic->clone());
-                    auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction,targetBookCloseAction,targetGamesCloseAction,targetPhotoCloseAction, nullptr);
+                    auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction,targetBookCloseAction,targetGamesCloseAction,targetPhotoCloseAction, targetSettingCloseAction, nullptr);
                         runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
                 } else {
-                    auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction,targetBookCloseAction,targetGamesCloseAction,nullptr);
+                    auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction,targetBookCloseAction,targetGamesCloseAction,targetSettingCloseAction, nullptr);
                         runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
                 }
                 
@@ -201,8 +203,11 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 4 * POINTS_TO_LEFT);
                 _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
                 
-                
-                _photoMenu = this->createAvatarMenuItem("", "", "", 5 * POINTS_TO_LEFT);
+				_settingMenu = this->createMenuItem("menu/settings.png", "menu/settings.png", "menu/settings.png", 5 * POINTS_TO_LEFT);
+				_settingMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showSettingMenu, this));
+				
+
+                _photoMenu = this->createAvatarMenuItem("", "", "", 6 * POINTS_TO_LEFT);
                 
 
 //                std::string latestPhotoPath = SafariAnalyticsManager::getInstance()->getLatestUserPhoto();
@@ -511,6 +516,9 @@ void MenuContext::removeMenu() {
         
         removeChild(_gamesMenu);
         _gamesMenu = nullptr;
+
+		removeChild(_settingMenu);
+		_settingMenu = nullptr;
         
         if(_photoMenu) {
             removeChild(_photoMenu);
@@ -990,6 +998,160 @@ void MenuContext::showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touc
     }
 }
 
+void MenuContext::showSettingMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
+	if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
+		removeMenu();
+
+		_menuButton->setEnabled(false);
+		addGreyLayer();
+		pauseNodeAndDescendants(_main);
+
+		std::string _levelStatus;
+		localStorageGetItem(LEVEL_STATUS, &_levelStatus);
+		if (!_levelStatus.empty()) {
+			localStorageSetItem(LEVEL_STATUS, "0");
+		}
+
+
+		std::string _language;
+		localStorageGetItem(LANGUAGE, &_language);
+		if (!_language.empty()) {
+			localStorageSetItem(LANGUAGE, "");
+		}
+
+		Size visibleSize = Director::getInstance()->getVisibleSize();
+		_settingLayer = LayerColor::create(Color4B(128.0, 128.0, 128.0, 200.0));
+		_settingLayer->setContentSize(visibleSize);
+		this->addChild(_settingLayer, 3);
+
+		_settingNode = CSLoader::createNode("settings/settings.csb");
+		_settingNode->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
+		_settingNode->setAnchorPoint(Vec2(0.5, 0.5));
+		_settingLayer->addChild(_settingNode);
+
+		CheckBox *_checkBox = (CheckBox*)_settingNode->getChildByName("CheckBox_1");
+		if (_levelStatus == "0")
+			_checkBox->setSelected(false);
+		else if(_levelStatus == "1")
+			_checkBox->setSelected(true);
+
+		RadioButton *_rd1 = (RadioButton*) _settingNode->getChildByName("radio1");
+		_rd1->setName("radio1");
+		_rd1->addTouchEventListener(CC_CALLBACK_2(MenuContext::radioButton, this));
+
+		RadioButton *_rd2 = (RadioButton*)_settingNode->getChildByName("radio2");
+		_rd2->addTouchEventListener(CC_CALLBACK_2(MenuContext::radioButton, this));
+		_rd2->setName("radio2");
+
+		_radio1Select = Sprite::createWithSpriteFrameName("settings/radiopressed.png");
+		_radio1Select->setPosition(Vec2(_rd1->getPositionX(), _rd1->getPositionY()));
+		_settingNode->addChild(_radio1Select);
+
+		if (_language == "English" || _language == "")
+			_radio1Select->setVisible(true);
+		else
+			_radio1Select->setVisible(false);
+
+
+		_radio2Select = Sprite::createWithSpriteFrameName("settings/radiopressed.png");
+		_radio2Select->setPosition(Vec2(_rd2->getPositionX(), _rd2->getPositionY()));
+		_settingNode->addChild(_radio2Select);
+
+		if (_language == "Swahili")
+			_radio2Select->setVisible(true);
+		else
+			_radio2Select->setVisible(false);
+
+		auto _swahili = LabelTTF::create("Swahili", "Arial", 150);
+		_swahili->setAnchorPoint(Vec2(0, .5));
+		_swahili->setPosition(Vec2(_settingNode->getChildByName("Node_3")->getPositionX(), _settingNode->getChildByName("Node_3")->getPositionY()));
+		_settingLayer->addChild(_swahili);
+
+		auto _english = LabelTTF::create("English", "Arial", 150);
+		_english->setAnchorPoint(Vec2(0, .5));
+		_english->setPosition(Vec2(_settingNode->getChildByName("Node_2")->getPositionX(), _settingNode->getChildByName("Node_2")->getPositionY()));
+		_settingLayer->addChild(_english);
+
+		auto _disable = LabelTTF::create("Show level", "Arial", 150);
+		_disable->setAnchorPoint(Vec2(0, .5));
+		_disable->setPosition(Vec2(_settingNode->getChildByName("Node_1")->getPositionX(), _settingNode->getChildByName("Node_1")->getPositionY()));
+		_settingLayer->addChild(_disable);
+
+		auto _submitLabel = LabelTTF::create("Submit", "Arial", 150);
+		_submitLabel->setAnchorPoint(Vec2(1, 1));
+		_submitLabel->setPosition(Vec2(_settingNode->getChildByName("submit")->getPositionX() - _settingNode->getChildByName("submit")->getContentSize().width * .45, _settingNode->getChildByName("submit")->getPositionY() - _settingNode->getChildByName("submit")->getContentSize().height * .6));
+		_settingNode->getChildByName("submit")->addChild(_submitLabel);
+
+		_settingNode->getChildByName("submit")->setTag(1);
+		_settingNode->getChildByName("close")->setTag(0);
+
+		auto _listener = EventListenerTouchOneByOne::create();
+		_listener->setSwallowTouches(true);
+		_listener->onTouchBegan = CC_CALLBACK_2(MenuContext::onTouchBeganOnSubmitButton, this);
+		_eventDispatcher->addEventListenerWithSceneGraphPriority(_listener->clone(), _settingNode->getChildByName("submit"));
+		_eventDispatcher->addEventListenerWithSceneGraphPriority(_listener->clone(), _settingNode->getChildByName("close"));
+	}
+}
+
+
+void MenuContext::radioButton(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType)
+{
+	if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED)
+	{
+		Button* clickedButton = dynamic_cast<Button*>(pSender);
+		if (clickedButton->getName() == "radio1")
+		{
+			_radio2Select->setVisible(false);
+			_radio1Select->setVisible(true);
+		}
+		else
+		{
+			_radio1Select->setVisible(false);
+			_radio2Select->setVisible(true);
+		}
+	}
+}
+
+
+bool MenuContext::onTouchBeganOnSubmitButton(Touch *touch, Event *event)
+{
+	auto target = event->getCurrentTarget();
+	Point locationInNode = target->convertToNodeSpace(touch->getLocation());
+	Size size = target->getContentSize();
+	Rect rect = Rect(0, 0, target->getContentSize().width, target->getContentSize().height);
+
+	if (rect.containsPoint(locationInNode))
+	{
+		if (target->getTag() == 1)
+		{
+			if(_radio1Select->isVisible())
+				localStorageSetItem(LANGUAGE, "English");
+			else
+				localStorageSetItem(LANGUAGE, "Swahili");
+
+			CheckBox *_checkBox = (CheckBox*)_settingNode->getChildByName("CheckBox_1");
+
+			if (_checkBox->isSelected())
+				localStorageSetItem(LEVEL_STATUS, "1");
+			else
+				localStorageSetItem(LEVEL_STATUS, "0");
+
+			_menuButton->setEnabled(true);
+			removeChild(_greyLayer);
+			removeChild(_settingLayer);
+			resumeNodeAndDescendants(_main);
+		}
+		else
+		{
+			_menuButton->setEnabled(true);
+			removeChild(_greyLayer);
+			removeChild(_settingLayer);
+			resumeNodeAndDescendants(_main);
+		}
+		return true;
+	}
+	return false;
+}
 
 void MenuContext::changePhoto(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
