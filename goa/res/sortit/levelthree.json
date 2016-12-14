@@ -86,8 +86,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -383.4919,
-              "Y": -0.0001
+              "X": -393.4915,
+              "Y": 0.0
             },
             "Scale": {
               "ScaleX": 1.2848,
@@ -96,17 +96,16 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.1498,
+              "X": -0.1537,
               "Y": 0.0
             },
             "PreSize": {
               "X": 1.0,
               "Y": 0.2944
             },
-            "LeftMargin": -383.4919,
-            "RightMargin": 383.4919,
-            "TopMargin": 1270.0001,
-            "BottomMargin": -0.0001,
+            "LeftMargin": -393.4915,
+            "RightMargin": 393.4915,
+            "TopMargin": 1270.0,
             "Tag": 36,
             "ActionTag": 2329644,
             "Size": {
@@ -220,50 +219,44 @@
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "sortit/characterthree.png",
-              "Plist": "sortit/sortit.plist"
+              "Type": "Normal",
+              "Path": "sortit/character3.json",
+              "Plist": ""
             },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
             "Position": {
-              "X": 2105.4619,
-              "Y": 724.0696
+              "X": 2095.3865,
+              "Y": 266.9171
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "RotationSkewX": 5.1827,
-            "RotationSkewY": 5.1761,
             "CColor": {},
-            "IconVisible": false,
+            "IconVisible": true,
             "PrePosition": {
-              "X": 0.8224,
-              "Y": 0.4023
+              "X": 0.8185,
+              "Y": 0.1483
             },
             "PreSize": {
-              "X": 0.2516,
-              "Y": 0.5072
+              "X": 0.0,
+              "Y": 0.0
             },
-            "LeftMargin": 1783.4619,
-            "RightMargin": 132.5381,
-            "TopMargin": 619.4304,
-            "BottomMargin": 267.5696,
-            "Tag": 42,
-            "ActionTag": 1901625059,
+            "LeftMargin": 2095.3865,
+            "RightMargin": 464.6135,
+            "TopMargin": 1533.083,
+            "BottomMargin": 266.9171,
+            "Tag": 307,
+            "ActionTag": 931117508,
             "Size": {
-              "X": 644.0,
-              "Y": 913.0
+              "X": 0.0,
+              "Y": 0.0
             },
-            "Name": "characterthree_2",
-            "ctype": "SpriteObjectData"
+            "Name": "character3",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -274,8 +267,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "sortit.plist",
-        "sortit.png"
+        "character3.json"
       ],
       "ctype": "GameFileData"
     }

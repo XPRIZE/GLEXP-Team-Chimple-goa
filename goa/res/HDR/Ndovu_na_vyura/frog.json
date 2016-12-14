@@ -940,6 +940,19 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -513327682,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "jump",
+                "FrameIndex": 5,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 415131041,
             "Property": "Position",
             "Frames": [
@@ -3569,6 +3582,19 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -1378506407,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "frog",
+                "FrameIndex": 180,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 1892549424,
             "Property": "Position",
             "Frames": [
@@ -4857,6 +4883,7 @@
                   "Dst": 771
                 },
                 "Tag": 47,
+                "FrameEvent": "frog",
                 "Children": [
                   {
                     "Length": 238.0,
@@ -4876,6 +4903,7 @@
                       "Dst": 771
                     },
                     "Tag": 48,
+                    "FrameEvent": "jump",
                     "Children": [
                       {
                         "Length": 198.0,
@@ -5144,6 +5172,7 @@
                         "TopMargin": -44.7223,
                         "BottomMargin": -56.2777,
                         "Tag": 37,
+                        "FrameEvent": "jump",
                         "ActionTag": -513327682,
                         "Size": {
                           "X": 301.0,
