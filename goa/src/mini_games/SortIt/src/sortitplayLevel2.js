@@ -6,11 +6,22 @@ xc.sortitlevel2Layer = cc.Layer.extend({
     counterLevel2 : 1,
     level2SpriteScaleX : 0.9,
     level2SpriteScaleY : 0.9,
-    
+     wrong : 0,
+     right : 10,
+    gameName : "sortit",
+    menuContext: null,
     ctor:function () {
         
         this._super();
-
+       
+    },
+    onEnter : function(){
+        
+        this._super();
+        
+        
+        this.menuContext = this.getParent().menuContext;
+        this.menuContext.setMaxPoints(5);
         var self = this;
 
         var eventListener = cc.eventManager.addListener({
@@ -52,6 +63,16 @@ xc.sortitlevel2Layer = cc.Layer.extend({
          this.addChild(this.bg.node);
          cc.eventManager.addListener(eventListener.clone(), this.bg.node);
 
+        
+         this.character = ccs.load(xc.sortitlevel2Layer.res.character, xc.path);
+         this.character.node.setAnchorPoint(0.5, 0.5);
+         this.character.node.setPosition(size.width*0.78 , size.height*0.26); 
+         this.addChild(this.character.node);
+        
+        var animation = ccs.actionTimelineCache.createAction(xc.sortitlevel2Layer.res.character, xc.path);
+        this.character.node.runAction(animation);
+        animation.gotoFrameAndPlay(0,true);
+        
          /*
          this.character = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/charctertwo.png"));
          this.character.setAnchorPoint(0.5, 0.5 );
@@ -88,40 +109,40 @@ cc.spriteFrameCache.getSpriteFrame("sortit/charcterone.png")
         
          this.stand = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/stand.png"));
          this.stand.setAnchorPoint(0.5, 0.5);
-         this.stand.setPosition(size.width*0.45 , size.height*0.12); 
+         this.stand.setPosition(size.width*0.50 , size.height*0.34); 
          this.stand.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
          this.addChild(this.stand);
          
 
          this.cake1t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/cake1t.png"));
          this.cake1t.setAnchorPoint(0.5, 0.5);
-         this.cake1t.setPosition(size.width*0.45 , size.height*0.20); 
+         this.cake1t.setPosition(size.width*0.50 , size.height*0.42); 
          this.cake1t.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
          this.addChild(this.cake1t);
         
 
          this.cake2t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/cake2t.png"));
          this.cake2t.setAnchorPoint(0.5, 0.5);
-         this.cake2t.setPosition(size.width*0.45 , size.height*0.28); 
+         this.cake2t.setPosition(size.width*0.50 , size.height*0.50); 
          this.cake2t.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
          this.addChild(this.cake2t);
 
          this.cake3t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/cake3t.png"));
          this.cake3t.setAnchorPoint(0.5, 0.5);
-         this.cake3t.setPosition(size.width*0.45 , size.height*0.35); 
+         this.cake3t.setPosition(size.width*0.50 , size.height*0.57); 
          this.cake3t.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
          this.addChild(this.cake3t);
 
          this.cake4t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/cake4t.png"));
          this.cake4t.setAnchorPoint(0.5, 0.5);
-         this.cake4t.setPosition(size.width*0.45 , size.height*0.41); 
+         this.cake4t.setPosition(size.width*0.50 , size.height*0.63); 
          this.cake4t.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
          this.addChild(this.cake4t);
 
 
          this.cake5t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/cake5t.png"));
          this.cake5t.setAnchorPoint(0.5, 0.5);
-         this.cake5t.setPosition(size.width*0.45 , size.height*0.50); 
+         this.cake5t.setPosition(size.width*0.50 , size.height*0.72); 
          this.cake5t.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
          this.addChild(this.cake5t);
 
@@ -195,7 +216,7 @@ xc.sortitlevel2Layer.res = {
     sortit_png: xc.path + "sortit/sortit.png",
     sortit_plist: xc.path + "sortit/sortit.plist",
     
-    
+    character: xc.path + "sortit/character2.json",
     
     level2bg_json: xc.path +  "sortit/leveltwo.json",
     

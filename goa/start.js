@@ -127,6 +127,9 @@ cc.game.onStart = function(){
         addPoints: function(points) {
             this._points += points;
         },
+        getPoints: function() {
+            return this._points;
+        },
         showScore: function() {
 
         }

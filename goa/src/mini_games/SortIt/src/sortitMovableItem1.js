@@ -39,7 +39,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
  
         if(cc.rectIntersectsRect(toyRect, toytRect) && target.id == that.counterLevel1){
            
-            that.getParent().menuContext.addPoints(1);
+            
             if(that.counterLevel1 == 1){
                 that.removeChild(that.help);
             }
@@ -56,7 +56,40 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
              if (that.counterLevel1 == 7) {
                      setTimeout(function(){
                          //xc.GameScene.load(xc.sortitlevel2Layer);
-                         that.getParent().menuContext.showScore();
+                         
+                         /*
+                         console.log("getpoints : " + that.menuContext.getPoints());
+                         
+                         if(that.menuContext.getPoints() < 0){
+                             that.menuContext.addPoints(that.menuContext.getPoints() + Math.abs(that.menuContext.getPoints()));
+                         }
+                         	
+						if(that.wrong>that.right/2){
+                            console.log("right :" +  that.right + "wrong : " + that.wrong + " addpoints" + (0.33 * that.right));
+							that.menuContext.addPoints(0.33 * that.right);
+						}
+
+						if(that.wrong<=that.right/2 && that.wrong!=0){
+                            console.log("right :" +  that.right + "wrong : " + that.wrong + " addpoints" + (0.66 * that.right));
+							that.menuContext.addPoints(0.66 * that.right);
+						}
+
+						if(that.wrong==0){
+                            console.log("right :" +  that.right + "wrong : " + that.wrong + " addpoints" + (1 * that.right));
+							that.menuContext.addPoints(that.right);
+						}
+                         */
+                         
+                         console.log("getpoints : " + that.menuContext.getMaxPoints() + "wroong :" + that.wrong);
+                         if((that.menuContext.getMaxPoints() - that.wrong)<=0){
+                             console.log("ghus gya ander");
+                             that.menuContext.addPoints(that.menuContext.getMaxPoints() * 0.33);
+                         }else{
+                             that.menuContext.addPoints(that.menuContext.getMaxPoints() - that.wrong);
+                             console.log("nikal gya bahar");
+                         }
+                         
+                         that.menuContext.showScore();
                      },1000);
                 }
             
@@ -83,7 +116,8 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                  var rectToy = cc.rect(0, 0, target.width, target.height);
                  //if (cc.rectContainsPoint(rectToy, location) && overlapped==0) { 
                  if (overlapped==0) { 
-                     that.getParent().menuContext.addPoints(-1);
+                     that.wrong++;
+                     
                      var toy = new cc.MoveTo(2,cc.p(target.xP,target.yP));
                     target.runAction(new cc.Sequence( toy, new cc.CallFunc(function(){ 
                     _enableFlag = true; }, this)));

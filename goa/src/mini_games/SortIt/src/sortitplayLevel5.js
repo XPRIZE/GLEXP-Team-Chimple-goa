@@ -5,10 +5,19 @@ xc.sortitlevel5Layer = cc.Layer.extend({
     counterLevel5 : 1,
     level5SpriteScaleX : 0.9, 
     level5SpriteScaleY : 0.9,
+     wrong : 0,
+    right : 10,
+    gameName : "sortit",
+    menuContext: null,
     ctor:function () {
         
         this._super();
-
+    },
+    onEnter : function(){
+        
+        this._super();       
+        this.menuContext = this.getParent().menuContext;
+        this.menuContext.setMaxPoints(5);
         var self = this;
 
         var eventListener = cc.eventManager.addListener({
@@ -48,30 +57,36 @@ xc.sortitlevel5Layer = cc.Layer.extend({
          this.addChild(this.bg.node);
          cc.eventManager.addListener(eventListener.clone(), this.bg.node);
         
-
+        /*
          this.character = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/charcterfive.png"));
          this.character.setAnchorPoint(0.5, 0.5);
          this.character.setPosition(size.width*0.78 , size.height*0.46);
          this.character.setScale(0.8, 0.8); 
          this.addChild(this.character);
+         */
+
+         this.character = ccs.load(xc.sortitlevel5Layer.res.character, xc.path);
+         this.character.node.setAnchorPoint(0.5, 0.5);
+         this.character.node.setPosition(size.width*0.68 , size.height*0.31); 
+         this.addChild(this.character.node);
 
 
-
-
-
+        var animation = ccs.actionTimelineCache.createAction(xc.sortitlevel5Layer.res.character, xc.path);
+        this.character.node.runAction(animation);
+        animation.gotoFrameAndPlay(0,true);
 
          ///////////////////////////for transparent
        
          this.num1t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/num1t.png"));
          this.num1t.setAnchorPoint(0.5, 0.5 );
-         this.num1t.setPosition(size.width*0.39 , size.height*0.26);
+         this.num1t.setPosition(size.width*0.39 , size.height*0.36);
          this.num1t.setScale(this.level5SpriteScaleX, this.level5SpriteScaleY); 
          this.addChild(this.num1t);
          
 
          this.num2t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/num2t.png"));
          this.num2t.setAnchorPoint(0.5, 0.5 );
-         this.num2t.setPosition(size.width*0.39 , size.height*0.36);
+         this.num2t.setPosition(size.width*0.39 , size.height*0.46);
          this.num2t.setScale(this.level5SpriteScaleX, this.level5SpriteScaleY); 
          this.addChild(this.num2t);
         
@@ -79,7 +94,7 @@ xc.sortitlevel5Layer = cc.Layer.extend({
 
          this.num3t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/num3t.png"));
          this.num3t.setAnchorPoint(0.5, 0.5 );
-         this.num3t.setPosition(size.width*0.39 , size.height*0.47);
+         this.num3t.setPosition(size.width*0.39 , size.height*0.57);
          this.num3t.setScale(this.level5SpriteScaleX, this.level5SpriteScaleY); 
          this.addChild(this.num3t);
          
@@ -87,14 +102,14 @@ xc.sortitlevel5Layer = cc.Layer.extend({
 
          this.num4t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/num4t.png"));
          this.num4t.setAnchorPoint(0.5, 0.5 );
-         this.num4t.setPosition(size.width*0.39 , size.height*0.57);
+         this.num4t.setPosition(size.width*0.39 , size.height*0.67);
          this.num4t.setScale(this.level5SpriteScaleX, this.level5SpriteScaleY); 
          this.addChild(this.num4t);
          
       
          this.num5t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/num5t.png"));
          this.num5t.setAnchorPoint(0.5, 0.5 );
-         this.num5t.setPosition(size.width*0.39 , size.height*0.68);
+         this.num5t.setPosition(size.width*0.39 , size.height*0.78);
          this.num5t.setScale(this.level5SpriteScaleX, this.level5SpriteScaleY); 
          this.addChild(this.num5t);
          
@@ -152,6 +167,7 @@ xc.sortitlevel5Layer = cc.Layer.extend({
 
 
         return true;
+
     }
 
 
@@ -168,7 +184,7 @@ xc.sortitlevel5Layer.res = {
     sortit_plist: xc.path + "sortit/sortit.plist",
     
     
-    
+    character: xc.path + "sortit/character1.json",
     level5bg_json:  xc.path + "sortit/levelfive.json",
     
     

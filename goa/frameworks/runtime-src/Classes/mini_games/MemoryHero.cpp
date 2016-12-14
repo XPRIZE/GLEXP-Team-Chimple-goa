@@ -590,7 +590,7 @@ bool MemoryHero::onTouchBegan(Touch* touch, Event* event) {
 								_menuContext->addPoints(0.33 * _right);
 							}
 
-							if (_wrong <= _right / 2) {
+							if (_wrong <= _right / 2 && _wrong != 0) {
 								_menuContext->addPoints(0.66 * _right);
 							}
 
