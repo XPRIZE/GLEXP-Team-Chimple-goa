@@ -940,6 +940,19 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -513327682,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "jump",
+                "FrameIndex": 5,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 415131041,
             "Property": "Position",
             "Frames": [
@@ -3811,6 +3824,19 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -1378506407,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "frog",
+                "FrameIndex": 180,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 1892549424,
             "Property": "Position",
             "Frames": [
@@ -6296,6 +6322,7 @@
                     "TopMargin": -228.193,
                     "BottomMargin": -160.807,
                     "Tag": 31,
+                    "FrameEvent": "frog",
                     "ActionTag": -1378506407,
                     "Size": {
                       "X": 609.0,
@@ -6607,15 +6634,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": 528.5261,
-                    "RightMargin": -687.5261,
-                    "TopMargin": -53.6567,
-                    "BottomMargin": 11.6567,
+                    "LeftMargin": 585.0261,
+                    "RightMargin": -631.0261,
+                    "TopMargin": -55.6567,
+                    "BottomMargin": 9.6567,
                     "Tag": 514,
                     "ActionTag": 1018420856,
                     "Size": {
-                      "X": 159.0,
-                      "Y": 42.0
+                      "X": 46.0,
+                      "Y": 46.0
                     },
                     "VisibleForFrame": false,
                     "Name": "frogtail_119",
@@ -6628,7 +6655,7 @@
                       "Plist": "Ndovu_na_vyura/Ndovu_na_vyura.plist"
                     },
                     "BlendFunc": {
-                      "Src": 1,
+                      "Src": 770,
                       "Dst": 771
                     },
                     "AnchorPoint": {
@@ -6659,10 +6686,10 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": 285.0587,
-                    "RightMargin": -331.0587,
-                    "TopMargin": -127.541,
-                    "BottomMargin": 81.541,
+                    "LeftMargin": -112.4413,
+                    "RightMargin": -728.5587,
+                    "TopMargin": -183.041,
+                    "BottomMargin": 26.041,
                     "Tag": 397,
                     "ActionTag": 431237023,
                     "Size": {
@@ -6679,7 +6706,7 @@
                       "Plist": "Ndovu_na_vyura/Ndovu_na_vyura.plist"
                     },
                     "BlendFunc": {
-                      "Src": 1,
+                      "Src": 770,
                       "Dst": 771
                     },
                     "AnchorPoint": {
@@ -6710,10 +6737,10 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": 177.647,
-                    "RightMargin": -223.647,
-                    "TopMargin": -185.9034,
-                    "BottomMargin": 139.9034,
+                    "LeftMargin": -219.853,
+                    "RightMargin": -621.147,
+                    "TopMargin": -241.4034,
+                    "BottomMargin": 84.4034,
                     "Tag": 398,
                     "ActionTag": -454008359,
                     "Size": {
@@ -6730,7 +6757,7 @@
                       "Plist": "Ndovu_na_vyura/Ndovu_na_vyura.plist"
                     },
                     "BlendFunc": {
-                      "Src": 1,
+                      "Src": 770,
                       "Dst": 771
                     },
                     "AnchorPoint": {
@@ -6761,10 +6788,10 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": 219.3639,
-                    "RightMargin": -265.3639,
-                    "TopMargin": -11.4197,
-                    "BottomMargin": -34.5803,
+                    "LeftMargin": -178.1361,
+                    "RightMargin": -662.8639,
+                    "TopMargin": -66.9197,
+                    "BottomMargin": -90.0803,
                     "Tag": 399,
                     "ActionTag": 414437533,
                     "Size": {
@@ -6781,7 +6808,7 @@
                       "Plist": "Ndovu_na_vyura/Ndovu_na_vyura.plist"
                     },
                     "BlendFunc": {
-                      "Src": 1,
+                      "Src": 770,
                       "Dst": 771
                     },
                     "AnchorPoint": {
@@ -6812,10 +6839,10 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": 389.9505,
-                    "RightMargin": -435.9505,
-                    "TopMargin": -49.0185,
-                    "BottomMargin": 3.0185,
+                    "LeftMargin": -7.5495,
+                    "RightMargin": -833.4505,
+                    "TopMargin": -104.5185,
+                    "BottomMargin": -52.4815,
                     "Tag": 400,
                     "ActionTag": 687003165,
                     "Size": {

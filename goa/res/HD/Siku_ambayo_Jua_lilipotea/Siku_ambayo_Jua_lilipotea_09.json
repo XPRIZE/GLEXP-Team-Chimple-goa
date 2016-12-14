@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 586,
+        "Duration": 735,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "rain",
         "Timelines": [
           {
             "ActionTag": -773076305,
@@ -49,6 +49,930 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 706606383,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 591.8738,
+                "Y": 1646.9846,
+                "FrameIndex": 605,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 512.3796,
+                "Y": 1070.3916,
+                "FrameIndex": 735,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 706606383,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 255,
+                "FrameIndex": 695,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 0,
+                "FrameIndex": 735,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1431847997,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 754.0383,
+                "Y": 1663.4504,
+                "FrameIndex": 605,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 752.756,
+                "Y": 1663.4507,
+                "FrameIndex": 630,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 714.2861,
+                "Y": 1444.1721,
+                "FrameIndex": 735,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1431847997,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 255,
+                "FrameIndex": 695,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 0,
+                "FrameIndex": 735,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -761823185,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 959.9215,
+                "Y": 1588.1823,
+                "FrameIndex": 605,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 993.4465,
+                "Y": 1102.069,
+                "FrameIndex": 735,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -761823185,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 255,
+                "FrameIndex": 695,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 0,
+                "FrameIndex": 735,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2074415180,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 943.3165,
+                "Y": 1656.8081,
+                "FrameIndex": 605,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 949.7283,
+                "Y": 1650.3967,
+                "FrameIndex": 630,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 961.2695,
+                "Y": 1450.3535,
+                "FrameIndex": 735,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2074415180,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 255,
+                "FrameIndex": 695,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 0,
+                "FrameIndex": 735,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -248512042,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 897.935,
+                "Y": 1567.1506,
+                "FrameIndex": 605,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 887.2683,
+                "Y": 989.603,
+                "FrameIndex": 735,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -248512042,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 255,
+                "FrameIndex": 695,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 0,
+                "FrameIndex": 735,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1662491827,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 849.2318,
+                "Y": 1690.0183,
+                "FrameIndex": 605,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 856.926,
+                "Y": 1679.7599,
+                "FrameIndex": 630,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 859.4907,
+                "Y": 1256.5901,
+                "FrameIndex": 735,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1662491827,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 255,
+                "FrameIndex": 695,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 0,
+                "FrameIndex": 735,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1894499271,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 779.4972,
+                "Y": 1614.7478,
+                "FrameIndex": 605,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 727.686,
+                "Y": 1073.7731,
+                "FrameIndex": 735,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1894499271,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 255,
+                "FrameIndex": 695,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 0,
+                "FrameIndex": 735,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1218217083,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 687.624,
+                "Y": 1660.1268,
+                "FrameIndex": 605,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 673.518,
+                "Y": 1658.845,
+                "FrameIndex": 630,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 627.3534,
+                "Y": 1239.5223,
+                "FrameIndex": 735,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1218217083,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 255,
+                "FrameIndex": 695,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 0,
+                "FrameIndex": 735,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1972574419,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 615.6765,
+                "Y": 1573.7913,
+                "FrameIndex": 605,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 605.0097,
+                "Y": 964.2426,
+                "FrameIndex": 735,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1972574419,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 255,
+                "FrameIndex": 695,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 0,
+                "FrameIndex": 735,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1192919165,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 555.9044,
+                "Y": 1668.9834,
+                "FrameIndex": 605,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 548.2104,
+                "Y": 1667.701,
+                "FrameIndex": 630,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 481.5284,
+                "Y": 1363.7903,
+                "FrameIndex": 735,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1192919165,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 255,
+                "FrameIndex": 695,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 0,
+                "FrameIndex": 735,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 747578976,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 479.5282,
+                "Y": 1604.7776,
+                "FrameIndex": 605,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 414.002,
+                "Y": 1120.194,
+                "FrameIndex": 735,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 747578976,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 255,
+                "FrameIndex": 695,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 0,
+                "FrameIndex": 735,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -148991843,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Siku_ambayo_Jua_lilipotea/cloud2.png",
+                  "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+                },
+                "FrameIndex": 212,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -148991843,
+            "Property": "BlendFunc",
+            "Frames": [
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 212,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -148991843,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 683.0249,
+                "Y": 1611.7827,
+                "FrameIndex": 605,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 683.0238,
+                "Y": 1611.7805,
+                "FrameIndex": 615,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 683.0239,
+                "Y": 1611.7694,
+                "FrameIndex": 625,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 683.0249,
+                "Y": 1611.7827,
+                "FrameIndex": 637,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -148991843,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 605,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.2311,
+                "Y": 0.8399,
+                "FrameIndex": 615,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.6594,
+                "Y": 1.2037,
+                "FrameIndex": 625,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 637,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2124173182,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Siku_ambayo_Jua_lilipotea/mouth.png",
+                  "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+                },
+                "FrameIndex": 212,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2124173182,
+            "Property": "BlendFunc",
+            "Frames": [
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 212,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2124173182,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 877.6529,
+                "Y": 1554.5452,
+                "FrameIndex": 605,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 922.6318,
+                "Y": 1563.7057,
+                "FrameIndex": 615,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 811.3646,
+                "Y": 1542.8718,
+                "FrameIndex": 625,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 877.6529,
+                "Y": 1554.5452,
+                "FrameIndex": 637,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2124173182,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.5719,
+                "Y": 0.6039,
+                "FrameIndex": 605,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.7041,
+                "Y": 0.5072,
+                "FrameIndex": 615,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.3771,
+                "Y": 0.7269,
+                "FrameIndex": 625,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.5719,
+                "Y": 0.6039,
+                "FrameIndex": 637,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2059656716,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Siku_ambayo_Jua_lilipotea/eyes.png",
+                  "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+                },
+                "FrameIndex": 212,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2059656716,
+            "Property": "BlendFunc",
+            "Frames": [
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 212,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2059656716,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 835.697,
+                "Y": 1676.0138,
+                "FrameIndex": 605,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 870.9796,
+                "Y": 1665.7268,
+                "FrameIndex": 615,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 783.6974,
+                "Y": 1689.0845,
+                "FrameIndex": 625,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 835.697,
+                "Y": 1676.0138,
+                "FrameIndex": 637,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2059656716,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -0.9633,
+                "Y": 1.0,
+                "FrameIndex": 605,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.1859,
+                "Y": 0.8399,
+                "FrameIndex": 615,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.6352,
+                "Y": 1.2037,
+                "FrameIndex": 625,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.9633,
+                "Y": 1.0,
+                "FrameIndex": 637,
                 "EasingData": {
                   "Type": 0
                 },
@@ -2045,6 +2969,12 @@
           "EndIndex": 600,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 604,
+          "EndIndex": 735,
+          "Name": "rain",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -2299,6 +3229,643 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/waterdrop.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 591.8738,
+              "Y": 1646.9846
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2312,
+              "Y": 0.915
+            },
+            "PreSize": {
+              "X": 0.0293,
+              "Y": 0.0894
+            },
+            "LeftMargin": 554.3738,
+            "RightMargin": 1930.6262,
+            "TopMargin": 72.5154,
+            "BottomMargin": 1566.4846,
+            "Tag": 2670,
+            "ActionTag": 706606383,
+            "Size": {
+              "X": 75.0,
+              "Y": 161.0
+            },
+            "Name": "waterdrop_14_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/waterdrop.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 754.0383,
+              "Y": 1663.4504
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2945,
+              "Y": 0.9241
+            },
+            "PreSize": {
+              "X": 0.0293,
+              "Y": 0.0894
+            },
+            "LeftMargin": 716.5383,
+            "RightMargin": 1768.4617,
+            "TopMargin": 56.0496,
+            "BottomMargin": 1582.9504,
+            "Tag": 2669,
+            "ActionTag": 1431847997,
+            "Size": {
+              "X": 75.0,
+              "Y": 161.0
+            },
+            "Name": "waterdrop_14_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/waterdrop.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 959.9215,
+              "Y": 1588.1823
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.375,
+              "Y": 0.8823
+            },
+            "PreSize": {
+              "X": 0.0293,
+              "Y": 0.0894
+            },
+            "LeftMargin": 922.4215,
+            "RightMargin": 1562.5785,
+            "TopMargin": 131.3177,
+            "BottomMargin": 1507.6823,
+            "Tag": 2668,
+            "ActionTag": -761823185,
+            "Size": {
+              "X": 75.0,
+              "Y": 161.0
+            },
+            "Name": "waterdrop_14_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/waterdrop.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 943.3165,
+              "Y": 1656.8081
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3685,
+              "Y": 0.9204
+            },
+            "PreSize": {
+              "X": 0.0293,
+              "Y": 0.0894
+            },
+            "LeftMargin": 905.8165,
+            "RightMargin": 1579.1835,
+            "TopMargin": 62.6919,
+            "BottomMargin": 1576.3081,
+            "Tag": 2667,
+            "ActionTag": 2074415180,
+            "Size": {
+              "X": 75.0,
+              "Y": 161.0
+            },
+            "Name": "waterdrop_14_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/waterdrop.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 897.935,
+              "Y": 1567.1506
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3508,
+              "Y": 0.8706
+            },
+            "PreSize": {
+              "X": 0.0293,
+              "Y": 0.0894
+            },
+            "LeftMargin": 860.435,
+            "RightMargin": 1624.5649,
+            "TopMargin": 152.3494,
+            "BottomMargin": 1486.6506,
+            "Tag": 2666,
+            "ActionTag": -248512042,
+            "Size": {
+              "X": 75.0,
+              "Y": 161.0
+            },
+            "Name": "waterdrop_14_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/waterdrop.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 849.2318,
+              "Y": 1690.0183
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3317,
+              "Y": 0.9389
+            },
+            "PreSize": {
+              "X": 0.0293,
+              "Y": 0.0894
+            },
+            "LeftMargin": 811.7318,
+            "RightMargin": 1673.2682,
+            "TopMargin": 29.4817,
+            "BottomMargin": 1609.5183,
+            "Tag": 2665,
+            "ActionTag": -1662491827,
+            "Size": {
+              "X": 75.0,
+              "Y": 161.0
+            },
+            "Name": "waterdrop_14_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/waterdrop.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 779.4972,
+              "Y": 1614.7478
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3045,
+              "Y": 0.8971
+            },
+            "PreSize": {
+              "X": 0.0293,
+              "Y": 0.0894
+            },
+            "LeftMargin": 741.9972,
+            "RightMargin": 1743.0028,
+            "TopMargin": 104.7522,
+            "BottomMargin": 1534.2478,
+            "Tag": 2664,
+            "ActionTag": 1894499271,
+            "Size": {
+              "X": 75.0,
+              "Y": 161.0
+            },
+            "Name": "waterdrop_14_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/waterdrop.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 687.624,
+              "Y": 1660.1268
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2686,
+              "Y": 0.9223
+            },
+            "PreSize": {
+              "X": 0.0293,
+              "Y": 0.0894
+            },
+            "LeftMargin": 650.124,
+            "RightMargin": 1834.876,
+            "TopMargin": 59.3732,
+            "BottomMargin": 1579.6268,
+            "Tag": 2663,
+            "ActionTag": -1218217083,
+            "Size": {
+              "X": 75.0,
+              "Y": 161.0
+            },
+            "Name": "waterdrop_14_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/waterdrop.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 615.6765,
+              "Y": 1573.7913
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2405,
+              "Y": 0.8743
+            },
+            "PreSize": {
+              "X": 0.0293,
+              "Y": 0.0894
+            },
+            "LeftMargin": 578.1765,
+            "RightMargin": 1906.8235,
+            "TopMargin": 145.7087,
+            "BottomMargin": 1493.2913,
+            "Tag": 2662,
+            "ActionTag": -1972574419,
+            "Size": {
+              "X": 75.0,
+              "Y": 161.0
+            },
+            "Name": "waterdrop_14_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/waterdrop.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 555.9044,
+              "Y": 1668.9834
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2172,
+              "Y": 0.9272
+            },
+            "PreSize": {
+              "X": 0.0293,
+              "Y": 0.0894
+            },
+            "LeftMargin": 518.4044,
+            "RightMargin": 1966.5956,
+            "TopMargin": 50.5166,
+            "BottomMargin": 1588.4834,
+            "Tag": 2661,
+            "ActionTag": 1192919165,
+            "Size": {
+              "X": 75.0,
+              "Y": 161.0
+            },
+            "Name": "waterdrop_14_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/waterdrop.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 479.5282,
+              "Y": 1604.7776
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1873,
+              "Y": 0.8915
+            },
+            "PreSize": {
+              "X": 0.0293,
+              "Y": 0.0894
+            },
+            "LeftMargin": 442.0282,
+            "RightMargin": 2042.9718,
+            "TopMargin": 114.7224,
+            "BottomMargin": 1524.2776,
+            "Tag": 2660,
+            "ActionTag": 747578976,
+            "Size": {
+              "X": 75.0,
+              "Y": 161.0
+            },
+            "Name": "waterdrop_14",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/cloud2.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 683.0249,
+              "Y": 1611.7827
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2668,
+              "Y": 0.8954
+            },
+            "PreSize": {
+              "X": 0.3141,
+              "Y": 0.1867
+            },
+            "LeftMargin": 281.0249,
+            "RightMargin": 1474.9751,
+            "TopMargin": 20.2173,
+            "BottomMargin": 1443.7827,
+            "UserData": "main.rain",
+            "Tag": 2671,
+            "ActionTag": -148991843,
+            "Size": {
+              "X": 804.0,
+              "Y": 336.0
+            },
+            "Name": "cloud2_8_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/mouth.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 877.6529,
+              "Y": 1554.5452
+            },
+            "Scale": {
+              "ScaleX": 0.5719,
+              "ScaleY": 0.6039
+            },
+            "CColor": {
+              "R": 199,
+              "G": 199,
+              "B": 199
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3428,
+              "Y": 0.8636
+            },
+            "PreSize": {
+              "X": 0.1008,
+              "Y": 0.0806
+            },
+            "LeftMargin": 748.6529,
+            "RightMargin": 1553.3472,
+            "TopMargin": 172.9548,
+            "BottomMargin": 1482.0452,
+            "UserData": "main.rain",
+            "Tag": 2673,
+            "ActionTag": -2124173182,
+            "Size": {
+              "X": 258.0,
+              "Y": 145.0
+            },
+            "Name": "mouth_12_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_ambayo_Jua_lilipotea/eyes.png",
+              "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 835.697,
+              "Y": 1676.0138
+            },
+            "Scale": {
+              "ScaleX": -0.9633,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3264,
+              "Y": 0.9311
+            },
+            "PreSize": {
+              "X": 0.0949,
+              "Y": 0.0828
+            },
+            "LeftMargin": 714.197,
+            "RightMargin": 1602.803,
+            "TopMargin": 49.4862,
+            "BottomMargin": 1601.5138,
+            "UserData": "main.rain",
+            "Tag": 2672,
+            "ActionTag": 2059656716,
+            "Size": {
+              "X": 243.0,
+              "Y": 149.0
+            },
+            "Name": "eyes_11_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
               "Path": "Siku_ambayo_Jua_lilipotea/drytree2.png",
               "Plist": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea.plist"
             },
@@ -2469,6 +4036,7 @@
             "RightMargin": 2846.3506,
             "TopMargin": 639.781,
             "BottomMargin": 965.219,
+            "UserData": "drag",
             "Tag": 3604,
             "ActionTag": -1181213578,
             "Size": {
@@ -2516,6 +4084,7 @@
             "RightMargin": 2470.082,
             "TopMargin": 497.6394,
             "BottomMargin": 1107.3606,
+            "UserData": "drag",
             "Tag": 3605,
             "ActionTag": 840193813,
             "Size": {
@@ -2563,6 +4132,7 @@
             "RightMargin": 2181.208,
             "TopMargin": 580.5579,
             "BottomMargin": 1024.4421,
+            "UserData": "drag",
             "Tag": 3606,
             "ActionTag": 215381989,
             "Size": {
@@ -2610,6 +4180,7 @@
             "RightMargin": 2545.8655,
             "TopMargin": 596.8334,
             "BottomMargin": 1008.1666,
+            "UserData": "drag",
             "Tag": 3607,
             "ActionTag": 106362956,
             "Size": {
@@ -2657,6 +4228,7 @@
             "RightMargin": 1786.683,
             "TopMargin": 471.8143,
             "BottomMargin": 1133.1857,
+            "UserData": "drag",
             "Tag": 3608,
             "ActionTag": 1576543061,
             "Size": {
@@ -2704,6 +4276,7 @@
             "RightMargin": 2083.9709,
             "TopMargin": 535.954,
             "BottomMargin": 1069.046,
+            "UserData": "drag",
             "Tag": 3609,
             "ActionTag": -207190081,
             "Size": {
@@ -2751,6 +4324,7 @@
             "RightMargin": 2174.489,
             "TopMargin": 694.0835,
             "BottomMargin": 910.9165,
+            "UserData": "drag",
             "Tag": 3610,
             "ActionTag": -928474959,
             "Size": {
@@ -2798,6 +4372,7 @@
             "RightMargin": 1655.5065,
             "TopMargin": 483.3235,
             "BottomMargin": 1121.6765,
+            "UserData": "drag",
             "Tag": 3611,
             "ActionTag": -1984475911,
             "Size": {
@@ -2845,6 +4420,7 @@
             "RightMargin": 1534.0292,
             "TopMargin": 509.0842,
             "BottomMargin": 1095.9158,
+            "UserData": "drag",
             "Tag": 3612,
             "ActionTag": 1326287815,
             "Size": {
@@ -2892,6 +4468,7 @@
             "RightMargin": 1105.408,
             "TopMargin": 463.8394,
             "BottomMargin": 1141.1606,
+            "UserData": "drag",
             "Tag": 3613,
             "ActionTag": 479008534,
             "Size": {
@@ -2939,6 +4516,7 @@
             "RightMargin": 1002.114,
             "TopMargin": 504.3628,
             "BottomMargin": 1100.6372,
+            "UserData": "drag",
             "Tag": 3614,
             "ActionTag": -63293562,
             "Size": {
@@ -2986,6 +4564,7 @@
             "RightMargin": 679.2109,
             "TopMargin": 497.8107,
             "BottomMargin": 1107.1893,
+            "UserData": "drag",
             "Tag": 3615,
             "ActionTag": -938269144,
             "Size": {
@@ -3033,6 +4612,7 @@
             "RightMargin": 577.2368,
             "TopMargin": 561.8673,
             "BottomMargin": 1043.1327,
+            "UserData": "drag",
             "Tag": 3616,
             "ActionTag": 1135684596,
             "Size": {
@@ -3080,6 +4660,7 @@
             "RightMargin": 696.1923,
             "TopMargin": 790.6325,
             "BottomMargin": 814.3675,
+            "UserData": "drag",
             "Tag": 3617,
             "ActionTag": -480451972,
             "Size": {
@@ -3127,6 +4708,7 @@
             "RightMargin": 521.3301,
             "TopMargin": 697.7479,
             "BottomMargin": 907.2521,
+            "UserData": "drag",
             "Tag": 3618,
             "ActionTag": -1919360644,
             "Size": {
@@ -3174,6 +4756,7 @@
             "RightMargin": 108.4624,
             "TopMargin": 651.2585,
             "BottomMargin": 953.7415,
+            "UserData": "drag",
             "Tag": 3619,
             "ActionTag": -14270786,
             "Size": {
@@ -3221,6 +4804,7 @@
             "RightMargin": -214.397,
             "TopMargin": 726.0886,
             "BottomMargin": 878.9114,
+            "UserData": "drag",
             "Tag": 3620,
             "ActionTag": -459025922,
             "Size": {
@@ -3268,6 +4852,7 @@
             "RightMargin": -289.2251,
             "TopMargin": 762.8684,
             "BottomMargin": 842.1316,
+            "UserData": "drag",
             "Tag": 3621,
             "ActionTag": 1429712036,
             "Size": {
@@ -3315,6 +4900,7 @@
             "RightMargin": -215.468,
             "TopMargin": 861.2529,
             "BottomMargin": 743.7471,
+            "UserData": "drag",
             "Tag": 3622,
             "ActionTag": -1772125436,
             "Size": {
@@ -3362,6 +4948,7 @@
             "RightMargin": 40.5989,
             "TopMargin": 750.9407,
             "BottomMargin": 854.0593,
+            "UserData": "drag",
             "Tag": 3623,
             "ActionTag": 1670881943,
             "Size": {
@@ -3409,6 +4996,7 @@
             "RightMargin": 104.7734,
             "TopMargin": 697.9934,
             "BottomMargin": 907.0066,
+            "UserData": "drag",
             "Tag": 3624,
             "ActionTag": -71666190,
             "Size": {
@@ -3456,6 +5044,7 @@
             "RightMargin": 429.1543,
             "TopMargin": 810.9589,
             "BottomMargin": 794.0411,
+            "UserData": "drag",
             "Tag": 3625,
             "ActionTag": 1093993888,
             "Size": {
@@ -3503,6 +5092,7 @@
             "RightMargin": 507.4631,
             "TopMargin": 728.8362,
             "BottomMargin": 876.1639,
+            "UserData": "drag",
             "Tag": 3626,
             "ActionTag": 9411395,
             "Size": {
@@ -3550,6 +5140,7 @@
             "RightMargin": 571.3558,
             "TopMargin": 790.6524,
             "BottomMargin": 814.3476,
+            "UserData": "drag",
             "Tag": 3627,
             "ActionTag": 1155299645,
             "Size": {
@@ -3597,6 +5188,7 @@
             "RightMargin": 95.4016,
             "TopMargin": 780.5,
             "BottomMargin": 824.5,
+            "UserData": "drag",
             "Tag": 3628,
             "ActionTag": 368429902,
             "Size": {
@@ -3644,6 +5236,7 @@
             "RightMargin": 670.5743,
             "TopMargin": 599.2417,
             "BottomMargin": 1005.7583,
+            "UserData": "drag",
             "Tag": 3629,
             "ActionTag": 1463072469,
             "Size": {
@@ -3691,6 +5284,7 @@
             "RightMargin": 1035.5619,
             "TopMargin": 624.4155,
             "BottomMargin": 980.5845,
+            "UserData": "drag",
             "Tag": 3630,
             "ActionTag": -1276881661,
             "Size": {
@@ -3738,6 +5332,7 @@
             "RightMargin": 1533.3019,
             "TopMargin": 633.2871,
             "BottomMargin": 971.7129,
+            "UserData": "drag",
             "Tag": 3631,
             "ActionTag": 676397969,
             "Size": {
@@ -3785,6 +5380,7 @@
             "RightMargin": 1879.7588,
             "TopMargin": 610.7271,
             "BottomMargin": 994.2729,
+            "UserData": "drag",
             "Tag": 3632,
             "ActionTag": 730200558,
             "Size": {
@@ -3832,6 +5428,7 @@
             "RightMargin": 1698.9417,
             "TopMargin": 644.7157,
             "BottomMargin": 960.2843,
+            "UserData": "drag",
             "Tag": 3633,
             "ActionTag": -1725152766,
             "Size": {
@@ -3879,6 +5476,7 @@
             "RightMargin": 2095.6321,
             "TopMargin": 604.5908,
             "BottomMargin": 1000.4092,
+            "UserData": "drag",
             "Tag": 3634,
             "ActionTag": 287906848,
             "Size": {
@@ -3926,6 +5524,7 @@
             "RightMargin": 1925.6318,
             "TopMargin": 681.7734,
             "BottomMargin": 923.2265,
+            "UserData": "drag",
             "Tag": 3635,
             "ActionTag": -2022071588,
             "Size": {
@@ -3973,6 +5572,7 @@
             "RightMargin": 2475.0293,
             "TopMargin": 633.1415,
             "BottomMargin": 971.8585,
+            "UserData": "drag",
             "Tag": 3636,
             "ActionTag": -1242647710,
             "Size": {
@@ -4020,6 +5620,7 @@
             "RightMargin": 2509.6257,
             "TopMargin": 821.5181,
             "BottomMargin": 783.4819,
+            "UserData": "drag",
             "Tag": 3637,
             "ActionTag": 256587919,
             "Size": {
@@ -4067,6 +5668,7 @@
             "RightMargin": 2739.7068,
             "TopMargin": 725.2385,
             "BottomMargin": 879.7614,
+            "UserData": "drag",
             "Tag": 3638,
             "ActionTag": -5398998,
             "Size": {
@@ -4114,6 +5716,7 @@
             "RightMargin": 1088.0447,
             "TopMargin": 628.4501,
             "BottomMargin": 976.5499,
+            "UserData": "drag",
             "Tag": 3639,
             "ActionTag": 1249591994,
             "Size": {
@@ -4122,6 +5725,132 @@
             },
             "Name": "leaf3_1_0_0_0_0_4_0",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Siku_ambayo_Jua_lilipotea/bush.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 612.3773,
+              "Y": 99.8104
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.2392,
+              "Y": 0.0555
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 612.3773,
+            "RightMargin": 1947.6228,
+            "TopMargin": 1700.1896,
+            "BottomMargin": 99.8104,
+            "UserData": "flowerb",
+            "Tag": 2570,
+            "ActionTag": 1964255816,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bush",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Siku_ambayo_Jua_lilipotea/bush.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1574.804,
+              "Y": 95.9061
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.6152,
+              "Y": 0.0533
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1574.804,
+            "RightMargin": 985.196,
+            "TopMargin": 1704.0939,
+            "BottomMargin": 95.9061,
+            "UserData": "flowera",
+            "Tag": 2577,
+            "ActionTag": -2007143848,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bush",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Siku_ambayo_Jua_lilipotea/bush.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2404.6597,
+              "Y": 96.5735
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.9393,
+              "Y": 0.0537
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2404.6597,
+            "RightMargin": 155.3403,
+            "TopMargin": 1703.4265,
+            "BottomMargin": 96.5735,
+            "UserData": "flowerb",
+            "Tag": 2584,
+            "ActionTag": 1446563624,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bush",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -4132,6 +5861,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "bush.json",
         "Siku_ambayo_Jua_lilipotea.plist",
         "Siku_ambayo_Jua_lilipotea.png"
       ],

@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 260,
+        "Duration": 450,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "deer",
         "Timelines": [
           {
             "ActionTag": 672149797,
@@ -42,6 +42,54 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 428751058,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 269,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 270,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 428751058,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 761.2969,
+                "Y": 489.3574,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 3103.627,
+                "Y": 455.9626,
+                "FrameIndex": 450,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 2084099654,
             "Property": "ActionValue",
             "Frames": [
@@ -70,8 +118,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 2814.6125,
-                "Y": 1283.7444,
+                "X": 2977.4688,
+                "Y": 1279.957,
                 "FrameIndex": 140,
                 "EasingData": {
                   "Type": 0
@@ -109,6 +157,19 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2084099654,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "bee",
+                "FrameIndex": 140,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -276,6 +337,25 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -1657095001,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "bee",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "bee",
+                "FrameIndex": 150,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 1154872619,
             "Property": "ActionValue",
             "Frames": [
@@ -311,6 +391,19 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1154872619,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "bee",
+                "FrameIndex": 77,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -397,6 +490,19 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -482633438,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "bee",
+                "FrameIndex": 201,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 282207214,
             "Property": "ActionValue",
             "Frames": [
@@ -425,8 +531,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 2814.6125,
-                "Y": 1283.7444,
+                "X": 2956.9736,
+                "Y": 1046.0294,
                 "FrameIndex": 251,
                 "EasingData": {
                   "Type": 0
@@ -622,6 +728,19 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -1517470724,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "bee",
+                "FrameIndex": 116,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 672040913,
             "Property": "ActionValue",
             "Frames": [
@@ -650,9 +769,9 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": -492.3813,
-                "Y": 490.9999,
-                "FrameIndex": 259,
+                "X": 177.6169,
+                "Y": 500.9165,
+                "FrameIndex": 260,
                 "EasingData": {
                   "Type": 0
                 },
@@ -691,13 +810,26 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -16.1285,
+                "X": -16.1327,
                 "Y": -16.1327,
-                "FrameIndex": 259,
+                "FrameIndex": 260,
                 "EasingData": {
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 672040913,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "bee",
+                "FrameIndex": 260,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -710,6 +842,12 @@
           "StartIndex": 0,
           "EndIndex": 260,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 270,
+          "EndIndex": 450,
+          "Name": "deer",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -1319,51 +1457,6 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 857.0839,
-              "Y": 597.6711
-            },
-            "Scale": {
-              "ScaleX": 0.6989,
-              "ScaleY": 0.7478
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.3348,
-              "Y": 0.332
-            },
-            "PreSize": {
-              "X": 0.307,
-              "Y": 0.1533
-            },
-            "LeftMargin": 464.0839,
-            "RightMargin": 1309.916,
-            "TopMargin": 1064.3289,
-            "BottomMargin": 459.6711,
-            "Tag": 11,
-            "ActionTag": -1710389705,
-            "Size": {
-              "X": 786.0,
-              "Y": 276.0
-            },
-            "Name": "bush_8_0",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Ndovu_na_vyura/bush.png",
-              "Plist": "Ndovu_na_vyura/Ndovu_na_vyura.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
               "X": 1686.6558,
               "Y": 622.8513
             },
@@ -1475,6 +1568,7 @@
             "RightMargin": 156.2988,
             "TopMargin": 609.5322,
             "BottomMargin": 448.4677,
+            "UserData": "main.deer",
             "Tag": 9,
             "ActionTag": 1527147831,
             "Size": {
@@ -1482,6 +1576,92 @@
               "Y": 742.0
             },
             "Name": "tree_2_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Ndovu_na_vyura/deer.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 761.2969,
+              "Y": 489.3574
+            },
+            "Scale": {
+              "ScaleX": 0.4,
+              "ScaleY": 0.4
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.2974,
+              "Y": 0.2719
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 761.2969,
+            "RightMargin": 1798.7031,
+            "TopMargin": 1310.6426,
+            "BottomMargin": 489.3574,
+            "Tag": 1465,
+            "ActionTag": 428751058,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "deer",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ndovu_na_vyura/bush.png",
+              "Plist": "Ndovu_na_vyura/Ndovu_na_vyura.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 857.0839,
+              "Y": 597.6711
+            },
+            "Scale": {
+              "ScaleX": 0.6989,
+              "ScaleY": 0.7478
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3348,
+              "Y": 0.332
+            },
+            "PreSize": {
+              "X": 0.307,
+              "Y": 0.1533
+            },
+            "LeftMargin": 464.0839,
+            "RightMargin": 1309.916,
+            "TopMargin": 1064.3289,
+            "BottomMargin": 459.6711,
+            "Tag": 11,
+            "ActionTag": -1710389705,
+            "Size": {
+              "X": 786.0,
+              "Y": 276.0
+            },
+            "Name": "bush_8_0",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1520,6 +1700,7 @@
             "RightMargin": 1268.7551,
             "TopMargin": 608.9081,
             "BottomMargin": 449.0919,
+            "UserData": "main.deer",
             "Tag": 5,
             "ActionTag": -408360211,
             "Size": {
@@ -2079,8 +2260,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": -811.349,
-              "Y": 822.9888
+              "X": 2277.9949,
+              "Y": 1195.5936
             },
             "Scale": {
               "ScaleX": 0.5,
@@ -2089,17 +2270,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": -0.3169,
-              "Y": 0.4572
+              "X": 0.8898,
+              "Y": 0.6642
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -811.349,
-            "RightMargin": 3371.3491,
-            "TopMargin": 977.0112,
-            "BottomMargin": 822.9888,
+            "LeftMargin": 2277.9949,
+            "RightMargin": 282.0051,
+            "TopMargin": 604.4064,
+            "BottomMargin": 1195.5936,
             "Tag": 15891,
             "ActionTag": 2084099654,
             "Size": {
@@ -2120,36 +2301,36 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1016.7854,
-              "Y": 943.7585
+              "X": 3233.1504,
+              "Y": 364.2932
             },
             "Scale": {
               "ScaleX": 0.6,
               "ScaleY": 0.6
             },
-            "RotationSkewX": 10.2548,
-            "RotationSkewY": 10.2548,
+            "RotationSkewX": 10.2663,
+            "RotationSkewY": 10.2558,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.3972,
-              "Y": 0.5243
+              "X": 1.2629,
+              "Y": 0.2024
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1016.7854,
-            "RightMargin": 1543.2146,
-            "TopMargin": 856.2415,
-            "BottomMargin": 943.7585,
+            "LeftMargin": 3233.1504,
+            "RightMargin": -673.1504,
+            "TopMargin": 1435.7068,
+            "BottomMargin": 364.2932,
             "Tag": 15895,
             "ActionTag": 690552184,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "fly",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -2163,36 +2344,36 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 151.8699,
-              "Y": 364.0226
+              "X": 2377.4214,
+              "Y": 1399.5488
             },
             "Scale": {
               "ScaleX": 0.3,
               "ScaleY": 0.3
             },
-            "RotationSkewX": -24.4611,
-            "RotationSkewY": -24.4572,
+            "RotationSkewX": -24.4672,
+            "RotationSkewY": -24.426,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.0593,
-              "Y": 0.2022
+              "X": 0.9287,
+              "Y": 0.7775
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 151.8699,
-            "RightMargin": 2408.1301,
-            "TopMargin": 1435.9774,
-            "BottomMargin": 364.0226,
+            "LeftMargin": 2377.4214,
+            "RightMargin": 182.5786,
+            "TopMargin": 400.4512,
+            "BottomMargin": 1399.5488,
             "Tag": 15899,
             "ActionTag": -1657095001,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_3",
+            "Name": "fly",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -2206,8 +2387,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1719.2003,
-              "Y": 1265.3541
+              "X": 3305.1675,
+              "Y": 1313.2831
             },
             "Scale": {
               "ScaleX": 0.4,
@@ -2216,24 +2397,24 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.6716,
-              "Y": 0.703
+              "X": 1.2911,
+              "Y": 0.7296
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1719.2003,
-            "RightMargin": 840.7997,
-            "TopMargin": 534.6459,
-            "BottomMargin": 1265.3541,
+            "LeftMargin": 3305.1675,
+            "RightMargin": -745.1675,
+            "TopMargin": 486.7169,
+            "BottomMargin": 1313.2831,
             "Tag": 15952,
             "ActionTag": 1154872619,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "fly",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -2247,36 +2428,36 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 3338.8425,
-              "Y": 688.8497
+              "X": 1659.5414,
+              "Y": 1055.389
             },
             "Scale": {
               "ScaleX": -0.4,
               "ScaleY": 0.4
             },
-            "RotationSkewX": 16.4522,
-            "RotationSkewY": 16.4029,
+            "RotationSkewX": 16.4443,
+            "RotationSkewY": 16.4004,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 1.3042,
-              "Y": 0.3827
+              "X": 0.6483,
+              "Y": 0.5863
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 3338.8425,
-            "RightMargin": -778.8425,
-            "TopMargin": 1111.1504,
-            "BottomMargin": 688.8497,
+            "LeftMargin": 1659.5414,
+            "RightMargin": 900.4586,
+            "TopMargin": 744.611,
+            "BottomMargin": 1055.389,
             "Tag": 15956,
             "ActionTag": -482633438,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_4",
+            "Name": "fly",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -2290,8 +2471,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": -811.349,
-              "Y": 822.9888
+              "X": -164.0298,
+              "Y": 861.3025
             },
             "Scale": {
               "ScaleX": 0.5,
@@ -2300,17 +2481,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": -0.3169,
-              "Y": 0.4572
+              "X": -0.0641,
+              "Y": 0.4785
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -811.349,
-            "RightMargin": 3371.3491,
-            "TopMargin": 977.0112,
-            "BottomMargin": 822.9888,
+            "LeftMargin": -164.0298,
+            "RightMargin": 2724.0298,
+            "TopMargin": 938.6975,
+            "BottomMargin": 861.3025,
             "Tag": 15960,
             "ActionTag": 282207214,
             "Size": {
@@ -2352,6 +2533,7 @@
             "RightMargin": 4058.127,
             "TopMargin": 1323.0262,
             "BottomMargin": 476.9738,
+            "UserData": "fly;drag",
             "Tag": 15964,
             "ActionTag": -2146275596,
             "Size": {
@@ -2372,36 +2554,37 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 2446.865,
-              "Y": 505.5016
+              "X": -619.6449,
+              "Y": 1159.033
             },
             "Scale": {
               "ScaleX": -0.4,
               "ScaleY": 0.4
             },
-            "RotationSkewX": 3.1139,
-            "RotationSkewY": 3.0528,
+            "RotationSkewX": 16.433,
+            "RotationSkewY": 16.3969,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.9558,
-              "Y": 0.2808
+              "X": -0.242,
+              "Y": 0.6439
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 2446.865,
-            "RightMargin": 113.135,
-            "TopMargin": 1294.4984,
-            "BottomMargin": 505.5016,
+            "LeftMargin": -619.6449,
+            "RightMargin": 3179.645,
+            "TopMargin": 640.967,
+            "BottomMargin": 1159.033,
             "Tag": 15968,
+            "FrameEvent": "bee",
             "ActionTag": -1517470724,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_4_0",
+            "Name": "fly",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -2415,36 +2598,37 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 3285.3315,
-              "Y": 238.8821
+              "X": 2923.0825,
+              "Y": 269.426
             },
             "Scale": {
               "ScaleX": -0.4,
               "ScaleY": 0.4
             },
-            "RotationSkewX": 3.1139,
-            "RotationSkewY": 3.0528,
+            "RotationSkewX": 0.8704,
+            "RotationSkewY": 0.8164,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 1.2833,
-              "Y": 0.1327
+              "X": 1.1418,
+              "Y": 0.1497
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 3285.3315,
-            "RightMargin": -725.3315,
-            "TopMargin": 1561.1179,
-            "BottomMargin": 238.8821,
+            "LeftMargin": 2923.0825,
+            "RightMargin": -363.0825,
+            "TopMargin": 1530.574,
+            "BottomMargin": 269.426,
+            "UserData": "fly;drag",
             "Tag": 15972,
             "ActionTag": 672040913,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_4_0_0",
+            "Name": "fly",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -2456,6 +2640,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "deer.json",
         "fly.json",
         "Ndovu_na_vyura.plist",
         "Ndovu_na_vyura.png"

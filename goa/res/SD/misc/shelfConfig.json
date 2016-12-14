@@ -321,7 +321,13 @@
 			"icon": "panya_thumbnail.png",
 			"coverPage": "Panya/Panya_cover_page.json",
 			"resources": [
+				"Panya/ant.json",
 				"Panya/boy.json",
+				"Panya/bush.json",
+				"Panya/cloud.json",
+				"Panya/dove.json",
+				"Panya/light.json",
+				"Panya/wallpainting.json",
 				"Panya/rat1.json",
 				"Panya/rat2.json",
 				"Panya/Panya.plist",
@@ -745,9 +751,17 @@
 			"icon": "Sababu_Chura_kuwa_na_Sura_Mbaya_thumbnail.png",
 			"coverPage": "Sababu_Chura_kuwa_na_Sura_Mbaya/Sababu_Chura_kuwa_na_Sura_Mbaya_cover_page.json",
 			"resources": [
+				"Sababu_Chura_kuwa_na_Sura_Mbaya/ant.json",
+				"Sababu_Chura_kuwa_na_Sura_Mbaya/bush.json",
+				"Sababu_Chura_kuwa_na_Sura_Mbaya/cloud.json",
+				"Sababu_Chura_kuwa_na_Sura_Mbaya/cry.json",
+				"Sababu_Chura_kuwa_na_Sura_Mbaya/dove.json",
+				"Sababu_Chura_kuwa_na_Sura_Mbaya/fire.json",				
 				"Sababu_Chura_kuwa_na_Sura_Mbaya/frog.json",
 				"Sababu_Chura_kuwa_na_Sura_Mbaya/frog1.json",
 				"Sababu_Chura_kuwa_na_Sura_Mbaya/lizard.json",
+				"Sababu_Chura_kuwa_na_Sura_Mbaya/wallpainting.json",
+				"Sababu_Chura_kuwa_na_Sura_Mbaya/waterdrop.json",
 				"Sababu_Chura_kuwa_na_Sura_Mbaya/Sababu_Chura_kuwa_na_Sura_Mbaya.plist",
 				"Sababu_Chura_kuwa_na_Sura_Mbaya/Sababu_Chura_kuwa_na_Sura_Mbaya.png"
 			],
@@ -1614,8 +1628,11 @@
 				"Ng_ombe_mwenye_pembe_moja/boy_1.json",
 				"Ng_ombe_mwenye_pembe_moja/boy_2.json",
 				"Ng_ombe_mwenye_pembe_moja/boy_3.json",
+				"Ng_ombe_mwenye_pembe_moja/bush.json",
+				"Ng_ombe_mwenye_pembe_moja/cloud.json",
 				"Ng_ombe_mwenye_pembe_moja/cow.json",
 				"Ng_ombe_mwenye_pembe_moja/cowonehorn.json",
+				"Ng_ombe_mwenye_pembe_moja/dove.json",
 				"Ng_ombe_mwenye_pembe_moja/men.json",
 				"Ng_ombe_mwenye_pembe_moja/Ng_ombe_mwenye_pembe_moja.png",
 				"Ng_ombe_mwenye_pembe_moja/Ng_ombe_mwenye_pembe_moja.plist"
@@ -1653,6 +1670,10 @@
 			"icon": "Rangi_za_upinde_thumbnail.png",
 			"coverPage": "Rangi_za_upinde/Rangi_za_upinde_cover_page.json",
 			"resources": [
+				"Rangi_za_upinde/ant.json",
+				"Rangi_za_upinde/bush.json",
+				"Rangi_za_upinde/cloud.json",
+				"Rangi_za_upinde/dove.json",				
 				"Rangi_za_upinde/fishbowl.json",
 				"Rangi_za_upinde/frog.json",
 				"Rangi_za_upinde/frog1.json",
@@ -1665,6 +1686,7 @@
 				"Rangi_za_upinde/girl7.json",
 				"Rangi_za_upinde/girl8.json",
 				"Rangi_za_upinde/men.json",
+				"Rangi_za_upinde/wallpainting.json",
 				"Rangi_za_upinde/Rangi_za_upinde.png",
 				"Rangi_za_upinde/Rangi_za_upinde.plist"
 			],
@@ -3192,10 +3214,15 @@
 			"icon": "Siku_ambayo_Jua_lilipotea_thumbnail.png",
 			"coverPage": "Siku_ambayo_Jua_lilipotea/Siku_ambayo_Jua_lilipotea_cover_page.json",
 			"resources": [
+				"Siku_ambayo_Jua_lilipotea/bush.json",
+				"Siku_ambayo_Jua_lilipotea/cloud.json",
+				"Siku_ambayo_Jua_lilipotea/dove.json",
 				"Siku_ambayo_Jua_lilipotea/flower1.json",
 				"Siku_ambayo_Jua_lilipotea/flower2.json",
 				"Siku_ambayo_Jua_lilipotea/flower3.json",
 				"Siku_ambayo_Jua_lilipotea/flower4.json",
+				"Siku_ambayo_Jua_lilipotea/frog.json",
+				"Siku_ambayo_Jua_lilipotea/frog1.json",
 				"Siku_ambayo_Jua_lilipotea/plant1.json",
 				"Siku_ambayo_Jua_lilipotea/plant2.json",
 				"Siku_ambayo_Jua_lilipotea/plant3.json",
@@ -3906,6 +3933,66 @@
 					"contentJson": "Bi_Simu/Bi_Simu12.json"
 				}			
 			]
-		}																																																			
+		},
+		{
+			"storyId": "storyId_74",
+			"icon": "Adie_na_adhoch_thumbnail.png",
+			"coverPage": "Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo_cover_page.json",
+			"resources": [
+				"Ng_ombe_wetu_Pendo/boy_1.json",
+				"Ng_ombe_wetu_Pendo/boy_2.json",
+				"Ng_ombe_wetu_Pendo/boy_3.json",
+				"Ng_ombe_wetu_Pendo/bush.json",
+				"Ng_ombe_wetu_Pendo/chicken.json",
+				"Ng_ombe_wetu_Pendo/cloud.json",
+				"Ng_ombe_wetu_Pendo/cow.json",
+				"Ng_ombe_wetu_Pendo/dove.json",
+				"Ng_ombe_wetu_Pendo/fishbowl.json",
+				"Ng_ombe_wetu_Pendo/light.json",
+				"Ng_ombe_wetu_Pendo/men_1.json",
+				"Ng_ombe_wetu_Pendo/men.json",
+				"Ng_ombe_wetu_Pendo/wallpainting.json",
+				"Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo.plist",
+				"Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo.png"																							
+			],
+			"pages": [
+				{
+					"contentJson": "Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo_01.json"
+				},		
+				{
+					"contentJson": "Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo_02.json"
+				},		
+				{
+					"contentJson": "Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo_03.json"
+				},		
+				{
+					"contentJson": "Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo_04.json"
+				},		
+				{
+					"contentJson": "Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo_05.json"
+				},		
+				{
+					"contentJson": "Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo_06.json"
+				},	
+				{
+					"contentJson": "Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo_07.json"
+				},		
+				{
+					"contentJson": "Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo_08.json"
+				},		
+				{
+					"contentJson": "Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo_09.json"
+				},		
+				{
+					"contentJson": "Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo_10.json"
+				},		
+				{
+					"contentJson": "Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo_11.json"
+				},		
+				{
+					"contentJson": "Ng_ombe_wetu_Pendo/Ng_ombe_wetu_Pendo_12.json"
+				}		
+			]
+		}																																																					
 	]
 }

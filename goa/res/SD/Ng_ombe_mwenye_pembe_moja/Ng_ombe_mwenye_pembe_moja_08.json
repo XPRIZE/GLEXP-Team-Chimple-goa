@@ -5,18 +5,18 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 360,
+        "Duration": 455,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "sun",
         "Timelines": [
           {
-            "ActionTag": -1239652271,
+            "ActionTag": -2085668746,
             "Property": "Position",
             "Frames": [
               {
-                "X": 2049.9968,
-                "Y": 1589.9963,
-                "FrameIndex": 180,
+                "X": 1674.1342,
+                "Y": 1545.5977,
+                "FrameIndex": 365,
                 "EasingData": {
                   "Type": 0
                 },
@@ -26,13 +26,85 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": -1239652271,
+            "ActionTag": -2085668746,
             "Property": "Scale",
             "Frames": [
               {
-                "X": 0.8088,
-                "Y": 0.8073,
-                "FrameIndex": 180,
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.25,
+                "Y": 1.25,
+                "FrameIndex": 395,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8,
+                "Y": 0.8,
+                "FrameIndex": 405,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.15,
+                "Y": 1.15,
+                "FrameIndex": 415,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.9,
+                "Y": 0.9,
+                "FrameIndex": 425,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.06,
+                "Y": 1.06,
+                "FrameIndex": 435,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.97,
+                "Y": 0.97,
+                "FrameIndex": 445,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.02,
+                "Y": 1.02,
+                "FrameIndex": 452,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 455,
                 "EasingData": {
                   "Type": 0
                 },
@@ -42,32 +114,30 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": 841638049,
-            "Property": "FileData",
+            "ActionTag": -2085668746,
+            "Property": "RotationSkew",
             "Frames": [
               {
-                "TextureFile": {
-                  "Type": "MarkedSubImage",
-                  "Path": "Ng_ombe_mwenye_pembe_moja/bush.png",
-                  "Plist": "Ng_ombe_mwenye_pembe_moja/Ng_ombe_mwenye_pembe_moja.plist"
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
                 },
-                "FrameIndex": 180,
-                "Tween": false,
-                "ctype": "TextureFrameData"
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": 841638049,
-            "Property": "BlendFunc",
+            "ActionTag": -2085668746,
+            "Property": "FrameEvent",
             "Frames": [
               {
-                "Src": 1,
-                "Dst": 771,
-                "FrameIndex": 180,
+                "Value": "hop",
+                "FrameIndex": 395,
                 "Tween": false,
-                "ctype": "BlendFuncFrameData"
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -215,6 +285,37 @@
           },
           {
             "ActionTag": 1939881710,
+            "Property": "BlendFunc",
+            "Frames": [
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 180,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 841638049,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Ng_ombe_mwenye_pembe_moja/bush.png",
+                  "Plist": "Ng_ombe_mwenye_pembe_moja/Ng_ombe_mwenye_pembe_moja.plist"
+                },
+                "FrameIndex": 180,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 841638049,
             "Property": "BlendFunc",
             "Frames": [
               {
@@ -538,6 +639,12 @@
           "EndIndex": 360,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 365,
+          "EndIndex": 455,
+          "Name": "sun",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -607,34 +714,35 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2049.9968,
-              "Y": 1589.9963
+              "X": 1674.1342,
+              "Y": 1545.5977
             },
             "Scale": {
-              "ScaleX": 0.8088,
-              "ScaleY": 0.8073
+              "ScaleX": 1.0133,
+              "ScaleY": 1.0133
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.8008,
-              "Y": 0.8833
+              "X": 0.654,
+              "Y": 0.8587
             },
             "PreSize": {
               "X": 0.2043,
               "Y": 0.2883
             },
-            "LeftMargin": 1788.4968,
-            "RightMargin": 248.5032,
-            "TopMargin": -49.4963,
-            "BottomMargin": 1330.4963,
-            "Tag": 1479,
-            "ActionTag": -1239652271,
+            "LeftMargin": 1412.6342,
+            "RightMargin": 624.3658,
+            "TopMargin": -5.0977,
+            "BottomMargin": 1286.0977,
+            "UserData": "main.sun",
+            "Tag": 2118,
+            "ActionTag": -2085668746,
             "Size": {
               "X": 523.0,
               "Y": 519.0
             },
-            "Name": "sun_146",
+            "Name": "sun_1",
             "ctype": "SpriteObjectData"
           },
           {
@@ -687,55 +795,6 @@
             },
             "Name": "Panel_2",
             "ctype": "PanelObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Ng_ombe_mwenye_pembe_moja/bush.png",
-              "Plist": "Ng_ombe_mwenye_pembe_moja/Ng_ombe_mwenye_pembe_moja.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 473.9049,
-              "Y": 820.7119
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {
-              "R": 215,
-              "G": 215,
-              "B": 215
-            },
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.1851,
-              "Y": 0.456
-            },
-            "PreSize": {
-              "X": 0.307,
-              "Y": 0.1533
-            },
-            "LeftMargin": 80.9049,
-            "RightMargin": 1693.0951,
-            "TopMargin": 841.2881,
-            "BottomMargin": 682.7119,
-            "Tag": 196,
-            "ActionTag": 841638049,
-            "Size": {
-              "X": 786.0,
-              "Y": 276.0
-            },
-            "Name": "bush_1",
-            "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
@@ -980,6 +1039,55 @@
               "Y": 158.0
             },
             "Name": "smallhill_3_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ng_ombe_mwenye_pembe_moja/bush.png",
+              "Plist": "Ng_ombe_mwenye_pembe_moja/Ng_ombe_mwenye_pembe_moja.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 473.9049,
+              "Y": 820.7119
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 215,
+              "G": 215,
+              "B": 215
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1851,
+              "Y": 0.456
+            },
+            "PreSize": {
+              "X": 0.307,
+              "Y": 0.1533
+            },
+            "LeftMargin": 80.9049,
+            "RightMargin": 1693.0951,
+            "TopMargin": 841.2881,
+            "BottomMargin": 682.7119,
+            "Tag": 196,
+            "ActionTag": 841638049,
+            "Size": {
+              "X": 786.0,
+              "Y": 276.0
+            },
+            "Name": "bush_1",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1470,6 +1578,48 @@
             },
             "Name": "cow",
             "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Ng_ombe_mwenye_pembe_moja/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 367.8434,
+              "Y": 1687.0059
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1437,
+              "Y": 0.9372
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 367.8434,
+            "RightMargin": 2192.1567,
+            "TopMargin": 112.9941,
+            "BottomMargin": 1687.0059,
+            "UserData": "blast",
+            "Tag": 2119,
+            "ActionTag": -1856724077,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_1",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -1483,6 +1633,7 @@
         "boy_1.json",
         "boy_2.json",
         "boy_3.json",
+        "cloud.json",
         "cowonehorn.json",
         "Ng_ombe_mwenye_pembe_moja.plist",
         "Ng_ombe_mwenye_pembe_moja.png"
