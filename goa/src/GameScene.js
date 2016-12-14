@@ -110,6 +110,7 @@ xc.GameScene.loadMenu = function() {
         t_resources.push(xc.path + gameConfig.frontgroundJson);
     }
     if(gameConfig.maingroundJson) {
+        cc.log('pushing maingroundJson: ' + xc.path + gameConfig.maingroundJson);
         t_resources.push(xc.path + gameConfig.maingroundJson);
     }
     if(gameConfig.menuPlist) {

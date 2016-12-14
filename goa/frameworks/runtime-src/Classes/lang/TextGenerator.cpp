@@ -63,6 +63,7 @@ std::string TextGenerator::generateAWord(int level, int length) {
 }
 
 std::string TextGenerator::generateASentence(int level) {
+    /* TODO: make the level as the number of words */
     return getSingle("sentences", level);
 }
 

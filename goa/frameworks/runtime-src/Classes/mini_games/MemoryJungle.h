@@ -79,7 +79,8 @@ protected:
 	cocos2d::Vec2 box2pos;
     
 	int _pairCount;
-	
+	int _wrong;
+	int _right;
     
     
 	void setupTouch();

@@ -37,7 +37,9 @@ MemoryHero::MemoryHero() :
     _gridFourByFiveIds(20),
     _gridFourBySixIds(24),
     _counter(0),
-	_helpflag(0)
+	_helpflag(0),
+	_wrong(0),
+	_right(0)
 {
 
 }
@@ -97,7 +99,8 @@ void MemoryHero::onEnterTransitionDidFinish() {
 	_pairCount = 2;
 
 	_finalGridIds = _gridTwoByTwoIds;
-	_menuContext->setMaxPoints(_pairCount);
+	_right = _pairCount * 2;
+	_menuContext->setMaxPoints(_right);
 
 	if (_menuContext->getCurrentLevel() >= 1 && _menuContext->getCurrentLevel() <= 2) {
 		_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
@@ -121,7 +124,8 @@ void MemoryHero::onEnterTransitionDidFinish() {
 	_pairCount = 3;
 
 	_finalGridIds = _gridTwoByThreeIds;
-	_menuContext->setMaxPoints(_pairCount);
+	_right = _pairCount * 2;
+	_menuContext->setMaxPoints(_right);
 
 	if (_menuContext->getCurrentLevel() >= 7 && _menuContext->getCurrentLevel() <= 8) {
 		_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
@@ -144,7 +148,8 @@ void MemoryHero::onEnterTransitionDidFinish() {
 		_pairCount = 6;
 
 		_finalGridIds = _gridThreeByFourIds;
-		_menuContext->setMaxPoints(_pairCount);
+		_right = _pairCount * 2;
+		_menuContext->setMaxPoints(_right);
 
 		if (_menuContext->getCurrentLevel() >= 13 && _menuContext->getCurrentLevel() <= 14) {
 			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
@@ -167,7 +172,8 @@ void MemoryHero::onEnterTransitionDidFinish() {
 	_pairCount = 9;
 
 	_finalGridIds = _gridThreeBySixIds;
-	_menuContext->setMaxPoints(_pairCount);
+	_right = _pairCount * 2;
+	_menuContext->setMaxPoints(_right);
 
 	if (_menuContext->getCurrentLevel() >= 19 && _menuContext->getCurrentLevel() <= 20) {
 		_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
@@ -190,7 +196,8 @@ void MemoryHero::onEnterTransitionDidFinish() {
 	_pairCount = 10;
 
 	_finalGridIds = _gridFourByFiveIds;
-	_menuContext->setMaxPoints(_pairCount);
+	_right = _pairCount * 2;
+	_menuContext->setMaxPoints(_right);
 
 	if (_menuContext->getCurrentLevel() >= 25 && _menuContext->getCurrentLevel() <= 26) {
 		_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
@@ -213,7 +220,8 @@ void MemoryHero::onEnterTransitionDidFinish() {
 	_pairCount = 12;
 
 	_finalGridIds = _gridFourBySixIds;
-	_menuContext->setMaxPoints(_pairCount);
+	_right = _pairCount * 2;
+	_menuContext->setMaxPoints(_right);
 
 	if (_menuContext->getCurrentLevel() >= 31 && _menuContext->getCurrentLevel() <= 32) {
 		_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
@@ -332,7 +340,35 @@ void MemoryHero::onEnterTransitionDidFinish() {
     if (_menuContext->getCurrentLevel() == 1) {
 
 		auto box1 = _memoryfarm->getChildByName("mainground")->getChildByName("board7");
-		auto box2 = _memoryfarm->getChildByName("mainground")->getChildByName("board15");
+		auto matchNode = box1->getChildByName("window")->getChildByName("windowborder")->getChildren();
+		auto stringOne = matchNode.at(0)->getName();
+
+		auto stringTwo = _data[stringOne];
+		int ids[3] = { 9, 13, 15 };
+		int  i;
+		for (i = 0; i < 3; i++) {
+
+			std::ostringstream sstreamc;
+			sstreamc << "board" << ids[i];
+			std::string queryc = sstreamc.str();
+
+
+			auto tempBox = _memoryfarm->getChildByName("mainground")->getChildByName(queryc);
+
+			auto matchNode = tempBox->getChildByName("window")->getChildByName("windowborder")->getChildren();
+			auto tempString = matchNode.at(0)->getName();
+
+			if (tempString == stringTwo) {
+				break;
+			}
+
+		}
+
+		std::ostringstream sstreamd;
+		sstreamd << "board" << ids[i];
+		std::string queryd = sstreamd.str();
+
+		auto box2 = _memoryfarm->getChildByName("mainground")->getChildByName(queryd);
 
 
 		box1pos = box1->getPosition() + Vec2(visibleSize.width * 0.03, 0);
@@ -422,8 +458,35 @@ bool MemoryHero::onTouchBegan(Touch* touch, Event* event) {
 			this->removeChild(help1);
 
 			auto box1 = _memoryfarm->getChildByName("mainground")->getChildByName("board7");
-		auto box2 = _memoryfarm->getChildByName("mainground")->getChildByName("board15");
+			auto matchNode = box1->getChildByName("window")->getChildByName("windowborder")->getChildren();
+			auto stringOne = matchNode.at(0)->getName();
 
+			auto stringTwo = _data[stringOne];
+			int ids[3] = { 9, 13, 15 };
+			int  i;
+			for (i = 0; i < 3; i++) {
+
+				std::ostringstream sstreamc;
+				sstreamc << "board" << ids[i];
+				std::string queryc = sstreamc.str();
+
+
+				auto tempBox = _memoryfarm->getChildByName("mainground")->getChildByName(queryc);
+
+				auto matchNode = tempBox->getChildByName("window")->getChildByName("windowborder")->getChildren();
+				auto tempString = matchNode.at(0)->getName();
+
+				if (tempString == stringTwo) {
+					break;
+				}
+
+			}
+
+			std::ostringstream sstreamd;
+			sstreamd << "board" << ids[i];
+			std::string queryd = sstreamd.str();
+
+			auto box2 = _memoryfarm->getChildByName("mainground")->getChildByName(queryd);
 
 		box1pos = box1->getPosition() + Vec2(visibleSize.width * 0.03, 0);
 		box2pos = box2->getPosition() + Vec2(visibleSize.width * 0.03, 0);
@@ -504,23 +567,37 @@ bool MemoryHero::onTouchBegan(Touch* touch, Event* event) {
 
 								auto first = x.first;
 								auto second = x.second;
+								if (first.length() != 0 && second.length() != 0) {
+									_label->setString(x.first + " ------- " + x.second);
+									_label->setFontSize(60);
 
-								_label->setString(x.first + " ------- " + x.second);
-								_label->setFontSize(60);
+									_label->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * heightpercent));
+									_label->setAnchorPoint(Vec2(0.5, 0.5));
+									_label->setName("label");
+									_label->setTextColor(Color4B::BLACK);
+									_label->setColor(Color3B::BLACK);
 
-								_label->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * heightpercent));
-								_label->setAnchorPoint(Vec2(0.5, 0.5));
-								_label->setName("label");
-								_label->setTextColor(Color4B::BLACK);
-								_label->setColor(Color3B::BLACK);
-
-								this->addChild(_label, 20);
-								heightpercent -= 0.05;
+									this->addChild(_label, 20);
+									heightpercent -= 0.05;
+								}
 							}
 
 						});
 
 						auto showScore = CallFunc::create([=] {
+
+							if (_wrong > _right / 2) {
+								_menuContext->addPoints(0.33 * _right);
+							}
+
+							if (_wrong <= _right / 2) {
+								_menuContext->addPoints(0.66 * _right);
+							}
+
+							if (_wrong == 0) {
+								_menuContext->addPoints(_right);
+							}
+
 							_menuContext->showScore();
 						});
 
@@ -583,7 +660,7 @@ bool MemoryHero::onTouchBegan(Touch* touch, Event* event) {
 
 						_chickenTimeline[_currentClickedPair[0]]->play("doorclose", false);
 						_chickenTimeline[_currentClickedPair[1]]->play("doorclose", false);
-
+						_wrong++;
 					});
 
 					auto setspritesinvisiblefunc = CallFunc::create([=] {
@@ -718,7 +795,7 @@ void MemoryHero::chickenFly() {
 	_chickenTimeline[_currentClickedPair[1]]->play("doorfall", false);
 	_wallTimeline[_currentClickedPair[0]]->play("fall", false);
 	_wallTimeline[_currentClickedPair[1]]->play("fall", false);
-	_menuContext->addPoints(1);
+	
 
 	/*
 	auto moveTonest1 = MoveTo::create(4, Vec2(-3100, 1800));
