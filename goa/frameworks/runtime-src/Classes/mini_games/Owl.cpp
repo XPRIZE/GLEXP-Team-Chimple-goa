@@ -87,21 +87,21 @@ void Owl::onEnterTransitionDidFinish()
 			{"owlCity",
 				{
 					{"rowFirst",0.19f},
-					{"blockX1",0.08f},
+					{"blockX1",0.06f},
 					{"blockY1",0.34f},
-					{ "blockX2",0.6f },
-					{ "blockY2",0.37f },
+					{ "blockX2",0.7f },
+					{ "blockY2",0.36f },
 					{"owlheightToAlpha",1.5f},
-					{"scaleSecond",0.65f}
+					{"scaleSecond",0.5f}
 				}
 			},
 			{ "owlisland",
 				{
 					{ "rowFirst",0.19f },
-					{ "blockX1",0.08f },
+					{ "blockX1",0.06f },
 					{ "blockY1",0.34f },
-					{ "blockX2",0.65f },
-					{ "blockY2",0.37f },
+					{ "blockX2",0.7f },
+					{ "blockY2",0.36f },
 					{ "owlheightToAlpha",1.5f },
 					{ "scaleSecond",0.5f }
 				}
@@ -109,10 +109,10 @@ void Owl::onEnterTransitionDidFinish()
 			{ "owljungle",
 				{
 					{ "rowFirst",0.19f },
-					{ "blockX1",0.07f },
+					{ "blockX1",0.06f },
 					{ "blockY1",0.34f },
-					{ "blockX2",0.65f },
-					{ "blockY2",0.37f },
+					{ "blockX2",0.7f },
+					{ "blockY2",0.35f },
 					{ "owlheightToAlpha",1.5f },
 					{ "scaleSecond",0.5f }
 				}
@@ -230,7 +230,7 @@ void Owl::onEnterTransitionDidFinish()
 	}
 	auto board = bg->getChildByName(themeResourcePath.at("topBoard"));
 	board->setName("topBoard");
-
+	
 	_sentence = LangUtil::getInstance()->translateString(categoryTitle);
 
 	std::ostringstream boardName;	
@@ -301,6 +301,10 @@ std::tuple<int, int,int> Owl::levelAllInfo(int currentLevel, int totalCategory ,
 
 	if (sceneNo == 0)
 		sceneNo = totalSceneTheme;
+
+	if (categoryLevel >= 7) {
+		categoryLevel = 7;
+	}
 
 	return std::make_tuple(categoryNo, sceneNo, categoryLevel);
 }
