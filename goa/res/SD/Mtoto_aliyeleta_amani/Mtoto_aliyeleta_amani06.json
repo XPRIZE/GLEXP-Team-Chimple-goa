@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 415,
         "Speed": 1.0,
-        "ActivedAnimationName": "cloud",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -647553060,
@@ -95,6 +95,25 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -1685520034,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 1721230154,
             "Property": "ActionValue",
             "Frames": [
@@ -146,6 +165,25 @@
                   "Type": 0
                 },
                 "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1721230154,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -262,11 +300,7 @@
               "ScaleX": 1.0875,
               "ScaleY": 1.0875
             },
-            "CColor": {
-              "R": 245,
-              "G": 245,
-              "B": 249
-            },
+            "CColor": {},
             "IconVisible": false,
             "PrePosition": {
               "X": 0.4511,
@@ -353,8 +387,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 467.4032,
-              "Y": 1625.8575
+              "X": 250.2334,
+              "Y": 1638.8152
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -363,23 +397,24 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.1826,
-              "Y": 0.9033
+              "X": 0.0977,
+              "Y": 0.9105
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 467.4032,
-            "RightMargin": 2092.5967,
-            "TopMargin": 174.1425,
-            "BottomMargin": 1625.8575,
+            "LeftMargin": 250.2334,
+            "RightMargin": 2309.7666,
+            "TopMargin": 161.1848,
+            "BottomMargin": 1638.8152,
             "Tag": 2510,
             "ActionTag": -1685520034,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
+            "VisibleForFrame": false,
             "Name": "cloud",
             "ctype": "ProjectNodeObjectData"
           },
@@ -394,8 +429,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 2729.5247,
-              "Y": 1621.3821
+              "X": 2909.2485,
+              "Y": 1603.8765
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -404,23 +439,24 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 1.0662,
-              "Y": 0.9008
+              "X": 1.1364,
+              "Y": 0.891
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 2729.5247,
-            "RightMargin": -169.5247,
-            "TopMargin": 178.6179,
-            "BottomMargin": 1621.3821,
+            "LeftMargin": 2909.2485,
+            "RightMargin": -349.2485,
+            "TopMargin": 196.1235,
+            "BottomMargin": 1603.8765,
             "Tag": 2502,
             "ActionTag": 1721230154,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
+            "VisibleForFrame": false,
             "Name": "cloud",
             "ctype": "ProjectNodeObjectData"
           },

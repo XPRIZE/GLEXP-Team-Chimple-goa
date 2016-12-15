@@ -114,6 +114,25 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 1464408021,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 215,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -1962620127,
             "Property": "ActionValue",
             "Frames": [
@@ -422,6 +441,7 @@
               "X": 0.0,
               "Y": 0.0
             },
+            "VisibleForFrame": false,
             "Name": "jackal",
             "ctype": "ProjectNodeObjectData"
           },

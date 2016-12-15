@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 445,
         "Speed": 1.0,
-        "ActivedAnimationName": "birds_1",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -1777409089,
@@ -400,8 +400,8 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 3128.3567,
-                "Y": 272.7209,
+                "X": 3476.8098,
+                "Y": 266.6963,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -671,33 +671,33 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -114.3284,
-              "Y": -31.6022
+              "X": -367.584,
+              "Y": -31.6021
             },
             "Scale": {
               "ScaleX": 0.9104,
               "ScaleY": 2.1342
             },
-            "RotationSkewX": 2.3203,
+            "RotationSkewX": 2.3209,
             "RotationSkewY": 2.3206,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0447,
+              "X": -0.1436,
               "Y": -0.0176
             },
             "PreSize": {
-              "X": 1.2109,
+              "X": 1.4976,
               "Y": 0.3278
             },
-            "LeftMargin": -114.3284,
-            "RightMargin": -425.6716,
-            "TopMargin": 1241.6022,
-            "BottomMargin": -31.6022,
+            "LeftMargin": -367.584,
+            "RightMargin": -906.248,
+            "TopMargin": 1241.6021,
+            "BottomMargin": -31.6021,
             "Tag": 177,
             "ActionTag": -1903957374,
             "Size": {
-              "X": 3100.0,
+              "X": 3833.832,
               "Y": 590.0
             },
             "Name": "Panel_1_0",
@@ -743,7 +743,6 @@
             "BottomMargin": 1164.7092,
             "UserData": "main.birds_1",
             "Tag": 178,
-            "FrameEvent": "birds",
             "ActionTag": -1118899525,
             "Size": {
               "X": 1499.0,
@@ -889,9 +888,58 @@
             "ctype": "SpriteObjectData"
           },
           {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 232,
+              "G": 207,
+              "B": 84
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -399.4799,
+              "Y": 7.6791
+            },
+            "Scale": {
+              "ScaleX": 2.0459,
+              "ScaleY": 1.6462
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.156,
+              "Y": 0.0043
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -399.4799,
+            "RightMargin": 2759.48,
+            "TopMargin": 1592.3209,
+            "BottomMargin": 7.6791,
+            "Tag": 1182,
+            "ActionTag": -380669351,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
             "FileData": {
               "Type": "Normal",
-              "Path": "Fahali_na_Punda/cow.json",
+              "Path": "Fahali_na_Punda/ox.json",
               "Plist": ""
             },
             "StretchWidthEnable": false,
@@ -899,7 +947,7 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 600.0,
+              "X": -643.1427,
               "Y": 291.6268
             },
             "Scale": {
@@ -909,15 +957,15 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.2344,
+              "X": -0.2512,
               "Y": 0.162
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 600.0,
-            "RightMargin": 1960.0,
+            "LeftMargin": -643.1427,
+            "RightMargin": 3203.1426,
             "TopMargin": 1508.3732,
             "BottomMargin": 291.6268,
             "UserData": "walk;drag",
@@ -927,7 +975,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "cow",
+            "Name": "ox",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -941,8 +989,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1800.0,
-              "Y": 272.7209
+              "X": 3476.8098,
+              "Y": 266.6963
             },
             "Scale": {
               "ScaleX": -0.6,
@@ -951,17 +999,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.7031,
-              "Y": 0.1515
+              "X": 1.3581,
+              "Y": 0.1482
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1800.0,
-            "RightMargin": 760.0,
-            "TopMargin": 1527.2791,
-            "BottomMargin": 272.7209,
+            "LeftMargin": 3476.8098,
+            "RightMargin": -916.8098,
+            "TopMargin": 1533.3037,
+            "BottomMargin": 266.6963,
             "UserData": "walk;drag",
             "Tag": 567,
             "ActionTag": 1257867084,
@@ -982,10 +1030,10 @@
       },
       "UsedResources": [
         "birdsmall.json",
-        "cow.json",
         "donkey.json",
         "Fahali_na_Punda.plist",
-        "Fahali_na_Punda.png"
+        "Fahali_na_Punda.png",
+        "ox.json"
       ],
       "ctype": "GameFileData"
     }

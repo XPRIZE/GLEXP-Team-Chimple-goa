@@ -27,9 +27,14 @@ public class AssetInstaller {
 		String[] files = null;
 		try {
 			files = assetManager.list("res/android-lipitk");
+			System.out.println("finding files in res/android-lipitk");
+			for (String filename : files) {			
+				System.out.println("file name in res/android-lipitk:" + filename);
+			}
 		} catch (IOException e) {
 			Log.e(TAG, "Failed to get asset file list.", e);
 		}
+
 		for (String filename : files) {
 			InputStream in = null;
 			FileOutputStream out = null;
@@ -67,8 +72,11 @@ public class AssetInstaller {
 	private void explodeAsset() throws IOException {
 		String zipPath = context.getFilesDir().getPath() + "/"
 				+ zipName + ".zip";
+		System.out.println("zipPath:" + zipPath);				
 		String extractPath = context.getFilesDir().getPath() + "/";
+		System.out.println("extractPath:" + extractPath);
 		File file = new File(zipPath);
+		System.out.println("file full path:" + file.getAbsolutePath());
 		ZipFile zipFile = new ZipFile(file);
 		try {
 			Zip _zip = new Zip(zipFile);
@@ -85,11 +93,14 @@ public class AssetInstaller {
 	private boolean dirCheck() {
 		File dir = new File(context.getFilesDir().getPath() + "/"
 				+ zipName);
+		System.out.println("checking if directory exists:" + dir);
+		System.out.println("result of directory exists:" + dir.exists());
 		return dir.exists();
 	}
 
 	public void execute() throws IOException {
 		if (!dirCheck()) {
+			System.out.println("Calling Copy Assets");
 			copyAssets();
 			explodeAsset();
 			Log.d(TAG, "installed packages.");

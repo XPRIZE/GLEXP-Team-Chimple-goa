@@ -113,6 +113,25 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -1362772235,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 350,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 22176666,
             "Property": "ActionValue",
             "Frames": [
@@ -1264,6 +1283,7 @@
               "X": 0.0,
               "Y": 0.0
             },
+            "VisibleForFrame": false,
             "Name": "moon",
             "ctype": "ProjectNodeObjectData"
           },

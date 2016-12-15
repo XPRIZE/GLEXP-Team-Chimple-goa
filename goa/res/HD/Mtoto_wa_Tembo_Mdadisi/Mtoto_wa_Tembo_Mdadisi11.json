@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 445,
         "Speed": 1.0,
-        "ActivedAnimationName": "fish",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 1930313962,
@@ -173,6 +173,25 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1364415939,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 285,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -848,6 +867,7 @@
               "G": 254
             },
             "ColorVector": {
+              "ScaleX": 0.0,
               "ScaleY": -1.0
             },
             "Scale9Width": 1,
@@ -1035,6 +1055,7 @@
               "X": 0.0,
               "Y": 0.0
             },
+            "VisibleForFrame": false,
             "Name": "cloud",
             "ctype": "ProjectNodeObjectData"
           },
@@ -1437,8 +1458,8 @@
               "Y": 0.2319
             },
             "PreSize": {
-              "X": 0.018,
-              "Y": 0.0256
+              "X": 0.4887,
+              "Y": 0.4639
             },
             "LeftMargin": 1308.9949,
             "RightMargin": 0.0051,

@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 520,
         "Speed": 1.0,
-        "ActivedAnimationName": "bird",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -934145769,
@@ -319,7 +319,7 @@
             "Frames": [
               {
                 "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "walk",
+                "CurrentAniamtionName": "walkladder",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
                 "Tween": false,
@@ -328,7 +328,7 @@
               {
                 "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "walk",
-                "SingleFrameIndex": 0,
+                "SingleFrameIndex": 2,
                 "FrameIndex": 206,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
@@ -548,7 +548,7 @@
               "Y": 0.0
             },
             "VisibleForFrame": false,
-            "Name": "FileNode_2",
+            "Name": "bird",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -590,7 +590,7 @@
               "Y": 0.0
             },
             "VisibleForFrame": false,
-            "Name": "FileNode_2_0",
+            "Name": "bird",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -632,7 +632,7 @@
               "Y": 0.0
             },
             "VisibleForFrame": false,
-            "Name": "FileNode_2_1",
+            "Name": "bird",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -812,7 +812,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "boy",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -854,7 +854,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_5",
+            "Name": "boy",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -896,7 +896,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_8",
+            "Name": "girl",
             "ctype": "ProjectNodeObjectData"
           }
         ],

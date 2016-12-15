@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 500,
         "Speed": 1.0,
-        "ActivedAnimationName": "sun",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 1347966691,
@@ -466,6 +466,25 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 1996964677,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 190,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 255,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -1001669834,
             "Property": "ActionValue",
             "Frames": [
@@ -523,6 +542,25 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -1001669834,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 190,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 220,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -988856953,
             "Property": "ActionValue",
             "Frames": [
@@ -568,6 +606,12 @@
             "Frames": [
               {
                 "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
                 "FrameIndex": 255,
                 "Tween": false,
                 "ctype": "BoolFrameData"
@@ -575,6 +619,12 @@
               {
                 "Value": true,
                 "FrameIndex": 260,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 405,
                 "Tween": false,
                 "ctype": "BoolFrameData"
               }
@@ -602,6 +652,25 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1403303115,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 385,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -860,7 +929,7 @@
             },
             "LeftMargin": -1551.3521,
             "RightMargin": 3681.3521,
-            "TopMargin": 298.6053,
+            "TopMargin": 298.6052,
             "BottomMargin": 485.3947,
             "UserData": "main.sun",
             "Tag": 3279,
@@ -1178,6 +1247,7 @@
               "X": 446.0,
               "Y": 467.0
             },
+            "VisibleForFrame": false,
             "Name": "mooncresent_7",
             "ctype": "SpriteObjectData"
           }

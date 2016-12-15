@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 545,
         "Speed": 1.0,
-        "ActivedAnimationName": "sun",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -1465007840,
@@ -82,6 +82,22 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 828669079,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.5,
+                "Y": 0.5,
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -974,8 +990,8 @@
               "Y": 603.533
             },
             "Scale": {
-              "ScaleX": 0.3175,
-              "ScaleY": 0.3175
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
             },
             "CColor": {},
             "IconVisible": true,
