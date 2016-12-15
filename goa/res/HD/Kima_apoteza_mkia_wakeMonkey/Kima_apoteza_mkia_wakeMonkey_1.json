@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 300,
         "Speed": 1.0,
-        "ActivedAnimationName": "rabbit",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 594579610,
@@ -338,7 +338,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "rabbit",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 200,
@@ -490,7 +490,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "rabbit",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 300,
@@ -668,7 +668,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1730.09,
+              "X": 1692.0905,
               "Y": 1263.3531
             },
             "Scale": {
@@ -678,15 +678,15 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.6758,
+              "X": 0.661,
               "Y": 0.7019
             },
             "PreSize": {
               "X": 0.2223,
               "Y": 0.1267
             },
-            "LeftMargin": 1445.59,
-            "RightMargin": 545.41,
+            "LeftMargin": 1407.5905,
+            "RightMargin": 583.4095,
             "TopMargin": 422.6469,
             "BottomMargin": 1149.3531,
             "Tag": 21,
@@ -713,7 +713,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 544.89,
+              "X": 585.89,
               "Y": 1451.1986
             },
             "Scale": {
@@ -723,15 +723,15 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.2128,
+              "X": 0.2289,
               "Y": 0.8062
             },
             "PreSize": {
               "X": 0.2223,
               "Y": 0.1267
             },
-            "LeftMargin": 260.39,
-            "RightMargin": 1730.61,
+            "LeftMargin": 301.39,
+            "RightMargin": 1689.61,
             "TopMargin": 234.8014,
             "BottomMargin": 1337.1986,
             "Tag": 20,
@@ -758,7 +758,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1070.02,
+              "X": 1035.02,
               "Y": 1114.36
             },
             "Scale": {
@@ -768,15 +768,15 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.418,
+              "X": 0.4043,
               "Y": 0.6191
             },
             "PreSize": {
               "X": 0.2223,
               "Y": 0.1267
             },
-            "LeftMargin": 785.52,
-            "RightMargin": 1205.48,
+            "LeftMargin": 750.52,
+            "RightMargin": 1240.48,
             "TopMargin": 571.64,
             "BottomMargin": 1000.36,
             "Tag": 54,
@@ -803,7 +803,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2154.8,
+              "X": 2199.8,
               "Y": 1033.91
             },
             "Scale": {
@@ -813,15 +813,15 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.8417,
+              "X": 0.8593,
               "Y": 0.5744
             },
             "PreSize": {
               "X": 0.2223,
               "Y": 0.1267
             },
-            "LeftMargin": 1870.3,
-            "RightMargin": 120.7,
+            "LeftMargin": 1915.3,
+            "RightMargin": 75.7,
             "TopMargin": 652.09,
             "BottomMargin": 919.91,
             "Tag": 53,
@@ -1093,7 +1093,7 @@
             },
             "LeftMargin": 1924.2224,
             "RightMargin": 635.7776,
-            "TopMargin": 1598.8594,
+            "TopMargin": 1598.8593,
             "BottomMargin": 201.1407,
             "UserData": "walk;\ndrag",
             "Tag": 777,
@@ -1161,8 +1161,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1265.0792,
-              "Y": 239.6883
+              "X": 183.7742,
+              "Y": 135.2721
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1171,17 +1171,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.4942,
-              "Y": 0.1332
+              "X": 0.0718,
+              "Y": 0.0752
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1265.0792,
-            "RightMargin": 1294.9208,
-            "TopMargin": 1560.3118,
-            "BottomMargin": 239.6883,
+            "LeftMargin": 183.7742,
+            "RightMargin": 2376.2258,
+            "TopMargin": 1664.7279,
+            "BottomMargin": 135.2721,
             "UserData": "rabbit;drag",
             "Tag": 25,
             "ActionTag": 2056011183,
@@ -1267,7 +1267,7 @@
             },
             "LeftMargin": 2162.7473,
             "RightMargin": 397.2527,
-            "TopMargin": 1698.1935,
+            "TopMargin": 1698.1934,
             "BottomMargin": 101.8066,
             "Tag": 92,
             "ActionTag": 1360271710,
@@ -1316,7 +1316,6 @@
             "BottomMargin": -35.3908,
             "UserData": "main.rabbit",
             "Tag": 261,
-            "FrameEvent": "rabbit",
             "ActionTag": -315782479,
             "Size": {
               "X": 884.0,

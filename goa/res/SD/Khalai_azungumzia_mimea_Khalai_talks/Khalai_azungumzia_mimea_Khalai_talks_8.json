@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 300,
         "Speed": 1.0,
-        "ActivedAnimationName": "fruit",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -1478659889,
@@ -1754,6 +1754,14 @@
                 "ctype": "InnerActionFrameData"
               },
               {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "see_up",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 195,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
                 "InnerActionType": "NoLoopAction",
                 "CurrentAniamtionName": "see_up",
                 "SingleFrameIndex": 0,
@@ -1780,6 +1788,15 @@
                 "X": 1695.8391,
                 "Y": -95.0304,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1695.8391,
+                "Y": -95.0304,
+                "FrameIndex": 195,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1822,6 +1839,15 @@
               {
                 "X": 1.0,
                 "Y": 1.0,
+                "FrameIndex": 195,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
                 "FrameIndex": 200,
                 "EasingData": {
                   "Type": 0
@@ -1848,6 +1874,15 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 195,
                 "EasingData": {
                   "Type": 0
                 },
@@ -2340,7 +2375,7 @@
               "Y": 1.0
             },
             "LeftMargin": -261.7819,
-            "RightMargin": 2621.7817,
+            "RightMargin": 2621.782,
             "TopMargin": 0.0007,
             "BottomMargin": -0.0007,
             "Tag": 5124,

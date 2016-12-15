@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 380,
         "Speed": 1.0,
-        "ActivedAnimationName": "sun",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -365055295,
@@ -266,6 +266,15 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              },
+              {
+                "X": 1335.8806,
+                "Y": 1123.7286,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -345,6 +354,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -354,7 +372,7 @@
             "Property": "Alpha",
             "Frames": [
               {
-                "Value": 255,
+                "Value": 0,
                 "FrameIndex": 115,
                 "EasingData": {
                   "Type": 0
@@ -378,7 +396,7 @@
                 "ctype": "IntFrameData"
               },
               {
-                "Value": 255,
+                "Value": 0,
                 "FrameIndex": 205,
                 "EasingData": {
                   "Type": 0
@@ -400,6 +418,30 @@
                   "Type": 0
                 },
                 "ctype": "IntFrameData"
+              },
+              {
+                "Value": 0,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1501062693,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -580,9 +622,9 @@
             "ClipAble": false,
             "ComboBoxIndex": 1,
             "SingleColor": {
-              "R": 240,
-              "G": 242,
-              "B": 244
+              "R": 179,
+              "G": 204,
+              "B": 229
             },
             "FirstColor": {
               "R": 150,
@@ -739,7 +781,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 581.5492,
+              "X": 592.5497,
               "Y": 1228.8887
             },
             "Scale": {
@@ -749,15 +791,15 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.2272,
+              "X": 0.2315,
               "Y": 0.6827
             },
             "PreSize": {
               "X": 0.4,
               "Y": 0.0667
             },
-            "LeftMargin": 69.5492,
-            "RightMargin": 1466.4508,
+            "LeftMargin": 80.5497,
+            "RightMargin": 1455.4503,
             "TopMargin": 511.1113,
             "BottomMargin": 1168.8887,
             "Tag": 4559,
@@ -856,6 +898,7 @@
               "X": 134.0,
               "Y": 134.0
             },
+            "Alpha": 0,
             "Name": "circle_41",
             "ctype": "SpriteObjectData"
           }

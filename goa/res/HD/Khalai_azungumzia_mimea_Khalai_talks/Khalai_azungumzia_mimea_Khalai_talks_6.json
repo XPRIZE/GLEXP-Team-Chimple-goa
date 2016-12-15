@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 500,
         "Speed": 1.0,
-        "ActivedAnimationName": "tree",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -1314216526,
@@ -267,7 +267,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "walk",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 300,
@@ -326,8 +326,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": -260.0,
-                "Y": 323.695,
+                "X": -441.3549,
+                "Y": 314.9902,
                 "FrameIndex": 300,
                 "EasingData": {
                   "Type": 0

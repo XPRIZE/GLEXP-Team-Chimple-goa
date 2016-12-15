@@ -1,0 +1,490 @@
+{
+  "ID": "72bf9462-f0a4-4427-b5b5-c0a49cb62c43",
+  "Version": "3.10.0.0",
+  "Name": "stall3",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 100,
+        "Speed": 1.0,
+        "Timelines": [
+          {
+            "ActionTag": 826780813,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1165.3645,
+                "Y": 259.8009,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1178.1083,
+                "Y": 612.3834,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1173.8606,
+                "Y": 612.3834,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1165.3645,
+                "Y": 259.8009,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 826780813,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 1.5539,
+                "Y": 1.5146,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 5,
+          "EndIndex": 100,
+          "Name": "pig",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 2470,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {},
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": -714.104,
+              "Y": 803.889
+            },
+            "Scale": {
+              "ScaleX": 13.228,
+              "ScaleY": 4.4146
+            },
+            "CColor": {
+              "R": 149,
+              "G": 200,
+              "B": 141
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -714.104,
+            "RightMargin": 514.104,
+            "TopMargin": -803.889,
+            "BottomMargin": 603.889,
+            "Tag": 2476,
+            "ActionTag": 552087724,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_5",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 124,
+              "G": 87,
+              "B": 59
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": -797.3358,
+              "Y": 865.1824
+            },
+            "Scale": {
+              "ScaleX": 0.3868,
+              "ScaleY": 4.8008
+            },
+            "RotationSkewX": -3.9402,
+            "RotationSkewY": -3.9542,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -797.3358,
+            "RightMargin": 597.3358,
+            "TopMargin": -865.1824,
+            "BottomMargin": 665.1824,
+            "Tag": 2474,
+            "ActionTag": 658900234,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_3",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 124,
+              "G": 87,
+              "B": 59
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 1922.2655,
+              "Y": 874.526
+            },
+            "Scale": {
+              "ScaleX": 0.3868,
+              "ScaleY": 4.8374
+            },
+            "RotationSkewX": 3.972,
+            "RotationSkewY": 3.9271,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1922.2655,
+            "RightMargin": -2122.2656,
+            "TopMargin": -874.526,
+            "BottomMargin": 674.526,
+            "Tag": 2475,
+            "ActionTag": 917959380,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_3_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Shati_la_kijani_kibichi/boy_1.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 602.7273,
+              "Y": -85.0371
+            },
+            "Scale": {
+              "ScaleX": 0.7,
+              "ScaleY": 0.7
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 602.7273,
+            "RightMargin": -602.7273,
+            "TopMargin": 85.0371,
+            "BottomMargin": -85.0371,
+            "Tag": 7671,
+            "ActionTag": -708984103,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "boy",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Shati_la_kijani_kibichi/Shati/pig.png",
+              "Plist": "Shati_la_kijani_kibichi/Shati/Shati.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1165.3645,
+              "Y": 259.8009
+            },
+            "Scale": {
+              "ScaleX": 0.6143,
+              "ScaleY": 0.5942
+            },
+            "RotationSkewX": 1.5539,
+            "RotationSkewY": 1.5146,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1142.3645,
+            "RightMargin": -1188.3645,
+            "TopMargin": -282.8009,
+            "BottomMargin": 236.8009,
+            "Tag": 8476,
+            "ActionTag": 826780813,
+            "Size": {
+              "X": 497.0,
+              "Y": 557.0
+            },
+            "Name": "pig_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Shati_la_kijani_kibichi/Shati/stalltop.png",
+              "Plist": "Shati_la_kijani_kibichi/Shati/Shati.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -855.1179,
+              "Y": 911.7408
+            },
+            "Scale": {
+              "ScaleX": 1.6768,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 11,
+              "G": 200,
+              "B": 28
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -855.1179,
+            "RightMargin": 809.1179,
+            "TopMargin": -934.7408,
+            "BottomMargin": 888.7408,
+            "Tag": 2471,
+            "ActionTag": 1788059971,
+            "Size": {
+              "X": 1735.0,
+              "Y": 503.0
+            },
+            "Name": "stalltop_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Shati_la_kijani_kibichi/Shati/shirt.png",
+              "Plist": "Shati_la_kijani_kibichi/Shati/Shati.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1121.4227,
+              "Y": 191.4189
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1098.4227,
+            "RightMargin": -1144.4227,
+            "TopMargin": -214.4189,
+            "BottomMargin": 168.4189,
+            "Tag": 7523,
+            "ActionTag": -1190960064,
+            "Size": {
+              "X": 1096.0,
+              "Y": 656.0
+            },
+            "Name": "shirt_38",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Shati_la_kijani_kibichi/Shati/shirt2.png",
+              "Plist": "Shati_la_kijani_kibichi/Shati/Shati.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -62.6419,
+              "Y": 218.2725
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -85.6419,
+            "RightMargin": 39.6419,
+            "TopMargin": -241.2725,
+            "BottomMargin": 195.2725,
+            "Tag": 7524,
+            "ActionTag": 163986016,
+            "Size": {
+              "X": 1092.0,
+              "Y": 627.0
+            },
+            "Name": "shirt2_39",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "boy_1.json",
+        "Shati/Shati.plist",
+        "Shati/Shati.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 510,
         "Speed": 1.0,
-        "ActivedAnimationName": "moon",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 327028447,
@@ -956,6 +956,99 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -874348337,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 484.3767,
+                "Y": 1422.8208,
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 484.377,
+                "Y": 1422.8213,
+                "FrameIndex": 406,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 484.3767,
+                "Y": 1422.8208,
+                "FrameIndex": 440,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -874348337,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.5298,
+                "Y": 0.5298,
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.9149,
+                "Y": 0.9149,
+                "FrameIndex": 406,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.5298,
+                "Y": 0.5298,
+                "FrameIndex": 440,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -874348337,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 440,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -1010,25 +1103,29 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -2313.7642,
+              "X": -2291.3281,
               "Y": -23.2026
             },
             "Scale": {
               "ScaleX": 17.8576,
               "ScaleY": 9.4908
             },
-            "CColor": {},
+            "CColor": {
+              "R": 166,
+              "G": 247,
+              "B": 212
+            },
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.9038,
+              "X": -0.8951,
               "Y": -0.0129
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": -2313.7642,
-            "RightMargin": 4673.7642,
+            "LeftMargin": -2291.3281,
+            "RightMargin": 4651.3281,
             "TopMargin": 1623.2026,
             "BottomMargin": -23.2026,
             "Tag": 4395,
@@ -1387,11 +1484,10 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 1280.1927,
-              "Y": 0.0
+              "X": 1280.1936,
+              "Y": -88.1602
             },
             "Scale": {
               "ScaleX": 17.8576,
@@ -1401,15 +1497,16 @@
             "IconVisible": false,
             "PrePosition": {
               "X": 0.5001,
-              "Y": 0.0
+              "Y": -0.049
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 1280.1927,
-            "RightMargin": 1079.8073,
-            "TopMargin": 1600.0,
+            "LeftMargin": 1280.1936,
+            "RightMargin": 1079.8064,
+            "TopMargin": 1688.1602,
+            "BottomMargin": -88.1602,
             "Tag": 4484,
             "ActionTag": -1987494647,
             "Size": {
@@ -1800,6 +1897,52 @@
             },
             "Name": "star_0_2",
             "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Watoto_wa_Nta_Children_of_wax/sun.png",
+              "Plist": "Watoto_wa_Nta_Children_of_wax/Watoto_wa_Nta_Children_of_wax.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 484.3767,
+              "Y": 1422.8208
+            },
+            "Scale": {
+              "ScaleX": 0.5298,
+              "ScaleY": 0.5298
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1892,
+              "Y": 0.7905
+            },
+            "PreSize": {
+              "X": 0.2785,
+              "Y": 0.3961
+            },
+            "LeftMargin": 127.8767,
+            "RightMargin": 1719.1233,
+            "TopMargin": 20.6792,
+            "BottomMargin": 1066.3208,
+            "UserData": "main.sun",
+            "Tag": 3693,
+            "ActionTag": -874348337,
+            "Size": {
+              "X": 713.0,
+              "Y": 713.0
+            },
+            "Name": "sun_44_0",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
