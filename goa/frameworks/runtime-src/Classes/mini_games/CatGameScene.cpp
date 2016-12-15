@@ -97,8 +97,9 @@ void CatGame::generateBuildingLayer(std::string str)
 	_randomWord = text->generateAWord(level);
 	_gapNodes.clear();
 	_wordLength = text->getGraphemes(_randomWord).size();
-	_maxPoints += _wordLength;
+	
 	if (_score != 5) {
+		_maxPoints += _wordLength;
 		_menuContext->setMaxPoints(_maxPoints * 2);
 	}
 	int randNum = RandomHelper::random_int(0, 4);
@@ -295,6 +296,7 @@ void CatGame::onEnterTransitionDidFinish()
 
 void CatGame::gameEnd(float ft)
 {
+	_menuContext->setMaxPoints(_maxPoints * 2);
 	_catAnimation->pause();
 	tailAnimation();
 	_menuContext->showScore();
