@@ -62,6 +62,7 @@ void Shape::update(float d)
 
 		_fish->runAction(Sequence::create(MoveTo::create(1, Vec2(_fish->getPositionX(), visibleSize.height * .35)), CallFunc::create([=] {
 			this->unscheduleUpdate();
+			_waterSound->stopAllEffects();
 			_menuContext->showScore();
 		}), NULL));
 	}
@@ -440,6 +441,7 @@ void Shape::addEvents(struct SpriteDetails sprite)
 					
 					if (_totalPatch == _differntPosition.at(_posmainIndex).at(_differntPosition.at(_posmainIndex).size() - 2))
 					{
+						_waterSound->stopAllEffects();
 						_menuContext->showScore();
 					}
 
