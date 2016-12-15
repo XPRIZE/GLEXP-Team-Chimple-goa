@@ -58,7 +58,7 @@ std::map<int, int> TextGenerator::getRandomLocations(int numLoc, int totalNum) {
 }
 
 std::string TextGenerator::generateAWord(int level, int length) {
-    level = 1;
+    level = MAX(level, 10);
     return getSingle("words", level);
 }
 
@@ -260,8 +260,8 @@ std::map<std::string, std::map<std::string, std::string>> TextGenerator::getMapO
 }
 
 std::map<std::string, std::map<std::string, std::string>> TextGenerator::getInitialSyllableWords(int maxNum, int maxChoices, int level) {
-    /* 3 levels */
-    return getMapOfWords("initial_syllables", maxNum, maxChoices, 1);
+    level = MAX(level, 3);
+    return getMapOfWords("initial_syllables", maxNum, maxChoices, level);
 }
 
 std::vector<std::string> TextGenerator::getWords(TextGenerator::P_O_S partOfSpeech, int maxLength, int level) {

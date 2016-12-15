@@ -251,47 +251,6 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": -1805868414,
-            "Property": "Position",
-            "Frames": [
-              {
-                "X": 1349.3867,
-                "Y": 592.7849,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": -2540.5322,
-                "Y": 532.7832,
-                "FrameIndex": 270,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": -1805868414,
-            "Property": "Scale",
-            "Frames": [
-              {
-                "X": 7.0568,
-                "Y": 3.9538,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
             "ActionTag": 695416808,
             "Property": "Position",
             "Frames": [
@@ -333,12 +292,12 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": 1329842074,
+            "ActionTag": -1398114567,
             "Property": "Position",
             "Frames": [
               {
-                "X": 2044.6339,
-                "Y": 1124.8947,
+                "X": 1653.25,
+                "Y": 631.8438,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -346,44 +305,13 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": -1845.3044,
-                "Y": 1064.8926,
+                "X": -2077.6724,
+                "Y": 573.1697,
                 "FrameIndex": 270,
                 "EasingData": {
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 1329842074,
-            "Property": "FileData",
-            "Frames": [
-              {
-                "TextureFile": {
-                  "Type": "MarkedSubImage",
-                  "Path": "Shati_la_kijani_kibichi/Shati_la_kijani_kibichi_1/stall.png",
-                  "Plist": "Shati_la_kijani_kibichi/Shati_la_kijani_kibichi_1/Shati_la_kijani_kibichi_1.plist"
-                },
-                "FrameIndex": 0,
-                "Tween": false,
-                "ctype": "TextureFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 1329842074,
-            "Property": "BlendFunc",
-            "Frames": [
-              {
-                "Src": 1,
-                "Dst": 771,
-                "FrameIndex": 0,
-                "Tween": false,
-                "ctype": "BlendFuncFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -464,31 +392,6 @@
                 "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": -1254241027,
-            "Property": "Position",
-            "Frames": [
-              {
-                "X": 5367.3423,
-                "Y": 1072.8074,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 1477.1776,
-                "Y": 1012.8052,
-                "FrameIndex": 270,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -601,6 +504,40 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 701072642,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 4697.2319,
+                "Y": 647.0999,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 838.0428,
+                "Y": 546.6295,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 849.184,
+                "Y": 560.5567,
+                "FrameIndex": 284,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 131113369,
             "Property": "Position",
             "Frames": [
@@ -626,6 +563,37 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 131113369,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Shati_la_kijani_kibichi/Shati/uniform1.png",
+                  "Plist": "Shati_la_kijani_kibichi/Shati/Shati.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 131113369,
+            "Property": "BlendFunc",
+            "Frames": [
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -833165035,
             "Property": "Position",
             "Frames": [
@@ -646,6 +614,37 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -833165035,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Shati_la_kijani_kibichi/Shati/uniform2.png",
+                  "Plist": "Shati_la_kijani_kibichi/Shati/Shati.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -833165035,
+            "Property": "BlendFunc",
+            "Frames": [
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -983,8 +982,8 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 8742.748,
-                "Y": 1472.8817,
+                "X": 8742.7441,
+                "Y": 1472.8815,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -1009,7 +1008,7 @@
             "Frames": [
               {
                 "X": 11.9047,
-                "Y": 1.5447,
+                "Y": 2.9947,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -1086,12 +1085,43 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 1477379895,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Shati_la_kijani_kibichi/Shati/uniform1.png",
+                  "Plist": "Shati_la_kijani_kibichi/Shati/Shati.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1477379895,
+            "Property": "BlendFunc",
+            "Frames": [
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -219216198,
             "Property": "Position",
             "Frames": [
               {
-                "X": 11956.0273,
-                "Y": 1084.0048,
+                "X": 11956.0049,
+                "Y": 1084.0023,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -1106,6 +1136,53 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -219216198,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.9672,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -219216198,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Shati_la_kijani_kibichi/Shati/uniform2.png",
+                  "Plist": "Shati_la_kijani_kibichi/Shati/Shati.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -219216198,
+            "Property": "BlendFunc",
+            "Frames": [
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -1443,8 +1520,8 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 10899.9932,
-                "Y": 1472.6083,
+                "X": 10899.9902,
+                "Y": 1472.6072,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -1469,7 +1546,7 @@
             "Frames": [
               {
                 "X": 7.5844,
-                "Y": 1.5447,
+                "Y": 3.1947,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -1886,8 +1963,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -113.9585,
-              "Y": 476.6172
+              "X": -4003.709,
+              "Y": 416.6162
             },
             "Scale": {
               "ScaleX": 67.3556,
@@ -1896,17 +1973,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0445,
-              "Y": 0.2648
+              "X": -1.5639,
+              "Y": 0.2315
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": -113.9585,
-            "RightMargin": 2473.9585,
-            "TopMargin": 1123.3828,
-            "BottomMargin": 476.6172,
+            "LeftMargin": -4003.709,
+            "RightMargin": 6363.709,
+            "TopMargin": 1183.3838,
+            "BottomMargin": 416.6162,
             "Tag": 1418,
             "ActionTag": -1730208069,
             "Size": {
@@ -1931,8 +2008,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 7131.9512,
-              "Y": 734.4414
+              "X": 3241.7844,
+              "Y": 674.439
             },
             "Scale": {
               "ScaleX": 0.8515,
@@ -1941,17 +2018,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 2.7859,
-              "Y": 0.408
+              "X": 1.2663,
+              "Y": 0.3747
             },
             "PreSize": {
               "X": 0.4406,
               "Y": 0.0878
             },
-            "LeftMargin": 6567.9512,
-            "RightMargin": -5135.9512,
-            "TopMargin": 986.5586,
-            "BottomMargin": 655.4414,
+            "LeftMargin": 2677.7844,
+            "RightMargin": -1245.7844,
+            "TopMargin": 1046.561,
+            "BottomMargin": 595.439,
             "Tag": 1577,
             "ActionTag": -1378200868,
             "Size": {
@@ -1976,8 +2053,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 6111.7979,
-              "Y": 713.9359
+              "X": 2221.6279,
+              "Y": 653.9343
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1986,17 +2063,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 2.3874,
-              "Y": 0.3966
+              "X": 0.8678,
+              "Y": 0.3633
             },
             "PreSize": {
               "X": 0.4406,
               "Y": 0.0878
             },
-            "LeftMargin": 5547.7979,
-            "RightMargin": -4115.7979,
-            "TopMargin": 1007.0641,
-            "BottomMargin": 634.9359,
+            "LeftMargin": 1657.6279,
+            "RightMargin": -225.6279,
+            "TopMargin": 1067.0657,
+            "BottomMargin": 574.9343,
             "Tag": 1576,
             "ActionTag": -798778054,
             "Size": {
@@ -2021,8 +2098,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 5241.0117,
-              "Y": 747.0598
+              "X": 1350.9127,
+              "Y": 687.0581
             },
             "Scale": {
               "ScaleX": 0.6489,
@@ -2031,17 +2108,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 2.0473,
-              "Y": 0.415
+              "X": 0.5277,
+              "Y": 0.3817
             },
             "PreSize": {
               "X": 0.4406,
               "Y": 0.0878
             },
-            "LeftMargin": 4677.0117,
-            "RightMargin": -3245.0117,
-            "TopMargin": 973.9402,
-            "BottomMargin": 668.0598,
+            "LeftMargin": 786.9127,
+            "RightMargin": 645.0873,
+            "TopMargin": 1033.9419,
+            "BottomMargin": 608.0581,
             "Tag": 1575,
             "ActionTag": -558994856,
             "Size": {
@@ -2066,8 +2143,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 4393.5039,
-              "Y": 769.7417
+              "X": 503.4391,
+              "Y": 709.74
             },
             "Scale": {
               "ScaleX": 0.892,
@@ -2076,17 +2153,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 1.7162,
-              "Y": 0.4276
+              "X": 0.1967,
+              "Y": 0.3943
             },
             "PreSize": {
               "X": 0.4406,
               "Y": 0.0878
             },
-            "LeftMargin": 3829.5039,
-            "RightMargin": -2397.5039,
-            "TopMargin": 951.2583,
-            "BottomMargin": 690.7417,
+            "LeftMargin": -60.5609,
+            "RightMargin": 1492.5609,
+            "TopMargin": 1011.26,
+            "BottomMargin": 630.74,
             "Tag": 1574,
             "ActionTag": -1841470119,
             "Size": {
@@ -2111,8 +2188,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 3451.9749,
-              "Y": 764.5183
+              "X": -438.0069,
+              "Y": 704.5166
             },
             "Scale": {
               "ScaleX": 0.892,
@@ -2121,17 +2198,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 1.3484,
-              "Y": 0.4247
+              "X": -0.1711,
+              "Y": 0.3914
             },
             "PreSize": {
               "X": 0.4406,
               "Y": 0.0878
             },
-            "LeftMargin": 2887.9749,
-            "RightMargin": -1455.9749,
-            "TopMargin": 956.4817,
-            "BottomMargin": 685.5183,
+            "LeftMargin": -1002.0069,
+            "RightMargin": 2434.0068,
+            "TopMargin": 1016.4834,
+            "BottomMargin": 625.5166,
             "Tag": 1573,
             "ActionTag": -242137715,
             "Size": {
@@ -2156,8 +2233,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2548.7747,
-              "Y": 706.0178
+              "X": -1341.1453,
+              "Y": 646.0173
             },
             "Scale": {
               "ScaleX": 0.874,
@@ -2166,17 +2243,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.9956,
-              "Y": 0.3922
+              "X": -0.5239,
+              "Y": 0.3589
             },
             "PreSize": {
               "X": 0.4406,
               "Y": 0.0878
             },
-            "LeftMargin": 1984.7747,
-            "RightMargin": -552.7747,
-            "TopMargin": 1014.9822,
-            "BottomMargin": 627.0178,
+            "LeftMargin": -1905.1453,
+            "RightMargin": 3337.1453,
+            "TopMargin": 1074.9827,
+            "BottomMargin": 567.0173,
             "Tag": 1572,
             "ActionTag": 1144351823,
             "Size": {
@@ -2201,8 +2278,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1513.1355,
-              "Y": 761.7009
+              "X": -2376.7744,
+              "Y": 701.6985
             },
             "Scale": {
               "ScaleX": 1.027,
@@ -2211,17 +2288,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5911,
-              "Y": 0.4232
+              "X": -0.9284,
+              "Y": 0.3898
             },
             "PreSize": {
               "X": 0.4406,
               "Y": 0.0878
             },
-            "LeftMargin": 949.1355,
-            "RightMargin": 482.8645,
-            "TopMargin": 959.2991,
-            "BottomMargin": 682.7009,
+            "LeftMargin": -2940.7744,
+            "RightMargin": 4372.7744,
+            "TopMargin": 1019.3015,
+            "BottomMargin": 622.6985,
             "Tag": 1569,
             "ActionTag": -2078802760,
             "Size": {
@@ -2246,8 +2323,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 445.3004,
-              "Y": 713.3121
+              "X": -3444.5955,
+              "Y": 653.3105
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -2256,17 +2333,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.1739,
-              "Y": 0.3963
+              "X": -1.3455,
+              "Y": 0.363
             },
             "PreSize": {
               "X": 0.4406,
               "Y": 0.0878
             },
-            "LeftMargin": -118.6996,
-            "RightMargin": 1550.6996,
-            "TopMargin": 1007.6879,
-            "BottomMargin": 634.3121,
+            "LeftMargin": -4008.5955,
+            "RightMargin": 5440.5957,
+            "TopMargin": 1067.6895,
+            "BottomMargin": 574.3105,
             "Tag": 1568,
             "ActionTag": 2142496297,
             "Size": {
@@ -2275,57 +2352,6 @@
             },
             "Name": "smallhill_134",
             "ctype": "SpriteObjectData"
-          },
-          {
-            "ClipAble": false,
-            "ComboBoxIndex": 1,
-            "SingleColor": {
-              "R": 127,
-              "G": 130,
-              "B": 190
-            },
-            "FirstColor": {
-              "R": 150,
-              "G": 200
-            },
-            "EndColor": {},
-            "ColorVector": {
-              "ScaleY": 1.0
-            },
-            "Scale9Width": 1,
-            "Scale9Height": 1,
-            "TouchEnable": true,
-            "AnchorPoint": {},
-            "Position": {
-              "X": 1349.3867,
-              "Y": 592.7849
-            },
-            "Scale": {
-              "ScaleX": 7.0568,
-              "ScaleY": 3.9538
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.5271,
-              "Y": 0.3293
-            },
-            "PreSize": {
-              "X": 0.0781,
-              "Y": 0.1111
-            },
-            "LeftMargin": 1349.3867,
-            "RightMargin": 1010.6133,
-            "TopMargin": 1007.2151,
-            "BottomMargin": 592.7849,
-            "Tag": 4764,
-            "ActionTag": -1805868414,
-            "Size": {
-              "X": 200.0,
-              "Y": 200.0
-            },
-            "Name": "Panel_6",
-            "ctype": "PanelObjectData"
           },
           {
             "ClipAble": false,
@@ -2344,8 +2370,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -136.3442,
-              "Y": -17.2437
+              "X": -4026.0918,
+              "Y": -77.2494
             },
             "Scale": {
               "ScaleX": 67.4324,
@@ -2358,17 +2384,17 @@
             },
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0533,
-              "Y": -0.0096
+              "X": -1.5727,
+              "Y": -0.0429
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": -136.3442,
-            "RightMargin": 2496.3442,
-            "TopMargin": 1617.2437,
-            "BottomMargin": -17.2437,
+            "LeftMargin": -4026.0918,
+            "RightMargin": 6386.0918,
+            "TopMargin": 1677.2494,
+            "BottomMargin": -77.2494,
             "Tag": 1417,
             "ActionTag": 695416808,
             "Size": {
@@ -2380,48 +2406,44 @@
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Shati_la_kijani_kibichi/Shati_la_kijani_kibichi_1/stall.png",
-              "Plist": "Shati_la_kijani_kibichi/Shati_la_kijani_kibichi_1/Shati_la_kijani_kibichi_1.plist"
+              "Type": "Normal",
+              "Path": "Shati_la_kijani_kibichi/stall2.json",
+              "Plist": ""
             },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
             "Position": {
-              "X": 2044.6339,
-              "Y": 1124.8947
+              "X": -2077.6724,
+              "Y": 573.1697
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
             "CColor": {},
-            "IconVisible": false,
+            "IconVisible": true,
             "PrePosition": {
-              "X": 0.7987,
-              "Y": 0.6249
+              "X": -0.8116,
+              "Y": 0.3184
             },
             "PreSize": {
-              "X": 0.6777,
-              "Y": 0.6233
+              "X": 0.0,
+              "Y": 0.0
             },
-            "LeftMargin": 1177.1339,
-            "RightMargin": -352.1338,
-            "TopMargin": 114.1053,
-            "BottomMargin": 563.8947,
-            "Tag": 1844,
-            "ActionTag": 1329842074,
+            "LeftMargin": -2077.6724,
+            "RightMargin": 4637.6724,
+            "TopMargin": 1226.8303,
+            "BottomMargin": 573.1697,
+            "Tag": 6831,
+            "ActionTag": -1398114567,
             "Size": {
-              "X": 1735.0,
-              "Y": 1122.0
+              "X": 0.0,
+              "Y": 0.0
             },
-            "Name": "stall_1",
-            "ctype": "SpriteObjectData"
+            "Name": "stall",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -2434,8 +2456,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 2360.417,
-              "Y": 499.7204
+              "X": -3846.5154,
+              "Y": 345.9358
             },
             "Scale": {
               "ScaleX": 0.8,
@@ -2444,17 +2466,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.922,
-              "Y": 0.2776
+              "X": -1.5025,
+              "Y": 0.1922
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 2360.417,
-            "RightMargin": 199.583,
-            "TopMargin": 1300.2795,
-            "BottomMargin": 499.7204,
+            "LeftMargin": -3846.5154,
+            "RightMargin": 6406.5156,
+            "TopMargin": 1454.0642,
+            "BottomMargin": 345.9358,
             "UserData": "walk;drag",
             "Tag": 1845,
             "ActionTag": 885281967,
@@ -2476,8 +2498,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1844.7798,
-              "Y": 502.6201
+              "X": -4362.147,
+              "Y": 348.8412
             },
             "Scale": {
               "ScaleX": 0.6,
@@ -2486,17 +2508,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.7206,
-              "Y": 0.2792
+              "X": -1.704,
+              "Y": 0.1938
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1844.7798,
-            "RightMargin": 715.2202,
-            "TopMargin": 1297.3799,
-            "BottomMargin": 502.6201,
+            "LeftMargin": -4362.147,
+            "RightMargin": 6922.147,
+            "TopMargin": 1451.1588,
+            "BottomMargin": 348.8412,
             "UserData": "walk;drag",
             "Tag": 2275,
             "ActionTag": 1233072731,
@@ -2506,51 +2528,6 @@
             },
             "Name": "boy",
             "ctype": "ProjectNodeObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Shati_la_kijani_kibichi/Shati_la_kijani_kibichi_1/stallshirt.png",
-              "Plist": "Shati_la_kijani_kibichi/Shati_la_kijani_kibichi_1/Shati_la_kijani_kibichi_1.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 5367.3423,
-              "Y": 1072.8074
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 2.0966,
-              "Y": 0.596
-            },
-            "PreSize": {
-              "X": 1.123,
-              "Y": 0.6961
-            },
-            "LeftMargin": 3929.8423,
-            "RightMargin": -4244.8423,
-            "TopMargin": 100.6926,
-            "BottomMargin": 446.3074,
-            "Tag": 5308,
-            "ActionTag": -1254241027,
-            "Size": {
-              "X": 2875.0,
-              "Y": 1253.0
-            },
-            "Name": "stallshirt_1",
-            "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
@@ -2567,8 +2544,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 3382.0835,
-              "Y": 674.3776
+              "X": -507.9113,
+              "Y": 614.3767
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -2577,17 +2554,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 1.3211,
-              "Y": 0.3747
+              "X": -0.1984,
+              "Y": 0.3413
             },
             "PreSize": {
               "X": 0.307,
               "Y": 0.1533
             },
-            "LeftMargin": 2989.0835,
-            "RightMargin": -1215.0835,
-            "TopMargin": 987.6224,
-            "BottomMargin": 536.3776,
+            "LeftMargin": -900.9113,
+            "RightMargin": 2674.9114,
+            "TopMargin": 1047.6233,
+            "BottomMargin": 476.3767,
             "Tag": 5309,
             "ActionTag": -1466532903,
             "Size": {
@@ -2600,8 +2577,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Shati_la_kijani_kibichi/Shati_la_kijani_kibichi_1/tree.png",
-              "Plist": "Shati_la_kijani_kibichi/Shati_la_kijani_kibichi_1/Shati_la_kijani_kibichi_1.plist"
+              "Path": "Shati_la_kijani_kibichi/Shati/tree.png",
+              "Plist": "Shati_la_kijani_kibichi/Shati/Shati.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -2612,8 +2589,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 7745.4414,
-              "Y": 1116.4733
+              "X": 3855.1716,
+              "Y": 1056.4722
             },
             "Scale": {
               "ScaleX": 1.6469,
@@ -2622,17 +2599,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 3.0256,
-              "Y": 0.6203
+              "X": 1.5059,
+              "Y": 0.5869
             },
             "PreSize": {
-              "X": 0.4348,
-              "Y": 0.4122
+              "X": 0.018,
+              "Y": 0.0256
             },
-            "LeftMargin": 7188.9414,
-            "RightMargin": -5741.9414,
-            "TopMargin": 312.5267,
-            "BottomMargin": 745.4733,
+            "LeftMargin": 3298.6716,
+            "RightMargin": -1851.6719,
+            "TopMargin": 372.5278,
+            "BottomMargin": 685.4722,
             "Tag": 5310,
             "ActionTag": 1969104267,
             "Size": {
@@ -2663,8 +2640,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 8935.7656,
-              "Y": 654.7516
+              "X": 5045.4624,
+              "Y": 594.7502
             },
             "Scale": {
               "ScaleX": 6.4125,
@@ -2673,17 +2650,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 3.4905,
-              "Y": 0.3638
+              "X": 1.9709,
+              "Y": 0.3304
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 8935.7656,
-            "RightMargin": -6575.7656,
-            "TopMargin": 945.2484,
-            "BottomMargin": 654.7516,
+            "LeftMargin": 5045.4624,
+            "RightMargin": -2685.4624,
+            "TopMargin": 1005.2498,
+            "BottomMargin": 594.7502,
             "Tag": 6208,
             "ActionTag": 187962234,
             "Size": {
@@ -2695,9 +2672,51 @@
           },
           {
             "FileData": {
+              "Type": "Normal",
+              "Path": "Shati_la_kijani_kibichi/stall3.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 849.184,
+              "Y": 560.5567
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.3317,
+              "Y": 0.3114
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 849.184,
+            "RightMargin": 1710.8159,
+            "TopMargin": 1239.4434,
+            "BottomMargin": 560.5567,
+            "UserData": "pig",
+            "Tag": 8317,
+            "ActionTag": 701072642,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "stall",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Shati_la_kijani_kibichi/Shati_la_kijani_kibichi_1/uniform1.png",
-              "Plist": "Shati_la_kijani_kibichi/Shati_la_kijani_kibichi_1/Shati_la_kijani_kibichi_1.plist"
+              "Path": "Shati_la_kijani_kibichi/Shati/uniform1.png",
+              "Plist": "Shati_la_kijani_kibichi/Shati/Shati.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -2708,8 +2727,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 9404.3672,
-              "Y": 1091.5151
+              "X": 5514.3613,
+              "Y": 1031.5137
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -2718,17 +2737,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 3.6736,
-              "Y": 0.6064
+              "X": 2.154,
+              "Y": 0.5731
             },
             "PreSize": {
-              "X": 0.1281,
-              "Y": 0.3711
+              "X": 0.018,
+              "Y": 0.0256
             },
-            "LeftMargin": 9240.3672,
-            "RightMargin": -7008.3672,
-            "TopMargin": 374.4849,
-            "BottomMargin": 757.5151,
+            "LeftMargin": 5350.3613,
+            "RightMargin": -3118.3613,
+            "TopMargin": 434.4863,
+            "BottomMargin": 697.5137,
             "Tag": 6197,
             "ActionTag": 131113369,
             "Size": {
@@ -2741,8 +2760,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Shati_la_kijani_kibichi/Shati_la_kijani_kibichi_1/uniform2.png",
-              "Plist": "Shati_la_kijani_kibichi/Shati_la_kijani_kibichi_1/Shati_la_kijani_kibichi_1.plist"
+              "Path": "Shati_la_kijani_kibichi/Shati/uniform2.png",
+              "Plist": "Shati_la_kijani_kibichi/Shati/Shati.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -2753,8 +2772,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 9798.7334,
-              "Y": 1084.2843
+              "X": 5908.1504,
+              "Y": 1024.2822
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -2763,17 +2782,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 3.8276,
-              "Y": 0.6024
+              "X": 2.3079,
+              "Y": 0.569
             },
             "PreSize": {
-              "X": 0.1277,
-              "Y": 0.3711
+              "X": 0.018,
+              "Y": 0.0256
             },
-            "LeftMargin": 9635.2334,
-            "RightMargin": -7402.2334,
-            "TopMargin": 381.7157,
-            "BottomMargin": 750.2843,
+            "LeftMargin": 5744.6504,
+            "RightMargin": -3511.6504,
+            "TopMargin": 441.7178,
+            "BottomMargin": 690.2822,
             "Tag": 6198,
             "ActionTag": -833165035,
             "Size": {
@@ -2804,8 +2823,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 9086.4492,
-              "Y": 704.4137
+              "X": 5196.1338,
+              "Y": 644.4121
             },
             "Scale": {
               "ScaleX": 5.2335,
@@ -2814,17 +2833,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 3.5494,
-              "Y": 0.3913
+              "X": 2.0297,
+              "Y": 0.358
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 9086.4492,
-            "RightMargin": -6726.4492,
-            "TopMargin": 895.5863,
-            "BottomMargin": 704.4137,
+            "LeftMargin": 5196.1338,
+            "RightMargin": -2836.1338,
+            "TopMargin": 955.5879,
+            "BottomMargin": 644.4121,
             "Tag": 6199,
             "ActionTag": -226597426,
             "Size": {
@@ -2851,8 +2870,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 9060.873,
-              "Y": 693.6001
+              "X": 5170.5601,
+              "Y": 633.5979
             },
             "Scale": {
               "ScaleX": 0.3125,
@@ -2861,17 +2880,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 3.5394,
-              "Y": 0.3853
+              "X": 2.0198,
+              "Y": 0.352
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 9060.873,
-            "RightMargin": -6700.873,
-            "TopMargin": 906.3999,
-            "BottomMargin": 693.6001,
+            "LeftMargin": 5170.5601,
+            "RightMargin": -2810.5601,
+            "TopMargin": 966.4021,
+            "BottomMargin": 633.5979,
             "Tag": 6200,
             "ActionTag": -1473269082,
             "Size": {
@@ -2898,8 +2917,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 10113.9414,
-              "Y": 693.616
+              "X": 6223.7681,
+              "Y": 633.6138
             },
             "Scale": {
               "ScaleX": 0.3125,
@@ -2908,17 +2927,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 3.9508,
-              "Y": 0.3853
+              "X": 2.4312,
+              "Y": 0.352
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 10113.9414,
-            "RightMargin": -7753.9414,
-            "TopMargin": 906.384,
-            "BottomMargin": 693.616,
+            "LeftMargin": 6223.7681,
+            "RightMargin": -3863.7681,
+            "TopMargin": 966.3862,
+            "BottomMargin": 633.6138,
             "Tag": 6201,
             "ActionTag": -163572964,
             "Size": {
@@ -2945,8 +2964,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 9062.6113,
-              "Y": 693.5903
+              "X": 5172.2983,
+              "Y": 633.5881
             },
             "Scale": {
               "ScaleX": 5.5048,
@@ -2955,17 +2974,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 3.5401,
-              "Y": 0.3853
+              "X": 2.0204,
+              "Y": 0.352
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 9062.6113,
-            "RightMargin": -6702.6113,
-            "TopMargin": 906.4097,
-            "BottomMargin": 693.5903,
+            "LeftMargin": 5172.2983,
+            "RightMargin": -2812.2983,
+            "TopMargin": 966.4119,
+            "BottomMargin": 633.5881,
             "Tag": 6202,
             "ActionTag": -732587417,
             "Size": {
@@ -2992,8 +3011,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 9061.5469,
-              "Y": 1439.5266
+              "X": 5171.2339,
+              "Y": 1379.4924
             },
             "Scale": {
               "ScaleX": 5.5048,
@@ -3002,17 +3021,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 3.5397,
-              "Y": 0.7997
+              "X": 2.02,
+              "Y": 0.7664
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 9061.5469,
-            "RightMargin": -6701.5469,
-            "TopMargin": 160.4734,
-            "BottomMargin": 1439.5266,
+            "LeftMargin": 5171.2339,
+            "RightMargin": -2811.2339,
+            "TopMargin": 220.5076,
+            "BottomMargin": 1379.4924,
             "Tag": 6203,
             "ActionTag": 426940941,
             "Size": {
@@ -3043,8 +3062,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 8742.4258,
-              "Y": 598.3354
+              "X": 4852.1787,
+              "Y": 538.3325
             },
             "Scale": {
               "ScaleX": 1.7474,
@@ -3053,17 +3072,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 3.415,
-              "Y": 0.3324
+              "X": 1.8954,
+              "Y": 0.2991
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 8742.4258,
-            "RightMargin": -6382.4258,
-            "TopMargin": 1001.6646,
-            "BottomMargin": 598.3354,
+            "LeftMargin": 4852.1787,
+            "RightMargin": -2492.1787,
+            "TopMargin": 1061.6675,
+            "BottomMargin": 538.3325,
             "Tag": 6204,
             "ActionTag": 1810132493,
             "Size": {
@@ -3094,8 +3113,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 10144.5469,
-              "Y": 604.2693
+              "X": 6254.3784,
+              "Y": 544.2664
             },
             "Scale": {
               "ScaleX": 0.6214,
@@ -3104,17 +3123,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 3.9627,
-              "Y": 0.3357
+              "X": 2.4431,
+              "Y": 0.3024
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 10144.5469,
-            "RightMargin": -7784.5469,
-            "TopMargin": 995.7307,
-            "BottomMargin": 604.2693,
+            "LeftMargin": 6254.3784,
+            "RightMargin": -3894.3784,
+            "TopMargin": 1055.7336,
+            "BottomMargin": 544.2664,
             "Tag": 6205,
             "ActionTag": -1958567553,
             "Size": {
@@ -3145,8 +3164,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 8751.9668,
-              "Y": 595.064
+              "X": 4861.7197,
+              "Y": 535.0623
             },
             "Scale": {
               "ScaleX": 7.5844,
@@ -3155,17 +3174,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 3.4187,
-              "Y": 0.3306
+              "X": 1.8991,
+              "Y": 0.2973
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 8751.9668,
-            "RightMargin": -6391.9668,
-            "TopMargin": 1004.936,
-            "BottomMargin": 595.064,
+            "LeftMargin": 4861.7197,
+            "RightMargin": -2501.7197,
+            "TopMargin": 1064.9377,
+            "BottomMargin": 535.0623,
             "Tag": 6206,
             "ActionTag": -1342402997,
             "Size": {
@@ -3196,27 +3215,27 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 8742.748,
-              "Y": 1472.8817
+              "X": 4852.501,
+              "Y": 1412.8457
             },
             "Scale": {
               "ScaleX": 11.9047,
-              "ScaleY": 1.5447
+              "ScaleY": 2.9947
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 3.4151,
-              "Y": 0.8183
+              "X": 1.8955,
+              "Y": 0.7849
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 8742.748,
-            "RightMargin": -6382.748,
-            "TopMargin": 127.1183,
-            "BottomMargin": 1472.8817,
+            "LeftMargin": 4852.501,
+            "RightMargin": -2492.501,
+            "TopMargin": 187.1543,
+            "BottomMargin": 1412.8457,
             "Tag": 6207,
             "ActionTag": -923263820,
             "Size": {
@@ -3247,8 +3266,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 11092.9766,
-              "Y": 654.4623
+              "X": 7202.9062,
+              "Y": 594.4609
             },
             "Scale": {
               "ScaleX": 6.4125,
@@ -3257,17 +3276,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 4.3332,
-              "Y": 0.3636
+              "X": 2.8136,
+              "Y": 0.3303
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 11092.9766,
-            "RightMargin": -8732.9766,
-            "TopMargin": 945.5377,
-            "BottomMargin": 654.4623,
+            "LeftMargin": 7202.9062,
+            "RightMargin": -4842.9062,
+            "TopMargin": 1005.5391,
+            "BottomMargin": 594.4609,
             "Tag": 6209,
             "ActionTag": -858052095,
             "Size": {
@@ -3280,8 +3299,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Shati_la_kijani_kibichi/Shati_la_kijani_kibichi_1/uniform1.png",
-              "Plist": "Shati_la_kijani_kibichi/Shati_la_kijani_kibichi_1/Shati_la_kijani_kibichi_1.plist"
+              "Path": "Shati_la_kijani_kibichi/Shati/uniform1.png",
+              "Plist": "Shati_la_kijani_kibichi/Shati/Shati.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -3292,8 +3311,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 11561.5664,
-              "Y": 1091.2368
+              "X": 7671.5127,
+              "Y": 1031.2354
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -3302,17 +3321,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 4.5162,
-              "Y": 0.6062
+              "X": 2.9967,
+              "Y": 0.5729
             },
             "PreSize": {
-              "X": 0.1281,
-              "Y": 0.3711
+              "X": 0.018,
+              "Y": 0.0256
             },
-            "LeftMargin": 11397.5664,
-            "RightMargin": -9165.5664,
-            "TopMargin": 374.7632,
-            "BottomMargin": 757.2368,
+            "LeftMargin": 7507.5127,
+            "RightMargin": -5275.5127,
+            "TopMargin": 434.7646,
+            "BottomMargin": 697.2354,
             "Tag": 6210,
             "ActionTag": 1477379895,
             "Size": {
@@ -3325,8 +3344,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Shati_la_kijani_kibichi/Shati_la_kijani_kibichi_1/uniform2.png",
-              "Plist": "Shati_la_kijani_kibichi/Shati_la_kijani_kibichi_1/Shati_la_kijani_kibichi_1.plist"
+              "Path": "Shati_la_kijani_kibichi/Shati/uniform2.png",
+              "Plist": "Shati_la_kijani_kibichi/Shati/Shati.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -3337,27 +3356,27 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 11956.0273,
-              "Y": 1084.0048
+              "X": 8064.9785,
+              "Y": 1024.0027
             },
             "Scale": {
-              "ScaleX": 1.0,
+              "ScaleX": 0.9672,
               "ScaleY": 1.0
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 4.6703,
-              "Y": 0.6022
+              "X": 3.1504,
+              "Y": 0.5689
             },
             "PreSize": {
-              "X": 0.1277,
-              "Y": 0.3711
+              "X": 0.018,
+              "Y": 0.0256
             },
-            "LeftMargin": 11792.5273,
-            "RightMargin": -9559.5273,
-            "TopMargin": 381.9952,
-            "BottomMargin": 750.0048,
+            "LeftMargin": 7901.4785,
+            "RightMargin": -5668.4785,
+            "TopMargin": 441.9973,
+            "BottomMargin": 690.0027,
             "Tag": 6211,
             "ActionTag": -219216198,
             "Size": {
@@ -3388,8 +3407,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 11243.6602,
-              "Y": 704.1281
+              "X": 7353.5737,
+              "Y": 644.1265
             },
             "Scale": {
               "ScaleX": 5.2335,
@@ -3398,17 +3417,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 4.3921,
-              "Y": 0.3912
+              "X": 2.8725,
+              "Y": 0.3578
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 11243.6602,
-            "RightMargin": -8883.6602,
-            "TopMargin": 895.8719,
-            "BottomMargin": 704.1281,
+            "LeftMargin": 7353.5737,
+            "RightMargin": -4993.5737,
+            "TopMargin": 955.8735,
+            "BottomMargin": 644.1265,
             "Tag": 6212,
             "ActionTag": -1574175843,
             "Size": {
@@ -3435,8 +3454,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 11218.0625,
-              "Y": 693.3108
+              "X": 7327.9829,
+              "Y": 633.3086
             },
             "Scale": {
               "ScaleX": 0.3125,
@@ -3445,17 +3464,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 4.3821,
-              "Y": 0.3852
+              "X": 2.8625,
+              "Y": 0.3518
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 11218.0625,
-            "RightMargin": -8858.0625,
-            "TopMargin": 906.6892,
-            "BottomMargin": 693.3108,
+            "LeftMargin": 7327.9829,
+            "RightMargin": -4967.9829,
+            "TopMargin": 966.6914,
+            "BottomMargin": 633.3086,
             "Tag": 6213,
             "ActionTag": 1143689331,
             "Size": {
@@ -3482,8 +3501,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 12271.1738,
-              "Y": 693.3303
+              "X": 8381.1484,
+              "Y": 633.3281
             },
             "Scale": {
               "ScaleX": 0.3125,
@@ -3492,17 +3511,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 4.7934,
-              "Y": 0.3852
+              "X": 3.2739,
+              "Y": 0.3518
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 12271.1738,
-            "RightMargin": -9911.1738,
-            "TopMargin": 906.6697,
-            "BottomMargin": 693.3303,
+            "LeftMargin": 8381.1484,
+            "RightMargin": -6021.1484,
+            "TopMargin": 966.6719,
+            "BottomMargin": 633.3281,
             "Tag": 6214,
             "ActionTag": 1967292844,
             "Size": {
@@ -3529,8 +3548,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 11219.8105,
-              "Y": 693.3047
+              "X": 7329.731,
+              "Y": 633.3025
             },
             "Scale": {
               "ScaleX": 5.5048,
@@ -3539,17 +3558,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 4.3827,
-              "Y": 0.3852
+              "X": 2.8632,
+              "Y": 0.3518
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 11219.8105,
-            "RightMargin": -8859.8105,
-            "TopMargin": 906.6953,
-            "BottomMargin": 693.3047,
+            "LeftMargin": 7329.731,
+            "RightMargin": -4969.731,
+            "TopMargin": 966.6975,
+            "BottomMargin": 633.3025,
             "Tag": 6215,
             "ActionTag": -1198569317,
             "Size": {
@@ -3576,8 +3595,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 11218.7559,
-              "Y": 1439.2471
+              "X": 7328.6763,
+              "Y": 1379.2129
             },
             "Scale": {
               "ScaleX": 5.5048,
@@ -3586,17 +3605,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 4.3823,
-              "Y": 0.7996
+              "X": 2.8628,
+              "Y": 0.7662
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 11218.7559,
-            "RightMargin": -8858.7559,
-            "TopMargin": 160.7529,
-            "BottomMargin": 1439.2471,
+            "LeftMargin": 7328.6763,
+            "RightMargin": -4968.6763,
+            "TopMargin": 220.7871,
+            "BottomMargin": 1379.2129,
             "Tag": 6216,
             "ActionTag": 235111415,
             "Size": {
@@ -3627,8 +3646,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 10897.9033,
-              "Y": 593.7285
+              "X": 7007.833,
+              "Y": 533.7268
             },
             "Scale": {
               "ScaleX": 1.7474,
@@ -3637,17 +3656,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 4.257,
-              "Y": 0.3298
+              "X": 2.7374,
+              "Y": 0.2965
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 10897.9033,
-            "RightMargin": -8537.9033,
-            "TopMargin": 1006.2715,
-            "BottomMargin": 593.7285,
+            "LeftMargin": 7007.833,
+            "RightMargin": -4647.833,
+            "TopMargin": 1066.2732,
+            "BottomMargin": 533.7268,
             "Tag": 6217,
             "ActionTag": -598450303,
             "Size": {
@@ -3678,8 +3697,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 12301.7695,
-              "Y": 603.98
+              "X": 8411.7295,
+              "Y": 543.9771
             },
             "Scale": {
               "ScaleX": 0.6214,
@@ -3688,17 +3707,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 4.8054,
-              "Y": 0.3355
+              "X": 3.2858,
+              "Y": 0.3022
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 12301.7695,
-            "RightMargin": -9941.7695,
-            "TopMargin": 996.02,
-            "BottomMargin": 603.98,
+            "LeftMargin": 8411.7295,
+            "RightMargin": -6051.7295,
+            "TopMargin": 1056.0229,
+            "BottomMargin": 543.9771,
             "Tag": 6218,
             "ActionTag": 1825543956,
             "Size": {
@@ -3729,8 +3748,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 10909.1729,
-              "Y": 594.7747
+              "X": 7019.105,
+              "Y": 534.7729
             },
             "Scale": {
               "ScaleX": 7.5844,
@@ -3739,17 +3758,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 4.2614,
-              "Y": 0.3304
+              "X": 2.7418,
+              "Y": 0.2971
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 10909.1729,
-            "RightMargin": -8549.1729,
-            "TopMargin": 1005.2253,
-            "BottomMargin": 594.7747,
+            "LeftMargin": 7019.105,
+            "RightMargin": -4659.105,
+            "TopMargin": 1065.2271,
+            "BottomMargin": 534.7729,
             "Tag": 6219,
             "ActionTag": 2014112193,
             "Size": {
@@ -3780,27 +3799,27 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 10899.9932,
-              "Y": 1472.6083
+              "X": 7009.9229,
+              "Y": 1412.5723
             },
             "Scale": {
               "ScaleX": 7.5844,
-              "ScaleY": 1.5447
+              "ScaleY": 3.1947
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 4.2578,
-              "Y": 0.8181
+              "X": 2.7383,
+              "Y": 0.7848
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 10899.9932,
-            "RightMargin": -8539.9932,
-            "TopMargin": 127.3917,
-            "BottomMargin": 1472.6083,
+            "LeftMargin": 7009.9229,
+            "RightMargin": -4649.9229,
+            "TopMargin": 187.4277,
+            "BottomMargin": 1412.5723,
             "Tag": 6220,
             "ActionTag": -1722713133,
             "Size": {
@@ -3827,8 +3846,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 10268.0625,
-              "Y": 598.6724
+              "X": 6377.8867,
+              "Y": 538.6694
             },
             "Scale": {
               "ScaleX": 0.1423,
@@ -3837,17 +3856,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 4.011,
-              "Y": 0.3326
+              "X": 2.4914,
+              "Y": 0.2993
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 10268.0625,
-            "RightMargin": -7908.0625,
-            "TopMargin": 1001.3276,
-            "BottomMargin": 598.6724,
+            "LeftMargin": 6377.8867,
+            "RightMargin": -4017.8867,
+            "TopMargin": 1061.3306,
+            "BottomMargin": 538.6694,
             "Tag": 6221,
             "ActionTag": -718286076,
             "Size": {
@@ -3874,8 +3893,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 10870.042,
-              "Y": 592.8752
+              "X": 6979.9644,
+              "Y": 532.8735
             },
             "Scale": {
               "ScaleX": 0.1423,
@@ -3884,17 +3903,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 4.2461,
-              "Y": 0.3294
+              "X": 2.7265,
+              "Y": 0.296
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 10870.042,
-            "RightMargin": -8510.042,
-            "TopMargin": 1007.1248,
-            "BottomMargin": 592.8752,
+            "LeftMargin": 6979.9644,
+            "RightMargin": -4619.9644,
+            "TopMargin": 1067.1265,
+            "BottomMargin": 532.8735,
             "Tag": 6222,
             "ActionTag": -982392940,
             "Size": {
@@ -3921,8 +3940,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 10261.9492,
-              "Y": 1445.5361
+              "X": 6371.7734,
+              "Y": 1385.5007
             },
             "Scale": {
               "ScaleX": 3.1773,
@@ -3931,17 +3950,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 4.0086,
-              "Y": 0.8031
+              "X": 2.489,
+              "Y": 0.7697
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 10261.9492,
-            "RightMargin": -7901.9492,
-            "TopMargin": 154.4639,
-            "BottomMargin": 1445.5361,
+            "LeftMargin": 6371.7734,
+            "RightMargin": -4011.7734,
+            "TopMargin": 214.4993,
+            "BottomMargin": 1385.5007,
             "Tag": 6223,
             "ActionTag": -1960599948,
             "Size": {
@@ -3972,8 +3991,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 10249.1465,
-              "Y": 565.598
+              "X": 6358.9731,
+              "Y": 505.5969
             },
             "Scale": {
               "ScaleX": 3.3846,
@@ -3982,17 +4001,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 4.0036,
-              "Y": 0.3142
+              "X": 2.484,
+              "Y": 0.2809
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 10249.1465,
-            "RightMargin": -7889.1465,
-            "TopMargin": 1034.402,
-            "BottomMargin": 565.598,
+            "LeftMargin": 6358.9731,
+            "RightMargin": -3998.9731,
+            "TopMargin": 1094.4031,
+            "BottomMargin": 505.5969,
             "Tag": 6224,
             "ActionTag": -1616351579,
             "Size": {
@@ -4023,8 +4042,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 10282.4785,
-              "Y": 640.9945
+              "X": 6392.2983,
+              "Y": 580.9941
             },
             "Scale": {
               "ScaleX": 2.9813,
@@ -4033,17 +4052,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 4.0166,
-              "Y": 0.3561
+              "X": 2.497,
+              "Y": 0.3228
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 10282.4785,
-            "RightMargin": -7922.4785,
-            "TopMargin": 959.0055,
-            "BottomMargin": 640.9945,
+            "LeftMargin": 6392.2983,
+            "RightMargin": -4032.2983,
+            "TopMargin": 1019.0059,
+            "BottomMargin": 580.9941,
             "Tag": 6225,
             "ActionTag": -1282371298,
             "Size": {
@@ -4068,8 +4087,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 9052.9375,
-              "Y": 662.3669
+              "X": 5162.5449,
+              "Y": 602.3662
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -4078,17 +4097,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 3.5363,
-              "Y": 0.368
+              "X": 2.0166,
+              "Y": 0.3346
             },
             "PreSize": {
               "X": 0.307,
               "Y": 0.1533
             },
-            "LeftMargin": 8659.9375,
-            "RightMargin": -6885.9375,
-            "TopMargin": 999.6331,
-            "BottomMargin": 524.3669,
+            "LeftMargin": 4769.5449,
+            "RightMargin": -2995.5449,
+            "TopMargin": 1059.6338,
+            "BottomMargin": 464.3662,
             "Tag": 6227,
             "ActionTag": 1113683313,
             "Size": {
@@ -4113,8 +4132,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 11411.2549,
-              "Y": 629.3698
+              "X": 7521.1074,
+              "Y": 569.3701
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -4123,17 +4142,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 4.4575,
-              "Y": 0.3496
+              "X": 2.9379,
+              "Y": 0.3163
             },
             "PreSize": {
               "X": 0.307,
               "Y": 0.1533
             },
-            "LeftMargin": 11018.2549,
-            "RightMargin": -9244.2549,
-            "TopMargin": 1032.6301,
-            "BottomMargin": 491.3698,
+            "LeftMargin": 7128.1074,
+            "RightMargin": -5354.1074,
+            "TopMargin": 1092.6299,
+            "BottomMargin": 431.3701,
             "Tag": 6229,
             "ActionTag": -1604895333,
             "Size": {
@@ -4239,10 +4258,12 @@
         "boy_2.json",
         "boy_3.json",
         "men_2.json",
+        "Shati/Shati.plist",
+        "Shati/Shati.png",
         "Shati_la_kijani_kibichi.plist",
         "Shati_la_kijani_kibichi.png",
-        "Shati_la_kijani_kibichi_1/Shati_la_kijani_kibichi_1.plist",
-        "Shati_la_kijani_kibichi_1/Shati_la_kijani_kibichi_1.png",
+        "stall2.json",
+        "stall3.json",
         "women.json"
       ],
       "ctype": "GameFileData"

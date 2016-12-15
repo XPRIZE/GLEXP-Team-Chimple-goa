@@ -20,6 +20,14 @@
                 "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "hi",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -32,6 +40,15 @@
                 "X": 1533.0454,
                 "Y": 790.1154,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1533.0454,
+                "Y": 790.1154,
+                "FrameIndex": 205,
                 "EasingData": {
                   "Type": 0
                 },
@@ -52,6 +69,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.41,
+                "Y": 0.41,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -64,6 +90,15 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 205,
                 "EasingData": {
                   "Type": 0
                 },
@@ -126,7 +161,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "rabbit",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 200,

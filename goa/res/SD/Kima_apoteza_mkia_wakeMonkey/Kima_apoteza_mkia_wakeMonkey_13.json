@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 325,
         "Speed": 1.0,
-        "ActivedAnimationName": "pot",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 1341305010,
@@ -22,7 +22,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "fire",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 200,
@@ -1143,7 +1143,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "rabbit",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 200,
@@ -1520,6 +1520,7 @@
             "BottomMargin": 337.19,
             "UserData": "fir;drag",
             "Tag": 1625,
+            "FrameEvent": "fire",
             "ActionTag": 1341305010,
             "Size": {
               "X": 0.0,
@@ -1590,19 +1591,17 @@
             },
             "Position": {
               "X": 1609.12,
-              "Y": 246.1314
+              "Y": 303.5518
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "RotationSkewX": -30.4001,
-            "RotationSkewY": -30.3995,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
               "X": 0.6286,
-              "Y": 0.1367
+              "Y": 0.1686
             },
             "PreSize": {
               "X": 0.0273,
@@ -1610,8 +1609,8 @@
             },
             "LeftMargin": 1574.12,
             "RightMargin": 915.88,
-            "TopMargin": 1447.3687,
-            "BottomMargin": 139.6314,
+            "TopMargin": 1389.9482,
+            "BottomMargin": 197.0518,
             "Tag": 722,
             "ActionTag": -943684931,
             "Size": {
@@ -1636,29 +1635,27 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1400.8,
-              "Y": 281.1829
+              "X": 1400.8003,
+              "Y": 306.9373
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "RotationSkewX": 9.0667,
-            "RotationSkewY": 9.0664,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
               "X": 0.5472,
-              "Y": 0.1562
+              "Y": 0.1705
             },
             "PreSize": {
               "X": 0.0273,
               "Y": 0.1183
             },
-            "LeftMargin": 1365.8,
-            "RightMargin": 1124.2,
-            "TopMargin": 1412.3171,
-            "BottomMargin": 174.6829,
+            "LeftMargin": 1365.8003,
+            "RightMargin": 1124.1997,
+            "TopMargin": 1386.5627,
+            "BottomMargin": 200.4373,
             "Tag": 723,
             "ActionTag": -1489477670,
             "Size": {
@@ -1684,19 +1681,17 @@
             },
             "Position": {
               "X": 1510.17,
-              "Y": 412.4685
+              "Y": 499.6552
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "RotationSkewX": -1.4459,
-            "RotationSkewY": -1.4495,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
               "X": 0.5899,
-              "Y": 0.2291
+              "Y": 0.2776
             },
             "PreSize": {
               "X": 0.1383,
@@ -1704,10 +1699,11 @@
             },
             "LeftMargin": 1333.17,
             "RightMargin": 872.83,
-            "TopMargin": 1266.5315,
-            "BottomMargin": 291.4685,
+            "TopMargin": 1179.3447,
+            "BottomMargin": 378.6552,
             "UserData": "main.pot",
             "Tag": 724,
+            "FrameEvent": "breaking_glass",
             "ActionTag": 2139237270,
             "Size": {
               "X": 354.0,
@@ -1841,7 +1837,7 @@
             },
             "LeftMargin": 342.6764,
             "RightMargin": 2172.3237,
-            "TopMargin": 1277.9982,
+            "TopMargin": 1277.998,
             "BottomMargin": 196.0019,
             "Tag": 733,
             "ActionTag": 709387439,
@@ -1885,7 +1881,7 @@
               "Y": 0.1139
             },
             "LeftMargin": 383.1725,
-            "RightMargin": 2138.8274,
+            "RightMargin": 2138.8276,
             "TopMargin": 1276.8484,
             "BottomMargin": 318.1516,
             "Tag": 734,
@@ -1998,31 +1994,30 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 2151.9424,
-              "Y": 166.1943
+              "X": 812.9099,
+              "Y": 680.5365
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "RotationSkewX": 2.0007,
-            "RotationSkewY": 2.008,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.8406,
-              "Y": 0.0923
+              "X": 0.3175,
+              "Y": 0.3781
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 2151.9424,
-            "RightMargin": 408.0576,
-            "TopMargin": 1633.8057,
-            "BottomMargin": 166.1943,
+            "LeftMargin": 812.9099,
+            "RightMargin": 1747.0901,
+            "TopMargin": 1119.4635,
+            "BottomMargin": 680.5365,
             "UserData": "rabbit;\ndrag",
             "Tag": 736,
+            "FrameEvent": "rabbit",
             "ActionTag": -1879573086,
             "Size": {
               "X": 0.0,
