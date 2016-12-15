@@ -13,6 +13,8 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
     _selectedAnswer: null,
     _totalCorrectAnswers: 0,
     _questionHelpNode: null,
+    _unfinishedQuestions: [],
+    _finishedQuestions: [],
     ctor: function (nodeJSON, width, height, question, callback, callbackContext) {
         this._super(width, height);
         this._width = width;
@@ -39,7 +41,7 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
             var context = this;
             if(this._answerHelpNode != null) {
                 var box = this._answerHelpNode.getBoundingBox();
-                this._answerHelp = new xc.HelpLayer(cc.rect(box.x + box.width/2, box.y + box.height/2, box.width, box.height), cc.rect(0,0,10,10));
+                this._answerHelp = new xc.HelpLayer(cc.rect(box.x + 50 + box.width/2, box.y + box.height/2, box.width + 50, box.height), cc.rect(0,0,10,10));
                 this.addChild(this._answerHelp,4)
                 this._answerHelp.click(this._answerHelpNode.x,this._answerHelpNode.y);
                 xc._MEANING_HELP_SHOWN = true;
@@ -74,6 +76,7 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
     configureQuestions: function() {
         //randomize array
         //find out question node
+        var that = this;
         this._questions = Object.getOwnPropertyNames(this._question).map(function(element) {
                 if(element !== 'type') return element
             }
@@ -88,10 +91,10 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
         
         this._questions.forEach(function(question, index) {
             var nodeName = "Q"+(index+1);
-            var node = this._constructedScene.node.getChildByName(nodeName);
+            var node = that._constructedScene.node.getChildByName(nodeName);
             if(node) {
                 if(index == 0) {
-                    this._questionHelpNode = node;
+                    that._questionHelpNode = node;
                 }
                 node.selectedIndex = index;
                 node.setAnchorPoint(cc.p(0.5,0.5));
@@ -100,7 +103,9 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
                 node.setTitleFontName(xc.storyFontName);
                 node.setTouchEnabled(true);
                 node.setTitleText(question);
+                node._isPressed = false;
                 node.addTouchEventListener(this.questionSelected, this);
+                that._unfinishedQuestions.push(node);
             }
         }, this);
     },    
@@ -207,22 +212,51 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
         switch (type)
         {
             case ccui.Widget.TOUCH_BEGAN:
+                
+                this._finishedQuestions.forEach(function(n) {
+                    n.setEnabled(false);
+                });
+                this._unfinishedQuestions.forEach(function(n) {
+                    if(n && n.getName() != sender.getName()) {
+                        n.setEnabled(false);
+                    } else {
+                        n.setEnabled(true);
+                    }
+                });
                 if(this._questionHelp != null) {
                     this._questionHelp.setVisible(false);
                     this._questionHelp.setPosition(cc.p(0,0));                    
                     this._questionHelp.removeFromParent();
                     this._questionHelp = null;
                 }
-                if(this._selectedQuestionForAnswer != null) {
-                    this._selectedQuestionForAnswer.setEnabled(true);
-                    this._selectedQuestionForAnswer.setHighlighted(false);
-                }                                      
+                // if(this._selectedQuestionForAnswer != null) {
+                //     this._selectedQuestionForAnswer.setEnabled(true);
+                //     this._selectedQuestionForAnswer.setHighlighted(false);
+                // }                                      
                 break;
 
             case ccui.Widget.TOUCH_ENDED:
-                this._selectedQuestionForAnswer = sender;                   
-                sender.setHighlighted(true);
-                sender.setEnabled(false);
+                this._selectedQuestionForAnswer = sender;
+                
+                if(sender._isPressed) {
+                    sender.setHighlighted(false);
+                    sender._isPressed = false;
+
+                    this._unfinishedQuestions.forEach(function(n) {
+                        n.setEnabled(true);
+                    });                    
+                    this._selectedQuestionForAnswer = null;
+                    this._selectedQuestionDrawNode.setVisible(false);
+                    this._selectedQuestionDrawNode.removeFromParent();
+                } else {
+                    this._selectedQuestionDrawNode = new cc.DrawNode();
+                    this._selectedQuestionDrawNode.drawRect(cc.p(this._selectedQuestionForAnswer.getBoundingBox().x + 50,this._selectedQuestionForAnswer.getBoundingBox().y), cc.p(this._selectedQuestionForAnswer.getBoundingBox().x + 50 +  this._selectedQuestionForAnswer.getBoundingBox().width,this._selectedQuestionForAnswer.getBoundingBox().y + this._selectedQuestionForAnswer.getBoundingBox().height), cc.color(255,255,255,0), 10, cc.color(255,0,0,255));
+                    this.addChild(this._selectedQuestionDrawNode);
+
+                    sender.setHighlighted(true);
+                    sender._isPressed = true;
+                }
+                                               
                 if(!xc._MEANING_HELP_SHOWN) {
                     this.initAnswerHelp();
                 }
@@ -250,8 +284,7 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
                 }
                 if(this._selectedQuestionForAnswer != null) {
                     this.verifyAnswer(sender, this._selectedQuestionForAnswer);
-                    this._selectedQuestionForAnswer.setEnabled(true);
-                    this._selectedQuestionForAnswer.setHighlighted(false);                    
+                    this._selectedQuestionForAnswer.setEnabled(true);                                        
                 }
                 break;
 
@@ -267,14 +300,15 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
         var delay = new cc.DelayTime(1);
         var repeatAction = new cc.Repeat(new cc.Sequence(increase, decrease, delay), 3);
         var sequenceAction = new cc.Sequence(repeatAction, new cc.CallFunc(this.updateSelectedQuestionForAnswer, this));
-        correctAnswerNode.runAction(sequenceAction);          
+        correctAnswerNode.runAction(sequenceAction);   
     },
 
     updateSelectedQuestionForAnswer: function() {
-        this._numberOfTimesInCorrectAnswered = 0;              
+        this._numberOfTimesInCorrectAnswered = 0;                      
     },
 
-    showHintAnimation: function() {
+    showHintAnimation: function(sender) {
+        sender.setEnabled(true);
         if(this._numberOfTimesInCorrectAnswered > 2) {
             //glow correct question and answer      
             var aNode = null;      
@@ -292,7 +326,6 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
                this.scaleAnimation(this._selectedQuestionForAnswer);
                 if(aNode) {
                     this.scaleAnimation(aNode);
-                    this._selectedQuestionForAnswer = null;
                 }                                          
             }
         }
@@ -303,11 +336,13 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
             this._numberOfTimesInCorrectAnswered++;
             var x = sender.getPosition().x;
             var y = sender.getPosition().y;
+            sender.setEnabled(false);
             var moveLeft = new cc.moveTo(0.1, cc.p(sender.getPosition().x - 20, sender.getPosition().y));
             var moveRight = new cc.moveTo(0.1, cc.p(sender.getPosition().x + 40, sender.getPosition().y));
             var moveOriginal = new cc.moveTo(0.1, cc.p(x, y));
             var repeatAction = new cc.Repeat(new cc.Sequence(moveLeft, moveRight), 3);
-            var sequenceAction = new cc.Sequence(repeatAction, moveOriginal, new cc.CallFunc(this.showHintAnimation, this));
+            var sequenceAction = new cc.Sequence(repeatAction, moveOriginal, new cc.CallFunc(this.showHintAnimation, this, sender));
+            
             sender.runAction(sequenceAction);   
             if(xc.NarrateStoryLayer.res.wrongAnswerSound_json) {
                 cc.audioEngine.playEffect(xc.NarrateStoryLayer.res.wrongAnswerSound_json, false);
@@ -340,6 +375,7 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
 
         node1.selectedIndex = sender.selectedIndex;
         node2.selectedIndex = questionNode.selectedIndex;
+      
     },
 
     updateNodeName:function(sender, nodeName) {
@@ -352,6 +388,21 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
         sender.setEnabled(false);
         questionNode.setEnabled(false);
 
+        this._unfinishedQuestions.forEach(function(n) {
+            n.setEnabled(true);
+        });
+
+        this._selectedFinishedAnswerDrawNode = new cc.DrawNode();
+        this._selectedFinishedAnswerDrawNode.drawRect(cc.p(sender.getBoundingBox().x + 50,sender.getBoundingBox().y), cc.p(sender.getBoundingBox().x + 50 + sender.getBoundingBox().width,sender.getBoundingBox().y + sender.getBoundingBox().height), cc.color(255,255,255,0), 10, cc.color(0,255,0,255));
+        this.addChild(this._selectedFinishedAnswerDrawNode);
+
+        this._selectedFinishedQuestionDrawNode = new cc.DrawNode();
+        this._selectedFinishedQuestionDrawNode.drawRect(cc.p(questionNode.getBoundingBox().x + 50,questionNode.getBoundingBox().y), cc.p(questionNode.getBoundingBox().x + 50 + 
+        questionNode.getBoundingBox().width,questionNode.getBoundingBox().y + questionNode.getBoundingBox().height), cc.color(255,255,255,0), 10, cc.color(0,255,0,255));
+        this.addChild(this._selectedFinishedQuestionDrawNode);
+
+        this._selectedQuestionForAnswer = null;
+
         if(this._totalCorrectAnswers == 4) {
             this.callback.call(this._callbackContext, sender, true, true);
         } else {
@@ -360,8 +411,14 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
     },
 
     verifyAnswer: function(sender, questionNode) {
+        var context = this;
         var str2 = sender.getTitleText().replace(/\n|\r/g, "");
         var isCorrectAnswered = str2.trim().toLowerCase() === this._question[questionNode.getTitleText().trim()].trim().toLowerCase();
+
+        this._unfinishedQuestions = this._unfinishedQuestions.filter(function(item) {
+            return item.getName() != questionNode.getName();
+        });
+        
         if(isCorrectAnswered) {
             if(xc.NarrateStoryLayer.res.correctAnswerSound_json) {
                 cc.audioEngine.playEffect(xc.NarrateStoryLayer.res.correctAnswerSound_json, false);
@@ -369,8 +426,16 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
 
             this._totalCorrectAnswers++;
             this.swipeAnswers(sender, questionNode);
+            this._finishedQuestions.push(questionNode);
+            this._selectedQuestionForAnswer._isPressed = false;
+            this._selectedQuestionForAnswer.setHighlighted(false);
+
+            this._selectedQuestionDrawNode.setVisible(false);
+            this._selectedQuestionDrawNode.removeFromParent();
         } else {
             this.hintForCorrectAnswer(sender, isCorrectAnswered);
+            this._selectedQuestionForAnswer._isPressed = true;
+            this._selectedQuestionForAnswer.setHighlighted(true);
         }
     }
 });

@@ -7,11 +7,22 @@ xc.sortitlevel3Layer = cc.Layer.extend({
      level3SpriteScaleX : 2.5, 
      level3SpriteScaleY : 0.9,
     
-
+     wrong : 0,
+     right : 12,
+    gameName : "sortit",
+    menuContext: null,
     ctor:function () {
         
         this._super();
-
+      
+    },
+    onEnter : function(){
+        
+        this._super();
+        
+        this.menuContext = this.getParent().menuContext;
+        this.menuContext.setMaxPoints(6);
+        
         var self = this;
 
         var eventListener = cc.eventManager.addListener({
@@ -54,13 +65,23 @@ xc.sortitlevel3Layer = cc.Layer.extend({
          this.addChild(this.bg.node);
          cc.eventManager.addListener(eventListener.clone(), this.bg.node);
         
-       
+       /*
 
          this.character = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/charcterthree.png"));
          this.character.setAnchorPoint(0.5, 0.5);
          this.character.setPosition(size.width*0.78 , size.height*0.46);
          this.character.setScale(0.8, 0.8); 
          this.addChild(this.character);
+        
+        */
+         this.character = ccs.load(xc.sortitlevel3Layer.res.character, xc.path);
+         this.character.node.setAnchorPoint(0.5, 0.5);
+         this.character.node.setPosition(size.width*0.78 , size.height*0.40); 
+         this.addChild(this.character.node);
+        
+        var animation = ccs.actionTimelineCache.createAction(xc.sortitlevel3Layer.res.character, xc.path);
+        this.character.node.runAction(animation);
+        animation.gotoFrameAndPlay(0,true);
         
 
          this.harpPlay = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/harpPlay.png"));
@@ -76,21 +97,21 @@ xc.sortitlevel3Layer = cc.Layer.extend({
          this.string1t.setAnchorPoint(0.5, 0.5);
          this.string1t.setPosition(size.width*0.39 , size.height*0.54); 
          this.string1t.setScale(this.level3SpriteScaleX, this.level3SpriteScaleY);
-         this.addChild(this.string1t);
+         this.addChild(this.string1t,1);
          
 
          this.string2t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/string2t.png"));
          this.string2t.setAnchorPoint(0.5, 0.5);
          this.string2t.setPosition(size.width*0.42 , size.height*0.55); 
          this.string2t.setScale(this.level3SpriteScaleX, 0.85);
-         this.addChild(this.string2t);
+         this.addChild(this.string2t,1);
          
 
          this.string3t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/string3t.png"));
          this.string3t.setAnchorPoint(0.5, 0.5);
          this.string3t.setPosition(size.width*0.45 , size.height*0.55); 
          this.string3t.setScale(this.level3SpriteScaleX, 0.83);
-         this.addChild(this.string3t);
+         this.addChild(this.string3t,1);
          
 
          
@@ -98,7 +119,7 @@ xc.sortitlevel3Layer = cc.Layer.extend({
          this.string4t.setAnchorPoint(0.5, 0.5);
          this.string4t.setPosition(size.width*0.48 , size.height*0.55); 
          this.string4t.setScale(this.level3SpriteScaleX, this.level3SpriteScaleY);
-         this.addChild(this.string4t);
+         this.addChild(this.string4t,1);
          
          
 
@@ -106,14 +127,14 @@ xc.sortitlevel3Layer = cc.Layer.extend({
          this.string5t.setAnchorPoint(0.5, 0.5);
          this.string5t.setPosition(size.width*0.51 , size.height*0.56); 
          this.string5t.setScale(this.level3SpriteScaleX, 1);
-         this.addChild(this.string5t);
+         this.addChild(this.string5t,1);
          
 
          this.string6t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/string6t.png"));
          this.string6t.setAnchorPoint(0.5, 0.5);
          this.string6t.setPosition(size.width*0.54 , size.height*0.58); 
          this.string6t.setScale(this.level3SpriteScaleX,1);
-         this.addChild(this.string6t);
+         this.addChild(this.string6t,1);
         
 
          this.string1 = new sortitMovableItem3("sortit/string1.png", this.string1t, this);
@@ -123,7 +144,7 @@ xc.sortitlevel3Layer = cc.Layer.extend({
          this.string1.yP = this.string1.getPosition().y;
          this.string1.setScale(this.level3SpriteScaleX, this.level3SpriteScaleY);
          this.string1.id = 1;
-         this.addChild(this.string1);
+         this.addChild(this.string1,1);
          
 
 
@@ -135,7 +156,7 @@ xc.sortitlevel3Layer = cc.Layer.extend({
          this.string2.yP = this.string2.getPosition().y;
          this.string2.setScale(this.level3SpriteScaleX, 0.85);
          this.string2.id = 2;
-         this.addChild(this.string2);
+         this.addChild(this.string2,1);
        
 
 
@@ -146,7 +167,7 @@ xc.sortitlevel3Layer = cc.Layer.extend({
          this.string3.yP = this.string3.getPosition().y;
          this.string3.setScale(this.level3SpriteScaleX, 0.83);
          this.string3.id = 3;
-         this.addChild(this.string3);
+         this.addChild(this.string3,1);
          
 
          this.string4 = new sortitMovableItem3("sortit/string4.png", this.string4t, this);
@@ -156,7 +177,7 @@ xc.sortitlevel3Layer = cc.Layer.extend({
          this.string4.yP = this.string4.getPosition().y;
          this.string4.setScale(this.level3SpriteScaleX, this.level3SpriteScaleY);
          this.string4.id = 4;
-         this.addChild(this.string4);
+         this.addChild(this.string4,1);
          
 
          this.string5 = new sortitMovableItem3("sortit/string5.png", this.string5t, this);
@@ -166,7 +187,7 @@ xc.sortitlevel3Layer = cc.Layer.extend({
          this.string5.yP = this.string5.getPosition().y;
          this.string5.setScale(this.level3SpriteScaleX, 1);
          this.string5.id = 5;
-         this.addChild(this.string5);
+         this.addChild(this.string5,1);
         
 
 
@@ -177,7 +198,7 @@ xc.sortitlevel3Layer = cc.Layer.extend({
          this.string6.yP = this.string6.getPosition().y;
          this.string6.setScale(this.level3SpriteScaleX,1);
          this.string6.id = 6;
-         this.addChild(this.string6);
+         this.addChild(this.string6,1);
             
 
         return true;
@@ -198,7 +219,7 @@ xc.sortitlevel3Layer.res = {
     sortit_plist: xc.path + "sortit/sortit.plist",
     
     
-    
+    character: xc.path + "sortit/character3.json",
     level3bg_json: xc.path + "sortit/levelthree.json",
    
     

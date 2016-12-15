@@ -1,70 +1,94 @@
 {
-	"multiple_choice": [
-		{
-			"question": "Where did Anansi and the Rabbit live?",
-			"choices": ["busy city", "small town", "crowded street"],
-			"answer": "peaceful village in the mountains"
-		},
-		{
-			"question": "What did Anansi fill in the big basket?",
-			"choices": ["carrots", "honey", "toys"],
-			"answer": "money"			
-		},
-		{
-			"question": "In the end, who got the farm?",
-			"choices": ["Anansi", "Vulture", "Chief"],
-			"answer": "Rabbit"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "Rabbit owned a big farm with lots of vegetables and fruit",
-			"choices": ["animals", "trees", "sheep"],
-			"answer": "vegetables"
-		},
-		{
-			"question": "Anansi saw Vulture sitting on his basket",
-			"choices": ["Rabbit", "Crow", "Chief"],
-			"answer": "Vulture"
-		},
-		{
-			"question": "Anansi happily headed home with his basket on his head",
-			"choices": ["fruits", "clothes", "shoes"],
-			"answer": "basket"
-		}
-	],
-	"meanings": [
-		{
-			"peaceful": "free from disturbance",
-			"drizzle": "light rain falling in very fine drops",
-			"precious": "of great value",
-			"protect": "keep safe from harm"
-		},
-		{
-			"furious": "extremely angry",
-			"discuss": "talk about something with people",
-			"decision": "a conclusion or resolution reached after consideration",
-			"judgement": "a decision of a law court or judge"
-		}
-	],
-	"picture": [
-		{
-			"money.png": "money",
-			"house.png": "house",
-			"road.png": "road",
-			"basket.png": "basket"
-		},
-		{
-			"vulture.png": "vulture",
-			"rabbit.png": "rabbit",
-			"cloud.png": "cloud",
-			"hill.png": "hill"
-		}
-	],
-	"words": [
-		"friend",
-		"maize",
-		"downpour",
-		"vegetables"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "vegetables",
+            "choices": [
+                "animals",
+                "trees",
+                "sheep"
+            ],
+            "question": "Rabbit owned a big farm with lots of vegetables and fruit"
+        },
+        {
+            "answer": "Vulture",
+            "choices": [
+                "Rabbit",
+                "Crow",
+                "Chief"
+            ],
+            "question": "Anansi saw Vulture sitting on his basket"
+        },
+        {
+            "answer": "basket",
+            "choices": [
+                "fruits",
+                "clothes",
+                "shoes"
+            ],
+            "question": "Anansi happily headed home with his basket on his head"
+        }
+    ],
+    "meanings": [
+        {
+            "drizzle": "light rain falling in very fine drops",
+            "peaceful": "free from disturbance",
+            "precious": "of great value",
+            "protect": "keep safe from harm"
+        },
+        {
+            "decision": "a conclusion or resolution reached after consideration",
+            "discuss": "talk about something with people",
+            "furious": "extremely angry",
+            "judgement": "a decision of a law court or judge"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "peaceful village in the mountains",
+            "choices": [
+                "busy city",
+                "small town",
+                "crowded street"
+            ],
+            "question": "Where did Anansi and the Rabbit live?"
+        },
+        {
+            "answer": "money",
+            "choices": [
+                "carrots",
+                "honey",
+                "toys"
+            ],
+            "question": "What did Anansi fill in the big basket?"
+        },
+        {
+            "answer": "Rabbit",
+            "choices": [
+                "Anansi",
+                "Vulture",
+                "Chief"
+            ],
+            "question": "In the end, who got the farm?"
+        }
+    ],
+    "picture": [
+        {
+            "basket.png": "basket",
+            "house.png": "house",
+            "money.png": "money",
+            "road.png": "road"
+        },
+        {
+            "cloud.png": "cloud",
+            "hill.png": "hill",
+            "rabbit.png": "rabbit",
+            "vulture.png": "vulture"
+        }
+    ],
+    "words": [
+        "friend",
+        "maize",
+        "downpour",
+        "vegetables"
+    ]
 }

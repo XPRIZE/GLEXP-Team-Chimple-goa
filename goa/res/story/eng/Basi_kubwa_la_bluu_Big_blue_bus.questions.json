@@ -1,64 +1,88 @@
 {
-	"multiple_choice": [
-		{
-			"question": "What color was the big bus?",
-			"choices": ["red", "green", "white"],
-			"answer": "blue"
-		},
-		{
-			"question": "What did Ebei want to buy in the town?",
-			"choices": ["sweets", "shoes", "toys"],
-			"answer": "uniform"			
-		},
-		{
-			"question": "What happened to the big blue bus?",
-			"choices": ["it came on time", "it took a different route", "it was full"],
-			"answer": "it broke down"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "There was only one bus in Ebei's village",
-			"choices": ["tree", "dog", "house"],
-			"answer": "bus"
-		},
-		{
-			"question": "Ebei and his mother walked to the bus stop",
-			"choices": ["ran", "crawled", "rode"],
-			"answer": "walked"
-		},
-		{
-			"question": "Ebei looked out the window",
-			"choices": ["door", "house", "school"],
-			"answer": "window"
-		}
-	],
-	"meanings": [
-		{
-			"noise": "a sound, especially one that is loud or unpleasant",
-			"uniform": "he distinctive clothing worn by members of the same organization",
-			"travel": "make a journey",
-			"wait": "stay where one is"
-		},
-		{
-			"complain": "express dissatisfaction or annoyance about something",
-			"shout": "utter a loud cry",
-			"window": "an opening in the wall or roof of a building or vehicle",
-			"dust": "fine, dry powder consisting of tiny particles of earth"
-		}
-	],
-	"picture": [
-		{
-			"bus.png": "bus",
-			"bed.png": "bed",
-			"uniform.png": "uniform",
-			"house.png": "house"
-		}
-	],
-	"words": [
-		"village",
-		"tomorrow",
-		"people",
-		"running"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "bus",
+            "choices": [
+                "tree",
+                "dog",
+                "house"
+            ],
+            "question": "There was only one bus in Ebei's village"
+        },
+        {
+            "answer": "walked",
+            "choices": [
+                "ran",
+                "crawled",
+                "rode"
+            ],
+            "question": "Ebei and his mother walked to the bus stop"
+        },
+        {
+            "answer": "window",
+            "choices": [
+                "door",
+                "house",
+                "school"
+            ],
+            "question": "Ebei looked out the window"
+        }
+    ],
+    "meanings": [
+        {
+            "noise": "a sound, especially one that is loud or unpleasant",
+            "travel": "make a journey",
+            "uniform": "the distinctive clothing worn by members of the same organization",
+            "wait": "stay where one is"
+        },
+        {
+            "complain": "express dissatisfaction or annoyance about something",
+            "dust": "fine, dry powder consisting of tiny particles of earth",
+            "shout": "utter a loud cry",
+            "window": "an opening in the wall or roof of a building or vehicle"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "blue",
+            "choices": [
+                "red",
+                "green",
+                "white"
+            ],
+            "question": "What color was the big bus?"
+        },
+        {
+            "answer": "uniform",
+            "choices": [
+                "sweets",
+                "shoes",
+                "toys"
+            ],
+            "question": "What did Ebei want to buy in the town?"
+        },
+        {
+            "answer": "it broke down",
+            "choices": [
+                "it came on time",
+                "it took a different route",
+                "it was full"
+            ],
+            "question": "What happened to the big blue bus?"
+        }
+    ],
+    "picture": [
+        {
+            "bed.png": "bed",
+            "bus.png": "bus",
+            "house.png": "house",
+            "uniform.png": "uniform"
+        }
+    ],
+    "words": [
+        "village",
+        "tomorrow",
+        "people",
+        "running"
+    ]
 }

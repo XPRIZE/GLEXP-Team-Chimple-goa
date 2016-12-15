@@ -1,70 +1,94 @@
 {
-	"multiple_choice": [
-		{
-			"question": "Whom did the people ask for help?",
-			"choices": ["Nyame the Sky God", "leopard", "snake"],
-			"answer": "Anansi the Spider"
-		},
-		{
-			"question": "How did Anansi catch the leopard?",
-			"choices": ["By shooting", "By talking", "By shouting loudly"],
-			"answer": "By digging a deep hole"			
-		},
-		{
-			"question": "Where were the stories kept?",
-			"choices": ["In a bag", "In a deep hole", "In the tree trunk"],
-			"answer": "In a wooden box"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "Anansi took a gourd full of water and went to the tree where the hornets lived",
-			"choices": ["honey", "poison", "air"],
-			"answer": "water"
-		},
-		{
-			"question": "Anansi carried the stories triumphantly down to earth",
-			"choices": ["heaven", "river", "ocean"],
-			"answer": "earth"
-		},
-		{
-			"question": "People down on earth had no stories to tell and they were very sad",
-			"choices": ["happy", "delighted", "jealous"],
-			"answer": "sad"
-		}
-	],
-	"meanings": [
-		{
-			"thread": "a long, thin strand of fibre",
-			"expensive": "costing a lot of money",
-			"hornet": "a large, fairly docile wasp",
-			"swallow": "cause or allow something to pass down the throat"
-		},
-		{
-			"supper": "an evening meal",
-			"creature": "an animal",
-			"stream": "a small, narrow river",
-			"argument": "an exchange of diverging or opposite views"
-		}
-	],
-	"picture": [
-		{
-			"snake.png": "snake",
-			"spider.png": "spider",
-			"leopard.png": "leopard",
-			"hornet.png": "hornet"
-		},
-		{
-			"box.png": "box",
-			"nest.png": "nest",
-			"leaf.png": "leaf",
-			"stick.png": "stick"
-		}
-	],
-	"words": [
-		"clever",
-		"thread",
-		"sharp",
-		"banana"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "water",
+            "choices": [
+                "honey",
+                "poison",
+                "air"
+            ],
+            "question": "Anansi took a gourd full of water and went to the tree where the hornets lived"
+        },
+        {
+            "answer": "earth",
+            "choices": [
+                "heaven",
+                "river",
+                "ocean"
+            ],
+            "question": "Anansi carried the stories triumphantly down to earth"
+        },
+        {
+            "answer": "sad",
+            "choices": [
+                "happy",
+                "delighted",
+                "jealous"
+            ],
+            "question": "People down on earth had no stories to tell and they were very sad"
+        }
+    ],
+    "meanings": [
+        {
+            "expensive": "costing a lot of money",
+            "hornet": "a large, fairly docile wasp",
+            "swallow": "cause or allow something to pass down the throat",
+            "thread": "a long, thin strand of fibre"
+        },
+        {
+            "argument": "an exchange of diverging or opposite views",
+            "creature": "an animal",
+            "stream": "a small, narrow river",
+            "supper": "an evening meal"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "Anansi the Spider",
+            "choices": [
+                "Nyame the Sky God",
+                "leopard",
+                "snake"
+            ],
+            "question": "Whom did the people ask for help?"
+        },
+        {
+            "answer": "By digging a deep hole",
+            "choices": [
+                "By shooting",
+                "By talking",
+                "By shouting loudly"
+            ],
+            "question": "How did Anansi catch the leopard?"
+        },
+        {
+            "answer": "In a wooden box",
+            "choices": [
+                "In a bag",
+                "In a deep hole",
+                "In the tree trunk"
+            ],
+            "question": "Where were the stories kept?"
+        }
+    ],
+    "picture": [
+        {
+            "hornet.png": "hornet",
+            "leopard.png": "leopard",
+            "snake.png": "snake",
+            "spider.png": "spider"
+        },
+        {
+            "box.png": "box",
+            "leaf.png": "leaf",
+            "nest.png": "nest",
+            "stick.png": "stick"
+        }
+    ],
+    "words": [
+        "clever",
+        "thread",
+        "sharp",
+        "banana"
+    ]
 }

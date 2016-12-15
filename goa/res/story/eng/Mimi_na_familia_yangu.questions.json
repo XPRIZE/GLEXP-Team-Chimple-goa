@@ -1,56 +1,80 @@
 {
-	"multiple_choice": [
-		{
-			"question": "What do I look at in the sky?",
-			"choices": ["fishes", "trees", "giraffes"],
-			"answer": "birds"
-		},
-		{
-			"question": "What do my monkey and I eat with Gorilla?",
-			"choices": ["beans", "rice", "bread"],
-			"answer": "bananas"			
-		},
-		{
-			"question": "With whom do I sing songs by the lake?",
-			"choices": ["gorilla", "tortoise", "giraffe"],
-			"answer": "snake"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "My birds and I meet Chimpanzee in the tree",
-			"choices": ["Snake", "Giraffe", "Tortoise"],
-			"answer": "Chimpanzee"
-		},
-		{
-			"question": "My giraffes and I make monkey balls from clay",
-			"choices": ["trees", "bananas", "leaves"],
-			"answer": "clay"
-		},
-		{
-			"question": "My entire family and I live together in great happiness",
-			"choices": ["sorrow", "wealth", "health"],
-			"answer": "happiness"
-		}
-	],
-	"picture": [
-		{
-			"banana.png": "banana",
-			"giraffe.png": "giraffe",
-			"gorilla.png": "gorilla",
-			"tortoise.png": "tortoise"
-		},
-		{
-			"monkey.png": "monkey",
-			"snake.png": "snake",
-			"bird.png": "bird",
-			"cloud.png": "cloud"
-		}
-	],
-	"words": [
-		"tree",
-		"hill",
-		"clay",
-		"love"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "Chimpanzee",
+            "choices": [
+                "Snake",
+                "Giraffe",
+                "Tortoise"
+            ],
+            "question": "My birds and I meet Chimpanzee in the tree"
+        },
+        {
+            "answer": "clay",
+            "choices": [
+                "trees",
+                "bananas",
+                "leaves"
+            ],
+            "question": "My giraffes and I make monkey balls from clay"
+        },
+        {
+            "answer": "happiness",
+            "choices": [
+                "sorrow",
+                "wealth",
+                "health"
+            ],
+            "question": "My entire family and I live together in great happiness"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "birds",
+            "choices": [
+                "fishes",
+                "trees",
+                "giraffes"
+            ],
+            "question": "What do I look at in the sky?"
+        },
+        {
+            "answer": "bananas",
+            "choices": [
+                "beans",
+                "rice",
+                "bread"
+            ],
+            "question": "What do my monkey and I eat with Gorilla?"
+        },
+        {
+            "answer": "snake",
+            "choices": [
+                "gorilla",
+                "tortoise",
+                "giraffe"
+            ],
+            "question": "With whom do I sing songs by the lake?"
+        }
+    ],
+    "picture": [
+        {
+            "banana.png": "banana",
+            "giraffe.png": "giraffe",
+            "gorilla.png": "gorilla",
+            "tortoise.png": "tortoise"
+        },
+        {
+            "bird.png": "bird",
+            "cloud.png": "cloud",
+            "monkey.png": "monkey",
+            "snake.png": "snake"
+        }
+    ],
+    "words": [
+        "tree",
+        "hill",
+        "clay",
+        "love"
+    ]
 }

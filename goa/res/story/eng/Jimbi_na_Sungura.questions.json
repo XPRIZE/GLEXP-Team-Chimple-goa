@@ -1,64 +1,88 @@
 {
-	"multiple_choice": [
-		{
-			"question": "What did Hare and rooster enjoy together?",
-			"choices": ["breakfast", "sweets", "water"],
-			"answer": "supper"
-		},
-		{
-			"question": "How did Rooster and his family sleep?",
-			"choices": ["not much", "very little", "on the tree"],
-			"answer": "very well"			
-		},
-		{
-			"question": "What did the Hare family decide to try?",
-			"choices": ["To eat", "To go out", "To speak"],
-			"answer": "To sleep like the Rooster"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "Rooster and his family soon fell asleep",
-			"choices": ["down", "in the well", "from the bed"],
-			"answer": "asleep"
-		},
-		{
-			"question": "In the morning, Hare wanted to know Rooster's secret",
-			"choices": ["plan", "name", "weight"],
-			"answer": "secret"
-		},
-		{
-			"question": "Rooster explained 'Then in the morning, we put our heads back on'",
-			"choices": ["feet", "wings", "tail"],
-			"answer": "heads"
-		}
-	],
-	"meanings": [
-		{
-			"family": "a group of people related by blood or marriage",
-			"together": "with or in proximity to another person or people",
-			"asleep": "in or into a state of sleep",
-			"secret": "not known or seen or not meant to be known or seen by others"
-		},
-		{
-			"decide": "come or bring to a resolution in the mind as a result of consideration",
-			"joke": "a thing that someone says to cause amusement or laughter",
-			"explain": "make an idea  clear to someone by describing it in more detail",
-			"happen": "take place or occur"
-		}
-	],
-	"picture": [
-		{
-			"house.png": "house",
-			"fire.png": "fire",
-			"door.png": "door",
-			"rabbit.png": "rabbit"
-		}
-	],
-	"words": [
-		"rooster",
-		"enjoyed",
-		"morning",
-		"themselves"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "asleep",
+            "choices": [
+                "down",
+                "in the well",
+                "from the bed"
+            ],
+            "question": "Rooster and his family soon fell asleep"
+        },
+        {
+            "answer": "secret",
+            "choices": [
+                "plan",
+                "name",
+                "weight"
+            ],
+            "question": "In the morning, Hare wanted to know Rooster's secret"
+        },
+        {
+            "answer": "heads",
+            "choices": [
+                "feet",
+                "wings",
+                "tail"
+            ],
+            "question": "Rooster explained 'Then in the morning, we put our heads back on'"
+        }
+    ],
+    "meanings": [
+        {
+            "asleep": "in or into a state of sleep",
+            "family": "a group of people related by blood or marriage",
+            "secret": "not known or seen or not meant to be known or seen by others",
+            "together": "with or in proximity to another person or people"
+        },
+        {
+            "decide": "come or bring to a resolution in the mind as a result of consideration",
+            "explain": "make an idea  clear to someone by describing it in more detail",
+            "happen": "take place or occur",
+            "joke": "a thing that someone says to cause amusement or laughter"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "supper",
+            "choices": [
+                "breakfast",
+                "sweets",
+                "water"
+            ],
+            "question": "What did Hare and rooster enjoy together?"
+        },
+        {
+            "answer": "very well",
+            "choices": [
+                "not much",
+                "very little",
+                "on the tree"
+            ],
+            "question": "How did Rooster and his family sleep?"
+        },
+        {
+            "answer": "To sleep like the Rooster",
+            "choices": [
+                "To eat",
+                "To go out",
+                "To speak"
+            ],
+            "question": "What did the Hare family decide to try?"
+        }
+    ],
+    "picture": [
+        {
+            "door.png": "door",
+            "fire.png": "fire",
+            "house.png": "house",
+            "rabbit.png": "rabbit"
+        }
+    ],
+    "words": [
+        "rooster",
+        "enjoyed",
+        "morning",
+        "themselves"
+    ]
 }

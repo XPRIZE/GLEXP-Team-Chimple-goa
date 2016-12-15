@@ -1,33 +1,45 @@
 {
-	"fill_in_the_blanks": [
-		{
-			"question": "My red ball",
-			"choices": ["blue", "green", "yellow"],
-			"answer": "red"
-		},
-		{
-			"question": "I kick my red ball hard",
-			"choices": ["throw", "push", "bounce"],
-			"answer": "kick"
-		},
-		{
-			"question": "My ball is over the moon",
-			"choices": ["sun", "cloud", "tree"],
-			"answer": "moon"
-		}
-	],
-	"picture": [
-		{
-			"ball.png": "ball",
-			"tree.png": "tree",
-			"moon.png": "moon",
-			"hut.png": "hut"
-		}
-	],
-	"words": [
-		"where",
-		"gone",
-		"high",
-		"now"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "red",
+            "choices": [
+                "blue",
+                "green",
+                "yellow"
+            ],
+            "question": "My red ball"
+        },
+        {
+            "answer": "kick",
+            "choices": [
+                "throw",
+                "push",
+                "bounce"
+            ],
+            "question": "I kick my red ball hard"
+        },
+        {
+            "answer": "moon",
+            "choices": [
+                "sun",
+                "cloud",
+                "tree"
+            ],
+            "question": "My ball is over the moon"
+        }
+    ],
+    "picture": [
+        {
+            "ball.png": "ball",
+            "hut.png": "hut",
+            "moon.png": "moon",
+            "tree.png": "tree"
+        }
+    ],
+    "words": [
+        "where",
+        "gone",
+        "high",
+        "now"
+    ]
 }

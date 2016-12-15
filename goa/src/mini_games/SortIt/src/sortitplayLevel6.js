@@ -5,10 +5,20 @@ xc.sortitlevel6Layer = cc.Layer.extend({
         counterLevel6 : 1,
         level6SpriteScaleX : 0.9, 
         level6SpriteScaleY : 0.9,
+    wrong : 0,
+    right : 10,
+    gameName : "sortit",
+    menuContext: null,
     ctor:function () {
         
         this._super();
-
+       },
+    onEnter : function(){
+        
+         this._super();
+        this.menuContext = this.getParent().menuContext;
+        this.menuContext.setMaxPoints(5);
+        
         var self = this;
 
         var eventListener = cc.eventManager.addListener({
@@ -49,7 +59,16 @@ xc.sortitlevel6Layer = cc.Layer.extend({
          cc.eventManager.addListener(eventListener.clone(), this.bg.node);
 
 
-
+         this.character = ccs.load(xc.sortitlevel6Layer.res.character, xc.path);
+         this.character.node.setAnchorPoint(0.5, 0.5);
+         this.character.node.setPosition(size.width*0.18 , size.height*0.36); 
+         this.addChild(this.character.node);
+        
+        
+        var animation = ccs.actionTimelineCache.createAction(xc.sortitlevel6Layer.res.character, xc.path);
+        this.character.node.runAction(animation);
+        animation.gotoFrameAndPlay(0,true);
+        
          ///////////////////////////for transparent
          
          this.at = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/at.png"));
@@ -142,6 +161,7 @@ xc.sortitlevel6Layer = cc.Layer.extend({
         
 
         return true;
+    
     }
 
 
@@ -164,7 +184,7 @@ xc.sortitlevel6Layer.res = {
     
     sortit_png: xc.path + "sortit/sortit.png",
     sortit_plist: xc.path + "sortit/sortit.plist",
-    
+    character: xc.path + "sortit/character2.json",
    
     level6bg_json: xc.path + "sortit/levelsix.json",
     

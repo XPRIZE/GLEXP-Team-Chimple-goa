@@ -1,64 +1,88 @@
 {
-	"multiple_choice": [
-		{
-			"question": "Where did the children go?",
-			"choices": ["town", "park", "school"],
-			"answer": "river"
-		},
-		{
-			"question": "Who ate the children's clothes?",
-			"choices": ["dogs", "monkeys", "the cat"],
-			"answer": "the cow"			
-		},
-		{
-			"question": "How was the river?",
-			"choices": ["hot", "warm", "dirty"],
-			"answer": "cool"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "It was a very hot Saturday afternoon in December",
-			"choices": ["Monday", "Wednesday", "Friday"],
-			"answer": "Saturday"
-		},
-		{
-			"question": "We put our feet in the river to cool off",
-			"choices": ["pond", "ocean", "tank"],
-			"answer": "river"
-		},
-		{
-			"question": "We swam and swam and forgot about the time",
-			"choices": ["books", "car", "bag"],
-			"answer": "time"
-		}
-	],
-	"meanings": [
-		{
-			"swim": "propel the body through water by using the limbs",
-			"shirt": "a garment for the upper body made of cotton or a similar fabric",
-			"splash": "a sound made by something striking or falling into liquid",
-			"soak": "make something to become thoroughly wet by immersing it in liquid"
-		},
-		{
-			"forgot": "fail to remember",
-			"chew": "bite food in the mouth with the teeth",
-			"shiver": "shake slightly and uncontrollably as a result of being cold",
-			"believe": "accept that something is true"
-		}
-	],
-	"picture": [
-		{
-			"tree.png": "tree",
-			"shirt.png": "shirt",
-			"sun.png": "sun",
-			"bush.png": "bush"
-		}
-	],
-	"words": [
-		"answered",
-		"clothes",
-		"flower",
-		"sweet"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "Saturday",
+            "choices": [
+                "Monday",
+                "Wednesday",
+                "Friday"
+            ],
+            "question": "It was a very hot Saturday afternoon in December"
+        },
+        {
+            "answer": "river",
+            "choices": [
+                "pond",
+                "ocean",
+                "tank"
+            ],
+            "question": "We put our feet in the river to cool off"
+        },
+        {
+            "answer": "time",
+            "choices": [
+                "books",
+                "car",
+                "bag"
+            ],
+            "question": "We swam and swam and forgot about the time"
+        }
+    ],
+    "meanings": [
+        {
+            "shirt": "a garment for the upper body made of cotton or a similar fabric",
+            "soak": "make something to become thoroughly wet by immersing it in liquid",
+            "splash": "a sound made by something striking or falling into liquid",
+            "swim": "propel the body through water by using the limbs"
+        },
+        {
+            "believe": "accept that something is true",
+            "chew": "bite food in the mouth with the teeth",
+            "forgot": "fail to remember",
+            "shiver": "shake slightly and uncontrollably as a result of being cold"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "river",
+            "choices": [
+                "town",
+                "park",
+                "school"
+            ],
+            "question": "Where did the children go?"
+        },
+        {
+            "answer": "the cow",
+            "choices": [
+                "dogs",
+                "monkeys",
+                "the cat"
+            ],
+            "question": "Who ate the children's clothes?"
+        },
+        {
+            "answer": "cool",
+            "choices": [
+                "hot",
+                "warm",
+                "dirty"
+            ],
+            "question": "How was the river?"
+        }
+    ],
+    "picture": [
+        {
+            "bush.png": "bush",
+            "shirt.png": "shirt",
+            "sun.png": "sun",
+            "tree.png": "tree"
+        }
+    ],
+    "words": [
+        "answered",
+        "clothes",
+        "flower",
+        "sweet"
+    ]
 }

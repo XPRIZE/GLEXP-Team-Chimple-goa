@@ -1,58 +1,82 @@
 {
-	"multiple_choice": [
-		{
-			"question": "Where did one rat live?",
-			"choices": ["field", "hole", "roof"],
-			"answer": "bush"
-		},
-		{
-			"question": "Who set the trap with sugar?",
-			"choices": ["carpenter", "shop keeper", "rat"],
-			"answer": "owner of the house"			
-		},
-		{
-			"question": "Who got caught in the trap?",
-			"choices": ["the bush rat", "the owner", "the bird"],
-			"answer": "the house rat"			
-		}
-	],
-	"fill_in_the_blanks": [
-		{
-			"question": "We eat many different kinds of food",
-			"choices": ["books", "paper", "cups"],
-			"answer": "food"
-		},
-		{
-			"question": "The house rat's eyes bulged like eggplants",
-			"choices": ["sugar", "cakes", "carrots"],
-			"answer": "eggplants"
-		},
-		{
-			"question": "Your worst home is better than your neighbour's best home",
-			"choices": ["worse", "equal", "suitable"],
-			"answer": "better"
-		}
-	],
-	"meanings": [
-		{
-			"furious": "extremely angry",
-			"bulged": "a rounded swelling",
-			"amazed": "surprise someone greatly",
-			"praise": "express warm approval or admiration"
-		}
-	],
-	"picture": [
-		{
-			"rat.png": "rat",
-			"sugar.png": "s",
-			"trap.png": "trap",
-			"house.png": "house"
-		}
-	],
-	"words": [
-		"badly",
-		"different",
-		"cursed",
-		"reached"
-	]
+    "fill_in_the_blanks": [
+        {
+            "answer": "food",
+            "choices": [
+                "books",
+                "paper",
+                "cups"
+            ],
+            "question": "We eat many different kinds of food"
+        },
+        {
+            "answer": "eggplants",
+            "choices": [
+                "sugar",
+                "cakes",
+                "carrots"
+            ],
+            "question": "The house rat's eyes bulged like eggplants"
+        },
+        {
+            "answer": "better",
+            "choices": [
+                "worse",
+                "equal",
+                "suitable"
+            ],
+            "question": "Your worst home is better than your neighbour's best home"
+        }
+    ],
+    "meanings": [
+        {
+            "amazed": "surprise someone greatly",
+            "bulged": "a rounded swelling",
+            "furious": "extremely angry",
+            "praise": "express warm approval or admiration"
+        }
+    ],
+    "multiple_choice": [
+        {
+            "answer": "bush",
+            "choices": [
+                "field",
+                "hole",
+                "roof"
+            ],
+            "question": "Where did one rat live?"
+        },
+        {
+            "answer": "owner of the house",
+            "choices": [
+                "carpenter",
+                "shop keeper",
+                "rat"
+            ],
+            "question": "Who set the trap with sugar?"
+        },
+        {
+            "answer": "the house rat",
+            "choices": [
+                "the bush rat",
+                "the owner",
+                "the bird"
+            ],
+            "question": "Who got caught in the trap?"
+        }
+    ],
+    "picture": [
+        {
+            "house.png": "house",
+            "rat.png": "rat",
+            "s.png": "s",
+            "trap.png": "trap"
+        }
+    ],
+    "words": [
+        "badly",
+        "different",
+        "cursed",
+        "reached"
+    ]
 }
