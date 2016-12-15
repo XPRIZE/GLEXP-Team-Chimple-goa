@@ -177,7 +177,7 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 auto targetHelpCloseAction = TargetedAction::create(_helpMenu, elastic->clone());
                 auto targetBookCloseAction = TargetedAction::create(_mapMenu, elastic->clone());
                 auto targetMapCloseAction = TargetedAction::create(_bookMenu, elastic->clone());
-                auto targetSettingCloseAction = TargetedAction::create(_settingMenu, elastic);
+//                auto targetSettingCloseAction = TargetedAction::create(_settingMenu, elastic);
                 auto targetGamesCloseAction = TargetedAction::create(_gamesMenu, elastic->clone());
 //                if(_photoMenu) {
 //                    auto targetPhotoCloseAction = TargetedAction::create(_photoMenu, elastic->clone());
@@ -188,7 +188,7 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 //                        runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
 //                }
                 
-                auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction,targetBookCloseAction,targetGamesCloseAction,targetSettingCloseAction, nullptr);
+                auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction,targetBookCloseAction,targetGamesCloseAction, nullptr);
                 runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
                 
                 
@@ -207,8 +207,8 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 4 * POINTS_TO_LEFT);
                 _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
                 
-				_settingMenu = this->createMenuItem("menu/settings.png", "menu/settings.png", "menu/settings.png", 5 * POINTS_TO_LEFT);
-				_settingMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showSettingMenu, this));
+//				_settingMenu = this->createMenuItem("menu/settings.png", "menu/settings.png", "menu/settings.png", 5 * POINTS_TO_LEFT);
+//				_settingMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showSettingMenu, this));
 				
 
 //                _photoMenu = this->createAvatarMenuItem("", "", "", 6 * POINTS_TO_LEFT);
@@ -521,8 +521,8 @@ void MenuContext::removeMenu() {
         removeChild(_gamesMenu);
         _gamesMenu = nullptr;
 
-		removeChild(_settingMenu);
-		_settingMenu = nullptr;
+//		removeChild(_settingMenu);
+//		_settingMenu = nullptr;
         
 //        if(_photoMenu) {
 //            removeChild(_photoMenu);
