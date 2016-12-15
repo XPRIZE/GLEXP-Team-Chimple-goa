@@ -400,6 +400,7 @@ void ChocolateFactory::isTrayInRightSequence()
 	}
 	if (orderCounter == 4) {
 		CCLOG("G A M E  IS O V E R");
+		Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
 		auto callShowScore = CCCallFunc::create([=] {
 			_menuContext->addPoints(1);
 			_menuContext->setMaxPoints(_pointCounter);
