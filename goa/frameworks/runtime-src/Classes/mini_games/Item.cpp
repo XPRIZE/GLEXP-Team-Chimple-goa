@@ -67,7 +67,7 @@ bool Item::init()
 				{ "frog1","item/item_frog1.png" },
 				{ "frog2","item/item_frog2.png" },
 				{ "box1Fish","item_box_5" },
-				{ "box2Fish","item_box_5_0" },
+				{ "box2Fish","item_box_5_1" },
 				{ "box1","item_box_5" },
 				{ "box2","item_box_5_1" },
 				{ "box3","item_box_5_0" },
@@ -157,7 +157,9 @@ void Item::onEnterTransitionDidFinish()
 		auto fishTop1 = CSLoader::createNode(_scenePath.at("fish1"));
 		fishTop1->setPositionX(bubble1->getPositionX()+ extraX);
 		fishTop1->setPositionY(bubble1->getPositionY() + 60);
+		fishTop1->setAnchorPoint(Vec2(0.5, 0.5));
 		this->addChild(fishTop1);
+		fishTop1->setContentSize(Size(600, 200));
 		//fishTop1->setScale(0.5);
 		auto timeline1 = CSLoader::createTimeline(_scenePath.at("fish1"));
 		fishTop1->runAction(timeline1);
@@ -166,7 +168,9 @@ void Item::onEnterTransitionDidFinish()
 		auto fishTop2 = CSLoader::createNode(_scenePath.at("fish2"));
 		fishTop2->setPositionX(bubble2->getPositionX() + extraX);
 		fishTop2->setPositionY(bubble2->getPositionY() + 60);
+		fishTop2->setAnchorPoint(Vec2(0.5, 0.5));
 		this->addChild(fishTop2);
+		fishTop2->setContentSize(Size(600, 200));
 		//fishTop2->setScale(0.5);
 		auto timeline2 = CSLoader::createTimeline(_scenePath.at("fish2"));
 		fishTop2->runAction(timeline2);
@@ -363,6 +367,7 @@ void Item::fish1Create()
 	_fish1 = CSLoader::createNode(_scenePath.at("fish1"));
 	_fish1->setPositionX(bubble1->getPositionX()+ extraX);
 	_fish1->setPositionY(bubble1->getPositionY() + 60);
+    _fish1->setAnchorPoint(Vec2(0.5, 0.5));
 	this->addChild(_fish1, 1);
 	//_fish1->setScale(0.5);
 	_fish1->setName("fish1");
@@ -387,6 +392,7 @@ void Item::fish2Create()
 	_fish2 = CSLoader::createNode(_scenePath.at("fish2"));
 	_fish2->setPositionX(bubble2->getPositionX() + extraX);
 	_fish2->setPositionY(bubble2->getPositionY() + 60);
+	_fish2->setAnchorPoint(Vec2(0.5, 0.5));
 	this->addChild(_fish2, 1);
 	_fish2->setName("fish2");
 	//_fish2->setScale(0.5);
