@@ -15,6 +15,7 @@ public:
 	void update(float dt);
 	static cocos2d::Scene* createScene();
 	std::map<std::string, std::string> _scenePath;
+	std::map<std::string, std::map<std::string, std::string>> _differntSceneMapping;
 	float extraX;
 	int _num = 0;
 	int _score = 0;
@@ -31,6 +32,7 @@ public:
 	std::vector<cocos2d::Sprite *>  _pillarRef;
 	std::vector<std::string> _wordCorrect;
 	std::vector<std::string> _wordList;
+	std::string _title = "", _sentence = "";
 	void ladderMove();
 	void newCake();
 	void onEnterTransitionDidFinish();

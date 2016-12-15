@@ -371,7 +371,7 @@ void Item::fish1Create()
 	_timeline1->gotoFrameAndPause(0);
 
 
-	_fish1->setContentSize(Size(500, 100));
+	_fish1->setContentSize(Size(600, 200));
 	auto listener1 = EventListenerTouchOneByOne::create();
 	listener1->setSwallowTouches(true);
 	listener1->onTouchBegan = CC_CALLBACK_2(Item::onTouchBegan, this);
@@ -394,7 +394,7 @@ void Item::fish2Create()
 	_fish2->runAction(_timeline2);
 	_timeline2->gotoFrameAndPause(0);
 
-	_fish2->setContentSize(Size(500, 100));
+	_fish2->setContentSize(Size(600, 200));
 	auto listener2 = EventListenerTouchOneByOne::create();
 	listener2->setSwallowTouches(true);
 	listener2->onTouchBegan = CC_CALLBACK_2(Item::onTouchBegan, this);

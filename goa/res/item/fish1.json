@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 100,
         "Speed": 1.0,
-        "ActivedAnimationName": "splash",
+        "ActivedAnimationName": "fish1",
         "Timelines": [
           {
             "ActionTag": -1642526516,
@@ -149,17 +149,14 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "item/splash2.png",
+              "Path": "item/item_fish1.png",
               "Plist": "item/item.plist"
             },
             "BlendFunc": {
               "Src": 1,
               "Dst": 771
             },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
+            "AnchorPoint": {},
             "Position": {
               "X": 0.0,
               "Y": 0.0
@@ -178,15 +175,13 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -23.0,
-            "RightMargin": -23.0,
-            "TopMargin": -23.0,
-            "BottomMargin": -23.0,
+            "RightMargin": -613.0,
+            "TopMargin": -286.0,
             "Tag": 47,
             "ActionTag": -1642526516,
             "Size": {
-              "X": 548.0,
-              "Y": 273.0
+              "X": 613.0,
+              "Y": 286.0
             },
             "Name": "Sprite_2",
             "ctype": "SpriteObjectData"
