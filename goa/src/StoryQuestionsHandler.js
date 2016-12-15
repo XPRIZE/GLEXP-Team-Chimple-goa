@@ -60,7 +60,7 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
         this.loadQuestions();
         this._referenceToContext = this;
 
-        this._item = new ccui.Button('template/template_02/refersh_button.png', 'template/template_02/refersh_button_click.png', null, ccui.Widget.PLIST_TEXTURE);
+        this._item = new ccui.Button('template/template_02/skip.png', 'template/template_02/skip_click.png', null, ccui.Widget.PLIST_TEXTURE);
         this._item.setPosition(cc.p(150,cc.director.getWinSize().height - 150));
         this._item.addTouchEventListener(this.skipQuestion, this);
         this.addChild(this._item, 5);

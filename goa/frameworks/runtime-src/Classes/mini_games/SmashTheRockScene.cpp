@@ -113,8 +113,15 @@ void SmashTheRock::begin()
 
 
 	auto block = Sprite::createWithSpriteFrameName("smash_de_rock/letter_normal.png");
-	mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
+	//mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
 	//mychar = CharGenerator::getInstance()->generateAChar();
+	if ((menu->getCurrentLevel() > LangUtil::getInstance()->getNumberOfCharacters()) && LangUtil::getInstance()->getLang() == "swa") {
+		int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 1);
+		mychar = LangUtil::getInstance()->getAllCharacters()[randomNumber];//_crossTheBridgeLevelMapping.at(_gameCurrentLevel);
+	}
+	else {
+		mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
+	}
     _charkey = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mychar, 2, 7, 50);
 	bool firstMychar = true;
 	int dis = (220.0 / 2560)*visibleSize.width;

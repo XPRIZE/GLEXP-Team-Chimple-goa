@@ -51,7 +51,14 @@ void Talk::onEnterTransitionDidFinish()
 			_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::VERB, 10, -(0 - _level));
 		}
 		else
-			_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::VERB, 10, -(48 - _level));
+		{
+			if ((-(48 - _level) > 10))
+			{
+				_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::VERB, 10, 10);
+			}
+			else
+				_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::VERB, 10, -(48 - _level));
+		}
 	}
 	else if ((_level >= 7 && _level <= 12) || (_level >= 61 && _level <= 66))
 	{
@@ -62,7 +69,14 @@ void Talk::onEnterTransitionDidFinish()
 			_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::NOUN, 10, -(7 - _level));
 		}
 		else
-			_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::NOUN, 10, -(54 - _level));
+		{
+			if ((-(54 - _level) > 10))
+			{
+				_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::NOUN, 10, 10);
+			}
+			else
+				_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::NOUN, 10, -(54 - _level));
+		}
 	}
 	else if ((_level >= 13 && _level <= 18) || (_level >= 67 && _level <= 72))
 	{
@@ -73,8 +87,14 @@ void Talk::onEnterTransitionDidFinish()
 			_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::PRONOUN, 10, -(13 - _level));
 		}
 		else
-			_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::PRONOUN, 10, -(60 - _level));
-
+		{
+			if ((-(60 - _level) > 10))
+			{
+				_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::PRONOUN, 10, 10);
+			}
+			else
+				_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::PRONOUN, 10, -(60 - _level));
+		}
 	}
 	else if (_level >= 19 && _level <= 24)
 	{

@@ -179,14 +179,18 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 auto targetMapCloseAction = TargetedAction::create(_bookMenu, elastic->clone());
                 auto targetSettingCloseAction = TargetedAction::create(_settingMenu, elastic);
                 auto targetGamesCloseAction = TargetedAction::create(_gamesMenu, elastic->clone());
-                if(_photoMenu) {
-                    auto targetPhotoCloseAction = TargetedAction::create(_photoMenu, elastic->clone());
-                    auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction,targetBookCloseAction,targetGamesCloseAction,targetPhotoCloseAction, targetSettingCloseAction, nullptr);
-                        runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
-                } else {
-                    auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction,targetBookCloseAction,targetGamesCloseAction,targetSettingCloseAction, nullptr);
-                        runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
-                }
+//                if(_photoMenu) {
+//                    auto targetPhotoCloseAction = TargetedAction::create(_photoMenu, elastic->clone());
+//                    auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction,targetBookCloseAction,targetGamesCloseAction,targetPhotoCloseAction, targetSettingCloseAction, nullptr);
+//                        runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
+//                } else {
+//                    auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction,targetBookCloseAction,targetGamesCloseAction,targetSettingCloseAction, nullptr);
+//                        runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
+//                }
+                
+                auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction,targetBookCloseAction,targetGamesCloseAction,targetSettingCloseAction, nullptr);
+                runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
+                
                 
             } else {
                 addGreyLayer();
@@ -207,7 +211,7 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 				_settingMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showSettingMenu, this));
 				
 
-                _photoMenu = this->createAvatarMenuItem("", "", "", 6 * POINTS_TO_LEFT);
+//                _photoMenu = this->createAvatarMenuItem("", "", "", 6 * POINTS_TO_LEFT);
                 
 
 //                std::string latestPhotoPath = SafariAnalyticsManager::getInstance()->getLatestUserPhoto();
@@ -520,10 +524,10 @@ void MenuContext::removeMenu() {
 		removeChild(_settingMenu);
 		_settingMenu = nullptr;
         
-        if(_photoMenu) {
-            removeChild(_photoMenu);
-            _photoMenu = nullptr;
-        }
+//        if(_photoMenu) {
+//            removeChild(_photoMenu);
+//            _photoMenu = nullptr;
+//        }
 
         
         if(_chimp) {
@@ -1000,7 +1004,7 @@ void MenuContext::showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touc
 
 void MenuContext::showSettingMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
 	if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
-		removeMenu();
+/*		removeMenu();
 
 		_menuButton->setEnabled(false);
 		addGreyLayer();
@@ -1090,7 +1094,7 @@ void MenuContext::showSettingMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::To
 		_listener->onTouchBegan = CC_CALLBACK_2(MenuContext::onTouchBeganOnSubmitButton, this);
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(_listener->clone(), _settingNode->getChildByName("submit"));
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(_listener->clone(), _settingNode->getChildByName("close"));
-	}
+*/	}
 }
 
 

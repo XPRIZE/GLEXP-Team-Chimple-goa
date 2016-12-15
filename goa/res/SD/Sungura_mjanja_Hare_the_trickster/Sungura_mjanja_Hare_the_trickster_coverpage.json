@@ -7,7 +7,6 @@
       "Animation": {
         "Duration": 450,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 20066454,
@@ -218,22 +217,6 @@
                 "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
-              },
-              {
-                "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "walk",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 305,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              },
-              {
-                "InnerActionType": "SingleFrame",
-                "CurrentAniamtionName": "walk",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 310,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -246,24 +229,6 @@
                 "X": -244.2826,
                 "Y": 96.5065,
                 "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 601.4446,
-                "Y": 101.5276,
-                "FrameIndex": 305,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 601.4446,
-                "Y": 101.5276,
-                "FrameIndex": 310,
                 "EasingData": {
                   "Type": 0
                 },
@@ -284,24 +249,6 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": -1.0,
-                "Y": 1.0,
-                "FrameIndex": 305,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": -1.0,
-                "Y": 1.0,
-                "FrameIndex": 310,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -318,24 +265,6 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.0,
-                "Y": 0.0,
-                "FrameIndex": 305,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.0,
-                "Y": 0.0,
-                "FrameIndex": 310,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -348,15 +277,6 @@
                 "X": -169.5958,
                 "Y": 889.0519,
                 "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 714.6804,
-                "Y": 903.7225,
-                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -407,22 +327,6 @@
                 "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
-              },
-              {
-                "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "hop",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 305,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              },
-              {
-                "InnerActionType": "SingleFrame",
-                "CurrentAniamtionName": "hop",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 310,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -435,15 +339,6 @@
                 "X": 2921.9685,
                 "Y": 127.7661,
                 "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 1910.4929,
-                "Y": 157.5723,
-                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -464,15 +359,6 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.5438,
-                "Y": 0.5438,
-                "FrameIndex": 305,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -489,15 +375,6 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.0,
-                "Y": 0.0,
-                "FrameIndex": 305,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -505,26 +382,7 @@
         ],
         "ctype": "TimelineActionData"
       },
-      "AnimationList": [
-        {
-          "StartIndex": 0,
-          "EndIndex": 306,
-          "Name": "master",
-          "ctype": "AnimationInfoData"
-        },
-        {
-          "StartIndex": 310,
-          "EndIndex": 380,
-          "Name": "tree_bird",
-          "ctype": "AnimationInfoData"
-        },
-        {
-          "StartIndex": 385,
-          "EndIndex": 450,
-          "Name": "tree2_bird",
-          "ctype": "AnimationInfoData"
-        }
-      ],
+      "AnimationList": [],
       "ObjectData": {
         "Tag": 17,
         "Children": [
@@ -617,7 +475,7 @@
             },
             "LeftMargin": -1964.1006,
             "RightMargin": 4324.1006,
-            "TopMargin": 1881.8401,
+            "TopMargin": 1881.84,
             "BottomMargin": -281.84,
             "Tag": 55,
             "ActionTag": 1690729190,

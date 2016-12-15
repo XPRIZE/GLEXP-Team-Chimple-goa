@@ -137,7 +137,9 @@ void WordScene::onEnterTransitionDidFinish() {
 
     auto tg = TextGenerator::getInstance();
     if(_word.empty()) {
-        _word = tg->generateAWord(_menuContext->getCurrentLevel());
+        int level = std::ceil(_menuContext->getCurrentLevel() / 8.0);
+        level = MIN(level, 5);
+        _word = tg->generateAWord(level);
     }
     _answerGraphemes = tg->getGraphemes(_word);
     _numGraphemes = _answerGraphemes.size();

@@ -855,6 +855,52 @@
             },
             "Name": "Panel_1_1_0_0_1_0_1_0",
             "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Wapi_kigoe_changu_Where_is_my_bat/eyebrow_boy.png",
+              "Plist": "Wapi_kigoe_changu_Where_is_my_bat/Wapi_kigoe_changu_Where_is_my_bat.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -6.3336,
+              "Y": 56.9384
+            },
+            "Scale": {
+              "ScaleX": 13.3636,
+              "ScaleY": 5.3935
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -61.3336,
+            "RightMargin": -48.6664,
+            "TopMargin": -88.9384,
+            "BottomMargin": 24.9384,
+            "Tag": 1438,
+            "ActionTag": -1148662957,
+            "Size": {
+              "X": 110.0,
+              "Y": 64.0
+            },
+            "Alpha": 0,
+            "Name": "eyebrow_boy_1",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
@@ -864,7 +910,10 @@
         "Name": "Node",
         "ctype": "SingleNodeObjectData"
       },
-      "UsedResources": [],
+      "UsedResources": [
+        "Wapi_kigoe_changu_Where_is_my_bat.plist",
+        "Wapi_kigoe_changu_Where_is_my_bat.png"
+      ],
       "ctype": "GameFileData"
     }
   },

@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 540,
         "Speed": 1.0,
-        "ActivedAnimationName": "cloud1",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -8023824,
@@ -1680,6 +1680,7 @@
               "X": 200.0,
               "Y": 200.0
             },
+            "Alpha": 0,
             "Name": "asd",
             "ctype": "PanelObjectData"
           },
@@ -1694,8 +1695,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 18.8121,
-              "Y": 625.59
+              "X": -1198.9108,
+              "Y": 741.0922
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1704,17 +1705,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.0073,
-              "Y": 0.3476
+              "X": -0.4683,
+              "Y": 0.4117
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 18.8121,
-            "RightMargin": 2541.188,
-            "TopMargin": 1174.4099,
-            "BottomMargin": 625.59,
+            "LeftMargin": -1198.9108,
+            "RightMargin": 3758.9106,
+            "TopMargin": 1058.9077,
+            "BottomMargin": 741.0922,
             "UserData": "blow;drag",
             "Tag": 2299,
             "ActionTag": 273325529,
@@ -1740,8 +1741,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1478.3063,
-              "Y": 422.1672
+              "X": 329.9434,
+              "Y": 422.1664
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1750,17 +1751,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5775,
+              "X": 0.1289,
               "Y": 0.2345
             },
             "PreSize": {
               "X": 0.6293,
               "Y": 0.2689
             },
-            "LeftMargin": 672.8063,
-            "RightMargin": 276.1938,
-            "TopMargin": 1135.8328,
-            "BottomMargin": 180.1672,
+            "LeftMargin": -475.5566,
+            "RightMargin": 1424.5566,
+            "TopMargin": 1135.8336,
+            "BottomMargin": 180.1664,
             "Tag": 2296,
             "ActionTag": -1994831794,
             "Size": {
@@ -1785,8 +1786,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 922.9387,
-              "Y": 253.1011
+              "X": -225.4294,
+              "Y": 253.0922
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1795,17 +1796,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.3605,
+              "X": -0.0881,
               "Y": 0.1406
             },
             "PreSize": {
               "X": 0.6293,
               "Y": 0.2689
             },
-            "LeftMargin": 117.4387,
-            "RightMargin": 831.5613,
-            "TopMargin": 1304.8989,
-            "BottomMargin": 11.1011,
+            "LeftMargin": -1030.9294,
+            "RightMargin": 1979.9294,
+            "TopMargin": 1304.9078,
+            "BottomMargin": 11.0922,
             "UserData": "main.cloud",
             "Tag": 2294,
             "ActionTag": 557010520,
@@ -1831,8 +1832,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2084.9287,
-              "Y": 253.1003
+              "X": 936.5718,
+              "Y": 253.0911
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1841,17 +1842,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.8144,
+              "X": 0.3658,
               "Y": 0.1406
             },
             "PreSize": {
               "X": 0.6293,
               "Y": 0.2689
             },
-            "LeftMargin": 1279.4287,
-            "RightMargin": -330.4287,
-            "TopMargin": 1304.8997,
-            "BottomMargin": 11.1003,
+            "LeftMargin": 131.0718,
+            "RightMargin": 817.9282,
+            "TopMargin": 1304.9089,
+            "BottomMargin": 11.0911,
             "UserData": "main.cloud1",
             "Tag": 2295,
             "ActionTag": 1985795076,
@@ -1876,12 +1877,12 @@
               "ScaleY": 1.0
             },
             "Position": {
-              "X": 431.7681,
-              "Y": 1801.1038
+              "X": 431.7539,
+              "Y": 1801.0969
             },
             "Scale": {
-              "ScaleX": 1.5594,
-              "ScaleY": 0.9684
+              "ScaleX": 0.0863,
+              "ScaleY": 0.0704
             },
             "CColor": {},
             "IconVisible": false,
@@ -1893,10 +1894,10 @@
               "X": 0.2605,
               "Y": 0.7656
             },
-            "LeftMargin": 431.7681,
-            "RightMargin": 1461.2319,
-            "TopMargin": -1.1038,
-            "BottomMargin": 423.1038,
+            "LeftMargin": 431.7539,
+            "RightMargin": 1461.2461,
+            "TopMargin": -1.0969,
+            "BottomMargin": 423.0969,
             "UserData": "main.lighting",
             "Tag": 2318,
             "ActionTag": -1539027133,
@@ -1904,6 +1905,7 @@
               "X": 667.0,
               "Y": 1378.0
             },
+            "Alpha": 0,
             "Name": "lighting_21",
             "ctype": "SpriteObjectData"
           }

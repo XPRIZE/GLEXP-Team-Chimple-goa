@@ -92,7 +92,9 @@ bool CatGame::init()
 void CatGame::generateBuildingLayer(std::string str)
 {
 	auto text = TextGenerator::getInstance();
-	_randomWord = text->generateAWord(_menuContext->getCurrentLevel());
+    int level = std::ceil(_menuContext->getCurrentLevel() / 8.0);
+    level = MIN(level, 5);
+	_randomWord = text->generateAWord(level);
 	_gapNodes.clear();
 	_wordLength = text->getGraphemes(_randomWord).size();
 	_maxPoints += _wordLength;

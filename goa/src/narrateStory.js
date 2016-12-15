@@ -1012,7 +1012,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this._referenceToContext._wordBoard.node.setVisible(true);
         this._referenceToContext.renderNextButton();
         this._referenceToContext.renderPreviousButton();       
-        this._replayButton.setVisible(true);
+        this._replayButton.setVisible(false);
         this._showTextAgainButton.setVisible(true);                                                               
                  
         

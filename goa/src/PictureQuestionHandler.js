@@ -38,7 +38,7 @@ xc.PictureQuestionHandler = cc.Layer.extend({
     },
 
     initAnswerHelp: function() {
-        if(!xc._MEANING_HELP_SHOWN)
+        if(!xc._PICTURE_HELP_SHOWN)
         {
             var context = this;
             if(this._answerHelpNode != null) {
@@ -46,14 +46,14 @@ xc.PictureQuestionHandler = cc.Layer.extend({
                 this._answerHelp = new xc.HelpLayer(cc.rect(box.x + 50 + box.width/2, box.y + box.height/2, box.width + 50, box.height), cc.rect(0,0,10,10));
                 this.addChild(this._answerHelp,4)
                 this._answerHelp.click(this._answerHelpNode.x,this._answerHelpNode.y);
-                xc._MEANING_HELP_SHOWN = true;
+                xc._PICTURE_HELP_SHOWN = true;
             }
         }
     },
 
 
     initQuestionHelp: function() {
-        if(!xc._MEANING_HELP_SHOWN)
+        if(!xc._PICTURE_HELP_SHOWN)
         {
             var context = this;
             var box = this._questionHelpNode.getBoundingBox();
@@ -279,7 +279,7 @@ xc.PictureQuestionHandler = cc.Layer.extend({
                     sender._isPressed = true;
                 }
                                                
-                if(!xc._MEANING_HELP_SHOWN) {
+                if(!xc._PICTURE_HELP_SHOWN) {
                     this.initAnswerHelp();
                 }
                 

@@ -112,7 +112,15 @@ bool AlphamonFeed::init()
 void AlphamonFeed::startGame() {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	menu->setMaxPoints(10);
-	mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
+	if ((menu->getCurrentLevel() > LangUtil::getInstance()->getNumberOfCharacters()) && LangUtil::getInstance()->getLang() == "swa") {
+		int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 1);
+		mychar = LangUtil::getInstance()->getAllCharacters()[randomNumber];//_crossTheBridgeLevelMapping.at(_gameCurrentLevel);
+	}
+	else {
+		mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
+	}
+
+	//mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
 	std::stringstream ss;
 	ss << mychar;
 	std::string mycharString = ss.str();

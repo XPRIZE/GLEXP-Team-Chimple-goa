@@ -5,7 +5,7 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 248,
+        "Duration": 505,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
@@ -58,13 +58,170 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": -250076621,
+            "ActionTag": -1552094644,
             "Property": "Position",
             "Frames": [
               {
-                "X": -591.0639,
-                "Y": -11.3237,
-                "FrameIndex": 248,
+                "X": 440.5934,
+                "Y": 1563.9465,
+                "FrameIndex": 380,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1552094644,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 380,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 360.0,
+                "Y": 360.0,
+                "FrameIndex": 505,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1552094644,
+            "Property": "AnchorPoint",
+            "Frames": [
+              {
+                "X": 0.4567,
+                "Y": 0.5244,
+                "FrameIndex": 380,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 212068627,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 234,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 235,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 212068627,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1180.7657,
+                "Y": 1461.5997,
+                "FrameIndex": 234,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1174.0625,
+                "Y": 1459.0862,
+                "FrameIndex": 235,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -33.4138,
+                "Y": 1907.8403,
+                "FrameIndex": 370,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 212068627,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.2,
+                "Y": 0.2,
+                "FrameIndex": 234,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -525869139,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1465.5674,
+                "Y": 920.1602,
+                "FrameIndex": 235,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1465.5636,
+                "Y": 920.1549,
+                "FrameIndex": 245,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1465.5605,
+                "Y": 920.1509,
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1465.5674,
+                "Y": 920.1602,
+                "FrameIndex": 264,
                 "EasingData": {
                   "Type": 0
                 },
@@ -75,60 +232,39 @@
           },
           {
             "ActionTag": -525869139,
-            "Property": "Position",
+            "Property": "Scale",
             "Frames": [
               {
-                "X": 1505.5691,
-                "Y": 1360.1597,
-                "FrameIndex": 0,
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 235,
                 "EasingData": {
                   "Type": 0
                 },
-                "ctype": "PointFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": -220338114,
-            "Property": "Position",
-            "Frames": [
+                "ctype": "ScaleValueFrameData"
+              },
               {
-                "X": 889.9956,
-                "Y": 789.9822,
-                "FrameIndex": 0,
+                "X": 1.088,
+                "Y": 0.9869,
+                "FrameIndex": 245,
                 "EasingData": {
                   "Type": 0
                 },
-                "ctype": "PointFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": -1518166441,
-            "Property": "Position",
-            "Frames": [
+                "ctype": "ScaleValueFrameData"
+              },
               {
-                "X": 2311.5227,
-                "Y": 827.113,
-                "FrameIndex": 0,
+                "X": 0.9241,
+                "Y": 1.072,
+                "FrameIndex": 255,
                 "EasingData": {
                   "Type": 0
                 },
-                "ctype": "PointFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": -1518166441,
-            "Property": "AnchorPoint",
-            "Frames": [
+                "ctype": "ScaleValueFrameData"
+              },
               {
-                "X": 0.5719,
-                "Y": 0.318,
-                "FrameIndex": 0,
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 264,
                 "EasingData": {
                   "Type": 0
                 },
@@ -160,6 +296,18 @@
           "StartIndex": 0,
           "EndIndex": 230,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 235,
+          "EndIndex": 370,
+          "Name": "tree",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 380,
+          "EndIndex": 505,
+          "Name": "sun",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -286,22 +434,24 @@
               "Dst": 771
             },
             "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
+              "ScaleX": 0.4567,
+              "ScaleY": 0.5244
             },
             "Position": {
-              "X": 463.2264,
-              "Y": 1551.2839
+              "X": 440.5934,
+              "Y": 1563.9465
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
+            "RotationSkewX": 1.0,
+            "RotationSkewY": 1.0,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.1809,
-              "Y": 0.8618
+              "X": 0.1721,
+              "Y": 0.8689
             },
             "PreSize": {
               "X": 0.2043,
@@ -309,8 +459,9 @@
             },
             "LeftMargin": 201.7264,
             "RightMargin": 1835.2736,
-            "TopMargin": -10.7839,
-            "BottomMargin": 1291.7839,
+            "TopMargin": -10.7856,
+            "BottomMargin": 1291.7856,
+            "UserData": "main.sun",
             "Tag": 59,
             "ActionTag": -1552094644,
             "Size": {
@@ -319,6 +470,47 @@
             },
             "Name": "sun_10",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Siafu_amwokoa_Njiwa/dove.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1180.7657,
+              "Y": 1461.5997
+            },
+            "Scale": {
+              "ScaleX": 0.2,
+              "ScaleY": 0.2
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.4612,
+              "Y": 0.812
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1180.7657,
+            "RightMargin": 1379.2343,
+            "TopMargin": 338.4003,
+            "BottomMargin": 1461.5997,
+            "Tag": 2067,
+            "ActionTag": 212068627,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "dove",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -331,31 +523,31 @@
               "Dst": 771
             },
             "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
+              "ScaleX": 0.5006
             },
             "Position": {
-              "X": 1505.5691,
-              "Y": 1360.1597
+              "X": 1465.5674,
+              "Y": 920.1602
             },
             "Scale": {
-              "ScaleX": 1.1258,
-              "ScaleY": 1.1617
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5881,
-              "Y": 0.7556
+              "X": 0.5725,
+              "Y": 0.5112
             },
             "PreSize": {
               "X": 0.4348,
               "Y": 0.4122
             },
-            "LeftMargin": 949.0691,
-            "RightMargin": 497.9309,
-            "TopMargin": 68.8403,
-            "BottomMargin": 989.1597,
+            "LeftMargin": 908.389,
+            "RightMargin": 538.611,
+            "TopMargin": 137.8398,
+            "BottomMargin": 920.1602,
+            "UserData": "main.tree",
             "Tag": 2639,
             "ActionTag": -525869139,
             "Size": {
@@ -367,93 +559,87 @@
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Siafu_amwokoa_Njiwa/bush.png",
-              "Plist": "Siafu_amwokoa_Njiwa/Siafu_amwokoa_Njiwa.plist"
+              "Type": "Normal",
+              "Path": "Siafu_amwokoa_Njiwa/bush.json",
+              "Plist": ""
             },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
             "Position": {
-              "X": 889.9956,
-              "Y": 789.9822
+              "X": 978.0551,
+              "Y": 813.4425
             },
             "Scale": {
-              "ScaleX": 1.3817,
-              "ScaleY": 1.7246
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
             },
             "CColor": {},
-            "IconVisible": false,
+            "IconVisible": true,
             "PrePosition": {
-              "X": 0.3477,
-              "Y": 0.4389
+              "X": 0.3821,
+              "Y": 0.4519
             },
             "PreSize": {
-              "X": 0.307,
-              "Y": 0.1533
+              "X": 0.0,
+              "Y": 0.0
             },
-            "LeftMargin": 496.9956,
-            "RightMargin": 1277.0044,
-            "TopMargin": 872.0178,
-            "BottomMargin": 651.9822,
-            "Tag": 2637,
-            "ActionTag": -220338114,
+            "LeftMargin": 978.0551,
+            "RightMargin": 1581.9449,
+            "TopMargin": 986.5575,
+            "BottomMargin": 813.4425,
+            "UserData": "flowera",
+            "Tag": 2047,
+            "ActionTag": 1739873511,
             "Size": {
-              "X": 786.0,
-              "Y": 276.0
+              "X": 0.0,
+              "Y": 0.0
             },
-            "Name": "bush_38",
-            "ctype": "SpriteObjectData"
+            "Name": "bush",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Siafu_amwokoa_Njiwa/bush.png",
-              "Plist": "Siafu_amwokoa_Njiwa/Siafu_amwokoa_Njiwa.plist"
+              "Type": "Normal",
+              "Path": "Siafu_amwokoa_Njiwa/bush.json",
+              "Plist": ""
             },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5719,
-              "ScaleY": 0.318
-            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
             "Position": {
-              "X": 2311.5227,
-              "Y": 827.113
+              "X": 2035.7966,
+              "Y": 824.0618
             },
             "Scale": {
-              "ScaleX": 1.3269,
-              "ScaleY": 1.3719
+              "ScaleX": 1.2,
+              "ScaleY": 1.2
             },
             "CColor": {},
-            "IconVisible": false,
+            "IconVisible": true,
             "PrePosition": {
-              "X": 0.9029,
-              "Y": 0.4595
+              "X": 0.7952,
+              "Y": 0.4578
             },
             "PreSize": {
-              "X": 0.307,
-              "Y": 0.1533
+              "X": 0.0,
+              "Y": 0.0
             },
-            "LeftMargin": 1862.0093,
-            "RightMargin": -88.0093,
-            "TopMargin": 784.655,
-            "BottomMargin": 739.345,
-            "Tag": 2638,
-            "ActionTag": -1518166441,
+            "LeftMargin": 2035.7966,
+            "RightMargin": 524.2034,
+            "TopMargin": 975.9382,
+            "BottomMargin": 824.0618,
+            "UserData": "flowera",
+            "Tag": 2054,
+            "ActionTag": -325930699,
             "Size": {
-              "X": 786.0,
-              "Y": 276.0
+              "X": 0.0,
+              "Y": 0.0
             },
-            "Name": "bush_39",
-            "ctype": "SpriteObjectData"
+            "Name": "bush",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -485,8 +671,9 @@
             },
             "LeftMargin": 1609.1517,
             "RightMargin": 950.8483,
-            "TopMargin": 1315.7859,
+            "TopMargin": 1315.7858,
             "BottomMargin": 484.2142,
+            "UserData": "walk;drag",
             "Tag": 2677,
             "ActionTag": -292356036,
             "Size": {
@@ -532,6 +719,7 @@
             "RightMargin": -16.2224,
             "TopMargin": 1324.9106,
             "BottomMargin": 188.0894,
+            "UserData": "drag",
             "Tag": 2695,
             "ActionTag": -1670041900,
             "Size": {
@@ -551,10 +739,10 @@
       },
       "UsedResources": [
         "ant.json",
+        "bush.json",
+        "dove.json",
         "Siafu/Siafu.plist",
-        "Siafu/Siafu.png",
-        "Siafu_amwokoa_Njiwa.plist",
-        "Siafu_amwokoa_Njiwa.png"
+        "Siafu/Siafu.png"
       ],
       "ctype": "GameFileData"
     }

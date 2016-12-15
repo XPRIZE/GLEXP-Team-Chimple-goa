@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 248,
+        "Duration": 270,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "tree",
         "Timelines": [
           {
             "ActionTag": 1387969563,
@@ -69,6 +69,250 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -205494836,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1443.8826,
+                "Y": 1344.0806,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1583.23,
+                "Y": 1549.4462,
+                "FrameIndex": 195,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1583.23,
+                "Y": 1549.4462,
+                "FrameIndex": 254,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1443.8826,
+                "Y": 1344.0806,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -205494836,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.7898,
+                "Y": 0.852,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.7898,
+                "Y": 0.852,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -205494836,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 20.7511,
+                "Y": 20.7654,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 24.3325,
+                "Y": 24.3428,
+                "FrameIndex": 195,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 24.3325,
+                "Y": 24.3428,
+                "FrameIndex": 254,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 20.7511,
+                "Y": 20.7654,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -205494836,
+            "Property": "AnchorPoint",
+            "Frames": [
+              {
+                "X": 0.5,
+                "Y": 0.0,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.5,
+                "Y": 0.0,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -205494836,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "jump",
+                "FrameIndex": 160,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1520673975,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1284.2169,
+                "Y": 944.3951,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1284.2169,
+                "Y": 944.395,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1284.2168,
+                "Y": 944.395,
+                "FrameIndex": 170,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1284.2168,
+                "Y": 944.395,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1284.2169,
+                "Y": 944.395,
+                "FrameIndex": 190,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1520673975,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.1294,
+                "Y": 0.8952,
+                "FrameIndex": 170,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.9172,
+                "Y": 1.1087,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 190,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -157,6 +401,12 @@
           "StartIndex": 0,
           "EndIndex": 150,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 160,
+          "EndIndex": 270,
+          "Name": "tree",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -320,6 +570,98 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
+              "Path": "Siafu_amwokoa_Njiwa/Siafu/squirrel.png",
+              "Plist": "Siafu_amwokoa_Njiwa/Siafu/Siafu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5
+            },
+            "Position": {
+              "X": 1443.8826,
+              "Y": 1344.0806
+            },
+            "Scale": {
+              "ScaleX": 0.7898,
+              "ScaleY": 0.852
+            },
+            "RotationSkewX": 20.7511,
+            "RotationSkewY": 20.7654,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.564,
+              "Y": 0.7467
+            },
+            "PreSize": {
+              "X": 0.143,
+              "Y": 0.1628
+            },
+            "LeftMargin": 1260.8826,
+            "RightMargin": 933.1174,
+            "TopMargin": 162.9194,
+            "BottomMargin": 1344.0806,
+            "Tag": 6360,
+            "FrameEvent": "jump",
+            "ActionTag": -205494836,
+            "Size": {
+              "X": 366.0,
+              "Y": 293.0
+            },
+            "Name": "squirrel_100",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siafu_amwokoa_Njiwa/Siafu/tree.png",
+              "Plist": "Siafu_amwokoa_Njiwa/Siafu/Siafu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5
+            },
+            "Position": {
+              "X": 1284.2169,
+              "Y": 944.395
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5016,
+              "Y": 0.5247
+            },
+            "PreSize": {
+              "X": 0.4348,
+              "Y": 0.4122
+            },
+            "LeftMargin": 727.7169,
+            "RightMargin": 719.2831,
+            "TopMargin": 113.605,
+            "BottomMargin": 944.395,
+            "UserData": "main.tree",
+            "Tag": 6359,
+            "ActionTag": 1520673975,
+            "Size": {
+              "X": 1113.0,
+              "Y": 742.0
+            },
+            "Name": "tree_40",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
               "Path": "Siafu_amwokoa_Njiwa/bush.png",
               "Plist": "Siafu_amwokoa_Njiwa/Siafu_amwokoa_Njiwa.plist"
             },
@@ -360,51 +702,6 @@
               "Y": 276.0
             },
             "Name": "bush_38",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Siafu_amwokoa_Njiwa/Siafu/tree.png",
-              "Plist": "Siafu_amwokoa_Njiwa/Siafu/Siafu.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1349.6458,
-              "Y": 1347.4635
-            },
-            "Scale": {
-              "ScaleX": 1.1809,
-              "ScaleY": 1.2837
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.5272,
-              "Y": 0.7486
-            },
-            "PreSize": {
-              "X": 0.4348,
-              "Y": 0.4122
-            },
-            "LeftMargin": 793.1458,
-            "RightMargin": 653.8542,
-            "TopMargin": 81.5365,
-            "BottomMargin": 976.4635,
-            "Tag": 2639,
-            "ActionTag": -525869139,
-            "Size": {
-              "X": 1113.0,
-              "Y": 742.0
-            },
-            "Name": "tree_40",
             "ctype": "SpriteObjectData"
           },
           {

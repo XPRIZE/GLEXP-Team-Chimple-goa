@@ -40,7 +40,15 @@ void Balloon::onEnterTransitionDidFinish()
 	}
 	int no1, no2, no3;
 	string  textOnDisplay;
-	if (gameCurrentLevel >= 1 && gameCurrentLevel <= 6)
+	if (gameCurrentLevel == 1 )
+	{
+		no1 = RandomHelper::random_int(1,6);
+		no2 = RandomHelper::random_int(1,6);
+		while (no2 >= no1) {
+			no2 = RandomHelper::random_int(0, 6);
+		}
+	}
+	else if (gameCurrentLevel >= 2 && gameCurrentLevel <= 6)
 	{
 		 no1 = RandomHelper::random_int(1, 6);
 		 no2 = RandomHelper::random_int(0, 6);
@@ -167,7 +175,13 @@ void Balloon::onEnterTransitionDidFinish()
 	setAllSpriteProperties(_pin, 0, visibleSize.height*0.5, visibleSize.height*0.5, true, 0.5, 0.5, 0, 1, 1);
 	this->addChild(_pin);
 	_pin->setScale(0.8);
-	addTouchEvents(_pin);
+	if (gameCurrentLevel == 1)
+	{
+		_label->runAction(Sequence::create(DelayTime::create(6),
+			CCCallFunc::create([=] {addTouchEvents(_pin); }), NULL));
+	}
+	else
+	{ addTouchEvents(_pin);  }
 	makingBalloons();
 	this->scheduleUpdate();
 
@@ -182,6 +196,7 @@ void Balloon::update(float dt)
 	{
 		_pointCounter++;
 		_menuContext->addPoints(1);
+		Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
 		this->runAction(Sequence::create(DelayTime::create(1),
 			CCCallFunc::create([=]	{
 			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
@@ -419,6 +434,7 @@ void Balloon::addTouchEvents(Sprite* obj)
 			}
 			else if (_balloonsBin.size() == _answer)
 			{
+				Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 				audio->playEffect("sounds/sfx/success.ogg", false);
 				_menuContext->addPoints(1);

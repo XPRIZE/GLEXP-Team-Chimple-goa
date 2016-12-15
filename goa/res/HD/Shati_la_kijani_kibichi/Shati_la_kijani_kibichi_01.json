@@ -323,8 +323,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": -19.6956,
-                "Y": 1189.5714,
+                "X": -137.1205,
+                "Y": 1195.7522,
                 "FrameIndex": 560,
                 "EasingData": {
                   "Type": 0
@@ -460,12 +460,12 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": 1922006127,
+            "ActionTag": -173413107,
             "Property": "Position",
             "Frames": [
               {
-                "X": 9188.7041,
-                "Y": 1006.8872,
+                "X": 9436.2793,
+                "Y": 612.42,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -473,13 +473,69 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 1658.8051,
-                "Y": 1006.8893,
+                "X": 1777.1993,
+                "Y": 636.3689,
                 "FrameIndex": 560,
                 "EasingData": {
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1806208079,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1806208079,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 4922.4829,
+                "Y": 416.165,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -1875.0284,
+                "Y": 446.684,
+                "FrameIndex": 356,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1806208079,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.9,
+                "Y": 0.9,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -591,7 +647,7 @@
               "Y": 466.6779
             },
             "Scale": {
-              "ScaleX": 50.9064,
+              "ScaleX": 54.3336,
               "ScaleY": 6.9777
             },
             "CColor": {},
@@ -998,7 +1054,7 @@
               "Y": 0.709
             },
             "Scale": {
-              "ScaleX": 50.8829,
+              "ScaleX": 54.411,
               "ScaleY": 3.2316
             },
             "CColor": {
@@ -1031,8 +1087,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Shati_la_kijani_kibichi/Shati_la_kijani_kibichi_1/tree.png",
-              "Plist": "Shati_la_kijani_kibichi/Shati_la_kijani_kibichi_1/Shati_la_kijani_kibichi_1.plist"
+              "Path": "Shati_la_kijani_kibichi/Shati/tree.png",
+              "Plist": "Shati_la_kijani_kibichi/Shati/Shati.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -1166,8 +1222,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Shati_la_kijani_kibichi/Shati_la_kijani_kibichi_1/tree.png",
-              "Plist": "Shati_la_kijani_kibichi/Shati_la_kijani_kibichi_1/Shati_la_kijani_kibichi_1.plist"
+              "Path": "Shati_la_kijani_kibichi/Shati/tree.png",
+              "Plist": "Shati_la_kijani_kibichi/Shati/Shati.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -1392,48 +1448,86 @@
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Shati_la_kijani_kibichi/Shati_la_kijani_kibichi_1/stallhat.png",
-              "Plist": "Shati_la_kijani_kibichi/Shati_la_kijani_kibichi_1/Shati_la_kijani_kibichi_1.plist"
+              "Type": "Normal",
+              "Path": "Shati_la_kijani_kibichi/stall1.json",
+              "Plist": ""
             },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
             "Position": {
-              "X": 9188.7041,
-              "Y": 1006.8872
+              "X": 9436.2793,
+              "Y": 612.42
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
             "CColor": {},
-            "IconVisible": false,
+            "IconVisible": true,
             "PrePosition": {
-              "X": 3.5893,
-              "Y": 0.5594
+              "X": 3.686,
+              "Y": 0.3402
             },
             "PreSize": {
-              "X": 0.518,
-              "Y": 0.4772
+              "X": 0.0,
+              "Y": 0.0
             },
-            "LeftMargin": 8525.7041,
-            "RightMargin": -7291.7041,
-            "TopMargin": 363.6128,
-            "BottomMargin": 577.3872,
-            "Tag": 1581,
-            "ActionTag": 1922006127,
+            "LeftMargin": 9436.2793,
+            "RightMargin": -6876.2793,
+            "TopMargin": 1187.5801,
+            "BottomMargin": 612.42,
+            "UserData": "cap",
+            "Tag": 2835,
+            "ActionTag": -173413107,
             "Size": {
-              "X": 1326.0,
-              "Y": 859.0
+              "X": 0.0,
+              "Y": 0.0
             },
-            "Name": "stallhat_147",
-            "ctype": "SpriteObjectData"
+            "Name": "FileNode_2",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Shati_la_kijani_kibichi/men.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 4922.4829,
+              "Y": 416.165
+            },
+            "Scale": {
+              "ScaleX": 0.9,
+              "ScaleY": 0.9
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.9228,
+              "Y": 0.2312
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 4922.4829,
+            "RightMargin": -2362.4829,
+            "TopMargin": 1383.835,
+            "BottomMargin": 416.165,
+            "Tag": 521,
+            "ActionTag": -1806208079,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "man",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -1570,12 +1664,14 @@
       },
       "UsedResources": [
         "boy_2.json",
+        "men.json",
         "men_1.json",
         "men_2.json",
+        "Shati/Shati.plist",
+        "Shati/Shati.png",
         "Shati_la_kijani_kibichi.plist",
         "Shati_la_kijani_kibichi.png",
-        "Shati_la_kijani_kibichi_1/Shati_la_kijani_kibichi_1.plist",
-        "Shati_la_kijani_kibichi_1/Shati_la_kijani_kibichi_1.png"
+        "stall1.json"
       ],
       "ctype": "GameFileData"
     }

@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 105,
         "Speed": 1.0,
-        "ActivedAnimationName": "pop3",
+        "ActivedAnimationName": "pop",
         "Timelines": [
           {
             "ActionTag": 299913515,
@@ -359,6 +359,52 @@
             },
             "Name": "box_1",
             "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Wapi_kigoe_changu_Where_is_my_bat/eyebrow_boy.png",
+              "Plist": "Wapi_kigoe_changu_Where_is_my_bat/Wapi_kigoe_changu_Where_is_my_bat.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 19.7153,
+              "Y": 24.3919
+            },
+            "Scale": {
+              "ScaleX": 2.3672,
+              "ScaleY": 3.1484
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -35.2847,
+            "RightMargin": -74.7153,
+            "TopMargin": -56.3919,
+            "BottomMargin": -7.6081,
+            "Tag": 996,
+            "ActionTag": 804305651,
+            "Size": {
+              "X": 110.0,
+              "Y": 64.0
+            },
+            "Alpha": 0,
+            "Name": "eyebrow_boy_1",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {

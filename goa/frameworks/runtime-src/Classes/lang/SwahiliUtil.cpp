@@ -36,15 +36,15 @@ const std::vector<int> SwahiliUtil::getNumCharsInRows() {
 }
 
 std::string SwahiliUtil::getMonsterAnimationFileName(wchar_t alpha) {
-    return std::string("English/") + convertUTF16CharToString(alpha) +".csb";
+    return std::string("english/") + convertUTF16CharToString(alpha) +".csb";
 }
 
 std::string SwahiliUtil::getSpecialAnimationFileName(wchar_t alpha, std::string suffix) {
-    return std::string("English/") + suffix + "/" + convertUTF16CharToString(alpha) +".csb";
+    return std::string("english/") + suffix + "/" + convertUTF16CharToString(alpha) +".csb";
 }
 
 std::string SwahiliUtil::getBMFontFileName() {
-    return "English/baloo_bhai_hdr.fnt";
+    return "english/baloo_bhai_hdr.fnt";
 }
 
 std::string SwahiliUtil::getAlphabetSoundFileName(wchar_t alpha) {

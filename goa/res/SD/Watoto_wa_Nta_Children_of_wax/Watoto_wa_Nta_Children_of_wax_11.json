@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 545,
+        "Duration": 635,
         "Speed": 1.0,
-        "ActivedAnimationName": "sun",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -1283784550,
@@ -320,27 +320,27 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 607.8024,
-                "Y": 523.9333,
-                "FrameIndex": 305,
+                "X": 621.2695,
+                "Y": 363.7305,
+                "FrameIndex": 550,
                 "EasingData": {
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
               },
               {
-                "X": 607.7966,
-                "Y": 523.9326,
-                "FrameIndex": 345,
+                "X": 614.5348,
+                "Y": 742.6661,
+                "FrameIndex": 590,
                 "EasingData": {
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
               },
               {
-                "X": 607.8024,
-                "Y": 523.9333,
-                "FrameIndex": 380,
+                "X": 621.2695,
+                "Y": 363.7305,
+                "FrameIndex": 635,
                 "EasingData": {
                   "Type": 0
                 },
@@ -354,18 +354,9 @@
             "Property": "Scale",
             "Frames": [
               {
-                "X": 0.4829,
-                "Y": 0.4829,
-                "FrameIndex": 305,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.6976,
-                "Y": 0.6976,
-                "FrameIndex": 345,
+                "X": 0.2867,
+                "Y": 0.2867,
+                "FrameIndex": 550,
                 "EasingData": {
                   "Type": 0
                 },
@@ -373,8 +364,17 @@
               },
               {
                 "X": 0.4829,
-                "Y": 0.4829,
-                "FrameIndex": 380,
+                "Y": 0.761,
+                "FrameIndex": 590,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.2867,
+                "Y": 0.2867,
+                "FrameIndex": 635,
                 "EasingData": {
                   "Type": 0
                 },
@@ -390,7 +390,7 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 305,
+                "FrameIndex": 550,
                 "EasingData": {
                   "Type": 0
                 },
@@ -399,7 +399,7 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 380,
+                "FrameIndex": 635,
                 "EasingData": {
                   "Type": 0
                 },
@@ -626,6 +626,12 @@
           "EndIndex": 545,
           "Name": "sun",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 550,
+          "EndIndex": 635,
+          "Name": "pop",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -697,36 +703,36 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2131.9663,
-              "Y": 819.9221
+              "X": 2209.4429,
+              "Y": 646.4131
             },
             "Scale": {
-              "ScaleX": 3.7253,
-              "ScaleY": 3.7253
+              "ScaleX": 0.0891,
+              "ScaleY": 0.0891
             },
             "CColor": {
               "B": 0
             },
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.8328,
-              "Y": 0.4555
+              "X": 0.8631,
+              "Y": 0.3591
             },
             "PreSize": {
-              "X": 0.2813,
+              "X": 0.2812,
               "Y": 0.4
             },
-            "LeftMargin": 1771.9663,
-            "RightMargin": 68.0337,
-            "TopMargin": 620.0779,
-            "BottomMargin": 459.9221,
+            "LeftMargin": 1849.4429,
+            "RightMargin": -9.4429,
+            "TopMargin": 793.5869,
+            "BottomMargin": 286.4131,
             "Tag": 1136,
             "ActionTag": -1283784550,
             "Size": {
               "X": 720.0,
               "Y": 720.0
             },
-            "Alpha": 202,
+            "Alpha": 0,
             "Name": "Sprite_7",
             "ctype": "SpriteObjectData"
           },
@@ -745,8 +751,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2149.1121,
-              "Y": 704.7276
+              "X": 2156.1526,
+              "Y": 412.5979
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -755,17 +761,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.8395,
-              "Y": 0.3915
+              "X": 0.8422,
+              "Y": 0.2292
             },
             "PreSize": {
               "X": 0.2785,
               "Y": 0.3961
             },
-            "LeftMargin": 1792.6121,
-            "RightMargin": 54.3879,
-            "TopMargin": 738.7725,
-            "BottomMargin": 348.2276,
+            "LeftMargin": 1799.6526,
+            "RightMargin": 47.3474,
+            "TopMargin": 1030.9021,
+            "BottomMargin": 56.0979,
             "UserData": "main.sun",
             "Tag": 1135,
             "ActionTag": 502653731,
@@ -1002,6 +1008,96 @@
             "ctype": "SpriteObjectData"
           },
           {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Watoto_wa_Nta_Children_of_wax/mountain.png",
+              "Plist": "Watoto_wa_Nta_Children_of_wax/Watoto_wa_Nta_Children_of_wax.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3325.7446,
+              "Y": 665.8287
+            },
+            "Scale": {
+              "ScaleX": 1.3379,
+              "ScaleY": 3.588
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.2991,
+              "Y": 0.3699
+            },
+            "PreSize": {
+              "X": 0.4,
+              "Y": 0.0667
+            },
+            "LeftMargin": 2813.7446,
+            "RightMargin": -1277.7446,
+            "TopMargin": 1074.1714,
+            "BottomMargin": 605.8287,
+            "Tag": 5453,
+            "ActionTag": 573752508,
+            "Size": {
+              "X": 1024.0,
+              "Y": 120.0
+            },
+            "Name": "mountain_1_2_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Watoto_wa_Nta_Children_of_wax/mountain.png",
+              "Plist": "Watoto_wa_Nta_Children_of_wax/Watoto_wa_Nta_Children_of_wax.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -551.1804,
+              "Y": 665.8291
+            },
+            "Scale": {
+              "ScaleX": 1.3379,
+              "ScaleY": 3.588
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.2153,
+              "Y": 0.3699
+            },
+            "PreSize": {
+              "X": 0.4,
+              "Y": 0.0667
+            },
+            "LeftMargin": -1063.1804,
+            "RightMargin": 2599.1804,
+            "TopMargin": 1074.1709,
+            "BottomMargin": 605.8291,
+            "Tag": 5454,
+            "ActionTag": -392746754,
+            "Size": {
+              "X": 1024.0,
+              "Y": 120.0
+            },
+            "Name": "mountain_1_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
             "ClipAble": false,
             "ComboBoxIndex": 1,
             "SingleColor": {
@@ -1067,28 +1163,28 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 607.8024,
-              "Y": 523.9333
+              "X": 621.2695,
+              "Y": 363.7305
             },
             "Scale": {
-              "ScaleX": 0.4829,
-              "ScaleY": 0.4829
+              "ScaleX": 0.2867,
+              "ScaleY": 0.2867
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.2374,
-              "Y": 0.2911
+              "X": 0.2427,
+              "Y": 0.2021
             },
             "PreSize": {
               "X": 0.5094,
               "Y": 0.8878
             },
-            "LeftMargin": -44.1976,
-            "RightMargin": 1300.1975,
-            "TopMargin": 477.0667,
-            "BottomMargin": -275.0667,
-            "UserData": "mina.house",
+            "LeftMargin": -30.7305,
+            "RightMargin": 1286.7305,
+            "TopMargin": 637.2695,
+            "BottomMargin": -435.2695,
+            "UserData": "main.pop",
             "Tag": 1138,
             "ActionTag": 738224957,
             "Size": {
@@ -1141,7 +1237,7 @@
               "X": 958.0,
               "Y": 1715.0
             },
-            "Name": "stone",
+            "Name": "mountain",
             "ctype": "SpriteObjectData"
           },
           {
