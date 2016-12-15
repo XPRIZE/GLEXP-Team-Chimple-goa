@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 220,
         "Speed": 1.0,
-        "ActivedAnimationName": "pot",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 657803802,
@@ -698,10 +698,18 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "fire",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 100,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "fire",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 105,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -725,6 +733,15 @@
                 "X": 1508.1899,
                 "Y": 337.19,
                 "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1508.1899,
+                "Y": 337.19,
+                "FrameIndex": 105,
                 "EasingData": {
                   "Type": 0
                 },
@@ -754,6 +771,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 105,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -779,6 +805,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 105,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -790,6 +825,12 @@
               {
                 "Value": "fire",
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 105,
                 "Tween": false,
                 "ctype": "EventFrameData"
               }
@@ -1646,7 +1687,7 @@
               "Y": 0.1139
             },
             "LeftMargin": 383.1725,
-            "RightMargin": 2138.8274,
+            "RightMargin": 2138.8276,
             "TopMargin": 1276.8484,
             "BottomMargin": 318.1516,
             "Tag": 511,
@@ -1692,7 +1733,7 @@
             },
             "LeftMargin": 342.6764,
             "RightMargin": 2172.3237,
-            "TopMargin": 1277.9982,
+            "TopMargin": 1277.998,
             "BottomMargin": 196.0019,
             "Tag": 513,
             "ActionTag": -16139256,
@@ -1871,7 +1912,7 @@
             },
             "LeftMargin": 1333.17,
             "RightMargin": 872.83,
-            "TopMargin": 1179.3448,
+            "TopMargin": 1179.3447,
             "BottomMargin": 378.6552,
             "UserData": "main.pot",
             "Tag": 669,
@@ -2047,7 +2088,7 @@
             },
             "LeftMargin": 789.4019,
             "RightMargin": 1770.5981,
-            "TopMargin": 1105.7395,
+            "TopMargin": 1105.7396,
             "BottomMargin": 694.2604,
             "UserData": "rabbit;\ndrag",
             "Tag": 747,

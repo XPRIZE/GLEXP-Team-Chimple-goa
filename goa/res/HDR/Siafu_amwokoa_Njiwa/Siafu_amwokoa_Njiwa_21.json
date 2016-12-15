@@ -7,7 +7,6 @@
       "Animation": {
         "Duration": 248,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 1387969563,
@@ -174,10 +173,26 @@
             "Property": "ActionValue",
             "Frames": [
               {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "talk",
+                "SingleFrameIndex": 2,
+                "FrameIndex": 42,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
                 "InnerActionType": "LoopAction",
                 "CurrentAniamtionName": "talk",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 43,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "talk",
+                "SingleFrameIndex": 2,
+                "FrameIndex": 150,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -473,9 +488,10 @@
               "Y": 0.0
             },
             "LeftMargin": 955.851,
-            "RightMargin": 1604.149,
+            "RightMargin": 1604.1489,
             "TopMargin": 1190.4932,
             "BottomMargin": 609.5068,
+            "UserData": "walksad;drag",
             "Tag": 4840,
             "ActionTag": -1749513457,
             "Size": {

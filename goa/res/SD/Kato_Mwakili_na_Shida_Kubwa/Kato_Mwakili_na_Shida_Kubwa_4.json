@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 305,
         "Speed": 1.0,
-        "ActivedAnimationName": "bush",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 173430119,
@@ -842,6 +842,14 @@
                 "ctype": "InnerActionFrameData"
               },
               {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 210,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
                 "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "-- ALL --",
                 "SingleFrameIndex": 0,
@@ -887,6 +895,15 @@
                 "X": 1754.5029,
                 "Y": 1580.541,
                 "FrameIndex": 115,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1964.6848,
+                "Y": 1924.6631,
+                "FrameIndex": 210,
                 "EasingData": {
                   "Type": 0
                 },
@@ -947,6 +964,15 @@
               {
                 "X": 0.59,
                 "Y": 0.59,
+                "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.59,
+                "Y": 0.59,
                 "FrameIndex": 215,
                 "EasingData": {
                   "Type": 0
@@ -999,6 +1025,15 @@
               {
                 "X": 26.5598,
                 "Y": 26.5597,
+                "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 26.5598,
+                "Y": 26.5597,
                 "FrameIndex": 215,
                 "EasingData": {
                   "Type": 0
@@ -1021,6 +1056,12 @@
               {
                 "Value": "Butterfly",
                 "FrameIndex": 155,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 210,
                 "Tween": false,
                 "ctype": "EventFrameData"
               },
@@ -1446,7 +1487,7 @@
               "X": 1290.0,
               "Y": 1048.0
             },
-            "Name": "jcb_12",
+            "Name": "machine",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1562,8 +1603,8 @@
               "Y": 349.106
             },
             "Scale": {
-              "ScaleX": 1.0918,
-              "ScaleY": 1.0918
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
             },
             "RotationSkewX": -19.9568,
             "RotationSkewY": -19.949,
@@ -1792,8 +1833,8 @@
               "Y": 349.1053
             },
             "Scale": {
-              "ScaleX": 1.0162,
-              "ScaleY": 1.0162
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
             },
             "RotationSkewX": -19.9568,
             "RotationSkewY": -19.9552,
@@ -2113,8 +2154,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1754.5029,
-              "Y": 1580.541
+              "X": 1922.6484,
+              "Y": 1855.8386
             },
             "Scale": {
               "ScaleX": 0.59,
@@ -2125,17 +2166,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.6854,
-              "Y": 0.8781
+              "X": 0.751,
+              "Y": 1.031
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1754.5029,
-            "RightMargin": 805.4971,
-            "TopMargin": 219.459,
-            "BottomMargin": 1580.541,
+            "LeftMargin": 1922.6484,
+            "RightMargin": 637.3516,
+            "TopMargin": -55.8386,
+            "BottomMargin": 1855.8386,
             "UserData": "butterfly;drag",
             "Tag": 426,
             "ActionTag": -563266051,

@@ -266,18 +266,21 @@ bool AppDelegate::applicationDidFinishLaunching()
 
     SafariAnalyticsManager* safariManager = SafariAnalyticsManager::getInstance();
     
-    std::string cachedCharacterInformation;
-    bool cachedInfoFound = this->findCachedCharacterConfiguration(&cachedCharacterInformation);
-    
     ScriptingCore::getInstance()->runScript("src/LoadGameConfig.js");
+    director->runWithScene(ScrollableGameMapScene::createScene());
     
-    if(cachedInfoFound && !cachedCharacterInformation.empty())
-    {
-        director->runWithScene(ScrollableGameMapScene::createScene());
-    } else {
-        ScriptingCore::getInstance()->runScript("src/start/characterConfigure.js");
-    }
-    
+//    std::string cachedCharacterInformation;
+//    bool cachedInfoFound = this->findCachedCharacterConfiguration(&cachedCharacterInformation);
+//    
+//    ScriptingCore::getInstance()->runScript("src/LoadGameConfig.js");
+//    
+//    if(cachedInfoFound && !cachedCharacterInformation.empty())
+//    {
+//        director->runWithScene(ScrollableGameMapScene::createScene());
+//    } else {
+//        ScriptingCore::getInstance()->runScript("src/start/characterConfigure.js");
+//    }
+//    
 //
 //    #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 //        director->runWithScene(ScrollableGameMapScene::createScene());

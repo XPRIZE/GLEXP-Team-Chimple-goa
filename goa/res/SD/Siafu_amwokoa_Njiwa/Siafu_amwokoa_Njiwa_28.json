@@ -5,26 +5,10 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 248,
+        "Duration": 240,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
-          {
-            "ActionTag": -250076621,
-            "Property": "Position",
-            "Frames": [
-              {
-                "X": -591.0639,
-                "Y": -11.3237,
-                "FrameIndex": 248,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
           {
             "ActionTag": -1749513457,
             "Property": "ActionValue",
@@ -92,8 +76,8 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 333.371,
-                "Y": 1214.418,
+                "X": 333.3707,
+                "Y": 1214.4167,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -101,9 +85,9 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 3372.7627,
-                "Y": 1595.4506,
-                "FrameIndex": 195,
+                "X": 3372.7622,
+                "Y": 1595.4514,
+                "FrameIndex": 240,
                 "EasingData": {
                   "Type": 0
                 },
@@ -117,8 +101,8 @@
             "Property": "RotationSkew",
             "Frames": [
               {
-                "X": -26.9821,
-                "Y": -26.9808,
+                "X": -8.5999,
+                "Y": -8.5999,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -126,9 +110,9 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -26.9821,
-                "Y": -26.9821,
-                "FrameIndex": 195,
+                "X": -12.1444,
+                "Y": -12.1306,
+                "FrameIndex": 240,
                 "EasingData": {
                   "Type": 0
                 },
@@ -263,6 +247,90 @@
           {
             "FileData": {
               "Type": "Normal",
+              "Path": "Siafu_amwokoa_Njiwa/bush.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1961.469,
+              "Y": 570.1559
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7662,
+              "Y": 0.3168
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1961.469,
+            "RightMargin": 598.531,
+            "TopMargin": 1229.8441,
+            "BottomMargin": 570.1559,
+            "UserData": "flowerb",
+            "Tag": 8545,
+            "ActionTag": -660443944,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bush",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Siafu_amwokoa_Njiwa/bush.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 724.5647,
+              "Y": 574.8246
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.283,
+              "Y": 0.3193
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 724.5647,
+            "RightMargin": 1835.4353,
+            "TopMargin": 1225.1753,
+            "BottomMargin": 574.8246,
+            "UserData": "flowera",
+            "Tag": 8552,
+            "ActionTag": -2095847592,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bush",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
               "Path": "Siafu_amwokoa_Njiwa/ant.json",
               "Plist": ""
             },
@@ -294,6 +362,7 @@
             "RightMargin": 1788.8855,
             "TopMargin": 1449.8707,
             "BottomMargin": 350.1293,
+            "UserData": "walk;drag",
             "Tag": 4840,
             "ActionTag": -1749513457,
             "Size": {
@@ -314,29 +383,30 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1362.0881,
-              "Y": 1343.3828
+              "X": 3372.7622,
+              "Y": 1595.4514
             },
             "Scale": {
               "ScaleX": -0.6,
               "ScaleY": 0.6
             },
-            "RotationSkewX": -26.9821,
-            "RotationSkewY": -26.9813,
+            "RotationSkewX": -12.1444,
+            "RotationSkewY": -12.1306,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.5321,
-              "Y": 0.7463
+              "X": 1.3175,
+              "Y": 0.8864
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1362.0881,
-            "RightMargin": 1197.9119,
-            "TopMargin": 456.6172,
-            "BottomMargin": 1343.3828,
+            "LeftMargin": 3372.7622,
+            "RightMargin": -812.7622,
+            "TopMargin": 204.5486,
+            "BottomMargin": 1595.4514,
+            "UserData": "fly;drag",
             "Tag": 7130,
             "ActionTag": -652209118,
             "Size": {
@@ -356,6 +426,7 @@
       },
       "UsedResources": [
         "ant.json",
+        "bush.json",
         "dove.json"
       ],
       "ctype": "GameFileData"

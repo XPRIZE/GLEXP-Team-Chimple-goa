@@ -92,7 +92,7 @@ void MainGame::onEnterTransitionDidFinish()
 	MainGame::originX = origin.x;
 	MainGame::originY = origin.y;
 
-	_menuContext->setMaxPoints(15);
+	_menuContext->setMaxPoints(10);
 
 	p1.x = MainGame::originX + MainGame::width * 88 / 100;
 	p1.y = MainGame::originY + MainGame::height * 18 / 100;
@@ -568,6 +568,11 @@ void MainGame::cannonBallHitAnimation(Node *nd)
 
 void MainGame::meteorBlast(Node *nd)
 {
+	if (_score == 10)
+	{
+		_menuContext->showScore();
+	}
+
 	self->removeChild(nd);
 }
 
@@ -604,7 +609,6 @@ void MainGame::removeFire(EventListenerClass* letterObject, Alphabet* removableF
 				break;
 			}
 		}
-
 	}
 	cannonLetterCome();
 }
@@ -749,6 +753,8 @@ void MainGame::update(float dt)
 						}
 					}
 
+					_score++;
+
 					auto timeline = CSLoader::createTimeline("cannonball_meteoranimation.csb");
 					Node *mycannon = (Node *)CSLoader::createNode("cannonball_meteoranimation.csb");
 					mycannon->setPosition(MainGame::letterArray[i]->getBoundingBox().origin.x + (MainGame::letterArray[i]->getContentSize().width*55/100), MainGame::letterArray[i]->getBoundingBox().origin.y + (MainGame::letterArray[i]->getContentSize().height * 51/100));
@@ -764,11 +770,6 @@ void MainGame::update(float dt)
 					this->removeChild(MainGame::bulletArray_Animation[j]);
 
 					_menuContext->pickAlphabet(MainGame::letterArray[i]->id, bulletArray[j]->id, true);
-					_score++;
-					if (_score == 15)
-					{
-						_menuContext->showScore();
-					}
 
 //					int score = _menuContext->getPoints();
 //					if (score == 15)

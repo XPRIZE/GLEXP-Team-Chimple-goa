@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 300,
         "Speed": 1.0,
-        "ActivedAnimationName": "fruit",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 65632941,
@@ -533,7 +533,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "hop",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 200,
@@ -695,7 +695,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "butterfly",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 200,

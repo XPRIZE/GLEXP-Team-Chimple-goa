@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 248,
+        "Duration": 295,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "tree",
         "Timelines": [
           {
             "ActionTag": 1387969563,
@@ -106,6 +106,165 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 146,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1970604596,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 159,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 160,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1970604596,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1180.7657,
+                "Y": 1461.5997,
+                "FrameIndex": 159,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1174.0625,
+                "Y": 1459.0862,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -33.4138,
+                "Y": 1907.8403,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1970604596,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.2,
+                "Y": 0.2,
+                "FrameIndex": 159,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1757040685,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1465.5674,
+                "Y": 920.1602,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1465.5636,
+                "Y": 920.1549,
+                "FrameIndex": 170,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1465.5605,
+                "Y": 920.1509,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1465.5674,
+                "Y": 920.1602,
+                "FrameIndex": 189,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1757040685,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.088,
+                "Y": 0.9869,
+                "FrameIndex": 170,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.9241,
+                "Y": 1.072,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 189,
                 "EasingData": {
                   "Type": 0
                 },
@@ -325,6 +484,12 @@
           "EndIndex": 150,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 160,
+          "EndIndex": 295,
+          "Name": "tree",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -441,6 +606,92 @@
           },
           {
             "FileData": {
+              "Type": "Normal",
+              "Path": "Siafu_amwokoa_Njiwa/dove.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -33.4138,
+              "Y": 1907.8403
+            },
+            "Scale": {
+              "ScaleX": 0.2,
+              "ScaleY": 0.2
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.0131,
+              "Y": 1.0599
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -33.4138,
+            "RightMargin": 2593.4138,
+            "TopMargin": -107.8403,
+            "BottomMargin": 1907.8403,
+            "Tag": 7772,
+            "ActionTag": 1970604596,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "dove",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siafu_amwokoa_Njiwa/Siafu/tree.png",
+              "Plist": "Siafu_amwokoa_Njiwa/Siafu/Siafu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5006
+            },
+            "Position": {
+              "X": 1465.5674,
+              "Y": 920.1602
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5725,
+              "Y": 0.5112
+            },
+            "PreSize": {
+              "X": 0.4348,
+              "Y": 0.4122
+            },
+            "LeftMargin": 908.389,
+            "RightMargin": 538.611,
+            "TopMargin": 137.8398,
+            "BottomMargin": 920.1602,
+            "UserData": "main.tree",
+            "Tag": 7771,
+            "ActionTag": -1757040685,
+            "Size": {
+              "X": 1113.0,
+              "Y": 742.0
+            },
+            "Name": "tree_40",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
               "Type": "MarkedSubImage",
               "Path": "Siafu_amwokoa_Njiwa/Siafu/sun.png",
               "Plist": "Siafu_amwokoa_Njiwa/Siafu/Siafu.plist"
@@ -527,51 +778,6 @@
               "Y": 276.0
             },
             "Name": "bush_38",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Siafu_amwokoa_Njiwa/Siafu/tree.png",
-              "Plist": "Siafu_amwokoa_Njiwa/Siafu/Siafu.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1349.6458,
-              "Y": 1347.4635
-            },
-            "Scale": {
-              "ScaleX": 1.1809,
-              "ScaleY": 1.2837
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.5272,
-              "Y": 0.7486
-            },
-            "PreSize": {
-              "X": 0.4348,
-              "Y": 0.4122
-            },
-            "LeftMargin": 793.1458,
-            "RightMargin": 653.8542,
-            "TopMargin": 81.5365,
-            "BottomMargin": 976.4635,
-            "Tag": 2639,
-            "ActionTag": -525869139,
-            "Size": {
-              "X": 1113.0,
-              "Y": 742.0
-            },
-            "Name": "tree_40",
             "ctype": "SpriteObjectData"
           },
           {
@@ -692,6 +898,7 @@
             "RightMargin": 1598.3608,
             "TopMargin": 1663.3815,
             "BottomMargin": 136.6185,
+            "UserData": "walk;drag",
             "Tag": 4298,
             "ActionTag": -1227280491,
             "Size": {
@@ -906,6 +1113,7 @@
       "UsedResources": [
         "boy_2.json",
         "boy_4.json",
+        "dove.json",
         "Siafu/Siafu.plist",
         "Siafu/Siafu.png",
         "Siafu_amwokoa_Njiwa.plist",

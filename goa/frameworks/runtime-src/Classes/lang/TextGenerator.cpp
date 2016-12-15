@@ -74,6 +74,9 @@ int TextGenerator::getNumGraphemesInString(std::string word) {
 }
 
 std::vector<std::string> TextGenerator::getGraphemes(std::string word) {
+    std::string::iterator end_pos = std::remove(word.begin(), word.end(), ' ');
+    word.erase(end_pos, word.end());
+    
     std::vector<std::string> graphemes;
     auto wordChar = word.c_str();
     auto end = wordChar + word.length();
