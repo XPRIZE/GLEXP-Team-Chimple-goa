@@ -123,7 +123,15 @@ void Alphamole::startGame()
 	_score_label->setColor(ccc3(0, 0, 0));
 	scoreBord->addChild(_score_label);
 
-	_mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
+
+	if ((menu->getCurrentLevel() > LangUtil::getInstance()->getNumberOfCharacters()) && LangUtil::getInstance()->getLang() == "swa") {
+		int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 1);
+		_mychar = LangUtil::getInstance()->getAllCharacters()[randomNumber];//_crossTheBridgeLevelMapping.at(_gameCurrentLevel);
+	}
+	else {
+		_mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
+	}
+	//_mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
 	_mainChar = Alphamon::createWithAlphabet(_mychar);
 	_mainChar->setScaleX(0.5);
 	_mainChar->setScaleY(0.5);
