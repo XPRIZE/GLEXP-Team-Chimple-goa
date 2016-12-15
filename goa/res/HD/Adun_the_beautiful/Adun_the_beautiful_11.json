@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 30,
+        "Duration": 201,
         "Speed": 1.0,
-        "ActivedAnimationName": "horn",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -1813911463,
@@ -110,6 +110,174 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1488568553,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 35,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 115,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 200,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "blink",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 201,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1488568553,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1612.8167,
+                "Y": 153.403,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1340.6812,
+                "Y": 145.2389,
+                "FrameIndex": 115,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1008.6742,
+                "Y": 137.0748,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1008.6742,
+                "Y": 137.0748,
+                "FrameIndex": 201,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1488568553,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.1457,
+                "Y": 1.1457,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.1457,
+                "Y": 1.1457,
+                "FrameIndex": 115,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.1457,
+                "Y": 1.1457,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.1457,
+                "Y": 1.1457,
+                "FrameIndex": 201,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1488568553,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 115,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 201,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -119,6 +287,12 @@
           "StartIndex": 0,
           "EndIndex": 30,
           "Name": "horn",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 35,
+          "EndIndex": 220,
+          "Name": "master",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -229,6 +403,53 @@
           },
           {
             "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Adun_the_beautiful/horn_full.png",
+              "Plist": "Adun_the_beautiful/Adun_the_beautiful.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 699.9767,
+              "Y": 1140.3887
+            },
+            "Scale": {
+              "ScaleX": 1.3341,
+              "ScaleY": 1.3341
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2734,
+              "Y": 0.6335
+            },
+            "PreSize": {
+              "X": 0.2133,
+              "Y": 0.2589
+            },
+            "LeftMargin": 426.9767,
+            "RightMargin": 1587.0233,
+            "TopMargin": 426.6113,
+            "BottomMargin": 907.3887,
+            "UserData": "main.horn",
+            "Tag": 4245,
+            "FrameEvent": "horn",
+            "ActionTag": -1813911463,
+            "Size": {
+              "X": 546.0,
+              "Y": 466.0
+            },
+            "Name": "horn_full_113",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
               "Type": "Normal",
               "Path": "Adun_the_beautiful/girl.json",
               "Plist": ""
@@ -268,53 +489,6 @@
             },
             "Name": "girl",
             "ctype": "ProjectNodeObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Adun_the_beautiful/horn_full.png",
-              "Plist": "Adun_the_beautiful/Adun_the_beautiful.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 699.9797,
-              "Y": 1140.3872
-            },
-            "Scale": {
-              "ScaleX": 1.5886,
-              "ScaleY": 1.5886
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.2734,
-              "Y": 0.6335
-            },
-            "PreSize": {
-              "X": 0.2133,
-              "Y": 0.2589
-            },
-            "LeftMargin": 426.9797,
-            "RightMargin": 1587.0203,
-            "TopMargin": 426.6128,
-            "BottomMargin": 907.3872,
-            "UserData": "drag;main.horn",
-            "Tag": 4245,
-            "FrameEvent": "horn",
-            "ActionTag": -1813911463,
-            "Size": {
-              "X": 546.0,
-              "Y": 466.0
-            },
-            "Name": "horn_full_113",
-            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
