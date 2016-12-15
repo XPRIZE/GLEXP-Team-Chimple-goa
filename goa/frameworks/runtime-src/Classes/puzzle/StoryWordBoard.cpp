@@ -32,6 +32,7 @@ cocos2d::Scene* StoryWordBoard::createSceneWithWords(std::string storyId, std::v
     CCLOG("currentPoints point in createSceneWithWords %d", currentPoints);
     layer->_menuContext->setMaxPoints(totalPoints);
     layer->_menuContext->addPoints(currentPoints);
+    
     return scene;
 }
 
