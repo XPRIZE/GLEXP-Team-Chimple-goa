@@ -280,7 +280,7 @@ void Drop::onEnterTransitionDidFinish()
 		letterHolderId++;
 		_helpFlag = true;
 		_gapBetweenTwoBasket = gap;
-		creatHelp(gap);
+		 creatHelp(gap);
 	}
 	
 	//this->runAction(Sequence::create(DelayTime::create(2), callShowScore, NULL));
@@ -310,16 +310,17 @@ void Drop::layingOutBasket(bool flag, float gap, std::string letter, int i)
 		std::pair<Sprite*, cocostudio::timeline::ActionTimeline*>animationData = setAnimationAndProperties(_scenePath.at("basketAnimation"), (i*gap + gap / 2), (visibleSize.height*0.08), 1);
 		cocostudio::timeline::ActionTimeline* basketTimeline = animationData.second;
 		Sprite* basket = animationData.first;
+		basket->setZOrder(1);
 		if (!_dropCurrentTheme.compare("dropjungle")) {
 			auto texture = SpriteFrameCache::getInstance()->getSpriteFrameByName("dropjungle/basketouter.png");
 			//((Sprite*)basket->getChildren().at(0))->setSpriteFrame(texture);
 			//basket->runAction(basketTimeline);
 			basketTimeline->play("idle",false);
 		}
-		
+
 	    _basketImg = (Sprite *)basket->getChildByName(_scenePath.at("basketImageName"));
 		auto label = setAllLabelProperties(letter, 0, (i*gap + gap / 2), (visibleSize.height*_sceneBasedNumericalVal.at("boxLabelYFactor")), true, 0.5, 0.5, 0, 1, 1, 100);
-		this->addChild(label, 1);
+		this->addChild(label, 2);
 
 		label->setVisible(false);
 		auto rectBin = CCRectMake(i*gap + gap / 2 - _basketImg->getContentSize().width / 2, (visibleSize.height*0.08 - (_basketImg->getContentSize().height / 2 * _sceneBasedNumericalVal.at("basketRectYFactor"))), _basketImg->getContentSize().width, _basketImg->getContentSize().height);
@@ -345,16 +346,17 @@ void Drop::layingOutBasket(bool flag, float gap, std::string letter, int i)
 			std::pair<Sprite*, cocostudio::timeline::ActionTimeline*>animationData = setAnimationAndProperties(_scenePath.at("basketAnimation"), (i*gap + gap / 2), (visibleSize.height*0.08), 1);
 			cocostudio::timeline::ActionTimeline* basketTimeline = animationData.second;
 			auto basket = animationData.first;
+			basket->setZOrder(1);
 			basketTimeline->play("full", false);
 		}
 		else
 		{
 		    auto basket = Sprite::createWithSpriteFrameName(_scenePath.at("demoBasket"));
 			setAllSpriteProperties(basket, 0, (i*gap + gap / 2), (visibleSize.height*0.08), true, 0.5, _sceneBasedNumericalVal.at("basketAnchorY"), 0, 1, 1);
-			this->addChild(basket, 0);
+			this->addChild(basket, 1);
 		}
 		auto label = setAllLabelProperties(letter, 0, (i*gap + gap / 2), (visibleSize.height*_sceneBasedNumericalVal.at("boxLabelYFactor")), true, 0.5, 0.5, 0, 1, 1, 100);
-		this->addChild(label, 1);
+		this->addChild(label, 2);
 	}
 }
 
@@ -457,6 +459,10 @@ void Drop::addEvents(Sprite* clickedObject)
 			rect = Rect(0, 0, s.width, s.height);
 		}
 		
+		if (target->getName() == "touchSprite")
+		{
+			this->getChildByName("touchSprite")->getEventDispatcher()->removeEventListener(listener);
+		}
 		if (rect.containsPoint(locationInNode))
 		{
 			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
