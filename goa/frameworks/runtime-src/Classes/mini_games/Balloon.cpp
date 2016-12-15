@@ -167,7 +167,13 @@ void Balloon::onEnterTransitionDidFinish()
 	setAllSpriteProperties(_pin, 0, visibleSize.height*0.5, visibleSize.height*0.5, true, 0.5, 0.5, 0, 1, 1);
 	this->addChild(_pin);
 	_pin->setScale(0.8);
-	addTouchEvents(_pin);
+	if (gameCurrentLevel == 1)
+	{
+		_label->runAction(Sequence::create(DelayTime::create(6),
+			CCCallFunc::create([=] {addTouchEvents(_pin); }), NULL));
+	}
+	else
+	{ addTouchEvents(_pin);  }
 	makingBalloons();
 	this->scheduleUpdate();
 
