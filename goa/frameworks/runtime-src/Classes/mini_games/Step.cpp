@@ -139,13 +139,16 @@ void Step::onEnterTransitionDidFinish()
 	_blastNode->setVisible(false);
 	this->addChild(_blastNode);
 
+	_balloonRepeat = RepeatForever::create(Sequence::create(ScaleTo::create(1, 1.2), DelayTime::create(.2f), ScaleTo::create(1, 1), NULL));
+	_blastNode->runAction(_balloonRepeat);
+
 	_balloon = Sprite::createWithSpriteFrameName("bar/balloons.png");
 	_balloon->setPosition(Vec2(visibleSize.width * .10, visibleSize.height * .80));
 	this->addChild(_balloon);
 
 	Events(_balloon);
 
-	_balloonRepeat = RepeatForever::create(Sequence::create(ScaleTo::create(1, 1.2), DelayTime::create(.2f), ScaleTo::create(1, 1), NULL));
+//	_balloonRepeat = RepeatForever::create(Sequence::create(ScaleTo::create(1, 1.2), DelayTime::create(.2f), ScaleTo::create(1, 1), NULL));
 
 	if (_level == 1)
 	{
@@ -196,7 +199,7 @@ void Step::addEvents(struct LoadingBarDetails sprite)
 			std::ostringstream _textValue;
 			if (sprite._loadingBar->getPercent() <= 100 && sprite._loadingBar->getPercent() >= 0)
 			{
-				_balloonRepeat = RepeatForever::create(Sequence::create(ScaleTo::create(1, 1.2), DelayTime::create(.2f), ScaleTo::create(1, 1), NULL));
+//				_balloonRepeat = RepeatForever::create(Sequence::create(ScaleTo::create(1, 1.2), DelayTime::create(.2f), ScaleTo::create(1, 1), NULL));
 
 					_moveFlag = 1;
 
@@ -333,8 +336,8 @@ void Step::addEvents(struct LoadingBarDetails sprite)
 //			_balloon->stopAction(_balloonRepeat);
 			_balloon->setVisible(true);
 			_blastNode->setVisible(false);
-			_blastNode->stopAllActions();
-			_balloon->runAction(ScaleTo::create(.01, 1));
+//			_blastNode->stopAllActions();
+//			_balloon->runAction(ScaleTo::create(.01, 1));
 			_ballonFlag = -1;
 		}
 	};
