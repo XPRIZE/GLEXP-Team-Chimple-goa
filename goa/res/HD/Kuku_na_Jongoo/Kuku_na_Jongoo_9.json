@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 240,
         "Speed": 1.0,
-        "ActivedAnimationName": "chicken",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 120354906,
@@ -460,7 +460,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "blink",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 100,
@@ -1129,27 +1129,27 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 338.6134,
-              "Y": 280.1791
+              "X": 1264.4153,
+              "Y": 276.1862
             },
             "Scale": {
-              "ScaleX": 0.44,
-              "ScaleY": 0.44
+              "ScaleX": 0.01,
+              "ScaleY": 0.01
             },
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.1323,
-              "Y": 0.1557
+              "X": 0.4939,
+              "Y": 0.1534
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 338.6134,
-            "RightMargin": 2221.3867,
-            "TopMargin": 1519.8209,
-            "BottomMargin": 280.1791,
+            "LeftMargin": 1264.4153,
+            "RightMargin": 1295.5847,
+            "TopMargin": 1523.8138,
+            "BottomMargin": 276.1862,
             "Tag": 3956,
             "ActionTag": -450812240,
             "Size": {
@@ -1170,27 +1170,27 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 310.3446,
-              "Y": 280.301
+              "X": 1264.4153,
+              "Y": 276.1862
             },
             "Scale": {
-              "ScaleX": 0.44,
-              "ScaleY": 0.44
+              "ScaleX": 0.01,
+              "ScaleY": 0.01
             },
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.1212,
-              "Y": 0.1557
+              "X": 0.4939,
+              "Y": 0.1534
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 310.3446,
-            "RightMargin": 2249.6555,
-            "TopMargin": 1519.699,
-            "BottomMargin": 280.301,
+            "LeftMargin": 1264.4153,
+            "RightMargin": 1295.5847,
+            "TopMargin": 1523.8138,
+            "BottomMargin": 276.1862,
             "Tag": 4000,
             "ActionTag": 662096906,
             "Size": {
@@ -1211,7 +1211,7 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1268.2515,
+              "X": 1268.25,
               "Y": 184.7273
             },
             "Scale": {
@@ -1228,8 +1228,8 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1268.2515,
-            "RightMargin": 1291.7485,
+            "LeftMargin": 1268.25,
+            "RightMargin": 1291.75,
             "TopMargin": 1615.2727,
             "BottomMargin": 184.7273,
             "UserData": "blink;drag\n",

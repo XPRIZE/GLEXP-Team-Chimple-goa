@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 300,
         "Speed": 1.0,
-        "ActivedAnimationName": "dogrun",
+        "ActivedAnimationName": "breath",
         "Timelines": [
           {
             "ActionTag": -1898646886,
@@ -1111,19 +1111,7 @@
                 "ctype": "EventFrameData"
               },
               {
-                "Value": "steps",
-                "FrameIndex": 50,
-                "Tween": false,
-                "ctype": "EventFrameData"
-              },
-              {
-                "Value": "k",
-                "FrameIndex": 100,
-                "Tween": false,
-                "ctype": "EventFrameData"
-              },
-              {
-                "Value": "Dog",
+                "Value": "dog",
                 "FrameIndex": 105,
                 "Tween": false,
                 "ctype": "EventFrameData"
@@ -1131,12 +1119,6 @@
               {
                 "Value": "",
                 "FrameIndex": 155,
-                "Tween": false,
-                "ctype": "EventFrameData"
-              },
-              {
-                "Value": "",
-                "FrameIndex": 175,
                 "Tween": false,
                 "ctype": "EventFrameData"
               },
@@ -1701,7 +1683,7 @@
             "Length": 427.0,
             "Position": {
               "X": -159.37,
-              "Y": 66.659
+              "Y": 87.4707
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1726,14 +1708,15 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 2.0362,
-                "RotationSkewY": 2.0328,
+                "RotationSkewX": 4.5213,
+                "RotationSkewY": 4.5179,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 770,
                   "Dst": 771
                 },
                 "Tag": 170,
+                "FrameEvent": "Dog",
                 "Children": [
                   {
                     "FileData": {
@@ -1868,8 +1851,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 82.9268,
-                    "RotationSkewY": 82.9232,
+                    "RotationSkewX": 43.1954,
+                    "RotationSkewY": 43.1918,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 770,
@@ -1944,8 +1927,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 84.2153,
-                    "RotationSkewY": 84.2117,
+                    "RotationSkewX": 44.2695,
+                    "RotationSkewY": 44.2659,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 770,
@@ -2020,8 +2003,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 95.7351,
-                    "RotationSkewY": 95.7315,
+                    "RotationSkewX": 130.6877,
+                    "RotationSkewY": 130.6841,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 770,
@@ -2172,8 +2155,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 93.3671,
-                    "RotationSkewY": 93.3635,
+                    "RotationSkewX": 131.2934,
+                    "RotationSkewY": 131.2898,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 770,

@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 470,
         "Speed": 1.0,
-        "ActivedAnimationName": "cloud",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -117069980,
@@ -174,6 +174,25 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 1620170973,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 310,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -1307531018,
             "Property": "ActionValue",
             "Frames": [
@@ -209,6 +228,25 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1307531018,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 310,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -2348,6 +2386,7 @@
               "X": 0.0,
               "Y": 0.0
             },
+            "VisibleForFrame": false,
             "Name": "cloud",
             "ctype": "ProjectNodeObjectData"
           },
@@ -2392,6 +2431,7 @@
               "X": 0.0,
               "Y": 0.0
             },
+            "VisibleForFrame": false,
             "Name": "cloud",
             "ctype": "ProjectNodeObjectData"
           },

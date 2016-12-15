@@ -70,7 +70,8 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
     skipQuestion: function(sender, type) {
         switch (type) {
             case ccui.Widget.TOUCH_ENDED:  
-                this.questionCallBack(sender, false, true);       
+                this.questionCallBack(sender, false, true);
+                sender.setEnabled(false);
                 break;
         }        
     },

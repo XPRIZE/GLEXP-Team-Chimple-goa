@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 540,
         "Speed": 1.0,
-        "ActivedAnimationName": "birds_2",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -1872219877,
@@ -551,8 +551,8 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": -349.0,
-                "Y": 500.0,
+                "X": -811.5024,
+                "Y": 501.4317,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -560,8 +560,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 3000.0,
-                "Y": 287.0,
+                "X": 2288.2888,
+                "Y": 283.6631,
                 "FrameIndex": 300,
                 "EasingData": {
                   "Type": 0
@@ -601,8 +601,8 @@
             "Property": "RotationSkew",
             "Frames": [
               {
-                "X": 5.0,
-                "Y": 5.0,
+                "X": 5.0013,
+                "Y": 5.0013,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -798,7 +798,7 @@
             "AnchorPoint": {},
             "Position": {
               "X": -243.287,
-              "Y": -4.6779
+              "Y": 0.0
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -808,7 +808,7 @@
             "IconVisible": false,
             "PrePosition": {
               "X": -0.095,
-              "Y": -0.0026
+              "Y": 0.0
             },
             "PreSize": {
               "X": 1.2109,
@@ -816,8 +816,6 @@
             },
             "LeftMargin": -243.287,
             "RightMargin": -296.7129,
-            "TopMargin": 4.6779,
-            "BottomMargin": -4.6779,
             "Tag": 534,
             "ActionTag": -547668108,
             "Size": {
@@ -1012,8 +1010,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -54.1906,
-              "Y": 0.0021
+              "X": -310.6996,
+              "Y": 0.0
             },
             "Scale": {
               "ScaleX": 0.8553,
@@ -1023,213 +1021,24 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0212,
+              "X": -0.1214,
               "Y": 0.0
             },
             "PreSize": {
-              "X": 1.2109,
+              "X": 1.5198,
               "Y": 0.4722
             },
-            "LeftMargin": -54.1906,
-            "RightMargin": -485.8093,
-            "TopMargin": 949.9979,
-            "BottomMargin": 0.0021,
+            "LeftMargin": -310.6996,
+            "RightMargin": -1019.9741,
+            "TopMargin": 950.0,
             "Tag": 533,
             "ActionTag": -1070435637,
             "Size": {
-              "X": 3100.0,
+              "X": 3890.6738,
               "Y": 850.0
             },
             "Name": "Panel_1_0_0",
             "ctype": "PanelObjectData"
-          },
-          {
-            "ClipAble": false,
-            "ComboBoxIndex": 1,
-            "SingleColor": {
-              "R": 158,
-              "G": 193,
-              "B": 33
-            },
-            "FirstColor": {
-              "R": 150,
-              "G": 200
-            },
-            "EndColor": {},
-            "ColorVector": {
-              "ScaleY": 1.0
-            },
-            "Scale9Width": 1,
-            "Scale9Height": 1,
-            "TouchEnable": true,
-            "AnchorPoint": {},
-            "Position": {
-              "X": -132.6564,
-              "Y": 852.6534
-            },
-            "Scale": {
-              "ScaleX": 0.9104,
-              "ScaleY": 0.9001
-            },
-            "RotationSkewX": 2.32,
-            "RotationSkewY": 2.3207,
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": -0.0518,
-              "Y": 0.4737
-            },
-            "PreSize": {
-              "X": 1.2109,
-              "Y": 0.3278
-            },
-            "LeftMargin": -132.6564,
-            "RightMargin": -407.3435,
-            "TopMargin": 357.3467,
-            "BottomMargin": 852.6534,
-            "Tag": 526,
-            "ActionTag": 558594470,
-            "Size": {
-              "X": 3100.0,
-              "Y": 590.0
-            },
-            "Name": "Panel_1_0",
-            "ctype": "PanelObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Fahali_na_Punda/fahali_plough.png",
-              "Plist": "Fahali_na_Punda/Fahali_na_Punda.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 2866.3003,
-              "Y": 467.0204
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 1.1196,
-              "Y": 0.2595
-            },
-            "PreSize": {
-              "X": 0.8195,
-              "Y": 0.0917
-            },
-            "LeftMargin": 1817.3003,
-            "RightMargin": -1355.3003,
-            "TopMargin": 1250.4796,
-            "BottomMargin": 384.5204,
-            "Tag": 523,
-            "ActionTag": 1064258768,
-            "Size": {
-              "X": 2098.0,
-              "Y": 165.0
-            },
-            "Name": "fahali_plough_7_0_0_0",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Fahali_na_Punda/fahali_plough.png",
-              "Plist": "Fahali_na_Punda/Fahali_na_Punda.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 585.8134,
-              "Y": 175.432
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.2288,
-              "Y": 0.0975
-            },
-            "PreSize": {
-              "X": 0.8195,
-              "Y": 0.0917
-            },
-            "LeftMargin": -463.1866,
-            "RightMargin": 925.1865,
-            "TopMargin": 1542.068,
-            "BottomMargin": 92.932,
-            "Tag": 524,
-            "ActionTag": -713493381,
-            "Size": {
-              "X": 2098.0,
-              "Y": 165.0
-            },
-            "Name": "fahali_plough_7_0",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Fahali_na_Punda/fahali_plough.png",
-              "Plist": "Fahali_na_Punda/Fahali_na_Punda.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 612.4694,
-              "Y": 576.4318
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.2392,
-              "Y": 0.3202
-            },
-            "PreSize": {
-              "X": 0.8195,
-              "Y": 0.0917
-            },
-            "LeftMargin": -436.5306,
-            "RightMargin": 898.5305,
-            "TopMargin": 1141.0681,
-            "BottomMargin": 493.9318,
-            "Tag": 525,
-            "ActionTag": -1928343448,
-            "Size": {
-              "X": 2098.0,
-              "Y": 165.0
-            },
-            "Name": "fahali_plough_7",
-            "ctype": "SpriteObjectData"
           },
           {
             "FlipX": true,
@@ -1418,6 +1227,194 @@
             "ctype": "SpriteObjectData"
           },
           {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 158,
+              "G": 193,
+              "B": 33
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -302.555,
+              "Y": 855.9846
+            },
+            "Scale": {
+              "ScaleX": 0.9104,
+              "ScaleY": 0.9001
+            },
+            "RotationSkewX": 2.3201,
+            "RotationSkewY": 2.3207,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1182,
+              "Y": 0.4755
+            },
+            "PreSize": {
+              "X": 1.4006,
+              "Y": 0.3278
+            },
+            "LeftMargin": -302.555,
+            "RightMargin": -722.8796,
+            "TopMargin": 354.0154,
+            "BottomMargin": 855.9846,
+            "Tag": 526,
+            "ActionTag": 558594470,
+            "Size": {
+              "X": 3585.4346,
+              "Y": 590.0
+            },
+            "Name": "Panel_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fahali_na_Punda/fahali_plough.png",
+              "Plist": "Fahali_na_Punda/Fahali_na_Punda.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2866.3003,
+              "Y": 467.0204
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1196,
+              "Y": 0.2595
+            },
+            "PreSize": {
+              "X": 0.8195,
+              "Y": 0.0917
+            },
+            "LeftMargin": 1817.3003,
+            "RightMargin": -1355.3003,
+            "TopMargin": 1250.4796,
+            "BottomMargin": 384.5204,
+            "Tag": 523,
+            "ActionTag": 1064258768,
+            "Size": {
+              "X": 2098.0,
+              "Y": 165.0
+            },
+            "Name": "fahali_plough_7_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fahali_na_Punda/fahali_plough.png",
+              "Plist": "Fahali_na_Punda/Fahali_na_Punda.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 585.8134,
+              "Y": 175.432
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2288,
+              "Y": 0.0975
+            },
+            "PreSize": {
+              "X": 0.8195,
+              "Y": 0.0917
+            },
+            "LeftMargin": -463.1866,
+            "RightMargin": 925.1865,
+            "TopMargin": 1542.068,
+            "BottomMargin": 92.932,
+            "Tag": 524,
+            "ActionTag": -713493381,
+            "Size": {
+              "X": 2098.0,
+              "Y": 165.0
+            },
+            "Name": "fahali_plough_7_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fahali_na_Punda/fahali_plough.png",
+              "Plist": "Fahali_na_Punda/Fahali_na_Punda.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 612.4694,
+              "Y": 576.4318
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2392,
+              "Y": 0.3202
+            },
+            "PreSize": {
+              "X": 0.8195,
+              "Y": 0.0917
+            },
+            "LeftMargin": -436.5306,
+            "RightMargin": 898.5305,
+            "TopMargin": 1141.0681,
+            "BottomMargin": 493.9318,
+            "Tag": 525,
+            "ActionTag": -1928343448,
+            "Size": {
+              "X": 2098.0,
+              "Y": 165.0
+            },
+            "Name": "fahali_plough_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
             "FileData": {
               "Type": "MarkedSubImage",
               "Path": "Fahali_na_Punda/fahali_hill.png",
@@ -1457,7 +1454,6 @@
             "BottomMargin": 1329.7958,
             "UserData": "main.birds_1",
             "Tag": 531,
-            "FrameEvent": "birds",
             "ActionTag": 1078841741,
             "Size": {
               "X": 1499.0,
@@ -1518,7 +1514,7 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "Fahali_na_Punda/cow.json",
+              "Path": "Fahali_na_Punda/ox.json",
               "Plist": ""
             },
             "StretchWidthEnable": false,
@@ -1526,35 +1522,37 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 3000.0,
-              "Y": 287.0
+              "X": -811.5024,
+              "Y": 501.4317
             },
             "Scale": {
               "ScaleX": 0.6,
               "ScaleY": 0.6
             },
+            "RotationSkewX": 5.0013,
+            "RotationSkewY": 5.0013,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 1.1719,
-              "Y": 0.1594
+              "X": -0.317,
+              "Y": 0.2786
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 3000.0,
-            "RightMargin": -440.0,
-            "TopMargin": 1513.0,
-            "BottomMargin": 287.0,
-            "UserData": "walk;drag",
+            "LeftMargin": -811.5024,
+            "RightMargin": 3371.5024,
+            "TopMargin": 1298.5684,
+            "BottomMargin": 501.4317,
+            "UserData": "run;drag",
             "Tag": 491,
             "ActionTag": -1635159143,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "cow",
+            "Name": "ox",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1612,9 +1610,9 @@
       },
       "UsedResources": [
         "birdsmall.json",
-        "cow.json",
         "Fahali_na_Punda.plist",
-        "Fahali_na_Punda.png"
+        "Fahali_na_Punda.png",
+        "ox.json"
       ],
       "ctype": "GameFileData"
     }

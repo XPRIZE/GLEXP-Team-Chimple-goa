@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 385,
         "Speed": 1.0,
-        "ActivedAnimationName": "cycle",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 1130334713,
@@ -45,6 +45,25 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1130334713,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 175,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -269,7 +288,7 @@
             "IconVisible": false,
             "PrePosition": {
               "X": 1.3333,
-              "Y": 1.4063
+              "Y": 1.4062
             },
             "PreSize": {
               "X": 4.1667,
@@ -325,6 +344,7 @@
               "X": 0.0,
               "Y": 0.0
             },
+            "VisibleForFrame": false,
             "Name": "cycle",
             "ctype": "ProjectNodeObjectData"
           },
@@ -367,7 +387,7 @@
             },
             "PreSize": {
               "X": 4.1667,
-              "Y": 1.4063
+              "Y": 1.4062
             },
             "LeftMargin": -719.6954,
             "RightMargin": -2320.3047,
@@ -836,7 +856,7 @@
             },
             "PreSize": {
               "X": 4.1667,
-              "Y": 1.4063
+              "Y": 1.4062
             },
             "LeftMargin": -683.7648,
             "RightMargin": -2356.2354,

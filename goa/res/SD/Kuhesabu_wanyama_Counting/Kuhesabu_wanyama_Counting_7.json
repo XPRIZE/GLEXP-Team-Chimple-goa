@@ -523,7 +523,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "Walk",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 200,
@@ -613,7 +613,7 @@
             "Property": "FrameEvent",
             "Frames": [
               {
-                "Value": "lion",
+                "Value": "lionroar",
                 "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "EventFrameData"
@@ -699,7 +699,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 581.6766,
+              "X": 583.2363,
               "Y": 1259.5415
             },
             "Scale": {
@@ -709,15 +709,15 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.2272,
+              "X": 0.2278,
               "Y": 0.6997
             },
             "PreSize": {
               "X": 0.2223,
               "Y": 0.1267
             },
-            "LeftMargin": 297.1766,
-            "RightMargin": 1693.8235,
+            "LeftMargin": 298.7363,
+            "RightMargin": 1692.2637,
             "TopMargin": 426.4585,
             "BottomMargin": 1145.5415,
             "Tag": 240,
@@ -744,7 +744,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1543.8682,
+              "X": 1542.5481,
               "Y": 1522.5483
             },
             "Scale": {
@@ -754,15 +754,15 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.6031,
+              "X": 0.6026,
               "Y": 0.8459
             },
             "PreSize": {
               "X": 0.2223,
               "Y": 0.1267
             },
-            "LeftMargin": 1259.3682,
-            "RightMargin": 731.6318,
+            "LeftMargin": 1258.0481,
+            "RightMargin": 732.9519,
             "TopMargin": 163.4517,
             "BottomMargin": 1408.5483,
             "Tag": 241,
@@ -1172,6 +1172,96 @@
                 },
                 "Name": "Kuhesabu_grass_7_0_6",
                 "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_grass.png",
+                  "Plist": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2721.2859,
+                  "Y": 264.0536
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 7.957,
+                  "Y": 0.5271
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2550.2859,
+                "RightMargin": -2550.2859,
+                "TopMargin": -13.5536,
+                "BottomMargin": 13.5536,
+                "Tag": 1553,
+                "ActionTag": 96697194,
+                "Size": {
+                  "X": 342.0,
+                  "Y": 501.0
+                },
+                "Name": "Kuhesabu_grass_7_0_1_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_grass.png",
+                  "Plist": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": -92.9388,
+                  "Y": 252.3921
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": -0.2718,
+                  "Y": 0.5038
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": -263.9388,
+                "RightMargin": 263.9388,
+                "TopMargin": -1.8921,
+                "BottomMargin": 1.8921,
+                "Tag": 1554,
+                "ActionTag": 1789712685,
+                "Size": {
+                  "X": 342.0,
+                  "Y": 501.0
+                },
+                "Name": "Kuhesabu_grass_7_0_1_1",
+                "ctype": "SpriteObjectData"
               }
             ],
             "ActionTag": -688262896,
@@ -1203,7 +1293,7 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 0.0,
+              "X": -260.0,
               "Y": 0.0
             },
             "Scale": {
@@ -1213,18 +1303,20 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.0,
+              "X": -0.1016,
               "Y": 0.0
             },
             "PreSize": {
-              "X": 1.0,
+              "X": 1.2109,
               "Y": 0.2639
             },
+            "LeftMargin": -260.0,
+            "RightMargin": -280.0,
             "TopMargin": 1325.0,
             "Tag": 246,
             "ActionTag": 206761590,
             "Size": {
-              "X": 2560.0,
+              "X": 3100.0,
               "Y": 475.0
             },
             "Name": "Panel_2",
@@ -1380,27 +1472,27 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2164.2083,
-              "Y": 193.4482
+              "X": 2382.9668,
+              "Y": 229.0461
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 1.23,
+              "ScaleY": 1.23
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.8454,
-              "Y": 0.1075
+              "X": 0.9308,
+              "Y": 0.1272
             },
             "PreSize": {
               "X": 0.3363,
               "Y": 0.21
             },
-            "LeftMargin": 1733.7083,
-            "RightMargin": -34.7083,
-            "TopMargin": 1417.5518,
-            "BottomMargin": 4.4482,
+            "LeftMargin": 1952.4668,
+            "RightMargin": -253.4668,
+            "TopMargin": 1381.9539,
+            "BottomMargin": 40.0461,
             "Tag": 245,
             "ActionTag": -322760496,
             "Size": {
@@ -1470,8 +1562,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 450.5907,
-              "Y": 514.8701
+              "X": 204.3137,
+              "Y": 504.1618
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1480,17 +1572,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.176,
-              "Y": 0.286
+              "X": 0.0798,
+              "Y": 0.2801
             },
             "PreSize": {
               "X": 0.3879,
               "Y": 0.1117
             },
-            "LeftMargin": -45.9093,
-            "RightMargin": 1612.9093,
-            "TopMargin": 1184.6299,
-            "BottomMargin": 414.3701,
+            "LeftMargin": -292.1863,
+            "RightMargin": 1859.1863,
+            "TopMargin": 1195.3381,
+            "BottomMargin": 403.6618,
             "Tag": 259,
             "ActionTag": 1625422956,
             "Size": {
@@ -1516,8 +1608,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2088.3059,
-              "Y": 516.5509
+              "X": 2386.5513,
+              "Y": 508.2661
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1526,17 +1618,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.8157,
-              "Y": 0.287
+              "X": 0.9322,
+              "Y": 0.2824
             },
             "PreSize": {
               "X": 0.3879,
               "Y": 0.1117
             },
-            "LeftMargin": 1591.8059,
-            "RightMargin": -24.8059,
-            "TopMargin": 1182.9491,
-            "BottomMargin": 416.0509,
+            "LeftMargin": 1890.0513,
+            "RightMargin": -323.0513,
+            "TopMargin": 1191.2339,
+            "BottomMargin": 407.7661,
             "Tag": 260,
             "ActionTag": 1003425650,
             "Size": {
@@ -1849,8 +1941,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 2560.8086,
-              "Y": 143.3801
+              "X": 3044.0081,
+              "Y": 145.5708
             },
             "Scale": {
               "ScaleX": -0.49,
@@ -1859,19 +1951,20 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 1.0003,
-              "Y": 0.0797
+              "X": 1.1891,
+              "Y": 0.0809
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 2560.8086,
-            "RightMargin": -0.8086,
-            "TopMargin": 1656.62,
-            "BottomMargin": 143.3801,
+            "LeftMargin": 3044.0081,
+            "RightMargin": -484.0081,
+            "TopMargin": 1654.4292,
+            "BottomMargin": 145.5708,
             "UserData": "walk;drag",
             "Tag": 4497,
+            "FrameEvent": "lionroar",
             "ActionTag": -503261463,
             "Size": {
               "X": 0.0,
