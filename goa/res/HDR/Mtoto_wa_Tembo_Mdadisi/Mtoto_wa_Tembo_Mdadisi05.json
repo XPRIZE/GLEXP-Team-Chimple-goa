@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 550,
         "Speed": 1.0,
-        "ActivedAnimationName": "turtle",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -1597402979,
@@ -619,6 +619,25 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -483096706,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 350,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -657,6 +676,7 @@
               "G": 254
             },
             "ColorVector": {
+              "ScaleX": 0.0,
               "ScaleY": -1.0
             },
             "Scale9Width": 1,
@@ -974,7 +994,7 @@
             },
             "LeftMargin": 1549.9871,
             "RightMargin": 4.0129,
-            "TopMargin": 1079.5852,
+            "TopMargin": 1079.5851,
             "BottomMargin": 239.4149,
             "UserData": "main.turtle",
             "Tag": 3290,
@@ -1066,6 +1086,7 @@
               "X": 0.0,
               "Y": 0.0
             },
+            "VisibleForFrame": false,
             "Name": "turtle",
             "ctype": "ProjectNodeObjectData"
           }

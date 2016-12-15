@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 500,
         "Speed": 1.0,
-        "ActivedAnimationName": "chicken",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 2054290789,
@@ -35,7 +35,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "NoLoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "fall",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 100,
@@ -183,8 +183,8 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": -260.0,
-                "Y": 138.03,
+                "X": -395.4099,
+                "Y": 147.9554,
                 "FrameIndex": 105,
                 "EasingData": {
                   "Type": 0
@@ -879,8 +879,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": -132.4566,
-              "Y": 131.9662
+              "X": -395.4099,
+              "Y": 147.9554
             },
             "Scale": {
               "ScaleX": -0.28,
@@ -889,17 +889,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": -0.0517,
-              "Y": 0.0733
+              "X": -0.1545,
+              "Y": 0.0822
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -132.4566,
-            "RightMargin": 2692.4565,
-            "TopMargin": 1668.0338,
-            "BottomMargin": 131.9662,
+            "LeftMargin": -395.4099,
+            "RightMargin": 2955.4099,
+            "TopMargin": 1652.0446,
+            "BottomMargin": 147.9554,
             "Tag": 3161,
             "ActionTag": -104243650,
             "Size": {

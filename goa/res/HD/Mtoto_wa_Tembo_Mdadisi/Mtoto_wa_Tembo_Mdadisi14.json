@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 485,
         "Speed": 1.0,
-        "ActivedAnimationName": "rain",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 1296231979,
@@ -50,6 +50,25 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 1296231979,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 185,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -1939683100,
             "Property": "ActionValue",
             "Frames": [
@@ -85,6 +104,25 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1939683100,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 185,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -418,6 +456,7 @@
               "B": 169
             },
             "ColorVector": {
+              "ScaleX": 0.0,
               "ScaleY": -1.0
             },
             "Scale9Width": 1,
@@ -553,7 +592,7 @@
             },
             "LeftMargin": -704.7288,
             "RightMargin": -735.2712,
-            "TopMargin": -23.7312,
+            "TopMargin": -23.7313,
             "BottomMargin": 23.7313,
             "Tag": 4568,
             "ActionTag": 150104789,
@@ -602,6 +641,7 @@
               "X": 0.0,
               "Y": 0.0
             },
+            "VisibleForFrame": false,
             "Name": "cloud",
             "ctype": "ProjectNodeObjectData"
           },
@@ -643,6 +683,7 @@
               "X": 0.0,
               "Y": 0.0
             },
+            "VisibleForFrame": false,
             "Name": "cloud",
             "ctype": "ProjectNodeObjectData"
           },
@@ -1196,12 +1237,12 @@
               "Y": 0.1763
             },
             "PreSize": {
-              "X": 0.018,
-              "Y": 0.0256
+              "X": 0.4887,
+              "Y": 0.4639
             },
             "LeftMargin": -150.007,
             "RightMargin": 1459.007,
-            "TopMargin": 1065.1219,
+            "TopMargin": 1065.1221,
             "BottomMargin": -100.122,
             "Tag": 6519,
             "ActionTag": 44318235,

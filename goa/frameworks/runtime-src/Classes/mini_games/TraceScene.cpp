@@ -114,7 +114,21 @@ void Trace::onEnterTransitionDidFinish() {
 
 	//std::string path = "Alpha Kombat/";//std::string(path)
     //_background = CSLoader::createNode(std::string(path) + alphabet +  std::string(".csb"));
-	_background = CSLoader::createNode(LangUtil::getInstance()->getSpecialAnimationFileName(_alpha[_menuContext->getCurrentLevel()-1], "Alpha Kombat"));
+	if (LangUtil::getInstance()->getLang() == "swa") {
+		if (_menuContext->getCurrentLevel() == 25) {
+			_background = CSLoader::createNode(LangUtil::getInstance()->getSpecialAnimationFileName(_alpha[0], "Alpha Kombat"));
+		}
+		else
+			if (_menuContext->getCurrentLevel() == 26) {
+				_background = CSLoader::createNode(LangUtil::getInstance()->getSpecialAnimationFileName(_alpha[1], "Alpha Kombat"));
+			}
+	}
+	else {
+
+
+
+		_background = CSLoader::createNode(LangUtil::getInstance()->getSpecialAnimationFileName(_alpha[_menuContext->getCurrentLevel() - 1], "Alpha Kombat"));
+	}
 	//_background->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
     addChild(_background);
 

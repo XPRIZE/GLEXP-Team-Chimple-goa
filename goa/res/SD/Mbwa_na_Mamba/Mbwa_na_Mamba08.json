@@ -5,9 +5,112 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 200,
+        "Duration": 325,
         "Speed": 1.0,
+        "ActivedAnimationName": "cheeta",
         "Timelines": [
+          {
+            "ActionTag": -1120471279,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1906.1309,
+                "Y": 490.2548,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1903.0366,
+                "Y": 598.2098,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1906.1309,
+                "Y": 490.2548,
+                "FrameIndex": 325,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1120471279,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 0.5002,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.05,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 275,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 0.5002,
+                "FrameIndex": 325,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1120471279,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 200,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 325,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": -331623616,
             "Property": "ActionValue",
@@ -67,7 +170,20 @@
         ],
         "ctype": "TimelineActionData"
       },
-      "AnimationList": [],
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 200,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 205,
+          "EndIndex": 325,
+          "Name": "cheeta",
+          "ctype": "AnimationInfoData"
+        }
+      ],
       "ObjectData": {
         "Tag": 77,
         "Children": [
@@ -217,13 +333,14 @@
             "RightMargin": 1285.0151,
             "TopMargin": 395.5,
             "BottomMargin": 715.5,
+            "UserData": "main.cheeta",
             "Tag": 82,
             "ActionTag": 1790770586,
             "Size": {
               "X": 810.0,
               "Y": 689.0
             },
-            "Name": "MbwanaMamba_tree1_5",
+            "Name": "tree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -266,13 +383,14 @@
             "RightMargin": -309.9497,
             "TopMargin": 405.519,
             "BottomMargin": 705.481,
+            "UserData": "main.cheeta",
             "Tag": 85,
             "ActionTag": 622128841,
             "Size": {
               "X": 810.0,
               "Y": 689.0
             },
-            "Name": "MbwanaMamba_tree1_5_2",
+            "Name": "tree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -311,13 +429,14 @@
             "RightMargin": 700.0259,
             "TopMargin": 415.5073,
             "BottomMargin": 695.4927,
+            "UserData": "main.cheeta",
             "Tag": 84,
             "ActionTag": 342000299,
             "Size": {
               "X": 810.0,
               "Y": 689.0
             },
-            "Name": "MbwanaMamba_tree1_5_1",
+            "Name": "tree",
             "ctype": "SpriteObjectData"
           },
           {
@@ -357,14 +476,56 @@
             "RightMargin": 1990.0061,
             "TopMargin": 445.5037,
             "BottomMargin": 665.4963,
+            "UserData": "main.cheeta",
             "Tag": 83,
             "ActionTag": -2031490274,
             "Size": {
               "X": 810.0,
               "Y": 689.0
             },
-            "Name": "MbwanaMamba_tree1_5_0",
+            "Name": "tree",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mbwa_na_Mamba/cheeta.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1906.1309,
+              "Y": 490.2548
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.5002
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7446,
+              "Y": 0.2724
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1906.1309,
+            "RightMargin": 653.8691,
+            "TopMargin": 1309.7452,
+            "BottomMargin": 490.2548,
+            "Tag": 1603,
+            "ActionTag": -1120471279,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_1",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -402,13 +563,14 @@
             "RightMargin": 1935.0144,
             "TopMargin": 963.0029,
             "BottomMargin": 382.9971,
+            "UserData": "main.cheeta",
             "Tag": 81,
             "ActionTag": -1591523954,
             "Size": {
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_2",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -447,13 +609,14 @@
             "RightMargin": 1005.0176,
             "TopMargin": 932.9998,
             "BottomMargin": 413.0002,
+            "UserData": "main.cheeta",
             "Tag": 79,
             "ActionTag": -1250297480,
             "Size": {
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_0",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -492,13 +655,14 @@
             "RightMargin": 565.0198,
             "TopMargin": 1003.0052,
             "BottomMargin": 342.9948,
+            "UserData": "main.cheeta",
             "Tag": 78,
             "ActionTag": -1179263986,
             "Size": {
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_1",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -537,13 +701,14 @@
             "RightMargin": 1575.0183,
             "TopMargin": 1073.0035,
             "BottomMargin": 272.9965,
+            "UserData": "main.cheeta",
             "Tag": 80,
             "ActionTag": 342099663,
             "Size": {
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -582,13 +747,14 @@
             "RightMargin": -404.9829,
             "TopMargin": 1053.0054,
             "BottomMargin": 292.9947,
+            "UserData": "main.cheeta",
             "Tag": 88,
             "ActionTag": 994652053,
             "Size": {
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_1_0",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -627,13 +793,14 @@
             "RightMargin": 135.0168,
             "TopMargin": 1073.0046,
             "BottomMargin": 272.9953,
+            "UserData": "main.cheeta",
             "Tag": 89,
             "ActionTag": 508670049,
             "Size": {
               "X": 985.0,
               "Y": 454.0
             },
-            "Name": "MbwanaMamba_bush_1_1_1",
+            "Name": "bush",
             "ctype": "SpriteObjectData"
           },
           {
@@ -672,13 +839,14 @@
             "RightMargin": 803.2285,
             "TopMargin": 148.7556,
             "BottomMargin": 98.2444,
+            "UserData": "main.cheeta",
             "Tag": 90,
             "ActionTag": 1387254447,
             "Size": {
               "X": 1460.0,
               "Y": 1553.0
             },
-            "Name": "MbwanaMamba_hut_11",
+            "Name": "hut",
             "ctype": "SpriteObjectData"
           },
           {
@@ -692,8 +860,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 2316.0469,
-              "Y": 157.5499
+              "X": 1236.1663,
+              "Y": 192.2823
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -702,24 +870,25 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.9047,
-              "Y": 0.0875
+              "X": 0.4829,
+              "Y": 0.1068
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 2316.0469,
-            "RightMargin": 243.9531,
-            "TopMargin": 1642.4501,
-            "BottomMargin": 157.5499,
+            "LeftMargin": 1236.1663,
+            "RightMargin": 1323.8337,
+            "TopMargin": 1607.7177,
+            "BottomMargin": 192.2823,
+            "UserData": "drag;walk",
             "Tag": 1352,
             "ActionTag": -331623616,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_1",
+            "Name": "croc",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -731,6 +900,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "cheeta.json",
         "croc.json",
         "Mbwa_na_Mamba.plist",
         "Mbwa_na_Mamba.png"

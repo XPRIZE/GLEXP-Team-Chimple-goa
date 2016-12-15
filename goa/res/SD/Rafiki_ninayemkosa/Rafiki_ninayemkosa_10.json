@@ -1,0 +1,928 @@
+{
+  "ID": "aa8b83b6-517d-46fd-bfd3-937cca0bf0f3",
+  "Version": "3.10.0.0",
+  "Name": "Rafiki_ninayemkosa_10",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 440,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": 648000365,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 902.0512,
+                "Y": 1050.0328,
+                "FrameIndex": 310,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 878.8214,
+                "Y": 1206.1892,
+                "FrameIndex": 345,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 878.8214,
+                "Y": 1206.1892,
+                "FrameIndex": 415,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 902.0512,
+                "Y": 1050.0328,
+                "FrameIndex": 440,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 648000365,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.449,
+                "Y": 0.5274,
+                "FrameIndex": 310,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8291,
+                "Y": 0.812,
+                "FrameIndex": 345,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8291,
+                "Y": 0.812,
+                "FrameIndex": 415,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.449,
+                "Y": 0.5274,
+                "FrameIndex": 440,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 648000365,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -2.5405,
+                "Y": -2.5863,
+                "FrameIndex": 310,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -2.5161,
+                "Y": -2.5991,
+                "FrameIndex": 345,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -2.5161,
+                "Y": -2.5991,
+                "FrameIndex": 415,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -2.5405,
+                "Y": -2.5863,
+                "FrameIndex": 440,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1128457294,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 295,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1128457294,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -333.4215,
+                "Y": 221.9966,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1565.0039,
+                "Y": 137.1843,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1128457294,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -0.74,
+                "Y": 0.74,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.74,
+                "Y": 0.74,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1128457294,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 300,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 310,
+          "EndIndex": 440,
+          "Name": "table",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 112,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {},
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -260.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1016,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -260.0,
+            "RightMargin": -280.0,
+            "Tag": 117,
+            "ActionTag": -794188084,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_3",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 200,
+              "G": 189,
+              "B": 158
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 1394.7134,
+              "Y": 1087.7924
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -71.9963,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5448,
+              "Y": 0.6043
+            },
+            "PreSize": {
+              "X": 1.9531,
+              "Y": 1.9533
+            },
+            "LeftMargin": -3605.2866,
+            "RightMargin": 1165.2866,
+            "TopMargin": 712.2076,
+            "BottomMargin": -2428.2075,
+            "Tag": 113,
+            "ActionTag": 1972326427,
+            "Size": {
+              "X": 5000.0,
+              "Y": 3516.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -210.9998,
+              "Y": 1085.33
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0824,
+              "Y": 0.603
+            },
+            "PreSize": {
+              "X": 0.6277,
+              "Y": 0.3956
+            },
+            "LeftMargin": -210.9998,
+            "RightMargin": 1163.9998,
+            "TopMargin": 2.67,
+            "BottomMargin": 1085.33,
+            "Tag": 116,
+            "ActionTag": 1552143408,
+            "Size": {
+              "X": 1607.0,
+              "Y": 712.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Rafiki_ninayemkosa/Rafiki_ninayemkosa_2/Kwa_board.png",
+              "Plist": "Rafiki_ninayemkosa/Rafiki_ninayemkosa_2/Rafiki_ninayemkosa_2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2135.8516,
+              "Y": 1358.3652
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8343,
+              "Y": 0.7546
+            },
+            "PreSize": {
+              "X": 0.3305,
+              "Y": 0.4906
+            },
+            "LeftMargin": 1712.8516,
+            "RightMargin": 1.1484,
+            "TopMargin": 0.1348,
+            "BottomMargin": 916.8652,
+            "Tag": 118,
+            "ActionTag": -959621044,
+            "Size": {
+              "X": 846.0,
+              "Y": 883.0
+            },
+            "Name": "board_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Rafiki_ninayemkosa/Rafiki_ninayemkosa_1/squirrel.png",
+              "Plist": "Rafiki_ninayemkosa/Rafiki_ninayemkosa_1/Rafiki_ninayemkosa_1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5
+            },
+            "Position": {
+              "X": 902.0512,
+              "Y": 1050.0328
+            },
+            "Scale": {
+              "ScaleX": 0.449,
+              "ScaleY": 0.5274
+            },
+            "RotationSkewX": -2.5405,
+            "RotationSkewY": -2.5863,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3524,
+              "Y": 0.5834
+            },
+            "PreSize": {
+              "X": 0.143,
+              "Y": 0.1628
+            },
+            "LeftMargin": 719.0512,
+            "RightMargin": 1474.9487,
+            "TopMargin": 456.9672,
+            "BottomMargin": 1050.0328,
+            "Tag": 6229,
+            "ActionTag": 648000365,
+            "Size": {
+              "X": 366.0,
+              "Y": 293.0
+            },
+            "Name": "squirrel_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Rafiki_ninayemkosa/Rafiki_ninayemkosa_2/Kwa_table.png",
+              "Plist": "Rafiki_ninayemkosa/Rafiki_ninayemkosa_2/Rafiki_ninayemkosa_2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 190.2865,
+              "Y": 944.3617
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0743,
+              "Y": 0.5246
+            },
+            "PreSize": {
+              "X": 0.2109,
+              "Y": 0.2156
+            },
+            "LeftMargin": -79.7135,
+            "RightMargin": 2099.7134,
+            "TopMargin": 661.6383,
+            "BottomMargin": 750.3617,
+            "UserData": "drag",
+            "Tag": 119,
+            "ActionTag": 312895365,
+            "Size": {
+              "X": 540.0,
+              "Y": 388.0
+            },
+            "Name": "table_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Rafiki_ninayemkosa/Rafiki_ninayemkosa_2/Kwa_table.png",
+              "Plist": "Rafiki_ninayemkosa/Rafiki_ninayemkosa_2/Rafiki_ninayemkosa_2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 944.0562,
+              "Y": 1025.7729
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3688,
+              "Y": 0.5699
+            },
+            "PreSize": {
+              "X": 0.2109,
+              "Y": 0.2156
+            },
+            "LeftMargin": 674.0562,
+            "RightMargin": 1345.9438,
+            "TopMargin": 580.2271,
+            "BottomMargin": 831.7729,
+            "UserData": "main.table",
+            "Tag": 120,
+            "ActionTag": -1281602070,
+            "Size": {
+              "X": 540.0,
+              "Y": 388.0
+            },
+            "Name": "table_4_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Rafiki_ninayemkosa/Rafiki_ninayemkosa_2/Kwa_table.png",
+              "Plist": "Rafiki_ninayemkosa/Rafiki_ninayemkosa_2/Rafiki_ninayemkosa_2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 873.4189,
+              "Y": 635.1887
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3412,
+              "Y": 0.3529
+            },
+            "PreSize": {
+              "X": 0.2109,
+              "Y": 0.2156
+            },
+            "LeftMargin": 603.4189,
+            "RightMargin": 1416.5811,
+            "TopMargin": 970.8113,
+            "BottomMargin": 441.1887,
+            "UserData": "drag",
+            "Tag": 121,
+            "ActionTag": -771717315,
+            "Size": {
+              "X": 540.0,
+              "Y": 388.0
+            },
+            "Name": "table_4_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Rafiki_ninayemkosa/Rafiki_ninayemkosa_2/Kwa_table.png",
+              "Plist": "Rafiki_ninayemkosa/Rafiki_ninayemkosa_2/Rafiki_ninayemkosa_2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1637.9614,
+              "Y": 705.8254
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6398,
+              "Y": 0.3921
+            },
+            "PreSize": {
+              "X": 0.2109,
+              "Y": 0.2156
+            },
+            "LeftMargin": 1367.9614,
+            "RightMargin": 652.0386,
+            "TopMargin": 900.1746,
+            "BottomMargin": 511.8254,
+            "UserData": "drag",
+            "Tag": 122,
+            "ActionTag": 1297965864,
+            "Size": {
+              "X": 540.0,
+              "Y": 388.0
+            },
+            "Name": "table_4_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Rafiki_ninayemkosa/Rafiki_ninayemkosa_2/Kwa_chair.png",
+              "Plist": "Rafiki_ninayemkosa/Rafiki_ninayemkosa_2/Rafiki_ninayemkosa_2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 404.7723,
+              "Y": 536.1834
+            },
+            "Scale": {
+              "ScaleX": 0.24,
+              "ScaleY": 0.24
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1581,
+              "Y": 0.2979
+            },
+            "PreSize": {
+              "X": 0.2062,
+              "Y": 0.4144
+            },
+            "LeftMargin": 140.7723,
+            "RightMargin": 1891.2277,
+            "TopMargin": 890.8166,
+            "BottomMargin": 163.1834,
+            "UserData": "drag",
+            "Tag": 1199,
+            "ActionTag": 933265282,
+            "Size": {
+              "X": 528.0,
+              "Y": 746.0
+            },
+            "Name": "chair_28",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Rafiki_ninayemkosa/Rafiki_ninayemkosa_2/Kwa_chair.png",
+              "Plist": "Rafiki_ninayemkosa/Rafiki_ninayemkosa_2/Rafiki_ninayemkosa_2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1297.1488,
+              "Y": 625.6977
+            },
+            "Scale": {
+              "ScaleX": 0.24,
+              "ScaleY": 0.24
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5067,
+              "Y": 0.3476
+            },
+            "PreSize": {
+              "X": 0.2062,
+              "Y": 0.4144
+            },
+            "LeftMargin": 1033.1488,
+            "RightMargin": 998.8512,
+            "TopMargin": 801.3023,
+            "BottomMargin": 252.6977,
+            "UserData": "drag",
+            "Tag": 1200,
+            "ActionTag": -1917733022,
+            "Size": {
+              "X": 528.0,
+              "Y": 746.0
+            },
+            "Name": "chair_28_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Rafiki_ninayemkosa/Rafiki_ninayemkosa_2/Kwa_chair.png",
+              "Plist": "Rafiki_ninayemkosa/Rafiki_ninayemkosa_2/Rafiki_ninayemkosa_2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 651.645,
+              "Y": 958.6174
+            },
+            "Scale": {
+              "ScaleX": 0.24,
+              "ScaleY": 0.24
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2545,
+              "Y": 0.5326
+            },
+            "PreSize": {
+              "X": 0.2062,
+              "Y": 0.4144
+            },
+            "LeftMargin": 387.645,
+            "RightMargin": 1644.355,
+            "TopMargin": 468.3826,
+            "BottomMargin": 585.6174,
+            "UserData": "drag",
+            "Tag": 1201,
+            "ActionTag": 1788636747,
+            "Size": {
+              "X": 528.0,
+              "Y": 746.0
+            },
+            "Name": "chair_28_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Rafiki_ninayemkosa/Rafiki_ninayemkosa_2/Kwa_chair.png",
+              "Plist": "Rafiki_ninayemkosa/Rafiki_ninayemkosa_2/Rafiki_ninayemkosa_2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -92.974,
+              "Y": 884.9189
+            },
+            "Scale": {
+              "ScaleX": 0.24,
+              "ScaleY": 0.24
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0363,
+              "Y": 0.4916
+            },
+            "PreSize": {
+              "X": 0.2062,
+              "Y": 0.4144
+            },
+            "LeftMargin": -356.974,
+            "RightMargin": 2388.9741,
+            "TopMargin": 542.0811,
+            "BottomMargin": 511.9189,
+            "Tag": 1202,
+            "ActionTag": 1197326581,
+            "Size": {
+              "X": 528.0,
+              "Y": 746.0
+            },
+            "Name": "chair_28_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Rafiki_ninayemkosa/girl.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -333.4215,
+              "Y": 221.9966
+            },
+            "Scale": {
+              "ScaleX": -0.74,
+              "ScaleY": 0.74
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.1302,
+              "Y": 0.1233
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -333.4215,
+            "RightMargin": 2893.4214,
+            "TopMargin": 1578.0034,
+            "BottomMargin": 221.9966,
+            "UserData": "walk;drag",
+            "Tag": 1250,
+            "ActionTag": -1128457294,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "girl",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "girl.json",
+        "Rafiki_ninayemkosa_1/Rafiki_ninayemkosa_1.plist",
+        "Rafiki_ninayemkosa_1/Rafiki_ninayemkosa_1.png",
+        "Rafiki_ninayemkosa_2/Rafiki_ninayemkosa_2.plist",
+        "Rafiki_ninayemkosa_2/Rafiki_ninayemkosa_2.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

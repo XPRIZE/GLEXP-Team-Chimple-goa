@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 475,
         "Speed": 1.0,
-        "ActivedAnimationName": "spinach",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 395019672,
@@ -46,8 +46,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": -349.0045,
-                "Y": 513.5356,
+                "X": 701.5878,
+                "Y": 520.7799,
                 "FrameIndex": 300,
                 "EasingData": {
                   "Type": 0
@@ -688,7 +688,7 @@
             "AnchorPoint": {},
             "Position": {
               "X": -243.287,
-              "Y": -4.6779
+              "Y": 0.0
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -698,7 +698,7 @@
             "IconVisible": false,
             "PrePosition": {
               "X": -0.095,
-              "Y": -0.0026
+              "Y": 0.0
             },
             "PreSize": {
               "X": 1.2109,
@@ -706,8 +706,6 @@
             },
             "LeftMargin": -243.287,
             "RightMargin": -296.7129,
-            "TopMargin": 4.6779,
-            "BottomMargin": -4.6779,
             "Tag": 169,
             "ActionTag": 513464446,
             "Size": {
@@ -738,8 +736,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -54.1906,
-              "Y": 0.0021
+              "X": -319.0721,
+              "Y": 0.0
             },
             "Scale": {
               "ScaleX": 0.8553,
@@ -749,22 +747,21 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0212,
+              "X": -0.1246,
               "Y": 0.0
             },
             "PreSize": {
-              "X": 1.2109,
-              "Y": 0.4722
+              "X": 1.5739,
+              "Y": 0.4989
             },
-            "LeftMargin": -54.1906,
-            "RightMargin": -485.8093,
-            "TopMargin": 949.9979,
-            "BottomMargin": 0.0021,
+            "LeftMargin": -319.0721,
+            "RightMargin": -1150.011,
+            "TopMargin": 902.0306,
             "Tag": 168,
             "ActionTag": 1011681176,
             "Size": {
-              "X": 3100.0,
-              "Y": 850.0
+              "X": 4029.083,
+              "Y": 897.9694
             },
             "Name": "Panel_1_0_0",
             "ctype": "PanelObjectData"
@@ -1071,33 +1068,33 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -132.6564,
-              "Y": 852.6534
+              "X": -336.5468,
+              "Y": 860.6498
             },
             "Scale": {
               "ScaleX": 0.9104,
               "ScaleY": 0.9001
             },
-            "RotationSkewX": 2.32,
+            "RotationSkewX": 2.3201,
             "RotationSkewY": 2.3207,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0518,
-              "Y": 0.4737
+              "X": -0.1315,
+              "Y": 0.4781
             },
             "PreSize": {
-              "X": 1.2109,
+              "X": 1.4822,
               "Y": 0.3278
             },
-            "LeftMargin": -132.6564,
-            "RightMargin": -407.3435,
-            "TopMargin": 357.3467,
-            "BottomMargin": 852.6534,
+            "LeftMargin": -336.5468,
+            "RightMargin": -898.0024,
+            "TopMargin": 349.3501,
+            "BottomMargin": 860.6498,
             "Tag": 163,
             "ActionTag": -1268745491,
             "Size": {
-              "X": 3100.0,
+              "X": 3794.5493,
               "Y": 590.0
             },
             "Name": "Panel_1_0",
@@ -1241,7 +1238,7 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "Fahali_na_Punda/cow.json",
+              "Path": "Fahali_na_Punda/ox.json",
               "Plist": ""
             },
             "StretchWidthEnable": false,
@@ -1249,8 +1246,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": -349.0045,
-              "Y": 513.5356
+              "X": 3200.1357,
+              "Y": 227.6995
             },
             "Scale": {
               "ScaleX": -0.6,
@@ -1259,17 +1256,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": -0.1363,
-              "Y": 0.2853
+              "X": 1.2501,
+              "Y": 0.1265
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -349.0045,
-            "RightMargin": 2909.0044,
-            "TopMargin": 1286.4644,
-            "BottomMargin": 513.5356,
+            "LeftMargin": 3200.1357,
+            "RightMargin": -640.1357,
+            "TopMargin": 1572.3005,
+            "BottomMargin": 227.6995,
             "UserData": "walk;drag",
             "Tag": 418,
             "ActionTag": 395019672,
@@ -1277,7 +1274,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "cow",
+            "Name": "ox",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -1294,12 +1291,12 @@
               "ScaleX": 0.5734
             },
             "Position": {
-              "X": 1602.116,
-              "Y": 368.7271
+              "X": 1602.114,
+              "Y": 368.7265
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 0.5735,
+              "ScaleY": 0.5735
             },
             "CColor": {},
             "IconVisible": false,
@@ -1311,10 +1308,10 @@
               "X": 0.0375,
               "Y": 0.0717
             },
-            "LeftMargin": 1547.0714,
-            "RightMargin": 916.9286,
-            "TopMargin": 1302.2728,
-            "BottomMargin": 368.7271,
+            "LeftMargin": 1547.0676,
+            "RightMargin": 916.9324,
+            "TopMargin": 1302.2734,
+            "BottomMargin": 368.7265,
             "UserData": "main.spinach",
             "Tag": 1160,
             "ActionTag": 2005004741,
@@ -1356,8 +1353,8 @@
               "X": 0.025,
               "Y": 0.0356
             },
-            "LeftMargin": 1402.8518,
-            "RightMargin": 1093.1482,
+            "LeftMargin": 1402.8521,
+            "RightMargin": 1093.1479,
             "TopMargin": 1360.1169,
             "BottomMargin": 375.883,
             "UserData": "main.plant",
@@ -1446,8 +1443,8 @@
               "X": 0.023,
               "Y": 0.0794
             },
-            "LeftMargin": 1191.355,
-            "RightMargin": 1309.645,
+            "LeftMargin": 1191.3533,
+            "RightMargin": 1309.6467,
             "TopMargin": 1261.1196,
             "BottomMargin": 395.8804,
             "UserData": "main.beetroot",
@@ -1514,11 +1511,11 @@
         "ctype": "LayerObjectData"
       },
       "UsedResources": [
-        "cow.json",
         "Fahali_na_Punda.plist",
         "Fahali_na_Punda.png",
         "Fahali2/Fahali2.plist",
-        "Fahali2/Fahali2.png"
+        "Fahali2/Fahali2.png",
+        "ox.json"
       ],
       "ctype": "GameFileData"
     }
