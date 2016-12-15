@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 500,
         "Speed": 1.0,
-        "ActivedAnimationName": "cloud",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -2143824173,
@@ -30,6 +30,25 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2143824173,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 175,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -88,6 +107,12 @@
             "Frames": [
               {
                 "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
                 "FrameIndex": 170,
                 "Tween": false,
                 "ctype": "BoolFrameData"
@@ -122,6 +147,25 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1211451939,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 175,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -198,7 +242,7 @@
               },
               {
                 "X": 1510.8279,
-                "Y": 480.017,
+                "Y": 480.0169,
                 "FrameIndex": 170,
                 "EasingData": {
                   "Type": 0
@@ -243,6 +287,15 @@
                 "X": 17.7028,
                 "Y": 17.7028,
                 "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 17.7028,
+                "Y": 17.7028,
+                "FrameIndex": 170,
                 "EasingData": {
                   "Type": 0
                 },
@@ -313,7 +366,7 @@
             "IconVisible": false,
             "PrePosition": {
               "X": 1.3333,
-              "Y": 1.4063
+              "Y": 1.4062
             },
             "PreSize": {
               "X": 4.1667,
@@ -369,6 +422,7 @@
               "X": 0.0,
               "Y": 0.0
             },
+            "VisibleForFrame": false,
             "Name": "cloud",
             "ctype": "ProjectNodeObjectData"
           },
@@ -452,6 +506,7 @@
               "X": 0.0,
               "Y": 0.0
             },
+            "VisibleForFrame": false,
             "Name": "cloud",
             "ctype": "ProjectNodeObjectData"
           },
@@ -494,7 +549,7 @@
             },
             "PreSize": {
               "X": 4.1667,
-              "Y": 1.4063
+              "Y": 1.4062
             },
             "LeftMargin": -719.6954,
             "RightMargin": -2320.3047,
@@ -549,7 +604,7 @@
             },
             "PreSize": {
               "X": 4.1667,
-              "Y": 1.4063
+              "Y": 1.4062
             },
             "LeftMargin": -683.7648,
             "RightMargin": -2356.2354,

@@ -7,8 +7,47 @@
       "Animation": {
         "Duration": 580,
         "Speed": 1.0,
-        "ActivedAnimationName": "bird",
+        "ActivedAnimationName": "master",
         "Timelines": [
+          {
+            "ActionTag": 1642699179,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 204,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "trunk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 50,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "trunk",
+                "SingleFrameIndex": 205,
+                "FrameIndex": 200,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "trunk",
+                "SingleFrameIndex": 365,
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 1684110991,
             "Property": "ActionValue",
@@ -142,45 +181,6 @@
               }
             ],
             "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 1642699179,
-            "Property": "ActionValue",
-            "Frames": [
-              {
-                "InnerActionType": "SingleFrame",
-                "CurrentAniamtionName": "-- ALL --",
-                "SingleFrameIndex": 204,
-                "FrameIndex": 0,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              },
-              {
-                "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "trunk",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 50,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              },
-              {
-                "InnerActionType": "SingleFrame",
-                "CurrentAniamtionName": "trunk",
-                "SingleFrameIndex": 205,
-                "FrameIndex": 200,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              },
-              {
-                "InnerActionType": "SingleFrame",
-                "CurrentAniamtionName": "trunk",
-                "SingleFrameIndex": 365,
-                "FrameIndex": 205,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -219,6 +219,7 @@
               "B": 169
             },
             "ColorVector": {
+              "ScaleX": 0.0,
               "ScaleY": -1.0
             },
             "Scale9Width": 1,
@@ -310,6 +311,48 @@
             },
             "Name": "Panel_0",
             "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/elephant.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1409.9978,
+              "Y": 779.9993
+            },
+            "Scale": {
+              "ScaleX": 1.7475,
+              "ScaleY": 1.7475
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5508,
+              "Y": 0.4333
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1409.9978,
+            "RightMargin": 1150.0022,
+            "TopMargin": 1020.0007,
+            "BottomMargin": 779.9993,
+            "UserData": "drag;trunklift2",
+            "Tag": 1086,
+            "ActionTag": 1642699179,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "elephant",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -734,48 +777,6 @@
             },
             "VisibleForFrame": false,
             "Name": "bird",
-            "ctype": "ProjectNodeObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "Mtoto_wa_Tembo_Mdadisi/elephant.json",
-              "Plist": ""
-            },
-            "StretchWidthEnable": false,
-            "StretchHeightEnable": false,
-            "InnerActionSpeed": 1.0,
-            "AnchorPoint": {},
-            "Position": {
-              "X": 1409.9978,
-              "Y": 779.9993
-            },
-            "Scale": {
-              "ScaleX": 1.7475,
-              "ScaleY": 1.7475
-            },
-            "CColor": {},
-            "IconVisible": true,
-            "PrePosition": {
-              "X": 0.5508,
-              "Y": 0.4333
-            },
-            "PreSize": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "LeftMargin": 1409.9978,
-            "RightMargin": 1150.0022,
-            "TopMargin": 1020.0007,
-            "BottomMargin": 779.9993,
-            "UserData": "drag;trunklift2",
-            "Tag": 1086,
-            "ActionTag": 1642699179,
-            "Size": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "Name": "elephant",
             "ctype": "ProjectNodeObjectData"
           }
         ],

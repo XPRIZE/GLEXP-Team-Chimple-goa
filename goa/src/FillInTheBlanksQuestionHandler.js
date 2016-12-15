@@ -36,7 +36,7 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
             var correctAnswerNode = this._constructedScene.node.getChildByName(context._correctAnswerNode);
             var box = correctAnswerNode.getBoundingBox();
             this._help = new xc.HelpLayer(cc.rect(box.x + 50 + box.width/2, box.y + box.height/2, box.width + 50 , box.height), cc.rect(0,0,10,10));
-            this.addChild(this._help,4)
+            this._constructedScene.node.addChild(this._help,4)
             this._help.click(correctAnswerNode.x,correctAnswerNode.y);
             xc._FILL_IN_THE_BLANKS_HELP_SHOWN = true;            
         }

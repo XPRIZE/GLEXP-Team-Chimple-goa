@@ -545,12 +545,20 @@
                 "InnerActionType": "LoopAction",
                 "CurrentAniamtionName": "run",
                 "SingleFrameIndex": 0,
-                "FrameIndex": 175,
+                "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               },
               {
                 "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 175,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "run",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 280,
@@ -565,8 +573,17 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": -389.9882,
-                "Y": 162.8421,
+                "X": -708.3721,
+                "Y": 169.5449,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -698.9115,
+                "Y": 158.5811,
                 "FrameIndex": 175,
                 "EasingData": {
                   "Type": 0
@@ -589,6 +606,15 @@
             "ActionTag": 1554527002,
             "Property": "Scale",
             "Frames": [
+              {
+                "X": 0.5,
+                "Y": 0.5,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
               {
                 "X": 0.5,
                 "Y": 0.5,
@@ -617,6 +643,15 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
                 "FrameIndex": 175,
                 "EasingData": {
                   "Type": 0
@@ -640,7 +675,7 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": -748.1676,
+                "X": -860.1133,
                 "Y": 242.5847,
                 "FrameIndex": 0,
                 "EasingData": {
@@ -756,6 +791,14 @@
                 "FrameIndex": 235,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 280,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -765,7 +808,7 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": -462.2887,
+                "X": -574.2351,
                 "Y": 96.4144,
                 "FrameIndex": 0,
                 "EasingData": {
@@ -777,6 +820,15 @@
                 "X": 2324.3289,
                 "Y": 78.0199,
                 "FrameIndex": 235,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2324.3289,
+                "Y": 78.0199,
+                "FrameIndex": 280,
                 "EasingData": {
                   "Type": 0
                 },
@@ -806,6 +858,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -831,6 +892,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -842,6 +912,12 @@
               {
                 "Value": "walk",
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 280,
                 "Tween": false,
                 "ctype": "EventFrameData"
               }
@@ -1063,8 +1139,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1117.3936,
-              "Y": 163.7486
+              "X": -708.3721,
+              "Y": 169.5449
             },
             "Scale": {
               "ScaleX": 0.5,
@@ -1073,17 +1149,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.4365,
-              "Y": 0.091
+              "X": -0.2767,
+              "Y": 0.0942
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1117.3936,
-            "RightMargin": 1442.6064,
-            "TopMargin": 1636.2515,
-            "BottomMargin": 163.7486,
+            "LeftMargin": -708.3721,
+            "RightMargin": 3268.3721,
+            "TopMargin": 1630.4551,
+            "BottomMargin": 169.5449,
             "UserData": "run;drag",
             "Tag": 5404,
             "ActionTag": 1554527002,
@@ -1109,8 +1185,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2013.9182,
-              "Y": 242.58
+              "X": -860.1133,
+              "Y": 242.5847
             },
             "Scale": {
               "ScaleX": 0.44,
@@ -1119,17 +1195,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.7867,
+              "X": -0.336,
               "Y": 0.1348
             },
             "PreSize": {
               "X": 0.5941,
               "Y": 0.5067
             },
-            "LeftMargin": 1253.4182,
-            "RightMargin": -214.4182,
-            "TopMargin": 1101.4199,
-            "BottomMargin": -213.42,
+            "LeftMargin": -1620.6133,
+            "RightMargin": 2659.6133,
+            "TopMargin": 1101.4153,
+            "BottomMargin": -213.4153,
             "Tag": 374,
             "ActionTag": -1522930849,
             "Size": {
@@ -1150,8 +1226,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 2324.3289,
-              "Y": 78.0199
+              "X": -574.2351,
+              "Y": 96.4144
             },
             "Scale": {
               "ScaleX": -1.0,
@@ -1160,19 +1236,20 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.9079,
-              "Y": 0.0433
+              "X": -0.2243,
+              "Y": 0.0536
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 2324.3289,
-            "RightMargin": 235.6711,
-            "TopMargin": 1721.9801,
-            "BottomMargin": 78.0199,
+            "LeftMargin": -574.2351,
+            "RightMargin": 3134.2351,
+            "TopMargin": 1703.5856,
+            "BottomMargin": 96.4144,
             "UserData": "run;drag",
             "Tag": 5361,
+            "FrameEvent": "walk",
             "ActionTag": 301250316,
             "Size": {
               "X": 0.0,

@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 350,
         "Speed": 1.0,
-        "ActivedAnimationName": "bird",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 1976385923,
@@ -242,8 +242,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 1767.3848,
-                "Y": 1466.2543,
+                "X": 1803.7886,
+                "Y": 1885.9846,
                 "FrameIndex": 350,
                 "EasingData": {
                   "Type": 0
@@ -355,7 +355,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "walk",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 200,
@@ -466,7 +466,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "crawl",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 200,
@@ -564,7 +564,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "crawl",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 200,
@@ -1151,7 +1151,7 @@
             "RightMargin": 501.6475,
             "TopMargin": 1074.8108,
             "BottomMargin": 725.1893,
-            "UserData": "crawl:drag\n",
+            "UserData": "crawl;drag\n",
             "Tag": 2556,
             "ActionTag": 1948851252,
             "Size": {
@@ -1195,7 +1195,7 @@
             "RightMargin": 268.8049,
             "TopMargin": 692.6449,
             "BottomMargin": 1107.3551,
-            "UserData": "crawl:drag\n",
+            "UserData": "crawl;drag\n",
             "Tag": 2582,
             "ActionTag": 1714839893,
             "Size": {

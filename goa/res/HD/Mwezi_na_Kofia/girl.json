@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 695,
+        "Duration": 697,
         "Speed": 1.0,
-        "ActivedAnimationName": "walk",
+        "ActivedAnimationName": "walkladder",
         "Timelines": [
           {
             "ActionTag": -1299471080,
@@ -2003,6 +2003,55 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -608996114,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 1,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 2,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 3,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 650,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 655,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 695,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 697,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -6925,6 +6974,26 @@
                 "FrameIndex": 510,
                 "Tween": false,
                 "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Mwezi_na_Kofia/gface3.png",
+                  "Plist": "Mwezi_na_Kofia/Mwezi_na_Kofia.plist"
+                },
+                "FrameIndex": 655,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Mwezi_na_Kofia/gface3.png",
+                  "Plist": "Mwezi_na_Kofia/Mwezi_na_Kofia.plist"
+                },
+                "FrameIndex": 695,
+                "Tween": false,
+                "ctype": "TextureFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -6958,6 +7027,20 @@
                 "Src": 1,
                 "Dst": 771,
                 "FrameIndex": 510,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              },
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 655,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              },
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 695,
                 "Tween": false,
                 "ctype": "BlendFuncFrameData"
               }
@@ -14537,6 +14620,54 @@
                             },
                             "Name": "girl_hand_7",
                             "ctype": "SpriteObjectData"
+                          },
+                          {
+                            "FileData": {
+                              "Type": "MarkedSubImage",
+                              "Path": "Mwezi_na_Kofia/candy.png",
+                              "Plist": "Mwezi_na_Kofia/Mwezi_na_Kofia.plist"
+                            },
+                            "BlendFunc": {
+                              "Src": 1,
+                              "Dst": 771
+                            },
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 29.6382,
+                              "Y": -34.6189
+                            },
+                            "Scale": {
+                              "ScaleX": 0.3023,
+                              "ScaleY": 0.3007
+                            },
+                            "RotationSkewX": -169.4793,
+                            "RotationSkewY": -169.9805,
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.0,
+                              "Y": 0.0
+                            },
+                            "PreSize": {
+                              "X": 0.0,
+                              "Y": 0.0
+                            },
+                            "LeftMargin": -134.3618,
+                            "RightMargin": -193.6382,
+                            "TopMargin": -334.3811,
+                            "BottomMargin": -403.6189,
+                            "Tag": 874,
+                            "ActionTag": -608996114,
+                            "Size": {
+                              "X": 328.0,
+                              "Y": 738.0
+                            },
+                            "VisibleForFrame": false,
+                            "Name": "candy_1",
+                            "ctype": "SpriteObjectData"
                           }
                         ],
                         "ActionTag": 1431671456,
@@ -15075,8 +15206,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0102
                     },
-                    "RotationSkewX": 88.7539,
-                    "RotationSkewY": 88.7582,
+                    "RotationSkewX": 88.7782,
+                    "RotationSkewY": 88.7825,
                     "CColor": {
                       "R": 185,
                       "G": 155,
@@ -15339,10 +15470,10 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": 16.0852,
-                        "RightMargin": -46.0852,
-                        "TopMargin": -46.9518,
-                        "BottomMargin": -49.0482,
+                        "LeftMargin": 20.0852,
+                        "RightMargin": -42.0852,
+                        "TopMargin": -51.4518,
+                        "BottomMargin": -53.5482,
                         "Tag": 147,
                         "ActionTag": 854593585,
                         "Size": {
@@ -15400,10 +15531,10 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": 18.7122,
-                    "RightMargin": -54.7122,
-                    "TopMargin": -72.788,
-                    "BottomMargin": -74.212,
+                    "LeftMargin": 26.2122,
+                    "RightMargin": -47.2122,
+                    "TopMargin": -43.788,
+                    "BottomMargin": -45.212,
                     "Tag": 146,
                     "ActionTag": 1912132233,
                     "Size": {
@@ -15572,10 +15703,10 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": 7.5881,
-                        "RightMargin": -37.5881,
-                        "TopMargin": -46.2778,
-                        "BottomMargin": -49.7222,
+                        "LeftMargin": 11.5881,
+                        "RightMargin": -33.5881,
+                        "TopMargin": -50.7778,
+                        "BottomMargin": -54.2222,
                         "Tag": 149,
                         "ActionTag": 1770648004,
                         "Size": {
@@ -15633,10 +15764,10 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": 17.1152,
-                    "RightMargin": -53.1152,
-                    "TopMargin": -71.7779,
-                    "BottomMargin": -75.2221,
+                    "LeftMargin": 24.6152,
+                    "RightMargin": -45.6152,
+                    "TopMargin": -42.7779,
+                    "BottomMargin": -46.2221,
                     "Tag": 148,
                     "ActionTag": -2042438096,
                     "Size": {
@@ -15690,10 +15821,10 @@
                   "X": 0.0,
                   "Y": 0.0
                 },
-                "LeftMargin": -190.0745,
-                "RightMargin": -224.9255,
-                "TopMargin": -210.0506,
-                "BottomMargin": -204.9494,
+                "LeftMargin": -223.5745,
+                "RightMargin": -258.4255,
+                "TopMargin": -162.0506,
+                "BottomMargin": -156.9494,
                 "Tag": 145,
                 "FrameEvent": "aaaa",
                 "ActionTag": 1291199901,

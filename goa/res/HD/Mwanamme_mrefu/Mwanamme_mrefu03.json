@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 450,
         "Speed": 1.0,
-        "ActivedAnimationName": "jackal",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -409802036,
@@ -150,6 +150,25 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 401993942,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 155,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -408,6 +427,7 @@
               "X": 0.0,
               "Y": 0.0
             },
+            "VisibleForFrame": false,
             "Name": "jackal",
             "ctype": "ProjectNodeObjectData"
           }
