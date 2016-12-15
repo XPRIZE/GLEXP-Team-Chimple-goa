@@ -23,11 +23,11 @@
 1;tele;adimu
 1;upeo;chini
 1;usawa;wima
-2;vita;amani
-2;ari;amelala
-2;baridi;joto
-2;baridi;moto
-2;chini;zaidi
+1;vita;amani
+1;ari;amelala
+1;baridi;joto
+1;baridi;moto
+1;chini;zaidi
 2;daima;kamwe
 2;giza;mwanga
 2;hayupo;sasa
@@ -55,9 +55,9 @@
 2;ngumu;laini
 2;nyuma;mbele
 2;rafiki;adui
-3;rahisi;tata
-3;safi;mchafu
-3;umoja;wingi
+2;rahisi;tata
+2;safi;mchafu
+2;umoja;wingi
 3;uongo;kweli
 3;wakali;kali
 3;wema;makamu
@@ -69,16 +69,13 @@
 3;chache;wengi
 3;dhaifu;nguvu
 3;faida;hasara
-3;furaha huzuni
 3;haki;dhuluma
 3;hiari;lazima
 3;jasiri;waoga
-3;juu ya;mbali
 3;karibu;mbali
 3;kilima;bonde
 3;kubwa;vidogo
 3;kujibu;swali
-3;kushoto kulia
 3;lazima;hiari
 3;mara;kufunua
 3;mbali;karibu
@@ -88,10 +85,9 @@
 3;mitumba;mpya
 3;mkali;wepesi
 3;mtiifu;waasi
-4;ndani ya;nje
-4;ngumu;rahisi
-4;nguvu;dhaifu
-4;nzito;mwanga
+3;ngumu;rahisi
+3;nguvu;dhaifu
+3;nzito;mwanga
 4;pamoja;mbali
 4;rahisi;bidii
 4;shujaa;mwoga
@@ -109,7 +105,6 @@
 4;halisi;bandia
 4;hatari;salama
 4;huzuni;furaha
-4;imefika kwenda
 4;kawaida;nadra
 4;kikatili;aina
 4;kuacha;kwenda
@@ -139,7 +134,6 @@
 5;zamani;vijana
 5;baraka;kulaani
 5;bure;amefungwa
-5;chini;hapo juu
 5;hasara;ushindi
 5;jioni;alfajiri
 5;kelele;utulivu
@@ -154,11 +148,9 @@
 5;pana;nyembamba
 5;ruzuku;kukataa
 5;tajiri;maskini
-5;wachache;wengi
-5;wajinga;busara
-5;zaidi;chini ya
-5;akili;hawaelewi
-6;chini ya;juu ya
+6;wachache;wengi
+6;wajinga;busara
+6;akili;hawaelewi
 6;faraja;usumbufu
 6;haraka;polepole
 6;hekima;upumbavu
@@ -177,7 +169,6 @@
 6;mbinguni;kuzimu
 6;mkataba;kupanua
 6;mpana;nyembamba
-6;peke yao;pamoja
 6;shwari;wasiwasi
 6;tamaa;matumaini
 6;wajanja;kijinga
@@ -187,69 +178,183 @@
 6;kukubali;kukataa
 6;kupunguza;haraka
 6;kuridhisha;adimu
+6;kushuka;kukubali
+6;kuwasili;aondoke
+6;mashairi;nathari
+6;msichana;mvulana
+6;tofauti;kujiunga
+6;umaskini;utajiri
+6;unaweza;hawawezi
+6;kuficha;yatangaza
+6;kusahau;kukumbuka
+6;kushinda;kupoteza
+6;kutoelewa;kuelewa
+6;kuyeyuka;kufungia
+7;wachache;wengi
+7;wajinga;busara
+7;akili;hawaelewi
+7;faraja;usumbufu
+7;haraka;polepole
+7;hekima;upumbavu
+7;kijana;msichana
+7;kiongozi;mfuasi
+7;kuanza;kumaliza
+7;kuchukua;kuwapa
+7;kuisha;kuangaza
+7;kukusudia;ajali
+7;kupanua;mkataba
+7;kupata;kupoteza
+7;kupoteza;kupata
+7;kusaidia;kuzuia
+7;makini;kutojali
+7;mapema;marehemu
+7;mbinguni;kuzimu
+7;mkataba;kupanua
+7;mpana;nyembamba
+7;shwari;wasiwasi
+7;tamaa;matumaini
+7;wajanja;kijinga
+7;kaskazini;kusini
+7;kujenga;kuharibu
+7;kukomaa;machanga
+7;kukubali;kukataa
+7;kupunguza;haraka
+7;kuridhisha;adimu
 7;kushuka;kukubali
 7;kuwasili;aondoke
 7;mashairi;nathari
 7;msichana;mvulana
 7;tofauti;kujiunga
 7;umaskini;utajiri
-7;Unaweza;hawawezi
-7;wote;hakuna hata
-7;kisawe;na kinyume
+7;unaweza;hawawezi
 7;kuficha;yatangaza
 7;kusahau;kukumbuka
 7;kushinda;kupoteza
 7;kutoelewa;kuelewa
 7;kuyeyuka;kufungia
-7;kuzuia;kuwasaidia
-7;na kinyume;kisawe
-7;sahihi;sio sahihi
-7;tamaa;kuhamasisha
-8;ushindi;kushindwa
-8;kufungua;imefungwa
-8;kukopa;kuwakopesha
-8;kuonekana;kutoweka
-8;kuongeza;kupunguza
-8;kupunguza;kuongeza
-8;kushinikiza;kuvuta
-8;siku za nyuma;sasa
-8;bahati;bahati mbaya
-8;kupitisha;kuyakataa
-8;kurefusha;kufupisha
-8;kutoweka;itaonekana
-8;kuwa wazi;ulichukua
-8;maarufu;haijulikani
-8;mafanikio;kushindwa
-8;mara kwa mara;nadra
-8;pamoja na;kuwatenga
-9;uwezekano;uwezekano
-9;waaminifu;mwaminifu
-9;waaminifu;waaminifu
-9;wanyenyekevu;kiburi
-9;hatia;wasio na hatia
-9;kirefu;kilichofanywa
-9;kufurahi;kusikitisha
-9;kushindwa;kufanikiwa
-9;hata;isiyo ya kawaida
-9;isiyo ya kawaida;hata
-9;kubwa;yasiyo na maana
-9;kujiunga;kutenganisha
-9;kupatikana;waliopotea
-9;kuwatawanya;kukusanya
-9;mara kwa mara;kawaida
-9;muhimu;yasiyo na maana
-9;mwenye nyumba;mpangaji
-10;kuchangamka;kusikitisha
-10;kwenda chini;kwenda juu
-10;iwezekanavyo;haiwezekani
-10;kuchanganya;kutenganisha
-10;haijulikani;inayojulikana
-10;inayojulikana;haijulikani
-10;inayoonekana;asiyeonekana
-10;kukubaliana;hawakubaliani
-10;waliohitimu;zinazoridhisha
-10;zinazoridhisha;waliohitimu
-10;kuhamasisha;kukatisha tamaa
-10;kuteketea kabisa;itaonekana
-10;wenye nacho;wasiokuwa nacho
-10;kwa moyo mkunjufu;kusikitisha
+8;wachache;wengi
+8;wajinga;busara
+8;akili;hawaelewi
+8;faraja;usumbufu
+8;haraka;polepole
+8;hekima;upumbavu
+8;kijana;msichana
+8;kiongozi;mfuasi
+8;kuanza;kumaliza
+8;kuchukua;kuwapa
+8;kuisha;kuangaza
+8;kukusudia;ajali
+8;kupanua;mkataba
+8;kupata;kupoteza
+8;kupoteza;kupata
+8;kusaidia;kuzuia
+8;makini;kutojali
+8;mapema;marehemu
+8;mbinguni;kuzimu
+8;mkataba;kupanua
+8;mpana;nyembamba
+8;shwari;wasiwasi
+8;tamaa;matumaini
+8;wajanja;kijinga
+8;kaskazini;kusini
+8;kujenga;kuharibu
+8;kukomaa;machanga
+8;kukubali;kukataa
+8;kupunguza;haraka
+8;kuridhisha;adimu
+8;kushuka;kukubali
+8;kuwasili;aondoke
+8;mashairi;nathari
+8;msichana;mvulana
+8;tofauti;kujiunga
+8;umaskini;utajiri
+8;unaweza;hawawezi
+8;kuficha;yatangaza
+8;kusahau;kukumbuka
+8;kushinda;kupoteza
+8;kutoelewa;kuelewa
+8;kuyeyuka;kufungia
+9;wachache;wengi
+9;wajinga;busara
+9;akili;hawaelewi
+9;faraja;usumbufu
+9;haraka;polepole
+9;hekima;upumbavu
+9;kijana;msichana
+9;kiongozi;mfuasi
+9;kuanza;kumaliza
+9;kuchukua;kuwapa
+9;kuisha;kuangaza
+9;kukusudia;ajali
+9;kupanua;mkataba
+9;kupata;kupoteza
+9;kupoteza;kupata
+9;kusaidia;kuzuia
+9;makini;kutojali
+9;mapema;marehemu
+9;mbinguni;kuzimu
+9;mkataba;kupanua
+9;mpana;nyembamba
+9;shwari;wasiwasi
+9;tamaa;matumaini
+9;wajanja;kijinga
+9;kaskazini;kusini
+9;kujenga;kuharibu
+9;kukomaa;machanga
+9;kukubali;kukataa
+9;kupunguza;haraka
+9;kuridhisha;adimu
+9;kushuka;kukubali
+9;kuwasili;aondoke
+9;mashairi;nathari
+9;msichana;mvulana
+9;tofauti;kujiunga
+9;umaskini;utajiri
+9;unaweza;hawawezi
+9;kuficha;yatangaza
+9;kusahau;kukumbuka
+9;kushinda;kupoteza
+9;kutoelewa;kuelewa
+9;kuyeyuka;kufungia
+10;wachache;wengi
+10;wajinga;busara
+10;akili;hawaelewi
+10;faraja;usumbufu
+10;haraka;polepole
+10;hekima;upumbavu
+10;kijana;msichana
+10;kiongozi;mfuasi
+10;kuanza;kumaliza
+10;kuchukua;kuwapa
+10;kuisha;kuangaza
+10;kukusudia;ajali
+10;kupanua;mkataba
+10;kupata;kupoteza
+10;kupoteza;kupata
+10;kusaidia;kuzuia
+10;makini;kutojali
+10;mapema;marehemu
+10;mbinguni;kuzimu
+10;mkataba;kupanua
+10;mpana;nyembamba
+10;shwari;wasiwasi
+10;tamaa;matumaini
+10;wajanja;kijinga
+10;kaskazini;kusini
+10;kujenga;kuharibu
+10;kukomaa;machanga
+10;kukubali;kukataa
+10;kupunguza;haraka
+10;kuridhisha;adimu
+10;kushuka;kukubali
+10;kuwasili;aondoke
+10;mashairi;nathari
+10;msichana;mvulana
+10;tofauti;kujiunga
+10;umaskini;utajiri
+10;unaweza;hawawezi
+10;kuficha;yatangaza
+10;kusahau;kukumbuka
+10;kushinda;kupoteza
+10;kutoelewa;kuelewa
+10;kuyeyuka;kufungia

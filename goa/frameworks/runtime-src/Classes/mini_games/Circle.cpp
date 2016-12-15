@@ -49,11 +49,11 @@ bool Circle::init()
 	}
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	float toplabelX = visibleSize.width / 2 - 30;
-	std::map<std::string, std::map<std::string, std::string>> differntSceneMapping = {
+	_differntSceneMapping = {
 		{
 			{ "city",  //pratap designs
 			{
-				{ "plist", "dash/dash.plist" },
+				{ "plist", "circlehero/circlehero.plist" },
 				{ "bg", "circlehero/circlehero.csb" },
 				{ "friend", "circlehero/stoneman.csb" },
 				{ "friend_dot", "stoneman" },
@@ -70,7 +70,7 @@ bool Circle::init()
 			} },
 			{ "iceLand",  //anu designs
 			{
-				{ "plist", "dashisland/dashisland.plist" },
+				{ "plist", "circle/circle.plist" },
 				{ "bg", "circle/circle.csb" },
 				{ "friend", "circle/octopus.csb" },
 				{ "friend_dot", "dot_14" },
@@ -86,7 +86,7 @@ bool Circle::init()
 			} },
 			{ "candy",  //teju design
 			{
-				{ "plist", "dashisland/dashisland.plist" },
+				{ "plist", "circlecandy/circlecandy.plist" },
 				{ "bg", "circlecandy/circlecandy.csb" },
 				{ "friend", "circlecandy/cake.csb" },
 				{ "friend_dot", "dot_14" },
@@ -103,21 +103,95 @@ bool Circle::init()
 		}
 	};
 
-	std::vector<std::string> theme = { "city","iceLand","candy"};
-	_scenePath = differntSceneMapping.at(theme.at(1));
+	
+	//wordGenerateWithOptions();
+	return true;
+}
+void Circle::onEnterTransitionDidFinish()
+{
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Node::onEnterTransitionDidFinish();
+	int level = menu->getCurrentLevel();
+	std::vector<std::string> theme = { "city","iceLand","candy" };
+	std::string themeName;
+	int division = ((level - 1) % 15) + 1;
+	
+	if (division >= 1 && division < 6) {
+		int roundLevel = std::ceil(level / 15.0);
+		int inner = division + ((roundLevel - 1) * 5);
+		int subLevel = 1;
+		if (inner < 16) {
+			subLevel = (std::ceil(inner / 3.0));
+		}
+		else {
+			inner = inner - 15;
+			subLevel = (std::ceil(inner / 2.0));
+			subLevel += 5;
+		}
+		CCLOG("Sysnonyms sub Level = %d", subLevel);
+		themeName = "city";
+		_synonyms = TextGenerator::getInstance()->getSynonyms(10, subLevel);
+		_title = "Make word of same meaning as : ";
+	}
+	else if (division >5 && division < 11) {
+		int roundLevel = std::ceil(level / 15.0);
+		int inner = division - 5 + ((roundLevel - 1) * 5);
+
+		int subLevel = 1;
+		if (inner < 16) {
+			subLevel = (std::ceil(inner / 3.0));
+		}
+		else {
+			inner = inner - 15;
+			subLevel = (std::ceil(inner / 2.0));
+			subLevel += 5;
+		}
+		CCLOG("Antonyms Sub Level = %d", subLevel);
+		themeName = "iceLand";
+		_synonyms = TextGenerator::getInstance()->getAntonyms(10, subLevel);
+		_title = "Make opposite of : ";
+	}
+	else {
+		int roundLevel = std::ceil(level / 15.0);
+		int inner = division - 10 + ((roundLevel - 1) * 5);
+
+		int subLevel = 1;
+		if (inner < 16) {
+			subLevel = (std::ceil(inner / 3.0));
+		}
+		else {
+			inner = inner - 15;
+			subLevel = (std::ceil(inner / 2.0));
+			subLevel += 5;
+		}
+		CCLOG("Homonyms SubLevel = %d", subLevel);
+		themeName = "candy";
+		_synonyms = TextGenerator::getInstance()->getHomonyms(10, subLevel);
+		_title = "Make same sounding word as : ";
+	}
+
+	for (auto it = _synonyms.begin(); it != _synonyms.end(); ++it) {
+		_mapKey.push_back(it->first);
+	}
+	//wordGenerateWithOptions();
+
+	
+
+	
+	_scenePath = _differntSceneMapping.at(themeName);
 
 	auto spritecache1 = SpriteFrameCache::getInstance();
 	spritecache1->addSpriteFramesWithFile(_scenePath.at("plist"));
 
 	background = CSLoader::createNode(_scenePath.at("bg"));//"circle/circle.csb"
 	extraX = 0;
-	if(visibleSize.width > 2560) {
+	if (visibleSize.width > 2560) {
 		extraX = (visibleSize.width - 2560) / 2;
 		background->setPositionX((visibleSize.width - 2560) / 2);
 	}
 	this->addChild(background, 0);
-	
-	
+
+
 
 	_enemyRef.push_back(background->getChildByName(_scenePath.at("enemy1")));
 	_enemyRef.push_back(background->getChildByName(_scenePath.at("enemy2")));
@@ -133,7 +207,7 @@ bool Circle::init()
 		_friend = CSLoader::createNode(_scenePath.at("friend"));//"circle/octopus.csb"
 		_friend->setPositionX(dot->getPositionX() + extraX);
 		_friend->setPositionY(dot->getPositionY());
-		
+
 		this->addChild(_friend);
 
 		for (int i = 0; i < 6; i++)
@@ -146,7 +220,7 @@ bool Circle::init()
 		}
 
 	}
-	
+
 
 	if (_scenePath.at("animation_select").compare("two") == 0)
 	{
@@ -163,7 +237,7 @@ bool Circle::init()
 			enemyadding->setPositionX(_enemyRef.at(i)->getPositionX() + extraX);
 			enemyadding->setPositionY(_enemyRef.at(i)->getPositionY());
 			if (i < 3) {
-				enemyadding->setScaleX(-1*enemyadding->getScaleX());
+				enemyadding->setScaleX(-1 * enemyadding->getScaleX());
 			}
 			_enemyRef1.push_back(enemyadding);
 			this->addChild(enemyadding);
@@ -176,80 +250,12 @@ bool Circle::init()
 			timeline->gotoFrameAndPlay(0, true);
 
 		}
-	
+
 	}
 	if (_scenePath.at("animation_select").compare("three") == 0)
 	{
-		CCLOG("three");
-		
 		_friend = background->getChildByName("cake");
-		
-
 	}
-	//wordGenerateWithOptions();
-	return true;
-}
-void Circle::onEnterTransitionDidFinish()
-{
-	Node::onEnterTransitionDidFinish();
-	int level = 24;
-
-	int division = ((level - 1) % 15) + 1;
-
-	if (division >= 1 && division < 6) {
-		int roundLevel = std::ceil(level / 15.0);
-		int inner = division + ((roundLevel - 1) * 5);
-		int subLevel = 1;
-		if (inner < 16) {
-			subLevel = (std::ceil(inner / 3.0));
-		}
-		else {
-			inner = inner - 15;
-			subLevel = (std::ceil(inner / 2.0));
-			subLevel += 5;
-		}
-		CCLOG("Sysnonyms sub Level = %d", subLevel);
-		_synonyms = TextGenerator::getInstance()->getSynonyms(10, subLevel);
-	}
-	else if (division >5 && division < 11) {
-		int roundLevel = std::ceil(level / 15.0);
-		int inner = division - 5 + ((roundLevel - 1) * 5);
-
-		int subLevel = 1;
-		if (inner < 16) {
-			subLevel = (std::ceil(inner / 3.0));
-		}
-		else {
-			inner = inner - 15;
-			subLevel = (std::ceil(inner / 2.0));
-			subLevel += 5;
-		}
-		CCLOG("Antonyms Sub Level = %d", subLevel);
-		_synonyms = TextGenerator::getInstance()->getAntonyms(10, subLevel);
-	}
-	else {
-		int roundLevel = std::ceil(level / 15.0);
-		int inner = division - 10 + ((roundLevel - 1) * 5);
-
-		int subLevel = 1;
-		if (inner < 16) {
-			subLevel = (std::ceil(inner / 3.0));
-		}
-		else {
-			inner = inner - 15;
-			subLevel = (std::ceil(inner / 2.0));
-			subLevel += 5;
-		}
-		CCLOG("Homonyms SubLevel = %d", subLevel);
-
-		_synonyms = TextGenerator::getInstance()->getHomonyms(10, subLevel);
-	}
-
-	for (auto it = _synonyms.begin(); it != _synonyms.end(); ++it) {
-		_mapKey.push_back(it->first);
-	}
-	wordGenerateWithOptions();
-
 	if (_scenePath.at("animation_select").compare("three") == 0)
 	{
 		menu->setMaxPoints(6);
@@ -258,6 +264,7 @@ void Circle::onEnterTransitionDidFinish()
 	{
 		menu->setMaxPoints(5);
 	}
+	wordGenerateWithOptions();
 }
 
 void Circle::gameHelp()
@@ -520,7 +527,11 @@ void Circle::wordGenerateWithOptions()
 	int size = _mapKey.size();
 	_gameWord = _mapKey.at(cocos2d::RandomHelper::random_int(0, size - 1));
 	answer.push_back(_synonyms.at(_gameWord));
-	_topLabel = Label::createWithSystemFont(_gameWord.c_str(), "Arial", 100);
+	_sentence = LangUtil::getInstance()->translateString(_title);
+
+	std::ostringstream boardName;
+	boardName << _sentence << _gameWord;
+	_topLabel = Label::createWithSystemFont(boardName.str(), "Arial", 100);
 	_topLabel->setColor(Color3B(0, 0, 0));
 	if (_scenePath.at("animation_select").compare("one") == 0)
 	{
@@ -530,12 +541,12 @@ void Circle::wordGenerateWithOptions()
 	else if (_scenePath.at("animation_select").compare("three") == 0)
 	{
 		_topLabel->setPositionX(visibleSize.width / 2   );
-		_topLabel->setPositionY(visibleSize.height - _topLabel->getContentSize().height - 600);
+		_topLabel->setPositionY(visibleSize.height - _topLabel->getContentSize().height);
 	}
 	else
 	{
 		_topLabel->setPositionX(visibleSize.width / 2 + 40);
-		_topLabel->setPositionY(visibleSize.height - _topLabel->getContentSize().height - 600);
+		_topLabel->setPositionY(visibleSize.height - _topLabel->getContentSize().height);
     }
 	this->addChild(_topLabel,2);
 
