@@ -22,6 +22,7 @@ public:
 	}p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p100, p101, p102, p103;
 
 	static float height, width, originX, originY;
+	static int _totalHit;
 	int _score = 0;
 
 	MainGame();
