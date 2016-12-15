@@ -58,12 +58,12 @@ std::map<int, int> TextGenerator::getRandomLocations(int numLoc, int totalNum) {
 }
 
 std::string TextGenerator::generateAWord(int level, int length) {
-    level = MAX(level, 10);
+    level = MIN(level, 10);
     return getSingle("words", level);
 }
 
 std::string TextGenerator::generateASentence(int level) {
-    level = MAX(level, 10);
+    level = MIN(level, 10);
     return getSingle("sentences", level);
 }
 
@@ -114,22 +114,22 @@ std::vector<std::string> TextGenerator::getValidCombinations(std::string chars, 
 }
 
 std::map<std::string, std::string> TextGenerator::getSynonyms(int maxNum, int level) {
-    level = MAX(level, 10);
+    level = MIN(level, 10);
     return getPairs("synonyms", maxNum, level);
 }
 
 std::map<std::string, std::string> TextGenerator::getAntonyms(int maxNum, int level) {
-    level = MAX(level, 10);
+    level = MIN(level, 10);
     return getPairs("antonyms", maxNum, level);
 }
 
 std::map<std::string, std::string> TextGenerator::getHomonyms(int maxNum, int level) {
-    level = MAX(level, 10);
+    level = MIN(level, 10);
     return getPairs("homonyms", maxNum, level);
 }
 
 std::map<std::string, std::string> TextGenerator::getSingularPlurals(int maxNum, int level) {
-    level = MAX(level, 10);
+    level = MIN(level, 10);
     return getPairs("plurals", maxNum, level);
 }
 
@@ -266,12 +266,12 @@ std::map<std::string, std::map<std::string, std::string>> TextGenerator::getMapO
 }
 
 std::map<std::string, std::map<std::string, std::string>> TextGenerator::getInitialSyllableWords(int maxNum, int maxChoices, int level) {
-    level = MAX(level, 3);
+    level = MIN(level, 3);
     return getMapOfWords("initial_syllables", maxNum, maxChoices, level);
 }
 
 std::vector<std::string> TextGenerator::getWords(TextGenerator::P_O_S partOfSpeech, int maxLength, int level) {
-    level = MAX(level, 10);
+    level = MIN(level, 10);
     std::string pos = "";
     switch( partOfSpeech ) {
         case TextGenerator::P_O_S::NOUN:
@@ -417,7 +417,7 @@ std::vector<std::string> TextGenerator::getOrderedConcepts(int level) {
 
 std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> TextGenerator::getSentenceWithPOS(TextGenerator::P_O_S partOfSpeech, int maxLength, int level) {
     /* minimum 10 sentences per level and 10 levels */
-    level = MAX(level, 10);
+    level = MIN(level, 10);
     std::string pos = "";
     switch( partOfSpeech ) {
         case TextGenerator::P_O_S::NOUN:
