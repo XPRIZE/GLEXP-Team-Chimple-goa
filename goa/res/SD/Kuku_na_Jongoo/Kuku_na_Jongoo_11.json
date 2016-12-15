@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 480,
         "Speed": 1.0,
-        "ActivedAnimationName": "cloud",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 120354906,
@@ -121,6 +121,14 @@
                 "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "cough",
                 "SingleFrameIndex": 0,
+                "FrameIndex": 200,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "cough",
+                "SingleFrameIndex": 0,
                 "FrameIndex": 205,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
@@ -145,6 +153,15 @@
                 "X": 1507.5635,
                 "Y": 336.6711,
                 "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1507.5635,
+                "Y": 336.6711,
+                "FrameIndex": 200,
                 "EasingData": {
                   "Type": 0
                 },
@@ -187,6 +204,15 @@
               {
                 "X": 1.0,
                 "Y": 1.0,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
                 "FrameIndex": 205,
                 "EasingData": {
                   "Type": 0
@@ -221,6 +247,15 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
                 "FrameIndex": 205,
                 "EasingData": {
                   "Type": 0
@@ -237,6 +272,12 @@
               {
                 "Value": "chicken",
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 200,
                 "Tween": false,
                 "ctype": "EventFrameData"
               }

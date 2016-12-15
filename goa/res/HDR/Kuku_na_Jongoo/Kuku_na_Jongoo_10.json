@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 450,
         "Speed": 1.0,
-        "ActivedAnimationName": "grass",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -1397642299,
@@ -25,6 +25,14 @@
                 "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "crawl",
                 "SingleFrameIndex": 0,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "crawl",
+                "SingleFrameIndex": 0,
                 "FrameIndex": 305,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
@@ -40,6 +48,15 @@
                 "X": 1868.9388,
                 "Y": 193.6059,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1868.9388,
+                "Y": 193.6059,
+                "FrameIndex": 300,
                 "EasingData": {
                   "Type": 0
                 },
@@ -73,6 +90,15 @@
               {
                 "X": 0.4,
                 "Y": 0.4,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.4,
+                "Y": 0.4,
                 "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
@@ -90,6 +116,15 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 300,
                 "EasingData": {
                   "Type": 0
                 },
@@ -131,6 +166,14 @@
                 "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "cough",
                 "SingleFrameIndex": 0,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "cough",
+                "SingleFrameIndex": 0,
                 "FrameIndex": 305,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
@@ -155,6 +198,15 @@
                 "X": 1507.5635,
                 "Y": 336.6711,
                 "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1507.5635,
+                "Y": 336.6711,
+                "FrameIndex": 300,
                 "EasingData": {
                   "Type": 0
                 },
@@ -197,6 +249,15 @@
               {
                 "X": 1.0,
                 "Y": 1.0,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
                 "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
@@ -223,6 +284,15 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 300,
                 "EasingData": {
                   "Type": 0
                 },
@@ -247,6 +317,12 @@
               {
                 "Value": "chicken",
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 300,
                 "Tween": false,
                 "ctype": "EventFrameData"
               }
@@ -1545,7 +1621,7 @@
             "RightMargin": 1052.4365,
             "TopMargin": 1463.3289,
             "BottomMargin": 336.6711,
-            "UserData": "cough;drag\n",
+            "UserData": "walk;drag\n",
             "Tag": 984,
             "FrameEvent": "chicken",
             "ActionTag": 75362619,
@@ -1633,7 +1709,7 @@
               "Y": 0.0794
             },
             "LeftMargin": 106.881,
-            "RightMargin": 2144.1191,
+            "RightMargin": 2144.1189,
             "TopMargin": 1526.9603,
             "BottomMargin": 130.0397,
             "UserData": "main.Millipede",
@@ -1679,7 +1755,7 @@
               "Y": 0.0794
             },
             "LeftMargin": 321.913,
-            "RightMargin": 1929.0869,
+            "RightMargin": 1929.087,
             "TopMargin": 1237.0278,
             "BottomMargin": 419.9722,
             "UserData": "main.Millipede",

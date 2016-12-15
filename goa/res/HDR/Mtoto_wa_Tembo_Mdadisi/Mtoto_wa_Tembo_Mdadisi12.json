@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 480,
         "Speed": 1.0,
-        "ActivedAnimationName": "rain",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -1561856991,
@@ -127,6 +127,25 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 1706661732,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 350,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 1050856300,
             "Property": "ActionValue",
             "Frames": [
@@ -183,6 +202,25 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 1050856300,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 330,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -1866973316,
             "Property": "ActionValue",
             "Frames": [
@@ -218,6 +256,25 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1866973316,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 360,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -584,6 +641,7 @@
               "B": 169
             },
             "ColorVector": {
+              "ScaleX": 0.0,
               "ScaleY": -1.0
             },
             "Scale9Width": 1,
@@ -768,6 +826,7 @@
               "X": 0.0,
               "Y": 0.0
             },
+            "VisibleForFrame": false,
             "Name": "cloud",
             "ctype": "ProjectNodeObjectData"
           },
@@ -809,6 +868,7 @@
               "X": 0.0,
               "Y": 0.0
             },
+            "VisibleForFrame": false,
             "Name": "cloud",
             "ctype": "ProjectNodeObjectData"
           },
@@ -850,6 +910,7 @@
               "X": 0.0,
               "Y": 0.0
             },
+            "VisibleForFrame": false,
             "Name": "cloud",
             "ctype": "ProjectNodeObjectData"
           },
@@ -1411,7 +1472,7 @@
             "LeftMargin": -687.0511,
             "RightMargin": -752.9487,
             "TopMargin": 1501.9814,
-            "BottomMargin": -701.9814,
+            "BottomMargin": -701.9815,
             "Tag": 4182,
             "ActionTag": 1015335008,
             "Size": {

@@ -43,8 +43,8 @@ xc.PictureQuestionHandler = cc.Layer.extend({
             var context = this;
             if(this._answerHelpNode != null) {
                 var box = this._answerHelpNode.getBoundingBox();
-                this._answerHelp = new xc.HelpLayer(cc.rect(box.x + 50 + box.width/2, box.y + box.height/2, box.width + 50, box.height), cc.rect(0,0,10,10));
-                this.addChild(this._answerHelp,4)
+                this._answerHelp = new xc.HelpLayer(cc.rect(box.x  + box.width/2, box.y + box.height/2, box.width , box.height), cc.rect(0,0,10,10));
+                this._constructedScene.node.addChild(this._answerHelp,4)
                 this._answerHelp.click(this._answerHelpNode.x,this._answerHelpNode.y);
                 xc._PICTURE_HELP_SHOWN = true;
             }
@@ -57,8 +57,8 @@ xc.PictureQuestionHandler = cc.Layer.extend({
         {
             var context = this;
             var box = this._questionHelpNode.getBoundingBox();
-            this._questionHelp = new xc.HelpLayer(cc.rect(box.x + 50 + box.width/2, box.y + box.height/2, box.width + 50 , box.height), cc.rect(0,0,10,10));
-            this.addChild(this._questionHelp,4)
+            this._questionHelp = new xc.HelpLayer(cc.rect(box.x  + box.width/2, box.y + box.height/2, box.width  , box.height), cc.rect(0,0,10,10));
+            this._constructedScene.node.addChild(this._questionHelp,4)
             this._questionHelp.click(this._questionHelpNode.x,this._questionHelpNode.y);
         }
     },
@@ -272,8 +272,8 @@ xc.PictureQuestionHandler = cc.Layer.extend({
                     this._selectedQuestionDrawNode.removeFromParent();
                 } else {
                     this._selectedQuestionDrawNode = new cc.DrawNode();
-                    this._selectedQuestionDrawNode.drawRect(cc.p(this._selectedQuestionForAnswer.getBoundingBox().x + 50  ,this._selectedQuestionForAnswer.getBoundingBox().y), cc.p(this._selectedQuestionForAnswer.getBoundingBox().x + 50  + this._selectedQuestionForAnswer.getBoundingBox().width,this._selectedQuestionForAnswer.getBoundingBox().y + this._selectedQuestionForAnswer.getBoundingBox().height), cc.color(255,255,255,0), 10, cc.color(255,0,0,255));
-                    this.addChild(this._selectedQuestionDrawNode);
+                    this._selectedQuestionDrawNode.drawRect(cc.p(this._selectedQuestionForAnswer.getBoundingBox().x   ,this._selectedQuestionForAnswer.getBoundingBox().y), cc.p(this._selectedQuestionForAnswer.getBoundingBox().x   + this._selectedQuestionForAnswer.getBoundingBox().width,this._selectedQuestionForAnswer.getBoundingBox().y + this._selectedQuestionForAnswer.getBoundingBox().height), cc.color(255,255,255,0), 10, cc.color(255,0,0,255));
+                    this._constructedScene.node.addChild(this._selectedQuestionDrawNode);
 
                     sender.setHighlighted(true);
                     sender._isPressed = true;
@@ -415,13 +415,13 @@ xc.PictureQuestionHandler = cc.Layer.extend({
         });
 
         this._selectedFinishedAnswerDrawNode = new cc.DrawNode();
-        this._selectedFinishedAnswerDrawNode.drawRect(cc.p(sender.getBoundingBox().x + 50 ,sender.getBoundingBox().y), cc.p(sender.getBoundingBox().x + 50 + sender.getBoundingBox().width,sender.getBoundingBox().y + sender.getBoundingBox().height), cc.color(255,255,255,0), 10, cc.color(0,255,0,255));
-        this.addChild(this._selectedFinishedAnswerDrawNode);
+        this._selectedFinishedAnswerDrawNode.drawRect(cc.p(sender.getBoundingBox().x  ,sender.getBoundingBox().y), cc.p(sender.getBoundingBox().x  + sender.getBoundingBox().width,sender.getBoundingBox().y + sender.getBoundingBox().height), cc.color(255,255,255,0), 10, cc.color(0,255,0,255));
+        this._constructedScene.node.addChild(this._selectedFinishedAnswerDrawNode);
 
         this._selectedFinishedQuestionDrawNode = new cc.DrawNode();
-        this._selectedFinishedQuestionDrawNode.drawRect(cc.p(questionNode.getBoundingBox().x + 50 ,questionNode.getBoundingBox().y), cc.p(questionNode.getBoundingBox().x + 50 + 
+        this._selectedFinishedQuestionDrawNode.drawRect(cc.p(questionNode.getBoundingBox().x  ,questionNode.getBoundingBox().y), cc.p(questionNode.getBoundingBox().x  + 
         questionNode.getBoundingBox().width,questionNode.getBoundingBox().y + questionNode.getBoundingBox().height), cc.color(255,255,255,0), 10, cc.color(0,255,0,255));
-        this.addChild(this._selectedFinishedQuestionDrawNode);
+        this._constructedScene.node.addChild(this._selectedFinishedQuestionDrawNode);
 
         this._selectedQuestionForAnswer = null;
         

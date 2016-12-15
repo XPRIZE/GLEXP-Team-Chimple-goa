@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 320,
         "Speed": 1.0,
-        "ActivedAnimationName": "jackal",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 270513134,
@@ -45,6 +45,25 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 270513134,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 170,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -592,6 +611,7 @@
               "X": 0.0,
               "Y": 0.0
             },
+            "VisibleForFrame": false,
             "Name": "jackal",
             "ctype": "ProjectNodeObjectData"
           },
@@ -831,36 +851,35 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1256.2886,
-              "Y": 394.7585
+              "X": 1224.4169,
+              "Y": 1144.5957
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "RotationSkewX": 156.2527,
-            "RotationSkewY": 156.2309,
+            "RotationSkewX": -9.8406,
+            "RotationSkewY": -9.8682,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.4907,
-              "Y": 0.2193
+              "X": 0.4783,
+              "Y": 0.6359
             },
             "PreSize": {
               "X": 0.0316,
               "Y": 0.1189
             },
-            "LeftMargin": 1215.7886,
-            "RightMargin": 1263.2114,
-            "TopMargin": 1298.2415,
-            "BottomMargin": 287.7585,
+            "LeftMargin": 1183.9169,
+            "RightMargin": 1295.0831,
+            "TopMargin": 548.4043,
+            "BottomMargin": 1037.5957,
             "Tag": 2132,
             "ActionTag": -277681964,
             "Size": {
               "X": 81.0,
               "Y": 214.0
             },
-            "VisibleForFrame": false,
             "Name": "palmtreefruit_156",
             "ctype": "SpriteObjectData"
           },
@@ -879,36 +898,34 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1412.3638,
-              "Y": 787.4309
+              "X": 1265.2227,
+              "Y": 1134.5948
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "RotationSkewX": 73.1587,
-            "RotationSkewY": 73.1544,
+            "RotationSkewY": -0.0044,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5517,
-              "Y": 0.4375
+              "X": 0.4942,
+              "Y": 0.6303
             },
             "PreSize": {
               "X": 0.0316,
               "Y": 0.1189
             },
-            "LeftMargin": 1371.8638,
-            "RightMargin": 1107.1362,
-            "TopMargin": 905.5691,
-            "BottomMargin": 680.4309,
+            "LeftMargin": 1224.7227,
+            "RightMargin": 1254.2773,
+            "TopMargin": 558.4052,
+            "BottomMargin": 1027.5948,
             "Tag": 2133,
             "ActionTag": -13788796,
             "Size": {
               "X": 81.0,
               "Y": 214.0
             },
-            "VisibleForFrame": false,
             "Name": "palmtreefruit_156_0",
             "ctype": "SpriteObjectData"
           },
@@ -927,36 +944,35 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1271.6301,
-              "Y": 688.4488
+              "X": 1195.9071,
+              "Y": 1151.9207
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "RotationSkewX": 133.4914,
-            "RotationSkewY": 133.4543,
+            "RotationSkewX": -19.8086,
+            "RotationSkewY": -19.8528,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.4967,
-              "Y": 0.3825
+              "X": 0.4672,
+              "Y": 0.64
             },
             "PreSize": {
               "X": 0.0316,
               "Y": 0.1189
             },
-            "LeftMargin": 1231.1301,
-            "RightMargin": 1247.8699,
-            "TopMargin": 1004.5512,
-            "BottomMargin": 581.4488,
+            "LeftMargin": 1155.4071,
+            "RightMargin": 1323.5929,
+            "TopMargin": 541.0793,
+            "BottomMargin": 1044.9207,
             "Tag": 2134,
             "ActionTag": -614422613,
             "Size": {
               "X": 81.0,
               "Y": 214.0
             },
-            "VisibleForFrame": false,
             "Name": "palmtreefruit_156_1",
             "ctype": "SpriteObjectData"
           },
@@ -975,36 +991,34 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1152.3016,
-              "Y": 572.2507
+              "X": 1226.1519,
+              "Y": 1115.156
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "RotationSkewX": 132.5586,
-            "RotationSkewY": 132.5536,
+            "RotationSkewY": -0.0049,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.4501,
-              "Y": 0.3179
+              "X": 0.479,
+              "Y": 0.6195
             },
             "PreSize": {
               "X": 0.0617,
               "Y": 0.0983
             },
-            "LeftMargin": 1073.3016,
-            "RightMargin": 1328.6984,
-            "TopMargin": 1139.2493,
-            "BottomMargin": 483.7507,
+            "LeftMargin": 1147.1519,
+            "RightMargin": 1254.8481,
+            "TopMargin": 596.344,
+            "BottomMargin": 1026.656,
             "Tag": 2131,
             "ActionTag": 1665473508,
             "Size": {
               "X": 158.0,
               "Y": 177.0
             },
-            "VisibleForFrame": false,
             "Name": "bag_1_84",
             "ctype": "SpriteObjectData"
           }

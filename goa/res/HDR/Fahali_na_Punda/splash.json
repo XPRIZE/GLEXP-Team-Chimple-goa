@@ -1,0 +1,204 @@
+{
+  "ID": "a7d8ef90-3262-42c7-a865-a9f4dcd84136",
+  "Version": "2.3.4",
+  "Name": "splash",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 60,
+        "Speed": 1.0,
+        "ActivedAnimationName": "splash",
+        "Timelines": [
+          {
+            "ActionTag": 1820781256,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Fahali_na_Punda/Fahali2/splash_1.png",
+                  "Plist": "Fahali_na_Punda/Fahali2/Fahali2.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Fahali_na_Punda/Fahali2/splash_2.png",
+                  "Plist": "Fahali_na_Punda/Fahali2/Fahali2.plist"
+                },
+                "FrameIndex": 6,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Fahali_na_Punda/Fahali2/splash_3.png",
+                  "Plist": "Fahali_na_Punda/Fahali2/Fahali2.plist"
+                },
+                "FrameIndex": 12,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Fahali_na_Punda/Fahali2/splash_4.png",
+                  "Plist": "Fahali_na_Punda/Fahali2/Fahali2.plist"
+                },
+                "FrameIndex": 18,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Fahali_na_Punda/Fahali2/splash_5.png",
+                  "Plist": "Fahali_na_Punda/Fahali2/Fahali2.plist"
+                },
+                "FrameIndex": 24,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Fahali_na_Punda/Fahali2/splash_6.png",
+                  "Plist": "Fahali_na_Punda/Fahali2/Fahali2.plist"
+                },
+                "FrameIndex": 30,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Fahali_na_Punda/Fahali2/splash_7.png",
+                  "Plist": "Fahali_na_Punda/Fahali2/Fahali2.plist"
+                },
+                "FrameIndex": 36,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Fahali_na_Punda/Fahali2/splash_8.png",
+                  "Plist": "Fahali_na_Punda/Fahali2/Fahali2.plist"
+                },
+                "FrameIndex": 42,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Fahali_na_Punda/Fahali2/splash_9.png",
+                  "Plist": "Fahali_na_Punda/Fahali2/Fahali2.plist"
+                },
+                "FrameIndex": 48,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Fahali_na_Punda/Fahali2/splash_10.png",
+                  "Plist": "Fahali_na_Punda/Fahali2/Fahali2.plist"
+                },
+                "FrameIndex": 54,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Fahali_na_Punda/Fahali2/splash_11.png",
+                  "Plist": "Fahali_na_Punda/Fahali2/Fahali2.plist"
+                },
+                "FrameIndex": 60,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 60,
+          "Name": "splash",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 172,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fahali_na_Punda/Fahali2/splash_10.png",
+              "Plist": "Fahali_na_Punda/Fahali2/Fahali2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -23.0,
+            "RightMargin": -23.0,
+            "TopMargin": -23.0,
+            "BottomMargin": -23.0,
+            "Tag": 173,
+            "ActionTag": 1820781256,
+            "Size": {
+              "X": 342.0,
+              "Y": 136.0
+            },
+            "Name": "Sprite_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Fahali2/Fahali2.plist",
+        "Fahali2/Fahali2.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

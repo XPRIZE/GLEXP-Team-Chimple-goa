@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 560,
         "Speed": 1.0,
-        "ActivedAnimationName": "jackal",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -1982469834,
@@ -61,6 +61,25 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1982469834,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 350,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -627,6 +646,7 @@
               "X": 0.0,
               "Y": 0.0
             },
+            "VisibleForFrame": false,
             "Name": "jackal",
             "ctype": "ProjectNodeObjectData"
           },
@@ -686,8 +706,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 677.9138,
-              "Y": -56.8315
+              "X": 156.7565,
+              "Y": -70.4743
             },
             "Scale": {
               "ScaleX": -1.0,
@@ -696,17 +716,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.2648,
-              "Y": -0.0316
+              "X": 0.0612,
+              "Y": -0.0392
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 677.9138,
-            "RightMargin": 1882.0862,
-            "TopMargin": 1856.8315,
-            "BottomMargin": -56.8315,
+            "LeftMargin": 156.7565,
+            "RightMargin": 2403.2434,
+            "TopMargin": 1870.4742,
+            "BottomMargin": -70.4743,
             "Tag": 57,
             "ActionTag": -1941455954,
             "Size": {

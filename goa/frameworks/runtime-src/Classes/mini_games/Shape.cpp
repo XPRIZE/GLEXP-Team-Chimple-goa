@@ -7,7 +7,9 @@ USING_NS_CC;
 Shape::Shape() {
 }
 
-Shape::~Shape() {
+Shape::~Shape(){
+//	_waterSound->stopAllEffects();
+//	_waterSound = nullptr;
 }
 
 Scene* Shape::createScene()
@@ -31,15 +33,22 @@ bool Shape::init()
 
 void Shape::update(float d)
 {
-	if (_transSpriteDetails.size() >= 1 && _waterSoundFlag == 0)
+	if (!(_menuContext->isGamePaused()) && _transSpriteDetails.size() >= 1 && _waterSoundFlag == 0)
 	{
-		_waterSound = CocosDenshion::SimpleAudioEngine::getInstance();
-		_waterSound->playEffect("sounds/sfx/water.ogg", true);
+//		_waterSound = CocosDenshion::SimpleAudioEngine::getInstance();
+//		_waterSound->playEffect("sounds/sfx/water.ogg", true);
 		_waterSoundFlag = 1;
 	}
 	else if (_transSpriteDetails.size() == 0 && _waterSoundFlag == 1)
 	{
-		_waterSound->stopAllEffects();
+//		_waterSound->stopAllEffects();
+//		_waterSound = nullptr;
+		_waterSoundFlag = 0;
+	}
+	else if (_menuContext->isGamePaused() && _waterSoundFlag == 1)
+	{
+//		_waterSound->stopAllEffects();
+//		_waterSound = nullptr;
 		_waterSoundFlag = 0;
 	}
 
@@ -62,7 +71,8 @@ void Shape::update(float d)
 
 		_fish->runAction(Sequence::create(MoveTo::create(1, Vec2(_fish->getPositionX(), visibleSize.height * .35)), CallFunc::create([=] {
 			this->unscheduleUpdate();
-			_waterSound->stopAllEffects();
+//			_waterSound->stopAllEffects();
+//			_waterSound = nullptr;
 			_menuContext->showScore();
 		}), NULL));
 	}
@@ -441,7 +451,8 @@ void Shape::addEvents(struct SpriteDetails sprite)
 					
 					if (_totalPatch == _differntPosition.at(_posmainIndex).at(_differntPosition.at(_posmainIndex).size() - 2))
 					{
-						_waterSound->stopAllEffects();
+//						_waterSound->stopAllEffects();
+//						_waterSound = nullptr;
 						_menuContext->showScore();
 					}
 

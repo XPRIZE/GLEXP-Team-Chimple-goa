@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 360,
+        "Duration": 430,
         "Speed": 1.0,
-        "ActivedAnimationName": "grass",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 861310328,
@@ -135,8 +135,8 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 3200.1357,
-                "Y": 227.6995,
+                "X": 3462.2649,
+                "Y": 232.4,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -206,12 +206,12 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": 1461946438,
+            "ActionTag": -62801341,
             "Property": "Position",
             "Frames": [
               {
-                "X": 24.2668,
-                "Y": 353.1062,
+                "X": -75.8752,
+                "Y": 368.873,
                 "FrameIndex": 320,
                 "EasingData": {
                   "Type": 0
@@ -219,8 +219,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 24.2668,
-                "Y": 353.1062,
+                "X": -75.8752,
+                "Y": 368.873,
                 "FrameIndex": 340,
                 "EasingData": {
                   "Type": 0
@@ -228,8 +228,123 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 24.2668,
-                "Y": 353.1062,
+                "X": -75.8752,
+                "Y": 368.873,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -62801341,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.7484,
+                "Y": 1.0,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.7484,
+                "Y": 1.0,
+                "FrameIndex": 340,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.7484,
+                "Y": 1.0,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -62801341,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 3.0,
+                "FrameIndex": 340,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -62801341,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "bush",
+                "FrameIndex": 320,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1461946438,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -5.7084,
+                "Y": 342.282,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -5.7084,
+                "Y": 342.282,
+                "FrameIndex": 340,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -5.7084,
+                "Y": 342.282,
                 "FrameIndex": 360,
                 "EasingData": {
                   "Type": 0
@@ -319,6 +434,219 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 264855107,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -46.2656,
+                "Y": 354.8869,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -46.2656,
+                "Y": 354.8869,
+                "FrameIndex": 340,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -46.2656,
+                "Y": 354.8869,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 264855107,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8707,
+                "Y": 1.0,
+                "FrameIndex": 340,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 264855107,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 3.0,
+                "FrameIndex": 340,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 264855107,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "bush",
+                "FrameIndex": 320,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 978456747,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "splash",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 370,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "splash",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 430,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 978456747,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1232.8557,
+                "Y": 255.6872,
+                "FrameIndex": 370,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1232.8557,
+                "Y": 255.6872,
+                "FrameIndex": 430,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 978456747,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 370,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 430,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 978456747,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 370,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 430,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -340,6 +668,12 @@
           "StartIndex": 320,
           "EndIndex": 360,
           "Name": "grass",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 370,
+          "EndIndex": 430,
+          "Name": "splash",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -420,33 +754,33 @@
               "ScaleY": 1.0
             },
             "Position": {
-              "X": -58.1176,
-              "Y": 1105.5771
+              "X": -244.8973,
+              "Y": 1125.5635
             },
             "Scale": {
               "ScaleX": 0.9104,
               "ScaleY": 0.9001
             },
-            "RotationSkewX": 6.1014,
+            "RotationSkewX": 6.1005,
             "RotationSkewY": 6.1114,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0227,
-              "Y": 0.6142
+              "X": -0.0957,
+              "Y": 0.6253
             },
             "PreSize": {
-              "X": 1.2109,
+              "X": 1.4325,
               "Y": 0.4714
             },
-            "LeftMargin": -58.1176,
-            "RightMargin": -481.8823,
-            "TopMargin": 694.4229,
-            "BottomMargin": 256.9722,
+            "LeftMargin": -244.8973,
+            "RightMargin": -862.322,
+            "TopMargin": 674.4365,
+            "BottomMargin": 276.9585,
             "Tag": 29,
             "ActionTag": -2010115563,
             "Size": {
-              "X": 3100.0,
+              "X": 3667.2192,
               "Y": 848.605
             },
             "Name": "Panel_1_0_0_0",
@@ -661,33 +995,33 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -132.6564,
-              "Y": 852.6534
+              "X": -285.1181,
+              "Y": 862.6363
             },
             "Scale": {
               "ScaleX": 0.9104,
               "ScaleY": 0.9001
             },
-            "RotationSkewX": 2.32,
+            "RotationSkewX": 2.3201,
             "RotationSkewY": 2.3207,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0518,
-              "Y": 0.4737
+              "X": -0.1114,
+              "Y": 0.4792
             },
             "PreSize": {
-              "X": 1.2109,
+              "X": 1.3504,
               "Y": 0.3278
             },
-            "LeftMargin": -132.6564,
-            "RightMargin": -407.3435,
-            "TopMargin": 357.3467,
-            "BottomMargin": 852.6534,
+            "LeftMargin": -285.1181,
+            "RightMargin": -611.8604,
+            "TopMargin": 347.3638,
+            "BottomMargin": 862.6363,
             "Tag": 23,
             "ActionTag": -345143980,
             "Size": {
-              "X": 3100.0,
+              "X": 3456.9785,
               "Y": 590.0
             },
             "Name": "Panel_1_0",
@@ -799,29 +1133,27 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 2699.9983,
-              "Y": 500.0
+              "X": 727.1613,
+              "Y": 630.2064
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "RotationSkewX": 9.6699,
-            "RotationSkewY": 9.6848,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 1.0547,
-              "Y": 0.2778
+              "X": 0.284,
+              "Y": 0.3501
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 2699.9983,
-            "RightMargin": -139.9983,
-            "TopMargin": 1300.0,
-            "BottomMargin": 500.0,
+            "LeftMargin": 727.1613,
+            "RightMargin": 1832.8386,
+            "TopMargin": 1169.7936,
+            "BottomMargin": 630.2064,
             "Tag": 944,
             "ActionTag": 861310328,
             "Size": {
@@ -900,8 +1232,8 @@
               "ScaleY": 1.0
             },
             "Position": {
-              "X": -120.9803,
-              "Y": 441.5916
+              "X": -320.921,
+              "Y": 448.2561
             },
             "Scale": {
               "ScaleX": 0.9104,
@@ -912,21 +1244,21 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0473,
-              "Y": 0.2453
+              "X": -0.1254,
+              "Y": 0.249
             },
             "PreSize": {
-              "X": 1.2109,
+              "X": 1.4816,
               "Y": 0.3278
             },
-            "LeftMargin": -120.9803,
-            "RightMargin": -419.0198,
-            "TopMargin": 1358.4084,
-            "BottomMargin": -148.4084,
+            "LeftMargin": -320.921,
+            "RightMargin": -911.8779,
+            "TopMargin": 1351.7439,
+            "BottomMargin": -141.7439,
             "Tag": 27,
             "ActionTag": -1309283558,
             "Size": {
-              "X": 3100.0,
+              "X": 3792.7988,
               "Y": 590.0
             },
             "Name": "Panel_1_0_0",
@@ -1058,6 +1390,7 @@
             "RightMargin": 1074.3304,
             "TopMargin": 1547.842,
             "BottomMargin": 73.158,
+            "UserData": "main.splash",
             "Tag": 31,
             "ActionTag": -1127513932,
             "Size": {
@@ -1070,7 +1403,7 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "Fahali_na_Punda/cow.json",
+              "Path": "Fahali_na_Punda/ox.json",
               "Plist": ""
             },
             "StretchWidthEnable": false,
@@ -1078,8 +1411,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1564.577,
-              "Y": 332.8096
+              "X": 3462.2649,
+              "Y": 232.4
             },
             "Scale": {
               "ScaleX": -0.6,
@@ -1088,26 +1421,72 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.6112,
-              "Y": 0.1849
+              "X": 1.3524,
+              "Y": 0.1291
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1564.577,
-            "RightMargin": 995.423,
-            "TopMargin": 1467.1904,
-            "BottomMargin": 332.8096,
-            "UserData": "walk;drag",
+            "LeftMargin": 3462.2649,
+            "RightMargin": -902.2649,
+            "TopMargin": 1567.6,
+            "BottomMargin": 232.4,
+            "UserData": "run;drag",
             "Tag": 354,
             "ActionTag": -743243620,
             "Size": {
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "cow",
+            "Name": "ox",
             "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fahali_na_Punda/Fahali2/cow_grass_1.png",
+              "Plist": "Fahali_na_Punda/Fahali2/Fahali2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5167,
+              "ScaleY": 0.5368
+            },
+            "Position": {
+              "X": -296.4454,
+              "Y": 270.0829
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1158,
+              "Y": 0.15
+            },
+            "PreSize": {
+              "X": 0.2082,
+              "Y": 0.2744
+            },
+            "LeftMargin": -571.8382,
+            "RightMargin": 2598.8381,
+            "TopMargin": 1301.0748,
+            "BottomMargin": 4.9251,
+            "Tag": 169,
+            "ActionTag": 1658765042,
+            "Size": {
+              "X": 533.0,
+              "Y": 494.0
+            },
+            "Name": "fahali_cow_grass_8_0",
+            "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
@@ -1124,8 +1503,54 @@
               "ScaleY": 0.4797
             },
             "Position": {
-              "X": 24.2668,
-              "Y": 353.1062
+              "X": -75.8752,
+              "Y": 368.873
+            },
+            "Scale": {
+              "ScaleX": 0.7484,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0296,
+              "Y": 0.2049
+            },
+            "PreSize": {
+              "X": 0.2297,
+              "Y": 0.1783
+            },
+            "LeftMargin": -160.606,
+            "RightMargin": 2132.606,
+            "TopMargin": 1264.1107,
+            "BottomMargin": 214.8893,
+            "UserData": "main.grass",
+            "Tag": 171,
+            "ActionTag": -62801341,
+            "Size": {
+              "X": 588.0,
+              "Y": 321.0
+            },
+            "Name": "cow_grass_2_32_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fahali_na_Punda/Fahali2/cow_grass_2.png",
+              "Plist": "Fahali_na_Punda/Fahali2/Fahali2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.1441,
+              "ScaleY": 0.4797
+            },
+            "Position": {
+              "X": -5.7084,
+              "Y": 342.282
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1134,20 +1559,19 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.0095,
-              "Y": 0.1962
+              "X": -0.0022,
+              "Y": 0.1902
             },
             "PreSize": {
               "X": 0.2297,
               "Y": 0.1783
             },
-            "LeftMargin": -60.4401,
-            "RightMargin": 2032.4401,
-            "TopMargin": 1279.8743,
-            "BottomMargin": 199.1258,
+            "LeftMargin": -90.4392,
+            "RightMargin": 2062.4392,
+            "TopMargin": 1290.7017,
+            "BottomMargin": 188.2983,
             "UserData": "main.grass",
             "Tag": 1077,
-            "FrameEvent": "bush",
             "ActionTag": 1461946438,
             "Size": {
               "X": 588.0,
@@ -1155,6 +1579,95 @@
             },
             "Name": "cow_grass_2_32",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Fahali_na_Punda/Fahali2/cow_grass_2.png",
+              "Plist": "Fahali_na_Punda/Fahali2/Fahali2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.8982,
+              "ScaleY": 0.5207
+            },
+            "Position": {
+              "X": -46.2656,
+              "Y": 354.8869
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0181,
+              "Y": 0.1972
+            },
+            "PreSize": {
+              "X": 0.2297,
+              "Y": 0.1783
+            },
+            "LeftMargin": -574.4199,
+            "RightMargin": 2546.4199,
+            "TopMargin": 1291.259,
+            "BottomMargin": 187.741,
+            "UserData": "main.grass",
+            "Tag": 170,
+            "ActionTag": 264855107,
+            "Size": {
+              "X": 588.0,
+              "Y": 321.0
+            },
+            "Name": "cow_grass_2_32_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Fahali_na_Punda/splash.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1232.8557,
+              "Y": 255.6872
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.4816,
+              "Y": 0.142
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1232.8557,
+            "RightMargin": 1327.1443,
+            "TopMargin": 1544.3127,
+            "BottomMargin": 255.6872,
+            "UserData": "splash",
+            "Tag": 236,
+            "ActionTag": 978456747,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "splash",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -1165,12 +1678,13 @@
         "ctype": "LayerObjectData"
       },
       "UsedResources": [
-        "cow.json",
         "Fahali_na_Punda.plist",
         "Fahali_na_Punda.png",
         "Fahali2/Fahali2.plist",
         "Fahali2/Fahali2.png",
-        "rabbit.json"
+        "ox.json",
+        "rabbit.json",
+        "splash.json"
       ],
       "ctype": "GameFileData"
     }

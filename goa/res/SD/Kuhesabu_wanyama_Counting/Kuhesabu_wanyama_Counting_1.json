@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 320,
         "Speed": 1.0,
-        "ActivedAnimationName": "cloud",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 1629818206,
@@ -670,6 +670,14 @@
                 "InnerActionType": "LoopAction",
                 "CurrentAniamtionName": "frog",
                 "SingleFrameIndex": 0,
+                "FrameIndex": 115,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "frog",
+                "SingleFrameIndex": 0,
                 "FrameIndex": 205,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
@@ -679,6 +687,14 @@
                 "CurrentAniamtionName": "frog",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 259,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "frog",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 275,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -692,7 +708,16 @@
               {
                 "X": 2374.1738,
                 "Y": 296.7394,
-                "FrameIndex": 187,
+                "FrameIndex": 115,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2374.1738,
+                "Y": 296.7394,
+                "FrameIndex": 200,
                 "EasingData": {
                   "Type": 0
                 },
@@ -711,6 +736,15 @@
                 "X": 2374.1738,
                 "Y": 296.7394,
                 "FrameIndex": 259,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2374.1738,
+                "Y": 296.7394,
+                "FrameIndex": 275,
                 "EasingData": {
                   "Type": 0
                 },
@@ -726,6 +760,15 @@
               {
                 "X": 1.0,
                 "Y": 1.0,
+                "FrameIndex": 115,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
                 "FrameIndex": 205,
                 "EasingData": {
                   "Type": 0
@@ -736,6 +779,15 @@
                 "X": 1.0,
                 "Y": 1.0,
                 "FrameIndex": 259,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 275,
                 "EasingData": {
                   "Type": 0
                 },
@@ -751,6 +803,15 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
+                "FrameIndex": 115,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
                 "FrameIndex": 205,
                 "EasingData": {
                   "Type": 0
@@ -765,6 +826,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 275,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -774,8 +844,20 @@
             "Property": "FrameEvent",
             "Frames": [
               {
+                "Value": "",
+                "FrameIndex": 115,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
                 "Value": "frog",
                 "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 275,
                 "Tween": false,
                 "ctype": "EventFrameData"
               }
@@ -895,7 +977,6 @@
             "BottomMargin": 1145.5415,
             "UserData": "main.cloud",
             "Tag": 240,
-            "FrameEvent": "hop",
             "ActionTag": 1629818206,
             "Size": {
               "X": 569.0,
@@ -1803,7 +1884,7 @@
             },
             "LeftMargin": 1879.0093,
             "RightMargin": -312.0093,
-            "TopMargin": 1189.4763,
+            "TopMargin": 1189.4764,
             "BottomMargin": 409.5236,
             "Tag": 260,
             "ActionTag": 1003425650,
@@ -1847,6 +1928,7 @@
             "TopMargin": 1457.9387,
             "BottomMargin": 342.0613,
             "Tag": 69,
+            "FrameEvent": "water",
             "ActionTag": -2113283971,
             "Size": {
               "X": 0.0,
@@ -1930,6 +2012,7 @@
             "BottomMargin": 201.2497,
             "UserData": "elephant;drag",
             "Tag": 58,
+            "FrameEvent": "elephant",
             "ActionTag": -1384871452,
             "Size": {
               "X": 0.0,
@@ -1968,7 +2051,7 @@
             },
             "LeftMargin": 2374.1738,
             "RightMargin": 185.8262,
-            "TopMargin": 1503.2605,
+            "TopMargin": 1503.2606,
             "BottomMargin": 296.7394,
             "UserData": "main.frog",
             "Tag": 112,

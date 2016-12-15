@@ -118,24 +118,33 @@ void Drop::onEnterTransitionDidFinish()
 	std::pair<int, int> levelKeyNumber = levelAllInfo(gameCurrentLevel, 5,3,5,3);
 	_dropCurrentTheme = dropSceneMapping.at(levelKeyNumber.first);
 
+	int level;
+	if (gameCurrentLevel >= 1 && gameCurrentLevel <= 15)
+		level = RandomHelper::random_int(1, 2);
+	else if(gameCurrentLevel >= 16 && gameCurrentLevel <= 30)
+		level = RandomHelper::random_int(3, 4);
+	else if (gameCurrentLevel >= 31 && gameCurrentLevel <= 45)
+		level = 5;
+	else
+		level = 6;
+
 	if (levelKeyNumber.second == 0)
 	{
 		auto tg = TextGenerator::getInstance();
-		auto _data = TextGenerator::getInstance()->getAntonyms(1);
+		auto _data = TextGenerator::getInstance()->getAntonyms(1, level);
 		wordOnLabel = getConvertInUpperCase(_data.begin()->first);
 		wordOnLayout = getConvertInUpperCase(_data.begin()->second);
 	}
 	else if (levelKeyNumber.second == 1)
 	{
-		auto word = TextGenerator::getInstance()->generateAWord(_menuContext->getCurrentLevel());
-		wordOnLabel = getConvertInUpperCase(word);
+		auto word = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ANY,1,level);
+		wordOnLabel = getConvertInUpperCase(word[0]);
 		wordOnLayout = wordOnLabel;
-
 	}
 	else
 	{
 		auto tg = TextGenerator::getInstance();
-		auto _data = TextGenerator::getInstance()->getSynonyms(1);
+		auto _data = TextGenerator::getInstance()->getSynonyms(1, level);
 		wordOnLabel = getConvertInUpperCase(_data.begin()->first);
 		wordOnLayout = getConvertInUpperCase(_data.begin()->second);
 	}
