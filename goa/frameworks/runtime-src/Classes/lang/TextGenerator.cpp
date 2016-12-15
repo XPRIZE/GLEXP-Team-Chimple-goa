@@ -555,6 +555,8 @@ std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> TextGener
                             wordPos = TextGenerator::P_O_S::INTERJECTION;
                         else if("DET" == *it)
                             wordPos = TextGenerator::P_O_S::ARTICLE;
+                        else if("ADV" == *it)
+                            wordPos = TextGenerator::P_O_S::ADVERB;
                         else
                             wordPos = TextGenerator::P_O_S::ANY;
                         sentence.push_back(std::make_pair(word, wordPos));
