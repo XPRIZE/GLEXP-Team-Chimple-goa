@@ -7,7 +7,8 @@ USING_NS_CC;
 Shape::Shape() {
 }
 
-Shape::~Shape() {
+Shape::~Shape(){
+	_waterSound->stopAllEffects();
 }
 
 Scene* Shape::createScene()
