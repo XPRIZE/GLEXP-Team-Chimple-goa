@@ -130,13 +130,13 @@ void CarDraw::characterRecogination(std::vector<string> str)
 		_carDrawNodeLiPi->writingEnable(false);
 	}
 	if (flage) {
-		this->unschedule(schedule_selector(CarDraw::clearScreen));
+		//this->unschedule(schedule_selector(CarDraw::clearScreen));
 		carMoving();
 		CCLOG("right");
 	}
 	else {
-		this->unschedule(schedule_selector(CarDraw::clearScreen));
-		this->scheduleOnce(schedule_selector(CarDraw::clearScreen), 4);
+		//this->unschedule(schedule_selector(CarDraw::clearScreen));
+		//this->scheduleOnce(schedule_selector(CarDraw::clearScreen), 4);
 	}
 }
 
@@ -289,7 +289,7 @@ void CarDraw::clearScreen(float ft)
 {
 	//CC_CALLBACK_2()
 	_carStrokes.clear();
-	_carDrawNodeLiPi->clearDrawing(nullptr, cocos2d::ui::Widget::TouchEventType::ENDED);
+//	_carDrawNodeLiPi->clearDrawing(nullptr, cocos2d::ui::Widget::TouchEventType::ENDED);
 	gameStart();
 }
 

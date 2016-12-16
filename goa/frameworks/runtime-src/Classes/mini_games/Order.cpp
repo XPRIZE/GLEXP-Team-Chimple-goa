@@ -490,8 +490,8 @@ void Order::checkUserSortList(std::vector<int> list)
 
 
 	float cartMove = _cartMove * (score - _myScore);
-	auto moveBy = MoveBy::create(2, Vec2(0, cartMove));
-	auto moveBucket = MoveBy::create(2, Vec2(0, cartMove));
+	auto moveBy = MoveBy::create(1, Vec2(0, cartMove));
+	auto moveBucket = MoveBy::create(1, Vec2(0, cartMove));
 	if (_themeName.compare("hero") == 0) {
 		auto bucket = _bg->getChildByName("FileNode_2")->getChildByName("paintbucket");
 		bucket->runAction(moveBucket);
