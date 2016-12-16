@@ -5,7 +5,7 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 360,
+        "Duration": 356,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
@@ -14,66 +14,74 @@
             "Property": "ActionValue",
             "Frames": [
               {
-                "InnerActionType": "SingleFrame",
-                "CurrentAniamtionName": "-- ALL --",
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walking",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "SingleFrame",
-                "CurrentAniamtionName": "-- ALL --",
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walking",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 60,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "SingleFrame",
-                "CurrentAniamtionName": "-- ALL --",
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walking",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 120,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "SingleFrame",
-                "CurrentAniamtionName": "-- ALL --",
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walking",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 180,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "SingleFrame",
-                "CurrentAniamtionName": "-- ALL --",
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walking",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 185,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "SingleFrame",
-                "CurrentAniamtionName": "-- ALL --",
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walking",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 240,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "SingleFrame",
-                "CurrentAniamtionName": "-- ALL --",
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walking",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 300,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "SingleFrame",
-                "CurrentAniamtionName": "-- ALL --",
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walking",
                 "SingleFrameIndex": 0,
-                "FrameIndex": 360,
+                "FrameIndex": 355,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "eye_blinking",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 356,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -112,8 +120,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 254.9705,
-                "Y": 33.0009,
+                "X": 521.6642,
+                "Y": 41.1651,
                 "FrameIndex": 180,
                 "EasingData": {
                   "Type": 0
@@ -139,8 +147,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 1547.7467,
-                "Y": 23.0715,
+                "X": 1288.8016,
+                "Y": 20.6956,
                 "FrameIndex": 300,
                 "EasingData": {
                   "Type": 0
@@ -148,9 +156,18 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 2198.3982,
-                "Y": 25.5548,
-                "FrameIndex": 360,
+                "X": 2017.8114,
+                "Y": 28.9946,
+                "FrameIndex": 355,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2017.8114,
+                "Y": 28.9946,
+                "FrameIndex": 356,
                 "EasingData": {
                   "Type": 0
                 },
@@ -229,7 +246,16 @@
               {
                 "X": -1.0,
                 "Y": 1.0,
-                "FrameIndex": 360,
+                "FrameIndex": 355,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 356,
                 "EasingData": {
                   "Type": 0
                 },
@@ -308,7 +334,16 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 360,
+                "FrameIndex": 355,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 356,
                 "EasingData": {
                   "Type": 0
                 },
@@ -322,8 +357,8 @@
             "Property": "ActionValue",
             "Frames": [
               {
-                "InnerActionType": "SingleFrame",
-                "CurrentAniamtionName": "-- ALL --",
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walking",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
                 "Tween": false,
@@ -381,7 +416,15 @@
                 "InnerActionType": "LoopAction",
                 "CurrentAniamtionName": "walking",
                 "SingleFrameIndex": 0,
-                "FrameIndex": 360,
+                "FrameIndex": 355,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "eye_blinking",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 356,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -420,8 +463,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 2273.3906,
-                "Y": 1414.2537,
+                "X": 2035.822,
+                "Y": 1409.4908,
                 "FrameIndex": 180,
                 "EasingData": {
                   "Type": 0
@@ -438,8 +481,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 1620.1769,
-                "Y": 1431.6317,
+                "X": 1786.1801,
+                "Y": 1420.7463,
                 "FrameIndex": 240,
                 "EasingData": {
                   "Type": 0
@@ -447,8 +490,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 813.0557,
-                "Y": 1426.6599,
+                "X": 1242.792,
+                "Y": 1419.7651,
                 "FrameIndex": 300,
                 "EasingData": {
                   "Type": 0
@@ -456,9 +499,18 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 256.7658,
-                "Y": 1404.3057,
-                "FrameIndex": 360,
+                "X": 526.1806,
+                "Y": 1396.1416,
+                "FrameIndex": 355,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 526.1806,
+                "Y": 1396.1416,
+                "FrameIndex": 356,
                 "EasingData": {
                   "Type": 0
                 },
@@ -537,7 +589,16 @@
               {
                 "X": 1.0,
                 "Y": 1.0,
-                "FrameIndex": 360,
+                "FrameIndex": 355,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 356,
                 "EasingData": {
                   "Type": 0
                 },
@@ -616,7 +677,16 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 360,
+                "FrameIndex": 355,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 356,
                 "EasingData": {
                   "Type": 0
                 },
