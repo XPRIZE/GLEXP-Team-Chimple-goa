@@ -105,6 +105,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                         target.actionManager.resumeTarget(target);
                         return true;
                     }
+                    return true;
                 } 
                 return false;
             },
