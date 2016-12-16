@@ -5,7 +5,7 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 410,
+        "Duration": 495,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
@@ -53,6 +53,46 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -469568847,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 370,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -469568847,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 716.9349,
+                "Y": 796.7746,
+                "FrameIndex": 370,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2162.0588,
+                "Y": 657.189,
+                "FrameIndex": 495,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -479,6 +519,12 @@
           "EndIndex": 360,
           "Name": "master",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 370,
+          "EndIndex": 495,
+          "Name": "ant",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -629,6 +675,7 @@
             "RightMargin": 1091.498,
             "TopMargin": 1369.0457,
             "BottomMargin": -35.0457,
+            "UserData": "drag",
             "Tag": 201,
             "ActionTag": 1321245632,
             "Size": {
@@ -674,6 +721,7 @@
             "RightMargin": 1835.2736,
             "TopMargin": -10.7839,
             "BottomMargin": 1291.7839,
+            "UserData": "drag",
             "Tag": 59,
             "ActionTag": -1552094644,
             "Size": {
@@ -682,6 +730,47 @@
             },
             "Name": "sun_10",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Siafu_amwokoa_Njiwa/ant.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 716.9349,
+              "Y": 796.7746
+            },
+            "Scale": {
+              "ScaleX": -0.3,
+              "ScaleY": 0.3
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.2801,
+              "Y": 0.4427
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 716.9349,
+            "RightMargin": 1843.0651,
+            "TopMargin": 1003.2254,
+            "BottomMargin": 796.7746,
+            "Tag": 868,
+            "ActionTag": -469568847,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "ant",
+            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -719,6 +808,7 @@
             "RightMargin": 212.0403,
             "TopMargin": 854.2684,
             "BottomMargin": 623.7316,
+            "UserData": "main.ant",
             "Tag": 202,
             "ActionTag": -1928115802,
             "Size": {
@@ -764,6 +854,7 @@
             "RightMargin": 1610.6835,
             "TopMargin": 838.5602,
             "BottomMargin": 631.4398,
+            "UserData": "main.ant",
             "Tag": 204,
             "ActionTag": 431309019,
             "Size": {
@@ -784,29 +875,29 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 2693.3579,
-              "Y": 604.1927
+              "X": -546.0417,
+              "Y": 515.0045
             },
             "Scale": {
               "ScaleX": -1.0,
               "ScaleY": 1.0
             },
-            "RotationSkewX": -7.2577,
-            "RotationSkewY": -7.2792,
+            "RotationSkewX": -1.5808,
+            "RotationSkewY": -1.5808,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 1.0521,
-              "Y": 0.3357
+              "X": -0.2133,
+              "Y": 0.2861
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 2693.3579,
-            "RightMargin": -133.3579,
-            "TopMargin": 1195.8073,
-            "BottomMargin": 604.1927,
+            "LeftMargin": -546.0417,
+            "RightMargin": 3106.0417,
+            "TopMargin": 1284.9955,
+            "BottomMargin": 515.0045,
             "Tag": 1559,
             "ActionTag": 1037320490,
             "Size": {
@@ -852,6 +943,7 @@
             "RightMargin": -169.1873,
             "TopMargin": 1426.037,
             "BottomMargin": 43.963,
+            "UserData": "drag",
             "Tag": 203,
             "ActionTag": -1923425757,
             "Size": {

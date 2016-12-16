@@ -34,8 +34,8 @@ xc.MultipleChoiceQuestionHandler = cc.Layer.extend({
             var context = this;
             var correctAnswerNode = this._constructedScene.node.getChildByName(context._correctAnswerNode);
             var box = correctAnswerNode.getBoundingBox();
-            this._help = new xc.HelpLayer(cc.rect(box.x + box.width/2, box.y + box.height/2, box.width, box.height), cc.rect(0,0,10,10));
-            this.addChild(this._help,4)
+            this._help = new xc.HelpLayer(cc.rect(box.x   + box.width/2, box.y + box.height/2, box.width  , box.height), cc.rect(0,0,10,10));
+            this._constructedScene.node.addChild(this._help,4)
             this._help.click(correctAnswerNode.x,correctAnswerNode.y);
             xc._MULTIPLE_CHOICE_HELP_SHOWN = true;            
         }
@@ -193,7 +193,8 @@ xc.MultipleChoiceQuestionHandler = cc.Layer.extend({
     },
 
     verifyAnswer: function(sender) {
-        var isCorrectAnswered = sender.getTitleText().trim().toLowerCase() === this._question.answer.trim().toLowerCase();
+        var str2 = sender.getTitleText().replace(/\n|\r/g, "");
+        var isCorrectAnswered = str2.trim().toLowerCase() === this._question.answer.trim().toLowerCase();
         this.hintForCorrectAnswer(sender, isCorrectAnswered);        
         this.callback.call(this._callbackContext, sender, isCorrectAnswered, isCorrectAnswered);
 

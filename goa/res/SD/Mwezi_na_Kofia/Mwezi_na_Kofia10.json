@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 365,
         "Speed": 1.0,
-        "ActivedAnimationName": "cloud",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 1354215283,
@@ -267,6 +267,25 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -1830229155,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -872701950,
             "Property": "ActionValue",
             "Frames": [
@@ -310,6 +329,25 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -872701950,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -549,7 +587,8 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_4",
+            "VisibleForFrame": false,
+            "Name": "cloud",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -590,7 +629,8 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_4_0",
+            "VisibleForFrame": false,
+            "Name": "cloud",
             "ctype": "ProjectNodeObjectData"
           }
         ],

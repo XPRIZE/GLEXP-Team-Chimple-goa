@@ -44,6 +44,7 @@ xc.CatalogueLayer = cc.Layer.extend({
         var monkey = this._loadingScene.node.getChildByName("monkey");
         if(monkey) {
             var action = monkey.actionManager.getActionByTag(monkey.tag, monkey);
+            action.setDuration(120);
             action.play('rotate', true);
         }
     },
@@ -97,14 +98,20 @@ xc.CatalogueLayer = cc.Layer.extend({
         this.addChild(this._bookShelf);
     },
 
-    renderStory: function (sender) {
-        this.playLoadingAnimation();
-        this._curSelectedIndex = sender._selectedIndex;
+    transitToStory: function(sender) {        
         cc.log('loading story with index:' + this._curSelectedIndex);
         var storyInfo = this._stories[this._curSelectedIndex];
         if(storyInfo != undefined && storyInfo.hasOwnProperty("pages") && storyInfo["pages"] != undefined && storyInfo["pages"].length > 0) {
             xc.StoryCoverPageScene.load(0, storyInfo, xc.StoryCoverPageLayer);
         }
+    },
+
+    renderStory: function (sender) {
+        this._curSelectedIndex = sender._selectedIndex;
+        this.scheduleOnce(this.transitToStory, 2);
+        var delayAction = new cc.DelayTime(2.0);                        
+        var sequenceAction = new cc.Sequence(new cc.CallFunc(this.playLoadingAnimation, this), delayAction);
+        this.runAction(sequenceAction);
     }    
 });
 

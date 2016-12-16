@@ -869,7 +869,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "run",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 200,
@@ -892,8 +892,8 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": -275.0082,
-                "Y": 189.505,
+                "X": -763.6237,
+                "Y": 189.5049,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -1015,7 +1015,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "run",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 200,
@@ -1038,8 +1038,8 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": -462.2887,
-                "Y": 96.4144,
+                "X": -789.1003,
+                "Y": 91.6083,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -1247,8 +1247,8 @@
               "Y": 1417.5983
             },
             "Scale": {
-              "ScaleX": 0.964,
-              "ScaleY": 0.964
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
             },
             "CColor": {},
             "IconVisible": false,
@@ -1292,8 +1292,8 @@
               "Y": 1086.5438
             },
             "Scale": {
-              "ScaleX": 1.18,
-              "ScaleY": 1.18
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
             },
             "CColor": {},
             "IconVisible": false,
@@ -1555,8 +1555,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1007.4819,
-              "Y": 216.539
+              "X": -763.6237,
+              "Y": 189.5049
             },
             "Scale": {
               "ScaleX": 0.5,
@@ -1565,19 +1565,20 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.3935,
-              "Y": 0.1203
+              "X": -0.2983,
+              "Y": 0.1053
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1007.4819,
-            "RightMargin": 1552.5181,
-            "TopMargin": 1583.4609,
-            "BottomMargin": 216.539,
+            "LeftMargin": -763.6237,
+            "RightMargin": 3323.6238,
+            "TopMargin": 1610.4951,
+            "BottomMargin": 189.5049,
             "UserData": "run;drag",
             "Tag": 881,
+            "FrameEvent": "goat",
             "ActionTag": -1462037605,
             "Size": {
               "X": 0.0,
@@ -1597,8 +1598,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 727.2662,
-              "Y": 76.2002
+              "X": -789.1003,
+              "Y": 91.6083
             },
             "Scale": {
               "ScaleX": -1.0,
@@ -1607,19 +1608,20 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.2841,
-              "Y": 0.0423
+              "X": -0.3082,
+              "Y": 0.0509
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 727.2662,
-            "RightMargin": 1832.7338,
-            "TopMargin": 1723.7998,
-            "BottomMargin": 76.2002,
+            "LeftMargin": -789.1003,
+            "RightMargin": 3349.1003,
+            "TopMargin": 1708.3916,
+            "BottomMargin": 91.6083,
             "UserData": "run;drag",
             "Tag": 838,
+            "FrameEvent": "walk",
             "ActionTag": 643180025,
             "Size": {
               "X": 0.0,

@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 300,
         "Speed": 1.0,
-        "ActivedAnimationName": "fruit",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -1478659889,
@@ -1748,7 +1748,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "NoLoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "see_up",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 200,
@@ -2310,6 +2310,8 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
@@ -2331,7 +2333,7 @@
               "Y": 1.0
             },
             "LeftMargin": -261.7819,
-            "RightMargin": 2621.7817,
+            "RightMargin": 2621.782,
             "TopMargin": 0.0007,
             "BottomMargin": -0.0007,
             "Tag": 4241,

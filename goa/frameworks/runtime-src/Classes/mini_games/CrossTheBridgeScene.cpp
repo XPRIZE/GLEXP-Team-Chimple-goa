@@ -247,7 +247,14 @@ void CrossTheBridge::letterDisplayCombinationMethod()
 {
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	auto visibleSize = Director::getInstance()->getVisibleSize();
-	letterToDisplay = _crossTheBridgeLevelMapping.at(_gameCurrentLevel);
+	if ((_menuContext->getCurrentLevel() > LangUtil::getInstance()->getNumberOfCharacters()) && LangUtil::getInstance()->getLang() == "swa") {
+		int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 1);
+		letterToDisplay = LangUtil::getInstance()->getAllCharacters()[randomNumber];//_crossTheBridgeLevelMapping.at(_gameCurrentLevel);
+	}
+	else {
+		letterToDisplay = LangUtil::getInstance()->getAllCharacters()[_menuContext->getCurrentLevel() - 1];
+	}
+	
 	comboFive = CharGenerator::getInstance()->generateMatrixForChoosingAChar(letterToDisplay, 20, 1, 70);
 
 	letterOnBoard = Alphabet::createWithSize(letterToDisplay, 220);
@@ -267,7 +274,8 @@ void CrossTheBridge::letterDisplayCombinationMethod()
 }
 
 void CrossTheBridge::alphabetAndMonsterGeneration(float dt)
-{
+{  
+	
 	if (enemyCreateCounter % 4 == 0)
 	{
 		cocostudio::timeline::ActionTimeline *enemy_walk = CSLoader::createTimeline("crossthebridge/enemy_01.csb");
@@ -279,16 +287,26 @@ void CrossTheBridge::alphabetAndMonsterGeneration(float dt)
 		enemy_walk->gotoFrameAndPlay(0, true);
 		monsContainer.push_back(monster);
 		leftMove_Mons(monster, 10, 0, ((visibleSize.height*0.468) + origin.y));
-
 		enemyCreateCounter = enemyCreateCounter + RandomHelper::random_int(1, 3);
     }
 else {
-		auto name = comboFive.at(alphabetCounter).at(0);
+	wchar_t name;
+	if (_gameCurrentLevel == 1 && _flagForHelpLayer)
+	{
+		_flagForHelpLayer = false;
+		name = 'B';
+	}
+	else
+	{
+		 name = comboFive.at(alphabetCounter).at(0);
+	}
+		
 		alphabetCounter++;
 		auto mystr = LangUtil::convertUTF16CharToString(name);
+
 		if (alphabetCounter == 20)
 			{
-				comboFive = CharGenerator::getInstance()->generateMatrixForChoosingAChar(letterToDisplay, 20, 1, 90);
+				comboFive = CharGenerator::getInstance()->generateMatrixForChoosingAChar(letterToDisplay, 20, 1, 65);
 				alphabetCounter = 0;
 			}
 		Alphamon* alphaMon = Alphamon::createWithAlphabet(name);
@@ -305,7 +323,6 @@ else {
 		alphaMon->walkAction();
 
 		enemyCreateCounter = enemyCreateCounter + RandomHelper::random_int(1, 3);
-	
 		leftMove_Alpha(alphaMon, 10, 0.0f, ((visibleSize.height*0.47) + origin.y));
 	}
 }

@@ -170,8 +170,28 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 var location = target.parent.convertToNodeSpace(touch.getLocation());
                   if(target.getChildren() != null && target.getChildren().length > 0)
                   {
-                        var targetRectangle = target.getBoundingBoxToWorld();                             
-                        if (cc.rectContainsPoint(targetRectangle, location)) {
+                        cc.log("location.x" + location.x);
+                        cc.log("location.y" + location.y);
+
+                        var targetRectangle = target.getBoundingBoxToWorld();
+                        
+                        var targetBox = target.getBoundingBox();
+                        var boxX = targetBox.x;
+                        var boxY = targetBox.y;
+                        if(target.getChildren()[0].getBoundingBox().x < 0) {
+                            boxX = boxX + target.getChildren()[0].getBoundingBox().x;    
+                        } 
+
+                        if(target.getChildren()[0].getBoundingBox().y < 0) {
+                            boxY = boxY + target.getChildren()[0].getBoundingBox().y;    
+                        } 
+                        var childBoundingBoxRectangle = cc.rect(boxX,boxY, target.getChildren()[0].getBoundingBox().width, target.getChildren()[0].getBoundingBox().height);
+                        // cc.log("childBoundingBoxRectangle.x" + childBoundingBoxRectangle.x);
+                        // cc.log("childBoundingBoxRectangle.y" + childBoundingBoxRectangle.y);
+                        // cc.log("childBoundingBoxRectangle.width" + childBoundingBoxRectangle.width);
+                        // cc.log("childBoundingBoxRectangle.height" + childBoundingBoxRectangle.height);                                            
+                        
+                        if (cc.rectContainsPoint(targetRectangle, location) || cc.rectContainsPoint(childBoundingBoxRectangle, location)) {
                             context._currentTarget = target;
                             context._offsetYInTouch = location.y - target.getPosition().y;
                             context._offsetXInTouch = location.x - target.getPosition().x;
@@ -289,11 +309,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                     childText.removeFromParent();
                 }
                 
-                cc.log('touch.getLocation().x' + touch.getLocation().x);
-                cc.log('touch.getLocation().y' + touch.getLocation().y);
                 var location = target.convertToNodeSpace(touch.getLocation());
-                cc.log('location.x' + location.x);
-                cc.log('location.y' + location.y);
                 
                 var targetSize = target.getContentSize();
                 var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
@@ -553,13 +569,12 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     saveNormalizedVertices: function(sprite) {
         var fileName = this._nodeToFileNameMapping[sprite.getName()];
         if(fileName && fileName.length > 0) {
-            cc.log('spritename 111:' + sprite.getName());
             var vertices = [];
             var tVertices = [];
-            cc.log('sprite 111 x :' + sprite.getBoundingBox().x);
-            cc.log('sprite 111 y :' + sprite.getBoundingBox().y);
-            cc.log('sprite 111 width :' + sprite.getBoundingBox().width);
-            cc.log('sprite 111 height :' + sprite.getBoundingBox().height);
+            // cc.log('sprite 111 x :' + sprite.getBoundingBox().x);
+            // cc.log('sprite 111 y :' + sprite.getBoundingBox().y);
+            // cc.log('sprite 111 width :' + sprite.getBoundingBox().width);
+            // cc.log('sprite 111 height :' + sprite.getBoundingBox().height);
             if(cc.sys.isNative) {
                 vertices = this.getParent()._menuContext.getPolygonPointsForSprite(sprite, fileName, 0.0);
                 tVertices = this.getParent()._menuContext.getTrianglePointsForSprite(sprite, fileName, 0.0);
@@ -579,7 +594,6 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 var t1 = trianglePoints[0];
                 var t2 = trianglePoints[1];
                 var t3 = trianglePoints[2];
-                cc.log('index in loop' + index);
                 if(that.ptInTriangle(touchPoint, t1, t2, t3)) {
                     cc.log('point in triangle correct');
                     pointInTriangle =  true;
@@ -604,12 +618,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     pointInPolygon: function (n, vertices, touch) {
         var i, j, c = false;
         vertices.forEach(function(a) {
-            cc.log("a is:" + a.x);
-            cc.log("a is:" + a.y);
         });
         
-        cc.log("touch.x" + touch.x);
-        cc.log("touch.y" + touch.y);
         for (i = 0, j = n - 1; i < n; j = i++) {
             if (((vertices[i].y > touch.y) != (vertices[j].y > touch.y)) &&
                 (touch.x < (vertices[j].x - vertices[i].x) * (touch.y - vertices[i].y) / (vertices[j].y - vertices[i].y) + vertices[i].x )) {
@@ -1002,7 +1012,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this._referenceToContext._wordBoard.node.setVisible(true);
         this._referenceToContext.renderNextButton();
         this._referenceToContext.renderPreviousButton();       
-        this._replayButton.setVisible(true);
+        this._replayButton.setVisible(false);
         this._showTextAgainButton.setVisible(true);                                                               
                  
         

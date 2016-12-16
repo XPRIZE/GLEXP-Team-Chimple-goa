@@ -25,6 +25,7 @@ EventListenerClass* MainGame::cannon2;
 EventListenerClass* MainGame::cannon3;
 EventListenerClass* MainGame::cannon4;
 
+int MainGame::_totalHit;
 float MainGame::height;
 float MainGame::width;
 float MainGame::originX;
@@ -68,6 +69,7 @@ void MainGame::onEnterTransitionDidFinish()
 {
 	MainGame::audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
 	MainGame::_helpFlag = 0;
+	MainGame::_totalHit = 0;
 	MainGame::cannonLetter.clear();
 	MainGame::cannonLetter_actualImage.clear();
 
@@ -92,7 +94,7 @@ void MainGame::onEnterTransitionDidFinish()
 	MainGame::originX = origin.x;
 	MainGame::originY = origin.y;
 
-	_menuContext->setMaxPoints(15);
+	_menuContext->setMaxPoints(10);
 
 	p1.x = MainGame::originX + MainGame::width * 88 / 100;
 	p1.y = MainGame::originY + MainGame::height * 18 / 100;
@@ -501,6 +503,7 @@ void MainGame::loadCannon(EventListenerClass* letterObject)
 
 void MainGame::startFire(EventListenerClass* letterObject, Node *mycannon)
 {
+	MainGame::_totalHit++;
 	self->removeChild(mycannon);	// remove cannon animation
 	int flag = 0;
 	for (int i = 0; i < MainGame::cannonArray.size(); i++)
@@ -569,6 +572,12 @@ void MainGame::cannonBallHitAnimation(Node *nd)
 void MainGame::meteorBlast(Node *nd)
 {
 	self->removeChild(nd);
+	if (_score == 10)
+	{
+		_menuContext->setMaxPoints(MainGame::_totalHit);
+		_menuContext->addPoints(_score);
+		_menuContext->showScore();
+	}
 }
 
 void MainGame::removeFire(EventListenerClass* letterObject, Alphabet* removableFire, Node *fireAnimation)
@@ -604,7 +613,6 @@ void MainGame::removeFire(EventListenerClass* letterObject, Alphabet* removableF
 				break;
 			}
 		}
-
 	}
 	cannonLetterCome();
 }
@@ -630,6 +638,7 @@ void MainGame::update(float dt)
 				timeline->gotoFrameAndPlay(46, false);
 				timeline->setAnimationEndCallFunc("forcefield", CC_CALLBACK_0(MainGame::cannonBallHitAnimation, this, mycannon));
 				MainGame::audioBg->playEffect("cannonball/gamesound/forceshield.ogg", false);
+
 				if (MainGame::cannonArray[i]->totalShoot == MainGame::cannonArray[i]->currentShoot)
 				{
 					this->removeChild(MainGame::letterArray[j]);
@@ -749,13 +758,15 @@ void MainGame::update(float dt)
 						}
 					}
 
+					_score++;
+
 					auto timeline = CSLoader::createTimeline("cannonball_meteoranimation.csb");
 					Node *mycannon = (Node *)CSLoader::createNode("cannonball_meteoranimation.csb");
 					mycannon->setPosition(MainGame::letterArray[i]->getBoundingBox().origin.x + (MainGame::letterArray[i]->getContentSize().width*55/100), MainGame::letterArray[i]->getBoundingBox().origin.y + (MainGame::letterArray[i]->getContentSize().height * 51/100));
 					self->addChild(mycannon);	// add cannon animation
 					mycannon->runAction(timeline);
 					timeline->gotoFrameAndPlay(00, false);
-					_menuContext->addPoints(1);
+//					_menuContext->addPoints(1);
 					timeline->setAnimationEndCallFunc("meteor_blast", CC_CALLBACK_0(MainGame::meteorBlast, this, mycannon));
 					MainGame::audioBg->playEffect("cannonball/gamesound/meteorblast.ogg", false, 1, 1, .2);
 
@@ -764,11 +775,6 @@ void MainGame::update(float dt)
 					this->removeChild(MainGame::bulletArray_Animation[j]);
 
 					_menuContext->pickAlphabet(MainGame::letterArray[i]->id, bulletArray[j]->id, true);
-					_score++;
-					if (_score == 15)
-					{
-						_menuContext->showScore();
-					}
 
 //					int score = _menuContext->getPoints();
 //					if (score == 15)
@@ -830,7 +836,7 @@ void MainGame::update(float dt)
 					timeline->setAnimationEndCallFunc("meteor_strike", CC_CALLBACK_0(MainGame::meteorBlast, this, mycannon));
 
 					MainGame::audioBg->playEffect("cannonball/gamesound/meteorstrike.ogg", false, 1, 1, .2);
-					_menuContext->addPoints(-1);
+//					_menuContext->addPoints(-1);
 					this->removeChild(MainGame::bulletArray_actualImage[j]);
 					this->removeChild(MainGame::bulletArray_Animation[j]);
 

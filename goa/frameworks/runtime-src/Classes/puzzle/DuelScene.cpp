@@ -88,7 +88,11 @@ void DuelScene::onEnterTransitionDidFinish() {
     if(_myMonChar == 0) {
         auto allChars = LangUtil::getInstance()->getAllCharacters();
         auto level = _menuContext->getCurrentLevel();
-        _myMonChar = allChars[level-1];
+        if(level <= LangUtil::getInstance()->getNumberOfCharacters()) {
+            _myMonChar = allChars[level-1];
+        } else {
+            _myMonChar = allChars[rand() % LangUtil::getInstance()->getNumberOfCharacters()];
+        }
         _otherMonChar = CharGenerator::getInstance()->generateAChar();
     }
     _background = CSLoader::createNode("battle_ground.csb");

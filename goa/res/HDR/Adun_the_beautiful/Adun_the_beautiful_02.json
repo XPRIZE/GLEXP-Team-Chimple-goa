@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 360,
         "Speed": 1.0,
-        "ActivedAnimationName": "shirt",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 491545995,
@@ -1426,9 +1426,7 @@
               "ScaleY": 1.0
             },
             "CColor": {
-              "R": 245,
-              "G": 252,
-              "B": 214
+              "B": 240
             },
             "IconVisible": false,
             "PrePosition": {
@@ -1443,12 +1441,14 @@
             "RightMargin": 1128.64,
             "TopMargin": 633.3018,
             "BottomMargin": 580.6983,
+            "UserData": "main.shirt",
             "Tag": 695,
             "ActionTag": 491545995,
             "Size": {
               "X": 429.0,
               "Y": 586.0
             },
+            "Alpha": 0,
             "Name": "motu_shirt_66",
             "ctype": "SpriteObjectData"
           },
@@ -1494,6 +1494,7 @@
               "X": 23.0,
               "Y": 78.0
             },
+            "Alpha": 0,
             "Name": "pent_lower3_67",
             "ctype": "SpriteObjectData"
           },
@@ -1539,6 +1540,7 @@
               "X": 27.0,
               "Y": 107.0
             },
+            "Alpha": 0,
             "Name": "pent_upper3_68",
             "ctype": "SpriteObjectData"
           },
@@ -1584,6 +1586,7 @@
               "X": 23.0,
               "Y": 78.0
             },
+            "Alpha": 0,
             "Name": "pent_lower3_67_0",
             "ctype": "SpriteObjectData"
           },
@@ -1629,6 +1632,7 @@
               "X": 27.0,
               "Y": 107.0
             },
+            "Alpha": 0,
             "Name": "pent_upper3_68_0",
             "ctype": "SpriteObjectData"
           },
@@ -1676,6 +1680,7 @@
               "X": 28.0,
               "Y": 172.0
             },
+            "Alpha": 0,
             "Name": "girl_lower_hand_71",
             "ctype": "SpriteObjectData"
           },
@@ -1724,6 +1729,7 @@
               "X": 28.0,
               "Y": 172.0
             },
+            "Alpha": 0,
             "Name": "girl_lower_hand_71_0",
             "ctype": "SpriteObjectData"
           },
@@ -1756,20 +1762,20 @@
               "Y": 0.8009
             },
             "PreSize": {
-              "X": 0.2547,
-              "Y": 0.2922
+              "X": 0.2555,
+              "Y": 0.2933
             },
-            "LeftMargin": 899.7628,
-            "RightMargin": 1008.2372,
-            "TopMargin": 95.454,
-            "BottomMargin": 1178.546,
+            "LeftMargin": 898.7628,
+            "RightMargin": 1007.2372,
+            "TopMargin": 94.454,
+            "BottomMargin": 1177.546,
             "UserData": "main.face",
             "Tag": 694,
-            "FrameEvent": "ting",
+            "FrameEvent": "beep",
             "ActionTag": -351883233,
             "Size": {
-              "X": 652.0,
-              "Y": 526.0
+              "X": 654.0,
+              "Y": 528.0
             },
             "Name": "Sprite_65",
             "ctype": "SpriteObjectData"

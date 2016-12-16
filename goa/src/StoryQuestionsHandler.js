@@ -59,6 +59,21 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
         this._menuContext = menuContext;        
         this.loadQuestions();
         this._referenceToContext = this;
+
+        this._item = new ccui.Button('template/template_02/skip.png', 'template/template_02/skip_click.png', null, ccui.Widget.PLIST_TEXTURE);
+        this._item.setPosition(cc.p(150,cc.director.getWinSize().height - 150));
+        this._item.addTouchEventListener(this.skipQuestion, this);
+        this.addChild(this._item, 5);
+    },
+
+
+    skipQuestion: function(sender, type) {
+        switch (type) {
+            case ccui.Widget.TOUCH_ENDED:  
+                this.questionCallBack(sender, false, true);
+                sender.setEnabled(false);
+                break;
+        }        
     },
 
     loadCelebrationNode: function() {
@@ -150,6 +165,7 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
 
     nextQuestion: function () {
         this._currentQuestionIndex++;
+        this._item.setEnabled(true);
         if(this._currentQuestionIndex < this._questions.length) {
             var question = this._questions[this._currentQuestionIndex];
             cc.log('question["type"]:' + question["type"]);
@@ -167,6 +183,7 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
 
     copyrightShown: function() {
         cc.log("copy right shown");
+        this._item.setVisible(false);
         if(cc.sys.isNative)
         {
             this._menuContext.showScore();

@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 590,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "sun",
         "Timelines": [
           {
             "ActionTag": 417386746,
@@ -180,6 +180,25 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -401028331,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 430,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -362,7 +381,8 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_3",
+            "VisibleForFrame": false,
+            "Name": "moon",
             "ctype": "ProjectNodeObjectData"
           },
           {

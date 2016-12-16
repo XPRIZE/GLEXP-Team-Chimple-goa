@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 355,
         "Speed": 1.0,
-        "ActivedAnimationName": "ball",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -495985767,
@@ -161,6 +161,25 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 475101287,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 200,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -429032820,
             "Property": "ActionValue",
             "Frames": [
@@ -204,6 +223,25 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -429032820,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -324,7 +362,7 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "FileNode_2",
+            "Name": "girl",
             "ctype": "ProjectNodeObjectData"
           },
           {
@@ -413,7 +451,8 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "Name": "ball_0",
+            "VisibleForFrame": false,
+            "Name": "ball",
             "ctype": "ProjectNodeObjectData"
           }
         ],

@@ -87,34 +87,34 @@ void Owl::onEnterTransitionDidFinish()
 			{"owlCity",
 				{
 					{"rowFirst",0.19f},
-					{"blockX1",0.08f},
+					{"blockX1",0.06f},
 					{"blockY1",0.34f},
-					{ "blockX2",0.6f },
-					{ "blockY2",0.37f },
+					{ "blockX2",0.7f },
+					{ "blockY2",0.36f },
 					{"owlheightToAlpha",1.5f},
-					{"scaleSecond",0.65f}
+					{"scaleSecond",0.5f}
 				}
 			},
 			{ "owlisland",
 				{
 					{ "rowFirst",0.19f },
-					{ "blockX1",0.08f },
+					{ "blockX1",0.06f },
 					{ "blockY1",0.34f },
-					{ "blockX2",0.6f },
-					{ "blockY2",0.37f },
+					{ "blockX2",0.7f },
+					{ "blockY2",0.36f },
 					{ "owlheightToAlpha",1.5f },
-					{ "scaleSecond",0.65f }
+					{ "scaleSecond",0.5f }
 				}
 			},
 			{ "owljungle",
 				{
 					{ "rowFirst",0.19f },
-					{ "blockX1",0.08f },
+					{ "blockX1",0.06f },
 					{ "blockY1",0.34f },
-					{ "blockX2",0.6f },
-					{ "blockY2",0.37f },
+					{ "blockX2",0.7f },
+					{ "blockY2",0.35f },
 					{ "owlheightToAlpha",1.5f },
-					{ "scaleSecond",0.65f }
+					{ "scaleSecond",0.5f }
 				}
 			}
 		}
@@ -230,7 +230,7 @@ void Owl::onEnterTransitionDidFinish()
 	}
 	auto board = bg->getChildByName(themeResourcePath.at("topBoard"));
 	board->setName("topBoard");
-
+	
 	_sentence = LangUtil::getInstance()->translateString(categoryTitle);
 
 	std::ostringstream boardName;	
@@ -301,6 +301,10 @@ std::tuple<int, int,int> Owl::levelAllInfo(int currentLevel, int totalCategory ,
 
 	if (sceneNo == 0)
 		sceneNo = totalSceneTheme;
+
+	if (categoryLevel >= 7) {
+		categoryLevel = 7;
+	}
 
 	return std::make_tuple(categoryNo, sceneNo, categoryLevel);
 }
@@ -445,9 +449,15 @@ void Owl::createGrid() {
 	auto themeResourcePath = _sceneMap.at(_owlCurrentTheme);
 	auto alpha = LangUtil::getInstance()->getAllCharacters();
 	
+	auto totalColumnValue = 13;
+
+	if (LangUtil::getInstance()->getLang() == "swa") {
+		totalColumnValue = 12;
+	}
+
 	auto gridObject = Sprite::createWithSpriteFrameName(themeResourcePath.at("smallbar"));
-	float space = visibleSize.width - (gridObject->getContentSize().width * 13);
-	float IndiSpace = space / (13 + 1);
+	float space = visibleSize.width - (gridObject->getContentSize().width * totalColumnValue);
+	float IndiSpace = space / (totalColumnValue + 1);
 	float xPosi = IndiSpace + gridObject->getContentSize().width / 2;
 	auto getSize = gridObject->getContentSize().width;
 	int counter = 0;
@@ -459,7 +469,7 @@ void Owl::createGrid() {
 			xPosi = IndiSpace + gridObject->getContentSize().width / 2;
 		}
 
-		for (int column = 1; column <= 13; column++) {
+		for (int column = 1; column <= totalColumnValue; column++) {
 			auto gridObject = Sprite::createWithSpriteFrameName(themeResourcePath.at("smallbar"));
 			setSpriteProperties(gridObject, xPosi, height, 1, 1, 0.5, 0.5, 0, 1);
 			xPosi = xPosi + IndiSpace + gridObject->getContentSize().width;

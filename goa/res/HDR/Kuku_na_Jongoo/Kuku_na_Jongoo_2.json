@@ -41,8 +41,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 945.9888,
-                "Y": 386.7551,
+                "X": 1632.1814,
+                "Y": 639.6611,
                 "FrameIndex": 115,
                 "EasingData": {
                   "Type": 0
@@ -59,8 +59,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 1632.1814,
-                "Y": 639.6611,
+                "X": 945.9888,
+                "Y": 386.7551,
                 "FrameIndex": 205,
                 "EasingData": {
                   "Type": 0
@@ -204,7 +204,7 @@
               },
               {
                 "Value": "kick",
-                "FrameIndex": 115,
+                "FrameIndex": 205,
                 "Tween": false,
                 "ctype": "EventFrameData"
               }
@@ -398,6 +398,14 @@
                 "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "kick",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 110,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -410,6 +418,15 @@
                 "X": 836.0731,
                 "Y": 314.0961,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 836.0731,
+                "Y": 314.0961,
+                "FrameIndex": 110,
                 "EasingData": {
                   "Type": 0
                 },
@@ -430,6 +447,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.63,
+                "Y": 0.63,
+                "FrameIndex": 110,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -442,6 +468,15 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 110,
                 "EasingData": {
                   "Type": 0
                 },
@@ -459,6 +494,14 @@
                 "CurrentAniamtionName": "crawl",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "crawl",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 110,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               },
@@ -489,6 +532,15 @@
               {
                 "X": 2183.7595,
                 "Y": 224.6981,
+                "FrameIndex": 110,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2183.7595,
+                "Y": 224.6981,
                 "FrameIndex": 115,
                 "EasingData": {
                   "Type": 0
@@ -514,6 +566,15 @@
               {
                 "X": 0.41,
                 "Y": 0.41,
+                "FrameIndex": 110,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.41,
+                "Y": 0.41,
                 "FrameIndex": 115,
                 "EasingData": {
                   "Type": 0
@@ -531,6 +592,15 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 110,
                 "EasingData": {
                   "Type": 0
                 },
@@ -937,7 +1007,6 @@
             "BottomMargin": 316.2551,
             "UserData": "main.ball",
             "Tag": 69,
-            "FrameEvent": "kick",
             "ActionTag": -898467559,
             "Size": {
               "X": 141.0,
