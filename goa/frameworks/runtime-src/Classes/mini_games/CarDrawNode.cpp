@@ -93,12 +93,16 @@ void carDrawNode::clearDrawing(cocos2d::Ref * pSender, cocos2d::ui::Widget::Touc
 	_paintingNode->clear();
 	_strokes.clear();
 	((DrawNode *)_carDraw->getChildByName("roadNode"))->clear();
+	_carDraw->clearScreen(1.0f);
 }
 
 cocos2d::ui::Button * carDrawNode::createButton(const std::string normalImage, const std::string selectedImage, const std::string disableImage, cocos2d::Vec2 position)
 {
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	cocos2d::ui::Button* button = cocos2d::ui::Button::create(normalImage, selectedImage, disableImage, cocos2d::ui::Widget::TextureResType::LOCAL);
+	button->setPosition(Vec2(300, visibleSize.height - 300));
 
-	/*
-	*/
-	return nullptr;
+	button->addTouchEventListener(CC_CALLBACK_2(carDrawNode::clearDrawing, this));
+
+	return button;
 }
