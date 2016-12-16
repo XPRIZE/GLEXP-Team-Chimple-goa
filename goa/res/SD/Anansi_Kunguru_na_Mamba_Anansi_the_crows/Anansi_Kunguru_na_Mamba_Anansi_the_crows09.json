@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 390,
         "Speed": 1.0,
-        "ActivedAnimationName": "moon",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 1091606474,
@@ -547,8 +547,17 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": -320.6581,
-                "Y": 73.8582,
+                "X": -157.3748,
+                "Y": 73.8583,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -157.3748,
+                "Y": 73.8583,
                 "FrameIndex": 190,
                 "EasingData": {
                   "Type": 0
@@ -862,12 +871,12 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1886.267,
+              "X": 1886.2671,
               "Y": 1455.8623
             },
             "Scale": {
-              "ScaleX": 1.6369,
-              "ScaleY": 1.6369
+              "ScaleX": 1.6924,
+              "ScaleY": 1.6924
             },
             "CColor": {
               "R": 22,
@@ -883,11 +892,11 @@
               "X": 0.1051,
               "Y": 0.1494
             },
-            "LeftMargin": 1751.767,
-            "RightMargin": 539.233,
+            "LeftMargin": 1751.7671,
+            "RightMargin": 539.2329,
             "TopMargin": 209.6377,
             "BottomMargin": 1321.3623,
-            "UserData": "drag;main.moon",
+            "UserData": "main.moon",
             "Tag": 5333,
             "ActionTag": 435036896,
             "Size": {
@@ -908,27 +917,27 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1874.2527,
-              "Y": 165.2582
+              "X": 1879.1604,
+              "Y": 438.709
             },
             "Scale": {
-              "ScaleX": 1.6278,
-              "ScaleY": 1.6278
+              "ScaleX": 0.8766,
+              "ScaleY": 0.8766
             },
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.7321,
-              "Y": 0.0918
+              "X": 0.734,
+              "Y": 0.2437
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1874.2527,
-            "RightMargin": 685.7473,
-            "TopMargin": 1634.7418,
-            "BottomMargin": 165.2582,
+            "LeftMargin": 1879.1604,
+            "RightMargin": 680.8396,
+            "TopMargin": 1361.291,
+            "BottomMargin": 438.709,
             "UserData": "walking;drag",
             "Tag": 5333,
             "ActionTag": -642102535,
@@ -950,8 +959,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 216.2233,
-              "Y": 67.3372
+              "X": -157.3748,
+              "Y": 73.8583
             },
             "Scale": {
               "ScaleX": -1.8513,
@@ -960,17 +969,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.0845,
-              "Y": 0.0374
+              "X": -0.0615,
+              "Y": 0.041
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 216.2233,
-            "RightMargin": 2343.7766,
-            "TopMargin": 1732.6628,
-            "BottomMargin": 67.3372,
+            "LeftMargin": -157.3748,
+            "RightMargin": 2717.3748,
+            "TopMargin": 1726.1417,
+            "BottomMargin": 73.8583,
             "UserData": "walking;drag",
             "Tag": 5345,
             "ActionTag": 339150973,
