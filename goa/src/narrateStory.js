@@ -105,6 +105,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                         target.actionManager.resumeTarget(target);
                         return true;
                     }
+                    return true;
                 } 
                 return false;
             },
@@ -569,18 +570,10 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     saveNormalizedVertices: function(sprite) {
         var fileName = this._nodeToFileNameMapping[sprite.getName()];
         if(fileName && fileName.length > 0) {
-            var vertices = [];
             var tVertices = [];
-            // cc.log('sprite 111 x :' + sprite.getBoundingBox().x);
-            // cc.log('sprite 111 y :' + sprite.getBoundingBox().y);
-            // cc.log('sprite 111 width :' + sprite.getBoundingBox().width);
-            // cc.log('sprite 111 height :' + sprite.getBoundingBox().height);
             if(cc.sys.isNative) {
-                vertices = this.getParent()._menuContext.getPolygonPointsForSprite(sprite, fileName, 0.0);
                 tVertices = this.getParent()._menuContext.getTrianglePointsForSprite(sprite, fileName, 0.0);
             } 
-            
-            //this._nodeToCurrentVerticesMapping[sprite.getName()] = vertices;
             this._nodeToCurrentVerticesMapping[sprite.getName()] = tVertices;
         }
     },
@@ -966,14 +959,19 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         if(cc.sys.isNative) {
             var fileExists = jsb.fileUtils.isFileExist(textFileUrl);
             if(fileExists) {
-
                 cc.loader.loadJson(textFileUrl, function(err, json) {            
                     if(!err && json != null && json != undefined) {
                         storyText = json[xc.pageIndex + 1];
                         cc.log('story text received:' + storyText);
                         if(storyText && storyText.length > 0) {
                             that.parent.addChild(new xc.BubbleSpeech(xc.NarrateStoryLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that));
-                        }                        
+                        } else {
+                            that._wordBoard.node.setVisible(true);
+                            that.renderNextButton();
+                            that.renderPreviousButton(); 
+                            that._replayButton.setVisible(true);
+                            that._showTextAgainButton.setVisible(true);                                                               
+                        }                      
                     } else {
                         that._wordBoard.node.setVisible(true);
                         that.renderNextButton();
@@ -981,8 +979,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                         that._replayButton.setVisible(true);
                         that._showTextAgainButton.setVisible(true);                                                               
                     }                            
-                });                
-           
+                });                           
             } 
         } else {
             cc.loader.loadJson(textFileUrl, function(err, json) {            

@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 335,
         "Speed": 1.0,
-        "ActivedAnimationName": "cloud",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -1434309305,
@@ -904,9 +904,9 @@
               },
               {
                 "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "walk",
+                "CurrentAniamtionName": "blink",
                 "SingleFrameIndex": 0,
-                "FrameIndex": 240,
+                "FrameIndex": 161,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -954,9 +954,9 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 2464.6897,
-                "Y": 417.2859,
-                "FrameIndex": 240,
+                "X": 2219.5684,
+                "Y": 365.6814,
+                "FrameIndex": 161,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1008,7 +1008,7 @@
               {
                 "X": -0.9195,
                 "Y": 0.9195,
-                "FrameIndex": 240,
+                "FrameIndex": 161,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1060,7 +1060,7 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 240,
+                "FrameIndex": 161,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1848,8 +1848,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1613.3335,
-              "Y": 52.6604
+              "X": 1080.0801,
+              "Y": 35.7988
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1858,19 +1858,20 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.6302,
-              "Y": 0.0293
+              "X": 0.4219,
+              "Y": 0.0199
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1613.3335,
-            "RightMargin": 946.6665,
-            "TopMargin": 1747.3396,
-            "BottomMargin": 52.6604,
+            "LeftMargin": 1080.0801,
+            "RightMargin": 1479.9199,
+            "TopMargin": 1764.2012,
+            "BottomMargin": 35.7988,
             "UserData": "walk;drag",
             "Tag": 1995,
+            "FrameEvent": "horn",
             "ActionTag": -1361060659,
             "Size": {
               "X": 0.0,
@@ -1895,8 +1896,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1883.2709,
-              "Y": 554.4285
+              "X": 1346.3696,
+              "Y": 544.7285
             },
             "Scale": {
               "ScaleX": 0.591,
@@ -1905,18 +1906,18 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.7357,
-              "Y": 0.308
+              "X": 0.5259,
+              "Y": 0.3026
             },
             "PreSize": {
               "X": 0.2133,
               "Y": 0.2589
             },
-            "LeftMargin": 1610.2709,
-            "RightMargin": 403.729,
-            "TopMargin": 1012.5715,
-            "BottomMargin": 321.4285,
-            "UserData": "drag;main.horn",
+            "LeftMargin": 1073.3696,
+            "RightMargin": 940.6304,
+            "TopMargin": 1022.2715,
+            "BottomMargin": 311.7285,
+            "UserData": "main.horn",
             "Tag": 4665,
             "FrameEvent": "horn",
             "ActionTag": -716155667,
@@ -1938,27 +1939,27 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 2464.6897,
-              "Y": 417.2859
+              "X": 2019.4438,
+              "Y": 251.6126
             },
             "Scale": {
-              "ScaleX": -0.9195,
-              "ScaleY": 0.9195
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
             },
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.9628,
-              "Y": 0.2318
+              "X": 0.7888,
+              "Y": 0.1398
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 2464.6897,
-            "RightMargin": 95.3103,
-            "TopMargin": 1382.7141,
-            "BottomMargin": 417.2859,
+            "LeftMargin": 2019.4438,
+            "RightMargin": 540.5562,
+            "TopMargin": 1548.3875,
+            "BottomMargin": 251.6126,
             "UserData": "walk;drag",
             "Tag": 2018,
             "ActionTag": 408387849,

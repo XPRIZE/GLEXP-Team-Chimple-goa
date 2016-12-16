@@ -55,7 +55,14 @@ std::vector<std::string> TreasureHuntNode::getPosibileCharacter()
 	return _result;
 }
 
-
+void TreasureHuntNode::clearDrawing(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
+	if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
+		_paintingNode->clear();
+		//_canvas->clear(0, 0, _canvasWidth, _canvasHeight);
+		_strokes.clear();
+		clearPrintedCharacters();
+	}
+}
 
 void TreasureHuntNode::postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint) {
 

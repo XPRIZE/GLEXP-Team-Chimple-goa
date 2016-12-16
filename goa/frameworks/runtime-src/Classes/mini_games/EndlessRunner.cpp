@@ -149,14 +149,20 @@ void EndlessRunner::scheduleMethod() {
 std::string EndlessRunner::getStringDataLevelInfo(const wchar_t* alpha, int currentLevel,int deductionValue,int groupLetter) {
 	std::ostringstream blockName;
 	int startPoint = ((currentLevel - deductionValue) - 1) * groupLetter; // three letter sequence like : A,B,C or P,Q,R (caps letter)
-
+	
 	for (int i = 0; i < groupLetter; i++) {
-		if ((startPoint + i) > 25) {
-			int index = RandomHelper::random_int(0, 25 - groupLetter);
+		if ((startPoint + i) > 23) {
+			int index = RandomHelper::random_int(0, 23 - groupLetter);
 			blockName << (char)alpha[index];
+			if ((char)alpha[index] == ' ') {
+				blockName << (char)alpha[RandomHelper::random_int(0, 23 - groupLetter)];
+			}
 		}
 		else {
 			blockName << (char)alpha[startPoint + i];
+			if ((char)alpha[startPoint + i] == ' ') {
+				blockName<< (char)alpha[RandomHelper::random_int(0, 23 - groupLetter)];
+			}
 		}
 	}
 	return blockName.str();

@@ -45,7 +45,7 @@ Scene *Trace::createScene() {
     auto layer = Trace::create();
 
     scene->addChild(layer);
-    layer->_menuContext = MenuContext::create(layer, Trace::classname(), true);
+    layer->_menuContext = MenuContext::create(layer, Trace::classname(), false);
     scene->addChild(layer->_menuContext);    
     return scene;
 }
@@ -118,14 +118,14 @@ void Trace::onEnterTransitionDidFinish() {
 		if (_menuContext->getCurrentLevel() == 25) {
 			_background = CSLoader::createNode(LangUtil::getInstance()->getSpecialAnimationFileName(_alpha[0], "Alpha Kombat"));
 		}
-		else
-			if (_menuContext->getCurrentLevel() == 26) {
+		else if (_menuContext->getCurrentLevel() == 26) {
 				_background = CSLoader::createNode(LangUtil::getInstance()->getSpecialAnimationFileName(_alpha[1], "Alpha Kombat"));
-			}
+		}
+		else {
+			_background = CSLoader::createNode(LangUtil::getInstance()->getSpecialAnimationFileName(_alpha[_menuContext->getCurrentLevel() - 1], "Alpha Kombat"));
+		}
 	}
 	else {
-
-
 
 		_background = CSLoader::createNode(LangUtil::getInstance()->getSpecialAnimationFileName(_alpha[_menuContext->getCurrentLevel() - 1], "Alpha Kombat"));
 	}
