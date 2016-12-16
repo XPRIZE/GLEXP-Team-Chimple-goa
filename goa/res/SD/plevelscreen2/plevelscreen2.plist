@@ -4,6 +4,51 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>plevelscreen2/bajabluecar3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{117,52}</string>
+                <key>spriteSourceSize</key>
+                <string>{117,52}</string>
+                <key>textureRect</key>
+                <string>{{339,484},{117,52}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>plevelscreen2/bajagreencar3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{117,52}</string>
+                <key>spriteSourceSize</key>
+                <string>{117,52}</string>
+                <key>textureRect</key>
+                <string>{{339,538},{117,52}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>plevelscreen2/bajaredcar3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{117,52}</string>
+                <key>spriteSourceSize</key>
+                <string>{117,52}</string>
+                <key>textureRect</key>
+                <string>{{339,592},{117,52}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
             <key>plevelscreen2/board.png</key>
             <dict>
                 <key>aliases</key>
@@ -15,9 +60,24 @@
                 <key>spriteSourceSize</key>
                 <string>{197,96}</string>
                 <key>textureRect</key>
-                <string>{{344,339},{197,96}}</string>
+                <string>{{344,1},{197,96}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
+            </dict>
+            <key>plevelscreen2/cannon.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{224,164}</string>
+                <key>spriteSourceSize</key>
+                <string>{224,164}</string>
+                <key>textureRect</key>
+                <string>{{251,793},{224,164}}</string>
+                <key>textureRotated</key>
+                <true/>
             </dict>
             <key>plevelscreen2/farmountain3.png</key>
             <dict>
@@ -30,9 +90,9 @@
                 <key>spriteSourceSize</key>
                 <string>{336,157}</string>
                 <key>textureRect</key>
-                <string>{{344,1},{336,157}}</string>
+                <string>{{1,483},{336,157}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>plevelscreen2/grasspatch3.png</key>
             <dict>
@@ -45,7 +105,7 @@
                 <key>spriteSourceSize</key>
                 <string>{92,92}</string>
                 <key>textureRect</key>
-                <string>{{543,298},{92,92}}</string>
+                <string>{{344,297},{92,92}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -60,9 +120,39 @@
                 <key>spriteSourceSize</key>
                 <string>{91,92}</string>
                 <key>textureRect</key>
-                <string>{{543,392},{91,92}}</string>
+                <string>{{344,391},{91,92}}</string>
                 <key>textureRotated</key>
                 <true/>
+            </dict>
+            <key>plevelscreen2/levelbox.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{242,248}</string>
+                <key>spriteSourceSize</key>
+                <string>{242,248}</string>
+                <key>textureRect</key>
+                <string>{{1,642},{242,248}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>plevelscreen2/meteorball.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{133,133}</string>
+                <key>spriteSourceSize</key>
+                <string>{133,133}</string>
+                <key>textureRect</key>
+                <string>{{1,886},{133,133}}</string>
+                <key>textureRotated</key>
+                <false/>
             </dict>
             <key>plevelscreen2/palmleaf.png</key>
             <dict>
@@ -75,9 +165,9 @@
                 <key>spriteSourceSize</key>
                 <string>{198,145}</string>
                 <key>textureRect</key>
-                <string>{{503,1},{198,145}}</string>
+                <string>{{251,646},{198,145}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>plevelscreen2/pipeconnector3.png</key>
             <dict>
@@ -90,7 +180,7 @@
                 <key>spriteSourceSize</key>
                 <string>{95,95}</string>
                 <key>textureRect</key>
-                <string>{{503,201},{95,95}}</string>
+                <string>{{344,200},{95,95}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -105,7 +195,7 @@
                 <key>spriteSourceSize</key>
                 <string>{75,75}</string>
                 <key>textureRect</key>
-                <string>{{600,201},{75,75}}</string>
+                <string>{{136,886},{75,75}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -120,9 +210,9 @@
                 <key>spriteSourceSize</key>
                 <string>{38,165}</string>
                 <key>textureRect</key>
-                <string>{{344,437},{38,165}}</string>
+                <string>{{417,793},{38,165}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>plevelscreen2/tree.png</key>
             <dict>
@@ -151,9 +241,9 @@
             <key>realTextureFileName</key>
             <string>plevelscreen2.png</string>
             <key>size</key>
-            <string>{676,484}</string>
+            <string>{457,1020}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:0d6b268ec0274e83aca4c46ebeee9f4d:6f4d5afb6cfc27664f1957f6727f7753:bfc429e6800944e3d5fb9adc9b923cee$</string>
+            <string>$TexturePacker:SmartUpdate:49ec80335007ee959ea701fe8a05765d:64791a4316c6322a84ba45878a53284a:bfc429e6800944e3d5fb9adc9b923cee$</string>
             <key>textureFileName</key>
             <string>plevelscreen2.png</string>
         </dict>
