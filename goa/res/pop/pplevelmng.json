@@ -586,7 +586,7 @@
             },
             "LeftMargin": 8252.6973,
             "RightMargin": -6892.6973,
-            "TopMargin": 1510.9882,
+            "TopMargin": 1510.9883,
             "BottomMargin": 89.0118,
             "Tag": 3834,
             "ActionTag": -895446881,
@@ -3108,6 +3108,88 @@
             },
             "Name": "puff_110_5_1_5_1",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "plevelscreen/plane.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 6756.7163,
+              "Y": 1213.7668
+            },
+            "Scale": {
+              "ScaleX": -1.8703,
+              "ScaleY": 1.8703
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.6393,
+              "Y": 0.6743
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 6756.7163,
+            "RightMargin": -4196.7163,
+            "TopMargin": 586.2332,
+            "BottomMargin": 1213.7668,
+            "Tag": 2646,
+            "ActionTag": -1718290025,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_1_0",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "plevelscreen/plane.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1710.0005,
+              "Y": 1210.001
+            },
+            "Scale": {
+              "ScaleX": 1.8703,
+              "ScaleY": 1.8703
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.668,
+              "Y": 0.6722
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1710.0005,
+            "RightMargin": 849.9995,
+            "TopMargin": 589.999,
+            "BottomMargin": 1210.001,
+            "Tag": 2652,
+            "ActionTag": -551609572,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_1",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -3118,6 +3200,7 @@
         "ctype": "LayerObjectData"
       },
       "UsedResources": [
+        "plane.json",
         "plevelscreen.plist",
         "plevelscreen.png"
       ],
