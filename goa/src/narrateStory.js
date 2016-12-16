@@ -966,14 +966,19 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         if(cc.sys.isNative) {
             var fileExists = jsb.fileUtils.isFileExist(textFileUrl);
             if(fileExists) {
-
                 cc.loader.loadJson(textFileUrl, function(err, json) {            
                     if(!err && json != null && json != undefined) {
                         storyText = json[xc.pageIndex + 1];
                         cc.log('story text received:' + storyText);
                         if(storyText && storyText.length > 0) {
                             that.parent.addChild(new xc.BubbleSpeech(xc.NarrateStoryLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that));
-                        }                        
+                        } else {
+                            that._wordBoard.node.setVisible(true);
+                            that.renderNextButton();
+                            that.renderPreviousButton(); 
+                            that._replayButton.setVisible(true);
+                            that._showTextAgainButton.setVisible(true);                                                               
+                        }                      
                     } else {
                         that._wordBoard.node.setVisible(true);
                         that.renderNextButton();
@@ -981,8 +986,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                         that._replayButton.setVisible(true);
                         that._showTextAgainButton.setVisible(true);                                                               
                     }                            
-                });                
-           
+                });                           
             } 
         } else {
             cc.loader.loadJson(textFileUrl, function(err, json) {            
