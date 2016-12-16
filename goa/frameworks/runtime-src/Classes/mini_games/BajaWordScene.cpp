@@ -52,7 +52,7 @@ void BajaWordScene::createChoice() {
 	_choice->setPosition(Vec2(0, hei * 63 / 100));
 	addChild(_choice);
 
-	const float squareWidth = 1800 / _numGraphemes;
+	const float squareWidth = 2200 / _numGraphemes;
 
 	for (int i = 0; i < _numGraphemes; i++) {
 		auto fuelPouch = Sprite::createWithSpriteFrameName("baja/bajawdp.png");

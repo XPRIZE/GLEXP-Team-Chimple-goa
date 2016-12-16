@@ -105,6 +105,7 @@ protected:
 	int enemyCreateCounter = 1;
 	int _gameCurrentLevel;
 	HelpLayer* _help;
+	bool _flagForHelpLayer = true;
 	bool _helpFlag = false, _initObj = true;;
 	std::map<int, wchar_t> _crossTheBridgeLevelMapping;
 

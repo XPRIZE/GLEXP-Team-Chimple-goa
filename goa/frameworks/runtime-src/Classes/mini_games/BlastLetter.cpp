@@ -62,16 +62,36 @@ void BlastLetter::onEnterTransitionDidFinish() {
 		}
 		_data_value = namemyLabel.str();
 	}else if (currentLevel >= 37 && currentLevel <= 46) {
-		_data_key = TextGenerator::getInstance()->generateAWord((_menuContext->getCurrentLevel() - 36));
+		auto level = (_menuContext->getCurrentLevel() - 36);
+		if (level >= 3) {
+			level = 3;
+		}
+		_data_key = TextGenerator::getInstance()->generateAWord(level);
 		_data_value = _data_key;
 	}else if (currentLevel >= 47 && currentLevel <= 56) {
-		_data = TextGenerator::getInstance()->getSingularPlurals(1, (_menuContext->getCurrentLevel() - 46));
+		auto level = (_menuContext->getCurrentLevel() - 46);
+		if (level >= 3) {
+			level = 3;
+		}
+		_data = TextGenerator::getInstance()->getSingularPlurals(1, level);
 	}else if (currentLevel >= 57 && currentLevel <= 66) {
-		_data = TextGenerator::getInstance()->getAntonyms(1, (_menuContext->getCurrentLevel() - 56));
+		auto level = (_menuContext->getCurrentLevel() - 56);
+		if (level >= 3) {
+			level = 3;
+		}
+		_data = TextGenerator::getInstance()->getAntonyms(1, level);
 	}else if (currentLevel >= 67 && currentLevel <= 76) {
-		_data = TextGenerator::getInstance()->getSynonyms(1, (_menuContext->getCurrentLevel() - 66));
+		auto level = (_menuContext->getCurrentLevel() - 66);
+		if (level >= 3) {
+			level = 3;
+		}
+		_data = TextGenerator::getInstance()->getSynonyms(1, level);
 	}else if (currentLevel >= 77 && currentLevel <= 86) {
-		_data = TextGenerator::getInstance()->getHomonyms(1, (_menuContext->getCurrentLevel() - 76));
+		auto level = (_menuContext->getCurrentLevel() - 76);
+		if (level >= 3) {
+			level = 3;
+		}
+		_data = TextGenerator::getInstance()->getHomonyms(1, level);
 	}else{
 		CCLOG("ERROR : Level code error !!!!!! ");
 	}
