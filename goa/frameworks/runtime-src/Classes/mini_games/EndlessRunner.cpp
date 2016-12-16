@@ -48,14 +48,14 @@ void EndlessRunner::onEnterTransitionDidFinish()
 	}
 	else if (currentLevel >= 19 && currentLevel <= 23) {
 		alpha = LangUtil::getInstance()->getAllCharacters();
-		_alphabets = EndlessRunner::getStringDataLevelInfo(alpha, currentLevel, 18, 6);// six letter sequence like : a,b,c,d,e,f
+		_alphabets = EndlessRunner::getStringDataLevelInfo(alpha, currentLevel, 18, 6);// six letter sequence like : A,B,C,D,E,F
 	}
 	else if (currentLevel >= 24 && currentLevel <= 28) {
 		alpha = LangUtil::getInstance()->getAllCharacters();
-		_alphabets = EndlessRunner::getStringDataLevelInfo(alpha, currentLevel, 23, 6);// six letter sequence like : A,B,C,D,E,F
+		_alphabets = EndlessRunner::getStringDataLevelInfo(alpha, currentLevel, 23, 6);// six letter sequence like : a,b,c,d,e,f
 	}
 	else {
-		blockName << "ABCDEF";
+		_alphabets = "ABCDEF";
 	}
 
 	tempChar = _alphabets[letterBoardAlphaLength];
@@ -149,19 +149,20 @@ void EndlessRunner::scheduleMethod() {
 std::string EndlessRunner::getStringDataLevelInfo(const wchar_t* alpha, int currentLevel,int deductionValue,int groupLetter) {
 	std::ostringstream blockName;
 	int startPoint = ((currentLevel - deductionValue) - 1) * groupLetter; // three letter sequence like : A,B,C or P,Q,R (caps letter)
-	
+	auto charLength = LangUtil::getInstance()->getNumberOfCharacters() - 1;
+
 	for (int i = 0; i < groupLetter; i++) {
-		if ((startPoint + i) > 23) {
-			int index = RandomHelper::random_int(0, 23 - groupLetter);
+		if ((startPoint + i) > charLength) {
+			int index = RandomHelper::random_int(0, charLength - groupLetter);
 			blockName << (char)alpha[index];
 			if ((char)alpha[index] == ' ') {
-				blockName << (char)alpha[RandomHelper::random_int(0, 23 - groupLetter)];
+				blockName << (char)alpha[RandomHelper::random_int(0, charLength - groupLetter)];
 			}
 		}
 		else {
 			blockName << (char)alpha[startPoint + i];
 			if ((char)alpha[startPoint + i] == ' ') {
-				blockName<< (char)alpha[RandomHelper::random_int(0, 23 - groupLetter)];
+				blockName<< (char)alpha[RandomHelper::random_int(0, charLength - groupLetter)];
 			}
 		}
 	}
