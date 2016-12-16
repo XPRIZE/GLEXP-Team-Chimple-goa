@@ -152,12 +152,13 @@ void ChocolateFactory::onEnterTransitionDidFinish()
 						addTouchEvents(_trayBin[k]);
 					} }), NULL));
 				/*addTouchEvents(_trayBin[i]);*/
-			/*auto aab = DrawNode::create();
+		/*	auto aab = DrawNode::create();
 			this->addChild(aab, 20);
+			aab->setName("debug");
 			auto a = _trayBin[3]->getPositionX() - _trayBin[3]->getContentSize().width / 2 * 0.82;
 			auto b = _trayBin[3]->getPositionY() - _trayBin[3]->getContentSize().height / 2 * 0.78;
 			aab->drawRect(Vec2(a,b),
-				Vec2(a+ _trayBin[3]->getContentSize().width*0.77,b+ _trayBin[3]->getContentSize().height*0.95),
+				Vec2(a+ _trayBin[3]->getContentSize().width*0.77,b+ _trayBin[3]->getContentSize().height*0.90),
 				Color4F(0, 0, 255, 22));*/
 		}
 		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
@@ -177,12 +178,23 @@ void ChocolateFactory::onEnterTransitionDidFinish()
 	}); 
 
 	auto addHelp = CCCallFunc::create([=] {
-		auto pos = _trayPositions[1];
+		int index = 0;
+		auto posX = _trayBin[1]->getPositionX();
+		auto posY = _trayBin[1]->getPositionY();
 		auto myBG = this->getChildByName("bg");
-		_help = HelpLayer::create(Rect(pos.first- visibleSize.width*0.02, pos.second, _trayBin[1]->getContentSize().width*0.84, _trayBin[1]->getContentSize().height*1.3),
-			Rect(myBG->getChildByName(_nodeName.at(1))->getPositionX(), myBG->getChildByName(_nodeName.at(1))->getPositionY(), 250, 250));
-		_help->clickAndDrag(Vec2(pos.first ,pos.second),
-			Vec2(myBG->getChildByName(_nodeName.at(1))->getPositionX(), myBG->getChildByName(_nodeName.at(1))->getPositionY()));
+		auto name = _trayBin[1]->getName();
+		for (int i=0; i < _nodeName.size(); i++)
+		{
+			if (!_nodeName[i].compare(name))
+			{
+				index = i;
+				break;
+			}
+		}
+		_help = HelpLayer::create(Rect(posX - visibleSize.width*0.02, posY, _trayBin[1]->getContentSize().width*0.84, _trayBin[1]->getContentSize().height*1.3),
+			Rect(myBG->getChildByName(_nodeName.at(index))->getPositionX(), myBG->getChildByName(_nodeName.at(index))->getPositionY(), 250, 250));
+		_help->clickAndDrag(Vec2(posX, posY),
+			Vec2(myBG->getChildByName(_nodeName.at(index))->getPositionX(), myBG->getChildByName(_nodeName.at(index))->getPositionY()));
 		this->addChild(_help, 5);
 	}
 	);
@@ -274,6 +286,7 @@ void ChocolateFactory::addTouchEvents(Sprite* obj)
 	{
 		auto target = event->getCurrentTarget();
 		target->setZOrder(10);
+
 		Point locationInNode = target->convertToNodeSpace(touch->getLocation());
 		Size s = target->getContentSize();
 		target->setPosition(Vec2(touch->getLocation().x, touch->getLocation().y));
@@ -291,7 +304,7 @@ void ChocolateFactory::addTouchEvents(Sprite* obj)
 		auto a = target->getPositionX() - target->getContentSize().width / 2 * 0.82;
 		auto b = target->getPositionY() - target->getContentSize().height / 2 * 0.78;
 		auto myBG = this->getChildByName("bg");
-		Rect rect = CCRectMake(a, b, target->getContentSize().width*0.77, target->getContentSize().height*.95);
+		Rect rect = CCRectMake(a, b, target->getContentSize().width*0.77, target->getContentSize().height*.90);
 		bool isIntersect = false;
 		int xPosi=0;
 		if (visibleSize.width > 2560) {
@@ -299,7 +312,8 @@ void ChocolateFactory::addTouchEvents(Sprite* obj)
 		}
 		for (int i = 0; i < _nodeName.size(); i++)
 		{
-			Rect boxRect = CCRectMake(myBG->getChildByName(_nodeName.at(i))->getPositionX() - 100 + xPosi, myBG->getChildByName(_nodeName.at(i))->getPositionY() - 100, 200, 200);
+		
+			Rect boxRect = CCRectMake(myBG->getChildByName(_nodeName.at(i))->getPositionX() - 100 + xPosi, myBG->getChildByName(_nodeName.at(i))->getPositionY() - 100, 200, 130);
 			if (rect.intersectsRect(boxRect)) {
 
 				bool flag = false;
@@ -360,7 +374,6 @@ void ChocolateFactory::addTouchEvents(Sprite* obj)
 					}
 				}
 			}
-
 			if (_setcounter == 4)
 			{
 				_pointCounter++;

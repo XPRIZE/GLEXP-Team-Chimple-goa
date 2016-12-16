@@ -93,7 +93,7 @@
             },
             "LeftMargin": 1859.2365,
             "RightMargin": 399.7637,
-            "TopMargin": 1095.3527,
+            "TopMargin": 1095.3528,
             "BottomMargin": 403.6473,
             "Tag": 3587,
             "ActionTag": -1121526688,
@@ -318,7 +318,7 @@
             },
             "LeftMargin": 1552.1954,
             "RightMargin": 706.8046,
-            "TopMargin": 1211.278,
+            "TopMargin": 1211.2781,
             "BottomMargin": 287.722,
             "Tag": 3592,
             "ActionTag": 541721286,
@@ -601,7 +601,7 @@
             },
             "LeftMargin": 7759.1748,
             "RightMargin": -5500.1748,
-            "TopMargin": 1179.583,
+            "TopMargin": 1179.5831,
             "BottomMargin": 319.4169,
             "Tag": 3618,
             "ActionTag": 1714757014,
@@ -826,7 +826,7 @@
             },
             "LeftMargin": 8066.2178,
             "RightMargin": -5807.2178,
-            "TopMargin": 1063.6582,
+            "TopMargin": 1063.6583,
             "BottomMargin": 435.3417,
             "Tag": 3613,
             "ActionTag": 683039214,
@@ -961,7 +961,7 @@
             },
             "LeftMargin": 5819.1543,
             "RightMargin": -3560.1543,
-            "TopMargin": 1382.4803,
+            "TopMargin": 1382.4802,
             "BottomMargin": 116.5197,
             "Tag": 3626,
             "ActionTag": -917623077,
@@ -1141,7 +1141,7 @@
             },
             "LeftMargin": 6129.415,
             "RightMargin": -3870.415,
-            "TopMargin": 1482.8632,
+            "TopMargin": 1482.8633,
             "BottomMargin": 16.1368,
             "Tag": 3630,
             "ActionTag": -535981360,
@@ -1276,7 +1276,7 @@
             },
             "LeftMargin": 6729.4072,
             "RightMargin": -4470.4072,
-            "TopMargin": 1482.8632,
+            "TopMargin": 1482.8633,
             "BottomMargin": 16.1368,
             "Tag": 3644,
             "ActionTag": 1940819879,
@@ -1366,7 +1366,7 @@
             },
             "LeftMargin": 5449.2651,
             "RightMargin": -3190.2651,
-            "TopMargin": 1146.1447,
+            "TopMargin": 1146.1448,
             "BottomMargin": 352.8553,
             "Tag": 4126,
             "ActionTag": -730518169,
@@ -1546,7 +1546,7 @@
             },
             "LeftMargin": 5329.7681,
             "RightMargin": -3070.7681,
-            "TopMargin": 1046.0861,
+            "TopMargin": 1046.0862,
             "BottomMargin": 452.9139,
             "Tag": 4130,
             "ActionTag": 2011555958,
@@ -2101,7 +2101,7 @@
             },
             "LeftMargin": 3827.4622,
             "RightMargin": -1568.4619,
-            "TopMargin": 1326.9948,
+            "TopMargin": 1326.9949,
             "BottomMargin": 172.0052,
             "Tag": 4142,
             "ActionTag": -1700884321,
@@ -2866,7 +2866,7 @@
             },
             "LeftMargin": 13031.0859,
             "RightMargin": -10772.0859,
-            "TopMargin": 1046.2911,
+            "TopMargin": 1046.291,
             "BottomMargin": 452.7089,
             "Tag": 4184,
             "ActionTag": 1428756039,
@@ -3511,7 +3511,7 @@
             },
             "LeftMargin": 11667.6641,
             "RightMargin": -9408.6641,
-            "TopMargin": 1420.8077,
+            "TopMargin": 1420.8076,
             "BottomMargin": 78.1923,
             "Tag": 4198,
             "ActionTag": -841499352,
@@ -4909,7 +4909,7 @@
               "Y": 0.1672
             },
             "LeftMargin": 162.1935,
-            "RightMargin": 2096.8066,
+            "RightMargin": 2096.8064,
             "TopMargin": 1211.2783,
             "BottomMargin": 287.7217,
             "Tag": 4229,
@@ -4920,6 +4920,47 @@
             },
             "Name": "puff_110_7_5_0_1",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "plevelscreen/plane.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 10990.7246,
+              "Y": 1558.23
+            },
+            "Scale": {
+              "ScaleX": 1.8703,
+              "ScaleY": 1.8703
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 4.2933,
+              "Y": 0.8657
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 10990.7246,
+            "RightMargin": -8430.7246,
+            "TopMargin": 241.77,
+            "BottomMargin": 1558.23,
+            "Tag": 2658,
+            "ActionTag": -1954102491,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_1_1",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -4930,6 +4971,7 @@
         "ctype": "LayerObjectData"
       },
       "UsedResources": [
+        "plane.json",
         "plevelscreen.plist",
         "plevelscreen.png"
       ],
