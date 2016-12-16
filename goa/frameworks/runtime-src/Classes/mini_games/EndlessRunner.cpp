@@ -154,15 +154,13 @@ std::string EndlessRunner::getStringDataLevelInfo(const wchar_t* alpha, int curr
 		if ((startPoint + i) > 23) {
 			int index = RandomHelper::random_int(0, 23 - groupLetter);
 			blockName << (char)alpha[index];
-			auto str = blockName.str();
-			if (str.compare("")) {
+			if ((char)alpha[index] == ' ') {
 				blockName << (char)alpha[RandomHelper::random_int(0, 23 - groupLetter)];
 			}
 		}
 		else {
 			blockName << (char)alpha[startPoint + i];
-			string str = blockName.str();
-			if (str.compare("")) {
+			if ((char)alpha[startPoint + i] == ' ') {
 				blockName<< (char)alpha[RandomHelper::random_int(0, 23 - groupLetter)];
 			}
 		}
