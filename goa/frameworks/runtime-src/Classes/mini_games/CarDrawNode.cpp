@@ -77,7 +77,7 @@ void carDrawNode::postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event,
 void carDrawNode::broadCastRecognizedChars(std::vector<std::string> results)
 {
 
-	CCLOG("car draw = %s", results.at(0).c_str());
+	//CCLOG("car draw = %s", results.at(0).c_str());
 	_carDraw->characterRecogination(results);
 
 }

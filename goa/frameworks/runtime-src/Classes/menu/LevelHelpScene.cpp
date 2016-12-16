@@ -18,6 +18,8 @@ using namespace cocos2d::ui;
 using namespace experimental;
 
 static const std::string CURRENT_LEVEL = ".currentLevel";
+static const std::string NUMERIC_WRITING = ".numeric";
+static const std::string UPPER_ALPHABET_WRITING = ".upper";
 
 Scene *LevelHelpScene::createScene(std::string gameName) {
     auto layer = LevelHelpScene::create(gameName);
@@ -39,6 +41,18 @@ LevelHelpScene *LevelHelpScene::create(std::string gameName) {
 
 bool LevelHelpScene::init() {
     return true;
+}
+
+std::vector<std::string> LevelHelpScene::split(std::string s, char delim)
+{
+    std::vector<std::string> elems;
+    std::stringstream ss;
+    ss.str(s);
+    std::string item;
+    while (getline(ss, item, delim)) {
+        elems.push_back(item);
+    }
+    return elems;
 }
 
 bool LevelHelpScene::initWithGame(std::string gameName) {
@@ -75,6 +89,41 @@ bool LevelHelpScene::initWithGame(std::string gameName) {
                             _videoName = helpMap["video"].GetString();
                         }
                     }
+                }
+                
+                if(helpMap.HasMember("writing")) {
+                    const rapidjson::Value& writing = helpMap["writing"];
+                    assert(writing.IsArray());
+                    for (rapidjson::SizeType i = 0; i < writing.Size(); i++) {
+                        const rapidjson::Value& writingConfig = writing[i];
+                        if(writingConfig.HasMember("level")) {
+                            const rapidjson::Value& cLevels =  writingConfig["level"];
+                            assert(cLevels.IsArray());
+                            for (rapidjson::SizeType i = 0; i < cLevels.Size(); i++) {
+                                int cL = cLevels[i].GetInt();
+                                CCLOG("cL %d", cL);
+                                
+                                if(writingConfig.HasMember("upper")) {
+                                    bool isUpper = writingConfig["upper"].GetBool();
+                                    CCLOG("isUpper %d", isUpper);
+                                    if(isUpper) {
+                                        localStorageSetItem(gameName + MenuContext::to_string(cL) + UPPER_ALPHABET_WRITING, "true");
+                                    } else {
+                                        localStorageSetItem(gameName + MenuContext::to_string(cL) + UPPER_ALPHABET_WRITING, "false");
+                                        
+                                    }
+                                } else if(writingConfig.HasMember("numeric")) {
+                                    bool isNumeric = writingConfig["numeric"].GetBool();
+                                    if(isNumeric) {
+                                        localStorageSetItem(gameName + MenuContext::to_string(cL) + NUMERIC_WRITING, "true");
+                                    }
+                                }
+                                
+                            }
+                        }
+                        
+                    }
+                    
                 }
             }
         }
