@@ -394,7 +394,13 @@ void Shop::chooseVegeForShop(vector<string> vegetableNodeName)
 		int randomValue = RandomHelper::random_int(4,7);
 		_oneOfThePairInt = pairOfInt[randomValue];
 	}
-	_expectedItemOne = vegetableNodeName[randomIndex[0]];
+	if (_menuContext->getCurrentLevel() == 1 && _flagForChooseCorn)
+	{
+		_flagForChooseCorn = false;
+		_expectedItemOne = "corn";
+	}
+	else {    	_expectedItemOne = vegetableNodeName[randomIndex[0]];   	}
+	
 	_expectedItemTwo = vegetableNodeName[randomIndex[1]];
 	_total = _vegePrice.at(_expectedItemOne)*_oneOfThePairInt.first + _vegePrice.at(_expectedItemTwo)*_oneOfThePairInt.second;
 	

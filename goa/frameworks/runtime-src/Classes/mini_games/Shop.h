@@ -21,7 +21,7 @@ protected:
 	Calculator *_calculator;
 	HelpLayer* _help;
 
-	bool _touched = true;
+	bool _touched = true, _flagForChooseCorn = true;
 	bool _isItemOnePlaced = false, _flagForItemOne = true;
 	bool _isItemTwoPlaced = false, _flagForItemTwo = true;
 	bool _calculateFlag = NULL;
