@@ -156,24 +156,24 @@ xc.PopLayer = cc.Layer.extend({
             y++;
 
             if (existingNumber[i] >= 1 && existingNumber[i] <= 4) {
-                cloud.Xpos = (worldSize.width / 4) * (existingNumber[i] - 1) + 300;
+                cloud.Xpos = (worldSize.width / 4) * (existingNumber[i] - 1) + 315;
                 cloud.Ypos = cc.director.getWinSize().height * 0.71;
                 cloud.setPosition(worldSize.width + 300, cloud.Ypos);
             }
 
             else if (existingNumber[i] >= 5 && existingNumber[i] <= 8) {
-                cloud.Xpos = (worldSize.width / 4) * (existingNumber[i] - 5) + 390;
+                cloud.Xpos = (worldSize.width / 4) * (existingNumber[i] - 5) + 405;
                 cloud.Ypos = (cc.director.getWinSize().height * 0.71) - (cloud.getBoundingBox().height+30);
                 cloud.setPosition(worldSize.width + 300, cloud.Ypos);
             }
 
             else if (existingNumber[i] >= 9 && existingNumber[i] <= 12) {
-                cloud.Xpos = (worldSize.width / 4) * (existingNumber[i] - 9) + 240;
+                cloud.Xpos = (worldSize.width / 4) * (existingNumber[i] - 9) + 255;
                 cloud.Ypos = (cc.director.getWinSize().height * 0.71) - (cloud.getBoundingBox().height * 2+60);
                 cloud.setPosition(worldSize.width + 300, cloud.Ypos);
             }
 
-            var label = new cc.LabelTTF(""+wordForSentanceArray[i], "Arial", 110);
+            var label = new cc.LabelTTF(""+wordForSentanceArray[i], "Arial", 80);
             label.color = new cc.Color(229,78,78);
             label.attr({
                 x: cloud.getBoundingBox().width / 2,
@@ -184,16 +184,7 @@ xc.PopLayer = cc.Layer.extend({
             this.stringContainer[i]=""+wordForSentanceArray[i];
             cc.eventManager.addListener(listener.clone(), cloud);
 
-          if( this.currentLevel == 1 && i == (wordForSentanceArray.length-1)){
-              console.log("-------------- in 1st level ------------");
-              console.log("cloud x :"+cloud.x);
-               console.log("cloud y :"+cloud.y);
-                this.help = new xc.HelpLayer(cc.rect(cloud.Xpos,cloud.Ypos,cloud.width,cloud.height), cc.rect( cc.director.getWinSize().width / 2,cc.director.getWinSize().height * .93,cc.director.getWinSize().width * .85,cc.director.getWinSize().height*0.09))
-                this.addChild(this.help,4)
-                this.help.setName("help");
-                this.help.click(cloud.getPositionX(),cloud.getPositionY());
-                this.helpFlag = true;
-            }
+        
         }
                        var textRemoval = function()
                        {
@@ -220,8 +211,19 @@ xc.PopLayer = cc.Layer.extend({
                             audioEngine1.playEffect(xc.PopLayer.res.pop_helicopter);
                             self.plane.node.runAction(cc.MoveTo.create(5, cc.p(-220, cc.director.getWinSize().height * multiplyFactor)));
                         }
+                         var helpLayer = function()
+                         {
+                              if( this.currentLevel == 1 ){
+                            var obj = this.cloudContainer[0];
+                            this.help = new xc.HelpLayer(cc.rect(obj.x,obj.y,cloud.width,cloud.height), cc.rect( cc.director.getWinSize().width / 2,cc.director.getWinSize().height * .93,cc.director.getWinSize().width * .85,cc.director.getWinSize().height*0.09))
+                            this.addChild(this.help,4)
+                            this.help.setName("help");
+                            this.help.click(obj.getPositionX(),obj.getPositionY());
+                            this.helpFlag = true;
+                             }
+                        }
 
-                       self.runAction(new cc.Sequence(cc.delayTime(6),new cc.CallFunc(textRemoval, self),new cc.CallFunc(palneMotion, self),cc.delayTime(1.7), new cc.CallFunc(cloudMotion, self),cc.delayTime(10),new cc.CallFunc(isClickReady, self)));
+                       self.runAction(new cc.Sequence(cc.delayTime(6),new cc.CallFunc(textRemoval, self),new cc.CallFunc(palneMotion, self),cc.delayTime(1.7), new cc.CallFunc(cloudMotion, self),cc.delayTime(10),new cc.CallFunc(helpLayer, self),cc.delayTime(0.7),new cc.CallFunc(isClickReady, self)));
 
       //setTimeout(function () {  self.clickableFlag = true;   }, 17000);
       },
@@ -248,7 +250,7 @@ xc.PopLayer = cc.Layer.extend({
             }
             else
             {
-                  audioEngine.playEffect(xc.PopLayer.res.pop_errora);
+                  audioEngine.playEffect(xc.PopLayer.res.pop_error);
                   this.cloudShake(wordObject);
                   menuContext.addPoints(-1);
             }

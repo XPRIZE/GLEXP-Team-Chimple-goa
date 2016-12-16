@@ -153,7 +153,6 @@ void Drop::onEnterTransitionDidFinish()
 	_dropCurrentTheme = theme[RandomHelper::random_int(0, 2)];
 	_dropCurrentTheme = "dropjungle";*/
 	_scenePath = dropSceneMap.at(_dropCurrentTheme);
-
 	_sceneBasedNumericalVal = dropSceneNumValue.at(_dropCurrentTheme);
 
 	if (!_dropCurrentTheme.compare("dropjungle"))
