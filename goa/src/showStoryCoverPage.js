@@ -161,10 +161,13 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
                         storyText = json[0];
                         cc.log('story text received:' + storyText);
                         that.parent.addChild(new xc.BubbleSpeech(xc.StoryCoverPageLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that, xc.storyCoverPageFontSize, true));
-                    }                                
-                });                
-           
-            } 
+                    } else {
+                        that.sceneTouched();
+                    }                             
+                });           
+            } else {
+                that.sceneTouched();
+            }
         } else {
 
             cc.loader.loadJson(textFileUrl, function(err, json) {            
