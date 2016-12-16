@@ -105,6 +105,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                         target.actionManager.resumeTarget(target);
                         return true;
                     }
+                    return true;
                 } 
                 return false;
             },
@@ -569,18 +570,10 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     saveNormalizedVertices: function(sprite) {
         var fileName = this._nodeToFileNameMapping[sprite.getName()];
         if(fileName && fileName.length > 0) {
-            var vertices = [];
             var tVertices = [];
-            // cc.log('sprite 111 x :' + sprite.getBoundingBox().x);
-            // cc.log('sprite 111 y :' + sprite.getBoundingBox().y);
-            // cc.log('sprite 111 width :' + sprite.getBoundingBox().width);
-            // cc.log('sprite 111 height :' + sprite.getBoundingBox().height);
             if(cc.sys.isNative) {
-                vertices = this.getParent()._menuContext.getPolygonPointsForSprite(sprite, fileName, 0.0);
                 tVertices = this.getParent()._menuContext.getTrianglePointsForSprite(sprite, fileName, 0.0);
             } 
-            
-            //this._nodeToCurrentVerticesMapping[sprite.getName()] = vertices;
             this._nodeToCurrentVerticesMapping[sprite.getName()] = tVertices;
         }
     },

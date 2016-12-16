@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 440,
         "Speed": 1.0,
-        "ActivedAnimationName": "jug",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 1723839232,
@@ -1068,7 +1068,7 @@
             "AnchorPoint": {},
             "Position": {
               "X": -272.2043,
-              "Y": -3.856
+              "Y": 0.0
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1078,7 +1078,7 @@
             "IconVisible": false,
             "PrePosition": {
               "X": -0.1063,
-              "Y": -0.0021
+              "Y": 0.0
             },
             "PreSize": {
               "X": 1.2109,
@@ -1086,8 +1086,6 @@
             },
             "LeftMargin": -272.2043,
             "RightMargin": -267.7957,
-            "TopMargin": 3.856,
-            "BottomMargin": -3.856,
             "Tag": 42,
             "ActionTag": 1457070355,
             "Size": {
@@ -1165,8 +1163,8 @@
             "Scale9Height": 1,
             "AnchorPoint": {},
             "Position": {
-              "X": -272.2042,
-              "Y": -0.5893
+              "X": -272.2048,
+              "Y": 0.0
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1176,16 +1174,15 @@
             "IconVisible": false,
             "PrePosition": {
               "X": -0.1063,
-              "Y": -0.0003
+              "Y": 0.0
             },
             "PreSize": {
               "X": 1.2109,
               "Y": 0.2778
             },
-            "LeftMargin": -272.2042,
-            "RightMargin": -267.7959,
-            "TopMargin": 1300.5894,
-            "BottomMargin": -0.5893,
+            "LeftMargin": -272.2048,
+            "RightMargin": -267.7952,
+            "TopMargin": 1300.0,
             "Tag": 44,
             "ActionTag": 303095068,
             "Size": {
@@ -1206,27 +1203,27 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1208.3861,
-              "Y": 215.598
+              "X": 1225.0999,
+              "Y": 475.6402
             },
             "Scale": {
-              "ScaleX": 0.7103,
-              "ScaleY": 0.7103
+              "ScaleX": 0.389,
+              "ScaleY": 0.389
             },
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.472,
-              "Y": 0.1198
+              "X": 0.4786,
+              "Y": 0.2642
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1208.3861,
-            "RightMargin": 1351.6139,
-            "TopMargin": 1584.402,
-            "BottomMargin": 215.598,
+            "LeftMargin": 1225.0999,
+            "RightMargin": 1334.9001,
+            "TopMargin": 1324.3599,
+            "BottomMargin": 475.6402,
             "UserData": "walking;drag",
             "Tag": 4266,
             "ActionTag": 1674082246,
@@ -1340,32 +1337,30 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1204.6267,
-              "Y": 390.936
+              "X": 1197.9868,
+              "Y": 119.2109
             },
             "Scale": {
-              "ScaleX": 0.4798,
-              "ScaleY": 0.4798
+              "ScaleX": 0.6,
+              "ScaleY": 0.6
             },
             "CColor": {
-              "R": 250,
-              "G": 224,
-              "B": 202
+              "B": 240
             },
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.4706,
-              "Y": 0.2172
+              "X": 0.468,
+              "Y": 0.0662
             },
             "PreSize": {
               "X": 0.1652,
               "Y": 0.1811
             },
-            "LeftMargin": 993.1267,
-            "RightMargin": 1143.8733,
-            "TopMargin": 1246.064,
-            "BottomMargin": 227.936,
-            "UserData": "drag;main.jug ",
+            "LeftMargin": 986.4868,
+            "RightMargin": 1150.5132,
+            "TopMargin": 1517.7891,
+            "BottomMargin": -43.7891,
+            "UserData": "main.jug ",
             "Tag": 4298,
             "ActionTag": -2020255155,
             "Size": {
@@ -1386,8 +1381,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 2109.8142,
-              "Y": 437.7037
+              "X": 3151.8115,
+              "Y": 440.2014
             },
             "Scale": {
               "ScaleX": 0.4742,
@@ -1396,17 +1391,18 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.8241,
-              "Y": 0.2432
+              "X": 1.2312,
+              "Y": 0.2446
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 2109.8142,
-            "RightMargin": 450.1858,
-            "TopMargin": 1362.2963,
-            "BottomMargin": 437.7037,
+            "LeftMargin": 3151.8115,
+            "RightMargin": -591.8115,
+            "TopMargin": 1359.7986,
+            "BottomMargin": 440.2014,
+            "UserData": "walking;drag",
             "Tag": 4299,
             "ActionTag": -1520225171,
             "Size": {
@@ -1427,8 +1423,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 557.9611,
-              "Y": 419.7902
+              "X": -590.3161,
+              "Y": 413.6817
             },
             "Scale": {
               "ScaleX": -0.5632,
@@ -1437,17 +1433,18 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.218,
-              "Y": 0.2332
+              "X": -0.2306,
+              "Y": 0.2298
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 557.9611,
-            "RightMargin": 2002.0388,
-            "TopMargin": 1380.2098,
-            "BottomMargin": 419.7902,
+            "LeftMargin": -590.3161,
+            "RightMargin": 3150.3162,
+            "TopMargin": 1386.3184,
+            "BottomMargin": 413.6817,
+            "UserData": "walking;drag",
             "Tag": 4309,
             "ActionTag": 1957548370,
             "Size": {
