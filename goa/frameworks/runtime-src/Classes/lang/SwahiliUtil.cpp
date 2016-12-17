@@ -20,6 +20,8 @@ static const char* audioExt = ".m4a";
 static const char* pronounciationAudioExt = ".ogg";
 
 static const wchar_t* const allCharacters = L"ABCDEFGHIJKLMNOPRSTUVWYZ" ;
+static const wchar_t* const allLowerCaseCharacters = L"abcdefghijklmnoprstuvwyz" ;
+static const wchar_t* const allNumbers = L"0123456789" ;
 
 const wchar_t* SwahiliUtil::getAllCharacters() {
     return allCharacters;
@@ -27,6 +29,14 @@ const wchar_t* SwahiliUtil::getAllCharacters() {
 
 int SwahiliUtil::getNumberOfCharacters() {
     return 24;
+}
+
+const wchar_t* SwahiliUtil::getAllLowerCaseCharacters() {
+    return allLowerCaseCharacters;
+}
+
+const wchar_t* SwahiliUtil::getAllNumbers() {
+    return allNumbers;
 }
 
 const std::vector<int> SwahiliUtil::getNumCharsInRows() {
@@ -44,7 +54,7 @@ std::string SwahiliUtil::getSpecialAnimationFileName(wchar_t alpha, std::string 
 }
 
 std::string SwahiliUtil::getBMFontFileName() {
-    return "english/baloo_bhai_hdr.fnt";
+    return "english/baloo_bhai_common.fnt";
 }
 
 std::string SwahiliUtil::getAlphabetSoundFileName(wchar_t alpha) {
@@ -78,8 +88,13 @@ bool SwahiliUtil::isGraphemeStart(uint32_t prevCodePoint, uint32_t currentCodePo
 
 std::string SwahiliUtil::getPronounciationFileNameForWord(std::string word) {
     std::transform(word.begin(), word.end(), word.begin(), ::tolower);
-    auto fileName = std::string("swahili/sounds/audio/") + word + pronounciationAudioExt;
+    auto fileName = std::string("swahili/audio/words/") + word + pronounciationAudioExt;
     return fileName;
+}
+
+
+bool SwahiliUtil::isTextToSpeechSupported() {
+    return false;
 }
 
 

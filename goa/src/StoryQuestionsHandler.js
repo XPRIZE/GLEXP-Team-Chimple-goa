@@ -170,10 +170,12 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
             var question = this._questions[this._currentQuestionIndex];
             cc.log('question["type"]:' + question["type"]);
             if(question["type"] == "words") {
-                cc.log('11111111111');
-                this.wordQuestionHandler(this._questions);
+                var cIndex = this._currentQuestionIndex;
+                var questions = this._questions.filter(function(element, index) {
+                    return index >= cIndex;
+                });
+                this.wordQuestionHandler(questions);
             } else {
-                cc.log('22222222');
                 this.questionHandler(question);
             }                            
         } else {

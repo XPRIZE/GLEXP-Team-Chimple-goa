@@ -127,6 +127,9 @@ protected:
     void sadFace();
     void normalFace();
     
+    void unlockNextStory();
+    void createUnlockStoryDocument(std::string storyToUnlock);
+    
     cocostudio::timeline::SkeletonNode* _character;
     
     std::string gameName;

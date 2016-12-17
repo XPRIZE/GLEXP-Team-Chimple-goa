@@ -120,6 +120,9 @@ void CarDraw::characterRecogination(std::vector<string> str)
 
 	if (str.size() > 0) {
 		if ((str.at(0).compare("o") == 0 || str.at(0).compare("0") == 0) && (_myChar.compare("O") == 0)) {
+			menu->addPoints(5);
+			cocos2d::ui::Button* refreshButton = _carDrawNodeLiPi->_button;
+			refreshButton->setEnabled(false);
 			flage = true;
 			_carDrawNodeLiPi->writingEnable(false);
 		}
@@ -129,6 +132,9 @@ void CarDraw::characterRecogination(std::vector<string> str)
             std::string res = *itStr;
             if(res.compare(_myChar) == 0)
             {
+				menu->addPoints(5);
+				cocos2d::ui::Button* refreshButton = _carDrawNodeLiPi->_button;
+				refreshButton->setEnabled(false);
                 flage = true;
                 _carDrawNodeLiPi->writingEnable(false);
             }
@@ -199,7 +205,8 @@ void CarDraw::carMoving()
 	car->setRotation(_prevDegree);
 	this->addChild(car);
 	car->setScale(-0.65);
-	
+	auto  audio = CocosDenshion::SimpleAudioEngine::getInstance();
+	audio->playEffect("sounds/sfx/carSound.wav", true);
 	Vector< FiniteTimeAction * > fta;
 	Vector< FiniteTimeAction * > rotateAction;
 	for (int i = 0; i < _carStrokes.size(); i++) {
@@ -272,6 +279,7 @@ void CarDraw::carMoving()
 	//	}
 	}
 	auto showScore = CallFunc::create([=]() {
+		audio->stopAllEffects();
 		menu->showScore();
 		 });
 
@@ -294,6 +302,7 @@ void CarDraw::carMoving()
 void CarDraw::clearScreen(float ft)
 {
 	//CC_CALLBACK_2()
+	menu->addPoints(-1);
 	_carStrokes.clear();
 //	_carDrawNodeLiPi->clearDrawing(nullptr, cocos2d::ui::Widget::TouchEventType::ENDED);
 	gameStart();
@@ -323,6 +332,7 @@ void CarDraw::onEnterTransitionDidFinish()
 {
 	_helpLayerFlag = true;
 	gameStart();
+	menu->setMaxPoints(5);
 	if (menu->getCurrentLevel() == 1) {
 		gameHelpLayer();
 	}

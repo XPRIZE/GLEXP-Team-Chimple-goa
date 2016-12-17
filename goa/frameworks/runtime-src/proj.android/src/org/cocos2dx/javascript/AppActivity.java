@@ -50,6 +50,7 @@ import android.os.AsyncTask;
 import android.os.Vibrator;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
+import java.util.Locale;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
@@ -120,6 +121,7 @@ public class AppActivity extends Cocos2dxActivity {
 	private List bluetoothAddresses;
 
 	private TextToSpeech textToSpeechInstance;
+	private static boolean supportForTTSEnabled = false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -146,12 +148,19 @@ public class AppActivity extends Cocos2dxActivity {
 
 		textToSpeechInstance = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
          @Override
-         public void onInit(int status) {
-            if(status != TextToSpeech.ERROR) {
-               //textToSpeechInstance.setLanguage(Locale.US);
-            }
-         }
-      });
+         	public void onInit(int status) {
+				if (status == TextToSpeech.SUCCESS) {
+ 					int result = textToSpeechInstance.setLanguage(Locale.US); 
+            		if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                		Log.e("TTS", "This Language is not supported");
+            		} else {
+						supportForTTSEnabled = true;	
+					} 
+		    	} else {
+        		    Log.e("TTS", "Initilization Failed!");
+        		}
+			}			 
+      	});
 
         blueToothSupport = BlueToothSupport.getInstance(this, null);		
         blueToothSupport.setBluetoothChatService();
@@ -267,6 +276,14 @@ public class AppActivity extends Cocos2dxActivity {
 		});
 	}
 
+	public static void pronounceWord(String word) {
+		System.out.println("word for pronounciation:" + word);
+		if(_appActivity.supportForTTSEnabled && _appActivity.textToSpeechInstance != null) {
+			System.out.println("TTS supported for pronounciation:" + word);
+			_appActivity.textToSpeechInstance.speak(word, TextToSpeech.QUEUE_FLUSH, null);
+		}		        
+	}
+
 	public static void takePhoto() {
 		String tag = "Take Photo";
 		String message = "I've been called from C++";
@@ -292,6 +309,10 @@ public class AppActivity extends Cocos2dxActivity {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
+		if(textToSpeechInstance != null) {
+			textToSpeechInstance.stop();
+			textToSpeechInstance.shutdown();			
+		}		
 	}
 
 
@@ -309,10 +330,6 @@ public class AppActivity extends Cocos2dxActivity {
 	@Override
 	public void onPause() {
 		super.onPause();
-		if(textToSpeechInstance != null) {
-			textToSpeechInstance.stop();
-			textToSpeechInstance.shutdown();			
-		}
 	}
 
 	public void showToast(final String msg) {
@@ -403,14 +420,10 @@ public class AppActivity extends Cocos2dxActivity {
                 BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE) {
             Intent discoverableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
             discoverableIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
-            //startActivity(discoverableIntent);
             startActivityForResult(discoverableIntent, BLUETOOTH_REQUEST_DISCOVERABLE_CODE);
         } else {
 			if (D) Log.d(TAG, "ensure discoverable => startDiscoveryForDevices");
 			startDiscoveryForDevices();
-            //Intent serverIntent = null;
-            //serverIntent = new Intent(this, DeviceListActivity.class);
-            //startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE_SECURE);
         }
     }
 

@@ -98,11 +98,13 @@ void carDrawNode::clearDrawing(cocos2d::Ref * pSender, cocos2d::ui::Widget::Touc
 
 cocos2d::ui::Button * carDrawNode::createButton(const std::string normalImage, const std::string selectedImage, const std::string disableImage, cocos2d::Vec2 position)
 {
+	auto spritecache1 = SpriteFrameCache::getInstance();
+	spritecache1->addSpriteFramesWithFile("cardraw/cardraw.plist");
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-	cocos2d::ui::Button* button = cocos2d::ui::Button::create(normalImage, selectedImage, disableImage, cocos2d::ui::Widget::TextureResType::LOCAL);
-	button->setPosition(Vec2(300, visibleSize.height - 300));
+	_button = cocos2d::ui::Button::create("cardraw/ref.png", "cardraw/ref_clicked.png", "cardraw/ref.png", cocos2d::ui::Widget::TextureResType::PLIST);
+	_button->setPosition(Vec2(_button->getContentSize().width / 2, visibleSize.height - (_button->getContentSize().height* 1.2)));
+	_button->setName("carDrawRefresh");
+	_button->addTouchEventListener(CC_CALLBACK_2(carDrawNode::clearDrawing, this));
 
-	button->addTouchEventListener(CC_CALLBACK_2(carDrawNode::clearDrawing, this));
-
-	return button;
+	return _button;
 }
