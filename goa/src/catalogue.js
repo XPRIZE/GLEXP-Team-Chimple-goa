@@ -73,8 +73,15 @@ xc.CatalogueLayer = cc.Layer.extend({
         if(this._storyCatalogueObject != undefined && this._storyCatalogueObject.stories != undefined
             && this._storyCatalogueObject.stories.length > 0) {
             this._stories = this._storyCatalogueObject.stories;
-            var unlockedStories = context.getUnLockedStories();
+            var unlockedStories = [];
             var lockedStoryIdOrders = this._stories.map(function(element) { return element["storyId"] });
+            if(cc.sys.isNative) {
+                unlockedStories = context.getUnLockedStories();
+            }  else {
+                unlockedStories = lockedStoryIdOrders;
+            }
+            
+            
             cc.log('cc.sys.localStorage.getItem(xc.storyOrder)' + cc.sys.localStorage.getItem(xc.storyOrder));
             if(cc.sys.localStorage.getItem(xc.storyOrder)) {
                 lockedStoryIdOrders = JSON.parse(cc.sys.localStorage.getItem(xc.storyOrder));
