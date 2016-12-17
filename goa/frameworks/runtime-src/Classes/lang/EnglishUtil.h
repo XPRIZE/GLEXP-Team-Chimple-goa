@@ -16,6 +16,8 @@ class EnglishUtil : public LangUtil {
 public:
     virtual const wchar_t* getAllCharacters() override;
     virtual int getNumberOfCharacters() override;
+    virtual const wchar_t* getAllLowerCaseCharacters() override;
+    virtual const wchar_t* getAllNumbers() override;
     virtual const std::vector<int> getNumCharsInRows() override;
     virtual std::string getMonsterAnimationFileName(wchar_t alpha) override;
     virtual std::string getSpecialAnimationFileName(wchar_t alpha, std::string suffix) override;    

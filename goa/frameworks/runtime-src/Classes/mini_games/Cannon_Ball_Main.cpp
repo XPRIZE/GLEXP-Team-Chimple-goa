@@ -266,7 +266,7 @@ void MainGame::startGame()	// starting of game
 //	this->addChild(layer, 20);
 
 
-	MainChars = CharGenerator::getInstance()->generateCharMatrix(1, 10, true);
+	MainChars = CharGenerator::getInstance()->generateCharMatrix(1, 10, true, true);
 	letterComespeed = 5;
 	tweenSpeed = 40;
 
@@ -450,7 +450,7 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 			wchar_t letterName;
 			if (flag == 0)
 			{
-				wchar_t lett = CharGenerator::getInstance()->generateAnotherChar(MainChars[0]);
+				wchar_t lett = CharGenerator::getInstance()->generateAnotherChar(MainChars[0], true);
 				MainChars[0][remcharPos] = lett;
 				letterName = lett;
 			}

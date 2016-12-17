@@ -35,7 +35,7 @@ protected:
     bool _selected;
     float _fontSize;
     cocos2d::EventListenerTouchOneByOne *_listener;
-    constexpr static const float MAX_FONT_SIZE = 800.0;
+    constexpr static const float MAX_FONT_SIZE = 600.0;
 };
 
 #endif /* Alphabet_h */
