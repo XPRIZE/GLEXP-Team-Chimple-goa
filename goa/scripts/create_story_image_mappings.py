@@ -25,7 +25,7 @@ with open('scripts/story_mappings.csv', 'rb') as csvfile:
     if len(row) > 3:
       story_dict[row[0]][row[1]][row[2]] = row[3]
     else:
-      story_dict[row[0]][row[1]][row[2]] = 'undef'
+      story_dict[row[0]][row[1]][row[2]] = ''
 # print(story_dict)
 for story_json in glob(dirname + os.path.sep + "*.json"):
   if 'question' in story_json:
@@ -50,19 +50,19 @@ for story_json in glob(dirname + os.path.sep + "*.json"):
               continue
             node_name = child['Name']
             if node_name not in story_dict[basename][scene_basename]:
-              story_dict[basename][scene_basename][node_name] = 'undef'
+              story_dict[basename][scene_basename][node_name] = ''
 with open('scripts/story_mappings.csv', 'w') as csvfile:
   mappingwriter = csv.writer(csvfile, delimiter=';', quoting=csv.QUOTE_ALL)  
   for story in story_dict:
     mapping = {}
     for scene in story_dict[story]:
       for node in story_dict[story][scene]:
-        if story_dict[story][scene][node] == 'undef':
+        if story_dict[story][scene][node] == '':
           mapping[node] = re.sub(r'^([a-zA-Z_]+?)_*[\d_]*$',r'\1',node).lower()
         else:
           mapping[node] = story_dict[story][scene][node]
         mappingwriter.writerow([story, scene, node, story_dict[story][scene][node]])
-    print(story)
-    print(json.dumps(mapping))
+    # print(story)
+    # print(json.dumps(mapping))
     with open(dirname + os.path.sep + story + '.mapping.json', 'w') as mapping_json:
       mapping_json.write(json.dumps(mapping, sort_keys=True, indent=4, separators=(',', ': ')))
