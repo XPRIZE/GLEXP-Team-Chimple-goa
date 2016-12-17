@@ -18,6 +18,16 @@ static const char* audioExt = ".m4a";
 static const char* pronounciationAudioExt = ".ogg";
 
 static const wchar_t* const allCharacters = L"ABCDEFGHIJKLMNOPQRSTUVWXYZ" ;
+static const wchar_t* const allLowerCaseCharacters = L"abcdefghijklmnopqrstuvwxyz" ;
+static const wchar_t* const allNumbers = L"0123456789" ;
+
+const wchar_t* EnglishUtil::getAllLowerCaseCharacters() {
+    return allLowerCaseCharacters;
+}
+
+const wchar_t* EnglishUtil::getAllNumbers() {
+    return allNumbers;
+}
 
 const wchar_t* EnglishUtil::getAllCharacters() {
     return allCharacters;
@@ -42,7 +52,7 @@ std::string EnglishUtil::getSpecialAnimationFileName(wchar_t alpha, std::string 
 }
 
 std::string EnglishUtil::getBMFontFileName() {
-    return "english/baloo_bhai_hdr.fnt";
+    return "english/baloo_bhai_common.fnt";
 }
 
 std::string EnglishUtil::getAlphabetSoundFileName(wchar_t alpha) {

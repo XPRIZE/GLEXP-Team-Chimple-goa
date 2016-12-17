@@ -24,6 +24,8 @@ public:
     virtual ~LangUtil();
     virtual const wchar_t* getAllCharacters() = 0;
     virtual int getNumberOfCharacters() = 0;
+    virtual const wchar_t* getAllLowerCaseCharacters() = 0;
+    virtual const wchar_t* getAllNumbers() = 0;
     virtual const std::vector<int> getNumCharsInRows() = 0;
     virtual std::string getMonsterAnimationFileName(wchar_t alpha) = 0;
     virtual std::string getSpecialAnimationFileName(wchar_t alpha, std::string suffix) =0;
