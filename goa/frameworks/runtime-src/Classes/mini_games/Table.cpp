@@ -353,7 +353,7 @@ void Table::gameEnd(float ft)
 void Table::calculatedResult(std::string result)
 {
 	CCLOG("table calculator!!!!!!!!!!!  === %s",result.c_str());
-	_touched = true;
+	
 	_numberOfAttempt++;
 	if (_targetedFishName.compare(result) == 0) {
 		for (int i = 0; i < _catchedFish.size(); i++) {
@@ -364,7 +364,7 @@ void Table::calculatedResult(std::string result)
 				_score++;
 				
 				_catchedFish.at(i)->setOpacity(255);
-				
+				_touched = true;
 				auto fadeOut = FadeOut::create(2);
 				_target->runAction(fadeOut);
 				auto move = MoveTo::create(2, _targetPosition);
@@ -381,7 +381,9 @@ void Table::calculatedResult(std::string result)
 		this->removeChildByName("hintLabel");
 		menu->addPoints(-1);
 		FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
-		_target->runAction(shake);
+		_target->runAction(Sequence::create(shake, CallFunc::create([=](){
+			_touched = true;
+		}),NULL));
 	}
 	if (_score == _config.at("disableFish")) {
 		menu->setMaxPoints(_config.at("disableFish"));
@@ -402,6 +404,10 @@ bool Table::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		_touched = false;
 		_targetedFishName = target->getName().c_str();
 		_fishNumber = atoi(target->getName().c_str());
+		auto testX = target->getPositionY() / 300;
+		auto testY = target->getPositionX() / 400;
+		CCLOG("X = %f", testX);
+		CCLOG("Y = %f", testY);
 		int indexY = target->getPositionY() / 300;
 		int indexX = target->getPositionX() / 400;
 		CCLOG("X = %d", indexX);
