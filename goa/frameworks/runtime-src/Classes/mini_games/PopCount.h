@@ -24,6 +24,7 @@ protected:
 	string _popcountCurrentTheme = "" , _popCharacter = "";
 	int _popUpAnswer = 0, _popElementCount = 5 , _maxPopStarLimits = 10 , _totalHit = 0 , _wrongHit = 0;
 	float _popStayDelay = 4.0f;
+	vector<int> _getElementObject;
 	cocostudio::timeline::ActionTimeline *_timelineCenterStarFish;
 	bool _popMidButtonClickPermision = true , _popStartListner = false , _tempToHoldCenterButton = false;
 
@@ -34,7 +35,7 @@ public:
 	static PopCount* create();
 	void addEventsOnGrid(cocos2d::Sprite * callerObject);
 	void setIslandScene();
-	void popUpCall(int popNumberOfCharacter);
+	void popUpCall(int popNumberOfCharacter, bool replay);
 	void onEnterTransitionDidFinish();
 	void update(float) override;
 
