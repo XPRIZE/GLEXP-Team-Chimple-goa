@@ -70,7 +70,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "NoLoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "heartbeat",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 300,
@@ -1719,6 +1719,14 @@
                 "FrameIndex": 95,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "scared",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -2489,34 +2497,34 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1875.5676,
-              "Y": 819.6331
+              "X": 1998.3717,
+              "Y": 812.6382
             },
             "Scale": {
-              "ScaleX": 0.1575,
-              "ScaleY": 0.1575
+              "ScaleX": 0.01,
+              "ScaleY": 0.01
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.7326,
-              "Y": 0.4554
+              "X": 0.7806,
+              "Y": 0.4515
             },
             "PreSize": {
               "X": 0.2562,
               "Y": 0.3072
             },
-            "LeftMargin": 1547.5676,
-            "RightMargin": 356.4324,
-            "TopMargin": 703.8669,
-            "BottomMargin": 543.1331,
+            "LeftMargin": 1670.3717,
+            "RightMargin": 233.6284,
+            "TopMargin": 710.8618,
+            "BottomMargin": 536.1382,
             "Tag": 1757,
             "ActionTag": 1998158351,
             "Size": {
               "X": 656.0,
               "Y": 553.0
             },
-            "Alpha": 101,
+            "Alpha": 0,
             "Name": "heartbeat_1_0_0_0_0_0_0_0_0_0_0",
             "ctype": "SpriteObjectData"
           },
@@ -2535,33 +2543,35 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1691.3616,
-              "Y": 830.1255
+              "X": 1826.446,
+              "Y": 822.4311
             },
             "Scale": {
-              "ScaleX": 0.3788,
-              "ScaleY": 0.3788
+              "ScaleX": 0.2165,
+              "ScaleY": 0.2165
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.6607,
-              "Y": 0.4612
+              "X": 0.7135,
+              "Y": 0.4569
             },
             "PreSize": {
               "X": 0.2562,
               "Y": 0.3072
             },
-            "LeftMargin": 1363.3616,
-            "RightMargin": 540.6384,
-            "TopMargin": 693.3745,
-            "BottomMargin": 553.6255,
+            "LeftMargin": 1498.446,
+            "RightMargin": 405.554,
+            "TopMargin": 701.0688,
+            "BottomMargin": 545.9311,
             "Tag": 1758,
             "ActionTag": -1851280786,
             "Size": {
               "X": 656.0,
               "Y": 553.0
             },
+            "VisibleForFrame": false,
+            "Alpha": 142,
             "Name": "heartbeat_1_0_0_0_0_0_0_0_0_0_0_0",
             "ctype": "SpriteObjectData"
           },
@@ -2580,33 +2590,34 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1507.1555,
-              "Y": 840.618
+              "X": 1642.24,
+              "Y": 832.9235
             },
             "Scale": {
-              "ScaleX": 0.6,
-              "ScaleY": 0.6
+              "ScaleX": 0.4378,
+              "ScaleY": 0.4378
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5887,
-              "Y": 0.467
+              "X": 0.6415,
+              "Y": 0.4627
             },
             "PreSize": {
               "X": 0.2562,
               "Y": 0.3072
             },
-            "LeftMargin": 1179.1555,
-            "RightMargin": 724.8445,
-            "TopMargin": 682.8821,
-            "BottomMargin": 564.118,
+            "LeftMargin": 1314.24,
+            "RightMargin": 589.76,
+            "TopMargin": 690.5764,
+            "BottomMargin": 556.4235,
             "Tag": 1759,
             "ActionTag": 1844434617,
             "Size": {
               "X": 656.0,
               "Y": 553.0
             },
+            "VisibleForFrame": false,
             "Name": "heartbeat_1_0_0_0_0_0_0_0_0_0_0_0_0",
             "ctype": "SpriteObjectData"
           },
@@ -2625,33 +2636,34 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1306.6261,
-              "Y": 829.7366
+              "X": 1453.681,
+              "Y": 837.7163
             },
             "Scale": {
-              "ScaleX": 0.305,
-              "ScaleY": 0.305
+              "ScaleX": 0.5213,
+              "ScaleY": 0.5213
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5104,
-              "Y": 0.461
+              "X": 0.5678,
+              "Y": 0.4654
             },
             "PreSize": {
               "X": 0.2562,
               "Y": 0.3072
             },
-            "LeftMargin": 978.6261,
-            "RightMargin": 925.3739,
-            "TopMargin": 693.7634,
-            "BottomMargin": 553.2366,
+            "LeftMargin": 1125.681,
+            "RightMargin": 778.319,
+            "TopMargin": 685.7837,
+            "BottomMargin": 561.2163,
             "Tag": 1760,
             "ActionTag": -970553384,
             "Size": {
               "X": 656.0,
               "Y": 553.0
             },
+            "VisibleForFrame": false,
             "Name": "heartbeat_1_0_0_0_0_0_0_0_0_0_0_0_0_0",
             "ctype": "SpriteObjectData"
           },
@@ -2670,34 +2682,34 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1106.0967,
-              "Y": 818.8552
+              "X": 1253.1516,
+              "Y": 826.8349
             },
             "Scale": {
-              "ScaleX": 0.01,
-              "ScaleY": 0.01
+              "ScaleX": 0.2263,
+              "ScaleY": 0.2263
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.4321,
-              "Y": 0.4549
+              "X": 0.4895,
+              "Y": 0.4594
             },
             "PreSize": {
               "X": 0.2562,
               "Y": 0.3072
             },
-            "LeftMargin": 778.0967,
-            "RightMargin": 1125.9033,
-            "TopMargin": 704.6448,
-            "BottomMargin": 542.3552,
+            "LeftMargin": 925.1516,
+            "RightMargin": 978.8484,
+            "TopMargin": 696.665,
+            "BottomMargin": 550.3349,
             "Tag": 1761,
-            "FrameEvent": "heartbeat",
             "ActionTag": -540959438,
             "Size": {
               "X": 656.0,
               "Y": 553.0
             },
+            "VisibleForFrame": false,
             "Name": "heartbeat_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0",
             "ctype": "SpriteObjectData"
           },

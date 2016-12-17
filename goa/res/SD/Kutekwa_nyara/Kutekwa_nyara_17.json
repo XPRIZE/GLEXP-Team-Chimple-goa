@@ -5,7 +5,7 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 100,
+        "Duration": 255,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
@@ -280,10 +280,18 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "hi",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 100,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "hi",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 105,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -307,6 +315,15 @@
                 "X": 1793.9788,
                 "Y": 835.4627,
                 "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1793.9788,
+                "Y": 835.4627,
+                "FrameIndex": 105,
                 "EasingData": {
                   "Type": 0
                 },
@@ -336,6 +353,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.53,
+                "Y": 0.53,
+                "FrameIndex": 105,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -361,6 +387,211 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 105,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1035672240,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "puff",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 105,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "puff",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 255,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1035672240,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1363.09,
+                "Y": 700.0367,
+                "FrameIndex": 105,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1363.09,
+                "Y": 700.0367,
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1035672240,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 105,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1035672240,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 105,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -897535564,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "puff",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 150,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "puff",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 255,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -897535564,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1023.8495,
+                "Y": 299.1428,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1023.8495,
+                "Y": 299.1428,
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -897535564,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -897535564,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -373,6 +604,12 @@
           "StartIndex": 0,
           "EndIndex": 100,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 105,
+          "EndIndex": 255,
+          "Name": "puff",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -577,6 +814,7 @@
             "RightMargin": -515.3262,
             "TopMargin": 79.11,
             "BottomMargin": -279.11,
+            "UserData": "mian.puff",
             "Tag": 151,
             "ActionTag": -755663895,
             "Size": {
@@ -856,6 +1094,188 @@
             "TopMargin": 272.7134,
             "BottomMargin": 1076.2866,
             "Tag": 2010,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kutekwa_nyara/eye_outer_right.png",
+                  "Plist": "Kutekwa_nyara/Kutekwa_nyara.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 68.3409,
+                  "Y": 379.0132
+                },
+                "Scale": {
+                  "ScaleX": 0.22,
+                  "ScaleY": 0.22
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4219,
+                  "Y": 0.8404
+                },
+                "PreSize": {
+                  "X": 0.5802,
+                  "Y": 0.235
+                },
+                "LeftMargin": 21.3409,
+                "RightMargin": 46.6591,
+                "TopMargin": 18.9868,
+                "BottomMargin": 326.0132,
+                "Tag": 1183,
+                "ActionTag": -1004175257,
+                "Size": {
+                  "X": 94.0,
+                  "Y": 106.0
+                },
+                "Name": "eye_outer_right_63_1_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kutekwa_nyara/eye_inner_right.png",
+                  "Plist": "Kutekwa_nyara/Kutekwa_nyara.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 73.9768,
+                  "Y": 379.4507
+                },
+                "Scale": {
+                  "ScaleX": 0.22,
+                  "ScaleY": 0.22
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4566,
+                  "Y": 0.8414
+                },
+                "PreSize": {
+                  "X": 0.2593,
+                  "Y": 0.0931
+                },
+                "LeftMargin": 52.9768,
+                "RightMargin": 67.0232,
+                "TopMargin": 50.5493,
+                "BottomMargin": 358.4507,
+                "Tag": 1182,
+                "ActionTag": 208953101,
+                "Size": {
+                  "X": 42.0,
+                  "Y": 42.0
+                },
+                "Name": "eye_inner_right_62_1_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kutekwa_nyara/eye_outer_right.png",
+                  "Plist": "Kutekwa_nyara/Kutekwa_nyara.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 95.888,
+                  "Y": 379.1984
+                },
+                "Scale": {
+                  "ScaleX": 0.22,
+                  "ScaleY": 0.22
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5919,
+                  "Y": 0.8408
+                },
+                "PreSize": {
+                  "X": 0.5802,
+                  "Y": 0.235
+                },
+                "LeftMargin": 48.888,
+                "RightMargin": 19.112,
+                "TopMargin": 18.8016,
+                "BottomMargin": 326.1984,
+                "Tag": 1184,
+                "ActionTag": -678445371,
+                "Size": {
+                  "X": 94.0,
+                  "Y": 106.0
+                },
+                "Name": "eye_outer_right_63_1_1_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kutekwa_nyara/eye_inner_right.png",
+                  "Plist": "Kutekwa_nyara/Kutekwa_nyara.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 101.5237,
+                  "Y": 379.6359
+                },
+                "Scale": {
+                  "ScaleX": 0.22,
+                  "ScaleY": 0.22
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.6267,
+                  "Y": 0.8418
+                },
+                "PreSize": {
+                  "X": 0.2593,
+                  "Y": 0.0931
+                },
+                "LeftMargin": 80.5237,
+                "RightMargin": 39.4763,
+                "TopMargin": 50.3641,
+                "BottomMargin": 358.6359,
+                "Tag": 1185,
+                "ActionTag": 1378871871,
+                "Size": {
+                  "X": 42.0,
+                  "Y": 42.0
+                },
+                "Name": "eye_inner_right_62_1_1_0",
+                "ctype": "SpriteObjectData"
+              }
+            ],
             "ActionTag": -2103637628,
             "Size": {
               "X": 162.0,
@@ -896,7 +1316,7 @@
             "RightMargin": 871.2937,
             "TopMargin": 1215.3762,
             "BottomMargin": 584.6238,
-            "UserData": "hi:drag",
+            "UserData": "hi;drag",
             "Tag": 2011,
             "ActionTag": 672325144,
             "Size": {
@@ -904,6 +1324,88 @@
               "Y": 0.0
             },
             "Name": "boy",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Kutekwa_nyara/puff.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1363.09,
+              "Y": 700.0367
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5325,
+              "Y": 0.3889
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1363.09,
+            "RightMargin": 1196.91,
+            "TopMargin": 1099.9634,
+            "BottomMargin": 700.0367,
+            "Tag": 519,
+            "ActionTag": -1035672240,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "puff_1",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Kutekwa_nyara/puff.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1023.8495,
+              "Y": 299.1428
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.3999,
+              "Y": 0.1662
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1023.8495,
+            "RightMargin": 1536.1505,
+            "TopMargin": 1500.8572,
+            "BottomMargin": 299.1428,
+            "Tag": 522,
+            "ActionTag": -897535564,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "puff_1_0",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -917,7 +1419,8 @@
       "UsedResources": [
         "boy.json",
         "Kutekwa_nyara.plist",
-        "Kutekwa_nyara.png"
+        "Kutekwa_nyara.png",
+        "puff.json"
       ],
       "ctype": "GameFileData"
     }

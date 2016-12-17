@@ -176,111 +176,6 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": 1818103352,
-            "Property": "Position",
-            "Frames": [
-              {
-                "X": -340.8422,
-                "Y": 30.2949,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": -340.842,
-                "Y": 30.2947,
-                "FrameIndex": 50,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 1818103352,
-            "Property": "Scale",
-            "Frames": [
-              {
-                "X": 1.0,
-                "Y": 1.0,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 2.5233,
-                "Y": 2.5233,
-                "FrameIndex": 50,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 1818103352,
-            "Property": "RotationSkew",
-            "Frames": [
-              {
-                "X": 0.0,
-                "Y": 0.0,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 1818103352,
-            "Property": "Alpha",
-            "Frames": [
-              {
-                "Value": 0,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "IntFrameData"
-              },
-              {
-                "Value": 255,
-                "FrameIndex": 25,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "IntFrameData"
-              },
-              {
-                "Value": 255,
-                "FrameIndex": 50,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "IntFrameData"
-              },
-              {
-                "Value": 0,
-                "FrameIndex": 95,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "IntFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
             "ActionTag": 1100635223,
             "Property": "Position",
             "Frames": [
@@ -541,7 +436,6 @@
             "TopMargin": -113.4497,
             "BottomMargin": -127.5503,
             "Tag": 143,
-            "FrameEvent": "scratching",
             "ActionTag": -1054768979,
             "Size": {
               "X": 490.0,
@@ -566,11 +460,11 @@
             },
             "Position": {
               "X": -39.4279,
-              "Y": 134.9521
+              "Y": 134.952
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 1.8604,
+              "ScaleY": 1.8604
             },
             "CColor": {},
             "IconVisible": false,
@@ -584,62 +478,16 @@
             },
             "LeftMargin": -107.9279,
             "RightMargin": -29.0721,
-            "TopMargin": -202.9521,
-            "BottomMargin": 66.9521,
+            "TopMargin": -202.952,
+            "BottomMargin": 66.952,
             "Tag": 144,
             "ActionTag": -55256956,
             "Size": {
               "X": 137.0,
               "Y": 136.0
             },
-            "Alpha": 0,
+            "Alpha": 249,
             "Name": "Sprite_2",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Vitu_ninavyojua_Things_I_know/School_Background-04.png",
-              "Plist": "Vitu_ninavyojua_Things_I_know/Vitu_ninavyojua_Things_I_know.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": -340.8422,
-              "Y": 30.2949
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "PreSize": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "LeftMargin": -391.8422,
-            "RightMargin": 289.8422,
-            "TopMargin": -81.2949,
-            "BottomMargin": -20.7051,
-            "Tag": 145,
-            "ActionTag": 1818103352,
-            "Size": {
-              "X": 102.0,
-              "Y": 102.0
-            },
-            "Alpha": 0,
-            "Name": "Sprite_3",
             "ctype": "SpriteObjectData"
           },
           {
@@ -661,8 +509,8 @@
               "Y": -197.858
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 1.7229,
+              "ScaleY": 1.7229
             },
             "CColor": {},
             "IconVisible": false,
@@ -684,7 +532,7 @@
               "X": 126.0,
               "Y": 126.0
             },
-            "Alpha": 0,
+            "Alpha": 249,
             "Name": "Sprite_4",
             "ctype": "SpriteObjectData"
           },
@@ -703,12 +551,12 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 544.5602,
-              "Y": 132.8606
+              "X": 544.5608,
+              "Y": 132.8607
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 1.8706,
+              "ScaleY": 1.8706
             },
             "CColor": {},
             "IconVisible": false,
@@ -720,17 +568,17 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 464.5602,
-            "RightMargin": -624.5602,
-            "TopMargin": -201.8606,
-            "BottomMargin": 63.8606,
+            "LeftMargin": 464.5608,
+            "RightMargin": -624.5608,
+            "TopMargin": -201.8607,
+            "BottomMargin": 63.8607,
             "Tag": 147,
             "ActionTag": 1671340843,
             "Size": {
               "X": 160.0,
               "Y": 138.0
             },
-            "Alpha": 0,
+            "Alpha": 249,
             "Name": "Sprite_5",
             "ctype": "SpriteObjectData"
           }

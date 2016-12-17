@@ -25,7 +25,7 @@ xc.Bubble_Number = cc.Layer.extend({
     }
     
     console.log("the height and width : "+cc.director.getWinSize().height+"      "+cc.director.getWinSize().width);
-    this.textHitsLabel = new cc.LabelTTF("Hits : 0","res/fonts/Marker Felt.ttf",75);
+    this.textHitsLabel = new cc.LabelTTF("Hits : 0","res/fonts/BalooBhai-Regular.ttf",75);
     this.textHitsLabel.setPosition(cc.director.getWinSize().width*0.87,cc.director.getWinSize().height*0.975);                      
  
     this.addChild(this.textHitsLabel);
@@ -188,7 +188,7 @@ xc.Bubble_Number = cc.Layer.extend({
         this.bubblePlayer.setPosition(cc.director.getWinSize().width * 0.5,cc.director.getWinSize().height * 0.5);
         this.addChild(this.bubblePlayer,1);
 
-        this.letterPlayer =  new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/Marker Felt.ttf",150);
+        this.letterPlayer =  new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/BalooBhai-Regular.ttf",150);
         this.letterPlayer.setPosition(this.bubblePlayer.getContentSize().width/2,this.bubblePlayer.getContentSize().height/2);
         this.bubblePlayer.addChild(this.letterPlayer);
         
@@ -197,7 +197,7 @@ xc.Bubble_Number = cc.Layer.extend({
         }
         
         this.nextBubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(imageSprite[this.player.nextbubble.tiletype]+".png"));
-        this.nextLetterPlayer =   new cc.LabelTTF(""+letterSprite[this.player.nextbubble.tiletype],"res/fonts/Marker Felt.ttf",150);
+        this.nextLetterPlayer =   new cc.LabelTTF(""+letterSprite[this.player.nextbubble.tiletype],"res/fonts/BalooBhai-Regular.ttf",150);
         this.nextBubblePlayer.setPosition((this.level.width/2) - 150  , cc.director.getWinSize().height - 1127);
         this.nextLetterPlayer.setPosition((this.level.width/2) - 150  , cc.director.getWinSize().height - 1127);
     
@@ -234,7 +234,7 @@ xc.Bubble_Number = cc.Layer.extend({
          var xPosi = cc.director.getWinSize().width - 2560;
          if(xPosi >= 300){
             this.textHitsLabel.setPosition(trnspImg.x+trnspImg.getContentSize().width + (xPosi/2) , cc.director.getWinSize().height * 0.8);
-            this.extendLetter = new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/Marker Felt.ttf", 450);
+            this.extendLetter = new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/BalooBhai-Regular.ttf", 450);
             this.extendLetter.setPosition(trnspImg.x+trnspImg.getContentSize().width + (xPosi/2) , cc.director.getWinSize().height * 0.5);
             this.addChild(this.extendLetter);
          }
@@ -431,7 +431,7 @@ xc.Bubble_Number = cc.Layer.extend({
           if(this.mainPlayerBubbleDestroy){
               // console.log("done 413");
               this.bubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(imageSprite[ this.player.bubble.tiletype]+".png"));
-              this.letterPlayer =  new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/Marker Felt.ttf",120);
+              this.letterPlayer =  new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/BalooBhai-Regular.ttf",120);
               this.addChild(this.bubblePlayer);
               this.bubblePlayer.addChild(this.letterPlayer);
               
@@ -1165,7 +1165,7 @@ xc.Bubble_Number = cc.Layer.extend({
       
        // Draw the bubble sprite
     
-       let data = new cc.LabelTTF(""+letterSprite[index],"res/fonts/Marker Felt.ttf",120);
+       let data = new cc.LabelTTF(""+letterSprite[index],"res/fonts/BalooBhai-Regular.ttf",120);
        data.setPosition(x,y);
         // console.log("x : " + row + " y : " + col + " color : " +index);
        return data;
@@ -1192,7 +1192,7 @@ xc.Bubble_Number = cc.Layer.extend({
         if (index < 0 || index >= bubblecolors)
             return;
   
-     this.nextLetterPlayer = new cc.LabelTTF(""+letterSprite[this.player.nextbubble.tiletype],"res/fonts/Marker Felt.ttf",120);
+     this.nextLetterPlayer = new cc.LabelTTF(""+letterSprite[this.player.nextbubble.tiletype],"res/fonts/BalooBhai-Regular.ttf",120);
      this.nextLetterPlayer.setPosition(this.nextBubblePlayer.getContentSize().width/2,this.nextBubblePlayer.getContentSize().height/2);
      this.nextLetterPlayer.setAnchorPoint(0.5,0.5);
      this.nextBubblePlayer.addChild(this.nextLetterPlayer);
