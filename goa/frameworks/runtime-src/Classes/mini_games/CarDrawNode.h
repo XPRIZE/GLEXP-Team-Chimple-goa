@@ -33,7 +33,7 @@ public:
 	//virtual void broadCastRecognizedChars(std::vector<std::string> results);
 	void setParent(CarDraw* parent);
 	virtual void clearDrawing(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
-
+	cocos2d::ui::Button* _button;
 	virtual cocos2d::ui::Button* createButton(const std::string normalImage,
 		const std::string selectedImage,
 		const std::string disableImage, cocos2d::Vec2 position) override;
