@@ -314,7 +314,7 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 						_timelineCenterStarFish->play("blink", true);
 						_popUpAnswer = RandomHelper::random_int(1, _maxPopStarLimits);
 						this->getChildByName("gridpanel")->setVisible(false);
-						popUpCall(_popUpAnswer);
+						popUpCall(_popUpAnswer,false);
 					});
 					this->runAction(Sequence::create(DelayTime::create(2), popUpProperty, DelayTime::create(_popStayDelay + 2), 
 						CallFunc::create([=]() {
@@ -344,7 +344,7 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 
 				auto texture = SpriteFrameCache::getInstance()->getSpriteFrameByName(_sceneMap.at(_popcountCurrentTheme).at("watchagain"));
 				((Sprite*)target->getChildByTag(0))->setSpriteFrame(texture);
-				popUpCall(_popUpAnswer);
+				popUpCall(_popUpAnswer,true);
 				target->setVisible(false);
 				_popMidButtonClickPermision = false;
 				this->getChildByName("gridpanel")->setVisible(false);
@@ -356,7 +356,7 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 				auto texture = SpriteFrameCache::getInstance()->getSpriteFrameByName(_sceneMap.at(_popcountCurrentTheme).at("watchagain"));
 				((Sprite*)target->getChildByTag(0))->setSpriteFrame(texture);
 				_popUpAnswer = RandomHelper::random_int(1, _maxPopStarLimits);
-				popUpCall(_popUpAnswer);
+				popUpCall(_popUpAnswer,false);
 				target->setVisible(false);
 				_popMidButtonClickPermision = false;
 				this->getChildByName("gridpanel")->setVisible(false);
@@ -429,14 +429,15 @@ void PopCount::setIslandScene() {
 	
 }
 
-void PopCount::popUpCall(int popNumberOfCharacter) {
+void PopCount::popUpCall(int popNumberOfCharacter , bool replay) {
 
 	this->runAction(Sequence::create(DelayTime::create(1), CallFunc::create([=]() {
 
-		auto getElementObject = getRandomValueRange(0, _maxPopStarLimits-1, popNumberOfCharacter);
+		if(!replay)
+		_getElementObject = getRandomValueRange(0, _maxPopStarLimits-1, popNumberOfCharacter);
 
-		for (size_t i = 0; i < getElementObject.size(); i++) {
-			popUpCharacter(this->getChildByName("bg")->getChildByName("background")->getChildByTag(getElementObject[i] + 1000), "blink");
+		for (size_t i = 0; i < _getElementObject.size(); i++) {
+			popUpCharacter(this->getChildByName("bg")->getChildByName("background")->getChildByTag(_getElementObject[i] + 1000), "blink");
 		}
 
 	}), DelayTime::create(1 + _popStayDelay), CallFunc::create([=]() {
