@@ -1,6 +1,7 @@
 /// <reference path="cocos2d-typescript-definitions-master/cocos2d/cocos2d-lib.d.ts" />
 var xc = xc || {};
 xc.storyLevel = ".level";
+xc.storyOrder = ".unlockedStoryIdOrder";
 xc.HAND_GEAR_LEFT = "hand_gear_left"; 
 xc.LAYER_INIT = false;
 xc.PRIMARY_COLOR = cc.color("#FF8E88");
@@ -61,9 +62,8 @@ xc.CatalogueLayer = cc.Layer.extend({
 
     getUnLockedStories: function() {
         var unlockedStories = [];
-        // unlockedStories.push("storyId_1");
-        // unlockedStories.push("storyId_2");  
-        // unlockedStories.push("storyId_6");  
+        unlockedStories.push("storyId_3");
+        unlockedStories.push("storyId_6");  
         return unlockedStories;      
     },
 
@@ -73,19 +73,34 @@ xc.CatalogueLayer = cc.Layer.extend({
         if(this._storyCatalogueObject != undefined && this._storyCatalogueObject.stories != undefined
             && this._storyCatalogueObject.stories.length > 0) {
             this._stories = this._storyCatalogueObject.stories;
+            var unlockedStories = context.getUnLockedStories();
+            var lockedStoryIdOrders = this._stories.map(function(element) { return element["storyId"] });
+            cc.log('cc.sys.localStorage.getItem(xc.storyOrder)' + cc.sys.localStorage.getItem(xc.storyOrder));
+            if(cc.sys.localStorage.getItem(xc.storyOrder)) {
+                lockedStoryIdOrders = JSON.parse(cc.sys.localStorage.getItem(xc.storyOrder));
+            }            
+            
+            lockedStoryIdOrders = lockedStoryIdOrders.filter(function(item) {
+                return unlockedStories.indexOf(item) === -1;
+            });
+            cc.log("JSON.stringify(lockedStoryIdOrder):" + JSON.stringify(lockedStoryIdOrders));
+            cc.sys.localStorage.setItem(xc.storyOrder, JSON.stringify(lockedStoryIdOrders));
 
             this._stories.forEach(function(config) {
-                var unlockedStories = context.getUnLockedStories(); 
+                
                 var storyStatus = cc.sys.localStorage.getItem(config["storyId"] + xc.storyLevel);
                 if(!storyStatus) {
-                    // if(unlockedStories.indexOf(config.storyId) != -1) {
-                    if(unlockedStories.indexOf(config.storyId) == -1) {
+                    if(unlockedStories.indexOf(config.storyId) != -1) {
                         var storyInfo = {};
                         storyInfo.locked = false;
+                        storyInfo.unlockUsed = false;
+                        storyInfo.timesRead = 0;
                         cc.sys.localStorage.setItem(config["storyId"] + xc.storyLevel, JSON.stringify(storyInfo));
                     } else {
                         var storyInfo = {};
                         storyInfo.locked = true;
+                        storyInfo.timesRead = 0;
+                        storyInfo.unlockUsed = false;
                         cc.sys.localStorage.setItem(config["storyId"] + xc.storyLevel, JSON.stringify(storyInfo));
                     }                    
                 }              
