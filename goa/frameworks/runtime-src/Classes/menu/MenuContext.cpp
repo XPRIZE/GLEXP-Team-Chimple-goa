@@ -1333,16 +1333,29 @@ std::vector<std::vector<cocos2d::Point>> MenuContext::getTrianglePointsForSprite
 
 void MenuContext::pronounceWord(std::string word) {
     std::string fileName = LangUtil::getInstance()->getPronounciationFileNameForWord(word);
+    CCLOG("fileName to pronounce %s", fileName.c_str());
     if(FileUtils::getInstance()->isFileExist(fileName)) {
         auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
         audio->playEffect(fileName.c_str());
     }
-    else {
+    else if(LangUtil::getInstance()->isTextToSpeechSupported()) {
         CCLOG("file doesn't exists with word %s", fileName.c_str());
         #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
             //JSB call to Android TTS Support
-            
+            cocos2d::JniMethodInfo methodInfo;
+            if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/javascript/AppActivity", "pronounceWord", "(Ljava/lang/String;)V")) {
+                return;
+            }
+        
+            std::replace(word.begin(), word.end(), '_', ' ');
+            jstring wordArg = methodInfo.env->NewStringUTF(word.c_str());
+            methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID,wordArg);
+            methodInfo.env->DeleteLocalRef(methodInfo.classID);
+            methodInfo.env->DeleteLocalRef(wordArg);
+
         #endif
+    } else {
+        CCLOG("Language is not supported for Pronounciation");
     }
 }
 

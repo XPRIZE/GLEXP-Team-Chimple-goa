@@ -196,9 +196,14 @@ std::string KannadaUtil::getLang() {
 
 std::string KannadaUtil::getPronounciationFileNameForWord(std::string word) {
     std::transform(word.begin(), word.end(), word.begin(), ::tolower);
-    auto fileName = std::string("kannada/sounds/audio/") + word + pronounciationAudioExt;
+    auto fileName = std::string("kannada/audio/words/") + word + pronounciationAudioExt;
     return fileName;
 }
+
+bool KannadaUtil::isTextToSpeechSupported() {
+    return false;
+}
+
 
 KannadaUtil::KannadaUtil() {
     this->initializeWordManager();

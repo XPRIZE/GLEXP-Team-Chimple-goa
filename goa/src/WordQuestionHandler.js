@@ -26,9 +26,11 @@ xc.WordQuestionHandler = cc.Layer.extend({
             return element !== undefined;
         });
 
+        array = array.map(function(n) { return n.toUpperCase(); });
+
         cc.log("totalPoints in WordQuestionHandler %d", this._totalPoints);
         cc.log("currentPoint in WordQuestionHandler %d", this._currentPoint);
         var board = goa.StoryWordBoard.createSceneWithWords(this._storyId, array, 0, this._baseDir, this._totalPoints, this._currentPoint);
-        this.addChild(board,0);
+        this.addChild(board,0);        
     }
 });
