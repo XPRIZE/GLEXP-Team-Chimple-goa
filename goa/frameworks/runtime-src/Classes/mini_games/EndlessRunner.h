@@ -25,6 +25,7 @@ protected:
 	std::pair<float, float> position;
 	std::vector<Alphabet*> allLabels;
 	Alphabet *letterOnBoard;
+	bool _caseSensitivity = false;
 	bool initBool = true, popUp = true, flagLifeDemo = true , startSecondFlag = true ,_resumeHelp = true, _flagHelp = true,_flagLetter = true;
 	std::string _alphabets;
 	Size visibleSize;
