@@ -78,8 +78,13 @@ bool SwahiliUtil::isGraphemeStart(uint32_t prevCodePoint, uint32_t currentCodePo
 
 std::string SwahiliUtil::getPronounciationFileNameForWord(std::string word) {
     std::transform(word.begin(), word.end(), word.begin(), ::tolower);
-    auto fileName = std::string("swahili/sounds/audio/") + word + pronounciationAudioExt;
+    auto fileName = std::string("swahili/audio/words/") + word + pronounciationAudioExt;
     return fileName;
+}
+
+
+bool SwahiliUtil::isTextToSpeechSupported() {
+    return false;
 }
 
 

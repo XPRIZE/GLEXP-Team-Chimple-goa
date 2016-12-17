@@ -76,10 +76,14 @@ bool EnglishUtil::isGraphemeStart(uint32_t prevCodePoint, uint32_t currentCodePo
 
 std::string EnglishUtil::getPronounciationFileNameForWord(std::string word) {
     std::transform(word.begin(), word.end(), word.begin(), ::tolower);
-    auto fileName = std::string("english/sounds/audio/") + word + pronounciationAudioExt;
+    auto fileName = std::string("english/audio/words/") + word + pronounciationAudioExt;
     return fileName;
 }
 
+
+bool EnglishUtil::isTextToSpeechSupported() {
+    return true;
+}
 
 std::string EnglishUtil::getDir() {
     return "english";

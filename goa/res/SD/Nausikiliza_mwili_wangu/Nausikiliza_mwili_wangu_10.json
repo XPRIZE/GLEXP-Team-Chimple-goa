@@ -22,7 +22,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "NoLoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "heartbeat",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 300,
@@ -1279,6 +1279,14 @@
                 "FrameIndex": 95,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "think",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -2030,6 +2038,7 @@
               "X": 262.0,
               "Y": 46.0
             },
+            "VisibleForFrame": false,
             "Name": "pulse_32_0_0_0_1",
             "ctype": "SpriteObjectData"
           },
@@ -2081,6 +2090,7 @@
               "X": 262.0,
               "Y": 46.0
             },
+            "VisibleForFrame": false,
             "Name": "pulse_32_0_0_0_0_0",
             "ctype": "SpriteObjectData"
           },

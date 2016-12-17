@@ -22,7 +22,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "scared",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 300,
@@ -117,6 +117,14 @@
                 "FrameIndex": 120,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "hi",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -199,6 +207,12 @@
                 "FrameIndex": 120,
                 "Tween": false,
                 "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -231,6 +245,12 @@
               {
                 "Value": true,
                 "FrameIndex": 120,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 300,
                 "Tween": false,
                 "ctype": "BoolFrameData"
               }

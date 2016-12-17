@@ -7331,6 +7331,12 @@
             "Frames": [
               {
                 "Value": "walking",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "walking",
                 "FrameIndex": 5,
                 "Tween": false,
                 "ctype": "EventFrameData"
@@ -11584,8 +11590,8 @@
           {
             "Length": 400.0,
             "Position": {
-              "X": 0.009,
-              "Y": 254.1604
+              "X": 0.0089,
+              "Y": 256.6854
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -11611,8 +11617,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 157.9318,
-                "RotationSkewY": 157.9322,
+                "RotationSkewX": 180.1992,
+                "RotationSkewY": 180.1996,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -11630,8 +11636,6 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 30.3775,
-                    "RotationSkewY": 30.3775,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -11649,8 +11653,6 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewX": 11.9524,
-                        "RotationSkewY": 11.9524,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -11818,53 +11820,6 @@
                     },
                     "Name": "girl_upper_hand_5",
                     "ctype": "SpriteObjectData"
-                  },
-                  {
-                    "FileData": {
-                      "Type": "MarkedSubImage",
-                      "Path": "Ah_Mpira_Ah_Football/boy_sleve.png",
-                      "Plist": "Ah_Mpira_Ah_Football/Ah_Mpira_Ah_Football.plist"
-                    },
-                    "BlendFunc": {
-                      "Src": 1,
-                      "Dst": 771
-                    },
-                    "AnchorPoint": {
-                      "ScaleX": 0.5,
-                      "ScaleY": 0.5
-                    },
-                    "Position": {
-                      "X": 27.1122,
-                      "Y": -0.6608
-                    },
-                    "Scale": {
-                      "ScaleX": 1.0094,
-                      "ScaleY": 1.0008
-                    },
-                    "RotationSkewX": -91.4315,
-                    "RotationSkewY": 268.2517,
-                    "CColor": {},
-                    "IconVisible": false,
-                    "PrePosition": {
-                      "X": 0.0,
-                      "Y": 0.0
-                    },
-                    "PreSize": {
-                      "X": 0.0,
-                      "Y": 0.0
-                    },
-                    "LeftMargin": 4.1122,
-                    "RightMargin": -50.1122,
-                    "TopMargin": -37.8392,
-                    "BottomMargin": -39.1608,
-                    "Tag": 279,
-                    "ActionTag": -1662541284,
-                    "Size": {
-                      "X": 46.0,
-                      "Y": 77.0
-                    },
-                    "Name": "boy_sleve_16",
-                    "ctype": "SpriteObjectData"
                   }
                 ],
                 "ActionTag": 1444436227,
@@ -11886,8 +11841,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 199.4292,
-                "RotationSkewY": 559.429,
+                "RotationSkewX": 180.1992,
+                "RotationSkewY": 540.1992,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -11905,8 +11860,7 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 24.3348,
-                    "RotationSkewY": 384.3348,
+                    "RotationSkewY": 360.0,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -11924,8 +11878,7 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewX": 6.4602,
-                        "RotationSkewY": 726.4603,
+                        "RotationSkewY": 720.0,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -12092,53 +12045,6 @@
                       "Y": 177.0
                     },
                     "Name": "girl_upper_hand_6",
-                    "ctype": "SpriteObjectData"
-                  },
-                  {
-                    "FileData": {
-                      "Type": "MarkedSubImage",
-                      "Path": "Ah_Mpira_Ah_Football/boy_sleve.png",
-                      "Plist": "Ah_Mpira_Ah_Football/Ah_Mpira_Ah_Football.plist"
-                    },
-                    "BlendFunc": {
-                      "Src": 1,
-                      "Dst": 771
-                    },
-                    "AnchorPoint": {
-                      "ScaleX": 0.5,
-                      "ScaleY": 0.5
-                    },
-                    "Position": {
-                      "X": 29.7824,
-                      "Y": -1.5626
-                    },
-                    "Scale": {
-                      "ScaleX": 1.0,
-                      "ScaleY": 1.0102
-                    },
-                    "RotationSkewX": -90.2013,
-                    "RotationSkewY": -90.1946,
-                    "CColor": {},
-                    "IconVisible": false,
-                    "PrePosition": {
-                      "X": 0.0,
-                      "Y": 0.0
-                    },
-                    "PreSize": {
-                      "X": 0.0,
-                      "Y": 0.0
-                    },
-                    "LeftMargin": 6.7824,
-                    "RightMargin": -52.7824,
-                    "TopMargin": -36.9374,
-                    "BottomMargin": -40.0626,
-                    "Tag": 278,
-                    "ActionTag": 1842369746,
-                    "Size": {
-                      "X": 46.0,
-                      "Y": 77.0
-                    },
-                    "Name": "boy_sleve_15",
                     "ctype": "SpriteObjectData"
                   }
                 ],
@@ -12468,15 +12374,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -79.7689,
-                        "RightMargin": -572.2311,
-                        "TopMargin": -235.8724,
-                        "BottomMargin": -290.1276,
+                        "LeftMargin": -80.7689,
+                        "RightMargin": -573.2311,
+                        "TopMargin": -236.8724,
+                        "BottomMargin": -291.1276,
                         "Tag": 1321,
                         "ActionTag": -1365546774,
                         "Size": {
-                          "X": 652.0,
-                          "Y": 526.0
+                          "X": 654.0,
+                          "Y": 528.0
                         },
                         "Name": "Sprite_1",
                         "ctype": "SpriteObjectData"
@@ -12551,7 +12457,7 @@
               {
                 "FileData": {
                   "Type": "MarkedSubImage",
-                  "Path": "Ah_Mpira_Ah_Football/boy_shirt.png",
+                  "Path": "Ah_Mpira_Ah_Football/cricketer_shirt.png",
                   "Plist": "Ah_Mpira_Ah_Football/Ah_Mpira_Ah_Football.plist"
                 },
                 "BlendFunc": {
@@ -12563,12 +12469,12 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 206.4774,
-                  "Y": -2.2539
+                  "X": 205.0461,
+                  "Y": -1.7282
                 },
                 "Scale": {
-                  "ScaleX": 0.8485,
-                  "ScaleY": 0.9294
+                  "ScaleX": 0.5572,
+                  "ScaleY": 0.6883
                 },
                 "RotationSkewX": 90.0,
                 "RotationSkewY": 90.0,
@@ -12582,17 +12488,17 @@
                   "X": 0.0,
                   "Y": 0.0
                 },
-                "LeftMargin": 51.4774,
-                "RightMargin": -361.4774,
-                "TopMargin": -223.2461,
-                "BottomMargin": -227.7539,
-                "Tag": 269,
-                "ActionTag": 696270506,
+                "LeftMargin": -9.4539,
+                "RightMargin": -419.5461,
+                "TopMargin": -295.2718,
+                "BottomMargin": -298.7282,
+                "Tag": 2303,
+                "ActionTag": 754809389,
                 "Size": {
-                  "X": 310.0,
-                  "Y": 451.0
+                  "X": 429.0,
+                  "Y": 594.0
                 },
-                "Name": "boy_shirt_6",
+                "Name": "cricketer_shirt_23",
                 "ctype": "SpriteObjectData"
               }
             ],
@@ -12608,8 +12514,8 @@
           {
             "Length": 139.0,
             "Position": {
-              "X": 0.009,
-              "Y": 254.1604
+              "X": 0.0089,
+              "Y": 256.6854
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -12634,8 +12540,7 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 13.3923,
-                "RotationSkewY": 373.3923,
+                "RotationSkewY": 360.0,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -12653,8 +12558,6 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 3.3061,
-                    "RotationSkewY": 3.3061,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -12672,8 +12575,8 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewX": 101.1968,
-                        "RotationSkewY": 101.1968,
+                        "RotationSkewX": 90.0,
+                        "RotationSkewY": 90.0,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -12684,7 +12587,7 @@
                           {
                             "FileData": {
                               "Type": "MarkedSubImage",
-                              "Path": "Ah_Mpira_Ah_Football/boy_shoe.png",
+                              "Path": "Ah_Mpira_Ah_Football/cricketer_shoe_left.png",
                               "Plist": "Ah_Mpira_Ah_Football/Ah_Mpira_Ah_Football.plist"
                             },
                             "BlendFunc": {
@@ -12696,11 +12599,11 @@
                               "ScaleY": 0.5
                             },
                             "Position": {
-                              "X": 43.9685,
-                              "Y": 2.5732
+                              "X": 55.837,
+                              "Y": 0.0804
                             },
                             "Scale": {
-                              "ScaleX": 1.0,
+                              "ScaleX": 0.86,
                               "ScaleY": 1.0
                             },
                             "RotationSkewX": -180.0,
@@ -12715,17 +12618,17 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": -13.0315,
-                            "RightMargin": -100.9685,
-                            "TopMargin": -16.5732,
-                            "BottomMargin": -11.4268,
-                            "Tag": 272,
-                            "ActionTag": 97842787,
+                            "LeftMargin": -22.663,
+                            "RightMargin": -134.337,
+                            "TopMargin": -18.0804,
+                            "BottomMargin": -17.9196,
+                            "Tag": 2308,
+                            "ActionTag": -1684736421,
                             "Size": {
-                              "X": 114.0,
-                              "Y": 28.0
+                              "X": 157.0,
+                              "Y": 36.0
                             },
-                            "Name": "boy_shoe_9",
+                            "Name": "cricketer_shoe_left_28",
                             "ctype": "SpriteObjectData"
                           }
                         ],
@@ -12741,7 +12644,7 @@
                       {
                         "FileData": {
                           "Type": "MarkedSubImage",
-                          "Path": "Ah_Mpira_Ah_Football/girl_lower_leg.png",
+                          "Path": "Ah_Mpira_Ah_Football/cricketer_leg_lower_left.png",
                           "Plist": "Ah_Mpira_Ah_Football/Ah_Mpira_Ah_Football.plist"
                         },
                         "BlendFunc": {
@@ -12753,12 +12656,12 @@
                           "ScaleY": 0.5
                         },
                         "Position": {
-                          "X": 36.6117,
-                          "Y": -0.9055
+                          "X": 34.7392,
+                          "Y": -1.2317
                         },
                         "Scale": {
-                          "ScaleX": 1.0,
-                          "ScaleY": 1.0
+                          "ScaleX": 0.7032,
+                          "ScaleY": 0.7855
                         },
                         "RotationSkewX": -90.0,
                         "RotationSkewY": -90.0,
@@ -12772,17 +12675,17 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": 25.6117,
-                        "RightMargin": -47.6117,
-                        "TopMargin": -51.5945,
-                        "BottomMargin": -53.4055,
-                        "Tag": 274,
-                        "ActionTag": -2072302462,
+                        "LeftMargin": 19.7392,
+                        "RightMargin": -49.7392,
+                        "TopMargin": -46.7683,
+                        "BottomMargin": -49.2317,
+                        "Tag": 2306,
+                        "ActionTag": -1558217066,
                         "Size": {
-                          "X": 22.0,
-                          "Y": 105.0
+                          "X": 30.0,
+                          "Y": 96.0
                         },
-                        "Name": "girl_lower_leg_11",
+                        "Name": "cricketer_leg_lower_left_26",
                         "ctype": "SpriteObjectData"
                       }
                     ],
@@ -12810,7 +12713,7 @@
                       "ScaleY": 0.5
                     },
                     "Position": {
-                      "X": 49.0775,
+                      "X": 12.5707,
                       "Y": -1.5339
                     },
                     "Scale": {
@@ -12829,8 +12732,8 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": 38.5775,
-                    "RightMargin": -59.5775,
+                    "LeftMargin": 2.0707,
+                    "RightMargin": -23.0707,
                     "TopMargin": -42.9661,
                     "BottomMargin": -46.0339,
                     "Tag": 275,
@@ -12845,7 +12748,7 @@
                   {
                     "FileData": {
                       "Type": "MarkedSubImage",
-                      "Path": "Ah_Mpira_Ah_Football/boy_upper_pent.png",
+                      "Path": "Ah_Mpira_Ah_Football/cricketer_leg_upper_left.png",
                       "Plist": "Ah_Mpira_Ah_Football/Ah_Mpira_Ah_Football.plist"
                     },
                     "BlendFunc": {
@@ -12857,12 +12760,12 @@
                       "ScaleY": 0.5
                     },
                     "Position": {
-                      "X": 15.4275,
-                      "Y": -1.4761
+                      "X": 34.6896,
+                      "Y": -1.308
                     },
                     "Scale": {
-                      "ScaleX": 1.0,
-                      "ScaleY": 1.0
+                      "ScaleX": 0.6688,
+                      "ScaleY": 0.8599
                     },
                     "RotationSkewX": -90.0,
                     "RotationSkewY": -90.0,
@@ -12876,17 +12779,17 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": 1.9275,
-                    "RightMargin": -28.9275,
-                    "TopMargin": -47.0239,
-                    "BottomMargin": -49.9761,
-                    "Tag": 280,
-                    "ActionTag": 497044653,
+                    "LeftMargin": 16.6896,
+                    "RightMargin": -52.6896,
+                    "TopMargin": -72.192,
+                    "BottomMargin": -74.808,
+                    "Tag": 2304,
+                    "ActionTag": -332543523,
                     "Size": {
-                      "X": 27.0,
-                      "Y": 97.0
+                      "X": 36.0,
+                      "Y": 147.0
                     },
-                    "Name": "boy_upper_pent_17",
+                    "Name": "cricketer_leg_upper_left_24",
                     "ctype": "SpriteObjectData"
                   }
                 ],
@@ -12909,8 +12812,7 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": -17.8861,
-                "RotationSkewY": 342.1141,
+                "RotationSkewY": 360.0001,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -12928,8 +12830,6 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": -36.0462,
-                    "RotationSkewY": -36.0462,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -12947,8 +12847,8 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewX": 123.9536,
-                        "RotationSkewY": 123.9536,
+                        "RotationSkewX": 90.0,
+                        "RotationSkewY": 90.0,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -12959,7 +12859,7 @@
                           {
                             "FileData": {
                               "Type": "MarkedSubImage",
-                              "Path": "Ah_Mpira_Ah_Football/boy_shoe.png",
+                              "Path": "Ah_Mpira_Ah_Football/cricketer_shoe_right.png",
                               "Plist": "Ah_Mpira_Ah_Football/Ah_Mpira_Ah_Football.plist"
                             },
                             "BlendFunc": {
@@ -12971,11 +12871,11 @@
                               "ScaleY": 0.5
                             },
                             "Position": {
-                              "X": 46.056,
-                              "Y": -3.4594
+                              "X": 53.7749,
+                              "Y": -7.4922
                             },
                             "Scale": {
-                              "ScaleX": 1.0,
+                              "ScaleX": 0.8096,
                               "ScaleY": 1.0
                             },
                             "RotationSkewX": -180.0,
@@ -12990,17 +12890,17 @@
                               "X": 0.0,
                               "Y": 0.0
                             },
-                            "LeftMargin": -10.944,
-                            "RightMargin": -103.056,
-                            "TopMargin": -10.5406,
-                            "BottomMargin": -17.4594,
-                            "Tag": 273,
-                            "ActionTag": -1378945821,
+                            "LeftMargin": -24.7251,
+                            "RightMargin": -132.2749,
+                            "TopMargin": -10.5078,
+                            "BottomMargin": -25.4922,
+                            "Tag": 2309,
+                            "ActionTag": 1682717868,
                             "Size": {
-                              "X": 114.0,
-                              "Y": 28.0
+                              "X": 157.0,
+                              "Y": 36.0
                             },
-                            "Name": "boy_shoe_10",
+                            "Name": "cricketer_shoe_right_29",
                             "ctype": "SpriteObjectData"
                           }
                         ],
@@ -13016,7 +12916,7 @@
                       {
                         "FileData": {
                           "Type": "MarkedSubImage",
-                          "Path": "Ah_Mpira_Ah_Football/girl_lower_leg.png",
+                          "Path": "Ah_Mpira_Ah_Football/cricketer_leg_lower_right.png",
                           "Plist": "Ah_Mpira_Ah_Football/Ah_Mpira_Ah_Football.plist"
                         },
                         "BlendFunc": {
@@ -13028,12 +12928,12 @@
                           "ScaleY": 0.5
                         },
                         "Position": {
-                          "X": 30.961,
-                          "Y": -3.7809
+                          "X": 29.7766,
+                          "Y": -4.1498
                         },
                         "Scale": {
-                          "ScaleX": 1.0,
-                          "ScaleY": 1.0
+                          "ScaleX": 0.732,
+                          "ScaleY": 0.7697
                         },
                         "RotationSkewX": -90.0,
                         "RotationSkewY": -90.0,
@@ -13047,17 +12947,17 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": 19.961,
-                        "RightMargin": -41.961,
-                        "TopMargin": -48.7191,
-                        "BottomMargin": -56.2809,
-                        "Tag": 277,
-                        "ActionTag": 683992425,
+                        "LeftMargin": 14.7766,
+                        "RightMargin": -44.7766,
+                        "TopMargin": -43.8502,
+                        "BottomMargin": -52.1498,
+                        "Tag": 2307,
+                        "ActionTag": 1195607168,
                         "Size": {
-                          "X": 22.0,
-                          "Y": 105.0
+                          "X": 30.0,
+                          "Y": 96.0
                         },
-                        "Name": "girl_lower_leg_14",
+                        "Name": "cricketer_leg_lower_right_27",
                         "ctype": "SpriteObjectData"
                       }
                     ],
@@ -13073,7 +12973,7 @@
                   {
                     "FileData": {
                       "Type": "MarkedSubImage",
-                      "Path": "Ah_Mpira_Ah_Football/girl_upper_leg.png",
+                      "Path": "Ah_Mpira_Ah_Football/cricketer_leg_upper_right.png",
                       "Plist": "Ah_Mpira_Ah_Football/Ah_Mpira_Ah_Football.plist"
                     },
                     "BlendFunc": {
@@ -13085,12 +12985,12 @@
                       "ScaleY": 0.5
                     },
                     "Position": {
-                      "X": 44.334,
-                      "Y": -3.9276
+                      "X": 33.2862,
+                      "Y": -3.8102
                     },
                     "Scale": {
-                      "ScaleX": 1.0,
-                      "ScaleY": 1.0
+                      "ScaleX": 0.7176,
+                      "ScaleY": 0.8953
                     },
                     "RotationSkewX": -90.0,
                     "RotationSkewY": -90.0,
@@ -13104,64 +13004,17 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": 33.834,
-                    "RightMargin": -54.834,
-                    "TopMargin": -40.5724,
-                    "BottomMargin": -48.4276,
-                    "Tag": 276,
-                    "ActionTag": 607552164,
+                    "LeftMargin": 15.2862,
+                    "RightMargin": -51.2862,
+                    "TopMargin": -69.6898,
+                    "BottomMargin": -77.3102,
+                    "Tag": 2305,
+                    "ActionTag": 909346797,
                     "Size": {
-                      "X": 21.0,
-                      "Y": 89.0
+                      "X": 36.0,
+                      "Y": 147.0
                     },
-                    "Name": "girl_upper_leg_13",
-                    "ctype": "SpriteObjectData"
-                  },
-                  {
-                    "FileData": {
-                      "Type": "MarkedSubImage",
-                      "Path": "Ah_Mpira_Ah_Football/boy_upper_pent.png",
-                      "Plist": "Ah_Mpira_Ah_Football/Ah_Mpira_Ah_Football.plist"
-                    },
-                    "BlendFunc": {
-                      "Src": 1,
-                      "Dst": 771
-                    },
-                    "AnchorPoint": {
-                      "ScaleX": 0.5,
-                      "ScaleY": 0.5
-                    },
-                    "Position": {
-                      "X": 12.4201,
-                      "Y": -3.6351
-                    },
-                    "Scale": {
-                      "ScaleX": 1.0,
-                      "ScaleY": 1.0
-                    },
-                    "RotationSkewX": -90.0,
-                    "RotationSkewY": -90.0,
-                    "CColor": {},
-                    "IconVisible": false,
-                    "PrePosition": {
-                      "X": 0.0,
-                      "Y": 0.0
-                    },
-                    "PreSize": {
-                      "X": 0.0,
-                      "Y": 0.0
-                    },
-                    "LeftMargin": -1.0799,
-                    "RightMargin": -25.9201,
-                    "TopMargin": -44.8649,
-                    "BottomMargin": -52.1351,
-                    "Tag": 281,
-                    "ActionTag": 761108584,
-                    "Size": {
-                      "X": 27.0,
-                      "Y": 97.0
-                    },
-                    "Name": "boy_upper_pent_18",
+                    "Name": "cricketer_leg_upper_right_25",
                     "ctype": "SpriteObjectData"
                   }
                 ],
@@ -13177,7 +13030,7 @@
               {
                 "FileData": {
                   "Type": "MarkedSubImage",
-                  "Path": "Ah_Mpira_Ah_Football/boy_pent.png",
+                  "Path": "Ah_Mpira_Ah_Football/cricketer_hip.png",
                   "Plist": "Ah_Mpira_Ah_Football/Ah_Mpira_Ah_Football.plist"
                 },
                 "BlendFunc": {
@@ -13189,12 +13042,12 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 3.3072,
-                  "Y": 3.5651
+                  "X": -4.5511,
+                  "Y": 1.7109
                 },
                 "Scale": {
-                  "ScaleX": 0.829,
-                  "ScaleY": 0.8373
+                  "ScaleX": 0.5524,
+                  "ScaleY": 0.5415
                 },
                 "RotationSkewX": -90.0,
                 "RotationSkewY": -90.0,
@@ -13208,17 +13061,17 @@
                   "X": 0.0,
                   "Y": 0.0
                 },
-                "LeftMargin": -146.6928,
-                "RightMargin": -153.3072,
-                "TopMargin": -153.5651,
-                "BottomMargin": -146.4349,
-                "Tag": 268,
-                "ActionTag": -471665226,
+                "LeftMargin": -212.0511,
+                "RightMargin": -202.9489,
+                "TopMargin": -209.2109,
+                "BottomMargin": -205.7891,
+                "Tag": 2302,
+                "ActionTag": -1373320331,
                 "Size": {
-                  "X": 300.0,
-                  "Y": 300.0
+                  "X": 415.0,
+                  "Y": 415.0
                 },
-                "Name": "boy_pent_5",
+                "Name": "cricketer_hip_22",
                 "ctype": "SpriteObjectData"
               }
             ],

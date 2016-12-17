@@ -30,6 +30,7 @@ public:
     virtual bool isGraphemeStart(uint32_t prevCodePoint, uint32_t currentCodePoint)override;
 
     virtual std::string getPronounciationFileNameForWord(std::string word) override;
+    virtual bool isTextToSpeechSupported() override;
     
     virtual ~KannadaUtil();
     KannadaUtil();    

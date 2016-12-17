@@ -70,7 +70,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "NoLoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "heartbeat",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 300,
@@ -441,6 +441,19 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 1269983885,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -1283314006,
             "Property": "Position",
             "Frames": [
@@ -540,6 +553,19 @@
                 "FrameIndex": 240,
                 "Tween": false,
                 "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1283314006,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -655,6 +681,19 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 1393998293,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 180872855,
             "Property": "ActionValue",
             "Frames": [
@@ -663,6 +702,14 @@
                 "CurrentAniamtionName": "poking",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "poking",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -975,27 +1022,27 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1149.9187,
-              "Y": 827.2806
+              "X": 1104.2573,
+              "Y": 820.5657
             },
             "Scale": {
-              "ScaleX": 0.1021,
-              "ScaleY": 0.1021
+              "ScaleX": 0.01,
+              "ScaleY": 0.01
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.4492,
-              "Y": 0.4596
+              "X": 0.4314,
+              "Y": 0.4559
             },
             "PreSize": {
               "X": 0.2562,
               "Y": 0.3072
             },
-            "LeftMargin": 821.9187,
-            "RightMargin": 1082.0813,
-            "TopMargin": 696.2194,
-            "BottomMargin": 550.7806,
+            "LeftMargin": 776.2573,
+            "RightMargin": 1127.7427,
+            "TopMargin": 702.9343,
+            "BottomMargin": 544.0657,
             "Tag": 1373,
             "ActionTag": -999633232,
             "Size": {
@@ -1092,6 +1139,7 @@
               "X": 656.0,
               "Y": 553.0
             },
+            "VisibleForFrame": false,
             "Name": "heartbeat_30_0_0",
             "ctype": "SpriteObjectData"
           },
@@ -1137,6 +1185,7 @@
               "X": 656.0,
               "Y": 553.0
             },
+            "VisibleForFrame": false,
             "Name": "heartbeat_30_0_0_0",
             "ctype": "SpriteObjectData"
           },
@@ -1182,6 +1231,7 @@
               "X": 656.0,
               "Y": 553.0
             },
+            "VisibleForFrame": false,
             "Name": "heartbeat_30_0_0_0_0",
             "ctype": "SpriteObjectData"
           },

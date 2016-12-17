@@ -699,6 +699,29 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 1666192399,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 255,
+                "FrameIndex": 198,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 0,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 54528599,
             "Property": "ActionValue",
             "Frames": [
@@ -707,6 +730,14 @@
                 "CurrentAniamtionName": "think",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "think",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 200,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -721,6 +752,12 @@
           "StartIndex": 0,
           "EndIndex": 200,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 50,
+          "EndIndex": 150,
+          "Name": "sound",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -994,7 +1031,7 @@
             "RightMargin": 1070.8274,
             "TopMargin": 1473.6436,
             "BottomMargin": 326.3565,
-            "UserData": "walk;drag",
+            "UserData": "main.sound",
             "Tag": 2881,
             "ActionTag": 435767076,
             "Size": {
