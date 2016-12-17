@@ -162,12 +162,11 @@ void PatchTheWall::addEvents(struct SpriteDetails sprite)
                 _spriteDetails.at(_index)._label->runAction(Sequence::create(MoveTo::create(.2, Vec2(_patchDetails.at(i)._label->getPositionX(), _patchDetails.at(i)._label->getPositionY())),
                                                                              CallFunc::create([=] {
                     this->removeChild(_patchDetails.at(i)._label);
-                    _position.at(_patchDetails.at(i)._sequence)._flag = 0;
+//                    _position.at(_patchDetails.at(i)._sequence)._flag = 0;
                     _patchDetails.erase(_patchDetails.begin() + i);
                     _moveFlag = 0;
                     _menuContext->addPoints(1);
                     _totalCount++;
-                    
                     CocosDenshion::SimpleAudioEngine *success = CocosDenshion::SimpleAudioEngine::getInstance();
                     success->playEffect("sounds/sfx/success.ogg", false);
                     
@@ -205,7 +204,7 @@ void PatchTheWall::blastCome(float _time)
     if (_totalLetter < 20)
     {
         int _randomPosition;
-        while (1)
+/*       while (1)
         {
             _randomPosition = (rand() % _position.size() - 1);
             if (_position.at(_randomPosition)._flag == 0)
@@ -214,7 +213,9 @@ void PatchTheWall::blastCome(float _time)
                 break;
             }
         }
-        
+*/        
+		_randomPosition = (rand() % _position.size());
+
         Node *_blastNode = CSLoader::createNode("patchthewall/blast.csb");
         auto _blastTimeline = CSLoader::createTimeline("patchthewall/blast.csb");
         _blastNode->setPosition(Vec2(_position.at(_randomPosition).x, _position.at(_randomPosition).y));
@@ -236,6 +237,8 @@ void PatchTheWall::letterCome(Node *blastNode, int _randomPosition)
     SpriteDetails._sprite->setPosition(Vec2(_position.at(_randomPosition).x, _position.at(_randomPosition).y));
     //	this->addChild(SpriteDetails._sprite);
     
+	_position.erase(_position.begin() + _randomPosition);
+
     int _randomRow = cocos2d::RandomHelper::random_int(0, 4);
     int _randomCol = cocos2d::RandomHelper::random_int(0, 1);
     
