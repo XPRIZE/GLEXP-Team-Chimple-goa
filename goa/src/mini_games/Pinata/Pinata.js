@@ -283,26 +283,33 @@ xc.Pinata = cc.Layer.extend({
                 }
 
                 if(classReference.map[classReference.gameBg.node.getChildByName("board").getChildByName("board").getString()] == target.getChildByName(target.getName()).getString()){
+                    var audioEngine = cc.AudioEngine.getInstance();
                     if(target.getName() == "targetc"){
                         if(!targetA.dead){ classReference.runAnimations(ccs.load(path,xc.path),targetA.x,targetA.y,path); targetA.setVisible(false);}
                         if(!targetB.dead){ classReference.runAnimations(ccs.load(path,xc.path),targetB.x,targetB.y,path); targetB.setVisible(false);}
                         classReference.targetXcoordSave = targetC.x;
+                        audioEngine.playEffect(xc.Pinata.res.pinata_select_sound);
+                        classReference.counterHit++;
+                        menuContext.addPoints(2);
                         classReference.gamePlay(targetC);
                     }else if(target.getName() == "targetb"){
                         if(!targetA.dead){classReference.runAnimations(ccs.load(path,xc.path),targetA.x,targetA.y,path); targetA.setVisible(false);}
                         if(!targetC.dead){classReference.runAnimations(ccs.load(path,xc.path),targetC.x,targetC.y,path); targetC.setVisible(false);}
                         classReference.targetXcoordSave = targetB.x;
                         classReference.gamePlay(targetB);
+                        audioEngine.playEffect(xc.Pinata.res.pinata_select_sound);
+                        classReference.counterHit++;
+                        menuContext.addPoints(2);
                     }else if(target.getName() == "targeta"){
                         if(!targetC.dead){classReference.runAnimations(ccs.load(path,xc.path),targetC.x,targetC.y,path); targetC.setVisible(false);}
                         if(!targetB.dead){classReference.runAnimations(ccs.load(path,xc.path),targetB.x,targetB.y,path); targetB.setVisible(false);}
                         classReference.targetXcoordSave = targetA.x;
                         classReference.gamePlay(targetA);
+                        audioEngine.playEffect(xc.Pinata.res.pinata_select_sound);
+                        classReference.counterHit++;
+                        menuContext.addPoints(2);
                     }
-                    var audioEngine = cc.AudioEngine.getInstance();
-                    audioEngine.playEffect(xc.Pinata.res.pinata_select_sound);
-                    classReference.counterHit++;
-                    menuContext.addPoints(2);
+                    
                 }else{
                     console.log("its wrong answer");
                 
@@ -312,8 +319,12 @@ xc.Pinata = cc.Layer.extend({
                             menuContext.addPoints(-1);
                             classReference.runAnimations(ccs.load(path,xc.path),targetC.x,targetC.y,path);
                             targetC.setVisible(false);
+                            var audioEngine1 = cc.AudioEngine.getInstance();
+                            audioEngine1.playEffect(xc.Pinata.res.pinata_select_sound);
+                            var audioEngine2 = cc.AudioEngine.getInstance();
+                            audioEngine2.playEffect(xc.Pinata.res.pinata_select_sound);
+                            targetC.dead = true;
                         }
-                        targetC.dead = true;
                         
                     }else if(target.getName() == "targetb"){
                         if(!targetB.dead){
@@ -321,21 +332,27 @@ xc.Pinata = cc.Layer.extend({
                             menuContext.addPoints(-1);
                             classReference.runAnimations(ccs.load(path,xc.path),targetB.x,targetB.y,path);
                             targetB.dead = true;
+                            var audioEngine1 = cc.AudioEngine.getInstance();
+                            audioEngine1.playEffect(xc.Pinata.res.pinata_select_sound);
+                            var audioEngine2 = cc.AudioEngine.getInstance();
+                            audioEngine2.playEffect(xc.Pinata.res.pinata_select_sound);
+                            targetB.setVisible(false);
                         }
-                        targetB.setVisible(false);
+
                     }else if(target.getName() == "targeta"){
                          if(!targetA.dead){
                             classReference.counterHit++;
                             menuContext.addPoints(-1);
                             classReference.runAnimations(ccs.load(path,xc.path),targetA.x,targetA.y,path);
                             targetA.dead = true;
+                            var audioEngine1 = cc.AudioEngine.getInstance();
+                            audioEngine1.playEffect(xc.Pinata.res.pinata_select_sound);
+                            var audioEngine2 = cc.AudioEngine.getInstance();
+                            audioEngine2.playEffect(xc.Pinata.res.pinata_select_sound);
+                            targetA.setVisible(false);
                          }
-                         targetA.setVisible(false);
                     }
-                    var audioEngine1 = cc.AudioEngine.getInstance();
-                    audioEngine1.playEffect(xc.Pinata.res.pinata_select_sound);
-                    var audioEngine2 = cc.AudioEngine.getInstance();
-                    audioEngine2.playEffect(xc.Pinata.res.pinata_select_sound);
+                    
                 }
 
                 var changeFlagInTouch = function()
