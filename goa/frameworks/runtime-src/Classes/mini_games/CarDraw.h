@@ -30,6 +30,7 @@ public:
 	virtual void postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
 	virtual void characterRecogination(std::vector<string> str);
 	void gameHelpLayer();
+	void clearScreen(float ft);
 	
 protected:
 	string _myChar;
@@ -44,7 +45,7 @@ protected:
 	std::vector<Stroke*> _carStrokes;
 	Stroke* _carCurrentStroke;
 	std::vector <float> _distance;
-	void clearScreen(float ft);
+	
 	void gameStart();
 	void onEnterTransitionDidFinish();
 };

@@ -5,7 +5,7 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 326,
+        "Duration": 300,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
@@ -70,7 +70,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "breath",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 300,
@@ -141,12 +141,6 @@
               {
                 "Value": "breath",
                 "FrameIndex": 180,
-                "Tween": false,
-                "ctype": "EventFrameData"
-              },
-              {
-                "Value": "",
-                "FrameIndex": 326,
                 "Tween": false,
                 "ctype": "EventFrameData"
               }
@@ -690,6 +684,7 @@
             "BottomMargin": 343.1488,
             "UserData": "walk;drag",
             "Tag": 812,
+            "FrameEvent": "breath",
             "ActionTag": 1514280542,
             "Size": {
               "X": 0.0,
@@ -713,27 +708,27 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1879.1522,
-              "Y": 1182.082
+              "X": 1688.5961,
+              "Y": 1086.7231
             },
             "Scale": {
-              "ScaleX": 0.01,
-              "ScaleY": 0.01
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.734,
-              "Y": 0.6567
+              "X": 0.6596,
+              "Y": 0.6037
             },
             "PreSize": {
               "X": 0.1035,
               "Y": 0.1178
             },
-            "LeftMargin": 1614.1522,
-            "RightMargin": 680.8478,
-            "TopMargin": 511.918,
-            "BottomMargin": 1076.082,
+            "LeftMargin": 1423.5961,
+            "RightMargin": 871.4039,
+            "TopMargin": 607.2769,
+            "BottomMargin": 980.7231,
             "Tag": 1158,
             "ActionTag": -769620179,
             "Size": {

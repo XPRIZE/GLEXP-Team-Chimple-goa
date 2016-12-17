@@ -25,6 +25,7 @@ protected:
 	std::pair<float, float> position;
 	std::vector<Alphabet*> allLabels;
 	Alphabet *letterOnBoard;
+	bool _caseSensitivity = false;
 	bool initBool = true, popUp = true, flagLifeDemo = true , startSecondFlag = true ,_resumeHelp = true, _flagHelp = true,_flagLetter = true;
 	std::string _alphabets;
 	Size visibleSize;
@@ -32,7 +33,7 @@ protected:
 	Sprite* leftBarrier, *rightBarrier , *leftBarrierForBigObject, *upBarrier , *hpUi;
 	cocostudio::timeline::ActionTimeline *hpUiCatchAction , *happyManAction;
 	double xSizeArray[7] = { 1.0,0.4,0.6,0.8,0.5,1.2,1.4 };
-	int counterAlphabets = 0, counterLife = 6 , counterLetter = 0 , letterBoardAlphaLength = 0;
+	int counterAlphabets = 0, counterLife = 6 , counterLetter = 0 , letterBoardAlphaLength = 0 ,_speedForLetterComing = 5 , _totalCounterAlphabets = 1;
 	
 	std::vector<std::vector<wchar_t>> letters;
 
@@ -80,6 +81,7 @@ public:
 	void beforeInitBackgroundScene();
 	void sceneBackgroundFlow();
 	void addFirstBlockSecondLayer(float dt);
+	int getSpeedForMonsterRunning();
 
 	Sprite* CreateSprites(std::string name, int PositionX, int positionY, float scaleX, float scaleY, int zOrder, std::string vectorType);
 	void mountainLayer1();

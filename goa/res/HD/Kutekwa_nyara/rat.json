@@ -1,0 +1,144 @@
+{
+  "ID": "6d4c4794-0267-4451-8b9e-385bd5e1c922",
+  "Version": "3.10.0.0",
+  "Name": "rat",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 40,
+        "Speed": 1.0,
+        "ActivedAnimationName": "rat",
+        "Timelines": [
+          {
+            "ActionTag": -440878709,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kutekwa_nyara/rat_1.png",
+                  "Plist": "Kutekwa_nyara/Kutekwa_nyara.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kutekwa_nyara/rat_2.png",
+                  "Plist": "Kutekwa_nyara/Kutekwa_nyara.plist"
+                },
+                "FrameIndex": 10,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kutekwa_nyara/rat_3.png",
+                  "Plist": "Kutekwa_nyara/Kutekwa_nyara.plist"
+                },
+                "FrameIndex": 20,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kutekwa_nyara/rat_4.png",
+                  "Plist": "Kutekwa_nyara/Kutekwa_nyara.plist"
+                },
+                "FrameIndex": 30,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kutekwa_nyara/rat_1.png",
+                  "Plist": "Kutekwa_nyara/Kutekwa_nyara.plist"
+                },
+                "FrameIndex": 40,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 40,
+          "Name": "rat",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 2497,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kutekwa_nyara/rat_1.png",
+              "Plist": "Kutekwa_nyara/Kutekwa_nyara.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -23.0,
+            "RightMargin": -23.0,
+            "TopMargin": -23.0,
+            "BottomMargin": -23.0,
+            "Tag": 2498,
+            "ActionTag": -440878709,
+            "Size": {
+              "X": 152.0,
+              "Y": 115.0
+            },
+            "Name": "Sprite_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Kutekwa_nyara.plist",
+        "Kutekwa_nyara.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

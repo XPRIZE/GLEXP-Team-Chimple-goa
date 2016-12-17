@@ -70,7 +70,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "NoLoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "clap",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 300,
@@ -146,6 +146,14 @@
                 "CurrentAniamtionName": "swing",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "swing",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }

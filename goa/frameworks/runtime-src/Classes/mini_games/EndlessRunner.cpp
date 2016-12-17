@@ -43,24 +43,27 @@ void EndlessRunner::onEnterTransitionDidFinish()
 		_alphabets = EndlessRunner::getStringDataLevelInfo(alpha,currentLevel,0,3);
 	}
 	else if (currentLevel >= 10 && currentLevel <= 18) {
-		alpha = LangUtil::getInstance()->getAllCharacters();
+		alpha = LangUtil::getInstance()->getAllLowerCaseCharacters();
+		_caseSensitivity = true;
 		_alphabets = EndlessRunner::getStringDataLevelInfo(alpha, currentLevel, 9, 3);// three letter sequence like : A,B,C or P,Q,R (caps letter)
 	}
 	else if (currentLevel >= 19 && currentLevel <= 23) {
 		alpha = LangUtil::getInstance()->getAllCharacters();
-		_alphabets = EndlessRunner::getStringDataLevelInfo(alpha, currentLevel, 18, 6);// six letter sequence like : a,b,c,d,e,f
+		_alphabets = EndlessRunner::getStringDataLevelInfo(alpha, currentLevel, 18, 6);// six letter sequence like : A,B,C,D,E,F
 	}
 	else if (currentLevel >= 24 && currentLevel <= 28) {
-		alpha = LangUtil::getInstance()->getAllCharacters();
-		_alphabets = EndlessRunner::getStringDataLevelInfo(alpha, currentLevel, 23, 6);// six letter sequence like : A,B,C,D,E,F
+		alpha = LangUtil::getInstance()->getAllLowerCaseCharacters();
+		_caseSensitivity = true;
+		_alphabets = EndlessRunner::getStringDataLevelInfo(alpha, currentLevel, 23, 6);// six letter sequence like : a,b,c,d,e,f
 	}
 	else {
-		blockName << "ABCDEF";
+		_alphabets = "ABCDEF";
 	}
 
 	tempChar = _alphabets[letterBoardAlphaLength];
-	letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 21, 1, 70);
+	letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 21, 1, 70, _caseSensitivity);
 	_menuContext->setMaxPoints(_alphabets.size() * 5);
+	
 	auto bgLayerGradient = LayerGradient::create(Color4B(255, 255, 255, 255), Color4B(255, 255, 255, 255));
 	this->addChild(bgLayerGradient, 0);
 	EndlessRunner::addEvents(bgLayerGradient);
@@ -140,7 +143,7 @@ void EndlessRunner::scheduleMethod() {
 	
 	this->schedule(schedule_selector(EndlessRunner::sceneTree1Flow), 2.5f);
 	this->schedule(schedule_selector(EndlessRunner::sceneTree2Flow), 1.4f);
-	this->schedule(schedule_selector(EndlessRunner::CreateMonsterWithLetter), 6.0f);
+	this->schedule(schedule_selector(EndlessRunner::CreateMonsterWithLetter), _speedForLetterComing);
 	this->schedule(schedule_selector(EndlessRunner::addFirstBlockSecondLayer), randmValueIncludeBoundery(10,13));
 
 	this->scheduleUpdate();
@@ -149,25 +152,25 @@ void EndlessRunner::scheduleMethod() {
 std::string EndlessRunner::getStringDataLevelInfo(const wchar_t* alpha, int currentLevel,int deductionValue,int groupLetter) {
 	std::ostringstream blockName;
 	int startPoint = ((currentLevel - deductionValue) - 1) * groupLetter; // three letter sequence like : A,B,C or P,Q,R (caps letter)
-	
+	auto charLength = LangUtil::getInstance()->getNumberOfCharacters() - 1;
+
 	for (int i = 0; i < groupLetter; i++) {
-		if ((startPoint + i) > 23) {
-			int index = RandomHelper::random_int(0, 23 - groupLetter);
+		if ((startPoint + i) > charLength) {
+			int index = RandomHelper::random_int(0, charLength - groupLetter);
 			blockName << (char)alpha[index];
 			if ((char)alpha[index] == ' ') {
-				blockName << (char)alpha[RandomHelper::random_int(0, 23 - groupLetter)];
+				blockName << (char)alpha[RandomHelper::random_int(0, charLength - groupLetter)];
 			}
 		}
 		else {
 			blockName << (char)alpha[startPoint + i];
 			if ((char)alpha[startPoint + i] == ' ') {
-				blockName<< (char)alpha[RandomHelper::random_int(0, 23 - groupLetter)];
+				blockName<< (char)alpha[RandomHelper::random_int(0, charLength - groupLetter)];
 			}
 		}
 	}
 	return blockName.str();
 }
-
 
 void EndlessRunner::startGame() {
 	_menuContext->showStartupHelp(CC_CALLBACK_0(EndlessRunner::scheduleMethod, this));
@@ -336,7 +339,8 @@ void EndlessRunner::startingIntersectMode() {
 				audio->playEffect(path.c_str(), false);
 
 				counterAlphabets = counterAlphabets + 2;
-
+				_totalCounterAlphabets++;
+				_speedForLetterComing = getSpeedForMonsterRunning();
 				auto nextAlpha = CallFunc::create([=]() {
 					if (_alphabets.size() - 1 == letterBoardAlphaLength) {
 						_menuContext->showScore();
@@ -347,7 +351,7 @@ void EndlessRunner::startingIntersectMode() {
 					
 					letterOnBoard->setString(LangUtil::convertUTF16CharToString(tempChar));
 					counterAlphabets = 0;
-					letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 21, 1, 70);
+					letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 21, 1, 70, _caseSensitivity);
 					counterLetter = 0;
 				});
 
@@ -378,6 +382,7 @@ void EndlessRunner::startingIntersectMode() {
 						hpUi->getChildByName("happy_mad")->getChildByName("happy")->setVisible(true);	
 						hpUi->getChildByName("happy_mad")->getChildByName("mad")->setVisible(false);
 						allMonster[k]->runAction(MoveBy::create(3, Vec2((visibleSize.width * 90 / 100) + origin.x, (visibleSize.height * 70 / 100) + origin.y)));
+						break;
 					}
 				}
 			}
@@ -417,6 +422,7 @@ void EndlessRunner::startingIntersectMode() {
 						allMonster[k]->getChildByName("monster_egg")->setVisible(false);
 						allMonster[k]->getChildByName("monster_egg_crack")->setVisible(true);
 						allMonster[k]->runAction(MoveBy::create(3, Vec2((visibleSize.width * 90 / 100) + origin.x, (visibleSize.height * 70 / 100) + origin.y)));
+						break;
 					}
 				}
 			}
@@ -608,6 +614,21 @@ void EndlessRunner::addFirstBlockSecondLayer(float dt) {
 		startSecondFlag = false;
 	}
 }
+
+int EndlessRunner::getSpeedForMonsterRunning()
+{
+	int totalAlphabets = _alphabets.size() * 5;
+	if (_totalCounterAlphabets > floor(totalAlphabets * 0.75)) {
+		return 3;
+	}else if (_totalCounterAlphabets > floor(totalAlphabets * 0.50)) {
+		return 4;
+	}else if (_totalCounterAlphabets > floor(totalAlphabets * 0.25)) {
+		return 5;
+	}else if (_totalCounterAlphabets > floor(totalAlphabets * 0)) {
+		return 6;
+	}
+	return 5;
+}
 void EndlessRunner::AddRocksInSecondLayerPath() {
 	
 	if (currentSecondLayerRock->NextRockName == "endLand") {
@@ -756,7 +777,7 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 		auto str = letters.at(counterLetter).at(0);
 		counterLetter++;
 		if (counterLetter == 21) {
-			letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 21, 1, 70);
+			letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 21, 1, 70, _caseSensitivity);
 			counterLetter = 0;
 		}
 		

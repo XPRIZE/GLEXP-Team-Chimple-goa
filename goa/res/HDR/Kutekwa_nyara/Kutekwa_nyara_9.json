@@ -5,7 +5,7 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 99,
+        "Duration": 210,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
@@ -22,10 +22,18 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "NoLoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "eat",
                 "SingleFrameIndex": 0,
-                "FrameIndex": 99,
+                "FrameIndex": 100,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "eat",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 105,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -48,7 +56,16 @@
               {
                 "X": 1185.6759,
                 "Y": 279.585,
-                "FrameIndex": 99,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1185.6759,
+                "Y": 279.585,
+                "FrameIndex": 105,
                 "EasingData": {
                   "Type": 0
                 },
@@ -73,7 +90,16 @@
               {
                 "X": 0.67,
                 "Y": 0.67,
-                "FrameIndex": 99,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.67,
+                "Y": 0.67,
+                "FrameIndex": 105,
                 "EasingData": {
                   "Type": 0
                 },
@@ -98,7 +124,212 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 99,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 105,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 626780053,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "puff",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 145,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "puff",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 210,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 626780053,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1863.2568,
+                "Y": 288.6736,
+                "FrameIndex": 145,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1863.2568,
+                "Y": 288.6736,
+                "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 626780053,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 145,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 626780053,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 145,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 838580416,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "puff",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 105,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "puff",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 210,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 838580416,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1672.6819,
+                "Y": 696.3707,
+                "FrameIndex": 105,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1672.6819,
+                "Y": 696.3707,
+                "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 838580416,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 105,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 838580416,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 105,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 210,
                 "EasingData": {
                   "Type": 0
                 },
@@ -115,6 +346,12 @@
           "StartIndex": 0,
           "EndIndex": 100,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 105,
+          "EndIndex": 210,
+          "Name": "puff",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -403,6 +640,7 @@
             "RightMargin": -515.3259,
             "TopMargin": 76.1104,
             "BottomMargin": -276.1103,
+            "UserData": "main.puff",
             "Tag": 129,
             "ActionTag": 1146519704,
             "Size": {
@@ -695,6 +933,88 @@
             },
             "Name": "Kutekwa_character_2_21",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Kutekwa_nyara/puff.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1863.2568,
+              "Y": 288.6736
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7278,
+              "Y": 0.1604
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1863.2568,
+            "RightMargin": 696.7432,
+            "TopMargin": 1511.3264,
+            "BottomMargin": 288.6736,
+            "Tag": 3052,
+            "ActionTag": 626780053,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "puff_1",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Kutekwa_nyara/puff.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1672.6819,
+              "Y": 696.3707
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.6534,
+              "Y": 0.3869
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1672.6819,
+            "RightMargin": 887.3181,
+            "TopMargin": 1103.6293,
+            "BottomMargin": 696.3707,
+            "Tag": 3055,
+            "ActionTag": 838580416,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "puff_1_0",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -707,7 +1027,8 @@
       "UsedResources": [
         "boy.json",
         "Kutekwa_nyara.plist",
-        "Kutekwa_nyara.png"
+        "Kutekwa_nyara.png",
+        "puff.json"
       ],
       "ctype": "GameFileData"
     }

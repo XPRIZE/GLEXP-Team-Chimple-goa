@@ -15,7 +15,7 @@
                 <key>spriteSourceSize</key>
                 <string>{204,317}</string>
                 <key>textureRect</key>
-                <string>{{1156,1},{204,317}}</string>
+                <string>{{263,1156},{204,317}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -30,7 +30,7 @@
                 <key>spriteSourceSize</key>
                 <string>{450,450}</string>
                 <key>textureRect</key>
-                <string>{{704,1},{450,450}}</string>
+                <string>{{1,704},{450,450}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -47,6 +47,36 @@
                 <key>textureRect</key>
                 <string>{{1,1},{701,461}}</string>
                 <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>cardraw/ref.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{260,259}</string>
+                <key>spriteSourceSize</key>
+                <string>{260,261}</string>
+                <key>textureRect</key>
+                <string>{{1,1156},{260,259}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>cardraw/ref_clicked.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{260,259}</string>
+                <key>spriteSourceSize</key>
+                <string>{260,261}</string>
+                <key>textureRect</key>
+                <string>{{1,1417},{260,259}}</string>
+                <key>textureRotated</key>
                 <false/>
             </dict>
         </dict>
@@ -61,9 +91,9 @@
             <key>realTextureFileName</key>
             <string>cardraw.png</string>
             <key>size</key>
-            <string>{1361,463}</string>
+            <string>{468,1677}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:ba8c01e13979edd0e6e22e0a74929950:18e5f7494484bac3d21937c84c74b842:2f3a8ce9221aad70ddf01eaa375dc9c8$</string>
+            <string>$TexturePacker:SmartUpdate:d9cc0b9789b6a9a0b2511241b1c44d52:c555f4071080f004f231f3b02bfe6ddb:2f3a8ce9221aad70ddf01eaa375dc9c8$</string>
             <key>textureFileName</key>
             <string>cardraw.png</string>
         </dict>

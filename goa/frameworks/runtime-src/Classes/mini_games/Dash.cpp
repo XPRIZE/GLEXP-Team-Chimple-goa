@@ -200,15 +200,15 @@ bool Dash::init()
 
 	//auto defaultCharacter = CallFunc::create(CC_CALLBACK_0(Dash::otherCharacterJumping, this));
 	//randomly calling other character(If multiplayer Mode is off)
-//	runAction(RepeatForever::create(Sequence::create(DelayTime::create(10 + (rand() % 60) / 30.0), CallFunc::create([=]() {
-//		_enemyScore++;
-//		updatePlayerPosition("enemy", _enemyScore);
-//	}), NULL)));
+	runAction(RepeatForever::create(Sequence::create(DelayTime::create(10 + (rand() % 60) / 30.0), CallFunc::create([=]() {
+		_enemyScore++;
+		updatePlayerPosition("enemy", _enemyScore);
+	}), NULL)));
     
     
-    this->getEventDispatcher()->addCustomEventListener("on_menu_exit", CC_CALLBACK_1(Dash::transitToMenu, this));
+ //   this->getEventDispatcher()->addCustomEventListener("on_menu_exit", CC_CALLBACK_1(Dash::transitToMenu, this));
     
-    Director::getInstance()->getEventDispatcher()->addCustomEventListener("enemy_information_received_event", CC_CALLBACK_1(Dash::syncEnemyCharacterPosition, this));
+ //   Director::getInstance()->getEventDispatcher()->addCustomEventListener("enemy_information_received_event", CC_CALLBACK_1(Dash::syncEnemyCharacterPosition, this));
 
     
 	return true;

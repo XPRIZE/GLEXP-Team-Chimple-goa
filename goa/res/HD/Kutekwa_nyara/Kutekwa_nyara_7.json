@@ -5,7 +5,7 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 100,
+        "Duration": 360,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
@@ -46,7 +46,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "NoLoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "sleep",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 100,
@@ -211,6 +211,174 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -308142476,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rat",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 105,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rat",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 220,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rat",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 221,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rat",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 360,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -308142476,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2982.4307,
+                "Y": 216.1915,
+                "FrameIndex": 105,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 725.1848,
+                "Y": 267.1739,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 725.1848,
+                "Y": 267.1739,
+                "FrameIndex": 221,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 3337.2905,
+                "Y": 274.9478,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -308142476,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -2.0,
+                "Y": 2.0,
+                "FrameIndex": 105,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -2.0,
+                "Y": 2.0,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 2.0,
+                "Y": 2.0,
+                "FrameIndex": 221,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 2.0,
+                "Y": 2.0,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -308142476,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 105,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 221,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -220,6 +388,12 @@
           "StartIndex": 0,
           "EndIndex": 100,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 105,
+          "EndIndex": 360,
+          "Name": "rat",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -371,6 +545,7 @@
             "RightMargin": -515.3262,
             "TopMargin": 79.11,
             "BottomMargin": -279.11,
+            "UserData": "main.rat",
             "Tag": 112,
             "ActionTag": 1952978323,
             "Size": {
@@ -654,6 +829,47 @@
             },
             "Name": "boy",
             "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Kutekwa_nyara/rat.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2982.4307,
+              "Y": 216.1915
+            },
+            "Scale": {
+              "ScaleX": -2.0,
+              "ScaleY": 2.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.165,
+              "Y": 0.1201
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2982.4307,
+            "RightMargin": -422.4307,
+            "TopMargin": 1583.8085,
+            "BottomMargin": 216.1915,
+            "Tag": 2808,
+            "ActionTag": -308142476,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "rat_1",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -666,7 +882,8 @@
       "UsedResources": [
         "boy.json",
         "Kutekwa_nyara.plist",
-        "Kutekwa_nyara.png"
+        "Kutekwa_nyara.png",
+        "rat.json"
       ],
       "ctype": "GameFileData"
     }

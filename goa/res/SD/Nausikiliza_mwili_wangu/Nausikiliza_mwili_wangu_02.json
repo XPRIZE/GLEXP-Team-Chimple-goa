@@ -52,6 +52,14 @@
                 "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "poking",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 450,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -125,7 +133,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "NoLoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "point",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 450,
@@ -605,8 +613,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 490.1257,
-              "Y": 240.8316
+              "X": -737.7837,
+              "Y": 117.8615
             },
             "Scale": {
               "ScaleX": -1.0,
@@ -615,17 +623,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.1915,
-              "Y": 0.1338
+              "X": -0.2882,
+              "Y": 0.0655
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 490.1257,
-            "RightMargin": 2069.8743,
-            "TopMargin": 1559.1685,
-            "BottomMargin": 240.8316,
+            "LeftMargin": -737.7837,
+            "RightMargin": 3297.7837,
+            "TopMargin": 1682.1385,
+            "BottomMargin": 117.8615,
             "UserData": "walk;drag",
             "Tag": 2865,
             "ActionTag": 241057793,
