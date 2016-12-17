@@ -364,12 +364,13 @@ void Table::calculatedResult(std::string result)
 				_score++;
 				
 				_catchedFish.at(i)->setOpacity(255);
-				_touched = true;
+				
 				auto fadeOut = FadeOut::create(2);
 				_target->runAction(fadeOut);
 				auto move = MoveTo::create(2, _targetPosition);
 				_catchedFish.at(i)->runAction(Sequence::create(move, CallFunc::create([=]() {
 					_grid->removeChild(_target);
+					_touched = true;
 				}), NULL));
 				_catchedFish.erase(_catchedFish.begin() + i);
 				break;
