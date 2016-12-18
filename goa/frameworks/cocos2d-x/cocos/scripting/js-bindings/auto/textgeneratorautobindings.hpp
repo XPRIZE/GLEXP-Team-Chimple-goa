@@ -27,5 +27,6 @@ bool js_textgeneratorautobindings_TextGenerator_getGraphemes(JSContext *cx, uint
 bool js_textgeneratorautobindings_TextGenerator_generateAWord(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_textgeneratorautobindings_TextGenerator_getSingularPlurals(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_textgeneratorautobindings_TextGenerator_getInstance(JSContext *cx, uint32_t argc, jsval *vp);
+bool js_textgeneratorautobindings_TextGenerator_translateString(JSContext *cx, uint32_t argc, jsval *vp);
 
 #endif // __textgeneratorautobindings_h__

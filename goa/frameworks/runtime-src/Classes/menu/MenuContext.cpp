@@ -1415,9 +1415,10 @@ std::vector<std::vector<cocos2d::Point>> MenuContext::getTrianglePointsForSprite
 
 
 void MenuContext::pronounceWord(std::string word) {
+    word = LangUtil::getInstance()->translateString(word);
     std::string fileName = LangUtil::getInstance()->getPronounciationFileNameForWord(word);
-    CCLOG("fileName to pronounce %s", fileName.c_str());
     if(FileUtils::getInstance()->isFileExist(fileName)) {
+        CCLOG("fileName to pronounce %s", fileName.c_str());
         auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
         audio->playEffect(fileName.c_str());
     }
@@ -1438,7 +1439,7 @@ void MenuContext::pronounceWord(std::string word) {
 
         #endif
     } else {
-        CCLOG("Language is not supported for Pronounciation");
+        CCLOG("File %s not found OR Language is not supported for Pronounciation", fileName.c_str());
     }
 }
 

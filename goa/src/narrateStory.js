@@ -312,13 +312,18 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             var textField = this._wordBoard.node.getChildByName("TextField_1");
         
             text = this._wordMapping[text];
-            text = text.replace(/_/g, ' ');
-
-            cc.log('text:' + text.toLowerCase());
-            textField.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
-            textField.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
-            textField.setString(text.toLowerCase());   
-            mappingFound = true;               
+            if(cc.sys.isNative) {
+                text = goa.TextGenerator.getInstance().translateString(text);
+            }
+            
+            if(text) {
+                text = text.replace(/_/g, ' ');
+                cc.log('text:' + text.toLowerCase());
+                textField.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
+                textField.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
+                textField.setString(text.toLowerCase());   
+                mappingFound = true;                
+            }
         }
 
         return mappingFound;
@@ -461,7 +466,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         var langDir = goa.TextGenerator.getInstance().getLang();
 
         var mappingFile = "";
-        mappingFile =  "res/story" + "/" + langDir + "/" + this._baseDir + ".mapping.json";
+        mappingFile =  "res/story/eng/" + this._baseDir + ".mapping.json";
         cc.log('mappingFile:' + mappingFile);
         if(cc.sys.isNative) {
             var fileExists = jsb.fileUtils.isFileExist(mappingFile);
