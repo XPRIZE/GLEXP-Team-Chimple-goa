@@ -180,10 +180,10 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 auto elastic = EaseBackIn::create(moveTo);
                 auto callbackRemoveMenu = CallFunc::create(CC_CALLBACK_0(MenuContext::removeMenu, this));
                 
-//                auto targetHelpCloseAction = TargetedAction::create(_helpMenu, elastic->clone());
-//                auto targetBookCloseAction = TargetedAction::create(_mapMenu, elastic->clone());
-//                auto targetMapCloseAction = TargetedAction::create(_bookMenu, elastic->clone());
-//                auto targetSettingCloseAction = TargetedAction::create(_settingMenu, elastic);
+                auto targetHelpCloseAction = TargetedAction::create(_helpMenu, elastic->clone());
+                auto targetBookCloseAction = TargetedAction::create(_mapMenu, elastic->clone());
+                auto targetMapCloseAction = TargetedAction::create(_bookMenu, elastic->clone());
+                auto targetSettingCloseAction = TargetedAction::create(_settingMenu, elastic);
                 auto targetGamesCloseAction = TargetedAction::create(_gamesMenu, elastic->clone());
 //                if(_photoMenu) {
 //                    auto targetPhotoCloseAction = TargetedAction::create(_photoMenu, elastic->clone());
@@ -194,7 +194,7 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 //                        runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
 //                }
                 
-                auto spawnAction = Spawn::create(/*targetHelpCloseAction,targetMapCloseAction,targetBookCloseAction,*/targetGamesCloseAction, nullptr);
+                auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction,targetBookCloseAction,targetGamesCloseAction, nullptr);
                 runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
                 
                 
@@ -204,8 +204,8 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 //                _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
                 
                 
-//                _mapMenu = this->createMenuItem("menu/map.png", "menu/map.png", "menu/map.png", 2 * POINTS_TO_LEFT);
-//                _mapMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showMap, this));
+                _mapMenu = this->createMenuItem("menu/map.png", "menu/map.png", "menu/map.png", 2 * POINTS_TO_LEFT);
+                _mapMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showMap, this));
                 
 //                _bookMenu = this->createMenuItem("menu/book.png", "menu/book.png", "menu/book.png", 3 * POINTS_TO_LEFT);
 //                _bookMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showBook, this));
