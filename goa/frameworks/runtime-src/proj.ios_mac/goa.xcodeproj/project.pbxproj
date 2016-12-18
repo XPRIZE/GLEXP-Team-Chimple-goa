@@ -382,6 +382,8 @@
 		F36840BF1D8A812F00969162 /* Alphamole.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36840BA1D8A812F00969162 /* Alphamole.cpp */; };
 		F36840C01D8A812F00969162 /* AlphamoleLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36840BC1D8A812F00969162 /* AlphamoleLevel.cpp */; };
 		F36840C11D8A812F00969162 /* AlphamoleLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36840BC1D8A812F00969162 /* AlphamoleLevel.cpp */; };
+		F36944871E0553BC00C69875 /* CommonText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36944861E0553BC00C69875 /* CommonText.cpp */; };
+		F36944881E0553BC00C69875 /* CommonText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36944861E0553BC00C69875 /* CommonText.cpp */; };
 		F37286F21DCB4B5000F4804A /* BlastLetter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F37286EE1DCB4B5000F4804A /* BlastLetter.cpp */; };
 		F37286F31DCB4B5000F4804A /* BlastLetter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F37286EE1DCB4B5000F4804A /* BlastLetter.cpp */; };
 		F37286F41DCB4B5000F4804A /* BlastLetterNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F37286F01DCB4B5000F4804A /* BlastLetterNode.cpp */; };
@@ -897,6 +899,8 @@
 		F36840BB1D8A812F00969162 /* Alphamole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alphamole.h; sourceTree = "<group>"; };
 		F36840BC1D8A812F00969162 /* AlphamoleLevel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AlphamoleLevel.cpp; sourceTree = "<group>"; };
 		F36840BD1D8A812F00969162 /* AlphamoleLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphamoleLevel.h; sourceTree = "<group>"; };
+		F36944861E0553BC00C69875 /* CommonText.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommonText.cpp; sourceTree = "<group>"; };
+		F369448B1E0553D700C69875 /* CommonText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonText.h; sourceTree = "<group>"; };
 		F37286EE1DCB4B5000F4804A /* BlastLetter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlastLetter.cpp; sourceTree = "<group>"; };
 		F37286EF1DCB4B5000F4804A /* BlastLetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlastLetter.h; sourceTree = "<group>"; };
 		F37286F01DCB4B5000F4804A /* BlastLetterNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlastLetterNode.cpp; sourceTree = "<group>"; };
@@ -1640,6 +1644,8 @@
 			children = (
 				F3667CF51DB4BA6F00EC8908 /* lib */,
 				F3667D111DB4BA6F00EC8908 /* logger */,
+				F36944861E0553BC00C69875 /* CommonText.cpp */,
+				F369448B1E0553D700C69875 /* CommonText.h */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -2031,6 +2037,7 @@
 				F3667D751DB4BA7000EC8908 /* LTKVersionCompatibilityCheck.cpp in Sources */,
 				F35248011D6D9D1A0077C333 /* Alphabet.cpp in Sources */,
 				F3667D511DB4BA6F00EC8908 /* NNAdapt.cpp in Sources */,
+				F36944881E0553BC00C69875 /* CommonText.cpp in Sources */,
 				F373B9111DDAE1280027D32C /* Card.cpp in Sources */,
 				F35247FD1D6D9D1A0077C333 /* WordManager.cpp in Sources */,
 				F3667D5B1DB4BA7000EC8908 /* Stroke.cpp in Sources */,
@@ -2181,6 +2188,7 @@
 				F3F7ED901DA65FF400727A7C /* Talk.cpp in Sources */,
 				F35248221D6D9D1A0077C333 /* SkeletonCharacter.cpp in Sources */,
 				F3667D681DB4BA7000EC8908 /* LTKInkUtils.cpp in Sources */,
+				F36944871E0553BC00C69875 /* CommonText.cpp in Sources */,
 				F3D201A41D7409B400FDB750 /* Pop.cpp in Sources */,
 				F3667D481DB4BA6F00EC8908 /* PointFloatShapeFeatureExtractor.cpp in Sources */,
 				F35248561D6D9D1A0077C333 /* PhysicsShapeCache.cpp in Sources */,
