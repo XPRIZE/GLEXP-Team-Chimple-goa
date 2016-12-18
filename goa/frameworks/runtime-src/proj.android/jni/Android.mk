@@ -128,11 +128,11 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/mini_games/Spirograph.cpp	\
 					../../Classes/mini_games/Bingo.cpp \
 					../../Classes/WordSceneLipiTKNode.cpp\
+					../../Classes/util/CommonText.cpp	\
+					../../Classes/util/CommonLabel.cpp	\
+					../../Classes/util/CommonLabelTTF.cpp	\
 					../../Classes/util/logger/LTKLogger.cpp	\
 					../../Classes/util/logger/logger.cpp	\
-					../../Classes/util/logger/CommonText.cpp	\
-					../../Classes/util/logger/CommonLabel.cpp	\
-					../../Classes/util/logger/CommonLabelTTF.cpp	\
 					../../Classes/common/LTKCaptureDevice.cpp \
 				    ../../Classes/common/LTKChannel.cpp \
 					../../Classes/common/LTKException.cpp \
