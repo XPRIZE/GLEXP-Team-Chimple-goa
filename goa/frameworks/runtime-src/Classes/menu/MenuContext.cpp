@@ -1415,7 +1415,9 @@ std::vector<std::vector<cocos2d::Point>> MenuContext::getTrianglePointsForSprite
 
 
 void MenuContext::pronounceWord(std::string word) {
+    std::replace(word.begin(), word.end(), '_', ' ');
     word = LangUtil::getInstance()->translateString(word);
+    
     std::string fileName = LangUtil::getInstance()->getPronounciationFileNameForWord(word);
     if(FileUtils::getInstance()->isFileExist(fileName)) {
         CCLOG("fileName to pronounce %s", fileName.c_str());
