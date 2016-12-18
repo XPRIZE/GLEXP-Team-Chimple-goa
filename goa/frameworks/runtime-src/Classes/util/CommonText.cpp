@@ -23,13 +23,19 @@ bool CommonText::touchSpeak(cocos2d::Touch* touch, cocos2d::Event* event) {
 
 void CommonText::onEnterTransitionDidFinish() {
     ui::Text::onEnterTransitionDidFinish();
-    auto scaleUp = ScaleTo::create(0.5, 1.25);
-    auto elasticUp = EaseElasticOut::create(scaleUp);
+    auto scaleUp = ScaleTo::create(0.5, 1.1);
+    auto elasticUp = EaseOut::create(scaleUp, 2.0);
     auto scaleDown = ScaleTo::create(0.5, 1.0);
-    auto elasticDown = EaseElasticOut::create(scaleDown);
+    auto elasticDown = EaseIn::create(scaleDown, 2.0);
     runAction(Sequence::create(elasticUp, elasticDown, NULL));
     
     MenuContext::pronounceWord(this->getString());
+}
+
+void CommonText::onExitTransitionDidStart() {
+    ui::Text::onExitTransitionDidStart();
+    _eventDispatcher->removeEventListener(_listener);
+    _listener = nullptr;
 }
 
 bool CommonText::init() {
