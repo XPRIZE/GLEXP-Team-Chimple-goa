@@ -7,6 +7,7 @@
 //
 
 #include "CommonText.h"
+#include "../menu/MenuContext.h"
 
 USING_NS_CC;
 
@@ -17,6 +18,7 @@ bool CommonText::touchSpeak(cocos2d::Touch* touch, cocos2d::Event* event) {
     if(rect.containsPoint(n))
     {
         CCLOG("in CommonText::touchSpeak");
+        MenuContext::pronounceWord(this->getString());
     }
     
     CCLOG("CommonText::touchSpeak");
