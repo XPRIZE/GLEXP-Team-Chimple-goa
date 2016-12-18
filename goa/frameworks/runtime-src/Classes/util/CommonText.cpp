@@ -14,22 +14,28 @@ USING_NS_CC;
 bool CommonText::touchSpeak(cocos2d::Touch* touch, cocos2d::Event* event) {
     auto n = getParent()->convertTouchToNodeSpace(touch);
     auto rect = this->getBoundingBox();
-    
     if(rect.containsPoint(n))
     {
-        CCLOG("in CommonText::touchSpeak");
         MenuContext::pronounceWord(this->getString());
     }
-    
-    CCLOG("CommonText::touchSpeak");
     return false;
+}
+
+void CommonText::onEnterTransitionDidFinish() {
+    ui::Text::onEnterTransitionDidFinish();
+    auto scaleUp = ScaleTo::create(0.5, 1.25);
+    auto elasticUp = EaseElasticOut::create(scaleUp);
+    auto scaleDown = ScaleTo::create(0.5, 1.0);
+    auto elasticDown = EaseElasticOut::create(scaleDown);
+    runAction(Sequence::create(elasticUp, elasticDown, NULL));
+    
+    MenuContext::pronounceWord(this->getString());
 }
 
 bool CommonText::init() {
     if(ui::Text::init()) {
         _listener = EventListenerTouchOneByOne::create();
         _listener->onTouchBegan = CC_CALLBACK_2(CommonText::touchSpeak, this);
-//        _eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, this);
         _eventDispatcher->addEventListenerWithFixedPriority(_listener, -1);
         return true;
     }

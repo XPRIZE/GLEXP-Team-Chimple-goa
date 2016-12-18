@@ -16,6 +16,7 @@ class CommonText : public cocos2d::ui::Text
 {
 public:
     static CommonText *create();
+    virtual void onEnterTransitionDidFinish() override;
 CC_CONSTRUCTOR_ACCESS:
     CommonText();
     virtual ~CommonText();
