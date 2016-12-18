@@ -384,6 +384,8 @@
 		F36840C11D8A812F00969162 /* AlphamoleLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36840BC1D8A812F00969162 /* AlphamoleLevel.cpp */; };
 		F36944871E0553BC00C69875 /* CommonText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36944861E0553BC00C69875 /* CommonText.cpp */; };
 		F36944881E0553BC00C69875 /* CommonText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36944861E0553BC00C69875 /* CommonText.cpp */; };
+		F36944921E06DB1E00C69875 /* CommonLabelTTF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36944911E06DB1E00C69875 /* CommonLabelTTF.cpp */; };
+		F36944931E06DB1E00C69875 /* CommonLabelTTF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36944911E06DB1E00C69875 /* CommonLabelTTF.cpp */; };
 		F37286F21DCB4B5000F4804A /* BlastLetter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F37286EE1DCB4B5000F4804A /* BlastLetter.cpp */; };
 		F37286F31DCB4B5000F4804A /* BlastLetter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F37286EE1DCB4B5000F4804A /* BlastLetter.cpp */; };
 		F37286F41DCB4B5000F4804A /* BlastLetterNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F37286F01DCB4B5000F4804A /* BlastLetterNode.cpp */; };
@@ -901,6 +903,8 @@
 		F36840BD1D8A812F00969162 /* AlphamoleLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphamoleLevel.h; sourceTree = "<group>"; };
 		F36944861E0553BC00C69875 /* CommonText.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommonText.cpp; sourceTree = "<group>"; };
 		F369448B1E0553D700C69875 /* CommonText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonText.h; sourceTree = "<group>"; };
+		F369448E1E06DA3100C69875 /* CommonLabelTTF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonLabelTTF.h; sourceTree = "<group>"; };
+		F36944911E06DB1E00C69875 /* CommonLabelTTF.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommonLabelTTF.cpp; sourceTree = "<group>"; };
 		F37286EE1DCB4B5000F4804A /* BlastLetter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlastLetter.cpp; sourceTree = "<group>"; };
 		F37286EF1DCB4B5000F4804A /* BlastLetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlastLetter.h; sourceTree = "<group>"; };
 		F37286F01DCB4B5000F4804A /* BlastLetterNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlastLetterNode.cpp; sourceTree = "<group>"; };
@@ -1646,6 +1650,8 @@
 				F3667D111DB4BA6F00EC8908 /* logger */,
 				F36944861E0553BC00C69875 /* CommonText.cpp */,
 				F369448B1E0553D700C69875 /* CommonText.h */,
+				F369448E1E06DA3100C69875 /* CommonLabelTTF.h */,
+				F36944911E06DB1E00C69875 /* CommonLabelTTF.cpp */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -2023,6 +2029,7 @@
 				F3667D6B1DB4BA7000EC8908 /* LTKLinuxUtil.cpp in Sources */,
 				F35247C91D6D9D1A0077C333 /* Baja.cpp in Sources */,
 				F35247F11D6D9D1A0077C333 /* EnglishUtil.cpp in Sources */,
+				F36944931E06DB1E00C69875 /* CommonLabelTTF.cpp in Sources */,
 				F35248311D6D9D1A0077C333 /* JumpingState.cpp in Sources */,
 				F35247EB1D6D9D1A0077C333 /* TraceScene.cpp in Sources */,
 				F35247E31D6D9D1A0077C333 /* SmashTheRockLevelScene.cpp in Sources */,
@@ -2195,6 +2202,7 @@
 				F35247D81D6D9D1A0077C333 /* EndlessRunner.cpp in Sources */,
 				F35247F21D6D9D1A0077C333 /* KannadaUtil.cpp in Sources */,
 				F35248521D6D9D1A0077C333 /* FShake.cpp in Sources */,
+				F36944921E06DB1E00C69875 /* CommonLabelTTF.cpp in Sources */,
 				9C0E13471DBF707E00C10A81 /* WordSceneLipiTKNode.cpp in Sources */,
 				F3667D2A1DB4BA6F00EC8908 /* LipiEngineModule.cpp in Sources */,
 				F3667D2C1DB4BA6F00EC8908 /* LipiTKInterface.cpp in Sources */,

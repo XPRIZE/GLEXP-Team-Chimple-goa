@@ -1,6 +1,7 @@
 #include "Stack.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include <sstream>
+#include "../util/CommonLabelTTF.h"
 
 USING_NS_CC;
 
@@ -202,7 +203,7 @@ void Stack::onEnterTransitionDidFinish()
 		counterForLetter << "container" << i + 1;
 		std::string counterValue = counterForLetter.str();
 
-		LabelDetails.label = LabelTTF::create(it->first, "Helvetica", 100, CCSizeMake(200, 200));
+		LabelDetails.label = CommonLabelTTF::create(it->first, "Helvetica", 100, CCSizeMake(200, 200));
 		LabelDetails.container = (Sprite*)secondChild->getChildByName(counterForLetter.str());
 		LabelDetails.label->setPosition(0, 0);
 		LabelDetails.label->setColor(Color3B::BLACK);
@@ -230,7 +231,7 @@ void Stack::generateWord()
 	if (_allWords.size() != 0)
 	{
 		_word = _allWords.at(rand() % _allWords.size());
-		_wordLabel = LabelTTF::create(_word, "Helvetica", 150);
+		_wordLabel = CommonLabelTTF::create(_word, "Helvetica", 150);
 		_wordLabel->setColor(Color3B::BLACK);
 		this->addChild(_wordLabel);
 
