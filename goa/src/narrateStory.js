@@ -312,13 +312,12 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             var textField = this._wordBoard.node.getChildByName("TextField_1");
         
             text = this._wordMapping[text];
+            text = text.replace(/_/g, ' ');
             if(cc.sys.isNative) {
                 text = goa.TextGenerator.getInstance().translateString(text);
             }
             
-            if(text) {
-                text = text.replace(/_/g, ' ');
-                cc.log('text:' + text.toLowerCase());
+            if(text) {                                
                 textField.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
                 textField.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
                 textField.setString(text.toLowerCase());   
