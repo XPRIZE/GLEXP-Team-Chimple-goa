@@ -7,6 +7,7 @@
 #include "../menu/MenuContext.h"
 #include <algorithm>
 #include "../menu/HelpLayer.h"
+#include "../util/CommonLabel.h"
 
 USING_NS_CC;
 
@@ -368,7 +369,7 @@ void Line::scaleNumber(int start, int end,int mid)
 		std::stringstream ss;
 		ss << i;
 		std::string str = ss.str();
-		auto number_label = Label::createWithSystemFont(str, "Arial", 70);
+		auto number_label = CommonLabel::createWithSystemFont(str, "Arial", 70);
 		number_label->setPositionX(_NumberLine->getChildByName(str)->getPositionX() + extraX);
 		number_label->setPositionY(_NumberLine->getChildByName(str)->getPositionY() - 60);
 		number_label->setColor(Color3B(0, 0, 0));
@@ -414,7 +415,7 @@ void Line::tagCreate(int choice)
 			_tagRef.push_back(_tag);
 
 
-			auto number_label = Label::createWithSystemFont(_five.at(i - 1), "Arial", 90);
+			auto number_label = CommonLabel::createWithSystemFont(_five.at(i - 1), "Arial", 90);
 			number_label->setPositionX(_tag->getContentSize().width / 2);
 			number_label->setPositionY(_tag->getContentSize().height / 4);
 			number_label->setColor(Color3B(0, 0, 0));
@@ -445,7 +446,7 @@ void Line::tagCreate(int choice)
 			_tagRef.push_back(_tag);
 
 
-			auto number_label = Label::createWithSystemFont(_five.at(i), "Arial", 90);
+			auto number_label = CommonLabel::createWithSystemFont(_five.at(i), "Arial", 90);
 			number_label->setPositionX(_tag->getContentSize().width / 2);
 			number_label->setPositionY(_tag->getContentSize().height / 4);
 			number_label->setColor(Color3B(0, 0, 0));

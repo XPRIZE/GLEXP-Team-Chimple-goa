@@ -1,6 +1,7 @@
 #include "Shape.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../menu/HelpLayer.h"
+#include "../util/CommonLabel.h"
 
 USING_NS_CC;
 
@@ -300,7 +301,7 @@ void Shape::onEnterTransitionDidFinish()
 		addEvents(RealSpriteDetails);
 	}
 
-	_shapeName = Label::createWithSystemFont("", "Arial", 50);
+	_shapeName = CommonLabel::createWithSystemFont("", "Arial", 50);
 	_shapeName->setPositionX(_ShapeBg->getChildByName("alphabet_board_4")->getContentSize().width /2);
 	_shapeName->setPositionY(_ShapeBg->getChildByName("alphabet_board_4")->getContentSize().height / 2.5);
 //	_shapeName->setAnchorPoint(Vec2(.3, 1));

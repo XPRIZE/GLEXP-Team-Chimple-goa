@@ -10,6 +10,7 @@
 #include "../lang/TextGenerator.h"
 #include "../menu/HelpLayer.h"
 #include <algorithm>
+#include "../util/CommonLabel.h"
 
 USING_NS_CC;
 
@@ -396,7 +397,7 @@ void Order::onEnterTransitionDidFinish()
 			obj1->addChild(pngNode);
 		}
 		else {
-			auto topLabel = Label::createWithSystemFont(randomList.at(i).c_str(), "Arial", 100);
+			auto topLabel = CommonLabel::createWithSystemFont(randomList.at(i).c_str(), "Arial", 100);
 			topLabel->setPositionX(obj1->getContentSize().width / 2);
 			topLabel->setPositionY(obj1->getContentSize().height / 2);
 			topLabel->setColor(Color3B(255, 255, 255));

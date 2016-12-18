@@ -386,6 +386,8 @@
 		F36944881E0553BC00C69875 /* CommonText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36944861E0553BC00C69875 /* CommonText.cpp */; };
 		F36944921E06DB1E00C69875 /* CommonLabelTTF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36944911E06DB1E00C69875 /* CommonLabelTTF.cpp */; };
 		F36944931E06DB1E00C69875 /* CommonLabelTTF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36944911E06DB1E00C69875 /* CommonLabelTTF.cpp */; };
+		F36944971E06FBCE00C69875 /* CommonLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36944961E06FBCE00C69875 /* CommonLabel.cpp */; };
+		F36944981E06FBCE00C69875 /* CommonLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36944961E06FBCE00C69875 /* CommonLabel.cpp */; };
 		F37286F21DCB4B5000F4804A /* BlastLetter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F37286EE1DCB4B5000F4804A /* BlastLetter.cpp */; };
 		F37286F31DCB4B5000F4804A /* BlastLetter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F37286EE1DCB4B5000F4804A /* BlastLetter.cpp */; };
 		F37286F41DCB4B5000F4804A /* BlastLetterNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F37286F01DCB4B5000F4804A /* BlastLetterNode.cpp */; };
@@ -905,6 +907,8 @@
 		F369448B1E0553D700C69875 /* CommonText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonText.h; sourceTree = "<group>"; };
 		F369448E1E06DA3100C69875 /* CommonLabelTTF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonLabelTTF.h; sourceTree = "<group>"; };
 		F36944911E06DB1E00C69875 /* CommonLabelTTF.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommonLabelTTF.cpp; sourceTree = "<group>"; };
+		F36944961E06FBCE00C69875 /* CommonLabel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommonLabel.cpp; sourceTree = "<group>"; };
+		F369449B1E06FBDE00C69875 /* CommonLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonLabel.h; sourceTree = "<group>"; };
 		F37286EE1DCB4B5000F4804A /* BlastLetter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlastLetter.cpp; sourceTree = "<group>"; };
 		F37286EF1DCB4B5000F4804A /* BlastLetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlastLetter.h; sourceTree = "<group>"; };
 		F37286F01DCB4B5000F4804A /* BlastLetterNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlastLetterNode.cpp; sourceTree = "<group>"; };
@@ -1652,6 +1656,8 @@
 				F369448B1E0553D700C69875 /* CommonText.h */,
 				F369448E1E06DA3100C69875 /* CommonLabelTTF.h */,
 				F36944911E06DB1E00C69875 /* CommonLabelTTF.cpp */,
+				F36944961E06FBCE00C69875 /* CommonLabel.cpp */,
+				F369449B1E06FBDE00C69875 /* CommonLabel.h */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -1929,6 +1935,7 @@
 				F3667D711DB4BA7000EC8908 /* LTKStrEncoding.cpp in Sources */,
 				F3F7ED7F1D9F891000727A7C /* MemoryJungle.cpp in Sources */,
 				F35247CB1D6D9D1A0077C333 /* BajaWordScene.cpp in Sources */,
+				F36944981E06FBCE00C69875 /* CommonLabel.cpp in Sources */,
 				F352480B1D6D9D1A0077C333 /* GraphemeGrid.cpp in Sources */,
 				F35247C71D6D9D1A0077C333 /* AlphamonFeedScene.cpp in Sources */,
 				F3E210301DCC60D300C301F8 /* TreasureHunt.cpp in Sources */,
@@ -2141,6 +2148,7 @@
 				F3667D501DB4BA6F00EC8908 /* NNAdapt.cpp in Sources */,
 				F35247DE1D6D9D1A0077C333 /* jazz.cpp in Sources */,
 				F303CCA11DB20D9000DB6D81 /* Pillar.cpp in Sources */,
+				F36944971E06FBCE00C69875 /* CommonLabel.cpp in Sources */,
 				F35248081D6D9D1A0077C333 /* Grapheme.cpp in Sources */,
 				F3D201A31D7409B400FDB750 /* Train.cpp in Sources */,
 				F35247E21D6D9D1A0077C333 /* SmashTheRockLevelScene.cpp in Sources */,
