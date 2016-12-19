@@ -187,6 +187,11 @@ private:
         
     CC_SYNTHESIZE(bool, isSpeechBubbleAlreadyVisible, SpeechBubbleAlreadyVisible);
     
+    void moveItemIntoBag(RPGSprite* item);
+    
+    void moveitemIntoBagAnimation(RPGSprite* item);
+    
+    
 public:
     static cocos2d::Scene* createScene(const std::string& island, const std::string& sceneName);
     

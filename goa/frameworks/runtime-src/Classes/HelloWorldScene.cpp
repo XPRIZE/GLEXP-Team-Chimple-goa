@@ -575,10 +575,11 @@ void HelloWorld::processShowMessage(std::vector<MessageContent*>showMessages) {
         MessageContent* content = (MessageContent*) *it;
         CCLOG("content owner %s", content->getOwner().c_str());
         Node* ownerNode = this->mainLayer->getChildByName(content->getOwner());
+        RPGSprite* ownerSprite = NULL;
         if(ownerNode != NULL) {
-            RPGSprite* rpgSprite = dynamic_cast<RPGSprite *>(ownerNode);
-            if(rpgSprite != NULL) {
-                rpgSprite->getSprite()->setVisible(false);
+            ownerSprite = dynamic_cast<RPGSprite *>(ownerNode);
+            if(ownerSprite != NULL) {
+                ownerSprite->getSprite()->setVisible(false);
             }
         }
         
@@ -593,12 +594,19 @@ void HelloWorld::processShowMessage(std::vector<MessageContent*>showMessages) {
         
         if(!content->getPreOutComeAction().empty()) {
             CCLOG("content->getPreOutComeAction() %s", content->getPreOutComeAction().c_str());
+            
+            if(content->getShouldDisplayInBag() == 0 && ownerSprite != NULL) {
+                //play animation of bag opening and insert item into bag
+                moveitemIntoBagAnimation(ownerSprite);
+            }
+            
             this->sqlite3Helper->deleteItemFromMyBag(this->getIsland().c_str(), content->getPreOutComeAction().c_str());
         }
 
         if(!content->getPostOutComeAction().empty()) {
-            if(content->getShouldDisplayInBag() == 1) {
+            if(content->getShouldDisplayInBag() == 1 && ownerSprite != NULL) {
                 //play animation of bag opening and insert item into bag
+                moveitemIntoBagAnimation(ownerSprite);
             }
             CCLOG("content->getPostOutComeAction() %s", content->getPostOutComeAction().c_str());
             this->sqlite3Helper->insertItemToMyBag(this->getIsland().c_str(), content->getPostOutComeAction().c_str());
@@ -609,6 +617,55 @@ void HelloWorld::processShowMessage(std::vector<MessageContent*>showMessages) {
         
         delete content;
     }
+}
+
+
+void HelloWorld::moveItemIntoBag(RPGSprite* item) {
+    CCLOG("move item into bag %s", item->getName().c_str());
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    Sprite* orgSprite = dynamic_cast<Sprite *>(item->getSprite());
+    if(orgSprite != NULL) {
+        Sprite* copySprite = Sprite::createWithSpriteFrame(orgSprite->getSpriteFrame());
+        if(copySprite != NULL) {
+            addChild(copySprite);
+            copySprite->setPosition(orgSprite->getPosition());
+            auto copySpriteMoveTo = MoveTo::create(1, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+            auto fade = FadeOut::create(1.0);
+            
+            runAction(Sequence::create(TargetedAction::create(copySprite, copySpriteMoveTo), DelayTime::create(0.5), TargetedAction::create(copySprite, fade), NULL));
+            
+        }
+    }
+}
+
+void HelloWorld::moveitemIntoBagAnimation(RPGSprite* item) {
+    auto node = CSLoader::createNode("booknode.csb");
+    auto pos = Vec2(2300, 1600);
+    node->setPosition(pos);
+    addChild(node);
+    node->setScale(0.2);
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    
+    auto jumpTo = MoveTo::create(1, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+    
+    auto scaleTo = ScaleTo::create(1, 1);
+    cocostudio::timeline::ActionTimeline* anim = CSLoader::createTimeline("booknode.csb");
+    node->runAction(anim);
+    auto spawn = Spawn::create(scaleTo, jumpTo, NULL);
+    auto callbackOpen = CallFunc::create(CC_CALLBACK_0(cocostudio::timeline::ActionTimeline::play, anim, "book_open", false));
+    auto callbackClose = CallFunc::create(CC_CALLBACK_0(cocostudio::timeline::ActionTimeline::play, anim, "book_close", false));
+    anim->setAnimationEndCallFunc("book_open", CC_CALLBACK_0(HelloWorld::moveItemIntoBag, this, item));
+    
+    auto fade = FadeOut::create(1.0);
+    auto scaleDown = ScaleTo::create(1, 0.2);
+    auto jumpBack = MoveTo::create(1, Vec2(2300, 1600));
+    auto spawnBack = Spawn::create(scaleDown, jumpBack, NULL);
+    
+    auto sequence = Sequence::create(TargetedAction::create(node, spawn), callbackOpen, DelayTime::create(3.0), callbackClose, DelayTime::create(1.0), TargetedAction::create(node, spawnBack), DelayTime::create(0.5), TargetedAction::create(node, fade), NULL);
+    runAction(sequence);
+    
 }
 
 void HelloWorld::processChangeSceneMessages(std::vector<MessageContent*>changeSceneMessages) {
