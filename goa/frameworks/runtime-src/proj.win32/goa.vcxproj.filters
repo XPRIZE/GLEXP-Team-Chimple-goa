@@ -595,6 +595,15 @@
     <ClCompile Include="..\Classes\lang\SwahiliUtil.cpp">
       <Filter>Classes\lang</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\util\CommonLabel.cpp">
+      <Filter>Classes\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\CommonLabelTTF.cpp">
+      <Filter>Classes\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\CommonText.cpp">
+      <Filter>Classes\util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">

@@ -1,5 +1,6 @@
 #include "Owl.h"
 #include "../menu/HelpLayer.h"
+#include "../util/CommonLabelTTF.h"
 
 USING_NS_CC;
 
@@ -236,14 +237,14 @@ void Owl::onEnterTransitionDidFinish()
 	std::ostringstream boardName;	
 	boardName << _sentence << _data_key[_textBoard];
 
-	_textLabel = LabelTTF::create(boardName.str(), "Helvetica", board->getContentSize().height *0.5);
+	_textLabel = CommonLabelTTF::create(boardName.str(), "Helvetica", board->getContentSize().height *0.5);
 	_textLabel->setAnchorPoint(Vec2(0.5, 0.5));
 	_textLabel->setPosition(Vec2(board->getContentSize().width/2, board->getContentSize().height/ 2));
 	_textLabel->setName("text");
 
 	board->addChild(_textLabel);
 
-	_textOwlBoard = LabelTTF::create("", "Helvetica", _sprite->getChildByName(themeResourcePath.at("whiteBoard"))->getContentSize().height *0.8);
+	_textOwlBoard = CommonLabelTTF::create("", "Helvetica", _sprite->getChildByName(themeResourcePath.at("whiteBoard"))->getContentSize().height *0.8);
 	_textOwlBoard->setPosition(Vec2(_sprite->getChildByName(themeResourcePath.at("whiteBoard"))->getContentSize().width/2, _sprite->getChildByName(themeResourcePath.at("whiteBoard"))->getContentSize().height / 2));
 	_textOwlBoard->setName("owlBoard");
 	_textOwlBoard->setColor(Color3B::BLACK);
@@ -397,7 +398,7 @@ void Owl::crateLetterGridOnBuilding(int blockLevel, string displayWord) {
 		auto letterGrid = Sprite::createWithSpriteFrameName(themeResourcePath.at("gridOrange"));
 		auto hideGrid = Sprite::createWithSpriteFrameName(themeResourcePath.at("hideOrange"));
 
-		auto label = LabelTTF::create(LangUtil::convertUTF16CharToString(displayWord.at(i)), "Helvetica", letterGrid->getContentSize().height*0.8);
+		auto label = CommonLabelTTF::create(LangUtil::convertUTF16CharToString(displayWord.at(i)), "Helvetica", letterGrid->getContentSize().height*0.8);
 		letterGrid -> setPosition(Vec2(xPosi, blockObject->getContentSize().height *0.45));
 		label->setPosition(Vec2(letterGrid->getContentSize().width/2, letterGrid->getContentSize().height /2));
 		xPosi = xPosi + indiSpace + letterGrid->getContentSize().width;
@@ -475,7 +476,7 @@ void Owl::createGrid() {
 			xPosi = xPosi + IndiSpace + gridObject->getContentSize().width;
 			addEventsOnGrid(gridObject);
 			
-			auto label = LabelTTF::create(LangUtil::convertUTF16CharToString(alpha[counter]), "Helvetica", gridObject->getContentSize().width * 0.8);
+			auto label = CommonLabelTTF::create(LangUtil::convertUTF16CharToString(alpha[counter]), "Helvetica", gridObject->getContentSize().width * 0.8);
 			label->setPosition(Vec2(gridObject->getContentSize().width / 2, gridObject->getContentSize().height / 2));
 			label->setColor(Color3B::WHITE);
 			label->setName(LangUtil::convertUTF16CharToString(alpha[counter]));
@@ -731,7 +732,7 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 							setSpriteProperties(whiteTran, (target->getParent()->getChildByName(blockNameInString)->getPositionX() - target->getParent()->getChildByName(blockNameInString)->getContentSize().width / 2) + blockChild.at(_textCounter)->getPositionX(), (target->getParent()->getChildByName(blockNameInString)->getPositionY() - target->getParent()->getChildByName(blockNameInString)->getContentSize().height / 2) + blockChild.at(_textCounter)->getPositionY(), 1, 1, 0.5, 0.5, 0, 3);
 							whiteTran->setName("whiteLetterDrop");
 							
-							auto labelWhite = LabelTTF::create(LangUtil::convertUTF16CharToString(target->getName().at(0)), "Helvetica", whiteTran->getContentSize().width * 0.8);
+							auto labelWhite = CommonLabelTTF::create(LangUtil::convertUTF16CharToString(target->getName().at(0)), "Helvetica", whiteTran->getContentSize().width * 0.8);
 							whiteTran->addChild(labelWhite);
 							labelWhite->setPosition(Vec2(whiteTran->getContentSize().width / 2, whiteTran->getContentSize().height / 2));
 							labelWhite->setColor(Color3B::BLACK);

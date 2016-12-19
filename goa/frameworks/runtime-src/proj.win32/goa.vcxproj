@@ -336,6 +336,9 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClCompile Include="..\Classes\State.cpp" />
     <ClCompile Include="..\Classes\StateMachine.cpp" />
     <ClCompile Include="..\Classes\Stroke.cpp" />
+    <ClCompile Include="..\Classes\util\CommonLabel.cpp" />
+    <ClCompile Include="..\Classes\util\CommonLabelTTF.cpp" />
+    <ClCompile Include="..\Classes\util\CommonText.cpp" />
     <ClCompile Include="..\Classes\util\lib\LTKCheckSumGenerate.cpp" />
     <ClCompile Include="..\Classes\util\lib\LTKConfigFileReader.cpp" />
     <ClCompile Include="..\Classes\util\lib\LTKErrors.cpp" />

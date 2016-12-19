@@ -10,6 +10,7 @@
 #include "../menu/HelpLayer.h"
 #include "../effects/FShake.h"
 #include "../Calculator.h"
+#include "../util/CommonLabel.h"
 
 USING_NS_CC;
 
@@ -272,7 +273,7 @@ void Table::createGrid()
 				endNumber = 1;
 			}
 			fish->setName(str);
-			auto number_label = Label::createWithSystemFont(str, "Arial", 90);
+			auto number_label = CommonLabel::createWithSystemFont(str, "Arial", 90);
 			number_label->setColor(Color3B(0, 0, 0));
 			fish->addChild(number_label);
 		}

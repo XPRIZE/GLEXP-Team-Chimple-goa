@@ -1,4 +1,5 @@
 #include "BlastLetter.h"
+#include "../util/CommonLabelTTF.h"
 
 USING_NS_CC;
 
@@ -111,7 +112,7 @@ void BlastLetter::onEnterTransitionDidFinish() {
 		addChild(letterBoardSprite);
 
 //		auto myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), LangUtil::convertUTF16CharToString(_data_value[coordIndex]));
-		auto myLabel = LabelTTF::create(LangUtil::convertUTF16CharToString(_data_value[coordIndex]), "res/fonts/BalooBhai-Regular.ttf", letterBoardSprite->getContentSize().height);
+		auto myLabel = CommonLabelTTF::create(LangUtil::convertUTF16CharToString(_data_value[coordIndex]), "res/fonts/BalooBhai-Regular.ttf", letterBoardSprite->getContentSize().height);
 		myLabel->setPosition(Vec2(letterBoardSprite->getContentSize().width * 0.5, letterBoardSprite->getContentSize().height * 0.45));
 		myLabel->setScale(1);
 		myLabel->setColor(Color3B::GRAY);
@@ -132,7 +133,7 @@ void BlastLetter::onEnterTransitionDidFinish() {
 			myLabel->runAction(RepeatForever::create(shakingCharacter()));
 		}
 	}
-		auto myLabel = LabelTTF::create(_data_key, "Helvetica", this->getChildByName("bg")->getChildByName("topboard ")->getContentSize().height *0.8);
+		auto myLabel = CommonLabelTTF::create(_data_key, "Helvetica", this->getChildByName("bg")->getChildByName("topboard ")->getContentSize().height *0.8);
 		myLabel->setPosition(Vec2(this->getChildByName("bg")->getChildByName("topboard ")->getContentSize().width/2, this->getChildByName("bg")->getChildByName("topboard ")->getContentSize().height/2));
 		myLabel->setName(myLabel->getString());
 		this->getChildByName("bg")->getChildByName("topboard ")->addChild(myLabel);
@@ -292,7 +293,7 @@ void BlastLetter::addEventsOnGrid(cocos2d::Sprite* callerObject)
 			std::ostringstream nameLetterBoards;
 			nameLetterBoards << _data_value[_counterLetter];
 
-			auto myLabel = LabelTTF::create(nameLetterBoards.str(), "res/fonts/BalooBhai-Regular.ttf", letterBoardSprite->getContentSize().height);
+			auto myLabel = CommonLabelTTF::create(nameLetterBoards.str(), "res/fonts/BalooBhai-Regular.ttf", letterBoardSprite->getContentSize().height);
 			myLabel->setColor(Color3B::GRAY);
 			myLabel->setPosition(Vec2(letterBoardSprite->getContentSize().width * 0.5, letterBoardSprite->getContentSize().height * 0.45));
 			myLabel->setScale(1);

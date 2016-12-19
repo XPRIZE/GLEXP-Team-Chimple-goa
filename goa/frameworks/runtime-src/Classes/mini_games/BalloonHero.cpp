@@ -11,6 +11,7 @@
 #include "../lang/LangUtil.h"
 #include "../StartMenuScene.h"
 #include "../lang/TextGenerator.h"
+#include "../util/CommonText.h"
 
 
 USING_NS_CC;
@@ -685,7 +686,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 	cocos2d::ui::Text * _label;
 
 	//_hint = "Catch the antonyms";
-	_label = ui::Text::create();
+	_label = CommonText::create();
 	_label->setFontName("fonts/BalooBhai-Regular.ttf");
 	_label->setString(_hint);
 	_label->setFontSize(100);
@@ -945,7 +946,7 @@ void BalloonHero::generateObjectsAndMove() {
 			int nounPicker = RandomHelper::random_int(0, 9);
 			int otherPicker = RandomHelper::random_int(0, 9);
 
-			auto label = ui::Text::create();
+			auto label = CommonText::create();
 			if (numberPicker == 5 || numberPicker == 1) {
 				label->setString(_set1[nounPicker]);
 				_cloud1->setName("balloon");
@@ -1012,7 +1013,7 @@ void BalloonHero::generateObjectsAndMove() {
 			int nounPicker = RandomHelper::random_int(0, 9);
 			int otherPicker = RandomHelper::random_int(0, 9);
 
-			auto label = ui::Text::create();
+			auto label = CommonText::create();
 			if (numberPicker == 5 || numberPicker == 1) {
 				label->setString(_set1[nounPicker]);
 				_cloud2->setName("balloon");
@@ -1079,7 +1080,7 @@ void BalloonHero::generateObjectsAndMove() {
 			int nounPicker = RandomHelper::random_int(0, 9);
 			int otherPicker = RandomHelper::random_int(0, 9);
 
-			auto label = ui::Text::create();
+            auto label = CommonText::create();
 			if (numberPicker == 5 || numberPicker == 1) {
 				label->setString(_set1[nounPicker]);
 				_cloud3->setName("balloon");
@@ -1149,7 +1150,7 @@ void BalloonHero::generateObjectsAndMove() {
 			int nounPicker = RandomHelper::random_int(0, 9);
 			int otherPicker = RandomHelper::random_int(0, 9);
 
-			auto label = ui::Text::create();
+			auto label = CommonText::create();
 			if (numberPicker == 5 || numberPicker == 1) {
 				label->setString(_set1[nounPicker]);
 				_cloud4->setName("balloon");

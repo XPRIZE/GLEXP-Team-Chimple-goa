@@ -11,6 +11,7 @@
 #include "../lang/LangUtil.h"
 #include "../StartMenuScene.h"
 #include "../lang/TextGenerator.h"
+#include "../util/CommonText.h"
 
 
 USING_NS_CC;
@@ -324,7 +325,7 @@ void MemoryJungle::onEnterTransitionDidFinish() {
 
 		auto nestHeight = _memoryfarm->getChildByName("mainground")->getChildByName(queryc)->getChildByName("leave")->getChildByName("leave")->getContentSize().height;
 
-		auto label = ui::Text::create();
+		auto label = CommonText::create();
 		label->setString(labelName);
 		label->setFontSize(100);
 		label->setFontName("fonts/Marker Felt.ttf");
@@ -404,7 +405,7 @@ void MemoryJungle::onEnterTransitionDidFinish() {
 	cocos2d::ui::Text * _label;
 
 	//_hint = "Catch the antonyms";
-	_label = ui::Text::create();
+	_label = CommonText::create();
 	_label->setFontName("fonts/BalooBhai-Regular.ttf");
 	_label->setString(_hint);
 	_label->setFontSize(70);
@@ -577,7 +578,7 @@ bool MemoryJungle::onTouchBegan(Touch* touch, Event* event) {
 									cocos2d::ui::Text * _label;
 
 
-									_label = ui::Text::create();
+									_label = CommonText::create();
 									_label->setFontName("fonts/BalooBhai-Regular.ttf");
 
 									auto first = x.first;

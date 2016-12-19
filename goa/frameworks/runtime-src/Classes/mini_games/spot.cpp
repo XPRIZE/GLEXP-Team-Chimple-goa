@@ -1,4 +1,5 @@
 #include "spot.h"
+#include "../util/CommonText.h"
 
 
 USING_NS_CC;
@@ -158,7 +159,7 @@ void spot::onEnterTransitionDidFinish() {
 
 	
 
-	_label = ui::Text::create();
+	_label = CommonText::create();
 	_label->setFontName("fonts/Marker Felt.ttf");
 	_label->setString(LangUtil::getInstance()->translateString("How many         are there?"));
 	_label->setFontSize(100);
