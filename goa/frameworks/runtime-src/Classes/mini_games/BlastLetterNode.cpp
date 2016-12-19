@@ -46,7 +46,7 @@ void BlastLetterNode::draw(cocos2d::DrawNode * paintingNode, cocos2d::Point from
 
 void BlastLetterNode::broadCastRecognizedChars(std::vector<std::string> results)
 {
-	CCLOG("car draw = %s", results.at(0).c_str());
+	//CCLOG("car draw = %s", results.at(0).c_str());
 	_result = results;
 }
 
@@ -54,7 +54,7 @@ ui::Button * BlastLetterNode::createButton(const std::string normalImage, const 
 {
 	cocos2d::ui::Button* button = cocos2d::ui::Button::create(normalImage, selectedImage, disableImage, cocos2d::ui::Widget::TextureResType::LOCAL);
 	button->setPosition(position);
-	
+	_clearButton = button;
 	button->addTouchEventListener(CC_CALLBACK_2(BlastLetterNode::clearDrawing, this));
 	return button;
 }
