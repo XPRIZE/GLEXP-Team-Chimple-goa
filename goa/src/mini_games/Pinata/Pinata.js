@@ -37,13 +37,16 @@ xc.Pinata = cc.Layer.extend({
     console.log("the pinata category value is : " +     info.category);
     console.log("the pinata scene value is : " +     info.scene);
     console.log("the pinata level value is : " +     info.level);
-   
- if(info.category == 1){
-         this.map =  goa.TextGenerator.getInstance().getAntonyms(15);
+    if(info.level >= 7){
+        info.level = 7;
+    }
+
+    if(info.category == 1){
+         this.map =  goa.TextGenerator.getInstance().getAntonyms(15,info.level);
     }else if(info.category == 2){
-         this.map =  goa.TextGenerator.getInstance().getSynonyms(15);
+         this.map =  goa.TextGenerator.getInstance().getSynonyms(15,info.level);
     }else if(info.category == 3){
-         this.map =  goa.TextGenerator.getInstance().getHomonyms(15);
+         this.map =  goa.TextGenerator.getInstance().getHomonyms(15,info.level);
     }else{
         console.log("ERROR :: Your category is wrong , please check your code : line no : 23");
     }
