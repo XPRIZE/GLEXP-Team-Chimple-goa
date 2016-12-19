@@ -52,6 +52,9 @@ public:
     virtual void onAlphabetSelected(cocos2d::EventCustom *event);
 
     virtual void destoryAlphaMon(float dt);
+    
+    void checkVicinityWithMainCharacter(cocos2d::EventCustom * event);
+    
 protected:
     std::unordered_map<std::string, std::string> attributes;
     SkeletonCharacter* mainSkeleton;

@@ -76,7 +76,8 @@ xc.CatalogueLayer = cc.Layer.extend({
             var unlockedStories = [];
             var lockedStoryIdOrders = this._stories.map(function(element) { return element["storyId"] });
             if(cc.sys.isNative) {
-                unlockedStories = context.getUnLockedStories();
+                //unlockedStories = context.getUnLockedStories();
+                unlockedStories = lockedStoryIdOrders;
             }  else {
                 unlockedStories = lockedStoryIdOrders;
             }

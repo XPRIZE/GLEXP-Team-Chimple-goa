@@ -28,6 +28,7 @@ public:
     CC_SYNTHESIZE(std::string, postOutComeAction, PostOutComeAction);
     CC_SYNTHESIZE(int, shouldDisplayInBag, ShouldDisplayInBag);
     CC_SYNTHESIZE(std::string, sceneName, SceneName);
+        
 };
 
 #endif /* MessageContent_hpp */

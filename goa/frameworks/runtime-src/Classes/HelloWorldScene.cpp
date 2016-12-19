@@ -135,8 +135,6 @@ void HelloWorld::loadGameScene() {
     
     this->processMainLayerNonAlphamonChildrenForCustomEvents();
     
-    this->calculateAlphamonNodesInScene(rootNode);
-    
     this->enablePhysicsBoundaries(rootNode);
     
     this->updatePositionAndCategoryBitMaskMainCharacter();
@@ -188,10 +186,22 @@ void HelloWorld::processMainLayerNonAlphamonChildrenForCustomEvents() {
 }
 
 void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
+//    if(node->getName().compare("red_button_2") == 0) {
+//        std::unordered_map<std::string, std::string> attributes = RPGConfig::parseUserData("canInteract=true");
+//        this->createRPGSprite(node, attributes, parentNode);
+//    }
+//    
+//    if(node->getName().compare("green_button_1") == 0) {
+//        std::unordered_map<std::string, std::string> attributes = RPGConfig::parseUserData("canInteract=true");
+//        this->createRPGSprite(node, attributes, parentNode);
+//    }
+
+    
     cocostudio::ComExtensionData* data = (cocostudio::ComExtensionData*)node->getComponent("ComExtensionData");
+    
     if(data != NULL && !data->getCustomProperty().empty()) {
         
-//        CCLOG("found user data for child %s", node->getName().c_str());
+        CCLOG("found user data for child %s", node->getName().c_str());
         
         std::regex pattern("\\b(alphamon)([^ ]*)");
         
@@ -216,8 +226,8 @@ void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
                         
                     } else  {
                         //create external characters
-//                        ExternalSkeletonCharacter* externalSkeletonCharacter = ExternalSkeletonCharacter::create(node, attributes);
-//                        this->mainLayer->addChild(externalSkeletonCharacter);
+                        ExternalSkeletonCharacter* externalSkeletonCharacter = ExternalSkeletonCharacter::create(node, attributes);
+                        this->mainLayer->addChild(externalSkeletonCharacter);
 
                     }
                 }
@@ -286,48 +296,6 @@ void HelloWorld::setReferencesToGameLayers(cocos2d::Node *rootNode) {
     assert(this->mainLayer != NULL);
 }
 
-void HelloWorld::calculateAlphamonNodesInScene(cocos2d::Node *rootNode) {
-    assert(this->mainLayer != NULL);
-    //iterate thru all children and search for "alphamon"
-    
-    auto children = this->mainLayer->getChildren();
-    int alphamonCounter = 0;
-    for (std::vector<Node*>::iterator it = children.begin() ; it != children.end(); ++it) {
-        cocos2d::Node* node = *it;
-        std::regex pattern("\\b(alphamon)([^ ]*)");
-        if(regex_match(node->getName(), pattern)) {
-            alphamonCounter++;
-        }
-    }
-    this->setAlphamonNodesCount(alphamonCounter);
-}
-
-void HelloWorld::addAlphaMonsters(wchar_t alphabet, std::string alphamonNodeName) {
-    assert(this->mainLayer != NULL);
-    //iterate thru all children and search for "alphamon"
-    
-    auto children = this->mainLayer->getChildren();
-    
-    for (std::vector<Node*>::iterator it = children.begin() ; it != children.end(); ++it) {
-        cocos2d::Node* node = *it;
-        cocostudio::ComExtensionData* data = (cocostudio::ComExtensionData*)node->getComponent("ComExtensionData");
-        if(node->getName() == alphamonNodeName) {
-            std::unordered_map<std::string, std::string> attributes;
-            
-            if(data != NULL && !data->getCustomProperty().empty()) {
-                attributes = RPGConfig::parseUserData(data->getCustomProperty());
-            }
-            this->createAlphaMonSprite(node, attributes, this->mainLayer, alphabet);
-        }
-
-    }
-}
-
-void HelloWorld::createAlphaMonSprite(Node* node, std::unordered_map<std::string, std::string> attributes, Node* parentNode, wchar_t alphabet) {
-    AlphamonSprite* alphaMonNode = AlphamonSprite::create(node, attributes, alphabet);
-    parentNode->addChild(alphaMonNode);
-}
-
 void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
     bool fileProcessed = PhysicsShapeCache::getInstance()->addShapesWithFile(this->getSceneName()+"/"+this->getPhysicsFile())
     ;
@@ -359,7 +327,7 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
                                 }
                            } while(regex_match(matchingName, pattern));
                         
-                        CCLOG("matchingName %s", matchingName.c_str());
+//                        CCLOG("matchingName %s", matchingName.c_str());
                         PhysicsShapeCache::getInstance()->setBodyOnSprite(matchingName, (Sprite *)subChild);
 
                         auto body = subChild->getPhysicsBody();
@@ -518,6 +486,17 @@ void HelloWorld::loadSqlite3FileForIsland() {
     this->sqlite3Helper = Sqlite3Helper::getInstance(connectionURL->getCString(), sqlite3FileName);
 }
 
+void HelloWorld::updateSpeechBubbleStatus(EventCustom *event) {
+    this->setSpeechBubbleAlreadyVisible(false);
+}
+
+
+void HelloWorld::processMessageEvent(EventCustom *event) {
+    std::vector<MessageContent*>*messages = reinterpret_cast<std::vector<MessageContent*>*>(event->getUserData());
+    this->processMessage(messages);
+}
+
+
 void HelloWorld::registerMessageSenderAndReceiver() {
     this->messageSender = MessageSender::getInstance(this->sqlite3Helper, this->getSceneName());
     this->addChild(this->messageSender);
@@ -525,38 +504,25 @@ void HelloWorld::registerMessageSenderAndReceiver() {
     this->messageReceiver = MessageReceiver::getInstance();
     this->addChild(this->messageReceiver);
 
-    auto updateSpeechBubbleStatus = [=] (EventCustom * event) {
-        this->setSpeechBubbleAlreadyVisible(false);
-    };
+    this->getEventDispatcher()->addCustomEventListener(RPGConfig::SPEECH_BUBBLE_DESTROYED_NOTIFICATION, CC_CALLBACK_1(HelloWorld::updateSpeechBubbleStatus, this));
     
-    EventListenerCustom* speechBubbleDestroyedEvent = EventListenerCustom::create(RPGConfig::SPEECH_BUBBLE_DESTROYED_NOTIFICATION, updateSpeechBubbleStatus);
-    
-    EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(speechBubbleDestroyedEvent, this);
-
-    
-    auto processMessageEvent = [=] (EventCustom * event) {
-        std::vector<MessageContent*>*messages = reinterpret_cast<std::vector<MessageContent*>*>(event->getUserData());
-        Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(this);
-        this->processMessage(messages);
-    };
-    
-    PROCESS_MESSAGE_AND_CREATE_UI(this, RPGConfig::PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION, processMessageEvent);
+    this->getEventDispatcher()->addCustomEventListener(RPGConfig::PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION, CC_CALLBACK_1(HelloWorld::processMessageEvent, this));
     
     this->getEventDispatcher()->addCustomEventListener(RPGConfig::ON_MENU_EXIT_NOTIFICATION, CC_CALLBACK_1(HelloWorld::transitToMenu, this));
 
-    this->getEventDispatcher()->addCustomEventListener(RPGConfig::ON_ALPHAMON_PRESSED_NOTIFICATION, CC_CALLBACK_1(HelloWorld::alphamonDestroyed, this));
+//    this->getEventDispatcher()->addCustomEventListener(RPGConfig::ON_ALPHAMON_PRESSED_NOTIFICATION, CC_CALLBACK_1(HelloWorld::alphamonDestroyed, this));
+//    
     
-    
-    this->getEventDispatcher()->addCustomEventListener(RPGConfig::ON_WORD_INFO_NOTIFICATION, CC_CALLBACK_1(HelloWorld::changeWordScene, this));
-    
+//    this->getEventDispatcher()->addCustomEventListener(RPGConfig::ON_WORD_INFO_NOTIFICATION, CC_CALLBACK_1(HelloWorld::changeWordScene, this));
+//    
     
 }
 
-void HelloWorld::alphamonDestroyed(EventCustom* event) {
-    std::string &alphamon = *(static_cast<std::string*>(event->getUserData()));
-    activeAlphamonNodes.erase(std::remove(activeAlphamonNodes.begin(), activeAlphamonNodes.end(), alphamon), activeAlphamonNodes.end());
-
-}
+//void HelloWorld::alphamonDestroyed(EventCustom* event) {
+//    std::string &alphamon = *(static_cast<std::string*>(event->getUserData()));
+//    activeAlphamonNodes.erase(std::remove(activeAlphamonNodes.begin(), activeAlphamonNodes.end(), alphamon), activeAlphamonNodes.end());
+//
+//}
 
 void HelloWorld::transitionToDuelScene(wchar_t alphabet) {
     this->cleanUpResources();
@@ -607,7 +573,7 @@ void HelloWorld::processShowMessage(std::vector<MessageContent*>showMessages) {
     for (std::vector<MessageContent* >::iterator it = showMessages.begin() ; it != showMessages.end(); ++it)
     {
         MessageContent* content = (MessageContent*) *it;
-//        CCLOG("content owner %s", content->getOwner().c_str());
+        CCLOG("content owner %s", content->getOwner().c_str());
         Node* ownerNode = this->mainLayer->getChildByName(content->getOwner());
         if(ownerNode != NULL) {
             RPGSprite* rpgSprite = dynamic_cast<RPGSprite *>(ownerNode);
@@ -626,12 +592,15 @@ void HelloWorld::processShowMessage(std::vector<MessageContent*>showMessages) {
         }
         
         if(!content->getPreOutComeAction().empty()) {
-//            CCLOG("content->getPreOutComeAction() %s", content->getPreOutComeAction().c_str());
+            CCLOG("content->getPreOutComeAction() %s", content->getPreOutComeAction().c_str());
             this->sqlite3Helper->deleteItemFromMyBag(this->getIsland().c_str(), content->getPreOutComeAction().c_str());
         }
 
         if(!content->getPostOutComeAction().empty()) {
-//            CCLOG("content->getPostOutComeAction() %s", content->getPostOutComeAction().c_str());
+            if(content->getShouldDisplayInBag() == 1) {
+                //play animation of bag opening and insert item into bag
+            }
+            CCLOG("content->getPostOutComeAction() %s", content->getPostOutComeAction().c_str());
             this->sqlite3Helper->insertItemToMyBag(this->getIsland().c_str(), content->getPostOutComeAction().c_str());
         }
         
@@ -705,8 +674,8 @@ void HelloWorld::cleanUpResources() {
     EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::SPEECH_BUBBLE_DESTROYED_NOTIFICATION);
     EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION);
     EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::ON_MENU_EXIT_NOTIFICATION);
-    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::ON_ALPHAMON_PRESSED_NOTIFICATION);
-    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::ON_WORD_INFO_NOTIFICATION);
+//    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::ON_ALPHAMON_PRESSED_NOTIFICATION);
+//    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::ON_WORD_INFO_NOTIFICATION);
     
     CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
     
@@ -739,12 +708,12 @@ void HelloWorld::changeScene(std::string nextScene, bool isMiniGame) {
     }
 }
 
-void HelloWorld::changeWordScene(EventCustom * event) {
-    std::string &word = *(static_cast<std::string*>(event->getUserData()));
-    this->cleanUpResources();
-    CCLOG("changeWordScene %s", word.c_str());
-    Director::getInstance()->replaceScene(TransitionFade::create(3.0, WordBoard::createSceneWithWordInIslandAndSceneName(word, this->getIsland(), this->getSceneName()), Color3B::BLACK));
-}
+//void HelloWorld::changeWordScene(EventCustom * event) {
+//    std::string &word = *(static_cast<std::string*>(event->getUserData()));
+//    this->cleanUpResources();
+//    CCLOG("changeWordScene %s", word.c_str());
+//    Director::getInstance()->replaceScene(TransitionFade::create(3.0, WordBoard::createSceneWithWordInIslandAndSceneName(word, this->getIsland(), this->getSceneName()), Color3B::BLACK));
+//}
 
 
 void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMessages) {
@@ -768,48 +737,51 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
             }
 
             Node* animationSpriteNode = this->mainLayer->getChildByName(content->getOwner());
-            RPGSprite* animationNode = dynamic_cast<RPGSprite *>(animationSpriteNode);
-            cocostudio::timeline::ActionTimeline* timeline = NULL;
-            bool timeLineExists = false;
-            if(animationNode->getActionTimeLine() == NULL) {
-                timeline =  CSLoader::createTimeline(animFile);
-                animationNode->setActionTimeLine(timeline);
-                timeLineExists = false;
-            } else {
-                timeline = animationNode->getActionTimeLine();
-                timeLineExists = true;
-            }
-            
-            if(timeline != NULL && animationSpriteNode != NULL && animationNode != NULL )
+            if(animationSpriteNode != NULL)
             {
-                timeline->setLastFrameCallFunc([=]() {
-                    if(content != NULL && (content->getCondition().empty() || (!content->getCondition().empty() && content->getConditionSatisfied() == 1)))
-                    {
-                        std::string nextScene = animationNode->getNextScene();
-                        
-                        if(!nextScene.empty())
-                        {
-//                            CCLOG("calling changeScene for nextScene %s", nextScene.c_str());
-                            this->changeScene(nextScene, false);
-                        }
-                    }
-                    timeline->clearLastFrameCallFunc();
-                });
-
-                Node* animationSpriteNode = this->mainLayer->getChildByName(content->getOwner());
                 RPGSprite* animationNode = dynamic_cast<RPGSprite *>(animationSpriteNode);
-                if(animationNode != NULL) {
-                    animationNode->setVisible(true);
-                    if(animationNode->getSprite() != NULL) {
-                        if(!timeLineExists) {
-                            animationNode->getSprite()->runAction(timeline);
+                cocostudio::timeline::ActionTimeline* timeline = NULL;
+                bool timeLineExists = false;
+                if(animationNode->getActionTimeLine() == NULL) {
+                    timeline =  CSLoader::createTimeline(animFile);
+                    animationNode->setActionTimeLine(timeline);
+                    timeLineExists = false;
+                } else {
+                    timeline = animationNode->getActionTimeLine();
+                    timeLineExists = true;
+                }
+                
+                if(timeline != NULL && animationSpriteNode != NULL && animationNode != NULL )
+                {
+                    timeline->setLastFrameCallFunc([=]() {
+                        if(content != NULL && (content->getCondition().empty() || (!content->getCondition().empty() && content->getConditionSatisfied() == 1)))
+                        {
+                            std::string nextScene = animationNode->getNextScene();
+                            
+                            if(!nextScene.empty())
+                            {
+                                CCLOG("calling changeScene for nextScene %s", nextScene.c_str());
+                                this->changeScene(nextScene, false);
+                            }
                         }
-                        
-                        bool playInLoop = content->getPlayAnimationInLoop() == 1 ? true : false;
-                        if(!animName.empty()) {
-                            timeline->play(animName, playInLoop);
-                        } else {
-                          timeline->gotoFrameAndPlay(0, playInLoop);
+                        timeline->clearLastFrameCallFunc();
+                    });
+                    
+                    Node* animationSpriteNode = this->mainLayer->getChildByName(content->getOwner());
+                    RPGSprite* animationNode = dynamic_cast<RPGSprite *>(animationSpriteNode);
+                    if(animationNode != NULL) {
+                        animationNode->setVisible(true);
+                        if(animationNode->getSprite() != NULL) {
+                            if(!timeLineExists) {
+                                animationNode->getSprite()->runAction(timeline);
+                            }
+                            
+                            bool playInLoop = content->getPlayAnimationInLoop() == 1 ? true : false;
+                            if(!animName.empty()) {
+                                timeline->play(animName, playInLoop);
+                            } else {
+                                timeline->gotoFrameAndPlay(0, playInLoop);
+                            }
                         }
                     }
                 }
@@ -1676,35 +1648,38 @@ bool HelloWorld::handlePhysicsContactEventForOtherSkeletonCharacter(PhysicsConta
     return true;
 }
 
+bool HelloWorld::onContactBegin(PhysicsContact &contact) {
+    // We we handle what happen when character collide with something else
+    // if we return true, we say: collision happen please. => Top-Down Char Jump
+    // otherwise, we say the engine to ignore this collision => Bottom-Up Char Jump
+    CCLOG("contact BEGAN 1111!!! %d", this->stateMachine->getCurrentState()->getState());
+    cocos2d::Node* nodeA = contact.getShapeA()->getBody()->getNode();
+    cocos2d::Node* nodeB = contact.getShapeB()->getBody()->getNode();
+    
+    
+    //Dynamic cast
+    bool isSkeletonNodeA = dynamic_cast<cocostudio::timeline::SkeletonNode *>(nodeA);
+    bool isSkeletonNodeB = dynamic_cast<cocostudio::timeline::SkeletonNode *>(nodeB);
+    
+    if(isSkeletonNodeA || isSkeletonNodeB)
+    {
+        if(RPGConfig::compareCaseInsensitive(nodeA->getName(),HUMAN_SKELETON_NAME) ||
+           RPGConfig::compareCaseInsensitive(nodeB->getName(),HUMAN_SKELETON_NAME))
+        {
+            return this->handlePhysicsContactEventForMainCharacter(contact, nodeA, nodeB);
+        } else {
+            return this->handlePhysicsContactEventForOtherSkeletonCharacter(contact, nodeA, nodeB);
+        }
+    }
+    
+    return true;
+}
+
+
 void HelloWorld::registerPhysicsEventContactLister() {
     auto contactListener = EventListenerPhysicsContact::create();
-    contactListener->onContactBegin = [=](PhysicsContact &contact) -> bool
-    {
-        // We we handle what happen when character collide with something else
-        // if we return true, we say: collision happen please. => Top-Down Char Jump
-        // otherwise, we say the engine to ignore this collision => Bottom-Up Char Jump
-//        CCLOG("contact BEGAN 1111!!! %d", this->stateMachine->getCurrentState()->getState());
-        cocos2d::Node* nodeA = contact.getShapeA()->getBody()->getNode();
-        cocos2d::Node* nodeB = contact.getShapeB()->getBody()->getNode();
-        
-        
-        //Dynamic cast
-        bool isSkeletonNodeA = dynamic_cast<cocostudio::timeline::SkeletonNode *>(nodeA);
-        bool isSkeletonNodeB = dynamic_cast<cocostudio::timeline::SkeletonNode *>(nodeB);
-        
-        if(isSkeletonNodeA || isSkeletonNodeB)
-        {
-            if(RPGConfig::compareCaseInsensitive(nodeA->getName(),HUMAN_SKELETON_NAME) ||
-               RPGConfig::compareCaseInsensitive(nodeB->getName(),HUMAN_SKELETON_NAME))
-            {
-                return this->handlePhysicsContactEventForMainCharacter(contact, nodeA, nodeB);
-            } else {
-                return this->handlePhysicsContactEventForOtherSkeletonCharacter(contact, nodeA, nodeB);
-            }
-        }
-
-        return true;
-    };
+    
+    contactListener->onContactBegin = CC_CALLBACK_1(HelloWorld::onContactBegin, this);
     
     
     contactListener->onContactPreSolve = [=](PhysicsContact &contact, PhysicsContactPreSolve& solve) -> bool
@@ -1721,57 +1696,4 @@ void HelloWorld::registerPhysicsEventContactLister() {
     
     
     Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, this);    
-}
-
-bool HelloWorld::checkIfAlphamonNodeNearBy(std::string alphamonNodeName) {
-    bool isAlphamonNearBy = false;
-    
-    Node* alphamonNode = this->mainLayer->getChildByName(alphamonNodeName);
-    
-    if(alphamonNode != NULL)
-    {
-        Vec2 mainSkeletonPositionFromBottom = Point(this->skeletonCharacter->getSkeletonNode()->getPosition().x, this->skeletonCharacter->getSkeletonNode()->getPosition().y);
-        Vec2 mainSkeletonPositionFromTop = Point(this->skeletonCharacter->getSkeletonNode()->getPosition().x, this->skeletonCharacter->getSkeletonNode()->getPosition().y + skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height);
-        
-        float distanceFromTop= mainSkeletonPositionFromTop.getDistance(alphamonNode->getPosition());
-        float distanceFromBottom = mainSkeletonPositionFromBottom.getDistance(alphamonNode->getPosition());
-        
-        if((distanceFromTop >= -OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH && distanceFromTop <= OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH) || (distanceFromBottom >= -OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH && distanceFromBottom <= OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH)) {
-            isAlphamonNearBy = true;
-        }
-    }
-    
-    return isAlphamonNearBy;
-}
-
-std::string HelloWorld::generateNearestAlphamon() {
-    
-    //loop thru all alphamons
-    std::string alphamonNodeName = "";
-    for (int i = 1; i < this->getAlphamonNodesCount(); i++) {
-        
-        alphamonNodeName = StringUtils::format("%s_%d", "alphamon", i);
-        bool isNearBy = this->checkIfAlphamonNodeNearBy(alphamonNodeName);
-        bool isAlphamonAlreadyPresent = std::find(activeAlphamonNodes.begin(), activeAlphamonNodes.end(), alphamonNodeName) != activeAlphamonNodes.end();
-        
-        if(isNearBy && !isAlphamonAlreadyPresent) {
-            break;
-        }
-    }    
-    return alphamonNodeName;
-}
-
-void HelloWorld::createAlphaMons(float dt) {
-        std::string alphamonNodeName = this->generateNearestAlphamon();
-        if(!alphamonNodeName.empty()) {
-            bool isAlphamonAlreadyPresent = std::find(activeAlphamonNodes.begin(), activeAlphamonNodes.end(), alphamonNodeName) != activeAlphamonNodes.end();
-            
-            if(!isAlphamonAlreadyPresent) {
-                activeAlphamonNodes.push_back(alphamonNodeName);
-                wchar_t generatedChar = CharGenerator::getInstance()->generateAChar();
-                this->addAlphaMonsters(generatedChar, alphamonNodeName);
-                
-            }
-            
-        }
 }

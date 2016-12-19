@@ -27,6 +27,11 @@ protected:
     
 public:
     
+    void sendMessageEvent(EventCustom * event);
+    
+    void sendTextOnTapMessageEvent(EventCustom * event);
+    
+    
     virtual bool initialize(Sqlite3Helper* sqlite3Helper, std::string sceneName);
     
     static MessageSender* getInstance(Sqlite3Helper* sqlite3Helper, std::string sceneName);

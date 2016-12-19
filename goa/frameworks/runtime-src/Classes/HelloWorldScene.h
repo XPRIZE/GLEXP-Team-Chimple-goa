@@ -148,26 +148,22 @@ private:
     void transitToMenu(EventCustom* event);
     void changeScene(std::string nextScene = "", bool isMiniGame = false);
     void cleanUpResources();
-    void alphamonDestroyed(EventCustom* event);
-    std::string generateNearestAlphamon();
     
     void transitionToDuelScene(wchar_t alphabet);
-    
-    void addAlphaMonsters(wchar_t alphabet, std::string alphamonNodeName);
-    
-    void createAlphaMons(float dt);
-    
-    bool checkIfAlphamonNodeNearBy(std::string alphamonNodeName);
-    
-    void calculateAlphamonNodesInScene(cocos2d::Node *rootNode);
-    
+
     void loadWords();
     
     void createWordSprite(cocos2d::Node* node, std::string word, cocos2d::Node* parentNode);
     
     void handleCharacterMovement(cocos2d::Point position);
     
-    void changeWordScene(EventCustom * event);
+//    void changeWordScene(EventCustom * event);
+    
+    void updateSpeechBubbleStatus(EventCustom *event);
+    
+    void processMessageEvent(EventCustom *event);
+    
+    bool onContactBegin(PhysicsContact &contact);
     
     cocos2d::Size sceneSize;
     
@@ -236,8 +232,6 @@ public:
     virtual bool handlePhysicsContactEventForOtherSkeletonCharacter(cocos2d::PhysicsContact &contact, cocos2d::Node* nodeA, cocos2d::Node* nodeB);
     
     virtual void createRPGSprite(cocos2d::Node* node, std::unordered_map<std::string, std::string> attributes, cocos2d::Node* parentNode);
-    
-    virtual void createAlphaMonSprite(cocos2d::Node* node, std::unordered_map<std::string, std::string> attributes, cocos2d::Node* parentNode, wchar_t alphabet);
     
     virtual void processNodeWithCustomAttributes(Node* node, cocos2d::Node* parentNode);
     
