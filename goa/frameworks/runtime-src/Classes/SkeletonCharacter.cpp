@@ -149,6 +149,7 @@ void SkeletonCharacter::createSkeletonNode(cocos2d::Node* node, const std::strin
     this->setLocalZOrder(1000);
     
     this->skeletonActionTime = (cocostudio::timeline::ActionTimeline*) CSLoader::createTimeline(filename);
+    this->skeletonActionTime->retain();
     this->skeletonNode->runAction(this->skeletonActionTime);
     this->skeletonActionTime->gotoFrameAndPause(0);
     

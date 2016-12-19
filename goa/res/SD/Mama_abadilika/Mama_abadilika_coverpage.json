@@ -202,9 +202,9 @@
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Mama_abadilika/Kuhesabu_hill.png",
-              "Plist": "Mama_abadilika/Mama_abadilika.plist"
+              "Type": "Default",
+              "Path": "Default/Sprite.png",
+              "Plist": ""
             },
             "BlendFunc": {
               "Src": 1,
@@ -873,6 +873,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "../Default/Sprite.png",
         "girl.json",
         "Mama_abadilika.plist",
         "Mama_abadilika.png",

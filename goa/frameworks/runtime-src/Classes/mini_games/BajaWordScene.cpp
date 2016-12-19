@@ -1,5 +1,6 @@
 #include "BajaWordScene.h"
 #include "editor-support/cocostudio/CocoStudio.h"
+#include "../util/CommonText.h"
 
 USING_NS_CC;
 
@@ -29,7 +30,7 @@ void BajaWordScene::createAnswer() {
 
 	Size _size = Director::getInstance()->getVisibleSize();
 
-	auto label = ui::Text::create();
+	auto label = CommonText::create();
 	label->setString(_word);
 	label->setFontSize(200);
 

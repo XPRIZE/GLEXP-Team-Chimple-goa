@@ -8,6 +8,7 @@
 #include "DoorNode.h"
 #include "../lang/TextGenerator.h"
 #include "../menu/HelpLayer.h"
+#include "../util/CommonLabel.h"
 
 USING_NS_CC;
 
@@ -239,7 +240,7 @@ void Door::onEnterTransitionDidFinish()
 		float y = _BoxRef.at(i)->getPositionY() - boxHeight / 2;
 
 		_myWord = _randomWord.at(i);
-		auto myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), _myWord);
+		auto myLabel = CommonLabel::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), _myWord);
 		myLabel->setPositionX(x);
 		myLabel->setPositionY(y);
 		myLabel->setScale(0.8);

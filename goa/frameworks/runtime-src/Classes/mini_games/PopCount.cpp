@@ -1,5 +1,7 @@
 #include "PopCount.h"
 #include "../menu/HelpLayer.h"
+#include "../util/CommonLabelTTF.h"
+
 USING_NS_CC;
 
 Scene* PopCount::createScene()
@@ -252,7 +254,7 @@ void PopCount::setGridNumberPanel() {
 		addEventsOnGrid(smallGrid);
 
 		std::ostringstream gridName;	gridName << (i + 1);
-		auto label = LabelTTF::create(gridName.str(), "Helvetica", smallGridSize*0.8);
+		auto label = CommonLabelTTF::create(gridName.str(), "Helvetica", smallGridSize*0.8);
 		label->setColor(Color3B::WHITE);
 		label->setPosition(Vec2(smallGrid->getContentSize().width / 2, smallGrid->getContentSize().height / 2));
 		smallGrid->addChild(label);

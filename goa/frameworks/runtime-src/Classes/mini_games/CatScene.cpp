@@ -7,6 +7,7 @@
 
 
 #include "CatScene.h"
+#include "../util/CommonText.h"
 
 USING_NS_CC;
 
@@ -71,8 +72,8 @@ std::string Cat::getGraphemeSelectedBackground() {
 void Cat::createAnswer()
 {
 	CCLOG("createAnswer");
-	auto label = ui::Text::create();
-	label->setString(_word);
+	auto label = CommonText::create();
+    label->setString(_word);
 	label->setFontSize(200);
 	//label->setPosition(Vec2());
 	_answer = Sprite::createWithSpriteFrameName("hippo/board.png");

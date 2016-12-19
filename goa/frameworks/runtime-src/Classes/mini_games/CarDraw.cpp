@@ -10,6 +10,7 @@
 #include "../WordSceneLipiTKNode.h"
 #include "CarDrawNode.h"
 #include "../menu/HelpLayer.h"
+#include "../util/CommonLabel.h"
 
 USING_NS_CC;
 
@@ -312,7 +313,7 @@ void CarDraw::gameStart()
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1]);
-	auto myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), _myChar);
+	auto myLabel = CommonLabel::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), _myChar);
 	myLabel->setPositionX(visibleSize.width/2);
 	myLabel->setPositionY(visibleSize.height / 2);
 	myLabel->setScale(2.5);

@@ -14,6 +14,7 @@
 #include "DecomonGallery.h"
 #include "../menu/HelpLayer.h"
 #include "../lang/TextGenerator.h"
+#include "../util/CommonLabel.h"
 
 USING_NS_CC;
 
@@ -748,7 +749,7 @@ void Decomon::wordGenerate()
 		sprite->setColor(Color3B(colorR, colorG, colorB));
 		this->addChild(sprite);
 		sprite->setScale(0.5, 0.5);
-		auto myLabel = Label::createWithSystemFont(word, "Arial", 200);
+		auto myLabel = CommonLabel::createWithSystemFont(word, "Arial", 200);
 		myLabel->setPositionX(sprite->getContentSize().width/2);
 		myLabel->setPositionY(sprite->getContentSize().height / 2);
 		myLabel->setColor(Color3B(0, 0, 0));

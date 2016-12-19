@@ -579,6 +579,9 @@ std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> TextGener
     return data;
 }
 
+std::string TextGenerator::translateString(std::string input) {
+    return LangUtil::getInstance()->translateString(input);
+}
 
 std::string TextGenerator::getLang() {
     return LangUtil::getInstance()->getLang();

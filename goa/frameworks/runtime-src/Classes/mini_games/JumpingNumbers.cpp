@@ -8,6 +8,7 @@
 
 #include "JumpingNumbers.h"
 #include "../menu/HelpLayer.h"
+#include "../util/CommonLabel.h"
 
 
 USING_NS_CC;
@@ -250,7 +251,7 @@ void JumpingNumber::stepsCreate(int numberLabel)
 		ss << myLabel.at(randomIndex % 3);
 		std::string str = ss.str();
 		step->setName(str);
-		auto number_label = Label::createWithSystemFont(str, "Arial", 90);
+		auto number_label = CommonLabel::createWithSystemFont(str, "Arial", 90);
 		number_label->setPositionX(step->getContentSize().width / 2);
 		number_label->setPositionY(step->getContentSize().height / 2);
 		number_label->setColor(ccc3(0, 0, 0));

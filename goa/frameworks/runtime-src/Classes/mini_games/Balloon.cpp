@@ -1,6 +1,7 @@
 #include "Balloon.h"
 #include "../menu/HelpLayer.h"
 #include <math.h> 
+#include "../util/CommonLabelTTF.h"
 
 
 Scene* Balloon::createScene()
@@ -499,7 +500,7 @@ void Balloon::setAllSpriteProperties(Sprite* sprite, int zOrder, float posX, flo
 
 LabelTTF* Balloon::setAllLabelProperties(std::string letterString, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY, int labelSizeInPixel)
 {
-	auto label = LabelTTF::create(letterString, "Helvetica", labelSizeInPixel);
+	auto label = CommonLabelTTF::create(letterString, "Helvetica", labelSizeInPixel);
 	label->setPosition(Vec2(posX, posY));
 	label->setVisible(visibility);
 	label->setAnchorPoint(Vec2(anchorPointX, anchorPointY));
