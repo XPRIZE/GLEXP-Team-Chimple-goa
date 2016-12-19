@@ -13,6 +13,7 @@
 #include "../lang/TextGenerator.h"
 #include "storage/local-storage/LocalStorage.h"
 #include "scripting/js-bindings/manual/ScriptingCore.h"
+#include "../util/CommonLabel.h"
 
 USING_NS_CC;
 using namespace rapidjson;
@@ -200,15 +201,15 @@ bool Dash::init()
 
 	//auto defaultCharacter = CallFunc::create(CC_CALLBACK_0(Dash::otherCharacterJumping, this));
 	//randomly calling other character(If multiplayer Mode is off)
-//	runAction(RepeatForever::create(Sequence::create(DelayTime::create(10 + (rand() % 60) / 30.0), CallFunc::create([=]() {
-//		_enemyScore++;
-//		updatePlayerPosition("enemy", _enemyScore);
-//	}), NULL)));
+	runAction(RepeatForever::create(Sequence::create(DelayTime::create(10 + (rand() % 60) / 30.0), CallFunc::create([=]() {
+		_enemyScore++;
+		updatePlayerPosition("enemy", _enemyScore);
+	}), NULL)));
     
     
-    this->getEventDispatcher()->addCustomEventListener("on_menu_exit", CC_CALLBACK_1(Dash::transitToMenu, this));
+ //   this->getEventDispatcher()->addCustomEventListener("on_menu_exit", CC_CALLBACK_1(Dash::transitToMenu, this));
     
-    Director::getInstance()->getEventDispatcher()->addCustomEventListener("enemy_information_received_event", CC_CALLBACK_1(Dash::syncEnemyCharacterPosition, this));
+ //   Director::getInstance()->getEventDispatcher()->addCustomEventListener("enemy_information_received_event", CC_CALLBACK_1(Dash::syncEnemyCharacterPosition, this));
 
     
 	return true;
@@ -411,7 +412,7 @@ void Dash::wordGenerateWithOptions()
 	int size = _mapKey.size();
 	_gameWord = _mapKey.at(cocos2d::RandomHelper::random_int(0, size-1));
 	answer.push_back(_synonyms.at(_gameWord));
-	_topLabel = Label::createWithSystemFont(_gameWord.c_str(), "Arial", 200);
+	_topLabel = CommonLabel::createWithSystemFont(_gameWord.c_str(), "Arial", 200);
 	_topLabel->setPositionX(visibleSize.width/2);
 	_topLabel->setName(_gameWord.c_str());
 	_topLabel->setPositionY(visibleSize.height - _topLabel->getContentSize().height/2);
@@ -436,7 +437,7 @@ void Dash::wordGenerateWithOptions()
 	int randomInt = cocos2d::RandomHelper::random_int(0, answerSize);
 	for (int i = 0; i < _choiceButton.size(); i++) {
 		auto str = answer.at(randomInt % (answerSize + 1));
-		auto myLabel = Label::createWithSystemFont(str, "Arial", 200);
+		auto myLabel = CommonLabel::createWithSystemFont(str, "Arial", 200);
 		myLabel->setName(str);
 		myLabel->setPositionX(_choiceButton.at(i)->getPositionX());
 		myLabel->setPositionY(_choiceButton.at(i)->getPositionY());
@@ -483,7 +484,7 @@ void Dash::fallingWords(int i)
 		word = word + "" + test;
 	}
 	std::string str = word +"   " +_synonyms.at(word);
-	auto myLabel = Label::createWithSystemFont(str, "Arial", 100);
+	auto myLabel = CommonLabel::createWithSystemFont(str, "Arial", 100);
 	myLabel->setName(str);
 	myLabel->setPositionX(visibleSize.width/1.75);
 	myLabel->setPositionY(visibleSize.height + 300);

@@ -10,6 +10,7 @@
 #include "../lang/TextGenerator.h"
 #include "../menu/HelpLayer.h"
 #include <algorithm>
+#include "../util/CommonLabel.h"
 
 USING_NS_CC;
 
@@ -396,7 +397,7 @@ void Order::onEnterTransitionDidFinish()
 			obj1->addChild(pngNode);
 		}
 		else {
-			auto topLabel = Label::createWithSystemFont(randomList.at(i).c_str(), "Arial", 100);
+			auto topLabel = CommonLabel::createWithSystemFont(randomList.at(i).c_str(), "Arial", 100);
 			topLabel->setPositionX(obj1->getContentSize().width / 2);
 			topLabel->setPositionY(obj1->getContentSize().height / 2);
 			topLabel->setColor(Color3B(255, 255, 255));
@@ -490,8 +491,8 @@ void Order::checkUserSortList(std::vector<int> list)
 
 
 	float cartMove = _cartMove * (score - _myScore);
-	auto moveBy = MoveBy::create(2, Vec2(0, cartMove));
-	auto moveBucket = MoveBy::create(2, Vec2(0, cartMove));
+	auto moveBy = MoveBy::create(1, Vec2(0, cartMove));
+	auto moveBucket = MoveBy::create(1, Vec2(0, cartMove));
 	if (_themeName.compare("hero") == 0) {
 		auto bucket = _bg->getChildByName("FileNode_2")->getChildByName("paintbucket");
 		bucket->runAction(moveBucket);

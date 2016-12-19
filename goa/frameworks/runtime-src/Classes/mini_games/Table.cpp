@@ -10,6 +10,7 @@
 #include "../menu/HelpLayer.h"
 #include "../effects/FShake.h"
 #include "../Calculator.h"
+#include "../util/CommonLabel.h"
 
 USING_NS_CC;
 
@@ -272,7 +273,7 @@ void Table::createGrid()
 				endNumber = 1;
 			}
 			fish->setName(str);
-			auto number_label = Label::createWithSystemFont(str, "Arial", 90);
+			auto number_label = CommonLabel::createWithSystemFont(str, "Arial", 90);
 			number_label->setColor(Color3B(0, 0, 0));
 			fish->addChild(number_label);
 		}
@@ -353,7 +354,7 @@ void Table::gameEnd(float ft)
 void Table::calculatedResult(std::string result)
 {
 	CCLOG("table calculator!!!!!!!!!!!  === %s",result.c_str());
-	_touched = true;
+	
 	_numberOfAttempt++;
 	if (_targetedFishName.compare(result) == 0) {
 		for (int i = 0; i < _catchedFish.size(); i++) {
@@ -370,6 +371,7 @@ void Table::calculatedResult(std::string result)
 				auto move = MoveTo::create(2, _targetPosition);
 				_catchedFish.at(i)->runAction(Sequence::create(move, CallFunc::create([=]() {
 					_grid->removeChild(_target);
+					_touched = true;
 				}), NULL));
 				_catchedFish.erase(_catchedFish.begin() + i);
 				break;
@@ -381,7 +383,9 @@ void Table::calculatedResult(std::string result)
 		this->removeChildByName("hintLabel");
 		menu->addPoints(-1);
 		FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
-		_target->runAction(shake);
+		_target->runAction(Sequence::create(shake, CallFunc::create([=](){
+			_touched = true;
+		}),NULL));
 	}
 	if (_score == _config.at("disableFish")) {
 		menu->setMaxPoints(_config.at("disableFish"));
@@ -402,6 +406,10 @@ bool Table::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		_touched = false;
 		_targetedFishName = target->getName().c_str();
 		_fishNumber = atoi(target->getName().c_str());
+		auto testX = target->getPositionY() / 300;
+		auto testY = target->getPositionX() / 400;
+		CCLOG("X = %f", testX);
+		CCLOG("Y = %f", testY);
 		int indexY = target->getPositionY() / 300;
 		int indexX = target->getPositionX() / 400;
 		CCLOG("X = %d", indexX);

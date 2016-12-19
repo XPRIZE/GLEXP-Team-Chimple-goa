@@ -55,6 +55,56 @@
             "LeftMargin": -260.0,
             "RightMargin": -280.0,
             "Tag": 14034,
+            "Children": [
+              {
+                "ClipAble": false,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "G": 248,
+                  "B": 192
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 24.0043,
+                  "Y": 977.3839
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0077,
+                  "Y": 0.543
+                },
+                "PreSize": {
+                  "X": 0.9848,
+                  "Y": 0.1111
+                },
+                "LeftMargin": 24.0043,
+                "RightMargin": 22.9956,
+                "TopMargin": 622.6161,
+                "BottomMargin": 977.3839,
+                "Tag": 142,
+                "ActionTag": 1866508184,
+                "Size": {
+                  "X": 3053.0,
+                  "Y": 200.0
+                },
+                "Name": "Panel_2",
+                "ctype": "PanelObjectData"
+              }
+            ],
             "ActionTag": -1384197018,
             "Size": {
               "X": 3100.0,
@@ -124,8 +174,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2067.9019,
-              "Y": 1399.4996
+              "X": 2176.6748,
+              "Y": 1696.116
             },
             "Scale": {
               "ScaleX": 0.9,
@@ -134,17 +184,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.8078,
-              "Y": 0.7775
+              "X": 0.8503,
+              "Y": 0.9423
             },
             "PreSize": {
               "X": 0.1684,
               "Y": 0.0806
             },
-            "LeftMargin": 1852.4019,
-            "RightMargin": 276.5981,
-            "TopMargin": 328.0004,
-            "BottomMargin": 1326.9996,
+            "LeftMargin": 1961.1748,
+            "RightMargin": 167.8252,
+            "TopMargin": 31.384,
+            "BottomMargin": 1623.616,
             "Tag": 14036,
             "ActionTag": 800602789,
             "Size": {
@@ -180,17 +230,17 @@
               "Y": 0.2005
             },
             "PreSize": {
-              "X": 0.2004,
+              "X": 0.2,
               "Y": 0.3522
             },
             "LeftMargin": -237.999,
-            "RightMargin": 2284.999,
-            "TopMargin": 805.019,
+            "RightMargin": 2285.999,
+            "TopMargin": 805.0191,
             "BottomMargin": 360.9809,
             "Tag": 14046,
             "ActionTag": 1480501438,
             "Size": {
-              "X": 513.0,
+              "X": 512.0,
               "Y": 634.0
             },
             "Name": "wave_2",
@@ -209,7 +259,7 @@
             },
             "AnchorPoint": {},
             "Position": {
-              "X": 269.3881,
+              "X": 273.3881,
               "Y": 360.9809
             },
             "Scale": {
@@ -219,66 +269,24 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.1052,
+              "X": 0.1068,
               "Y": 0.2005
             },
             "PreSize": {
-              "X": 0.2004,
+              "X": 0.2,
               "Y": 0.3522
             },
-            "LeftMargin": 269.3881,
-            "RightMargin": 1777.6118,
+            "LeftMargin": 273.3881,
+            "RightMargin": 1774.6119,
             "TopMargin": 805.019,
             "BottomMargin": 360.9809,
             "Tag": 14047,
             "ActionTag": -1430605603,
             "Size": {
-              "X": 513.0,
+              "X": 512.0,
               "Y": 634.0
             },
             "Name": "wave_2_0",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "popcount/wave.png",
-              "Plist": "popcount/popcount.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {},
-            "Position": {
-              "X": 780.371,
-              "Y": 360.3808
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.3048,
-              "Y": 0.2002
-            },
-            "PreSize": {
-              "X": 0.2004,
-              "Y": 0.3522
-            },
-            "LeftMargin": 780.371,
-            "RightMargin": 1266.6289,
-            "TopMargin": 805.6191,
-            "BottomMargin": 360.3808,
-            "Tag": 14048,
-            "ActionTag": 1468888845,
-            "Size": {
-              "X": 513.0,
-              "Y": 634.0
-            },
-            "Name": "wave_2_1",
             "ctype": "SpriteObjectData"
           },
           {
@@ -308,17 +316,17 @@
               "Y": 0.2002
             },
             "PreSize": {
-              "X": 0.2004,
+              "X": 0.2,
               "Y": 0.3522
             },
             "LeftMargin": 1287.7595,
-            "RightMargin": 759.2405,
-            "TopMargin": 805.6191,
+            "RightMargin": 760.2405,
+            "TopMargin": 805.6192,
             "BottomMargin": 360.3808,
             "Tag": 14049,
             "ActionTag": 344969235,
             "Size": {
-              "X": 513.0,
+              "X": 512.0,
               "Y": 634.0
             },
             "Name": "wave_2_0_0",
@@ -350,17 +358,17 @@
               "Y": 0.2005
             },
             "PreSize": {
-              "X": 0.2004,
+              "X": 0.2,
               "Y": 0.3522
             },
             "LeftMargin": 1798.5559,
-            "RightMargin": 248.4441,
-            "TopMargin": 805.019,
+            "RightMargin": 249.4441,
+            "TopMargin": 805.0191,
             "BottomMargin": 360.9809,
             "Tag": 14050,
             "ActionTag": 402786313,
             "Size": {
-              "X": 513.0,
+              "X": 512.0,
               "Y": 634.0
             },
             "Name": "wave_2_2",
@@ -393,20 +401,62 @@
               "Y": 0.2005
             },
             "PreSize": {
-              "X": 0.2004,
+              "X": 0.2,
               "Y": 0.3522
             },
             "LeftMargin": 2305.9368,
-            "RightMargin": -258.9368,
-            "TopMargin": 805.019,
+            "RightMargin": -257.9368,
+            "TopMargin": 805.0191,
             "BottomMargin": 360.9809,
             "Tag": 14051,
             "ActionTag": 1028474421,
             "Size": {
-              "X": 513.0,
+              "X": 512.0,
               "Y": 634.0
             },
             "Name": "wave_2_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/wave.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {},
+            "Position": {
+              "X": 783.5407,
+              "Y": 360.9344
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3061,
+              "Y": 0.2005
+            },
+            "PreSize": {
+              "X": 0.2,
+              "Y": 0.3522
+            },
+            "LeftMargin": 783.5407,
+            "RightMargin": 1264.4592,
+            "TopMargin": 805.0657,
+            "BottomMargin": 360.9344,
+            "Tag": 14048,
+            "ActionTag": 1468888845,
+            "Size": {
+              "X": 512.0,
+              "Y": 634.0
+            },
+            "Name": "wave_2_1",
             "ctype": "SpriteObjectData"
           },
           {
@@ -424,8 +474,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 181.7524,
-              "Y": 1109.1981
+              "X": 176.8091,
+              "Y": 1316.8308
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -434,17 +484,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.071,
-              "Y": 0.6162
+              "X": 0.0691,
+              "Y": 0.7316
             },
             "PreSize": {
               "X": 0.3523,
               "Y": 0.1672
             },
-            "LeftMargin": -269.2476,
-            "RightMargin": 1927.2476,
-            "TopMargin": 540.3019,
-            "BottomMargin": 958.6981,
+            "LeftMargin": -274.1909,
+            "RightMargin": 1932.1909,
+            "TopMargin": 332.6692,
+            "BottomMargin": 1166.3308,
             "Tag": 14052,
             "ActionTag": -1268109195,
             "Size": {
@@ -469,8 +519,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1011.9429,
-              "Y": 1073.3706
+              "X": 1007.0012,
+              "Y": 1281.0027
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -479,17 +529,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.3953,
-              "Y": 0.5963
+              "X": 0.3934,
+              "Y": 0.7117
             },
             "PreSize": {
               "X": 0.3523,
               "Y": 0.1672
             },
-            "LeftMargin": 560.9429,
-            "RightMargin": 1097.0571,
-            "TopMargin": 576.1294,
-            "BottomMargin": 922.8706,
+            "LeftMargin": 556.0012,
+            "RightMargin": 1101.9988,
+            "TopMargin": 368.4973,
+            "BottomMargin": 1130.5027,
             "Tag": 14053,
             "ActionTag": -47421245,
             "Size": {
@@ -514,8 +564,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1845.0322,
-              "Y": 1108.8895
+              "X": 1840.0902,
+              "Y": 1316.5225
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -524,17 +574,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.7207,
-              "Y": 0.616
+              "X": 0.7188,
+              "Y": 0.7314
             },
             "PreSize": {
               "X": 0.3523,
               "Y": 0.1672
             },
-            "LeftMargin": 1394.0322,
-            "RightMargin": 263.9678,
-            "TopMargin": 540.6105,
-            "BottomMargin": 958.3895,
+            "LeftMargin": 1389.0902,
+            "RightMargin": 268.9097,
+            "TopMargin": 332.9775,
+            "BottomMargin": 1166.0225,
             "Tag": 14054,
             "ActionTag": 1405024857,
             "Size": {
@@ -559,8 +609,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2442.0708,
-              "Y": 1089.207
+              "X": 2437.127,
+              "Y": 1296.8396
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -569,17 +619,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.9539,
-              "Y": 0.6051
+              "X": 0.952,
+              "Y": 0.7205
             },
             "PreSize": {
               "X": 0.3523,
               "Y": 0.1672
             },
-            "LeftMargin": 1991.0708,
-            "RightMargin": -333.0708,
-            "TopMargin": 560.293,
-            "BottomMargin": 938.707,
+            "LeftMargin": 1986.127,
+            "RightMargin": -328.127,
+            "TopMargin": 352.6604,
+            "BottomMargin": 1146.3396,
             "Tag": 14055,
             "ActionTag": 2126722266,
             "Size": {
@@ -903,6 +953,847 @@
             },
             "Name": "sand_7_5",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/sand.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 67.6634,
+              "Y": 1081.0121
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0264,
+              "Y": 0.6006
+            },
+            "PreSize": {
+              "X": 0.1266,
+              "Y": 0.0306
+            },
+            "LeftMargin": -94.3366,
+            "RightMargin": 2330.3367,
+            "TopMargin": 691.4879,
+            "BottomMargin": 1053.5121,
+            "Tag": 143,
+            "ActionTag": 1402675699,
+            "Size": {
+              "X": 324.0,
+              "Y": 55.0
+            },
+            "Name": "sand_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/sand.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 315.6636,
+              "Y": 996.7745
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1233,
+              "Y": 0.5538
+            },
+            "PreSize": {
+              "X": 0.1266,
+              "Y": 0.0306
+            },
+            "LeftMargin": 153.6636,
+            "RightMargin": 2082.3364,
+            "TopMargin": 775.7255,
+            "BottomMargin": 969.2745,
+            "Tag": 144,
+            "ActionTag": -1346265944,
+            "Size": {
+              "X": 324.0,
+              "Y": 55.0
+            },
+            "Name": "sand_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/sand.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 540.5638,
+              "Y": 1088.4827
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2112,
+              "Y": 0.6047
+            },
+            "PreSize": {
+              "X": 0.1266,
+              "Y": 0.0306
+            },
+            "LeftMargin": 378.5638,
+            "RightMargin": 1857.4362,
+            "TopMargin": 684.0173,
+            "BottomMargin": 1060.9827,
+            "Tag": 145,
+            "ActionTag": 2146969460,
+            "Size": {
+              "X": 324.0,
+              "Y": 55.0
+            },
+            "Name": "sand_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/sand.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 761.0969,
+              "Y": 1001.1445
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2973,
+              "Y": 0.5562
+            },
+            "PreSize": {
+              "X": 0.1266,
+              "Y": 0.0306
+            },
+            "LeftMargin": 599.0969,
+            "RightMargin": 1636.9031,
+            "TopMargin": 771.3555,
+            "BottomMargin": 973.6445,
+            "Tag": 146,
+            "ActionTag": 859887026,
+            "Size": {
+              "X": 324.0,
+              "Y": 55.0
+            },
+            "Name": "sand_1_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/sand.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1025.2999,
+              "Y": 1090.667
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4005,
+              "Y": 0.6059
+            },
+            "PreSize": {
+              "X": 0.1266,
+              "Y": 0.0306
+            },
+            "LeftMargin": 863.2999,
+            "RightMargin": 1372.7001,
+            "TopMargin": 681.833,
+            "BottomMargin": 1063.167,
+            "Tag": 147,
+            "ActionTag": -573197371,
+            "Size": {
+              "X": 324.0,
+              "Y": 55.0
+            },
+            "Name": "sand_1_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/sand.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1298.2355,
+              "Y": 996.7777
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5071,
+              "Y": 0.5538
+            },
+            "PreSize": {
+              "X": 0.1266,
+              "Y": 0.0306
+            },
+            "LeftMargin": 1136.2355,
+            "RightMargin": 1099.7645,
+            "TopMargin": 775.7223,
+            "BottomMargin": 969.2777,
+            "Tag": 148,
+            "ActionTag": 173340014,
+            "Size": {
+              "X": 324.0,
+              "Y": 55.0
+            },
+            "Name": "sand_1_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/sand.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1518.7698,
+              "Y": 1092.8516
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5933,
+              "Y": 0.6071
+            },
+            "PreSize": {
+              "X": 0.1266,
+              "Y": 0.0306
+            },
+            "LeftMargin": 1356.7698,
+            "RightMargin": 879.2302,
+            "TopMargin": 679.6484,
+            "BottomMargin": 1065.3516,
+            "Tag": 149,
+            "ActionTag": 1884655442,
+            "Size": {
+              "X": 324.0,
+              "Y": 55.0
+            },
+            "Name": "sand_1_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/sand.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1828.825,
+              "Y": 1018.6139
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7144,
+              "Y": 0.5659
+            },
+            "PreSize": {
+              "X": 0.1266,
+              "Y": 0.0306
+            },
+            "LeftMargin": 1666.825,
+            "RightMargin": 569.175,
+            "TopMargin": 753.8861,
+            "BottomMargin": 991.1139,
+            "Tag": 150,
+            "ActionTag": 1066833930,
+            "Size": {
+              "X": 324.0,
+              "Y": 55.0
+            },
+            "Name": "sand_1_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/sand.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2104.1184,
+              "Y": 1102.1844
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8219,
+              "Y": 0.6123
+            },
+            "PreSize": {
+              "X": 0.1266,
+              "Y": 0.0306
+            },
+            "LeftMargin": 1942.1184,
+            "RightMargin": 293.8816,
+            "TopMargin": 670.3156,
+            "BottomMargin": 1074.6844,
+            "Tag": 151,
+            "ActionTag": 743119044,
+            "Size": {
+              "X": 324.0,
+              "Y": 55.0
+            },
+            "Name": "sand_1_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/sand.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2332.7114,
+              "Y": 1006.3252
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9112,
+              "Y": 0.5591
+            },
+            "PreSize": {
+              "X": 0.1266,
+              "Y": 0.0306
+            },
+            "LeftMargin": 2170.7114,
+            "RightMargin": 65.2886,
+            "TopMargin": 766.1748,
+            "BottomMargin": 978.8252,
+            "Tag": 152,
+            "ActionTag": -214632569,
+            "Size": {
+              "X": 324.0,
+              "Y": 55.0
+            },
+            "Name": "sand_1_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "popcount/sand.png",
+              "Plist": "popcount/popcount.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2598.1743,
+              "Y": 1084.9795
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0149,
+              "Y": 0.6028
+            },
+            "PreSize": {
+              "X": 0.1266,
+              "Y": 0.0306
+            },
+            "LeftMargin": 2436.1743,
+            "RightMargin": -200.1743,
+            "TopMargin": 687.5205,
+            "BottomMargin": 1057.4795,
+            "Tag": 153,
+            "ActionTag": 1586192364,
+            "Size": {
+              "X": 324.0,
+              "Y": 55.0
+            },
+            "Name": "sand_1_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 247,
+              "G": 201,
+              "B": 150
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 779.2695,
+              "Y": 815.7238
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3044,
+              "Y": 0.4532
+            },
+            "PreSize": {
+              "X": 0.0039,
+              "Y": 0.0222
+            },
+            "LeftMargin": 779.2695,
+            "RightMargin": 1770.7305,
+            "TopMargin": 944.2762,
+            "BottomMargin": 815.7238,
+            "Tag": 154,
+            "ActionTag": -400866764,
+            "Size": {
+              "X": 10.0,
+              "Y": 40.0
+            },
+            "Name": "Panel_3",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {},
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 778.7015,
+              "Y": 795.1547
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.4031
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3042,
+              "Y": 0.4418
+            },
+            "PreSize": {
+              "X": 0.0039,
+              "Y": 0.0244
+            },
+            "LeftMargin": 778.7015,
+            "RightMargin": 1771.2985,
+            "TopMargin": 960.8453,
+            "BottomMargin": 795.1547,
+            "Tag": 155,
+            "ActionTag": 1261183976,
+            "Size": {
+              "X": 10.0,
+              "Y": 44.0
+            },
+            "Name": "Panel_3_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 124,
+              "G": 206,
+              "B": 218
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 778.6995,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3042,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0039,
+              "Y": 0.4411
+            },
+            "LeftMargin": 778.6995,
+            "RightMargin": 1771.3005,
+            "TopMargin": 1006.0,
+            "Tag": 156,
+            "ActionTag": -1486662469,
+            "Size": {
+              "X": 10.0,
+              "Y": 794.0
+            },
+            "Name": "Panel_3_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 124,
+              "G": 206,
+              "B": 218
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -245.8822,
+              "Y": 2.0782
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.096,
+              "Y": 0.0012
+            },
+            "PreSize": {
+              "X": 0.0039,
+              "Y": 0.4411
+            },
+            "LeftMargin": -245.8822,
+            "RightMargin": 2795.8823,
+            "TopMargin": 1003.9218,
+            "BottomMargin": 2.0782,
+            "Tag": 159,
+            "ActionTag": -891045212,
+            "Size": {
+              "X": 10.0,
+              "Y": 794.0
+            },
+            "Name": "Panel_3_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 247,
+              "G": 201,
+              "B": 150
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1795.9302,
+              "Y": 816.0986
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7015,
+              "Y": 0.4534
+            },
+            "PreSize": {
+              "X": 0.0039,
+              "Y": 0.0222
+            },
+            "LeftMargin": 1795.9302,
+            "RightMargin": 754.0698,
+            "TopMargin": 943.9014,
+            "BottomMargin": 816.0986,
+            "Tag": 160,
+            "ActionTag": 1793554570,
+            "Size": {
+              "X": 10.0,
+              "Y": 40.0
+            },
+            "Name": "Panel_3_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {},
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1796.3625,
+              "Y": 795.5293
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.4031
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7017,
+              "Y": 0.442
+            },
+            "PreSize": {
+              "X": 0.0039,
+              "Y": 0.0244
+            },
+            "LeftMargin": 1796.3625,
+            "RightMargin": 753.6375,
+            "TopMargin": 960.4707,
+            "BottomMargin": 795.5293,
+            "Tag": 161,
+            "ActionTag": -1463995745,
+            "Size": {
+              "X": 10.0,
+              "Y": 44.0
+            },
+            "Name": "Panel_3_0_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 124,
+              "G": 206,
+              "B": 218
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1796.3606,
+              "Y": 0.3751
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7017,
+              "Y": 0.0002
+            },
+            "PreSize": {
+              "X": 0.0039,
+              "Y": 0.4411
+            },
+            "LeftMargin": 1796.3606,
+            "RightMargin": 753.6394,
+            "TopMargin": 1005.6249,
+            "BottomMargin": 0.3751,
+            "Tag": 162,
+            "ActionTag": -1574447581,
+            "Size": {
+              "X": 10.0,
+              "Y": 794.0
+            },
+            "Name": "Panel_3_1_1",
+            "ctype": "PanelObjectData"
           }
         ],
         "Size": {

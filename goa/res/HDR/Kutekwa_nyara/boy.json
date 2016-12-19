@@ -7,6 +7,7 @@
       "Animation": {
         "Duration": 650,
         "Speed": 1.0,
+        "ActivedAnimationName": "hop",
         "Timelines": [
           {
             "ActionTag": -1299471080,
@@ -8595,6 +8596,31 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 1103410760,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "walking",
+                "FrameIndex": 10,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "walking",
+                "FrameIndex": 30,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "hop",
+                "FrameIndex": 220,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -2024856762,
             "Property": "Position",
             "Frames": [
@@ -13122,8 +13148,8 @@
           {
             "Length": 400.0,
             "Position": {
-              "X": 0.0089,
-              "Y": 256.6854
+              "X": 0.0088,
+              "Y": 240.2618
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -13148,8 +13174,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 180.1992,
-                "RotationSkewY": 180.1996,
+                "RotationSkewX": 203.923,
+                "RotationSkewY": 203.9234,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -13167,6 +13193,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
+                    "RotationSkewX": 97.2842,
+                    "RotationSkewY": 97.2842,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -13184,6 +13212,8 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
+                        "RotationSkewX": 20.7154,
+                        "RotationSkewY": 20.7154,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -13215,7 +13245,11 @@
                             },
                             "RotationSkewX": -88.6554,
                             "RotationSkewY": 270.7805,
-                            "CColor": {},
+                            "CColor": {
+                              "R": 179,
+                              "G": 151,
+                              "B": 80
+                            },
                             "IconVisible": false,
                             "PrePosition": {
                               "X": 0.0,
@@ -13272,7 +13306,11 @@
                         },
                         "RotationSkewX": -90.201,
                         "RotationSkewY": -90.1968,
-                        "CColor": {},
+                        "CColor": {
+                          "R": 179,
+                          "G": 151,
+                          "B": 80
+                        },
                         "IconVisible": false,
                         "PrePosition": {
                           "X": 0.0,
@@ -13329,7 +13367,11 @@
                     },
                     "RotationSkewX": -90.2015,
                     "RotationSkewY": -90.1982,
-                    "CColor": {},
+                    "CColor": {
+                      "R": 179,
+                      "G": 151,
+                      "B": 80
+                    },
                     "IconVisible": false,
                     "PrePosition": {
                       "X": 0.0,
@@ -13372,8 +13414,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 180.1992,
-                "RotationSkewY": 540.1992,
+                "RotationSkewX": 130.73,
+                "RotationSkewY": 490.7298,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -13391,7 +13433,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewY": 360.0,
+                    "RotationSkewX": 70.8542,
+                    "RotationSkewY": 430.8543,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -13409,7 +13452,8 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewY": 720.0,
+                        "RotationSkewX": 11.6614,
+                        "RotationSkewY": 731.6615,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -13441,7 +13485,11 @@
                             },
                             "RotationSkewX": -90.2012,
                             "RotationSkewY": -90.1959,
-                            "CColor": {},
+                            "CColor": {
+                              "R": 179,
+                              "G": 151,
+                              "B": 80
+                            },
                             "IconVisible": false,
                             "PrePosition": {
                               "X": 0.0,
@@ -13498,7 +13546,11 @@
                         },
                         "RotationSkewX": -90.2011,
                         "RotationSkewY": -90.1959,
-                        "CColor": {},
+                        "CColor": {
+                          "R": 179,
+                          "G": 151,
+                          "B": 80
+                        },
                         "IconVisible": false,
                         "PrePosition": {
                           "X": 0.0,
@@ -13555,7 +13607,11 @@
                     },
                     "RotationSkewX": -90.2011,
                     "RotationSkewY": -90.1959,
-                    "CColor": {},
+                    "CColor": {
+                      "R": 179,
+                      "G": 151,
+                      "B": 80
+                    },
                     "IconVisible": false,
                     "PrePosition": {
                       "X": 0.0,
@@ -13629,8 +13685,8 @@
                       {
                         "Length": 425.0,
                         "Position": {
-                          "X": 40.2756,
-                          "Y": 2.5808
+                          "X": 40.2757,
+                          "Y": 2.5809
                         },
                         "Scale": {
                           "ScaleX": 1.0,
@@ -13686,7 +13742,7 @@
                         "Length": 104.0,
                         "Position": {
                           "X": 168.0983,
-                          "Y": -70.2815
+                          "Y": -70.2814
                         },
                         "Scale": {
                           "ScaleX": 1.0,
@@ -13835,7 +13891,7 @@
                       {
                         "Length": 104.0,
                         "Position": {
-                          "X": 162.6862,
+                          "X": 162.6863,
                           "Y": 140.0013
                         },
                         "Scale": {
@@ -14087,7 +14143,11 @@
                         },
                         "RotationSkewX": 89.8928,
                         "RotationSkewY": 89.8939,
-                        "CColor": {},
+                        "CColor": {
+                          "R": 179,
+                          "G": 151,
+                          "B": 80
+                        },
                         "IconVisible": false,
                         "PrePosition": {
                           "X": 0.0,
@@ -14144,7 +14204,11 @@
                     },
                     "RotationSkewX": 89.8,
                     "RotationSkewY": 89.8043,
-                    "CColor": {},
+                    "CColor": {
+                      "R": 179,
+                      "G": 151,
+                      "B": 80
+                    },
                     "IconVisible": false,
                     "PrePosition": {
                       "X": 0.0,
@@ -14237,8 +14301,8 @@
           {
             "Length": 139.0,
             "Position": {
-              "X": 0.0089,
-              "Y": 256.6854
+              "X": 0.0088,
+              "Y": 240.2618
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -14263,7 +14327,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewY": 360.0,
+                "RotationSkewX": -23.678,
+                "RotationSkewY": 336.322,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -14281,6 +14346,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
+                    "RotationSkewX": -90.011,
+                    "RotationSkewY": -90.011,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -14298,8 +14365,8 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewX": 90.0,
-                        "RotationSkewY": 90.0,
+                        "RotationSkewX": 88.1916,
+                        "RotationSkewY": 88.1916,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -14488,7 +14555,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewY": 360.0001,
+                "RotationSkewX": 34.4799,
+                "RotationSkewY": 394.48,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -14506,6 +14574,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
+                    "RotationSkewX": -23.2478,
+                    "RotationSkewY": -23.2478,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -14523,8 +14593,8 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewX": 90.0,
-                        "RotationSkewY": 90.0,
+                        "RotationSkewX": 97.9263,
+                        "RotationSkewY": 97.9263,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -14760,58 +14830,6 @@
             },
             "Name": "hip",
             "ctype": "BoneNodeObjectData"
-          },
-          {
-            "ClipAble": false,
-            "BackColorAlpha": 0,
-            "ComboBoxIndex": 1,
-            "SingleColor": {
-              "R": 150,
-              "G": 200
-            },
-            "FirstColor": {
-              "R": 150,
-              "G": 200
-            },
-            "EndColor": {},
-            "ColorVector": {
-              "ScaleY": 1.0
-            },
-            "Scale9Width": 1,
-            "Scale9Height": 1,
-            "TouchEnable": true,
-            "AnchorPoint": {},
-            "Position": {
-              "X": -270.0524,
-              "Y": 0.0973
-            },
-            "Scale": {
-              "ScaleX": 3.0496,
-              "ScaleY": 6.4619
-            },
-            "RotationSkewX": 0.0006,
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "PreSize": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "LeftMargin": -270.0524,
-            "RightMargin": 70.0524,
-            "TopMargin": -200.0973,
-            "BottomMargin": 0.0973,
-            "Tag": 729,
-            "ActionTag": 1137651591,
-            "Size": {
-              "X": 200.0,
-              "Y": 200.0
-            },
-            "Name": "touch",
-            "ctype": "PanelObjectData"
           }
         ],
         "Size": {

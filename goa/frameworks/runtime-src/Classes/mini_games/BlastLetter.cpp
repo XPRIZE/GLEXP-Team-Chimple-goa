@@ -1,4 +1,5 @@
 #include "BlastLetter.h"
+#include "../util/CommonLabelTTF.h"
 
 USING_NS_CC;
 
@@ -44,7 +45,8 @@ void BlastLetter::onEnterTransitionDidFinish() {
 	auto currentLevel = _menuContext->getCurrentLevel();
 	_data_key = getConvertInUpperCase(TextGenerator::getInstance()->generateAWord(1));
 	_data_value = _data_key;
-	if (currentLevel >= 1 && currentLevel <= 26) {
+	auto length = LangUtil::getInstance()->getNumberOfCharacters();
+	if (currentLevel >= 1 && currentLevel <= length) {
 		auto charcaterStream = LangUtil::getInstance()->getAllCharacters();
 		std::ostringstream namemyLabel;
 		_data_key = charcaterStream[(currentLevel - 1)];
@@ -53,7 +55,7 @@ void BlastLetter::onEnterTransitionDidFinish() {
 		}
 		_data_value = namemyLabel.str();
 
-	}else if (currentLevel >= 27 && currentLevel <= 36) {
+	}else if (currentLevel >= (length+1) && currentLevel <= (length + 10)) {
 		wchar_t* const allNumbers = L"0123456789";
 		std::ostringstream namemyLabel;
 		_data_key = allNumbers[(currentLevel - 27)];
@@ -61,32 +63,32 @@ void BlastLetter::onEnterTransitionDidFinish() {
 			namemyLabel << _data_key;
 		}
 		_data_value = namemyLabel.str();
-	}else if (currentLevel >= 37 && currentLevel <= 46) {
+	}else if (currentLevel >= (length + 11) && currentLevel <= (length + 20)) {
 		auto level = (_menuContext->getCurrentLevel() - 36);
 		if (level >= 3) {
 			level = 3;
 		}
 		_data_key = TextGenerator::getInstance()->generateAWord(level);
 		_data_value = _data_key;
-	}else if (currentLevel >= 47 && currentLevel <= 56) {
+	}else if (currentLevel >= (length + 21) && currentLevel <= (length + 30)) {
 		auto level = (_menuContext->getCurrentLevel() - 46);
 		if (level >= 3) {
 			level = 3;
 		}
 		_data = TextGenerator::getInstance()->getSingularPlurals(1, level);
-	}else if (currentLevel >= 57 && currentLevel <= 66) {
+	}else if (currentLevel >= (length + 31) && currentLevel <= (length + 40)) {
 		auto level = (_menuContext->getCurrentLevel() - 56);
 		if (level >= 3) {
 			level = 3;
 		}
 		_data = TextGenerator::getInstance()->getAntonyms(1, level);
-	}else if (currentLevel >= 67 && currentLevel <= 76) {
+	}else if (currentLevel >= (length + 41) && currentLevel <= (length + 50)) {
 		auto level = (_menuContext->getCurrentLevel() - 66);
 		if (level >= 3) {
 			level = 3;
 		}
 		_data = TextGenerator::getInstance()->getSynonyms(1, level);
-	}else if (currentLevel >= 77 && currentLevel <= 86) {
+	}else if (currentLevel >= (length + 51) && currentLevel <= (length + 70)) {
 		auto level = (_menuContext->getCurrentLevel() - 76);
 		if (level >= 3) {
 			level = 3;
@@ -110,7 +112,7 @@ void BlastLetter::onEnterTransitionDidFinish() {
 		addChild(letterBoardSprite);
 
 //		auto myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), LangUtil::convertUTF16CharToString(_data_value[coordIndex]));
-		auto myLabel = LabelTTF::create(LangUtil::convertUTF16CharToString(_data_value[coordIndex]), "res/fonts/BalooBhai-Regular.ttf", letterBoardSprite->getContentSize().height);
+		auto myLabel = CommonLabelTTF::create(LangUtil::convertUTF16CharToString(_data_value[coordIndex]), "res/fonts/BalooBhai-Regular.ttf", letterBoardSprite->getContentSize().height);
 		myLabel->setPosition(Vec2(letterBoardSprite->getContentSize().width * 0.5, letterBoardSprite->getContentSize().height * 0.45));
 		myLabel->setScale(1);
 		myLabel->setColor(Color3B::GRAY);
@@ -131,7 +133,7 @@ void BlastLetter::onEnterTransitionDidFinish() {
 			myLabel->runAction(RepeatForever::create(shakingCharacter()));
 		}
 	}
-		auto myLabel = LabelTTF::create(_data_key, "Helvetica", this->getChildByName("bg")->getChildByName("topboard ")->getContentSize().height *0.8);
+		auto myLabel = CommonLabelTTF::create(_data_key, "Helvetica", this->getChildByName("bg")->getChildByName("topboard ")->getContentSize().height *0.8);
 		myLabel->setPosition(Vec2(this->getChildByName("bg")->getChildByName("topboard ")->getContentSize().width/2, this->getChildByName("bg")->getChildByName("topboard ")->getContentSize().height/2));
 		myLabel->setName(myLabel->getString());
 		this->getChildByName("bg")->getChildByName("topboard ")->addChild(myLabel);
@@ -291,7 +293,7 @@ void BlastLetter::addEventsOnGrid(cocos2d::Sprite* callerObject)
 			std::ostringstream nameLetterBoards;
 			nameLetterBoards << _data_value[_counterLetter];
 
-			auto myLabel = LabelTTF::create(nameLetterBoards.str(), "res/fonts/BalooBhai-Regular.ttf", letterBoardSprite->getContentSize().height);
+			auto myLabel = CommonLabelTTF::create(nameLetterBoards.str(), "res/fonts/BalooBhai-Regular.ttf", letterBoardSprite->getContentSize().height);
 			myLabel->setColor(Color3B::GRAY);
 			myLabel->setPosition(Vec2(letterBoardSprite->getContentSize().width * 0.5, letterBoardSprite->getContentSize().height * 0.45));
 			myLabel->setScale(1);

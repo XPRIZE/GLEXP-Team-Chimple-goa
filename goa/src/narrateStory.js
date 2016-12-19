@@ -4,7 +4,7 @@ xc.storyFontName = "Arial";
 xc.storyFontSize = 85;
 xc.storyCoverPageFontSize = 120;
 xc.storyFontColor = cc.color.BLACK;
-
+xc.highlightColor = cc.color.GRAY;
 xc.NarrateStoryLayer = cc.Layer.extend({
     _contentPanel: null,
     _pageConfigPanel: null,
@@ -76,6 +76,41 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         cc.eventManager.addListener(listener, target);
     },
 
+    changeSkinColor: function(bone) {
+        bone.getSkins().forEach(function(skin) {
+            cc.log('skin:' + skin.getName());
+            skin._originalSpriteColor = skin.color;
+            skin.color = xc.highlightColor;
+        });
+    },
+
+    revertSkinColor: function(bone) {
+        bone.getSkins().forEach(function(skin) {
+            cc.log('skin:' + skin.getName());
+            skin.color = skin._originalSpriteColor;
+        });
+    },
+
+    revertBoneColor:function(parentBone) {
+        var context = this;
+        parentBone.getChildBones().forEach(function(bone) {
+            context.revertSkinColor(bone);
+            if(bone.getChildBones().length > 0) {
+                context.revertBoneColor(bone);
+            }
+        });
+    },
+
+    changeBoneColor:function(parentBone) {
+        var context = this;
+        parentBone.getChildBones().forEach(function(bone) {
+            context.changeSkinColor(bone);
+            if(bone.getChildBones().length > 0) {
+                context.changeBoneColor(bone);
+            }
+        });
+    },
+
     bindTouchListenerToSkeleton: function (target, funcName, loop) {
         var context = this;
         var listener = cc.EventListener.create({
@@ -97,6 +132,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 this._zOrder = target.getLocalZOrder();
                 if (cc.rectContainsPoint(boundingBox, touch.getLocation())) {
                     context._currentTarget = target;
+                    context.changeBoneColor(target);
                     var location = target.parent.convertToNodeSpace(touch.getLocation());
                     context._offsetYInTouch = location.y - target.getPosition().y;
                     context._offsetXInTouch = location.x - target.getPosition().x;                    
@@ -132,7 +168,12 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
             onTouchEnded: function (touch, event) {
                 var target = event.getCurrentTarget();
-                
+                context.revertBoneColor(target);
+                if(context._spriteColor) {
+                    target.setColor(context._spriteColor);
+                }
+
+                context._spriteColor = null;
                 if(target.draggingEnabled) {
                     target.setLocalZOrder(this._zOrder);
                     var action = target.actionManager.getActionByTag(target.tag, target);
@@ -171,9 +212,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 var location = target.parent.convertToNodeSpace(touch.getLocation());
                   if(target.getChildren() != null && target.getChildren().length > 0)
                   {
-                        cc.log("location.x" + location.x);
-                        cc.log("location.y" + location.y);
-
+                       
                         var targetRectangle = target.getBoundingBoxToWorld();
                         
                         var targetBox = target.getBoundingBox();
@@ -187,12 +226,13 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                             boxY = boxY + target.getChildren()[0].getBoundingBox().y;    
                         } 
                         var childBoundingBoxRectangle = cc.rect(boxX,boxY, target.getChildren()[0].getBoundingBox().width, target.getChildren()[0].getBoundingBox().height);
-                        // cc.log("childBoundingBoxRectangle.x" + childBoundingBoxRectangle.x);
-                        // cc.log("childBoundingBoxRectangle.y" + childBoundingBoxRectangle.y);
-                        // cc.log("childBoundingBoxRectangle.width" + childBoundingBoxRectangle.width);
-                        // cc.log("childBoundingBoxRectangle.height" + childBoundingBoxRectangle.height);                                            
-                        
                         if (cc.rectContainsPoint(targetRectangle, location) || cc.rectContainsPoint(childBoundingBoxRectangle, location)) {
+
+                            target.getChildren().forEach(function(child) {
+                                child._originalSpriteColor = child.getColor();
+                                child.setColor(xc.highlightColor);
+                            });
+                            
                             context._currentTarget = target;
                             context._offsetYInTouch = location.y - target.getPosition().y;
                             context._offsetXInTouch = location.x - target.getPosition().x;
@@ -220,6 +260,10 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             onTouchEnded: function (touch, event) {
                 var target = event.getCurrentTarget();
                 
+                target.getChildren().forEach(function(child) {
+                    child.setColor(child._originalSpriteColor);
+                });
+                
                 context._currentTarget = null;
                 if(!this._isDragging) {
                     var location = target.parent.convertToNodeSpace(touch.getLocation());
@@ -239,37 +283,49 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     },   
 
     displayText:function(text, location) {        
-        if(this._referenceToContext._textDisplayAnimationRunning) {
-            this._referenceToContext.unschedule(this.removeDisplayText);            
-            this.buildText(text);
-            this._referenceToContext.displayTextAnimationFinished();
+        if(this._referenceToContext._textDisplayAnimationRunning) {            
+            var mappingFound =  this.buildText(text);
+            if(mappingFound) {
+                this._referenceToContext.unschedule(this.removeDisplayText);
+                this._referenceToContext.displayTextAnimationFinished();
+            }            
         }  else 
         {
-            this.buildText(text);
-            this._referenceToContext.unschedule(this.removeDisplayText);
-            this._referenceToContext._textDisplayAnimationRunning = true;      
-            this._wordBoard.node.setPosition(cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 650));
-            var textDropAction = new cc.MoveTo(0.5, cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 50));            
-            textDropAction.easing(cc.easeBackOut());
-            var afterDisplayTextAction = new cc.CallFunc(this._referenceToContext.displayTextAnimationFinished, this._referenceToContext);
-            var textSequence = new cc.Sequence(textDropAction, afterDisplayTextAction);
-            this._wordBoard.node.runAction(textSequence);                  
+            var mappingFound = this.buildText(text);
+            if(mappingFound) {
+                this._referenceToContext.unschedule(this.removeDisplayText);
+                this._referenceToContext._textDisplayAnimationRunning = true;      
+                this._wordBoard.node.setPosition(cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 650));
+                var textDropAction = new cc.MoveTo(0.5, cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 50));            
+                textDropAction.easing(cc.easeBackOut());
+                var afterDisplayTextAction = new cc.CallFunc(this._referenceToContext.displayTextAnimationFinished, this._referenceToContext);
+                var textSequence = new cc.Sequence(textDropAction, afterDisplayTextAction);
+                this._wordBoard.node.runAction(textSequence);                  
+            }
         }     
     },
 
     buildText: function(text) {
-        var textField = this._wordBoard.node.getChildByName("TextField_1");
+        var mappingFound = false;
         
         if(this._wordMapping && this._wordMapping[text]) {
+            var textField = this._wordBoard.node.getChildByName("TextField_1");
+        
             text = this._wordMapping[text];
             text = text.replace(/_/g, ' ');
+            if(cc.sys.isNative) {
+                text = goa.TextGenerator.getInstance().translateString(text);
+            }
+            
+            if(text) {                                
+                textField.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
+                textField.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
+                textField.setString(text.toLowerCase());   
+                mappingFound = true;                
+            }
         }
-        
-        cc.log('text:' + text.toLowerCase());
-        textField.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
-        textField.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
-        textField.setString(text.toLowerCase());      
 
+        return mappingFound;
     },
 
     beforeDisplayTextDisapperFinished: function() {
@@ -322,6 +378,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                         var result = context.isTouchableAtPoint(target, location);
                         cc.log("RESULT " + result);
                         if(result) {
+                            target._originalSpriteColor = target.getColor();
+                            target.setColor(xc.highlightColor);
                             context._offsetYInTouch = location.y - target.getPosition().y;
                             context._offsetXInTouch = location.x - target.getPosition().x;
                             context._currentTarget = target;                    
@@ -331,6 +389,9 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                             return false;
                         }
                     } else {
+                        target._originalSpriteColor = target.getColor();
+                        target.setColor(xc.highlightColor);
+
                         context._offsetYInTouch = location.y - target.getPosition().y;
                         context._offsetXInTouch = location.x - target.getPosition().x;
                         
@@ -364,7 +425,10 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 var target = event.getCurrentTarget();
                 
                 var location = target.parent.convertToNodeSpace(touch.getLocation());
-                
+                if(target._originalSpriteColor) {
+                    target.setColor(target._originalSpriteColor);
+                }
+                target._originalSpriteColor = null;
                 context._currentTarget = null;
                 if(target.draggingEnabled) {
                     target.setLocalZOrder(this._zOrder);
@@ -401,7 +465,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         var langDir = goa.TextGenerator.getInstance().getLang();
 
         var mappingFile = "";
-        mappingFile =  "res/story" + "/" + langDir + "/" + this._baseDir + ".mapping.json";
+        mappingFile =  "res/story/eng/" + this._baseDir + ".mapping.json";
         cc.log('mappingFile:' + mappingFile);
         if(cc.sys.isNative) {
             var fileExists = jsb.fileUtils.isFileExist(mappingFile);

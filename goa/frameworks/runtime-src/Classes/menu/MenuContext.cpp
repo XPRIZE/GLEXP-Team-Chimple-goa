@@ -85,6 +85,12 @@ static const std::string LEVEL = ".level";
 static const std::string LEVEL_STATUS = ".levelStatus";
 static const std::string LANGUAGE = "language";
 
+static const std::string UNLOCKED_STORY_ID_ORDER = ".unlockedStoryIdOrder";
+static const int MIN_STAR_TO_UNLOCK_NEXT_STORY = 1;
+static const int NUMBER_OF_TIMES_READ_STORY_TO_UNLOCK_NEXT_STORY = 2;
+static const int NUMBER_OF_STORIES_TO_BE_UNLOCKED = 2;
+
+
 MenuContext* MenuContext::create(Node* main, std::string gameName, bool launchCustomEventOnExit, std::string sceneName) {
     MenuContext* menuContext = new (std::nothrow) MenuContext();
     if(menuContext && menuContext->init(main)) {
@@ -174,10 +180,10 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 auto elastic = EaseBackIn::create(moveTo);
                 auto callbackRemoveMenu = CallFunc::create(CC_CALLBACK_0(MenuContext::removeMenu, this));
                 
-//                auto targetHelpCloseAction = TargetedAction::create(_helpMenu, elastic->clone());
-//                auto targetBookCloseAction = TargetedAction::create(_mapMenu, elastic->clone());
-//                auto targetMapCloseAction = TargetedAction::create(_bookMenu, elastic->clone());
-//                auto targetSettingCloseAction = TargetedAction::create(_settingMenu, elastic);
+                auto targetHelpCloseAction = TargetedAction::create(_helpMenu, elastic->clone());
+                auto targetBookCloseAction = TargetedAction::create(_mapMenu, elastic->clone());
+                auto targetMapCloseAction = TargetedAction::create(_bookMenu, elastic->clone());
+                auto targetSettingCloseAction = TargetedAction::create(_settingMenu, elastic);
                 auto targetGamesCloseAction = TargetedAction::create(_gamesMenu, elastic->clone());
 //                if(_photoMenu) {
 //                    auto targetPhotoCloseAction = TargetedAction::create(_photoMenu, elastic->clone());
@@ -188,7 +194,7 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 //                        runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
 //                }
                 
-                auto spawnAction = Spawn::create(/*targetHelpCloseAction,targetMapCloseAction,targetBookCloseAction,*/targetGamesCloseAction, nullptr);
+                auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction,targetBookCloseAction,targetGamesCloseAction, nullptr);
                 runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
                 
                 
@@ -198,8 +204,8 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 //                _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
                 
                 
-//                _mapMenu = this->createMenuItem("menu/map.png", "menu/map.png", "menu/map.png", 2 * POINTS_TO_LEFT);
-//                _mapMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showMap, this));
+                _mapMenu = this->createMenuItem("menu/map.png", "menu/map.png", "menu/map.png", 2 * POINTS_TO_LEFT);
+                _mapMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showMap, this));
                 
 //                _bookMenu = this->createMenuItem("menu/book.png", "menu/book.png", "menu/book.png", 3 * POINTS_TO_LEFT);
 //                _bookMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showBook, this));
@@ -1165,7 +1171,69 @@ void MenuContext::changePhoto(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchE
     }
 }
 
+void MenuContext::createUnlockStoryDocument(std::string storyToUnlock) {
+    std::string unlockStoryStr;
+    localStorageGetItem(storyToUnlock + LEVEL, &unlockStoryStr);
+    
+    rapidjson::Document dUnlock;
+    rapidjson::Document::AllocatorType& allocator = dUnlock.GetAllocator();
+    if (false == dUnlock.Parse<0>(unlockStoryStr.c_str()).HasParseError()) {
+        // document is ok
+        rapidjson::Document documentUnlock;
+        documentUnlock.SetObject();
+        
+        documentUnlock.AddMember("locked", false, allocator);
+        documentUnlock.AddMember("unlockUsed", false, allocator);
+        documentUnlock.AddMember("timesRead", 0, allocator);
+        documentUnlock.AddMember("star", 0, allocator);
+        rapidjson::StringBuffer buffer;
+        rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+        documentUnlock.Accept(writer);
+        const char* output = buffer.GetString();
+        localStorageSetItem(storyToUnlock + LEVEL, output);
+    }
+    
+}
 
+void MenuContext::unlockNextStory() {
+    CCLOG("unlock next story");
+    std::string unlockedStoryIdOrderStr;
+    localStorageGetItem(UNLOCKED_STORY_ID_ORDER, &unlockedStoryIdOrderStr);
+    
+    CCLOG("storyIdOrderStr %s", unlockedStoryIdOrderStr.c_str());
+    rapidjson::Document d;
+    
+    if (false == d.Parse<0>(unlockedStoryIdOrderStr.c_str()).HasParseError()) {
+        assert(d.IsArray());
+        int unlockStories = NUMBER_OF_STORIES_TO_BE_UNLOCKED;
+        
+        if(NUMBER_OF_STORIES_TO_BE_UNLOCKED > d.Size()) {
+            unlockStories = d.Size();
+        }
+        
+        if(unlockStories > 0) {
+            for(int j = 0; j < unlockStories; j++) {
+                std::string storyToUnlock = d[j].GetString();
+                createUnlockStoryDocument(storyToUnlock);
+            }
+        }
+        
+        //update "locked" stories list
+        rapidjson::Document dArr;
+        rapidjson::Document::AllocatorType& allocator = dArr.GetAllocator();
+        dArr.SetArray();
+        for (rapidjson::SizeType i = unlockStories; i < d.Size(); i++) {
+            std::string storyId = d[i].GetString();
+            dArr.PushBack(rapidjson::Value(storyId.c_str(),allocator), allocator);
+            CCLOG("locked story %s", storyId.c_str());
+        }
+        rapidjson::StringBuffer buffer;
+        rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+        dArr.Accept(writer);
+        const char* output = buffer.GetString();
+        localStorageSetItem(UNLOCKED_STORY_ID_ORDER, output);
+    }
+}
 
 void MenuContext::showScore() {
     //compute score
@@ -1189,8 +1257,23 @@ void MenuContext::showScore() {
             // document is ok
             rapidjson::Document document;
             document.SetObject();
-            printf("locked = %d\n", d["locked"].GetBool());
+            
+            int timesRead = d["timesRead"].GetInt();
+            bool unlockUsed = d["unlockUsed"].GetBool();
+            
+            if(!unlockUsed && (timesRead == NUMBER_OF_TIMES_READ_STORY_TO_UNLOCK_NEXT_STORY || stars == MIN_STAR_TO_UNLOCK_NEXT_STORY)) {
+                //unlock next story
+                unlockUsed = true;
+                unlockNextStory();
+            }
+            
+//            unlockUsed = true;
+//            unlockNextStory();
+            
+            timesRead++;
             document.AddMember("locked", d["locked"].GetBool(), allocator);
+            document.AddMember("unlockUsed", unlockUsed, allocator);
+            document.AddMember("timesRead", timesRead, allocator);
             document.AddMember("star", stars, allocator);
             rapidjson::StringBuffer buffer;
             rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -1332,17 +1415,33 @@ std::vector<std::vector<cocos2d::Point>> MenuContext::getTrianglePointsForSprite
 
 
 void MenuContext::pronounceWord(std::string word) {
+    std::replace(word.begin(), word.end(), '_', ' ');
+    word = LangUtil::getInstance()->translateString(word);
+    
     std::string fileName = LangUtil::getInstance()->getPronounciationFileNameForWord(word);
     if(FileUtils::getInstance()->isFileExist(fileName)) {
+        CCLOG("fileName to pronounce %s", fileName.c_str());
         auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
         audio->playEffect(fileName.c_str());
     }
-    else {
+    else if(LangUtil::getInstance()->isTextToSpeechSupported()) {
         CCLOG("file doesn't exists with word %s", fileName.c_str());
         #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
             //JSB call to Android TTS Support
-            
+            cocos2d::JniMethodInfo methodInfo;
+            if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/javascript/AppActivity", "pronounceWord", "(Ljava/lang/String;)V")) {
+                return;
+            }
+        
+            std::replace(word.begin(), word.end(), '_', ' ');
+            jstring wordArg = methodInfo.env->NewStringUTF(word.c_str());
+            methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID,wordArg);
+            methodInfo.env->DeleteLocalRef(methodInfo.classID);
+            methodInfo.env->DeleteLocalRef(wordArg);
+
         #endif
+    } else {
+        CCLOG("File %s not found OR Language is not supported for Pronounciation", fileName.c_str());
     }
 }
 

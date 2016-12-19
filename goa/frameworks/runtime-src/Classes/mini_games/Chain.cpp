@@ -5,6 +5,7 @@
 #include "../puzzle/CharGenerator.h"
 #include "../lang/LangUtil.h"
 #include "editor-support/cocostudio/CocoStudio.h"
+#include "../util/CommonText.h"
 
 USING_NS_CC;
 
@@ -185,7 +186,7 @@ Chain* Chain::create() {
 }
 
 void Chain::createAnswer() {
-	auto label = ui::Text::create();
+	auto label = CommonText::create();
 	label->setString(_word);
 	label->setFontSize(200);
 	_answer = Node::create();

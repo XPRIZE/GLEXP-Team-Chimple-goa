@@ -131,6 +131,16 @@ int KannadaUtil::getNumberOfCharacters() {
     return 47;
 }
 
+const wchar_t* KannadaUtil::getAllLowerCaseCharacters() {
+    return getAllCharacters();
+}
+
+const wchar_t* KannadaUtil::getAllNumbers() {
+    static const wchar_t* allKannadaCharacters = L"\x0ce6\x0ce7\x0ce8\x0ce9\x0cea\x0ceb\x0cec\x0ced\x0cee\x0cef";
+    return allKannadaCharacters;
+}
+
+
 const std::vector<int> KannadaUtil::getNumCharsInRows() {
     static const int kn[] = {13, 5, 5, 5, 5, 5, 9};
     static const std::vector<int> kannadaNumCharsInRows(kn, kn + 7);
@@ -195,10 +205,16 @@ std::string KannadaUtil::getLang() {
 }
 
 std::string KannadaUtil::getPronounciationFileNameForWord(std::string word) {
+    std::replace(word.begin(), word.end(), ' ', '_');
     std::transform(word.begin(), word.end(), word.begin(), ::tolower);
-    auto fileName = std::string("kannada/sounds/audio/") + word + pronounciationAudioExt;
+    auto fileName = std::string("kannada/audio/words/") + word + pronounciationAudioExt;
     return fileName;
 }
+
+bool KannadaUtil::isTextToSpeechSupported() {
+    return false;
+}
+
 
 KannadaUtil::KannadaUtil() {
     this->initializeWordManager();

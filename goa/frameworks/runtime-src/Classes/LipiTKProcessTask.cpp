@@ -6,12 +6,21 @@
 //
 //
 
+#include <cctype>
 #include <stdio.h>
 #include "AsyncTask.hpp"
 #include "LipiTKProcessTask.h"
 #include "LipiTKNode.h"
+#include "menu/MenuContext.h"
+
+#include "storage/local-storage/LocalStorage.h"
 
 USING_NS_CC;
+
+static const std::string CURRENT_LEVEL = ".currentLevel";
+static const std::string NUMERIC_WRITING = ".numeric";
+static const std::string UPPER_ALPHABET_WRITING = ".upper";
+static const std::string LOWER_ALPHABET_WRITING = ".lower";
 
 
 LipiTKProcessTask::LipiTKProcessTask(LipiTKInterface* lipiTKInterface, std::vector<Stroke*> strokes, LipiTKNode* node) {
@@ -60,7 +69,60 @@ void LipiTKProcessTask::onPostExecute() {
             _recognizedCharacters.push_back(shapeAlphabet);
         }
         
-        Director::getInstance()->getScheduler()->performFunctionInCocosThread(CC_CALLBACK_0(LipiTKNode::broadCastRecognizedChars, _node, _recognizedCharacters));        
+        
+        std::string gameName;
+        localStorageGetItem("currentGame", &gameName);
+        
+        std::string currentLevelStr;
+        localStorageGetItem(gameName + CURRENT_LEVEL, &currentLevelStr);
+        int _currentLevel = 1;
+        if(!currentLevelStr.empty()) {
+            _currentLevel = std::atoi( currentLevelStr.c_str());
+        }
+        
+        
+        std::string isNumeric;
+        localStorageGetItem(gameName + MenuContext::to_string(_currentLevel) + NUMERIC_WRITING, &isNumeric);
+        
+        std::string isUpperAlphabet;
+        localStorageGetItem(gameName + MenuContext::to_string(_currentLevel) + UPPER_ALPHABET_WRITING, &isUpperAlphabet);
+
+        
+        std::vector<std::string> _recognizedChars;
+        
+        if(!isNumeric.empty()) {
+            for (std::vector<std::string>::iterator itStr = _recognizedCharacters.begin() ; itStr != _recognizedCharacters.end(); ++itStr)
+            {
+                std::string res = *itStr;
+                bool has_only_digits = (res.find_first_not_of("0123456789" ) == string::npos);
+                if(has_only_digits) {
+                    _recognizedChars.push_back(res);
+                }
+            }
+            
+            Director::getInstance()->getScheduler()->performFunctionInCocosThread(CC_CALLBACK_0(LipiTKNode::broadCastRecognizedChars, _node, _recognizedChars));
+            
+            
+        } else if(!isUpperAlphabet.empty()) {
+            for (std::vector<std::string>::iterator itStr = _recognizedCharacters.begin() ; itStr != _recognizedCharacters.end(); ++itStr)
+            {
+                std::string res = *itStr;
+                bool has_only_digits = (res.find_first_not_of("0123456789") == string::npos);
+                if(!has_only_digits && std::isalpha(res[0])) {
+                    if (isUpperAlphabet.compare("true") == 0 && std::isupper(res[0])) {
+                        _recognizedChars.push_back(res);
+                    } else if(isUpperAlphabet.compare("false") == 0 && !std::isupper(res[0])) {
+                        _recognizedChars.push_back(res);
+                    }
+                }
+            }
+            Director::getInstance()->getScheduler()->performFunctionInCocosThread(CC_CALLBACK_0(LipiTKNode::broadCastRecognizedChars, _node, _recognizedChars));
+            
+        } else {
+            Director::getInstance()->getScheduler()->performFunctionInCocosThread(CC_CALLBACK_0(LipiTKNode::broadCastRecognizedChars, _node, _recognizedCharacters));
+
+        }
+        
     }
     
 }

@@ -5,10 +5,376 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 150,
+        "Duration": 555,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
+          {
+            "ActionTag": -947447925,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -378.8491,
+                "Y": -15.2415,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1534371248,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2091.4531,
+                "Y": 1427.4435,
+                "FrameIndex": 335,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1534371248,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 335,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.25,
+                "Y": 1.25,
+                "FrameIndex": 355,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8,
+                "Y": 0.8,
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.15,
+                "Y": 1.15,
+                "FrameIndex": 375,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.9,
+                "Y": 0.9,
+                "FrameIndex": 385,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.05,
+                "Y": 1.05,
+                "FrameIndex": 395,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.95,
+                "Y": 0.95,
+                "FrameIndex": 400,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.02,
+                "Y": 1.02,
+                "FrameIndex": 405,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.99,
+                "Y": 0.99,
+                "FrameIndex": 408,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1534371248,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "hop",
+                "FrameIndex": 355,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 393305869,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 307.3029,
+                "Y": 1291.4546,
+                "FrameIndex": 440,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1672253251,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1442.3562,
+                "Y": 1631.2683,
+                "FrameIndex": 440,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1634483813,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 420,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1634483813,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1864.6575,
+                "Y": 1047.9202,
+                "FrameIndex": 420,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -57.1648,
+                "Y": 1876.7338,
+                "FrameIndex": 555,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1634483813,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.3,
+                "Y": 0.3,
+                "FrameIndex": 420,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1634483813,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 8.4466,
+                "Y": 8.4466,
+                "FrameIndex": 420,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 8.4452,
+                "Y": 8.4468,
+                "FrameIndex": 555,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -117443379,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2132.2329,
+                "Y": 543.7025,
+                "FrameIndex": 420,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2132.2329,
+                "Y": 543.7029,
+                "FrameIndex": 430,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2132.2354,
+                "Y": 543.7043,
+                "FrameIndex": 440,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2132.2329,
+                "Y": 543.7025,
+                "FrameIndex": 450,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -117443379,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 420,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0777,
+                "Y": 0.925,
+                "FrameIndex": 430,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.9445,
+                "Y": 1.0916,
+                "FrameIndex": 440,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 450,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -117443379,
+            "Property": "AnchorPoint",
+            "Frames": [
+              {
+                "X": 0.5,
+                "Y": 0.0,
+                "FrameIndex": 420,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.5,
+                "Y": 0.0,
+                "FrameIndex": 450,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": 868717236,
             "Property": "ActionValue",
@@ -28,6 +394,14 @@
                 "FrameIndex": 150,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "talk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 220,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -37,27 +411,9 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 1442.7778,
-                "Y": 588.478,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
                 "X": 1433.0762,
                 "Y": 653.1404,
                 "FrameIndex": 119,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 1442.7778,
-                "Y": 588.478,
-                "FrameIndex": 150,
                 "EasingData": {
                   "Type": 0
                 },
@@ -71,27 +427,9 @@
             "Property": "Scale",
             "Frames": [
               {
-                "X": 1.0,
-                "Y": 1.0,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
                 "X": 1.4,
                 "Y": 1.4,
                 "FrameIndex": 119,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 1.0,
-                "Y": 1.0,
-                "FrameIndex": 150,
                 "EasingData": {
                   "Type": 0
                 },
@@ -124,6 +462,547 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1022068114,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1267.3392,
+                "Y": 980.6656,
+                "FrameIndex": 14,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1022068114,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.01,
+                "Y": 0.01,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.5,
+                "Y": 1.5,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.9,
+                "Y": 0.9,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.4,
+                "Y": 1.4,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.3,
+                "Y": 1.3,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.1,
+                "Y": 1.1,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.25,
+                "Y": 1.25,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.15,
+                "Y": 1.15,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.22,
+                "Y": 1.22,
+                "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.2,
+                "Y": 1.2,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.2,
+                "Y": 1.2,
+                "FrameIndex": 235,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.5,
+                "Y": 1.5,
+                "FrameIndex": 245,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.9,
+                "Y": 0.9,
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.4,
+                "Y": 1.4,
+                "FrameIndex": 265,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 275,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.3,
+                "Y": 1.3,
+                "FrameIndex": 285,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.1,
+                "Y": 1.1,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.25,
+                "Y": 1.25,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.15,
+                "Y": 1.15,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.22,
+                "Y": 1.22,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.2,
+                "Y": 1.2,
+                "FrameIndex": 325,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1022068114,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Sababu_Chura_kuwa_na_Sura_Mbaya/dialogbox.png",
+                  "Plist": "Sababu_Chura_kuwa_na_Sura_Mbaya/Sababu_Chura_kuwa_na_Sura_Mbaya.plist"
+                },
+                "FrameIndex": 14,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1022068114,
+            "Property": "BlendFunc",
+            "Frames": [
+              {
+                "Src": 1,
+                "Dst": 771,
+                "FrameIndex": 14,
+                "Tween": false,
+                "ctype": "BlendFuncFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1022068114,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "hop",
+                "FrameIndex": 234,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 538082165,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 928.953,
+                "Y": 1335.5186,
+                "FrameIndex": 95,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 930.3457,
+                "Y": 1335.5187,
+                "FrameIndex": 235,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 829.4069,
+                "Y": 1436.4556,
+                "FrameIndex": 245,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1022.3745,
+                "Y": 1243.49,
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 866.85,
+                "Y": 1384.616,
+                "FrameIndex": 265,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 999.3367,
+                "Y": 1272.293,
+                "FrameIndex": 275,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 887.0135,
+                "Y": 1364.4568,
+                "FrameIndex": 285,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 961.8964,
+                "Y": 1306.8553,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 915.8146,
+                "Y": 1347.177,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 959.5548,
+                "Y": 1313.5308,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 929.2731,
+                "Y": 1337.0833,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 930.3457,
+                "Y": 1335.5187,
+                "FrameIndex": 325,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 538082165,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 235,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.25,
+                "Y": 1.25,
+                "FrameIndex": 245,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8,
+                "Y": 0.8,
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.15,
+                "Y": 1.15,
+                "FrameIndex": 265,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.9,
+                "Y": 0.9,
+                "FrameIndex": 275,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.05,
+                "Y": 1.05,
+                "FrameIndex": 285,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.95,
+                "Y": 0.95,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.04,
+                "Y": 1.04,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.97,
+                "Y": 0.97,
+                "FrameIndex": 315,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 420,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 538082165,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 0,
+                "FrameIndex": 95,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 255,
+                "FrameIndex": 115,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1824755351,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 464.9379,
+                "Y": 577.4316,
+                "FrameIndex": 440,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 693449160,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2235.2803,
+                "Y": 256.5385,
+                "FrameIndex": 440,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -131,8 +1010,26 @@
       "AnimationList": [
         {
           "StartIndex": 0,
-          "EndIndex": 150,
+          "EndIndex": 220,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 235,
+          "EndIndex": 325,
+          "Name": "box",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 335,
+          "EndIndex": 410,
+          "Name": "sun",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 420,
+          "EndIndex": 555,
+          "Name": "tree",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -140,10 +1037,64 @@
         "Children": [
           {
             "ClipAble": false,
-            "ComboBoxIndex": 1,
+            "ComboBoxIndex": 2,
             "SingleColor": {
               "R": 150,
               "G": 200
+            },
+            "FirstColor": {
+              "R": 133,
+              "G": 191
+            },
+            "EndColor": {
+              "R": 209,
+              "B": 254
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -370.2766,
+              "Y": 488.3488
+            },
+            "Scale": {
+              "ScaleX": 18.1562,
+              "ScaleY": 6.6977
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1446,
+              "Y": 0.2713
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -370.2766,
+            "RightMargin": 2730.2766,
+            "TopMargin": 1111.6512,
+            "BottomMargin": 488.3488,
+            "Tag": 18150,
+            "ActionTag": 637020275,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 170,
+              "G": 130,
+              "B": 99
             },
             "FirstColor": {
               "R": 150,
@@ -158,129 +1109,29 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -384.0734,
-              "Y": -15.5815
+              "X": -378.8491,
+              "Y": -15.2415
             },
             "Scale": {
-              "ScaleX": 16.9765,
-              "ScaleY": 9.0753
+              "ScaleX": 18.0678,
+              "ScaleY": 3.0782
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.15,
-              "Y": -0.0087
+              "X": -0.148,
+              "Y": -0.0085
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": -384.0734,
-            "RightMargin": 2744.0735,
-            "TopMargin": 1615.5815,
-            "BottomMargin": -15.5815,
-            "Tag": 56,
-            "ActionTag": -317573484,
-            "Size": {
-              "X": 200.0,
-              "Y": 200.0
-            },
-            "Name": "Panel_3",
-            "ctype": "PanelObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Sababu_Chura_kuwa_na_Sura_Mbaya/curve.png",
-              "Plist": "Sababu_Chura_kuwa_na_Sura_Mbaya/Sababu_Chura_kuwa_na_Sura_Mbaya.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 302.8684,
-              "Y": 1426.1869
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {
-              "R": 254,
-              "B": 175
-            },
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.1183,
-              "Y": 0.7923
-            },
-            "PreSize": {
-              "X": 0.1289,
-              "Y": 0.1833
-            },
-            "LeftMargin": 137.8684,
-            "RightMargin": 2092.1316,
-            "TopMargin": 208.8131,
-            "BottomMargin": 1261.1869,
-            "Tag": 50,
-            "ActionTag": -1389316509,
-            "Size": {
-              "X": 330.0,
-              "Y": 330.0
-            },
-            "Name": "curve_1",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "ClipAble": false,
-            "ComboBoxIndex": 1,
-            "SingleColor": {},
-            "FirstColor": {
-              "R": 150,
-              "G": 200
-            },
-            "EndColor": {},
-            "ColorVector": {
-              "ScaleY": 1.0
-            },
-            "Scale9Width": 1,
-            "Scale9Height": 1,
-            "TouchEnable": true,
-            "AnchorPoint": {
-              "ScaleY": 1.0
-            },
-            "Position": {
-              "X": 466.6208,
-              "Y": 1586.8916
-            },
-            "Scale": {
-              "ScaleX": 8.2361,
-              "ScaleY": 6.7712
-            },
-            "CColor": {
-              "R": 254,
-              "B": 175
-            },
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.1823,
-              "Y": 0.8816
-            },
-            "PreSize": {
-              "X": 0.0781,
-              "Y": 0.1111
-            },
-            "LeftMargin": 466.6208,
-            "RightMargin": 1893.3792,
-            "TopMargin": 213.1084,
-            "BottomMargin": 1386.8916,
-            "Tag": 51,
-            "ActionTag": 174285040,
+            "LeftMargin": -378.8491,
+            "RightMargin": 2738.8491,
+            "TopMargin": 1615.2415,
+            "BottomMargin": -15.2415,
+            "Tag": 18149,
+            "ActionTag": -947447925,
             "Size": {
               "X": 200.0,
               "Y": 200.0
@@ -291,7 +1142,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Sababu_Chura_kuwa_na_Sura_Mbaya/curve.png",
+              "Path": "Sababu_Chura_kuwa_na_Sura_Mbaya/sun.png",
               "Plist": "Sababu_Chura_kuwa_na_Sura_Mbaya/Sababu_Chura_kuwa_na_Sura_Mbaya.plist"
             },
             "BlendFunc": {
@@ -303,188 +1154,207 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2273.8003,
-              "Y": 1423.0544
+              "X": 2091.4531,
+              "Y": 1427.4435
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "RotationSkewX": 90.0,
-            "RotationSkewY": 90.0,
-            "CColor": {
-              "R": 254,
-              "B": 175
-            },
+            "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.8882,
-              "Y": 0.7906
+              "X": 0.817,
+              "Y": 0.793
             },
             "PreSize": {
-              "X": 0.1289,
-              "Y": 0.1833
+              "X": 0.2047,
+              "Y": 0.2883
             },
-            "LeftMargin": 2108.8003,
-            "RightMargin": 121.1997,
-            "TopMargin": 211.9456,
-            "BottomMargin": 1258.0544,
-            "Tag": 52,
-            "ActionTag": 1454852432,
+            "LeftMargin": 1829.4531,
+            "RightMargin": 206.5469,
+            "TopMargin": 113.0565,
+            "BottomMargin": 1167.9435,
+            "Tag": 18816,
+            "ActionTag": 1534371248,
             "Size": {
-              "X": 330.0,
-              "Y": 330.0
+              "X": 524.0,
+              "Y": 519.0
             },
-            "Name": "curve_2",
+            "Name": "sun_219",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Sababu_Chura_kuwa_na_Sura_Mbaya/curve.png",
-              "Plist": "Sababu_Chura_kuwa_na_Sura_Mbaya/Sababu_Chura_kuwa_na_Sura_Mbaya.plist"
+              "Type": "Normal",
+              "Path": "Sababu_Chura_kuwa_na_Sura_Mbaya/cloud.json",
+              "Plist": ""
             },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
             "Position": {
-              "X": 2277.7275,
-              "Y": 397.582
-            },
-            "Scale": {
-              "ScaleX": -1.0,
-              "ScaleY": -1.0
-            },
-            "CColor": {
-              "R": 254,
-              "B": 175
-            },
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.8897,
-              "Y": 0.2209
-            },
-            "PreSize": {
-              "X": 0.1289,
-              "Y": 0.1833
-            },
-            "LeftMargin": 2112.7275,
-            "RightMargin": 117.2725,
-            "TopMargin": 1237.418,
-            "BottomMargin": 232.582,
-            "Tag": 53,
-            "ActionTag": 1650058804,
-            "Size": {
-              "X": 330.0,
-              "Y": 330.0
-            },
-            "Name": "curve_1_0",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Sababu_Chura_kuwa_na_Sura_Mbaya/curve.png",
-              "Plist": "Sababu_Chura_kuwa_na_Sura_Mbaya/Sababu_Chura_kuwa_na_Sura_Mbaya.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 302.0042,
-              "Y": 393.5126
+              "X": 307.3029,
+              "Y": 1291.4546
             },
             "Scale": {
               "ScaleX": 1.0,
-              "ScaleY": -1.0
+              "ScaleY": 1.0
             },
-            "CColor": {
-              "R": 254,
-              "B": 175
-            },
-            "IconVisible": false,
+            "CColor": {},
+            "IconVisible": true,
             "PrePosition": {
-              "X": 0.118,
-              "Y": 0.2186
+              "X": 0.12,
+              "Y": 0.7175
             },
             "PreSize": {
-              "X": 0.1289,
-              "Y": 0.1833
+              "X": 0.0,
+              "Y": 0.0
             },
-            "LeftMargin": 137.0042,
-            "RightMargin": 2092.9958,
-            "TopMargin": 1241.4874,
-            "BottomMargin": 228.5126,
-            "Tag": 54,
-            "ActionTag": -2080028580,
+            "LeftMargin": 307.3029,
+            "RightMargin": 2252.697,
+            "TopMargin": 508.5454,
+            "BottomMargin": 1291.4546,
+            "UserData": "blast",
+            "Tag": 18955,
+            "ActionTag": 393305869,
             "Size": {
-              "X": 330.0,
-              "Y": 330.0
+              "X": 0.0,
+              "Y": 0.0
             },
-            "Name": "curve_1_0_0",
-            "ctype": "SpriteObjectData"
+            "Name": "cloud",
+            "ctype": "ProjectNodeObjectData"
           },
           {
-            "ClipAble": false,
-            "ComboBoxIndex": 1,
-            "SingleColor": {},
-            "FirstColor": {
-              "R": 150,
-              "G": 200
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Sababu_Chura_kuwa_na_Sura_Mbaya/cloud.json",
+              "Plist": ""
             },
-            "EndColor": {},
-            "ColorVector": {
-              "ScaleY": 1.0
-            },
-            "Scale9Width": 1,
-            "Scale9Height": 1,
-            "TouchEnable": true,
-            "AnchorPoint": {
-              "ScaleY": 1.0
-            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
             "Position": {
-              "X": 137.858,
-              "Y": 1262.9091
+              "X": 1442.3562,
+              "Y": 1631.2683
             },
             "Scale": {
-              "ScaleX": 11.5012,
-              "ScaleY": 3.5391
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
             },
-            "CColor": {
-              "R": 254,
-              "B": 175
-            },
-            "IconVisible": false,
+            "CColor": {},
+            "IconVisible": true,
             "PrePosition": {
-              "X": 0.0539,
-              "Y": 0.7016
+              "X": 0.5634,
+              "Y": 0.9063
             },
             "PreSize": {
-              "X": 0.0781,
-              "Y": 0.1111
+              "X": 0.0,
+              "Y": 0.0
             },
-            "LeftMargin": 137.858,
-            "RightMargin": 2222.1421,
-            "TopMargin": 537.0909,
-            "BottomMargin": 1062.9091,
-            "Tag": 55,
-            "ActionTag": -1866953575,
+            "LeftMargin": 1442.3562,
+            "RightMargin": 1117.6438,
+            "TopMargin": 168.7317,
+            "BottomMargin": 1631.2683,
+            "UserData": "blast",
+            "Tag": 18958,
+            "ActionTag": -1672253251,
             "Size": {
-              "X": 200.0,
-              "Y": 200.0
+              "X": 0.0,
+              "Y": 0.0
             },
-            "Name": "Panel_1_0",
-            "ctype": "PanelObjectData"
+            "Name": "cloud",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Sababu_Chura_kuwa_na_Sura_Mbaya/dove.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1864.6575,
+              "Y": 1047.9202
+            },
+            "Scale": {
+              "ScaleX": 0.3,
+              "ScaleY": 0.3
+            },
+            "RotationSkewX": 8.4466,
+            "RotationSkewY": 8.4466,
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7284,
+              "Y": 0.5822
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1864.6575,
+            "RightMargin": 695.3425,
+            "TopMargin": 752.0798,
+            "BottomMargin": 1047.9202,
+            "Tag": 18886,
+            "ActionTag": 1634483813,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "dove",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Sababu_Chura_kuwa_na_Sura_Mbaya/tree.png",
+              "Plist": "Sababu_Chura_kuwa_na_Sura_Mbaya/Sababu_Chura_kuwa_na_Sura_Mbaya.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5
+            },
+            "Position": {
+              "X": 2132.2329,
+              "Y": 543.7025
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8329,
+              "Y": 0.3021
+            },
+            "PreSize": {
+              "X": 0.4348,
+              "Y": 0.4122
+            },
+            "LeftMargin": 1575.7329,
+            "RightMargin": -128.7329,
+            "TopMargin": 514.2975,
+            "BottomMargin": 543.7025,
+            "UserData": "main.tree",
+            "Tag": 18885,
+            "ActionTag": -117443379,
+            "Size": {
+              "X": 1113.0,
+              "Y": 742.0
+            },
+            "Name": "tree_240",
+            "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
@@ -497,27 +1367,27 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1442.7778,
-              "Y": 588.478
+              "X": 1433.0762,
+              "Y": 653.1404
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 1.4,
+              "ScaleY": 1.4
             },
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.5636,
-              "Y": 0.3269
+              "X": 0.5598,
+              "Y": 0.3629
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1442.7778,
-            "RightMargin": 1117.2222,
-            "TopMargin": 1211.522,
-            "BottomMargin": 588.478,
+            "LeftMargin": 1433.0762,
+            "RightMargin": 1126.9238,
+            "TopMargin": 1146.8596,
+            "BottomMargin": 653.1404,
             "UserData": "hop;drag",
             "Tag": 127,
             "ActionTag": 868717236,
@@ -527,6 +1397,186 @@
             },
             "Name": "frog",
             "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Sababu_Chura_kuwa_na_Sura_Mbaya/dialogbox.png",
+              "Plist": "Sababu_Chura_kuwa_na_Sura_Mbaya/Sababu_Chura_kuwa_na_Sura_Mbaya.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.95
+            },
+            "Position": {
+              "X": 1267.3392,
+              "Y": 980.6656
+            },
+            "Scale": {
+              "ScaleX": 0.01,
+              "ScaleY": 0.01
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4951,
+              "Y": 0.5448
+            },
+            "PreSize": {
+              "X": 0.2469,
+              "Y": 0.2667
+            },
+            "LeftMargin": 666.9393,
+            "RightMargin": 1261.0608,
+            "TopMargin": 339.3345,
+            "BottomMargin": 980.6656,
+            "UserData": "main.box",
+            "Tag": 18278,
+            "ActionTag": -1022068114,
+            "Size": {
+              "X": 632.0,
+              "Y": 480.0
+            },
+            "Name": "box",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Sababu_Chura_kuwa_na_Sura_Mbaya/questionmark.png",
+              "Plist": "Sababu_Chura_kuwa_na_Sura_Mbaya/Sababu_Chura_kuwa_na_Sura_Mbaya.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 928.953,
+              "Y": 1335.5186
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3629,
+              "Y": 0.742
+            },
+            "PreSize": {
+              "X": 0.091,
+              "Y": 0.1806
+            },
+            "LeftMargin": 812.453,
+            "RightMargin": 1514.547,
+            "TopMargin": 301.9814,
+            "BottomMargin": 1173.0186,
+            "UserData": "main.box",
+            "Tag": 18707,
+            "ActionTag": 538082165,
+            "Size": {
+              "X": 233.0,
+              "Y": 325.0
+            },
+            "Alpha": 0,
+            "Name": "questionmark_176",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Sababu_Chura_kuwa_na_Sura_Mbaya/bush.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 464.9379,
+              "Y": 577.4316
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1816,
+              "Y": 0.3208
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 464.9379,
+            "RightMargin": 2095.062,
+            "TopMargin": 1222.5684,
+            "BottomMargin": 577.4316,
+            "UserData": "flowerb",
+            "Tag": 18961,
+            "ActionTag": -1824755351,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_3",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Sababu_Chura_kuwa_na_Sura_Mbaya/stone.png",
+              "Plist": "Sababu_Chura_kuwa_na_Sura_Mbaya/Sababu_Chura_kuwa_na_Sura_Mbaya.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2235.2803,
+              "Y": 256.5385
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8732,
+              "Y": 0.1425
+            },
+            "PreSize": {
+              "X": 0.1551,
+              "Y": 0.1594
+            },
+            "LeftMargin": 2036.7803,
+            "RightMargin": 126.2197,
+            "TopMargin": 1399.9614,
+            "BottomMargin": 113.0385,
+            "UserData": "drag",
+            "Tag": 18968,
+            "ActionTag": 693449160,
+            "Size": {
+              "X": 397.0,
+              "Y": 287.0
+            },
+            "Name": "stone_260",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
@@ -537,6 +1587,9 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "bush.json",
+        "cloud.json",
+        "dove.json",
         "frog.json",
         "Sababu_Chura_kuwa_na_Sura_Mbaya.plist",
         "Sababu_Chura_kuwa_na_Sura_Mbaya.png"

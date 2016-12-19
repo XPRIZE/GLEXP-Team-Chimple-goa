@@ -18,6 +18,16 @@ static const char* audioExt = ".m4a";
 static const char* pronounciationAudioExt = ".ogg";
 
 static const wchar_t* const allCharacters = L"ABCDEFGHIJKLMNOPQRSTUVWXYZ" ;
+static const wchar_t* const allLowerCaseCharacters = L"abcdefghijklmnopqrstuvwxyz" ;
+static const wchar_t* const allNumbers = L"0123456789" ;
+
+const wchar_t* EnglishUtil::getAllLowerCaseCharacters() {
+    return allLowerCaseCharacters;
+}
+
+const wchar_t* EnglishUtil::getAllNumbers() {
+    return allNumbers;
+}
 
 const wchar_t* EnglishUtil::getAllCharacters() {
     return allCharacters;
@@ -42,7 +52,7 @@ std::string EnglishUtil::getSpecialAnimationFileName(wchar_t alpha, std::string 
 }
 
 std::string EnglishUtil::getBMFontFileName() {
-    return "english/baloo_bhai_hdr.fnt";
+    return "english/baloo_bhai_common.fnt";
 }
 
 std::string EnglishUtil::getAlphabetSoundFileName(wchar_t alpha) {
@@ -75,11 +85,16 @@ bool EnglishUtil::isGraphemeStart(uint32_t prevCodePoint, uint32_t currentCodePo
 
 
 std::string EnglishUtil::getPronounciationFileNameForWord(std::string word) {
+    std::replace(word.begin(), word.end(), ' ', '_');
     std::transform(word.begin(), word.end(), word.begin(), ::tolower);
-    auto fileName = std::string("english/sounds/audio/") + word + pronounciationAudioExt;
+    auto fileName = std::string("english/audio/words/") + word + pronounciationAudioExt;
     return fileName;
 }
 
+
+bool EnglishUtil::isTextToSpeechSupported() {
+    return true;
+}
 
 std::string EnglishUtil::getDir() {
     return "english";

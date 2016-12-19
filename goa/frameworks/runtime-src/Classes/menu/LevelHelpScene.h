@@ -22,6 +22,8 @@ CC_CONSTRUCTOR_ACCESS:
     virtual ~LevelHelpScene();
     virtual bool init() override;
     bool initWithGame(std::string gameName);
+    std::vector<std::string> split(std::string s, char delim);
+    
 protected:
     int _currentLevel;
     std::string _gameName;

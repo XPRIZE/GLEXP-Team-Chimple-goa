@@ -118,9 +118,9 @@
             "ClipAble": false,
             "ComboBoxIndex": 1,
             "SingleColor": {
-              "R": 0,
-              "G": 216,
-              "B": 190
+              "R": 108,
+              "G": 244,
+              "B": 237
             },
             "FirstColor": {
               "R": 150,
@@ -381,7 +381,7 @@
               "Y": 0.5756
             },
             "LeftMargin": -852.9554,
-            "RightMargin": 3099.9556,
+            "RightMargin": 3099.9553,
             "TopMargin": 763.6914,
             "BottomMargin": 0.3086,
             "Tag": 65,
@@ -428,7 +428,7 @@
             },
             "LeftMargin": 2558.5996,
             "RightMargin": -312.5996,
-            "TopMargin": 779.6917,
+            "TopMargin": 779.6916,
             "BottomMargin": 0.3084,
             "Tag": 66,
             "ActionTag": -1814148024,
@@ -438,6 +438,53 @@
             },
             "Name": "background_03_5",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 108,
+              "G": 244,
+              "B": 237
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2560.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8258,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0006,
+              "Y": 1.0
+            },
+            "LeftMargin": 2560.0,
+            "RightMargin": 538.0,
+            "Tag": 22,
+            "ActionTag": -1625914971,
+            "Size": {
+              "X": 2.0,
+              "Y": 1800.0
+            },
+            "Name": "extend",
+            "ctype": "PanelObjectData"
           }
         ],
         "Size": {

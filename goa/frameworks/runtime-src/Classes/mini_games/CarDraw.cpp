@@ -10,6 +10,7 @@
 #include "../WordSceneLipiTKNode.h"
 #include "CarDrawNode.h"
 #include "../menu/HelpLayer.h"
+#include "../util/CommonLabel.h"
 
 USING_NS_CC;
 
@@ -120,23 +121,35 @@ void CarDraw::characterRecogination(std::vector<string> str)
 
 	if (str.size() > 0) {
 		if ((str.at(0).compare("o") == 0 || str.at(0).compare("0") == 0) && (_myChar.compare("O") == 0)) {
+			menu->addPoints(5);
+			cocos2d::ui::Button* refreshButton = _carDrawNodeLiPi->_button;
+			refreshButton->setEnabled(false);
 			flage = true;
 			_carDrawNodeLiPi->writingEnable(false);
 		}
+        
+        for (std::vector<std::string>::iterator itStr = str.begin() ; itStr != str.end(); ++itStr)
+        {
+            std::string res = *itStr;
+            if(res.compare(_myChar) == 0)
+            {
+				menu->addPoints(5);
+				cocos2d::ui::Button* refreshButton = _carDrawNodeLiPi->_button;
+				refreshButton->setEnabled(false);
+                flage = true;
+                _carDrawNodeLiPi->writingEnable(false);
+            }
+        }
 	}
 
-	if (str.at(0).compare(_myChar) == 0 || str.at(1).compare(_myChar) == 0) {
-		flage = true;
-		_carDrawNodeLiPi->writingEnable(false);
-	}
 	if (flage) {
-		this->unschedule(schedule_selector(CarDraw::clearScreen));
+		//this->unschedule(schedule_selector(CarDraw::clearScreen));
 		carMoving();
 		CCLOG("right");
 	}
 	else {
-		this->unschedule(schedule_selector(CarDraw::clearScreen));
-		this->scheduleOnce(schedule_selector(CarDraw::clearScreen), 4);
+		//this->unschedule(schedule_selector(CarDraw::clearScreen));
+		//this->scheduleOnce(schedule_selector(CarDraw::clearScreen), 4);
 	}
 }
 
@@ -193,7 +206,8 @@ void CarDraw::carMoving()
 	car->setRotation(_prevDegree);
 	this->addChild(car);
 	car->setScale(-0.65);
-	
+	auto  audio = CocosDenshion::SimpleAudioEngine::getInstance();
+	audio->playEffect("sounds/sfx/carSound.wav", true);
 	Vector< FiniteTimeAction * > fta;
 	Vector< FiniteTimeAction * > rotateAction;
 	for (int i = 0; i < _carStrokes.size(); i++) {
@@ -266,6 +280,7 @@ void CarDraw::carMoving()
 	//	}
 	}
 	auto showScore = CallFunc::create([=]() {
+		audio->stopAllEffects();
 		menu->showScore();
 		 });
 
@@ -288,8 +303,9 @@ void CarDraw::carMoving()
 void CarDraw::clearScreen(float ft)
 {
 	//CC_CALLBACK_2()
+	menu->addPoints(-1);
 	_carStrokes.clear();
-	_carDrawNodeLiPi->clearDrawing(nullptr, cocos2d::ui::Widget::TouchEventType::ENDED);
+//	_carDrawNodeLiPi->clearDrawing(nullptr, cocos2d::ui::Widget::TouchEventType::ENDED);
 	gameStart();
 }
 
@@ -297,7 +313,7 @@ void CarDraw::gameStart()
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1]);
-	auto myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), _myChar);
+	auto myLabel = CommonLabel::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), _myChar);
 	myLabel->setPositionX(visibleSize.width/2);
 	myLabel->setPositionY(visibleSize.height / 2);
 	myLabel->setScale(2.5);
@@ -317,6 +333,7 @@ void CarDraw::onEnterTransitionDidFinish()
 {
 	_helpLayerFlag = true;
 	gameStart();
+	menu->setMaxPoints(5);
 	if (menu->getCurrentLevel() == 1) {
 		gameHelpLayer();
 	}

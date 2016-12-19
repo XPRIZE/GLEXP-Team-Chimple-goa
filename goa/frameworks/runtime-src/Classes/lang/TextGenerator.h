@@ -49,6 +49,8 @@ public:
     std::string getLang();
 	std::vector<std::string> wordsWithGivenLetter(std::string);
     
+    std::string translateString(std::string input);
+    
 protected:
     std::map<int, int> getRandomLocations(int numLoc, int totalNum);
     std::map<std::string, std::map<std::string, std::string>> getMapOfWords(std::string type, int maxNum, int maxChoices, int level);

@@ -22,7 +22,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "NoLoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "see_down",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 100,
@@ -120,7 +120,7 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "hop",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 100,
@@ -351,7 +351,7 @@
               "X": 1829.0,
               "Y": 1208.0
             },
-            "Name": "Kwa_bed_2",
+            "Name": "bed_2",
             "ctype": "SpriteObjectData"
           },
           {
@@ -386,7 +386,7 @@
             "RightMargin": 1210.8113,
             "TopMargin": 1718.531,
             "BottomMargin": 81.469,
-            "UserData": "see_down:drag",
+            "UserData": "walk;drag",
             "Tag": 2374,
             "ActionTag": 1487144099,
             "Size": {
@@ -439,7 +439,7 @@
               "X": 507.0,
               "Y": 717.0
             },
-            "Name": "character3_1",
+            "Name": "child",
             "ctype": "SpriteObjectData"
           },
           {
@@ -474,7 +474,7 @@
             "RightMargin": 641.4395,
             "TopMargin": 1713.6682,
             "BottomMargin": 86.3318,
-            "UserData": "hop:drag",
+            "UserData": "walk;drag",
             "Tag": 2693,
             "ActionTag": -1476893477,
             "Size": {

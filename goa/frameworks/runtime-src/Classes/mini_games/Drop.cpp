@@ -1,4 +1,5 @@
 #include "Drop.h"
+#include "../util/CommonLabelTTF.h"
 
 USING_NS_CC;
 
@@ -149,9 +150,6 @@ void Drop::onEnterTransitionDidFinish()
 		wordOnLayout = getConvertInUpperCase(_data.begin()->second);
 	}
 
-	/*std::string theme[] = { "dropjungle", "drophero","dropcity" };
-	_dropCurrentTheme = theme[RandomHelper::random_int(0, 2)];
-	_dropCurrentTheme = "dropjungle";*/
 	_scenePath = dropSceneMap.at(_dropCurrentTheme);
 	_sceneBasedNumericalVal = dropSceneNumValue.at(_dropCurrentTheme);
 
@@ -275,20 +273,20 @@ void Drop::onEnterTransitionDidFinish()
 		setAllSpriteProperties(floatBox, 0, visibleSize.width*1.1, visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"), true, 0.5, 0.5, 0, 1, 1);//0.75, true
 		leftFloat(floatBox, 12, -(visibleSize.width*0.2), visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"));//0.75
 		this->addChild(floatBox, 1);
-		addEvents(floatBox);
+		//addEvents(floatBox);
 		floatBox->setTag(letterHolderId);
 
 		_letterHolderSpriteBin.push_back(floatBox);
 
 		//Label
-		int maxIndex = _wordOptionBin.size() - 1;
-		//_levelOneString = _wordOptionBin[RandomHelper::random_int(0, maxIndex)];
 		auto label = setAllLabelProperties(_levelOneString, 0, (floatBox->getBoundingBox().size.width / 2), ((floatBox->getBoundingBox().size.height / 2)*_sceneBasedNumericalVal.at("flaotingLetterYFactor")), true, 0.5, 0.5, 0, 1, 1, 100);
 		floatBox->addChild(label, 0);
 		letterHolderId++;
 		_helpFlag = true;
 		_gapBetweenTwoBasket = gap;
 		 creatHelp(gap);
+
+		 CCLOG("LINE NO : 288");
 	}
 	
 	//this->runAction(Sequence::create(DelayTime::create(2), callShowScore, NULL));
@@ -386,6 +384,7 @@ void Drop::update(float delta) {
 		}*/
 		if (_letterHolderSpriteBin[0]->getPositionX() < (_middleBasketIndex*_gapBetweenTwoBasket + _gapBetweenTwoBasket / 2))
 		{
+			CCLOG("LINE NO : 386");
 			_helpFlag = false;
 				_letterHolderSpriteBin[0]->pause();
 			auto letterBoardSprite = Sprite::create();
@@ -396,6 +395,8 @@ void Drop::update(float delta) {
 			letterBoardSprite->setOpacity(0);
 			addEvents(letterBoardSprite);
 			addChild(letterBoardSprite,3);
+
+			CCLOG("LINE NO : 397");
 		}
 	}
 }
@@ -441,9 +442,11 @@ void Drop::letterAndHolderMaker(float dt)
 	floatBox->addChild(label, 0);
 	addEvents(floatBox);
 	letterHolderId++;
+	CCLOG("LINE NO : 444");
 }
 void Drop::leftFloat(Sprite* floatingObj, int time, float positionX, float positionY)
 {
+	// comment
 	floatingObj->runAction(MoveTo::create(time, Vec2(positionX, positionY)));
 }
 
@@ -467,23 +470,27 @@ void Drop::addEvents(Sprite* clickedObject)
 			rect = Rect(0, 0, s.width, s.height);
 		}
 		
-		if (target->getName() == "touchSprite")
-		{
-			this->getChildByName("touchSprite")->getEventDispatcher()->removeEventListener(listener);
-		}
 		if (rect.containsPoint(locationInNode))
 		{
 			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 
 			cocostudio::timeline::ActionTimeline* holderTimeline;
 			Sprite* holderImage;
+			CCLOG("LINE NO : 477");
+			auto helpSpriteName = target->getName();
+			if (helpSpriteName.compare("touchSprite") == 0)
+			{
+				this->getChildByName("touchSprite")->getEventDispatcher()->removeEventListener(listener);
+				CCLOG("LINE NO : 482");
+			}
+			
 			if (!_dropCurrentTheme.compare("dropjungle") || !_dropCurrentTheme.compare("dropcity"))
 			{
 				if(!_dropCurrentTheme.compare("dropjungle"))
 					audio->playEffect("sounds/sfx/drop_jungle_touch.mp3", false);
 				else
 					audio->playEffect("sounds/sfx/shop_balloon_burst.ogg", false);
-
+				CCLOG("LINE NO : 491");
 				std::pair<Sprite*, cocostudio::timeline::ActionTimeline*> animationData = setAnimationAndProperties(_scenePath.at("holderAnimation"), (target->getPosition().x), (target->getPosition().y), 0);
 				holderTimeline = animationData.second;
 				holderImage = animationData.first;
@@ -496,6 +503,7 @@ void Drop::addEvents(Sprite* clickedObject)
 				{
 					if (_dropHeroTrailerImageBin[i]->getTag() == target->getTag())
 					{
+						CCLOG("LINE NO : 504");
 						audio->playEffect("sounds/sfx/drop_hero_touch.mp3", false);
 
 						cocostudio::timeline::ActionTimeline* holderTimeline = CSLoader::createTimeline(_scenePath.at("holderAnimation"));
@@ -513,19 +521,29 @@ void Drop::addEvents(Sprite* clickedObject)
 			 sprite->runAction(MoveTo::create(1, Vec2(sprite->getPosition().x, -visibleSize.height*0.015)));
 			_FallingLetter.push_back(sprite);
 			 target->setVisible(false);
-			
-			if (_initObj && _letterHolderSpriteBin.size() > 0 && _menuContext->getCurrentLevel() == 1) {
+			 CCLOG("LINE NO : 522");
+			 int iss = 0;
+			 if (_initObj)
+				 iss = 1;
+
+			 CCLOG("LINE NO : 523  _initObj : %d --- , _letterHolderSpriteBin.size() : %d --- ",iss, _letterHolderSpriteBin.size());
+
+			if (_initObj && (_letterHolderSpriteBin.size() > 0) && (_menuContext->getCurrentLevel() == 1)) {
+				CCLOG("LINE NO : 524");
 				_letterHolderSpriteBin[0]->setVisible(false);
 				_letterHolderSpriteBin[0]->getEventDispatcher()->removeEventListener(listener);
 				_letterHolderSpriteBin[0]->resume();
 				this->removeChild(this->getChildByName("touchSprite"));
+				CCLOG("LINE NO : 529");
 				auto label = setAllLabelProperties(_letterHolderSpriteBin[0]->getChildren().at(0)->getName(), 0, (sprite->getBoundingBox().size.width / 2), (sprite->getBoundingBox().size.height / 2), true, 0.5, 0.5, 0, 1, 1, 100);
 				sprite->addChild(label, 0);
 				this->removeChild(_help);
 				this->schedule(schedule_selector(Drop::letterAndHolderMaker), 3);
 				_initObj = false;
+
 			}
 			else {
+				CCLOG("LINE NO : 538");
 				auto label = setAllLabelProperties(target->getChildren().at(0)->getName(), 0, (sprite->getBoundingBox().size.width / 2), (sprite->getBoundingBox().size.height / 2), true, 0.5, 0.5, 0, 1, 1, 100);
 				sprite->addChild(label, 0);
 				for (int i = 0; i < _letterHolderSpriteBin.size(); i++)
@@ -533,10 +551,11 @@ void Drop::addEvents(Sprite* clickedObject)
 					if (_letterHolderSpriteBin[i]->getTag() == target->getTag())
 					{
 						_letterHolderSpriteBin[i]->getEventDispatcher()->removeEventListener(listener);
+						break;
 					}
 				}
 			}
-			
+			CCLOG("LINE NO : 550");
 			CCLOG("size of holder container : %d", _letterHolderSpriteBin.size());
 		}
 		return false;
@@ -549,13 +568,14 @@ void Drop::removeLetterHolder()
 	for (int i = 0; i < _letterHolderSpriteBin.size(); i++)
 	{
 		auto letterHolder = CCRectMake(_letterHolderSpriteBin[i]->getPositionX(), _letterHolderSpriteBin[i]->getPositionY(), _letterHolderSpriteBin[i]->getContentSize().width, _letterHolderSpriteBin[i]->getContentSize().height);
-
+		//CCLOG("LINE NO : 561");
 		if (letterHolder.intersectsRect(_removalPole->getBoundingBox()))
 		{
 			this->removeChild(_letterHolderSpriteBin[i], true);
 			_letterHolderSpriteBin.erase(_letterHolderSpriteBin.begin() + i);
 		}
 	}
+	//CCLOG("LINE NO : 568");
 }
 
 void Drop::removeHeroTrailer()
@@ -589,9 +609,11 @@ void Drop::basketLetterCollisionChecker()
 	{
 		for (int j = 0; j < _FallingLetter.size(); j++)
 		{
+		//	CCLOG("LINE NO : 602");
 			auto alphaBox = CCRectMake(_FallingLetter[j]->getPositionX() - _FallingLetter[j]->getContentSize().width / 2, _FallingLetter[j]->getPositionY() - _FallingLetter[j]->getContentSize().height / 2, _FallingLetter[j]->getContentSize().width, _FallingLetter[j]->getContentSize().height);
 			if (_basketRect[i].intersectsRect(alphaBox))
 			{
+				CCLOG("LINE NO : 605");
 				_pointCounter++;
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 				auto str = _basketBin[i]->getString();
@@ -599,7 +621,7 @@ void Drop::basketLetterCollisionChecker()
 				if (!str.compare(str1))
 				{
 					 audio->playEffect("sounds/sfx/success.ogg", false);
-
+					 CCLOG("LINE NO : 613");
 					_basketAnimBin[i]->play(_scenePath.at("rightAnimName"), false);
 					_basketBin[i]->setVisible(true);
 					_basketRect.erase(_basketRect.begin() + i);
@@ -611,7 +633,7 @@ void Drop::basketLetterCollisionChecker()
 				else
 				{
 					audio->playEffect("sounds/sfx/error.ogg", false);
-
+					CCLOG("LINE NO : 625");
 					_basketAnimBin[i]->play(_scenePath.at("wrongAnimName"), false);
 					//_basketAnimBin[i]->gotoFrameAndPlay(0, false);
 					CCLOG("NO");
@@ -635,10 +657,10 @@ void Drop::basketLetterCollisionChecker()
 		});
 		this->runAction(Sequence::create(DelayTime::create(1), callShowScore, NULL));
 	}
-
 }
 void Drop::removeHolderAnimation(Sprite* anim)
 {
+	CCLOG("LINE NO : 652");
 	this->removeChild(anim, true);
 }
 //void Drop::removeHolderAnimationForHero(std::tuple<Sprite*, Sprite*, int> tupal_data)
@@ -660,7 +682,7 @@ void Drop::setAllSpriteProperties(Sprite* sprite, int zOrder, float posX, float 
 
 LabelTTF* Drop::setAllLabelProperties(std::string letterString, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY, int labelSizeInPixel)
 {
-	auto label = LabelTTF::create(letterString, "Helvetica", labelSizeInPixel);
+	auto label = CommonLabelTTF::create(letterString, "Helvetica", labelSizeInPixel);
 	label->setPosition(Vec2(posX, posY));
 	label->setVisible(visibility);
 	label->setAnchorPoint(Vec2(anchorPointX, anchorPointY));

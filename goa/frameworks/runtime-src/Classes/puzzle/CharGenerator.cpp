@@ -35,9 +35,9 @@ bool CharGenerator::init()
     return true;
 }
 
-std::vector<std::vector<wchar_t>> CharGenerator::generateMatrixForChoosingAChar(wchar_t alpha, int numRows, int numCols, int minPercentOfOccurence)
+std::vector<std::vector<wchar_t>> CharGenerator::generateMatrixForChoosingAChar(wchar_t alpha, int numRows, int numCols, int minPercentOfOccurence, bool lowerCase)
 {
-    auto matrix = generateCharMatrix(numRows, numCols);
+    auto matrix = generateCharMatrix(numRows, numCols, false, lowerCase);
     int minOccurence = ceil(numRows * numCols * minPercentOfOccurence / 100);
 	int randRow = rand() % numRows;
 	int randCol = rand() % numCols;
@@ -54,14 +54,17 @@ std::vector<std::vector<wchar_t>> CharGenerator::generateMatrixForChoosingAChar(
     return matrix;
 }
 
-wchar_t CharGenerator::generateAChar() {
+wchar_t CharGenerator::generateAChar(bool lowerCase) {
     int numChar = LangUtil::getInstance()->getNumberOfCharacters();
     int randomNumber = rand() % (numChar - 1);
-    return LangUtil::getInstance()->getAllCharacters()[randomNumber];
+    if(lowerCase)
+        return LangUtil::getInstance()->getAllLowerCaseCharacters()[randomNumber];
+    else
+        return LangUtil::getInstance()->getAllCharacters()[randomNumber];
 }
 
-std::vector<std::vector<wchar_t>> CharGenerator::generateCharMatrix(int numRows, int numCols, bool distinct) {
-    auto allCharVector = getAllChars();
+std::vector<std::vector<wchar_t>> CharGenerator::generateCharMatrix(int numRows, int numCols, bool distinct, bool lowerCase) {
+    auto allCharVector = getAllChars(lowerCase);
     int numChar = allCharVector.size();
     std::vector<std::vector<wchar_t>> matrix(numRows, std::vector<wchar_t>(numCols));
     for (int i = 0; i < numRows; i++) {
@@ -75,7 +78,7 @@ std::vector<std::vector<wchar_t>> CharGenerator::generateCharMatrix(int numRows,
                 allCharVector.erase(allCharVector.begin() + randomNumber);
                 numChar--;
                 if(numChar <= 0) {
-                    allCharVector = getAllChars();
+                    allCharVector = getAllChars(lowerCase);
                     numChar = allCharVector.size();
                 }
             }
@@ -84,8 +87,8 @@ std::vector<std::vector<wchar_t>> CharGenerator::generateCharMatrix(int numRows,
     return matrix;
 }
 
-wchar_t CharGenerator::generateAnotherChar(std::vector<wchar_t> currentChars) {
-    auto allCharVector = getAllChars();
+wchar_t CharGenerator::generateAnotherChar(std::vector<wchar_t> currentChars, bool lowerCase) {
+    auto allCharVector = getAllChars(lowerCase);
     for (int i = 0; i < currentChars.size(); i++) {
         for (int j = 0; j < allCharVector.size(); j++) {
             if(currentChars.at(i) == allCharVector.at(j)) {
@@ -100,9 +103,9 @@ wchar_t CharGenerator::generateAnotherChar(std::vector<wchar_t> currentChars) {
     return allCharVector.at(randomNumber);
 }
 
-std::vector<wchar_t> CharGenerator::getAllChars() {
+std::vector<wchar_t> CharGenerator::getAllChars(bool lowerCase) {
     int numChar = LangUtil::getInstance()->getNumberOfCharacters();
-    auto allChars = LangUtil::getInstance()->getAllCharacters();
+    auto allChars = lowerCase ? LangUtil::getInstance()->getAllLowerCaseCharacters() : LangUtil::getInstance()->getAllCharacters();
     std::vector<wchar_t> allCharVector;
     allCharVector.clear();
     for (int i = 0; i < numChar; i++) {
