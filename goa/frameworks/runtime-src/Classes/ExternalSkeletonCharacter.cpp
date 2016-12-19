@@ -54,28 +54,31 @@ bool ExternalSkeletonCharacter::initializeExternalSkeletonCharacter(cocos2d::Nod
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listenerTouches, this);
 
     
-    auto checkVicinityWithMainCharacter = [=] (EventCustom * event) {
-       this->mainSkeleton = static_cast<SkeletonCharacter*>(event->getUserData());
-
-        if(this->checkVicinityToMainSkeleton(this->mainSkeleton))
-        {
-            this->setVicinityToMainCharacter(true);
-            if(this->externalSkeletonActionTime != NULL) {
-                this->externalSkeletonActionTime->play(IDLE, true);
-            }
-        } else {
-            this->setVicinityToMainCharacter(false);
-            if(this->externalSkeletonActionTime != NULL && !this->getDefaultAnimationName().empty()) {
-                this->externalSkeletonActionTime->play(this->getDefaultAnimationName(), true);
-            }
-        }
-    };
+    this->getEventDispatcher()->addCustomEventListener(RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, CC_CALLBACK_1(ExternalSkeletonCharacter::checkVicinityWithMainCharacter, this));
     
-    ADD_VICINITY_NOTIFICATION(this, RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, checkVicinityWithMainCharacter);
 
     this->scheduleUpdate();
     
     return true;
+}
+
+
+void ExternalSkeletonCharacter::checkVicinityWithMainCharacter(cocos2d::EventCustom * event) {
+    this->mainSkeleton = static_cast<SkeletonCharacter*>(event->getUserData());
+    
+    if(this->checkVicinityToMainSkeleton(this->mainSkeleton))
+    {
+        this->setVicinityToMainCharacter(true);
+        if(this->externalSkeletonActionTime != NULL) {
+            this->externalSkeletonActionTime->play(IDLE, true);
+        }
+    } else {
+        this->setVicinityToMainCharacter(false);
+        if(this->externalSkeletonActionTime != NULL && !this->getDefaultAnimationName().empty()) {
+            this->externalSkeletonActionTime->play(this->getDefaultAnimationName(), true);
+        }
+    }
+   
 }
 
 bool ExternalSkeletonCharacter::checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter) {
