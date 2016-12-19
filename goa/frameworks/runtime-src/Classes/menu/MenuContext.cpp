@@ -179,11 +179,14 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 auto moveTo = MoveTo::create(0.5, _menuButton->getPosition());
                 auto elastic = EaseBackIn::create(moveTo);
                 auto callbackRemoveMenu = CallFunc::create(CC_CALLBACK_0(MenuContext::removeMenu, this));
-                
+                /*
                 auto targetHelpCloseAction = TargetedAction::create(_helpMenu, elastic->clone());
                 auto targetBookCloseAction = TargetedAction::create(_mapMenu, elastic->clone());
-                auto targetMapCloseAction = TargetedAction::create(_bookMenu, elastic->clone());
+                 */
+                auto targetMapCloseAction = TargetedAction::create(_mapMenu, elastic->clone());
+                /*
                 auto targetSettingCloseAction = TargetedAction::create(_settingMenu, elastic);
+                 */
                 auto targetGamesCloseAction = TargetedAction::create(_gamesMenu, elastic->clone());
 //                if(_photoMenu) {
 //                    auto targetPhotoCloseAction = TargetedAction::create(_photoMenu, elastic->clone());
@@ -194,7 +197,7 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 //                        runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
 //                }
                 
-                auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction,targetBookCloseAction,targetGamesCloseAction, nullptr);
+                auto spawnAction = Spawn::create(/*targetHelpCloseAction,*/targetMapCloseAction,/*targetBookCloseAction,*/targetGamesCloseAction, nullptr);
                 runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
                 
                 
@@ -521,8 +524,8 @@ void MenuContext::removeMenu() {
 //        removeChild(_bookMenu);
 //        _bookMenu = nullptr;
         
-//        removeChild(_mapMenu);
-//        _mapMenu = nullptr;
+        removeChild(_mapMenu);
+        _mapMenu = nullptr;
         
         removeChild(_gamesMenu);
         _gamesMenu = nullptr;
