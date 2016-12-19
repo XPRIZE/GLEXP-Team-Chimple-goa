@@ -72,15 +72,17 @@ xc.GameScene.loadGameFromStorage = function() {
         gameConfig = JSON.parse(gameStr);
     } else {
         var gameMap = cc.loader.cache[xc.GameMap.res.config_json];
-        for (var index = 0; index < gameMap.length; index++) {
-            var element = gameMap[index];
-            if(element.name == gameName) {
-                gameConfig = element;
+        if(gameMap) {
+            for (var index = 0; index < gameMap.length; index++) {
+                var element = gameMap[index];
+                if(element.name == gameName) {
+                    gameConfig = element;
+                }
             }
+            xc.GameScene.load(xc[gameConfig.pureJS], gameName, level); 
         }
     }
 
-    xc.GameScene.load(xc[gameConfig.pureJS], gameName, level); 
 }
 
 xc.GameScene.loadMenu = function() {
@@ -91,10 +93,12 @@ xc.GameScene.loadMenu = function() {
         gameConfig = JSON.parse(gameStr);
     } else {
         var gameMap = cc.loader.cache[xc.GameMap.res.config_json];
-        for (var index = 0; index < gameMap.length; index++) {
-            var element = gameMap[index];
-            if(element.name == gameName) {
-                gameConfig = element;
+        if(gameMap) {
+            for (var index = 0; index < gameMap.length; index++) {
+                var element = gameMap[index];
+                if(element.name == gameName) {
+                    gameConfig = element;
+                }
             }
         }
     }

@@ -87,6 +87,30 @@ std::vector<std::vector<wchar_t>> CharGenerator::generateCharMatrix(int numRows,
     return matrix;
 }
 
+std::vector<std::vector<wchar_t>> CharGenerator::generateNumberMatrix(int numRows, int numCols, bool distinct) {
+    auto allCharVector = getAllNumbers();
+    int numChar = allCharVector.size();
+    std::vector<std::vector<wchar_t>> matrix(numRows, std::vector<wchar_t>(numCols));
+    for (int i = 0; i < numRows; i++) {
+        for (int j = 0; j < numCols; j++) {
+            int randomNumber = 0;
+            if(numChar > 1) {
+                randomNumber = rand() % (numChar - 1);
+            }
+            matrix[i][j] = allCharVector.at(randomNumber);
+            if(distinct) {
+                allCharVector.erase(allCharVector.begin() + randomNumber);
+                numChar--;
+                if(numChar <= 0) {
+                    allCharVector = getAllNumbers();
+                    numChar = allCharVector.size();
+                }
+            }
+        }
+    }
+    return matrix;
+}
+
 wchar_t CharGenerator::generateAnotherChar(std::vector<wchar_t> currentChars, bool lowerCase) {
     auto allCharVector = getAllChars(lowerCase);
     for (int i = 0; i < currentChars.size(); i++) {
@@ -106,6 +130,17 @@ wchar_t CharGenerator::generateAnotherChar(std::vector<wchar_t> currentChars, bo
 std::vector<wchar_t> CharGenerator::getAllChars(bool lowerCase) {
     int numChar = LangUtil::getInstance()->getNumberOfCharacters();
     auto allChars = lowerCase ? LangUtil::getInstance()->getAllLowerCaseCharacters() : LangUtil::getInstance()->getAllCharacters();
+    std::vector<wchar_t> allCharVector;
+    allCharVector.clear();
+    for (int i = 0; i < numChar; i++) {
+        allCharVector.push_back(allChars[i]);
+    }
+    return allCharVector;
+}
+
+std::vector<wchar_t> CharGenerator::getAllNumbers() {
+    int numChar = 10;
+    auto allChars = LangUtil::getInstance()->getAllNumbers();
     std::vector<wchar_t> allCharVector;
     allCharVector.clear();
     for (int i = 0; i < numChar; i++) {

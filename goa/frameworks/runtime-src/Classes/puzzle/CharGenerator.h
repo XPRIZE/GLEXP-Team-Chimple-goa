@@ -21,10 +21,12 @@ public:
     std::vector<std::vector<wchar_t>> generateMatrixForChoosingAChar(wchar_t alpha, int numRows, int numCols, int minPercentOfOccurence = 10, bool lowerCase = false);
     wchar_t generateAChar(bool lowerCase = false);
     std::vector<std::vector<wchar_t>> generateCharMatrix(int numRows, int numCols, bool distinct = false, bool lowerCase = false);
+    std::vector<std::vector<wchar_t>> generateNumberMatrix(int numRows, int numCols, bool distinct = false);
     wchar_t generateAnotherChar(std::vector<wchar_t> currentChars, bool lowerCase = false);
 protected:
     bool init();
     std::vector<wchar_t> getAllChars(bool lowerCase = false);
+    std::vector<wchar_t> getAllNumbers();
 };
 
 #endif /* CharGenerator_h */
