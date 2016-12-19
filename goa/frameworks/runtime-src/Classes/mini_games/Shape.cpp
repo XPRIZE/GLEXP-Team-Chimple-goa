@@ -285,7 +285,7 @@ void Shape::onEnterTransitionDidFinish()
 		std::ostringstream _main;
 		_main << "Shape/" << _differntSceneMapping.at(_level).at(i) << ".png";
 		RealSpriteDetails._sprite = Sprite::createWithSpriteFrameName(_main.str());
-		RealSpriteDetails._sprite->setPosition(Vec2(_differntPosition.at(_posmainIndex).at(i), visibleSize.height * .08));
+		RealSpriteDetails._sprite->setPosition(Vec2(_differntPosition.at(_posmainIndex).at(i), visibleSize.height * .10));
 		RealSpriteDetails._id = i;
 		RealSpriteDetails._spriteName = _main.str();
 		RealSpriteDetails._flag = 0;
@@ -310,11 +310,11 @@ void Shape::onEnterTransitionDidFinish()
 
 	int Xstart = _ShapeBg->getChildByName("water_level")->getPositionX() - _water->getBoundingBox().size.width / 2 + _realSpriteDetails.at(0)._sprite->getContentSize().width * 1.1;
 
-	_position.push_back(Xstart + _water->getBoundingBox().size.width * .07);
-	_position.push_back(Xstart + _water->getBoundingBox().size.width * .25);
-	_position.push_back(Xstart + _water->getBoundingBox().size.width * .43);
-	_position.push_back(Xstart + _water->getBoundingBox().size.width * .61);
-	_position.push_back(Xstart + _water->getBoundingBox().size.width * .79);
+	_position.push_back(Xstart + _water->getBoundingBox().size.width * .15);
+	_position.push_back(Xstart + _water->getBoundingBox().size.width * .35);
+	_position.push_back(Xstart + _water->getBoundingBox().size.width * .55);
+	_position.push_back(Xstart + _water->getBoundingBox().size.width * .75);
+//	_position.push_back(Xstart + _water->getBoundingBox().size.width * .79);
 
 	this->runAction(RepeatForever::create(Sequence::create(DelayTime::create(_differntPosition.at(_posmainIndex).at(_differntPosition.at(_posmainIndex).size() - 1)), CallFunc::create([=] {
 		createTrans();
@@ -329,7 +329,7 @@ void Shape::onEnterTransitionDidFinish()
 
 void Shape::createTrans()
 {
-	if (_maxTransAtTime < 5)
+	if (_maxTransAtTime < 4)
 	{
 		if (_totalCount < _differntPosition.at(_posmainIndex).at(_differntPosition.at(_posmainIndex).size() - 2))
 		{
@@ -374,7 +374,7 @@ void Shape::createTrans()
 
 			if (_level == 1 && _helpFlag == 0)
 			{
-				_help = HelpLayer::create(Rect(_realSpriteDetails.at(0)._sprite->getPositionX(), visibleSize.height * .08, _realSpriteDetails.at(0)._sprite->getContentSize().height, _realSpriteDetails.at(0)._sprite->getContentSize().width), Rect(_transSpriteDetails.at(0)._sprite->getPositionX(), _transSpriteDetails.at(0)._sprite->getPositionY(), _transSpriteDetails.at(0)._sprite->getContentSize().height, _transSpriteDetails.at(0)._sprite->getContentSize().width));
+				_help = HelpLayer::create(Rect(_realSpriteDetails.at(0)._sprite->getPositionX(), visibleSize.height * .10, _realSpriteDetails.at(0)._sprite->getContentSize().height, _realSpriteDetails.at(0)._sprite->getContentSize().width), Rect(_transSpriteDetails.at(0)._sprite->getPositionX(), _transSpriteDetails.at(0)._sprite->getPositionY(), _transSpriteDetails.at(0)._sprite->getContentSize().height, _transSpriteDetails.at(0)._sprite->getContentSize().width));
 				_help->clickAndDrag(Vec2(_realSpriteDetails.at(0)._sprite->getPositionX(), _realSpriteDetails.at(0)._sprite->getPositionY()), Vec2(_transSpriteDetails.at(0)._sprite->getPositionX(), _transSpriteDetails.at(0)._sprite->getPositionY()));
 				this->addChild(_help, 3);
 				_helpFlag = 1;
