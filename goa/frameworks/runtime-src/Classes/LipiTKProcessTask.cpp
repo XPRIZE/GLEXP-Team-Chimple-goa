@@ -89,14 +89,15 @@ void LipiTKProcessTask::onPostExecute() {
 
         
         std::vector<std::string> _recognizedChars;
-        
+        bool addedFirstResultOnly = false;
         if(!isNumeric.empty()) {
             for (std::vector<std::string>::iterator itStr = _recognizedCharacters.begin() ; itStr != _recognizedCharacters.end(); ++itStr)
             {
                 std::string res = *itStr;
                 bool has_only_digits = (res.find_first_not_of("0123456789" ) == string::npos);
-                if(has_only_digits) {
+                if(has_only_digits && !addedFirstResultOnly) {
                     _recognizedChars.push_back(res);
+                    addedFirstResultOnly = true;
                 }
             }
             
@@ -108,23 +109,29 @@ void LipiTKProcessTask::onPostExecute() {
             {
                 std::string res = *itStr;
                 bool has_only_digits = (res.find_first_not_of("0123456789") == string::npos);
-                if(!has_only_digits && std::isalpha(res[0])) {
+                if(!has_only_digits && addedFirstResultOnly && std::isalpha(res[0])) {
                     if (isUpperAlphabet.compare("true") == 0 && std::isupper(res[0])) {
                         _recognizedChars.push_back(res);
                     } else if(isUpperAlphabet.compare("false") == 0 && !std::isupper(res[0])) {
                         _recognizedChars.push_back(res);
                     }
+                    addedFirstResultOnly = true;
                 }
             }
             Director::getInstance()->getScheduler()->performFunctionInCocosThread(CC_CALLBACK_0(LipiTKNode::broadCastRecognizedChars, _node, _recognizedChars));
             
         } else {
-            Director::getInstance()->getScheduler()->performFunctionInCocosThread(CC_CALLBACK_0(LipiTKNode::broadCastRecognizedChars, _node, _recognizedCharacters));
+            for (std::vector<std::string>::iterator itStr = _recognizedCharacters.begin() ; itStr != _recognizedCharacters.end(); ++itStr)
+            {
+                if(!addedFirstResultOnly) {
+                    std::string res = *itStr;
+                    _recognizedChars.push_back(res);
+                }
+            }
+            Director::getInstance()->getScheduler()->performFunctionInCocosThread(CC_CALLBACK_0(LipiTKNode::broadCastRecognizedChars, _node, _recognizedChars));
 
         }
-        
-    }
-    
+    }    
 }
 
 
