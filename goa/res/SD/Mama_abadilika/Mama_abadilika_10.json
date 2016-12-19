@@ -5,10 +5,156 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 306,
+        "Duration": 550,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
+          {
+            "ActionTag": 1810435885,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "Walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 355,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "Walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 410,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "Walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 550,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1810435885,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1160.0065,
+                "Y": 267.5496,
+                "FrameIndex": 355,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1712.7776,
+                "Y": 268.614,
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 3119.8311,
+                "Y": 222.5008,
+                "FrameIndex": 550,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1810435885,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.64,
+                "Y": 0.64,
+                "FrameIndex": 355,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.64,
+                "Y": 0.64,
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.64,
+                "Y": 0.64,
+                "FrameIndex": 550,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1810435885,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 355,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 550,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 66803326,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "cowmoo",
+                "FrameIndex": 355,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
           {
             "ActionTag": -1707647065,
             "Property": "ActionValue",
@@ -34,6 +180,22 @@
                 "CurrentAniamtionName": "bend",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 306,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "bend",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 350,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "blink",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 355,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -66,6 +228,24 @@
                 "X": 761.2336,
                 "Y": 70.8137,
                 "FrameIndex": 306,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 761.2336,
+                "Y": 70.8137,
+                "FrameIndex": 350,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 761.2336,
+                "Y": 70.8137,
+                "FrameIndex": 355,
                 "EasingData": {
                   "Type": 0
                 },
@@ -104,6 +284,24 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 350,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 355,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -138,6 +336,24 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 350,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 355,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -150,6 +366,12 @@
           "StartIndex": 0,
           "EndIndex": 350,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 355,
+          "EndIndex": 550,
+          "Name": "cow",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -201,6 +423,95 @@
                 "ClipAble": false,
                 "ComboBoxIndex": 1,
                 "SingleColor": {
+                  "R": 61,
+                  "G": 174,
+                  "B": 61
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.3649
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 0.1111
+                },
+                "TopMargin": 1600.0,
+                "Tag": 2871,
+                "ActionTag": 1371840719,
+                "Size": {
+                  "X": 3100.0,
+                  "Y": 200.0
+                },
+                "Name": "Panel_3",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Mama_abadilika/cow.json",
+                  "Plist": ""
+                },
+                "StretchWidthEnable": false,
+                "StretchHeightEnable": false,
+                "InnerActionSpeed": 1.0,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 1160.0065,
+                  "Y": 267.5496
+                },
+                "Scale": {
+                  "ScaleX": 0.64,
+                  "ScaleY": 0.64
+                },
+                "CColor": {},
+                "IconVisible": true,
+                "PrePosition": {
+                  "X": 0.3742,
+                  "Y": 0.1486
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": 1160.0065,
+                "RightMargin": 1939.9935,
+                "TopMargin": 1532.4504,
+                "BottomMargin": 267.5496,
+                "Tag": 1102,
+                "ActionTag": 1810435885,
+                "Size": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "Name": "cow",
+                "ctype": "ProjectNodeObjectData"
+              },
+              {
+                "ClipAble": false,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
                   "R": 150,
                   "G": 200
                 },
@@ -216,8 +527,8 @@
                 "Scale9Height": 1,
                 "AnchorPoint": {},
                 "Position": {
-                  "X": 849.6075,
-                  "Y": 252.0818
+                  "X": 849.6074,
+                  "Y": 243.0818
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -227,16 +538,17 @@
                 "IconVisible": false,
                 "PrePosition": {
                   "X": 0.2741,
-                  "Y": 0.14
+                  "Y": 0.135
                 },
                 "PreSize": {
                   "X": 0.391,
                   "Y": 0.6361
                 },
-                "LeftMargin": 849.6075,
+                "LeftMargin": 849.6074,
                 "RightMargin": 1038.3926,
-                "TopMargin": 402.9182,
-                "BottomMargin": 252.0818,
+                "TopMargin": 411.9182,
+                "BottomMargin": 243.0818,
+                "UserData": "main.cow",
                 "Tag": 182,
                 "ActionTag": 66803326,
                 "Size": {
@@ -1141,58 +1453,8 @@
               "X": 1338.0,
               "Y": 349.0
             },
-            "Name": "Mama_shop_1",
+            "Name": "shop_1",
             "ctype": "SpriteObjectData"
-          },
-          {
-            "ClipAble": false,
-            "ComboBoxIndex": 1,
-            "SingleColor": {
-              "R": 61,
-              "G": 174,
-              "B": 61
-            },
-            "FirstColor": {
-              "R": 150,
-              "G": 200
-            },
-            "EndColor": {},
-            "ColorVector": {
-              "ScaleY": 1.0
-            },
-            "Scale9Width": 1,
-            "Scale9Height": 1,
-            "TouchEnable": true,
-            "AnchorPoint": {},
-            "Position": {
-              "X": -260.0,
-              "Y": 0.0
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.3649
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": -0.1016,
-              "Y": 0.0
-            },
-            "PreSize": {
-              "X": 1.2109,
-              "Y": 0.1111
-            },
-            "LeftMargin": -260.0,
-            "RightMargin": -280.0,
-            "TopMargin": 1600.0,
-            "Tag": 2871,
-            "ActionTag": 1371840719,
-            "Size": {
-              "X": 3100.0,
-              "Y": 200.0
-            },
-            "Name": "Panel_3",
-            "ctype": "PanelObjectData"
           },
           {
             "FileData": {
@@ -1226,7 +1488,7 @@
             "RightMargin": 2663.8818,
             "TopMargin": 1729.1866,
             "BottomMargin": 70.8134,
-            "UserData": "walk:drag",
+            "UserData": "walk;drag",
             "Tag": 2872,
             "ActionTag": -1707647065,
             "Size": {
@@ -1245,6 +1507,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "cow.json",
         "Mama_abadilika.plist",
         "Mama_abadilika.png",
         "mother.json"

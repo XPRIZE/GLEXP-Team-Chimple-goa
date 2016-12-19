@@ -43,7 +43,8 @@ void EndlessRunner::onEnterTransitionDidFinish()
 		_alphabets = EndlessRunner::getStringDataLevelInfo(alpha,currentLevel,0,3);
 	}
 	else if (currentLevel >= 10 && currentLevel <= 18) {
-		alpha = LangUtil::getInstance()->getAllCharacters();
+		alpha = LangUtil::getInstance()->getAllLowerCaseCharacters();
+		_caseSensitivity = true;
 		_alphabets = EndlessRunner::getStringDataLevelInfo(alpha, currentLevel, 9, 3);// three letter sequence like : A,B,C or P,Q,R (caps letter)
 	}
 	else if (currentLevel >= 19 && currentLevel <= 23) {
@@ -51,7 +52,8 @@ void EndlessRunner::onEnterTransitionDidFinish()
 		_alphabets = EndlessRunner::getStringDataLevelInfo(alpha, currentLevel, 18, 6);// six letter sequence like : A,B,C,D,E,F
 	}
 	else if (currentLevel >= 24 && currentLevel <= 28) {
-		alpha = LangUtil::getInstance()->getAllCharacters();
+		alpha = LangUtil::getInstance()->getAllLowerCaseCharacters();
+		_caseSensitivity = true;
 		_alphabets = EndlessRunner::getStringDataLevelInfo(alpha, currentLevel, 23, 6);// six letter sequence like : a,b,c,d,e,f
 	}
 	else {
@@ -59,7 +61,7 @@ void EndlessRunner::onEnterTransitionDidFinish()
 	}
 
 	tempChar = _alphabets[letterBoardAlphaLength];
-	letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 21, 1, 80);
+	letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 21, 1, 70, _caseSensitivity);
 	_menuContext->setMaxPoints(_alphabets.size() * 5);
 	
 	auto bgLayerGradient = LayerGradient::create(Color4B(255, 255, 255, 255), Color4B(255, 255, 255, 255));
@@ -349,7 +351,7 @@ void EndlessRunner::startingIntersectMode() {
 					
 					letterOnBoard->setString(LangUtil::convertUTF16CharToString(tempChar));
 					counterAlphabets = 0;
-					letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 21, 1, 80);
+					letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 21, 1, 70, _caseSensitivity);
 					counterLetter = 0;
 				});
 
@@ -775,7 +777,7 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 		auto str = letters.at(counterLetter).at(0);
 		counterLetter++;
 		if (counterLetter == 21) {
-			letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 21, 1, 80);
+			letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 21, 1, 70, _caseSensitivity);
 			counterLetter = 0;
 		}
 		

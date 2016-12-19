@@ -283,37 +283,49 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     },   
 
     displayText:function(text, location) {        
-        if(this._referenceToContext._textDisplayAnimationRunning) {
-            this._referenceToContext.unschedule(this.removeDisplayText);            
-            this.buildText(text);
-            this._referenceToContext.displayTextAnimationFinished();
+        if(this._referenceToContext._textDisplayAnimationRunning) {            
+            var mappingFound =  this.buildText(text);
+            if(mappingFound) {
+                this._referenceToContext.unschedule(this.removeDisplayText);
+                this._referenceToContext.displayTextAnimationFinished();
+            }            
         }  else 
         {
-            this.buildText(text);
-            this._referenceToContext.unschedule(this.removeDisplayText);
-            this._referenceToContext._textDisplayAnimationRunning = true;      
-            this._wordBoard.node.setPosition(cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 650));
-            var textDropAction = new cc.MoveTo(0.5, cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 50));            
-            textDropAction.easing(cc.easeBackOut());
-            var afterDisplayTextAction = new cc.CallFunc(this._referenceToContext.displayTextAnimationFinished, this._referenceToContext);
-            var textSequence = new cc.Sequence(textDropAction, afterDisplayTextAction);
-            this._wordBoard.node.runAction(textSequence);                  
+            var mappingFound = this.buildText(text);
+            if(mappingFound) {
+                this._referenceToContext.unschedule(this.removeDisplayText);
+                this._referenceToContext._textDisplayAnimationRunning = true;      
+                this._wordBoard.node.setPosition(cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 650));
+                var textDropAction = new cc.MoveTo(0.5, cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height + 50));            
+                textDropAction.easing(cc.easeBackOut());
+                var afterDisplayTextAction = new cc.CallFunc(this._referenceToContext.displayTextAnimationFinished, this._referenceToContext);
+                var textSequence = new cc.Sequence(textDropAction, afterDisplayTextAction);
+                this._wordBoard.node.runAction(textSequence);                  
+            }
         }     
     },
 
     buildText: function(text) {
-        var textField = this._wordBoard.node.getChildByName("TextField_1");
+        var mappingFound = false;
         
         if(this._wordMapping && this._wordMapping[text]) {
+            var textField = this._wordBoard.node.getChildByName("TextField_1");
+        
             text = this._wordMapping[text];
             text = text.replace(/_/g, ' ');
+            if(cc.sys.isNative) {
+                text = goa.TextGenerator.getInstance().translateString(text);
+            }
+            
+            if(text) {                                
+                textField.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
+                textField.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
+                textField.setString(text.toLowerCase());   
+                mappingFound = true;                
+            }
         }
-        
-        cc.log('text:' + text.toLowerCase());
-        textField.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
-        textField.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
-        textField.setString(text.toLowerCase());      
 
+        return mappingFound;
     },
 
     beforeDisplayTextDisapperFinished: function() {
@@ -453,7 +465,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         var langDir = goa.TextGenerator.getInstance().getLang();
 
         var mappingFile = "";
-        mappingFile =  "res/story" + "/" + langDir + "/" + this._baseDir + ".mapping.json";
+        mappingFile =  "res/story/eng/" + this._baseDir + ".mapping.json";
         cc.log('mappingFile:' + mappingFile);
         if(cc.sys.isNative) {
             var fileExists = jsb.fileUtils.isFileExist(mappingFile);

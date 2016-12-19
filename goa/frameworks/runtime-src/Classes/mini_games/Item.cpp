@@ -7,6 +7,7 @@
 #include "../menu/MenuContext.h"
 #include <algorithm>
 #include "../menu/HelpLayer.h"
+#include "../util/CommonLabel.h"
 
 USING_NS_CC;
 
@@ -345,7 +346,7 @@ void Item::numCreate()
 	std::stringstream ss1;
 	ss1 << _num1;
 	std::string str1 = ss1.str();
-	auto number_label1 = Label::createWithSystemFont(str1, "Arial", 90);
+	auto number_label1 = CommonLabel::createWithSystemFont(str1, "Arial", 90);
 	number_label1->setPositionX(_box1->getContentSize().width / 2);
 	number_label1->setPositionY(_box1->getContentSize().height / 2);
 	_box1->addChild(number_label1, 2);
@@ -354,7 +355,7 @@ void Item::numCreate()
 	std::stringstream ss2;
 	ss2 << _num2;
 	std::string str2 = ss2.str();
-	auto number_label2 = Label::createWithSystemFont(str2, "Arial", 90);
+	auto number_label2 = CommonLabel::createWithSystemFont(str2, "Arial", 90);
 	number_label2->setPositionX(_box2->getContentSize().width / 2);
 	number_label2->setPositionY(_box2->getContentSize().height / 2);
 	_box2->addChild(number_label2, 2);

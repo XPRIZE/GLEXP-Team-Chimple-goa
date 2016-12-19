@@ -1,6 +1,7 @@
 #include "TreasureHunt.h"
 #include "../WordSceneLipiTKNode.h"
 #include "TreasureHuntNode.h"
+#include "../util/CommonText.h"
 
 USING_NS_CC;
 
@@ -86,7 +87,7 @@ void TreasureHunt::onEnterTransitionDidFinish() {
 	labelBoard->setName("board");
 	this->addChild(labelBoard, 1);
 
-	auto label = ui::Text::create();
+	auto label = CommonText::create();
 	label->setString(_currentLetter);
 	label->setFontSize(150);
 	label->setFontName("fonts/Marker Felt.ttf");

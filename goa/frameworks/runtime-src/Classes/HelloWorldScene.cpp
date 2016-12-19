@@ -85,7 +85,7 @@ void HelloWorld::initializeSafari() {
     
     this->initializeStateMachine();
     
-    this->loadWords();
+    //this->loadWords();
 }
 
 void HelloWorld::updatePositionAndCategoryBitMaskMainCharacter() {
@@ -149,7 +149,7 @@ void HelloWorld::loadWords() {
     std::map<std::string,std::string> mapping = this->sqlite3Helper->loadNodeWordMapping(wordFile.c_str());
     
     std::map<std::string, std::string>::iterator it;
-
+    CCLOG("wordFile %s", wordFile.c_str());
     for(it = mapping.begin(); it != mapping.end(); it++) {
         std::string word  = it->first;
         std::string nodeName = it->second;

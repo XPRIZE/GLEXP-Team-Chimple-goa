@@ -1,5 +1,6 @@
 #include "Wembley.h"
 #include "editor-support/cocostudio/CocoStudio.h"
+#include "../util/CommonText.h"
 
 
 
@@ -28,7 +29,7 @@ void Wembley::createAnswer() {
 
 	Size _size = Director::getInstance()->getVisibleSize();
 	reorderChild(_background, -2);
-	auto label = ui::Text::create();
+	auto label = CommonText::create();
 	label->setString(_word);
 	label->setFontSize(200);
 

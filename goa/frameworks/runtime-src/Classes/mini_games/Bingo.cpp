@@ -2,6 +2,7 @@
 #include "SimpleAudioEngine.h"
 #include "math.h"
 #include "editor-support/cocostudio/CocoStudio.h"
+#include "../util/CommonLabelTTF.h"
 
 USING_NS_CC;
 
@@ -364,7 +365,7 @@ void Bingo::onEnterTransitionDidFinish()
 
 			//Label
 
-			label = LabelTTF::create(_data_key[randomIndex[boxId]], "Helvetica", 90);
+			label = CommonLabelTTF::create(_data_key[randomIndex[boxId]], "Helvetica", 90);
 			label->setPosition(c, d);
 			label->setAnchorPoint(Vec2(0.5, 0.5));
 			box->addChild(label, 3);
@@ -492,7 +493,7 @@ void::Bingo::setWordInHelpBoard()
 	int size = _data_value.size() - 1;
 	if (size != -1 && !_isBingoDone)
 	{
-		_label = LabelTTF::create(_data_value[RandomHelper::random_int(0, size)], "Helvetica", 200);
+		_label = CommonLabelTTF::create(_data_value[RandomHelper::random_int(0, size)], "Helvetica", 200);
 		_label->setPosition(visibleSize.width / 2 + origin.x, visibleSize.height*_gridBasedValue.at("helpLetterYFactor"));
 		_label->setAnchorPoint(Vec2(0.5, 0.5));
 		this->addChild(_label, 3);

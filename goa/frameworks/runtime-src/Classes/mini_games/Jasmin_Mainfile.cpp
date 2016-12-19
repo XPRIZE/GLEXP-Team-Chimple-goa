@@ -2,6 +2,7 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "RPGConfig.h"
 #include "../menu/HelpLayer.h"
+#include "../util/CommonText.h"
 
 USING_NS_CC;
 
@@ -28,7 +29,7 @@ void Jasmin_Mainfile::createAnswer() {
 	_node->setPosition(Vec2(_size.width/2, _size.height - _node->getBoundingBox().size.height));
 	addChild(_node);
 
-	auto label = ui::Text::create();
+	auto label = CommonText::create();
 	label->setString(_word);
 	label->setFontSize(200);
 	_answer = Node::create();
