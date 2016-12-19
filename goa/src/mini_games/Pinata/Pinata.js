@@ -9,7 +9,7 @@ xc.Pinata = cc.Layer.extend({
   
    this._super();
    //cc.audioEngine.playEffect("res/bubble_shooter/sounds/bubble_blast.wav");
-//this.gameBg.node.getChildByName("Panel_1").getChildByName("Button_10");
+   //this.gameBg.node.getChildByName("Panel_1").getChildByName("Button_10");
   },
   onEnter: function() {
     this._super();
@@ -103,7 +103,7 @@ xc.Pinata = cc.Layer.extend({
     if(gameTheme == "pinatacity"){  boardText.setColor(new cc.color(0,0,0,255));  }
     
     var targetA = this.gameBg.node.getChildByName("targeta");
-    var targetAText = new cc.LabelTTF(""+this.map[mapKeyArray[0]],"res/fonts/Marker Felt.ttf",120);
+    var targetAText = new cc.LabelTTF(""+this.map[mapKeyArray[0]],"res/fonts/Marker Felt.ttf",80);
     if(gameTheme == "pinatajungle") targetAText.setFontSize(80);
     if(gameTheme == "pinatacity"){  targetAText.setColor(new cc.color(0,0,0,255));  }
     targetAText.setName(targetA.getName());
@@ -112,7 +112,7 @@ xc.Pinata = cc.Layer.extend({
     targetA.dead = false;
 
     var targetB = this.gameBg.node.getChildByName("targetb");
-    var targetBText = new cc.LabelTTF(""+this.map[mapKeyArray[1]],"res/fonts/Marker Felt.ttf",120);
+    var targetBText = new cc.LabelTTF(""+this.map[mapKeyArray[1]],"res/fonts/Marker Felt.ttf",80);
     if(gameTheme == "pinatajungle") targetBText.setFontSize(80);
     if(gameTheme == "pinatacity"){  targetBText.setColor(new cc.color(0,0,0,255));  }
     targetBText.setName(targetB.getName());
@@ -121,7 +121,7 @@ xc.Pinata = cc.Layer.extend({
     targetB.dead = false;
 
     var targetC = this.gameBg.node.getChildByName("targetc");
-    var targetCText = new cc.LabelTTF(""+this.map[mapKeyArray[2]],"res/fonts/Marker Felt.ttf",120);
+    var targetCText = new cc.LabelTTF(""+this.map[mapKeyArray[2]],"res/fonts/Marker Felt.ttf",80);
     if(gameTheme == "pinatajungle") targetCText.setFontSize(80);
     if(gameTheme == "pinatacity"){  targetCText.setColor(new cc.color(0,0,0,255));  }
     targetCText.setName(targetC.getName());
@@ -234,7 +234,6 @@ xc.Pinata = cc.Layer.extend({
                             classReference.gameBg.node.getChildByName("board").freezShooting = true;
                         }
                         classReference.runAction(new cc.Sequence(cc.delayTime(3),new cc.CallFunc(againSetToOriginalPosition, classReference)));  
-
                     }
                 }
 
@@ -377,19 +376,23 @@ xc.Pinata = cc.Layer.extend({
     
     return true;  
   },
-  
+
   reCreateSceneElement : function(){
    
-    var mapKeyArray = Object.keys(this.map);
-    this.mapKey = mapKeyArray[this.getRandomInt(3*(this.counterlevelStatus-1),(3*this.counterlevelStatus-1))];
-   
+    let optionValue = this.getBoardAndOptionWord();
+  
     var targetA = this.gameBg.node.getChildByName("targeta");
     var targetB = this.gameBg.node.getChildByName("targetb");
     var targetC = this.gameBg.node.getChildByName("targetc");
 
-    targetA.getChildByName(targetA.getName()).setString(""+this.map[mapKeyArray[3*(this.counterlevelStatus-1)]]);
-    targetB.getChildByName(targetB.getName()).setString(""+this.map[mapKeyArray[3*(this.counterlevelStatus-1)+1]]);
-    targetC.getChildByName(targetC.getName()).setString(""+this.map[mapKeyArray[3*(this.counterlevelStatus-1)+2]]);
+    targetA.getChildByName(targetA.getName()).setString(""+optionValue.first);
+    targetB.getChildByName(targetB.getName()).setString(""+optionValue.second);
+    targetC.getChildByName(targetC.getName()).setString(""+optionValue.third);
+
+   console.log("the map key value option : "+ optionValue.first);
+   console.log("the map key value option : "+ optionValue.second);
+   console.log("the map key value option : "+ optionValue.third);
+   
     var board = this.gameBg.node.getChildByName("board");
     var boardText = board.getChildByName(board.getName());
     boardText.setString(""+this.mapKey);
@@ -518,30 +521,55 @@ xc.Pinata = cc.Layer.extend({
             }
        }
     },
-    movingOrNot : function(prevX,prevY,currentX,currentY){
+        getBoardAndOptionWord : function(){
 
-        let X = 0;
-        let Y = 0;
-        if(prevX < currentX){
-            X = currentX - prevX;
+        var optionWord = {
+            first : "",
+            second : "",
+            third : ""
         }
-        if(prevX > currentX){
-            X = prevX - currentX;
+        var mapKeyArray = Object.keys(this.map);
+       
+        if(this.counterlevelStatus == 2){
+            var index = this.getRandomInt(3,5);
+            this.mapKey = mapKeyArray[index];
+            optionWord.first = this.map[mapKeyArray[3]];
+            optionWord.second = this.map[mapKeyArray[4]];
+            optionWord.third = this.map[mapKeyArray[5]];
+
+        }else if(this.counterlevelStatus == 3){
+            var index = this.getRandomInt(6,8);
+            this.mapKey = mapKeyArray[index];
+            optionWord.first = this.map[mapKeyArray[6]];
+            optionWord.second = this.map[mapKeyArray[7]];
+            optionWord.third = this.map[mapKeyArray[8]];
+
+        }else if(this.counterlevelStatus == 4){
+            var index = this.getRandomInt(9,11);
+            this.mapKey = mapKeyArray[index];
+            optionWord.first = this.map[mapKeyArray[9]];
+            optionWord.second = this.map[mapKeyArray[10]];
+            optionWord.third = this.map[mapKeyArray[11]];
+
+        }else if(this.counterlevelStatus == 5){
+            var index = this.getRandomInt(12,14);
+            this.mapKey = mapKeyArray[index];
+            optionWord.first = this.map[mapKeyArray[12]];
+            optionWord.second = this.map[mapKeyArray[13]];
+            optionWord.third = this.map[mapKeyArray[14]];
+        }else{
+            
+            var index = this.getRandomInt(6,8);
+            this.mapKey = mapKeyArray[10];
+            optionWord.first = this.map[mapKeyArray[10]];
+            optionWord.second = this.map[mapKeyArray[11]];
+            optionWord.third = this.map[mapKeyArray[12]];
+
         }
-        if(prevY < currentY){
-            Y = currentY - prevY
-        }
-        if(prevY > currentY){
-            Y = prevY - currentY;
-        }
-        let distBetween2Points = 0;
-        distBetween2Points = Math.sqrt((X*X) + (Y*Y))
-        if(distBetween2Points > this.bubblePlayer.width/2){
-            console.log("moving the ball");
-            return true;
-        }
-        return false;
+
+        return {first:optionWord.first , second : optionWord.second , third : optionWord.third};
     },
+    
     checkBoundaryBall : function(target,touch){
 
         if((touch.getLocation().x >= cc.director.getWinSize().width * 0.1 ) && (touch.getLocation().x <= cc.director.getWinSize().width * 0.9 ) && (touch.getLocation().y >= cc.director.getWinSize().height * 0.05 ) && (touch.getLocation().y <= cc.director.getWinSize().height * 0.5 )){
@@ -634,7 +662,6 @@ xc.Pinata = cc.Layer.extend({
             sceneNo = totalSceneTheme;
          return { category: categoryNo, scene: sceneNo,  level: categoryLevel };
     },
-
 
     gamePlay : function (correctObject){
 
