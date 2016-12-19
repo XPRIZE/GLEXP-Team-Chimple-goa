@@ -544,7 +544,7 @@ void Decomon::generateDuplicatesInAGrid(cocos2d::Node * node)
 }
 
 /*
-  ScreenShot 
+  ScreenShot
 */
 void Decomon::screenShot()
 {
@@ -566,11 +566,11 @@ void Decomon::screenShot()
 	if (image->saveToFile(filePath.c_str(), false)) {
 		CCLOG("Succeed!");
 		std::string str = filePath + '%';
-		auto writablePath = FileUtils::getInstance()->getWritablePath()+ "decomon.txt";
+		auto writablePath = FileUtils::getInstance()->getWritablePath() + "decomon.txt";
 		std::string contents = FileUtils::getInstance()->getStringFromFile(writablePath);
-		str = str + contents ;
+		str = str + contents;
 		FileUtils::getInstance()->writeStringToFile(str, writablePath);
-		
+
 	}
 	else {
 		CCLOG("Fail!");
@@ -581,7 +581,7 @@ void Decomon::decomonGallery()
 {
 
 	Director::getInstance()->replaceScene(TransitionFade::create(1.0, DecomonGallery::createScene()));
-	
+
 }
 
 void Decomon::split(const std::string & s, char delim, std::vector<std::string>& elems)
@@ -618,22 +618,46 @@ void Decomon::onEnterTransitionDidFinish()
 {
 	Node::onEnterTransitionDidFinish();
 	Size visibleSize = Director::getInstance()->getVisibleSize();
+	/* level 1 to 26 upperCase
+	   level 27 to 52 lowerCase
+	   level 53 to 62 numbers
+	*/
 
-	if ((menu->getCurrentLevel() > LangUtil::getInstance()->getNumberOfCharacters()) && LangUtil::getInstance()->getLang() == "swa") {
-		int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 1);
-		auto mychar = LangUtil::getInstance()->getAllCharacters()[randomNumber];//_crossTheBridgeLevelMapping.at(_gameCurrentLevel);
-		_myChar = LangUtil::convertUTF16CharToString(mychar);
+	if ((menu->getCurrentLevel() > 0) && (menu->getCurrentLevel() < 27)){
+		if (menu->getCurrentLevel() > LangUtil::getInstance()->getNumberOfCharacters()) {
+			int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 1);
+			auto mychar = LangUtil::getInstance()->getAllCharacters()[randomNumber];
+			_myChar = LangUtil::convertUTF16CharToString(mychar);
+	  }
+		else {
+			_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1]);
+		}
+
 	}
+	else if ((menu->getCurrentLevel() > 26) && (menu->getCurrentLevel() < 53)) {
+		int level =menu->getCurrentLevel() - 27;
+		if (level > LangUtil::getInstance()->getNumberOfCharacters()) {
+			int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 1);
+			auto mychar = LangUtil::getInstance()->getAllLowerCaseCharacters()[randomNumber];
+			_myChar = LangUtil::convertUTF16CharToString(mychar);
+		}
+		else {
+			_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllLowerCaseCharacters()[level]);
+		}
+
+	} 
 	else {
-	//	mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
-		_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1]);
+		int level = menu->getCurrentLevel() -53;
+		auto mychar = LangUtil::getInstance()->getAllNumbers()[level];
+		_myChar = LangUtil::convertUTF16CharToString(mychar);
+
 	}
 	//_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1]);
 	menu->setMaxPoints(8);
 	cocos2d::ui::TextBMFont * my = cocos2d::ui::TextBMFont::create(_myChar, LangUtil::getInstance()->getBMFontFileName());
 	my->setPositionX(visibleSize.width / 2);
 	my->setPositionY(visibleSize.height / 2);
-	my->setScale(2);
+	my->setScale(4);
 
 	auto x = my->getBoundingBox().origin;
 	auto sssize = my->getContentSize();
@@ -644,15 +668,15 @@ void Decomon::onEnterTransitionDidFinish()
 		_myLabel->setAnchorPoint(Vec2(0.5, 0.65));
 	}
 	_myLabel->setColor(Color3B(222, 232, 121));
-	_myLabel->setContentSize(Size(sssize.width * 2, 1000));
-	_myLabel->setScale(2);
+	_myLabel->setContentSize(Size(sssize.width * 2.5, 1000));
+	_myLabel->setScale(3);
 	_myLabel->setName("alphabet");
 
 
 	_alphaNode = Node::create();
 	_alphaNode->setPositionX(visibleSize.width / 2);
 	_alphaNode->setPositionY(visibleSize.height / 1.75);
-	_alphaNode->setContentSize(Size(sssize.width * 2, 1000));
+	_alphaNode->setContentSize(Size(sssize.width * 2.5, 1000));
 
 	_alphaNode->setColor(Color3B(222, 232, 255));
 	_alphaNode->setAnchorPoint(Vec2(0.5, 0.5));
@@ -680,17 +704,18 @@ void Decomon::onEnterTransitionDidFinish()
 
 	CCLOG("++++++++++++++++++decomon++++++++++++");
 	auto node = DrawNode::create();
+	auto nodeWidth = sssize.width * 1.25;
 	Vec2 vertices[] =
 	{
-		Vec2(visibleSize.width / 2 - sssize.width,visibleSize.height / 1.75 - 500),
-		Vec2(visibleSize.width / 2 + sssize.width, visibleSize.height / 1.75 - 500),
+		Vec2(visibleSize.width / 2 - nodeWidth,visibleSize.height / 1.75 - 500),
+		Vec2(visibleSize.width / 2 + nodeWidth, visibleSize.height / 1.75 - 500),
 
-		Vec2(visibleSize.width / 2 + sssize.width,visibleSize.height / 1.75 + 500),
-		Vec2(visibleSize.width / 2 - sssize.width,visibleSize.height / 1.75 + 500)
+		Vec2(visibleSize.width / 2 + nodeWidth,visibleSize.height / 1.75 + 500),
+		Vec2(visibleSize.width / 2 - nodeWidth,visibleSize.height / 1.75 + 500)
 
 	};
 	node->drawPolygon(vertices, 4, Color4F(1.0f, 0.3f, 0.3f, 0), 3, Color4F(0.2f, 0.2f, 0.2f, 1));
-	//addChild(node);
+	addChild(node);
 
 	_paintingNode = DrawNode::create();
 	_maskingLayer->addChild(_paintingNode);
@@ -726,37 +751,41 @@ void Decomon::gameHelpDrag()
 void Decomon::wordGenerate()
 {
 	Size visibelSize = Director::getInstance()->getVisibleSize();
-	std::vector<std::string> listOfWords = TextGenerator::getInstance()->wordsWithGivenLetter(_myChar);
-	int wordsSize = 0;
-	if (listOfWords.size() < 6) {
-		wordsSize = listOfWords.size();
-	} 
-	else {
-		wordsSize = 5;
-	}
-	float x = visibelSize.width* 0.3;
-	float y = visibelSize.height *0.2;
-	for (int i = 0; i <wordsSize; i++) {
-		int size = listOfWords.size() - 1;
-		int index = RandomHelper::random_int(0, size);
-		std::string word = listOfWords.at(index);
-		auto sprite = Sprite::create("decomon/splash.png");
-		sprite->setPositionX(x + ((x* (i % 2))* 1.2));
-		sprite->setPositionY(y + (300 * (i)));
-		int colorR = RandomHelper::random_int(0, 255);
-		int colorG = RandomHelper::random_int(0, 255);
-		int colorB = RandomHelper::random_int(0, 255);
-		sprite->setColor(Color3B(colorR, colorG, colorB));
-		this->addChild(sprite);
-		sprite->setScale(0.5, 0.5);
-		auto myLabel = CommonLabel::createWithSystemFont(word, "Arial", 200);
-		myLabel->setPositionX(sprite->getContentSize().width/2);
-		myLabel->setPositionY(sprite->getContentSize().height / 2);
-		myLabel->setColor(Color3B(0, 0, 0));
-		sprite->addChild(myLabel);
-		listOfWords.erase(listOfWords.begin()+index);
-		auto blink = Blink::create(2, 5);
-		myLabel->runAction(blink);
+	if (menu->getCurrentLevel() < 53) {
+
+		_myChar = toupper(_myChar.at(0));
+		std::vector<std::string> listOfWords = TextGenerator::getInstance()->wordsWithGivenLetter(_myChar);
+		int wordsSize = 0;
+		if (listOfWords.size() < 6) {
+			wordsSize = listOfWords.size();
+		}
+		else {
+			wordsSize = 5;
+		}
+		float x = visibelSize.width* 0.3;
+		float y = visibelSize.height *0.2;
+		for (int i = 0; i <wordsSize; i++) {
+			int size = listOfWords.size() - 1;
+			int index = RandomHelper::random_int(0, size);
+			std::string word = listOfWords.at(index);
+			auto sprite = Sprite::create("decomon/splash.png");
+			sprite->setPositionX(x + ((x* (i % 2))* 1.2));
+			sprite->setPositionY(y + (300 * (i)));
+			int colorR = RandomHelper::random_int(0, 255);
+			int colorG = RandomHelper::random_int(0, 255);
+			int colorB = RandomHelper::random_int(0, 255);
+			sprite->setColor(Color3B(colorR, colorG, colorB));
+			this->addChild(sprite);
+			sprite->setScale(0.5, 0.5);
+			auto myLabel = CommonLabel::createWithSystemFont(word, "Arial", 200);
+			myLabel->setPositionX(sprite->getContentSize().width / 2);
+			myLabel->setPositionY(sprite->getContentSize().height / 2);
+			myLabel->setColor(Color3B(0, 0, 0));
+			sprite->addChild(myLabel);
+			listOfWords.erase(listOfWords.begin() + index);
+			auto blink = Blink::create(2, 5);
+			myLabel->runAction(blink);
+		}
 	}
 	this->scheduleOnce(schedule_selector(Decomon::gameEnd), 4);
 }
