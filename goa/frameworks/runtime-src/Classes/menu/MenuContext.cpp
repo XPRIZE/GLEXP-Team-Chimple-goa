@@ -82,7 +82,7 @@ static const int MAX_POINTS_TO_SHOW = 16;
 static const int POINTS_TO_LEFT = 300.0f;
 static const std::string CURRENT_LEVEL = ".currentLevel";
 static const std::string LEVEL = ".level";
-static const std::string LEVEL_STATUS = ".levelStatus";
+static const std::string UNLOCK_ALL = ".unlock";
 static const std::string LANGUAGE = "language";
 
 static const std::string UNLOCKED_STORY_ID_ORDER = ".unlockedStoryIdOrder";
@@ -1007,16 +1007,16 @@ void MenuContext::showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touc
 
 void MenuContext::showSettingMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
 	if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
-/*		removeMenu();
+		removeMenu();
 
 		_menuButton->setEnabled(false);
 		addGreyLayer();
 		pauseNodeAndDescendants(_main);
 
 		std::string _levelStatus;
-		localStorageGetItem(LEVEL_STATUS, &_levelStatus);
+		localStorageGetItem(UNLOCK_ALL, &_levelStatus);
 		if (!_levelStatus.empty()) {
-			localStorageSetItem(LEVEL_STATUS, "0");
+			localStorageSetItem(UNLOCK_ALL, "0");
 		}
 
 
@@ -1097,7 +1097,7 @@ void MenuContext::showSettingMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::To
 		_listener->onTouchBegan = CC_CALLBACK_2(MenuContext::onTouchBeganOnSubmitButton, this);
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(_listener->clone(), _settingNode->getChildByName("submit"));
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(_listener->clone(), _settingNode->getChildByName("close"));
-*/	}
+	}
 }
 
 
@@ -1139,9 +1139,9 @@ bool MenuContext::onTouchBeganOnSubmitButton(Touch *touch, Event *event)
 			CheckBox *_checkBox = (CheckBox*)_settingNode->getChildByName("CheckBox_1");
 
 			if (_checkBox->isSelected())
-				localStorageSetItem(LEVEL_STATUS, "1");
+				localStorageSetItem(UNLOCK_ALL, "1");
 			else
-				localStorageSetItem(LEVEL_STATUS, "0");
+				localStorageSetItem(UNLOCK_ALL, "0");
 
 			_menuButton->setEnabled(true);
 			removeChild(_greyLayer);
