@@ -120,13 +120,13 @@ void CarDraw::characterRecogination(std::vector<string> str)
 	bool flage = false;
 
 	if (str.size() > 0) {
-		if ((str.at(0).compare("o") == 0 || str.at(0).compare("0") == 0) && (_myChar.compare("O") == 0)) {
+		/*if ((str.at(0).compare("o") == 0 || str.at(0).compare("0") == 0) && (_myChar.compare("O") == 0)) {
 			menu->addPoints(5);
 			cocos2d::ui::Button* refreshButton = _carDrawNodeLiPi->_button;
 			refreshButton->setEnabled(false);
 			flage = true;
 			_carDrawNodeLiPi->writingEnable(false);
-		}
+		}*/
         
         for (std::vector<std::string>::iterator itStr = str.begin() ; itStr != str.end(); ++itStr)
         {
@@ -304,6 +304,7 @@ void CarDraw::carMoving()
 void CarDraw::clearScreen(float ft)
 {
 	//CC_CALLBACK_2()
+	CCLOG("clearScreen");
 	menu->addPoints(-1);
 	_carStrokes.clear();
 //	_carDrawNodeLiPi->clearDrawing(nullptr, cocos2d::ui::Widget::TouchEventType::ENDED);
