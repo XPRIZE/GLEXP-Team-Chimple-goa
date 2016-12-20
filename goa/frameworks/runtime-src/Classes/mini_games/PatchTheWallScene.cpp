@@ -52,6 +52,17 @@ void PatchTheWall::onEnterTransitionDidFinish()
     
     _matrix = CharGenerator::getInstance()->generateCharMatrix(2, 5);
     
+	if (_menuContext->getCurrentLevel() >= 1 && _menuContext->getCurrentLevel() <= 4)
+	{
+		_matrix = CharGenerator::getInstance()->generateCharMatrix(2, 5, true, true);
+	}
+	else if (_menuContext->getCurrentLevel() >= 5 && _menuContext->getCurrentLevel() <= 8)
+	{
+		_matrix = CharGenerator::getInstance()->generateCharMatrix(2, 5, true, false);
+	}
+	else
+		_matrix = CharGenerator::getInstance()->generateNumberMatrix(2, 5, true);
+
     
     float _gridY = visibleSize.height * .19;
     for (int i = 0; i < 5; i++)
