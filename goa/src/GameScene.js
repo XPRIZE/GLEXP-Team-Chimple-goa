@@ -72,16 +72,14 @@ xc.GameScene.loadGameFromStorage = function() {
         gameConfig = JSON.parse(gameStr);
     } else {
         var gameMap = cc.loader.cache[xc.GameMap.res.config_json];
-        if(gameMap) {
-            for (var index = 0; index < gameMap.length; index++) {
-                var element = gameMap[index];
-                if(element.name == gameName) {
-                    gameConfig = element;
-                }
+        for (var index = 0; index < gameMap.length; index++) {
+            var element = gameMap[index];
+            if(element.name == gameName) {
+                gameConfig = element;
             }
-            xc.GameScene.load(xc[gameConfig.pureJS], gameName, level); 
         }
     }
+    xc.GameScene.load(xc[gameConfig.pureJS], gameName, level); 
 
 }
 
@@ -93,12 +91,10 @@ xc.GameScene.loadMenu = function() {
         gameConfig = JSON.parse(gameStr);
     } else {
         var gameMap = cc.loader.cache[xc.GameMap.res.config_json];
-        if(gameMap) {
-            for (var index = 0; index < gameMap.length; index++) {
-                var element = gameMap[index];
-                if(element.name == gameName) {
-                    gameConfig = element;
-                }
+        for (var index = 0; index < gameMap.length; index++) {
+            var element = gameMap[index];
+            if(element.name == gameName) {
+                gameConfig = element;
             }
         }
     }
@@ -129,6 +125,8 @@ xc.GameScene.loadMenu = function() {
     cc.LoaderScene.preload(t_resources, function () {
         if(gameConfig.name == 'story-play') {
             xc.CatalogueScene.load(xc.CatalogueLayer);
+        } else if(gameConfig.name == 'story-telling') {
+            xc.CreateStoryScene.load(xc.CreateStoryLayer);
         } else {
             var scene = new xc.GameScene([xc.LevelMenuLayer, gameConfig]);
             cc.director.runScene(scene);

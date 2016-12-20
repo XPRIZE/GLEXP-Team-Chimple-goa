@@ -2,6 +2,7 @@
 var xc = xc || {};
 xc.storyLevel = ".level";
 xc.storyOrder = ".unlockedStoryIdOrder";
+xc.UNLOCK_ALL = ".unlock";
 xc.HAND_GEAR_LEFT = "hand_gear_left"; 
 xc.LAYER_INIT = false;
 xc.PRIMARY_COLOR = cc.color("#FF8E88");
@@ -76,7 +77,14 @@ xc.CatalogueLayer = cc.Layer.extend({
             var unlockedStories = [];
             var lockedStoryIdOrders = this._stories.map(function(element) { return element["storyId"] });
             if(cc.sys.isNative) {
-                unlockedStories = context.getUnLockedStories();
+                var unlockALL = cc.sys.localStorage.getItem(xc.UNLOCK_ALL);
+                if(unlockALL == "1") {
+                    unlockedStories = lockedStoryIdOrders;
+                } else if(unlockALL == "0") {
+                    unlockedStories = context.getUnLockedStories();
+                } else {
+                    unlockedStories = context.getUnLockedStories();
+                }                
             }  else {
                 unlockedStories = lockedStoryIdOrders;
             }

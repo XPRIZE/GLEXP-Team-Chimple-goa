@@ -85,15 +85,15 @@ bool SpeechBubbleView::initialize(std::unordered_map<int, std::string> textMap, 
 
     //register for custom event
     
-    auto bubbleDestoryMessageEvent = [=] (EventCustom * event) {
-        CCLOG("Received destory bubble");
-        this->destroySpeechBubbles();
-    };
-    
-    SEND_BUBBLE_DESTROY_SIGNAL(this, RPGConfig::SEND_BUBBLE_DESTROY_NOTIFICATION, bubbleDestoryMessageEvent);
-
+    this->getEventDispatcher()->addCustomEventListener(RPGConfig::SEND_BUBBLE_DESTROY_NOTIFICATION, CC_CALLBACK_1(SpeechBubbleView::bubbleDestoryMessageEvent, this));
     
     return true;
+}
+
+void SpeechBubbleView::bubbleDestoryMessageEvent(EventCustom * event) {
+    CCLOG("Received destory bubble");
+    this->destroySpeechBubbles();
+
 }
 
 void SpeechBubbleView::dialogSelected(Ref* pSender, ui::Widget::TouchEventType eEventType)
@@ -128,7 +128,7 @@ void SpeechBubbleView::destroySpeechBubbles() {
         button->removeFromParentAndCleanup(true);
     }
     this->removeFromParentAndCleanup(true);
-    EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_BUBBLE_DESTROYED_NOTIFICATION);
+    //EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_BUBBLE_DESTROYED_NOTIFICATION);
 }
 
 

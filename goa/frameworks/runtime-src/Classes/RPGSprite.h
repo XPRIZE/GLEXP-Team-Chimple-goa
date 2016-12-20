@@ -69,6 +69,7 @@ public:
     
     virtual void setActionTimeLine(cocostudio::timeline::ActionTimeline* timeline);
 
+    void checkVicinityWithMainCharacter(cocos2d::EventCustom * event);
     
 protected:
     cocos2d::Node* sprite;

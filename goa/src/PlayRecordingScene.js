@@ -26,10 +26,11 @@ xc.PlayRecordingLayer = cc.Layer.extend({
         //create scene with first page
         this._contentPanel = new xc.PlayContentPanel(this._contentPanelWidth, this._contentPanelHeight, cc.p(this._configPanelWidth, 0));
         this.addChild(this._contentPanel);
-        // this._pageConfigPanel = new xc.BaseConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(150, 0), xc.storyPlayConfigurationObject.editDefault, this._contentPanel);
-        // this.addChild(this._pageConfigPanel);
-        // this._pageConfigPanel.setVisible(false);
-        // this.playRecordedScene();
+        this._pageConfigPanel = new xc.BaseConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(150, 0), xc.storyPlayConfigurationObject.editDefault, this._contentPanel);
+        this.addChild(this._pageConfigPanel);
+        this._pageConfigPanel.setVisible(false);
+        cc.log('44444444444');
+        this.playRecordedScene();
 
     },
 
@@ -43,22 +44,26 @@ xc.PlayRecordingLayer = cc.Layer.extend({
 
     playEnded: function () {
         //create delay action
+        cc.log('ended 1111');
         var delayAction = new cc.DelayTime(2);
         var createWebViewAction = new cc.CallFunc(this.referenceToContext.createWebView, this.referenceToContext);
         var playEndSequence = cc.Sequence.create(delayAction, createWebViewAction);
         this.referenceToContext.runAction(playEndSequence);
+        
     },
     
     createWebView: function() {
         if (xc.story.items[xc.pageIndex].sceneText != null && xc.story.items[xc.pageIndex].sceneText !== "undefined") {
             this.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), xc.story.items[xc.pageIndex].sceneText, this.processText, null, this, false));
         }     
-
+        cc.log('ended 22222');
         this._pageConfigPanel.setVisible(true);           
     },
     
-    playRecordedScene: function () {        
-        if (this._contentPanel._constructedScene.node && this._contentPanel._constructedScene.action.getDuration()) {            
+    playRecordedScene: function () {      
+        cc.log('555555555');  
+        if (this._contentPanel._constructedScene.node && this._contentPanel._constructedScene.action.getDuration() > 0) {            
+            cc.log('666666');
             this._contentPanel._constructedScene.action.referenceToContext = this;
             this._contentPanel._constructedScene.action.setLastFrameCallFunc(this.playEnded);
             this._contentPanel._constructedScene.action.gotoFrameAndPause(0);

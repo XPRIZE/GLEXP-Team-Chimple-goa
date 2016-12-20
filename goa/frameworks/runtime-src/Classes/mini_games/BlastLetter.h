@@ -42,6 +42,7 @@ public:
 	void update(float) override;
 	void removeAllWritingScene();
 	Sequence* shakingCharacter();
+	cocos2d::ui::Button* _clearButton;
 
 	static const char* gameName() { return BLASTLETTER.c_str(); }
 };
