@@ -8,6 +8,7 @@
 
 #include "MessageSender.hpp"
 #include "RPGConfig.h"
+#include <string.h>
 
 
 MessageSender::MessageSender(Sqlite3Helper* sqlite3Helper) {
@@ -55,8 +56,10 @@ void MessageSender::sendTextOnTapMessageEvent(EventCustom * event) {
 void MessageSender::createMessagesForNodeWithKey(std::string key) {
     CCLOG("creating message for %s", key.c_str());
     assert(this->sqlite3Helper != NULL);
-    std::vector<MessageContent *> messages = this->sqlite3Helper->findEventsByOwnerInScene(key.c_str(), this->sceneName.c_str());
     assert(!key.empty());
+
+    std::vector<MessageContent *> messages = this->sqlite3Helper->findEventsByOwnerInScene(key.c_str(), this->sceneName.c_str());
+    
     CCLOG("query Key is %s", key.c_str());
 
     if(messages.size() != 0) {

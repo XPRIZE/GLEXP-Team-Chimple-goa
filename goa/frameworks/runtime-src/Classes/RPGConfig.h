@@ -21,7 +21,7 @@
 #define MIN_GESTURE_DISTANCE 30
 #define MIN_GESTURE_DISTANCE_UP 30
 #define RPG_GRAVITY -2000
-#define ENABLE_DEBUGDRAW false
+#define ENABLE_DEBUGDRAW true
 #define MAIN_CHARACTER_MASS 1.0f
 #define ALPHAMON_CHARACTER_SCALE 0.5f
 #define MAIN_CHARACTER_SCALE 1.0f
@@ -72,7 +72,7 @@
 #define INVISIBLE_BOUNDARY_CONTACT_BITMASK 2
 
 
-
+#define WALKING_STARTED "walking_started"
 #define HUMAN_SKELETON_NAME "Hero"
 #define JUMP_START "jump_start"
 #define JUMP_END "jump_down"
