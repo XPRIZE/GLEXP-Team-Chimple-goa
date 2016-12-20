@@ -27,6 +27,8 @@ public:
     virtual bool initialize(std::unordered_map<int, std::string> textMap, cocos2d::Point position);
     
     
+    void bubbleDestoryMessageEvent(cocos2d::EventCustom * event);
+    
     // touch listeners
 //    virtual bool onTouchBegan(cocos2d::Touch * touch, cocos2d::Event* event);
 //    virtual void touchEnded(cocos2d::Touch* touch, cocos2d::Event* event);

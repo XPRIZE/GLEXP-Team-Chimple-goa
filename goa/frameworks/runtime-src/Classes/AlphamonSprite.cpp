@@ -54,13 +54,8 @@ bool AlphamonSprite::initialize(cocos2d::Node* node, std::unordered_map<std::str
     
     this->getEventDispatcher()->addCustomEventListener("alphamon_pressed", CC_CALLBACK_1(AlphamonSprite::onAlphabetSelected, this));
     
-    auto checkVicinityWithMainCharacter = [=] (EventCustom * event) {
-        this->mainSkeleton = static_cast<SkeletonCharacter*>(event->getUserData());
-        this->checkVicinityToMainSkeleton(this->mainSkeleton);
-        
-    };
     
-    ADD_VICINITY_NOTIFICATION(this, RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, checkVicinityWithMainCharacter);
+    this->getEventDispatcher()->addCustomEventListener(RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, CC_CALLBACK_1(AlphamonSprite::checkVicinityWithMainCharacter, this));
 
     
     this->schedule(CC_SCHEDULE_SELECTOR(AlphamonSprite::destoryAlphaMon), ALPHAMON_DESTRUCTION_FREQUENCY);
@@ -68,6 +63,12 @@ bool AlphamonSprite::initialize(cocos2d::Node* node, std::unordered_map<std::str
     
     return true;
     
+}
+
+void AlphamonSprite::checkVicinityWithMainCharacter(EventCustom * event) {
+    this->mainSkeleton = static_cast<SkeletonCharacter*>(event->getUserData());
+    this->checkVicinityToMainSkeleton(this->mainSkeleton);
+
 }
 
 Alphamon* AlphamonSprite::getAlphaMon() {
