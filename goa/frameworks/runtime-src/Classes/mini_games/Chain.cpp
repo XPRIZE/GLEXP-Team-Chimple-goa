@@ -200,6 +200,7 @@ void Chain::gameOver(bool correct)
 		_grid->touchEndedCallback = nullptr;
 		if (!Chain::_SS.compare("monkey"))
 		{
+			Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
 					auto callShowScore = CCCallFunc::create([=] {
 						_menuContext->showScore();
 					});
@@ -217,6 +218,7 @@ void Chain::gameOver(bool correct)
 		}
 		else if (!Chain::_SS.compare("elephant"))
 		{
+			Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
 					auto callShowScore = CCCallFunc::create([=]
 					{
 						_menuContext->showScore();
@@ -234,6 +236,7 @@ void Chain::gameOver(bool correct)
 		}
 		else if (!Chain::_SS.compare("flamingo"))
 		{
+			Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
 					auto callShowScore = CCCallFunc::create([=]
 					{
 						
