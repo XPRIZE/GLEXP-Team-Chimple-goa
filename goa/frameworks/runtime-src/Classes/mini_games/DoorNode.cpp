@@ -68,11 +68,13 @@ void DoorNode::setParent(Door * parent)
 
 void DoorNode::clearDrawing(cocos2d::Ref * pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
-	auto parent = this->getParent();
-	
-	_paintingNode->clear();
-	_strokes.clear();
-	_Door->clearScreen();
+	if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED)
+	{
+
+		_paintingNode->clear();
+		_strokes.clear();
+		_Door->clearScreen();
+	}
 }
 
 cocos2d::ui::Button * DoorNode::createButton(const std::string normalImage, const std::string selectedImage, const std::string disableImage, cocos2d::Vec2 position)

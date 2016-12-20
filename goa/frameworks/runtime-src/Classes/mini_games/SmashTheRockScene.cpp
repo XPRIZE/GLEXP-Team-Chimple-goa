@@ -176,7 +176,7 @@ void SmashTheRock::begin()
 			//label = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), ttttt);
 			//label = Label::createWithTTF(ttttt, "fonts/BalooBhai-Regular.ttf", 256);
 			//CCLOG("alpha = %s",str.c_str());
-			Alphabet *label = Alphabet::createWithSize(str1, 200);
+			Alphabet *label = Alphabet::createWithSize(str1, 350);
 			//	label->setScale(0.15);
 			label->setPositionX(xx + block->getContentSize().width/2);
 			auto letter = label->getString();
@@ -187,11 +187,11 @@ void SmashTheRock::begin()
 				helpY = yy +(block->getContentSize().height * 0.8);
 				firstMychar = false;
 			}
-			label->setAnchorPoint(Vec2(0,0)); //Vec2::ANCHOR_MIDDLE_BOTTOM
+		    label->setAnchorPoint(Vec2(0.2,-0.1)); //Vec2::ANCHOR_MIDDLE_BOTTOM
 			auto mystr = LangUtil::convertUTF16CharToString(str1);
 			label->setName(mystr);
-			label->setScaleX(0.35);
-			label->setScaleY(0.45);
+			//label->setScaleX(0.35);
+			//label->setScaleY(0.45);
 			labelRef.pushBack(label);
 //			CCLOG("alpha = %d", labelRef.size());
 			keyboard->addChild(label, 2);
@@ -323,10 +323,10 @@ void SmashTheRock::masking()
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
-	_label1 = Alphabet::createWithSize(mychar, 200);
+	_label1 = Alphabet::createWithSize(mychar, 1300);
 //	label1 = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), Alphabets.at(key).c_str());
 //	label1 = Label::createWithTTF(Alphabets.at(key).c_str(), "fonts/BalooBhai-Regular.ttf", 256);
-	_label1->setScale(1.5);
+	//_label1->setScale(1.5);
 
 	
 	const std::vector<std::string> rocks = { "smash_de_rock/cracktexture_00.png","smash_de_rock/cracktexture_01.png","smash_de_rock/cracktexture_02.png","smash_de_rock/cracktexture_03.png","smash_de_rock/cracktexture_04.png","smash_de_rock/cracktexture_05.png","smash_de_rock/cracktexture_05.png" };
