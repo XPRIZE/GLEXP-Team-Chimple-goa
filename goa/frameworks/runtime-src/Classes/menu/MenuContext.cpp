@@ -88,7 +88,7 @@ static const std::string LANGUAGE = "language";
 static const std::string UNLOCKED_STORY_ID_ORDER = ".unlockedStoryIdOrder";
 static const int MIN_STAR_TO_UNLOCK_NEXT_STORY = 1;
 static const int NUMBER_OF_TIMES_READ_STORY_TO_UNLOCK_NEXT_STORY = 2;
-static const int NUMBER_OF_STORIES_TO_BE_UNLOCKED = 2;
+static const int NUMBER_OF_STORIES_TO_BE_UNLOCKED = 1;
 
 
 MenuContext* MenuContext::create(Node* main, std::string gameName, bool launchCustomEventOnExit, std::string sceneName) {
