@@ -125,6 +125,8 @@ xc.GameScene.loadMenu = function() {
     cc.LoaderScene.preload(t_resources, function () {
         if(gameConfig.name == 'story-play') {
             xc.CatalogueScene.load(xc.CatalogueLayer);
+        } else if(gameConfig.name == 'story-telling') {
+            xc.CreateStoryScene.load(xc.CreateStoryLayer);
         } else {
             var scene = new xc.GameScene([xc.LevelMenuLayer, gameConfig]);
             cc.director.runScene(scene);

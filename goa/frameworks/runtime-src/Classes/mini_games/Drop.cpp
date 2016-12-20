@@ -476,7 +476,6 @@ void Drop::addEvents(Sprite* clickedObject)
 
 			cocostudio::timeline::ActionTimeline* holderTimeline;
 			Sprite* holderImage;
-			CCLOG("LINE NO : 477");
 			auto helpSpriteName = target->getName();
 			if (helpSpriteName.compare("touchSprite") == 0)
 			{
@@ -490,7 +489,6 @@ void Drop::addEvents(Sprite* clickedObject)
 					audio->playEffect("sounds/sfx/drop_jungle_touch.mp3", false);
 				else
 					audio->playEffect("sounds/sfx/shop_balloon_burst.ogg", false);
-				CCLOG("LINE NO : 491");
 				std::pair<Sprite*, cocostudio::timeline::ActionTimeline*> animationData = setAnimationAndProperties(_scenePath.at("holderAnimation"), (target->getPosition().x), (target->getPosition().y), 0);
 				holderTimeline = animationData.second;
 				holderImage = animationData.first;

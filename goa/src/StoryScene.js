@@ -154,6 +154,8 @@ xc.StoryLayer = cc.Layer.extend({
                 // xc.PlayFullStoryScene.load(0,xc.PlayFullStoryLayer);
                 
                 xc.story.items.splice(this._curSelectedPageIndex, 1);
+                xc.currentStoryIndex = xc.currentStoryIndex -1;
+                if(xc.currentStoryIndex < 0) xc.currentStoryIndex = 0;
                 this._optionPanel.setVisible(false);
                 this.reDrawPages();
                 

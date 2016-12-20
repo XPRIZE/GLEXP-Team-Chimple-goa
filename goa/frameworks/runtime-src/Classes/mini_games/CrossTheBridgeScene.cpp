@@ -134,7 +134,6 @@ void CrossTheBridge::onEnterTransitionDidFinish()
 			 transparentBG = Sprite::create("crossthebridge/Pixel.png");
 			setAllSpriteProperties(transparentBG, 3, 0, 0, false, 0, 0, 2560, 1800);
 
-			_menuContext->setMaxPoints(40);
 			if (_menuContext->getCurrentLevel() != 1)
 			{
 				addEvents(transparentBG);
@@ -242,6 +241,10 @@ void CrossTheBridge::update(float delta) {
 			addEvents(transparentBG);
 		}
 	}
+	if (!_helpFlag && (_help != NULL))
+	{
+		alphaContainer[0]->pause();
+	}
 }
 void CrossTheBridge::letterDisplayCombinationMethod()
 {
@@ -259,23 +262,24 @@ void CrossTheBridge::letterDisplayCombinationMethod()
 
 	letterOnBoard = Alphabet::createWithSize(letterToDisplay, 220);
 	letterOnBoard->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height*0.929 + origin.y));
-	letterOnBoard->setScale(0.35);
+	letterOnBoard->setScale(0.4);
 	this->addChild(letterOnBoard, 3);
-
+	auto gap = Director::getInstance()->getVisibleSize().width /8;
+	auto newStr= LangUtil::convertUTF16CharToString(letterToDisplay);
 	for (auto i = 0; i < 8; i++)
 	{
-		Alphabet *displayLetter = Alphabet::createWithSize(letterToDisplay, 220);
-		displayLetter->setPosition(Vec2(letterDisplayPosition[i].first + origin.x, letterDisplayPosition[i].second + origin.y));
+		auto displayLetter = LabelTTF::create(newStr, "Helvetica",400);
+		//Alphabet *displayLetter = Alphabet::createWithSize(letterToDisplay, 220);
+		displayLetter->setPosition(Vec2((i*gap + gap / 2) + origin.x, 110.17 + origin.y));
 		this->addChild(displayLetter, 3);
 		displayLetter->setVisible(false);
-		displayLetter->setScale(0.34);
+		displayLetter->setScale(0.0001);
 		letterContainer.push_back(displayLetter);
 	}
 }
 
 void CrossTheBridge::alphabetAndMonsterGeneration(float dt)
 {  
-	
 	if (enemyCreateCounter % 4 == 0)
 	{
 		cocostudio::timeline::ActionTimeline *enemy_walk = CSLoader::createTimeline("crossthebridge/enemy_01.csb");
@@ -335,24 +339,32 @@ void CrossTheBridge::alphaDeletion()
 
 		if (alphaBox.intersectsRect(barrierLeft->getBoundingBox()))
 		{
+			if (_gamePointFlag) {
+				_pointCounter++; _gamePointFlag = false;
+			}
 			if (alphaContainer[i]->getAlphabet() == letterToDisplay)
 			{
+				
 				if (letterDisplayCounter < 8 && pointGenerater)
 				{
-					_menuContext->pickAlphabet(letterToDisplay, alphaContainer[i]->getAlphabet(), true);
+					//_menuContext->pickAlphabet(letterToDisplay, alphaContainer[i]->getAlphabet(), true);
 					sparkle->setVisible(true);
 					sparkle->setPosition(Vec2(letterContainer[letterDisplayCounter]->getPosition().x + origin.x, letterContainer[letterDisplayCounter]->getPosition().y + origin.y));
 					star->gotoFrameAndPlay(0, false);
 					letterContainer[letterDisplayCounter]->setColor(cocos2d::Color3B(255, 215, 0));
 					letterContainer[letterDisplayCounter]->setVisible(true);
+					auto sequence_A = ScaleTo::create(2, 0.4);
+					EaseElasticOut *easeAction = EaseElasticOut::create(sequence_A);
+					letterContainer[letterDisplayCounter]->runAction( easeAction);
+					_menuContext->addPoints(1);
 					letterDisplayCounter++;
+					//this->runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() { _gamePointFlag = true; }), NULL));
 					pointGenerater = false;
-					_menuContext->addPoints(5);
+					CCLOG("current point is  : %d", _menuContext->getPoints());
 				}
 			}
 			else
 			{
-				_menuContext->addPoints(-3);
 				punchForBack->setVisible(true);
 				punchForBack->setPosition(Vec2(302.02 + origin.x, 960.51 + origin.y));
 				punch->gotoFrameAndPlay(0, false);
@@ -364,7 +376,7 @@ void CrossTheBridge::alphaDeletion()
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 				audio->playEffect("crossthebridge/misc/punch.wav", false);
 
-				_menuContext->pickAlphabet(letterToDisplay, alphaContainer[i]->getAlphabet(), true);
+				//_menuContext->pickAlphabet(letterToDisplay, alphaContainer[i]->getAlphabet(), true);
 				alphaBackFlag = false;
 				auto moveBack = CallFunc::create([=]() {
 					alphaContainer[i]->setContentSize(cocos2d::Size(-4.0f, -4.0f));
@@ -387,11 +399,14 @@ void CrossTheBridge::alphaDeletion()
 					this->removeChild(letterOnBoard, true);
 					letterContainer.clear();
 					letterDisplayCounter = 0;
+					CCLOG("point counter is : %d", _pointCounter);
+					_menuContext->setMaxPoints(_pointCounter);
 					_menuContext->showScore();
 				});
 				auto delayInCallingMethod = Sequence::create(DelayTime::create(1.5f), clearLetter, CallFunc::create([=]() { letterDisplayCombinationMethod(); }), NULL);
 				this->runAction(delayInCallingMethod);
 			}
+			this->runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() { _gamePointFlag = true; }), NULL));
 		}
 	}
 
@@ -402,6 +417,9 @@ void CrossTheBridge::monsDeletion()
 	{
 		if (monsContainer[i]->getBoundingBox().intersectsRect(barrierLeft->getBoundingBox()))
 		{
+			if (_gamePointFlag2) {
+				_pointCounter++; _gamePointFlag2 = false;
+			}
 			punchForBack->setVisible(true);
 			punchForBack->setPosition(Vec2(302.02 + origin.x, 960.51 + origin.y));
 			punch->gotoFrameAndPlay(0, false);
@@ -413,7 +431,7 @@ void CrossTheBridge::monsDeletion()
 			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 			audio->playEffect("crossthebridge/misc/punch.wav", false);
 
-			_menuContext->pickAlphabet(letterToDisplay, '1', true);
+			//_menuContext->pickAlphabet(letterToDisplay, '1', true);
 			monsterBackFlag = false;
 			auto moveBack = CallFunc::create([=]() {
 				monsContainer[i]->setContentSize(cocos2d::Size(0.0f, 0.0f));
@@ -425,6 +443,8 @@ void CrossTheBridge::monsDeletion()
 			auto monsterBackFlagChange = CallFunc::create([=]() {monsterBackFlag = true; });
 			auto monsterSequence = Sequence::create(moveBack, DelayTime::create(2.5f), deleteMonster, monsterBackFlagChange, NULL);
 			this->runAction(monsterSequence);
+
+			this->runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() { _gamePointFlag2 = true; }), NULL));
 		}
 	}
 }
@@ -445,7 +465,6 @@ void CrossTheBridge::alphaLoud()
 				audio->playEffect(path.c_str(), false);
 				alphaSoundFlag = false;
 			}
-			
 		}
 	}
 }
@@ -595,6 +614,7 @@ void CrossTheBridge::addEvents(Sprite* callerObject)
 				if (_menuContext->getCurrentLevel() == 1 && _initObj)
 				{
 					this->removeChild(_help);
+					_help = NULL;
 					this->schedule(schedule_selector(CrossTheBridge::alphabetAndMonsterGeneration), 6);
 					_initObj = false;
 					alphaContainer[0]->resume();
