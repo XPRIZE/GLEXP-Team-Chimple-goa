@@ -273,7 +273,7 @@ bool Talk::init()
 
 void Talk::displayWord()
 {
-	if (_allSentense.size() == 0 || _enemyFish.size() == 8 || _heroFish.size() == 8)
+	if (_allSentense.size() == 0 || _enemyFish.size() == 5 || _heroFish.size() == 5)
 	{
 		_menuContext->showScore();
 		return;
@@ -506,7 +506,7 @@ void Talk::update(float d)
 		}
 	}
 
-	if (_heroFish.size() == 8)
+	if (_heroFish.size() == 5)
 	{
 		_handFlag = -1;
 		if (sceneName == "talkisland")
@@ -536,7 +536,7 @@ void Talk::update(float d)
 			this->unscheduleUpdate();
 		}
 	}
-	else if (_enemyFish.size() == 8)
+	else if (_enemyFish.size() == 5)
 	{
 		_handFlag = -1;
 		if (sceneName == "talkisland")

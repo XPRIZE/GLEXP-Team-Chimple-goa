@@ -94,7 +94,7 @@ void MainGame::onEnterTransitionDidFinish()
 	MainGame::originX = origin.x;
 	MainGame::originY = origin.y;
 
-	_menuContext->setMaxPoints(10);
+//	_menuContext->setMaxPoints(10);
 
 	p1.x = MainGame::originX + MainGame::width * 88 / 100;
 	p1.y = MainGame::originY + MainGame::height * 18 / 100;
@@ -265,12 +265,22 @@ void MainGame::startGame()	// starting of game
 	layer->setPosition(Vec2(cannon1->getPositionX()- cannon1->getBoundingBox().size.width/2, cannon1->getPositionY() - cannon1->getContentSize().height / 2));
 //	this->addChild(layer, 20);
 
+	if (_menuContext->getCurrentLevel() >= 1 && _menuContext->getCurrentLevel() <= 4)
+	{
+		MainChars = CharGenerator::getInstance()->generateCharMatrix(1, 10, true, true);
+	}
+	else if (_menuContext->getCurrentLevel() >= 5 && _menuContext->getCurrentLevel() <= 8)
+	{
+		MainChars = CharGenerator::getInstance()->generateCharMatrix(1, 10, true, false);
+	}
+	else
+		MainChars = CharGenerator::getInstance()->generateNumberMatrix(1, 10, true);
 
-	MainChars = CharGenerator::getInstance()->generateCharMatrix(1, 10, true, true);
+
 	letterComespeed = 5;
 	tweenSpeed = 40;
 
-	if(_menuContext->getCurrentLevel() ==4)
+	if(_menuContext->getCurrentLevel() ==4 || _menuContext->getCurrentLevel() == 8)
 		letterComespeed = 3;
 
 	cannonLetterCome();
@@ -450,7 +460,18 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 			wchar_t letterName;
 			if (flag == 0)
 			{
-				wchar_t lett = CharGenerator::getInstance()->generateAnotherChar(MainChars[0], true);
+				wchar_t lett;
+				if (_menuContext->getCurrentLevel() >= 1 && _menuContext->getCurrentLevel() <= 4)
+				{
+					lett = CharGenerator::getInstance()->generateAnotherChar(MainChars[0], true);
+				}
+				else if (_menuContext->getCurrentLevel() >= 5 && _menuContext->getCurrentLevel() <= 8)
+				{
+					lett = CharGenerator::getInstance()->generateAnotherChar(MainChars[0], false);
+				}
+				else
+					lett = MainChars[0][remcharPos];
+
 				MainChars[0][remcharPos] = lett;
 				letterName = lett;
 			}
