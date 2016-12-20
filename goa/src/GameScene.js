@@ -79,8 +79,8 @@ xc.GameScene.loadGameFromStorage = function() {
             }
         }
     }
-
     xc.GameScene.load(xc[gameConfig.pureJS], gameName, level); 
+
 }
 
 xc.GameScene.loadMenu = function() {

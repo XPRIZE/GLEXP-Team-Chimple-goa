@@ -68,6 +68,7 @@ void SkeletonCharacter::playStartingJumpUpAnimation(std::function<void ()> func)
 
 
 void SkeletonCharacter::playStartingJumpUpWithRotationAnimation(std::function<void ()> func) {
+    CCLOG("playStartingJumpUpWithRotationAnimation");
     this->getSkeletonActionTimeLine()->setAnimationEndCallFunc(JUMP_START, func);
     this->getSkeletonActionTimeLine()->setTimeSpeed(4.0f);
     this->getSkeletonActionTimeLine()->play(JUMP_START, false);
@@ -80,6 +81,7 @@ void SkeletonCharacter::playJumpingUpEndingAnimation() {
 
 
 void SkeletonCharacter::playJumpingContinuousRotationAnimation() {
+    CCLOG("playJumpingContinuousRotationAnimation");
     this->getSkeletonActionTimeLine()->play(ROTATE_SKELETON, true);
 }
 
@@ -88,7 +90,9 @@ StateMachine* SkeletonCharacter::getStateMachine() {
 }
 
 void SkeletonCharacter::HandlePostJumpDownWithDragEndingAnimation() {
+    CCLOG("HandlePostJumpDownWithDragEndingAnimation");
     if(this->isVisible()) {
+        
         this->getSkeletonActionTimeLine()->clearFrameEventCallFunc();
         this->getSkeletonActionTimeLine()->setTimeSpeed(1.0f);
         this->stateMachine->handleInput(S_WALKING_STATE, cocos2d::Vec2(0,0));
@@ -100,6 +104,7 @@ void SkeletonCharacter::HandlePostJumpDownWithDragEndingAnimation() {
 
 
 void SkeletonCharacter::HandlePostJumpDownEndingAnimation() {
+    CCLOG("HandlePostJumpDownEndingAnimation");
     if(this->isVisible()) {
         this->getSkeletonActionTimeLine()->clearFrameEventCallFunc();
         this->getSkeletonActionTimeLine()->setTimeSpeed(1.0f);

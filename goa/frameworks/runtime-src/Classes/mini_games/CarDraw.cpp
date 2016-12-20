@@ -207,7 +207,7 @@ void CarDraw::carMoving()
 	this->addChild(car);
 	car->setScale(-0.65);
 	auto  audio = CocosDenshion::SimpleAudioEngine::getInstance();
-	audio->playEffect("sounds/sfx/carSound.wav", true);
+	//audio->playEffect("sounds/sfx/carSound.wav", true);
 	Vector< FiniteTimeAction * > fta;
 	Vector< FiniteTimeAction * > rotateAction;
 	for (int i = 0; i < _carStrokes.size(); i++) {
@@ -312,11 +312,40 @@ void CarDraw::clearScreen(float ft)
 void CarDraw::gameStart()
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-	_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1]);
+	if ((menu->getCurrentLevel() > 0) && (menu->getCurrentLevel() < 27)) {
+		if (menu->getCurrentLevel() > LangUtil::getInstance()->getNumberOfCharacters()) {
+			int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 1);
+			auto mychar = LangUtil::getInstance()->getAllCharacters()[randomNumber];
+			_myChar = LangUtil::convertUTF16CharToString(mychar);
+		}
+		else {
+			_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1]);
+		}
+
+	}
+	else if ((menu->getCurrentLevel() > 26) && (menu->getCurrentLevel() < 53)) {
+		int level = menu->getCurrentLevel() - 27;
+		if (level > LangUtil::getInstance()->getNumberOfCharacters()) {
+			int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 1);
+			auto mychar = LangUtil::getInstance()->getAllLowerCaseCharacters()[randomNumber];
+			_myChar = LangUtil::convertUTF16CharToString(mychar);
+		}
+		else {
+			_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllLowerCaseCharacters()[level]);
+		}
+
+	}
+	else {
+		int level = menu->getCurrentLevel() - 53;
+		auto mychar = LangUtil::getInstance()->getAllNumbers()[level];
+		_myChar = LangUtil::convertUTF16CharToString(mychar);
+
+	}
+	//_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1]);
 	auto myLabel = CommonLabel::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), _myChar);
 	myLabel->setPositionX(visibleSize.width/2);
 	myLabel->setPositionY(visibleSize.height / 2);
-	myLabel->setScale(2.5);
+	myLabel->setScale(3);
 	this->addChild(myLabel);
 	if (_helpLayerFlag && menu->getCurrentLevel() == 1) {
 		_helpLayerFlag = false;

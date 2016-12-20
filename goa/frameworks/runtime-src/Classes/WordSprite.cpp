@@ -49,14 +49,14 @@ bool WordSprite::initialize(cocos2d::Node* sprite, std::string word) {
     listenerTouches->onTouchEnded = CC_CALLBACK_2(WordSprite::touchEnded, this);
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listenerTouches, this);
     
-    auto checkVicinityWithMainCharacter = [=] (EventCustom * event) {
-        this->mainSkeleton = static_cast<SkeletonCharacter*>(event->getUserData());
-        this->checkVicinityToMainSkeleton(this->mainSkeleton);
-        
-    };
-    
-    ADD_VICINITY_NOTIFICATION(this, RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, checkVicinityWithMainCharacter);
-
+//    auto checkVicinityWithMainCharacter = [=] (EventCustom * event) {
+//        this->mainSkeleton = static_cast<SkeletonCharacter*>(event->getUserData());
+//        this->checkVicinityToMainSkeleton(this->mainSkeleton);
+//        
+//    };
+//    
+//    ADD_VICINITY_NOTIFICATION(this, RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, checkVicinityWithMainCharacter);
+//
     this->scheduleUpdate();
     
     return true;
