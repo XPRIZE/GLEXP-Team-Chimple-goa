@@ -74,24 +74,41 @@ void Door::onEnterTransitionDidFinish()
 	auto text = TextGenerator::getInstance();
 
 	
-	if(level<26)
+	if(level<=26)
 	{ 
 	_alphabet = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
 	_randomWord.append(6, _alphabet.at(0));
-	}else if(level<36)
-	{
-		_randomWord = text->generateAWord(menu->getCurrentLevel());
-	}else if (level<46)
-	{
-		_randomWord = text->generateAWord(menu->getCurrentLevel());
-	}else if (level<56)
-	{
-		_randomWord = text->generateAWord(menu->getCurrentLevel());
-	}else if (level<66)
-	{
-		_randomWord = text->generateAWord(menu->getCurrentLevel());
 	}
-	
+	else if (level<=52)
+	{
+		_alphabet = LangUtil::getInstance()->getAllLowerCaseCharacters()[menu->getCurrentLevel() - 1 - 26];
+		_randomWord.append(6, _alphabet.at(0));
+	}
+	else if (level<=62)
+	{
+		_alphabet = LangUtil::getInstance()->getAllNumbers()[menu->getCurrentLevel()  -53];
+		_randomWord.append(6, _alphabet.at(0));
+	}
+	else if(level<=65)
+	{
+		_randomWord = text->generateAWord(menu->getCurrentLevel() - 62 , 2);
+	}
+	else if (level<=70)
+	{
+		_randomWord = text->generateAWord(menu->getCurrentLevel() - 65, 3);
+	}
+	else if (level<=75)
+	{
+		_randomWord = text->generateAWord(menu->getCurrentLevel() - 70, 4);
+	}
+	else if (level<=80)
+	{
+		_randomWord = text->generateAWord(menu->getCurrentLevel() - 75, 5);
+	}
+	else if (level<=85)
+	{
+		_randomWord = text->generateAWord(menu->getCurrentLevel() - 80, 5);
+	}
 	_wordLength = _randomWord.size();
 
 	float boxUpperY = visibleSize.height*0.965;
@@ -228,6 +245,8 @@ void Door::onEnterTransitionDidFinish()
 		_doorNode->setParent(this);
 		_doorNodeRef.pushBack(_doorNode);
 		_doorNode->writingEnable(false);
+
+
 	}
 	if (_score == 0)
 	{
@@ -240,7 +259,7 @@ void Door::onEnterTransitionDidFinish()
 		float y = _BoxRef.at(i)->getPositionY() - boxHeight / 2;
 
 		_myWord = _randomWord.at(i);
-		auto myLabel = CommonLabel::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), _myWord);
+		auto myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), _myWord);
 		myLabel->setPositionX(x);
 		myLabel->setPositionY(y);
 		myLabel->setScale(0.8);
@@ -283,6 +302,7 @@ void Door::clearScreen(float dt)
 
 void Door::showScore(float dt)
 {
+	menu->setMaxPoints(_BoxRef.size() * 5);
 	menu->showScore();
 }
 
@@ -321,10 +341,12 @@ void Door::characterRecognisation(std::vector<string> str)
 		{
 			this->scheduleOnce(schedule_selector(Door::showScore), 6);
 		}
+		menu->addPoints(1);
 	}
 	else
 	{
-		this->unschedule(schedule_selector(Door::clearScreen));
-		this->scheduleOnce(schedule_selector(Door::clearScreen), 3);
+		menu->addPoints(-1);
+		//this->unschedule(schedule_selector(Door::clearScreen));
+		//this->scheduleOnce(schedule_selector(Door::clearScreen), 3);
 	}
 }

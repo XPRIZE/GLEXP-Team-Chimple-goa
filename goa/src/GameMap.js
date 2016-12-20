@@ -20,7 +20,7 @@ xc.GameMap = cc.Scene.extend({
         // else if(sender._configuration.name == 'jazz') {
         //     xc.GameScene.load(xc.GameLayer);
         // } 
-        else if(sender._configuration.name == 'story-teller') {
+        else if(sender._configuration.name == 'story-telling') {
             xc.CreateStoryScene.load(xc.CreateStoryLayer);
         }
         else if(sender._configuration.name == 'story-play') {
