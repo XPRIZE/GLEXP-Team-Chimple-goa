@@ -77,9 +77,16 @@ void DoorNode::clearDrawing(cocos2d::Ref * pSender, cocos2d::ui::Widget::TouchEv
 cocos2d::ui::Button * DoorNode::createButton(const std::string normalImage, const std::string selectedImage, const std::string disableImage, cocos2d::Vec2 position)
 {
 
-	/*
-	*/
-	return nullptr;
+	auto spritecache1 = SpriteFrameCache::getInstance();
+	spritecache1->addSpriteFramesWithFile("cardraw/cardraw.plist");
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	_button = cocos2d::ui::Button::create("cardraw/ref.png", "cardraw/ref_clicked.png", "cardraw/ref.png", cocos2d::ui::Widget::TextureResType::PLIST);
+	_button->setPosition(Vec2(position.x - _button->getContentSize().width *2.7,position.y));
+	_button->setName("carDrawRefresh");
+	_button->setScale(0.5);
+	_button->addTouchEventListener(CC_CALLBACK_2(DoorNode::clearDrawing, this));
+
+	return _button;
 }
 
 
