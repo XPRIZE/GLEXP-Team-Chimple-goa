@@ -171,7 +171,8 @@ void LevelHelpScene::videoEventCallback(Ref* sender, cocos2d::experimental::ui::
         case cocos2d::experimental::ui::VideoPlayer::EventType::STOPPED:
             break;
         case cocos2d::experimental::ui::VideoPlayer::EventType::COMPLETED:
-            videoPlayOverCallback();
+			_resumeButton->setEnabled(true);
+			_resumeButton->setVisible(true);
             break;
         default:
             break;
@@ -195,11 +196,30 @@ void LevelHelpScene::videoPlayStart()
         auto cSize = screen_1->getContentSize();
         _vp->setPosition(Vec2(cSize.width / 2, cSize.height / 2));
         _vp->addEventListener(CC_CALLBACK_2(LevelHelpScene::videoEventCallback, this));
+
+		_resumeButton = Button::create("menu/game.png", "menu/game.png", "menu/game.png", Widget::TextureResType::LOCAL);
+		_resumeButton->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
+		_resumeButton->addTouchEventListener(CC_CALLBACK_2(LevelHelpScene::ResumeButtonAction, this));
+		screen_1->addChild(_resumeButton, 3);
+
+		_resumeButton->setEnabled(false);
+		_resumeButton->setVisible(false);
 #else
         videoPlayOverCallback();
 #endif
     }
 
+}
+
+void LevelHelpScene::ResumeButtonAction(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
+	if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
+		_resumeButton->setEnabled(false);
+		_resumeButton->setVisible(false);
+		
+		removeChild(getChildByName("bg")->getChildByName("screen_1")->getChildByName("video"));
+		getChildByName("bg")->getChildByName("screen_1")->removeChild(_resumeButton);
+		videoPlayStart();
+	}
 }
 
 void LevelHelpScene::videoPlayOverCallback() {

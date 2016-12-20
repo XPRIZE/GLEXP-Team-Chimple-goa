@@ -37,12 +37,12 @@
             "Scale9Height": 1,
             "AnchorPoint": {},
             "Position": {
-              "X": 2.2726,
-              "Y": -29.1955
+              "X": 2.2949,
+              "Y": -29.1965
             },
             "Scale": {
-              "ScaleX": 39.0496,
-              "ScaleY": 9.1
+              "ScaleX": 79.3485,
+              "ScaleY": 9.0999
             },
             "CColor": {},
             "IconVisible": false,
@@ -54,10 +54,10 @@
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 2.2726,
-            "RightMargin": 2357.7273,
-            "TopMargin": 1629.1956,
-            "BottomMargin": -29.1955,
+            "LeftMargin": 2.2949,
+            "RightMargin": 2357.7051,
+            "TopMargin": 1629.1965,
+            "BottomMargin": -29.1965,
             "Tag": 240,
             "ActionTag": -1133346944,
             "Size": {
@@ -144,10 +144,10 @@
               "X": 0.3457,
               "Y": 0.1844
             },
-            "LeftMargin": 2079.9736,
-            "RightMargin": -404.9736,
-            "TopMargin": 810.0604,
-            "BottomMargin": 657.9396,
+            "LeftMargin": 2079.9875,
+            "RightMargin": -404.9875,
+            "TopMargin": 810.0689,
+            "BottomMargin": 657.9311,
             "Tag": 249,
             "ActionTag": 1532283616,
             "Size": {
@@ -322,11 +322,11 @@
               "ScaleY": 1.0
             },
             "Position": {
-              "X": 10.046,
-              "Y": 588.343
+              "X": 10.1025,
+              "Y": 588.3389
             },
             "Scale": {
-              "ScaleX": 38.9997,
+              "ScaleX": 79.3989,
               "ScaleY": 3.0659
             },
             "CColor": {
@@ -343,10 +343,10 @@
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": 10.046,
-            "RightMargin": 2349.9541,
-            "TopMargin": 1211.657,
-            "BottomMargin": 388.343,
+            "LeftMargin": 10.1025,
+            "RightMargin": 2349.8975,
+            "TopMargin": 1211.6611,
+            "BottomMargin": 388.3389,
             "Tag": 422,
             "ActionTag": -717319193,
             "Size": {
@@ -587,6 +587,517 @@
               "Y": 336.0
             },
             "Name": "cloud2_5_1_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomonlevel/cloud1.png",
+              "Plist": "decomonlevel/decomonlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5309,
+              "ScaleY": 0.5135
+            },
+            "Position": {
+              "X": 10599.8164,
+              "Y": 828.4083
+            },
+            "Scale": {
+              "ScaleX": 0.7135,
+              "ScaleY": 0.9143
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 4.1406,
+              "Y": 0.4602
+            },
+            "PreSize": {
+              "X": 0.3457,
+              "Y": 0.1844
+            },
+            "LeftMargin": 10129.9697,
+            "RightMargin": -8454.9697,
+            "TopMargin": 810.0737,
+            "BottomMargin": 657.9263,
+            "Tag": 14,
+            "ActionTag": 1634692631,
+            "Size": {
+              "X": 885.0,
+              "Y": 332.0
+            },
+            "Name": "cloud1_4_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomonlevel/cloud2.png",
+              "Plist": "decomonlevel/decomonlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 12460.5107,
+              "Y": 885.7235
+            },
+            "Scale": {
+              "ScaleX": -0.6214,
+              "ScaleY": 0.6094
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 4.8674,
+              "Y": 0.4921
+            },
+            "PreSize": {
+              "X": 0.3141,
+              "Y": 0.1867
+            },
+            "LeftMargin": 12058.5107,
+            "RightMargin": -10302.5107,
+            "TopMargin": 746.2765,
+            "BottomMargin": 717.7235,
+            "Tag": 15,
+            "ActionTag": 1959699580,
+            "Size": {
+              "X": 804.0,
+              "Y": 336.0
+            },
+            "Name": "cloud2_5_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomonlevel/ground.png",
+              "Plist": "decomonlevel/decomonlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 9555.7227,
+              "Y": 681.6469
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 50,
+              "G": 124,
+              "B": 36
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.7327,
+              "Y": 0.3787
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 8839.7227,
+            "RightMargin": -7711.7227,
+            "TopMargin": 1018.3531,
+            "BottomMargin": 581.6469,
+            "Tag": 16,
+            "ActionTag": 414691839,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_1_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomonlevel/ground.png",
+              "Plist": "decomonlevel/decomonlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 11501.1934,
+              "Y": 683.8197
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 50,
+              "G": 124,
+              "B": 36
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 4.4927,
+              "Y": 0.3799
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 10785.1934,
+            "RightMargin": -9657.1934,
+            "TopMargin": 1016.1803,
+            "BottomMargin": 583.8197,
+            "Tag": 17,
+            "ActionTag": 1677982794,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_1_0_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomonlevel/ground.png",
+              "Plist": "decomonlevel/decomonlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 13399.1816,
+              "Y": 690.8892
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.239
+            },
+            "CColor": {
+              "R": 50,
+              "G": 124,
+              "B": 36
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 5.2341,
+              "Y": 0.3838
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 12683.1816,
+            "RightMargin": -11555.1816,
+            "TopMargin": 1009.1108,
+            "BottomMargin": 590.8892,
+            "Tag": 18,
+            "ActionTag": 499640815,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_1_0_0_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomonlevel/ground.png",
+              "Plist": "decomonlevel/decomonlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 15118.9668,
+              "Y": 664.9822
+            },
+            "Scale": {
+              "ScaleX": 0.7807,
+              "ScaleY": 0.8634
+            },
+            "CColor": {
+              "R": 50,
+              "G": 124,
+              "B": 36
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 5.9058,
+              "Y": 0.3694
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 14402.9668,
+            "RightMargin": -13274.9668,
+            "TopMargin": 1035.0178,
+            "BottomMargin": 564.9822,
+            "Tag": 19,
+            "ActionTag": 1353731063,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_1_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomonlevel/cloud2.png",
+              "Plist": "decomonlevel/decomonlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 12470.5801,
+              "Y": 875.7349
+            },
+            "Scale": {
+              "ScaleX": -0.7352,
+              "ScaleY": 0.7285
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 4.8713,
+              "Y": 0.4865
+            },
+            "PreSize": {
+              "X": 0.3141,
+              "Y": 0.1867
+            },
+            "LeftMargin": 12068.5801,
+            "RightMargin": -10312.5801,
+            "TopMargin": 756.2651,
+            "BottomMargin": 707.7349,
+            "Tag": 20,
+            "ActionTag": 1770250346,
+            "Size": {
+              "X": 804.0,
+              "Y": 336.0
+            },
+            "Name": "cloud2_5_1_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomonlevel/cloud2.png",
+              "Plist": "decomonlevel/decomonlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 13953.1758,
+              "Y": 942.915
+            },
+            "Scale": {
+              "ScaleX": -0.7281,
+              "ScaleY": 0.7626
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 5.4505,
+              "Y": 0.5238
+            },
+            "PreSize": {
+              "X": 0.3141,
+              "Y": 0.1867
+            },
+            "LeftMargin": 13551.1758,
+            "RightMargin": -11795.1758,
+            "TopMargin": 689.085,
+            "BottomMargin": 774.915,
+            "Tag": 21,
+            "ActionTag": -1504343238,
+            "Size": {
+              "X": 804.0,
+              "Y": 336.0
+            },
+            "Name": "cloud2_5_1_0_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomonlevel/cloud2.png",
+              "Plist": "decomonlevel/decomonlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 9634.1055,
+              "Y": 975.8247
+            },
+            "Scale": {
+              "ScaleX": -0.785,
+              "ScaleY": 0.8307
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.7633,
+              "Y": 0.5421
+            },
+            "PreSize": {
+              "X": 0.3141,
+              "Y": 0.1867
+            },
+            "LeftMargin": 9232.1055,
+            "RightMargin": -7476.1055,
+            "TopMargin": 656.1753,
+            "BottomMargin": 807.8247,
+            "Tag": 22,
+            "ActionTag": 451783929,
+            "Size": {
+              "X": 804.0,
+              "Y": 336.0
+            },
+            "Name": "cloud2_5_1_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomonlevel/cloud2.png",
+              "Plist": "decomonlevel/decomonlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7424.0947,
+              "Y": 1285.8208
+            },
+            "Scale": {
+              "ScaleX": -0.785,
+              "ScaleY": 0.8307
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.9,
+              "Y": 0.7143
+            },
+            "PreSize": {
+              "X": 0.3141,
+              "Y": 0.1867
+            },
+            "LeftMargin": 7022.0947,
+            "RightMargin": -5266.0947,
+            "TopMargin": 346.1792,
+            "BottomMargin": 1117.8208,
+            "Tag": 23,
+            "ActionTag": -845823826,
+            "Size": {
+              "X": 804.0,
+              "Y": 336.0
+            },
+            "Name": "cloud2_5_1_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomonlevel/cloud2.png",
+              "Plist": "decomonlevel/decomonlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 8344.0908,
+              "Y": 955.8203
+            },
+            "Scale": {
+              "ScaleX": -0.785,
+              "ScaleY": 0.8307
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.2594,
+              "Y": 0.531
+            },
+            "PreSize": {
+              "X": 0.3141,
+              "Y": 0.1867
+            },
+            "LeftMargin": 7942.0908,
+            "RightMargin": -6186.0908,
+            "TopMargin": 676.1797,
+            "BottomMargin": 787.8203,
+            "Tag": 24,
+            "ActionTag": -318576032,
+            "Size": {
+              "X": 804.0,
+              "Y": 336.0
+            },
+            "Name": "cloud2_5_1_0_0_0_0_0_0",
             "ctype": "SpriteObjectData"
           }
         ],
