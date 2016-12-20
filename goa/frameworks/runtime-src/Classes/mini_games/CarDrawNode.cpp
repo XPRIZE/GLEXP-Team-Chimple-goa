@@ -89,11 +89,13 @@ void carDrawNode::setParent(CarDraw* parent) {
 
 void carDrawNode::clearDrawing(cocos2d::Ref * pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
-	Size visibleSize = Director::getInstance()->getVisibleSize();
-	_paintingNode->clear();
-	_strokes.clear();
-	((DrawNode *)_carDraw->getChildByName("roadNode"))->clear();
-	_carDraw->clearScreen(1.0f);
+	if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
+		Size visibleSize = Director::getInstance()->getVisibleSize();
+		_paintingNode->clear();
+		_strokes.clear();
+		((DrawNode *)_carDraw->getChildByName("roadNode"))->clear();
+		_carDraw->clearScreen(0.0f);
+	}
 }
 
 cocos2d::ui::Button * carDrawNode::createButton(const std::string normalImage, const std::string selectedImage, const std::string disableImage, cocos2d::Vec2 position)
