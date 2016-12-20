@@ -20,6 +20,8 @@ public:
 	virtual void clearDrawing(cocos2d::Ref * pSender, cocos2d::ui::Widget::TouchEventType eEventType);
 	std::vector<std::string> getPosibileCharacter();
 	void drawAllowance(bool permission);
+	cocos2d::ui::Button* _clearButton;
+
 
 protected:
 	MenuContext * menu;

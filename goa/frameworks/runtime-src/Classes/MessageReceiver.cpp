@@ -33,13 +33,17 @@ MessageReceiver* MessageReceiver::getInstance() {
 }
 
 
+void MessageReceiver::receiveMessageEvent(cocos2d::EventCustom * event) {
+    this->getEventDispatcher()->dispatchCustomEvent(RPGConfig::PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION, event->getUserData());
+}
+
+
 bool MessageReceiver::initialize() {
+        
     
-    auto receiveMessageEvent = [=] (EventCustom * event) {
-        EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION, event->getUserData());
-    };
-    
-    RECEIVE_MESSAGE_FOR_TAP_ON_SPEAKABLE(this, RPGConfig::RECEIVE_CUSTOM_MESSAGE_NOTIFICATION, receiveMessageEvent);
+    this->getEventDispatcher()->addCustomEventListener(RPGConfig::RECEIVE_CUSTOM_MESSAGE_NOTIFICATION, CC_CALLBACK_1(MessageReceiver::receiveMessageEvent, this));
     
     return true;
 }
+
+

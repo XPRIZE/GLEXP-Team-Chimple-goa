@@ -61,20 +61,18 @@ bool RPGSprite::initialize(cocos2d::Node* sprite, std::unordered_map<std::string
     listenerTouches->onTouchEnded = CC_CALLBACK_2(RPGSprite::touchEnded, this);
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listenerTouches, this);
     
-    auto checkVicinityWithMainCharacter = [=] (EventCustom * event) {
-        this->mainSkeleton = static_cast<SkeletonCharacter*>(event->getUserData());
-        this->checkVicinityToMainSkeleton(this->mainSkeleton);
-        
-    };
-    
-    ADD_VICINITY_NOTIFICATION(this, RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, checkVicinityWithMainCharacter);
+    this->getEventDispatcher()->addCustomEventListener(RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, CC_CALLBACK_1(RPGSprite::checkVicinityWithMainCharacter, this));
 
-    
     
     this->scheduleUpdate();
     
     return true;
 
+}
+
+void RPGSprite::checkVicinityWithMainCharacter(cocos2d::EventCustom * event) {
+    this->mainSkeleton = static_cast<SkeletonCharacter*>(event->getUserData());
+    this->checkVicinityToMainSkeleton(this->mainSkeleton);
 }
 
 cocos2d::Node* RPGSprite::getSprite() {

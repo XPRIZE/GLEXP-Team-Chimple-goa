@@ -89,14 +89,20 @@ void LipiTKProcessTask::onPostExecute() {
 
         
         std::vector<std::string> _recognizedChars;
-        
+        bool addedFirstResultOnly = false;
         if(!isNumeric.empty()) {
             for (std::vector<std::string>::iterator itStr = _recognizedCharacters.begin() ; itStr != _recognizedCharacters.end(); ++itStr)
             {
                 std::string res = *itStr;
-                bool has_only_digits = (res.find_first_not_of("0123456789" ) == string::npos);
-                if(has_only_digits) {
+                bool has_only_digits = false;
+                if(res.compare("1") == 0 || res.compare("2") == 0 ||  res.compare("3") == 0 || res.compare("4") == 0 || res.compare("5") == 0 || res.compare("6") == 0 || res.compare("6") == 0 || res.compare("8") == 0 || res.compare("9") == 0 || res.compare("0") == 0) {
+                    has_only_digits = true;
+                }
+
+                //bool has_only_digits = (res.find_first_not_of("0123456789" ) == string::npos);
+                if(has_only_digits && !addedFirstResultOnly) {
                     _recognizedChars.push_back(res);
+                    addedFirstResultOnly = true;
                 }
             }
             
@@ -107,24 +113,34 @@ void LipiTKProcessTask::onPostExecute() {
             for (std::vector<std::string>::iterator itStr = _recognizedCharacters.begin() ; itStr != _recognizedCharacters.end(); ++itStr)
             {
                 std::string res = *itStr;
-                bool has_only_digits = (res.find_first_not_of("0123456789") == string::npos);
-                if(!has_only_digits && std::isalpha(res[0])) {
+                bool has_only_digits = false;
+                if(res.compare("1") == 0 || res.compare("2") == 0 ||  res.compare("3") == 0 || res.compare("4") == 0 || res.compare("5") == 0 || res.compare("6") == 0 || res.compare("6") == 0 || res.compare("8") == 0 || res.compare("9") == 0 || res.compare("0") == 0) {
+                    has_only_digits = true;
+                }
+                 //has_only_digits = (res.find_first_not_of("0123456789") == string::npos);
+                if(!has_only_digits && !addedFirstResultOnly && std::isalpha(res[0])) {
                     if (isUpperAlphabet.compare("true") == 0 && std::isupper(res[0])) {
                         _recognizedChars.push_back(res);
                     } else if(isUpperAlphabet.compare("false") == 0 && !std::isupper(res[0])) {
                         _recognizedChars.push_back(res);
                     }
+                    addedFirstResultOnly = true;
                 }
             }
             Director::getInstance()->getScheduler()->performFunctionInCocosThread(CC_CALLBACK_0(LipiTKNode::broadCastRecognizedChars, _node, _recognizedChars));
             
         } else {
-            Director::getInstance()->getScheduler()->performFunctionInCocosThread(CC_CALLBACK_0(LipiTKNode::broadCastRecognizedChars, _node, _recognizedCharacters));
+            for (std::vector<std::string>::iterator itStr = _recognizedCharacters.begin() ; itStr != _recognizedCharacters.end(); ++itStr)
+            {
+                if(!addedFirstResultOnly) {
+                    std::string res = *itStr;
+                    _recognizedChars.push_back(res);
+                }
+            }
+            Director::getInstance()->getScheduler()->performFunctionInCocosThread(CC_CALLBACK_0(LipiTKNode::broadCastRecognizedChars, _node, _recognizedChars));
 
         }
-        
-    }
-    
+    }    
 }
 
 

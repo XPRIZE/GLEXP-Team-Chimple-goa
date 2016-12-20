@@ -58,6 +58,7 @@ public:
     
     virtual void touchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
     
+    void checkVicinityWithMainCharacter(cocos2d::EventCustom * event);
     
 protected:
     cocostudio::timeline::SkeletonNode* externalSkeletonNode;

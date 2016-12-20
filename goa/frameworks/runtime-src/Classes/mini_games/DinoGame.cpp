@@ -107,6 +107,24 @@ void DinoGame::onEnterTransitionDidFinish()
 		auto child = _dinoNode->getChildByName("random_2_l");
 		child->setPosition(Vec2(visibleSize.width*0.1, visibleSize.height*0.1));
 	}
+	//change the random node position
+	if (_menu->getCurrentLevel() == 1) {
+		auto randomNode = _dinoNode->getChildByName("random_1_k");
+		randomNode->setPositionX(randomNode->getPositionX() - 100);
+		randomNode->setPositionY(randomNode->getPositionY() - 50);
+		auto randomNodeI = _dinoNode->getChildByName("random_1_i");
+		randomNodeI->setPositionY(randomNodeI->getPositionY() + 100);
+		auto randomNodeM = _dinoNode->getChildByName("random_1_m");
+		randomNodeM->setPositionY(randomNodeM->getPositionY() + 50);
+		randomNodeM->setPositionX(randomNodeM->getPositionX() + 50);
+		auto randomNodeS = _dinoNode->getChildByName("random_1_s");
+		randomNodeS->setName("random_1_m");
+		randomNodeM->setName("random_1_s");
+	}
+	else if (_menu->getCurrentLevel() == 2) {
+		auto randomNode = _dinoNode->getChildByName("random_2_h");
+		randomNode->setPositionX(randomNode->getPositionX() - 100);
+	}
 	for (int i = 0; i < _alphabets.size(); i++) {
 		std::string child = _alphabets.at(i) + _mapping.at("png");
 		auto alpha = _dinoNode->getChildByName(child);

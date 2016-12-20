@@ -21,7 +21,7 @@ protected:
 public:
     
     virtual bool initialize();
-    
+    void receiveMessageEvent(cocos2d::EventCustom * event);
     static MessageReceiver* getInstance();
     ~MessageReceiver();
 };

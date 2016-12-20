@@ -59,7 +59,7 @@ std::map<int, int> TextGenerator::getRandomLocations(int numLoc, int totalNum) {
 
 std::string TextGenerator::generateAWord(int level, int length) {
     level = MIN(level, 10);
-    return getSingle("words", level);
+    return getSingle("words", level, length);
 }
 
 std::string TextGenerator::generateASentence(int level) {
@@ -191,7 +191,7 @@ std::vector<std::string> TextGenerator::getWordList(std::string type, int level)
     return pairs;
 }
 
-std::string TextGenerator::getSingle(std::string type, int level) {
+std::string TextGenerator::getSingle(std::string type, int level, int length) {
     std::string contents = cocos2d::FileUtils::getInstance()->getStringFromFile(LangUtil::getInstance()->getDir() + "/" + type + ".csv");
     std::vector<std::string> pairs;
     std::stringstream ss;
@@ -208,8 +208,14 @@ std::string TextGenerator::getSingle(std::string type, int level) {
         while (std::getline(sline, item, ';')) {
             elems.push_back(item);
         }
-        if(atoi(elems[0].c_str()) == level) {
-            pairs.push_back(elems[1]);
+        if(length == 0) {
+            if(atoi(elems[0].c_str()) == level) {
+                pairs.push_back(elems[1]);
+            }
+        } else {
+            if(elems[1].size() == length) {
+                pairs.push_back(elems[1]);
+            }
         }
     }
     

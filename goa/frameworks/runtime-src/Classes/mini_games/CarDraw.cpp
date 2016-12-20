@@ -20,7 +20,7 @@ CarDraw::CarDraw()
 
 CarDraw::~CarDraw()
 {
-
+	_audio->stopBackgroundMusic();
 }
 
 CarDraw * CarDraw::create()
@@ -120,13 +120,13 @@ void CarDraw::characterRecogination(std::vector<string> str)
 	bool flage = false;
 
 	if (str.size() > 0) {
-		if ((str.at(0).compare("o") == 0 || str.at(0).compare("0") == 0) && (_myChar.compare("O") == 0)) {
+		/*if ((str.at(0).compare("o") == 0 || str.at(0).compare("0") == 0) && (_myChar.compare("O") == 0)) {
 			menu->addPoints(5);
 			cocos2d::ui::Button* refreshButton = _carDrawNodeLiPi->_button;
 			refreshButton->setEnabled(false);
 			flage = true;
 			_carDrawNodeLiPi->writingEnable(false);
-		}
+		}*/
         
         for (std::vector<std::string>::iterator itStr = str.begin() ; itStr != str.end(); ++itStr)
         {
@@ -206,8 +206,9 @@ void CarDraw::carMoving()
 	car->setRotation(_prevDegree);
 	this->addChild(car);
 	car->setScale(-0.65);
-	auto  audio = CocosDenshion::SimpleAudioEngine::getInstance();
-	audio->playEffect("sounds/sfx/carSound.wav", true);
+	_audio = CocosDenshion::SimpleAudioEngine::getInstance();
+	_audio->playBackgroundMusic("sounds/sfx/carSound.wav", true);
+	//audio->playEffect("sounds/sfx/carSound.wav", true);
 	Vector< FiniteTimeAction * > fta;
 	Vector< FiniteTimeAction * > rotateAction;
 	for (int i = 0; i < _carStrokes.size(); i++) {
@@ -280,7 +281,7 @@ void CarDraw::carMoving()
 	//	}
 	}
 	auto showScore = CallFunc::create([=]() {
-		audio->stopAllEffects();
+		_audio->stopBackgroundMusic();
 		menu->showScore();
 		 });
 
@@ -303,6 +304,7 @@ void CarDraw::carMoving()
 void CarDraw::clearScreen(float ft)
 {
 	//CC_CALLBACK_2()
+	CCLOG("clearScreen");
 	menu->addPoints(-1);
 	_carStrokes.clear();
 //	_carDrawNodeLiPi->clearDrawing(nullptr, cocos2d::ui::Widget::TouchEventType::ENDED);
@@ -312,11 +314,40 @@ void CarDraw::clearScreen(float ft)
 void CarDraw::gameStart()
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-	_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1]);
+	if ((menu->getCurrentLevel() > 0) && (menu->getCurrentLevel() < 27)) {
+		if (menu->getCurrentLevel() > LangUtil::getInstance()->getNumberOfCharacters()) {
+			int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 1);
+			auto mychar = LangUtil::getInstance()->getAllCharacters()[randomNumber];
+			_myChar = LangUtil::convertUTF16CharToString(mychar);
+		}
+		else {
+			_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1]);
+		}
+
+	}
+	else if ((menu->getCurrentLevel() > 26) && (menu->getCurrentLevel() < 53)) {
+		int level = menu->getCurrentLevel() - 27;
+		if (level > LangUtil::getInstance()->getNumberOfCharacters()) {
+			int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 1);
+			auto mychar = LangUtil::getInstance()->getAllLowerCaseCharacters()[randomNumber];
+			_myChar = LangUtil::convertUTF16CharToString(mychar);
+		}
+		else {
+			_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllLowerCaseCharacters()[level]);
+		}
+
+	}
+	else {
+		int level = menu->getCurrentLevel() - 53;
+		auto mychar = LangUtil::getInstance()->getAllNumbers()[level];
+		_myChar = LangUtil::convertUTF16CharToString(mychar);
+
+	}
+	//_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1]);
 	auto myLabel = CommonLabel::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), _myChar);
 	myLabel->setPositionX(visibleSize.width/2);
 	myLabel->setPositionY(visibleSize.height / 2);
-	myLabel->setScale(2.5);
+	myLabel->setScale(3);
 	this->addChild(myLabel);
 	if (_helpLayerFlag && menu->getCurrentLevel() == 1) {
 		_helpLayerFlag = false;

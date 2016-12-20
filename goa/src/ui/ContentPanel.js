@@ -458,6 +458,7 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
     },
 
     playSceneInEditMode: function () {
+        cc.log('playSceneInEditMode 33333');
         xc.PlayRecordingScene.load(xc.PlayRecordingLayer);        
     },
 
