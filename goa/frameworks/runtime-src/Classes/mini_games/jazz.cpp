@@ -104,7 +104,8 @@ void jazz::gameOver(bool correct) {
 			cocostudio::timeline::ActionTimeline * jump = *obj;
 			jump->stop();
 		}*/
-		_audioCorrect->playEffect("sounds/drum.wav", true);
+		//_audioCorrect->playEffect("sounds/drum.wav", true);
+		_audioCorrect->playBackgroundMusic("sounds/drum.wav", true);
 		for (auto item = _gorilla.rbegin(); item != _gorilla.rend(); ++item)
 		{
 			
