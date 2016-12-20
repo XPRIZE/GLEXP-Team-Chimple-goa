@@ -20,7 +20,7 @@ CarDraw::CarDraw()
 
 CarDraw::~CarDraw()
 {
-
+	_audio->stopBackgroundMusic();
 }
 
 CarDraw * CarDraw::create()
@@ -206,7 +206,8 @@ void CarDraw::carMoving()
 	car->setRotation(_prevDegree);
 	this->addChild(car);
 	car->setScale(-0.65);
-	auto  audio = CocosDenshion::SimpleAudioEngine::getInstance();
+	_audio = CocosDenshion::SimpleAudioEngine::getInstance();
+	_audio->playBackgroundMusic("sounds/sfx/carSound.wav", true);
 	//audio->playEffect("sounds/sfx/carSound.wav", true);
 	Vector< FiniteTimeAction * > fta;
 	Vector< FiniteTimeAction * > rotateAction;
@@ -280,7 +281,7 @@ void CarDraw::carMoving()
 	//	}
 	}
 	auto showScore = CallFunc::create([=]() {
-		audio->stopAllEffects();
+		_audio->stopBackgroundMusic();
 		menu->showScore();
 		 });
 

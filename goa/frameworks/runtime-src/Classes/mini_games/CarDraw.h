@@ -45,7 +45,7 @@ protected:
 	std::vector<Stroke*> _carStrokes;
 	Stroke* _carCurrentStroke;
 	std::vector <float> _distance;
-	
+	CocosDenshion::SimpleAudioEngine* _audio;
 	void gameStart();
 	void onEnterTransitionDidFinish();
 };
