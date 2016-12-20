@@ -39,9 +39,11 @@ cocos2d::Scene * Door::createScene()
 {
 	auto scene = cocos2d::Scene::create();
 	auto layer = Door::create();
+	layer->setName("Door");
 	scene->addChild(layer);
 
 	layer->menu = MenuContext::create(layer, "Door");
+	layer->menu->setName("DoorMenu");
 	scene->addChild(layer->menu);
 	return scene;
 }
@@ -76,13 +78,42 @@ void Door::onEnterTransitionDidFinish()
 	
 	if(level<=26)
 	{ 
-	_alphabet = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
-	_randomWord.append(6, _alphabet.at(0));
+	
+	if (level > LangUtil::getInstance()->getNumberOfCharacters())
+	{
+		if (level == 25 || level == 26)
+		{
+			int random = cocos2d::RandomHelper::random_int(1, 24);
+			_alphabet = LangUtil::getInstance()->getAllCharacters()[random];
+			_randomWord.append(6, _alphabet.at(0));
+		}
+	}
+	else
+	{
+		//int random = cocos2d::RandomHelper::random_int(1, 24);
+		_alphabet = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
+		_randomWord.append(6, _alphabet.at(0));
+
+	}
 	}
 	else if (level<=52)
 	{
-		_alphabet = LangUtil::getInstance()->getAllLowerCaseCharacters()[menu->getCurrentLevel() - 1 - 26];
-		_randomWord.append(6, _alphabet.at(0));
+		if ((level - 26) > LangUtil::getInstance()->getNumberOfCharacters())
+		{
+			if (level == 51 || level == 52)
+			{
+				int random = cocos2d::RandomHelper::random_int(1, 24);
+				_alphabet = LangUtil::getInstance()->getAllCharacters()[random];
+				_randomWord.append(6, _alphabet.at(0));
+			}
+
+		}
+		else
+		{
+			_alphabet = LangUtil::getInstance()->getAllLowerCaseCharacters()[menu->getCurrentLevel() - 1 - 26];
+			_randomWord.append(6, _alphabet.at(0));
+		}
+		
 	}
 	else if (level<=62)
 	{
@@ -91,24 +122,21 @@ void Door::onEnterTransitionDidFinish()
 	}
 	else if(level<=65)
 	{
-		_randomWord = text->generateAWord(menu->getCurrentLevel() - 62 , 2);
+		_randomWord = text->generateAWord(menu->getCurrentLevel() - 62 , 3);
 	}
 	else if (level<=70)
 	{
-		_randomWord = text->generateAWord(menu->getCurrentLevel() - 65, 3);
+		_randomWord = text->generateAWord(menu->getCurrentLevel() - 65, 4);
 	}
 	else if (level<=75)
 	{
-		_randomWord = text->generateAWord(menu->getCurrentLevel() - 70, 4);
+		_randomWord = text->generateAWord(menu->getCurrentLevel() - 70, 5);
 	}
 	else if (level<=80)
 	{
-		_randomWord = text->generateAWord(menu->getCurrentLevel() - 75, 5);
+		_randomWord = text->generateAWord(menu->getCurrentLevel() - 75, 6);
 	}
-	else if (level<=85)
-	{
-		_randomWord = text->generateAWord(menu->getCurrentLevel() - 80, 5);
-	}
+	
 	_wordLength = _randomWord.size();
 
 	float boxUpperY = visibleSize.height*0.965;
@@ -302,10 +330,13 @@ void Door::clearScreen(float dt)
 
 void Door::showScore(float dt)
 {
-	menu->setMaxPoints(_BoxRef.size() * 5);
+	menu->setMaxPoints(_BoxRef.size());
 	menu->showScore();
 }
-
+void Door::clearScreen()
+{
+	menu->addPoints(-1);
+}
 void Door::characterRecognisation(std::vector<string> str)
 {
 	this->removeChildByName("gameHelpLayer");
@@ -345,7 +376,7 @@ void Door::characterRecognisation(std::vector<string> str)
 	}
 	else
 	{
-		menu->addPoints(-1);
+		//menu->addPoints(-1);
 		//this->unschedule(schedule_selector(Door::clearScreen));
 		//this->scheduleOnce(schedule_selector(Door::clearScreen), 3);
 	}
