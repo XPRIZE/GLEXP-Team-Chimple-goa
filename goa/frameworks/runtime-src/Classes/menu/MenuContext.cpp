@@ -1302,7 +1302,10 @@ void MenuContext::showScore() {
             int timesRead = d["timesRead"].GetInt();
             bool unlockUsed = d["unlockUsed"].GetBool();
             
-            if(!unlockUsed && (timesRead == NUMBER_OF_TIMES_READ_STORY_TO_UNLOCK_NEXT_STORY || stars == MIN_STAR_TO_UNLOCK_NEXT_STORY)) {
+            CCLOG("unlockUsed %d", unlockUsed);
+            CCLOG("stars %d", stars);
+            
+            if(!unlockUsed && (timesRead == NUMBER_OF_TIMES_READ_STORY_TO_UNLOCK_NEXT_STORY || stars >= MIN_STAR_TO_UNLOCK_NEXT_STORY)) {
                 //unlock next story
                 unlockUsed = true;
                 unlockNextStory();

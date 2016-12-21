@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include "HelloWorldScene.h"
 #include "StartMenuScene.h"
-#include "GameMapScene.h"
+#include "ScrollableGameMapScene.hpp"
 #include "MapScene.h"
 #include "effects/FShake.h"
 
@@ -909,7 +909,7 @@ void HelloWorld::transitToMenu(EventCustom * event) {
     std::string &menuName = *(static_cast<std::string*>(event->getUserData()));
     this->cleanUpResources();
     if(menuName == GAME_MAP_MENU) {
-        Director::getInstance()->replaceScene(TransitionFade::create(2.0, GameMapScene::createScene(), Color3B::BLACK));
+        Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
     } else if(menuName == MAP_MENU) {
         Director::getInstance()->replaceScene(TransitionFade::create(2.0, MapScene::createScene(), Color3B::BLACK));
     } else {

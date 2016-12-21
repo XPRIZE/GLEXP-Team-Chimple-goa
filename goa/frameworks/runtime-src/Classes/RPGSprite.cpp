@@ -126,18 +126,13 @@ std::unordered_map<std::string, std::string> RPGSprite::getAttributes() {
 }
 
 void RPGSprite::update(float dt) {
-    
-    localStorageGetItem(WALKING_STARTED, &walkingStarted);
-    
-    if(walkingStarted.compare("1") == 0 && !this->getVicinityToMainCharacter() && this->mainSkeleton != NULL && !this->mainSkeleton->isStanding) {
+    if(!this->getVicinityToMainCharacter() && this->mainSkeleton != NULL && !this->mainSkeleton->isStanding) {
         this->checkVicinityToMainSkeleton(this->mainSkeleton);
     }
 }
 
 void RPGSprite::checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter) {
     localStorageGetItem(WALKING_STARTED, &walkingStarted);
-//        CCLOG("pos x %f", skeletonCharacter->getSkeletonNode()->getPosition().x);
-//        CCLOG("pos y %f", skeletonCharacter->getSkeletonNode()->getPosition().y);
         Vec2 point = Vec2(skeletonCharacter->getSkeletonNode()->getPosition().x, skeletonCharacter->getSkeletonNode()->getPosition().y);
         Vec2 mainSkeletonPositionFromBottom = point;
         Vec2 mainSkeletonPositionFromTop = Point(skeletonCharacter->getSkeletonNode()->getPosition().x, skeletonCharacter->getSkeletonNode()->getPosition().y + skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height);

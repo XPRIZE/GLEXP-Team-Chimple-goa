@@ -121,10 +121,12 @@ void LipiTKProcessTask::onPostExecute() {
                 if(!has_only_digits && !addedFirstResultOnly && std::isalpha(res[0])) {
                     if (isUpperAlphabet.compare("true") == 0 && std::isupper(res[0])) {
                         _recognizedChars.push_back(res);
+						addedFirstResultOnly = true;
                     } else if(isUpperAlphabet.compare("false") == 0 && !std::isupper(res[0])) {
                         _recognizedChars.push_back(res);
+						addedFirstResultOnly = true;
                     }
-                    addedFirstResultOnly = true;
+                   
                 }
             }
             Director::getInstance()->getScheduler()->performFunctionInCocosThread(CC_CALLBACK_0(LipiTKNode::broadCastRecognizedChars, _node, _recognizedChars));

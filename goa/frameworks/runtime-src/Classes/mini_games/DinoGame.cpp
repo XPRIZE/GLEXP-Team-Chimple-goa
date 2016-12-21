@@ -66,6 +66,7 @@ bool DinoGame::init() {
 				{"png","_1"},
 				{ "random","random_1_" },
 				{ "fixed","dino_1_" },
+				{ "duplicate", "_1.png"}
 			}
 		},
 		{2,{
@@ -73,6 +74,7 @@ bool DinoGame::init() {
 				{ "png","_2" },
 				{ "random","random_2_" },
 				{ "fixed","dino_2_" },
+				{ "duplicate", "_2.png" }
 			}
 		},
 		{3,
@@ -81,6 +83,7 @@ bool DinoGame::init() {
 				{ "png","_3" },
 				{ "random","random_2_" },
 				{ "fixed","dino_3_" },
+				{ "duplicate", "_3.png" }
 			}
 		}
 	};
@@ -168,10 +171,12 @@ bool DinoGame::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		std::string targetName = target->getName();
 		std::stringstream ss;
 		ss << targetName.at(0);
+		//target->setLocalZOrder(1);
 		std::string mystr = ss.str();
 		std::string path = "english/sounds/" + mystr + ".m4a";
 		CCLOG("path = %s", path.c_str());
 		_audioEffect->playEffect(path.c_str());
+		target->setScale(2);
 		return true;
 	}
 	return false;
@@ -179,13 +184,17 @@ bool DinoGame::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 
 void DinoGame::onTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event)
 {
+	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto target = event->getCurrentTarget();
 	target->setPosition(Vec2(touch->getLocation().x - _extraX,touch->getLocation().y));
+	
 }
 
 void DinoGame::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 {
+	
 	auto target = event->getCurrentTarget();
+	target->setScale(1);
 	std::string targetName = target->getName();
 	std::stringstream ss;
 	ss << targetName.at(0);

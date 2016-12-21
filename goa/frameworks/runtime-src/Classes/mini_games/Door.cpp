@@ -103,7 +103,7 @@ void Door::onEnterTransitionDidFinish()
 			if (level == 51 || level == 52)
 			{
 				int random = cocos2d::RandomHelper::random_int(1, 24);
-				_alphabet = LangUtil::getInstance()->getAllCharacters()[random];
+				_alphabet = LangUtil::getInstance()->getAllLowerCaseCharacters()[random];
 				_randomWord.append(6, _alphabet.at(0));
 			}
 
@@ -269,7 +269,7 @@ void Door::onEnterTransitionDidFinish()
 		float y = _BoxRef.at(i)->getPositionY() - boxHeight/2;
 		
 		_doorNode = DoorNode::create(boxWidth, boxHeight,Vec2( x, y));
-		this->addChild(_doorNode);
+		this->addChild(_doorNode,2);
 		_doorNode->setParent(this);
 		_doorNodeRef.pushBack(_doorNode);
 		_doorNode->writingEnable(false);
@@ -324,7 +324,7 @@ void Door::clearScreen(float dt)
 {
 	if (_score < _randomWord.size())
 	{
-		_doorNodeRef.at(_score)->clearDrawing(nullptr, cocos2d::ui::Widget::TouchEventType::ENDED);
+	//	_doorNodeRef.at(_score)->clearDrawing(nullptr, cocos2d::ui::Widget::TouchEventType::ENDED);
 	}
 }
 
@@ -342,42 +342,48 @@ void Door::characterRecognisation(std::vector<string> str)
 	this->removeChildByName("gameHelpLayer");
 	char letter= _randomWord.at(_score);
 	string word(&letter, 1);
-	CCLOG("character = %s", str.at(0).c_str());
-	if (str.at(0).compare(word) == 0)
+//	CCLOG("character = %s", str.at(0).c_str());
+	if (str.size() > 0)
 	{
-		auto timeline = CSLoader::createTimeline("doors/box.csb");
-		_BoxRef.at(_score)->runAction(timeline);
-		timeline->play("open", false);
+		if (str.at(0).compare(word) == 0)
+		{
+			auto timeline = CSLoader::createTimeline("doors/box.csb");
+			_BoxRef.at(_score)->runAction(timeline);
+			timeline->play("open", false);
 
-		_animalRef = {"sheep","pig","cow"};
-		auto path = "doors/" + _animalRef.at(cocos2d::RandomHelper::random_int(0, 2)) + ".csb";
-		auto boxInside = Sprite::createWithSpriteFrameName("doors/boxinside.png");
-		auto animal = CSLoader::createNode(path);
-		animal->setPositionX(_BoxRef.at(_score)->getPositionX() - boxInside->getContentSize().width/8);
-		animal->setPositionY(_BoxRef.at(_score)->getPositionY() - boxInside->getContentSize().height/2);
-		this->addChild(animal);
-		auto timeline1 = CSLoader::createTimeline(path);
-		animal->runAction(timeline1);
-		timeline1->play("walk", true);
-		if (_score < _randomWord.size())
-		{
-			_doorNodeRef.at(_score)->writingEnable(false);
+			_animalRef = { "sheep","pig","cow" };
+			auto path = "doors/" + _animalRef.at(cocos2d::RandomHelper::random_int(0, 2)) + ".csb";
+			auto boxInside = Sprite::createWithSpriteFrameName("doors/boxinside.png");
+			auto animal = CSLoader::createNode(path);
+			animal->setPositionX(_BoxRef.at(_score)->getPositionX() - boxInside->getContentSize().width / 8);
+			animal->setPositionY(_BoxRef.at(_score)->getPositionY() - boxInside->getContentSize().height / 2);
+			this->addChild(animal);
+			auto timeline1 = CSLoader::createTimeline(path);
+			animal->runAction(timeline1);
+			timeline1->play("walk", true);
+			if (_score < _randomWord.size())
+			{
+				_doorNodeRef.at(_score)->writingEnable(false);
+				cocos2d::ui::Button* refreshButton = _doorNodeRef.at(_score)->_button;
+				refreshButton->setEnabled(false);
+			}
+			_score++;
+			if (_score < _randomWord.size())
+			{
+				_doorNodeRef.at(_score)->writingEnable(true);
+				
+			}
+			if (_score == _randomWord.size())
+			{
+				this->scheduleOnce(schedule_selector(Door::showScore), 6);
+			}
+			menu->addPoints(1);
 		}
-		_score++;
-		if (_score < _randomWord.size())
+		else
 		{
-			_doorNodeRef.at(_score)->writingEnable(true);
+			//menu->addPoints(-1);
+			//this->unschedule(schedule_selector(Door::clearScreen));
+			//this->scheduleOnce(schedule_selector(Door::clearScreen), 3);
 		}
-		if (_score == _randomWord.size())
-		{
-			this->scheduleOnce(schedule_selector(Door::showScore), 6);
-		}
-		menu->addPoints(1);
-	}
-	else
-	{
-		//menu->addPoints(-1);
-		//this->unschedule(schedule_selector(Door::clearScreen));
-		//this->scheduleOnce(schedule_selector(Door::clearScreen), 3);
 	}
 }

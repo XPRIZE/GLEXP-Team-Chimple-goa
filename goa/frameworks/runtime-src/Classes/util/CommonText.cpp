@@ -12,13 +12,15 @@
 USING_NS_CC;
 
 bool CommonText::touchSpeak(cocos2d::Touch* touch, cocos2d::Event* event) {
-    auto n = getParent()->convertTouchToNodeSpace(touch);
-    auto rect = this->getBoundingBox();
-    if(rect.containsPoint(n))
-    {
-        MenuContext::pronounceWord(this->getString());
+    if(isVisible() && getOpacity() > 0) {
+        auto n = getParent()->convertTouchToNodeSpace(touch);
+        auto rect = this->getBoundingBox();
+        if(rect.containsPoint(n))
+        {
+            MenuContext::pronounceWord(this->getString());
+        }
     }
-    return false;
+        return false;
 }
 
 void CommonText::onEnterTransitionDidFinish() {

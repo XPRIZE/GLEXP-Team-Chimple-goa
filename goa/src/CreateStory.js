@@ -237,7 +237,6 @@ xc.CreateStoryScene.load = function(layer) {
     cc.LoaderScene.preload(t_resources, function () {            
         //config data
         if(cc.sys.isNative) {
-
             xc.storyConfigurationObject = cc.loader.getRes(xc.CreateStoryLayer.res.Config_json);
             xc.storyPlayConfigurationObject = cc.loader.getRes(xc.CreateStoryLayer.res.EditPlayConfig_json);
             xc.onlyStoryPlayConfigurationObject = cc.loader.getRes(xc.CreateStoryLayer.res.OnlyStoryPlayConfig_json);

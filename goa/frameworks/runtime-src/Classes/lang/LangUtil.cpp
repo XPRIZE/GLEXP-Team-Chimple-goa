@@ -25,7 +25,7 @@ LangUtil::~LangUtil() {
 
 LangUtil* LangUtil::getInstance() {
     if(!_instance) {
-        _instance = new SwahiliUtil();
+        _instance = new EnglishUtil();
     }
     return _instance;
 }

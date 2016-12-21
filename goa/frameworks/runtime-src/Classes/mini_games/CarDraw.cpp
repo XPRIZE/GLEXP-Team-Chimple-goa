@@ -16,11 +16,15 @@ USING_NS_CC;
 
 CarDraw::CarDraw()
 {
+	_audio = nullptr;
 }
 
 CarDraw::~CarDraw()
 {
-	_audio->stopBackgroundMusic();
+	if (_audio != nullptr) {
+		_audio->stopBackgroundMusic();
+	}
+	
 }
 
 CarDraw * CarDraw::create()
@@ -103,6 +107,8 @@ void CarDraw::postTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event, coc
 
 void CarDraw::postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint)
 {
+	cocos2d::ui::Button* refreshButton = _carDrawNodeLiPi->_button;
+	refreshButton->setEnabled(false);
 	auto target = event->getCurrentTarget();
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Point localPoint = target->getParent()->getParent()->convertToNodeSpace(touchPoint);
@@ -148,6 +154,8 @@ void CarDraw::characterRecogination(std::vector<string> str)
 		CCLOG("right");
 	}
 	else {
+		cocos2d::ui::Button* refreshButton = _carDrawNodeLiPi->_button;
+		refreshButton->setEnabled(true);
 		//this->unschedule(schedule_selector(CarDraw::clearScreen));
 		//this->scheduleOnce(schedule_selector(CarDraw::clearScreen), 4);
 	}
@@ -327,7 +335,7 @@ void CarDraw::gameStart()
 	}
 	else if ((menu->getCurrentLevel() > 26) && (menu->getCurrentLevel() < 53)) {
 		int level = menu->getCurrentLevel() - 27;
-		if (level > LangUtil::getInstance()->getNumberOfCharacters()) {
+		if (menu->getCurrentLevel() > LangUtil::getInstance()->getNumberOfCharacters()) {
 			int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 1);
 			auto mychar = LangUtil::getInstance()->getAllLowerCaseCharacters()[randomNumber];
 			_myChar = LangUtil::convertUTF16CharToString(mychar);
