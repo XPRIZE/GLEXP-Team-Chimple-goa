@@ -31,23 +31,25 @@ MessageSender* MessageSender::getInstance(Sqlite3Helper* sqlite3Helper,std::stri
 bool MessageSender::initialize(Sqlite3Helper* sqlite3Helper, std::string sceneName) {
     this->sqlite3Helper = sqlite3Helper;
     this->sceneName = sceneName;
-    auto sendMessageEvent = [=] (EventCustom * event) {
-        std::string &key = *(static_cast<std::string*>(event->getUserData()));
-        this->createMessagesForNodeWithKey(key);
-    };
     
-    SEND_MESSAGE_FOR_TAP_ON_SPEAKABLE(this, RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, sendMessageEvent);
-
-    auto sendTextOnTapMessageEvent = [=] (EventCustom * event) {
-        int preConditionId = (int)(size_t)event->getUserData();
-        this->createMessagesForPreconditionId(preConditionId);
-    };
-    
-    SEND_MESSAGE_FOR_TAP_ON_TEXT(this, RPGConfig::SPEECH_MESSAGE_ON_TEXT_TAP_NOTIFICATION, sendTextOnTapMessageEvent);
+    this->getEventDispatcher()->addCustomEventListener(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, CC_CALLBACK_1(MessageSender::sendMessageEvent, this));
 
     
-    
+    this->getEventDispatcher()->addCustomEventListener(RPGConfig::SPEECH_MESSAGE_ON_TEXT_TAP_NOTIFICATION, CC_CALLBACK_1(MessageSender::sendTextOnTapMessageEvent, this));
+
+
     return true;
+}
+
+void MessageSender::sendMessageEvent(EventCustom * event) {
+    std::string &key = *(static_cast<std::string*>(event->getUserData()));
+    this->createMessagesForNodeWithKey(key);
+}
+
+void MessageSender::sendTextOnTapMessageEvent(EventCustom * event) {
+    int preConditionId = (int)(size_t)event->getUserData();
+    this->createMessagesForPreconditionId(preConditionId);
+
 }
 
 void MessageSender::createMessagesForNodeWithKey(std::string key) {
