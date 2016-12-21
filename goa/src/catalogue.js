@@ -78,9 +78,11 @@ xc.CatalogueLayer = cc.Layer.extend({
             var lockedStoryIdOrders = this._stories.map(function(element) { return element["storyId"] });
             if(cc.sys.isNative) {
                 var unlockALL = cc.sys.localStorage.getItem(xc.UNLOCK_ALL);
-                if(unlockALL == "1") {
+                cc.log("xc.UNLOCK_ALL found in catalog.js:" + unlockALL);
+                if(unlockALL == "1" || unlockALL == 1) {                    
                     unlockedStories = lockedStoryIdOrders;
-                } else if(unlockALL == "0") {
+                    cc.log("1111111" + JSON.stringify(unlockedStories));
+                } else if(unlockALL == "0" || unlockALL == null) {
                     unlockedStories = context.getUnLockedStories();
                 } else {
                     unlockedStories = context.getUnLockedStories();
@@ -98,27 +100,33 @@ xc.CatalogueLayer = cc.Layer.extend({
             lockedStoryIdOrders = lockedStoryIdOrders.filter(function(item) {
                 return unlockedStories.indexOf(item) === -1;
             });
-            cc.log("JSON.stringify(lockedStoryIdOrder):" + JSON.stringify(lockedStoryIdOrders));
-            cc.sys.localStorage.setItem(xc.storyOrder, JSON.stringify(lockedStoryIdOrders));
+            
+            if(unlockALL != "1") {
+                cc.log("JSON.stringify(lockedStoryIdOrder):" + JSON.stringify(lockedStoryIdOrders));
+                cc.sys.localStorage.setItem(xc.storyOrder, JSON.stringify(lockedStoryIdOrders));
+            }
+            
 
-            this._stories.forEach(function(config) {
-                
+            this._stories.forEach(function(config) {                
                 var storyStatus = cc.sys.localStorage.getItem(config["storyId"] + xc.storyLevel);
+                
                 if(!storyStatus) {
                     if(unlockedStories.indexOf(config.storyId) != -1) {
                         var storyInfo = {};
                         storyInfo.locked = false;
+                        storyInfo.unlockForDebug = false;
                         storyInfo.unlockUsed = false;
                         storyInfo.timesRead = 0;
                         cc.sys.localStorage.setItem(config["storyId"] + xc.storyLevel, JSON.stringify(storyInfo));
                     } else {
                         var storyInfo = {};
                         storyInfo.locked = true;
+                        storyInfo.unlockForDebug = false;
                         storyInfo.timesRead = 0;
                         storyInfo.unlockUsed = false;
                         cc.sys.localStorage.setItem(config["storyId"] + xc.storyLevel, JSON.stringify(storyInfo));
-                    }                    
-                }              
+                    } 
+                }  
             });
         }
     },

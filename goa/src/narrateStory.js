@@ -282,7 +282,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         cc.eventManager.addListener(listener, target);
     },   
 
-    displayText:function(text, location) {        
+    displayText:function(text, location) {   
+        cc.log("in displayText with Text: "  + text);     
         if(this._referenceToContext._textDisplayAnimationRunning) {            
             var mappingFound =  this.buildText(text);
             if(mappingFound) {
