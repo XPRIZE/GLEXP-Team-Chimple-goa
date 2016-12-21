@@ -327,7 +327,7 @@ void CarDraw::gameStart()
 	}
 	else if ((menu->getCurrentLevel() > 26) && (menu->getCurrentLevel() < 53)) {
 		int level = menu->getCurrentLevel() - 27;
-		if (level > LangUtil::getInstance()->getNumberOfCharacters()) {
+		if (menu->getCurrentLevel() > LangUtil::getInstance()->getNumberOfCharacters()) {
 			int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 1);
 			auto mychar = LangUtil::getInstance()->getAllLowerCaseCharacters()[randomNumber];
 			_myChar = LangUtil::convertUTF16CharToString(mychar);
