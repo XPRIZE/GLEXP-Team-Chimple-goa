@@ -16,11 +16,15 @@ USING_NS_CC;
 
 CarDraw::CarDraw()
 {
+	_audio = nullptr;
 }
 
 CarDraw::~CarDraw()
 {
-
+	if (_audio != nullptr) {
+		_audio->stopBackgroundMusic();
+	}
+	
 }
 
 CarDraw * CarDraw::create()
@@ -103,6 +107,8 @@ void CarDraw::postTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event, coc
 
 void CarDraw::postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint)
 {
+	cocos2d::ui::Button* refreshButton = _carDrawNodeLiPi->_button;
+	refreshButton->setEnabled(false);
 	auto target = event->getCurrentTarget();
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Point localPoint = target->getParent()->getParent()->convertToNodeSpace(touchPoint);
@@ -120,13 +126,13 @@ void CarDraw::characterRecogination(std::vector<string> str)
 	bool flage = false;
 
 	if (str.size() > 0) {
-		if ((str.at(0).compare("o") == 0 || str.at(0).compare("0") == 0) && (_myChar.compare("O") == 0)) {
+		/*if ((str.at(0).compare("o") == 0 || str.at(0).compare("0") == 0) && (_myChar.compare("O") == 0)) {
 			menu->addPoints(5);
 			cocos2d::ui::Button* refreshButton = _carDrawNodeLiPi->_button;
 			refreshButton->setEnabled(false);
 			flage = true;
 			_carDrawNodeLiPi->writingEnable(false);
-		}
+		}*/
         
         for (std::vector<std::string>::iterator itStr = str.begin() ; itStr != str.end(); ++itStr)
         {
@@ -148,6 +154,8 @@ void CarDraw::characterRecogination(std::vector<string> str)
 		CCLOG("right");
 	}
 	else {
+		cocos2d::ui::Button* refreshButton = _carDrawNodeLiPi->_button;
+		refreshButton->setEnabled(true);
 		//this->unschedule(schedule_selector(CarDraw::clearScreen));
 		//this->scheduleOnce(schedule_selector(CarDraw::clearScreen), 4);
 	}
@@ -206,7 +214,8 @@ void CarDraw::carMoving()
 	car->setRotation(_prevDegree);
 	this->addChild(car);
 	car->setScale(-0.65);
-	auto  audio = CocosDenshion::SimpleAudioEngine::getInstance();
+	_audio = CocosDenshion::SimpleAudioEngine::getInstance();
+	_audio->playBackgroundMusic("sounds/sfx/carSound.wav", true);
 	//audio->playEffect("sounds/sfx/carSound.wav", true);
 	Vector< FiniteTimeAction * > fta;
 	Vector< FiniteTimeAction * > rotateAction;
@@ -280,7 +289,7 @@ void CarDraw::carMoving()
 	//	}
 	}
 	auto showScore = CallFunc::create([=]() {
-		audio->stopAllEffects();
+		_audio->stopBackgroundMusic();
 		menu->showScore();
 		 });
 
@@ -303,6 +312,7 @@ void CarDraw::carMoving()
 void CarDraw::clearScreen(float ft)
 {
 	//CC_CALLBACK_2()
+	CCLOG("clearScreen");
 	menu->addPoints(-1);
 	_carStrokes.clear();
 //	_carDrawNodeLiPi->clearDrawing(nullptr, cocos2d::ui::Widget::TouchEventType::ENDED);

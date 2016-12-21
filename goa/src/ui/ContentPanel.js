@@ -113,8 +113,8 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
                 //}                
 
                 var configPanelWidth = (cc.director.getWinSize().width - cc.director.getWinSize().height) / 2;
-                this._constructedScene.setAnchorPoint(0.5,0);
-                this._constructedScene.setPosition(cc.director.getWinSize().width/2,0);                
+                this._constructedScene.setAnchorPoint(0,0);
+                this._constructedScene.setPosition(0,0);                
                 this._backLayer.addChild(this._constructedScene);
                 //now copy user added objects from earlier constructed scene if any
                 this.copyUserAddedObjectsToScene();
@@ -458,6 +458,7 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
     },
 
     playSceneInEditMode: function () {
+        cc.log('playSceneInEditMode 33333');
         xc.PlayRecordingScene.load(xc.PlayRecordingLayer);        
     },
 

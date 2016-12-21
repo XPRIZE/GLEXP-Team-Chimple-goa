@@ -79,7 +79,8 @@ protected:
     cocos2d::Sprite* touchPointerNode;
     void checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter);
     void showTouchPointer();
-    void destroyTouchPointer();    
+    void destroyTouchPointer();
+    std::string walkingStarted;
 };
 
 #endif /* RPGSprite_h */

@@ -36,8 +36,10 @@ public:
 	void characterRecognisation(std::vector<string> str);
 	DoorNode *_doorNode;
 	cocos2d::Vector <DoorNode *> _doorNodeRef;
-protected:
 	MenuContext * menu;
+	void clearScreen();
+protected:
+	
 	cocos2d::Node* _car;
 	cocos2d::DrawNode * _road;
 	float _prevDegree;

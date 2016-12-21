@@ -354,12 +354,13 @@ void Table::gameEnd(float ft)
 void Table::calculatedResult(std::string result)
 {
 	CCLOG("table calculator!!!!!!!!!!!  === %s",result.c_str());
-	
+	auto audioEffect = CocosDenshion::SimpleAudioEngine::getInstance();
 	_numberOfAttempt++;
 	if (_targetedFishName.compare(result) == 0) {
 		for (int i = 0; i < _catchedFish.size(); i++) {
 			if (_catchedFish.at(i)->getName().compare(result) == 0) {
 				menu->addPoints(1);
+				audioEffect->playEffect("sounds/sfx/success.ogg", false);
 				this->removeChildByName("calculator");
 				this->removeChildByName("hintLabel");
 				_score++;
@@ -382,6 +383,7 @@ void Table::calculatedResult(std::string result)
 		this->removeChildByName("calculator");
 		this->removeChildByName("hintLabel");
 		menu->addPoints(-1);
+		audioEffect->playEffect("sounds/sfx/error.ogg", false);
 		FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
 		_target->runAction(Sequence::create(shake, CallFunc::create([=](){
 			_touched = true;

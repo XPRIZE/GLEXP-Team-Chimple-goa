@@ -24,7 +24,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
     
     console.log("the height and width : "+cc.director.getWinSize().height+"      "+cc.director.getWinSize().width);
     this.textHitsLabel = new cc.LabelTTF("Hits : 0","res/fonts/BalooBhai-Regular.ttf",75);
-    this.textHitsLabel.setPosition(cc.director.getWinSize().width*0.87,cc.director.getWinSize().height*0.975);                      
+    this.textHitsLabel.setPosition(cc.director.getWinSize().width*0.1,cc.director.getWinSize().height*0.975);                      
  
     this.addChild(this.textHitsLabel);
     this.initVariable(ScreenMenu,xPosi);
@@ -98,8 +98,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         // Init the next-this.player
         this.player.nextbubble.x = this.player.x - 3 * this.level.tilewidth;
         this.player.nextbubble.y = this.player.y;
-      
-        
+
         // Init the next bubble and set the current bubble
         this.nextBubble();
         this.nextBubble();
@@ -154,18 +153,18 @@ xc.Bubble_Alphabets = cc.Layer.extend({
       });
        cc.eventManager.addListener(listnerBg,trnspImg);
  
-      
-      if (cc.director.getWinSize().width > 2560){
-         var xPosi = cc.director.getWinSize().width - 2560;
-          if(xPosi >= 300){
-            this.textHitsLabel.setPosition(trnspImg.x+trnspImg.getContentSize().width + (xPosi/2) , cc.director.getWinSize().height * 0.8);
-            this.extendLetter = new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/BalooBhai-Regular.ttf", 450);
-            this.extendLetter.setPosition(trnspImg.x+trnspImg.getContentSize().width + (xPosi/2) , cc.director.getWinSize().height * 0.5);
-            this.addChild(this.extendLetter);
-          }
-      }
+      let extendedPanel = ScreenMenu.node.getChildByName("extend");
+      extendedPanel.setScaleX(-(this.bubblePlayer.width/2));
 
-  
+      var gamePlayAreaWidth = 2560-(this.bubblePlayer.width/2);
+      var widthAreaExtendPart = cc.director.getWinSize().width - gamePlayAreaWidth;
+      var extendedGameX = (gamePlayAreaWidth + (gamePlayAreaWidth + widthAreaExtendPart))/2;
+
+      this.extendLetter = new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/BalooBhai-Regular.ttf", widthAreaExtendPart);
+      this.extendLetter.setPosition(extendedGameX - (widthAreaExtendPart * 0.2), cc.director.getWinSize().height * 0.5);
+      this.addChild(this.extendLetter);
+      this.extendLetter.setAnchorPoint(0.5,0);
+
        if(bubblelevelValues == 1){
             var window = cc.director.getWinSize();
             var help = new xc.HelpLayer(cc.rect((window.width - (cc.director.getWinSize().width - 2560)) * 0.5 , window.height *0.75 , window.width - (cc.director.getWinSize().width - 2560),window.height *0.5), cc.rect(this.gunBase.x, this.gunBase.y,this.bubblePlayer.width,this.bubblePlayer.height))
@@ -378,15 +377,15 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         }
        
         // Handle left and right collisions with the level
-        if (this.player.bubble.x <= this.level.x) {
+        if (this.player.bubble.x <=  this.bubblePlayer.width/2) {
            console.log("");
             // Left edge
             this.player.bubble.angle = 180 - this.player.bubble.angle;
-            this.player.bubble.x = this.level.x;
-        } else if (this.player.bubble.x + this.level.tilewidth >= this.level.x + this.level.width) {
+            this.player.bubble.x =  this.bubblePlayer.width/2;
+        } else if ((this.player.bubble.x + this.bubblePlayer.width/2) >= (this.level.x + this.level.width)) {
             // Right edge
             this.player.bubble.angle = 180 - this.player.bubble.angle;
-            this.player.bubble.x = this.level.x + this.level.width - this.level.tilewidth;
+            this.player.bubble.x = this.level.x + this.level.width - this.bubblePlayer.width/2;
         }
  
         // Collisions with the top of the level
