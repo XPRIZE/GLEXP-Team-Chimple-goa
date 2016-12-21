@@ -87,7 +87,7 @@ void CrossTheBridge::onEnterTransitionDidFinish()
 			Sprite* house_front = (Sprite *)gameBG->getChildByName("house_front_1");
 		
 			Sprite* wall = Sprite::createWithSpriteFrameName("crossthebridge/house_Wall.png");
-			wall->setPosition(Vec2(house_wall->getPosition()));
+			wall->setPosition(Vec2(house_wall->getPositionX(), house_wall->getPositionY()-6));
 			this->addChild(wall,2);
 
 			Sprite* front = Sprite::createWithSpriteFrameName("crossthebridge/house_front.png");
@@ -347,6 +347,9 @@ void CrossTheBridge::alphaDeletion()
 				
 				if (letterDisplayCounter < 8 && pointGenerater)
 				{
+					auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+					audio->playEffect("sounds/sfx/success.ogg", false);
+
 					//_menuContext->pickAlphabet(letterToDisplay, alphaContainer[i]->getAlphabet(), true);
 					sparkle->setVisible(true);
 					sparkle->setPosition(Vec2(letterContainer[letterDisplayCounter]->getPosition().x + origin.x, letterContainer[letterDisplayCounter]->getPosition().y + origin.y));
@@ -399,7 +402,6 @@ void CrossTheBridge::alphaDeletion()
 					this->removeChild(letterOnBoard, true);
 					letterContainer.clear();
 					letterDisplayCounter = 0;
-					CCLOG("point counter is : %d", _pointCounter);
 					_menuContext->setMaxPoints(_pointCounter);
 					_menuContext->showScore();
 				});

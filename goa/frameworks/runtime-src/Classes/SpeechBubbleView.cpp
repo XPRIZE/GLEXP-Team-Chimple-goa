@@ -125,6 +125,7 @@ void SpeechBubbleView::dialogSelected(Ref* pSender, ui::Widget::TouchEventType e
 void SpeechBubbleView::destroySpeechBubbles() {
     for (std::vector<Button*>::iterator it = this->textButtons.begin() ; it != this->textButtons.end(); ++it) {
         Button* button =  *it;
+        button->setVisible(false);
         button->removeFromParentAndCleanup(true);
     }
     this->removeFromParentAndCleanup(true);

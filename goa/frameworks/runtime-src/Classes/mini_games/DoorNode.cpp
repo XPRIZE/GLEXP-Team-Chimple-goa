@@ -55,7 +55,7 @@ void DoorNode::draw(cocos2d::DrawNode * paintingNode, cocos2d::Point fromPoint, 
 void DoorNode::broadCastRecognizedChars(std::vector<std::string> results)
 {
 
-	CCLOG("car draw = %s", results.at(0).c_str());
+//	CCLOG("car draw = %s", results.at(0).c_str());
 //	_Door->characterRecogination(results.at(0).c_str());
 	_Door->characterRecognisation(results);
 }
@@ -68,10 +68,13 @@ void DoorNode::setParent(Door * parent)
 
 void DoorNode::clearDrawing(cocos2d::Ref * pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
-	
-	_paintingNode->clear();
-	_strokes.clear();
-	
+	if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED)
+	{
+
+		_paintingNode->clear();
+		_strokes.clear();
+		_Door->clearScreen();
+	}
 }
 
 cocos2d::ui::Button * DoorNode::createButton(const std::string normalImage, const std::string selectedImage, const std::string disableImage, cocos2d::Vec2 position)
