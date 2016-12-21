@@ -9,6 +9,7 @@
 #include "RPGSprite.h"
 #include "RPGConfig.h"
 #include "SkeletonCharacter.h"
+#include "storage/local-storage/LocalStorage.h"
 
 USING_NS_CC;
 
@@ -125,31 +126,39 @@ std::unordered_map<std::string, std::string> RPGSprite::getAttributes() {
 }
 
 void RPGSprite::update(float dt) {
-    if(!this->getVicinityToMainCharacter() && this->mainSkeleton != NULL && !this->mainSkeleton->isStanding) {
+    
+    localStorageGetItem(WALKING_STARTED, &walkingStarted);
+    
+    if(walkingStarted.compare("1") == 0 && !this->getVicinityToMainCharacter() && this->mainSkeleton != NULL && !this->mainSkeleton->isStanding) {
         this->checkVicinityToMainSkeleton(this->mainSkeleton);
     }
 }
 
 void RPGSprite::checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter) {
-    Vec2 mainSkeletonPositionFromBottom = Point(skeletonCharacter->getSkeletonNode()->getPosition().x, skeletonCharacter->getSkeletonNode()->getPosition().y);
-    Vec2 mainSkeletonPositionFromTop = Point(skeletonCharacter->getSkeletonNode()->getPosition().x, skeletonCharacter->getSkeletonNode()->getPosition().y + skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height);
-    
-    float distanceFromTop= mainSkeletonPositionFromTop.getDistance(this->getSprite()->getPosition());
-    float distanceFromBottom = mainSkeletonPositionFromBottom.getDistance(this->getSprite()->getPosition());
-    
-    if((distanceFromTop >= -OBJECT_TAP_BOUNDING_BOX_WIDTH && distanceFromTop <= OBJECT_TAP_BOUNDING_BOX_WIDTH) || (distanceFromBottom >= -OBJECT_TAP_BOUNDING_BOX_WIDTH && distanceFromBottom <= OBJECT_TAP_BOUNDING_BOX_WIDTH)) {
-        this->setVicinityToMainCharacter(true);
-        this->showTouchPointer();
-    } else {
-        this->setVicinityToMainCharacter(false);
-    }
-
-    
-    if((distanceFromTop >= -OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH && distanceFromTop <= OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH) || (distanceFromBottom >= -OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH && distanceFromBottom <= OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH)) {
-        if(!this->vicinityToMainCharacter) {
+    localStorageGetItem(WALKING_STARTED, &walkingStarted);
+//        CCLOG("pos x %f", skeletonCharacter->getSkeletonNode()->getPosition().x);
+//        CCLOG("pos y %f", skeletonCharacter->getSkeletonNode()->getPosition().y);
+        Vec2 point = Vec2(skeletonCharacter->getSkeletonNode()->getPosition().x, skeletonCharacter->getSkeletonNode()->getPosition().y);
+        Vec2 mainSkeletonPositionFromBottom = point;
+        Vec2 mainSkeletonPositionFromTop = Point(skeletonCharacter->getSkeletonNode()->getPosition().x, skeletonCharacter->getSkeletonNode()->getPosition().y + skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height);
+        
+        float distanceFromTop= mainSkeletonPositionFromTop.getDistance(this->getSprite()->getPosition());
+        float distanceFromBottom = mainSkeletonPositionFromBottom.getDistance(this->getSprite()->getPosition());
+        
+        if((distanceFromTop >= -OBJECT_TAP_BOUNDING_BOX_WIDTH && distanceFromTop <= OBJECT_TAP_BOUNDING_BOX_WIDTH) || (distanceFromBottom >= -OBJECT_TAP_BOUNDING_BOX_WIDTH && distanceFromBottom <= OBJECT_TAP_BOUNDING_BOX_WIDTH)) {
+            this->setVicinityToMainCharacter(true);
             this->showTouchPointer();
+        } else {
+            this->setVicinityToMainCharacter(false);
         }
-    }
+        
+        
+        if((distanceFromTop >= -OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH && distanceFromTop <= OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH) || (distanceFromBottom >= -OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH && distanceFromBottom <= OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH)) {
+            if(!this->vicinityToMainCharacter) {
+                this->showTouchPointer();
+            }
+        }
+    
 }
 
 

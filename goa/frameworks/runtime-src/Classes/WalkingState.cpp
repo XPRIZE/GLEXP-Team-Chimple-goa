@@ -9,6 +9,8 @@
 
 
 #include "WalkingState.h"
+#include "RPGConfig.h"
+#include "storage/local-storage/LocalStorage.h"
 
 WalkingState::WalkingState() {};
 WalkingState::~WalkingState() {};
@@ -26,6 +28,9 @@ void WalkingState::enter(cocos2d::Vec2 forceVector, SkeletonCharacterState previ
     this->getTarget()->changeSkinForMouthBone("mouth", "mouth","hero/mouth/normal.png");
     this->getTarget()->getSkeletonActionTimeLine()->setTimeSpeed(1.0f);
     this->getTarget()->getSkeletonActionTimeLine()->play(WALK, true);
+    
+    
+    localStorageSetItem(WALKING_STARTED, "1");
     
 }
 
