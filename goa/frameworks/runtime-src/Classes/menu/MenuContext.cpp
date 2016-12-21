@@ -1015,6 +1015,7 @@ void MenuContext::showSettingMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::To
 		_menuButton->setEnabled(false);
 		addGreyLayer();
 		pauseNodeAndDescendants(_main);
+		_calcFlag = false;
 
 		std::string _levelStatus;
 		localStorageGetItem(UNLOCK_ALL, &_levelStatus);
@@ -1058,10 +1059,15 @@ void MenuContext::showSettingMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::To
 		_settingNode->addChild(_radio1Select);
 
 		if (_language == "English" || _language == "")
+		{
+			LangUtil::getInstance()->changeLanguage(SupportedLanguages::ENGLISH);
 			_radio1Select->setVisible(true);
+		}
 		else
+		{
+			LangUtil::getInstance()->changeLanguage(SupportedLanguages::SWAHILI);
 			_radio1Select->setVisible(false);
-
+		}
 
 		_radio2Select = Sprite::createWithSpriteFrameName("settings/radiopressed.png");
 		_radio2Select->setPosition(Vec2(_rd2->getPositionX(), _rd2->getPositionY()));
@@ -1100,9 +1106,41 @@ void MenuContext::showSettingMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::To
 		_listener->onTouchBegan = CC_CALLBACK_2(MenuContext::onTouchBeganOnSubmitButton, this);
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(_listener->clone(), _settingNode->getChildByName("submit"));
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(_listener->clone(), _settingNode->getChildByName("close"));
+
+		addCalculator();
 	}
 }
 
+void MenuContext::addCalculator() {
+
+	this->scheduleUpdate();
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
+	_calcLayer = LayerColor::create(Color4B(255.0, 255.0, 255.0, 255.0));
+	_calcLayer->setContentSize(visibleSize);
+	this->addChild(_calcLayer, 4);
+
+	auto _label = LabelTTF::create("Enter cheat code", "Arial", 200);
+	_label->setAnchorPoint(Vec2(.5, .5));
+	_label->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * .75));
+	_calcLayer->addChild(_label, 5);
+	_label->setColor(Color3B::BLACK);
+
+	_calculator = new Calculator();
+	_calculator->createCalculator(Vec2(visibleSize.width / 2, visibleSize.height /3), Vec2(0.5, 0.5), 0.7, 0.7);
+	_calcLayer->addChild(_calculator, 5);
+}
+
+void MenuContext::update(float d)
+{
+	if (_calculator->checkAnswer(1234))
+	{
+		this->removeChild(_calcLayer);
+		_calcFlag = true;
+		this->unscheduleUpdate();
+	}
+}
 
 void MenuContext::radioButton(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
@@ -1130,14 +1168,20 @@ bool MenuContext::onTouchBeganOnSubmitButton(Touch *touch, Event *event)
 	Size size = target->getContentSize();
 	Rect rect = Rect(0, 0, target->getContentSize().width, target->getContentSize().height);
 
-	if (rect.containsPoint(locationInNode))
+	if (rect.containsPoint(locationInNode) && _calcFlag == true)
 	{
 		if (target->getTag() == 1)
 		{
-			if(_radio1Select->isVisible())
+			if (_radio1Select->isVisible())
+			{
+				LangUtil::getInstance()->changeLanguage(SupportedLanguages::ENGLISH);
 				localStorageSetItem(LANGUAGE, "English");
+			}
 			else
+			{
+				LangUtil::getInstance()->changeLanguage(SupportedLanguages::SWAHILI);
 				localStorageSetItem(LANGUAGE, "Swahili");
+			}
 
 			CheckBox *_checkBox = (CheckBox*)_settingNode->getChildByName("CheckBox_1");
 
@@ -1145,19 +1189,13 @@ bool MenuContext::onTouchBeganOnSubmitButton(Touch *touch, Event *event)
 				localStorageSetItem(UNLOCK_ALL, "1");
 			else
 				localStorageSetItem(UNLOCK_ALL, "0");
+		}
 
-			_menuButton->setEnabled(true);
-			removeChild(_greyLayer);
-			removeChild(_settingLayer);
-			resumeNodeAndDescendants(_main);
-		}
-		else
-		{
-			_menuButton->setEnabled(true);
-			removeChild(_greyLayer);
-			removeChild(_settingLayer);
-			resumeNodeAndDescendants(_main);
-		}
+		_menuButton->setEnabled(true);
+		removeChild(_greyLayer);
+		removeChild(_settingLayer);
+		resumeNodeAndDescendants(_main);
+
 		return true;
 	}
 	return false;
