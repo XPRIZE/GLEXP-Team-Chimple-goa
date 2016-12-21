@@ -164,10 +164,10 @@ std::unordered_map<std::string, std::string> ExternalSkeletonCharacter::getAttri
 
 
 void ExternalSkeletonCharacter::update(float dt) {
-    if(!this->vicinityToMainCharacter && this->mainSkeleton != NULL) {
+    if(!this->vicinityToMainCharacter && this->mainSkeleton != NULL && this->mainSkeleton->isStanding) {
         this->getExternalSkeletonNode()->setPosition(this->getExternalSkeletonNode()->getPosition().x + RPGConfig::externalSkeletonMoveDelta, this->getExternalSkeletonNode()->getPosition().y);
         
-        cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent( RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, this->mainSkeleton);
+//        cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent( RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, this->mainSkeleton);
 
     }    
 }
