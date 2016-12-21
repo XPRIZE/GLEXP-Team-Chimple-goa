@@ -68,13 +68,20 @@ xc.StoryCoverButtonPanel = ccui.Layout.extend({
                         var sprite2 = new cc.Sprite('#' + imageIconUrl);
                         bookImageNode.addChild(sprite2);
                         var key = storyId + xc.storyLevel;
+                        var unlockALL = cc.sys.localStorage.getItem(xc.UNLOCK_ALL);
+                        cc.log("unlockALL:" + unlockALL);
                         var storyStatus = JSON.parse(cc.sys.localStorage.getItem(storyId + xc.storyLevel)) || {};                        
-                        if(storyStatus.locked) {
-                            var lockSprite = new cc.Sprite(xc.path + "template/lock.png");
-                            lockSprite.setAnchorPoint(cc.p(0.5,0.5));
-                            lockSprite.setPosition(cc.p(bookImageNode.getPosition().x, bookImageNode.getPosition().y + 150));
-                            bookImageNode.addChild(lockSprite, 1);
-                            item.locked = true;
+
+                        if(storyStatus.locked) {                       
+                            if(unlockALL == 1) {
+                                item.locked = false;
+                            } else {
+                                var lockSprite = new cc.Sprite(xc.path + "template/lock.png");
+                                lockSprite.setAnchorPoint(cc.p(0.5,0.5));
+                                lockSprite.setPosition(cc.p(bookImageNode.getPosition().x, bookImageNode.getPosition().y + 150));
+                                bookImageNode.addChild(lockSprite, 1);
+                                item.locked = true;
+                            }                         
                         } 
                         else if(storyStatus.star) {
                             var levelStatus = storyStatus.star; 
