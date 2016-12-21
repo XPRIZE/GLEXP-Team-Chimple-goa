@@ -78,7 +78,6 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
     changeSkinColor: function(bone) {
         bone.getSkins().forEach(function(skin) {
-            cc.log('skin:' + skin.getName());
             skin._originalSpriteColor = skin.color;
             skin.color = xc.highlightColor;
         });
@@ -86,7 +85,6 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
     revertSkinColor: function(bone) {
         bone.getSkins().forEach(function(skin) {
-            cc.log('skin:' + skin.getName());
             skin.color = skin._originalSpriteColor;
         });
     },
@@ -147,7 +145,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             },
 
             onTouchMoved: function (touch, event) {
-                this._isDragging = true;                
+                context._isDragging = true;                
                 var target = event.getCurrentTarget();
                 
                 var location = target.parent.convertToNodeSpace(touch.getLocation());
@@ -180,11 +178,9 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                     action.pause();                                        
                 }
                 context._previousTouch = null;
-                if(!this._isDragging) {
-                    var location = target.parent.convertToNodeSpace(touch.getLocation());
-                    context.displayText(target.getName(),location);
-                }
-                this._isDragging = false;
+                var location = target.parent.convertToNodeSpace(touch.getLocation());
+                context.displayText(target.getName(),location);                    
+                context._isDragging = false;
             }
             
             
@@ -244,7 +240,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             },
 
             onTouchMoved:function(touch, event) {     
-                this._isDragging = true;           
+                context._isDragging = true;           
                 var target = event.getCurrentTarget();
                 var location = target.parent.convertToNodeSpace(touch.getLocation());
                   if(target.getChildren() != null && target.getChildren().length > 0)
@@ -265,10 +261,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 });
                 
                 context._currentTarget = null;
-                if(!this._isDragging) {
-                    var location = target.parent.convertToNodeSpace(touch.getLocation());
-                    context.displayText(target.getName(),location);                    
-                }
+                var location = target.parent.convertToNodeSpace(touch.getLocation());
+                context.displayText(target.getName(),location);                    
                     
                 if(target.draggingEnabled) {
                     target.setLocalZOrder(this._zOrder);
@@ -276,7 +270,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                     action.pause();                                        
                 }
                 context._currentTarget = null;
-                this._isDragging = false;            
+                context._isDragging = false;            
             }            
         });
         cc.eventManager.addListener(listener, target);
@@ -406,7 +400,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             },
 
             onTouchMoved: function (touch, event) {
-                this._isDragging = true;
+                context._isDragging = true;
                 var target = event.getCurrentTarget();
                 var targetSize = target.getContentSize();
                 var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
@@ -439,11 +433,9 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                     }
                 }
                 
-                if(!this._isDragging) {
-                    var textPos = cc.p(location.x, location.y);
-                    context.displayText(target.getName(), textPos);                
-                }                
-                this._isDragging = false;
+                var textPos = cc.p(location.x, location.y);
+                context.displayText(target.getName(), textPos);                
+                context._isDragging = false;
             }            
         });
         cc.eventManager.addListener(listener, target);
