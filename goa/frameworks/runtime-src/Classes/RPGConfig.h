@@ -72,7 +72,7 @@
 #define INVISIBLE_BOUNDARY_CONTACT_BITMASK 2
 
 
-
+#define WALKING_STARTED "walking_started"
 #define HUMAN_SKELETON_NAME "Hero"
 #define JUMP_START "jump_start"
 #define JUMP_END "jump_down"

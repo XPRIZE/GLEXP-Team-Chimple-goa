@@ -125,6 +125,20 @@ private:
     
     void processShowMessage(std::vector<MessageContent*>showMessages);
     
+    void useItemFromBagAnimation(RPGSprite* item);
+
+    void useItemFromBag(RPGSprite* item);
+    
+    void useItemFromBagAndPutItemInBag(RPGSprite* item, RPGSprite* putItem);
+    
+    void useItemFromBagAndPutItemInBagAnimation(RPGSprite* useItem, RPGSprite* putItem);
+    
+    void processUseInBackPackAndPutInBackPackMessages(std::vector<MessageContent*>showMessages);
+    
+    void processUseInBackPackMessages(std::vector<MessageContent*>showMessages);
+    
+    void processPutInBackPackMessages(std::vector<MessageContent*>showMessages);
+    
     void processAnimationMessage(std::vector<MessageContent*>animationMessages);
     
     void processCustomAnimationMessage(std::vector<MessageContent*>animationMessages);
