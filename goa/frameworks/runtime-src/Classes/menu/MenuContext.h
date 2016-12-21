@@ -18,6 +18,7 @@
 #include "../lang/SafariAnalyticsManager.h"
 #include "../mini_games/Dash.h"
 #include "../mini_games/EndlessRunner.h"
+#include "../Calculator.h"
 
 #define GAME_MAP_MENU "GameMapScene"
 #define HELP_MENU "HelpScene"
@@ -86,6 +87,7 @@ protected:
     bool _menuSelected;
     bool _gameIsPaused;
     bool _launchCustomEventOnExit;
+	bool _calcFlag;
     int _currentLevel;
     int _maxPoints;
     cocos2d::Node* _main;
@@ -101,10 +103,11 @@ protected:
     cocos2d::Node* _photoMenu;
 	cocos2d::Node* _settingNode;
     cocos2d::LayerColor* _greyLayer;
-	cocos2d::LayerColor* _settingLayer;
+	cocos2d::LayerColor* _settingLayer, *_calcLayer;
     cocos2d::Node* _chimp;
     cocos2d::ParticleSystem* _ps;
 	cocos2d::Sprite *_radio1Select, *_radio2Select;
+	Calculator *_calculator;
     int _chimpAudioId;
     void expandMenu(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void pauseNodeAndDescendants(Node *pNode);
@@ -126,7 +129,9 @@ protected:
     void happyFace();
     void sadFace();
     void normalFace();
-    
+	void addCalculator();
+	void update(float);
+
     void unlockNextStory();
     void createUnlockStoryDocument(std::string storyToUnlock);
     
