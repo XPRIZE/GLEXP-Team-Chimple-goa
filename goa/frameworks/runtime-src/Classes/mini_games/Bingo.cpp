@@ -197,10 +197,32 @@ void Bingo::onEnterTransitionDidFinish()
 		{ 1,	"bingocity" },
 		{ 2,    "bingojungle" }
 	};
-
 	
 	int gameCurrentLevel = _menuContext->getCurrentLevel();
-	std::pair<int, int> levelKeyNumber = levelAllInfo(gameCurrentLevel, 12, 3, 4, 3);
+	int levelNo = 1;
+	if (gameCurrentLevel >= 1 && gameCurrentLevel <= 12)
+	{
+		if ((gameCurrentLevel % 4 == 1) || (gameCurrentLevel % 4 == 2))
+			levelNo = 1;
+		else
+			levelNo = 2;
+	}
+	else if (gameCurrentLevel >= 13 && gameCurrentLevel <= 24)
+	{
+		if ((gameCurrentLevel % 4 == 1) || (gameCurrentLevel % 4 == 2))
+			levelNo = 3;
+		else
+			levelNo = 4;
+	}
+	else
+	{
+		if ((gameCurrentLevel % 4 == 1) || (gameCurrentLevel % 4 == 2))
+			levelNo = 5;
+		else
+			levelNo = 6;
+	}
+
+	 std::pair<int, int> levelKeyNumber = levelAllInfo(gameCurrentLevel, 12, 3, 4, 3);
 	_bingoGridDimension = bingoGridMapping.at(levelKeyNumber.first);
 	_bingoCurrentTheme = bingoSceneMapping.at(levelKeyNumber.second);
 
@@ -211,21 +233,21 @@ void Bingo::onEnterTransitionDidFinish()
 	if (levelKeyNumber.second == 0)
 	{
 		int pairNo = static_cast<int>(_gridBasedValue.at("pairRequired"));
-		_data = TextGenerator::getInstance()->getHomonyms(pairNo);
+		_data = TextGenerator::getInstance()->getHomonyms(pairNo, levelNo);
 		_menuContext->setMaxPoints(pairNo*1);
 	}
 	else if (levelKeyNumber.second == 1)
 	{
 		//_bingoCurrentTheme = "bingojungle";
 		int pairNo = static_cast<int>(_gridBasedValue.at("pairRequired"));
-		_data = TextGenerator::getInstance()->getSynonyms(pairNo);
+		_data = TextGenerator::getInstance()->getSynonyms(pairNo, levelNo);
 		_menuContext->setMaxPoints(pairNo*1);
 	}
 	else
 	{
 		//_bingoCurrentTheme = "bingocity";
 		int pairNo = static_cast<int>(_gridBasedValue.at("pairRequired"));
-		_data = TextGenerator::getInstance()->getAntonyms(pairNo);
+		_data = TextGenerator::getInstance()->getAntonyms(pairNo, levelNo);
 		_menuContext->setMaxPoints(pairNo*1);
 	}
 
