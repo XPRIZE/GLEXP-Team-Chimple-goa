@@ -75,12 +75,9 @@ void MessageSender::createMessagesForPreconditionId(int preConditionId) {
     assert(this->sqlite3Helper != NULL);
     
     std::vector<MessageContent *> messages = this->sqlite3Helper->findEventsByPreConditionEventIdInScene(preConditionId, this->sceneName.c_str());
+    EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_BUBBLE_DESTROYED_NOTIFICATION);
     if(messages.size() != 0) {
         EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::RECEIVE_CUSTOM_MESSAGE_NOTIFICATION, static_cast<void*>(&messages));    
-    } else {
-        EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_BUBBLE_DESTROYED_NOTIFICATION);
     }
-    
-    
 }
 

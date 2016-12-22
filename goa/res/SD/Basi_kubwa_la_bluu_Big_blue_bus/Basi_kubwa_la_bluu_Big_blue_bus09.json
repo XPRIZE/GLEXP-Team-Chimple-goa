@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 485,
+        "Duration": 550,
         "Speed": 1.0,
-        "ActivedAnimationName": "house",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 1691773258,
@@ -688,7 +688,7 @@
               {
                 "X": 1912.8611,
                 "Y": 783.8906,
-                "FrameIndex": 405,
+                "FrameIndex": 490,
                 "EasingData": {
                   "Type": 0
                 },
@@ -697,7 +697,7 @@
               {
                 "X": 1815.1653,
                 "Y": 783.0969,
-                "FrameIndex": 425,
+                "FrameIndex": 505,
                 "EasingData": {
                   "Type": 0
                 },
@@ -706,7 +706,7 @@
               {
                 "X": 1734.0586,
                 "Y": 783.097,
-                "FrameIndex": 445,
+                "FrameIndex": 520,
                 "EasingData": {
                   "Type": 0
                 },
@@ -715,7 +715,7 @@
               {
                 "X": 1815.1653,
                 "Y": 783.0969,
-                "FrameIndex": 465,
+                "FrameIndex": 535,
                 "EasingData": {
                   "Type": 0
                 },
@@ -724,7 +724,7 @@
               {
                 "X": 1912.8611,
                 "Y": 783.8906,
-                "FrameIndex": 485,
+                "FrameIndex": 550,
                 "EasingData": {
                   "Type": 0
                 },
@@ -740,7 +740,7 @@
               {
                 "X": 0.6389,
                 "Y": 0.6389,
-                "FrameIndex": 405,
+                "FrameIndex": 490,
                 "EasingData": {
                   "Type": 0
                 },
@@ -749,7 +749,7 @@
               {
                 "X": 0.6389,
                 "Y": 0.6389,
-                "FrameIndex": 425,
+                "FrameIndex": 505,
                 "EasingData": {
                   "Type": 0
                 },
@@ -758,7 +758,7 @@
               {
                 "X": 0.6389,
                 "Y": 0.6389,
-                "FrameIndex": 445,
+                "FrameIndex": 520,
                 "EasingData": {
                   "Type": 0
                 },
@@ -767,7 +767,7 @@
               {
                 "X": 0.6389,
                 "Y": 0.6389,
-                "FrameIndex": 465,
+                "FrameIndex": 535,
                 "EasingData": {
                   "Type": 0
                 },
@@ -776,7 +776,7 @@
               {
                 "X": 0.6389,
                 "Y": 0.6389,
-                "FrameIndex": 485,
+                "FrameIndex": 550,
                 "EasingData": {
                   "Type": 0
                 },
@@ -792,7 +792,7 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 405,
+                "FrameIndex": 490,
                 "EasingData": {
                   "Type": 0
                 },
@@ -801,7 +801,7 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 425,
+                "FrameIndex": 505,
                 "EasingData": {
                   "Type": 0
                 },
@@ -810,7 +810,7 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 445,
+                "FrameIndex": 520,
                 "EasingData": {
                   "Type": 0
                 },
@@ -819,7 +819,7 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 465,
+                "FrameIndex": 535,
                 "EasingData": {
                   "Type": 0
                 },
@@ -828,7 +828,7 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 485,
+                "FrameIndex": 550,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1126,6 +1126,12 @@
           "EndIndex": 485,
           "Name": "house",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 490,
+          "EndIndex": 550,
+          "Name": "house1",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -1351,7 +1357,9 @@
               "ScaleX": 1.5266,
               "ScaleY": 1.5266
             },
-            "CColor": {},
+            "CColor": {
+              "B": 240
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.2588,
@@ -1443,8 +1451,7 @@
               "ScaleY": 2.2025
             },
             "CColor": {
-              "G": 248,
-              "B": 228
+              "B": 240
             },
             "IconVisible": false,
             "PrePosition": {
@@ -1456,7 +1463,7 @@
               "Y": 0.165
             },
             "LeftMargin": 218.2299,
-            "RightMargin": 2028.77,
+            "RightMargin": 2028.7701,
             "TopMargin": 905.2927,
             "BottomMargin": 597.7073,
             "UserData": "main.house",
@@ -1484,8 +1491,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1907.9763,
-              "Y": 783.851
+              "X": 1912.8611,
+              "Y": 783.8906
             },
             "Scale": {
               "ScaleX": 0.6389,
@@ -1494,18 +1501,18 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.7453,
+              "X": 0.7472,
               "Y": 0.4355
             },
             "PreSize": {
               "X": 0.532,
               "Y": 0.6778
             },
-            "LeftMargin": 1226.9763,
-            "RightMargin": -28.9763,
-            "TopMargin": 406.149,
-            "BottomMargin": 173.851,
-            "UserData": "main.house",
+            "LeftMargin": 1231.8611,
+            "RightMargin": -33.8611,
+            "TopMargin": 406.1094,
+            "BottomMargin": 173.8906,
+            "UserData": "main.house1",
             "Tag": 55,
             "ActionTag": 719477707,
             "Size": {

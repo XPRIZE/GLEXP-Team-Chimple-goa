@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 410,
+        "Duration": 445,
         "Speed": 1.0,
-        "ActivedAnimationName": "cloud",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -1176913826,
@@ -16,7 +16,7 @@
               {
                 "X": 689.5037,
                 "Y": 436.9717,
-                "FrameIndex": 370,
+                "FrameIndex": 415,
                 "EasingData": {
                   "Type": 0
                 },
@@ -25,7 +25,7 @@
               {
                 "X": 689.5043,
                 "Y": 436.972,
-                "FrameIndex": 390,
+                "FrameIndex": 430,
                 "EasingData": {
                   "Type": 0
                 },
@@ -34,7 +34,7 @@
               {
                 "X": 689.5037,
                 "Y": 436.9717,
-                "FrameIndex": 410,
+                "FrameIndex": 445,
                 "EasingData": {
                   "Type": 0
                 },
@@ -50,7 +50,7 @@
               {
                 "X": 2.0292,
                 "Y": 2.0292,
-                "FrameIndex": 370,
+                "FrameIndex": 415,
                 "EasingData": {
                   "Type": 0
                 },
@@ -59,7 +59,7 @@
               {
                 "X": 2.3076,
                 "Y": 2.3076,
-                "FrameIndex": 390,
+                "FrameIndex": 430,
                 "EasingData": {
                   "Type": 0
                 },
@@ -68,7 +68,7 @@
               {
                 "X": 2.0292,
                 "Y": 2.0292,
-                "FrameIndex": 410,
+                "FrameIndex": 445,
                 "EasingData": {
                   "Type": 0
                 },
@@ -84,7 +84,7 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 370,
+                "FrameIndex": 415,
                 "EasingData": {
                   "Type": 0
                 },
@@ -93,7 +93,7 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 390,
+                "FrameIndex": 430,
                 "EasingData": {
                   "Type": 0
                 },
@@ -102,7 +102,7 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 410,
+                "FrameIndex": 445,
                 "EasingData": {
                   "Type": 0
                 },
@@ -120,7 +120,7 @@
                 "Color": {
                   "B": 240
                 },
-                "FrameIndex": 370,
+                "FrameIndex": 415,
                 "EasingData": {
                   "Type": 0
                 },
@@ -133,7 +133,7 @@
                   "G": 112,
                   "B": 93
                 },
-                "FrameIndex": 390,
+                "FrameIndex": 430,
                 "EasingData": {
                   "Type": 0
                 },
@@ -144,246 +144,11 @@
                 "Color": {
                   "B": 240
                 },
-                "FrameIndex": 410,
+                "FrameIndex": 445,
                 "EasingData": {
                   "Type": 0
                 },
                 "ctype": "ColorFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 2049269339,
-            "Property": "ActionValue",
-            "Frames": [
-              {
-                "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "walking",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 0,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              },
-              {
-                "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "walking",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 80,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              },
-              {
-                "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "walking",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 160,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 2049269339,
-            "Property": "Position",
-            "Frames": [
-              {
-                "X": -455.8167,
-                "Y": 544.0424,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 375.6147,
-                "Y": 605.7985,
-                "FrameIndex": 80,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 991.2091,
-                "Y": 592.5394,
-                "FrameIndex": 160,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 2049269339,
-            "Property": "Scale",
-            "Frames": [
-              {
-                "X": 1.0,
-                "Y": 1.0,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 1.0,
-                "Y": 1.0,
-                "FrameIndex": 80,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 1.0,
-                "Y": 1.0,
-                "FrameIndex": 160,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 2049269339,
-            "Property": "RotationSkew",
-            "Frames": [
-              {
-                "X": 0.0,
-                "Y": 0.0,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.0,
-                "Y": 0.0,
-                "FrameIndex": 80,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.0,
-                "Y": 0.0,
-                "FrameIndex": 160,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": -1220456186,
-            "Property": "Position",
-            "Frames": [
-              {
-                "X": 1690.3221,
-                "Y": 472.8271,
-                "FrameIndex": 370,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 1690.3235,
-                "Y": 472.8273,
-                "FrameIndex": 390,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 1690.3221,
-                "Y": 472.8271,
-                "FrameIndex": 410,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": -1220456186,
-            "Property": "Scale",
-            "Frames": [
-              {
-                "X": 2.6261,
-                "Y": 2.6261,
-                "FrameIndex": 370,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 1.6883,
-                "Y": 1.6883,
-                "FrameIndex": 390,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 2.6261,
-                "Y": 2.6261,
-                "FrameIndex": 410,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": -1220456186,
-            "Property": "RotationSkew",
-            "Frames": [
-              {
-                "X": 0.0,
-                "Y": 0.0,
-                "FrameIndex": 370,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.0,
-                "Y": 0.0,
-                "FrameIndex": 390,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.0,
-                "Y": 0.0,
-                "FrameIndex": 410,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -701,6 +466,276 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 2049269339,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walking",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walking",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 80,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walking",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 160,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walking",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 162,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2049269339,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -455.8167,
+                "Y": 544.0424,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 375.6147,
+                "Y": 605.7985,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 991.2091,
+                "Y": 592.5394,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 991.2091,
+                "Y": 592.5394,
+                "FrameIndex": 162,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2049269339,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 162,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2049269339,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 162,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1220456186,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1690.3221,
+                "Y": 472.8271,
+                "FrameIndex": 370,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1690.3235,
+                "Y": 472.8273,
+                "FrameIndex": 390,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1690.3221,
+                "Y": 472.8271,
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1220456186,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 2.6261,
+                "Y": 2.6261,
+                "FrameIndex": 370,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.6883,
+                "Y": 1.6883,
+                "FrameIndex": 390,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 2.6261,
+                "Y": 2.6261,
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1220456186,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 370,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 390,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -1172033545,
             "Property": "Position",
             "Frames": [
@@ -806,6 +841,12 @@
           "EndIndex": 410,
           "Name": "cloud",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 415,
+          "EndIndex": 445,
+          "Name": "cloud1",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -881,17 +922,15 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 689.5042,
-              "Y": 436.9719
+              "X": 689.5037,
+              "Y": 436.9717
             },
             "Scale": {
-              "ScaleX": 2.2658,
-              "ScaleY": 2.2658
+              "ScaleX": 2.0292,
+              "ScaleY": 2.0292
             },
             "CColor": {
-              "R": 147,
-              "G": 133,
-              "B": 115
+              "B": 240
             },
             "IconVisible": false,
             "PrePosition": {
@@ -902,11 +941,11 @@
               "X": 0.2531,
               "Y": 0.1444
             },
-            "LeftMargin": 365.5042,
-            "RightMargin": 1546.4958,
-            "TopMargin": 1233.0281,
-            "BottomMargin": 306.9719,
-            "UserData": "drag;main.cloud",
+            "LeftMargin": 365.5037,
+            "RightMargin": 1546.4963,
+            "TopMargin": 1233.0283,
+            "BottomMargin": 306.9717,
+            "UserData": "main.cloud1",
             "Tag": 40,
             "ActionTag": -1176913826,
             "Size": {
@@ -915,48 +954,6 @@
             },
             "Name": "cloud_1",
             "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/boy1.json",
-              "Plist": ""
-            },
-            "StretchWidthEnable": false,
-            "StretchHeightEnable": false,
-            "InnerActionSpeed": 1.0,
-            "AnchorPoint": {},
-            "Position": {
-              "X": 1864.6472,
-              "Y": 483.6623
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": true,
-            "PrePosition": {
-              "X": 0.7284,
-              "Y": 0.2687
-            },
-            "PreSize": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "LeftMargin": 1864.6472,
-            "RightMargin": 695.3528,
-            "TopMargin": 1316.3376,
-            "BottomMargin": 483.6623,
-            "UserData": "walk;drag",
-            "Tag": 404,
-            "ActionTag": -357349,
-            "Size": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "Name": "sadhu",
-            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -1018,6 +1015,138 @@
               "ScaleY": 0.5
             },
             "Position": {
+              "X": 1830.2603,
+              "Y": 787.8832
+            },
+            "Scale": {
+              "ScaleX": 0.4783,
+              "ScaleY": 0.4783
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7149,
+              "Y": 0.4377
+            },
+            "PreSize": {
+              "X": 0.2531,
+              "Y": 0.1444
+            },
+            "LeftMargin": 1506.2603,
+            "RightMargin": 405.7397,
+            "TopMargin": 882.1168,
+            "BottomMargin": 657.8832,
+            "Tag": 1943,
+            "ActionTag": 434739470,
+            "Size": {
+              "X": 648.0,
+              "Y": 260.0
+            },
+            "Name": "anansi_cloud_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/anansi_cloud.png",
+              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1828.3472,
+              "Y": 786.6312
+            },
+            "Scale": {
+              "ScaleX": 0.5126,
+              "ScaleY": 0.5126
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7142,
+              "Y": 0.437
+            },
+            "PreSize": {
+              "X": 0.2531,
+              "Y": 0.1444
+            },
+            "LeftMargin": 1504.3472,
+            "RightMargin": 407.6528,
+            "TopMargin": 883.3688,
+            "BottomMargin": 656.6312,
+            "Tag": 1944,
+            "ActionTag": 1304274233,
+            "Size": {
+              "X": 648.0,
+              "Y": 260.0
+            },
+            "Name": "anansi_cloud_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/boy1.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1864.6472,
+              "Y": 483.6623
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7284,
+              "Y": 0.2687
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1864.6472,
+            "RightMargin": 695.3528,
+            "TopMargin": 1316.3376,
+            "BottomMargin": 483.6623,
+            "UserData": "walk;drag",
+            "Tag": 404,
+            "ActionTag": -357349,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "sadhu",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/anansi_cloud.png",
+              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
               "X": 1267.7358,
               "Y": 1107.3416
             },
@@ -1060,8 +1189,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 991.2091,
-              "Y": 592.5394
+              "X": -455.8167,
+              "Y": 544.0424
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1070,17 +1199,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.3872,
-              "Y": 0.3292
+              "X": -0.1781,
+              "Y": 0.3022
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 991.2091,
-            "RightMargin": 1568.7909,
-            "TopMargin": 1207.4606,
-            "BottomMargin": 592.5394,
+            "LeftMargin": -455.8167,
+            "RightMargin": 3015.8167,
+            "TopMargin": 1255.9575,
+            "BottomMargin": 544.0424,
             "UserData": "walk;drag",
             "Tag": 447,
             "ActionTag": 2049269339,
@@ -1107,12 +1236,12 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1690.3232,
-              "Y": 472.8273
+              "X": 1690.3221,
+              "Y": 472.8271
             },
             "Scale": {
-              "ScaleX": 1.829,
-              "ScaleY": 1.829
+              "ScaleX": 2.6261,
+              "ScaleY": 2.6261
             },
             "CColor": {},
             "IconVisible": false,
@@ -1124,10 +1253,10 @@
               "X": 0.2531,
               "Y": 0.1444
             },
-            "LeftMargin": 1366.3232,
-            "RightMargin": 545.6768,
-            "TopMargin": 1197.1727,
-            "BottomMargin": 342.8273,
+            "LeftMargin": 1366.3221,
+            "RightMargin": 545.6779,
+            "TopMargin": 1197.1729,
+            "BottomMargin": 342.8271,
             "UserData": "main.cloud",
             "Tag": 41,
             "ActionTag": -1220456186,
@@ -1141,97 +1270,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/anansi_cloud.png",
-              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1089.3699,
-              "Y": 1521.8293
-            },
-            "Scale": {
-              "ScaleX": 1.5359,
-              "ScaleY": 1.5359
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.4255,
-              "Y": 0.8455
-            },
-            "PreSize": {
-              "X": 0.2531,
-              "Y": 0.1444
-            },
-            "LeftMargin": 765.3699,
-            "RightMargin": 1146.6301,
-            "TopMargin": 148.1707,
-            "BottomMargin": 1391.8293,
-            "Tag": 1943,
-            "ActionTag": 434739470,
-            "Size": {
-              "X": 648.0,
-              "Y": 260.0
-            },
-            "Name": "anansi_cloud_2",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/anansi_cloud.png",
-              "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 2561.5913,
-              "Y": 1403.2926
-            },
-            "Scale": {
-              "ScaleX": 1.4178,
-              "ScaleY": 1.4178
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 1.0006,
-              "Y": 0.7796
-            },
-            "PreSize": {
-              "X": 0.2531,
-              "Y": 0.1444
-            },
-            "LeftMargin": 2237.5913,
-            "RightMargin": -325.5913,
-            "TopMargin": 266.7074,
-            "BottomMargin": 1273.2926,
-            "Tag": 1944,
-            "ActionTag": 1304274233,
-            "Size": {
-              "X": 648.0,
-              "Y": 260.0
-            },
-            "Name": "anansi_cloud_3",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/box_open.png",
+              "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/box.png",
               "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
             },
             "BlendFunc": {
@@ -1268,7 +1307,7 @@
             "ActionTag": -1172033545,
             "Size": {
               "X": 962.0,
-              "Y": 538.0
+              "Y": 355.0
             },
             "Name": "box",
             "ctype": "SpriteObjectData"

@@ -7,90 +7,8 @@
       "Animation": {
         "Duration": 595,
         "Speed": 1.0,
-        "ActivedAnimationName": "moon",
+        "ActivedAnimationName": "master",
         "Timelines": [
-          {
-            "ActionTag": 1738151498,
-            "Property": "Position",
-            "Frames": [
-              {
-                "X": 447.8097,
-                "Y": 1470.8533,
-                "FrameIndex": 194,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 437.8091,
-                "Y": 280.8462,
-                "FrameIndex": 355,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 1738151498,
-            "Property": "Scale",
-            "Frames": [
-              {
-                "X": 1.0,
-                "Y": 1.0,
-                "FrameIndex": 194,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 1738151498,
-            "Property": "RotationSkew",
-            "Frames": [
-              {
-                "X": 0.0,
-                "Y": 0.0,
-                "FrameIndex": 194,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": -92872411,
-            "Property": "Position",
-            "Frames": [
-              {
-                "X": 450.2158,
-                "Y": 371.1812,
-                "FrameIndex": 215,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 338.157,
-                "Y": 1514.2236,
-                "FrameIndex": 327,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
           {
             "ActionTag": 1910261206,
             "Property": "ActionValue",
@@ -1377,7 +1295,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5
             },
@@ -1411,96 +1328,6 @@
             },
             "Name": "Panel_1",
             "ctype": "PanelObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Ndovu_na_vyura/sun.png",
-              "Plist": "Ndovu_na_vyura/Ndovu_na_vyura.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 437.8091,
-              "Y": 280.8462
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.171,
-              "Y": 0.156
-            },
-            "PreSize": {
-              "X": 0.2043,
-              "Y": 0.2883
-            },
-            "LeftMargin": 176.3091,
-            "RightMargin": 1860.6909,
-            "TopMargin": 1259.6538,
-            "BottomMargin": 21.3462,
-            "Tag": 3,
-            "ActionTag": 1738151498,
-            "Size": {
-              "X": 523.0,
-              "Y": 519.0
-            },
-            "Name": "sun_1",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Ndovu_na_vyura/moon.png",
-              "Plist": "Ndovu_na_vyura/Ndovu_na_vyura.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 338.157,
-              "Y": 1514.2236
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.1321,
-              "Y": 0.8412
-            },
-            "PreSize": {
-              "X": 0.1277,
-              "Y": 0.1822
-            },
-            "LeftMargin": 174.657,
-            "RightMargin": 2058.343,
-            "TopMargin": 121.7764,
-            "BottomMargin": 1350.2236,
-            "Tag": 10871,
-            "ActionTag": -92872411,
-            "Size": {
-              "X": 327.0,
-              "Y": 328.0
-            },
-            "Name": "moon_1",
-            "ctype": "SpriteObjectData"
           },
           {
             "ClipAble": false,
@@ -2454,27 +2281,27 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1422.4191,
-              "Y": 349.8516
+              "X": 410.9489,
+              "Y": 370.7771
             },
             "Scale": {
-              "ScaleX": -1.0,
+              "ScaleX": 1.0,
               "ScaleY": 1.0
             },
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.5556,
-              "Y": 0.1944
+              "X": 0.1605,
+              "Y": 0.206
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1422.4191,
-            "RightMargin": 1137.5809,
-            "TopMargin": 1450.1484,
-            "BottomMargin": 349.8516,
+            "LeftMargin": 410.9489,
+            "RightMargin": 2149.051,
+            "TopMargin": 1429.2229,
+            "BottomMargin": 370.7771,
             "UserData": "Walk;drag",
             "Tag": 9604,
             "ActionTag": 1910261206,
@@ -2541,29 +2368,27 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 633.0593,
-              "Y": 380.2984
+              "X": 1296.2139,
+              "Y": 228.5957
             },
             "Scale": {
-              "ScaleX": 0.39,
-              "ScaleY": 0.01
+              "ScaleX": 0.7024,
+              "ScaleY": 0.7024
             },
-            "RotationSkewX": 12.415,
-            "RotationSkewY": 12.4055,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.2473,
-              "Y": 0.2113
+              "X": 0.5063,
+              "Y": 0.127
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 633.0593,
-            "RightMargin": 1926.9407,
-            "TopMargin": 1419.7017,
-            "BottomMargin": 380.2984,
+            "LeftMargin": 1296.2139,
+            "RightMargin": 1263.7861,
+            "TopMargin": 1571.4043,
+            "BottomMargin": 228.5957,
             "UserData": "hop;drag",
             "Tag": 30504,
             "ActionTag": -1524599646,
@@ -2571,7 +2396,6 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "VisibleForFrame": false,
             "Alpha": 0,
             "Name": "frog",
             "ctype": "ProjectNodeObjectData"
@@ -2587,15 +2411,13 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1266.4282,
-              "Y": 349.83
+              "X": 489.994,
+              "Y": 214.7273
             },
             "Scale": {
-              "ScaleX": -0.45,
-              "ScaleY": 0.01
+              "ScaleX": -0.7024,
+              "ScaleY": 0.7024
             },
-            "RotationSkewX": -14.2782,
-            "RotationSkewY": -14.3077,
             "CColor": {
               "R": 189,
               "G": 189,
@@ -2603,17 +2425,17 @@
             },
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.4947,
-              "Y": 0.1943
+              "X": 0.1914,
+              "Y": 0.1193
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1266.4282,
-            "RightMargin": 1293.5718,
-            "TopMargin": 1450.17,
-            "BottomMargin": 349.83,
+            "LeftMargin": 489.994,
+            "RightMargin": 2070.0061,
+            "TopMargin": 1585.2727,
+            "BottomMargin": 214.7273,
             "UserData": "hop;drag",
             "Tag": 30547,
             "ActionTag": -295757454,
@@ -2621,7 +2443,6 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "VisibleForFrame": false,
             "Name": "frog",
             "ctype": "ProjectNodeObjectData"
           },
@@ -2636,29 +2457,27 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1561.0377,
-              "Y": 351.0698
+              "X": 2256.7708,
+              "Y": 181.0228
             },
             "Scale": {
-              "ScaleX": 0.39,
-              "ScaleY": 0.01
+              "ScaleX": 0.6,
+              "ScaleY": 0.6
             },
-            "RotationSkewX": -1.9938,
-            "RotationSkewY": -1.9892,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.6098,
-              "Y": 0.195
+              "X": 0.8816,
+              "Y": 0.1006
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1561.0377,
-            "RightMargin": 998.9623,
-            "TopMargin": 1448.9302,
-            "BottomMargin": 351.0698,
+            "LeftMargin": 2256.7708,
+            "RightMargin": 303.2292,
+            "TopMargin": 1618.9772,
+            "BottomMargin": 181.0228,
             "UserData": "hop;drag",
             "Tag": 31536,
             "ActionTag": 105975732,
@@ -2666,7 +2485,6 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "VisibleForFrame": false,
             "Name": "frog",
             "ctype": "ProjectNodeObjectData"
           },
@@ -2689,7 +2507,6 @@
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
-            "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
               "X": -652.5803,
@@ -2878,8 +2695,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 256.9401,
-              "Y": 1643.9757
+              "X": 256.9402,
+              "Y": 1643.9758
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -2897,10 +2714,10 @@
               "X": 0.1277,
               "Y": 0.1822
             },
-            "LeftMargin": 93.4401,
+            "LeftMargin": 93.4402,
             "RightMargin": 2139.5598,
-            "TopMargin": -7.9757,
-            "BottomMargin": 1479.9757,
+            "TopMargin": -7.9758,
+            "BottomMargin": 1479.9758,
             "UserData": "main.moon",
             "Tag": 11004,
             "ActionTag": -509665279,
