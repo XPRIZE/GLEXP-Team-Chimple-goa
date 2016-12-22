@@ -134,6 +134,10 @@ cc.game.onStart = function(){
 
         }
     })
+    
+    goa.MenuContext.launchGameFromJS = function(gameName) {
+            xc.GameScene.loadGameFromStorage();
+    }
 
     goa.MenuContext.create = function(layer, gameName) {
         return new goa.MenuContext(layer, gameName);

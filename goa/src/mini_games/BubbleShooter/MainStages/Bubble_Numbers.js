@@ -56,53 +56,52 @@ xc.Bubble_Number = cc.Layer.extend({
     
         // Set the gamestate to ready
         this.setGameState(this.gamestates.ready);
-        
     
         if(bubblelevelValues ==  1){        
            levelName = "NumberStarLevel1";            
-           letterSprite = ['0','1','2','3','4'];
-            let color = 5 , repeat = 3;
+           letterSprite = ['0','1','2'];
+            let color = 3, repeat = 4;
            hits = 40;
            // Create the level of bubbles
            this.createLevel(color,repeat);
         
         }else if(bubblelevelValues ==  2){
            levelName = "NumberStarLevel2";
-           letterSprite = ['5','6','7','8','9'];
-            let color = 5 , repeat = 3;
+           letterSprite = ['3','4','5'];
+            let color = 3 , repeat = 4;
            hits = 40;
             // Create the level of bubbles
            this.createLevel(color,repeat);
         
         }else if(bubblelevelValues ==  3){
-           levelName = "NumberStarLevel3"; 
-            let color = 4 , repeat = 5;
+           levelName = "NumberStarLevel3";
+            let color = 3, repeat = 4;
             let numbers = this.rndNumber(color);
-            let DataNumber = ['0','1','2','3','4','5','6','7','8','9'];
+            letterSprite = ['6','7','8'];
            hits = 40;
-           letterSprite = [DataNumber[numbers[0]],DataNumber[numbers[1]],DataNumber[numbers[2]],DataNumber[numbers[3]]];
+          // letterSprite = [DataNumber[numbers[0]],DataNumber[numbers[1]],DataNumber[numbers[2]]];
         
             // Create the level of bubbles
            this.createLevel(color,repeat);
             
         }else if(bubblelevelValues ==  4){
            levelName = "NumberStarLevel4";         
-            let color = 4 , repeat = 4;
+            let color = 3 , repeat = 4;
             let numbers = this.rndNumber(color);
             let DataNumber = ['0','1','2','3','4','5','6','7','8','9'];
-           hits = 100;
-           letterSprite = [DataNumber[numbers[0]],DataNumber[numbers[1]],DataNumber[numbers[2]],DataNumber[numbers[3]]];
+            hits = 100;
+            letterSprite = ['9',DataNumber[numbers[0]],DataNumber[numbers[1]]];
         
             // Create the level of bubbles
            this.createLevel(color,repeat);
         
         }else if(bubblelevelValues ==  5){
            levelName = "NumberStarLevel5";        
-            let color = 4 , repeat = 3;
+            let color = 3 , repeat = 4;
             let numbers = this.rndNumber(color);
             let DataNumber = ['0','1','2','3','4','5','6','7','8','9'];
            hits = 100;
-           letterSprite = [DataNumber[numbers[0]],DataNumber[numbers[1]],DataNumber[numbers[2]],DataNumber[numbers[3]]];
+           letterSprite = [DataNumber[numbers[0]],DataNumber[numbers[1]],DataNumber[numbers[2]]];
         
             // Create the level of bubbles
            this.createLevel(color,repeat);
@@ -237,18 +236,18 @@ xc.Bubble_Number = cc.Layer.extend({
       var widthAreaExtendPart = cc.director.getWinSize().width - gamePlayAreaWidth;
       var extendedGameX = (gamePlayAreaWidth + (gamePlayAreaWidth + widthAreaExtendPart))/2;
 
-      this.extendLetter = new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/BalooBhai-Regular.ttf", widthAreaExtendPart);
-      this.extendLetter.setPosition(extendedGameX - (widthAreaExtendPart * 0.2), cc.director.getWinSize().height * 0.5);
+      this.extendLetter = new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/BalooBhai-Regular.ttf", widthAreaExtendPart*2);
+      this.extendLetter.setPosition(extendedGameX - (widthAreaExtendPart * 0.25), cc.director.getWinSize().height * 0.4);
       this.addChild(this.extendLetter);
       this.extendLetter.setAnchorPoint(0.5,0);
 
-       if(bubblelevelValues == 1){
+       if(bubblelevelValues == 100){
             var window = cc.director.getWinSize();
             var help = new xc.HelpLayer(cc.rect((window.width - (cc.director.getWinSize().width - 2560)) * 0.5 , window.height *0.75 , window.width - (cc.director.getWinSize().width - 2560),window.height *0.5), cc.rect(this.gunBase.x, this.gunBase.y,this.bubblePlayer.width,this.bubblePlayer.height))
             this.addChild(help,4)
             help.setName("help");
         }
-        this.helpActive = true;
+        this.helpActive = false;
 
       this.scheduleUpdate();
     
@@ -268,7 +267,7 @@ xc.Bubble_Number = cc.Layer.extend({
         if (this.gamestate == this.gamestates.ready) {
             // Game is ready for player input
         } 
-        else if (this.gamestate == this.gamestates.shootbubble) {
+        else if (this.gamestate == this.gamestates.shootbubble && !menuContext.isGamePaused()) {
             // Bubble is moving
             this.stateShootBubble(dt);
            
@@ -465,7 +464,7 @@ xc.Bubble_Number = cc.Layer.extend({
             // Left edge
             this.player.bubble.angle = 180 - this.player.bubble.angle;
             this.player.bubble.x = (this.bubblePlayer.width/2);
-        } else if (this.player.bubble.x + this.level.tilewidth >= this.level.x + this.level.width) {
+        } else if ((this.player.bubble.x + this.bubblePlayer.width/2) >= this.level.x + this.level.width) {
             // Right edge
             this.player.bubble.angle = 180 - this.player.bubble.angle;
             this.player.bubble.x = this.level.x + this.level.width - this.level.tilewidth;
@@ -1212,7 +1211,7 @@ xc.Bubble_Number = cc.Layer.extend({
       let ArrayBubble = new Array(color);
       let newArrayBubble = [];
       
-        for(let i =0 ; i < 10 ; i++){
+        for(let i =0 ; i < 9 ; i++){
             ArrayBubble[i] = i;
          }
    

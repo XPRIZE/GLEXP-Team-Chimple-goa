@@ -375,6 +375,8 @@ void Door::characterRecognisation(std::vector<string> str)
 			}
 			if (_score == _randomWord.size())
 			{
+				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+				audio->playEffect("sounds/sfx/success.ogg", false);
 				this->scheduleOnce(schedule_selector(Door::showScore), 6);
 			}
 			menu->addPoints(1);
