@@ -258,14 +258,6 @@
                 "InnerActionType": "NoLoopAction",
                 "CurrentAniamtionName": "walk",
                 "SingleFrameIndex": 0,
-                "FrameIndex": 0,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              },
-              {
-                "InnerActionType": "NoLoopAction",
-                "CurrentAniamtionName": "walk",
-                "SingleFrameIndex": 0,
                 "FrameIndex": 40,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
@@ -333,15 +325,6 @@
             "ActionTag": 616358293,
             "Property": "Position",
             "Frames": [
-              {
-                "X": 2402.0801,
-                "Y": 464.8455,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
               {
                 "X": 2214.1558,
                 "Y": 460.8471,
@@ -424,15 +407,6 @@
               {
                 "X": 0.7943,
                 "Y": 0.7943,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.7943,
-                "Y": 0.7943,
                 "FrameIndex": 40,
                 "EasingData": {
                   "Type": 0
@@ -509,15 +483,6 @@
             "ActionTag": 616358293,
             "Property": "RotationSkew",
             "Frames": [
-              {
-                "X": 0.0,
-                "Y": 0.0,
-                "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
               {
                 "X": 0.0,
                 "Y": 0.0,
@@ -1028,6 +993,7 @@
             "RightMargin": 1028.5618,
             "TopMargin": 633.6454,
             "BottomMargin": 626.3546,
+            "UserData": "main.paper",
             "Tag": 5538,
             "ActionTag": 213057665,
             "Size": {
@@ -1094,8 +1060,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1283.802,
-              "Y": 618.5563
+              "X": 2214.1558,
+              "Y": 460.8471
             },
             "Scale": {
               "ScaleX": 0.7943,
@@ -1104,17 +1070,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.5015,
-              "Y": 0.3436
+              "X": 0.8649,
+              "Y": 0.256
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1283.802,
-            "RightMargin": 1276.198,
-            "TopMargin": 1181.4437,
-            "BottomMargin": 618.5563,
+            "LeftMargin": 2214.1558,
+            "RightMargin": 345.8442,
+            "TopMargin": 1339.1528,
+            "BottomMargin": 460.8471,
             "UserData": "walk;drag",
             "Tag": 1836,
             "ActionTag": 616358293,

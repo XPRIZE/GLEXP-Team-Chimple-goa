@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 425,
+        "Duration": 460,
         "Speed": 1.0,
-        "ActivedAnimationName": "sun",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -1405359990,
@@ -118,7 +118,7 @@
               {
                 "X": 1863.0602,
                 "Y": 780.778,
-                "FrameIndex": 360,
+                "FrameIndex": 430,
                 "EasingData": {
                   "Type": 0
                 },
@@ -127,7 +127,7 @@
               {
                 "X": 1761.9683,
                 "Y": 780.2161,
-                "FrameIndex": 375,
+                "FrameIndex": 445,
                 "EasingData": {
                   "Type": 0
                 },
@@ -136,7 +136,7 @@
               {
                 "X": 1863.0602,
                 "Y": 780.778,
-                "FrameIndex": 390,
+                "FrameIndex": 460,
                 "EasingData": {
                   "Type": 0
                 },
@@ -152,7 +152,7 @@
               {
                 "X": 0.6389,
                 "Y": 0.6389,
-                "FrameIndex": 360,
+                "FrameIndex": 430,
                 "EasingData": {
                   "Type": 0
                 },
@@ -161,7 +161,7 @@
               {
                 "X": 0.6389,
                 "Y": 0.6389,
-                "FrameIndex": 375,
+                "FrameIndex": 445,
                 "EasingData": {
                   "Type": 0
                 },
@@ -170,7 +170,7 @@
               {
                 "X": 0.6389,
                 "Y": 0.6389,
-                "FrameIndex": 390,
+                "FrameIndex": 460,
                 "EasingData": {
                   "Type": 0
                 },
@@ -186,7 +186,7 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 360,
+                "FrameIndex": 430,
                 "EasingData": {
                   "Type": 0
                 },
@@ -195,7 +195,7 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 375,
+                "FrameIndex": 445,
                 "EasingData": {
                   "Type": 0
                 },
@@ -204,7 +204,7 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 390,
+                "FrameIndex": 460,
                 "EasingData": {
                   "Type": 0
                 },
@@ -253,7 +253,15 @@
                 "InnerActionType": "LoopAction",
                 "CurrentAniamtionName": "move",
                 "SingleFrameIndex": 0,
-                "FrameIndex": 320,
+                "FrameIndex": 310,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "move",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 311,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               },
@@ -327,7 +335,16 @@
               {
                 "X": 1058.7283,
                 "Y": 59.803,
-                "FrameIndex": 320,
+                "FrameIndex": 310,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1058.7283,
+                "Y": 59.803,
+                "FrameIndex": 311,
                 "EasingData": {
                   "Type": 0
                 },
@@ -406,7 +423,16 @@
               {
                 "X": 1.4987,
                 "Y": 1.4987,
-                "FrameIndex": 320,
+                "FrameIndex": 310,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.4987,
+                "Y": 1.4987,
+                "FrameIndex": 311,
                 "EasingData": {
                   "Type": 0
                 },
@@ -485,7 +511,16 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 320,
+                "FrameIndex": 310,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 311,
                 "EasingData": {
                   "Type": 0
                 },
@@ -527,7 +562,13 @@
             "Frames": [
               {
                 "Value": "busstop",
-                "FrameIndex": 320,
+                "FrameIndex": 310,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 311,
                 "Tween": false,
                 "ctype": "EventFrameData"
               },
@@ -556,6 +597,17 @@
             "ActionTag": -1149541059,
             "Property": "CColor",
             "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "B": 240
+                },
+                "FrameIndex": 311,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
               {
                 "Alpha": 255,
                 "Color": {
@@ -719,6 +771,12 @@
           "StartIndex": 395,
           "EndIndex": 425,
           "Name": "sun",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 430,
+          "EndIndex": 460,
+          "Name": "house1",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -1002,9 +1060,9 @@
             },
             "LeftMargin": 1182.0602,
             "RightMargin": 15.9399,
-            "TopMargin": 409.222,
+            "TopMargin": 409.2219,
             "BottomMargin": 170.778,
-            "UserData": "main.house",
+            "UserData": "main.house1",
             "Tag": 55,
             "ActionTag": 719477707,
             "Size": {
@@ -1197,27 +1255,30 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1058.7283,
-              "Y": 59.803
+              "X": -323.0262,
+              "Y": 58.8565
             },
             "Scale": {
               "ScaleX": 1.4987,
               "ScaleY": 1.4987
             },
-            "CColor": {},
+            "CColor": {
+              "B": 240
+            },
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.4136,
-              "Y": 0.0332
+              "X": -0.1262,
+              "Y": 0.0327
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1058.7283,
-            "RightMargin": 1501.2717,
-            "TopMargin": 1740.197,
-            "BottomMargin": 59.803,
+            "LeftMargin": -323.0262,
+            "RightMargin": 2883.0261,
+            "TopMargin": 1741.1436,
+            "BottomMargin": 58.8565,
+            "UserData": "main.bus",
             "Tag": 2506,
             "ActionTag": -1149541059,
             "Size": {
@@ -1242,12 +1303,12 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1195.7352,
-              "Y": 1473.2543
+              "X": 1195.7349,
+              "Y": 1473.2538
             },
             "Scale": {
-              "ScaleX": 1.5084,
-              "ScaleY": 1.5084
+              "ScaleX": 1.9095,
+              "ScaleY": 1.9095
             },
             "CColor": {},
             "IconVisible": false,
@@ -1259,10 +1320,10 @@
               "X": 0.1051,
               "Y": 0.1494
             },
-            "LeftMargin": 1061.2352,
-            "RightMargin": 1229.7648,
-            "TopMargin": 192.2457,
-            "BottomMargin": 1338.7543,
+            "LeftMargin": 1061.2349,
+            "RightMargin": 1229.7651,
+            "TopMargin": 192.2462,
+            "BottomMargin": 1338.7538,
             "UserData": "main.sun",
             "Tag": 4225,
             "ActionTag": 1125922385,

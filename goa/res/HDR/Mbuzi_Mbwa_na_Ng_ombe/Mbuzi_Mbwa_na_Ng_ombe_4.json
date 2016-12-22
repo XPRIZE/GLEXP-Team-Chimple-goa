@@ -201,6 +201,14 @@
             "Frames": [
               {
                 "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "blink",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
                 "CurrentAniamtionName": "Walk",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 99,
@@ -238,6 +246,15 @@
             "ActionTag": 1899779615,
             "Property": "Position",
             "Frames": [
+              {
+                "X": 260.8513,
+                "Y": 125.9671,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
               {
                 "X": 260.8513,
                 "Y": 125.9671,
@@ -284,6 +301,15 @@
               {
                 "X": 0.56,
                 "Y": 0.56,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.56,
+                "Y": 0.56,
                 "FrameIndex": 99,
                 "EasingData": {
                   "Type": 0
@@ -327,6 +353,15 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
                 "FrameIndex": 99,
                 "EasingData": {
                   "Type": 0
@@ -367,6 +402,12 @@
             "ActionTag": 1899779615,
             "Property": "FrameEvent",
             "Frames": [
+              {
+                "Value": "",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
               {
                 "Value": "Dog",
                 "FrameIndex": 99,
@@ -520,7 +561,7 @@
             "Scale9Height": 1,
             "AnchorPoint": {},
             "Position": {
-              "X": -273.4335,
+              "X": -260.0,
               "Y": 0.0
             },
             "Scale": {
@@ -530,15 +571,15 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.1068,
+              "X": -0.1016,
               "Y": 0.0
             },
             "PreSize": {
               "X": 1.2109,
               "Y": 1.0
             },
-            "LeftMargin": -273.4335,
-            "RightMargin": -266.5664,
+            "LeftMargin": -260.0,
+            "RightMargin": -280.0,
             "Tag": 29,
             "ActionTag": 1571569218,
             "Size": {
@@ -569,7 +610,7 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 0.0,
+              "X": -260.0,
               "Y": 0.0
             },
             "Scale": {
@@ -579,13 +620,15 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.0,
+              "X": -0.1016,
               "Y": 0.0
             },
             "PreSize": {
-              "X": 1.0,
+              "X": 1.2109,
               "Y": 0.35
             },
+            "LeftMargin": -260.0,
+            "RightMargin": -280.0,
             "TopMargin": 1170.0,
             "Tag": 30,
             "Children": [
@@ -631,7 +674,7 @@
                 "Tag": 43,
                 "ActionTag": -793369466,
                 "Size": {
-                  "X": 2560.0,
+                  "X": 3100.0,
                   "Y": 180.0
                 },
                 "Name": "Panel_3",
@@ -640,7 +683,7 @@
             ],
             "ActionTag": -1956110516,
             "Size": {
-              "X": 2560.0,
+              "X": 3100.0,
               "Y": 630.0
             },
             "Name": "Panel_2",
@@ -1201,7 +1244,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 589.79,
+              "X": 470.0,
               "Y": 1319.9998
             },
             "Scale": {
@@ -1211,15 +1254,15 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.2304,
+              "X": 0.1836,
               "Y": 0.7333
             },
             "PreSize": {
               "X": 0.2223,
               "Y": 0.1267
             },
-            "LeftMargin": 305.29,
-            "RightMargin": 1685.71,
+            "LeftMargin": 185.5,
+            "RightMargin": 1805.5,
             "TopMargin": 366.0002,
             "BottomMargin": 1205.9998,
             "Tag": 64,
@@ -1394,9 +1437,8 @@
             "RightMargin": 2299.1487,
             "TopMargin": 1674.033,
             "BottomMargin": 125.9671,
-            "UserData": "dog:drag",
+            "UserData": "walk;drag",
             "Tag": 1618,
-            "FrameEvent": "Dog",
             "ActionTag": 1899779615,
             "Size": {
               "X": 0.0,
@@ -1416,8 +1458,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1942.8071,
-              "Y": 101.1395
+              "X": 1512.2614,
+              "Y": 99.8452
             },
             "Scale": {
               "ScaleX": 0.51,
@@ -1426,19 +1468,20 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.7589,
-              "Y": 0.0562
+              "X": 0.5907,
+              "Y": 0.0555
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1942.8071,
-            "RightMargin": 617.1929,
-            "TopMargin": 1698.8605,
-            "BottomMargin": 101.1395,
-            "UserData": "run:drag",
+            "LeftMargin": 1512.2614,
+            "RightMargin": 1047.7386,
+            "TopMargin": 1700.1548,
+            "BottomMargin": 99.8452,
+            "UserData": "run;drag",
             "Tag": 2485,
+            "FrameEvent": "Goat",
             "ActionTag": -1589264040,
             "Size": {
               "X": 0.0,
