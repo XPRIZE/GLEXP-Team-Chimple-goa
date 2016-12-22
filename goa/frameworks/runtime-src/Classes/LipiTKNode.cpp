@@ -250,8 +250,11 @@ void LipiTKNode::touchEnded(Touch *touch, Event *event)
 void LipiTKNode::processLipiTK() {
     _isTouchEndedOrMovedOut = false;
     _strokes.push_back(_currentStroke);
-    lipiProcessTask = new LipiTKProcessTask(_lipiTKInterface, _strokes, this);
-    lipiProcessTask->execute();
+	if (_strokes.at(0)->getNumberOfPoints() > 20) {
+		lipiProcessTask = new LipiTKProcessTask(_lipiTKInterface, _strokes, this);
+		lipiProcessTask->execute();
+	}
+   
 }
 
 

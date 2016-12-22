@@ -179,8 +179,10 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 	Size s = target->getContentSize();
 	Rect rect = Rect(0, 0, s.width, s.height);
 	
-	if (rect.containsPoint(location) && _onTouch) {
+	if (rect.containsPoint(location) && _onTouch)
+	{
 		_colorPicked = false;
+		//_isTouchBegan = false;
 		_onTouch = false;
 		CCLOG("Toched Icon Name %s",target->getName().c_str());
 		if (target->getName().compare("decomon_icon_eye") == 0) {
@@ -201,6 +203,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				}
 				_movedNodes.clear();
 			}
+			CCLOG("in touch began updateCostume");
 			return true;
 		} else if (target->getName().compare("decomon_icon_mouth") == 0) {
 			if (_touched) {
@@ -301,11 +304,11 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			_onTouch = true;
 			return false;
 		}
-		else if (target->getName().compare("updated costume") == 0) {
-			//_flip = true;
-			CCLOG("you touched updated one");
-			return true;
-		}
+		//else if (target->getName().compare("updated costume") == 0) {
+		//	//_flip = true;
+		//	CCLOG("you touched updated one");
+		//	return true;
+		//}
 		else{
 			if (target->getName().find("decomon/decomon3/decomon_paintbucket") == 0) {
 				std::vector<std::string>::iterator it;
@@ -320,24 +323,27 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				_pickedColor_B = colour3.at(_colorIndex);
 				_colorPicked = true;
 				_onTouch = true;
+				CCLOG("color is picked");
 				return false;
 			}
 			else {
 				//if target is not a paint bucket set Scale to 1 and also creat duplicate
-				if (target->getScaleX() > 0 &&(!_colorPicked)) {
-					target->setScale(1);
-				}
-				else {
-					//target->setScale(-1);
-				}
+				
 				if (_helpIconIsClicked) {
 					this->removeChildByName("helpDragLayer");
 					_helpIconIsClicked = false;
 				}
 				if (target->getName().compare("updated costume") != 0) {
+					CCLOG("call generateDuplicates");
 					generateDuplicatesInAGrid(target);
 				}	
 				_flip = true;
+				CCLOG("in touch began else statement");
+				if (target->getScaleX() > 0 && (!_colorPicked)) {
+					target->setScale(1);
+					
+				}
+				CCLOG("Toched Target Name %s", target->getName().c_str());
 					return true;
 				}
 		}
@@ -360,7 +366,7 @@ void Decomon::onTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event)
 		auto start = touch->getLocation();
 		_paintingNode->drawSegment(touch->getPreviousLocation(), start, 30, Color4F(_pickedColor_R / 255.0f, _pickedColor_G / 255.0f, _pickedColor_B / 255.0f, 1.0f));
 	} else {		
-		CCLOG("name =%s", target->getName().c_str());
+		//CCLOG("name =%s", target->getName().c_str());
 		if (target->getName().find("decomon/decomon3/decomon_paintbucket") != 0) {
 			target->setPosition(touch->getLocation());
 		} 
@@ -396,30 +402,37 @@ void Decomon::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 			if (target->getName().find("decomon/decomon_eye_") == 0 && _eyeFlag) {
 				_eyeFlag = false;
 				menu->addPoints(1);
-			} else if (target->getName().find("decomon/decomon_mouth") == 0 && _mouthFlag) {
+			}
+			else if (target->getName().find("decomon/decomon_mouth") == 0 && _mouthFlag) {
 				_mouthFlag = false;
 				menu->addPoints(1);
-			} else if (target->getName().find("decomon/decomon_skate_") == 0 && _skateFlag) {
+			}
+			else if (target->getName().find("decomon/decomon_skate_") == 0 && _skateFlag) {
 				_skateFlag = false;
 				menu->addPoints(1);
-			} else if (target->getName().find("decomon/decomon3/decomon_nose_") == 0 && _noseFlag) {
+			}
+			else if (target->getName().find("decomon/decomon3/decomon_nose_") == 0 && _noseFlag) {
 				_noseFlag = false;
 				menu->addPoints(1);
-			} else if (target->getName().find("decomon/decomon2/decomon_headgear_") == 0 && _hornFlag) {
+			}
+			else if (target->getName().find("decomon/decomon2/decomon_headgear_") == 0 && _hornFlag) {
 				_hornFlag = false;
 				menu->addPoints(1);
-			} else if (target->getName().find("decomon/decomon1/decomon_gear_") == 0 && _gearFlag) {
+			}
+			else if (target->getName().find("decomon/decomon1/decomon_gear_") == 0 && _gearFlag) {
 				_gearFlag = false;
 				menu->addPoints(1);
-			} else if (target->getName().find("decomon/decomon3/decomon_hair_") == 0 && _mustacheFlag) {
+			}
+			else if (target->getName().find("decomon/decomon3/decomon_hair_") == 0 && _mustacheFlag) {
 				_mustacheFlag = false;
 				menu->addPoints(1);
 			}
+		}
 		} else if (target->getName().find("decomon/decomon3/decomon_paintbucket") == 0 && _paintFlag){
 			_paintFlag = false;
 			menu->addPoints(1);
 		}
-	}
+	
 	_onTouch = true;
 	
 }
@@ -453,8 +466,11 @@ void Decomon::itemInAGrid(std::vector<std::string> item, std::string name)
 		_costumeLayer->addChild(eye);
 		auto listener = EventListenerTouchOneByOne::create();
 		listener->onTouchBegan = CC_CALLBACK_2(Decomon::onTouchBegan, this);
-		listener->onTouchMoved = CC_CALLBACK_2(Decomon::onTouchMoved, this);
-		listener->onTouchEnded = CC_CALLBACK_2(Decomon::onTouchEnded, this);
+		CCLOG(" bucket number %d", item.at(i - 1).find("paintbucket"));
+		if (item.at(i - 1).find("paintbucket") != 25) {
+			listener->onTouchMoved = CC_CALLBACK_2(Decomon::onTouchMoved, this);
+			listener->onTouchEnded = CC_CALLBACK_2(Decomon::onTouchEnded, this);
+		}
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, eye);
 	}
 	
@@ -463,6 +479,8 @@ void Decomon::itemInAGrid(std::vector<std::string> item, std::string name)
 
 void Decomon::creatSpriteOnAlphabet(std::string fileName, float x, float y, float scale)
 {
+	CCLOG("createSpriteOnAlphabet");
+	CCLOG("png name", fileName.c_str());
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	if ((visibleSize.width / 2 - 700 < x) && (visibleSize.width / 2 + 900 > x) &&
 		(visibleSize.height / 2 - 500 < y) && (visibleSize.height / 2 + 700 > y)) {
@@ -495,7 +513,10 @@ void Decomon::creatSpriteOnAlphabet(std::string fileName, float x, float y, floa
 			eye->setPosition(Vec2(x, y));
 			eye->setName("updated costume");
 			eye->setScaleX(scale);
-			_alphabetLayer->addChild(eye);
+			if (eye->getBoundingBox().intersectsRect(_alphaNode->getBoundingBox())){
+				_alphabetLayer->addChild(eye);
+			}
+				
 		}
 
 

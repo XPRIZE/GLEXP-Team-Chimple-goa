@@ -95,7 +95,7 @@ void LipiTKProcessTask::onPostExecute() {
             {
                 std::string res = *itStr;
                 bool has_only_digits = false;
-                if(res.compare("1") == 0 || res.compare("2") == 0 ||  res.compare("3") == 0 || res.compare("4") == 0 || res.compare("5") == 0 || res.compare("6") == 0 || res.compare("6") == 0 || res.compare("8") == 0 || res.compare("9") == 0 || res.compare("0") == 0) {
+                if(res.compare("1") == 0 || res.compare("2") == 0 ||  res.compare("3") == 0 || res.compare("4") == 0 || res.compare("5") == 0 || res.compare("6") == 0 || res.compare("7") == 0 || res.compare("8") == 0 || res.compare("9") == 0 || res.compare("0") == 0) {
                     has_only_digits = true;
                 }
 

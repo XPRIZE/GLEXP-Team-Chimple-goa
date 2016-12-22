@@ -487,7 +487,8 @@ void Circle::puff()
 }
 void Circle::scoreBoard(float dt)
 {
-	menu->showScore();
+	//menu->showScore();
+	menu->showAnswer("wordPairs", _title);
 }
 void Circle::bigpuff(float dt)
 {
@@ -627,6 +628,7 @@ bool Circle::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				}
 		//	_eventDispatcher->removeEventListenersForTarget(target);
 			_choiceLabel.clear();
+			menu->wordPairList(_gameWord, _synonyms.at(_gameWord));
 			if (_scenePath.at("animation_select").compare("one") == 0)
 			{
 				_score++;

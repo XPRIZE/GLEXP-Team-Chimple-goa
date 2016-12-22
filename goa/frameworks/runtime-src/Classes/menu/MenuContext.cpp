@@ -73,6 +73,7 @@
 #include "../mini_games/PopCount.h"
 #include "../mini_games/DinoGame.h"
 #include "../mini_games/PatchTheWallScene.h"
+#include "../util/CommonLabel.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -1324,8 +1325,8 @@ void MenuContext::showScore() {
         _ps = nullptr;
         _greyLayer->addChild(LayerColor::create(Color4B(128.0, 128.0, 128.0, 200.0), visibleSize.width, visibleSize.height));
 
-        auto scoreNode = ScoreBoardContext::create(stars, this->gameName, this->sceneName);
-        scoreNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+       auto scoreNode = ScoreBoardContext::create(stars, this->gameName, this->sceneName);
+       scoreNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
         addChild(scoreNode);
     }), NULL));
 
@@ -1377,6 +1378,7 @@ int MenuContext::getMaxPoints() {
 void MenuContext::setMaxPoints(int maxPoints) {
     _maxPoints = maxPoints;
 }
+
 
 
 Rect MenuContext::getBoundingBox(cocos2d::Sprite* node) const
@@ -1518,3 +1520,139 @@ MenuContext::~MenuContext() {
     
 }
 
+/*
+  wordPairList
+  by defalut answer = "it is a word"
+*/
+void MenuContext::wordPairList(std::string question, std::string answer)
+{
+	if (answer.compare("it is a word") == 0) {
+		_listOfWords.push_back(question);
+	}
+	else
+	{
+		_wordsList.insert(std::pair < std::string, std::string>(question, answer));
+	}
+}
+
+/*
+ type is wordPair for synonyms,antonyms,homonyms,plurals
+ header = "Make same sounding word as : " (example)
+*/
+
+void MenuContext::showAnswer(std::string type, std::string header)
+{
+	auto spritecache1 = SpriteFrameCache::getInstance();
+	spritecache1->addSpriteFramesWithFile("dash/dash.plist");
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	auto bg = Sprite::create("gamemap_bg/game_map_bg1.png");
+	bg->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
+	this->addChild(bg);
+	
+	
+
+	float x = 0;
+	float y = bg->getContentSize().height * 0.8;
+	int blockSize = 0;
+	float labelWidth, labelHeight;
+	auto headerBlock = Sprite::createWithSpriteFrameName("dash/button.png");
+	headerBlock->setPositionX(visibleSize.width / 2);
+	headerBlock->setPositionY(visibleSize.height - headerBlock->getContentSize().height / 1.5);
+	headerBlock->setAnchorPoint(Vec2(0.5, 0.5));
+	this->addChild(headerBlock);
+	auto label1 = CommonLabel::createWithSystemFont(header.c_str(), "Arial", 100);
+	label1->setColor(Color3B(0, 0, 0));
+	label1->setPosition(Vec2(headerBlock->getContentSize().width / 2, headerBlock->getContentSize().height / 2));
+	label1->setAnchorPoint(Vec2(0.5, 0.5));
+	headerBlock->addChild(label1);
+
+	auto button = Button::create("scoreboard/scoremainground/closebuttonoff.png", "scoreboard/scoremainground/closebuttonon.png", "scoreboard/scoremainground/closebuttonoff.png", Widget::TextureResType::LOCAL);
+	button->addTouchEventListener(CC_CALLBACK_0(MenuContext::showScore, this));
+	button->setPosition(Vec2(200, visibleSize.height*0.9));
+	this->addChild(button);
+
+	if (type.compare("wordPairs") == 0) {
+		//dash/small_button_01.png
+		for (auto wordPair = _wordsList.begin(); wordPair != _wordsList.end(); wordPair++) {
+			int i = blockSize % 2;
+			auto duplicatNode = Node::create();
+			auto obj1 = Sprite::createWithSpriteFrameName("dash/big_button.png");
+			float xp = visibleSize.width - (obj1->getContentSize().width * 2);
+			/*obj1->setPositionX((xp / 3) *(i + 1) + obj1->getContentSize().width / 2 * (i + 1) + obj1->getContentSize().width / 2 * (i));
+			obj1->setPositionY(y);*/
+			obj1->setAnchorPoint(Vec2(0.5, 0.5));
+			duplicatNode->setPositionX((xp / 3) *(i + 1) + obj1->getContentSize().width / 2 * (i + 1) + obj1->getContentSize().width / 2 * (i));
+			duplicatNode->setPositionY(y);
+			duplicatNode->setContentSize(obj1->getContentSize());
+			duplicatNode->setAnchorPoint(Vec2(0.5, 0.5));
+			auto labelBase1 = Sprite::createWithSpriteFrameName("dash/small_button_01.png");
+			labelBase1->setPosition(Vec2(0,0));
+			labelBase1->setAnchorPoint(Vec2(0, 0));
+			duplicatNode->addChild(labelBase1);
+			auto label1 = CommonLabel::createWithSystemFont(wordPair->first.c_str(), "Arial", 100);
+			label1->setColor(Color3B(0, 0, 0));
+			label1->setPosition(Vec2(labelBase1->getContentSize().width / 2, labelBase1->getContentSize().height / 2));
+			label1->setAnchorPoint(Vec2(0.5, 0.5));
+			float xx = label1->getContentSize().width;
+
+
+			auto labelBase2 = Sprite::createWithSpriteFrameName("dash/arrow.png");
+			labelBase2->setPosition(Vec2(duplicatNode->getContentSize().width/2, duplicatNode->getContentSize().height / 2));
+			labelBase2->setAnchorPoint(Vec2(0.5, 0.5));
+			duplicatNode->addChild(labelBase2,1);
+
+
+			auto labelBase3 = Sprite::createWithSpriteFrameName("dash/small_button_02.png");
+			labelBase3->setPosition(Vec2(duplicatNode->getContentSize().width, 0));
+			labelBase3->setAnchorPoint(Vec2(1, 0));
+			duplicatNode->addChild(labelBase3);
+
+			auto label3 = CommonLabel::createWithSystemFont(wordPair->second.c_str(), "Arial", 100);
+			label3->setColor(Color3B(0, 0, 0));
+			label3->setPosition(Vec2(labelBase3->getContentSize().width / 2, labelBase3->getContentSize().height / 2));
+			label3->setAnchorPoint(Vec2(0.5, 0.5));
+
+			labelBase1->addChild(label1);
+			//duplicatNode->addChild(label2);
+			labelBase3->addChild(label3);
+			if (blockSize % 2 == 1) {
+				y -= obj1->getContentSize().height * 1.2;
+			}
+			labelWidth = label1->getContentSize().width;
+			labelHeight = label1->getContentSize().height;
+			blockSize++;
+			this->addChild(duplicatNode);
+		}
+	}
+	else if (type.compare("Words") == 0)
+	{
+		for (int index = 0; index < _listOfWords.size(); index++) {
+			int i = blockSize % 2;
+			auto obj1 = Sprite::createWithSpriteFrameName("dash/big_button.png");
+			float xp = visibleSize.width - (obj1->getContentSize().width * 2);
+			obj1->setPositionX((xp / 3) *(i + 1) + obj1->getContentSize().width / 2 * (i + 1) + obj1->getContentSize().width / 2 * (i));
+			obj1->setPositionY(y);
+			obj1->setAnchorPoint(Vec2(0.5, 0.5));
+			this->addChild(obj1);
+			auto label1 = CommonLabel::createWithSystemFont(_listOfWords.at(index).c_str(), "Arial", 100);
+			label1->setColor(Color3B(0, 0, 0));
+			label1->setPosition(Vec2(obj1->getContentSize().width / 2, obj1->getContentSize().height / 2));
+			label1->setAnchorPoint(Vec2(0.5, 0.5));
+			float xx = label1->getContentSize().width;
+			obj1->addChild(label1);
+			if (blockSize % 2 == 1) {
+				y -= obj1->getContentSize().height * 1.2;
+			}
+			labelWidth = label1->getContentSize().width;
+			labelHeight = label1->getContentSize().height;
+			blockSize++;
+		}
+
+	}
+	//duplicatNode->setContentSize(Size(labelWidth* _wordsList.size(), labelHeight*_wordsList.size()));
+	//duplicatNode->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
+	//duplicatNode->setAnchorPoint(Vec2(0.5, 0.5));
+	//this->addChild(duplicatNode);
+
+	
+}

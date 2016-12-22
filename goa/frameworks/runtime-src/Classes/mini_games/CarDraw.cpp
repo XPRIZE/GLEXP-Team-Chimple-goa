@@ -108,7 +108,7 @@ void CarDraw::postTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event, coc
 void CarDraw::postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint)
 {
 	cocos2d::ui::Button* refreshButton = _carDrawNodeLiPi->_button;
-	refreshButton->setEnabled(false);
+	
 	auto target = event->getCurrentTarget();
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Point localPoint = target->getParent()->getParent()->convertToNodeSpace(touchPoint);
@@ -119,6 +119,10 @@ void CarDraw::postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, coc
 	CCLOG("3333");
 	_carCurrentStroke->addPoints(localPoint.x, localPoint.y);
 	_carStrokes.push_back(_carCurrentStroke);
+	if (_carStrokes.at(0)->getNumberOfPoints() > 20) {
+		refreshButton->setEnabled(false);
+	}
+		//refreshButton->setEnabled(false);
 }
 
 void CarDraw::characterRecogination(std::vector<string> str)
