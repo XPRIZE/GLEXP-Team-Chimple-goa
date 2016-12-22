@@ -40,13 +40,26 @@ xc.Pinata = cc.Layer.extend({
     if(info.level >= 7){
         info.level = 7;
     }
+    
+    let topBoard =  new cc.Sprite();
+    topBoard.setTextureRect(cc.rect(0, 0, cc.director.getWinSize().width/2, 165));
+    topBoard.setColor(new cc.color(128, 196, 206,80));
+    topBoard.setPosition(cc.director.getWinSize().width/2,cc.director.getWinSize().height * 0.92);
+    this.addChild(topBoard,4);
+    topBoard.setName("topBoard");
+    var upText = new cc.LabelTTF(goa.TextGenerator.getInstance().translateString("choose same sounding word"),"res/fonts/BalooBhai-Regular.ttf",topBoard.height * 0.5);
+    upText.setPosition(topBoard.width/2,topBoard.height/2);
+    topBoard.addChild(upText);
 
     if(info.category == 1){
-         this.map =  goa.TextGenerator.getInstance().getAntonyms(15,info.level);
-    }else if(info.category == 2){
-         this.map =  goa.TextGenerator.getInstance().getSynonyms(15,info.level);
-    }else if(info.category == 3){
          this.map =  goa.TextGenerator.getInstance().getHomonyms(15,info.level);
+         upText.setString(goa.TextGenerator.getInstance().translateString("choose same sounding word"));
+    }else if(info.category == 2){
+         this.map =  goa.TextGenerator.getInstance().getAntonyms(15,info.level);
+         upText.setString(goa.TextGenerator.getInstance().translateString("choose opposite word"));
+    }else if(info.category == 3){
+         this.map =  goa.TextGenerator.getInstance().getSynonyms(15,info.level);
+         upText.setString(goa.TextGenerator.getInstance().translateString("choose meaning word"));
     }else{
         console.log("ERROR :: Your category is wrong , please check your code : line no : 23");
     }
@@ -59,18 +72,20 @@ xc.Pinata = cc.Layer.extend({
          heightTolrence = targetA.height * 0.25;
          this.stringColor = new cc.color(158,45,45,255);
          playerGUI = "pinatacream/player.png";
+         topBoard.setColor(new cc.color(251,107,124));
 
     }else if(gameTheme == "pinatacity"){
          cc.spriteFrameCache.addSpriteFrames(xc.Pinata.res.pinatacity_plist);
          this.gameBg = ccs.load(xc.Pinata.res.pinatacity_json,xc.path);
          this.stringColor = new cc.color(140,234,19,255);
          playerGUI = "pinatacity/player.png";
-
+         topBoard.setColor(new cc.color(36,184,184,80));
     }else if(gameTheme == "pinatajungle"){
          cc.spriteFrameCache.addSpriteFrames(xc.Pinata.res.pinatajungle_plist);
          this.gameBg = ccs.load(xc.Pinata.res.pinatajungle_json,xc.path);
          this.stringColor = new cc.color(124,252,0,255);
          playerGUI = "jungle/junglec/player.png";
+         topBoard.setColor(new cc.color(228,171,80,80));
     }
 
     this.addChild(this.gameBg.node);
@@ -95,7 +110,7 @@ xc.Pinata = cc.Layer.extend({
         this.mapKey = mapKeyArray[1];
     }
     var board = this.gameBg.node.getChildByName("board");
-    var boardText = new cc.LabelTTF(""+this.mapKey,"res/fonts/Marker Felt.ttf",120);
+    var boardText = new cc.LabelTTF(""+this.mapKey,"res/fonts/BalooBhai-Regular.ttf",120);
     boardText.setName(board.getName());
     boardText.setPosition(board.width/2,board.height/2);
     board.addChild(boardText);
@@ -103,7 +118,7 @@ xc.Pinata = cc.Layer.extend({
     if(gameTheme == "pinatacity"){  boardText.setColor(new cc.color(0,0,0,255));  }
     
     var targetA = this.gameBg.node.getChildByName("targeta");
-    var targetAText = new cc.LabelTTF(""+this.map[mapKeyArray[0]],"res/fonts/Marker Felt.ttf",80);
+    var targetAText = new cc.LabelTTF(""+this.map[mapKeyArray[0]],"res/fonts/BalooBhai-Regular.ttf",80);
     if(gameTheme == "pinatajungle") targetAText.setFontSize(80);
     if(gameTheme == "pinatacity"){  targetAText.setColor(new cc.color(0,0,0,255));  }
     targetAText.setName(targetA.getName());
@@ -112,7 +127,7 @@ xc.Pinata = cc.Layer.extend({
     targetA.dead = false;
 
     var targetB = this.gameBg.node.getChildByName("targetb");
-    var targetBText = new cc.LabelTTF(""+this.map[mapKeyArray[1]],"res/fonts/Marker Felt.ttf",80);
+    var targetBText = new cc.LabelTTF(""+this.map[mapKeyArray[1]],"res/fonts/BalooBhai-Regular.ttf",80);
     if(gameTheme == "pinatajungle") targetBText.setFontSize(80);
     if(gameTheme == "pinatacity"){  targetBText.setColor(new cc.color(0,0,0,255));  }
     targetBText.setName(targetB.getName());
@@ -121,7 +136,7 @@ xc.Pinata = cc.Layer.extend({
     targetB.dead = false;
 
     var targetC = this.gameBg.node.getChildByName("targetc");
-    var targetCText = new cc.LabelTTF(""+this.map[mapKeyArray[2]],"res/fonts/Marker Felt.ttf",80);
+    var targetCText = new cc.LabelTTF(""+this.map[mapKeyArray[2]],"res/fonts/BalooBhai-Regular.ttf",80);
     if(gameTheme == "pinatajungle") targetCText.setFontSize(80);
     if(gameTheme == "pinatacity"){  targetCText.setColor(new cc.color(0,0,0,255));  }
     targetCText.setName(targetC.getName());
@@ -378,7 +393,7 @@ xc.Pinata = cc.Layer.extend({
   },
 
   reCreateSceneElement : function(){
-   
+    this.getChildByName("topBoard").setVisible(true);
     let optionValue = this.getBoardAndOptionWord();
   
     var targetA = this.gameBg.node.getChildByName("targeta");
@@ -664,7 +679,7 @@ xc.Pinata = cc.Layer.extend({
     },
 
     gamePlay : function (correctObject){
-
+       this.getChildByName("topBoard").setVisible(false);
        var size = 0.5;
        if(this.bubblePlayer.getName() == "pinatacity"){size = 0.7};
         if(this.bubblePlayer.getName() == "pinatajungle"){size = 1.0};
