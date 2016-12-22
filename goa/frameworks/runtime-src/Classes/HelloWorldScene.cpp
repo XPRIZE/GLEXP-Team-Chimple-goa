@@ -192,8 +192,8 @@ void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
     
     if(data != NULL && !data->getCustomProperty().empty()) {
         
-        CCLOG("found user data for child %s", node->getName().c_str());
-        
+            CCLOG("found user data for child %s", node->getName().c_str());
+            CCLOG("user data for child %s", data->getCustomProperty().c_str());
         
             std::unordered_map<std::string, std::string> attributes = RPGConfig::parseUserData(data->getCustomProperty());
 

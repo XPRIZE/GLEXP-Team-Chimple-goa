@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 475,
+        "Duration": 545,
         "Speed": 1.0,
-        "ActivedAnimationName": "coin",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 805852678,
@@ -190,7 +190,7 @@
               {
                 "X": 589.9219,
                 "Y": 1400.5635,
-                "FrameIndex": 445,
+                "FrameIndex": 480,
                 "EasingData": {
                   "Type": 0
                 },
@@ -199,7 +199,7 @@
               {
                 "X": 589.9237,
                 "Y": 1400.5631,
-                "FrameIndex": 460,
+                "FrameIndex": 495,
                 "EasingData": {
                   "Type": 0
                 },
@@ -208,7 +208,7 @@
               {
                 "X": 589.9219,
                 "Y": 1400.5635,
-                "FrameIndex": 475,
+                "FrameIndex": 510,
                 "EasingData": {
                   "Type": 0
                 },
@@ -242,7 +242,7 @@
               {
                 "X": 1.4838,
                 "Y": 1.4838,
-                "FrameIndex": 445,
+                "FrameIndex": 480,
                 "EasingData": {
                   "Type": 0
                 },
@@ -251,7 +251,7 @@
               {
                 "X": 2.3511,
                 "Y": 2.3511,
-                "FrameIndex": 460,
+                "FrameIndex": 495,
                 "EasingData": {
                   "Type": 0
                 },
@@ -260,7 +260,7 @@
               {
                 "X": 1.4838,
                 "Y": 1.4838,
-                "FrameIndex": 475,
+                "FrameIndex": 510,
                 "EasingData": {
                   "Type": 0
                 },
@@ -294,7 +294,7 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 445,
+                "FrameIndex": 480,
                 "EasingData": {
                   "Type": 0
                 },
@@ -303,7 +303,7 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 460,
+                "FrameIndex": 495,
                 "EasingData": {
                   "Type": 0
                 },
@@ -312,7 +312,7 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 475,
+                "FrameIndex": 510,
                 "EasingData": {
                   "Type": 0
                 },
@@ -346,7 +346,7 @@
               {
                 "X": 2010.4166,
                 "Y": 1408.1458,
-                "FrameIndex": 445,
+                "FrameIndex": 515,
                 "EasingData": {
                   "Type": 0
                 },
@@ -355,7 +355,7 @@
               {
                 "X": 2010.4164,
                 "Y": 1408.1462,
-                "FrameIndex": 460,
+                "FrameIndex": 530,
                 "EasingData": {
                   "Type": 0
                 },
@@ -364,7 +364,7 @@
               {
                 "X": 2010.4166,
                 "Y": 1408.1458,
-                "FrameIndex": 475,
+                "FrameIndex": 545,
                 "EasingData": {
                   "Type": 0
                 },
@@ -398,7 +398,7 @@
               {
                 "X": 1.3963,
                 "Y": 1.3963,
-                "FrameIndex": 445,
+                "FrameIndex": 515,
                 "EasingData": {
                   "Type": 0
                 },
@@ -407,7 +407,7 @@
               {
                 "X": 2.0543,
                 "Y": 2.0543,
-                "FrameIndex": 460,
+                "FrameIndex": 530,
                 "EasingData": {
                   "Type": 0
                 },
@@ -416,7 +416,7 @@
               {
                 "X": 1.3963,
                 "Y": 1.3963,
-                "FrameIndex": 475,
+                "FrameIndex": 545,
                 "EasingData": {
                   "Type": 0
                 },
@@ -450,7 +450,7 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 445,
+                "FrameIndex": 515,
                 "EasingData": {
                   "Type": 0
                 },
@@ -459,7 +459,7 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 460,
+                "FrameIndex": 530,
                 "EasingData": {
                   "Type": 0
                 },
@@ -468,7 +468,7 @@
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 475,
+                "FrameIndex": 545,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1088,6 +1088,18 @@
           "EndIndex": 475,
           "Name": "coin",
           "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 515,
+          "EndIndex": 545,
+          "Name": "coin1",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 480,
+          "EndIndex": 510,
+          "Name": "coin2",
+          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -1204,28 +1216,28 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1360.7949,
-              "Y": 810.476
+              "X": 2700.8098,
+              "Y": 2240.479
             },
             "Scale": {
-              "ScaleX": 1.3715,
-              "ScaleY": 1.3715
+              "ScaleX": 1.5183,
+              "ScaleY": 1.5183
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5316,
-              "Y": 0.4503
+              "X": 1.055,
+              "Y": 1.2447
             },
             "PreSize": {
               "X": 0.1508,
               "Y": 0.2139
             },
-            "LeftMargin": 1167.7949,
-            "RightMargin": 1006.2051,
-            "TopMargin": 797.024,
-            "BottomMargin": 617.976,
-            "UserData": "drag;main.coin",
+            "LeftMargin": 2507.8098,
+            "RightMargin": -333.8098,
+            "TopMargin": -632.979,
+            "BottomMargin": 2047.979,
+            "UserData": "main.coin",
             "Tag": 47,
             "ActionTag": 805852678,
             "Size": {
@@ -1250,28 +1262,28 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 589.9222,
-              "Y": 1400.5634
+              "X": -680.0752,
+              "Y": 1490.5648
             },
             "Scale": {
-              "ScaleX": 1.6573,
-              "ScaleY": 1.6573
+              "ScaleX": 1.4838,
+              "ScaleY": 1.4838
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.2304,
-              "Y": 0.7781
+              "X": -0.2657,
+              "Y": 0.8281
             },
             "PreSize": {
               "X": 0.1508,
               "Y": 0.2144
             },
-            "LeftMargin": 396.9222,
-            "RightMargin": 1777.0778,
-            "TopMargin": 206.4366,
-            "BottomMargin": 1207.5634,
-            "UserData": "drag;main.coin",
+            "LeftMargin": -873.0752,
+            "RightMargin": 3047.0752,
+            "TopMargin": 116.4352,
+            "BottomMargin": 1297.5648,
+            "UserData": "main.coin2",
             "Tag": 49,
             "ActionTag": 1020551460,
             "Size": {
@@ -1296,28 +1308,28 @@
               "ScaleY": 0.4816
             },
             "Position": {
-              "X": 2010.4166,
-              "Y": 1408.1459
+              "X": 1050.4229,
+              "Y": 2478.1497
             },
             "Scale": {
-              "ScaleX": 1.5279,
-              "ScaleY": 1.5279
+              "ScaleX": 1.4656,
+              "ScaleY": 1.4656
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.7853,
-              "Y": 0.7823
+              "X": 0.4103,
+              "Y": 1.3767
             },
             "PreSize": {
               "X": 0.1508,
               "Y": 0.2139
             },
-            "LeftMargin": 1810.3528,
-            "RightMargin": 363.6472,
-            "TopMargin": 192.2701,
-            "BottomMargin": 1222.7299,
-            "UserData": "drag;main.coin",
+            "LeftMargin": 850.3591,
+            "RightMargin": 1323.641,
+            "TopMargin": -877.7336,
+            "BottomMargin": 2292.7336,
+            "UserData": "main.coin1",
             "Tag": 460,
             "ActionTag": -778992128,
             "Size": {
@@ -1342,8 +1354,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": -176.2215,
-              "Y": 1263.4192
+              "X": 947.0801,
+              "Y": 289.1708
             },
             "Scale": {
               "ScaleX": 0.268,
@@ -1352,17 +1364,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0688,
-              "Y": 0.7019
+              "X": 0.37,
+              "Y": 0.1607
             },
             "PreSize": {
               "X": 0.4879,
               "Y": 0.6939
             },
-            "LeftMargin": -800.7214,
-            "RightMargin": 2111.7214,
-            "TopMargin": -87.9192,
-            "BottomMargin": 638.9192,
+            "LeftMargin": 322.5801,
+            "RightMargin": 988.4199,
+            "TopMargin": 886.3292,
+            "BottomMargin": -335.3292,
             "Tag": 1954,
             "ActionTag": -1095414009,
             "Size": {
@@ -1387,8 +1399,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2823.2634,
-              "Y": 1188.8779
+              "X": 1284.4663,
+              "Y": 332.5677
             },
             "Scale": {
               "ScaleX": 0.2989,
@@ -1397,17 +1409,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 1.1028,
-              "Y": 0.6605
+              "X": 0.5017,
+              "Y": 0.1848
             },
             "PreSize": {
               "X": 0.4879,
               "Y": 0.6939
             },
-            "LeftMargin": 2198.7634,
-            "RightMargin": -887.7634,
-            "TopMargin": -13.3779,
-            "BottomMargin": 564.3779,
+            "LeftMargin": 659.9663,
+            "RightMargin": 651.0337,
+            "TopMargin": 842.9323,
+            "BottomMargin": -291.9323,
             "Tag": 1955,
             "ActionTag": -734128786,
             "Size": {
@@ -1432,8 +1444,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1357.4283,
-              "Y": 1890.6909
+              "X": 1344.4781,
+              "Y": 293.9418
             },
             "Scale": {
               "ScaleX": 0.2783,
@@ -1442,17 +1454,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5302,
-              "Y": 1.0504
+              "X": 0.5252,
+              "Y": 0.1633
             },
             "PreSize": {
               "X": 0.4879,
               "Y": 0.6939
             },
-            "LeftMargin": 732.9283,
-            "RightMargin": 578.0717,
-            "TopMargin": -715.1909,
-            "BottomMargin": 1266.1909,
+            "LeftMargin": 719.9781,
+            "RightMargin": 591.0219,
+            "TopMargin": 881.5582,
+            "BottomMargin": -330.5582,
             "Tag": 1956,
             "ActionTag": -23839862,
             "Size": {
@@ -1465,7 +1477,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/box_open.png",
+              "Path": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/box.png",
               "Plist": "Anansi_awapa_watu_hadithi_Anansi_gives_people_stor/Anansi_awapa_watu_hadithi_Anansi_gives_people_stor.plist"
             },
             "BlendFunc": {
@@ -1491,19 +1503,19 @@
               "Y": 0.1201
             },
             "PreSize": {
-              "X": 0.018,
-              "Y": 0.0256
+              "X": 0.3758,
+              "Y": 0.2989
             },
-            "LeftMargin": 827.4536,
-            "RightMargin": 770.5465,
-            "TopMargin": 1236.6536,
-            "BottomMargin": 25.3465,
+            "LeftMargin": 827.4639,
+            "RightMargin": 770.5361,
+            "TopMargin": 1236.6586,
+            "BottomMargin": 25.3414,
             "UserData": "main.box",
             "Tag": 1953,
             "ActionTag": 568579045,
             "Size": {
               "X": 962.0,
-              "Y": 538.0
+              "Y": 355.0
             },
             "Name": "box",
             "ctype": "SpriteObjectData"

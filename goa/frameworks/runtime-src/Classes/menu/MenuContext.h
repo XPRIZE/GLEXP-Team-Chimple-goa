@@ -56,7 +56,9 @@ public:
     
     static void pronounceWord(std::string word);
 
-    
+	void wordPairList(std::string question, std::string answer = "it is a word");
+	void showAnswer(std::string, std::string header);
+
     cocos2d::Rect getBoundingBox(cocos2d::Sprite* node) const;
     std::vector<cocos2d::Point> getPolygonPointsForSprite1(cocos2d::Sprite* node);
     
@@ -110,6 +112,7 @@ protected:
 	Calculator *_calculator;
     int _chimpAudioId;
     void expandMenu(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+	void closeCalc(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void pauseNodeAndDescendants(Node *pNode);
     void resumeNodeAndDescendants(Node *pNode);
     void showMap(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
@@ -165,6 +168,9 @@ protected:
                                                      const std::string selectedImage ,
                                                      const std::string disableImage,
                                         float xPosOffSet);
+
+	std::map<std::string, std::string> _wordsList;
+	std::vector<std::string> _listOfWords;
     
     
     

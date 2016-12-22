@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 430,
         "Speed": 1.0,
-        "ActivedAnimationName": "cloud",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 999704116,
@@ -378,8 +378,8 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 134.0825,
-                "Y": 54.4998,
+                "X": 486.158,
+                "Y": 94.5331,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -387,8 +387,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 734.5811,
-                "Y": 94.5331,
+                "X": 839.7991,
+                "Y": 99.6243,
                 "FrameIndex": 80,
                 "EasingData": {
                   "Type": 0
@@ -507,8 +507,8 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 318.3698,
-                "Y": 1448.8004,
+                "X": 360.48,
+                "Y": 1448.8029,
                 "FrameIndex": 170,
                 "EasingData": {
                   "Type": 0
@@ -516,8 +516,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 305.0322,
-                "Y": 1428.7926,
+                "X": 360.48,
+                "Y": 1428.7933,
                 "FrameIndex": 230,
                 "EasingData": {
                   "Type": 0
@@ -525,8 +525,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 305.0322,
-                "Y": 1428.7926,
+                "X": 360.48,
+                "Y": 1433.5844,
                 "FrameIndex": 290,
                 "EasingData": {
                   "Type": 0
@@ -534,8 +534,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 305.0322,
-                "Y": 1428.7926,
+                "X": 360.48,
+                "Y": 1428.7933,
                 "FrameIndex": 350,
                 "EasingData": {
                   "Type": 0
@@ -886,7 +886,7 @@
             "RightMargin": 1025.5778,
             "TopMargin": 182.73,
             "BottomMargin": 1357.27,
-            "UserData": "drag;main.cloud",
+            "UserData": "main.cloud",
             "Tag": 2358,
             "ActionTag": 999704116,
             "Size": {
@@ -932,7 +932,7 @@
             },
             "LeftMargin": 2126.9075,
             "RightMargin": 262.0925,
-            "TopMargin": 562.4117,
+            "TopMargin": 562.4116,
             "BottomMargin": 747.5883,
             "UserData": "main.board",
             "Tag": 57,
@@ -955,27 +955,27 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1315.012,
-              "Y": 117.8835
+              "X": 486.158,
+              "Y": 94.5331
             },
             "Scale": {
-              "ScaleX": 1.3221,
+              "ScaleX": -1.3221,
               "ScaleY": 1.3221
             },
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.5137,
-              "Y": 0.0655
+              "X": 0.1899,
+              "Y": 0.0525
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1315.012,
-            "RightMargin": 1244.988,
-            "TopMargin": 1682.1165,
-            "BottomMargin": 117.8835,
+            "LeftMargin": 486.158,
+            "RightMargin": 2073.842,
+            "TopMargin": 1705.4669,
+            "BottomMargin": 94.5331,
             "UserData": "walk;drag",
             "Tag": 529,
             "ActionTag": -1159348527,
@@ -1001,8 +1001,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 305.0322,
-              "Y": 1428.7926
+              "X": 360.48,
+              "Y": 1448.8029
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1011,17 +1011,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.1192,
-              "Y": 0.7938
+              "X": 0.1408,
+              "Y": 0.8049
             },
             "PreSize": {
               "X": 0.2812,
               "Y": 0.2911
             },
-            "LeftMargin": -54.9678,
-            "RightMargin": 1894.9678,
-            "TopMargin": 109.2074,
-            "BottomMargin": 1166.7926,
+            "LeftMargin": 0.48,
+            "RightMargin": 1839.52,
+            "TopMargin": 89.1971,
+            "BottomMargin": 1186.8029,
             "UserData": "drag",
             "Tag": 1990,
             "ActionTag": 1602341050,
@@ -1029,6 +1029,7 @@
               "X": 720.0,
               "Y": 524.0
             },
+            "Alpha": 0,
             "Name": "uniform_1",
             "ctype": "SpriteObjectData"
           }

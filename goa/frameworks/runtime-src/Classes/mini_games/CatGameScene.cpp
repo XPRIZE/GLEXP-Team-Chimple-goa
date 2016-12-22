@@ -182,10 +182,12 @@ void CatGame::update(float ft) {
 			this->removeChild(hippo1, true);
 			_catAnimation->play("run", true);
 			_catTailAnimation->pause();
+
 			for (int i = 0; i < _gapNodes.size(); i++) {
 				_gapNodes.at(i)->setVisible(true);
 			}
 			_score++;
+			_menuContext->wordPairList(_randomWord);
 			 if (_gameState.compare("up") == 0) {
 				float yPosition = _positionAfterGap;
 				float distanceX = _checkBox->getPositionX() - _movingBarrier->getPositionX();
@@ -299,6 +301,7 @@ void CatGame::gameEnd(float ft)
 	_menuContext->setMaxPoints(_maxPoints * 2);
 	_catAnimation->pause();
 	tailAnimation();
-	_menuContext->showScore();
+	//_menuContext->showScore();
+	_menuContext->showAnswer("Words", "List of Words");
 }
 

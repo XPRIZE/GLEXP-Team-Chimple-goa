@@ -108,6 +108,7 @@ void ExternalSkeletonCharacter::createExternalSkeletonNode(cocos2d::Node* node, 
     //create Skeleton
     this->externalSkeletonNode = (cocostudio::timeline::SkeletonNode*) CSLoader::createNode(filename);
     this->externalSkeletonActionTime = (cocostudio::timeline::ActionTimeline*) CSLoader::createTimeline(filename);
+    this->externalSkeletonActionTime->retain();
     
     if(this->externalSkeletonActionTime != NULL) {
         this->externalSkeletonNode->runAction(this->externalSkeletonActionTime);

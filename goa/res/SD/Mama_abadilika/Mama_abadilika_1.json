@@ -1594,7 +1594,6 @@
             },
             "LeftMargin": -260.0,
             "RightMargin": -280.0,
-            "UserData": "main.building",
             "Tag": 100,
             "ActionTag": 957335327,
             "Size": {
@@ -2674,6 +2673,53 @@
             },
             "Name": "girl",
             "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mama_abadilika/cow_body.png",
+              "Plist": "Mama_abadilika/Mama_abadilika.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1226.8792,
+              "Y": 1758.2523
+            },
+            "Scale": {
+              "ScaleX": 4.8604,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4792,
+              "Y": 0.9768
+            },
+            "PreSize": {
+              "X": 0.2695,
+              "Y": 0.2889
+            },
+            "LeftMargin": 881.8792,
+            "RightMargin": 988.1208,
+            "TopMargin": -218.2523,
+            "BottomMargin": 1498.2523,
+            "UserData": "main.building",
+            "Tag": 1872,
+            "ActionTag": -1472428536,
+            "Size": {
+              "X": 690.0,
+              "Y": 520.0
+            },
+            "Alpha": 0,
+            "Name": "cow_body_1",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
@@ -2685,6 +2731,8 @@
       },
       "UsedResources": [
         "girl.json",
+        "Mama_abadilika.plist",
+        "Mama_abadilika.png",
         "mother.json"
       ],
       "ctype": "GameFileData"
