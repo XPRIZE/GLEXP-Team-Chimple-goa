@@ -61,9 +61,12 @@ xc.Pinata = cc.Layer.extend({
          this.map =  goa.TextGenerator.getInstance().getSynonyms(15,info.level);
          upText.setString(goa.TextGenerator.getInstance().translateString("choose meaning word"));
     }else{
-        console.log("ERROR :: Your category is wrong , please check your code : line no : 23");
+      //  console.log("ERROR :: Your category is wrong , please check your code : line no : 23");
     }
     gameTheme = gameRand[info.scene - 1];
+
+
+    
 
     if(gameTheme == "pinatacream"){
          cc.spriteFrameCache.addSpriteFrames(xc.Pinata.res.pinatacream_plist);
@@ -106,6 +109,11 @@ xc.Pinata = cc.Layer.extend({
 
     var mapKeyArray = Object.keys(this.map);
     this.mapKey = mapKeyArray[this.getRandomInt(0,(3*this.counterlevelStatus-1))];
+ 
+    for(let i = 0 ; i < mapKeyArray.length ; i++){
+        console.log(" index = "+ i +"  "+ mapKeyArray[i]+"   --->   "+this.map[mapKeyArray[i]]);
+    }
+
     if(currentLevelValue == 1){
         this.mapKey = mapKeyArray[1];
     }
@@ -239,7 +247,7 @@ xc.Pinata = cc.Layer.extend({
                     var audioEngine = cc.AudioEngine.getInstance();
                     audioEngine.playEffect(xc.Pinata.res.pinata_ball_release_sound);
                     if(!((Math.abs(classReference.player.angle) < 175)  && (Math.abs(classReference.player.angle) > 5))){
-                        console.log("the range is not correct ");
+                     //   console.log("the range is not correct ");
                        
                         var againSetToOriginalPosition = function()
                         {
@@ -276,7 +284,7 @@ xc.Pinata = cc.Layer.extend({
                 var target = event.getCurrentTarget();
                 var location = target.convertToNodeSpace(touch.getLocation());
                 var targetRectangle = cc.rect(0,0, target.width, target.height);
-                console.log(classReference.flagSingleTouchFirst + " shooting mode ");
+              //  console.log(classReference.flagSingleTouchFirst + " shooting mode ");
                 if (cc.rectContainsPoint(targetRectangle, location) && !classReference.gameBg.node.getChildByName("board").freezShooting && !classReference.shootingFlag && classReference.flagSingleTouchFirst){
                    
                     return true;
@@ -328,7 +336,7 @@ xc.Pinata = cc.Layer.extend({
                     }
                     
                 }else{
-                    console.log("its wrong answer");
+                //    console.log("its wrong answer");
                 
                     if(target.getName() == "targetc"){
                         if(!targetC.dead){
@@ -404,9 +412,10 @@ xc.Pinata = cc.Layer.extend({
     targetB.getChildByName(targetB.getName()).setString(""+optionValue.second);
     targetC.getChildByName(targetC.getName()).setString(""+optionValue.third);
 
-   console.log("the map key value option : "+ optionValue.first);
-   console.log("the map key value option : "+ optionValue.second);
-   console.log("the map key value option : "+ optionValue.third);
+   console.log("the map key value option : "+ this.mapKey);
+   console.log("the value option 1 : "+ optionValue.first);
+   console.log("the value option 2 : "+ optionValue.second);
+   console.log("the value option 3 : "+ optionValue.third);
    
     var board = this.gameBg.node.getChildByName("board");
     var boardText = board.getChildByName(board.getName());
