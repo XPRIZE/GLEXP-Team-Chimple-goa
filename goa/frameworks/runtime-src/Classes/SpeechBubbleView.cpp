@@ -129,7 +129,7 @@ void SpeechBubbleView::destroySpeechBubbles() {
         button->removeFromParentAndCleanup(true);
     }
     this->removeFromParentAndCleanup(true);
-    EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_BUBBLE_DESTROYED_NOTIFICATION);
+    //EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_BUBBLE_DESTROYED_NOTIFICATION);
 }
 
 
