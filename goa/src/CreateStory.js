@@ -60,8 +60,8 @@ xc.CreateStoryLayer = cc.Layer.extend({
             this.addChild(this._help, 1);
         }
 
-        this._panel = new xc.ScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height - this._tabHeight), 4, 4, displayStories, this.loadOptions, this, false, true);
-        //this._panel = new xc.StoryCreateScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height), 4, 4, displayStories, this.loadOptions, this, false, true);
+        // this._panel = new xc.ScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height - this._tabHeight), 4, 4, displayStories, this.loadOptions, this, false, true);
+        this._panel = new xc.StoryCreateScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height), 4, 4, displayStories, this.loadOptions, this, false, true);
         this.addChild(this._panel);
     },
 

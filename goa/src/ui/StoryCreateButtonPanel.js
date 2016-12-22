@@ -66,29 +66,21 @@ xc.StoryCreateButtonPanel = ccui.Layout.extend({
                         var bookImageNode = bookNode.node.getChildByName("Node");
                         bookImageNode.setPosition(cc.p(bookImageNode.getPosition().x, bookImageNode.getPosition().y + 20));
                         cc.log('imageIconUrl 1111:' + imageIconUrl);
-                        imageIconUrl = "icons/page.png";
-                        var sprite2 = new cc.Sprite('#' + imageIconUrl);
+                        var texture = cc.textureCache.addImage(imageIconUrl);
+                        var sprite2 = new cc.Sprite(texture);
+                        sprite2.setScale(0.11, 0.11);
+                        //var sprite2 = new cc.Sprite('#' + imageIconUrl);
                         bookImageNode.addChild(sprite2);
                         var key = storyId + xc.storyLevel;
                         
                         var bookText = bookNode.node.getChildByName("TextField");
-                        var storyTitle = "";
-                        if(cc.sys.localStorage.getItem('titles')) {
-                            var storyJson = JSON.parse(cc.sys.localStorage.getItem('titles'));
-                            imageIconUrl = imageIconUrl.toLowerCase();
-                            var storyKey = imageIconUrl.replace("_thumbnail.png","");
-                            var storyKey = storyKey.replace("_thumbnail.jpg","");
-                            storyKey = storyKey.replace(/ /g, '_');
-                            storyTitle = storyJson[storyKey.trim()];
-                            if(!storyTitle) {
-                                cc.log('storyTitle didnt found %s', imageIconUrl);
-                            }
-                        }
+                        var storyTitle = "My Story!!!";
                         bookText.setLocalZOrder(1);
-                        bookText.setString(storyTitle);
+                        bookText.setString(storyTitle);                        
                         bookText.setFontName(xc.storyTitleFontName)
                         bookText.setTextColor(xc.storyTitleFontColor);
-                        bookText.setFontSize(xc.storyTitleFontSize);                        
+                        bookText.setFontSize(xc.storyTitleFontSize);
+                        bookText.setPlaceHolder("");
                         bookText.setTouchEnabled(false);
                         bookNode.node.setPosition(item.getPosition());
                         bookNode.node.setAnchorPoint(cc.p(0.5,0.5));
