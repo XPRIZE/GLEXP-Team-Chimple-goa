@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 370,
         "Speed": 1.0,
-        "ActivedAnimationName": "cloud",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 267996603,
@@ -228,6 +228,14 @@
                 "FrameIndex": 240,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walking",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 241,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -312,6 +320,15 @@
                 "X": 1315.4532,
                 "Y": 153.2352,
                 "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1315.4532,
+                "Y": 153.2352,
+                "FrameIndex": 241,
                 "EasingData": {
                   "Type": 0
                 },
@@ -404,6 +421,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0646,
+                "Y": 1.0646,
+                "FrameIndex": 241,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -488,6 +514,15 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 241,
                 "EasingData": {
                   "Type": 0
                 },
@@ -811,7 +846,7 @@
             "RightMargin": 948.5743,
             "TopMargin": 134.0743,
             "BottomMargin": 1405.9257,
-            "UserData": "drag;main.cloud",
+            "UserData": "main.cloud",
             "Tag": 301,
             "ActionTag": 267996603,
             "Size": {
@@ -832,27 +867,27 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1315.4532,
-              "Y": 153.2352
+              "X": 1319.4347,
+              "Y": 388.3369
             },
             "Scale": {
-              "ScaleX": 1.0646,
-              "ScaleY": 1.0646
+              "ScaleX": 0.8173,
+              "ScaleY": 0.8173
             },
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.5138,
-              "Y": 0.0851
+              "X": 0.5154,
+              "Y": 0.2157
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1315.4532,
-            "RightMargin": 1244.5468,
-            "TopMargin": 1646.7648,
-            "BottomMargin": 153.2352,
+            "LeftMargin": 1319.4347,
+            "RightMargin": 1240.5653,
+            "TopMargin": 1411.6631,
+            "BottomMargin": 388.3369,
             "UserData": "walking;drag",
             "Tag": 1265,
             "ActionTag": -1452417789,
@@ -901,7 +936,7 @@
             "RightMargin": 884.0266,
             "TopMargin": 1215.377,
             "BottomMargin": 22.6231,
-            "UserData": "drag;main.jug",
+            "UserData": "main.jug",
             "Tag": 1801,
             "ActionTag": 2135284581,
             "Size": {

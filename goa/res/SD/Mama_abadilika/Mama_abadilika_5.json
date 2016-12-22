@@ -23,6 +23,19 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -1168466205,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "cowmoo",
+                "FrameIndex": 555,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -1256858666,
             "Property": "ActionValue",
             "Frames": [
@@ -925,7 +938,6 @@
             "LeftMargin": -260.0,
             "RightMargin": -280.0,
             "TopMargin": 1080.0,
-            "UserData": "main.cow",
             "Tag": 121,
             "ActionTag": -907679395,
             "Size": {
@@ -934,6 +946,52 @@
             },
             "Name": "Panel_2",
             "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mama_abadilika/Kwa_hut.png",
+              "Plist": "Mama_abadilika/Mama_abadilika.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2919.5215,
+              "Y": 767.6081
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1404,
+              "Y": 0.4264
+            },
+            "PreSize": {
+              "X": 0.4078,
+              "Y": 0.3972
+            },
+            "LeftMargin": 2397.5215,
+            "RightMargin": -881.5215,
+            "TopMargin": 674.8918,
+            "BottomMargin": 410.1081,
+            "UserData": "main.cow",
+            "Tag": 2719,
+            "ActionTag": -1168466205,
+            "Size": {
+              "X": 1044.0,
+              "Y": 715.0
+            },
+            "Name": "Kwa_hut_1",
+            "ctype": "SpriteObjectData"
           },
           {
             "FileData": {

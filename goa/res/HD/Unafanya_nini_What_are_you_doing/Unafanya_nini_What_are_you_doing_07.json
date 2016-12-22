@@ -128,10 +128,18 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "listen",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "listen",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 385,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -155,6 +163,15 @@
                 "X": 1347.9441,
                 "Y": 60.3942,
                 "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1347.9441,
+                "Y": 60.3942,
+                "FrameIndex": 385,
                 "EasingData": {
                   "Type": 0
                 },
@@ -184,6 +201,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.2,
+                "Y": 1.2,
+                "FrameIndex": 385,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -205,6 +231,15 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 385,
                 "EasingData": {
                   "Type": 0
                 },

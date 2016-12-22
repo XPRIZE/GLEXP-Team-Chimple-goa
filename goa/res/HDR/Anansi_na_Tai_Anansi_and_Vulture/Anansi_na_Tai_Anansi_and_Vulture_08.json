@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 420,
         "Speed": 1.0,
-        "ActivedAnimationName": "sun",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 248845502,
@@ -308,6 +308,14 @@
                 "FrameIndex": 240,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walking",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 241,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -347,6 +355,15 @@
                 "X": 1121.5225,
                 "Y": 294.0382,
                 "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1121.5225,
+                "Y": 294.0382,
+                "FrameIndex": 241,
                 "EasingData": {
                   "Type": 0
                 },
@@ -394,6 +411,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 241,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -433,6 +459,15 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 241,
                 "EasingData": {
                   "Type": 0
                 },
@@ -635,15 +670,13 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1231.4376,
-              "Y": 909.7386
+              "X": 1231.439,
+              "Y": 909.7571
             },
             "Scale": {
               "ScaleX": 1.3679,
               "ScaleY": 1.3679
             },
-            "RotationSkewX": 159.3599,
-            "RotationSkewY": 159.3428,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
@@ -654,10 +687,10 @@
               "X": 0.4879,
               "Y": 0.6939
             },
-            "LeftMargin": 606.9376,
-            "RightMargin": 704.0624,
-            "TopMargin": 265.7615,
-            "BottomMargin": 285.2386,
+            "LeftMargin": 606.939,
+            "RightMargin": 704.061,
+            "TopMargin": 265.7429,
+            "BottomMargin": 285.2571,
             "UserData": "main.sun",
             "Tag": 1162,
             "ActionTag": 248845502,
@@ -680,8 +713,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1121.5225,
-              "Y": 294.0382
+              "X": -443.9268,
+              "Y": 315.7756
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -690,17 +723,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.4381,
-              "Y": 0.1634
+              "X": -0.1734,
+              "Y": 0.1754
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1121.5225,
-            "RightMargin": 1438.4775,
-            "TopMargin": 1505.9618,
-            "BottomMargin": 294.0382,
+            "LeftMargin": -443.9268,
+            "RightMargin": 3003.9268,
+            "TopMargin": 1484.2244,
+            "BottomMargin": 315.7756,
             "UserData": "walk;drag",
             "Tag": 1163,
             "ActionTag": 1579474302,
