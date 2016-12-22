@@ -629,8 +629,10 @@ void HelloWorld::processUseInBackPackMessages(std::vector<MessageContent*>showMe
         if(ownerNode != NULL) {
             CCLOG("ownerNode getName %s", ownerNode->getName().c_str());
             RPGSprite* ownerSprite = NULL;
+            ExternalSkeletonCharacter ownerExternalCharacterSprite;
             if(content != NULL && ownerNode != NULL) {
                 ownerSprite = dynamic_cast<RPGSprite *>(ownerNode);
+                
                 useItemFromBagAnimation(ownerSprite);
                 
                 std::vector<std::string> elems;
@@ -645,6 +647,27 @@ void HelloWorld::processUseInBackPackMessages(std::vector<MessageContent*>showMe
                 {
                     std::string item = *(it);
                     this->sqlite3Helper->deleteItemFromMyBag(this->getIsland().c_str(), item.c_str());
+                }
+                
+                
+                if(!content->getPostOutComeAction().empty()) {
+                    CCLOG("content->getPostOutComeAction() %s", content->getPostOutComeAction().c_str());
+                    //play animation
+                                        
+                    std::vector<std::string> elems;
+                    std::stringstream ss;
+                    ss.str(content->getPostOutComeAction());
+                    std::string item;
+                    while (getline(ss, item, ',')) {
+                        elems.push_back(item);
+                    }
+                    
+                    for (std::vector<std::string>::iterator it = elems.begin() ; it != elems.end(); ++it)
+                    {
+                        std::string item = *(it);
+                        this->sqlite3Helper->insertItemToMyBag(this->getIsland().c_str(), item.c_str());
+                    }
+                    
                 }
             }
         }
@@ -1018,14 +1041,17 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
                 if(animationNode != NULL) {
                     cocostudio::timeline::ActionTimeline* timeline = NULL;
                     bool timeLineExists = false;
-                    if(animationNode->getActionTimeLine() == NULL) {
-                        timeline =  CSLoader::createTimeline(animFile);
-                        animationNode->setActionTimeLine(timeline);
-                        timeLineExists = false;
-                    } else {
-                        timeline = animationNode->getActionTimeLine();
-                        timeLineExists = true;
-                    }
+                    timeline =  CSLoader::createTimeline(animFile);
+                    animationNode->setActionTimeLine(timeline);
+                    animationNode->getSprite()->runAction(timeline);
+//                    if(animationNode->getActionTimeLine() == NULL) {
+//                        timeline =  CSLoader::createTimeline(animFile);
+//                        animationNode->setActionTimeLine(timeline);
+//                        timeLineExists = false;
+//                    } else {
+//                        timeline = animationNode->getActionTimeLine();
+//                        timeLineExists = true;
+//                    }
                     
                     if(timeline != NULL && animationSpriteNode != NULL && animationNode != NULL )
                     {
@@ -1048,9 +1074,9 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
                         if(animationNode != NULL) {
                             animationNode->setVisible(true);
                             if(animationNode->getSprite() != NULL) {
-                                if(!timeLineExists) {
-                                    animationNode->getSprite()->runAction(timeline);
-                                }
+//                                if(!timeLineExists) {
+//                                    animationNode->getSprite()->runAction(timeline);
+//                                }
                                 
                                 bool playInLoop = content->getPlayAnimationInLoop() == 1 ? true : false;
                                 if(!animName.empty()) {

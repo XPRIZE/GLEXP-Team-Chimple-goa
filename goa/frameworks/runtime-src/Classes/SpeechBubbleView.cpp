@@ -41,6 +41,7 @@ bool SpeechBubbleView::initialize(std::unordered_map<int, std::string> textMap, 
         auto button = Button::create("Button_Normal.png", "Button_Press.png", "Button_Disable.png", ui::Widget::TextureResType::LOCAL);
         
         button->setPosition(Point(position.x, position.y + delta));
+        CCLOG("Text to speak %s", it->second.c_str());
         button->setTitleText(it->second);
         button->setTitleColor(cocos2d::Color3B::BLACK);
         button->setTitleFontSize(SPEECH_TEXT_FONT_SIZE);
