@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 390,
         "Speed": 1.0,
-        "ActivedAnimationName": "pencil",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -1234385537,
@@ -366,6 +366,14 @@
                 "FrameIndex": 240,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "blink",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 241,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -405,6 +413,15 @@
                 "X": 1175.7238,
                 "Y": 230.1358,
                 "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1175.7238,
+                "Y": 230.1358,
+                "FrameIndex": 241,
                 "EasingData": {
                   "Type": 0
                 },
@@ -452,6 +469,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.1861,
+                "Y": 1.1861,
+                "FrameIndex": 241,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -491,6 +517,15 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 241,
                 "EasingData": {
                   "Type": 0
                 },
@@ -694,8 +729,8 @@
               "ScaleX": 3.9058,
               "ScaleY": 3.9058
             },
-            "RotationSkewX": 504.95,
-            "RotationSkewY": 504.9449,
+            "RotationSkewX": 145.3341,
+            "RotationSkewY": 145.329,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
@@ -710,7 +745,7 @@
             "RightMargin": 1988.8859,
             "TopMargin": 857.8094,
             "BottomMargin": 727.1906,
-            "UserData": "drag;main.pencil",
+            "UserData": "main.pencil",
             "Tag": 48,
             "ActionTag": -1954415420,
             "Size": {
@@ -731,8 +766,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1175.7238,
-              "Y": 230.1358
+              "X": 3033.5288,
+              "Y": 222.3501
             },
             "Scale": {
               "ScaleX": 1.1861,
@@ -741,17 +776,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.4593,
-              "Y": 0.1279
+              "X": 1.185,
+              "Y": 0.1235
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1175.7238,
-            "RightMargin": 1384.2762,
-            "TopMargin": 1569.8643,
-            "BottomMargin": 230.1358,
+            "LeftMargin": 3033.5288,
+            "RightMargin": -473.5288,
+            "TopMargin": 1577.6499,
+            "BottomMargin": 222.3501,
             "UserData": "walk;drag",
             "Tag": 1994,
             "ActionTag": -2015590343,

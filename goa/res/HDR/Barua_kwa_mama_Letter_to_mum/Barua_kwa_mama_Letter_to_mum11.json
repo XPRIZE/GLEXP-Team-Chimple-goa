@@ -15,7 +15,7 @@
             "Frames": [
               {
                 "InnerActionType": "NoLoopAction",
-                "CurrentAniamtionName": "walk",
+                "CurrentAniamtionName": "blink",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
                 "Tween": false,
@@ -93,8 +93,8 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 2402.0801,
-                "Y": 464.8455,
+                "X": 2214.1558,
+                "Y": 460.8471,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -501,6 +501,7 @@
             "RightMargin": 993.0569,
             "TopMargin": 350.1566,
             "BottomMargin": 758.8434,
+            "UserData": "drag",
             "Tag": 2697,
             "ActionTag": -541580506,
             "Size": {
@@ -521,8 +522,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1553.8745,
-              "Y": 464.7802
+              "X": 2214.1558,
+              "Y": 460.8471
             },
             "Scale": {
               "ScaleX": 0.7943,
@@ -531,17 +532,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.607,
-              "Y": 0.2582
+              "X": 0.8649,
+              "Y": 0.256
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1553.8745,
-            "RightMargin": 1006.1255,
-            "TopMargin": 1335.2197,
-            "BottomMargin": 464.7802,
+            "LeftMargin": 2214.1558,
+            "RightMargin": 345.8442,
+            "TopMargin": 1339.1528,
+            "BottomMargin": 460.8471,
             "UserData": "walk;drag",
             "Tag": 1836,
             "ActionTag": 616358293,
@@ -636,6 +637,7 @@
             "RightMargin": 1117.9065,
             "TopMargin": 633.6541,
             "BottomMargin": 626.3459,
+            "UserData": "drag",
             "Tag": 5538,
             "ActionTag": 213057665,
             "Size": {

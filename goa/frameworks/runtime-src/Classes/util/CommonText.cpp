@@ -31,7 +31,7 @@ void CommonText::onEnterTransitionDidFinish() {
     auto elasticDown = EaseIn::create(scaleDown, 2.0);
     runAction(Sequence::create(elasticUp, elasticDown, NULL));
     
-    MenuContext::pronounceWord(this->getString());
+//    MenuContext::pronounceWord(this->getString());
 }
 
 void CommonText::onExitTransitionDidStart() {

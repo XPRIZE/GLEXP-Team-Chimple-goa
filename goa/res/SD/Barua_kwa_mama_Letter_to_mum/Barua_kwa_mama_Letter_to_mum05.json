@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 455,
         "Speed": 1.0,
-        "ActivedAnimationName": "chair",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -228698139,
@@ -396,6 +396,14 @@
                 "FrameIndex": 320,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "blink",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 321,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -444,6 +452,15 @@
                 "X": 1083.9553,
                 "Y": 275.6601,
                 "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1083.9553,
+                "Y": 275.6601,
+                "FrameIndex": 321,
                 "EasingData": {
                   "Type": 0
                 },
@@ -500,6 +517,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.0793,
+                "Y": 1.0793,
+                "FrameIndex": 321,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -548,6 +574,15 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 320,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 321,
                 "EasingData": {
                   "Type": 0
                 },
@@ -745,11 +780,7 @@
               "ScaleX": 1.3167,
               "ScaleY": 1.3167
             },
-            "CColor": {
-              "R": 177,
-              "G": 177,
-              "B": 169
-            },
+            "CColor": {},
             "IconVisible": false,
             "PrePosition": {
               "X": 0.6243,
@@ -763,7 +794,7 @@
             "RightMargin": 724.7681,
             "TopMargin": 768.1714,
             "BottomMargin": 390.8286,
-            "UserData": "drag;main.chair",
+            "UserData": "main.chair",
             "Tag": 34,
             "ActionTag": -1863999199,
             "Size": {
@@ -868,8 +899,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1083.9553,
-              "Y": 275.6601
+              "X": -517.3885,
+              "Y": 348.9452
             },
             "Scale": {
               "ScaleX": -1.0793,
@@ -878,17 +909,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.4234,
-              "Y": 0.1531
+              "X": -0.2021,
+              "Y": 0.1939
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1083.9553,
-            "RightMargin": 1476.0447,
-            "TopMargin": 1524.3398,
-            "BottomMargin": 275.6601,
+            "LeftMargin": -517.3885,
+            "RightMargin": 3077.3884,
+            "TopMargin": 1451.0548,
+            "BottomMargin": 348.9452,
             "UserData": "walk;drag",
             "Tag": 1879,
             "ActionTag": -267824666,
