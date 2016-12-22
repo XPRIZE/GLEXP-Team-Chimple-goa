@@ -160,8 +160,8 @@ xc.Bubble_Alphabets = cc.Layer.extend({
       var widthAreaExtendPart = cc.director.getWinSize().width - gamePlayAreaWidth;
       var extendedGameX = (gamePlayAreaWidth + (gamePlayAreaWidth + widthAreaExtendPart))/2;
 
-      this.extendLetter = new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/BalooBhai-Regular.ttf", widthAreaExtendPart);
-      this.extendLetter.setPosition(extendedGameX - (widthAreaExtendPart * 0.2), cc.director.getWinSize().height * 0.5);
+      this.extendLetter = new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/BalooBhai-Regular.ttf", widthAreaExtendPart*2);
+      this.extendLetter.setPosition(extendedGameX - (widthAreaExtendPart * 0.2), cc.director.getWinSize().height * 0.4);
       this.addChild(this.extendLetter);
       this.extendLetter.setAnchorPoint(0.5,0);
 
@@ -192,7 +192,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         if (this.gamestate == this.gamestates.ready) {
             // Game is ready for player input
         } 
-        else if (this.gamestate == this.gamestates.shootbubble) {
+        else if (this.gamestate == this.gamestates.shootbubble && !menuContext.isGamePaused()) {
             // Bubble is moving
             this.stateShootBubble(dt);
            

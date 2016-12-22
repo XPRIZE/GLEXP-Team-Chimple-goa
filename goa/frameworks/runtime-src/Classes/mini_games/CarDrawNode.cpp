@@ -27,7 +27,7 @@ cocos2d::Sprite * carDrawNode::createDrawingBoard()
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto drawingBoardSprite = Sprite::create();
-	drawingBoardSprite->setTextureRect(Rect(0, 0, visibleSize.width, visibleSize.height * 0.8));
+	drawingBoardSprite->setTextureRect(Rect(0, 0, visibleSize.width, visibleSize.height)); //*0.8
 	drawingBoardSprite->setColor(Color3B::BLACK);
 	drawingBoardSprite->setOpacity(50);
 	return drawingBoardSprite;
