@@ -354,9 +354,11 @@ void Dash::myCharacterJumping(int jumpCount)
 		_jumpCount++;
 		if (_jumpCount == 14) {
 			if (_scenePath.at("winning_animation").compare("null") == 0) {
-				iceLandThemeAnimation();
+				//iceLandThemeAnimation();
+				menu->showAnswer("wordPairs","wordPair");
 			} else {
-					winningCelebration();
+					//winningCelebration();
+				menu->showAnswer("wordPairs","wordPair");
 			}	
 		} else {
 			wordGenerateWithOptions();
@@ -559,6 +561,7 @@ bool Dash::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
             std::string message = constructSendMessage("enemy",_gameScore);
             CCLOG("message %s", message.c_str());
             menu->sendMessageToPeer(message);
+			menu->wordPairList(_gameWord, _synonyms.at(_gameWord));
 		}
 		else {
 			menu->addPoints(-1);
