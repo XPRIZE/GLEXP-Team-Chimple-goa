@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 310,
         "Speed": 1.0,
-        "ActivedAnimationName": "chair",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -1967651800,
@@ -568,6 +568,14 @@
                 "FrameIndex": 160,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "blink",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 161,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -616,6 +624,15 @@
                 "X": 1028.093,
                 "Y": 199.6334,
                 "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1028.093,
+                "Y": 199.6334,
+                "FrameIndex": 161,
                 "EasingData": {
                   "Type": 0
                 },
@@ -672,6 +689,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.7943,
+                "Y": 0.7943,
+                "FrameIndex": 161,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -720,6 +746,15 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 161,
                 "EasingData": {
                   "Type": 0
                 },
@@ -869,6 +904,8 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
@@ -959,11 +996,11 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2146.1382,
-              "Y": 1272.3279
+              "X": 2146.1377,
+              "Y": 1272.3252
             },
             "Scale": {
-              "ScaleX": 0.1832,
+              "ScaleX": 0.9535,
               "ScaleY": 0.9535
             },
             "CColor": {},
@@ -976,10 +1013,10 @@
               "X": 0.2336,
               "Y": 0.5506
             },
-            "LeftMargin": 1548.1382,
-            "RightMargin": 413.8618,
-            "TopMargin": 32.1721,
-            "BottomMargin": 776.8279,
+            "LeftMargin": 1548.1377,
+            "RightMargin": 413.8623,
+            "TopMargin": 32.1748,
+            "BottomMargin": 776.8252,
             "UserData": "main.door",
             "Tag": 6850,
             "ActionTag": -1967651800,
@@ -1026,7 +1063,7 @@
             "RightMargin": 724.7681,
             "TopMargin": 768.1714,
             "BottomMargin": 390.8286,
-            "UserData": "drag;main.chair",
+            "UserData": "main.chair",
             "Tag": 34,
             "ActionTag": -1863999199,
             "Size": {
@@ -1072,7 +1109,7 @@
             "RightMargin": 1541.2073,
             "TopMargin": 724.7776,
             "BottomMargin": 384.2225,
-            "UserData": "drag;main.chair",
+            "UserData": "main.chair",
             "Tag": 2697,
             "ActionTag": -541580506,
             "Size": {
@@ -1135,8 +1172,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1028.093,
-              "Y": 199.6334
+              "X": 1638.126,
+              "Y": 193.4509
             },
             "Scale": {
               "ScaleX": 0.7943,
@@ -1145,17 +1182,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.4016,
-              "Y": 0.1109
+              "X": 0.6399,
+              "Y": 0.1075
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1028.093,
-            "RightMargin": 1531.907,
-            "TopMargin": 1600.3666,
-            "BottomMargin": 199.6334,
+            "LeftMargin": 1638.126,
+            "RightMargin": 921.874,
+            "TopMargin": 1606.5491,
+            "BottomMargin": 193.4509,
             "UserData": "walk;drag",
             "Tag": 1836,
             "ActionTag": 616358293,

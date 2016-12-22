@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 475,
         "Speed": 1.0,
-        "ActivedAnimationName": "leaf",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -417049177,
@@ -968,6 +968,14 @@
                 "FrameIndex": 240,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walking",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 242,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -1007,6 +1015,15 @@
                 "X": 1112.8818,
                 "Y": 463.5241,
                 "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1112.8818,
+                "Y": 463.5241,
+                "FrameIndex": 242,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1054,6 +1071,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.7761,
+                "Y": 0.7761,
+                "FrameIndex": 242,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -1093,6 +1119,15 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 242,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1248,6 +1283,8 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
@@ -1586,7 +1623,7 @@
               "Y": 0.9922
             },
             "LeftMargin": -100.6486,
-            "RightMargin": 896.6486,
+            "RightMargin": 896.6487,
             "TopMargin": -1169.614,
             "BottomMargin": 1183.614,
             "UserData": "main.tree",
@@ -1837,8 +1874,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1112.8818,
-              "Y": 463.5241
+              "X": -398.4318,
+              "Y": 477.1055
             },
             "Scale": {
               "ScaleX": 0.7761,
@@ -1847,17 +1884,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.4347,
-              "Y": 0.2575
+              "X": -0.1556,
+              "Y": 0.2651
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1112.8818,
-            "RightMargin": 1447.1182,
-            "TopMargin": 1336.4758,
-            "BottomMargin": 463.5241,
+            "LeftMargin": -398.4318,
+            "RightMargin": 2958.4319,
+            "TopMargin": 1322.8945,
+            "BottomMargin": 477.1055,
             "UserData": "walk;drag",
             "Tag": 1629,
             "ActionTag": -1982792466,

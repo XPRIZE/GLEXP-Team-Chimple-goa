@@ -218,11 +218,38 @@ void Pillar::onEnterTransitionDidFinish()
 	_Ref.push_back(background->getChildByName(_scenePath.at("point4")));
 	_Ref.push_back(background->getChildByName(_scenePath.at("point5")));
 	//  _Ref.at(0)->setContentSize(cocos2d::Size(100, 100));
-	_pointRef = (Sprite*)_Ref.at(0);
+	//_pointRef = (Sprite*)_Ref.at(0);
+	
+	if (_scenePath.at("animation_select").compare("one") == 0)
+	{
+		_pointRef = (Sprite*)background->getChildByName("base_1");
+	}
+	else if (_scenePath.at("animation_select").compare("two") == 0)
+	{
+		_pointRef = (Sprite*)_Ref.at(0);
+		_pointRef->setContentSize(Size(200 + extraX, _pointRef->getContentSize().height));
+	}
+	else if (_scenePath.at("animation_select").compare("three") == 0)
+	{
+		_pointRef = (Sprite*)background->getChildByName("holder_2");
+		//_pointRef->setContentSize(Size(200 + extraX, _pointRef->getContentSize().height));
+	}
 	//_pointRef->setAnchorPoint(Vec2(0, 0.5));
-	_pointRef->setContentSize(Size(200, _pointRef->getContentSize().height));
+	//_pointRef->setContentSize(Size(200 + extraX, _pointRef->getContentSize().height));
 	//_pointRef->setVisible(true);
+	auto node = DrawNode::create();
+	//auto nodeWidth = sssize.width * 1.25;
+	Vec2 vertices[] =
+	{
+		Vec2(_pointRef->getPositionX(),_pointRef->getPositionY()),
+		Vec2(_pointRef->getPositionX()+ 500 + extraX, _pointRef->getPositionY()),
 
+		Vec2(_pointRef->getPositionX()+ 500 + extraX,_pointRef->getPositionY()),
+		Vec2(_pointRef->getPositionX(),_pointRef->getPositionY())
+
+	};
+	node->drawPolygon(vertices, 4, Color4F(1.0f, 0.3f, 0.3f, 0), 3, Color4F(0.2f, 0.2f, 0.2f, 1));
+	//addChild(node);
 
 	auto swingAction = CallFunc::create(CC_CALLBACK_0(Pillar::blink, this, "blink", false));
 	runAction(RepeatForever::create(Sequence::create(DelayTime::create(1 + (rand() % 60) / 30.0), swingAction, NULL)));
@@ -293,8 +320,8 @@ void Pillar::gameHelp()
 	auto optionLayer = _topLabel;
 	auto optionSize = optionLayer->getContentSize();
 	auto optionPosition = optionLayer->getPosition();
-	auto help = HelpLayer::create(Rect(_pointRef->getPositionX(), _ladder->getContentSize().height + _ladder->getPositionY(), labelSize.width , labelSize.height ),Rect(0,0,0,0));
-	help->click(Vec2(_pointRef->getPositionX(), _ladder->getContentSize().height + _ladder->getPositionY() ));
+	auto help = HelpLayer::create(Rect(_pointRef->getPositionX() + extraX, _ladder->getContentSize().height + _ladder->getPositionY(), labelSize.width , labelSize.height ),Rect(0,0,0,0));
+	help->click(Vec2(_pointRef->getPositionX() + extraX, _ladder->getContentSize().height + _ladder->getPositionY() ));
 	help->setName("helpLayer");
 	this->addChild(help);
 
@@ -308,9 +335,9 @@ void Pillar::blink(std::string animationName, bool loop)
 void Pillar::ladderMove()
 {
    
-	auto rotate = RotateBy::create(0.9, 40);
+	auto rotate = RotateBy::create(1.0, 40);
 	auto rev = rotate->reverse();
-	auto rotate1 = RotateBy::create(0.9, -40);
+	auto rotate1 = RotateBy::create(1.0, -40);
 	auto rev1 = rotate1->reverse();
 	auto seq = Sequence::create(rotate, rev, rotate1, rev1, NULL);
     auto action = RepeatForever::create(seq);
@@ -382,9 +409,6 @@ void Pillar::update(float dt)
 		
 		if (_cakeMove->getBoundingBox().intersectsRect((_pointRef)->getBoundingBox()) && _rotateFlag)
 		{
-			CCLOG("caaakeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-			
-			
 			_cakeMove->stopAllActions();
 			if (_count == 0)
 			{
@@ -392,16 +416,19 @@ void Pillar::update(float dt)
 				{
 					_cakeMove->setPositionX(_pointRef->getPositionX() + 40 + extraX);
 					_cakeMove->setPositionY(_pointRef->getPositionY() + 70);
+					
 				}
 				else if (_scenePath.at("animation_select").compare("three") == 0)
 				{
 					_cakeMove->setPositionX(_pointRef->getPositionX()+ 15 + extraX);
 					_cakeMove->setPositionY(_pointRef->getPositionY()+ 40);
+					
 				}
 				else
 				{
 					_cakeMove->setPositionX(_pointRef->getPositionX() + extraX);
-					_cakeMove->setPositionY(_pointRef->getPositionY());
+					_cakeMove->setPositionY(_pointRef->getPositionY() + 80);
+					
 				}
 			}
 			else
@@ -420,6 +447,7 @@ void Pillar::update(float dt)
 					_pointRef = _cakeMove;
 					//_cakeMove = nullptr;
 					_pillarRef.push_back(_cakeMove);
+					CCLOG("cake initial = %d", _pillarRef.size());
 				//	_cakeMove = nullptr;
 					_score++;
 					_count++;
@@ -440,13 +468,26 @@ void Pillar::update(float dt)
 				
 				if (_pillarRef.size() != 0 )
 				{
+					CCLOG("initial = % d", _pillarRef.size());
 					this->removeChild(_pillarRef.at(_pillarRef.size() - 1));
 					_pillarRef.pop_back();
 					CCLOG("size pop = % d", _pillarRef.size());
 					if (_pillarRef.size() == 0)
 					{
 						CCLOG("size if pop = % d", _pillarRef.size());
-						_pointRef = (Sprite*)_Ref.at(0);
+						if (_scenePath.at("animation_select").compare("one") == 0)
+						{
+							_pointRef = (Sprite*)background->getChildByName("base_1");
+						}
+						else if (_scenePath.at("animation_select").compare("two") == 0)
+						{
+							_pointRef = (Sprite*)_Ref.at(0);
+
+						}
+						else if (_scenePath.at("animation_select").compare("three") == 0)
+						{
+							_pointRef = (Sprite*)background->getChildByName("holder_2");
+						}
 						_count = 0;
 					}
 					else
@@ -458,7 +499,19 @@ void Pillar::update(float dt)
 				}
 				else
 				{
-					_pointRef = (Sprite*)_Ref.at(0);
+					if (_scenePath.at("animation_select").compare("one") == 0)
+					{
+						_pointRef = (Sprite*)background->getChildByName("base_1");
+					}
+					else if (_scenePath.at("animation_select").compare("two") == 0)
+					{
+						_pointRef = (Sprite*)_Ref.at(0);
+
+					}
+					else if (_scenePath.at("animation_select").compare("three") == 0)
+					{
+						_pointRef = (Sprite*)background->getChildByName("holder_2");
+					}
 				}
 				_cakeMove = nullptr;
 				//_score--;
@@ -468,10 +521,10 @@ void Pillar::update(float dt)
 				CCLOG("score = %d", _score);
 				_rotateFlag = false;
 			}
-			CCLOG("size = %d", _pillarRef.size());
+			//CCLOG("size = %d", _pillarRef.size());
 			if (_pillarRef.size() == 4)
 			{
-				CCLOG("size = %d", _pillarRef.size());
+				//CCLOG("size = %d", _pillarRef.size());
 				menu->showScore();
 			}
 			//_cakeMove->setPosition(_Ref.at(0)->getPositionX(), _Ref.at(0)->getPositionY());

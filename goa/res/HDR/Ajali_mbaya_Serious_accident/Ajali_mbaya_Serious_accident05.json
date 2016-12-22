@@ -244,18 +244,10 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "NoLoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "move",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 242,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              },
-              {
-                "InnerActionType": "NoLoopAction",
-                "CurrentAniamtionName": "-- ALL --",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 300,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -297,15 +289,6 @@
                 "X": 1854.4691,
                 "Y": 1070.5037,
                 "FrameIndex": 242,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 1854.4691,
-                "Y": 1070.5037,
-                "FrameIndex": 300,
                 "EasingData": {
                   "Type": 0
                 },
@@ -353,15 +336,6 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": -1.2853,
-                "Y": 1.2853,
-                "FrameIndex": 300,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -401,15 +375,6 @@
                 "X": 179.4613,
                 "Y": 179.4667,
                 "FrameIndex": 242,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 179.4613,
-                "Y": 179.4667,
-                "FrameIndex": 300,
                 "EasingData": {
                   "Type": 0
                 },
@@ -460,18 +425,10 @@
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "NoLoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "-- ALL --",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 242,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              },
-              {
-                "InnerActionType": "NoLoopAction",
-                "CurrentAniamtionName": "-- ALL --",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 300,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -513,15 +470,6 @@
                 "X": 382.2883,
                 "Y": 704.8434,
                 "FrameIndex": 242,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 382.2883,
-                "Y": 704.8434,
-                "FrameIndex": 300,
                 "EasingData": {
                   "Type": 0
                 },
@@ -569,15 +517,6 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": -1.3808,
-                "Y": 1.3808,
-                "FrameIndex": 300,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -617,15 +556,6 @@
                 "X": 178.6374,
                 "Y": 178.6374,
                 "FrameIndex": 242,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 178.6374,
-                "Y": 178.6374,
-                "FrameIndex": 300,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1619,7 +1549,7 @@
             "RightMargin": 1106.0087,
             "TopMargin": 179.7869,
             "BottomMargin": 1351.2131,
-            "UserData": "drag;main.sun",
+            "UserData": "main.sun",
             "Tag": 1648,
             "ActionTag": 2133044501,
             "Size": {

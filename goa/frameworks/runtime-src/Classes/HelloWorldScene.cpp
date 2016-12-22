@@ -192,8 +192,8 @@ void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
     
     if(data != NULL && !data->getCustomProperty().empty()) {
         
-        CCLOG("found user data for child %s", node->getName().c_str());
-        
+            CCLOG("found user data for child %s", node->getName().c_str());
+            CCLOG("user data for child %s", data->getCustomProperty().c_str());
         
             std::unordered_map<std::string, std::string> attributes = RPGConfig::parseUserData(data->getCustomProperty());
 
@@ -534,31 +534,34 @@ void HelloWorld::processTextMessage(std::unordered_map<int, std::string> textMap
     bool isExternalCharacter = dynamic_cast<ExternalSkeletonCharacter *>(selectedNode);
     bool isSkeletonCharacter = dynamic_cast<SkeletonCharacter *>(selectedNode);
     bool isRPGSprite = dynamic_cast<RPGSprite *>(selectedNode);
-    if(isExternalCharacter) {
-        ExternalSkeletonCharacter* character = dynamic_cast<ExternalSkeletonCharacter *>(selectedNode);
-        Point touch_point = character->convertToWorldSpace(character->getExternalSkeletonNode()->getPosition());
-        SpeechBubbleView* speechBubble = SpeechBubbleView::create(textMap, Point(touch_point.x, touch_point.y + character->getExternalSkeletonNode()->getBoundingBox().size.height));
-        
-        this->setSpeechBubbleAlreadyVisible(true);
-        
-        this->addChild(speechBubble, 1);
-        
-    } else if(isSkeletonCharacter) {
-        Point touch_point = this->skeletonCharacter->convertToWorldSpace(this->skeletonCharacter->getSkeletonNode()->getPosition());
-        
-        SpeechBubbleView* speechBubble = SpeechBubbleView::create(textMap, Point(touch_point.x, touch_point.y + this->skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height));
-        this->setSpeechBubbleAlreadyVisible(true);
-        
-        this->addChild(speechBubble, 1);
-        
-    } else if(isRPGSprite) {
-        RPGSprite* sprite = dynamic_cast<RPGSprite *>(selectedNode);
-        Point touch_point = sprite->convertToWorldSpace(sprite->getSprite()->getPosition());
-        SpeechBubbleView* speechBubble = SpeechBubbleView::create(textMap, Point(touch_point.x, touch_point.y + sprite->getSprite()->getBoundingBox().size.height));
-        this->setSpeechBubbleAlreadyVisible(true);
-        
-        this->addChild(speechBubble, 1);
+    if(!this->getSpeechBubbleAlreadyVisible()) {
+        if(isExternalCharacter) {
+            ExternalSkeletonCharacter* character = dynamic_cast<ExternalSkeletonCharacter *>(selectedNode);
+            Point touch_point = character->convertToWorldSpace(character->getExternalSkeletonNode()->getPosition());
+            SpeechBubbleView* speechBubble = SpeechBubbleView::create(textMap, Point(touch_point.x, touch_point.y + character->getExternalSkeletonNode()->getBoundingBox().size.height));
+            
+            this->setSpeechBubbleAlreadyVisible(true);
+            
+            this->addChild(speechBubble, 1);
+            
+        } else if(isSkeletonCharacter) {
+            Point touch_point = this->skeletonCharacter->convertToWorldSpace(this->skeletonCharacter->getSkeletonNode()->getPosition());
+            
+            SpeechBubbleView* speechBubble = SpeechBubbleView::create(textMap, Point(touch_point.x, touch_point.y + this->skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height));
+            this->setSpeechBubbleAlreadyVisible(true);
+            
+            this->addChild(speechBubble, 1);
+            
+        } else if(isRPGSprite) {
+            RPGSprite* sprite = dynamic_cast<RPGSprite *>(selectedNode);
+            Point touch_point = sprite->convertToWorldSpace(sprite->getSprite()->getPosition());
+            SpeechBubbleView* speechBubble = SpeechBubbleView::create(textMap, Point(touch_point.x, touch_point.y + sprite->getSprite()->getBoundingBox().size.height));
+            this->setSpeechBubbleAlreadyVisible(true);
+            
+            this->addChild(speechBubble, 1);
+        }
     }
+
 }
 
 void HelloWorld::processUseInBackPackAndPutInBackPackMessages(std::vector<MessageContent*>showMessages) {

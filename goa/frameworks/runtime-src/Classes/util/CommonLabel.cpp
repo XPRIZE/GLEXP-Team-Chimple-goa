@@ -12,11 +12,13 @@
 USING_NS_CC;
 
 bool CommonLabel::touchSpeak(Touch* touch, Event* event) {
-    auto n = getParent()->convertTouchToNodeSpace(touch);
-    auto rect = this->getBoundingBox();
-    if(rect.containsPoint(n))
-    {
-        MenuContext::pronounceWord(this->getString());
+    if(isVisible() && getOpacity() > 0) {
+        auto n = getParent()->convertTouchToNodeSpace(touch);
+        auto rect = this->getBoundingBox();
+        if(rect.containsPoint(n))
+        {
+            MenuContext::pronounceWord(this->getString());
+        }
     }
     return false;
 }
@@ -29,7 +31,7 @@ void CommonLabel::onEnterTransitionDidFinish() {
     auto elasticDown = EaseIn::create(scaleDown, 2.0);
     runAction(Sequence::create(elasticUp, elasticDown, NULL));
     
-    MenuContext::pronounceWord(this->getString());
+//    MenuContext::pronounceWord(this->getString());
 }
 
 void CommonLabel::onExitTransitionDidStart() {

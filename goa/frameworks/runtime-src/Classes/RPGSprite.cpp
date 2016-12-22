@@ -132,7 +132,6 @@ void RPGSprite::update(float dt) {
 }
 
 void RPGSprite::checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter) {
-    localStorageGetItem(WALKING_STARTED, &walkingStarted);
         Vec2 point = Vec2(skeletonCharacter->getSkeletonNode()->getPosition().x, skeletonCharacter->getSkeletonNode()->getPosition().y);
         Vec2 mainSkeletonPositionFromBottom = point;
         Vec2 mainSkeletonPositionFromTop = Point(skeletonCharacter->getSkeletonNode()->getPosition().x, skeletonCharacter->getSkeletonNode()->getPosition().y + skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height);
