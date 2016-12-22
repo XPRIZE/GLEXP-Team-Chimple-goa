@@ -23,7 +23,7 @@ xc.CreateStoryLayer = cc.Layer.extend({
     ctor: function () {
         this._super();
         this._name = "CreateStoryLayer";
-        this._tabHeight = 300;
+        this._tabHeight = 256;
         this._controlPanel = null;
         this._contentPanelWidth = cc.director.getWinSize().height; //assuming landscape
         this._configPanelWidth = (cc.director.getWinSize().width - this._contentPanelWidth) / 2;
@@ -34,13 +34,13 @@ xc.CreateStoryLayer = cc.Layer.extend({
     init: function () {
         //create new content panel for showing all stories
         //add button panel
-        this._buttonPanel = new xc.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 2, 6, xc.storyConfigurationObject.editStory, new xc.ButtonHandler(this.handleSelectItem, this));
+        this._buttonPanel = new xc.ButtonPanel(new cc.p(0, cc.director.getWinSize().height - this._tabHeight), cc.size(cc.director.getWinSize().width, this._tabHeight), 1, 1, xc.storyConfigurationObject.createStory, new xc.ButtonHandler(this.handleSelectItem, this));
         this._buttonPanel.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
         this._buttonPanel.setBackGroundColor(xc.PRIMARY_COLOR);
 
-        this.addChild(this._buttonPanel);
+        this.addChild(this._buttonPanel, 2);
         this._optionPanel = new xc.ScrollableButtonPanel(cc.p(0,0), cc.size(500, 500), 2, 2, xc.storyConfigurationObject.editPage, this.chooseEditPageOption, this, true);
-        this._optionPanel.setVisible(false);
+       this._optionPanel.setVisible(false);
         this._optionPanel.setOpacity(150);
         this._optionPanel.setColor(xc.TERTIARY_COLOR);
         this.addChild(this._optionPanel, 1);
@@ -61,6 +61,7 @@ xc.CreateStoryLayer = cc.Layer.extend({
         }
 
         this._panel = new xc.ScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height - this._tabHeight), 4, 4, displayStories, this.loadOptions, this, false, true);
+        //this._panel = new xc.StoryCreateScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height), 4, 4, displayStories, this.loadOptions, this, false, true);
         this.addChild(this._panel);
     },
 
@@ -86,18 +87,7 @@ xc.CreateStoryLayer = cc.Layer.extend({
             xc.currentStoryIndex = xc.storiesJSON.stories.length;
             cc.log('xc.currentStoryIndex:' + xc.currentStoryIndex);
             this.createNewStory();
-        } else {
-            //share over bluetooth
-            //load particular story clicked
-            //find if there is element submit_recipe in HTML
-            // if (document.getElementById("fes_post_title") != undefined) {
-            //     xc.story.storyTitleText = document.getElementById("fes_post_title").value;
-            // }
-            // if (document.getElementById("submit_recipe") != undefined) {
-            //     document.getElementById("submit_recipe").click();
-            //     xc.customSprite = [];
-            // }
-        }
+        } 
     },
 
     loadOptions: function (sender) {
@@ -232,10 +222,12 @@ xc.CreateStoryScene.load = function(layer) {
         t_resources.push(layer.res[i]);
     }
 
-    cc.spriteFrameCache.addSpriteFrames(xc.CreateStoryLayer.res.thumbnails_plist);
-    cc.spriteFrameCache.addSpriteFrames(xc.CreateStoryLayer.res.record_animation_plist);
     cc.LoaderScene.preload(t_resources, function () {            
         //config data
+        cc.spriteFrameCache.addSpriteFrames(xc.CatalogueLayer.res.thumbnails_plist);
+        cc.spriteFrameCache.addSpriteFrames(xc.CatalogueLayer.res.record_animation_plist);
+        cc.spriteFrameCache.addSpriteFrames(xc.CatalogueLayer.res.book_cover_plist);
+        
         if(cc.sys.isNative) {
             xc.storyConfigurationObject = cc.loader.getRes(xc.CreateStoryLayer.res.Config_json);
             xc.storyPlayConfigurationObject = cc.loader.getRes(xc.CreateStoryLayer.res.EditPlayConfig_json);
@@ -280,7 +272,10 @@ xc.CreateStoryLayer.res = {
         record_animation_plist: xc.path + "wikitaki/recording.plist",
         Config_json: xc.path + "wikitaki/misc/storyConfig.json",
         EditPlayConfig_json: xc.path + "wikitaki/misc/playConfig.json",
-        OnlyStoryPlayConfig_json: xc.path + "wikitaki/misc/onlyPlayConfig.json"
+        OnlyStoryPlayConfig_json: xc.path + "wikitaki/misc/onlyPlayConfig.json",
+        book_json: xc.path + "template/book.json",
+        book_cover_plist: xc.path + "template.plist",
+        book_cover_json: xc.path + "template.png"        
 };
 
 

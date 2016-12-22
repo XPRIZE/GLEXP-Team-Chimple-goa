@@ -102,6 +102,9 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
                 node.setTitleFontName(xc.storyFontName);
                 node.setTouchEnabled(true);
                 var output = "";
+                var secondOutput = "";
+                var secondQTest = "";
+
                 if(element.length > 30) {
                     var i = 30;
                     while(i != element.length && element.charAt(i) != " ")
@@ -110,10 +113,28 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
                     }
                     output += element.substring(0,i);
                     output += "\n";
-                    output += element.substring(i, element.length);
+                    secondQTest = element.substring(i, element.length);
+
+                    if(secondQTest.length > 30) 
+                    {
+                        var j = 30;
+                        while(j != secondQTest.length && secondQTest.charAt(j) != " ")
+                        {
+                            j++;
+                        }
+                        secondOutput += secondQTest.substring(0,j);
+                        secondOutput += "\n";
+                        secondOutput += secondQTest.substring(j, secondQTest.length);
+
+                    } else {
+                        secondOutput = secondQTest;
+                    }    
+
+                    output += secondOutput;                        
                 } else {
                     output = element;
                 }
+                
                 cc.log("output:" + output);
                 node.setTitleText(output);
                 node.addTouchEventListener(this.answerSelected, this);
