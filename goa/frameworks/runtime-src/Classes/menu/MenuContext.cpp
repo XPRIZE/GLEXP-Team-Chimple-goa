@@ -1121,6 +1121,11 @@ void MenuContext::addCalculator() {
 	_calcLayer->setContentSize(visibleSize);
 	this->addChild(_calcLayer, 4);
 
+	Button *_closeButton = Button::create("menu/close.png", "menu/close.png", "menu/close.png", Widget::TextureResType::LOCAL);
+	_closeButton->addTouchEventListener(CC_CALLBACK_2(MenuContext::closeCalc, this));
+	_closeButton->setPosition(Vec2(visibleSize.width - _closeButton->getContentSize().width, visibleSize.height - _closeButton->getContentSize().height));
+	_calcLayer->addChild(_closeButton, 5);
+
 	auto _label = LabelTTF::create("Enter cheat code", "Arial", 200);
 	_label->setAnchorPoint(Vec2(.5, .5));
 	_label->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * .75));
@@ -1130,6 +1135,17 @@ void MenuContext::addCalculator() {
 	_calculator = new Calculator();
 	_calculator->createCalculator(Vec2(visibleSize.width / 2, visibleSize.height /3), Vec2(0.5, 0.5), 0.7, 0.7);
 	_calcLayer->addChild(_calculator, 5);
+}
+
+void MenuContext::closeCalc(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
+	if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
+		_menuButton->setEnabled(true);
+		removeChild(_greyLayer);
+		removeChild(_settingLayer);
+		resumeNodeAndDescendants(_main);
+		this->removeChild(_calcLayer);
+		this->unscheduleUpdate();
+	}
 }
 
 void MenuContext::update(float d)
