@@ -55,7 +55,7 @@ void DoorNode::draw(cocos2d::DrawNode * paintingNode, cocos2d::Point fromPoint, 
 void DoorNode::broadCastRecognizedChars(std::vector<std::string> results)
 {
 
-	CCLOG("car draw = %s", results.at(0).c_str());
+//	CCLOG("car draw = %s", results.at(0).c_str());
 //	_Door->characterRecogination(results.at(0).c_str());
 	_Door->characterRecognisation(results);
 }
