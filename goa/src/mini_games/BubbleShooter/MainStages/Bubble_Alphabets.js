@@ -67,7 +67,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         }
 
         
-        let color = numberOfLetter , repeat = 3;
+        let color = numberOfLetter , repeat = 4;
         // Create the level of bubbles
         this.createLevel(color,repeat);
        
@@ -161,14 +161,14 @@ xc.Bubble_Alphabets = cc.Layer.extend({
       var extendedGameX = (gamePlayAreaWidth + (gamePlayAreaWidth + widthAreaExtendPart))/2;
 
       this.extendLetter = new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/BalooBhai-Regular.ttf", widthAreaExtendPart*2);
-      this.extendLetter.setPosition(extendedGameX - (widthAreaExtendPart * 0.2), cc.director.getWinSize().height * 0.4);
+      this.extendLetter.setPosition(extendedGameX - (widthAreaExtendPart * 0.25), cc.director.getWinSize().height * 0.4);
       this.addChild(this.extendLetter);
       this.extendLetter.setAnchorPoint(0.5,0);
 
        if(bubblelevelValues == 1){
             var window = cc.director.getWinSize();
             var help = new xc.HelpLayer(cc.rect((window.width - (cc.director.getWinSize().width - 2560)) * 0.5 , window.height *0.75 , window.width - (cc.director.getWinSize().width - 2560),window.height *0.5), cc.rect(this.gunBase.x, this.gunBase.y,this.bubblePlayer.width,this.bubblePlayer.height))
-            this.addChild(help,4)
+            this.addChild(help,4);
             help.setName("help");
            // help.click((this.xPosi/2)+targetB.x,targetB.y);
         }
