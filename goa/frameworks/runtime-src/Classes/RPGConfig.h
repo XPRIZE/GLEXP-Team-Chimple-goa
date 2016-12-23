@@ -128,6 +128,8 @@
 #define SKELETON_POSITION_IN_PARENT_ISLAND_X "skeleton_pos_in_island_X"
 #define SKELETON_POSITION_IN_PARENT_ISLAND_Y "skeleton_pos_in_island_Y"
 
+#define TASK_FINISHED "finished"
+
 #define EVENT_DISPATCHER Director::getInstance()->getEventDispatcher()
 
 enum SupportedLanguages

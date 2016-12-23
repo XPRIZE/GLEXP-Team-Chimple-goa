@@ -32,8 +32,38 @@ SpeechBubbleView* SpeechBubbleView::create(std::unordered_map<int, std::string> 
     return nullptr;
 }
 
+std::vector<std::string> SpeechBubbleView::split(std::string s, char delim)
+{
+    std::vector<std::string> elems;
+    std::stringstream ss;
+    ss.str(s);
+    std::string item;
+    while (getline(ss, item, delim)) {
+        elems.push_back(item);
+    }
+    return elems;
+}
+
+void SpeechBubbleView::join(const std::vector<std::string>& v, char c, std::string& s) {
+    
+    s.clear();
+    int counter = 1;
+    for (std::vector<std::string>::const_iterator p = v.begin();
+         p != v.end(); ++p) {
+        s += *p;
+        
+        if(s.length() > 30 * counter) {
+            s += "\n";
+            counter++;
+        }
+        if (p != v.end() - 1)
+            s += c;
+    }
+}
+
+
 bool SpeechBubbleView::initialize(std::unordered_map<int, std::string> textMap, Point position) {
-    int delta = 0;
+    int delta = 100.0f;
     int priority = 1;
     
     for ( auto it = textMap.begin(); it != textMap.end(); ++it ) {
@@ -42,7 +72,16 @@ bool SpeechBubbleView::initialize(std::unordered_map<int, std::string> textMap, 
         
         button->setPosition(Point(position.x, position.y + delta));
         CCLOG("Text to speak %s", it->second.c_str());
-        button->setTitleText(it->second);
+        std::string displayText = it->second;
+        
+        std::vector<std::string> tokens = this->split(displayText, ' ');
+        std::string joinedStr = "";
+        
+        this->join(tokens, ' ', joinedStr);
+        
+        CCLOG(" final string %s", joinedStr.c_str());
+        
+        button->setTitleText(joinedStr);
         button->setTitleColor(cocos2d::Color3B::BLACK);
         button->setTitleFontSize(SPEECH_TEXT_FONT_SIZE);
         button->setTitleFontName(SPEECH_TEXT_FONT_FILE);
@@ -52,8 +91,8 @@ bool SpeechBubbleView::initialize(std::unordered_map<int, std::string> textMap, 
         auto lbl_size = button->getTitleRenderer()->getContentSize();
         button->setContentSize(
                                Size(
-                                    lbl_size.width * 1.5f,
-                                    lbl_size.height * 1.5f
+                                    lbl_size.width * 1.25f,
+                                    lbl_size.height * 1.25f
                                     )
                                );
         
