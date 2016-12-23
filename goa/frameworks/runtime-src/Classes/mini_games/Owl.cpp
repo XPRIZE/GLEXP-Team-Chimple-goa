@@ -137,6 +137,7 @@ void Owl::onEnterTransitionDidFinish()
 		
 		for (size_t index = 0; index < listOfWords.size(); index++) {
 			_data_key.push_back(getConvertInUpperCase(listOfWords[index]));
+			CCLOG("index = %d   key = %s ----> %s", index, listOfWords[index].c_str(), listOfWords[index].c_str());
 		}
 		_data_value = _data_key;
 		categoryTitle = "Make same word : ";
@@ -170,9 +171,15 @@ void Owl::onEnterTransitionDidFinish()
 	}
 
 	if (!(std::get<0>(levelKeyNumber) == 1)) {
+		int count = 0;
 		for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
-			_data_key.push_back(getConvertInUpperCase(it->first));
-			_data_value.push_back(getConvertInUpperCase(it->second));
+			auto key = getConvertInUpperCase(it->first);
+			auto value = getConvertInUpperCase(it->second);
+
+			_data_key.push_back(key);
+			_data_value.push_back(value);
+			count++;
+			CCLOG("index = %d   key = %s ----> value = %s",count,key.c_str(),value.c_str());
 		}
 	}
 	int totalPoints = 0;
@@ -590,8 +597,8 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 						float dist = sqrt((y*y) + (x*x));
 						auto blockBox = target->getParent()->getChildByName(blockNameInString);
 
-						auto moveToAlphaGridAction = MoveTo::create(dist/800,Vec2(target->getPositionX(),target->getPositionY()+_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height/ _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
-						auto moveToAnswerGridAction = MoveTo::create(dist / 1000, Vec2((blockBox->getPositionX() - blockBox->getContentSize().width/2)+blockChild.at(_textCounter)->getPositionX(), blockBox->getPositionY()+_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height/ _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
+						auto moveToAlphaGridAction = MoveTo::create(dist/3000,Vec2(target->getPositionX(),target->getPositionY()+_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height/ _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
+						auto moveToAnswerGridAction = MoveTo::create(dist / 4000, Vec2((blockBox->getPositionX() - blockBox->getContentSize().width/2)+blockChild.at(_textCounter)->getPositionX(), blockBox->getPositionY()+_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height/ _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
 						auto callFunct = CallFunc::create([=]() {
 							_flagDemo = true;
 							_flagToControlMuiltipleTouch = true;
@@ -692,8 +699,8 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 						float dist = sqrt((y*y) + (x*x));
 						auto blockBox = target->getParent()->getChildByName(blockNameInString);
 
-						auto moveToAlphaGridAction = MoveTo::create(dist / 800, Vec2(target->getPositionX(), target->getPositionY() + _sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height / _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
-						auto moveToAnswerGridAction = MoveTo::create(dist / 1000, Vec2((blockBox->getPositionX() - blockBox->getContentSize().width / 2) + blockChild.at(_textCounter)->getPositionX(), blockBox->getPositionY() + _sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height / _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
+						auto moveToAlphaGridAction = MoveTo::create(dist / 3000, Vec2(target->getPositionX(), target->getPositionY() + _sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height / _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
+						auto moveToAnswerGridAction = MoveTo::create(dist / 4000, Vec2((blockBox->getPositionX() - blockBox->getContentSize().width / 2) + blockChild.at(_textCounter)->getPositionX(), blockBox->getPositionY() + _sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height / _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
 						auto afterDrop = CallFunc::create([=]() {
 							 blockChild.at(_textCounter)->getChildByName("hideBoard")->setVisible(true);
 							_flagDemo = true;

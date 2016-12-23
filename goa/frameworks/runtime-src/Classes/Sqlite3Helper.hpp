@@ -35,6 +35,8 @@ public:
     //insert/update/delete queries
     virtual int insertItemToMyBag(const char* island, const char* item);
     
+    virtual void deleteAllItemFromMyBag(const char* island);
+    
     virtual void insertSkinForBoneForSkeletonInScene(const char* island, const char* sceneName, const char* skeletonName, const char* boneName, const char* skinName, const char* imageName, const char* skinAnchorX, const char* skinAnchorY);
 
     virtual int deleteItemFromMyBag(const char* island, const char* item);
