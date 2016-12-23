@@ -8,6 +8,7 @@
 
 #include "MenuContext.h"
 #include "LevelHelpScene.h"
+#include "LevelHelpOverlay.h"
 #include "ui/CocosGUI.h"
 #include "../StartMenuScene.h"
 #include "../MapScene.h"
@@ -163,7 +164,7 @@ void MenuContext::resumeNodeAndDescendants(Node *pNode)
 void MenuContext::addGreyLayer() {
     if(!_greyLayer) {
         Size visibleSize = Director::getInstance()->getVisibleSize();
-        _greyLayer = LayerColor::create(Color4B(255.0, 255.0, 255.0, 0.0));
+        _greyLayer = LayerColor::create(Color4B(128.0, 128.0, 128.0, 128.0));
         _greyLayer->setContentSize(visibleSize);
         addChild(_greyLayer, -1);
     }
@@ -180,9 +181,7 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 auto moveTo = MoveTo::create(0.5, _menuButton->getPosition());
                 auto elastic = EaseBackIn::create(moveTo);
                 auto callbackRemoveMenu = CallFunc::create(CC_CALLBACK_0(MenuContext::removeMenu, this));
-                /*
                 auto targetHelpCloseAction = TargetedAction::create(_helpMenu, elastic->clone());
-                 */
                 auto targetBookCloseAction = TargetedAction::create(_bookMenu, elastic->clone());
                 auto targetMapCloseAction = TargetedAction::create(_mapMenu, elastic->clone());
                 
@@ -198,15 +197,14 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 //                        runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
 //                }
                 
-                auto spawnAction = Spawn::create(/*targetHelpCloseAction,*/targetMapCloseAction, targetBookCloseAction,targetGamesCloseAction, targetSettingCloseAction, nullptr);
+                auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction, targetBookCloseAction,targetGamesCloseAction, targetSettingCloseAction, nullptr);
                 runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
                 
                 
             } else {
                 addGreyLayer();
-//                _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png",POINTS_TO_LEFT);
-//                _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
-                
+                _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png", 5 * POINTS_TO_LEFT);
+                _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
                 
                 _mapMenu = this->createMenuItem("menu/map.png", "menu/map.png", "menu/map.png", 2 * POINTS_TO_LEFT);
                 _mapMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showMap, this));
@@ -519,8 +517,8 @@ void MenuContext::removeMenu() {
         removeChild(_exitMenu);
         _exitMenu = nullptr;
         
-//        removeChild(_helpMenu);
-//        _helpMenu = nullptr;
+        removeChild(_helpMenu);
+        _helpMenu = nullptr;
         
         removeChild(_bookMenu);
         _bookMenu = nullptr;
@@ -701,6 +699,8 @@ Node* MenuContext::jumpOut(std::string nodeCsbName, float duration, Vec2 positio
 void MenuContext::showHelp(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
 //        chimpHelp();
+        auto levelHelp = LevelHelpOverlay::create(gameName);
+        addChild(levelHelp);
     }
 }
 
