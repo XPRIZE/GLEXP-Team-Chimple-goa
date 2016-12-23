@@ -1581,20 +1581,37 @@ MenuContext::~MenuContext() {
 /*
   wordPairList
   by defalut answer = "it is a word"
+  bool true for initialSyallableWords and sentence
 */
-void MenuContext::wordPairList(std::string question, std::string answer)
+void MenuContext::wordPairList(std::string question, std::string answer,bool isIntialSyllable)
 {
 	if (answer.compare("it is a word") == 0) {
 		_listOfWords.push_back(question);
 	}
 	else
 	{
-		_wordsList.insert(std::pair < std::string, std::string>(question, answer));
+		if (isIntialSyllable) {
+			if (_listOfInitialSyllableWords.end() == _listOfInitialSyllableWords.find(question))
+			{
+				std::vector<std::string> wordVector;
+				wordVector.push_back(answer);
+				_listOfInitialSyllableWords.insert(std::pair<std::string, std::vector<std::string>>(question, wordVector));
+			}
+			else {
+				_listOfInitialSyllableWords.at(question).push_back(answer);
+			}
+		}
+		else 
+		{
+			_wordsList.insert(std::pair < std::string, std::string>(question, answer));
+		}
 	}
 }
 
 /*
- type is wordPair for synonyms,antonyms,homonyms,plurals
+ type wordPair for synonyms,antonyms,homonyms,plurals
+ type word for words,list of nouns etc...
+ type sentence for select nouns in the given sentence;
  header = "Make same sounding word as : " (example)
 */
 
@@ -1707,10 +1724,65 @@ void MenuContext::showAnswer(std::string type, std::string header)
 		}
 
 	}
+
+	else if (type.compare("Sentence") == 0) {
+
+		int numberOfWordShow = 0;
+
+		for (auto wordPair = _listOfInitialSyllableWords.begin(); wordPair != _listOfInitialSyllableWords.end(); wordPair++) {
+			auto sentenceBlock = Sprite::createWithSpriteFrameName("dash/button.png");
+			sentenceBlock->setPositionX(visibleSize.width / 2);
+			sentenceBlock->setPositionY(y);
+			sentenceBlock->setAnchorPoint(Vec2(0.5, 0.5));
+			sentenceBlock->setScaleY(0.75);
+			this->addChild(sentenceBlock);
+
+			auto sentencelabel1 = CommonLabel::createWithSystemFont(wordPair->first.c_str(), "Arial", 100);
+			sentencelabel1->setColor(Color3B(0, 0, 0));
+			sentencelabel1->setPosition(Vec2(sentenceBlock->getContentSize().width / 2, sentenceBlock->getContentSize().height / 2));
+			sentencelabel1->setAnchorPoint(Vec2(0.5, 0.5));
+			sentenceBlock->addChild(sentencelabel1);
+			auto listOfAnswers = wordPair->second;
+
+			y -= sentenceBlock->getContentSize().height;
+			int temp = 0;
+			float answerBlockWidth = 0.0f;
+			if (listOfAnswers.size() > 4) {
+				answerBlockWidth = visibleSize.width / 5;
+				temp = 4;
+			}
+			else
+			{
+				answerBlockWidth = visibleSize.width / (listOfAnswers.size() + 1);
+				temp = listOfAnswers.size();
+
+			}
+			
+			for (int i = 0; i < listOfAnswers.size(); i++) {
+				auto labelBase1 = Sprite::createWithSpriteFrameName("dash/small_button_01.png");
+				labelBase1->setPosition(Vec2(answerBlockWidth + (answerBlockWidth * (i%temp)), y));
+				if (i == 3 && listOfAnswers.size() > 3) {
+					y -= labelBase1->getContentSize().height * 1.2;
+				}
+				labelBase1->setScaleY(0.75);
+				labelBase1->setAnchorPoint(Vec2(0.5, 0.5));
+				this->addChild(labelBase1);
+				auto label3 = CommonLabel::createWithSystemFont(listOfAnswers.at(i).c_str(), "Arial", 100);
+				label3->setColor(Color3B(255, 255, 255));
+				label3->setPosition(Vec2(labelBase1->getContentSize().width / 2, labelBase1->getContentSize().height / 2));
+				label3->setAnchorPoint(Vec2(0.5, 0.5));
+				labelBase1->addChild(label3);
+			}
+			y -= sentenceBlock->getContentSize().height;
+			numberOfWordShow++;
+			if (numberOfWordShow == 3) {
+				break;
+			}
+		}
+	}
 	//duplicatNode->setContentSize(Size(labelWidth* _wordsList.size(), labelHeight*_wordsList.size()));
 	//duplicatNode->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
 	//duplicatNode->setAnchorPoint(Vec2(0.5, 0.5));
 	//this->addChild(duplicatNode);
 
-	
 }
