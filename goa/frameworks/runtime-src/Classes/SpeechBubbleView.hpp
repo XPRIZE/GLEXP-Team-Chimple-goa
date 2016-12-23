@@ -26,6 +26,9 @@ public:
     
     virtual bool initialize(std::unordered_map<int, std::string> textMap, cocos2d::Point position);
     
+    std::vector<std::string> split(std::string s, char delim);
+    
+    void join(const std::vector<std::string>& v, char c, std::string& s);
     
     void bubbleDestoryMessageEvent(cocos2d::EventCustom * event);
     

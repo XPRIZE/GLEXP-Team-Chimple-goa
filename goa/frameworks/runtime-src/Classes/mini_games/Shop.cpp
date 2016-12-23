@@ -136,16 +136,18 @@ void Shop::customerEnter(Node* Bg, vector<string> vegetableNodeName)
 	 auto gaps = ((bag->getPositionX() + machine->getPositionX()) / 2);
 	_customer->runAction(Sequence::create(MoveTo::create(3, Vec2(gaps + machine->getContentSize().width*0.4, visibleSize.height*.2)),
 		CCCallFunc::create([=] {	_customerWalkAnim->pause();
-
-	for (int j = 0; j < vegetableNodeName.size(); j++)
+	if (_gameCounter == 0)
 	{
-		for (int k = 0; k < Bg->getChildren().size(); k++)
+		for (int j = 0; j < vegetableNodeName.size(); j++)
 		{
-			std::string str = Bg->getChildren().at(k)->getName().c_str();
-			if (str.find(vegetableNodeName.at(j)) == 0)
+			for (int k = 0; k < Bg->getChildren().size(); k++)
 			{
-				Sprite* obj = (Sprite*)Bg->getChildren().at(k);
-				addTouchEvents(obj);
+				std::string str = Bg->getChildren().at(k)->getName().c_str();
+				if (str.find(vegetableNodeName.at(j)) == 0)
+				{
+					Sprite* obj = (Sprite*)Bg->getChildren().at(k);
+					addTouchEvents(obj);
+				}
 			}
 		}
 	}
@@ -180,7 +182,7 @@ void Shop::update(float dt)
 		if (visibleSize.width > 2560) {
 			myGameWidth = (visibleSize.width - 2560) / 2;
 		}
-
+		this->removeChild(_calculator, true);
 		_isEnterPressedCounter++;
 		auto myBg = this->getChildByName("bg");
 		auto node1 = myBg->getChildByName("bag")->getChildren().at(1);
@@ -248,7 +250,7 @@ void Shop::update(float dt)
 			}
 			for (int l = _vegeOnWeighingMachine.size() - 1; l >= 0; l--)
 			{
-				this->removeChildByName(_vegeOnWeighingMachine.at(l)->getName(), true);
+				myBg->removeChildByName(_vegeOnWeighingMachine.at(l)->getName(), true);
 			}
 
 			_customer->setScaleX(-0.6);
@@ -287,7 +289,6 @@ void Shop::update(float dt)
 					break;
 				}
 			}
-			
 		/*	this->runAction(Sequence::create(
 			CallFunc::create([=] {
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
@@ -327,8 +328,8 @@ void Shop::update(float dt)
 						auto a = (Sprite*)node2->getChildren().at(j);	a->setVisible(false);
 					}
 					myBg->removeChildByName("note", true);
-					this->removeChildByName("customer", true);
-					this->removeChild(_calculator, true);
+					myBg->removeChildByName("customer", true);
+					//this->removeChild(_calculator, true);
 					bag->setZOrder(2);
 					bag->setPosition(Vec2(pos));
 					customerEnter(myBg, _vegetableNodeName);
@@ -589,7 +590,10 @@ void Shop::addTouchEvents(Sprite* obj)
 				_label->setString(_textString1 + " + " + _textString2 + " = " + _textString3);
 			}
 			target->setName(touchedVegeName);
-			for (int k = 0; k < myBG->getChildren().size(); k++)
+			auto sprite = (Sprite*)myBG->getChildByName(touchedVegeName);
+			myBG->getChildByName(touchedVegeName)->getEventDispatcher()->removeEventListener(listener);
+			_vegeOnWeighingMachine.push_back(sprite);
+			/*for (int k = 0; k < myBG->getChildren().size(); k++)
 			{
 				if (!(myBG->getChildren().at(k)->getName()).compare(touchedVegeName))
 				{
@@ -598,7 +602,7 @@ void Shop::addTouchEvents(Sprite* obj)
 					_vegeOnWeighingMachine.push_back(sprite);
 					break;
 				}
-			}
+			}*/
 		}
 		//else if (rect.intersectsRect(item2Rect) && ((!touchedVegeName.find(_expectedItemOne)) || (!touchedVegeName.find(_expectedItemTwo))) && !_isItemTwoPlaced)
 		//{

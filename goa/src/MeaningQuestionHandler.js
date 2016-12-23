@@ -167,6 +167,8 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
                         node.selectedIndex = index;
                         cc.log('remainingAnswers[rIndex]:' + remainingAnswers[rIndex]);
                         var output = "";
+                        var secondOutput = "";
+                        var secondQTest = "";
                         var qText = remainingAnswers[rIndex];
                         if(qText.length > 30) {
                             var i = 30;
@@ -176,7 +178,24 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
                             }
                             output += qText.substring(0,i);
                             output += "\n";
-                            output += qText.substring(i, qText.length);
+                            secondQTest = qText.substring(i, qText.length);
+
+                            if(secondQTest.length > 30) 
+                            {
+                                var j = 30;
+                                while(j != secondQTest.length && secondQTest.charAt(j) != " ")
+                                {
+                                    j++;
+                                }
+                                secondOutput += secondQTest.substring(0,j);
+                                secondOutput += "\n";
+                                secondOutput += secondQTest.substring(j, secondQTest.length);
+
+                            } else {
+                                secondOutput = secondQTest;
+                            }    
+
+                            output += secondOutput;                        
                         } else {
                             output = qText;
                         }
