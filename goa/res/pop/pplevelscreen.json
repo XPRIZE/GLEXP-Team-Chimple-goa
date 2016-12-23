@@ -1,0 +1,183 @@
+{
+  "ID": "db6cdb31-b73e-4ff7-af0e-0cb2ec01c2bf",
+  "Version": "2.3.4",
+  "Name": "pplevelscreen",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 3877,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "plevelscreen/pplevelbg.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 3878,
+            "ActionTag": -1244638874,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "FileNode_1",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "plevelscreen/pplevelmng.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 4037,
+            "ActionTag": 1429552591,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "FileNode_4",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "plevelscreen/pplevelfrg.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 3962,
+            "ActionTag": -471989612,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "FileNode_3",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "plevelscreen/pplevelfng.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 3904,
+            "ActionTag": -956546204,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "FileNode_2",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "pplevelbg.json",
+        "pplevelfng.json",
+        "pplevelfrg.json",
+        "pplevelmng.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
