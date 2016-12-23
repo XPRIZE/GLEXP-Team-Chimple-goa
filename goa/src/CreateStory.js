@@ -40,7 +40,7 @@ xc.CreateStoryLayer = cc.Layer.extend({
 
         this.addChild(this._buttonPanel, 2);
         this._optionPanel = new xc.ScrollableButtonPanel(cc.p(0,0), cc.size(500, 500), 2, 2, xc.storyConfigurationObject.editPage, this.chooseEditPageOption, this, true);
-       this._optionPanel.setVisible(false);
+        this._optionPanel.setVisible(false);
         this._optionPanel.setOpacity(150);
         this._optionPanel.setColor(xc.TERTIARY_COLOR);
         this.addChild(this._optionPanel, 1);
@@ -60,7 +60,6 @@ xc.CreateStoryLayer = cc.Layer.extend({
             this.addChild(this._help, 1);
         }
 
-        // this._panel = new xc.ScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height - this._tabHeight), 4, 4, displayStories, this.loadOptions, this, false, true);
         this._panel = new xc.StoryCreateScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height), 4, 4, displayStories, this.loadOptions, this, false, true);
         this.addChild(this._panel);
     },
@@ -92,10 +91,14 @@ xc.CreateStoryLayer = cc.Layer.extend({
 
     loadOptions: function (sender) {
         if(!this._optionPanel) {
-            this._optionPanel = new xc.ScrollableButtonPanel(cc.p(sender.getPosition().x - 150, sender.getPosition().y - 250), cc.size(500, 500), 2, 2, xc.storyConfigurationObject.editPage, this.chooseEditPageOption, this, true);
+            cc.log('sender:' + sender.getName());
+            this._optionPanel.setAnchorPoint(0.5,0.5);
+            this._optionPanel = new xc.ScrollableButtonPanel(cc.p(sender.getPosition().x, sender.getPosition().y), cc.size(500, 500), 2, 2, xc.storyConfigurationObject.editPage, this.chooseEditPageOption, this, true);
             this.addChild(this._optionPanel, 1);
         } else {
-            this._optionPanel.setPosition(cc.p(sender.getPosition().x - 150, sender.getPosition().y - 250));
+            cc.log('sender:' + sender.getName());
+            this._optionPanel.setAnchorPoint(0.5,0.5);
+            this._optionPanel.setPosition(cc.p(sender.getPosition().x, sender.getPosition().y));
             this._optionPanel.setVisible(true);
         }
         this._curSelectedStoryIndex = sender._selectedIndex;
