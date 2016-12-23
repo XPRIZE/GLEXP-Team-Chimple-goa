@@ -128,17 +128,19 @@ bool LevelHelpScene::initWithGame(std::string gameName) {
             }
         }
     }
+    auto bg = CSLoader::createNode("template/video_screen.csb");
+    bg->setName("bg");
+    this->addChild(bg);
+    
     return true;
 }
 
 void LevelHelpScene::onEnterTransitionDidFinish() {
-    auto bg = CSLoader::createNode("template/video_screen.csb");
+    auto bg = getChildByName("bg");
     Size visibleSize = Director::getInstance()->getVisibleSize();
-    bg->setName("bg");
     if (visibleSize.width > 2560) {
         bg->setPositionX((visibleSize.width - 2560)/2);
     }
-    this->addChild(bg);
     
     auto button = static_cast<Button*> (bg->getChildByName("Button_1"));
     button->addTouchEventListener(CC_CALLBACK_2(LevelHelpScene::gotoGame, this));
