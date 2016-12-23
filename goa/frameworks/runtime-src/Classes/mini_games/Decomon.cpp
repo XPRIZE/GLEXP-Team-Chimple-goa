@@ -306,7 +306,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		else if (target->getName().compare("decomon_icon_gallery") == 0) {
 			//screenShot();
 			decomonGallery();
-			_onTouch = true;
+			//_onTouch = true;
 			return false;
 		}
 		//else if (target->getName().compare("updated costume") == 0) {
@@ -356,7 +356,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 	}
 	else if (_colorPicked && (visibleSize.width/2 - 700 < touch->getLocation().x) &&(visibleSize.width/2 + 900 > touch->getLocation().x) &&
 		(visibleSize.height / 2 - 500 < touch->getLocation().y) && (visibleSize.height / 2 + 600 > touch->getLocation().y)) {
-		CCLOG("color began");
+	//	CCLOG("color began = %s", target->getName().c_str());
 		_paintingNode->drawDot(touch->getLocation(), 30, Color4F(_pickedColor_R / 255.0f, _pickedColor_G / 255.0f, _pickedColor_B / 255.0f, 1.0f));
 		return true;
 	}
@@ -365,15 +365,16 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 
 void Decomon::onTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event)
 {
-	auto target = event->getCurrentTarget();
+	
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	
 	if (_colorPicked){
-		CCLOG("colour ");
 		auto start = touch->getLocation();
 		_paintingNode->drawSegment(touch->getPreviousLocation(), start, 30, Color4F(_pickedColor_R / 255.0f, _pickedColor_G / 255.0f, _pickedColor_B / 255.0f, 1.0f));
-	} else {		
+	} 
+	else {		
 		//CCLOG("name =%s", target->getName().c_str());
+		auto target = event->getCurrentTarget();
 		if (target->getName().find("decomon/decomon3/decomon_paintbucket") != 0) {
 			target->setPosition(touch->getLocation());
 		} 
@@ -411,7 +412,11 @@ void Decomon::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 			}
 			Node * temp = target;
 			_iconLayer->removeChild(target);
-			_costumeLayer->addChild(target);
+			auto vector1 = _costumeLayer->getChildren();
+			auto it1 = std::find(vector1.begin(), vector1.end(), target);
+			if (it1 == vector1.end()) {
+				_costumeLayer->addChild(target);
+			}
 		//	auto parent = target->getParent();
 			
 			_touched = true;
@@ -745,6 +750,9 @@ void Decomon::onEnterTransitionDidFinish()
 	_iconLayer = Layer::create();
 	this->addChild(_iconLayer);
 
+	/*_coloringLayer = Layer::create();
+	_coloringLayer->setName("colouringLayer");
+	this->addChild(_coloringLayer);*/
 	CCLOG("++++++++++++++++++decomon++++++++++++");
 	auto node = DrawNode::create();
 	auto nodeWidth = sssize.width * 1.25;
