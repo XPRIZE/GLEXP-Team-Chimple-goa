@@ -400,6 +400,8 @@
 		F373B9111DDAE1280027D32C /* Card.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F373B90D1DDAE1280027D32C /* Card.cpp */; };
 		F37404101D78653D00A671D2 /* boot.js in Resources */ = {isa = PBXBuildFile; fileRef = F374040F1D78653C00A671D2 /* boot.js */; };
 		F37404131D78655700A671D2 /* boot.js in Resources */ = {isa = PBXBuildFile; fileRef = F374040F1D78653C00A671D2 /* boot.js */; };
+		F3A23A7C1E0C0C500083CEB5 /* LevelMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3A23A7B1E0C0C500083CEB5 /* LevelMenu.cpp */; };
+		F3A23A7D1E0C0C500083CEB5 /* LevelMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3A23A7B1E0C0C500083CEB5 /* LevelMenu.cpp */; };
 		F3AB34D31DCDA95900613C20 /* Door.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3AB34CF1DCDA95900613C20 /* Door.cpp */; };
 		F3AB34D41DCDA95900613C20 /* Door.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3AB34CF1DCDA95900613C20 /* Door.cpp */; };
 		F3AB34D51DCDA95900613C20 /* DoorNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3AB34D11DCDA95900613C20 /* DoorNode.cpp */; };
@@ -920,6 +922,8 @@
 		F373B90C1DDAE1280027D32C /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
 		F373B90D1DDAE1280027D32C /* Card.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Card.cpp; sourceTree = "<group>"; };
 		F374040F1D78653C00A671D2 /* boot.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = boot.js; sourceTree = "<group>"; };
+		F3A23A781E0C0C380083CEB5 /* LevelMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelMenu.h; sourceTree = "<group>"; };
+		F3A23A7B1E0C0C500083CEB5 /* LevelMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelMenu.cpp; sourceTree = "<group>"; };
 		F3AB34CF1DCDA95900613C20 /* Door.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Door.cpp; sourceTree = "<group>"; };
 		F3AB34D01DCDA95900613C20 /* Door.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Door.h; sourceTree = "<group>"; };
 		F3AB34D11DCDA95900613C20 /* DoorNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DoorNode.cpp; sourceTree = "<group>"; };
@@ -1482,6 +1486,8 @@
 				F307808E1DB5C2DD0078DF62 /* HelpLayer.h */,
 				F330523F1DF04E6000BA235E /* LevelHelpScene.cpp */,
 				F33052441DF04E7200BA235E /* LevelHelpScene.h */,
+				F3A23A781E0C0C380083CEB5 /* LevelMenu.h */,
+				F3A23A7B1E0C0C500083CEB5 /* LevelMenu.cpp */,
 			);
 			path = menu;
 			sourceTree = "<group>";
@@ -2070,6 +2076,7 @@
 				F35247DB1D6D9D1A0077C333 /* Jasmin_Listenerfile.cpp in Sources */,
 				F36840C11D8A812F00969162 /* AlphamoleLevel.cpp in Sources */,
 				F352484B1D6D9D1A0077C333 /* SkeletonConfiguration.cpp in Sources */,
+				F3A23A7D1E0C0C500083CEB5 /* LevelMenu.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2148,6 +2155,7 @@
 				F3667D501DB4BA6F00EC8908 /* NNAdapt.cpp in Sources */,
 				F35247DE1D6D9D1A0077C333 /* jazz.cpp in Sources */,
 				F303CCA11DB20D9000DB6D81 /* Pillar.cpp in Sources */,
+				F3A23A7C1E0C0C500083CEB5 /* LevelMenu.cpp in Sources */,
 				F36944971E06FBCE00C69875 /* CommonLabel.cpp in Sources */,
 				F35248081D6D9D1A0077C333 /* Grapheme.cpp in Sources */,
 				F3D201A31D7409B400FDB750 /* Train.cpp in Sources */,

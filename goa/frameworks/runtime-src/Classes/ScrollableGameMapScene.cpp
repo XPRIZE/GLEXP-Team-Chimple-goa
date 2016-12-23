@@ -11,6 +11,7 @@
 #include "scripting/js-bindings/manual/ScriptingCore.h"
 
 #include "ScrollableGameMapScene.hpp"
+#include "menu/LevelMenu.h"
 #include "alphamon/SelectAlphamonScene.h"
 #include "puzzle/DuelScene.h"
 #include "puzzle/WordScene.h"
@@ -235,7 +236,8 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             }
             else
             {
-                ScriptingCore::getInstance()->runScript("src/start/menu.js");
+//                ScriptingCore::getInstance()->runScript("src/start/menu.js");
+                Director::getInstance()->replaceScene(LevelMenu::createScene(clickedButton->getName()));
             }
             
             
