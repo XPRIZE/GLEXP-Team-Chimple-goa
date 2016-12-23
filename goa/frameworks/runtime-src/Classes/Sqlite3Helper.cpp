@@ -94,12 +94,12 @@ bool Sqlite3Helper::closeConnection() {
     return true;
 }
 
-void Sqlite3Helper::insertItemToMyBag(const char* island, const char* item) {
+int Sqlite3Helper::insertItemToMyBag(const char* island, const char* item) {
     sqlite3_stmt *res;
     const char* querySQL = " INSERT INTO MY_BAG (ISLAND_NAME, ITEM, USED) SELECT ?,?,0 WHERE NOT EXISTS (SELECT 1 FROM MY_BAG WHERE ISLAND_NAME = ? AND ITEM = ?) ";
     
     int rc = sqlite3_prepare_v2(this->dataBaseConnection, querySQL, strlen(querySQL), &res, NULL);
-    
+    int rowsAffected = 0;
     if( rc == SQLITE_OK ) {
         // bind the value        
         sqlite3_bind_text(res, 1, island, strlen(island), SQLITE_TRANSIENT);
@@ -121,17 +121,24 @@ void Sqlite3Helper::insertItemToMyBag(const char* island, const char* item) {
         if(m == SQLITE_MISUSE) {
             fprintf(stderr, "Failed to execute statement: %s\n", sqlite3_errmsg(this->dataBaseConnection));
         }
+        
+        
+        if(m == SQLITE_OK || m == SQLITE_DONE) {
+            rowsAffected = sqlite3_changes(this->dataBaseConnection);
+        }
         sqlite3_finalize(res);
     }
     else {
         fprintf(stderr, "Failed to execute statement: %s\n", sqlite3_errmsg(this->dataBaseConnection));
     }
+    
+    return rowsAffected;
 
 }
 
-void Sqlite3Helper::deleteItemFromMyBag(const char* island, const char* item) {
+int Sqlite3Helper::deleteItemFromMyBag(const char* island, const char* item) {
     sqlite3_stmt *res;
-    const char* querySQL = "UPDATE OR IGNORE BAG SET USED = 1 WHERE ISLAND_NAME = @islandName AND ITEM = @itemName";
+    const char* querySQL = "UPDATE MY_BAG SET USED = 1 WHERE ISLAND_NAME = @islandName AND ITEM = @itemName";
     int rowsAffected = 0;
     int rc = sqlite3_prepare_v2(this->dataBaseConnection, querySQL, strlen(querySQL), &res, 0);
     if( rc == SQLITE_OK ) {
@@ -153,6 +160,8 @@ void Sqlite3Helper::deleteItemFromMyBag(const char* island, const char* item) {
     else {
         fprintf(stderr, "Failed to execute statement: %s\n", sqlite3_errmsg(this->dataBaseConnection));
     }
+    
+    return rowsAffected;
 }
 
 

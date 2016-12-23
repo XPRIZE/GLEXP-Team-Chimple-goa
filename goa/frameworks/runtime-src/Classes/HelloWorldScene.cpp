@@ -570,6 +570,8 @@ void HelloWorld::processUseInBackPackAndPutInBackPackMessages(std::vector<Messag
     Node* ownerNode = NULL;
     for (std::vector<MessageContent* >::iterator it = showMessages.begin() ; it != showMessages.end(); ++it)
     {
+        int deleteResult = 0;
+        int insertResult = 0;
         MessageContent* content = (MessageContent*) *it;
         CCLOG("content owner %s", content->getOwner().c_str());
         CCLOG("content item in bag %s", content->getPreOutComeAction().c_str());
@@ -587,7 +589,7 @@ void HelloWorld::processUseInBackPackAndPutInBackPackMessages(std::vector<Messag
             for (std::vector<std::string>::iterator it = elems.begin() ; it != elems.end(); ++it)
             {
                 std::string item = *(it);
-                this->sqlite3Helper->deleteItemFromMyBag(this->getIsland().c_str(), item.c_str());
+                deleteResult = this->sqlite3Helper->deleteItemFromMyBag(this->getIsland().c_str(), item.c_str());
             }
         } else if(!content->getPostOutComeAction().empty()) {
             ownerNode = this->mainLayer->getChildByName(content->getOwner());
@@ -605,11 +607,9 @@ void HelloWorld::processUseInBackPackAndPutInBackPackMessages(std::vector<Messag
                 if(item.compare(TASK_FINISHED) == 0) {
                     finishedTask();
                 } else {
-                    this->sqlite3Helper->insertItemToMyBag(this->getIsland().c_str(), item.c_str());
+                    insertResult = this->sqlite3Helper->insertItemToMyBag(this->getIsland().c_str(), item.c_str());
                 }
 
-
-                
             }
         }
         
@@ -619,7 +619,7 @@ void HelloWorld::processUseInBackPackAndPutInBackPackMessages(std::vector<Messag
             RPGSprite* postOwnerSprite = dynamic_cast<RPGSprite *>(ownerNode);
             if(preRPGSpriteNode != NULL && postOwnerSprite != NULL)
             {
-                useItemFromBagAndPutItemInBagAnimation(preRPGSpriteNode, postOwnerSprite);
+                useItemFromBagAndPutItemInBagAnimation(preRPGSpriteNode, postOwnerSprite, insertResult, deleteResult);
             }            
         }
         
@@ -637,14 +637,12 @@ void HelloWorld::processUseInBackPackMessages(std::vector<MessageContent*>showMe
             ownerNode = this->mainLayer->getChildByName(content->getPreOutComeAction());
         }
         if(ownerNode != NULL) {
+            int result = 0;
             CCLOG("ownerNode getName %s", ownerNode->getName().c_str());
             RPGSprite* ownerSprite = NULL;
-            ExternalSkeletonCharacter ownerExternalCharacterSprite;
             if(content != NULL && ownerNode != NULL) {
                 ownerSprite = dynamic_cast<RPGSprite *>(ownerNode);
-                
-                useItemFromBagAnimation(ownerSprite);
-                
+
                 std::vector<std::string> elems;
                 std::stringstream ss;
                 ss.str(content->getPreOutComeAction());
@@ -656,8 +654,14 @@ void HelloWorld::processUseInBackPackMessages(std::vector<MessageContent*>showMe
                 for (std::vector<std::string>::iterator it = elems.begin() ; it != elems.end(); ++it)
                 {
                     std::string item = *(it);
-                    this->sqlite3Helper->deleteItemFromMyBag(this->getIsland().c_str(), item.c_str());
+                    result = this->sqlite3Helper->deleteItemFromMyBag(this->getIsland().c_str(), item.c_str());
                 }
+                
+                if(result == 1 && content->getShouldDisplayInBag())
+                {
+                    useItemFromBagAnimation(ownerSprite);
+                }
+                
                 
                 
                 if(!content->getPostOutComeAction().empty()) {
@@ -704,12 +708,6 @@ void HelloWorld::processPutInBackPackMessages(std::vector<MessageContent*>showMe
         
         if(content != NULL && ownerSprite != NULL) {
             if(!content->getPostOutComeAction().empty()) {
-                CCLOG("content->getPostOutComeAction() %s", content->getPostOutComeAction().c_str());
-                //play animation
-                
-                if(content->getShouldDisplayInBag()) {
-                    moveitemIntoBagAnimation(ownerSprite);
-                }
                 
                 std::vector<std::string> elems;
                 std::stringstream ss;
@@ -719,17 +717,27 @@ void HelloWorld::processPutInBackPackMessages(std::vector<MessageContent*>showMe
                     elems.push_back(item);
                 }
                 
+                int result = 0;
                 for (std::vector<std::string>::iterator it = elems.begin() ; it != elems.end(); ++it)
                 {
                     std::string item = *(it);
                     if(item.compare(TASK_FINISHED) == 0) {
                         finishedTask();
                     } else {
-                       this->sqlite3Helper->insertItemToMyBag(this->getIsland().c_str(), item.c_str());
+                        result = this->sqlite3Helper->insertItemToMyBag(this->getIsland().c_str(), item.c_str());
                     }
                     
                 }
                 
+                
+                CCLOG("content->getPostOutComeAction() %s", content->getPostOutComeAction().c_str());
+                //play animation
+                
+                if(content->getShouldDisplayInBag() && result == 1) {
+                    moveitemIntoBagAnimation(ownerSprite);
+                }
+                
+
             }
         }
     }
@@ -811,37 +819,40 @@ void HelloWorld::useItemFromBag(RPGSprite* item) {
 }
 
 
-void HelloWorld::useItemFromBagAndPutItemInBag(RPGSprite* item, RPGSprite* putItem) {
+void HelloWorld::useItemFromBagAndPutItemInBag(RPGSprite* item, RPGSprite* putItem, int insertResult, int deleteResult) {
     
-    CCLOG("move item into bag %s", item->getName().c_str());
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    Sprite* orgSprite = dynamic_cast<Sprite *>(item->getSprite());
-    
-    CCLOG("move item into bag %s", putItem->getName().c_str());
-    Sprite* putSprite = dynamic_cast<Sprite *>(putItem->getSprite());
-    
-    if(orgSprite != NULL && putSprite != NULL) {
-        Sprite* copyPutSprite = Sprite::createWithSpriteFrame(putSprite->getSpriteFrame());
-        Sprite* copySprite = Sprite::createWithSpriteFrame(orgSprite->getSpriteFrame());
-        if(copySprite != NULL && copyPutSprite != NULL) {
-            addChild(copySprite);
-            addChild(copyPutSprite);
-            
-            copySprite->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
-            auto fade = FadeOut::create(2.0);
-            
-            
-            copyPutSprite->setPosition(putItem->getPosition());
-            auto copySpriteMoveTo = MoveTo::create(1, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
-            
-            runAction(Sequence::create(DelayTime::create(1.0), TargetedAction::create(copySprite, fade), DelayTime::create(0.5),TargetedAction::create(copyPutSprite, copySpriteMoveTo), DelayTime::create(0.5), TargetedAction::create(copyPutSprite, fade), NULL));
-            
+    if(insertResult == 1 && deleteResult == 1)
+    {
+        CCLOG("remove item from bag %s", item->getName().c_str());
+        Size visibleSize = Director::getInstance()->getVisibleSize();
+        Vec2 origin = Director::getInstance()->getVisibleOrigin();
+        Sprite* orgSprite = dynamic_cast<Sprite *>(item->getSprite());
+        
+        CCLOG("move item into bag %s", putItem->getName().c_str());
+        Sprite* putSprite = dynamic_cast<Sprite *>(putItem->getSprite());
+        
+        if(orgSprite != NULL && putSprite != NULL) {
+            Sprite* copyPutSprite = Sprite::createWithSpriteFrame(putSprite->getSpriteFrame());
+            Sprite* copySprite = Sprite::createWithSpriteFrame(orgSprite->getSpriteFrame());
+            if(copySprite != NULL && copyPutSprite != NULL) {
+                addChild(copySprite);
+                addChild(copyPutSprite);
+                
+                copySprite->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+                auto fade = FadeOut::create(2.0);
+                
+                
+                copyPutSprite->setPosition(putItem->getPosition());
+                auto copySpriteMoveTo = MoveTo::create(1, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+                
+                runAction(Sequence::create(DelayTime::create(1.0), TargetedAction::create(copySprite, fade), DelayTime::create(0.5),TargetedAction::create(copyPutSprite, copySpriteMoveTo), DelayTime::create(0.5), TargetedAction::create(copyPutSprite, fade), NULL));
+                
+            }
         }
     }
 }
 
-void HelloWorld::useItemFromBagAndPutItemInBagAnimation(RPGSprite* useItem, RPGSprite* putItem) {
+void HelloWorld::useItemFromBagAndPutItemInBagAnimation(RPGSprite* useItem, RPGSprite* putItem, int insertResult, int deleteResult) {
 
     auto node = CSLoader::createNode("backpack/backpack.csb");
     auto pos = Vec2(2300, 1600);
@@ -861,7 +872,7 @@ void HelloWorld::useItemFromBagAndPutItemInBagAnimation(RPGSprite* useItem, RPGS
     auto callbackClose = CallFunc::create(CC_CALLBACK_0(cocostudio::timeline::ActionTimeline::play, anim, "bag_close", false));
     
     
-    anim->setAnimationEndCallFunc("bag_open", CC_CALLBACK_0(HelloWorld::useItemFromBagAndPutItemInBag, this, useItem, putItem));
+    anim->setAnimationEndCallFunc("bag_open", CC_CALLBACK_0(HelloWorld::useItemFromBagAndPutItemInBag, this, useItem, putItem, insertResult, deleteResult));
 
     auto fade = FadeOut::create(1.0);
     auto scaleDown = ScaleTo::create(1, 0.2);

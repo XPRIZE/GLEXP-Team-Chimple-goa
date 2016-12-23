@@ -129,9 +129,9 @@ private:
 
     void useItemFromBag(RPGSprite* item);
     
-    void useItemFromBagAndPutItemInBag(RPGSprite* item, RPGSprite* putItem);
+    void useItemFromBagAndPutItemInBag(RPGSprite* item, RPGSprite* putItem, int insertResult, int deleteResult);
     
-    void useItemFromBagAndPutItemInBagAnimation(RPGSprite* useItem, RPGSprite* putItem);
+    void useItemFromBagAndPutItemInBagAnimation(RPGSprite* useItem, RPGSprite* putItem, int insertResult, int deleteResult);
     
     void processUseInBackPackAndPutInBackPackMessages(std::vector<MessageContent*>showMessages);
     
