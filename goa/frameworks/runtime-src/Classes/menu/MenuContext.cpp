@@ -182,8 +182,8 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 auto callbackRemoveMenu = CallFunc::create(CC_CALLBACK_0(MenuContext::removeMenu, this));
                 /*
                 auto targetHelpCloseAction = TargetedAction::create(_helpMenu, elastic->clone());
-                auto targetBookCloseAction = TargetedAction::create(_mapMenu, elastic->clone());
                  */
+                auto targetBookCloseAction = TargetedAction::create(_bookMenu, elastic->clone());
                 auto targetMapCloseAction = TargetedAction::create(_mapMenu, elastic->clone());
                 
                 auto targetSettingCloseAction = TargetedAction::create(_settingMenu, elastic);
@@ -198,7 +198,7 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 //                        runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
 //                }
                 
-                auto spawnAction = Spawn::create(/*targetHelpCloseAction,*/targetMapCloseAction,/*targetBookCloseAction,*/targetGamesCloseAction, targetSettingCloseAction, nullptr);
+                auto spawnAction = Spawn::create(/*targetHelpCloseAction,*/targetMapCloseAction, targetBookCloseAction,targetGamesCloseAction, targetSettingCloseAction, nullptr);
                 runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
                 
                 
@@ -211,8 +211,8 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 _mapMenu = this->createMenuItem("menu/map.png", "menu/map.png", "menu/map.png", 2 * POINTS_TO_LEFT);
                 _mapMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showMap, this));
                 
-//                _bookMenu = this->createMenuItem("menu/book.png", "menu/book.png", "menu/book.png", 3 * POINTS_TO_LEFT);
-//                _bookMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showBook, this));
+                _bookMenu = this->createMenuItem("menu/book.png", "menu/book.png", "menu/book.png", 4 * POINTS_TO_LEFT);
+                _bookMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showBook, this));
 
                 _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
                 _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
@@ -522,8 +522,8 @@ void MenuContext::removeMenu() {
 //        removeChild(_helpMenu);
 //        _helpMenu = nullptr;
         
-//        removeChild(_bookMenu);
-//        _bookMenu = nullptr;
+        removeChild(_bookMenu);
+        _bookMenu = nullptr;
         
         removeChild(_mapMenu);
         _mapMenu = nullptr;
@@ -775,7 +775,8 @@ void MenuContext::waitForAudioLoad(std::string audioFileName, std::function<void
 
 void MenuContext::showBook(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
-        Director::getInstance()->replaceScene(TransitionFade::create(2.0, SelectAlphamon::createScene(), Color3B::BLACK));
+//        Director::getInstance()->replaceScene(TransitionFade::create(2.0, SelectAlphamon::createScene(), Color3B::BLACK));
+        ScriptingCore::getInstance()->runScript("src/start/menu.js");
     }
 }
 
@@ -1016,7 +1017,7 @@ void MenuContext::showSettingMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::To
 		_menuButton->setEnabled(false);
 		addGreyLayer();
 		pauseNodeAndDescendants(_main);
-		_calcFlag = false;
+		_calcFlag = true;
 
 		std::string _levelStatus;
 		localStorageGetItem(UNLOCK_ALL, &_levelStatus);
@@ -1108,7 +1109,7 @@ void MenuContext::showSettingMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::To
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(_listener->clone(), _settingNode->getChildByName("submit"));
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(_listener->clone(), _settingNode->getChildByName("close"));
 
-		addCalculator();
+//		addCalculator();
 	}
 }
 

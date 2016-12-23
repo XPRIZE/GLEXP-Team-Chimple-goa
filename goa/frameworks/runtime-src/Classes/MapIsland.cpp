@@ -87,5 +87,5 @@ bool MapIsland::onTouchBegan(Touch *touch, Event *event)
 
 void MapIsland::touchEnded(Touch *touch, Event *event)
 {
-    Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(this->getIsland(),""), Color3B::BLACK));    
+    Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(this->getIsland(),"", true), Color3B::BLACK));
 }

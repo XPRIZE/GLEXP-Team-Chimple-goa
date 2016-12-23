@@ -1,6 +1,6 @@
 {
   "ID": "f68113c4-91ab-481a-977f-1effbdf316d0",
-  "Version": "3.10.0.0",
+  "Version": "2.3.4",
   "Name": "plane",
   "Content": {
     "Content": {
@@ -303,8 +303,8 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "pop/fan1.png",
-                  "Plist": "pop/pop.plist"
+                  "Path": "plevelscreen/fan1.png",
+                  "Plist": "plevelscreen/plevelscreen.plist"
                 },
                 "FrameIndex": 0,
                 "Tween": false,
@@ -313,8 +313,8 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "pop/fan2.png",
-                  "Plist": "pop/pop.plist"
+                  "Path": "plevelscreen/fan2.png",
+                  "Plist": "plevelscreen/plevelscreen.plist"
                 },
                 "FrameIndex": 5,
                 "Tween": false,
@@ -323,8 +323,8 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "pop/fan3.png",
-                  "Plist": "pop/pop.plist"
+                  "Path": "plevelscreen/fan3.png",
+                  "Plist": "plevelscreen/plevelscreen.plist"
                 },
                 "FrameIndex": 10,
                 "Tween": false,
@@ -349,9 +349,9 @@
         "Children": [
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "pop/puff.png",
-              "Plist": "pop/pop.plist"
+              "Type": "Default",
+              "Path": "Default/Sprite.png",
+              "Plist": ""
             },
             "BlendFunc": {
               "Src": 1,
@@ -396,9 +396,9 @@
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "pop/puff.png",
-              "Plist": "pop/pop.plist"
+              "Type": "Default",
+              "Path": "Default/Sprite.png",
+              "Plist": ""
             },
             "BlendFunc": {
               "Src": 1,
@@ -444,8 +444,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "pop/plane.png",
-              "Plist": "pop/pop.plist"
+              "Path": "plevelscreen/plane.png",
+              "Plist": "plevelscreen/plevelscreen.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -489,8 +489,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "pop/fan1.png",
-              "Plist": "pop/pop.plist"
+              "Path": "plevelscreen/fan1.png",
+              "Plist": "plevelscreen/plevelscreen.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -540,8 +540,9 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "pop.plist",
-        "pop.png"
+        "../Default/Sprite.png",
+        "plevelscreen.plist",
+        "plevelscreen.png"
       ],
       "ctype": "GameFileData"
     }

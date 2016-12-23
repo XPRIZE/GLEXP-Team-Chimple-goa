@@ -37,7 +37,7 @@
                   android:configChanges="orientation|keyboardHidden" >
         </activity>                  
         
-        <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+<!--         <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
         <receiver
             android:enabled="true" android:exported="true" 
@@ -52,7 +52,7 @@
             </intent-filter>
 
         </receiver>        
-    </application>
+ -->    </application>
 
     <supports-screens android:anyDensity="true"
                       android:smallScreens="true"
@@ -60,7 +60,7 @@
                       android:largeScreens="true"
                       android:xlargeScreens="true"/>
 
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />					  
+    <!-- <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />					   -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>  
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>  

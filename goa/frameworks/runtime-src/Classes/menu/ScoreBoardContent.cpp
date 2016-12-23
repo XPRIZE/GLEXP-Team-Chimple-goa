@@ -134,7 +134,7 @@ void ScoreBoardContext::showStars() {
 
 void ScoreBoardContext::transit() {
     if(!this->_sceneName.empty()) {
-        Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(this->_gameName,this->_sceneName), Color3B::BLACK));
+        Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(this->_gameName,this->_sceneName, true), Color3B::BLACK));
 
     } else {
         StartMenu::startScene(this->_gameName);
@@ -158,7 +158,7 @@ void ScoreBoardContext::buttonClicked(Ref* pSender, ui::Widget::TouchEventType e
             }
             else if(clickedButton->getName() == "home") {
                 if(!this->_sceneName.empty()) {
-                    Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene("camp",""), Color3B::BLACK));
+                    Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene("camp","", true), Color3B::BLACK));
                     
                 } else {
 //                    Director::getInstance()->replaceScene(TransitionFade::create(1.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
