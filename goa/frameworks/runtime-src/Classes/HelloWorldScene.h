@@ -208,14 +208,14 @@ private:
     void finishedTask();
     
 public:
-    static cocos2d::Scene* createScene(const std::string& island, const std::string& sceneName);
-    
-    static HelloWorld* create(const std::string& island, const std::string& sceneName);
+    static cocos2d::Scene* createScene(const std::string& island, const std::string& sceneName, bool fromMenu);
+        
+    static HelloWorld* create(const std::string& island, const std::string& sceneName, bool fromMenu);
     
     HelloWorld();
     ~HelloWorld();
     
-    virtual bool init(const std::string& island, const std::string& sceneName);
+    virtual bool init(const std::string& island, const std::string& sceneName, bool fromMenu);
     
     virtual void initializeSafari();
     
