@@ -125,9 +125,11 @@ private:
     
     void processShowMessage(std::vector<MessageContent*>showMessages);
     
-    void useItemFromBagAnimation(RPGSprite* item);
+    void useItemFromBagAnimation(MessageContent* content, RPGSprite* item, std::unordered_map<int, std::string> textMapFollowedByAnimation);
+    
+    void useItemFromBagFinished(MessageContent* content, std::unordered_map<int, std::string> textMapFollowedByAnimation);
 
-    void useItemFromBag(RPGSprite* item);
+    void useItemFromBag(RPGSprite* item, MessageContent* content);
     
     void useItemFromBagAndPutItemInBag(RPGSprite* item, RPGSprite* putItem, int insertResult, int deleteResult);
     
@@ -135,7 +137,7 @@ private:
     
     void processUseInBackPackAndPutInBackPackMessages(std::vector<MessageContent*>showMessages);
     
-    void processUseInBackPackMessages(std::vector<MessageContent*>showMessages);
+    void processUseInBackPackMessages(std::vector<MessageContent*>showMessages, std::unordered_map<int, std::string> textMapFollowedByAnimation);
     
     void processPutInBackPackMessages(std::vector<MessageContent*>showMessages);
     
@@ -201,9 +203,11 @@ private:
         
     CC_SYNTHESIZE(bool, isSpeechBubbleAlreadyVisible, SpeechBubbleAlreadyVisible);
     
-    void moveItemIntoBag(RPGSprite* item);
+    void moveItemIntoBag(Sprite* orgSprite);
     
-    void moveitemIntoBagAnimation(RPGSprite* item);
+    void copySpriteForAnimation(RPGSprite* item);
+    
+    void moveitemIntoBagAnimation(Sprite* orgSprite);
     
     void finishedTask();
     
