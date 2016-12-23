@@ -11,18 +11,20 @@
 
 USING_NS_CC;
 
-Scene* HelloWorld::createScene(const std::string& island, const std::string& sceneName)
+
+Scene* HelloWorld::createScene(const std::string& island, const std::string& sceneName, bool fromMenu)
 {
     // 'scene' is an autorelease object
     auto scene = Scene::createWithPhysics();
     
     // 'layer' is an autorelease object
-    auto layer = HelloWorld::create(island, sceneName);
+    auto layer = HelloWorld::create(island, sceneName, fromMenu);
     
     // add layer as a child to scene
     scene->addChild(layer);
 
     layer->menuContext = MenuContext::create(layer, HelloWorld::gameName(), true);
+    layer->menuContext->setMaxPoints(3);
     scene->addChild(layer->menuContext);
 
     initPhysics(scene);
@@ -32,10 +34,10 @@ Scene* HelloWorld::createScene(const std::string& island, const std::string& sce
     return scene;
 }
 
-HelloWorld* HelloWorld::create(const std::string& island, const std::string& sceneName)
+HelloWorld* HelloWorld::create(const std::string& island, const std::string& sceneName, bool fromMenu)
 {
     HelloWorld* helloWorldLayer = new (std::nothrow) HelloWorld();
-    if(helloWorldLayer && helloWorldLayer->init(island, sceneName)) {
+    if(helloWorldLayer && helloWorldLayer->init(island, sceneName, fromMenu)) {
         helloWorldLayer->autorelease();
         return helloWorldLayer;
     }
@@ -403,7 +405,7 @@ void HelloWorld::initGestureLayer() {
 
 
 // on "init" you need to initialize your instance
-bool HelloWorld::init(const std::string& island, const std::string& sceneName)
+bool HelloWorld::init(const std::string& island, const std::string& sceneName, bool fromMenu)
 {
     //////////////////////////////
     // 1. super init first
@@ -451,6 +453,11 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
     
     this->scheduleUpdate();
     
+    if(fromMenu) {
+        CCLOG("deleting all items from bag for island %s", this->getIsland().c_str());
+        this->sqlite3Helper->deleteAllItemFromMyBag(this->getIsland().c_str());
+    }
+    
     //CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("sounds/Adagio teru (ft. teru).m4a", true);
     //CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0f);
     
@@ -471,6 +478,7 @@ void HelloWorld::querySceneToLoadInIsland() {
             FileUtils::getInstance()->addSearchPath("res/" + this->getIsland());
         }
     }
+    
 }
 
 void HelloWorld::loadSqlite3FileForIsland() {
@@ -569,6 +577,8 @@ void HelloWorld::processUseInBackPackAndPutInBackPackMessages(std::vector<Messag
     Node* ownerNode = NULL;
     for (std::vector<MessageContent* >::iterator it = showMessages.begin() ; it != showMessages.end(); ++it)
     {
+        int deleteResult = 0;
+        int insertResult = 0;
         MessageContent* content = (MessageContent*) *it;
         CCLOG("content owner %s", content->getOwner().c_str());
         CCLOG("content item in bag %s", content->getPreOutComeAction().c_str());
@@ -586,7 +596,7 @@ void HelloWorld::processUseInBackPackAndPutInBackPackMessages(std::vector<Messag
             for (std::vector<std::string>::iterator it = elems.begin() ; it != elems.end(); ++it)
             {
                 std::string item = *(it);
-                this->sqlite3Helper->deleteItemFromMyBag(this->getIsland().c_str(), item.c_str());
+                deleteResult = this->sqlite3Helper->deleteItemFromMyBag(this->getIsland().c_str(), item.c_str());
             }
         } else if(!content->getPostOutComeAction().empty()) {
             ownerNode = this->mainLayer->getChildByName(content->getOwner());
@@ -601,7 +611,12 @@ void HelloWorld::processUseInBackPackAndPutInBackPackMessages(std::vector<Messag
             for (std::vector<std::string>::iterator it = elems.begin() ; it != elems.end(); ++it)
             {
                 std::string item = *(it);
-                this->sqlite3Helper->insertItemToMyBag(this->getIsland().c_str(), item.c_str());
+                if(item.compare(TASK_FINISHED) == 0) {
+                    finishedTask();
+                } else {
+                    insertResult = this->sqlite3Helper->insertItemToMyBag(this->getIsland().c_str(), item.c_str());
+                }
+
             }
         }
         
@@ -611,28 +626,31 @@ void HelloWorld::processUseInBackPackAndPutInBackPackMessages(std::vector<Messag
             RPGSprite* postOwnerSprite = dynamic_cast<RPGSprite *>(ownerNode);
             if(preRPGSpriteNode != NULL && postOwnerSprite != NULL)
             {
-                useItemFromBagAndPutItemInBagAnimation(preRPGSpriteNode, postOwnerSprite);
+                useItemFromBagAndPutItemInBagAnimation(preRPGSpriteNode, postOwnerSprite, insertResult, deleteResult);
             }            
         }
         
     }
 }
 
-void HelloWorld::processUseInBackPackMessages(std::vector<MessageContent*>showMessages) {
+void HelloWorld::processUseInBackPackMessages(std::vector<MessageContent*>showMessages, std::unordered_map<int, std::string> textMapFollowedByAnimation) {
     for (std::vector<MessageContent* >::iterator it = showMessages.begin() ; it != showMessages.end(); ++it)
     {
         MessageContent* content = (MessageContent*) *it;
         CCLOG("content owner %s", content->getOwner().c_str());
         CCLOG("content item in bag %s", content->getPreOutComeAction().c_str());
-        
-        Node* ownerNode = this->mainLayer->getChildByName(content->getPreOutComeAction());
+        CCLOG("content needs dialog %d", content->getPreConditionEventId());
+        Node* ownerNode = NULL;
+        if(!content->getPreOutComeAction().empty()) {
+            ownerNode = this->mainLayer->getChildByName(content->getPreOutComeAction());
+        }
         if(ownerNode != NULL) {
+            int result = 0;
             CCLOG("ownerNode getName %s", ownerNode->getName().c_str());
             RPGSprite* ownerSprite = NULL;
             if(content != NULL && ownerNode != NULL) {
                 ownerSprite = dynamic_cast<RPGSprite *>(ownerNode);
-                useItemFromBagAnimation(ownerSprite);
-                
+
                 std::vector<std::string> elems;
                 std::stringstream ss;
                 ss.str(content->getPreOutComeAction());
@@ -644,11 +662,47 @@ void HelloWorld::processUseInBackPackMessages(std::vector<MessageContent*>showMe
                 for (std::vector<std::string>::iterator it = elems.begin() ; it != elems.end(); ++it)
                 {
                     std::string item = *(it);
-                    this->sqlite3Helper->deleteItemFromMyBag(this->getIsland().c_str(), item.c_str());
+                    result = this->sqlite3Helper->deleteItemFromMyBag(this->getIsland().c_str(), item.c_str());
+                }
+                
+                if(result == 1 && content->getShouldDisplayInBag())
+                {
+                    useItemFromBagAnimation(content, ownerSprite, textMapFollowedByAnimation);
+                } else if(content->getHasTextAfterAnimation() == 1) {
+                    CCLOG("calling text after animation");
+                    this->processTextMessage(textMapFollowedByAnimation, content->getOwner());
+                }
+                
+                
+                if(!content->getPostOutComeAction().empty()) {
+                    CCLOG("content->getPostOutComeAction() %s", content->getPostOutComeAction().c_str());
+                    //play animation
+                                        
+                    std::vector<std::string> elems;
+                    std::stringstream ss;
+                    ss.str(content->getPostOutComeAction());
+                    std::string item;
+                    while (getline(ss, item, ',')) {
+                        elems.push_back(item);
+                    }
+                    
+                    for (std::vector<std::string>::iterator it = elems.begin() ; it != elems.end(); ++it)
+                    {
+                        std::string item = *(it);
+                        if(item.compare(TASK_FINISHED) == 0) {
+                            finishedTask();
+                        } else {
+                            this->sqlite3Helper->insertItemToMyBag(this->getIsland().c_str(), item.c_str());
+                        }
+                    }
                 }
             }
         }
     }
+}
+
+void HelloWorld::finishedTask() {
+    //this->getEventDispatcher()->dispatchCustomEvent(RPGConfig::ON_MENU_EXIT_NOTIFICATION);
 }
 
 void HelloWorld::processPutInBackPackMessages(std::vector<MessageContent*>showMessages) {
@@ -664,12 +718,6 @@ void HelloWorld::processPutInBackPackMessages(std::vector<MessageContent*>showMe
         
         if(content != NULL && ownerSprite != NULL) {
             if(!content->getPostOutComeAction().empty()) {
-                CCLOG("content->getPostOutComeAction() %s", content->getPostOutComeAction().c_str());
-                //play animation
-                
-                if(content->getShouldDisplayInBag()) {
-                    moveitemIntoBagAnimation(ownerSprite);
-                }
                 
                 std::vector<std::string> elems;
                 std::stringstream ss;
@@ -679,12 +727,27 @@ void HelloWorld::processPutInBackPackMessages(std::vector<MessageContent*>showMe
                     elems.push_back(item);
                 }
                 
+                int result = 0;
                 for (std::vector<std::string>::iterator it = elems.begin() ; it != elems.end(); ++it)
                 {
                     std::string item = *(it);
-                    this->sqlite3Helper->insertItemToMyBag(this->getIsland().c_str(), item.c_str());
+                    if(item.compare(TASK_FINISHED) == 0) {
+                        finishedTask();
+                    } else {
+                        result = this->sqlite3Helper->insertItemToMyBag(this->getIsland().c_str(), item.c_str());
+                    }
+                    
                 }
                 
+                
+                CCLOG("content->getPostOutComeAction() %s", content->getPostOutComeAction().c_str());
+                //play animation
+                
+                if(content->getShouldDisplayInBag() && result == 1) {
+                    copySpriteForAnimation(ownerSprite);
+                }
+                
+
             }
         }
     }
@@ -722,30 +785,24 @@ void HelloWorld::processShowMessage(std::vector<MessageContent*>showMessages) {
 }
 
 
-void HelloWorld::moveItemIntoBag(RPGSprite* item) {
-    CCLOG("move item into bag %s", item->getName().c_str());
+void HelloWorld::moveItemIntoBag(Sprite* orgSprite) {
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    Sprite* orgSprite = dynamic_cast<Sprite *>(item->getSprite());
     if(orgSprite != NULL) {
         auto copySpriteMoveTo = MoveTo::create(1, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
         auto fade = FadeOut::create(1.0);
-        
-        Sprite* copySprite = Sprite::createWithSpriteFrame(orgSprite->getSpriteFrame());
         if(orgSprite != NULL) {
-            addChild(copySprite);
-            copySprite->setPosition(item->getPosition());
             auto copySpriteMoveTo = MoveTo::create(1, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
             auto fade = FadeOut::create(1.0);
             
-            runAction(Sequence::create(TargetedAction::create(copySprite, copySpriteMoveTo), DelayTime::create(0.5), TargetedAction::create(copySprite, fade), NULL));
+            runAction(Sequence::create(TargetedAction::create(orgSprite, copySpriteMoveTo), DelayTime::create(0.5), TargetedAction::create(orgSprite, fade), NULL));
             
         }
     }
 }
 
 
-void HelloWorld::useItemFromBag(RPGSprite* item) {
+void HelloWorld::useItemFromBag(RPGSprite* item, MessageContent* content) {
     CCLOG("move item into bag %s", item->getName().c_str());
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -754,49 +811,75 @@ void HelloWorld::useItemFromBag(RPGSprite* item) {
 
         Sprite* copySprite = Sprite::createWithSpriteFrame(orgSprite->getSpriteFrame());
         if(orgSprite != NULL) {
-            addChild(copySprite);
+            item->getParent()->addChild(copySprite, 1000);
             copySprite->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
-            auto copySpriteMoveTo = MoveTo::create(1, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+            auto copySpriteMoveTo = MoveTo::create(1, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2 + 500));
+            
             auto fade = FadeOut::create(2.0);
             
-            runAction(Sequence::create(DelayTime::create(1.0), TargetedAction::create(copySprite, fade), NULL));
+            
+            if(content != NULL) {
+                std::string ownerOfMessage = content->getOwner();
+                if(!ownerOfMessage.empty()) {
+                        auto selectedNode = this->mainLayer->getChildByName(ownerOfMessage);
+                        if(selectedNode != NULL)
+                        {
+                            bool isExternalCharacter = dynamic_cast<ExternalSkeletonCharacter *>(selectedNode);
+                            
+                            if(isExternalCharacter) {
+                                ExternalSkeletonCharacter* character = dynamic_cast<ExternalSkeletonCharacter *>(selectedNode);
+                                Point touch_point = character->convertToWorldSpace(character->getExternalSkeletonNode()->getPosition());
+                                
+                                auto copySpriteMoveToOwner = MoveTo::create(1, Vec2(touch_point.x, touch_point.y + 300));
+                                
+                                runAction(Sequence::create(TargetedAction::create(copySprite, copySpriteMoveTo), DelayTime::create(0.5), TargetedAction::create(copySprite, copySpriteMoveToOwner), DelayTime::create(0.2), TargetedAction::create(copySprite, fade), NULL));
+                            }
+                        }
+                }
+            } else {
+                runAction(Sequence::create(TargetedAction::create(copySprite, copySpriteMoveTo), DelayTime::create(1.0), TargetedAction::create(copySprite, fade), NULL));
+            }
+            
             
         }
     }
 }
 
 
-void HelloWorld::useItemFromBagAndPutItemInBag(RPGSprite* item, RPGSprite* putItem) {
+void HelloWorld::useItemFromBagAndPutItemInBag(RPGSprite* item, RPGSprite* putItem, int insertResult, int deleteResult) {
     
-    CCLOG("move item into bag %s", item->getName().c_str());
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    Sprite* orgSprite = dynamic_cast<Sprite *>(item->getSprite());
-    
-    CCLOG("move item into bag %s", putItem->getName().c_str());
-    Sprite* putSprite = dynamic_cast<Sprite *>(putItem->getSprite());
-    
-    if(orgSprite != NULL && putSprite != NULL) {
-        Sprite* copyPutSprite = Sprite::createWithSpriteFrame(putSprite->getSpriteFrame());
-        Sprite* copySprite = Sprite::createWithSpriteFrame(orgSprite->getSpriteFrame());
-        if(copySprite != NULL && copyPutSprite != NULL) {
-            addChild(copySprite);
-            addChild(copyPutSprite);
-            
-            copySprite->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
-            auto fade = FadeOut::create(2.0);
-            
-            
-            copyPutSprite->setPosition(putItem->getPosition());
-            auto copySpriteMoveTo = MoveTo::create(1, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
-            
-            runAction(Sequence::create(DelayTime::create(1.0), TargetedAction::create(copySprite, fade), DelayTime::create(0.5),TargetedAction::create(copyPutSprite, copySpriteMoveTo), DelayTime::create(0.5), TargetedAction::create(copyPutSprite, fade), NULL));
-            
+    if(insertResult == 1 && deleteResult == 1)
+    {
+        CCLOG("remove item from bag %s", item->getName().c_str());
+        Size visibleSize = Director::getInstance()->getVisibleSize();
+        Vec2 origin = Director::getInstance()->getVisibleOrigin();
+        Sprite* orgSprite = dynamic_cast<Sprite *>(item->getSprite());
+        
+        CCLOG("move item into bag %s", putItem->getName().c_str());
+        Sprite* putSprite = dynamic_cast<Sprite *>(putItem->getSprite());
+        
+        if(orgSprite != NULL && putSprite != NULL) {
+            Sprite* copyPutSprite = Sprite::createWithSpriteFrame(putSprite->getSpriteFrame());
+            Sprite* copySprite = Sprite::createWithSpriteFrame(orgSprite->getSpriteFrame());
+            if(copySprite != NULL && copyPutSprite != NULL) {
+                addChild(copySprite);
+                addChild(copyPutSprite);
+                
+                copySprite->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+                auto fade = FadeOut::create(2.0);
+                
+                
+                copyPutSprite->setPosition(putItem->getPosition());
+                auto copySpriteMoveTo = MoveTo::create(1, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+                
+                runAction(Sequence::create(DelayTime::create(1.0), TargetedAction::create(copySprite, fade), DelayTime::create(0.5),TargetedAction::create(copyPutSprite, copySpriteMoveTo), DelayTime::create(0.5), TargetedAction::create(copyPutSprite, fade), NULL));
+                
+            }
         }
     }
 }
 
-void HelloWorld::useItemFromBagAndPutItemInBagAnimation(RPGSprite* useItem, RPGSprite* putItem) {
+void HelloWorld::useItemFromBagAndPutItemInBagAnimation(RPGSprite* useItem, RPGSprite* putItem, int insertResult, int deleteResult) {
 
     auto node = CSLoader::createNode("backpack/backpack.csb");
     auto pos = Vec2(2300, 1600);
@@ -816,7 +899,7 @@ void HelloWorld::useItemFromBagAndPutItemInBagAnimation(RPGSprite* useItem, RPGS
     auto callbackClose = CallFunc::create(CC_CALLBACK_0(cocostudio::timeline::ActionTimeline::play, anim, "bag_close", false));
     
     
-    anim->setAnimationEndCallFunc("bag_open", CC_CALLBACK_0(HelloWorld::useItemFromBagAndPutItemInBag, this, useItem, putItem));
+    anim->setAnimationEndCallFunc("bag_open", CC_CALLBACK_0(HelloWorld::useItemFromBagAndPutItemInBag, this, useItem, putItem, insertResult, deleteResult));
 
     auto fade = FadeOut::create(1.0);
     auto scaleDown = ScaleTo::create(1, 0.2);
@@ -828,7 +911,7 @@ void HelloWorld::useItemFromBagAndPutItemInBagAnimation(RPGSprite* useItem, RPGS
     
 }
 
-void HelloWorld::useItemFromBagAnimation(RPGSprite* item) {
+void HelloWorld::useItemFromBagAnimation(MessageContent* content, RPGSprite* item, std::unordered_map<int, std::string> textMapFollowedByAnimation) {
     auto node = CSLoader::createNode("backpack/backpack.csb");
     auto pos = Vec2(2300, 1600);
     node->setPosition(pos);
@@ -845,19 +928,53 @@ void HelloWorld::useItemFromBagAnimation(RPGSprite* item) {
     auto spawn = Spawn::create(scaleTo, jumpTo, NULL);
     auto callbackOpen = CallFunc::create(CC_CALLBACK_0(cocostudio::timeline::ActionTimeline::play, anim, "bag_open", false));
     auto callbackClose = CallFunc::create(CC_CALLBACK_0(cocostudio::timeline::ActionTimeline::play, anim, "bag_close", false));
-    anim->setAnimationEndCallFunc("bag_open", CC_CALLBACK_0(HelloWorld::useItemFromBag, this, item));
+    anim->setAnimationEndCallFunc("bag_open", CC_CALLBACK_0(HelloWorld::useItemFromBag, this, item, content));
+    anim->setAnimationEndCallFunc("bag_close", CC_CALLBACK_0(HelloWorld::useItemFromBagFinished, this, content, textMapFollowedByAnimation));
     
     auto fade = FadeOut::create(1.0);
     auto scaleDown = ScaleTo::create(1, 0.2);
     auto jumpBack = MoveTo::create(1, Vec2(2300, 1600));
     auto spawnBack = Spawn::create(scaleDown, jumpBack, NULL);
     
+    
     auto sequence = Sequence::create(TargetedAction::create(node, spawn), callbackOpen, DelayTime::create(3.0), callbackClose, DelayTime::create(1.0), TargetedAction::create(node, spawnBack), DelayTime::create(0.5), TargetedAction::create(node, fade), NULL);
     runAction(sequence);
     
 }
 
-void HelloWorld::moveitemIntoBagAnimation(RPGSprite* item) {
+void HelloWorld::useItemFromBagFinished(MessageContent* content, std::unordered_map<int, std::string> textMapFollowedByAnimation) {
+    CCLOG("Called finsihed");
+    //setHasTextAfterAnimation
+    if(content->getHasTextAfterAnimation() == 1) {
+        this->processTextMessage(textMapFollowedByAnimation, content->getOwner());
+    }
+    
+}
+
+void HelloWorld::copySpriteForAnimation(RPGSprite* item) {
+    //copy sprite
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+ 
+    Sprite* orgSprite = dynamic_cast<Sprite *>(item->getSprite());
+    Sprite* copySprite = NULL;
+    if(orgSprite != NULL) {
+        copySprite = Sprite::createWithSpriteFrame(orgSprite->getSpriteFrame());
+        if(orgSprite != NULL) {
+            item->getParent()->addChild(copySprite, 1000);
+            copySprite->setPosition(orgSprite->getPosition());
+            auto copySpriteMoveTo = MoveTo::create(1, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2 + 500));
+            
+            auto callBack = CallFunc::create(CC_CALLBACK_0(HelloWorld::moveitemIntoBagAnimation, this, copySprite));
+            runAction(Sequence::create(TargetedAction::create(copySprite, copySpriteMoveTo), DelayTime::create(0.5), callBack, NULL));
+            
+        }
+    }
+    
+    
+}
+
+void HelloWorld::moveitemIntoBagAnimation(Sprite* copySprite) {
     auto node = CSLoader::createNode("backpack/backpack.csb");
     auto pos = Vec2(2300, 1600);
     node->setPosition(pos);
@@ -865,6 +982,7 @@ void HelloWorld::moveitemIntoBagAnimation(RPGSprite* item) {
     node->setScale(0.2);
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    
     
     auto jumpTo = MoveTo::create(1, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
     
@@ -874,7 +992,7 @@ void HelloWorld::moveitemIntoBagAnimation(RPGSprite* item) {
     auto spawn = Spawn::create(scaleTo, jumpTo, NULL);
     auto callbackOpen = CallFunc::create(CC_CALLBACK_0(cocostudio::timeline::ActionTimeline::play, anim, "bag_open", false));
     auto callbackClose = CallFunc::create(CC_CALLBACK_0(cocostudio::timeline::ActionTimeline::play, anim, "bag_close", false));
-    anim->setAnimationEndCallFunc("bag_open", CC_CALLBACK_0(HelloWorld::moveItemIntoBag, this, item));
+    anim->setAnimationEndCallFunc("bag_open", CC_CALLBACK_0(HelloWorld::moveItemIntoBag, this, copySprite));
     
     auto fade = FadeOut::create(1.0);
     auto scaleDown = ScaleTo::create(1, 0.2);
@@ -916,9 +1034,9 @@ void HelloWorld::transitToMenu(EventCustom * event) {
     } else if(menuName == MAP_MENU) {
         Director::getInstance()->replaceScene(TransitionFade::create(2.0, MapScene::createScene(), Color3B::BLACK));
     } else {
+        menuContext->addPoints(3);
         menuContext->showScore();
     }
-    
 }
 
 void HelloWorld::cleanUpResources() {
@@ -975,10 +1093,10 @@ void HelloWorld::changeScene(std::string nextScene, bool isMiniGame) {
     if(!nextScene.empty()) {
         if(isMiniGame) {
             this->skeletonCharacter->getSkeletonNode()->stopAllActions();
-            Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(nextScene,""), Color3B::BLACK));            
+            Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(nextScene,"", false), Color3B::BLACK));
         } else {
             this->skeletonCharacter->getSkeletonNode()->stopAllActions();
-            Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(this->getIsland(),nextScene), Color3B::BLACK));
+            Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(this->getIsland(),nextScene, false), Color3B::BLACK));
         }
     }
 }
@@ -1018,14 +1136,17 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
                 if(animationNode != NULL) {
                     cocostudio::timeline::ActionTimeline* timeline = NULL;
                     bool timeLineExists = false;
-                    if(animationNode->getActionTimeLine() == NULL) {
-                        timeline =  CSLoader::createTimeline(animFile);
-                        animationNode->setActionTimeLine(timeline);
-                        timeLineExists = false;
-                    } else {
-                        timeline = animationNode->getActionTimeLine();
-                        timeLineExists = true;
-                    }
+                    timeline =  CSLoader::createTimeline(animFile);
+                    animationNode->setActionTimeLine(timeline);
+                    animationNode->getSprite()->runAction(timeline);
+//                    if(animationNode->getActionTimeLine() == NULL) {
+//                        timeline =  CSLoader::createTimeline(animFile);
+//                        animationNode->setActionTimeLine(timeline);
+//                        timeLineExists = false;
+//                    } else {
+//                        timeline = animationNode->getActionTimeLine();
+//                        timeLineExists = true;
+//                    }
                     
                     if(timeline != NULL && animationSpriteNode != NULL && animationNode != NULL )
                     {
@@ -1048,9 +1169,9 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
                         if(animationNode != NULL) {
                             animationNode->setVisible(true);
                             if(animationNode->getSprite() != NULL) {
-                                if(!timeLineExists) {
-                                    animationNode->getSprite()->runAction(timeline);
-                                }
+//                                if(!timeLineExists) {
+//                                    animationNode->getSprite()->runAction(timeline);
+//                                }
                                 
                                 bool playInLoop = content->getPlayAnimationInLoop() == 1 ? true : false;
                                 if(!animName.empty()) {
@@ -1092,6 +1213,7 @@ void HelloWorld::processCustomAnimationMessage(std::vector<MessageContent*>custo
 
 void HelloWorld::processMessage(std::vector<MessageContent*>*messages) {
     std::unordered_map<int, std::string> textMap;
+    std::unordered_map<int, std::string> textMapFollowedByAnimation;
     std::vector<MessageContent*>showMessages;
     std::vector<MessageContent*>animationMessages;
     std::vector<MessageContent*>customAnimationMessages;
@@ -1100,11 +1222,37 @@ void HelloWorld::processMessage(std::vector<MessageContent*>*messages) {
     std::vector<MessageContent*>useInBackPackMessages;
     std::vector<MessageContent*>useInBackPackAndPutInBackPackMessages;
     std::string ownerOfMessage;
-    
+    int howTextManyMessages = 0;
+    int howUseManyMessages = 0;
     for (std::vector<MessageContent* >::iterator it = messages->begin() ; it != messages->end(); ++it)
     {
         MessageContent* content = (MessageContent*) *it;
         if(content->getAction() == "say") {
+            howTextManyMessages++;
+        } else if(content->getAction() == "use") {
+            howUseManyMessages++;
+        }
+    }
+    
+    for (std::vector<MessageContent* >::iterator it = messages->begin() ; it != messages->end(); ++it)
+    {
+        MessageContent* content = (MessageContent*) *it;
+        
+        //special text message
+        if(howTextManyMessages == 1 && howUseManyMessages == 1 && content->getAction() == "say")
+        {
+            ownerOfMessage = content->getOwner();
+            assert(!ownerOfMessage.empty());
+            std::string translatedString = this->currentLangUtil->translateString(content->getDialog());
+            if(!translatedString.empty()) {
+                textMapFollowedByAnimation.insert({content->getEventId(),translatedString});
+            } else {
+                textMapFollowedByAnimation.insert({content->getEventId(),content->getDialog()});
+            }
+            
+            delete content;
+        }
+        else if(content->getAction() == "say") {
             ownerOfMessage = content->getOwner();
             assert(!ownerOfMessage.empty());
             std::string translatedString = this->currentLangUtil->translateString(content->getDialog());
@@ -1137,6 +1285,10 @@ void HelloWorld::processMessage(std::vector<MessageContent*>*messages) {
             putInBackPackMessages.push_back(content);
         }
         else if(content->getAction() == "use") {
+            if(howTextManyMessages == 1 && howUseManyMessages == 1) {
+                content->setHasTextAfterAnimation(1);
+            }
+            
             ownerOfMessage = content->getOwner();
             useInBackPackMessages.push_back(content);
         }
@@ -1167,7 +1319,7 @@ void HelloWorld::processMessage(std::vector<MessageContent*>*messages) {
     }
     
     if(!useInBackPackMessages.empty() && putInBackPackMessages.empty()) {
-        this->processUseInBackPackMessages(useInBackPackMessages);
+        this->processUseInBackPackMessages(useInBackPackMessages, textMapFollowedByAnimation);
     }
     
     if(!useInBackPackMessages.empty() && !putInBackPackMessages.empty()) {

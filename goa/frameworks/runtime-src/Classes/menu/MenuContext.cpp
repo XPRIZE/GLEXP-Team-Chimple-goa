@@ -8,6 +8,7 @@
 
 #include "MenuContext.h"
 #include "LevelHelpScene.h"
+#include "LevelHelpOverlay.h"
 #include "ui/CocosGUI.h"
 #include "../StartMenuScene.h"
 #include "../MapScene.h"
@@ -73,6 +74,7 @@
 #include "../mini_games/PopCount.h"
 #include "../mini_games/DinoGame.h"
 #include "../mini_games/PatchTheWallScene.h"
+#include "../util/CommonLabel.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -162,7 +164,7 @@ void MenuContext::resumeNodeAndDescendants(Node *pNode)
 void MenuContext::addGreyLayer() {
     if(!_greyLayer) {
         Size visibleSize = Director::getInstance()->getVisibleSize();
-        _greyLayer = LayerColor::create(Color4B(255.0, 255.0, 255.0, 0.0));
+        _greyLayer = LayerColor::create(Color4B(128.0, 128.0, 128.0, 128.0));
         _greyLayer->setContentSize(visibleSize);
         addChild(_greyLayer, -1);
     }
@@ -179,10 +181,8 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 auto moveTo = MoveTo::create(0.5, _menuButton->getPosition());
                 auto elastic = EaseBackIn::create(moveTo);
                 auto callbackRemoveMenu = CallFunc::create(CC_CALLBACK_0(MenuContext::removeMenu, this));
-                /*
                 auto targetHelpCloseAction = TargetedAction::create(_helpMenu, elastic->clone());
-                auto targetBookCloseAction = TargetedAction::create(_mapMenu, elastic->clone());
-                 */
+                auto targetBookCloseAction = TargetedAction::create(_bookMenu, elastic->clone());
                 auto targetMapCloseAction = TargetedAction::create(_mapMenu, elastic->clone());
                 
                 auto targetSettingCloseAction = TargetedAction::create(_settingMenu, elastic);
@@ -197,21 +197,20 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 //                        runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
 //                }
                 
-                auto spawnAction = Spawn::create(/*targetHelpCloseAction,*/targetMapCloseAction,/*targetBookCloseAction,*/targetGamesCloseAction, targetSettingCloseAction, nullptr);
+                auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction, targetBookCloseAction,targetGamesCloseAction, targetSettingCloseAction, nullptr);
                 runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
                 
                 
             } else {
                 addGreyLayer();
-//                _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png",POINTS_TO_LEFT);
-//                _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
-                
+                _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png", 5 * POINTS_TO_LEFT);
+                _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
                 
                 _mapMenu = this->createMenuItem("menu/map.png", "menu/map.png", "menu/map.png", 2 * POINTS_TO_LEFT);
                 _mapMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showMap, this));
                 
-//                _bookMenu = this->createMenuItem("menu/book.png", "menu/book.png", "menu/book.png", 3 * POINTS_TO_LEFT);
-//                _bookMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showBook, this));
+                _bookMenu = this->createMenuItem("menu/book.png", "menu/book.png", "menu/book.png", 4 * POINTS_TO_LEFT);
+                _bookMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showBook, this));
 
                 _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
                 _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
@@ -518,11 +517,11 @@ void MenuContext::removeMenu() {
         removeChild(_exitMenu);
         _exitMenu = nullptr;
         
-//        removeChild(_helpMenu);
-//        _helpMenu = nullptr;
+        removeChild(_helpMenu);
+        _helpMenu = nullptr;
         
-//        removeChild(_bookMenu);
-//        _bookMenu = nullptr;
+        removeChild(_bookMenu);
+        _bookMenu = nullptr;
         
         removeChild(_mapMenu);
         _mapMenu = nullptr;
@@ -700,6 +699,8 @@ Node* MenuContext::jumpOut(std::string nodeCsbName, float duration, Vec2 positio
 void MenuContext::showHelp(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
 //        chimpHelp();
+        auto levelHelp = LevelHelpOverlay::create(gameName);
+        addChild(levelHelp);
     }
 }
 
@@ -774,7 +775,8 @@ void MenuContext::waitForAudioLoad(std::string audioFileName, std::function<void
 
 void MenuContext::showBook(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
-        Director::getInstance()->replaceScene(TransitionFade::create(2.0, SelectAlphamon::createScene(), Color3B::BLACK));
+//        Director::getInstance()->replaceScene(TransitionFade::create(2.0, SelectAlphamon::createScene(), Color3B::BLACK));
+        ScriptingCore::getInstance()->runScript("src/start/menu.js");
     }
 }
 
@@ -1015,7 +1017,7 @@ void MenuContext::showSettingMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::To
 		_menuButton->setEnabled(false);
 		addGreyLayer();
 		pauseNodeAndDescendants(_main);
-		_calcFlag = false;
+		_calcFlag = true;
 
 		std::string _levelStatus;
 		localStorageGetItem(UNLOCK_ALL, &_levelStatus);
@@ -1107,7 +1109,7 @@ void MenuContext::showSettingMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::To
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(_listener->clone(), _settingNode->getChildByName("submit"));
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(_listener->clone(), _settingNode->getChildByName("close"));
 
-		addCalculator();
+//		addCalculator();
 	}
 }
 
@@ -1381,8 +1383,8 @@ void MenuContext::showScore() {
         _ps = nullptr;
         _greyLayer->addChild(LayerColor::create(Color4B(128.0, 128.0, 128.0, 200.0), visibleSize.width, visibleSize.height));
 
-        auto scoreNode = ScoreBoardContext::create(stars, this->gameName, this->sceneName);
-        scoreNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+       auto scoreNode = ScoreBoardContext::create(stars, this->gameName, this->sceneName);
+       scoreNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
         addChild(scoreNode);
     }), NULL));
 
@@ -1434,6 +1436,7 @@ int MenuContext::getMaxPoints() {
 void MenuContext::setMaxPoints(int maxPoints) {
     _maxPoints = maxPoints;
 }
+
 
 
 Rect MenuContext::getBoundingBox(cocos2d::Sprite* node) const
@@ -1575,3 +1578,211 @@ MenuContext::~MenuContext() {
     
 }
 
+/*
+  wordPairList
+  by defalut answer = "it is a word"
+  bool true for initialSyallableWords and sentence
+*/
+void MenuContext::wordPairList(std::string question, std::string answer,bool isIntialSyllable)
+{
+	if (answer.compare("it is a word") == 0) {
+		_listOfWords.push_back(question);
+	}
+	else
+	{
+		if (isIntialSyllable) {
+			if (_listOfInitialSyllableWords.end() == _listOfInitialSyllableWords.find(question))
+			{
+				std::vector<std::string> wordVector;
+				wordVector.push_back(answer);
+				_listOfInitialSyllableWords.insert(std::pair<std::string, std::vector<std::string>>(question, wordVector));
+			}
+			else {
+				_listOfInitialSyllableWords.at(question).push_back(answer);
+			}
+		}
+		else 
+		{
+			_wordsList.insert(std::pair < std::string, std::string>(question, answer));
+		}
+	}
+}
+
+/*
+ type wordPair for synonyms,antonyms,homonyms,plurals
+ type word for words,list of nouns etc...
+ type sentence for select nouns in the given sentence;
+ header = "Make same sounding word as : " (example)
+*/
+
+void MenuContext::showAnswer(std::string type, std::string header)
+{
+	auto spritecache1 = SpriteFrameCache::getInstance();
+	spritecache1->addSpriteFramesWithFile("dash/dash.plist");
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	auto bg = Sprite::create("gamemap_bg/game_map_bg1.png");
+	bg->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
+	this->addChild(bg);
+	
+	
+
+	float x = 0;
+	float y = bg->getContentSize().height * 0.8;
+	int blockSize = 0;
+	float labelWidth, labelHeight;
+	auto headerBlock = Sprite::createWithSpriteFrameName("dash/button.png");
+	headerBlock->setPositionX(visibleSize.width / 2);
+	headerBlock->setPositionY(visibleSize.height - headerBlock->getContentSize().height / 1.5);
+	headerBlock->setAnchorPoint(Vec2(0.5, 0.5));
+	this->addChild(headerBlock);
+	auto label1 = CommonLabel::createWithSystemFont(header.c_str(), "Arial", 100);
+	label1->setColor(Color3B(0, 0, 0));
+	label1->setPosition(Vec2(headerBlock->getContentSize().width / 2, headerBlock->getContentSize().height / 2));
+	label1->setAnchorPoint(Vec2(0.5, 0.5));
+	headerBlock->addChild(label1);
+
+	auto button = Button::create("scoreboard/scoremainground/closebuttonoff.png", "scoreboard/scoremainground/closebuttonon.png", "scoreboard/scoremainground/closebuttonoff.png", Widget::TextureResType::LOCAL);
+	button->addTouchEventListener(CC_CALLBACK_0(MenuContext::showScore, this));
+	button->setPosition(Vec2(200, visibleSize.height*0.9));
+	this->addChild(button);
+
+	if (type.compare("wordPairs") == 0) {
+		//dash/small_button_01.png
+		for (auto wordPair = _wordsList.begin(); wordPair != _wordsList.end(); wordPair++) {
+			int i = blockSize % 2;
+			auto duplicatNode = Node::create();
+			auto obj1 = Sprite::createWithSpriteFrameName("dash/big_button.png");
+			float xp = visibleSize.width - (obj1->getContentSize().width * 2);
+			/*obj1->setPositionX((xp / 3) *(i + 1) + obj1->getContentSize().width / 2 * (i + 1) + obj1->getContentSize().width / 2 * (i));
+			obj1->setPositionY(y);*/
+			obj1->setAnchorPoint(Vec2(0.5, 0.5));
+			duplicatNode->setPositionX((xp / 3) *(i + 1) + obj1->getContentSize().width / 2 * (i + 1) + obj1->getContentSize().width / 2 * (i));
+			duplicatNode->setPositionY(y);
+			duplicatNode->setContentSize(obj1->getContentSize());
+			duplicatNode->setAnchorPoint(Vec2(0.5, 0.5));
+			auto labelBase1 = Sprite::createWithSpriteFrameName("dash/small_button_01.png");
+			labelBase1->setPosition(Vec2(0,0));
+			labelBase1->setAnchorPoint(Vec2(0, 0));
+			duplicatNode->addChild(labelBase1);
+			auto label1 = CommonLabel::createWithSystemFont(wordPair->first.c_str(), "Arial", 100);
+			label1->setColor(Color3B(0, 0, 0));
+			label1->setPosition(Vec2(labelBase1->getContentSize().width / 2, labelBase1->getContentSize().height / 2));
+			label1->setAnchorPoint(Vec2(0.5, 0.5));
+			float xx = label1->getContentSize().width;
+
+
+			auto labelBase2 = Sprite::createWithSpriteFrameName("dash/arrow.png");
+			labelBase2->setPosition(Vec2(duplicatNode->getContentSize().width/2, duplicatNode->getContentSize().height / 2));
+			labelBase2->setAnchorPoint(Vec2(0.5, 0.5));
+			duplicatNode->addChild(labelBase2,1);
+
+
+			auto labelBase3 = Sprite::createWithSpriteFrameName("dash/small_button_02.png");
+			labelBase3->setPosition(Vec2(duplicatNode->getContentSize().width, 0));
+			labelBase3->setAnchorPoint(Vec2(1, 0));
+			duplicatNode->addChild(labelBase3);
+
+			auto label3 = CommonLabel::createWithSystemFont(wordPair->second.c_str(), "Arial", 100);
+			label3->setColor(Color3B(0, 0, 0));
+			label3->setPosition(Vec2(labelBase3->getContentSize().width / 2, labelBase3->getContentSize().height / 2));
+			label3->setAnchorPoint(Vec2(0.5, 0.5));
+
+			labelBase1->addChild(label1);
+			//duplicatNode->addChild(label2);
+			labelBase3->addChild(label3);
+			if (blockSize % 2 == 1) {
+				y -= obj1->getContentSize().height * 1.2;
+			}
+			labelWidth = label1->getContentSize().width;
+			labelHeight = label1->getContentSize().height;
+			blockSize++;
+			this->addChild(duplicatNode);
+		}
+	}
+	else if (type.compare("Words") == 0)
+	{
+		for (int index = 0; index < _listOfWords.size(); index++) {
+			int i = blockSize % 2;
+			auto obj1 = Sprite::createWithSpriteFrameName("dash/big_button.png");
+			float xp = visibleSize.width - (obj1->getContentSize().width * 2);
+			obj1->setPositionX((xp / 3) *(i + 1) + obj1->getContentSize().width / 2 * (i + 1) + obj1->getContentSize().width / 2 * (i));
+			obj1->setPositionY(y);
+			obj1->setAnchorPoint(Vec2(0.5, 0.5));
+			this->addChild(obj1);
+			auto label1 = CommonLabel::createWithSystemFont(_listOfWords.at(index).c_str(), "Arial", 100);
+			label1->setColor(Color3B(0, 0, 0));
+			label1->setPosition(Vec2(obj1->getContentSize().width / 2, obj1->getContentSize().height / 2));
+			label1->setAnchorPoint(Vec2(0.5, 0.5));
+			float xx = label1->getContentSize().width;
+			obj1->addChild(label1);
+			if (blockSize % 2 == 1) {
+				y -= obj1->getContentSize().height * 1.2;
+			}
+			labelWidth = label1->getContentSize().width;
+			labelHeight = label1->getContentSize().height;
+			blockSize++;
+		}
+
+	}
+
+	else if (type.compare("Sentence") == 0) {
+
+		int numberOfWordShow = 0;
+
+		for (auto wordPair = _listOfInitialSyllableWords.begin(); wordPair != _listOfInitialSyllableWords.end(); wordPair++) {
+			auto sentenceBlock = Sprite::createWithSpriteFrameName("dash/button.png");
+			sentenceBlock->setPositionX(visibleSize.width / 2);
+			sentenceBlock->setPositionY(y);
+			sentenceBlock->setAnchorPoint(Vec2(0.5, 0.5));
+			sentenceBlock->setScaleY(0.75);
+			this->addChild(sentenceBlock);
+
+			auto sentencelabel1 = CommonLabel::createWithSystemFont(wordPair->first.c_str(), "Arial", 100);
+			sentencelabel1->setColor(Color3B(0, 0, 0));
+			sentencelabel1->setPosition(Vec2(sentenceBlock->getContentSize().width / 2, sentenceBlock->getContentSize().height / 2));
+			sentencelabel1->setAnchorPoint(Vec2(0.5, 0.5));
+			sentenceBlock->addChild(sentencelabel1);
+			auto listOfAnswers = wordPair->second;
+
+			y -= sentenceBlock->getContentSize().height;
+			int temp = 0;
+			float answerBlockWidth = 0.0f;
+			if (listOfAnswers.size() > 4) {
+				answerBlockWidth = visibleSize.width / 5;
+				temp = 4;
+			}
+			else
+			{
+				answerBlockWidth = visibleSize.width / (listOfAnswers.size() + 1);
+				temp = listOfAnswers.size();
+
+			}
+			
+			for (int i = 0; i < listOfAnswers.size(); i++) {
+				auto labelBase1 = Sprite::createWithSpriteFrameName("dash/small_button_01.png");
+				labelBase1->setPosition(Vec2(answerBlockWidth + (answerBlockWidth * (i%temp)), y));
+				if (i == 3 && listOfAnswers.size() > 3) {
+					y -= labelBase1->getContentSize().height * 1.2;
+				}
+				labelBase1->setScaleY(0.75);
+				labelBase1->setAnchorPoint(Vec2(0.5, 0.5));
+				this->addChild(labelBase1);
+				auto label3 = CommonLabel::createWithSystemFont(listOfAnswers.at(i).c_str(), "Arial", 100);
+				label3->setColor(Color3B(255, 255, 255));
+				label3->setPosition(Vec2(labelBase1->getContentSize().width / 2, labelBase1->getContentSize().height / 2));
+				label3->setAnchorPoint(Vec2(0.5, 0.5));
+				labelBase1->addChild(label3);
+			}
+			y -= sentenceBlock->getContentSize().height;
+			numberOfWordShow++;
+			if (numberOfWordShow == 3) {
+				break;
+			}
+		}
+	}
+	//duplicatNode->setContentSize(Size(labelWidth* _wordsList.size(), labelHeight*_wordsList.size()));
+	//duplicatNode->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
+	//duplicatNode->setAnchorPoint(Vec2(0.5, 0.5));
+	//this->addChild(duplicatNode);
+
+}

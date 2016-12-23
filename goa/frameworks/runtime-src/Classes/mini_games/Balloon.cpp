@@ -161,7 +161,7 @@ void Balloon::onEnterTransitionDidFinish()
 	{
 		float x;
 		Sprite* calculator = Sprite::createWithSpriteFrameName("balloonpop/icon.png");
-		if (gameCurrentLevel > 25)
+		if (gameCurrentLevel >= 25)
 			 x = visibleSize.width*0.69;
 		else
 			 x = visibleSize.width*0.61;
@@ -304,18 +304,18 @@ void Balloon::addTouchEvents(Sprite* obj)
 		Point locationInNode = target->convertToNodeSpace(touch->getLocation());
 		Size s = target->getContentSize();
 
-		if (!(target->getName()).compare("done"))
-		{
-			auto a = target->getPositionX() - target->getContentSize().width / 2;
-			auto b = target->getPositionY() - target->getContentSize().height / 2;
-
-			Rect rect = CCRectMake(a, b, target->getContentSize().width, target->getContentSize().height);
-			if (rect.containsPoint(Vec2(touch->getLocation().x, touch->getLocation().y)) && _touched)
+			if (!(target->getName()).compare("done"))
 			{
-				target->setOpacity(100); _touched = false;
-				return true;
+				auto a = target->getPositionX() - target->getContentSize().width / 2;
+				auto b = target->getPositionY() - target->getContentSize().height / 2;
+
+				Rect rect = CCRectMake(a, b, target->getContentSize().width, target->getContentSize().height);
+				if (rect.containsPoint(Vec2(touch->getLocation().x, touch->getLocation().y)) && _touched)
+				{
+					target->setOpacity(100); _touched = false;
+					return true;
+				}
 			}
-		}
 			else if (!(target->getName()).compare("calculator"))
 			{
 				auto a = target->getPositionX() - target->getContentSize().width / 2;

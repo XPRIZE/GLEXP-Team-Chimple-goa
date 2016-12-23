@@ -224,10 +224,15 @@ void Pillar::onEnterTransitionDidFinish()
 	{
 		_pointRef = (Sprite*)background->getChildByName("base_1");
 	}
-	else
+	else if (_scenePath.at("animation_select").compare("two") == 0)
 	{
 		_pointRef = (Sprite*)_Ref.at(0);
 		_pointRef->setContentSize(Size(200 + extraX, _pointRef->getContentSize().height));
+	}
+	else if (_scenePath.at("animation_select").compare("three") == 0)
+	{
+		_pointRef = (Sprite*)background->getChildByName("holder_2");
+		//_pointRef->setContentSize(Size(200 + extraX, _pointRef->getContentSize().height));
 	}
 	//_pointRef->setAnchorPoint(Vec2(0, 0.5));
 	//_pointRef->setContentSize(Size(200 + extraX, _pointRef->getContentSize().height));
@@ -237,9 +242,9 @@ void Pillar::onEnterTransitionDidFinish()
 	Vec2 vertices[] =
 	{
 		Vec2(_pointRef->getPositionX(),_pointRef->getPositionY()),
-		Vec2(_pointRef->getPositionX()+600, _pointRef->getPositionY()),
+		Vec2(_pointRef->getPositionX()+ 500 + extraX, _pointRef->getPositionY()),
 
-		Vec2(_pointRef->getPositionX()+600,_pointRef->getPositionY()),
+		Vec2(_pointRef->getPositionX()+ 500 + extraX,_pointRef->getPositionY()),
 		Vec2(_pointRef->getPositionX(),_pointRef->getPositionY())
 
 	};
@@ -315,8 +320,8 @@ void Pillar::gameHelp()
 	auto optionLayer = _topLabel;
 	auto optionSize = optionLayer->getContentSize();
 	auto optionPosition = optionLayer->getPosition();
-	auto help = HelpLayer::create(Rect(_pointRef->getPositionX(), _ladder->getContentSize().height + _ladder->getPositionY(), labelSize.width , labelSize.height ),Rect(0,0,0,0));
-	help->click(Vec2(_pointRef->getPositionX(), _ladder->getContentSize().height + _ladder->getPositionY() ));
+	auto help = HelpLayer::create(Rect(_pointRef->getPositionX() + extraX, _ladder->getContentSize().height + _ladder->getPositionY(), labelSize.width , labelSize.height ),Rect(0,0,0,0));
+	help->click(Vec2(_pointRef->getPositionX() + extraX, _ladder->getContentSize().height + _ladder->getPositionY() ));
 	help->setName("helpLayer");
 	this->addChild(help);
 
@@ -330,9 +335,9 @@ void Pillar::blink(std::string animationName, bool loop)
 void Pillar::ladderMove()
 {
    
-	auto rotate = RotateBy::create(0.9, 40);
+	auto rotate = RotateBy::create(1.0, 40);
 	auto rev = rotate->reverse();
-	auto rotate1 = RotateBy::create(0.9, -40);
+	auto rotate1 = RotateBy::create(1.0, -40);
 	auto rev1 = rotate1->reverse();
 	auto seq = Sequence::create(rotate, rev, rotate1, rev1, NULL);
     auto action = RepeatForever::create(seq);
@@ -474,9 +479,14 @@ void Pillar::update(float dt)
 						{
 							_pointRef = (Sprite*)background->getChildByName("base_1");
 						}
-						else
+						else if (_scenePath.at("animation_select").compare("two") == 0)
 						{
 							_pointRef = (Sprite*)_Ref.at(0);
+
+						}
+						else if (_scenePath.at("animation_select").compare("three") == 0)
+						{
+							_pointRef = (Sprite*)background->getChildByName("holder_2");
 						}
 						_count = 0;
 					}
@@ -493,9 +503,14 @@ void Pillar::update(float dt)
 					{
 						_pointRef = (Sprite*)background->getChildByName("base_1");
 					}
-					else
+					else if (_scenePath.at("animation_select").compare("two") == 0)
 					{
 						_pointRef = (Sprite*)_Ref.at(0);
+
+					}
+					else if (_scenePath.at("animation_select").compare("three") == 0)
+					{
+						_pointRef = (Sprite*)background->getChildByName("holder_2");
 					}
 				}
 				_cakeMove = nullptr;

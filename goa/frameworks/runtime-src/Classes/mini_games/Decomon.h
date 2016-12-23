@@ -27,7 +27,7 @@ public:
 	
 protected:
 	MenuContext * menu;
-	cocos2d::Layer * _costumeLayer, *_alphabetLayer, * _maskingLayer;
+	cocos2d::Layer * _costumeLayer, *_alphabetLayer, * _maskingLayer, * _iconLayer, *_coloringLayer;
 	cocos2d::Node * _movedNode, *_alphaNode;
 	cocos2d::DrawNode *_paintingNode;
 	cocos2d::Vector<cocos2d::Node *> _drawNodes;
@@ -68,6 +68,7 @@ protected:
 	bool _eyeFlag = true, _mouthFlag = true, _skateFlag = true ,_noseFlag = true ,_paintFlag = true, _mustacheFlag = true, _hornFlag = true, _gearFlag = true;
 	void wordGenerate();
 	void gameEnd(float dt);
+	bool _isTouchBegan = true;
 };
 
 #endif 

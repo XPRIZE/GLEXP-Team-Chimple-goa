@@ -125,17 +125,19 @@ private:
     
     void processShowMessage(std::vector<MessageContent*>showMessages);
     
-    void useItemFromBagAnimation(RPGSprite* item);
+    void useItemFromBagAnimation(MessageContent* content, RPGSprite* item, std::unordered_map<int, std::string> textMapFollowedByAnimation);
+    
+    void useItemFromBagFinished(MessageContent* content, std::unordered_map<int, std::string> textMapFollowedByAnimation);
 
-    void useItemFromBag(RPGSprite* item);
+    void useItemFromBag(RPGSprite* item, MessageContent* content);
     
-    void useItemFromBagAndPutItemInBag(RPGSprite* item, RPGSprite* putItem);
+    void useItemFromBagAndPutItemInBag(RPGSprite* item, RPGSprite* putItem, int insertResult, int deleteResult);
     
-    void useItemFromBagAndPutItemInBagAnimation(RPGSprite* useItem, RPGSprite* putItem);
+    void useItemFromBagAndPutItemInBagAnimation(RPGSprite* useItem, RPGSprite* putItem, int insertResult, int deleteResult);
     
     void processUseInBackPackAndPutInBackPackMessages(std::vector<MessageContent*>showMessages);
     
-    void processUseInBackPackMessages(std::vector<MessageContent*>showMessages);
+    void processUseInBackPackMessages(std::vector<MessageContent*>showMessages, std::unordered_map<int, std::string> textMapFollowedByAnimation);
     
     void processPutInBackPackMessages(std::vector<MessageContent*>showMessages);
     
@@ -201,20 +203,23 @@ private:
         
     CC_SYNTHESIZE(bool, isSpeechBubbleAlreadyVisible, SpeechBubbleAlreadyVisible);
     
-    void moveItemIntoBag(RPGSprite* item);
+    void moveItemIntoBag(Sprite* orgSprite);
     
-    void moveitemIntoBagAnimation(RPGSprite* item);
+    void copySpriteForAnimation(RPGSprite* item);
     
+    void moveitemIntoBagAnimation(Sprite* orgSprite);
+    
+    void finishedTask();
     
 public:
-    static cocos2d::Scene* createScene(const std::string& island, const std::string& sceneName);
-    
-    static HelloWorld* create(const std::string& island, const std::string& sceneName);
+    static cocos2d::Scene* createScene(const std::string& island, const std::string& sceneName, bool fromMenu);
+        
+    static HelloWorld* create(const std::string& island, const std::string& sceneName, bool fromMenu);
     
     HelloWorld();
     ~HelloWorld();
     
-    virtual bool init(const std::string& island, const std::string& sceneName);
+    virtual bool init(const std::string& island, const std::string& sceneName, bool fromMenu);
     
     virtual void initializeSafari();
     

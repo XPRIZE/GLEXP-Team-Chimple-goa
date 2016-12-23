@@ -604,6 +604,9 @@
     <ClCompile Include="..\Classes\util\CommonText.cpp">
       <Filter>Classes\util</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\menu\LevelHelpOverlay.cpp">
+      <Filter>Classes\menu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1203,6 +1206,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\lang\SwahiliUtil.h">
       <Filter>Classes\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\menu\LevelHelpOverlay.h">
+      <Filter>Classes\menu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
