@@ -33,7 +33,11 @@ bool LevelHelpOverlay::initWithGame(std::string gameName) {
     if(!LevelHelpScene::initWithGame(gameName)) {
         return false;
     }
-    
+    auto bg = getChildByName("bg");
+    bg->removeChildByName("Panel_2");
+    bg->removeChildByName("Panel_3");
+    bg->removeChildByName("Panel_4");
+
     return true;
 }
 
