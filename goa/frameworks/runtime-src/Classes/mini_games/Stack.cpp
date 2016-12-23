@@ -245,7 +245,7 @@ void Stack::generateWord()
 				stackbg->stopAction(treadmill);
 			}), NULL);
 
-			int pos = std::find(_startName.begin(), _startName.end(), _word.substr(0, 2)) - _startName.begin();
+			int pos = std::find(_startName.begin(), _startName.end() - 1, _word.substr(0, 2)) - _startName.begin();
 			_trayfillbar->setColor(_color.at(pos));
 			_suckpipebar->setColor(_color.at(pos));
 
