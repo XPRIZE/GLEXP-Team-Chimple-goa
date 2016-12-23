@@ -275,7 +275,8 @@ void Talk::displayWord()
 {
 	if (_allSentense.size() == 0 || _enemyFish.size() == 5 || _heroFish.size() == 5)
 	{
-		_menuContext->showScore();
+		//_menuContext->showScore();
+		_menuContext->showAnswer("Sentence", "list of noun");
 		return;
 	}
 
@@ -532,7 +533,8 @@ void Talk::update(float d)
 		}
 		else
 		{
-			_menuContext->showScore();
+			//_menuContext->showScore();
+			_menuContext->showAnswer("Sentence", "list of noun");
 			this->unscheduleUpdate();
 		}
 	}
@@ -562,7 +564,8 @@ void Talk::update(float d)
 		}
 		else
 		{
-			_menuContext->showScore();
+			//_menuContext->showScore();
+			_menuContext->showAnswer("Sentence", "list of noun");
 			this->unscheduleUpdate();
 		}
 	}
@@ -612,9 +615,15 @@ void Talk::addEvents(struct LabelDetails sprite)
 				int pos = std::find(_scene.begin(), _scene.end(), sceneName) - _scene.begin();
 				if (sprite.answer == 'c')
 				{
+					std::string _string = "";
+					for (int i = 0; i < _textToShow.size(); i++)
+					{
+						_string += _textToShow.at(i).first + " ";
+					}
+
 					CocosDenshion::SimpleAudioEngine *success = CocosDenshion::SimpleAudioEngine::getInstance();
 					success->playEffect("sounds/sfx/success.ogg", false);
-
+					_menuContext->wordPairList(_string, sprite.id ,true);
 					_fish->setPosition(Vec2(differntSceneMapping.at(_scene.at(pos)).at("hero") , visibleSize.height));
 					_heroChar->play("h_correct", true);
 					_enemyChar->play("e_wrong", true);
