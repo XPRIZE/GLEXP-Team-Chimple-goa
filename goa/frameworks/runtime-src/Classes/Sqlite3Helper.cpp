@@ -136,6 +136,26 @@ int Sqlite3Helper::insertItemToMyBag(const char* island, const char* item) {
 
 }
 
+void Sqlite3Helper::deleteAllItemFromMyBag(const char* island) {
+    sqlite3_stmt *res;
+    const char* querySQL = "DELETE FROM MY_BAG WHERE ISLAND_NAME = @islandName";
+    int rc = sqlite3_prepare_v2(this->dataBaseConnection, querySQL, strlen(querySQL), &res, 0);
+    if( rc == SQLITE_OK ) {
+        // bind the value
+        int islandNameIndex = sqlite3_bind_parameter_index(res , "@islandName");
+        sqlite3_bind_text(res, islandNameIndex, island, -1, SQLITE_STATIC);
+        
+        
+        if(SQLITE_DONE == sqlite3_step(res)) {
+            fprintf(stderr, "Successfully deleted record: %s\n", sqlite3_errmsg(this->dataBaseConnection));
+        }
+        sqlite3_finalize(res);
+    }
+    else {
+        fprintf(stderr, "Failed to execute statement: %s\n", sqlite3_errmsg(this->dataBaseConnection));
+    }
+}
+
 int Sqlite3Helper::deleteItemFromMyBag(const char* island, const char* item) {
     sqlite3_stmt *res;
     const char* querySQL = "UPDATE MY_BAG SET USED = 1 WHERE ISLAND_NAME = @islandName AND ITEM = @itemName";

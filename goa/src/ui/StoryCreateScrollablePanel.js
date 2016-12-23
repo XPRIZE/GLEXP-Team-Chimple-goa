@@ -56,7 +56,26 @@ xc.StoryCreateScrollableButtonPanel = cc.LayerColor.extend({
 
             this.updateLeftRightButtons();
         }
+       
+        // this.bindTouchListenerToLayer(this._page);
     },
+
+
+    // bindTouchListenerToLayer: function(target) {
+    //     var context = this;
+    //     var listener = cc.EventListener.create({
+    //         event: cc.EventListener.TOUCH_ONE_BY_ONE,
+    //         swallowTouches: false,
+    //         onTouchBegan: function (touch, event) {
+    //             cc.log('24u12323u414132412');
+    //             return true;
+    //         },
+    //         onTouchEnded: function (touch, event) {
+    //         }            
+    //     });
+    //     cc.eventManager.addListener(listener, target);
+    // },
+
     itemSelected: function (sender, type) {
         this._buttonHandler.itemSelected(sender, type);
     },
@@ -100,6 +119,7 @@ xc.StoryCreateScrollableButtonPanel = cc.LayerColor.extend({
     moveLeft: function (sender, type) {
         switch (type) {
             case ccui.Widget.TOUCH_BEGAN:
+                cc.log('left touch began');
                 if (cc.sys.isNative) {
                     if (this._page.getCurrentPageIndex() > 0) {
                         this._page.scrollToPage(this._page.getCurrentPageIndex() - 1);
@@ -117,6 +137,7 @@ xc.StoryCreateScrollableButtonPanel = cc.LayerColor.extend({
     moveRight: function (sender, type) {
         switch (type) {
             case ccui.Widget.TOUCH_BEGAN:
+                cc.log('right touch began');
                 if (cc.sys.isNative) {
                     if (this._page.getCurrentPageIndex() < this._page.getItems().length - 1) {
                         this._page.scrollToPage(this._page.getCurrentPageIndex() + 1);
@@ -146,6 +167,7 @@ xc.StoryCreateScrollableButtonPanel = cc.LayerColor.extend({
     },
 
     updateLeftRightButtons: function (sender, type) {
+        cc.log('11111111');
         if(sender) {
             this._page = sender.scrollableButtonPanel._page;
             this._backButton = sender.scrollableButtonPanel._backButton;
