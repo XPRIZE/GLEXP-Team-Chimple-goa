@@ -158,7 +158,7 @@ void Sqlite3Helper::deleteAllItemFromMyBag(const char* island) {
 
 int Sqlite3Helper::deleteItemFromMyBag(const char* island, const char* item) {
     sqlite3_stmt *res;
-    const char* querySQL = "UPDATE MY_BAG SET USED = 1 WHERE ISLAND_NAME = @islandName AND ITEM = @itemName";
+    const char* querySQL = "UPDATE MY_BAG SET USED = 1 WHERE USED = 0 AND ISLAND_NAME = @islandName AND ITEM = @itemName";
     int rowsAffected = 0;
     int rc = sqlite3_prepare_v2(this->dataBaseConnection, querySQL, strlen(querySQL), &res, 0);
     if( rc == SQLITE_OK ) {
