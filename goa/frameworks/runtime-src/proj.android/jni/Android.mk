@@ -102,6 +102,7 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
                     ../../Classes/mini_games/spot.cpp \
 					../../Classes/menu/MenuContext.cpp \
 					../../Classes/menu/LevelHelpScene.cpp \
+					../../Classes/menu/LevelHelpOverlay.cpp \
 					../../Classes/menu/HelpLayer.cpp \
 					../../Classes/lang/LangUtil.cpp \
 					../../Classes/lang/EnglishUtil.cpp \

@@ -80,6 +80,7 @@ CC_CONSTRUCTOR_ACCESS:
     
     void transitToScrollableGameMap();
     void launchGame(std::string gameName);
+    void removeMenu();
     
     static void launchGameFromJS(std::string gameName);
     static void launchGameFinally(std::string gameName);
@@ -127,7 +128,6 @@ protected:
     void tellHelp();
     void stopTellHelp();
     void addGreyLayer();
-    void removeMenu();
     void increasePoints(int points);
     void happyFace();
     void sadFace();
