@@ -38,6 +38,8 @@ public:
 	cocos2d::Vector <DoorNode *> _doorNodeRef;
 	MenuContext * menu;
 	void clearScreen();
+	void nextDoor();
+	int _count = 0;
 protected:
 	
 	cocos2d::Node* _car;
