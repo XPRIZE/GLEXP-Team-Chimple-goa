@@ -135,6 +135,14 @@ bool LevelMenu::initWithGame(std::string gameName) {
         Vec2 prevPos = Vec2::ZERO;
         Vec2 newPos = Vec2::ZERO;
         SpriteFrameCache::getInstance()->addSpriteFramesWithFile("levelstep/levelstep.plist");
+
+        std::string _levelStatus;
+        localStorageGetItem(".unlock", &_levelStatus);
+        bool lockAll = true;
+        if (_levelStatus.empty() || _levelStatus == "0") {
+            lockAll = false;
+        }
+        
         for(int i = 1; i <= numLevels; i++) {
             ui::Button* but;
             if(i == d.Size()) {
@@ -144,13 +152,16 @@ bool LevelMenu::initWithGame(std::string gameName) {
                 mark->setPosition(300 / 2, 300 * 1.5);
                 but->addChild(mark);
                 _initPos = Vec2(-MAX(0, MIN(visibleSize.width * ( span - 1), gap * i - visibleSize.width / 2)), 0);
-            } else if(i > d.Size()) {
+            } else if(i > d.Size() && lockAll) {
                 but = ui::Button::create("levelstep/disabled.png", "levelstep/disabled.png", "levelstep/disabled.png",ui::Widget::TextureResType::PLIST);
                 but->setTouchEnabled(false);
             } else {
                 but = ui::Button::create("levelstep/done.png", "levelstep/done_pressed.png", "levelstep/done.png",ui::Widget::TextureResType::PLIST);
                 but->addTouchEventListener(CC_CALLBACK_2(LevelMenu::startGame, this));
-                auto iStar = d[i].GetInt();
+                auto iStar = 0;
+                if(d.Size() >= i) {
+                    iStar = d[i].GetInt();
+                }
                 auto star = iStar >= 1 ? Sprite::createWithSpriteFrameName("levelstep/star.png") : Sprite::createWithSpriteFrameName("levelstep/star_empty.png");
                 star->setScale(0.8);
                 star->setPosition(Vec2(300 / 4, 300 * 3 / 4 - 10));
@@ -179,6 +190,7 @@ bool LevelMenu::initWithGame(std::string gameName) {
                 jump *= -1;
             }
             vPos += jump;
+            vPos = MAX(MIN(visibleSize.height - 300, vPos), 200);
             if(!prevPos.isZero()) {
                 auto line = DrawNode::create(80);
 //                line->setLineWidth(40);
