@@ -315,7 +315,9 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             if(text) {                                
                 textField.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
                 textField.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
-                textField.setString(text.toLowerCase());   
+                textField.setString(text.toLowerCase());    
+                textField.setTouchEnabled(false);
+
                 mappingFound = true;                
             }
         }
