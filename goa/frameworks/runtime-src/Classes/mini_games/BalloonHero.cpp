@@ -112,7 +112,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 				_hint = LangUtil::getInstance()->translateString("Catch the nouns");
 				break;
 		case 8: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
-				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ARTICLE, 10, 1);
+				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::INTERJECTION, 10, 1);
 				_hint = LangUtil::getInstance()->translateString("Catch the nouns");
 				break;
 
@@ -153,7 +153,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 			_hint = LangUtil::getInstance()->translateString("Catch the adjective");
 			break;
 		case 15: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ADJECTIVE, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ARTICLE, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ADVERB, 10, 1);
 			_hint = LangUtil::getInstance()->translateString("Catch the adjective");
 			break;
 		case 16: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ADJECTIVE, 10, 1);
@@ -194,7 +194,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 			_hint = LangUtil::getInstance()->translateString("Catch the verb");
 			break;
 		case 22: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ARTICLE, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_hint = LangUtil::getInstance()->translateString("Catch the verb");
 			break;
 		case 23: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
@@ -236,7 +236,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 			_hint = LangUtil::getInstance()->translateString("Catch the pronouns");
 			break;
 		case 29: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::PRONOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ARTICLE, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_hint = LangUtil::getInstance()->translateString("Catch the pronouns");
 			break;
 		case 30: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::PRONOUN, 10, 1);
@@ -278,7 +278,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 			_hint = LangUtil::getInstance()->translateString("Catch the adverbs");
 			break;
 		case 36: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ADVERB, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ARTICLE, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::INTERJECTION, 10, 1);
 			_hint = LangUtil::getInstance()->translateString("Catch the adverbs");
 			break;
 		case 37: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ADVERB, 10, 1);
@@ -320,7 +320,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 			_hint = LangUtil::getInstance()->translateString("Catch the prepositions");
 			break;
 		case 43: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::PREPOSITION, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ARTICLE, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::CONJUNCTION, 10, 1);
 			_hint = LangUtil::getInstance()->translateString("Catch the prepositions");
 			break;
 		case 44: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::PREPOSITION, 10, 1);
@@ -361,7 +361,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 			_hint = LangUtil::getInstance()->translateString("Catch the conjuctions");
 			break;
 		case 50: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::CONJUNCTION, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ARTICLE, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_hint = LangUtil::getInstance()->translateString("Catch the conjuctions");
 			break;
 		case 51: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::CONJUNCTION, 10, 1);
@@ -403,7 +403,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 
 
 		case 57: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::INTERJECTION, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ARTICLE, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::CONJUNCTION, 10, 1);
 			_hint = LangUtil::getInstance()->translateString("Catch the interjections");
 			break;
 		case 58: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::INTERJECTION, 10, 1);
@@ -448,37 +448,37 @@ void BalloonHero::onEnterTransitionDidFinish() {
 		switch (_menuContext->getCurrentLevel()) {
 
 
-		case 65: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ARTICLE, 10, 1);
+		case 65: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::INTERJECTION, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
-			_hint = LangUtil::getInstance()->translateString("Catch the articles");
+			_hint = LangUtil::getInstance()->translateString("Catch the interjections");
 			break;
-		case 66: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ARTICLE, 10, 1);
+		case 66: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
-			_hint = LangUtil::getInstance()->translateString("Catch the articles");
+			_hint = LangUtil::getInstance()->translateString("Catch the nouns");
 			break;
-		case 67: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ARTICLE, 10, 1);
+		case 67: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ADVERB, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
-			_hint = LangUtil::getInstance()->translateString("Catch the articles");
+			_hint = LangUtil::getInstance()->translateString("Catch the adverbs");
 			break;
-		case 68: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ARTICLE, 10, 1);
+		case 68: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
-			_hint = LangUtil::getInstance()->translateString("Catch the articles");
+			_hint = LangUtil::getInstance()->translateString("Catch the nouns");
 			break;
-		case 69: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ARTICLE, 10, 1);
+		case 69: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::PREPOSITION, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
-			_hint = LangUtil::getInstance()->translateString("Catch the articles");
+			_hint = LangUtil::getInstance()->translateString("Catch the prepositions");
 			break;
-		case 70: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ARTICLE, 10, 1);
+		case 70: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::CONJUNCTION, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
-			_hint = LangUtil::getInstance()->translateString("Catch the articles");
+			_hint = LangUtil::getInstance()->translateString("Catch the conjuctions");
 			break;
-		case 71: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ARTICLE, 10, 1);
+		case 71: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::INTERJECTION, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
-			_hint = LangUtil::getInstance()->translateString("Catch the articles");
+			_hint = LangUtil::getInstance()->translateString("Catch the interjections");
 			break;
-		case 72: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ARTICLE, 10, 1);
+		case 72: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::PRONOUN, 10, 1);
 			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
-			_hint = LangUtil::getInstance()->translateString("Catch the articles");
+			_hint = LangUtil::getInstance()->translateString("Catch the pronouns");
 			break;
 
 		}
