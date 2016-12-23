@@ -27,7 +27,7 @@ public:
 	
 protected:
 	MenuContext * menu;
-	cocos2d::Layer * _costumeLayer, *_alphabetLayer, * _maskingLayer;
+	cocos2d::Layer * _costumeLayer, *_alphabetLayer, * _maskingLayer, * _iconLayer;
 	cocos2d::Node * _movedNode, *_alphaNode;
 	cocos2d::DrawNode *_paintingNode;
 	cocos2d::Vector<cocos2d::Node *> _drawNodes;
