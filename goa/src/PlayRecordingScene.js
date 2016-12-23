@@ -12,12 +12,12 @@ xc.PlayRecordingLayer = cc.Layer.extend({
     _configPanelWidth: null,
     _configPanelHeight: null,
     ctor: function () {
-        this._super();
+        this._super(xc.DARK_PRIMARY_COLOR);
         this._name = "PlayLayer";
         this._controlPanel = null;
         this._contentPanelWidth = cc.director.getWinSize().width; //assuming landscape
         this._contentPanelHeight = cc.director.getWinSize().height; //assuming landscape
-        this._configPanelWidth = (cc.director.getWinSize().width - this._contentPanelWidth) / 2;
+        this._configPanelWidth = (cc.director.getWinSize().width - this._contentPanelHeight) / 2;
         this._configPanelHeight = cc.director.getWinSize().height;
         return true;
     },
@@ -26,10 +26,9 @@ xc.PlayRecordingLayer = cc.Layer.extend({
         //create scene with first page
         this._contentPanel = new xc.PlayContentPanel(this._contentPanelWidth, this._contentPanelHeight, cc.p(this._configPanelWidth, 0));
         this.addChild(this._contentPanel);
-        this._pageConfigPanel = new xc.BaseConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(150, 0), xc.storyPlayConfigurationObject.editDefault, this._contentPanel);
+        this._pageConfigPanel = new xc.BaseConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(0, 0), xc.storyPlayConfigurationObject.editDefault, this._contentPanel);
         this.addChild(this._pageConfigPanel);
         this._pageConfigPanel.setVisible(false);
-        cc.log('44444444444');
         this.playRecordedScene();
 
     },

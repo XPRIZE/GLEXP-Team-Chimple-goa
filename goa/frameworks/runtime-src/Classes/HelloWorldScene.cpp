@@ -11,13 +11,14 @@
 
 USING_NS_CC;
 
-Scene* HelloWorld::createScene(const std::string& island, const std::string& sceneName)
+
+Scene* HelloWorld::createScene(const std::string& island, const std::string& sceneName, bool fromMenu)
 {
     // 'scene' is an autorelease object
     auto scene = Scene::createWithPhysics();
     
     // 'layer' is an autorelease object
-    auto layer = HelloWorld::create(island, sceneName);
+    auto layer = HelloWorld::create(island, sceneName, fromMenu);
     
     // add layer as a child to scene
     scene->addChild(layer);
@@ -33,10 +34,10 @@ Scene* HelloWorld::createScene(const std::string& island, const std::string& sce
     return scene;
 }
 
-HelloWorld* HelloWorld::create(const std::string& island, const std::string& sceneName)
+HelloWorld* HelloWorld::create(const std::string& island, const std::string& sceneName, bool fromMenu)
 {
     HelloWorld* helloWorldLayer = new (std::nothrow) HelloWorld();
-    if(helloWorldLayer && helloWorldLayer->init(island, sceneName)) {
+    if(helloWorldLayer && helloWorldLayer->init(island, sceneName, fromMenu)) {
         helloWorldLayer->autorelease();
         return helloWorldLayer;
     }
@@ -404,7 +405,7 @@ void HelloWorld::initGestureLayer() {
 
 
 // on "init" you need to initialize your instance
-bool HelloWorld::init(const std::string& island, const std::string& sceneName)
+bool HelloWorld::init(const std::string& island, const std::string& sceneName, bool fromMenu)
 {
     //////////////////////////////
     // 1. super init first
@@ -452,6 +453,11 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
     
     this->scheduleUpdate();
     
+    if(fromMenu) {
+        CCLOG("deleting all items from bag for island %s", this->getIsland().c_str());
+        this->sqlite3Helper->deleteAllItemFromMyBag(this->getIsland().c_str());
+    }
+    
     //CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("sounds/Adagio teru (ft. teru).m4a", true);
     //CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0f);
     
@@ -472,6 +478,7 @@ void HelloWorld::querySceneToLoadInIsland() {
             FileUtils::getInstance()->addSearchPath("res/" + this->getIsland());
         }
     }
+    
 }
 
 void HelloWorld::loadSqlite3FileForIsland() {
@@ -692,7 +699,7 @@ void HelloWorld::processUseInBackPackMessages(std::vector<MessageContent*>showMe
 }
 
 void HelloWorld::finishedTask() {
-    this->getEventDispatcher()->dispatchCustomEvent(RPGConfig::ON_MENU_EXIT_NOTIFICATION);
+    //this->getEventDispatcher()->dispatchCustomEvent(RPGConfig::ON_MENU_EXIT_NOTIFICATION);
 }
 
 void HelloWorld::processPutInBackPackMessages(std::vector<MessageContent*>showMessages) {
@@ -966,8 +973,15 @@ void HelloWorld::processChangeSceneMessages(std::vector<MessageContent*>changeSc
 
 void HelloWorld::transitToMenu(EventCustom * event) {
     std::string &menuName = *(static_cast<std::string*>(event->getUserData()));
-    menuContext->addPoints(3);
-    menuContext->showScore();
+    this->cleanUpResources();
+    if(menuName == GAME_MAP_MENU) {
+        Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
+    } else if(menuName == MAP_MENU) {
+        Director::getInstance()->replaceScene(TransitionFade::create(2.0, MapScene::createScene(), Color3B::BLACK));
+    } else {
+        menuContext->addPoints(3);
+        menuContext->showScore();
+    }
 }
 
 void HelloWorld::cleanUpResources() {
@@ -1024,10 +1038,10 @@ void HelloWorld::changeScene(std::string nextScene, bool isMiniGame) {
     if(!nextScene.empty()) {
         if(isMiniGame) {
             this->skeletonCharacter->getSkeletonNode()->stopAllActions();
-            Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(nextScene,""), Color3B::BLACK));            
+            Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(nextScene,"", false), Color3B::BLACK));
         } else {
             this->skeletonCharacter->getSkeletonNode()->stopAllActions();
-            Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(this->getIsland(),nextScene), Color3B::BLACK));
+            Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(this->getIsland(),nextScene, false), Color3B::BLACK));
         }
     }
 }

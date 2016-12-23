@@ -243,7 +243,7 @@ xc.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
         }
         xc.ParseUtil.updateUserData(skeleton._actionTag, 'visibleSkins', xc.CharacterUtil.getVisibleSkins(skeleton));
         if (!configuration.favoriteSkins) {
-            xc.CharacterUtil.addCharacterToFavorites(skeleton, configuration);
+            //xc.CharacterUtil.addCharacterToFavorites(skeleton, configuration);
         }
     }, this);
 

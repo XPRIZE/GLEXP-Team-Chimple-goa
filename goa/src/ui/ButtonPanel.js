@@ -46,7 +46,7 @@ xc.ButtonPanel = ccui.Layout.extend({
                         }
 
                         item.setEnabled(true);
-                        xc.ParseUtil.disableFavoriteChoiceIfCharacterAlreadyLoadedInPage(item, configuration[index]);                        
+                        // xc.ParseUtil.disableFavoriteChoiceIfCharacterAlreadyLoadedInPage(item, configuration[index]);                        
                         item.addTouchEventListener(this._buttonHandler.itemSelected, this._buttonHandler);
                         item.setPosition(pageIndex * size.width + (colIndex + 0.5) * size.width / numButtonsPerRow, size.height - (rowIndex + 0.5) * size.height / numButtonsPerColumn);
                         item._selectedIndex = index;

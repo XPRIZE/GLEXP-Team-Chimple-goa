@@ -137,6 +137,7 @@ void Owl::onEnterTransitionDidFinish()
 		
 		for (size_t index = 0; index < listOfWords.size(); index++) {
 			_data_key.push_back(getConvertInUpperCase(listOfWords[index]));
+			CCLOG("index = %d   key :  %s ----> %s", index, listOfWords[index].c_str(), listOfWords[index].c_str());
 		}
 		_data_value = _data_key;
 		categoryTitle = "Make same word : ";
@@ -170,9 +171,15 @@ void Owl::onEnterTransitionDidFinish()
 	}
 
 	if (!(std::get<0>(levelKeyNumber) == 1)) {
+		int count = 0;
 		for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
-			_data_key.push_back(getConvertInUpperCase(it->first));
-			_data_value.push_back(getConvertInUpperCase(it->second));
+			auto key = getConvertInUpperCase(it->first);
+			auto value = getConvertInUpperCase(it->second);
+
+			_data_key.push_back(key);
+			_data_value.push_back(value);
+			count++;
+			CCLOG("index = %d   key :  %s ----> %s",count,key.c_str(),value.c_str());
 		}
 	}
 	int totalPoints = 0;
@@ -319,6 +326,7 @@ void Owl::autoPlayerController(float data) {
 	_textCounter2++;
 
 	if (_textCounter2 == (blockChild.size())) {
+		CCLOG("blockGrid2Size : %d  , _blockLevel2 : %d ", _blockLevel2, _data_key.size());
 		if ((_blockLevel2 >= _data_key.size()) && _removeCharacterAnimation) {
 			//this->unschedule(schedule_selector(Owl::autoPlayerController));
 			_removeCharacterAnimation = false;
@@ -380,7 +388,7 @@ string Owl::getConvertInUpperCase(string data)
 }
 
 void Owl::crateLetterGridOnBuilding(int blockLevel, string displayWord) {
-
+	CCLOG("Letters on new building : %s ", displayWord.c_str());
 	auto themeResourcePath = _sceneMap.at(_owlCurrentTheme);
 	auto blockObject = Sprite::createWithSpriteFrameName(themeResourcePath.at("orangebase"));
 	auto letterbox = Sprite::createWithSpriteFrameName(themeResourcePath.at("gridOrange"));
@@ -388,6 +396,9 @@ void Owl::crateLetterGridOnBuilding(int blockLevel, string displayWord) {
 	int space = blockObject->getContentSize().width - (letterbox->getContentSize().width * 6);
 	//int indiSpace = space / (6+1);
 	int indiSpace = 0;
+	if (displayWord.length() <= 9) {
+		indiSpace = 18;
+	}
 	int equIndi = (indiSpace * (displayWord.length() - 1));
 	int initSpace = blockObject->getContentSize().width - letterbox->getContentSize().width * displayWord.length() - equIndi;
 	initSpace = initSpace / 2;
@@ -415,13 +426,16 @@ void Owl::crateLetterGridOnBuilding(int blockLevel, string displayWord) {
 }
 
 void Owl::crateLetterGridOnBuildingSecond(int blockLevel, string displayWord) {
-
+	CCLOG("Letters on new building2 : %s ", displayWord.c_str());
 	auto themeResourcePath = _sceneMap.at(_owlCurrentTheme);
 	auto blockObject = Sprite::createWithSpriteFrameName(themeResourcePath.at("greenbase"));
 	auto letterbox = Sprite::createWithSpriteFrameName(themeResourcePath.at("gridGreen"));
 	int space = blockObject->getContentSize().width - (letterbox->getContentSize().width * 6);
 	//int indiSpace = space / (6 + 1);
 	int indiSpace = 0;
+	if (displayWord.length() <= 8) {
+		indiSpace = 18 * _owlPropertyMap.at(_owlCurrentTheme).at("scaleSecond");
+	}
 	int equIndi = (indiSpace * (displayWord.length() - 1));
 	int initSpace = blockObject->getContentSize().width - letterbox->getContentSize().width * displayWord.length() - equIndi;
 	initSpace = initSpace / 2 ;
@@ -590,8 +604,8 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 						float dist = sqrt((y*y) + (x*x));
 						auto blockBox = target->getParent()->getChildByName(blockNameInString);
 
-						auto moveToAlphaGridAction = MoveTo::create(dist/800,Vec2(target->getPositionX(),target->getPositionY()+_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height/ _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
-						auto moveToAnswerGridAction = MoveTo::create(dist / 1000, Vec2((blockBox->getPositionX() - blockBox->getContentSize().width/2)+blockChild.at(_textCounter)->getPositionX(), blockBox->getPositionY()+_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height/ _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
+						auto moveToAlphaGridAction = MoveTo::create(dist/3000,Vec2(target->getPositionX(),target->getPositionY()+_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height/ _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
+						auto moveToAnswerGridAction = MoveTo::create(dist / 4000, Vec2((blockBox->getPositionX() - blockBox->getContentSize().width/2)+blockChild.at(_textCounter)->getPositionX(), blockBox->getPositionY()+_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height/ _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
 						auto callFunct = CallFunc::create([=]() {
 							_flagDemo = true;
 							_flagToControlMuiltipleTouch = true;
@@ -653,6 +667,8 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 									CallFunc::create([=]() {this->removeChildByName("celebration");  _menuContext->showScore(); }), NULL));
 							}
 						});
+						//_textCounter == blockChild.size() && _blockLevel1 == _data_key.size()
+						CCLOG("blockGridSize : %d  , _textCounter value : %d , _blocklevel1 : %d , _data_key.size() : %d ", blockChild.size(), _textCounter, _blockLevel1, _data_key.size());
 						auto pickBoard = CallFunc::create([=]() { 
 							_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setVisible(true);
 							_textOwlBoard->setString(LangUtil::convertUTF16CharToString(target->getName().at(0)));
@@ -692,8 +708,8 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 						float dist = sqrt((y*y) + (x*x));
 						auto blockBox = target->getParent()->getChildByName(blockNameInString);
 
-						auto moveToAlphaGridAction = MoveTo::create(dist / 800, Vec2(target->getPositionX(), target->getPositionY() + _sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height / _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
-						auto moveToAnswerGridAction = MoveTo::create(dist / 1000, Vec2((blockBox->getPositionX() - blockBox->getContentSize().width / 2) + blockChild.at(_textCounter)->getPositionX(), blockBox->getPositionY() + _sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height / _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
+						auto moveToAlphaGridAction = MoveTo::create(dist / 3000, Vec2(target->getPositionX(), target->getPositionY() + _sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height / _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
+						auto moveToAnswerGridAction = MoveTo::create(dist / 4000, Vec2((blockBox->getPositionX() - blockBox->getContentSize().width / 2) + blockChild.at(_textCounter)->getPositionX(), blockBox->getPositionY() + _sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height / _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
 						auto afterDrop = CallFunc::create([=]() {
 							 blockChild.at(_textCounter)->getChildByName("hideBoard")->setVisible(true);
 							_flagDemo = true;

@@ -183,7 +183,7 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
                 if (element.UserData && element.UserData.currentAnimationName) {
                     element._currentAnimationName = element.UserData.currentAnimationName;
                 }
-                xc.CharacterUtil.addCharacterToFavorites(element);
+                //xc.CharacterUtil.addCharacterToFavorites(element);
             }
         }, this);
 
@@ -458,7 +458,6 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
     },
 
     playSceneInEditMode: function () {
-        cc.log('playSceneInEditMode 33333');
         xc.PlayRecordingScene.load(xc.PlayRecordingLayer);        
     },
 
