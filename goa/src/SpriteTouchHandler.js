@@ -163,7 +163,7 @@ xc.SpriteTouchHandler = function (context) {
         var location = target.parent.convertToNodeSpace(touch.getLocation());
         var locationTo = cc.p(location.x - this._offsetXInTouch, location.y - this._offsetYInTouch);
         this._context.enableTargetTransformForTarget(this._context, touch, target, locationTo);
-        this.overlapDetectionWithSkeleton(target);
+        // this.overlapDetectionWithSkeleton(target);
         this._previousTouchLocation = location;
     };
 
@@ -177,7 +177,7 @@ xc.SpriteTouchHandler = function (context) {
         xc.ParseUtil.removeExistingBoundingBox(target);
 
         //find out all skeleton on scene and object is overlap with it
-        this.collisionDetectionWithSkeleton(target);
+        //this.collisionDetectionWithSkeleton(target);
 
 
         if (target._markedForRemove) {

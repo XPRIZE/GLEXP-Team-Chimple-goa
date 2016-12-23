@@ -42,11 +42,14 @@ xc.CreateStoryLayer = cc.Layer.extend({
         this._optionPanel = new xc.ScrollableButtonPanel(cc.p(0,0), cc.size(500, 500), 2, 2, xc.storyConfigurationObject.editPage, this.chooseEditPageOption, this, true);
         this._optionPanel.setVisible(false);
         this._optionPanel.setOpacity(150);
+        this._optionPanel.setAnchorPoint(cc.p(0.5,0.5));
         this._optionPanel.setColor(xc.TERTIARY_COLOR);
         this.addChild(this._optionPanel, 1);
         
-        this.createStoriesUI();
+        this.createStoriesUI();        
     },
+
+
 
     createStoriesUI: function () {
         var displayStories = [];
@@ -60,7 +63,7 @@ xc.CreateStoryLayer = cc.Layer.extend({
             this.addChild(this._help, 1);
         }
 
-        this._panel = new xc.StoryCreateScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height), 4, 4, displayStories, this.loadOptions, this, false, true);
+        this._panel = new xc.StoryCreateScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height), 1, 1, displayStories, this.loadOptions, this, false, true);        
         this.addChild(this._panel);
     },
 
@@ -93,12 +96,12 @@ xc.CreateStoryLayer = cc.Layer.extend({
         if(!this._optionPanel) {
             cc.log('sender:' + sender.getName());
             this._optionPanel.setAnchorPoint(0.5,0.5);
-            this._optionPanel = new xc.ScrollableButtonPanel(cc.p(sender.getPosition().x, sender.getPosition().y), cc.size(500, 500), 2, 2, xc.storyConfigurationObject.editPage, this.chooseEditPageOption, this, true);
+            this._optionPanel = new xc.ScrollableButtonPanel(cc.p(sender.getPosition().x - sender.width/2 - 100, sender.getPosition().y - sender.height), cc.size(500, 500), 2, 2, xc.storyConfigurationObject.editPage, this.chooseEditPageOption, this, true);
             this.addChild(this._optionPanel, 1);
         } else {
             cc.log('sender:' + sender.getName());
             this._optionPanel.setAnchorPoint(0.5,0.5);
-            this._optionPanel.setPosition(cc.p(sender.getPosition().x, sender.getPosition().y));
+            this._optionPanel.setPosition(cc.p(sender.getPosition().x - sender.width/2 - 100, sender.getPosition().y - sender.height));
             this._optionPanel.setVisible(true);
         }
         this._curSelectedStoryIndex = sender._selectedIndex;
@@ -118,25 +121,9 @@ xc.CreateStoryLayer = cc.Layer.extend({
             xc.MODIFIED_BIT = 0;
             xc.LAYER_INIT = false;
             this.loadExistingStory(sender);
-        } else if (sender.getName() == 'icons/back.png') {
-            if (this._curSelectedStoryIndex != 0) {
-                this.shuffleStory(xc.storiesJSON.stories, this._curSelectedStoryIndex, this._curSelectedStoryIndex - 1);
-                this.reDrawPages();
-                var button = this._panel.getButtonByIndex(this._curSelectedStoryIndex - 1);
-                this.loadOptions(button);
-            }
-
-        } else if (sender.getName() == 'icons/next_arrow.png') {
-            if (this._curSelectedStoryIndex < xc.storiesJSON.stories.length - 1) {
-                this.shuffleStory(xc.storiesJSON.stories, this._curSelectedStoryIndex, this._curSelectedStoryIndex + 1);
-                this.reDrawPages();
-                var button = this._panel.getButtonByIndex(this._curSelectedStoryIndex + 1);
-                if(this._curSelectedStoryIndex + 1 == (this._panel._numButtonsPerRow * this._panel._numButtonsPerColumn)) {
-                    this._panel.moveRightAutomatically(this._curSelectedStoryIndex + 1);
-                }
-                this.loadOptions(button);
-
-            }
+        } else if (sender.getName() == 'icons/play.png') {
+            cc.log('clicked play');
+            this._optionPanel.setVisible(false);
         } else if (sender.getName() == 'icons/delete.png') {            
             if (xc.storiesJSON.stories && xc.storiesJSON.stories.length > this._curSelectedStoryIndex) {
                 var deleteStoryId = xc.storiesJSON.stories[this._curSelectedStoryIndex].storyId;
