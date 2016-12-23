@@ -1017,7 +1017,7 @@ void MenuContext::showSettingMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::To
 		_menuButton->setEnabled(false);
 		addGreyLayer();
 		pauseNodeAndDescendants(_main);
-		_calcFlag = false;
+		_calcFlag = true;
 
 		std::string _levelStatus;
 		localStorageGetItem(UNLOCK_ALL, &_levelStatus);
@@ -1109,7 +1109,7 @@ void MenuContext::showSettingMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::To
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(_listener->clone(), _settingNode->getChildByName("submit"));
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(_listener->clone(), _settingNode->getChildByName("close"));
 
-		addCalculator();
+//		addCalculator();
 	}
 }
 
