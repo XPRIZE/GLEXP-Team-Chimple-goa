@@ -68,6 +68,7 @@ protected:
 	bool _eyeFlag = true, _mouthFlag = true, _skateFlag = true ,_noseFlag = true ,_paintFlag = true, _mustacheFlag = true, _hornFlag = true, _gearFlag = true;
 	void wordGenerate();
 	void gameEnd(float dt);
+	bool _isTouchBegan = true;
 };
 
 #endif 

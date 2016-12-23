@@ -25,7 +25,7 @@
 #define MAIN_CHARACTER_MASS 1.0f
 #define ALPHAMON_CHARACTER_SCALE 0.5f
 #define MAIN_CHARACTER_SCALE 1.0f
-#define EXTERNAL_CHARACTER_SCALE 0.3f
+#define EXTERNAL_CHARACTER_SCALE 1.0f
 #define MAIN_CHARACTER_MASS_DAMPING 0.05f
 #define MAIN_CHARACTER_GROUP -1
 
@@ -127,6 +127,8 @@
 
 #define SKELETON_POSITION_IN_PARENT_ISLAND_X "skeleton_pos_in_island_X"
 #define SKELETON_POSITION_IN_PARENT_ISLAND_Y "skeleton_pos_in_island_Y"
+
+#define TASK_FINISHED "finished"
 
 #define EVENT_DISPATCHER Director::getInstance()->getEventDispatcher()
 

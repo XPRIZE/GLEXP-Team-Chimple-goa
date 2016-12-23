@@ -286,7 +286,7 @@ void Circle::gameHelp()
 	auto optionLayer = this->getChildByName(name.c_str());
 	auto optionSize = optionLayer->getContentSize();
 	auto optionPosition = optionLayer->getPosition();
-	auto help = HelpLayer::create(Rect(optionPosition.x, optionPosition.y, optionSize.width, optionSize.height), Rect(labelPosition.x, labelPosition.y, labelSize.width, labelSize.height));
+	auto help = HelpLayer::create(Rect(optionPosition.x, optionPosition.y, optionSize.width+ 40, optionSize.height), Rect(labelPosition.x, labelPosition.y, labelSize.width + 300, labelSize.height));
 	help->click(Vec2(optionPosition));
 	help->setName("helpLayer");
 	this->addChild(help);
@@ -487,7 +487,8 @@ void Circle::puff()
 }
 void Circle::scoreBoard(float dt)
 {
-	menu->showScore();
+	//menu->showScore();
+	menu->showAnswer("wordPairs", _title);
 }
 void Circle::bigpuff(float dt)
 {
@@ -618,7 +619,7 @@ bool Circle::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		}*/
 		 char ssss = wordStr.at(wordStr.length()-1);
 		 wordStr.at(wordStr.length() - 1) = ' ';
-		CCLOG("");
+		CCLOG("num= %c", ssss);
 		if (wordStr.compare(_synonyms.at(_gameWord)+" ") == 0) {
 			//    CCLOG("11111111111111111");
 			this->removeChild(_topLabel);
@@ -627,6 +628,7 @@ bool Circle::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				}
 		//	_eventDispatcher->removeEventListenersForTarget(target);
 			_choiceLabel.clear();
+			menu->wordPairList(_gameWord, _synonyms.at(_gameWord));
 			if (_scenePath.at("animation_select").compare("one") == 0)
 			{
 				_score++;

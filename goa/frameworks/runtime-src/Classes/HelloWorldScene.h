@@ -205,6 +205,7 @@ private:
     
     void moveitemIntoBagAnimation(RPGSprite* item);
     
+    void finishedTask();
     
 public:
     static cocos2d::Scene* createScene(const std::string& island, const std::string& sceneName);

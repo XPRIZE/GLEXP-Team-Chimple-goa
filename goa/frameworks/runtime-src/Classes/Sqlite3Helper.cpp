@@ -96,7 +96,7 @@ bool Sqlite3Helper::closeConnection() {
 
 void Sqlite3Helper::insertItemToMyBag(const char* island, const char* item) {
     sqlite3_stmt *res;
-    const char* querySQL = " INSERT INTO MY_BAG (ISLAND_NAME, ITEM) SELECT ?,? WHERE NOT EXISTS (SELECT 1 FROM MY_BAG WHERE ISLAND_NAME = ? AND ITEM = ?) ";
+    const char* querySQL = " INSERT INTO MY_BAG (ISLAND_NAME, ITEM, USED) SELECT ?,?,0 WHERE NOT EXISTS (SELECT 1 FROM MY_BAG WHERE ISLAND_NAME = ? AND ITEM = ?) ";
     
     int rc = sqlite3_prepare_v2(this->dataBaseConnection, querySQL, strlen(querySQL), &res, NULL);
     
@@ -131,7 +131,8 @@ void Sqlite3Helper::insertItemToMyBag(const char* island, const char* item) {
 
 void Sqlite3Helper::deleteItemFromMyBag(const char* island, const char* item) {
     sqlite3_stmt *res;
-    const char* querySQL = "DELETE FROM MY_BAG WHERE ISLAND_NAME = @islandName AND ITEM = @itemName";
+    const char* querySQL = "UPDATE OR IGNORE BAG SET USED = 1 WHERE ISLAND_NAME = @islandName AND ITEM = @itemName";
+    int rowsAffected = 0;
     int rc = sqlite3_prepare_v2(this->dataBaseConnection, querySQL, strlen(querySQL), &res, 0);
     if( rc == SQLITE_OK ) {
         // bind the value
@@ -142,6 +143,9 @@ void Sqlite3Helper::deleteItemFromMyBag(const char* island, const char* item) {
         sqlite3_bind_text(res, itemIndex, item,-1, SQLITE_STATIC);
 
         if(SQLITE_DONE == sqlite3_step(res)) {
+            rowsAffected = sqlite3_changes(this->dataBaseConnection);
+            CCLOG("deleted bag. i.e updated used flag %d", rowsAffected);
+
             fprintf(stderr, "Successfully deleted record: %s\n", sqlite3_errmsg(this->dataBaseConnection));
         }
         sqlite3_finalize(res);
@@ -208,7 +212,7 @@ std::vector<MessageContent*> Sqlite3Helper::findEventsByOwnerInScene(const char*
     sqlite3_stmt *res;
     int rc = 0;
 
-    const char* querySQL = "SELECT EVENT_ID, PRE_CONDITION_EVENT_ID, CONDITION, CONDITION_RESULT, ACTION, DIALOG, OWNER, PLAY_ANIMATION_IN_LOOP, PRE_OUTCOME_ACTION, POST_OUTCOME_ACTION, SCENE_NAME, SHOULD_DISPLAY_IN_BAG FROM EVENTS WHERE OWNER=@owner_1 AND SCENE_NAME = @sceneName_1 AND CONDITION = '' AND PRE_CONDITION_EVENT_ID = 0 UNION SELECT EVENT_ID, PRE_CONDITION_EVENT_ID, CONDITION, CONDITION_RESULT, ACTION, DIALOG, OWNER, PLAY_ANIMATION_IN_LOOP, PRE_OUTCOME_ACTION, POST_OUTCOME_ACTION, SCENE_NAME, SHOULD_DISPLAY_IN_BAG FROM EVENTS E INNER JOIN MY_BAG B ON E.CONDITION = B.ITEM AND E.OWNER = @owner_2 AND SCENE_NAME = @sceneName_2 AND E.CONDITION_RESULT = 1 UNION SELECT EVENT_ID, PRE_CONDITION_EVENT_ID, CONDITION, CONDITION_RESULT, ACTION, DIALOG, OWNER, PLAY_ANIMATION_IN_LOOP, PRE_OUTCOME_ACTION, POST_OUTCOME_ACTION, SCENE_NAME, SHOULD_DISPLAY_IN_BAG FROM EVENTS WHERE OWNER=@owner_3 AND SCENE_NAME = @sceneName_3 AND CONDITION_RESULT= 0 AND CONDITION IS NOT NULL AND CONDITION NOT IN (SELECT ITEM FROM MY_BAG) ORDER BY EVENT_ID ASC";
+    const char* querySQL = "SELECT EVENT_ID, PRE_CONDITION_EVENT_ID, CONDITION, CONDITION_RESULT, ACTION, DIALOG, OWNER, PLAY_ANIMATION_IN_LOOP, PRE_OUTCOME_ACTION, POST_OUTCOME_ACTION, SCENE_NAME, SHOULD_DISPLAY_IN_BAG FROM EVENTS WHERE OWNER=@owner_1 AND SCENE_NAME = @sceneName_1 AND CONDITION = '' AND PRE_CONDITION_EVENT_ID = 0 UNION SELECT EVENT_ID, PRE_CONDITION_EVENT_ID, CONDITION, CONDITION_RESULT, ACTION, DIALOG, OWNER, PLAY_ANIMATION_IN_LOOP, PRE_OUTCOME_ACTION, POST_OUTCOME_ACTION, SCENE_NAME, SHOULD_DISPLAY_IN_BAG FROM EVENTS E INNER JOIN MY_BAG B ON E.CONDITION = B.ITEM AND E.OWNER = @owner_2 AND SCENE_NAME = @sceneName_2 AND E.CONDITION_RESULT = 1 AND E.PRE_CONDITION_EVENT_ID = 0 AND B.USED IN(0,1) UNION SELECT EVENT_ID, PRE_CONDITION_EVENT_ID, CONDITION, CONDITION_RESULT, ACTION, DIALOG, OWNER, PLAY_ANIMATION_IN_LOOP, PRE_OUTCOME_ACTION, POST_OUTCOME_ACTION, SCENE_NAME, SHOULD_DISPLAY_IN_BAG FROM EVENTS WHERE OWNER=@owner_3 AND SCENE_NAME = @sceneName_3 AND CONDITION_RESULT= 0 AND CONDITION != '' AND CONDITION NOT IN (SELECT ITEM FROM MY_BAG) ORDER BY EVENT_ID ASC";
     
     
         //std::replace(sceneName.begin(), sceneName.end(), ' ', '');

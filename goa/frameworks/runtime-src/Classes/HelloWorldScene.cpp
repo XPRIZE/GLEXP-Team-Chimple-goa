@@ -23,6 +23,7 @@ Scene* HelloWorld::createScene(const std::string& island, const std::string& sce
     scene->addChild(layer);
 
     layer->menuContext = MenuContext::create(layer, HelloWorld::gameName(), true);
+    layer->menuContext->setMaxPoints(3);
     scene->addChild(layer->menuContext);
 
     initPhysics(scene);
@@ -601,7 +602,14 @@ void HelloWorld::processUseInBackPackAndPutInBackPackMessages(std::vector<Messag
             for (std::vector<std::string>::iterator it = elems.begin() ; it != elems.end(); ++it)
             {
                 std::string item = *(it);
-                this->sqlite3Helper->insertItemToMyBag(this->getIsland().c_str(), item.c_str());
+                if(item.compare(TASK_FINISHED) == 0) {
+                    finishedTask();
+                } else {
+                    this->sqlite3Helper->insertItemToMyBag(this->getIsland().c_str(), item.c_str());
+                }
+
+
+                
             }
         }
         
@@ -624,13 +632,17 @@ void HelloWorld::processUseInBackPackMessages(std::vector<MessageContent*>showMe
         MessageContent* content = (MessageContent*) *it;
         CCLOG("content owner %s", content->getOwner().c_str());
         CCLOG("content item in bag %s", content->getPreOutComeAction().c_str());
-        
-        Node* ownerNode = this->mainLayer->getChildByName(content->getPreOutComeAction());
+        Node* ownerNode = NULL;
+        if(!content->getPreOutComeAction().empty()) {
+            ownerNode = this->mainLayer->getChildByName(content->getPreOutComeAction());
+        }
         if(ownerNode != NULL) {
             CCLOG("ownerNode getName %s", ownerNode->getName().c_str());
             RPGSprite* ownerSprite = NULL;
+            ExternalSkeletonCharacter ownerExternalCharacterSprite;
             if(content != NULL && ownerNode != NULL) {
                 ownerSprite = dynamic_cast<RPGSprite *>(ownerNode);
+                
                 useItemFromBagAnimation(ownerSprite);
                 
                 std::vector<std::string> elems;
@@ -646,9 +658,37 @@ void HelloWorld::processUseInBackPackMessages(std::vector<MessageContent*>showMe
                     std::string item = *(it);
                     this->sqlite3Helper->deleteItemFromMyBag(this->getIsland().c_str(), item.c_str());
                 }
+                
+                
+                if(!content->getPostOutComeAction().empty()) {
+                    CCLOG("content->getPostOutComeAction() %s", content->getPostOutComeAction().c_str());
+                    //play animation
+                                        
+                    std::vector<std::string> elems;
+                    std::stringstream ss;
+                    ss.str(content->getPostOutComeAction());
+                    std::string item;
+                    while (getline(ss, item, ',')) {
+                        elems.push_back(item);
+                    }
+                    
+                    for (std::vector<std::string>::iterator it = elems.begin() ; it != elems.end(); ++it)
+                    {
+                        std::string item = *(it);
+                        if(item.compare(TASK_FINISHED) == 0) {
+                            finishedTask();
+                        } else {
+                            this->sqlite3Helper->insertItemToMyBag(this->getIsland().c_str(), item.c_str());
+                        }
+                    }
+                }
             }
         }
     }
+}
+
+void HelloWorld::finishedTask() {
+    this->getEventDispatcher()->dispatchCustomEvent(RPGConfig::ON_MENU_EXIT_NOTIFICATION);
 }
 
 void HelloWorld::processPutInBackPackMessages(std::vector<MessageContent*>showMessages) {
@@ -682,7 +722,12 @@ void HelloWorld::processPutInBackPackMessages(std::vector<MessageContent*>showMe
                 for (std::vector<std::string>::iterator it = elems.begin() ; it != elems.end(); ++it)
                 {
                     std::string item = *(it);
-                    this->sqlite3Helper->insertItemToMyBag(this->getIsland().c_str(), item.c_str());
+                    if(item.compare(TASK_FINISHED) == 0) {
+                        finishedTask();
+                    } else {
+                       this->sqlite3Helper->insertItemToMyBag(this->getIsland().c_str(), item.c_str());
+                    }
+                    
                 }
                 
             }
@@ -910,15 +955,8 @@ void HelloWorld::processChangeSceneMessages(std::vector<MessageContent*>changeSc
 
 void HelloWorld::transitToMenu(EventCustom * event) {
     std::string &menuName = *(static_cast<std::string*>(event->getUserData()));
-    this->cleanUpResources();
-    if(menuName == GAME_MAP_MENU) {
-        Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
-    } else if(menuName == MAP_MENU) {
-        Director::getInstance()->replaceScene(TransitionFade::create(2.0, MapScene::createScene(), Color3B::BLACK));
-    } else {
-        menuContext->showScore();
-    }
-    
+    menuContext->addPoints(3);
+    menuContext->showScore();
 }
 
 void HelloWorld::cleanUpResources() {
@@ -1018,14 +1056,17 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
                 if(animationNode != NULL) {
                     cocostudio::timeline::ActionTimeline* timeline = NULL;
                     bool timeLineExists = false;
-                    if(animationNode->getActionTimeLine() == NULL) {
-                        timeline =  CSLoader::createTimeline(animFile);
-                        animationNode->setActionTimeLine(timeline);
-                        timeLineExists = false;
-                    } else {
-                        timeline = animationNode->getActionTimeLine();
-                        timeLineExists = true;
-                    }
+                    timeline =  CSLoader::createTimeline(animFile);
+                    animationNode->setActionTimeLine(timeline);
+                    animationNode->getSprite()->runAction(timeline);
+//                    if(animationNode->getActionTimeLine() == NULL) {
+//                        timeline =  CSLoader::createTimeline(animFile);
+//                        animationNode->setActionTimeLine(timeline);
+//                        timeLineExists = false;
+//                    } else {
+//                        timeline = animationNode->getActionTimeLine();
+//                        timeLineExists = true;
+//                    }
                     
                     if(timeline != NULL && animationSpriteNode != NULL && animationNode != NULL )
                     {
@@ -1048,9 +1089,9 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
                         if(animationNode != NULL) {
                             animationNode->setVisible(true);
                             if(animationNode->getSprite() != NULL) {
-                                if(!timeLineExists) {
-                                    animationNode->getSprite()->runAction(timeline);
-                                }
+//                                if(!timeLineExists) {
+//                                    animationNode->getSprite()->runAction(timeline);
+//                                }
                                 
                                 bool playInLoop = content->getPlayAnimationInLoop() == 1 ? true : false;
                                 if(!animName.empty()) {
