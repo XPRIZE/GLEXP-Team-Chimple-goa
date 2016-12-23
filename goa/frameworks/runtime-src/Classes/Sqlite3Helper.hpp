@@ -33,11 +33,13 @@ public:
     virtual bool closeConnection();
     
     //insert/update/delete queries
-    virtual void insertItemToMyBag(const char* island, const char* item);
+    virtual int insertItemToMyBag(const char* island, const char* item);
+    
+    virtual void deleteAllItemFromMyBag(const char* island);
     
     virtual void insertSkinForBoneForSkeletonInScene(const char* island, const char* sceneName, const char* skeletonName, const char* boneName, const char* skinName, const char* imageName, const char* skinAnchorX, const char* skinAnchorY);
 
-    virtual void deleteItemFromMyBag(const char* island, const char* item);
+    virtual int deleteItemFromMyBag(const char* island, const char* item);
     
     
     virtual void recordMainCharacterPositionInScene(const char* island, const char* sceneName, float xPos, float yPos);
