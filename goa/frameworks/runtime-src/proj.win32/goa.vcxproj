@@ -226,6 +226,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClCompile Include="..\Classes\menu\HelpLayer.cpp" />
     <ClCompile Include="..\Classes\menu\LevelHelpOverlay.cpp" />
     <ClCompile Include="..\Classes\menu\LevelHelpScene.cpp" />
+    <ClCompile Include="..\Classes\menu\LevelMenu.cpp" />
     <ClCompile Include="..\Classes\menu\MenuContext.cpp" />
     <ClCompile Include="..\Classes\menu\ScoreBoardContent.cpp" />
     <ClCompile Include="..\Classes\MessageContent.cpp" />
@@ -435,6 +436,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClInclude Include="..\Classes\menu\HelpLayer.h" />
     <ClInclude Include="..\Classes\menu\LevelHelpOverlay.h" />
     <ClInclude Include="..\Classes\menu\LevelHelpScene.h" />
+    <ClInclude Include="..\Classes\menu\LevelMenu.h" />
     <ClInclude Include="..\Classes\menu\MenuContext.h" />
     <ClInclude Include="..\Classes\menu\ScoreBoardContext.h" />
     <ClInclude Include="..\Classes\MessageContent.hpp" />
