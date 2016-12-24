@@ -289,3 +289,9 @@ void LipiTKNode::writingEnable(bool enable)
 {
 	_listenerTouches->setEnabled(enable);
 }
+
+
+void LipiTKNode::removeClearButton() {
+
+	_drawingBoard->removeChild(_clearButton, true);
+}

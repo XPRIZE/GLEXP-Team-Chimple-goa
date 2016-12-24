@@ -7,6 +7,7 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "../menu/HelpLayer.h"
+#include "TreasureHuntNode.h"
 
 using namespace cocos2d;
 
@@ -25,7 +26,7 @@ public:
 	std::string _currentLetter;
 	bool checkRecognizeLetter(std::string letter);
 	void onEnterTransitionDidFinish();
-	
+	TreasureHuntNode* TreasureHuntNodeObj;
 	std::vector<std::pair<int, int>> getAllGridCoord(int row, int column);
 	void update(float) override;
 	const wchar_t *_alpha;

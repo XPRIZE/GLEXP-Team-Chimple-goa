@@ -59,13 +59,13 @@ void TreasureHunt::onEnterTransitionDidFinish() {
 	setLevel(_menuContext->getCurrentLevel()-1);
 
 
-	TreasureHuntNode* TreasureHuntNodeObj;
+	//TreasureHuntNode* TreasureHuntNodeObj;
 	//TreasureHuntNodeObj.resize(6);
 
 
 	TreasureHuntNodeObj = TreasureHuntNode::create(1550, 800, Vec2(visibleSize.width/2 + 120, visibleSize.height/2));
 	TreasureHuntNodeObj->setName("1");
-	addChild(TreasureHuntNodeObj);
+	this->addChild(TreasureHuntNodeObj);
 	
 	_box = (Sprite *)CSLoader::createNode("box/box1.csb");
 	_box->setPosition(Vec2(350, visibleSize.height / 2));
@@ -174,6 +174,8 @@ std::vector<std::pair<int, int>> TreasureHunt::getAllGridCoord(int rowData, int 
 
 void TreasureHunt::update(float delta) {
 	
+	
+
 	if (TreasureHuntNode::done == 1 && _menuContext->getCurrentLevel() == 1) {
 		this->removeChild(_help);
 		TreasureHuntNode::done = 0;
@@ -184,6 +186,7 @@ void TreasureHunt::update(float delta) {
 		
 
 		auto openBox = CallFunc::create([=] {
+			TreasureHuntNodeObj->removeClearButton();
 			openCoinBox();
 			
 		});
@@ -235,6 +238,7 @@ string TreasureHunt::getConvertInUpperCase(string data)
 
 void TreasureHunt::openCoinBox() {
 
+	
 	cocostudio::timeline::ActionTimeline * _openBox;
 	_openBox = CSLoader::createTimeline("box/box1.csb");
 	_box->runAction(_openBox);
@@ -244,7 +248,8 @@ void TreasureHunt::openCoinBox() {
 
 
 void TreasureHunt::openStoneBox() {
-
+	//_drawingBoard->removechild(_clearButton);
+	
 	cocostudio::timeline::ActionTimeline * _openBox;
 	_openBox = CSLoader::createTimeline("box/box1.csb");
 	_box->runAction(_openBox);
