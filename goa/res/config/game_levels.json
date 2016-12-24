@@ -50,7 +50,7 @@
       "levels": [
         1,2,3,4,5,6,7,8,9,10
       ],
-      "preconditions": [
+      "concepts": [
         "Numbers"
       ],
       "help": "Jump on the correct numbers in order.",
@@ -60,7 +60,7 @@
       "levels": [
         11,12,13,14,15,16,17,18,19
       ],
-      "preconditions": [
+      "concepts": [
         "Tables"
       ],
       "help": "Jump on the correct numbers according to the multiplication tables.",
@@ -70,7 +70,7 @@
       "levels": [
         20,22,24,26,28
       ],
-      "preconditions": [
+      "concepts": [
         "odd numbers"
       ],
       "help": "Jump on odd numbers.",
@@ -80,7 +80,7 @@
       "levels": [
         21,23,25,27,29
       ],
-      "preconditions": [
+      "concepts": [
         "even numbers"
       ],
       "help": "Jump on even numbers.",
@@ -101,7 +101,7 @@
       "levels": [
         1,2,3,4,5
       ],
-      "preconditions": [
+      "concepts": [
         "Drag and Drop"
       ],
       "help": "Fill the pond with the number of fishes shown.",
@@ -111,7 +111,7 @@
       "levels": [
         6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25
       ],
-      "preconditions": [
+      "concepts": [
         "Fill the boxes"
       ],
       "help": "Fill the box with the number of frogs shown.",
@@ -238,7 +238,7 @@
         1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,
         31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62
       ],
-       "preconditions": [
+       "concepts": [
         "Alphabets"
       ],
       "help": "Write the alphabet shown on each door to make the animals go.",
@@ -263,7 +263,7 @@
       "levels": [
        63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80
       ],
-       "preconditions": [
+       "concepts": [
         "words"
       ],
       "help": "Write the each alphabet of the word on each door to make the animals go.",
@@ -274,6 +274,21 @@
            "upper":true
         }
       ]
+    }
+  ],
+  "book": [
+    {
+      "levels": [
+        1,2,3
+      ],
+      "level_concepts": [
+        "A","B","C"
+      ],
+      "concepts": [
+        "alphabet"
+      ],
+      "help": "Choose the correct alphabet below to give power to the alphabet monster. If you choose correctly, your monster will get more power and defeat the opposite monster",
+      "video": "AlphamonCombat.webm"
     }
   ],
   "EndlessRunner": [
@@ -306,7 +321,7 @@
   "shoot": [
     {
       "levels": [ 1,2,3,4,5,16,17,18,19,20,31,32,33,34,35,46,47,48,49,50,61,62,63,64,65 ],
-      "preconditions": [
+      "concepts": [
         "antonyms"
       ],
       "help": "Choose the opposite of the word shown below. If you choose correctly, you get a chance to shoot.",
@@ -314,7 +329,7 @@
     },
     {
       "levels": [ 6,7,8,9,10,21,22,23,24,25,36,37,38,39,40,51,52,53,54,55,66,67,68,69,70 ],
-      "preconditions": [
+      "concepts": [
         "synonyms"
       ],
       "help": "Choose the word with the same meaning of the word shown below. If you choose correctly, you get a chance to shoot.",
@@ -322,7 +337,7 @@
     },
     {
       "levels": [ 11,12,13,14,15,26,27,28,29,30,41,42,43,44,45,56,57,58,59,60,71,72,73,74,75 ],
-      "preconditions": [
+      "concepts": [
         "homonyms"
       ],
       "help": "Choose the word with the same pronunciation of the word shown below. If you choose correctly, you get a chance to shoot.",
@@ -337,7 +352,7 @@
     },
     {
       "levels": [6,7,8,9,10,31,32,33,34,35,56,57,58,59,60,81,82,83,84,85],
-      "preconditions": [
+      "concepts": [
         "plurals"
       ],
       "help": "Spell the plural of the word shown by choosing the correct alphabets.",
@@ -345,7 +360,7 @@
     },
     {
       "levels": [11,12,13,14,15,36,37,38,39,40,61,62,63,64,65,86,87,88,89,90],
-      "preconditions": [
+      "concepts": [
         "antonyms"
       ],
       "help": "Spell the opposite of the word shown by choosing the correct alphabets.",
@@ -353,7 +368,7 @@
     },
     {
       "levels": [16,17,18,19,20,41,42,43,44,45,66,67,68,69,70,91,92,93,94,95],
-      "preconditions": [
+      "concepts": [
         "synonyms"
       ],
       "help": "Spell the word with the same meaning of the word shown by choosing the correct alphabets.",
@@ -361,7 +376,7 @@
     },
     {
       "levels": [21,22,23,24,25,46,47,48,49,50,71,72,73,74,75,96,97,98,99,100],
-      "preconditions": [
+      "concepts": [
         "homonyms"
       ],
       "help": "Spell the word with the same pronunciation of the word shown by choosing the correct alphabets.",
@@ -428,7 +443,7 @@
       "levels": [
 		1, 2, 3, 4, 5, 6, 55, 56, 57, 58, 59, 60
     ],
-      "preconditions": [
+      "concepts": [
         "verb"
       ],
       "help": "Choose all the verbs in the sentence.",
@@ -439,7 +454,7 @@
       "levels": [
 		7, 8, 9, 10, 11, 12, 61, 62, 63, 64, 65, 66
       ],
-      "preconditions": [
+      "concepts": [
         "noun"
       ],
       "help": "Choose all the nouns in the sentence.",
@@ -450,7 +465,7 @@
       "levels": [
 		13, 14, 15, 16, 17, 18, 67, 68, 69, 70, 71, 72
       ],
-      "preconditions": [
+      "concepts": [
         "pronoun"
       ],
       "help": "Choose all the pronouns in the sentence.",
@@ -461,7 +476,7 @@
       "levels": [
 		  19, 20, 21, 22, 23, 24
       ],
-      "preconditions": [
+      "concepts": [
         "adverb"
       ],
       "help": "Choose all the adverbs in the sentence.",
@@ -472,7 +487,7 @@
       "levels": [
 		  25, 26, 27, 28, 29, 30
       ],
-      "preconditions": [
+      "concepts": [
         "adjective"
       ],
       "help": "Choose all the adjectives in the sentence.",
@@ -483,7 +498,7 @@
       "levels": [
 		  31, 32, 33, 34, 35, 36
       ],
-      "preconditions": [
+      "concepts": [
         "preposition"
       ],
       "help": "Choose all the prepositions in the sentence.",
@@ -494,7 +509,7 @@
       "levels": [
 		  37, 38, 39, 40, 41, 42
       ],
-      "preconditions": [
+      "concepts": [
         "conjunction"
       ],
       "help": "Choose all the conjuctions in the sentence.",
@@ -505,7 +520,7 @@
       "levels": [
 		  43, 44, 45, 46, 47, 48
       ],
-      "preconditions": [
+      "concepts": [
         "interjection"
       ],
       "help": "Choose all the interjections in the sentence.",
@@ -516,7 +531,7 @@
       "levels": [
 		  49, 50, 51, 52, 53, 54
       ],
-      "preconditions": [
+      "concepts": [
         "article"
       ],
       "help": "Choose all the articles in the sentence.",
@@ -543,7 +558,7 @@
       "video": "Cannon Ball_1.webm"
     }
   ],
-  "Patch the Wall": [
+  "Patch The Wall": [
     {
       "levels": [
         1, 2, 3, 4, 5, 6, 7, 8, 9, 10
@@ -566,7 +581,7 @@
       "levels": [
         1,2,3,4,5,6
       ],
-      "preconditions": [
+      "concepts": [
         "Alphabet order"
       ],
       "help": "Arrange the Alphabets from bottom to top.",
@@ -576,7 +591,7 @@
       "levels": [
         7,8,9,10,11
       ],
-      "preconditions": [
+      "concepts": [
         "Quantity order"
       ],
       "help": "Arrange the blocks in ascending order from bottom to top.",
@@ -586,7 +601,7 @@
       "levels": [
        12,13,14,15,16,17,18
       ],
-      "preconditions": [
+      "concepts": [
         "Number order"
       ],
       "help": "Arrange the numbers in ascending order from bottom to top.",
@@ -596,7 +611,7 @@
       "levels": [
         19
       ],
-      "preconditions": [
+      "concepts": [
         "Days order"
       ],
       "help": "Arrange the days of the week in order from bottom to top.",
@@ -606,7 +621,7 @@
       "levels": [
         20
       ],
-      "preconditions": [
+      "concepts": [
         "Months order"
       ],
       "help": "Arrange the months of the year in order from bottom to top.",
@@ -618,7 +633,7 @@
       "levels": [
         1,2,3,4,5,16,17,18,19,20,31,32,33,34,35,46,47,48,49,50,61,62,63,64,65
       ],
-      "preconditions": [
+      "concepts": [
         "synonyms"
       ],
       "help": "Click on the word with the same meaning of the word shown above to jump. Finish the race quicker than your opponent.",
@@ -628,7 +643,7 @@
       "levels": [
         6,7,8,9,10,21,22,23,24,25,36,37,38,39,40,51,52,53,54,55,66,67,68,69,70
       ],
-      "preconditions": [
+      "concepts": [
         "antonyms"
       ],
       "help": "Click on the word with the opposite meaning of the word shown above to jump. Finish the race quicker than your opponent.",
@@ -638,7 +653,7 @@
       "levels": [
         11,12,13,14,15,26,27,28,29,30,41,42,43,44,45,56,57,58,59,60,71,72,73,74,75
       ],
-      "preconditions": [
+      "concepts": [
         "homonyms"
       ],
       "help": "Click on the word with the same pronunciation of the word shown above to jump. Finish the race quicker than your opponent.",
@@ -734,7 +749,7 @@
         27,
         28
       ],
-      "preconditions": [
+      "concepts": [
         "synonyms"
       ],
       "help": "Click on the word with the same meaning of the word above. When you get all words in a line correct, you win! Bingo!.",
@@ -744,7 +759,7 @@
       "levels": [
         5,6,7,8,17,18,19,20,29,30,31,32
       ],
-      "preconditions": [
+      "concepts": [
         "antonyms"
       ],
       "help": "Click on the word with the opposite meaning of the word above. When you get all words in a line correct, you win! Bingo!.",
@@ -754,7 +769,7 @@
       "levels": [
        9,10,11,12,21,22,23,24,33,34,35,36
       ],
-      "preconditions": [
+      "concepts": [
         "homonyms"
       ],
       "help": "Click on the word with the same pronunciation of the word above. When you get all words in a line correct, you win! Bingo!.",
@@ -774,7 +789,7 @@
       "levels": [
         6,7,8,9,10,21,22,23,24,25,36,37,38,39,40,51,52,53,54,55
       ],
-      "preconditions": [
+      "concepts": [
         "synonyms"
       ],
       "help": "Drop the correct alphabet into the empty box to make the word with the same meaning of the given word.",
@@ -784,7 +799,7 @@
       "levels": [
        11,12,13,14,15,26,27,28,29,30,41,42,43,44,45,56,57,58,59,60
       ],
-      "preconditions": [
+      "concepts": [
         "antonyms"
       ],
       "help": "Drop the correct alphabet into the empty box to make the word with the opposite meaning of the given word.",
@@ -886,7 +901,7 @@
       "levels": [
        1,2,3,4,5,16,17,18,19,20,31,32,33,34,35,46,47,48,49,50,61,62,63,64,65
       ],
-      "preconditions": [
+      "concepts": [
         "noun"
       ],
       "help": "Click on the nouns shown above to make a tall cake.",
@@ -896,7 +911,7 @@
       "levels": [
         6,7,8,9,10,21,22,23,24,25,36,37,38,39,40,51,52,53,54,55,66,67,68,69,70
       ],
-      "preconditions": [
+      "concepts": [
         "verb"
       ],
       "help": "Click on the verbs shown above to make a tall cake.",
@@ -906,7 +921,7 @@
       "levels": [
         11,12,13,14,15,26,27,28,29,30,41,42,43,44,45,56,57,58,59,60,71,72,73,74,75
       ],
-      "preconditions": [
+      "concepts": [
         "adjective"
       ],
       "help": "Click on the adjectives shown above to make a tall cake.",
@@ -918,7 +933,7 @@
       "levels": [
         1,2,3,4,5,16,17,18,19,20,31,32,33,34,35,46,47,48,49,50,61,62,63,64,65
       ],
-      "preconditions": [
+      "concepts": [
         "synonyms"
       ],
       "help": "Click on the word with the same meaning of the word in the center.",
@@ -928,7 +943,7 @@
       "levels": [
         6,7,8,9,10,21,22,23,24,25,36,37,38,39,40,51,52,53,54,55,66,67,68,69,70
       ],
-      "preconditions": [
+      "concepts": [
         "antonyms"
       ],
       "help": "Click on the word with the opposite meaning of the word in the center.",
@@ -938,7 +953,7 @@
       "levels": [
         11,12,13,14,15,26,27,28,29,30,41,42,43,44,45,56,57,58,59,60,71,72,73,74,75
       ],
-      "preconditions": [
+      "concepts": [
         "homonyms"
       ],
       "help": "Click on the word with the same pronunciation of the word in the center.",

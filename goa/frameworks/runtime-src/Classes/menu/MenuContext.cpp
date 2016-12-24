@@ -8,6 +8,7 @@
 
 #include "MenuContext.h"
 #include "LevelHelpScene.h"
+#include "LevelHelpOverlay.h"
 #include "ui/CocosGUI.h"
 #include "../StartMenuScene.h"
 #include "../MapScene.h"
@@ -72,7 +73,6 @@
 #include "../mini_games/Balloon.h"
 #include "../mini_games/PopCount.h"
 #include "../mini_games/DinoGame.h"
-#include "../mini_games/PatchTheWallScene.h"
 #include "../util/CommonLabel.h"
 
 USING_NS_CC;
@@ -163,7 +163,7 @@ void MenuContext::resumeNodeAndDescendants(Node *pNode)
 void MenuContext::addGreyLayer() {
     if(!_greyLayer) {
         Size visibleSize = Director::getInstance()->getVisibleSize();
-        _greyLayer = LayerColor::create(Color4B(255.0, 255.0, 255.0, 0.0));
+        _greyLayer = LayerColor::create(Color4B(128.0, 128.0, 128.0, 128.0));
         _greyLayer->setContentSize(visibleSize);
         addChild(_greyLayer, -1);
     }
@@ -180,9 +180,7 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 auto moveTo = MoveTo::create(0.5, _menuButton->getPosition());
                 auto elastic = EaseBackIn::create(moveTo);
                 auto callbackRemoveMenu = CallFunc::create(CC_CALLBACK_0(MenuContext::removeMenu, this));
-                /*
                 auto targetHelpCloseAction = TargetedAction::create(_helpMenu, elastic->clone());
-                 */
                 auto targetBookCloseAction = TargetedAction::create(_bookMenu, elastic->clone());
                 auto targetMapCloseAction = TargetedAction::create(_mapMenu, elastic->clone());
                 
@@ -198,15 +196,14 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 //                        runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
 //                }
                 
-                auto spawnAction = Spawn::create(/*targetHelpCloseAction,*/targetMapCloseAction, targetBookCloseAction,targetGamesCloseAction, targetSettingCloseAction, nullptr);
+                auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction, targetBookCloseAction,targetGamesCloseAction, targetSettingCloseAction, nullptr);
                 runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
                 
                 
             } else {
                 addGreyLayer();
-//                _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png",POINTS_TO_LEFT);
-//                _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
-                
+                _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png", 5 * POINTS_TO_LEFT);
+                _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
                 
                 _mapMenu = this->createMenuItem("menu/map.png", "menu/map.png", "menu/map.png", 2 * POINTS_TO_LEFT);
                 _mapMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showMap, this));
@@ -513,14 +510,13 @@ std::vector<std::string> MenuContext::split(std::string s, char delim)
     return elems;
 }
 
-
-void MenuContext::removeMenu() {
+void MenuContext::removeMenuOnly() {
     if(_menuSelected) {
         removeChild(_exitMenu);
         _exitMenu = nullptr;
         
-//        removeChild(_helpMenu);
-//        _helpMenu = nullptr;
+        removeChild(_helpMenu);
+        _helpMenu = nullptr;
         
         removeChild(_bookMenu);
         _bookMenu = nullptr;
@@ -530,22 +526,25 @@ void MenuContext::removeMenu() {
         
         removeChild(_gamesMenu);
         _gamesMenu = nullptr;
-
-		removeChild(_settingMenu);
-		_settingMenu = nullptr;
         
-//        if(_photoMenu) {
-//            removeChild(_photoMenu);
-//            _photoMenu = nullptr;
-//        }
-
+        removeChild(_settingMenu);
+        _settingMenu = nullptr;
+        
+        //        if(_photoMenu) {
+        //            removeChild(_photoMenu);
+        //            _photoMenu = nullptr;
+        //        }
+        
         
         if(_chimp) {
             removeChild(_chimp);
             _chimp = nullptr;
         }
     }
+}
 
+void MenuContext::removeMenu() {
+    removeMenuOnly();
     if(_greyLayer) {
         removeChild(_greyLayer);
         _greyLayer = nullptr;
@@ -701,6 +700,9 @@ Node* MenuContext::jumpOut(std::string nodeCsbName, float duration, Vec2 positio
 void MenuContext::showHelp(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
 //        chimpHelp();
+        removeMenuOnly();
+        auto levelHelp = LevelHelpOverlay::create(gameName);
+        addChild(levelHelp, 2);
     }
 }
 
@@ -977,9 +979,6 @@ void MenuContext::launchGameFinally(std::string gameName) {
 		}
 		else if (gameName == DINO) {
 			Director::getInstance()->replaceScene(DinoGame::createScene());
-		}
-		else if (gameName == PATCH_THE_WALL) {
-			Director::getInstance()->replaceScene(PatchTheWall::createScene());
 		}
 		else{
             CCLOG("Failed starting scene: %s", gameName.c_str());
