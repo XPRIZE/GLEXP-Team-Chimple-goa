@@ -29,7 +29,8 @@
 
 class ScrollableGameMapScene;
 class MenuContext : public cocos2d::Node {
-    
+    static bool _gameIsStatic;
+
 public:
     static MenuContext* create(Node *main, std::string gameName = "", bool lauchCustomEventOnExit = false, std::string sceneName = "");
     
@@ -55,7 +56,7 @@ public:
     std::vector<std::vector<cocos2d::Point>> getTrianglePointsForSprite(cocos2d::Sprite* node, std::string fileName, float threshHold);
     
     static void pronounceWord(std::string word);
-
+    static bool isGameStatic();
 	void wordPairList(std::string question, std::string answer = "it is a word",bool isInitialSyllable = false);
 	void showAnswer(std::string, std::string header);
 

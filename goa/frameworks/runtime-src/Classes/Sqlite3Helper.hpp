@@ -48,6 +48,8 @@ public:
     
     virtual std::map<std::string,std::string> loadNodeWordMapping(const char* sceneName);
     
+    int checkIfItemExistsInBag(const char* item, const char* island);
+    
     static bool instanceFlag;
     static Sqlite3Helper *shared;
 
