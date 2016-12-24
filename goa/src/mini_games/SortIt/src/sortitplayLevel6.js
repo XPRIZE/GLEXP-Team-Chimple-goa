@@ -111,7 +111,7 @@ xc.sortitlevel6Layer = cc.Layer.extend({
 
          this.a = new sortitMovableItem6("sortit/sortittwo/a.png", this.at, this);
          this.a.setAnchorPoint(0.5, 0.5);
-         this.a.setPosition(size.width*0.70 , size.height*0.19);
+         this.a.setPosition(size.width*0.70 , size.height*0.22);
          this.a.xP = this.a.getPosition().x;
          this.a.yP = this.a.getPosition().y;
          this.a.setScale(this.level6SpriteScaleX, this.level6SpriteScaleY);
@@ -121,7 +121,7 @@ xc.sortitlevel6Layer = cc.Layer.extend({
 
          this.b = new sortitMovableItem6("sortit/sortittwo/b.png", this.bt, this);
          this.b.setAnchorPoint(0.5, 0.5);
-         this.b.setPosition(size.width*0.31 , size.height*0.14);
+         this.b.setPosition(size.width*0.31 , size.height*0.17);
          this.b.xP = this.b.getPosition().x;
          this.b.yP = this.b.getPosition().y;
          this.b.setScale(this.level6SpriteScaleX, this.level6SpriteScaleY);
@@ -131,7 +131,7 @@ xc.sortitlevel6Layer = cc.Layer.extend({
 
          this.c = new sortitMovableItem6("sortit/sortittwo/c.png", this.ct, this);
          this.c.setAnchorPoint(0.5, 0.5);
-         this.c.setPosition(size.width*0.46 , size.height*0.10);
+         this.c.setPosition(size.width*0.46 , size.height*0.13);
          this.c.xP = this.c.getPosition().x;
          this.c.yP = this.c.getPosition().y;
          this.c.setScale(this.level6SpriteScaleX, this.level6SpriteScaleY);
@@ -141,7 +141,7 @@ xc.sortitlevel6Layer = cc.Layer.extend({
    
          this.d = new sortitMovableItem6("sortit/sortittwo/d.png", this.dt, this);
          this.d.setAnchorPoint(0.5, 0.5);
-         this.d.setPosition(size.width*0.62 , size.height*0.10);
+         this.d.setPosition(size.width*0.62 , size.height*0.13);
          this.d.xP = this.d.getPosition().x;
          this.d.yP = this.d.getPosition().y;
          this.d.setScale(this.level6SpriteScaleX, this.level6SpriteScaleY);
@@ -152,7 +152,7 @@ xc.sortitlevel6Layer = cc.Layer.extend({
 
          this.e = new sortitMovableItem6("sortit/sortittwo/e.png", this.et, this);
          this.e.setAnchorPoint(0.5, 0.5);
-         this.e.setPosition(size.width*0.07 , size.height*0.12);
+         this.e.setPosition(size.width*0.07 , size.height*0.15);
          this.e.xP = this.e.getPosition().x;
          this.e.yP = this.e.getPosition().y;
          this.e.setScale(this.level6SpriteScaleX, this.level6SpriteScaleY);

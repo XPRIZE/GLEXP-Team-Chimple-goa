@@ -20,10 +20,11 @@ public:
 	void draw(cocos2d::DrawNode* paintingNode, cocos2d::Point fromPoint, cocos2d::Point currentPoint);
 	virtual void broadCastRecognizedChars(std::vector<std::string> results) override;
 	std::vector<std::string> getPosibileCharacter();
-	
+	virtual void removeClearButton() override;
 protected:
 	MenuContext * menu;
 	std::vector<std::string> _result;
+	
 	
 
 };

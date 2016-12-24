@@ -156,7 +156,7 @@ xc.sortitlevel1Layer = cc.Layer.extend({
        
          this.toy1 = new sortitMovableItem1("sortit/toy1.png", this.toy1t, this);
          this.toy1.setAnchorPoint(0.5, 0.5);
-         this.toy1.setPosition(size.width*0.2 , size.height*0.08);
+         this.toy1.setPosition(size.width*0.2 , size.height*0.11);
          this.toy1.xP = this.toy1.getPosition().x;
          this.toy1.yP = this.toy1.getPosition().y;
          this.toy1.id = 1; 
@@ -168,7 +168,7 @@ xc.sortitlevel1Layer = cc.Layer.extend({
 
          this.toy2 = new sortitMovableItem1("sortit/toy2.png", this.toy2t, this);
          this.toy2.setAnchorPoint(0.5, 0.5);
-         this.toy2.setPosition(size.width*0.6 , size.height*0.15);
+         this.toy2.setPosition(size.width*0.6 , size.height*0.18);
          this.toy2.xP = this.toy2.getPosition().x;
          this.toy2.yP = this.toy2.getPosition().y;
          this.toy2.id = 2; 
@@ -177,7 +177,7 @@ xc.sortitlevel1Layer = cc.Layer.extend({
         
          this.toy3 = new sortitMovableItem1("sortit/toy3.png", this.toy3t, this);
          this.toy3.setAnchorPoint(0.5, 0.5);
-         this.toy3.setPosition(size.width*0.8 , size.height*0.11);
+         this.toy3.setPosition(size.width*0.8 , size.height*0.14);
          this.toy3.xP = this.toy3.getPosition().x;
          this.toy3.yP = this.toy3.getPosition().y;
          this.toy3.id = 3; 
@@ -187,7 +187,7 @@ xc.sortitlevel1Layer = cc.Layer.extend({
         
          this.toy4 = new sortitMovableItem1("sortit/toy4.png", this.toy4t,  this);
          this.toy4.setAnchorPoint(0.5, 0.5);
-         this.toy4.setPosition(size.width*0.4 , size.height*0.19);
+         this.toy4.setPosition(size.width*0.4 , size.height*0.22);
          this.toy4.xP = this.toy4.getPosition().x;
          this.toy4.yP = this.toy4.getPosition().y;
          this.toy4.id = 4; 
@@ -198,7 +198,7 @@ xc.sortitlevel1Layer = cc.Layer.extend({
         
          this.toy5 = new sortitMovableItem1("sortit/toy5.png", this.toy5t, this);
          this.toy5.setAnchorPoint(0.5, 0.5);
-         this.toy5.setPosition(size.width*0.07 , size.height*0.24);
+         this.toy5.setPosition(size.width*0.07 , size.height*0.27);
          this.toy5.xP = this.toy5.getPosition().x;
          this.toy5.yP = this.toy5.getPosition().y;
          this.toy5.id = 5; 
@@ -209,7 +209,7 @@ xc.sortitlevel1Layer = cc.Layer.extend({
        
          this.toy6 = new sortitMovableItem1("sortit/toy6.png", this.toy6t, this);
          this.toy6.setAnchorPoint(0.5, 0.5);
-         this.toy6.setPosition(size.width*0.93 , size.height*0.24);
+         this.toy6.setPosition(size.width*0.93 , size.height*0.27);
          this.toy6.xP = this.toy6.getPosition().x;
          this.toy6.yP = this.toy6.getPosition().y;
          this.toy6.id = 6; 
