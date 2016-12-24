@@ -40,6 +40,7 @@ protected:
 	std::vector<std::string> _alphabets;
 	void alphabetHint(std::string letter);
 	void helpLayer();
+	void enableTouchOnAlphabet(float ft);
 	void gameStart(float ft);
 };
 #endif
