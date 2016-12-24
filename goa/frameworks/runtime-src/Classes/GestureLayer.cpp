@@ -20,6 +20,7 @@ GestureLayer::GestureLayer()
     this->touch_start_ = Point::ZERO;
     this->touch_end_ = Point::ZERO;
     this->gesture_type_ = E_GESTURE_NONE;
+    this->isSceneTransitionStarted = true;
 }
 
 GestureLayer::~GestureLayer()
@@ -60,12 +61,19 @@ bool GestureLayer::init(Ref* target, SEL_CallFuncO handler)
     listenerTouches->onTouchEnded = CC_CALLBACK_2(GestureLayer::touchEnded, this);
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listenerTouches, this);
     
-    this->scheduleUpdate();
+    this->scheduleUpdate(); 
+    CCLOG("gesture layer initialize");
+    this->disableAllTouch();
     return true;
 }
 
 bool GestureLayer::onTouchBegan(Touch *touch, Event *event)
 {
+    if(this->isSceneTransitionStarted) {
+        CCLOG("returning GestureLayer::onTouchBegan");
+        return false;
+    }
+
     Point touch_point = touch->getLocationInView();
     touch_point = Director::getInstance()->convertToGL(touch_point);
     
@@ -83,6 +91,8 @@ bool GestureLayer::onTouchBegan(Touch *touch, Event *event)
     this->touch_start_time_ = 0.0f;
     return true;
 }
+
+
 
 void GestureLayer::touchMoved(Touch *touch, Event *event)
 {
@@ -173,7 +183,12 @@ void GestureLayer::HandleTouch()
     }
 }
 
+void GestureLayer::enableAllTouch() {
+    CCLOG("in GestureLayer enableAllTouch");
+    this->isSceneTransitionStarted = false;
+}
 
 void GestureLayer::disableAllTouch() {
-    
+    CCLOG("in GestureLayer disableAllTouch");
+    this->isSceneTransitionStarted = true;
 }

@@ -14,7 +14,7 @@
 USING_NS_CC;
 using namespace cocos2d::ui;
 
-SpeechBubbleView::SpeechBubbleView() {
+SpeechBubbleView::SpeechBubbleView(): _button(nullptr) {
     
 }
 
@@ -68,9 +68,9 @@ bool SpeechBubbleView::initialize(std::unordered_map<int, std::string> textMap, 
     
     for ( auto it = textMap.begin(); it != textMap.end(); ++it ) {
         
-        auto button = Button::create("Button_Normal.png", "Button_Press.png", "Button_Disable.png", ui::Widget::TextureResType::LOCAL);
+        _button = Button::create("Button_Normal.png", "Button_Press.png", "Button_Disable.png", ui::Widget::TextureResType::LOCAL);
         
-        button->setPosition(Point(position.x, position.y + delta));
+        _button->setPosition(Point(position.x, position.y + delta));
         CCLOG("Text to speak %s", it->second.c_str());
         std::string displayText = it->second;
         
@@ -81,15 +81,15 @@ bool SpeechBubbleView::initialize(std::unordered_map<int, std::string> textMap, 
         
         CCLOG(" final string %s", joinedStr.c_str());
         
-        button->setTitleText(joinedStr);
-        button->setTitleColor(cocos2d::Color3B::BLACK);
-        button->setTitleFontSize(SPEECH_TEXT_FONT_SIZE);
-        button->setTitleFontName(SPEECH_TEXT_FONT_FILE);
-        button->setUserData((void *) it->first);
-        button->addTouchEventListener(CC_CALLBACK_2(SpeechBubbleView::dialogSelected, this));
-        button->ignoreContentAdaptWithSize(false);
-        auto lbl_size = button->getTitleRenderer()->getContentSize();
-        button->setContentSize(
+        _button->setTitleText(joinedStr);
+        _button->setTitleColor(cocos2d::Color3B::BLACK);
+        _button->setTitleFontSize(SPEECH_TEXT_FONT_SIZE);
+        _button->setTitleFontName(SPEECH_TEXT_FONT_FILE);
+        _button->setUserData((void *) it->first);
+        _button->addTouchEventListener(CC_CALLBACK_2(SpeechBubbleView::dialogSelected, this));
+        _button->ignoreContentAdaptWithSize(false);
+        auto lbl_size = _button->getTitleRenderer()->getContentSize();
+        _button->setContentSize(
                                Size(
                                     lbl_size.width * 1.25f,
                                     lbl_size.height * 1.25f
@@ -98,8 +98,8 @@ bool SpeechBubbleView::initialize(std::unordered_map<int, std::string> textMap, 
         
         
 
-        this->textButtons.push_back(button);
-        this->addChild(button, priority);
+        this->textButtons.push_back(_button);
+        this->addChild(_button, priority);
 
         
 //        auto textLabel = Label::createWithTTF(it->second, SPEECH_TEXT_FONT_FILE, SPEECH_TEXT_FONT_SIZE, Size(SPEECH_TEXT_WIDTH, SPEECH_TEXT_HEIGHT), TextHAlignment::LEFT, TextVAlignment::CENTER);
@@ -136,21 +136,31 @@ void SpeechBubbleView::bubbleDestoryMessageEvent(EventCustom * event) {
 
 }
 
+cocos2d::ui::Button* SpeechBubbleView::currentButton() {
+    return _button;
+}
+
+void SpeechBubbleView::performAction() {
+    if(_button != NULL && _button->getUserData())
+    {
+        int preConditionId = (int)(size_t)_button->getUserData();
+        EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TEXT_TAP_NOTIFICATION, (void *) preConditionId);
+        this->destroySpeechBubbles();
+    }
+}
+
 void SpeechBubbleView::dialogSelected(Ref* pSender, ui::Widget::TouchEventType eEventType)
 {
-    Button* clickedButton = dynamic_cast<Button *>(pSender);
     switch (eEventType) {
         case ui::Widget::TouchEventType::BEGAN:
         {
-            int preConditionId = (int)(size_t)clickedButton->getUserData();
-            EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TEXT_TAP_NOTIFICATION, (void *) preConditionId);
             break;
         }
         case ui::Widget::TouchEventType::MOVED:
             break;
         case ui::Widget::TouchEventType::ENDED:
         {
-            this->destroySpeechBubbles();
+            this->performAction();
             break;
         }
             
