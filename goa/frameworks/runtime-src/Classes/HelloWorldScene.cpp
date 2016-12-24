@@ -19,7 +19,7 @@ Scene* HelloWorld::createScene(const std::string& island, const std::string& sce
     
     // 'layer' is an autorelease object
     auto layer = HelloWorld::create(island, sceneName, fromMenu);
-    
+    layer->setTouchEnabled(false);
     // add layer as a child to scene
     scene->addChild(layer);
 
@@ -71,7 +71,14 @@ sceneSize(0,0),
 island(""),
 sceneName(""),
 alphamonNodesCount(0),
-skeletonPositionInLastVisitedScene(nullptr)
+skeletonPositionInLastVisitedScene(nullptr),
+_fromMenu(false),
+_speechBubbleView(nullptr),
+_textDisplayAnimationRunning(false),
+_greyLayer(nullptr),
+_wordToPronounce(""),
+_bagPackNode(nullptr),
+_hintText("")
 {
     this->stateMachine = NULL;
 }
@@ -88,8 +95,154 @@ void HelloWorld::initializeSafari() {
     
     this->initializeStateMachine();
     
-    //this->loadWords();
+    this->loadWords();
+    
+    this->showBagPackButton();
 }
+
+void HelloWorld::showBagPackButton() {
+    this->createMenuItem("menu/backpack_icon.png", "menu/backpack_icon.png", "menu/backpack_icon.png");
+}
+
+void HelloWorld::renderBagPack() {
+    auto children = _bagPackNode->getChildren();
+    ;
+    for (std::vector<Node*>::iterator it = children.begin() ; it != children.end(); ++it) {
+        cocos2d::Node* node = *it;
+        Sprite* sNode = dynamic_cast<Sprite*>(node);
+        if(sNode != NULL && sNode->getChildrenCount() == 0) {
+            
+            int result = this->sqlite3Helper->checkIfItemExistsInBag(node->getName().c_str(), this->getIsland().c_str());
+            
+            if(result == 1) {
+                //in bag
+                CCLOG("already in bag %s", node->getName().c_str());
+                Sprite *checkSprite = Sprite::createWithSpriteFrameName("farmhouse_bagpack/tick.png");
+                _bagPackNode->addChild(checkSprite, 1);
+                checkSprite->setPosition(node->getPosition());
+            }
+            
+        }
+        
+        cocos2d::ui::Text* sLabel = dynamic_cast<cocos2d::ui::Text*>(node);
+        if(sLabel != NULL && sLabel->getChildrenCount() == 0) {
+            CCLOG("putting label text %s", sLabel->getName().c_str());
+            sLabel->setString(sLabel->getName());
+            sLabel->setFontSize(50);
+            sLabel->setFontName("Arial");
+            sLabel->setTextColor(Color4B::BLACK);
+        }
+    }
+    
+    Node* textFieldNode = _bagPackNode->getChildByName("TextField");
+    cocos2d::ui::TextField* sTextField = dynamic_cast<cocos2d::ui::TextField*>(textFieldNode);
+    if(sTextField != NULL) {
+        sTextField->setString(_hintText);
+        sTextField->setFontName("Arial");
+        sTextField->setFontSize(50);
+        sTextField->setTextColor(Color4B::BLACK);
+        sTextField->setTextHorizontalAlignment(TextHAlignment::CENTER);
+        sTextField->setTextVerticalAlignment(TextVAlignment::TOP);
+    }
+}
+
+void HelloWorld::showBagpackOpenAnimation(std::unordered_map<int, std::string> textMapFollowedByAnimation, std::string owner) {
+    
+    CCLOG("show bag pack for %s", this->getIsland().c_str());
+        std::string backPackFile = this->getIsland()+"_bagpack" + "/" + this->getIsland() + "_bagpack.csb";
+        if(FileUtils::getInstance()->isFileExist(backPackFile)) {
+            Size visibleSize = Director::getInstance()->getVisibleSize();
+            Vec2 origin = Director::getInstance()->getVisibleOrigin();
+            
+            _bagPackNode = CSLoader::createNode(backPackFile);
+            _bagPackNode->setAnchorPoint(Vec2(0.5,0.5));
+            _bagPackNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height + 650));
+            this->addChild(_bagPackNode, 4);
+            
+            auto moveTo = MoveTo::create(1.0, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height/2));
+            auto elastic = EaseBackOut::create(moveTo);
+            auto bubbleAction = TargetedAction::create(_bagPackNode, elastic);
+            auto renderBagpackCallAction = CallFunc::create(CC_CALLBACK_0(HelloWorld::renderBagPack, this));
+            runAction(Sequence::create(renderBagpackCallAction,bubbleAction, NULL));
+            
+            
+            //bind events
+            Node* closeButtonNode = _bagPackNode->getChildByName("Button");
+            if(closeButtonNode != NULL) {
+                cocos2d::ui::Button * closeButton = dynamic_cast<cocos2d::ui::Button *>(closeButtonNode);
+                if(closeButton != NULL) {
+                    closeButton->addTouchEventListener(CC_CALLBACK_2(HelloWorld::closeBagPack, this,textMapFollowedByAnimation, owner));
+                }
+                
+            }
+        }
+}
+
+void HelloWorld::showBagPack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
+    if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
+        if(_bagPackNode == nullptr)
+        {
+            std::unordered_map<int, std::string> textMapFollowedByAnimation;
+            showBagpackOpenAnimation(textMapFollowedByAnimation, "");
+        }
+    }
+}
+
+
+void HelloWorld::removeBagPack(std::unordered_map<int, std::string> textMapFollowedByAnimation, std::string owner) {
+    _bagPackNode->removeFromParent();
+    _bagPackNode = nullptr;
+    if(textMapFollowedByAnimation.size() > 0 && !owner.empty())
+    {
+        this->processTextMessage(textMapFollowedByAnimation, owner);
+    }
+}
+
+void HelloWorld::closeBagPack(Ref* pSender, ui::Widget::TouchEventType eEventType, std::unordered_map<int, std::string> textMapFollowedByAnimation, std::string owner)
+{
+    switch (eEventType) {
+        case ui::Widget::TouchEventType::BEGAN:
+        {
+            break;
+        }
+        case ui::Widget::TouchEventType::MOVED:
+            break;
+        case ui::Widget::TouchEventType::ENDED:
+        {
+            Size visibleSize = Director::getInstance()->getVisibleSize();
+            Vec2 origin = Director::getInstance()->getVisibleOrigin();
+            auto moveTo = MoveTo::create(1.0, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height + 750));
+            auto elastic = EaseBackIn::create(moveTo);
+            auto goBackAction = TargetedAction::create(_bagPackNode, elastic);
+            auto callBack = CallFunc::create(CC_CALLBACK_0(HelloWorld::removeBagPack, this, textMapFollowedByAnimation, owner));
+            runAction(Sequence::create(goBackAction, callBack, NULL));
+            
+            
+            break;
+        }
+        case ui::Widget::TouchEventType::CANCELED:
+            break;
+        default:
+            break;
+    }
+}
+
+
+cocos2d::ui::Button* HelloWorld::createMenuItem(const std::string normalImage,
+                                                 const std::string selectedImage ,
+                                                const std::string disableImage) {
+    _bagPackMenu = cocos2d::ui::Button::create(normalImage, selectedImage, disableImage, cocos2d::ui::Widget::TextureResType::LOCAL);
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    
+    _bagPackMenu->setPosition(Vec2(origin.x + 150, origin.y + visibleSize.height - 150));
+    _bagPackMenu->addTouchEventListener(CC_CALLBACK_2(HelloWorld::showBagPack, this));
+    
+    addChild(_bagPackMenu);
+    
+    return _bagPackMenu;
+}
+
 
 void HelloWorld::updatePositionAndCategoryBitMaskMainCharacter() {
     if(this->skeletonCharacter)
@@ -145,6 +298,16 @@ void HelloWorld::loadGameScene() {
 
 
 void HelloWorld::loadWords() {
+    
+    //create hang bubble
+    
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    
+    _hangBubbleNode = CSLoader::createNode("template/hang_bubble.csb");
+    this->addChild(_hangBubbleNode);
+
+    
     std::string wordFile = !this->getSceneName().empty() ? this->getSceneName(): this->getIsland();
     
     std::map<std::string,std::string> mapping = this->sqlite3Helper->loadNodeWordMapping(wordFile.c_str());
@@ -158,13 +321,13 @@ void HelloWorld::loadWords() {
         CCLOG("node=%s, word=%s", nodeName.c_str(), word.c_str());
         Node* node = this->mainLayer->getChildByName(nodeName.c_str());
         if(node != NULL && !word.empty()) {
-            this->createWordSprite(node, word, this->mainLayer);
+//            this->createWordSprite(node, word, this->mainLayer);
         } else {
             if(this->foregroundLayer != NULL)
             {
                 node = this->foregroundLayer->getChildByName(nodeName.c_str());
                 if(node != NULL && !word.empty()) {
-                    this->createWordSprite(node, word, this->foregroundLayer);
+//                    this->createWordSprite(node, word, this->foregroundLayer);
                 }
             }
         }
@@ -415,6 +578,7 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName, b
     }
     
     this->setIsland(island);
+    this->_fromMenu = fromMenu;
     if(!sceneName.empty()) {
         this->setSceneName(sceneName);
     }
@@ -437,29 +601,6 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName, b
     //this->currentLangUtil->changeLanguage(SupportedLanguages::GERMAN);
     //auto translatedString = this->currentLangUtil->translateString("Hello world!");
 //    CCLOG("translatedString %s", translatedString.c_str());
-    //testing
-    
-    this->loadSqlite3FileForIsland();
-    
-    this->initializeSafari();
-    
-    this->registerPhysicsEventContactLister();
-    
-    this->registerMessageSenderAndReceiver();
-    
-    if(this->getAlphamonNodesCount() != 0) {
-//        this->schedule(CC_SCHEDULE_SELECTOR(HelloWorld::createAlphaMons), ALPHAMON_CREATE_FREQUENCY);
-    }
-    
-    this->scheduleUpdate();
-    
-    if(fromMenu) {
-        CCLOG("deleting all items from bag for island %s", this->getIsland().c_str());
-        this->sqlite3Helper->deleteAllItemFromMyBag(this->getIsland().c_str());
-    }
-    
-    //CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("sounds/Adagio teru (ft. teru).m4a", true);
-    //CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0f);
     
     return true;
 }
@@ -511,22 +652,14 @@ void HelloWorld::registerMessageSenderAndReceiver() {
     
     this->getEventDispatcher()->addCustomEventListener(RPGConfig::ON_MENU_EXIT_NOTIFICATION, CC_CALLBACK_1(HelloWorld::transitToMenu, this));
 
-//    this->getEventDispatcher()->addCustomEventListener(RPGConfig::ON_ALPHAMON_PRESSED_NOTIFICATION, CC_CALLBACK_1(HelloWorld::alphamonDestroyed, this));
-//    
     
-//    this->getEventDispatcher()->addCustomEventListener(RPGConfig::ON_WORD_INFO_NOTIFICATION, CC_CALLBACK_1(HelloWorld::changeWordScene, this));
-//    
+    this->getEventDispatcher()->addCustomEventListener(RPGConfig::ON_WORD_INFO_NOTIFICATION, CC_CALLBACK_1(HelloWorld::buildText, this));
+    
     
 }
 
-//void HelloWorld::alphamonDestroyed(EventCustom* event) {
-//    std::string &alphamon = *(static_cast<std::string*>(event->getUserData()));
-//    activeAlphamonNodes.erase(std::remove(activeAlphamonNodes.begin(), activeAlphamonNodes.end(), alphamon), activeAlphamonNodes.end());
-//
-//}
 
 void HelloWorld::transitionToDuelScene(wchar_t alphabet) {
-    this->cleanUpResources();
     std::string firstParam = LangUtil::getInstance()->convertUTF16CharToString(CharGenerator::getInstance()->generateAChar());
     std::string secondParam = LangUtil::getInstance()->convertUTF16CharToString(alphabet);
     StartMenu::startScene(DUEL_SCENE_NAME, firstParam, secondParam);
@@ -534,6 +667,11 @@ void HelloWorld::transitionToDuelScene(wchar_t alphabet) {
 
 void HelloWorld::processTextMessage(std::unordered_map<int, std::string> textMap, std::string ownerOfMessage)
 {
+    
+    if(textMap.size() == 0)
+    {
+        return;
+    }
     //find node based on ownerOfMessage
     auto selectedNode = this->mainLayer->getChildByName(ownerOfMessage);
     assert(selectedNode != NULL);
@@ -546,27 +684,28 @@ void HelloWorld::processTextMessage(std::unordered_map<int, std::string> textMap
         if(isExternalCharacter) {
             ExternalSkeletonCharacter* character = dynamic_cast<ExternalSkeletonCharacter *>(selectedNode);
             Point touch_point = character->convertToWorldSpace(character->getExternalSkeletonNode()->getPosition());
-            SpeechBubbleView* speechBubble = SpeechBubbleView::create(textMap, Point(touch_point.x, touch_point.y + character->getExternalSkeletonNode()->getBoundingBox().size.height));
+            _speechBubbleView = SpeechBubbleView::create(textMap, Point(touch_point.x, touch_point.y + character->getExternalSkeletonNode()->getBoundingBox().size.height));
             
             this->setSpeechBubbleAlreadyVisible(true);
             
-            this->addChild(speechBubble, 1);
+            this->addChild(_speechBubbleView, 1);
             
         } else if(isSkeletonCharacter) {
             Point touch_point = this->skeletonCharacter->convertToWorldSpace(this->skeletonCharacter->getSkeletonNode()->getPosition());
             
-            SpeechBubbleView* speechBubble = SpeechBubbleView::create(textMap, Point(touch_point.x, touch_point.y + this->skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height));
+            _speechBubbleView = SpeechBubbleView::create(textMap, Point(touch_point.x, touch_point.y + this->skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height));
             this->setSpeechBubbleAlreadyVisible(true);
             
-            this->addChild(speechBubble, 1);
+            this->addChild(_speechBubbleView, 1);
             
         } else if(isRPGSprite) {
             RPGSprite* sprite = dynamic_cast<RPGSprite *>(selectedNode);
+            sprite->setEventProcessed(false);
             Point touch_point = sprite->convertToWorldSpace(sprite->getSprite()->getPosition());
-            SpeechBubbleView* speechBubble = SpeechBubbleView::create(textMap, Point(touch_point.x, touch_point.y + sprite->getSprite()->getBoundingBox().size.height));
+            _speechBubbleView = SpeechBubbleView::create(textMap, Point(touch_point.x, touch_point.y + sprite->getSprite()->getBoundingBox().size.height));
             this->setSpeechBubbleAlreadyVisible(true);
             
-            this->addChild(speechBubble, 1);
+            this->addChild(_speechBubbleView, 1);
         }
     }
 
@@ -667,12 +806,18 @@ void HelloWorld::processUseInBackPackMessages(std::vector<MessageContent*>showMe
                 
                 if(result == 1 && content->getShouldDisplayInBag())
                 {
-                    useItemFromBagAnimation(content, ownerSprite, textMapFollowedByAnimation);
+                    useItemFromBag(ownerSprite, content, textMapFollowedByAnimation);
                 } else if(content->getHasTextAfterAnimation() == 1) {
                     CCLOG("calling text after animation");
                     this->processTextMessage(textMapFollowedByAnimation, content->getOwner());
                 }
                 
+                if(!content->getHint().empty()) {
+                    CCLOG("content->hint %s", content->getHint().c_str());
+                    _hintText = content->getHint();
+                }
+                
+
                 
                 if(!content->getPostOutComeAction().empty()) {
                     CCLOG("content->getPostOutComeAction() %s", content->getPostOutComeAction().c_str());
@@ -696,6 +841,8 @@ void HelloWorld::processUseInBackPackMessages(std::vector<MessageContent*>showMe
                         }
                     }
                 }
+                
+                ownerSprite->setEventProcessed(false);
             }
         }
     }
@@ -705,7 +852,7 @@ void HelloWorld::finishedTask() {
     //this->getEventDispatcher()->dispatchCustomEvent(RPGConfig::ON_MENU_EXIT_NOTIFICATION);
 }
 
-void HelloWorld::processPutInBackPackMessages(std::vector<MessageContent*>showMessages) {
+void HelloWorld::processPutInBackPackMessages(std::vector<MessageContent*>showMessages, std::unordered_map<int, std::string> textMapFollowedByAnimation) {
     for (std::vector<MessageContent* >::iterator it = showMessages.begin() ; it != showMessages.end(); ++it)
     {
         MessageContent* content = (MessageContent*) *it;
@@ -739,15 +886,28 @@ void HelloWorld::processPutInBackPackMessages(std::vector<MessageContent*>showMe
                     
                 }
                 
-                
                 CCLOG("content->getPostOutComeAction() %s", content->getPostOutComeAction().c_str());
+
+                
+                if(!content->getHint().empty()) {
+                    CCLOG("content->hint %s", content->getHint().c_str());
+                    _hintText = content->getHint();
+                }
+                
+                
                 //play animation
                 
                 if(content->getShouldDisplayInBag() && result == 1) {
-                    copySpriteForAnimation(ownerSprite);
+                    copySpriteForAnimation(ownerSprite, textMapFollowedByAnimation, content->getOwner());
+                } else if(content->getHasTextAfterAnimation() == 1) {
+                    this->processTextMessage(textMapFollowedByAnimation, content->getOwner());
+//                    if(content->getShouldDisplayInBag()) {
+//                        showBagpackOpenAnimation(textMapFollowedByAnimation, content->getOwner());
+//                    } else {
+//                        this->processTextMessage(textMapFollowedByAnimation, content->getOwner());
+//                    }
                 }
-                
-
+                ownerSprite->setEventProcessed(false);
             }
         }
     }
@@ -765,6 +925,7 @@ void HelloWorld::processShowMessage(std::vector<MessageContent*>showMessages) {
             ownerSprite = dynamic_cast<RPGSprite *>(ownerNode);
             if(ownerSprite != NULL) {
                 ownerSprite->getSprite()->setVisible(false);
+                ownerSprite->setEventProcessed(false);
             }
         }
         
@@ -802,19 +963,19 @@ void HelloWorld::moveItemIntoBag(Sprite* orgSprite) {
 }
 
 
-void HelloWorld::useItemFromBag(RPGSprite* item, MessageContent* content) {
-    CCLOG("move item into bag %s", item->getName().c_str());
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+void HelloWorld::useItemFromBag(RPGSprite* item, MessageContent* content, std::unordered_map<int, std::string> textMapFollowedByAnimation) {
+    CCLOG("useItemFromBag %s", item->getName().c_str());
     Sprite* orgSprite = dynamic_cast<Sprite *>(item->getSprite());
     if(orgSprite != NULL) {
 
         Sprite* copySprite = Sprite::createWithSpriteFrame(orgSprite->getSpriteFrame());
         if(orgSprite != NULL) {
             item->getParent()->addChild(copySprite, 1000);
-            copySprite->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
-            auto copySpriteMoveTo = MoveTo::create(1, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2 + 500));
             
+            Point posInParent = _bagPackMenu->getParent()->convertToWorldSpace(_bagPackMenu->getPosition());
+            Point bagPackMenuPos = this->mainLayer->convertToNodeSpace(posInParent);
+            
+            copySprite->setPosition(bagPackMenuPos);
             auto fade = FadeOut::create(2.0);
             
             
@@ -830,16 +991,19 @@ void HelloWorld::useItemFromBag(RPGSprite* item, MessageContent* content) {
                                 ExternalSkeletonCharacter* character = dynamic_cast<ExternalSkeletonCharacter *>(selectedNode);
                                 Point touch_point = character->convertToWorldSpace(character->getExternalSkeletonNode()->getPosition());
                                 
-                                auto copySpriteMoveToOwner = MoveTo::create(1, Vec2(touch_point.x, touch_point.y + 300));
+                                //auto copySpriteMoveToOwner = MoveTo::create(1, Vec2(touch_point.x, touch_point.y + 200));
+                                auto copySpriteMoveToOwner = MoveTo::create(1, Vec2(character->getExternalSkeletonNode()->getPosition().x, character->getExternalSkeletonNode()->getPosition().y + 200));
                                 
-                                runAction(Sequence::create(TargetedAction::create(copySprite, copySpriteMoveTo), DelayTime::create(0.5), TargetedAction::create(copySprite, copySpriteMoveToOwner), DelayTime::create(0.2), TargetedAction::create(copySprite, fade), NULL));
+                                auto callBack1 = CallFunc::create(CC_CALLBACK_0(HelloWorld::useItemFromBagFinished, this, content, textMapFollowedByAnimation));
+
+                                runAction(Sequence::create(TargetedAction::create(copySprite, copySpriteMoveToOwner), DelayTime::create(0.2), TargetedAction::create(copySprite, fade), callBack1, NULL));
                             }
                         }
                 }
-            } else {
-                runAction(Sequence::create(TargetedAction::create(copySprite, copySpriteMoveTo), DelayTime::create(1.0), TargetedAction::create(copySprite, fade), NULL));
             }
-            
+//            else {
+//                runAction(Sequence::create(DelayTime::create(1.0), TargetedAction::create(copySprite, fade), NULL));
+//            }
             
         }
     }
@@ -912,46 +1076,44 @@ void HelloWorld::useItemFromBagAndPutItemInBagAnimation(RPGSprite* useItem, RPGS
 }
 
 void HelloWorld::useItemFromBagAnimation(MessageContent* content, RPGSprite* item, std::unordered_map<int, std::string> textMapFollowedByAnimation) {
-    auto node = CSLoader::createNode("backpack/backpack.csb");
-    auto pos = Vec2(2300, 1600);
-    node->setPosition(pos);
-    addChild(node);
-    node->setScale(0.2);
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    
-    auto jumpTo = MoveTo::create(1, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
-    
-    auto scaleTo = ScaleTo::create(1, 1);
-    cocostudio::timeline::ActionTimeline* anim = CSLoader::createTimeline("backpack/backpack.csb");
-    node->runAction(anim);
-    auto spawn = Spawn::create(scaleTo, jumpTo, NULL);
-    auto callbackOpen = CallFunc::create(CC_CALLBACK_0(cocostudio::timeline::ActionTimeline::play, anim, "bag_open", false));
-    auto callbackClose = CallFunc::create(CC_CALLBACK_0(cocostudio::timeline::ActionTimeline::play, anim, "bag_close", false));
-    anim->setAnimationEndCallFunc("bag_open", CC_CALLBACK_0(HelloWorld::useItemFromBag, this, item, content));
-    anim->setAnimationEndCallFunc("bag_close", CC_CALLBACK_0(HelloWorld::useItemFromBagFinished, this, content, textMapFollowedByAnimation));
-    
-    auto fade = FadeOut::create(1.0);
-    auto scaleDown = ScaleTo::create(1, 0.2);
-    auto jumpBack = MoveTo::create(1, Vec2(2300, 1600));
-    auto spawnBack = Spawn::create(scaleDown, jumpBack, NULL);
-    
-    
-    auto sequence = Sequence::create(TargetedAction::create(node, spawn), callbackOpen, DelayTime::create(3.0), callbackClose, DelayTime::create(1.0), TargetedAction::create(node, spawnBack), DelayTime::create(0.5), TargetedAction::create(node, fade), NULL);
-    runAction(sequence);
+//    auto node = CSLoader::createNode("backpack/backpack.csb");
+//    auto pos = Vec2(2300, 1600);
+//    node->setPosition(pos);
+//    addChild(node);
+//    node->setScale(0.2);
+//    Size visibleSize = Director::getInstance()->getVisibleSize();
+//    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+//    
+//    auto jumpTo = MoveTo::create(1, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+//    
+//    auto scaleTo = ScaleTo::create(1, 1);
+//    cocostudio::timeline::ActionTimeline* anim = CSLoader::createTimeline("backpack/backpack.csb");
+//    node->runAction(anim);
+//    auto spawn = Spawn::create(scaleTo, jumpTo, NULL);
+//    auto callbackOpen = CallFunc::create(CC_CALLBACK_0(cocostudio::timeline::ActionTimeline::play, anim, "bag_open", false));
+//    auto callbackClose = CallFunc::create(CC_CALLBACK_0(cocostudio::timeline::ActionTimeline::play, anim, "bag_close", false));
+//    anim->setAnimationEndCallFunc("bag_open", CC_CALLBACK_0(HelloWorld::useItemFromBag, this, item, content));
+//    anim->setAnimationEndCallFunc("bag_close", CC_CALLBACK_0(HelloWorld::useItemFromBagFinished, this, content, textMapFollowedByAnimation));
+//    
+//    auto fade = FadeOut::create(1.0);
+//    auto scaleDown = ScaleTo::create(1, 0.2);
+//    auto jumpBack = MoveTo::create(1, Vec2(2300, 1600));
+//    auto spawnBack = Spawn::create(scaleDown, jumpBack, NULL);
+//    
+//    
+//    auto sequence = Sequence::create(TargetedAction::create(node, spawn), callbackOpen, DelayTime::create(3.0), callbackClose, DelayTime::create(1.0), TargetedAction::create(node, spawnBack), DelayTime::create(0.5), TargetedAction::create(node, fade), NULL);
+//    runAction(sequence);
     
 }
 
 void HelloWorld::useItemFromBagFinished(MessageContent* content, std::unordered_map<int, std::string> textMapFollowedByAnimation) {
-    CCLOG("Called finsihed");
-    //setHasTextAfterAnimation
     if(content->getHasTextAfterAnimation() == 1) {
         this->processTextMessage(textMapFollowedByAnimation, content->getOwner());
     }
     
 }
 
-void HelloWorld::copySpriteForAnimation(RPGSprite* item) {
+void HelloWorld::copySpriteForAnimation(RPGSprite* item, std::unordered_map<int, std::string> textMapFollowedByAnimation, std::string owner) {
     //copy sprite
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -963,9 +1125,11 @@ void HelloWorld::copySpriteForAnimation(RPGSprite* item) {
         if(orgSprite != NULL) {
             item->getParent()->addChild(copySprite, 1000);
             copySprite->setPosition(orgSprite->getPosition());
-            auto copySpriteMoveTo = MoveTo::create(1, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2 + 500));
+            Point posInParent = _bagPackMenu->getParent()->convertToWorldSpace(_bagPackMenu->getPosition());
+            Point bagPackMenuPos = this->mainLayer->convertToNodeSpace(posInParent);
+            auto copySpriteMoveTo = MoveTo::create(1, bagPackMenuPos);
             
-            auto callBack = CallFunc::create(CC_CALLBACK_0(HelloWorld::moveitemIntoBagAnimation, this, copySprite));
+            auto callBack = CallFunc::create(CC_CALLBACK_0(HelloWorld::showBagpackOpenAnimation, this, textMapFollowedByAnimation, owner));
             runAction(Sequence::create(TargetedAction::create(copySprite, copySpriteMoveTo), DelayTime::create(0.5), callBack, NULL));
             
         }
@@ -975,60 +1139,126 @@ void HelloWorld::copySpriteForAnimation(RPGSprite* item) {
 }
 
 void HelloWorld::moveitemIntoBagAnimation(Sprite* copySprite) {
-    auto node = CSLoader::createNode("backpack/backpack.csb");
-    auto pos = Vec2(2300, 1600);
-    node->setPosition(pos);
-    addChild(node);
-    node->setScale(0.2);
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    
-    
-    auto jumpTo = MoveTo::create(1, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
-    
-    auto scaleTo = ScaleTo::create(1, 1);
-    cocostudio::timeline::ActionTimeline* anim = CSLoader::createTimeline("backpack/backpack.csb");
-    node->runAction(anim);
-    auto spawn = Spawn::create(scaleTo, jumpTo, NULL);
-    auto callbackOpen = CallFunc::create(CC_CALLBACK_0(cocostudio::timeline::ActionTimeline::play, anim, "bag_open", false));
-    auto callbackClose = CallFunc::create(CC_CALLBACK_0(cocostudio::timeline::ActionTimeline::play, anim, "bag_close", false));
-    anim->setAnimationEndCallFunc("bag_open", CC_CALLBACK_0(HelloWorld::moveItemIntoBag, this, copySprite));
-    
-    auto fade = FadeOut::create(1.0);
-    auto scaleDown = ScaleTo::create(1, 0.2);
-    auto jumpBack = MoveTo::create(1, Vec2(2300, 1600));
-    auto spawnBack = Spawn::create(scaleDown, jumpBack, NULL);
-    
-    auto sequence = Sequence::create(TargetedAction::create(node, spawn), callbackOpen, DelayTime::create(3.0), callbackClose, DelayTime::create(1.0), TargetedAction::create(node, spawnBack), DelayTime::create(0.5), TargetedAction::create(node, fade), NULL);
-    runAction(sequence);
+//    auto node = CSLoader::createNode("backpack/backpack.csb");
+//    auto pos = Vec2(2300, 1600);
+//    node->setPosition(pos);
+//    addChild(node);
+//    node->setScale(0.2);
+//    Size visibleSize = Director::getInstance()->getVisibleSize();
+//    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+//    
+//    
+//    auto jumpTo = MoveTo::create(1, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+//    
+//    auto scaleTo = ScaleTo::create(1, 1);
+//    cocostudio::timeline::ActionTimeline* anim = CSLoader::createTimeline("backpack/backpack.csb");
+//    node->runAction(anim);
+//    auto spawn = Spawn::create(scaleTo, jumpTo, NULL);
+//    auto callbackOpen = CallFunc::create(CC_CALLBACK_0(cocostudio::timeline::ActionTimeline::play, anim, "bag_open", false));
+//    auto callbackClose = CallFunc::create(CC_CALLBACK_0(cocostudio::timeline::ActionTimeline::play, anim, "bag_close", false));
+//    anim->setAnimationEndCallFunc("bag_open", CC_CALLBACK_0(HelloWorld::moveItemIntoBag, this, copySprite));
+//    
+//    auto fade = FadeOut::create(1.0);
+//    auto scaleDown = ScaleTo::create(1, 0.2);
+//    auto jumpBack = MoveTo::create(1, Vec2(2300, 1600));
+//    auto spawnBack = Spawn::create(scaleDown, jumpBack, NULL);
+//    
+//    auto sequence = Sequence::create(TargetedAction::create(node, spawn), callbackOpen, DelayTime::create(3.0), callbackClose, DelayTime::create(1.0), TargetedAction::create(node, spawnBack), DelayTime::create(0.5), TargetedAction::create(node, fade), NULL);
+//    runAction(sequence);
     
 }
 
 void HelloWorld::processChangeSceneMessages(std::vector<MessageContent*>changeSceneMessages) {
+    this->gesture_layer_->disableAllTouch();
+    
     for (std::vector<MessageContent* >::iterator it = changeSceneMessages.begin() ; changeSceneMessages.size() == 1 && it != changeSceneMessages.end(); ++it)
     {
         MessageContent* content = (MessageContent*) *it;
-//        CCLOG("content owner %s", content->getOwner().c_str());
+        //        CCLOG("content owner %s", content->getOwner().c_str());
         
-        if(content != NULL && (content->getCondition().empty() || (!content->getCondition().empty() && content->getConditionSatisfied() == 1)))
-        {
-            Node* actor = this->mainLayer->getChildByName(content->getOwner());
-            RPGSprite* rpgActor = dynamic_cast<RPGSprite *>(actor);
+        //find out animation name
+        std::size_t found = -1;
+        if(!content->getDialog().empty()) {
+            found = content->getDialog().find_last_of("#");
+            std::string animFile = content->getDialog();
+            std::string animName = "";
+            if(found != std::string::npos) {
+                animFile = content->getDialog().substr(0,found);
+                animName = content->getDialog().substr(found+1, content->getDialog().length());
+            }
             
-            std::string nextScene = rpgActor->getNextScene();
-            
-            
-            if(!nextScene.empty())
+            Node* animationSpriteNode = this->mainLayer->getChildByName(content->getOwner());
+            if(animationSpriteNode != NULL)
             {
-                this->changeScene(nextScene, false);                
+                RPGSprite* animationNode = dynamic_cast<RPGSprite *>(animationSpriteNode);
+                if(animationNode != NULL) {
+                    cocostudio::timeline::ActionTimeline* timeline = NULL;
+                    timeline =  CSLoader::createTimeline(animFile);
+                    animationNode->setActionTimeLine(timeline);
+                    animationNode->getSprite()->runAction(timeline);
+                    
+                    if(timeline != NULL && animationSpriteNode != NULL && animationNode != NULL )
+                    {
+                        timeline->setLastFrameCallFunc([=]() {
+                            if(content != NULL && (content->getCondition().empty() || (!content->getCondition().empty() && content->getConditionSatisfied() == 1)))
+                            {
+                                std::string nextScene = animationNode->getNextScene();
+                                
+                                if(!nextScene.empty())
+                                {
+                                    CCLOG("calling changeScene for nextScene %s", nextScene.c_str());
+                                    this->changeScene(nextScene, false);
+                                }
+                            }
+                            timeline->clearLastFrameCallFunc();
+                        });
+                        
+                        Node* animationSpriteNode = this->mainLayer->getChildByName(content->getOwner());
+                        RPGSprite* animationNode = dynamic_cast<RPGSprite *>(animationSpriteNode);
+                        if(animationNode != NULL) {
+                            animationNode->setVisible(true);
+                            if(animationNode->getSprite() != NULL) {
+                                
+                                bool playInLoop = content->getPlayAnimationInLoop() == 1 ? true : false;
+                                if(!animName.empty()) {
+                                    timeline->play(animName, playInLoop);
+                                } else {
+                                    timeline->gotoFrameAndPlay(0, playInLoop);
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
 }
 
+void HelloWorld::addGreyLayer() {
+    if(!_greyLayer) {
+        Size visibleSize = Director::getInstance()->getVisibleSize();
+        _greyLayer = LayerColor::create(Color4B(255.0, 255.0, 255.0, 0.0));
+        _greyLayer->setContentSize(visibleSize);
+        addChild(_greyLayer, 3);
+        
+        auto _listener = EventListenerTouchOneByOne::create();
+        _listener->setSwallowTouches(true);
+        _listener->onTouchBegan = CC_CALLBACK_2(HelloWorld::greyLayerTouched, this);
+        _eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, _greyLayer);
+        
+    }
+}
+
+bool HelloWorld::greyLayerTouched(Touch *touch, Event *event)
+{
+    CCLOG("Grey layer touched");
+    return true;
+}
+
+
+
 void HelloWorld::transitToMenu(EventCustom * event) {
     std::string &menuName = *(static_cast<std::string*>(event->getUserData()));
-    this->cleanUpResources();
     if(menuName == GAME_MAP_MENU) {
         Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
     } else if(menuName == MAP_MENU) {
@@ -1057,7 +1287,7 @@ void HelloWorld::cleanUpResources() {
             UserDefault::getInstance()->setFloatForKey(SKELETON_POSITION_IN_PARENT_ISLAND_Y, yPos);
         }
         
-        this->sqlite3Helper->recordMainCharacterPositionInScene(this->island.c_str(), this->sceneName.c_str(), xPos, yPos);        
+        this->sqlite3Helper->recordMainCharacterPositionInScene(this->island.c_str(), this->sceneName.c_str(), xPos, yPos);
     }
     
     EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION);
@@ -1067,10 +1297,12 @@ void HelloWorld::cleanUpResources() {
     EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::SPEECH_BUBBLE_DESTROYED_NOTIFICATION);
     EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION);
     EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::ON_MENU_EXIT_NOTIFICATION);
-//    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::ON_ALPHAMON_PRESSED_NOTIFICATION);
-//    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::ON_WORD_INFO_NOTIFICATION);
-    
-    //CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::ON_WORD_INFO_NOTIFICATION);
+    if(_greyLayer) {
+        Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(_greyLayer);
+    }
+    //addGreyLayer
+    CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
     
     if(this->stateMachine != nullptr) {
         delete this->stateMachine;
@@ -1088,30 +1320,140 @@ void HelloWorld::cleanUpResources() {
 }
 
 void HelloWorld::changeScene(std::string nextScene, bool isMiniGame) {
-    this->cleanUpResources();
-    
+    //disable touch
     if(!nextScene.empty()) {
+        addGreyLayer();
         if(isMiniGame) {
             this->skeletonCharacter->getSkeletonNode()->stopAllActions();
-            Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(nextScene,"", false), Color3B::BLACK));
+            Director::getInstance()->replaceScene(HelloWorld::createScene(nextScene,"", false));
         } else {
             this->skeletonCharacter->getSkeletonNode()->stopAllActions();
-            Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(this->getIsland(),nextScene, false), Color3B::BLACK));
+            Director::getInstance()->replaceScene(HelloWorld::createScene(this->getIsland(),nextScene, false));
         }
     }
 }
 
-//void HelloWorld::changeWordScene(EventCustom * event) {
-//    std::string &word = *(static_cast<std::string*>(event->getUserData()));
-//    this->cleanUpResources();
-//    CCLOG("changeWordScene %s", word.c_str());
-//    Director::getInstance()->replaceScene(TransitionFade::create(3.0, WordBoard::createSceneWithWordInIslandAndSceneName(word, this->getIsland(), this->getSceneName()), Color3B::BLACK));
-//}
+void HelloWorld::displayText(std::string word) {
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    
+    if(_textDisplayAnimationRunning) {
+        if(!_wordToPronounce.empty()) {
+            showText(_wordToPronounce);
+            this->unschedule(schedule_selector(HelloWorld::removeDisplayText));
+            displayTextAnimationFinished();
+        }
+    } else {
+        if(!_wordToPronounce.empty()) {
+            showText(_wordToPronounce);
+            _textDisplayAnimationRunning = true;
+            this->unschedule(schedule_selector(HelloWorld::removeDisplayText));
+            _hangBubbleNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height + 650));
+            auto moveTo = MoveTo::create(1.5, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height - 45));
+            auto elastic = EaseBackOut::create(moveTo);
+            auto callBack = CallFunc::create(CC_CALLBACK_0(HelloWorld::displayTextAnimationFinished, this));
+            auto bubbleAction = TargetedAction::create(_hangBubbleNode, elastic);
+            runAction(Sequence::create(bubbleAction, callBack, NULL));
+        }
+    }
+    
+}
 
+
+void HelloWorld::showText(std::string word) {
+    Node* textFieldNode = _hangBubbleNode->getChildByName("TextField_1");
+    if(textFieldNode) {
+        cocos2d::ui::TextField* textField = dynamic_cast<cocos2d::ui::TextField *>(textFieldNode);
+        if(textField != NULL) {
+            textField->setString(word);
+//            textField->setTextHorizontalAlignment(TextHAlignment.CENTER);
+//            textField->setTextVerticalAlignment(TextVAlignment.CENTER);
+            textField->setTouchEnabled(false);
+
+        }
+    }
+    
+}
+
+void HelloWorld::displayTextAnimationFinished() {
+    this->scheduleOnce(schedule_selector(HelloWorld::removeDisplayText), 3.0);
+}
+
+
+void HelloWorld::beforeDisplayTextDisapperFinished() {
+    _textDisplayAnimationRunning = true;
+    
+}
+
+void HelloWorld::afterDisplayTextDisapperFinished() {
+    _textDisplayAnimationRunning = false;
+}
+
+
+
+
+void HelloWorld::removeDisplayText(float dt) {
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
+        auto textDropActionDisappearMoveTo = MoveTo::create(1.5, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height + 650));
+        auto textDropActionDisappearAction = TargetedAction::create(_hangBubbleNode, textDropActionDisappearMoveTo);
+        auto beforeDisplayTextDisapperAction = CallFunc::create(CC_CALLBACK_0(HelloWorld::beforeDisplayTextDisapperFinished, this));
+        auto afterDisplayTextDisapperAction = CallFunc::create(CC_CALLBACK_0(HelloWorld::afterDisplayTextDisapperFinished, this));
+    
+        runAction(Sequence::create(beforeDisplayTextDisapperAction, textDropActionDisappearAction, afterDisplayTextDisapperAction,  NULL));
+    
+    CCLOG("HelloWorld::removeDisplayText");
+}
+
+void HelloWorld::buildText(EventCustom * event) {
+    std::string &word = *(static_cast<std::string*>(event->getUserData()));
+    CCLOG("changeWordScene %s", word.c_str());
+    
+    _wordToPronounce = word;
+    
+    displayText(_wordToPronounce);
+}
+
+
+void HelloWorld::onExitTransitionDidStart() {
+    Node::onExitTransitionDidStart();
+    CCLOG("HelloWorld::onExitTransitionDidStart");
+    
+    this->gesture_layer_->disableAllTouch();
+    this->cleanUpResources();
+}
+
+
+void HelloWorld::onEnterTransitionDidFinish() {
+    Node::onEnterTransitionDidFinish();
+    CCLOG("HelloWorld::onEnterTransitionDidFinish");
+    
+    this->loadSqlite3FileForIsland();
+    
+    this->initializeSafari();
+    
+    this->registerPhysicsEventContactLister();
+    
+    this->registerMessageSenderAndReceiver();
+    
+    if(this->getAlphamonNodesCount() != 0) {
+        //        this->schedule(CC_SCHEDULE_SELECTOR(HelloWorld::createAlphaMons), ALPHAMON_CREATE_FREQUENCY);
+    }
+    
+    this->scheduleUpdate();
+    
+    if(this->_fromMenu) {
+        CCLOG("deleting all items from bag for island %s", this->getIsland().c_str());
+        this->sqlite3Helper->deleteAllItemFromMyBag(this->getIsland().c_str());
+    }
+    
+    //CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("sounds/Adagio teru (ft. teru).m4a", true);
+    //CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0f);
+    this->gesture_layer_->enableAllTouch();
+}
 
 void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMessages) {
-    
-    //CURRENTLY only one animation supported - TBD (later extend to play multiples)
     
     for (std::vector<MessageContent* >::iterator it = animationMessages.begin() ; animationMessages.size() == 1 && it != animationMessages.end(); ++it)
     {
@@ -1139,14 +1481,6 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
                     timeline =  CSLoader::createTimeline(animFile);
                     animationNode->setActionTimeLine(timeline);
                     animationNode->getSprite()->runAction(timeline);
-//                    if(animationNode->getActionTimeLine() == NULL) {
-//                        timeline =  CSLoader::createTimeline(animFile);
-//                        animationNode->setActionTimeLine(timeline);
-//                        timeLineExists = false;
-//                    } else {
-//                        timeline = animationNode->getActionTimeLine();
-//                        timeLineExists = true;
-//                    }
                     
                     if(timeline != NULL && animationSpriteNode != NULL && animationNode != NULL )
                     {
@@ -1159,6 +1493,7 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
                                 {
                                     CCLOG("calling changeScene for nextScene %s", nextScene.c_str());
                                     this->changeScene(nextScene, false);
+                                    animationNode->setEventProcessed(false);
                                 }
                             }
                             timeline->clearLastFrameCallFunc();
@@ -1169,9 +1504,6 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
                         if(animationNode != NULL) {
                             animationNode->setVisible(true);
                             if(animationNode->getSprite() != NULL) {
-//                                if(!timeLineExists) {
-//                                    animationNode->getSprite()->runAction(timeline);
-//                                }
                                 
                                 bool playInLoop = content->getPlayAnimationInLoop() == 1 ? true : false;
                                 if(!animName.empty()) {
@@ -1201,10 +1533,11 @@ void HelloWorld::processCustomAnimationMessage(std::vector<MessageContent*>custo
 
             
             Node* node = this->mainLayer->getChildByName(content->getOwner());
+            RPGSprite* ownerSprite = dynamic_cast<RPGSprite *>(node);
             if(node != NULL) {
                 FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
                 node->runAction(TargetedAction::create(node, shake));
-
+                ownerSprite->setEventProcessed(false);
             }
             delete content;
         }
@@ -1230,6 +1563,8 @@ void HelloWorld::processMessage(std::vector<MessageContent*>*messages) {
         if(content->getAction() == "say") {
             howTextManyMessages++;
         } else if(content->getAction() == "use") {
+            howUseManyMessages++;
+        } else if(content->getAction() == "put") {
             howUseManyMessages++;
         }
     }
@@ -1281,6 +1616,10 @@ void HelloWorld::processMessage(std::vector<MessageContent*>*messages) {
             changeSceneMessages.push_back(content);
         }
         else if(content->getAction() == "put") {
+            if(howTextManyMessages == 1 && howUseManyMessages == 1) {
+                content->setHasTextAfterAnimation(1);
+            }
+            
             ownerOfMessage = content->getOwner();
             putInBackPackMessages.push_back(content);
         }
@@ -1315,7 +1654,7 @@ void HelloWorld::processMessage(std::vector<MessageContent*>*messages) {
     }
     
     if(!putInBackPackMessages.empty() && useInBackPackMessages.empty()) {
-        this->processPutInBackPackMessages(putInBackPackMessages);
+        this->processPutInBackPackMessages(putInBackPackMessages, textMapFollowedByAnimation);
     }
     
     if(!useInBackPackMessages.empty() && putInBackPackMessages.empty()) {
@@ -1616,13 +1955,14 @@ bool HelloWorld::checkHoldWithinSittingLimitOfCharacter(Point point, cocostudio:
 void HelloWorld::HoldOrDragBehaviour(Point position) {
     
     if(this->isTapOnInterActObject(position)) {
+        if(_speechBubbleView != nullptr) {
+            _speechBubbleView->performAction();
+        }
+        
+
         return;
     }
 
-    if(this->getSpeechBubbleAlreadyVisible()) {
-        this->sendBubbleDestroySignal();
-        return;
-    }
 
     if(this->skeletonCharacter->isJumping || this->skeletonCharacter->isJumpingAttemptedWhileDragging) {
 
@@ -1826,13 +2166,13 @@ void HelloWorld::HandleTap(Point position)
 {
     if(this->isTapOnInterActObject(position)) {
         //later launch custom event
+        if(_speechBubbleView != nullptr) {
+            _speechBubbleView->performAction();
+        }
+        
         return;
     }
     
-    if(this->getSpeechBubbleAlreadyVisible()) {
-        this->sendBubbleDestroySignal();
-        return;
-    }
     
     if(!this->skeletonCharacter)
     {

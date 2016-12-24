@@ -147,7 +147,17 @@
         "frontgroundJson": "alphafeedlevel/Layer4.json",
         "maingroundJson": "alphafeedlevel/Layer2.json",
         "menuPlist": "alphafeedlevel/alphafeedlevel.plist",
-        "menuPng": "alphafeedlevel/alphafeedlevel.png"  
+        "menuPng": "alphafeedlevel/alphafeedlevel.png",
+         "lang": {
+        "swa": {
+            "labels": ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","U","V","W","Y","Z"],
+            "numLevels": "24"
+        },
+        "eng": {
+            "labels": ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
+            "numLevels": "26"
+        }
+    }  
     },
   {
     "name": "sortit",
@@ -182,7 +192,17 @@
         "frontgroundJson": "alphamolelevel/alphamolefrontground.json",
         "maingroundJson": "alphamolelevel/alphamolemainground.json",
         "menuPlist": "alphamolelevel/alphamolelevel.plist",
-        "menuPng": "alphamolelevel/alphamolelevel.png"
+        "menuPng": "alphamolelevel/alphamolelevel.png",
+         "lang": {
+        "swa": {
+            "labels": ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","U","V","W","Y","Z"],
+            "numLevels": "24"
+        },
+        "eng": {
+            "labels": ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
+            "numLevels": "26"
+        }
+    }
     },
     {
         "name": "Cross The Bridge",
@@ -267,7 +287,17 @@
     "frontgroundJson": "kungfualpha/frontground.json",
     "maingroundJson": "kungfualpha/mainground.json",
     "menuPlist": "kungfualpha/kungfualpha.plist",
-    "menuPng": "kungfualpha/kungfualpha.png"
+    "menuPng": "kungfualpha/kungfualpha.png",
+    "lang": {
+        "swa": {
+            "labels": ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","U","V","W","Y","Z"],
+            "numLevels": "24"
+        },
+        "eng": {
+            "labels": ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
+            "numLevels": "26"
+        }
+    }
   },
    {
     "name": "cardraw",

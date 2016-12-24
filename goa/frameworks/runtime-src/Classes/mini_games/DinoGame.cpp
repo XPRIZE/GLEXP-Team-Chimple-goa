@@ -136,12 +136,12 @@ void DinoGame::onEnterTransitionDidFinish()
 		auto moveTo = MoveTo::create(2, randomNode->getPosition());
 		alpha->runAction(moveTo);
 
-		auto listener = EventListenerTouchOneByOne::create();
-		//listener->setSwallowTouches(true);
-		listener->onTouchBegan = CC_CALLBACK_2(DinoGame::onTouchBegan, this);
-		listener->onTouchMoved = CC_CALLBACK_2(DinoGame::onTouchMoved, this);
-		listener->onTouchEnded = CC_CALLBACK_2(DinoGame::onTouchEnded, this);
-		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, alpha);
+		//auto listener = EventListenerTouchOneByOne::create();
+		////listener->setSwallowTouches(true);
+		//listener->onTouchBegan = CC_CALLBACK_2(DinoGame::onTouchBegan, this);
+		//listener->onTouchMoved = CC_CALLBACK_2(DinoGame::onTouchMoved, this);
+		//listener->onTouchEnded = CC_CALLBACK_2(DinoGame::onTouchEnded, this);
+		//_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, alpha);
 	}
 
 	_isTouched = true;
@@ -150,6 +150,8 @@ void DinoGame::onEnterTransitionDidFinish()
 		alphabetHint("a");
 	}
 	_audioEffect = CocosDenshion::SimpleAudioEngine::getInstance();
+
+	this->scheduleOnce(schedule_selector(DinoGame::enableTouchOnAlphabet), 2.1);
 
 	if (_menu->getCurrentLevel() == 1 && _gameScore == 0) {
 		this->scheduleOnce(schedule_selector(DinoGame::gameStart), 2.1);
@@ -273,6 +275,22 @@ void DinoGame::helpLayer()
 	helpLayer->clickAndDrag(Vec2(child->getPositionX() + _extraX, child->getPositionY()), Vec2(fixed->getPositionX() + _extraX, fixed->getPositionY()));
 	helpLayer->setName("helpLayer");
 	this->addChild(helpLayer);
+}
+
+void DinoGame::enableTouchOnAlphabet(float ft)
+{
+	for (int i = 0; i < _alphabets.size(); i++) {
+		std::string child = _alphabets.at(i) + _mapping.at("png");
+		auto alpha = _dinoNode->getChildByName(child);
+
+		auto listener = EventListenerTouchOneByOne::create();
+		//listener->setSwallowTouches(true);
+		listener->onTouchBegan = CC_CALLBACK_2(DinoGame::onTouchBegan, this);
+		listener->onTouchMoved = CC_CALLBACK_2(DinoGame::onTouchMoved, this);
+		listener->onTouchEnded = CC_CALLBACK_2(DinoGame::onTouchEnded, this);
+		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, alpha);
+	}
+
 }
 
 void DinoGame::gameStart(float ft)

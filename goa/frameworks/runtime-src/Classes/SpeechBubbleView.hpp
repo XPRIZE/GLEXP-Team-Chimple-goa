@@ -32,6 +32,8 @@ public:
     
     void bubbleDestoryMessageEvent(cocos2d::EventCustom * event);
     
+    cocos2d::ui::Button* currentButton();
+    
     // touch listeners
 //    virtual bool onTouchBegan(cocos2d::Touch * touch, cocos2d::Event* event);
 //    virtual void touchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
@@ -40,9 +42,12 @@ public:
     
     virtual void destroySpeechBubbles();
     
+    void performAction();
+    
 protected:
 //    std::vector<cocos2d::Label*> texts;
     std::vector<cocos2d::ui::Button*> textButtons;
+    cocos2d::ui::Button* _button;
 };
 
 #endif /* SpeechBubbleView_hpp */

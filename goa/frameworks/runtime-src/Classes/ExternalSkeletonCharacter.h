@@ -48,17 +48,14 @@ public:
     
     CC_SYNTHESIZE(std::string, key, Key);
     
-    virtual void update(float dt);
-    
-    virtual bool checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter);
     
     // touch listeners
     
     virtual bool onTouchBegan(cocos2d::Touch * touch, cocos2d::Event* event);
     
     virtual void touchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
-    
-    void checkVicinityWithMainCharacter(cocos2d::EventCustom * event);
+        
+    void onEnterTransitionDidFinish();
     
 protected:
     cocostudio::timeline::SkeletonNode* externalSkeletonNode;
@@ -69,6 +66,12 @@ protected:
     CC_SYNTHESIZE(bool, vicinityToMainCharacter, VicinityToMainCharacter);
     
     void createExternalSkeletonNode(cocos2d::Node* node, const std::string& filename);
+    
+    float posX;
+    float posY;
+    
+    cocos2d::Sprite* touchPointerNode;
+    void showTouchPointer();
     
 };
 

@@ -27,6 +27,7 @@ public:
     
     virtual ~RPGSprite();
     
+    
     static RPGSprite* create(cocos2d::Node* sprite, std::unordered_map<std::string, std::string> attributes);
     
     virtual bool initialize(cocos2d::Node* sprite, std::unordered_map<std::string, std::string> attributes);
@@ -36,6 +37,8 @@ public:
     virtual void setAttributes(std::unordered_map<std::string, std::string> attributes);
     
     virtual std::unordered_map<std::string, std::string> getAttributes();
+    
+    void onEnterTransitionDidFinish();
     
     CC_SYNTHESIZE(std::string, posX, PosX);
     
@@ -56,7 +59,9 @@ public:
     CC_SYNTHESIZE(std::string, show, Show);
     
     CC_SYNTHESIZE(bool, vicinityToMainCharacter, VicinityToMainCharacter);
-        
+    
+    CC_SYNTHESIZE(bool, eventProcessed, EventProcessed);
+            
     virtual void update(float dt);
 
     virtual SkeletonCharacter* getMainSkeleton();
