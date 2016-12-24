@@ -155,6 +155,19 @@ bool ExternalSkeletonCharacter::onTouchBegan(Touch *touch, Event *event)
 {
     auto n = convertTouchToNodeSpace(touch);
     if(this->getInterAct() == "true" && this->getExternalSkeletonNode()->getBoundingBox().containsPoint(n)) {
+        
+        //check position of main character
+        Node* heroNode = this->getParent()->getChildByName(HUMAN_SKELETON_NAME);
+        if(heroNode != NULL) {
+            SkeletonCharacter* heroSkeleton = dynamic_cast<SkeletonCharacter *>(heroNode);
+            if(heroSkeleton != NULL) {
+                if(heroSkeleton->getSkeletonNode()->getPosition().x > this->getExternalSkeletonNode()->getPosition().x) {
+                    this->getExternalSkeletonNode()->setScaleX(-1.0);
+                } else {
+                    this->getExternalSkeletonNode()->setScaleX(1.0);
+                }
+            }
+        }
         return true;
     }
     return false;
@@ -163,7 +176,7 @@ bool ExternalSkeletonCharacter::onTouchBegan(Touch *touch, Event *event)
 
 void ExternalSkeletonCharacter::touchEnded(Touch *touch, Event *event)
 {
-    CCLOG("%s", "CLICKED ON Spekable External Skeleton dispatching speech message");
+    CCLOG("%s", "CLICKED ON Spekable External Skeleton dispatching speech message");    
     std::string s(this->getName());
     EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, static_cast<void*>(&s));
 }
