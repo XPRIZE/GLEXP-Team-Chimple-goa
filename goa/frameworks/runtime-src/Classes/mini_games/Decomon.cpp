@@ -489,10 +489,10 @@ void Decomon::itemInAGrid(std::vector<std::string> item, std::string name)
 		auto listener = EventListenerTouchOneByOne::create();
 		listener->onTouchBegan = CC_CALLBACK_2(Decomon::onTouchBegan, this);
 		CCLOG(" bucket number %d", item.at(i - 1).find("paintbucket"));
-		if (item.at(i - 1).find("paintbucket") != 25) {
+	//	if (item.at(i - 1).find("paintbucket") != 25) {
 			listener->onTouchMoved = CC_CALLBACK_2(Decomon::onTouchMoved, this);
 			listener->onTouchEnded = CC_CALLBACK_2(Decomon::onTouchEnded, this);
-		}
+	//	}
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, eye);
 	}
 	

@@ -90,7 +90,7 @@ static const std::string UNLOCKED_STORY_ID_ORDER = ".unlockedStoryIdOrder";
 static const int MIN_STAR_TO_UNLOCK_NEXT_STORY = 1;
 static const int NUMBER_OF_TIMES_READ_STORY_TO_UNLOCK_NEXT_STORY = 2;
 static const int NUMBER_OF_STORIES_TO_BE_UNLOCKED = 1;
-
+bool MenuContext::_gameIsStatic = false;
 
 MenuContext* MenuContext::create(Node* main, std::string gameName, bool launchCustomEventOnExit, std::string sceneName) {
     MenuContext* menuContext = new (std::nothrow) MenuContext();
@@ -136,13 +136,14 @@ bool MenuContext::init(Node* main) {
     _pointMeter->setTouchEnabled(false);
     _pointMeter->setPosition(Vec2(128, 256));
     _menuButton->addChild(_pointMeter);
-    
+    MenuContext::_gameIsStatic = false;
     return true;
 }
 
 void MenuContext::pauseNodeAndDescendants(Node *pNode)
 {
     _gameIsPaused = true;
+    MenuContext::_gameIsStatic = true;
     CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
     pNode->pause();
     for(const auto &child : pNode->getChildren())
@@ -551,6 +552,7 @@ void MenuContext::removeMenu() {
     }
     resumeNodeAndDescendants(_main);
     _gameIsPaused = false;
+    MenuContext::_gameIsStatic = false;
     AudioEngine::stopAll();
     CocosDenshion::SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
     if(_startupCallback) {
@@ -1391,6 +1393,10 @@ void MenuContext::showScore() {
 
 bool MenuContext::isGamePaused() {
     return _gameIsPaused;
+}
+
+bool MenuContext::isGameStatic() {
+    return MenuContext::_gameIsStatic;
 }
 
 void MenuContext::sendMessageToPeer(std::string message) {

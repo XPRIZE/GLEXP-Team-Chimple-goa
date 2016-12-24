@@ -12,7 +12,7 @@
 USING_NS_CC;
 
 bool CommonText::touchSpeak(cocos2d::Touch* touch, cocos2d::Event* event) {
-    if(isVisible() && getOpacity() > 0) {
+    if(!MenuContext::isGameStatic() && isVisible() && getOpacity() > 0) {
         auto n = getParent()->convertTouchToNodeSpace(touch);
         auto rect = this->getBoundingBox();
         if(rect.containsPoint(n))

@@ -222,6 +222,7 @@ void Bingo::onEnterTransitionDidFinish()
 			levelNo = 6;
 	}
 
+	 auto categoryTitle = "";
 	 std::pair<int, int> levelKeyNumber = levelAllInfo(gameCurrentLevel, 12, 3, 4, 3);
 	_bingoGridDimension = bingoGridMapping.at(levelKeyNumber.first);
 	_bingoCurrentTheme = bingoSceneMapping.at(levelKeyNumber.second);
@@ -229,12 +230,13 @@ void Bingo::onEnterTransitionDidFinish()
 	_scenePath = sceneMap.at(_bingoCurrentTheme);
 	std::map<std::string, std::map<std::string, float>> sample_A = sceneGridValueMap.at(_bingoCurrentTheme);
 	_gridBasedValue = sample_A.at(_bingoGridDimension);
-
+	
 	if (levelKeyNumber.second == 0)
 	{
 		int pairNo = static_cast<int>(_gridBasedValue.at("pairRequired"));
 		_data = TextGenerator::getInstance()->getHomonyms(pairNo, levelNo);
 		_menuContext->setMaxPoints(pairNo*1);
+	 	categoryTitle = "choose same sounding word : ";
 	}
 	else if (levelKeyNumber.second == 1)
 	{
@@ -242,6 +244,7 @@ void Bingo::onEnterTransitionDidFinish()
 		int pairNo = static_cast<int>(_gridBasedValue.at("pairRequired"));
 		_data = TextGenerator::getInstance()->getSynonyms(pairNo, levelNo);
 		_menuContext->setMaxPoints(pairNo*1);
+		categoryTitle = "choose meaning word of : ";
 	}
 	else
 	{
@@ -249,7 +252,11 @@ void Bingo::onEnterTransitionDidFinish()
 		int pairNo = static_cast<int>(_gridBasedValue.at("pairRequired"));
 		_data = TextGenerator::getInstance()->getAntonyms(pairNo, levelNo);
 		_menuContext->setMaxPoints(pairNo*1);
+		categoryTitle = "choose opposite word of : ";
 	}
+
+	_labelPrefix = LangUtil::getInstance()->translateString(categoryTitle);	
+	//
 
 	//BackGround
 	auto bingoBackground = CSLoader::createNode(_scenePath.at("bg"));
@@ -433,7 +440,7 @@ void Bingo::onEnterTransitionDidFinish()
 			for (int j = 0; j < _boxContainer.size(); j++)
 			{
 				std::string str = _boxContainer[i][j]->getChildren().at(0)->getName();
-				std::string str1 = _label->getString();
+				std::string str1 = _label->getName();
 					if (str.compare(str1) == 0)
 					{
 						creatHelp(_boxContainer[i][j], _helpBoard,i,j);
@@ -471,7 +478,7 @@ void Bingo::creatHelp(Sprite* letterBox, Sprite* helpBox,int i, int j)
 	auto intiPosiForSmallBoxYGap = letterBox->getPositionY() - letterBox->getContentSize().height / 2;
 	auto initYforHelpBox = initPosiForBoxBoardY + intiPosiForSmallBoxYGap + letterBox->getContentSize().height / 2;// +letterBox->getContentSize().height*0.075;
 
-	_help = HelpLayer::create(Rect(initXforHelpBox, initYforHelpBox, letterBox->getContentSize().width, letterBox->getContentSize().height*0.9), Rect(visibleSize.width * 0.5, visibleSize.height * 0.91, helpBox->getContentSize().width*0.8, helpBox->getContentSize().height*0.8));
+	_help = HelpLayer::create(Rect(initXforHelpBox, initYforHelpBox, letterBox->getContentSize().width, letterBox->getContentSize().height*0.9), Rect(visibleSize.width * 0.5, visibleSize.height * 0.91, helpBox->getContentSize().width*1, helpBox->getContentSize().height*0.8));
 	_help->click(Vec2(initXforHelpBox, initYforHelpBox));
 	_isHelpDone = 0;
  	 this->addChild(_help);
@@ -504,7 +511,7 @@ void::Bingo::setWordInHelpBoard()
 	{
 		for (int i = 0; i < _data_value.size(); i++)
 		{
-			if (_label->getString().compare(_data_value[i]) == 0)
+			if (_label->getName().compare(_data_value[i]) == 0)
 			{
 				this->removeChild(_label, true);
 				_data_value.erase(_data_value.begin() + i);
@@ -515,9 +522,16 @@ void::Bingo::setWordInHelpBoard()
 	int size = _data_value.size() - 1;
 	if (size != -1 && !_isBingoDone)
 	{
-		_label = CommonLabelTTF::create(_data_value[RandomHelper::random_int(0, size)], "Helvetica", 200);
+		auto stringValue = _data_value[RandomHelper::random_int(0, size)];
+		auto strName = getConvertInUpperCase(stringValue);
+		std::ostringstream boardName;
+		boardName << _labelPrefix << strName;
+
+		_label = CommonLabelTTF::create(boardName.str(), "Helvetica", 200);
 		_label->setPosition(visibleSize.width / 2 + origin.x, visibleSize.height*_gridBasedValue.at("helpLetterYFactor"));
 		_label->setAnchorPoint(Vec2(0.5, 0.5));
+		_label->setName(stringValue);
+		_label->setScale(0.5);
 		this->addChild(_label, 3);
 		_maxPointSetter++;
 	}
@@ -542,7 +556,7 @@ void Bingo::addEvents(Sprite* clickedObject)
 				bool bingo = false;
 				bool needLabel = false;
 				std::string helpLabelPair = target->getChildren().at(0)->getName();
-				if (helpLabelPair.compare(_label->getString()) == 0)
+				if (helpLabelPair.compare(_label->getName()) == 0)
 				{
 					target->setVisible(false);
 					target->setTag(1);
@@ -804,4 +818,15 @@ int Bingo::bingoLeftDiagonally()
 		}
 	}
 	return -1;
+}
+std::string Bingo::getConvertInUpperCase(std::string data)
+{
+	std::ostringstream blockName;
+	int i = 0;
+	while (data[i])
+	{
+		blockName << (char)toupper(data[i]);
+		i++;
+	}
+	return blockName.str();
 }
