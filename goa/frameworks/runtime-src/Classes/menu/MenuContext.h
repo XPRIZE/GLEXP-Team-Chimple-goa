@@ -134,7 +134,7 @@ protected:
     void normalFace();
 	void addCalculator();
 	void update(float);
-
+    void removeMenuOnly();
     void unlockNextStory();
     void createUnlockStoryDocument(std::string storyToUnlock);
     

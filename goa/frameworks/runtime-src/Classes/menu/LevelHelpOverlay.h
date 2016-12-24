@@ -20,6 +20,7 @@ CC_CONSTRUCTOR_ACCESS:
     bool initWithGame(std::string gameName);
 protected:
     void gotoGame(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType) override;
+    void decideIndexOfVideo() override;
 };
 
 #endif /* LevelHelpOverlay_h */
