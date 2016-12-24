@@ -17,8 +17,8 @@
 
 
 #define ICON_FOLDER "gameicons"
-#define NUMBER_OF_BUTTONS_ROWS 2
-#define NUMBER_OF_BUTTONS_COLS 4
+#define NUMBER_OF_BUTTONS_ROWS 5
+#define NUMBER_OF_BUTTONS_COLS 6
 
 class MenuContext;
 

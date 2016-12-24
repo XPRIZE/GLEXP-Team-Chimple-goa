@@ -149,7 +149,7 @@ cc.spriteFrameCache.getSpriteFrame("sortit/charcterone.png")
 
          this.cake1 = new sortitMovableItem2("sortit/cake1.png", this.cake1t, this);
          this.cake1.setAnchorPoint(0.5, 0.5);
-         this.cake1.setPosition(size.width*0.78 , size.height*0.10); 
+         this.cake1.setPosition(size.width*0.78 , size.height*0.13); 
          this.cake1.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
          this.cake1.xP = this.cake1.getPosition().x;
          this.cake1.yP = this.cake1.getPosition().y;
@@ -159,7 +159,7 @@ cc.spriteFrameCache.getSpriteFrame("sortit/charcterone.png")
 
          this.cake2 = new sortitMovableItem2("sortit/cake2.png", this.cake2t, this);
          this.cake2.setAnchorPoint(0.5, 0.5);
-         this.cake2.setPosition(size.width*0.16 , size.height*0.23); 
+         this.cake2.setPosition(size.width*0.16 , size.height*0.26); 
          this.cake2.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
          this.cake2.xP = this.cake2.getPosition().x;
          this.cake2.yP = this.cake2.getPosition().y;
@@ -170,7 +170,7 @@ cc.spriteFrameCache.getSpriteFrame("sortit/charcterone.png")
          
          this.cake3 = new sortitMovableItem2("sortit/cake3.png", this.cake3t, this);
          this.cake3.setAnchorPoint(0.5, 0.5);
-         this.cake3.setPosition(size.width*0.77 , size.height*0.25); 
+         this.cake3.setPosition(size.width*0.77 , size.height*0.28); 
          this.cake3.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
          this.cake3.xP = this.cake3.getPosition().x;
          this.cake3.yP = this.cake3.getPosition().y;
@@ -181,7 +181,7 @@ cc.spriteFrameCache.getSpriteFrame("sortit/charcterone.png")
 
          this.cake4 = new sortitMovableItem2("sortit/cake4.png", this.cake4t, this);
          this.cake4.setAnchorPoint(0.5, 0.5);
-         this.cake4.setPosition(size.width*0.11 , size.height*0.07); 
+         this.cake4.setPosition(size.width*0.11 , size.height*0.10); 
          this.cake4.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
          this.cake4.xP = this.cake4.getPosition().x;
          this.cake4.yP = this.cake4.getPosition().y;
@@ -191,7 +191,7 @@ cc.spriteFrameCache.getSpriteFrame("sortit/charcterone.png")
 
          this.cake5 = new sortitMovableItem2("sortit/cake5.png", this.cake5t, this);
          this.cake5.setAnchorPoint(0.5, 0.5);
-         this.cake5.setPosition(size.width*0.93 , size.height*0.32); 
+         this.cake5.setPosition(size.width*0.93 , size.height*0.35); 
          this.cake5.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
          this.cake5.xP = this.cake5.getPosition().x;
          this.cake5.yP = this.cake5.getPosition().y;
