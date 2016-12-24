@@ -47,7 +47,7 @@ bool ExternalSkeletonCharacter::initializeExternalSkeletonCharacter(cocos2d::Nod
     this->createExternalSkeletonNode(node, this->getFileName());
     this->addChild(this->externalSkeletonNode);
     this->externalSkeletonNode->setPosition(node->getPosition());
-//    this->showTouchPointer();
+    this->showTouchPointer();
     
     return true;
 }
@@ -71,10 +71,12 @@ void ExternalSkeletonCharacter::showTouchPointer() {
         this->touchPointerNode =  Sprite::create(TOUCH_POINTER_IMG);
         if(this->touchPointerNode)
         {
-            this->touchPointerNode->setScale(1.0f, 1.0f);
-            this->touchPointerNode->setPosition(this->externalSkeletonNode->getPosition());
+            this->touchPointerNode->setScale(0.75f, 0.75f);
+//            this->touchPointerNode->setFlippedX(true);
+//            this->touchPointerNode->setFlippedY(true);
+            this->touchPointerNode->setPosition(Vec2(this->externalSkeletonNode->getPosition().x, this->externalSkeletonNode->getPosition().y - 150));
             this->touchPointerNode->setVisible(true);
-            
+            this->externalSkeletonNode->getParent()->addChild(this->touchPointerNode, 1);
         }
     }
 }

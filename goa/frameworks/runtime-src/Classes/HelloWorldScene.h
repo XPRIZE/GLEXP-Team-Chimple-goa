@@ -61,6 +61,8 @@ private:
     
     std::string _wordToPronounce;
     
+    std::string _hintText;
+    
     SpeechBubbleView* _speechBubbleView;
     
     GestureLayer* gesture_layer_;

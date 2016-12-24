@@ -77,7 +77,8 @@ _speechBubbleView(nullptr),
 _textDisplayAnimationRunning(false),
 _greyLayer(nullptr),
 _wordToPronounce(""),
-_bagPackNode(nullptr)
+_bagPackNode(nullptr),
+_hintText("")
 {
     this->stateMachine = NULL;
 }
@@ -111,23 +112,38 @@ void HelloWorld::renderBagPack() {
         Sprite* sNode = dynamic_cast<Sprite*>(node);
         if(sNode != NULL && sNode->getChildrenCount() == 0) {
             
-            if(node->getName().compare("text") == 0 || node->getName().compare("t1") == 0 ||
-               node->getName().compare("t2") == 0 || node->getName().compare("t3") == 0 || node->getName().compare("t4") == 0 ||
-               node->getName().compare("t5") == 0 || node->getName().compare("t6") == 0 || node->getName().compare("t7") == 0 || node->getName().compare("t8") == 0)
-            {
-                continue;
-            }
-            
             int result = this->sqlite3Helper->checkIfItemExistsInBag(node->getName().c_str(), this->getIsland().c_str());
             
             if(result == 1) {
-                sNode->setOpacity(255);
-            } else {
-                sNode->setOpacity(50);
+                //in bag
+                CCLOG("already in bag %s", node->getName().c_str());
+                Sprite *checkSprite = Sprite::createWithSpriteFrameName("farmhouse_bagpack/tick.png");
+                _bagPackNode->addChild(checkSprite, 1);
+                checkSprite->setPosition(node->getPosition());
             }
+            
+        }
+        
+        cocos2d::ui::Text* sLabel = dynamic_cast<cocos2d::ui::Text*>(node);
+        if(sLabel != NULL && sLabel->getChildrenCount() == 0) {
+            CCLOG("putting label text %s", sLabel->getName().c_str());
+            sLabel->setString(sLabel->getName());
+            sLabel->setFontSize(50);
+            sLabel->setFontName("Arial");
+            sLabel->setTextColor(Color4B::BLACK);
         }
     }
     
+    Node* textFieldNode = _bagPackNode->getChildByName("TextField");
+    cocos2d::ui::TextField* sTextField = dynamic_cast<cocos2d::ui::TextField*>(textFieldNode);
+    if(sTextField != NULL) {
+        sTextField->setString(_hintText);
+        sTextField->setFontName("Arial");
+        sTextField->setFontSize(50);
+        sTextField->setTextColor(Color4B::BLACK);
+        sTextField->setTextHorizontalAlignment(TextHAlignment::CENTER);
+        sTextField->setTextVerticalAlignment(TextVAlignment::TOP);
+    }
 }
 
 void HelloWorld::showBagpackOpenAnimation(std::unordered_map<int, std::string> textMapFollowedByAnimation, std::string owner) {
@@ -796,6 +812,12 @@ void HelloWorld::processUseInBackPackMessages(std::vector<MessageContent*>showMe
                     this->processTextMessage(textMapFollowedByAnimation, content->getOwner());
                 }
                 
+                if(!content->getHint().empty()) {
+                    CCLOG("content->hint %s", content->getHint().c_str());
+                    _hintText = content->getHint();
+                }
+                
+
                 
                 if(!content->getPostOutComeAction().empty()) {
                     CCLOG("content->getPostOutComeAction() %s", content->getPostOutComeAction().c_str());
@@ -864,9 +886,15 @@ void HelloWorld::processPutInBackPackMessages(std::vector<MessageContent*>showMe
                     
                 }
                 
-                
                 CCLOG("content->getPostOutComeAction() %s", content->getPostOutComeAction().c_str());
-                CCLOG("content->hint %s", content->getHint().c_str());
+
+                
+                if(!content->getHint().empty()) {
+                    CCLOG("content->hint %s", content->getHint().c_str());
+                    _hintText = content->getHint();
+                }
+                
+                
                 //play animation
                 
                 if(content->getShouldDisplayInBag() && result == 1) {

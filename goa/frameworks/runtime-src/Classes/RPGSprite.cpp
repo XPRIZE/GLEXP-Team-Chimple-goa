@@ -180,7 +180,7 @@ void RPGSprite::showTouchPointer() {
         this->touchPointerNode =  Sprite::create(TOUCH_POINTER_IMG);
         if(this->touchPointerNode)
         {
-            this->touchPointerNode->setScale(0.5f, 0.5f);
+            this->touchPointerNode->setScale(1.0f, 1.0f);
             float xPos = 0.0f;
             float yPos = 0.0f;
             
