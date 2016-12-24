@@ -56,7 +56,7 @@ public:
     
     static void pronounceWord(std::string word);
 
-	void wordPairList(std::string question, std::string answer = "it is a word");
+	void wordPairList(std::string question, std::string answer = "it is a word",bool isInitialSyllable = false);
 	void showAnswer(std::string, std::string header);
 
     cocos2d::Rect getBoundingBox(cocos2d::Sprite* node) const;
@@ -80,6 +80,7 @@ CC_CONSTRUCTOR_ACCESS:
     
     void transitToScrollableGameMap();
     void launchGame(std::string gameName);
+    void removeMenu();
     
     static void launchGameFromJS(std::string gameName);
     static void launchGameFinally(std::string gameName);
@@ -127,14 +128,13 @@ protected:
     void tellHelp();
     void stopTellHelp();
     void addGreyLayer();
-    void removeMenu();
     void increasePoints(int points);
     void happyFace();
     void sadFace();
     void normalFace();
 	void addCalculator();
 	void update(float);
-
+    void removeMenuOnly();
     void unlockNextStory();
     void createUnlockStoryDocument(std::string storyToUnlock);
     
@@ -171,7 +171,7 @@ protected:
 
 	std::map<std::string, std::string> _wordsList;
 	std::vector<std::string> _listOfWords;
-    
+	std::map<std::string, std::vector<std::string>> _listOfInitialSyllableWords;
     
     
 };

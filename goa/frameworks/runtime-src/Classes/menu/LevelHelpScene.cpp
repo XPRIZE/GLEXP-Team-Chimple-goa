@@ -20,6 +20,7 @@ using namespace experimental;
 static const std::string CURRENT_LEVEL = ".currentLevel";
 static const std::string NUMERIC_WRITING = ".numeric";
 static const std::string UPPER_ALPHABET_WRITING = ".upper";
+static const std::string VIDEO_EXT = ".webm";
 
 Scene *LevelHelpScene::createScene(std::string gameName) {
     auto layer = LevelHelpScene::create(gameName);
@@ -79,6 +80,10 @@ bool LevelHelpScene::initWithGame(std::string gameName) {
             assert(game.IsArray());
             for (rapidjson::SizeType i = 0; i < game.Size(); i++) {
                 const rapidjson::Value& helpMap = game[i];
+                int videoLevel = 0;
+                int videoLevelIndex = 0;
+                std::string video;
+                std::vector<std::string> conceptVideos;
                 if(helpMap.HasMember("levels")) {
                     const rapidjson::Value& levels = helpMap["levels"];
                     assert(levels.IsArray());
@@ -86,11 +91,35 @@ bool LevelHelpScene::initWithGame(std::string gameName) {
                         int level = levels[i].GetInt();
                         if(level == _currentLevel || (level == 1 && _helpText.empty())) {
                             _helpText = helpMap["help"].GetString();
-                            _videoName = helpMap["video"].GetString();
+                            video = helpMap["video"].GetString();
+                            videoLevel = level;
+                            videoLevelIndex = i;
                         }
                     }
                 }
-                
+                if(videoLevel > 1) {
+                    _videos.clear();
+                }
+                if((videoLevel == _currentLevel || videoLevel == 1) && helpMap.HasMember("concepts")) {
+                    const rapidjson::Value& concepts = helpMap["concepts"];
+                    assert(concepts.IsArray());
+                    for (rapidjson::SizeType i = 0; i < concepts.Size(); i++) {
+                        std::string concept  = concepts[i].GetString() + VIDEO_EXT;
+                        _videos.push_back(concept);
+                    }
+                }
+                if(helpMap.HasMember("level_concepts")) {
+                    const rapidjson::Value& levelConcepts = helpMap["level_concepts"];
+                    assert(levelConcepts.IsArray());
+                    std::string levelConcept;
+                    if(videoLevel == _currentLevel && levelConcepts.Size() >= videoLevel) {
+                        levelConcept = levelConcepts[videoLevelIndex].GetString() + VIDEO_EXT;
+                        _videos.push_back(levelConcept);
+                    }
+                }
+                if(!video.empty()) {
+                    _videos.push_back(video);
+                }
                 if(helpMap.HasMember("writing")) {
                     const rapidjson::Value& writing = helpMap["writing"];
                     assert(writing.IsArray());
@@ -128,17 +157,19 @@ bool LevelHelpScene::initWithGame(std::string gameName) {
             }
         }
     }
+    auto bg = CSLoader::createNode("template/video_screen.csb");
+    bg->setName("bg");
+    this->addChild(bg);
+    
     return true;
 }
 
 void LevelHelpScene::onEnterTransitionDidFinish() {
-    auto bg = CSLoader::createNode("template/video_screen.csb");
+    auto bg = getChildByName("bg");
     Size visibleSize = Director::getInstance()->getVisibleSize();
-    bg->setName("bg");
     if (visibleSize.width > 2560) {
         bg->setPositionX((visibleSize.width - 2560)/2);
     }
-    this->addChild(bg);
     
     auto button = static_cast<Button*> (bg->getChildByName("Button_1"));
     button->addTouchEventListener(CC_CALLBACK_2(LevelHelpScene::gotoGame, this));
@@ -182,11 +213,11 @@ void LevelHelpScene::videoEventCallback(Ref* sender, cocos2d::experimental::ui::
 
 void LevelHelpScene::videoPlayStart()
 {
-    if(FileUtils::getInstance()->isFileExist("help/" + _videoName)) {
+    if(!_videos.empty() && FileUtils::getInstance()->isFileExist("help/" + _videos[_currentVideo])) {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
         _vp = experimental::ui::VideoPlayer::create();
         _vp->setContentSize(cocos2d::Size(1280, 800));
-        _vp->setFileName("help/" + _videoName);
+        _vp->setFileName("help/" + _videos[_currentVideo]);
         _vp->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
         _vp->play();
         _vp->setName("video");
@@ -232,11 +263,21 @@ void LevelHelpScene::videoPlayOverCallback() {
 
 void LevelHelpScene::gotoGame(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
-        MenuContext::launchGameFinally(_gameName);
+        _currentVideo++;
+        if(_currentVideo < _videos.size()) {
+            removeChild(getChildByName("bg")->getChildByName("screen_1")->getChildByName("video"));
+            getChildByName("bg")->getChildByName("screen_1")->removeChild(_resumeButton);
+            videoPlayStart();
+        } else {
+            MenuContext::launchGameFinally(_gameName);
+        }
     }
 }
 
-LevelHelpScene::LevelHelpScene() {
+LevelHelpScene::LevelHelpScene() :
+_currentVideo(0),
+_currentLevel(0)
+{
     
 }
 
