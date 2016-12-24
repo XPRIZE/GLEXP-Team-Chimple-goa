@@ -39,6 +39,7 @@ protected:
     
 #endif
     
+    virtual void decideIndexOfVideo();
     void videoPlayStart();
     void videoPlayOverCallback();
     

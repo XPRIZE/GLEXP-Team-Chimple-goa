@@ -229,9 +229,9 @@ bool Line::init()
 		} },
 		{ 16,  //level number
 		{
-			{ "start", 5 },  //"start"
-			{ "end", 80 },   // "end"
-			{ "mid", 5 },   // "mid"
+			{ "start", 0 },  //"start"
+			{ "end", 15 },   // "end"
+			{ "mid", 6 },   // "mid"
 			{ "tags", 8 }   // "no of tags"
 		} },
 		{ 17,  //level number

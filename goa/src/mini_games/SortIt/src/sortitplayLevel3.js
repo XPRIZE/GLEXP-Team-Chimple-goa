@@ -139,7 +139,7 @@ xc.sortitlevel3Layer = cc.Layer.extend({
 
          this.string1 = new sortitMovableItem3("sortit/string1.png", this.string1t, this);
          this.string1.setAnchorPoint(0.5, 0.5);
-         this.string1.setPosition(size.width*0.70 , size.height*0.22);
+         this.string1.setPosition(size.width*0.70 , size.height*0.25);
          this.string1.xP = this.string1.getPosition().x;
          this.string1.yP = this.string1.getPosition().y;
          this.string1.setScale(this.level3SpriteScaleX, this.level3SpriteScaleY);
@@ -151,7 +151,7 @@ xc.sortitlevel3Layer = cc.Layer.extend({
         
          this.string2 = new sortitMovableItem3("sortit/string2.png", this.string2t, this);
          this.string2.setAnchorPoint(0.5, 0.5);
-         this.string2.setPosition(size.width*0.07 , size.height*0.23);
+         this.string2.setPosition(size.width*0.07 , size.height*0.26);
          this.string2.xP = this.string2.getPosition().x;
          this.string2.yP = this.string2.getPosition().y;
          this.string2.setScale(this.level3SpriteScaleX, 0.85);
@@ -162,7 +162,7 @@ xc.sortitlevel3Layer = cc.Layer.extend({
 
          this.string3 = new sortitMovableItem3("sortit/string3.png", this.string3t, this);
          this.string3.setAnchorPoint(0.5, 0.5);
-         this.string3.setPosition(size.width*0.74 , size.height*0.25);
+         this.string3.setPosition(size.width*0.74 , size.height*0.28);
          this.string3.xP = this.string3.getPosition().x;
          this.string3.yP = this.string3.getPosition().y;
          this.string3.setScale(this.level3SpriteScaleX, 0.83);
@@ -172,7 +172,7 @@ xc.sortitlevel3Layer = cc.Layer.extend({
 
          this.string4 = new sortitMovableItem3("sortit/string4.png", this.string4t, this);
          this.string4.setAnchorPoint(0.5, 0.5);
-         this.string4.setPosition(size.width*0.11 , size.height*0.27);
+         this.string4.setPosition(size.width*0.11 , size.height*0.30);
          this.string4.xP = this.string4.getPosition().x;
          this.string4.yP = this.string4.getPosition().y;
          this.string4.setScale(this.level3SpriteScaleX, this.level3SpriteScaleY);
@@ -182,7 +182,7 @@ xc.sortitlevel3Layer = cc.Layer.extend({
 
          this.string5 = new sortitMovableItem3("sortit/string5.png", this.string5t, this);
          this.string5.setAnchorPoint(0.5, 0.5);
-         this.string5.setPosition(size.width*0.93 , size.height*0.32);
+         this.string5.setPosition(size.width*0.93 , size.height*0.35);
          this.string5.xP = this.string5.getPosition().x;
          this.string5.yP = this.string5.getPosition().y;
          this.string5.setScale(this.level3SpriteScaleX, 1);
@@ -193,7 +193,7 @@ xc.sortitlevel3Layer = cc.Layer.extend({
 
          this.string6 = new sortitMovableItem3("sortit/string6.png", this.string6t, this);
          this.string6.setAnchorPoint(0.5, 0.5);
-         this.string6.setPosition(size.width*0.85 , size.height*0.32);
+         this.string6.setPosition(size.width*0.85 , size.height*0.35);
          this.string6.xP = this.string6.getPosition().x;
          this.string6.yP = this.string6.getPosition().y;
          this.string6.setScale(this.level3SpriteScaleX,1);
