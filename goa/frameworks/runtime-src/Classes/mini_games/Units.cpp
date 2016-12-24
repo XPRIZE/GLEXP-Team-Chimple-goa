@@ -102,7 +102,7 @@ void Units::onEnterTransitionDidFinish() {
 
 	_pizza2->setScale(0.6, 0.6);
 	_pizza2->setAnchorPoint(Vec2(0.5, 0.5));
-	_pizza2->setPosition(Vec2(visibleSize.width / 2 + origin.x + (visibleSize.width * 0.14), outlet_2.y - (visibleSize.height * 0.30) + origin.y));
+	_pizza2->setPosition(Vec2(visibleSize.width / 2 + origin.x + (visibleSize.width * 0.16), outlet_2.y - (visibleSize.height * 0.30) + origin.y));
 
 	this->addChild(_pizza2);
 
@@ -112,7 +112,7 @@ void Units::onEnterTransitionDidFinish() {
 
 	_pizza3->setScale(0.6, 0.6);
 	_pizza3->setAnchorPoint(Vec2(0.5, 0.5));
-	_pizza3->setPosition(Vec2(visibleSize.width / 2 + origin.x + (visibleSize.width * 0.29), outlet_2.y - (visibleSize.height * 0.30) + origin.y));
+	_pizza3->setPosition(Vec2(visibleSize.width / 2 + origin.x + (visibleSize.width * 0.32), outlet_2.y - (visibleSize.height * 0.30) + origin.y));
 
 	this->addChild(_pizza3);
 
@@ -121,7 +121,7 @@ void Units::onEnterTransitionDidFinish() {
 
 	_pizza4->setScale(0.6, 0.6);
 	_pizza4->setAnchorPoint(Vec2(0.5, 0.5));
-	_pizza4->setPosition(Vec2(visibleSize.width / 2 + origin.x + (visibleSize.width * 0.44), outlet_2.y - (visibleSize.height * 0.30) + origin.y));
+	_pizza4->setPosition(Vec2(visibleSize.width / 2 + origin.x + (visibleSize.width * 0.48), outlet_2.y - (visibleSize.height * 0.30) + origin.y));
 
 	this->addChild(_pizza4);
 

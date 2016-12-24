@@ -273,12 +273,15 @@ void Door::onEnterTransitionDidFinish()
 		_doorNode->setParent(this);
 		_doorNodeRef.pushBack(_doorNode);
 		_doorNode->writingEnable(false);
-
+		cocos2d::ui::Button* refreshButton = _doorNodeRef.at(i)->_button;
+		refreshButton->setEnabled(false);
 
 	}
 	if (_score == 0)
 	{
 		_doorNodeRef.at(_score)->writingEnable(true);
+		cocos2d::ui::Button* refreshButton = _doorNodeRef.at(_score)->_button;
+		refreshButton->setEnabled(true);
 	}
 	
 	for (int i = 0; i<_wordLength; i++)
@@ -327,7 +330,24 @@ void Door::clearScreen(float dt)
 	//	_doorNodeRef.at(_score)->clearDrawing(nullptr, cocos2d::ui::Widget::TouchEventType::ENDED);
 	}
 }
+void Door::nextDoor()
+{
+	_score++;
+	if (_score < _randomWord.size())
+	{
+		_doorNodeRef.at(_score)->writingEnable(true);
+		cocos2d::ui::Button* refreshButton = _doorNodeRef.at(_score)->_button;
+		refreshButton->setEnabled(true);
+	}
+	if (_score == _randomWord.size())
+	{
+		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		audio->playEffect("sounds/sfx/success.ogg", false);
+		this->scheduleOnce(schedule_selector(Door::showScore), 6);
+	}
+	menu->addPoints(1);
 
+}
 void Door::showScore(float dt)
 {
 	menu->setMaxPoints(_BoxRef.size());
@@ -367,19 +387,9 @@ void Door::characterRecognisation(std::vector<string> str)
 				cocos2d::ui::Button* refreshButton = _doorNodeRef.at(_score)->_button;
 				refreshButton->setEnabled(false);
 			}
-			_score++;
-			if (_score < _randomWord.size())
-			{
-				_doorNodeRef.at(_score)->writingEnable(true);
-				
-			}
-			if (_score == _randomWord.size())
-			{
-				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-				audio->playEffect("sounds/sfx/success.ogg", false);
-				this->scheduleOnce(schedule_selector(Door::showScore), 6);
-			}
-			menu->addPoints(1);
+			this->runAction(Sequence::create(DelayTime::create(2.0f), CallFunc::create([=]() {
+				nextDoor();
+			}), NULL));
 		}
 		else
 		{
