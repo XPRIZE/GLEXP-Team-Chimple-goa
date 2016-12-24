@@ -68,7 +68,17 @@
     "frontgroundJson": "tablelevel/frontground.json",
     "maingroundJson": "tablelevel/mainground.json",
     "menuPlist": "tablelevel/tablelevel.plist",
-    "menuPng": "tablelevel/tablelevel.png"
+    "menuPng": "tablelevel/tablelevel.png",
+    "lang": {
+        "swa": {
+            "labels": ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","U","V","W","Y","Z"],
+            "numLevels": "24"
+        },
+        "eng": {
+            "labels": ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
+            "numLevels": "26"
+        }
+    }
   },
     {
         "name": "bubble",

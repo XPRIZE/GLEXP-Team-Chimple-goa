@@ -110,6 +110,26 @@ bool LevelMenu::initWithGame(std::string gameName) {
             auto node = CSLoader::createNode(frontgroundJson);
             _parallax->addChild(node, -1, Vec2(0.8, 0.8), Vec2::ZERO);
         }
+        std::vector<std::string> levelLabels;
+        if(gameConfig.HasMember("lang")) {
+            const rapidjson::Value& langConfig = gameConfig["lang"];
+            auto currentLang = LangUtil::getInstance()->getLang().c_str();
+            if(langConfig.HasMember(currentLang)) {
+                const rapidjson::Value& currentLangConfig = langConfig[currentLang];
+                if(currentLangConfig.HasMember("numLevels")) {
+                    auto langNumLevelsStr = currentLangConfig["numLevels"].GetString();
+                    numLevels = std::atoi(langNumLevelsStr);
+                }
+                if(currentLangConfig.HasMember("labels")) {
+                    const rapidjson::Value& labels = currentLangConfig["labels"];
+                    assert(labels.IsArray());
+                    for (rapidjson::SizeType i = 0; i < labels.Size(); i++) {
+                        auto label = labels[i].GetString();
+                        levelLabels.push_back(label);
+                    }
+                }
+            }
+        }
         _scrollView = ui::ScrollView::create();
         _scrollView->setContentSize(visibleSize);
         _scrollView->setDirection(ui::ScrollView::Direction::HORIZONTAL);
@@ -180,10 +200,12 @@ bool LevelMenu::initWithGame(std::string gameName) {
             }
             newPos = Vec2(gap * i, vPos);
             but->setPosition(newPos);
-//            auto label = Label::createWithTTF(std::to_string(i), "Arial", 128, Size::ZERO, TextHAlignment::CENTER, TextVAlignment::CENTER);
-//            label->setPosition(Vec2(but->getContentSize().width / 2, but->getContentSize().height / 2));
-//            but->addChild(label);
-            but->setTitleText(std::to_string(i));
+            auto levelLabel = MenuContext::to_string(i);
+            if(levelLabels.size() >= i) {
+                levelLabel = levelLabels[i-1];
+            }
+            but->setTitleText(levelLabel);
+            but->setName(MenuContext::to_string(i));
             but->setTitleFontSize(128.0);
             _scrollView->addChild(but, 2);
             if((i - 1) % changeDir == 0) {
@@ -216,7 +238,7 @@ void LevelMenu::onEnterTransitionDidFinish() {
 void LevelMenu::startGame(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
         auto but = static_cast<ui::Button *>(pSender);
-        auto level = but->getTitleText();
+        auto level = but->getName();
         localStorageSetItem(_gameName + ".currentLevel", level);
         MenuContext::launchGameFromJS(_gameName);
     }

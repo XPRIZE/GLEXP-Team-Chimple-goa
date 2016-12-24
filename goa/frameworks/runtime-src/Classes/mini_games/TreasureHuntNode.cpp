@@ -60,6 +60,7 @@ void TreasureHuntNode::clearDrawing(cocos2d::Ref *pSender, cocos2d::ui::Widget::
 		_paintingNode->clear();
 		//_canvas->clear(0, 0, _canvasWidth, _canvasHeight);
 		_strokes.clear();
+		 //_drawingBoard->removeChild(_clearButton, true);
 		clearPrintedCharacters();
 	}
 }
@@ -69,4 +70,10 @@ void TreasureHuntNode::postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * e
 	CCLOG("trace done!!!");
 	TreasureHuntNode::done = 1;
 
+}
+
+
+void TreasureHuntNode::removeClearButton() {
+
+	_drawingBoard->removeChild(_clearButton, true);
 }

@@ -85,7 +85,7 @@ private:
 
 	cocos2d::EventListenerTouchOneByOne * _listenerTouches;
     void processLipiTK();
-
+	virtual void removeClearButton();
 };
 
 #endif /* LipiTKNode_h */
