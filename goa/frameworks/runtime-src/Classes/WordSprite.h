@@ -35,13 +35,6 @@ public:
     virtual bool initialize(cocos2d::Node* sprite, std::string word);
     
     virtual cocos2d::Node* getSprite();
-
-    
-    CC_SYNTHESIZE(bool, vicinityToMainCharacter, VicinityToMainCharacter);
-    
-    virtual void update(float dt);
-    
-    virtual SkeletonCharacter* getMainSkeleton();
     
     virtual bool onTouchBegan(cocos2d::Touch * touch, cocos2d::Event* event);
     
@@ -49,11 +42,8 @@ public:
     
 protected:
     cocos2d::Node* sprite;
-    SkeletonCharacter* mainSkeleton;
     cocos2d::Sprite* touchPointerNode;
-    void checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter);
     void showTouchPointer();
-    void destroyTouchPointer();
     std::string word;
 };
 

@@ -47,6 +47,24 @@ private:
     
     cocos2d::Point currentTouchPoint;
     
+    bool _fromMenu;
+    
+    cocos2d::LayerColor* _greyLayer;
+    
+    bool _textDisplayAnimationRunning;
+    
+    Node* _hangBubbleNode;
+    
+    Node *_bagPackNode;
+    
+    cocos2d::ui::Button* _bagPackMenu;
+    
+    std::string _wordToPronounce;
+    
+    std::string _hintText;
+    
+    SpeechBubbleView* _speechBubbleView;
+    
     GestureLayer* gesture_layer_;
     
     StateMachine* stateMachine;
@@ -129,7 +147,7 @@ private:
     
     void useItemFromBagFinished(MessageContent* content, std::unordered_map<int, std::string> textMapFollowedByAnimation);
 
-    void useItemFromBag(RPGSprite* item, MessageContent* content);
+    void useItemFromBag(RPGSprite* item, MessageContent* content, std::unordered_map<int, std::string> textMapFollowedByAnimation);
     
     void useItemFromBagAndPutItemInBag(RPGSprite* item, RPGSprite* putItem, int insertResult, int deleteResult);
     
@@ -139,7 +157,7 @@ private:
     
     void processUseInBackPackMessages(std::vector<MessageContent*>showMessages, std::unordered_map<int, std::string> textMapFollowedByAnimation);
     
-    void processPutInBackPackMessages(std::vector<MessageContent*>showMessages);
+    void processPutInBackPackMessages(std::vector<MessageContent*>showMessages, std::unordered_map<int, std::string> textMapFollowedByAnimation);
     
     void processAnimationMessage(std::vector<MessageContent*>animationMessages);
     
@@ -205,11 +223,28 @@ private:
     
     void moveItemIntoBag(Sprite* orgSprite);
     
-    void copySpriteForAnimation(RPGSprite* item);
+    void copySpriteForAnimation(RPGSprite* item, std::unordered_map<int, std::string> textMapFollowedByAnimation, std::string owner);
     
     void moveitemIntoBagAnimation(Sprite* orgSprite);
     
+    void showBagpackOpenAnimation(std::unordered_map<int, std::string> textMapFollowedByAnimation, std::string owner);
+    
     void finishedTask();
+    
+    void addGreyLayer();
+    
+    void showBagPackButton();
+    
+    void closeBagPack(Ref* pSender, ui::Widget::TouchEventType eEventType, std::unordered_map<int, std::string> textMapFollowedByAnimation, std::string owner);
+    
+    void removeBagPack(std::unordered_map<int, std::string> textMapFollowedByAnimation, std::string owner);
+    
+    void renderBagPack();
+    
+    cocos2d::ui::Button* createMenuItem(const std::string normalImage,
+                                                     const std::string selectedImage ,
+                                                     const std::string disableImage
+                                                     );
     
 public:
     static cocos2d::Scene* createScene(const std::string& island, const std::string& sceneName, bool fromMenu);
@@ -262,6 +297,21 @@ public:
     virtual bool checkTapOnRPGSprite(RPGSprite* rpgNode, cocos2d::Point position);    
     
     static const char* gameName() { return "Safari RPG";}
+    
+    void onExitTransitionDidStart() override;
+    void onEnterTransitionDidFinish() override;
+    
+    void displayText(std::string word);
+    void buildText(cocos2d::EventCustom * event);
+    void removeDisplayText(float dt);
+    void displayTextAnimationFinished();
+    void beforeDisplayTextDisapperFinished();
+    void afterDisplayTextDisapperFinished();
+    void showText(std::string word);
+    
+    bool greyLayerTouched(cocos2d::Touch *touch, cocos2d::Event *event);
+    
+    void showBagPack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
 };
 
 #endif // __HELLOWORLD_SCENE_H__

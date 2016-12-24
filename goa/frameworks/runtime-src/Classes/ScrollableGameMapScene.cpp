@@ -76,8 +76,8 @@ Scene* ScrollableGameMapScene::createScene() {
     auto scene = Scene::create();    
     auto layer = ScrollableGameMapScene::create();
     scene->addChild(layer);
-    layer->menuContext = MenuContext::create(layer);
-    scene->addChild(layer->menuContext);
+//    layer->menuContext = MenuContext::create(layer);
+//    scene->addChild(layer->menuContext);
     return scene;
 }
 
@@ -128,32 +128,11 @@ bool ScrollableGameMapScene::init() {
     backgroundSpriteMapTile->setPosition(Vec2( numberOfPages * visibleSize.width/2, visibleSize.height/2 ));
     addChild(backgroundSpriteMapTile);
     
-//    Sprite* backgroundSpriteMap = Sprite::createWithSpriteFrameName("gamemap/gamemap/gamemap.png");
-//    backgroundSpriteMap->setPosition(Vec2(numberOfPages * visibleSize.width/2, visibleSize.height/2));
-//    addChild(backgroundSpriteMap);
-    
     for (int i = 0; i < numberOfPages; i++) {
         auto node = CSLoader::createNode("gamemap/gamemap_bg.csb");
         node->setPosition(Vec2(visibleSize.width * i, 0));
         addChild(node);
     }
-    
-//    Sprite* backgroundSpriteSideLeft = Sprite::createWithSpriteFrameName("gamemap/side.png");
-//    backgroundSpriteSideLeft->setAnchorPoint(Vec2(0,0.5));
-//    backgroundSpriteSideLeft->setPosition(Vec2(0,visibleSize.height/2));
-//    addChild(backgroundSpriteSideLeft);
-    
-
-    _layer = Layer::create();
-    
-    
-//    Sprite* backgroundSpriteSideRight = Sprite::createWithSpriteFrameName("gamemap/side.png");
-//    backgroundSpriteSideRight->setScaleX(-1.0f);
-//    backgroundSpriteSideRight->setAnchorPoint(Vec2(1,0.5));
-//    backgroundSpriteSideRight->setPosition(Vec2((visibleSize.width - backgroundSpriteSideRight->getBoundingBox().size.width/2) * numberOfPages,visibleSize.height/2));
-//    addChild(backgroundSpriteSideRight);
-
-    
     
     int index = 0;
     int initialYOffSet = 1;
@@ -172,7 +151,7 @@ bool ScrollableGameMapScene::init() {
                     std::string buttonDisabledIcon = ICONS + "/" + games.at(index)+"_disabled.png";
                     cocos2d::ui::Button* button = ui::Button::create(buttonNormalIcon, buttonPressedIcon, buttonDisabledIcon);
                     button->setName(games.at(index));
-                    button->setPosition(Vec2(k * visibleSize.width + (j + 0.5) * visibleSize.width / numCols, visibleSize.height - (2 * i + initialYOffSet) * (visibleSize.height / numCols) - 30));
+                    button->setPosition(Vec2(k * visibleSize.width + (j + 0.5) * visibleSize.width / numCols, visibleSize.height - (i + 0.5) * (visibleSize.height / numRows)));
                     button->setTitleText(LangUtil::getInstance()->translateString(gameMap["title"]));
                     button->setTitleAlignment(TextHAlignment::CENTER, TextVAlignment::BOTTOM);
                     button->setTitleFontName("Arial");
@@ -181,7 +160,8 @@ bool ScrollableGameMapScene::init() {
                     button->addTouchEventListener(CC_CALLBACK_2(ScrollableGameMapScene::gameSelected, this));
                     auto label = button->getTitleRenderer();
                     label->setPosition(Vec2(label->getPositionX(), label->getPositionY()-256));
-                    _layer->addChild(button);
+                    button->setScale(0.6);
+                    addChild(button);
                     
                     
                 }
@@ -189,13 +169,9 @@ bool ScrollableGameMapScene::init() {
             }
         }
     }
-    
-    _layer->setContentSize(Size(visibleSize.width * numberOfPages, visibleSize.height));
-    _layer->setPosition(Vec2(0, 0));
-    addChild(_layer);
     setContentSize(visibleSize);
     setDirection(cocos2d::ui::ScrollView::Direction::HORIZONTAL);
-    setInnerContainerSize(_layer->getContentSize());
+    setInnerContainerSize(Size(visibleSize.width * numberOfPages, visibleSize.height));
     setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::GRADIENT);
     setBackGroundColor(Color3B(255, 159, 0), Color3B::WHITE);
     return true;

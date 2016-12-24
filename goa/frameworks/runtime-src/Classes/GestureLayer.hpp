@@ -53,6 +53,8 @@ protected:
     bool isDragging;
     bool isHoldingTouch;
     
+    bool isSceneTransitionStarted;
+    
     //time when touch starts
     float touch_start_time_;
     
@@ -60,6 +62,7 @@ protected:
     
 public:
     void disableAllTouch();
+    void enableAllTouch();
 };
 
 

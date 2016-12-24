@@ -24,7 +24,9 @@ defaultAnimationName(""),
 key(""),
 show(""),
 transitToGameScene(""),
-actionTimeLine(NULL)
+actionTimeLine(NULL),
+sprite(NULL),
+eventProcessed(false)
 {
     this->touchPointerNode = NULL;
     this->sprite = NULL;
@@ -56,6 +58,14 @@ bool RPGSprite::initialize(cocos2d::Node* sprite, std::unordered_map<std::string
     this->setAttributes(attributes);
     this->addChild(this->sprite);
     
+    
+    return true;
+
+}
+
+void RPGSprite::onEnterTransitionDidFinish() {
+    Node::onEnterTransitionDidFinish();
+    
     auto listenerTouches = EventListenerTouchOneByOne::create();
     listenerTouches->setSwallowTouches(true);
     listenerTouches->onTouchBegan = CC_CALLBACK_2(RPGSprite::onTouchBegan, this);
@@ -63,11 +73,9 @@ bool RPGSprite::initialize(cocos2d::Node* sprite, std::unordered_map<std::string
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listenerTouches, this);
     
     this->getEventDispatcher()->addCustomEventListener(RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, CC_CALLBACK_1(RPGSprite::checkVicinityWithMainCharacter, this));
-
+    
     
     this->scheduleUpdate();
-    
-    return true;
 
 }
 
@@ -132,6 +140,9 @@ void RPGSprite::update(float dt) {
 }
 
 void RPGSprite::checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter) {
+        if(this->getSprite() == NULL) {
+            return;
+        }
         Vec2 point = Vec2(skeletonCharacter->getSkeletonNode()->getPosition().x, skeletonCharacter->getSkeletonNode()->getPosition().y);
         Vec2 mainSkeletonPositionFromBottom = point;
         Vec2 mainSkeletonPositionFromTop = Point(skeletonCharacter->getSkeletonNode()->getPosition().x, skeletonCharacter->getSkeletonNode()->getPosition().y + skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height);
@@ -169,7 +180,7 @@ void RPGSprite::showTouchPointer() {
         this->touchPointerNode =  Sprite::create(TOUCH_POINTER_IMG);
         if(this->touchPointerNode)
         {
-            this->touchPointerNode->setScale(0.5f, 0.5f);
+            this->touchPointerNode->setScale(1.0f, 1.0f);
             float xPos = 0.0f;
             float yPos = 0.0f;
             
@@ -234,7 +245,12 @@ bool RPGSprite::onTouchBegan(Touch *touch, Event *event)
     }
     if(this->getSprite()->isVisible() && this->getInterAct() == "true" && this->getVicinityToMainCharacter() == true && boundingBoxRect.containsPoint(n)) {
 
-        return true;
+        if(getEventProcessed()) {
+            return false;
+        } else {
+            return true;
+        }
+        
     }
     
     return false;
@@ -242,6 +258,7 @@ bool RPGSprite::onTouchBegan(Touch *touch, Event *event)
 
 void RPGSprite::touchEnded(Touch *touch, Event *event)
 {
+    setEventProcessed(true);
     std::string s(!this->getKey().empty() ? this->getKey() : this->getName());
     EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, static_cast<void*>(&s));
     if(this->touchPointerNode != NULL) {

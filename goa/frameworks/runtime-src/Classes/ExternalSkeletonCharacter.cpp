@@ -17,6 +17,7 @@ USING_NS_CC;
 
 ExternalSkeletonCharacter::ExternalSkeletonCharacter() {
     this->externalSkeletonNode = NULL;
+    this->touchPointerNode = NULL;
     this->mainSkeleton = NULL;
     this->externalSkeletonActionTime = NULL;
     this->vicinityToMainCharacter = false;
@@ -38,13 +39,21 @@ ExternalSkeletonCharacter* ExternalSkeletonCharacter::create(cocos2d::Node* node
 
 
 bool ExternalSkeletonCharacter::initializeExternalSkeletonCharacter(cocos2d::Node* node, std::unordered_map<std::string, std::string> attributes) {
+    this->posX = node->getPosition().x;
+    this->posY = node->getPosition().y;
     node->removeFromParent();
     this->setName(node->getName());
     this->setAttributes(attributes);
     this->createExternalSkeletonNode(node, this->getFileName());
     this->addChild(this->externalSkeletonNode);
     this->externalSkeletonNode->setPosition(node->getPosition());
+    this->showTouchPointer();
     
+    return true;
+}
+
+void ExternalSkeletonCharacter::onEnterTransitionDidFinish() {
+    Node::onEnterTransitionDidFinish();
     //bind listeners
     auto listenerTouches = EventListenerTouchOneByOne::create();
     
@@ -52,46 +61,24 @@ bool ExternalSkeletonCharacter::initializeExternalSkeletonCharacter(cocos2d::Nod
     listenerTouches->onTouchBegan = CC_CALLBACK_2(ExternalSkeletonCharacter::onTouchBegan, this);
     listenerTouches->onTouchEnded = CC_CALLBACK_2(ExternalSkeletonCharacter::touchEnded, this);
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listenerTouches, this);
-
     
-    this->getEventDispatcher()->addCustomEventListener(RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, CC_CALLBACK_1(ExternalSkeletonCharacter::checkVicinityWithMainCharacter, this));
-    
-
-    this->scheduleUpdate();
-    
-    return true;
 }
 
 
-void ExternalSkeletonCharacter::checkVicinityWithMainCharacter(cocos2d::EventCustom * event) {
-    this->mainSkeleton = static_cast<SkeletonCharacter*>(event->getUserData());
-    
-    if(this->checkVicinityToMainSkeleton(this->mainSkeleton))
+void ExternalSkeletonCharacter::showTouchPointer() {
+    if(this->touchPointerNode == NULL)
     {
-        this->setVicinityToMainCharacter(true);
-        if(this->externalSkeletonActionTime != NULL) {
-            this->externalSkeletonActionTime->play(IDLE, true);
-        }
-    } else {
-        this->setVicinityToMainCharacter(false);
-        if(this->externalSkeletonActionTime != NULL && !this->getDefaultAnimationName().empty()) {
-            this->externalSkeletonActionTime->play(this->getDefaultAnimationName(), true);
+        this->touchPointerNode =  Sprite::create(TOUCH_POINTER_IMG);
+        if(this->touchPointerNode)
+        {
+            this->touchPointerNode->setScale(0.75f, 0.75f);
+//            this->touchPointerNode->setFlippedX(true);
+//            this->touchPointerNode->setFlippedY(true);
+            this->touchPointerNode->setPosition(Vec2(this->externalSkeletonNode->getPosition().x, this->externalSkeletonNode->getPosition().y - 150));
+            this->touchPointerNode->setVisible(true);
+            this->externalSkeletonNode->getParent()->addChild(this->touchPointerNode, 1);
         }
     }
-   
-}
-
-bool ExternalSkeletonCharacter::checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter) {
-    Vec2 mainSkeletonPositionBottom = Point(skeletonCharacter->getSkeletonNode()->getPosition().x, skeletonCharacter->getSkeletonNode()->getPosition().y);
-    Vec2 mainSkeletonPositionTop = Point(skeletonCharacter->getSkeletonNode()->getPosition().x, skeletonCharacter->getSkeletonNode()->getPosition().y + skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height);
-
-    float distanceFromBottom = mainSkeletonPositionBottom.getDistance(this->getExternalSkeletonNode()->getPosition());
-    float distanceFromTop = mainSkeletonPositionTop.getDistance(this->getExternalSkeletonNode()->getPosition());
-    
-    if((distanceFromTop >= -OBJECT_TAP_BOUNDING_BOX_WIDTH && distanceFromTop <= OBJECT_TAP_BOUNDING_BOX_WIDTH) || (distanceFromBottom >= -OBJECT_TAP_BOUNDING_BOX_WIDTH && distanceFromBottom <= OBJECT_TAP_BOUNDING_BOX_WIDTH)) {
-        return true;
-    }
-    return false;    
 }
 
 cocostudio::timeline::SkeletonNode* ExternalSkeletonCharacter::getExternalSkeletonNode() {
@@ -113,8 +100,8 @@ void ExternalSkeletonCharacter::createExternalSkeletonNode(cocos2d::Node* node, 
     if(this->externalSkeletonActionTime != NULL) {
         this->externalSkeletonNode->runAction(this->externalSkeletonActionTime);
         this->externalSkeletonActionTime->gotoFrameAndPause(0);
-        if(this->externalSkeletonActionTime && !this->getDefaultAnimationName().empty()) {
-            this->externalSkeletonActionTime->play(this->getDefaultAnimationName(), true);
+        if(this->externalSkeletonActionTime != NULL) {
+            this->externalSkeletonActionTime->play(IDLE, true);
         }
     }
     
@@ -162,17 +149,6 @@ void ExternalSkeletonCharacter::setAttributes(std::unordered_map<std::string, st
 std::unordered_map<std::string, std::string> ExternalSkeletonCharacter::getAttributes() {
     return this->attributes;
 }
-
-
-void ExternalSkeletonCharacter::update(float dt) {
-    if(!this->vicinityToMainCharacter && this->mainSkeleton != NULL && this->mainSkeleton->isStanding) {
-        this->getExternalSkeletonNode()->setPosition(this->getExternalSkeletonNode()->getPosition().x + RPGConfig::externalSkeletonMoveDelta, this->getExternalSkeletonNode()->getPosition().y);
-        
-//        cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent( RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, this->mainSkeleton);
-
-    }    
-}
-
 
 
 bool ExternalSkeletonCharacter::onTouchBegan(Touch *touch, Event *event)

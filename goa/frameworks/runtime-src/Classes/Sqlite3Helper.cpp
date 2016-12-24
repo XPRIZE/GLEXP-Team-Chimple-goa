@@ -94,6 +94,8 @@ bool Sqlite3Helper::closeConnection() {
     return true;
 }
 
+
+
 int Sqlite3Helper::insertItemToMyBag(const char* island, const char* item) {
     sqlite3_stmt *res;
     const char* querySQL = " INSERT INTO MY_BAG (ISLAND_NAME, ITEM, USED) SELECT ?,?,0 WHERE NOT EXISTS (SELECT 1 FROM MY_BAG WHERE ISLAND_NAME = ? AND ITEM = ?) ";
@@ -234,6 +236,35 @@ void Sqlite3Helper::recordMainCharacterPositionInScene(const char* island, const
     } 
 }
 
+int Sqlite3Helper::checkIfItemExistsInBag(const char* item, const char* island) {
+    sqlite3_stmt *res;
+    int rc = 0;
+    int result = 0;
+    
+    const char* querySQL = "SELECT 1 FROM MY_BAG WHERE ISLAND_NAME = @island AND ITEM = @item";
+    
+    rc = sqlite3_prepare_v2(this->dataBaseConnection, querySQL, -1, &res, 0);
+    
+    if (rc == SQLITE_OK) {
+        
+        int owner_1Index = sqlite3_bind_parameter_index(res, "@island");
+        sqlite3_bind_text(res, owner_1Index, island,-1, SQLITE_TRANSIENT);
+        
+        int sceneName_1Index = sqlite3_bind_parameter_index(res, "@item");
+        sqlite3_bind_text(res, sceneName_1Index, item,-1, SQLITE_TRANSIENT);
+        
+    } else {
+        fprintf(stderr, "Failed to execute statement: %s\n", sqlite3_errmsg(this->dataBaseConnection));
+    }
+    
+    
+    while(sqlite3_step(res) == SQLITE_ROW)
+    {
+        result = 1;
+    }
+    
+    return result;
+}
 
 std::vector<MessageContent*> Sqlite3Helper::findEventsByOwnerInScene(const char* owner, const char* sceneName) {
     /* Create SQL statement */
@@ -241,7 +272,7 @@ std::vector<MessageContent*> Sqlite3Helper::findEventsByOwnerInScene(const char*
     sqlite3_stmt *res;
     int rc = 0;
 
-    const char* querySQL = "SELECT EVENT_ID, PRE_CONDITION_EVENT_ID, CONDITION, CONDITION_RESULT, ACTION, DIALOG, OWNER, PLAY_ANIMATION_IN_LOOP, PRE_OUTCOME_ACTION, POST_OUTCOME_ACTION, SCENE_NAME, SHOULD_DISPLAY_IN_BAG FROM EVENTS WHERE OWNER=@owner_1 AND SCENE_NAME = @sceneName_1 AND CONDITION = '' AND PRE_CONDITION_EVENT_ID = 0 UNION SELECT EVENT_ID, PRE_CONDITION_EVENT_ID, CONDITION, CONDITION_RESULT, ACTION, DIALOG, OWNER, PLAY_ANIMATION_IN_LOOP, PRE_OUTCOME_ACTION, POST_OUTCOME_ACTION, SCENE_NAME, SHOULD_DISPLAY_IN_BAG FROM EVENTS E INNER JOIN MY_BAG B ON E.CONDITION = B.ITEM AND E.OWNER = @owner_2 AND SCENE_NAME = @sceneName_2 AND E.CONDITION_RESULT = 1 AND E.PRE_CONDITION_EVENT_ID = 0 AND B.USED IN(0,1) UNION SELECT EVENT_ID, PRE_CONDITION_EVENT_ID, CONDITION, CONDITION_RESULT, ACTION, DIALOG, OWNER, PLAY_ANIMATION_IN_LOOP, PRE_OUTCOME_ACTION, POST_OUTCOME_ACTION, SCENE_NAME, SHOULD_DISPLAY_IN_BAG FROM EVENTS WHERE OWNER=@owner_3 AND SCENE_NAME = @sceneName_3 AND CONDITION_RESULT= 0 AND CONDITION != '' AND CONDITION NOT IN (SELECT ITEM FROM MY_BAG) ORDER BY EVENT_ID ASC";
+    const char* querySQL = "SELECT EVENT_ID, PRE_CONDITION_EVENT_ID, CONDITION, CONDITION_RESULT, ACTION, DIALOG, OWNER, PLAY_ANIMATION_IN_LOOP, PRE_OUTCOME_ACTION, POST_OUTCOME_ACTION, SCENE_NAME, SHOULD_DISPLAY_IN_BAG, HINTS FROM EVENTS WHERE OWNER=@owner_1 AND SCENE_NAME = @sceneName_1 AND CONDITION = '' AND PRE_CONDITION_EVENT_ID = 0 UNION SELECT EVENT_ID, PRE_CONDITION_EVENT_ID, CONDITION, CONDITION_RESULT, ACTION, DIALOG, OWNER, PLAY_ANIMATION_IN_LOOP, PRE_OUTCOME_ACTION, POST_OUTCOME_ACTION, SCENE_NAME, SHOULD_DISPLAY_IN_BAG, HINTS FROM EVENTS E INNER JOIN MY_BAG B ON E.CONDITION = B.ITEM AND E.OWNER = @owner_2 AND SCENE_NAME = @sceneName_2 AND E.CONDITION_RESULT = 1 AND E.PRE_CONDITION_EVENT_ID = 0 AND B.USED IN(0,1) UNION SELECT EVENT_ID, PRE_CONDITION_EVENT_ID, CONDITION, CONDITION_RESULT, ACTION, DIALOG, OWNER, PLAY_ANIMATION_IN_LOOP, PRE_OUTCOME_ACTION, POST_OUTCOME_ACTION, SCENE_NAME, SHOULD_DISPLAY_IN_BAG, HINTS FROM EVENTS WHERE OWNER=@owner_3 AND SCENE_NAME = @sceneName_3 AND CONDITION_RESULT= 0 AND CONDITION != '' AND CONDITION NOT IN (SELECT ITEM FROM MY_BAG) ORDER BY EVENT_ID ASC";
     
     
         //std::replace(sceneName.begin(), sceneName.end(), ' ', '');
@@ -309,6 +340,14 @@ std::vector<MessageContent*> Sqlite3Helper::findEventsByOwnerInScene(const char*
         content->setSceneName(sceneName);
 
         content->setShouldDisplayInBag(sqlite3_column_int(res,11));
+        
+        std::string hint = "";
+        if((char *)sqlite3_column_text(res, 12))
+        {
+            hint = ( reinterpret_cast< char const* >(sqlite3_column_text(res, 12))) ;
+        }
+        
+        content->setHint(hint);        
         
         messages.push_back(content);
     }
