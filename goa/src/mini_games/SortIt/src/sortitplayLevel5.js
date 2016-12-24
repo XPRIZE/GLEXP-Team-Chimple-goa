@@ -117,7 +117,7 @@ xc.sortitlevel5Layer = cc.Layer.extend({
 
          this.num1 = new sortitMovableItem5("sortit/sortittwo/num1.png", this.num1t, this);
          this.num1.setAnchorPoint(0.5, 0.5);
-         this.num1.setPosition(size.width*0.23 , size.height*0.23);
+         this.num1.setPosition(size.width*0.23 , size.height*0.26);
          this.num1.xP = this.num1.getPosition().x;
          this.num1.yP = this.num1.getPosition().y;
          this.num1.setScale(this.level5SpriteScaleX, this.level5SpriteScaleY);
@@ -127,7 +127,7 @@ xc.sortitlevel5Layer = cc.Layer.extend({
 
          this.num2 = new sortitMovableItem5("sortit/sortittwo/num2.png", this.num2t, this);
          this.num2.setAnchorPoint(0.5, 0.5);
-         this.num2.setPosition(size.width*0.54 , size.height*0.23);
+         this.num2.setPosition(size.width*0.54 , size.height*0.26);
          this.num2.xP = this.num2.getPosition().x;
          this.num2.yP = this.num2.getPosition().y;
          this.num2.setScale(this.level5SpriteScaleX, this.level5SpriteScaleY);
@@ -137,7 +137,7 @@ xc.sortitlevel5Layer = cc.Layer.extend({
 
          this.num3 = new sortitMovableItem5("sortit/sortittwo/num3.png", this.num3t, this);
          this.num3.setAnchorPoint(0.5, 0.5);
-         this.num3.setPosition(size.width*0.07 , size.height*0.23);
+         this.num3.setPosition(size.width*0.07 , size.height*0.26);
          this.num3.xP = this.num3.getPosition().x;
          this.num3.yP = this.num3.getPosition().y;
          this.num3.setScale(this.level5SpriteScaleX, this.level5SpriteScaleY);
@@ -147,7 +147,7 @@ xc.sortitlevel5Layer = cc.Layer.extend({
 
          this.num4 = new sortitMovableItem5("sortit/sortittwo/num4.png", this.num4t, this);
          this.num4.setAnchorPoint(0.5, 0.5);
-         this.num4.setPosition(size.width*0.70 , size.height*0.23);
+         this.num4.setPosition(size.width*0.70 , size.height*0.26);
          this.num4.xP = this.num4.getPosition().x;
          this.num4.yP = this.num4.getPosition().y;
          this.num4.setScale(this.level5SpriteScaleX, this.level5SpriteScaleY);
@@ -157,7 +157,7 @@ xc.sortitlevel5Layer = cc.Layer.extend({
 
          this.num5 = new sortitMovableItem5("sortit/sortittwo/num5.png", this.num5t, this);
          this.num5.setAnchorPoint(0.5, 0.5);
-         this.num5.setPosition(size.width*0.42 , size.height*0.13);
+         this.num5.setPosition(size.width*0.42 , size.height*0.16);
          this.num5.xP = this.num5.getPosition().x;
          this.num5.yP = this.num5.getPosition().y;
          this.num5.setScale(this.level5SpriteScaleX, this.level5SpriteScaleY);
