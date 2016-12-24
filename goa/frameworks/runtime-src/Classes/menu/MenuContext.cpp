@@ -72,7 +72,6 @@
 #include "../mini_games/Balloon.h"
 #include "../mini_games/PopCount.h"
 #include "../mini_games/DinoGame.h"
-#include "../mini_games/PatchTheWallScene.h"
 #include "../util/CommonLabel.h"
 
 USING_NS_CC;
@@ -977,9 +976,6 @@ void MenuContext::launchGameFinally(std::string gameName) {
 		}
 		else if (gameName == DINO) {
 			Director::getInstance()->replaceScene(DinoGame::createScene());
-		}
-		else if (gameName == PATCH_THE_WALL) {
-			Director::getInstance()->replaceScene(PatchTheWall::createScene());
 		}
 		else{
             CCLOG("Failed starting scene: %s", gameName.c_str());
