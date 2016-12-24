@@ -104,6 +104,7 @@ protected:
     cocos2d::ui::Button* _bookMenu;
     cocos2d::ui::Button* _gamesMenu;
 	cocos2d::ui::Button* _settingMenu;
+	cocos2d::ui::Button* _closeButton;
     cocos2d::Node* _photoMenu;
 	cocos2d::Node* _settingNode;
     cocos2d::LayerColor* _greyLayer;
