@@ -66,3 +66,7 @@ void LevelHelpOverlay::gotoGame(Ref* pSender, cocos2d::ui::Widget::TouchEventTyp
         }
     }
 }
+
+void LevelHelpOverlay::decideIndexOfVideo() {
+    // nothing to do here - play everything
+}

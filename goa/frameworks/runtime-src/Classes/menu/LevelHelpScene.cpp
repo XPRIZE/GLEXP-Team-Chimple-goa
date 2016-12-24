@@ -21,6 +21,7 @@ static const std::string CURRENT_LEVEL = ".currentLevel";
 static const std::string NUMERIC_WRITING = ".numeric";
 static const std::string UPPER_ALPHABET_WRITING = ".upper";
 static const std::string VIDEO_EXT = ".webm";
+static const int MAX_VIEWS = 3;
 
 Scene *LevelHelpScene::createScene(std::string gameName) {
     auto layer = LevelHelpScene::create(gameName);
@@ -157,6 +158,7 @@ bool LevelHelpScene::initWithGame(std::string gameName) {
             }
         }
     }
+    decideIndexOfVideo();
     auto bg = CSLoader::createNode("template/video_screen.csb");
     bg->setName("bg");
     this->addChild(bg);
@@ -260,10 +262,27 @@ void LevelHelpScene::videoPlayOverCallback() {
 #endif
 }
 
+void LevelHelpScene::decideIndexOfVideo() {
+    while(_currentVideo + 1 < _videos.size()) {
+        std::string currentVideoStr;
+        int views = 0;
+        localStorageGetItem(_videos[_currentVideo], &currentVideoStr);
+        if(!currentVideoStr.empty()) {
+            views = std::atoi( currentVideoStr.c_str());
+        }
+        if(views < MAX_VIEWS) {
+            currentVideoStr = MenuContext::to_string(views + 1);
+            localStorageSetItem(_videos[_currentVideo], currentVideoStr);
+            break;
+        }
+        _currentVideo++;
+    }
+}
 
 void LevelHelpScene::gotoGame(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
         _currentVideo++;
+        decideIndexOfVideo();
         if(_currentVideo < _videos.size()) {
             removeChild(getChildByName("bg")->getChildByName("screen_1")->getChildByName("video"));
             getChildByName("bg")->getChildByName("screen_1")->removeChild(_resumeButton);

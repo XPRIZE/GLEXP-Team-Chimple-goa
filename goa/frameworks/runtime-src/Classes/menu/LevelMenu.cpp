@@ -200,12 +200,12 @@ bool LevelMenu::initWithGame(std::string gameName) {
             }
             newPos = Vec2(gap * i, vPos);
             but->setPosition(newPos);
-            auto levelLabel = std::to_string(i);
+            auto levelLabel = MenuContext::to_string(i);
             if(levelLabels.size() >= i) {
                 levelLabel = levelLabels[i-1];
             }
             but->setTitleText(levelLabel);
-            but->setName(std::to_string(i));
+            but->setName(MenuContext::to_string(i));
             but->setTitleFontSize(128.0);
             _scrollView->addChild(but, 2);
             if((i - 1) % changeDir == 0) {
