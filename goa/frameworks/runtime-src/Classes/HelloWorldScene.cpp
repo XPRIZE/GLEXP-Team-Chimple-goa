@@ -684,18 +684,21 @@ void HelloWorld::processTextMessage(std::unordered_map<int, std::string> textMap
         if(isExternalCharacter) {
             ExternalSkeletonCharacter* character = dynamic_cast<ExternalSkeletonCharacter *>(selectedNode);
             Point touch_point = character->convertToWorldSpace(character->getExternalSkeletonNode()->getPosition());
-            _speechBubbleView = SpeechBubbleView::create(textMap, Point(touch_point.x, touch_point.y + character->getExternalSkeletonNode()->getBoundingBox().size.height));
+            _speechBubbleView = SpeechBubbleView::createForExternalCharacter(character, textMap, Point(touch_point.x, touch_point.y + character->getExternalSkeletonNode()->getBoundingBox().size.height));
             
             this->setSpeechBubbleAlreadyVisible(true);
+            
+            character->getExternalSkeletonActionTimeLine()->play("talk", true);
             
             this->addChild(_speechBubbleView, 1);
             
         } else if(isSkeletonCharacter) {
             Point touch_point = this->skeletonCharacter->convertToWorldSpace(this->skeletonCharacter->getSkeletonNode()->getPosition());
             
-            _speechBubbleView = SpeechBubbleView::create(textMap, Point(touch_point.x, touch_point.y + this->skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height));
+            _speechBubbleView = SpeechBubbleView::createForCharacter(this->skeletonCharacter, textMap, Point(touch_point.x, touch_point.y + this->skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height));
             this->setSpeechBubbleAlreadyVisible(true);
-            
+            this->skeletonCharacter->getSkeletonActionTimeLine()->gotoFrameAndPause(0);
+            this->skeletonCharacter->getSkeletonActionTimeLine()->play("talk", true);
             this->addChild(_speechBubbleView, 1);
             
         } else if(isRPGSprite) {

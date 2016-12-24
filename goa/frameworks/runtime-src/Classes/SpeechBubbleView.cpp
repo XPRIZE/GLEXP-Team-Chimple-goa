@@ -10,15 +10,43 @@
 #include "cocos2d.h"
 #include "RPGConfig.h"
 
-
 USING_NS_CC;
 using namespace cocos2d::ui;
 
-SpeechBubbleView::SpeechBubbleView(): _button(nullptr) {
+SpeechBubbleView::SpeechBubbleView(): _button(nullptr),
+_externalCharacter(nullptr),
+_skeletonCharacter(nullptr)
+{
     
 }
 
 SpeechBubbleView::~SpeechBubbleView() {
+}
+
+
+SpeechBubbleView* SpeechBubbleView::createForExternalCharacter(ExternalSkeletonCharacter* character ,std::unordered_map<int, std::string> textMap, Point position) {
+    auto speechBubbleView = new SpeechBubbleView();
+    if (speechBubbleView && speechBubbleView->initialize(textMap, position)) {
+        speechBubbleView->_externalCharacter = character;
+        speechBubbleView->autorelease();
+        return speechBubbleView;
+    }
+    CC_SAFE_DELETE(speechBubbleView);
+    return nullptr;
+   
+}
+
+SpeechBubbleView* SpeechBubbleView::createForCharacter(SkeletonCharacter* character ,std::unordered_map<int, std::string> textMap, Point position) {
+    
+    auto speechBubbleView = new SpeechBubbleView();
+    if (speechBubbleView && speechBubbleView->initialize(textMap, position)) {
+        speechBubbleView->_skeletonCharacter = character;
+        speechBubbleView->autorelease();
+        return speechBubbleView;
+    }
+    CC_SAFE_DELETE(speechBubbleView);
+    return nullptr;
+
 }
 
 
@@ -173,6 +201,14 @@ void SpeechBubbleView::dialogSelected(Ref* pSender, ui::Widget::TouchEventType e
 }
 
 void SpeechBubbleView::destroySpeechBubbles() {
+    if(_externalCharacter != nullptr) {
+        _externalCharacter->getExternalSkeletonActionTimeLine()->play(IDLE, true);
+    }
+    
+    if(_skeletonCharacter != nullptr) {
+        _skeletonCharacter->getSkeletonActionTimeLine()->play(IDLE, true);
+    }
+    
     for (std::vector<Button*>::iterator it = this->textButtons.begin() ; it != this->textButtons.end(); ++it) {
         Button* button =  *it;
         button->setVisible(false);
