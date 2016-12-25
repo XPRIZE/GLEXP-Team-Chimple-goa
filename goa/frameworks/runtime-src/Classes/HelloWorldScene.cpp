@@ -121,17 +121,37 @@ void HelloWorld::renderBagPack() {
                 _bagPackNode->addChild(checkSprite, 1);
                 checkSprite->setPosition(node->getPosition());
             }
-            
         }
         
-        cocos2d::ui::Text* sLabel = dynamic_cast<cocos2d::ui::Text*>(node);
-        if(sLabel != NULL && sLabel->getChildrenCount() == 0) {
-            CCLOG("putting label text %s", sLabel->getName().c_str());
-            sLabel->setString(sLabel->getName());
-            sLabel->setFontSize(50);
-            sLabel->setFontName("Arial");
-            sLabel->setTextColor(Color4B::BLACK);
+        if(_wordMappings.size() > 0) {
+            cocos2d::ui::Text* sLabel = dynamic_cast<cocos2d::ui::Text*>(node);
+            if(sLabel != NULL && sLabel->getChildrenCount() == 0) {
+                CCLOG("putting label text %s", sLabel->getName().c_str());
+                std::string label = sLabel->getName();
+                std::string from = "_label";
+                size_t start_pos = label.find(from);
+                if(start_pos == std::string::npos) {
+                    
+                } else {
+                    label = label.replace(start_pos, from.length(), "");
+                    
+                    std::string::iterator end_pos = std::remove(label.begin(), label.end(), ' ');
+                    label.erase(end_pos, label.end());
+                }
+                
+                std::map<std::string,std::string>::const_iterator it = _wordMappings.find(label);
+                if ( it != _wordMappings.end() ) {
+                    std::string labelStr = it->second;
+                    sLabel->setString(labelStr);
+                    sLabel->setFontSize(50);
+                    sLabel->setFontName("Arial");
+                    sLabel->setTextColor(Color4B::BLACK);
+                }
+                
+            }            
         }
+        
+        
     }
     
     Node* textFieldNode = _bagPackNode->getChildByName("TextField");
@@ -301,11 +321,8 @@ void HelloWorld::loadWords() {
     
     //create hang bubble
     
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    
-    _hangBubbleNode = CSLoader::createNode("template/hang_bubble.csb");
-    this->addChild(_hangBubbleNode);
+//    _hangBubbleNode = CSLoader::createNode("template/hang_bubble.csb");
+//    this->addChild(_hangBubbleNode);
 
     
     std::string wordFile = !this->getSceneName().empty() ? this->getSceneName() + ".mapping.json":  this->getIsland() + ".mapping.json";
@@ -384,6 +401,9 @@ void HelloWorld::processMainLayerNonAlphamonChildrenForCustomEvents() {
         cocos2d::Node* node = *it;
         this->processNodeWithCustomAttributes(node, this->mainLayer);
     }
+    
+    this->skeletonCharacter->setExternalCharacterNames(this->getExternalCharacterNames());
+    
 }
 
 void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
@@ -418,6 +438,7 @@ void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
                         } else  {
                             //create external characters
                             CCLOG("Creating External Skeleton for node %s", node->getName().c_str());
+                            _externalCharactersNames.push_back(node->getName());
                             ExternalSkeletonCharacter* externalSkeletonCharacter = ExternalSkeletonCharacter::create(node, attributes);
                             this->mainLayer->addChild(externalSkeletonCharacter);
                             
@@ -596,6 +617,11 @@ void HelloWorld::addMainCharacterToScene(const std::string& filename, cocos2d::N
     
 }
 
+std::vector<std::string> HelloWorld::getExternalCharacterNames()
+{
+    return _externalCharactersNames;
+}
+
 void HelloWorld::initGestureLayer() {
     gesture_layer_ = GestureLayer::create(this, callfuncO_selector(HelloWorld::OnGestureReceived));
     this->mainLayer->addChild(gesture_layer_);
@@ -618,6 +644,8 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName, b
         this->setSceneName(sceneName);
     }
     
+    
+    CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile("template/template_02/template_02.plist");
 
     //default sceneName should be the same as island and default search path
     if(!sceneName.empty()) {
@@ -1414,85 +1442,85 @@ void HelloWorld::changeScene(std::string nextScene, bool isMiniGame) {
 }
 
 void HelloWorld::displayText(std::string word) {
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    
-    if(_textDisplayAnimationRunning) {
-        if(!_wordToPronounce.empty()) {
-            showText(_wordToPronounce);
-            this->unschedule(schedule_selector(HelloWorld::removeDisplayText));
-            displayTextAnimationFinished();
-        }
-    } else {
-        if(!_wordToPronounce.empty()) {
-            showText(_wordToPronounce);
-            _textDisplayAnimationRunning = true;
-            this->unschedule(schedule_selector(HelloWorld::removeDisplayText));
-            _hangBubbleNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height + 650));
-            auto moveTo = MoveTo::create(1.5, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height - 45));
-            auto elastic = EaseBackOut::create(moveTo);
-            auto callBack = CallFunc::create(CC_CALLBACK_0(HelloWorld::displayTextAnimationFinished, this));
-            auto bubbleAction = TargetedAction::create(_hangBubbleNode, elastic);
-            runAction(Sequence::create(bubbleAction, callBack, NULL));
-        }
-    }
+//    Size visibleSize = Director::getInstance()->getVisibleSize();
+//    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+//    
+//    if(_textDisplayAnimationRunning) {
+//        if(!_wordToPronounce.empty()) {
+//            showText(_wordToPronounce);
+//            this->unschedule(schedule_selector(HelloWorld::removeDisplayText));
+//            displayTextAnimationFinished();
+//        }
+//    } else {
+//        if(!_wordToPronounce.empty()) {
+//            showText(_wordToPronounce);
+//            _textDisplayAnimationRunning = true;
+//            this->unschedule(schedule_selector(HelloWorld::removeDisplayText));
+//            _hangBubbleNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height + 650));
+//            auto moveTo = MoveTo::create(1.5, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height - 45));
+//            auto elastic = EaseBackOut::create(moveTo);
+//            auto callBack = CallFunc::create(CC_CALLBACK_0(HelloWorld::displayTextAnimationFinished, this));
+//            auto bubbleAction = TargetedAction::create(_hangBubbleNode, elastic);
+//            runAction(Sequence::create(bubbleAction, callBack, NULL));
+//        }
+//    }
     
 }
 
 
 void HelloWorld::showText(std::string word) {
-    Node* textFieldNode = _hangBubbleNode->getChildByName("TextField_1");
-    if(textFieldNode) {
-        cocos2d::ui::TextField* textField = dynamic_cast<cocos2d::ui::TextField *>(textFieldNode);
-        if(textField != NULL) {
-            textField->setString(word);
+//    Node* textFieldNode = _hangBubbleNode->getChildByName("TextField_1");
+//    if(textFieldNode) {
+//        cocos2d::ui::TextField* textField = dynamic_cast<cocos2d::ui::TextField *>(textFieldNode);
+//        if(textField != NULL) {
+//            textField->setString(word);
 //            textField->setTextHorizontalAlignment(TextHAlignment.CENTER);
 //            textField->setTextVerticalAlignment(TextVAlignment.CENTER);
-            textField->setTouchEnabled(false);
-
-        }
-    }
+//            textField->setTouchEnabled(false);
+//
+//        }
+//    }
     
 }
 
 void HelloWorld::displayTextAnimationFinished() {
-    this->scheduleOnce(schedule_selector(HelloWorld::removeDisplayText), 3.0);
+//    this->scheduleOnce(schedule_selector(HelloWorld::removeDisplayText), 3.0);
 }
 
 
 void HelloWorld::beforeDisplayTextDisapperFinished() {
-    _textDisplayAnimationRunning = true;
+//    _textDisplayAnimationRunning = true;
     
 }
 
 void HelloWorld::afterDisplayTextDisapperFinished() {
-    _textDisplayAnimationRunning = false;
+//    _textDisplayAnimationRunning = false;
 }
 
 
 
 
 void HelloWorld::removeDisplayText(float dt) {
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-
-        auto textDropActionDisappearMoveTo = MoveTo::create(1.5, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height + 650));
-        auto textDropActionDisappearAction = TargetedAction::create(_hangBubbleNode, textDropActionDisappearMoveTo);
-        auto beforeDisplayTextDisapperAction = CallFunc::create(CC_CALLBACK_0(HelloWorld::beforeDisplayTextDisapperFinished, this));
-        auto afterDisplayTextDisapperAction = CallFunc::create(CC_CALLBACK_0(HelloWorld::afterDisplayTextDisapperFinished, this));
-    
-        runAction(Sequence::create(beforeDisplayTextDisapperAction, textDropActionDisappearAction, afterDisplayTextDisapperAction,  NULL));
-    
-    CCLOG("HelloWorld::removeDisplayText");
+//    Size visibleSize = Director::getInstance()->getVisibleSize();
+//    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+//
+//        auto textDropActionDisappearMoveTo = MoveTo::create(1.5, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height + 650));
+//        auto textDropActionDisappearAction = TargetedAction::create(_hangBubbleNode, textDropActionDisappearMoveTo);
+//        auto beforeDisplayTextDisapperAction = CallFunc::create(CC_CALLBACK_0(HelloWorld::beforeDisplayTextDisapperFinished, this));
+//        auto afterDisplayTextDisapperAction = CallFunc::create(CC_CALLBACK_0(HelloWorld::afterDisplayTextDisapperFinished, this));
+//    
+//        runAction(Sequence::create(beforeDisplayTextDisapperAction, textDropActionDisappearAction, afterDisplayTextDisapperAction,  NULL));
+//    
+//    CCLOG("HelloWorld::removeDisplayText");
 }
 
 void HelloWorld::buildText(EventCustom * event) {
-    std::string &word = *(static_cast<std::string*>(event->getUserData()));
-    CCLOG("changeWordScene %s", word.c_str());
-    
-    _wordToPronounce = word;
-    
-    displayText(_wordToPronounce);
+//    std::string &word = *(static_cast<std::string*>(event->getUserData()));
+//    CCLOG("changeWordScene %s", word.c_str());
+//    
+//    _wordToPronounce = word;
+//    
+//    displayText(_wordToPronounce);
 }
 
 

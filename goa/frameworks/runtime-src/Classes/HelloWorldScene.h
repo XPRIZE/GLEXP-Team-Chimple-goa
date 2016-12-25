@@ -65,7 +65,9 @@ private:
     std::string _hintText;
     
     std::map<std::string, std::string> _wordMappings;
-        
+    
+    std::vector<std::string> _externalCharactersNames;
+    
     SpeechBubbleView* _speechBubbleView;
     
     GestureLayer* gesture_layer_;
@@ -308,6 +310,8 @@ public:
     virtual bool checkTapOnRPGSprite(RPGSprite* rpgNode, cocos2d::Point position);    
     
     static const char* gameName() { return "Safari RPG";}
+    
+    std::vector<std::string> getExternalCharacterNames();
     
     void onExitTransitionDidStart() override;
     void onEnterTransitionDidFinish() override;
