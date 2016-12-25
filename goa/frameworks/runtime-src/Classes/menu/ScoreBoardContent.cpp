@@ -9,15 +9,15 @@
 #include "ScoreBoardContext.h"
 #include "HelloWorldScene.h"
 #include "LevelMenu.h"
-
+#include "storage/local-storage/LocalStorage.h"
 #include "scripting/js-bindings/manual/ScriptingCore.h"
 
 USING_NS_CC;
 
-ScoreBoardContext* ScoreBoardContext::create(int stars, std::string gameName, std::string sceneName)
+ScoreBoardContext* ScoreBoardContext::create(int stars, std::string gameName, std::string sceneName, int level)
 {
     ScoreBoardContext* scoreBoard = new (std::nothrow) ScoreBoardContext();
-    if(scoreBoard && scoreBoard->init(stars, gameName, sceneName)) {
+    if(scoreBoard && scoreBoard->init(stars, gameName, sceneName, level)) {
         scoreBoard->autorelease();
         return scoreBoard;
     }
@@ -35,7 +35,7 @@ _stars(0)
 ScoreBoardContext::~ScoreBoardContext() {
 }
 
-bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneName)
+bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneName, int level)
 {
     //////////////////////////////
     // 1. super init first
@@ -49,7 +49,44 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
     this->_gameName = gameName;
     this->_sceneName = sceneName;
     this->createScoreBoard();
+    std::string contents = FileUtils::getInstance()->getStringFromFile("config/game_map.json");
     
+    rapidjson::Document d;
+    
+    if (false == d.Parse<0>(contents.c_str()).HasParseError()) {
+        for (rapidjson::SizeType i = 0; i < d.Size(); i++) {
+            const rapidjson::Value& game = d[i];
+            std::string jsonGameName = game["name"].GetString();
+            if(gameName == jsonGameName) {
+                if(game.HasMember("rewards")) {
+                    const rapidjson::Value& rewards = game["rewards"];
+                    if(rewards.HasMember(MenuContext::to_string(level).c_str())) {
+                        const rapidjson::Value& unlock = rewards[MenuContext::to_string(level).c_str()];
+                        if(unlock.HasMember("unlock")) {
+                            std::string gameToUnlock = unlock["unlock"].GetString();
+                            std::string unlockedGamesStr;
+                            localStorageGetItem("unlockedGames", &unlockedGamesStr);
+                            rapidjson::Document unlockDoc;
+                            rapidjson::Document::AllocatorType& allocator = unlockDoc.GetAllocator();
+                            if(unlockedGamesStr.empty()) {
+                                unlockDoc.SetObject();
+                            } else {
+                                unlockDoc.Parse(unlockedGamesStr.c_str());
+                            }
+                            if(!unlockDoc.HasMember(gameToUnlock.c_str())) {
+                                unlockDoc.AddMember(rapidjson::Value(gameToUnlock.c_str(), allocator).Move(), "unlock", allocator);
+                                rapidjson::StringBuffer buffer;
+                                rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+                                unlockDoc.Accept(writer);
+                                const char* output = buffer.GetString();
+                                localStorageSetItem("unlockedGames", output);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
     return true;
 }
 

@@ -76,8 +76,8 @@ Scene* ScrollableGameMapScene::createScene() {
     auto scene = Scene::create();    
     auto layer = ScrollableGameMapScene::create();
     scene->addChild(layer);
-//    layer->menuContext = MenuContext::create(layer);
-//    scene->addChild(layer->menuContext);
+    layer->menuContext = MenuContext::create(layer);
+    scene->addChild(layer->menuContext);
     return scene;
 }
 
@@ -108,70 +108,83 @@ bool ScrollableGameMapScene::init() {
     auto spriteCache = SpriteFrameCache::getInstance();
     spriteCache->addSpriteFramesWithFile("gamemap/gamemap/gamemap.plist");
     
-    std::string gameNamesStr;
-    localStorageGetItem("gameNames", &gameNamesStr);
-    CCLOG("gameNamesStr %s", gameNamesStr.c_str());
-    std::vector<std::string> games = split(gameNamesStr, ',');
+    std::string contents = FileUtils::getInstance()->getStringFromFile("config/game_map.json");
     
+    rapidjson::Document d;
     
-//    std::vector<std::string> games = StartMenu::getGameNames();
-    const int numRows = NUMBER_OF_BUTTONS_ROWS;
-    const int numCols = NUMBER_OF_BUTTONS_COLS;
-    
-    const int numberOfPages = ceil((float) games.size() / (numRows * numCols));
+    if (false == d.Parse<0>(contents.c_str()).HasParseError()) {
 
-    
-    Texture2D *texture = Director::getInstance()->getTextureCache()->addImage("black_concrete.png");
-    Texture2D::TexParams tp = {GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT};
-    texture->setTexParameters(&tp);
-    Sprite *backgroundSpriteMapTile = Sprite::createWithTexture(texture, Rect(0, 0, visibleSize.width * numberOfPages, visibleSize.height));
-    backgroundSpriteMapTile->setPosition(Vec2( numberOfPages * visibleSize.width/2, visibleSize.height/2 ));
-    addChild(backgroundSpriteMapTile);
-    
-    for (int i = 0; i < numberOfPages; i++) {
-        auto node = CSLoader::createNode("gamemap/gamemap_bg.csb");
-        node->setPosition(Vec2(visibleSize.width * i, 0));
-        addChild(node);
-    }
-    
-    int index = 0;
-    int initialYOffSet = 1;
-    
-    for(int k = 0; k < numberOfPages; k++) {
+        const int numRows = NUMBER_OF_BUTTONS_ROWS;
+        const int numCols = NUMBER_OF_BUTTONS_COLS;
         
-        for (int i = 0; i < numRows; i++) {
-            for (int j = 0; j < numCols; j++) {
-                if(index < games.size()) {
-                    std::string gameName = games.at(index);
-                    std::string gameConfig;
-                    localStorageGetItem(gameName, &gameConfig);
-                    auto gameMap = parseGameConfigToMap(gameConfig);
-                    std::string buttonNormalIcon = gameMap["icon"];
-                    std::string buttonPressedIcon = gameMap["cIcon"];
-                    std::string buttonDisabledIcon = ICONS + "/" + games.at(index)+"_disabled.png";
-                    cocos2d::ui::Button* button = ui::Button::create(buttonNormalIcon, buttonPressedIcon, buttonDisabledIcon);
-                    button->setName(games.at(index));
-                    button->setPosition(Vec2(k * visibleSize.width + (j + 0.5) * visibleSize.width / numCols, visibleSize.height - (i + 0.5) * (visibleSize.height / numRows)));
-                    button->setTitleText(LangUtil::getInstance()->translateString(gameMap["title"]));
-                    button->setTitleAlignment(TextHAlignment::CENTER, TextVAlignment::BOTTOM);
-                    button->setTitleFontName("Arial");
-                    button->setTitleColor(Color3B(0xFF, 0xF2, 0x00));
-                    button->setTitleFontSize(72);
-                    button->addTouchEventListener(CC_CALLBACK_2(ScrollableGameMapScene::gameSelected, this));
-                    auto label = button->getTitleRenderer();
-                    label->setPosition(Vec2(label->getPositionX(), label->getPositionY()- 300));
-                    button->setScale(0.5);
-                    addChild(button);
-                    
-                    
+        const int numberOfPages = ceil((float) d.Size() / (numRows * numCols));
+
+        std::string unlockedGamesStr;
+        localStorageGetItem("unlockedGames", &unlockedGamesStr);
+        rapidjson::Document doc;
+        doc.Parse(unlockedGamesStr.c_str());
+
+        std::string unlockStr;
+        localStorageGetItem(".unlock", &unlockStr);
+        bool lockAll = true;
+        if (unlockStr.empty() || unlockStr == "0") {
+            lockAll = false;
+        }
+
+        Texture2D *texture = Director::getInstance()->getTextureCache()->addImage("black_concrete.png");
+        Texture2D::TexParams tp = {GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT};
+        texture->setTexParameters(&tp);
+        Sprite *backgroundSpriteMapTile = Sprite::createWithTexture(texture, Rect(0, 0, visibleSize.width * numberOfPages, visibleSize.height));
+        backgroundSpriteMapTile->setPosition(Vec2( numberOfPages * visibleSize.width/2, visibleSize.height/2 ));
+        addChild(backgroundSpriteMapTile);
+        
+        for (int i = 0; i < numberOfPages; i++) {
+            auto node = CSLoader::createNode("gamemap/gamemap_bg.csb");
+            node->setPosition(Vec2(visibleSize.width * i, 0));
+            addChild(node);
+        }
+        
+        int index = 0;
+        int initialYOffSet = 1;
+        
+        for(int k = 0; k < numberOfPages; k++) {
+            
+            for (int i = 0; i < numRows; i++) {
+                for (int j = 0; j < numCols; j++) {
+                    if(index < d.Size()) {
+                        const rapidjson::Value& game = d[index];
+                        std::string gameName = game["name"].GetString();
+                        std::string buttonNormalIcon = game["icon"].GetString();
+                        std::string buttonPressedIcon = game["cIcon"].GetString();
+                        std::string buttonDisabledIcon = ICONS + "/" + game["name"].GetString() + "_disabled.png";
+                        cocos2d::ui::Button* button = ui::Button::create(buttonNormalIcon, buttonPressedIcon, buttonDisabledIcon);
+                        button->setName(game["name"].GetString());
+                        button->setPosition(Vec2(k * visibleSize.width + (j + 0.5) * visibleSize.width / numCols, visibleSize.height - (i + 0.5) * (visibleSize.height / numRows)));
+                        button->setTitleText(LangUtil::getInstance()->translateString(game["title"].GetString()));
+                        button->setTitleAlignment(TextHAlignment::CENTER, TextVAlignment::BOTTOM);
+                        button->setTitleFontName("Arial");
+                        button->setTitleColor(Color3B(0xFF, 0xF2, 0x00));
+                        button->setTitleFontSize(72);
+                        if(!lockAll ||  (game.HasMember("unlock") && game["unlock"].GetBool()) || (doc.IsObject() && doc.HasMember(gameName.c_str()))) {
+                            button->addTouchEventListener(CC_CALLBACK_2(ScrollableGameMapScene::gameSelected, this));
+                        } else {
+                            button->setBright(false);
+                        }
+                        auto label = button->getTitleRenderer();
+                        label->setPosition(Vec2(label->getPositionX(), label->getPositionY()- 300));
+                        button->setScale(0.5);
+                        addChild(button);
+                        
+                        
+                    }
+                    index++;
                 }
-                index++;
             }
         }
+        setContentSize(visibleSize);
+        setDirection(cocos2d::ui::ScrollView::Direction::HORIZONTAL);
+        setInnerContainerSize(Size(visibleSize.width * numberOfPages, visibleSize.height));
     }
-    setContentSize(visibleSize);
-    setDirection(cocos2d::ui::ScrollView::Direction::HORIZONTAL);
-    setInnerContainerSize(Size(visibleSize.width * numberOfPages, visibleSize.height));
     setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::GRADIENT);
     setBackGroundColor(Color3B(255, 159, 0), Color3B::WHITE);
     return true;
@@ -259,6 +272,11 @@ std::map<std::string, std::string> ScrollableGameMapScene::parseGameConfigToMap(
         returnMap["cIcon"] = gameConfig["cIcon"].GetString();
         returnMap["icon"] = gameConfig["icon"].GetString();
         returnMap["title"] = LangUtil::getInstance()->translateString(gameConfig["title"].GetString());
+        if(gameConfig.HasMember("unlock") && gameConfig["unlock"].GetBool()) {
+            returnMap["unlock"] = "true";
+        } else {
+            returnMap["unlock"] = "false";
+        }
     }else{
         // error
     }
