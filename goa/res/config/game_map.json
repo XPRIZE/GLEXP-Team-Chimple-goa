@@ -31,6 +31,20 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "2",
         "numLevels": "3",
+        "unlock": true,
+        "rewards" : {
+            "1": {
+                "unlock": "EndlessRunner"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "Kung Fu Alpha",
+                "min": "4"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "dinolevel/Layer1.json",
         "foregroundJson": "dinolevel/Layer3.json",
         "frontgroundJson": "dinolevel/Layer4.json",
@@ -41,7 +55,6 @@
     {
         "name": "EndlessRunner",
         "title": "Run and Catch",
-        "unlock": true,
         "cIcon": "gameicons/EndlessRunner_pressed.png",
         "icon": "gameicons/EndlessRunner.png",
         "multiPlayer": false,
@@ -56,8 +69,16 @@
         "menuPlist": "endlessrunner/endlessrunner_01.plist",
         "menuPng": "endlessrunner/endlessrunner_01.png",
         "rewards" : {
-            "2": {
+            "1": {
                 "unlock": "book"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "Kung Fu Alpha",
+                "min": "4"
+            },
+            "3": {
+                "badge": "fearless_warrior"
             }
         }
     },
@@ -77,6 +98,19 @@
         "maingroundJson": "tablelevel/mainground.json",
         "menuPlist": "tablelevel/tablelevel.plist",
         "menuPng": "tablelevel/tablelevel.png",
+        "rewards" : {
+            "1": {
+                "unlock": "bubble"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "Kung Fu Alpha",
+                "min": "4"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "lang": {
             "swa": {
                 "labels": [
@@ -151,6 +185,19 @@
         "script": "src/start/BubbleShooter.js",
         "span": "3",
         "numLevels": "14",
+        "rewards" : {
+            "1": {
+                "unlock": "Cannon Ball"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "Kung Fu Alpha",
+                "min": "4"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "bubble_shooter_level/background.json",
         "foregroundJson": "bubble_shooter_level/foreground.json",
         "frontgroundJson": "bubble_shooter_level/frontground.json",
@@ -167,6 +214,19 @@
         "isJSGame": false,
         "script": "src/NonJSGameLauncher.js",
         "span": "2",
+        "rewards" : {
+            "1": {
+                "unlock": "decomone"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "Kung Fu Alpha",
+                "min": "4"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "numLevels": "10",
         "backgroundJson": "plevelscreen2/cblevelbg.json",
         "foregroundJson": "plevelscreen2/cblevelfrg.json",
@@ -185,6 +245,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "10",
         "numLevels": "62",
+        "rewards" : {
+            "1": {
+                "unlock": "Alphamon Feed"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "Kung Fu Alpha",
+                "min": "4"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "decomonlevel/Layer1.json",
         "foregroundJson": "decomonlevel/Layer3.json",
         "frontgroundJson": "decomonlevel/Layer4.json",
@@ -202,6 +275,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "5",
         "numLevels": "26",
+        "rewards" : {
+            "1": {
+                "unlock": "alphamole"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "Kung Fu Alpha",
+                "min": "4"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "alphafeedlevel/Layer1.json",
         "foregroundJson": "alphafeedlevel/Layer3.json",
         "frontgroundJson": "alphafeedlevel/Layer4.json",
@@ -283,6 +369,19 @@
         "script": "src/start/sortit.js",
         "span": "2",
         "numLevels": "6",
+        "rewards" : {
+            "1": {
+                "unlock": "Dots"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "step",
+                "min": "3"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "sortitlevel/background.json",
         "foregroundJson": "sortitlevel/foreground.json",
         "frontgroundJson": "sortitlevel/frontground.json",
@@ -300,6 +399,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "3",
         "numLevels": "26",
+        "rewards" : {
+            "1": {
+                "unlock": "Cross The Bridge"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "Kung Fu Alpha",
+                "min": "4"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "alphamolelevel/alphamolebackground.json",
         "foregroundJson": "alphamolelevel/alphamoleforeground.json",
         "frontgroundJson": "alphamolelevel/alphamolefrontground.json",
@@ -379,6 +491,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "3",
         "numLevels": "26",
+        "rewards" : {
+            "1": {
+                "unlock": "Smash The Rock"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "Kung Fu Alpha",
+                "min": "4"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "crossthebridgelevel/background.json",
         "foregroundJson": "crossthebridgelevel/foreground.json",
         "frontgroundJson": "crossthebridgelevel/frontground.json",
@@ -396,6 +521,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "5",
         "numLevels": "26",
+        "rewards" : {
+            "1": {
+                "unlock": "Patch The Wall"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "Kung Fu Alpha",
+                "min": "4"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "smash_de_rock/layer1.json",
         "foregroundJson": "smash_de_rock/layer3.json",
         "frontgroundJson": "smash_de_rock/layer4.json",
@@ -413,6 +551,16 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "3",
         "numLevels": "10",
+        "rewards" : {
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "Kung Fu Alpha",
+                "min": "4"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "patchthewalllevel/background.json",
         "foregroundJson": "patchthewalllevel/foreground.json",
         "frontgroundJson": "patchthewalllevel/frontground.json",
@@ -448,6 +596,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "5",
         "numLevels": "26",
+        "rewards" : {
+            "1": {
+                "unlock": "cardraw"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "baja",
+                "min": "3"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "kungfualpha/background.json",
         "foregroundJson": "kungfualpha/foreground.json",
         "frontgroundJson": "kungfualpha/frontground.json",
@@ -527,6 +688,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "5",
         "numLevels": "62",
+        "rewards" : {
+            "1": {
+                "unlock": "blastletter"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "baja",
+                "min": "3"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "cardraw_level/background.json",
         "foregroundJson": "cardraw_level/foreground.json",
         "frontgroundJson": "cardraw_level/frontground.json",
@@ -544,6 +718,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "10",
         "numLevels": "86",
+        "rewards" : {
+            "1": {
+                "unlock": "Door"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "baja",
+                "min": "3"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "blastletterlevel/background.json",
         "foregroundJson": "blastletterlevel/foreground.json",
         "frontgroundJson": "blastletterlevel/frontground.json",
@@ -561,6 +748,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "10",
         "numLevels": "80",
+        "rewards" : {
+            "1": {
+                "unlock": "TreasureHunt"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "baja",
+                "min": "3"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "doorslevel/Layer1.json",
         "foregroundJson": "doorslevel/Layer3.json",
         "frontgroundJson": "doorslevel/Layer4.json",
@@ -578,6 +778,16 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "5",
         "numLevels": "26",
+        "rewards" : {
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "baja",
+                "min": "3"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "boxlevel/background.json",
         "foregroundJson": "boxlevel/foreground.json",
         "frontgroundJson": "boxlevel/frontground.json",
@@ -595,6 +805,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "5",
         "numLevels": "40",
+        "rewards" : {
+            "1": {
+                "unlock": "jasmine"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "order",
+                "min": "5"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "plevelscreen2/bjlevelbg.json",
         "foregroundJson": "plevelscreen2/bjlevelfrg.json",
         "frontgroundJson": "plevelscreen2/bjlevelfng.json",
@@ -612,6 +835,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "7",
         "numLevels": "40",
+        "rewards" : {
+            "1": {
+                "unlock": "chain"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "order",
+                "min": "5"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "jasminelevel/Layer1.json",
         "foregroundJson": "jasminelevel/Layer3.json",
         "frontgroundJson": "jasminelevel/Layer4.json",
@@ -629,6 +865,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "5",
         "numLevels": "24",
+        "rewards" : {
+            "1": {
+                "unlock": "wembley"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "order",
+                "min": "5"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "chainlevel/chainbackground.json",
         "foregroundJson": "chainlevel/chainforeground.json",
         "frontgroundJson": "chainlevel/chainfrontground.json",
@@ -646,6 +895,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "5",
         "numLevels": "40",
+        "rewards" : {
+            "1": {
+                "unlock": "jazz"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "order",
+                "min": "5"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "wembleylevel/layer1.json",
         "foregroundJson": "wembleylevel/level3.json",
         "frontgroundJson": "wembleylevel/level4.json",
@@ -663,6 +925,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "5",
         "numLevels": "40",
+        "rewards" : {
+            "1": {
+                "unlock": "cat"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "order",
+                "min": "5"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "jazzlevel/background.json",
         "foregroundJson": "jazzlevel/foreground.json",
         "frontgroundJson": "jazzlevel/frontground.json",
@@ -680,6 +955,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "5",
         "numLevels": "40",
+        "rewards" : {
+            "1": {
+                "unlock": "shoot"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "order",
+                "min": "5"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "hippolevel/background.json",
         "foregroundJson": "hippolevel/foregorund.json",
         "frontgroundJson": "hippolevel/frontground.json",
@@ -698,6 +986,19 @@
         "script": "src/start/Pinata.js",
         "span": "4",
         "numLevels": "30",
+        "rewards" : {
+            "1": {
+                "unlock": "owl"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "order",
+                "min": "5"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "pinatacandylevel/background.json",
         "foregroundJson": "pinatacandylevel/foreground.json",
         "frontgroundJson": "pinatacandylevel/frontground.json",
@@ -715,6 +1016,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "7",
         "numLevels": "50",
+        "rewards" : {
+            "1": {
+                "unlock": "stack"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "order",
+                "min": "5"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "owllevel/background.json",
         "foregroundJson": "owllevel/foreground.json",
         "frontgroundJson": "owllevel/frontground.json",
@@ -732,6 +1046,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "9",
         "numLevels": "72",
+        "rewards" : {
+            "1": {
+                "unlock": "talk"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "order",
+                "min": "5"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "plevelscreen/sklevelbg.json",
         "foregroundJson": "plevelscreen/sklevelfrg.json",
         "frontgroundJson": "plevelscreen/sklevelfng.json",
@@ -749,6 +1076,16 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "9",
         "numLevels": "72",
+        "rewards" : {
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "order",
+                "min": "5"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "talkislandlevel/talkbackground.json",
         "foregroundJson": "talkislandlevel/talkforeground.json",
         "frontgroundJson": "talkislandlevel/talkfrontground.json",
@@ -766,6 +1103,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "5",
         "numLevels": "20",
+        "rewards" : {
+            "1": {
+                "unlock": "dash"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "JumpOnWords",
+                "min": "5"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "orderlevel/Layer1.json",
         "foregroundJson": "orderlevel/Layer3.json",
         "frontgroundJson": "orderlevel/Layer4.json",
@@ -783,6 +1133,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "10",
         "numLevels": "75",
+        "rewards" : {
+            "1": {
+                "unlock": "bingo"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "JumpOnWords",
+                "min": "5"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "dashlevel/background.json",
         "foregroundJson": "dashlevel/foreground.json",
         "frontgroundJson": "dashlevel/frontground.json",
@@ -800,6 +1163,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "5",
         "numLevels": "36",
+        "rewards" : {
+            "1": {
+                "unlock": "drop"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "JumpOnWords",
+                "min": "5"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "bingolevel/layer1.json",
         "foregroundJson": "bingolevel/leyel3.json",
         "frontgroundJson": "bingolevel/level4.json",
@@ -817,6 +1193,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "8",
         "numLevels": "60",
+        "rewards" : {
+            "1": {
+                "unlock": "train"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "JumpOnWords",
+                "min": "5"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "droplevel/Layer1.json",
         "foregroundJson": "droplevel/Layer3.json",
         "frontgroundJson": "droplevel/Layer4.json",
@@ -835,6 +1224,19 @@
         "script": "src/start/train.js",
         "span": "6",
         "numLevels": "48",
+        "rewards" : {
+            "1": {
+                "unlock": "pop"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "JumpOnWords",
+                "min": "5"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "trainlevel/background.json",
         "foregroundJson": "trainlevel/foreground.json",
         "frontgroundJson": "trainlevel/frontground.json",
@@ -853,6 +1255,19 @@
         "script": "src/start/pop.js",
         "span": "6",
         "numLevels": "48",
+        "rewards" : {
+            "1": {
+                "unlock": "memory"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "JumpOnWords",
+                "min": "5"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "pop/pplevelbg.json",
         "foregroundJson": "pop/pplevelfrg.json",
         "frontgroundJson": "pop/pplevelfng.json",
@@ -870,6 +1285,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "6",
         "numLevels": "36",
+        "rewards" : {
+            "1": {
+                "unlock": "balloon"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "JumpOnWords",
+                "min": "5"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "memorylevel/layer1.json",
         "foregroundJson": "memorylevel/layer3.json",
         "frontgroundJson": "memorylevel/layer4.json",
@@ -887,6 +1315,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "9",
         "numLevels": "72",
+        "rewards" : {
+            "1": {
+                "unlock": "pillar"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "JumpOnWords",
+                "min": "5"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "balloonhero/bllevelbg.json",
         "foregroundJson": "balloonhero/bllevelfrg.json",
         "frontgroundJson": "balloonhero/bllevelfng.json",
@@ -904,6 +1345,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "10",
         "numLevels": "75",
+        "rewards" : {
+            "1": {
+                "unlock": "circle"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "JumpOnWords",
+                "min": "5"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "layercandylevel/background.json",
         "foregroundJson": "layercandylevel/foreground.json",
         "frontgroundJson": "layercandylevel/frontground.json",
@@ -921,6 +1375,16 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "10",
         "numLevels": "75",
+        "rewards" : {
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "JumpOnWords",
+                "min": "5"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "circleislandlevel/circlebackground.json",
         "foregroundJson": "circleislandlevel/circleforeground.json",
         "frontgroundJson": "circleislandlevel/circlefrontground.json",
@@ -975,6 +1439,19 @@
         "script": "src/start/dots.js",
         "span": "2",
         "numLevels": "12",
+        "rewards" : {
+            "1": {
+                "unlock": "popcount"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "Line",
+                "min": "4"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "dots_level/background.json",
         "foregroundJson": "dots_level/foreground.json",
         "frontgroundJson": "dots_level/frontground.json",
@@ -992,6 +1469,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "2",
         "numLevels": "10",
+        "rewards" : {
+            "1": {
+                "unlock": "spot"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "Line",
+                "min": "4"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "popcountlevel/background.json",
         "foregroundJson": "popcountlevel/foreground.json",
         "frontgroundJson": "popcountlevel/frontground.json",
@@ -1009,6 +1499,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "2",
         "numLevels": "6",
+        "rewards" : {
+            "1": {
+                "unlock": "Item"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "Line",
+                "min": "4"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "spotlevel/Layer1.json",
         "foregroundJson": "spotlevel/Layer3.json",
         "frontgroundJson": "spotlevel/Layer4.json",
@@ -1026,6 +1529,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "5",
         "numLevels": "25",
+        "rewards" : {
+            "1": {
+                "unlock": "ConnectTheDots"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "Line",
+                "min": "4"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "itemlevel/background.json",
         "foregroundJson": "itemlevel/foreground.json",
         "frontgroundJson": "itemlevel/frontground.json",
@@ -1044,6 +1560,19 @@
         "script": "src/start/connectTheDots.js",
         "span": "2",
         "numLevels": "10",
+        "rewards" : {
+            "1": {
+                "unlock": "chocolateFactory"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "Line",
+                "min": "4"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "cityscreen/background.json",
         "foregroundJson": "cityscreen/foreground.json",
         "frontgroundJson": "cityscreen/frontground.json",
@@ -1061,6 +1590,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "5",
         "numLevels": "20",
+        "rewards" : {
+            "1": {
+                "unlock": "step"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "Line",
+                "min": "4"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "plevelscreen2/cflevelbg.json",
         "foregroundJson": "plevelscreen2/cflevelfrg.json",
         "frontgroundJson": "plevelscreen2/cflevelfng.json",
@@ -1078,6 +1620,19 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "6",
         "numLevels": "45",
+        "rewards" : {
+            "1": {
+                "unlock": "jumpingNumbers"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "Line",
+                "min": "4"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "stepcandylevel/background.json",
         "foregroundJson": "stepcandylevel/foreground.json",
         "frontgroundJson": "stepcandylevel/frontground.json",
@@ -1095,6 +1650,16 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "5",
         "numLevels": "29",
+        "rewards" : {
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "Line",
+                "min": "4"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "jumping_number_level/background.json",
         "foregroundJson": "jumping_number_level/foreground.json",
         "frontgroundJson": "jumping_number_level/frontground.json",
@@ -1112,6 +1677,14 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "3",
         "numLevels": "20",
+        "rewards" : {
+            "3": {
+                "unlock": "balloonMath"
+            },
+            "5": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "linecandylevel/background.json",
         "foregroundJson": "linecandylevel/foreground.json",
         "frontgroundJson": "linecandylevel/frontground.json",
@@ -1129,6 +1702,14 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "4",
         "numLevels": "30",
+        "rewards" : {
+            "3": {
+                "unlock": "shop"
+            },
+            "5": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "balloonpoplevel/backgroung.json",
         "foregroundJson": "balloonpoplevel/foreground.json",
         "frontgroundJson": "balloonpoplevel/frontground.json",
@@ -1146,6 +1727,14 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "5",
         "numLevels": "30",
+        "rewards" : {
+            "3": {
+                "unlock": "Units"
+            },
+            "5": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "shopinglevel/level1.json",
         "foregroundJson": "shopinglevel/level3.json",
         "frontgroundJson": "shopinglevel/level4.json",
@@ -1163,6 +1752,14 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "2",
         "numLevels": "10",
+        "rewards" : {
+            "3": {
+                "unlock": "atm"
+            },
+            "5": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "unitslevel/level1.json",
         "foregroundJson": "unitslevel/level3.json",
         "frontgroundJson": "unitslevel/level4.json",
@@ -1180,6 +1777,14 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "5",
         "numLevels": "25",
+        "rewards" : {
+            "3": {
+                "unlock": "Bounce"
+            },
+            "5": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "ATM_level/background.json",
         "foregroundJson": "ATM_level/foreground.json",
         "frontgroundJson": "ATM_level/frontground.json",
@@ -1198,6 +1803,14 @@
         "script": "src/start/connectTheDots.js",
         "span": "4",
         "numLevels": "20",
+        "rewards" : {
+            "3": {
+                "unlock": "card"
+            },
+            "5": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "icecreamlevel/background.json",
         "foregroundJson": "icecreamlevel/foreground.json",
         "frontgroundJson": "icecreamlevel/frontground.json",
@@ -1215,6 +1828,14 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "3",
         "numLevels": "20",
+        "rewards" : {
+            "3": {
+                "unlock": "table"
+            },
+            "5": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "cardlevel/Layer1.json",
         "foregroundJson": "cardlevel/Layer3.json",
         "frontgroundJson": "cardlevel/Layer4.json",
@@ -1232,6 +1853,11 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "3",
         "numLevels": "15",
+        "rewards" : {
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
         "backgroundJson": "tablelevel/background.json",
         "foregroundJson": "tablelevel/foreground.json",
         "frontgroundJson": "tablelevel/frontground.json",

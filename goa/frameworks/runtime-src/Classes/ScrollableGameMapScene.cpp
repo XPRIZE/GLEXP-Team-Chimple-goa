@@ -126,9 +126,9 @@ bool ScrollableGameMapScene::init() {
 
         std::string unlockStr;
         localStorageGetItem(".unlock", &unlockStr);
-        bool lockAll = true;
-        if (unlockStr.empty() || unlockStr == "0") {
-            lockAll = false;
+        bool lockAll = false;
+        if (unlockStr.empty() || unlockStr == "1") {
+            lockAll = true;
         }
 
         Texture2D *texture = Director::getInstance()->getTextureCache()->addImage("black_concrete.png");
@@ -157,9 +157,11 @@ bool ScrollableGameMapScene::init() {
                         std::string buttonNormalIcon = game["icon"].GetString();
                         std::string buttonPressedIcon = game["cIcon"].GetString();
                         std::string buttonDisabledIcon = ICONS + "/" + game["name"].GetString() + "_disabled.png";
-                        cocos2d::ui::Button* button = ui::Button::create(buttonNormalIcon, buttonPressedIcon, buttonDisabledIcon);
+                        cocos2d::ui::Button* button = ui::Button::create();
+                        button->loadTextureNormal(buttonNormalIcon);
+                        button->loadTexturePressed(buttonPressedIcon);
                         button->setName(game["name"].GetString());
-                        button->setPosition(Vec2(k * visibleSize.width + (j + 0.5) * visibleSize.width / numCols, visibleSize.height - (i + 0.5) * (visibleSize.height / numRows)));
+                        button->setPosition(Vec2(k * visibleSize.width + (j + 0.5) * visibleSize.width / numCols, visibleSize.height - 200 - (i + 0.5) * ((visibleSize.height - 200) / numRows)));
                         button->setTitleText(LangUtil::getInstance()->translateString(game["title"].GetString()));
                         button->setTitleAlignment(TextHAlignment::CENTER, TextVAlignment::BOTTOM);
                         button->setTitleFontName("Arial");

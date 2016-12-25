@@ -30,6 +30,10 @@ CC_CONSTRUCTOR_ACCESS:
     ScoreBoardContext();
     virtual ~ScoreBoardContext();
     
+protected:
+    bool unlockGame(std::string gameToUnlock);
+    std::string _gameToUnlock;
+    std::string _badge;
 private:
     void createScoreBoard();
     void processChildNodes(cocos2d::Node *rootNode);
