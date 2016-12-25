@@ -57,5 +57,6 @@ with open('scripts/json_mappings.csv', 'w') as csvfile:
         if story_dict[story][scene][node] == '':
           story_dict[story][scene][node] = re.sub(r'^([a-zA-Z_]+?)_*[\d_]*$',r'\1',node).lower()
         mappingwriter.writerow([story, scene, node, story_dict[story][scene][node]])
-    with open(dirname + os.path.sep + story + '.mapping.json', 'w') as mapping_json:
-      mapping_json.write(json.dumps(mapping, sort_keys=True, indent=4, separators=(',', ': ')))
+    if basename == story:
+      with open(dirname + os.path.sep + basename + '.mapping.json', 'w') as mapping_json:
+        mapping_json.write(json.dumps(mapping, sort_keys=True, indent=4, separators=(',', ': ')))
