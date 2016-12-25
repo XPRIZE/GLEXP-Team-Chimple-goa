@@ -730,7 +730,7 @@ void HelloWorld::showWordBubblesNotificationReceived(EventCustom * event) {
 }
 
 void HelloWorld::showWordBubbles(float dt) {
-    if(this->skeletonCharacter->isStanding && !this->getSpeechBubbleAlreadyVisible()) {
+    if(this->skeletonCharacter->isStanding && _bagPackNode == nullptr && !this->getSpeechBubbleAlreadyVisible()) {
         std::map<std::string,std::string> mapping = _wordMappings;
         
         std::map<std::string, std::string>::iterator it;
