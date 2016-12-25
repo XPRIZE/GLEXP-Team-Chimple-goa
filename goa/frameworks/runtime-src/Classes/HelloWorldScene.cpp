@@ -200,7 +200,7 @@ void HelloWorld::showBagpackOpenAnimation(std::unordered_map<int, std::string> t
 
 void HelloWorld::showBagPack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
-        if(_bagPackNode == nullptr)
+        if(_bagPackNode == NULL)
         {
             std::unordered_map<int, std::string> textMapFollowedByAnimation;
             showBagpackOpenAnimation(textMapFollowedByAnimation, "");
@@ -211,7 +211,7 @@ void HelloWorld::showBagPack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 
 void HelloWorld::removeBagPack(std::unordered_map<int, std::string> textMapFollowedByAnimation, std::string owner) {
     _bagPackNode->removeFromParent();
-    _bagPackNode = nullptr;
+    _bagPackNode = NULL;
     if(textMapFollowedByAnimation.size() > 0 && !owner.empty())
     {
         this->processTextMessage(textMapFollowedByAnimation, owner);
@@ -346,14 +346,15 @@ void HelloWorld::loadWords() {
             {
                 key   = M->name.GetString();
                 value = M->value.GetString();
-                
+                std::string sValue = value;
+                sValue = LangUtil::getInstance()->translateString(sValue);
                 
                 if (key!=NULL && value!=NULL)
                 {
-                    CCLOG("%s = %s", key,value);
+                    CCLOG("%s = %s", key,sValue.c_str());
                 }
                 
-                _wordMappings.insert({key,value});
+                _wordMappings.insert({key,sValue});
             }
         }
     }
@@ -730,7 +731,7 @@ void HelloWorld::showWordBubblesNotificationReceived(EventCustom * event) {
 }
 
 void HelloWorld::showWordBubbles(float dt) {
-    if(this->skeletonCharacter->isStanding && _bagPackNode == nullptr && !this->getSpeechBubbleAlreadyVisible()) {
+    if(this->skeletonCharacter->isStanding && _bagPackNode == NULL && !this->getSpeechBubbleAlreadyVisible()) {
         std::map<std::string,std::string> mapping = _wordMappings;
         
         std::map<std::string, std::string>::iterator it;
