@@ -350,6 +350,23 @@
         "menuPlist": "doorslevel/doorslevel.plist",
         "menuPng": "doorslevel/doorslevel.png"  
     },  
+  {
+    "name": "TreasureHunt",
+        "title": "Treasure Hunt",
+    "cIcon": "gameicons/box_pressed.png",
+    "icon": "gameicons/box.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "5",
+    "numLevels": "26",
+    "backgroundJson": "boxlevel/background.json",
+    "foregroundJson": "boxlevel/foreground.json",
+    "frontgroundJson": "boxlevel/frontground.json",
+    "maingroundJson": "boxlevel/mainground.json",
+    "menuPlist": "boxlevel/boxlevel.plist",
+    "menuPng": "boxlevel/boxlevel.png"
+  },
     {
         "name": "baja",
         "title": "Drive",
@@ -657,23 +674,6 @@
     "maingroundJson": "balloonhero/bllevelmng.json",
     "menuPlist": "plevelscreen/plevelscreen.plist",
     "menuPng": "plevelscreen/plevelscreen.png"
-  },
-  {
-    "name": "TreasureHunt",
-        "title": "Treasure Hunt",
-    "cIcon": "gameicons/box_pressed.png",
-    "icon": "gameicons/box.png",
-    "multiPlayer": false,
-    "isJSGame": false,
-    "script": "src/NonJSGameLauncher.js",
-    "span": "5",
-    "numLevels": "26",
-    "backgroundJson": "boxlevel/background.json",
-    "foregroundJson": "boxlevel/foreground.json",
-    "frontgroundJson": "boxlevel/frontground.json",
-    "maingroundJson": "boxlevel/mainground.json",
-    "menuPlist": "boxlevel/boxlevel.plist",
-    "menuPng": "boxlevel/boxlevel.png"
   },
    {
     "name": "pillar",

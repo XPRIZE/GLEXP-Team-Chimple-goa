@@ -8,6 +8,8 @@
 
 #include "ScoreBoardContext.h"
 #include "HelloWorldScene.h"
+#include "LevelMenu.h"
+
 #include "scripting/js-bindings/manual/ScriptingCore.h"
 
 USING_NS_CC;
@@ -161,8 +163,8 @@ void ScoreBoardContext::buttonClicked(Ref* pSender, ui::Widget::TouchEventType e
                     Director::getInstance()->replaceScene(TransitionFade::create(0.5, HelloWorld::createScene("camp","", true), Color3B::BLACK));
                     
                 } else {
-//                    Director::getInstance()->replaceScene(TransitionFade::create(1.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
-                    ScriptingCore::getInstance()->runScript("src/start/menu.js");                    
+                    Director::getInstance()->replaceScene(LevelMenu::createScene(_gameName));
+                    
                 }
             }
             else  {
