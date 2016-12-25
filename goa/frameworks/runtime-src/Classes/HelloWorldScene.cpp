@@ -308,26 +308,59 @@ void HelloWorld::loadWords() {
     this->addChild(_hangBubbleNode);
 
     
-    std::string wordFile = !this->getSceneName().empty() ? this->getSceneName(): this->getIsland();
+    std::string wordFile = !this->getSceneName().empty() ? this->getSceneName() + "_mapping.json":  this->getIsland() + "_mapping.json";
     
-    std::map<std::string,std::string> mapping = this->sqlite3Helper->loadNodeWordMapping(wordFile.c_str());
+    if(FileUtils::getInstance()->isFileExist(wordFile)) {
+        std::string jsonData = FileUtils::getInstance()->getStringFromFile(wordFile);
+        CCLOG("got data %s", jsonData.c_str());
+        
+        
+        rapidjson::Document d;
+        rapidjson::Value::MemberIterator M;
+        const char *key,*value;
+
+        d.Parse<0>(jsonData.c_str());
+        if (d.HasParseError()) {
+            CCLOG("GetParseError %u\n",d.GetParseError());
+        } else
+        {
+            
+            for (M=d.MemberBegin(); M!=d.MemberEnd(); M++)
+            {
+                key   = M->name.GetString();
+                value = M->value.GetString();
+                
+                
+                if (key!=NULL && value!=NULL)
+                {
+                    CCLOG("%s = %s", key,value);
+                }
+                
+                _wordMappings.insert({key,value});
+            }
+        }
+    }
+    
+    
+    std::map<std::string,std::string> mapping = _wordMappings;
     
     std::map<std::string, std::string>::iterator it;
-    CCLOG("wordFile %s", wordFile.c_str());
     for(it = mapping.begin(); it != mapping.end(); it++) {
-        std::string word  = it->first;
-        std::string nodeName = it->second;
+        std::string nodeName  = it->first;
+        std::string word = it->second;
         
         CCLOG("node=%s, word=%s", nodeName.c_str(), word.c_str());
         Node* node = this->mainLayer->getChildByName(nodeName.c_str());
         if(node != NULL && !word.empty()) {
-//            this->createWordSprite(node, word, this->mainLayer);
+            this->createWordSprite(node, word, this->mainLayer);
+            CCLOG("Found node %s for word %s", node->getName().c_str(), word.c_str());
         } else {
             if(this->foregroundLayer != NULL)
             {
                 node = this->foregroundLayer->getChildByName(nodeName.c_str());
                 if(node != NULL && !word.empty()) {
-//                    this->createWordSprite(node, word, this->foregroundLayer);
+                    CCLOG("Found node %s for word %s", node->getName().c_str(), word.c_str());
+                    this->createWordSprite(node, word, this->foregroundLayer);
                 }
             }
         }
@@ -336,8 +369,10 @@ void HelloWorld::loadWords() {
 
 void HelloWorld::createWordSprite(Node* node, std::string word, Node* parentNode)
 {
-    WordSprite* wordSprite = WordSprite::create(node, word);
-    parentNode->addChild(wordSprite);
+    WordBubble* wordBubble = WordBubble::create(word, Vec2(node->getPosition().x, node->getPosition().y + 200));
+    wordBubble->setName(word+"_wordBubble");
+    wordBubble->setVisible(false);
+    parentNode->addChild(wordBubble, 12);
 }
 
 
@@ -654,9 +689,49 @@ void HelloWorld::registerMessageSenderAndReceiver() {
 
     
     this->getEventDispatcher()->addCustomEventListener(RPGConfig::ON_WORD_INFO_NOTIFICATION, CC_CALLBACK_1(HelloWorld::buildText, this));
-    
+
+    this->getEventDispatcher()->addCustomEventListener(RPGConfig::WORD_BUBBLE_SHOW_NOTIFICATION, CC_CALLBACK_1(HelloWorld::showWordBubblesNotificationReceived, this));
+
+    this->getEventDispatcher()->addCustomEventListener(RPGConfig::WORD_BUBBLE_HIDE_NOTIFICATION, CC_CALLBACK_1(HelloWorld::hideWordBubbles, this));
     
 }
+
+void HelloWorld::showWordBubblesNotificationReceived(EventCustom * event) {
+        this->unschedule(schedule_selector(HelloWorld::showWordBubbles));
+        this->scheduleOnce(schedule_selector(HelloWorld::showWordBubbles), TIME_TO_SHOW_WORD_BUBBLE);
+}
+
+void HelloWorld::showWordBubbles(float dt) {
+    if(this->skeletonCharacter->isStanding) {
+        std::map<std::string,std::string> mapping = _wordMappings;
+        
+        std::map<std::string, std::string>::iterator it;
+        for(it = mapping.begin(); it != mapping.end(); it++) {
+            std::string word = it->second + "_wordBubble";
+            
+            Node* node = this->mainLayer->getChildByName(word.c_str());
+            if(node != NULL) {
+                node->setVisible(true);
+            }
+        }
+    }
+}
+
+void HelloWorld::hideWordBubbles(EventCustom * event) {
+    std::map<std::string,std::string> mapping = _wordMappings;
+    
+    std::map<std::string, std::string>::iterator it;
+    for(it = mapping.begin(); it != mapping.end(); it++) {
+        std::string word = it->second + "_wordBubble";
+        
+        Node* node = this->mainLayer->getChildByName(word.c_str());
+        if(node != NULL) {
+            node->setVisible(false);
+        }
+    }
+
+}
+
 
 
 void HelloWorld::transitionToDuelScene(wchar_t alphabet) {
@@ -1301,6 +1376,8 @@ void HelloWorld::cleanUpResources() {
     EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION);
     EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::ON_MENU_EXIT_NOTIFICATION);
     EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::ON_WORD_INFO_NOTIFICATION);
+    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::WORD_BUBBLE_SHOW_NOTIFICATION);
+    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::WORD_BUBBLE_HIDE_NOTIFICATION);
     if(_greyLayer) {
         Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(_greyLayer);
     }

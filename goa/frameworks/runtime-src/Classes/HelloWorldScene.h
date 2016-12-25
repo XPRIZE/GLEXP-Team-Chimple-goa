@@ -33,6 +33,7 @@
 #include "puzzle/CharGenerator.h"
 #include "WordSprite.h"
 #include "puzzle/WordBoard.h"
+#include "WordBubble.hpp"
 
 class GestureLayer;
 class MessageContent;
@@ -63,6 +64,8 @@ private:
     
     std::string _hintText;
     
+    std::map<std::string, std::string> _wordMappings;
+        
     SpeechBubbleView* _speechBubbleView;
     
     GestureLayer* gesture_layer_;
@@ -245,6 +248,14 @@ private:
                                                      const std::string selectedImage ,
                                                      const std::string disableImage
                                                      );
+    
+    
+    void showWordBubblesNotificationReceived(cocos2d::EventCustom * event);
+    
+    void showWordBubbles(float dt);
+    
+    void hideWordBubbles(EventCustom * event);
+    
     
 public:
     static cocos2d::Scene* createScene(const std::string& island, const std::string& sceneName, bool fromMenu);

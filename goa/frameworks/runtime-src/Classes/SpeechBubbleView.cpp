@@ -215,34 +215,4 @@ void SpeechBubbleView::destroySpeechBubbles() {
         button->removeFromParentAndCleanup(true);
     }
     this->removeFromParentAndCleanup(true);
-    //EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_BUBBLE_DESTROYED_NOTIFICATION);
 }
-
-
-//bool SpeechBubbleView::onTouchBegan(Touch *touch, Event *event)
-//{
-//    Point touch_point = touch->getLocationInView();
-//    touch_point = Director::getInstance()->convertToGL(touch_point);
-//    for (std::vector<Label*>::iterator it = this->texts.begin() ; it != this->texts.end(); ++it) {
-//        Label* label =  *it;
-//        if(label != NULL && label->getParent() != NULL && label->getBoundingBox().containsPoint(this->getParent()->convertToNodeSpace(touch_point))) {
-//            int preConditionId = (int)(size_t)label->getUserData();
-//            EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TEXT_TAP_NOTIFICATION, (void *) preConditionId);
-//            return true;
-//        }
-//    }    
-//    return false;
-//}
-//
-//void SpeechBubbleView::touchEnded(Touch *touch, Event *event)
-//{
-//    Point touch_point = touch->getLocationInView();
-//    touch_point = Director::getInstance()->convertToGL(touch_point);
-//    for (std::vector<Label*>::iterator it = this->texts.begin() ; it != this->texts.end(); ++it) {
-//        Label* label =  *it;
-//        label->removeFromParentAndCleanup(true);
-//        
-//    }
-//    this->removeFromParentAndCleanup(true);
-//    EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_BUBBLE_DESTROYED_NOTIFICATION);
-//}
