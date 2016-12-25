@@ -156,11 +156,11 @@ bool ScrollableGameMapScene::init() {
                     button->setTitleAlignment(TextHAlignment::CENTER, TextVAlignment::BOTTOM);
                     button->setTitleFontName("Arial");
                     button->setTitleColor(Color3B(0xFF, 0xF2, 0x00));
-                    button->setTitleFontSize(48);
+                    button->setTitleFontSize(72);
                     button->addTouchEventListener(CC_CALLBACK_2(ScrollableGameMapScene::gameSelected, this));
                     auto label = button->getTitleRenderer();
-                    label->setPosition(Vec2(label->getPositionX(), label->getPositionY()-256));
-                    button->setScale(0.6);
+                    label->setPosition(Vec2(label->getPositionX(), label->getPositionY()- 300));
+                    button->setScale(0.5);
                     addChild(button);
                     
                     

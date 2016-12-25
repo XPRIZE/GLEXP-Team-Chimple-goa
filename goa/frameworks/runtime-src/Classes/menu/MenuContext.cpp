@@ -9,6 +9,7 @@
 #include "MenuContext.h"
 #include "LevelHelpScene.h"
 #include "LevelHelpOverlay.h"
+#include "LevelMenu.h"
 #include "ui/CocosGUI.h"
 #include "../StartMenuScene.h"
 #include "../MapScene.h"
@@ -779,8 +780,7 @@ void MenuContext::waitForAudioLoad(std::string audioFileName, std::function<void
 
 void MenuContext::showBook(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
-//        Director::getInstance()->replaceScene(TransitionFade::create(2.0, SelectAlphamon::createScene(), Color3B::BLACK));
-        ScriptingCore::getInstance()->runScript("src/start/menu.js");
+        Director::getInstance()->replaceScene(LevelMenu::createScene(gameName));
     }
 }
 
