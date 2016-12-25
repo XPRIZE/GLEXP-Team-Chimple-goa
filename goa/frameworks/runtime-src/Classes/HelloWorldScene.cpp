@@ -308,7 +308,7 @@ void HelloWorld::loadWords() {
     this->addChild(_hangBubbleNode);
 
     
-    std::string wordFile = !this->getSceneName().empty() ? this->getSceneName() + "_mapping.json":  this->getIsland() + "_mapping.json";
+    std::string wordFile = !this->getSceneName().empty() ? this->getSceneName() + ".mapping.json":  this->getIsland() + ".mapping.json";
     
     if(FileUtils::getInstance()->isFileExist(wordFile)) {
         std::string jsonData = FileUtils::getInstance()->getStringFromFile(wordFile);
