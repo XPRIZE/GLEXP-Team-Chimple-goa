@@ -321,7 +321,7 @@ void HelloWorld::loadWords() {
     
     //create hang bubble
     
-//    _hangBubbleNode = CSLoader::createNode("template/hang_bubble.csb");
+    _hangBubbleNode = CSLoader::createNode("template/hang_bubble.csb");
 //    this->addChild(_hangBubbleNode);
 
     
