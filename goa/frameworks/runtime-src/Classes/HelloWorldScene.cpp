@@ -369,7 +369,7 @@ void HelloWorld::loadWords() {
 
 void HelloWorld::createWordSprite(Node* node, std::string word, Node* parentNode)
 {
-    WordBubble* wordBubble = WordBubble::create(word, Vec2(node->getPosition().x, node->getPosition().y + 200));
+    WordBubble* wordBubble = WordBubble::create(word, Vec2(node->getPosition().x, node->getPosition().y));
     wordBubble->setName(word+"_wordBubble");
     wordBubble->setVisible(false);
     parentNode->addChild(wordBubble, 12);
