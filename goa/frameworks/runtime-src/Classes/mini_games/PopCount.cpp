@@ -183,15 +183,14 @@ void PopCount::popUpCharacter(Node* character, string animationName) {
 		auto timelinecharacter = CSLoader::createTimeline(_sceneMap.at(_popcountCurrentTheme).at(_popCharacter));
 		character->runAction(timelinecharacter);
 		timelinecharacter->play(animationName, true);
+		auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+		audioBg->playEffect("res/sounds/sfx/playerpop.ogg", false);
 		character->runAction(MoveTo::create(0.5f, Vec2(character->getPositionX(), character->getPositionY() + height)));
 	});
 	auto popDown = CallFunc::create([=]() {
 
 		if(this->getChildByName("helpLayer1"))
 			this->removeChildByName("helpLayer1");
-
-		auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
-		audioBg->playEffect("res/sounds/sfx/playerpop.ogg", false);
 
 		character->runAction(MoveTo::create(0.5f, Vec2(character->getPositionX(), character->getPositionY() - height)));
 	});
