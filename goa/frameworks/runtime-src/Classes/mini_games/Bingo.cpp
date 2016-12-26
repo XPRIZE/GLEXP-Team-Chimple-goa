@@ -237,6 +237,7 @@ void Bingo::onEnterTransitionDidFinish()
 		_data = TextGenerator::getInstance()->getHomonyms(pairNo, levelNo);
 		_menuContext->setMaxPoints(pairNo*1);
 	 	categoryTitle = "choose same sounding word : ";
+		_wordPairTitle = "List of Homonyms";
 	}
 	else if (levelKeyNumber.second == 1)
 	{
@@ -245,6 +246,7 @@ void Bingo::onEnterTransitionDidFinish()
 		_data = TextGenerator::getInstance()->getSynonyms(pairNo, levelNo);
 		_menuContext->setMaxPoints(pairNo*1);
 		categoryTitle = "choose meaning word of : ";
+		_wordPairTitle = "List of Synonyms";
 	}
 	else
 	{
@@ -253,6 +255,7 @@ void Bingo::onEnterTransitionDidFinish()
 		_data = TextGenerator::getInstance()->getAntonyms(pairNo, levelNo);
 		_menuContext->setMaxPoints(pairNo*1);
 		categoryTitle = "choose opposite word of : ";
+		_wordPairTitle = "List of Antonyms";
 	}
 
 	_labelPrefix = LangUtil::getInstance()->translateString(categoryTitle);	
@@ -558,6 +561,8 @@ void Bingo::addEvents(Sprite* clickedObject)
 				std::string helpLabelPair = target->getChildren().at(0)->getName();
 				if (helpLabelPair.compare(_label->getName()) == 0)
 				{
+					auto answer = ((CommonLabelTTF*)target->getChildren().at(0))->getString();
+					_menuContext->wordPairList(_label->getName(), answer);
 					target->setVisible(false);
 					target->setTag(1);
 					//setWordInHelpBoard();
@@ -614,7 +619,8 @@ void Bingo::addEvents(Sprite* clickedObject)
 						CocosDenshion::SimpleAudioEngine *success = CocosDenshion::SimpleAudioEngine::getInstance();
 						success->playEffect("sounds/sfx/success.ogg", false);
 
-						_menuContext->showScore();
+						_menuContext->showAnswer("wordPairs", _wordPairTitle);
+						//_menuContext->showScore();
 					});
 					this->runAction(Sequence::create(DelayTime::create(5), callShowScore, NULL));
 				}
