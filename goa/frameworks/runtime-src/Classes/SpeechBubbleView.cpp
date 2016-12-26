@@ -10,15 +10,43 @@
 #include "cocos2d.h"
 #include "RPGConfig.h"
 
-
 USING_NS_CC;
 using namespace cocos2d::ui;
 
-SpeechBubbleView::SpeechBubbleView(): _button(nullptr) {
+SpeechBubbleView::SpeechBubbleView(): _button(nullptr),
+_externalCharacter(nullptr),
+_skeletonCharacter(nullptr)
+{
     
 }
 
 SpeechBubbleView::~SpeechBubbleView() {
+}
+
+
+SpeechBubbleView* SpeechBubbleView::createForExternalCharacter(ExternalSkeletonCharacter* character ,std::unordered_map<int, std::string> textMap, Point position) {
+    auto speechBubbleView = new SpeechBubbleView();
+    if (speechBubbleView && speechBubbleView->initialize(textMap, position)) {
+        speechBubbleView->_externalCharacter = character;
+        speechBubbleView->autorelease();
+        return speechBubbleView;
+    }
+    CC_SAFE_DELETE(speechBubbleView);
+    return nullptr;
+   
+}
+
+SpeechBubbleView* SpeechBubbleView::createForCharacter(SkeletonCharacter* character ,std::unordered_map<int, std::string> textMap, Point position) {
+    
+    auto speechBubbleView = new SpeechBubbleView();
+    if (speechBubbleView && speechBubbleView->initialize(textMap, position)) {
+        speechBubbleView->_skeletonCharacter = character;
+        speechBubbleView->autorelease();
+        return speechBubbleView;
+    }
+    CC_SAFE_DELETE(speechBubbleView);
+    return nullptr;
+
 }
 
 
@@ -173,40 +201,18 @@ void SpeechBubbleView::dialogSelected(Ref* pSender, ui::Widget::TouchEventType e
 }
 
 void SpeechBubbleView::destroySpeechBubbles() {
+    if(_externalCharacter != nullptr) {
+        _externalCharacter->getExternalSkeletonActionTimeLine()->play(IDLE, true);
+    }
+    
+    if(_skeletonCharacter != nullptr) {
+        _skeletonCharacter->getSkeletonActionTimeLine()->play(IDLE, true);
+    }
+    
     for (std::vector<Button*>::iterator it = this->textButtons.begin() ; it != this->textButtons.end(); ++it) {
         Button* button =  *it;
         button->setVisible(false);
         button->removeFromParentAndCleanup(true);
     }
     this->removeFromParentAndCleanup(true);
-    //EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_BUBBLE_DESTROYED_NOTIFICATION);
 }
-
-
-//bool SpeechBubbleView::onTouchBegan(Touch *touch, Event *event)
-//{
-//    Point touch_point = touch->getLocationInView();
-//    touch_point = Director::getInstance()->convertToGL(touch_point);
-//    for (std::vector<Label*>::iterator it = this->texts.begin() ; it != this->texts.end(); ++it) {
-//        Label* label =  *it;
-//        if(label != NULL && label->getParent() != NULL && label->getBoundingBox().containsPoint(this->getParent()->convertToNodeSpace(touch_point))) {
-//            int preConditionId = (int)(size_t)label->getUserData();
-//            EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TEXT_TAP_NOTIFICATION, (void *) preConditionId);
-//            return true;
-//        }
-//    }    
-//    return false;
-//}
-//
-//void SpeechBubbleView::touchEnded(Touch *touch, Event *event)
-//{
-//    Point touch_point = touch->getLocationInView();
-//    touch_point = Director::getInstance()->convertToGL(touch_point);
-//    for (std::vector<Label*>::iterator it = this->texts.begin() ; it != this->texts.end(); ++it) {
-//        Label* label =  *it;
-//        label->removeFromParentAndCleanup(true);
-//        
-//    }
-//    this->removeFromParentAndCleanup(true);
-//    EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_BUBBLE_DESTROYED_NOTIFICATION);
-//}

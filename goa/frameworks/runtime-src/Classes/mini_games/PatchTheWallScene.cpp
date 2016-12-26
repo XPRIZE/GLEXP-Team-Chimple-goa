@@ -137,6 +137,7 @@ void PatchTheWall::addEvents(struct SpriteDetails sprite)
         
         if (rect.containsPoint(locationInNode) && _moveFlag==0)
         {
+			target->setScale(1);
             if (_helpFlag == 1)
             {
                 this->removeChild(_help);
@@ -180,7 +181,7 @@ void PatchTheWall::addEvents(struct SpriteDetails sprite)
                     _totalCount++;
                     CocosDenshion::SimpleAudioEngine *success = CocosDenshion::SimpleAudioEngine::getInstance();
                     success->playEffect("sounds/sfx/success.ogg", false);
-                    
+					target->setScale(0.333333343);
                     _spriteDetails.at(_index)._label->setPosition(Vec2(_spriteDetails.at(_index).xP, _spriteDetails.at(_index).yP));
                     _slideBar->setPercent(_slideBar->getPercent() + 5);
                     if (_totalCount == 20)
@@ -197,6 +198,7 @@ void PatchTheWall::addEvents(struct SpriteDetails sprite)
         
         if (flag == 0)
         {
+			target->setScale(0.333333343);
             target->runAction(Sequence::create(MoveTo::create(.5, Vec2(_spriteDetails.at(_index).xP, _spriteDetails.at(_index).yP)), CallFunc::create([=]{
                 _moveFlag = 0;
                 CocosDenshion::SimpleAudioEngine *error = CocosDenshion::SimpleAudioEngine::getInstance();

@@ -33,6 +33,7 @@
 #include "puzzle/CharGenerator.h"
 #include "WordSprite.h"
 #include "puzzle/WordBoard.h"
+#include "WordBubble.hpp"
 
 class GestureLayer;
 class MessageContent;
@@ -62,6 +63,10 @@ private:
     std::string _wordToPronounce;
     
     std::string _hintText;
+    
+    std::map<std::string, std::string> _wordMappings;
+    
+    std::vector<std::string> _externalCharactersNames;
     
     SpeechBubbleView* _speechBubbleView;
     
@@ -246,6 +251,14 @@ private:
                                                      const std::string disableImage
                                                      );
     
+    
+    void showWordBubblesNotificationReceived(cocos2d::EventCustom * event);
+    
+    void showWordBubbles(float dt);
+    
+    void hideWordBubbles(EventCustom * event);
+    
+    
 public:
     static cocos2d::Scene* createScene(const std::string& island, const std::string& sceneName, bool fromMenu);
         
@@ -297,6 +310,8 @@ public:
     virtual bool checkTapOnRPGSprite(RPGSprite* rpgNode, cocos2d::Point position);    
     
     static const char* gameName() { return "Safari RPG";}
+    
+    std::vector<std::string> getExternalCharacterNames();
     
     void onExitTransitionDidStart() override;
     void onEnterTransitionDidFinish() override;

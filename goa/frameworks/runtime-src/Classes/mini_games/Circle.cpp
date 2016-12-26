@@ -351,11 +351,13 @@ void Circle::eat(char str)
 
 void Circle::change(char  str)
 {
-	CCLOG("animation");
+	
 	std::stringstream ss;
 	ss << str;
 	ss >> _target;
+
 	int num = atoi(_target.c_str());
+	CCLOG("num= %d", num);
 	auto timeline = CSLoader::createTimeline(_scenePath.at("enemy"));
 	auto blastref = _enemyRef1.at(num - 1);
 	//blastref->runAction(timeline);
@@ -374,11 +376,13 @@ void Circle::change(char  str)
 	this->runAction(Sequence::create(CallFunc::create([=]() {
 		if (num < 4)
 		{
+			CCLOG("righthand num= %d", num);
 			_friend->getChildByName("righthand")->runAction(timeline1);
 			timeline1->play("punch", false);
 		}
 		else
 		{
+			CCLOG("lefthand num= %d", num);
 			_friend->getChildByName("lefthand")->runAction(timeline1);
 			timeline1->play("punch", false);
 		}
@@ -397,6 +401,7 @@ void Circle::change(char  str)
 
 void Circle::addEnemy(int num)
 {
+	CCLOG(" addEnemy num= %d", num);
 	auto mouthTimeline = CSLoader::createTimeline(("circlehero/punch.csb"));
 	_friend->runAction(mouthTimeline);
 //	mouthTimeline->gotoFrameAndPlay(0, true);
@@ -619,7 +624,7 @@ bool Circle::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		}*/
 		 char ssss = wordStr.at(wordStr.length()-1);
 		 wordStr.at(wordStr.length() - 1) = ' ';
-		CCLOG("num= %c", ssss);
+		CCLOG("ssss= %c", ssss);
 		if (wordStr.compare(_synonyms.at(_gameWord)+" ") == 0) {
 			//    CCLOG("11111111111111111");
 			this->removeChild(_topLabel);

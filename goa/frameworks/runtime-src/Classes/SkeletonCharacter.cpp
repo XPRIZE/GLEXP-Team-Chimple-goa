@@ -7,9 +7,11 @@
 //
 
 #include <stdio.h>
+#include <cmath>
 #include "RPGConfig.h"
 #include "HelloWorldScene.h"
 #include "SkeletonCharacter.h"
+#include "ExternalSkeletonCharacter.h"
 
 USING_NS_CC;
 
@@ -78,6 +80,72 @@ void SkeletonCharacter::playStartingJumpUpWithRotationAnimation(std::function<vo
 void SkeletonCharacter::playJumpingUpEndingAnimation() {    
     this->getSkeletonActionTimeLine()->play(JUMP_MID, false);
 }
+
+
+void SkeletonCharacter::onEnterTransitionDidFinish() {
+    Node::onEnterTransitionDidFinish();
+    //bind listeners
+    auto listenerTouches = EventListenerTouchOneByOne::create();
+    
+    listenerTouches->setSwallowTouches(true);
+    listenerTouches->onTouchBegan = CC_CALLBACK_2(SkeletonCharacter::onTouchBegan, this);
+    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listenerTouches, this);
+    
+}
+
+
+void SkeletonCharacter::setExternalCharacterNames(std::vector<std::string> names) {
+    this->externalCharacterNames = names;
+}
+
+
+std::vector<std::string> SkeletonCharacter::getExternalCharacterNames() {
+    return this->externalCharacterNames;
+}
+
+
+
+bool SkeletonCharacter::onTouchBegan(Touch *touch, Event *event) {
+    
+    auto n = convertTouchToNodeSpace(touch);
+    if(this->getSkeletonNode()->getBoundingBox().containsPoint(n)) {
+        std::vector<std::string> externalChars = getExternalCharacterNames();
+        float xDistanceDifference = Director::getInstance()->getWinSize().width;
+        ExternalSkeletonCharacter* nearestExternalCharacter = NULL;
+        for (std::vector<std::string>::iterator it = externalChars.begin() ; it != externalChars.end(); ++it)
+        {
+            std::string name = (std::string) *it;
+            Node* externalCharNode = this->getParent()->getChildByName(name);
+            if(externalCharNode != NULL) {
+                ExternalSkeletonCharacter* extSkeleton = dynamic_cast<ExternalSkeletonCharacter *>(externalCharNode);
+                if(extSkeleton != NULL) {
+                    float differenceX = std::abs(this->getSkeletonNode()->getPosition().x - extSkeleton->getExternalSkeletonNode()->getPosition().x);
+                    
+                    if(differenceX < xDistanceDifference) {
+                        xDistanceDifference = differenceX;
+                        nearestExternalCharacter = extSkeleton;
+                    }
+                }
+            }
+        }
+        if(nearestExternalCharacter != NULL)
+        {
+            if(this->getSkeletonNode()->getPosition().x > nearestExternalCharacter->getExternalSkeletonNode()->getPosition().x) {
+                nearestExternalCharacter->getExternalSkeletonNode()->setScaleX(-1.0);
+                this->getSkeletonNode()->setScaleX(1.0);
+            } else {
+                nearestExternalCharacter->getExternalSkeletonNode()->setScaleX(1.0);
+                this->getSkeletonNode()->setScaleX(-1.0);
+            }
+        }
+        
+        
+        return true;
+    }
+    return false;
+    
+}
+
 
 
 void SkeletonCharacter::playJumpingContinuousRotationAnimation() {

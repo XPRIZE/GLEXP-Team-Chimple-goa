@@ -123,6 +123,7 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 
 		if (rect.containsPoint(locationInNode))
 		{
+			target->setScale(2);
 			cannon1 = 0, cannon2 = 0, cannon3 = 0;
 //			target->setScale(2, 2);
 			target->setZOrder(4);
@@ -158,7 +159,7 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 		target->setPosition(target->getPosition() + touch->getDelta());
 		target->setZOrder(2);
 		Rect targetRect = target->getBoundingBox();
-
+		target->setScale(1);
 		Rect targetRect1 = Rect(cannon1Target->getPositionX() - cannon1Target->getBoundingBox().size.width / 2, cannon1Target->getPositionY() - cannon1Target->getContentSize().height / 2, cannon1Target->getBoundingBox().size.width, cannon1Target->getBoundingBox().size.height);
 		Rect targetRect2 = Rect(cannon2Target->getPositionX() - cannon2Target->getBoundingBox().size.width / 2, cannon2Target->getPositionY() - cannon2Target->getContentSize().height / 2, cannon2Target->getBoundingBox().size.width, cannon2Target->getBoundingBox().size.height);
 		Rect targetRect3 = Rect(cannon3Target->getPositionX() - cannon3Target->getBoundingBox().size.width / 2, cannon3Target->getPositionY() - cannon3Target->getContentSize().height / 2, cannon3Target->getBoundingBox().size.width, cannon3Target->getBoundingBox().size.height);
