@@ -141,21 +141,26 @@ void Owl::onEnterTransitionDidFinish()
 		}
 		_data_value = _data_key;
 		categoryTitle = "Make same word : ";
+		_sentenceShow = "List of same words";
 	}
 	else if (std::get<0>(levelKeyNumber) == 2) {
 		categoryTitle = "Make plural of : ";
+		_sentenceShow = "List of singular-plural words";
 		_data = TextGenerator::getInstance()->getSingularPlurals(5, std::get<2>(levelKeyNumber));
 	}
 	else if (std::get<0>(levelKeyNumber) == 3) {
 		categoryTitle = "Make opposite of : ";
+		_sentenceShow = "List of opposite words";
 		_data = TextGenerator::getInstance()->getAntonyms(5, std::get<2>(levelKeyNumber));
 	}
 	else if (std::get<0>(levelKeyNumber) == 4) {
 		categoryTitle = "Make word of same meaning as : ";
+		_sentenceShow = "List of same meaning words";
 		_data = TextGenerator::getInstance()->getSynonyms(5, std::get<2>(levelKeyNumber));
 	}
 	else if (std::get<0>(levelKeyNumber) == 5) {
 		categoryTitle = "Make same sounding word as : ";
+		_sentenceShow = "List of same sounding words";
 		_data = TextGenerator::getInstance()->getHomonyms(5, std::get<2>(levelKeyNumber));
 	}
 
@@ -597,6 +602,8 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 							_flagTurnHelp = false;
 						}
 						_menuContext->addPoints(1);
+						_menuContext->wordPairList(_data_key[_textBoard], _data_value[_textBoard]);
+
 						//auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
 						//audioBg->playEffect("res/sounds/sfx/drop_obj.ogg", false);
 						auto y = _sprite->getPositionY() - target->getPositionY();
@@ -604,8 +611,8 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 						float dist = sqrt((y*y) + (x*x));
 						auto blockBox = target->getParent()->getChildByName(blockNameInString);
 
-						auto moveToAlphaGridAction = MoveTo::create(dist/3000,Vec2(target->getPositionX(),target->getPositionY()+_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height/ _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
-						auto moveToAnswerGridAction = MoveTo::create(dist / 4000, Vec2((blockBox->getPositionX() - blockBox->getContentSize().width/2)+blockChild.at(_textCounter)->getPositionX(), blockBox->getPositionY()+_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height/ _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
+						auto moveToAlphaGridAction = MoveTo::create(dist/1300,Vec2(target->getPositionX(),target->getPositionY()+_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height/ _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
+						auto moveToAnswerGridAction = MoveTo::create(dist / 1300, Vec2((blockBox->getPositionX() - blockBox->getContentSize().width/2)+blockChild.at(_textCounter)->getPositionX(), blockBox->getPositionY()+_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height/ _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
 						auto callFunct = CallFunc::create([=]() {
 							_flagDemo = true;
 							_flagToControlMuiltipleTouch = true;
@@ -664,7 +671,7 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 
 								}),
 									DelayTime::create(3),
-									CallFunc::create([=]() {this->removeChildByName("celebration");  _menuContext->showScore(); }), NULL));
+									CallFunc::create([=]() {this->removeChildByName("celebration");  _menuContext->showAnswer("wordPairs", LangUtil::getInstance()->translateString(_sentenceShow)); }), NULL));
 							}
 						});
 						//_textCounter == blockChild.size() && _blockLevel1 == _data_key.size()
@@ -708,8 +715,8 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 						float dist = sqrt((y*y) + (x*x));
 						auto blockBox = target->getParent()->getChildByName(blockNameInString);
 
-						auto moveToAlphaGridAction = MoveTo::create(dist / 3000, Vec2(target->getPositionX(), target->getPositionY() + _sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height / _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
-						auto moveToAnswerGridAction = MoveTo::create(dist / 4000, Vec2((blockBox->getPositionX() - blockBox->getContentSize().width / 2) + blockChild.at(_textCounter)->getPositionX(), blockBox->getPositionY() + _sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height / _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
+						auto moveToAlphaGridAction = MoveTo::create(dist / 1300, Vec2(target->getPositionX(), target->getPositionY() + _sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height / _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
+						auto moveToAnswerGridAction = MoveTo::create(dist / 1300, Vec2((blockBox->getPositionX() - blockBox->getContentSize().width / 2) + blockChild.at(_textCounter)->getPositionX(), blockBox->getPositionY() + _sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height / _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
 						auto afterDrop = CallFunc::create([=]() {
 							 blockChild.at(_textCounter)->getChildByName("hideBoard")->setVisible(true);
 							_flagDemo = true;
