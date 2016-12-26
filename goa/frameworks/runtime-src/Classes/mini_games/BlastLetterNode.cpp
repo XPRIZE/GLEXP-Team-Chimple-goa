@@ -37,7 +37,11 @@ BlastLetterNode * BlastLetterNode::create(int width, int height, cocos2d::Point 
 	CC_SAFE_DELETE(wordSceneLipiTKNode);
 	return nullptr;
 }
-
+void BlastLetterNode::postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint) {
+	if (!_blastHappend) {
+		_clearButton->setEnabled(false);
+	}
+}
 void BlastLetterNode::draw(cocos2d::DrawNode * paintingNode, cocos2d::Point fromPoint, cocos2d::Point currentPoint)
 {
 	if(_drawAllowance)
@@ -77,5 +81,10 @@ std::vector<std::string> BlastLetterNode::getPosibileCharacter()
 void BlastLetterNode::drawAllowance(bool permission)
 {
 	_drawAllowance = permission;
+}
+
+void BlastLetterNode::setblast(bool blastOrNot)
+{
+	_blastHappend = blastOrNot;
 }
 
