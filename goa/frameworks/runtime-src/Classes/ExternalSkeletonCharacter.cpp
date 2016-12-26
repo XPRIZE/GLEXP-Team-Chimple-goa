@@ -47,7 +47,7 @@ bool ExternalSkeletonCharacter::initializeExternalSkeletonCharacter(cocos2d::Nod
     this->createExternalSkeletonNode(node, this->getFileName());
     this->addChild(this->externalSkeletonNode);
     this->externalSkeletonNode->setPosition(node->getPosition());
-//    this->showTouchPointer();
+    this->showTouchPointer();
     
     return true;
 }
@@ -71,10 +71,12 @@ void ExternalSkeletonCharacter::showTouchPointer() {
         this->touchPointerNode =  Sprite::create(TOUCH_POINTER_IMG);
         if(this->touchPointerNode)
         {
-            this->touchPointerNode->setScale(1.0f, 1.0f);
-            this->touchPointerNode->setPosition(this->externalSkeletonNode->getPosition());
+            this->touchPointerNode->setScale(0.75f, 0.75f);
+//            this->touchPointerNode->setFlippedX(true);
+//            this->touchPointerNode->setFlippedY(true);
+            this->touchPointerNode->setPosition(Vec2(this->externalSkeletonNode->getPosition().x, this->externalSkeletonNode->getPosition().y - 150));
             this->touchPointerNode->setVisible(true);
-            
+            this->externalSkeletonNode->getParent()->addChild(this->touchPointerNode, 1);
         }
     }
 }
@@ -153,6 +155,21 @@ bool ExternalSkeletonCharacter::onTouchBegan(Touch *touch, Event *event)
 {
     auto n = convertTouchToNodeSpace(touch);
     if(this->getInterAct() == "true" && this->getExternalSkeletonNode()->getBoundingBox().containsPoint(n)) {
+        
+        //check position of main character
+        Node* heroNode = this->getParent()->getChildByName(HUMAN_SKELETON_NAME);
+        if(heroNode != NULL) {
+            SkeletonCharacter* heroSkeleton = dynamic_cast<SkeletonCharacter *>(heroNode);
+            if(heroSkeleton != NULL) {
+                if(heroSkeleton->getSkeletonNode()->getPosition().x > this->getExternalSkeletonNode()->getPosition().x) {
+                    this->getExternalSkeletonNode()->setScaleX(-1.0);
+                    heroSkeleton->getSkeletonNode()->setScaleX(1.0);
+                } else {
+                    this->getExternalSkeletonNode()->setScaleX(1.0);
+                    heroSkeleton->getSkeletonNode()->setScaleX(-1.0);
+                }
+            }
+        }
         return true;
     }
     return false;
@@ -161,7 +178,7 @@ bool ExternalSkeletonCharacter::onTouchBegan(Touch *touch, Event *event)
 
 void ExternalSkeletonCharacter::touchEnded(Touch *touch, Event *event)
 {
-    CCLOG("%s", "CLICKED ON Spekable External Skeleton dispatching speech message");
+    CCLOG("%s", "CLICKED ON Spekable External Skeleton dispatching speech message");    
     std::string s(this->getName());
     EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, static_cast<void*>(&s));
 }

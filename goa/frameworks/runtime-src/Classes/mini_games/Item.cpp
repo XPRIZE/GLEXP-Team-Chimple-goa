@@ -605,7 +605,7 @@ void Item::onTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event)
 	auto  location = target->convertToNodeSpace(touch->getLocation());
 	//target->setPosition(touch->getLocation());
 	
-	if (touch->getLocation().y > visibleSize.height * 0.25)
+	if (touch->getLocation().y > visibleSize.height * 0.32)
 	{
 		target->setPosition(touch->getLocation());
 	}
@@ -621,7 +621,7 @@ void Item::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 	target->setPosition(touch->getLocation());
 	Rect rect = Rect(0, 0, target->getContentSize().width, target->getContentSize().height);
 	
-	if (touch->getLocation().y > visibleSize.height * 0.5 || touch->getLocation().y < visibleSize.height * 0.25)
+	if (touch->getLocation().y > visibleSize.height * 0.6 || touch->getLocation().y < visibleSize.height * 0.32)
 	{
 		if (target->getName().compare("fish1") == 0 || target->getName().compare("fish1_in_pond") == 0)
 		{

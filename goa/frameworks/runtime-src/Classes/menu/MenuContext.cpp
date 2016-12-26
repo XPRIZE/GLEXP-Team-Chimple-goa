@@ -9,6 +9,7 @@
 #include "MenuContext.h"
 #include "LevelHelpScene.h"
 #include "LevelHelpOverlay.h"
+#include "LevelMenu.h"
 #include "ui/CocosGUI.h"
 #include "../StartMenuScene.h"
 #include "../MapScene.h"
@@ -779,8 +780,7 @@ void MenuContext::waitForAudioLoad(std::string audioFileName, std::function<void
 
 void MenuContext::showBook(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
-//        Director::getInstance()->replaceScene(TransitionFade::create(2.0, SelectAlphamon::createScene(), Color3B::BLACK));
-        ScriptingCore::getInstance()->runScript("src/start/menu.js");
+        Director::getInstance()->replaceScene(LevelMenu::createScene(gameName));
     }
 }
 
@@ -1298,6 +1298,9 @@ void MenuContext::unlockNextStory() {
 void MenuContext::showScore() {
     //compute score
 	_menuButton->setEnabled(false);
+	if (_closeButton != nullptr) {
+		_closeButton->setEnabled(false);
+	}
     addGreyLayer();
     pauseNodeAndDescendants(_main);
     Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -1384,7 +1387,7 @@ void MenuContext::showScore() {
         _ps = nullptr;
         _greyLayer->addChild(LayerColor::create(Color4B(128.0, 128.0, 128.0, 200.0), visibleSize.width, visibleSize.height));
 
-       auto scoreNode = ScoreBoardContext::create(stars, this->gameName, this->sceneName);
+       auto scoreNode = ScoreBoardContext::create(stars, this->gameName, this->sceneName, _currentLevel);
        scoreNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
         addChild(scoreNode);
     }), NULL));
@@ -1564,16 +1567,18 @@ std::vector<cocos2d::Vec2> MenuContext::getPolygonPointsForSprite(cocos2d::Sprit
 
 
 MenuContext::MenuContext() :
-_points(0),
-_label(nullptr),
-_menuSelected(false),
-_greyLayer(nullptr),
-_chimp(nullptr),
-_chimpAudioId(0),
-_gameIsPaused(false),
-_startupCallback(nullptr),
-_photoMenu(nullptr),
-_currentLevel(1),
+	_points(0),
+	_label(nullptr),
+	_menuSelected(false),
+	_greyLayer(nullptr),
+	_chimp(nullptr),
+	_chimpAudioId(0),
+	_gameIsPaused(false),
+	_startupCallback(nullptr),
+	_photoMenu(nullptr),
+	_currentLevel(1),
+	_closeButton(nullptr),
+
 _maxPoints(MAX_POINTS_TO_SHOW)
 {
     
@@ -1646,13 +1651,14 @@ void MenuContext::showAnswer(std::string type, std::string header)
 	label1->setAnchorPoint(Vec2(0.5, 0.5));
 	headerBlock->addChild(label1);
 
-	auto button = Button::create("scoreboard/scoremainground/closebuttonoff.png", "scoreboard/scoremainground/closebuttonon.png", "scoreboard/scoremainground/closebuttonoff.png", Widget::TextureResType::LOCAL);
-	button->addTouchEventListener(CC_CALLBACK_0(MenuContext::showScore, this));
-	button->setPosition(Vec2(200, visibleSize.height*0.9));
-	this->addChild(button);
+	_closeButton = Button::create("scoreboard/scoremainground/closebuttonoff.png", "scoreboard/scoremainground/closebuttonon.png", "scoreboard/scoremainground/closebuttonoff.png", Widget::TextureResType::LOCAL);
+	_closeButton->addTouchEventListener(CC_CALLBACK_0(MenuContext::showScore, this));
+	_closeButton->setPosition(Vec2(200, visibleSize.height*0.9));
+	this->addChild(_closeButton);
 
 	if (type.compare("wordPairs") == 0) {
 		//dash/small_button_01.png
+		int numberOfWordShow = 0;
 		for (auto wordPair = _wordsList.begin(); wordPair != _wordsList.end(); wordPair++) {
 			int i = blockSize % 2;
 			auto duplicatNode = Node::create();
@@ -1702,10 +1708,15 @@ void MenuContext::showAnswer(std::string type, std::string header)
 			labelHeight = label1->getContentSize().height;
 			blockSize++;
 			this->addChild(duplicatNode);
+			numberOfWordShow++;
+			if (numberOfWordShow == 10) {
+				break;
+			}
 		}
 	}
 	else if (type.compare("Words") == 0)
 	{
+		int numberOfWordShow = 0;
 		for (int index = 0; index < _listOfWords.size(); index++) {
 			int i = blockSize % 2;
 			auto obj1 = Sprite::createWithSpriteFrameName("dash/big_button.png");
@@ -1726,6 +1737,10 @@ void MenuContext::showAnswer(std::string type, std::string header)
 			labelWidth = label1->getContentSize().width;
 			labelHeight = label1->getContentSize().height;
 			blockSize++;
+			numberOfWordShow++;
+			if (numberOfWordShow == 10) {
+				break;
+			}
 		}
 
 	}

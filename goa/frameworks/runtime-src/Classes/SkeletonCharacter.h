@@ -78,6 +78,9 @@ public:
     
     virtual void configureCharacter();
     
+    void setExternalCharacterNames(std::vector<std::string> names);
+    std::vector<std::string> getExternalCharacterNames();
+    
 protected:
         cocostudio::timeline::SkeletonNode* skeletonNode;
         cocostudio::timeline::ActionTimeline* skeletonActionTime;
@@ -90,6 +93,11 @@ protected:
     
         CC_SYNTHESIZE(std::string, islandName, IslandName);
         CC_SYNTHESIZE(std::string, sceneName, SceneName);
+    
+        void onEnterTransitionDidFinish();
+        bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event);
+    
+        std::vector<std::string> externalCharacterNames;
 };
 
 #endif /* SkeletonCharacter_h */
