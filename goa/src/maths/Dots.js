@@ -2,7 +2,7 @@
 
 var xc = xc || {}
 
-xc.DotsLayer = cc.LayerColor.extend({
+xc.DotsLayer = cc.LayerGradient.extend({
   _currentNumber: 1,
   _number: null,
   _hand: null,
@@ -11,8 +11,10 @@ xc.DotsLayer = cc.LayerColor.extend({
   _level: 1,
   _help: null,
   ctor: function() {
-    this._super(cc.color(248, 18, 18), cc.director.getVisibleSize().width, cc.director.getVisibleSize().height)
+    this._super(cc.color(141, 71, 33), cc.color(74, 42, 11))
+    this.setContentSize(cc.director.getVisibleSize())
     cc.spriteFrameCache.addSpriteFrames(xc.DotsLayer.res.hand_plist)
+    cc.spriteFrameCache.addSpriteFrames(xc.DotsLayer.res.hand_1_plist)
     cc.spriteFrameCache.addSpriteFrames(xc.DotsLayer.res.thumbnails_plist)
   },
   onEnterTransitionDidFinish: function() {
@@ -51,7 +53,7 @@ xc.DotsLayer = cc.LayerColor.extend({
     this._hand = new cc.Sprite("#" + xc.DotsLayer.fingerRep[dotNum._num])
     this._hand.setPosition(640, 2400)
     this.addChild(this._hand)
-    var dropAction = new cc.MoveTo(0.5, cc.p(640, 900))
+    var dropAction = new cc.MoveTo(0.5, cc.p(640, 1350))
     dropAction.easing(cc.easeBackOut())
 
     var delay = new cc.DelayTime(1)
@@ -70,12 +72,16 @@ xc.DotsLayer = cc.LayerColor.extend({
     this._hand.runAction(seq)
 
     this._text = new cc.LabelTTF(dotNum._num.toString(), "Arial", 512)
-    this._text.color = new cc.Color(128, 128, 128)
+    this._text.color = new cc.Color(255, 255, 255)
     this._text.setPosition(1920, 2400)
     this.addChild(this._text)
-    var textDropAction = new cc.MoveTo(0.5, cc.p(1920, 900))
+    var textDropAction = new cc.MoveTo(0.5, cc.p(1920, 1350))
     textDropAction.easing(cc.easeBackOut())
     this._text.runAction(textDropAction)
+
+    var numDropAction = new cc.MoveTo(0.5, cc.p(1280, 450))
+    numDropAction.easing(cc.easeBackOut())
+    this._number.runAction(numDropAction)
   },
   showNext: function(sender, type) {
     this.removeChild(this._number)
@@ -105,7 +111,7 @@ xc.Dot = cc.Sprite.extend({
     this._cb = cb
     this._callee = callee
     this.setColor(color)
-    this.scale = 0.10
+    // this.scale = 0.10
 
     this._listener = cc.EventListener.create({
         event: cc.EventListener.TOUCH_ONE_BY_ONE,
@@ -161,183 +167,183 @@ xc.DotNum = cc.Node.extend({
     this.addChild(this._dotNode)
     switch (num) {
       case 1:
-        this._dotNode.addChild(new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this))
+        this._dotNode.addChild(new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this))
         break
       case 2:
-        var dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        var dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPositionY(-length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPositionY(length / 2)
         this._dotNode.addChild(dot)
         break
       case 3:
-        var dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        var dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPositionY(length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(-length / 2, -length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(length / 2, -length / 2)
         this._dotNode.addChild(dot)
         break    
       case 4:
-        var dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        var dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(-length / 2, -length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(length / 2, -length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(-length / 2, length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(length / 2, length / 2)
         this._dotNode.addChild(dot)
         break
       case 5:
-        var dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        var dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(-length / 2, -length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(length / 2, -length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(-length / 2, length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(length / 2, length / 2)
         this._dotNode.addChild(dot)
         break
       case 6:
-        var dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        var dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(-length * 3 / 4, -length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(0, -length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(length * 3 / 4, -length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(-length * 3 / 4, length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(0, length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(length * 3 / 4, length / 2)
         this._dotNode.addChild(dot)
         break
       case 7:
-        var dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        var dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(-length * 3 / 4, -length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(0, -length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(length * 3 / 4, -length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(-length * 3 / 4, length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(0, length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(length * 3 / 4, length / 2)
         this._dotNode.addChild(dot)
         break
       case 8:
-        var dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        var dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(-length * 3 / 4, -length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(-length / 4, -length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(length / 4, -length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(length * 3 / 4, -length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(-length * 3 / 4, length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(-length / 4, length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(length / 4, length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(length * 3 / 4, length / 2)
         this._dotNode.addChild(dot)
         break
       case 9:
-        var dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        var dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(-length / 2, -length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(0, -length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(length / 2, -length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(-length / 2, 0)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(0, 0)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(length / 2, 0)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(-length / 2, length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(0, length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(length / 2, length / 2)
         this._dotNode.addChild(dot)
         break
       case 10:
-        var dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        var dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(-length / 2, -length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(0, -length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(length / 2, -length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(-length * 3 / 4, 0)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(-length / 4, 0)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(length / 4, 0)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(length * 3 / 4, 0)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(-length / 2, length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(0, length / 2)
         this._dotNode.addChild(dot)
-        dot = new xc.Dot(cc.color(255, 0, 0), this.dotTouched, this)
+        dot = new xc.Dot(cc.color(56, 165, 212), this.dotTouched, this)
         dot.setPosition(length / 2, length / 2)
         this._dotNode.addChild(dot)
         break
@@ -350,7 +356,7 @@ xc.DotNum = cc.Node.extend({
       var dot = event.getCurrentTarget()
       if(!dot._touched) {
         dot._touched = true
-        dot.setColor(cc.color(0, 255, 0))
+        dot.setColor(cc.color(181, 214, 47))
       }
       var allChildren = this._dotNode.getChildren()
       allTouched = true
@@ -404,10 +410,23 @@ xc.DotsQuizLayer = cc.Node.extend({
       this._endNum = Math.min(10, this._level)
       this._startNum = Math.max(0, this._endNum - 5)
     }
+    var buttonColors = [
+      cc.color(255, 204, 102),
+      cc.color(102, 102, 205),
+      cc.color(102, 255, 102),
+      cc.color(128, 0, 255),
+      cc.color(255, 255, 102)
+    ]    
     for (var i = 0; i < this._numButtons; i++) {
+      var background = new cc.Sprite(xc.DotsLayer.res.whiteboard_png)
+      background.setScale(cc.director.getVisibleSize().width / (5 * xc.ConnectTheDotsLayer.WHITEBOARD_WIDTH))
+      background.setPosition(this._buttonLength * i + this._buttonLength / 2, this._buttonLength / 2)
+      background.setColor(buttonColors[i])
+      this._buttons.addChild(background)
       var button = new ccui.Button(xc.DotsLayer.fingerRep[this._startNum + i + 1], "", "", ccui.Widget.PLIST_TEXTURE)
       button.setPosition(this._buttonLength * i + this._buttonLength / 2, this._buttonLength / 2)
       button.setName((this._startNum + i + 1).toString())
+      button.setScale(0.4)
       this._buttons.addChild(button)
       button.addTouchEventListener(this.buttonPressed, this)
     }
@@ -472,9 +491,10 @@ xc.DotsQuizLayer = cc.Node.extend({
 })
 
 xc.DotsLayer.res = {
-  hand_plist: xc.path + "maths/hand.plist",
-  hand_png: xc.path + "maths/hand.png",
-  dot_png: xc.path + "maths/dot.png",
+  hand_plist: xc.path + "maths/hand-0.plist",
+  hand_png: xc.path + "maths/hand-0.png",
+  hand_1_plist: xc.path + "maths/hand-1.plist",
+  hand_1_png: xc.path + "maths/hand-1.png",
   graywindow_png: xc.path + "help/graywindow.png",
   whiteboard_png: xc.path + "help/whiteboard.png",
   thumbnails_plist: xc.path + "wikitaki/thumbnails.plist",
@@ -487,12 +507,13 @@ xc.DotsLayer.fingerRep = {
   3: "hand/three.png",
   4: "hand/four.png",
   5: "hand/five.png",
-  6: "hand/one.png",  
-  7: "hand/two.png",  
-  8: "hand/three.png",  
-  9: "hand/four.png",
-  10: "hand/five.png"
+  6: "hand/six.png",  
+  7: "hand/seven.png",  
+  8: "hand/eight.png",  
+  9: "hand/nine.png",
+  10: "hand/ten.png"
 }
+
 
 // Returns a random integer between min (included) and max (excluded)
 // Using Math.round() will give you a non-uniform distribution!

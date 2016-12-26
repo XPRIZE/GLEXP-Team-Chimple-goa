@@ -1387,7 +1387,7 @@ void MenuContext::showScore() {
         _ps = nullptr;
         _greyLayer->addChild(LayerColor::create(Color4B(128.0, 128.0, 128.0, 200.0), visibleSize.width, visibleSize.height));
 
-       auto scoreNode = ScoreBoardContext::create(stars, this->gameName, this->sceneName);
+       auto scoreNode = ScoreBoardContext::create(stars, this->gameName, this->sceneName, _currentLevel);
        scoreNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
         addChild(scoreNode);
     }), NULL));

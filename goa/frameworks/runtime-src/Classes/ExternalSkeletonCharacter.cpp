@@ -163,8 +163,10 @@ bool ExternalSkeletonCharacter::onTouchBegan(Touch *touch, Event *event)
             if(heroSkeleton != NULL) {
                 if(heroSkeleton->getSkeletonNode()->getPosition().x > this->getExternalSkeletonNode()->getPosition().x) {
                     this->getExternalSkeletonNode()->setScaleX(-1.0);
+                    heroSkeleton->getSkeletonNode()->setScaleX(1.0);
                 } else {
                     this->getExternalSkeletonNode()->setScaleX(1.0);
+                    heroSkeleton->getSkeletonNode()->setScaleX(-1.0);
                 }
             }
         }

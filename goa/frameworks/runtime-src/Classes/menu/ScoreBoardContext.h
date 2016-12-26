@@ -23,13 +23,17 @@
 class ScoreBoardContext : public cocos2d::Layer {
 public:
     
-    static ScoreBoardContext* create(int stars, std::string gameName, std::string sceneName = "");
+    static ScoreBoardContext* create(int stars, std::string gameName, std::string sceneName = "", int level = 0);
     
 CC_CONSTRUCTOR_ACCESS:
-    virtual bool init(int stars, std::string gameName, std::string sceneName);
+    virtual bool init(int stars, std::string gameName, std::string sceneName, int level);
     ScoreBoardContext();
     virtual ~ScoreBoardContext();
     
+protected:
+    bool unlockGame(std::string gameToUnlock);
+    std::string _gameToUnlock;
+    std::string _badge;
 private:
     void createScoreBoard();
     void processChildNodes(cocos2d::Node *rootNode);
