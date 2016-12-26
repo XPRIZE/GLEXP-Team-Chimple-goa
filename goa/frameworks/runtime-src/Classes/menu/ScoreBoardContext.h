@@ -32,8 +32,10 @@ CC_CONSTRUCTOR_ACCESS:
     
 protected:
     bool unlockGame(std::string gameToUnlock);
+    bool addBadges(std::vector<std::string> badges);
+    std::vector<std::string> getStarBadges(int level);
     std::string _gameToUnlock;
-    std::string _badge;
+    std::vector<std::string> _badges;
 private:
     void createScoreBoard();
     void processChildNodes(cocos2d::Node *rootNode);
