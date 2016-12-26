@@ -20,13 +20,14 @@ public:
 	virtual void clearDrawing(cocos2d::Ref * pSender, cocos2d::ui::Widget::TouchEventType eEventType);
 	std::vector<std::string> getPosibileCharacter();
 	void drawAllowance(bool permission);
+	void setblast(bool blastOrNot);
 	cocos2d::ui::Button* _clearButton;
-
+	virtual void postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint) override;
 
 protected:
 	MenuContext * menu;
 	std::vector<std::string> _result;
-	bool _drawAllowance = true;
+	bool _drawAllowance = true,_blastHappend = false;
 };
 
 #endif  // __BLASTLETTERNODE_NODE_H__
