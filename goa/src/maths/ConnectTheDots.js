@@ -21,6 +21,7 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
     ctor: function(args) {
     this._super(cc.color(0, 0, 248), cc.director.getVisibleSize().width, cc.director.getVisibleSize().height)
     cc.spriteFrameCache.addSpriteFrames(xc.ConnectTheDotsLayer.res.hand_plist)
+    cc.spriteFrameCache.addSpriteFrames(xc.DotsLayer.res.hand_1_plist)
     this._dotNode = new cc.Node()
     this._dotNode.setPosition(xc.ConnectTheDotsLayer.WHITEBOARD_PADDING, 0)
     var whiteboard = new cc.Sprite(xc.ConnectTheDotsLayer.res.whiteboard_png)
@@ -46,7 +47,7 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
     handboard.setScale((cc.director.getVisibleSize().width - cc.director.getVisibleSize().height - 3 * xc.ConnectTheDotsLayer.WHITEBOARD_PADDING) / xc.ConnectTheDotsLayer.WHITEBOARD_HEIGHT)
     this._handNode.addChild(handboard)
     this._hand = new cc.Sprite("#" + xc.DotsLayer.fingerRep[this._targetNum])
-    this._hand.setScale(0.8)
+    this._hand.setScale(0.4)
     this._handNode.addChild(this._hand)
     this.addChild(this._handNode)
 
@@ -305,7 +306,8 @@ xc.ConnectTheDotsLayer.WHITEBOARD_PADDING = 80
 xc.ConnectTheDotsLayer.res = {
   hand_plist: xc.path + "maths/hand.plist",
   hand_png: xc.path + "maths/hand.png",
-  dot_png: xc.path + "maths/dot.png",
+  hand_1_plist: xc.path + "maths/hand-1.plist",
+  hand_1_png: xc.path + "maths/hand-1.png",
   graywindow_png: xc.path + "help/graywindow.png",
   whiteboard_png: xc.path + "help/whiteboard.png"
 }
@@ -333,7 +335,6 @@ xc.ConnectTheDotsMenu = xc.LevelMenuLayer.extend({
 xc.ConnectTheDotsMenu.res = {
   hand_plist: xc.path + "maths/hand.plist",
   hand_png: xc.path + "maths/hand.png",
-  dot_png: xc.path + "maths/dot.png",  
   cityscreen_plist: xc.path + "cityscreen/cityscreen.plist",
   cityscreen_png: xc.path + "cityscreen/cityscreen.png",
   cityscreen_json: xc.path + "cityscreen/cityscreen.json",

@@ -28,6 +28,7 @@ public:
     CC_SYNTHESIZE(std::string, postOutComeAction, PostOutComeAction);
     CC_SYNTHESIZE(int, shouldDisplayInBag, ShouldDisplayInBag);
     CC_SYNTHESIZE(std::string, sceneName, SceneName);
+    CC_SYNTHESIZE(std::string, hint, Hint);
     CC_SYNTHESIZE(int, hasTextAfterAniamtion, HasTextAfterAnimation);
         
 };

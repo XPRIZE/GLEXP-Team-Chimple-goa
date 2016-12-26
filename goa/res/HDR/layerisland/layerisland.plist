@@ -4,6 +4,21 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>layerisland/base.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{491,149}</string>
+                <key>spriteSourceSize</key>
+                <string>{491,149}</string>
+                <key>textureRect</key>
+                <string>{{319,44},{491,149}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
             <key>layerisland/bg.png</key>
             <dict>
                 <key>aliases</key>
@@ -15,9 +30,9 @@
                 <key>spriteSourceSize</key>
                 <string>{1414,328}</string>
                 <key>textureRect</key>
-                <string>{{44,486},{1414,328}}</string>
+                <string>{{470,44},{1414,328}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>layerisland/blink1.png</key>
             <dict>
@@ -30,9 +45,9 @@
                 <key>spriteSourceSize</key>
                 <string>{439,526}</string>
                 <key>textureRect</key>
-                <string>{{939,955},{395,380}}</string>
+                <string>{{921,965},{395,380}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>layerisland/blink2.png</key>
             <dict>
@@ -45,9 +60,9 @@
                 <key>spriteSourceSize</key>
                 <string>{439,526}</string>
                 <key>textureRect</key>
-                <string>{{424,1149},{395,380}}</string>
+                <string>{{1237,501},{395,380}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>layerisland/bubble1.png</key>
             <dict>
@@ -60,9 +75,9 @@
                 <key>spriteSourceSize</key>
                 <string>{152,241}</string>
                 <key>textureRect</key>
-                <string>{{44,1902},{70,97}}</string>
+                <string>{{470,374},{70,97}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>layerisland/bubble2.png</key>
             <dict>
@@ -75,9 +90,9 @@
                 <key>spriteSourceSize</key>
                 <string>{152,241}</string>
                 <key>textureRect</key>
-                <string>{{116,1902},{66,97}}</string>
+                <string>{{470,468},{66,97}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>layerisland/bubble3.png</key>
             <dict>
@@ -90,7 +105,7 @@
                 <key>spriteSourceSize</key>
                 <string>{152,241}</string>
                 <key>textureRect</key>
-                <string>{{311,1902},{96,111}}</string>
+                <string>{{1886,214},{96,111}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -105,7 +120,7 @@
                 <key>spriteSourceSize</key>
                 <string>{152,241}</string>
                 <key>textureRect</key>
-                <string>{{424,477},{96,107}}</string>
+                <string>{{1273,374},{96,107}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -120,9 +135,9 @@
                 <key>spriteSourceSize</key>
                 <string>{152,241}</string>
                 <key>textureRect</key>
-                <string>{{184,1902},{96,125}}</string>
+                <string>{{1175,374},{96,125}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>layerisland/bubble6.png</key>
             <dict>
@@ -135,9 +150,9 @@
                 <key>spriteSourceSize</key>
                 <string>{152,241}</string>
                 <key>textureRect</key>
-                <string>{{374,586},{126,139}}</string>
+                <string>{{1047,374},{126,139}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>layerisland/cake1.png</key>
             <dict>
@@ -150,7 +165,7 @@
                 <key>spriteSourceSize</key>
                 <string>{476,156}</string>
                 <key>textureRect</key>
-                <string>{{44,319},{476,156}}</string>
+                <string>{{569,374},{476,156}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -165,9 +180,9 @@
                 <key>spriteSourceSize</key>
                 <string>{234,250}</string>
                 <key>textureRect</key>
-                <string>{{1188,1629},{234,250}}</string>
+                <string>{{1303,1157},{234,250}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>layerisland/hand.png</key>
             <dict>
@@ -180,7 +195,7 @@
                 <key>spriteSourceSize</key>
                 <string>{112,168}</string>
                 <key>textureRect</key>
-                <string>{{374,714},{112,168}}</string>
+                <string>{{1886,44},{112,168}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -195,7 +210,7 @@
                 <key>spriteSourceSize</key>
                 <string>{35,54}</string>
                 <key>textureRect</key>
-                <string>{{374,477},{35,54}}</string>
+                <string>{{722,965},{35,54}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -210,7 +225,7 @@
                 <key>spriteSourceSize</key>
                 <string>{439,525}</string>
                 <key>textureRect</key>
-                <string>{{488,752},{395,449}}</string>
+                <string>{{470,1022},{395,449}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -225,9 +240,9 @@
                 <key>spriteSourceSize</key>
                 <string>{439,525}</string>
                 <key>textureRect</key>
-                <string>{{1037,486},{395,467}}</string>
+                <string>{{1,1047},{395,467}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>layerisland/happy3.png</key>
             <dict>
@@ -240,7 +255,7 @@
                 <key>spriteSourceSize</key>
                 <string>{439,525}</string>
                 <key>textureRect</key>
-                <string>{{1047,1},{401,483}}</string>
+                <string>{{319,537},{401,483}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -255,7 +270,7 @@
                 <key>spriteSourceSize</key>
                 <string>{439,525}</string>
                 <key>textureRect</key>
-                <string>{{522,319},{431,513}}</string>
+                <string>{{722,532},{431,513}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -270,9 +285,9 @@
                 <key>spriteSourceSize</key>
                 <string>{316,1001}</string>
                 <key>textureRect</key>
-                <string>{{44,1},{316,1001}}</string>
+                <string>{{1,44},{316,1001}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>layerisland/pant.png</key>
             <dict>
@@ -285,9 +300,9 @@
                 <key>spriteSourceSize</key>
                 <string>{257,290}</string>
                 <key>textureRect</key>
-                <string>{{1188,1337},{257,290}}</string>
+                <string>{{1303,898},{257,290}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>layerisland/ref.png</key>
             <dict>
@@ -302,7 +317,7 @@
                 <key>textureRect</key>
                 <string>{{1,1},{2001,41}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>layerisland/sad1.png</key>
             <dict>
@@ -315,7 +330,7 @@
                 <key>spriteSourceSize</key>
                 <string>{439,526}</string>
                 <key>textureRect</key>
-                <string>{{424,1531},{395,380}}</string>
+                <string>{{1619,468},{395,380}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -330,7 +345,7 @@
                 <key>spriteSourceSize</key>
                 <string>{439,526}</string>
                 <key>textureRect</key>
-                <string>{{806,1531},{395,380}}</string>
+                <string>{{1619,865},{395,380}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -345,7 +360,7 @@
                 <key>spriteSourceSize</key>
                 <string>{154,108}</string>
                 <key>textureRect</key>
-                <string>{{374,884},{154,108}}</string>
+                <string>{{1886,312},{154,108}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -361,9 +376,9 @@
             <key>realTextureFileName</key>
             <string>layerisland.png</string>
             <key>size</key>
-            <string>{1449,2003}</string>
+            <string>{2003,1443}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:5e4e4b42b81cc5c4ba855d0ef3aa9ae0:d6b900f865e62897c931243400863d7d:88e7c78b3aaf3e9bf61736f7dbec9a32$</string>
+            <string>$TexturePacker:SmartUpdate:e88ea553a1b3e0ddaad8208a352af938:9efaa3715ca282ad29e80997b13b6d08:88e7c78b3aaf3e9bf61736f7dbec9a32$</string>
             <key>textureFileName</key>
             <string>layerisland.png</string>
         </dict>

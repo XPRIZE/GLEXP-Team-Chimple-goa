@@ -52,6 +52,9 @@ void StandingState::enter(cocos2d::Vec2 forceVector, SkeletonCharacterState prev
     
     this->getTarget()->changeSkinForMouthBone("mouth", "mouth","hero/mouth/normal.png");
     this->getTarget()->getSkeletonActionTimeLine()->setTimeSpeed(1.0f);
+    
+    cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(RPGConfig::WORD_BUBBLE_SHOW_NOTIFICATION);
+    
 }
 
 void StandingState::exit()  {
@@ -59,7 +62,7 @@ void StandingState::exit()  {
     this->getTarget()->isStanding = false;
     CCLOG("pausing all animation on node in standing");
     this->getTarget()->getSkeletonActionTimeLine()->pause();
-    //this->getTarget()->getSkeletonActionTimeLine()->gotoFrameAndPause(0);
+    cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(RPGConfig::WORD_BUBBLE_HIDE_NOTIFICATION);
 }
 
 SkeletonCharacterState StandingState::handleInput(SkeletonCharacterState command)  {

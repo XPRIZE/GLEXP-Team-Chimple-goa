@@ -1,0 +1,117 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "farmhouse_inside",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "UserData": "mainCharacterFile=human_skeleton.csb,physicsFile=farmhouse.plist,dialogFile=farmhouse.db3",
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "farmhouse_inside/farmhouse_inside_mainground.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.155,
+              "Y": 0.5456
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0003
+            },
+            "PreSize": {
+              "X": 0.5,
+              "Y": 1.0
+            },
+            "LeftMargin": 0.155,
+            "RightMargin": 2559.845,
+            "TopMargin": -0.5457,
+            "BottomMargin": 0.5456,
+            "UserData": "main",
+            "Tag": 226,
+            "ActionTag": -1331151993,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "mainground",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "farmhouse_inside/farmhouse_inside_foreground.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2.4934,
+              "Y": -1.8228
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0005,
+              "Y": -0.001
+            },
+            "PreSize": {
+              "X": 0.5,
+              "Y": 1.0
+            },
+            "LeftMargin": 2.4934,
+            "RightMargin": 2557.5066,
+            "TopMargin": 1.8229,
+            "BottomMargin": -1.8228,
+            "UserData": "foreground",
+            "Tag": 132,
+            "ActionTag": 273280411,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "foreground",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 5120.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "farmhouse_inside_foreground.json",
+        "farmhouse_inside_mainground.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

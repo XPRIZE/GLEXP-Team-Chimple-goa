@@ -34,6 +34,7 @@ public:
 	int bingoVertically();
 	int bingoRightDiagonally();
 	int bingoLeftDiagonally();
+	std::string getConvertInUpperCase(std::string data);
 	std::pair<int, int> levelAllInfo(int levelNum, int sceneRepetitionNo, int totalScene, int catagoryRepetitionNo, int totalcatagory);
 
 
@@ -56,6 +57,7 @@ protected:
 	std::vector<std::string> _data_key;
 	std::vector<std::string> _data_value;
 	cocos2d::LabelTTF* _label = NULL;
+	std::string _labelPrefix ="";
 	bool _isBingoDone = false;
 	MenuContext* _menuContext;
 	HelpLayer* _help;
@@ -65,7 +67,6 @@ protected:
 	std::string _resourcePath = "";
 	bool _flagForSingleTouch = true;
 	int _maxPointSetter=0;
-
 
 
 	// implement the "static create()" method manually

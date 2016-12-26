@@ -72,6 +72,8 @@
 #define INVISIBLE_BOUNDARY_CONTACT_BITMASK 2
 
 
+#define TIME_TO_SHOW_WORD_BUBBLE 5.0f
+
 #define WALKING_STARTED "walking_started"
 #define HUMAN_SKELETON_NAME "Hero"
 #define JUMP_START "jump_start"
@@ -273,6 +275,10 @@ public:
     static const char* ON_ALPHAMON_PRESSED_NOTIFICATION;
     
     static const char* ON_WORD_INFO_NOTIFICATION;
+    
+    static const char* WORD_BUBBLE_SHOW_NOTIFICATION;
+    
+    static const char* WORD_BUBBLE_HIDE_NOTIFICATION;
         
     template <typename T>
     static inline std::string to_string(T value)

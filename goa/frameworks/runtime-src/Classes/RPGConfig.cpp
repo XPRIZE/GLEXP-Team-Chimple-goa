@@ -42,6 +42,12 @@ const char* RPGConfig::ON_ALPHAMON_PRESSED_NOTIFICATION = "alphamon_destroyed";
 const char* RPGConfig::ON_WORD_INFO_NOTIFICATION = "on_word_selected";
 
 
+const char* RPGConfig::WORD_BUBBLE_SHOW_NOTIFICATION = "word_bubble_show";
+
+
+const char* RPGConfig::WORD_BUBBLE_HIDE_NOTIFICATION = "word_bubble_hide";
+
+
 
 float RPGConfig::calcuateVelocityForJump(cocos2d::Point point1, cocos2d::Point point2, float angle, float xOffSet, float yOffSet) {
     float velocity = 0.0f;

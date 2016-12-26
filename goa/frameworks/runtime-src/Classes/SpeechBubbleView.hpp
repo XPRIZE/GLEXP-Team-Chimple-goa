@@ -15,6 +15,10 @@
 #include "ui/UIWidget.h"
 #include "ui/GUIExport.h"
 #include "cocos-ext.h"
+#include "ExternalSkeletonCharacter.h"
+#include "SkeletonCharacter.h"
+
+
 
 class SpeechBubbleView : public cocos2d::Node {
 public:
@@ -22,6 +26,12 @@ public:
     
     ~SpeechBubbleView();
     
+    
+    static SpeechBubbleView* createForExternalCharacter(ExternalSkeletonCharacter* character ,std::unordered_map<int, std::string> textMap, cocos2d::Point position);
+    
+    static SpeechBubbleView* createForCharacter(SkeletonCharacter* character ,std::unordered_map<int, std::string> textMap, cocos2d::Point position);
+    
+
     static SpeechBubbleView* create(std::unordered_map<int, std::string> textMap, cocos2d::Point position);
     
     virtual bool initialize(std::unordered_map<int, std::string> textMap, cocos2d::Point position);
@@ -32,6 +42,8 @@ public:
     
     void bubbleDestoryMessageEvent(cocos2d::EventCustom * event);
     
+    cocos2d::ui::Button* currentButton();
+    
     // touch listeners
 //    virtual bool onTouchBegan(cocos2d::Touch * touch, cocos2d::Event* event);
 //    virtual void touchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
@@ -40,9 +52,18 @@ public:
     
     virtual void destroySpeechBubbles();
     
+    void performAction();
+
+    ExternalSkeletonCharacter* _externalCharacter;
+    
+    SkeletonCharacter* _skeletonCharacter;
+
 protected:
 //    std::vector<cocos2d::Label*> texts;
     std::vector<cocos2d::ui::Button*> textButtons;
+    cocos2d::ui::Button* _button;
+    
+    
 };
 
 #endif /* SpeechBubbleView_hpp */
