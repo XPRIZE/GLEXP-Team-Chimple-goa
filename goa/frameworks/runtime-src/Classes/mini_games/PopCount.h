@@ -9,6 +9,7 @@
 #include "../lang/LangUtil.h"
 #include "../lang/TextGenerator.h"
 #include "../effects/FShake.h"
+#include "SimpleAudioEngine.h"
 
 using namespace cocos2d;
 using namespace std;
@@ -23,10 +24,11 @@ protected:
 	std::map<std::string, std::map<std::string, float>> _popcountPropertyMap;
 	string _popcountCurrentTheme = "" , _popCharacter = "";
 	int _popUpAnswer = 0, _popElementCount = 5 , _maxPopStarLimits = 10 , _totalHit = 0 , _wrongHit = 0;
-	float _popStayDelay = 4.0f;
+	float _popStayDelay = 4.0f , _delayNumber = 0.0f;
 	vector<int> _getElementObject;
 	cocostudio::timeline::ActionTimeline *_timelineCenterStarFish;
 	bool _popMidButtonClickPermision = true , _popStartListner = false , _tempToHoldCenterButton = false;
+	bool _setHelpLayerMode = true;
 
 public:
 	~PopCount();
