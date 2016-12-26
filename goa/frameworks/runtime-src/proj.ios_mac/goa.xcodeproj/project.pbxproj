@@ -58,6 +58,8 @@
 		509D4AEB17EBB82600697056 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 509D4AEA17EBB82600697056 /* IOKit.framework */; };
 		9C064E5C1DB8905C000892E1 /* DecomonGallery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C064E5A1DB8905C000892E1 /* DecomonGallery.cpp */; };
 		9C064E5F1DB8909B000892E1 /* DecomonGallery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C064E5A1DB8905C000892E1 /* DecomonGallery.cpp */; };
+		9C0D9CE61E0F8A72006923E3 /* WordBubble.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D9CE41E0F8A72006923E3 /* WordBubble.cpp */; };
+		9C0D9CE71E0F8A72006923E3 /* WordBubble.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D9CE41E0F8A72006923E3 /* WordBubble.cpp */; };
 		9C0E13471DBF707E00C10A81 /* WordSceneLipiTKNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E13461DBF707E00C10A81 /* WordSceneLipiTKNode.cpp */; };
 		9C0E13481DBF707E00C10A81 /* WordSceneLipiTKNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E13461DBF707E00C10A81 /* WordSceneLipiTKNode.cpp */; };
 		9C4C88A21DEE5AA70022EB1C /* PopCount.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C4C88A01DEE5AA70022EB1C /* PopCount.cpp */; };
@@ -564,6 +566,8 @@
 		509D4AEA17EBB82600697056 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		9C064E5A1DB8905C000892E1 /* DecomonGallery.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DecomonGallery.cpp; sourceTree = "<group>"; };
 		9C064E5B1DB8905C000892E1 /* DecomonGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecomonGallery.h; sourceTree = "<group>"; };
+		9C0D9CE41E0F8A72006923E3 /* WordBubble.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WordBubble.cpp; sourceTree = "<group>"; };
+		9C0D9CE51E0F8A72006923E3 /* WordBubble.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WordBubble.hpp; sourceTree = "<group>"; };
 		9C0E13431DBF704400C10A81 /* WordSceneLipiTKNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordSceneLipiTKNode.h; sourceTree = "<group>"; };
 		9C0E13461DBF707E00C10A81 /* WordSceneLipiTKNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WordSceneLipiTKNode.cpp; sourceTree = "<group>"; };
 		9C4C88A01DEE5AA70022EB1C /* PopCount.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PopCount.cpp; sourceTree = "<group>"; };
@@ -1291,6 +1295,8 @@
 				F352477E1D6D9D1A0077C333 /* WordSprite.h */,
 				9C0E13431DBF704400C10A81 /* WordSceneLipiTKNode.h */,
 				9C0E13461DBF707E00C10A81 /* WordSceneLipiTKNode.cpp */,
+				9C0D9CE41E0F8A72006923E3 /* WordBubble.cpp */,
+				9C0D9CE51E0F8A72006923E3 /* WordBubble.hpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -2055,6 +2061,7 @@
 				F35247E31D6D9D1A0077C333 /* SmashTheRockLevelScene.cpp in Sources */,
 				F352480D1D6D9D1A0077C333 /* PegWord.cpp in Sources */,
 				F3F7ED631D93DAFE00727A7C /* Dash.cpp in Sources */,
+				9C0D9CE71E0F8A72006923E3 /* WordBubble.cpp in Sources */,
 				F3EEA3F31DE3011B00CA7D31 /* Step.cpp in Sources */,
 				F3667D1B1DB4BA6F00EC8908 /* LTKChannel.cpp in Sources */,
 				F3667D251DB4BA6F00EC8908 /* LTKTraceGroup.cpp in Sources */,
@@ -2257,6 +2264,7 @@
 				F3667D421DB4BA6F00EC8908 /* PointFloat.cpp in Sources */,
 				F352481C1D6D9D1A0077C333 /* ScrollableGameMapScene.cpp in Sources */,
 				F3667D5C1DB4BA7000EC8908 /* LTKCheckSumGenerate.cpp in Sources */,
+				9C0D9CE61E0F8A72006923E3 /* WordBubble.cpp in Sources */,
 				F3AB34D31DCDA95900613C20 /* Door.cpp in Sources */,
 				F3EEA3F21DE3011B00CA7D31 /* Step.cpp in Sources */,
 				F35248301D6D9D1A0077C333 /* JumpingState.cpp in Sources */,

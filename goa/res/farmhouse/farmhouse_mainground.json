@@ -1,0 +1,4283 @@
+{
+  "ID": "0816d920-2920-47af-9816-0352c0766dad",
+  "Version": "3.10.0.0",
+  "Name": "farmhouse_mainground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 140,
+        "Speed": 1.0,
+        "ActivedAnimationName": "house_door",
+        "Timelines": [
+          {
+            "ActionTag": 870313810,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 6545.8032,
+                "Y": 798.6686,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 6545.8032,
+                "Y": 798.6686,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 870313810,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 870313810,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1801477527,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 6736.7646,
+                "Y": 788.9867,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 6736.7588,
+                "Y": 788.9863,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 6736.7485,
+                "Y": 788.9856,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 6736.7383,
+                "Y": 788.985,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 6736.7271,
+                "Y": 788.9841,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1801477527,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8795,
+                "Y": 1.0,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.7937,
+                "Y": 1.0,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.7169,
+                "Y": 1.0,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.6454,
+                "Y": 1.0,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1801477527,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": -2.9791,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": -4.0,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": -6.01,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": -8.01,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1595821152,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 9768.4736,
+                "Y": 682.7368,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 9768.4736,
+                "Y": 682.7368,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1595821152,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1595821152,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 392427792,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 9304.6377,
+                "Y": 647.0541,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 9304.6377,
+                "Y": 647.0538,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 9304.6377,
+                "Y": 647.054,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 9304.6377,
+                "Y": 647.0538,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 9304.6377,
+                "Y": 647.054,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 392427792,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8055,
+                "Y": 1.0,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.5919,
+                "Y": 1.0,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.3642,
+                "Y": 1.0,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.1981,
+                "Y": 1.0,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 392427792,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1237237528,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 10227.1465,
+                "Y": 657.7374,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 10227.1553,
+                "Y": 657.7375,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 10227.1641,
+                "Y": 657.7374,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 10227.1777,
+                "Y": 657.7372,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 10227.1826,
+                "Y": 657.7372,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1237237528,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8149,
+                "Y": 1.0,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.6346,
+                "Y": 1.0,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.3784,
+                "Y": 1.0,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.2076,
+                "Y": 1.0,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1237237528,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 555568725,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 13719.8379,
+                "Y": 776.2335,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 13719.8379,
+                "Y": 776.2335,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 555568725,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 555568725,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1824296788,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 14111.1865,
+                "Y": 730.2365,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 14111.1973,
+                "Y": 730.2363,
+                "FrameIndex": 110,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 14111.2041,
+                "Y": 730.2363,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 14111.2109,
+                "Y": 730.2365,
+                "FrameIndex": 130,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 14111.2139,
+                "Y": 730.2365,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1824296788,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.7857,
+                "Y": 1.0,
+                "FrameIndex": 110,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.5164,
+                "Y": 1.0,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.2526,
+                "Y": 1.0,
+                "FrameIndex": 130,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.1152,
+                "Y": 1.0,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1824296788,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 110,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 130,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 191939159,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 13328.3652,
+                "Y": 730.2371,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 13328.3711,
+                "Y": 730.2373,
+                "FrameIndex": 110,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 13328.3721,
+                "Y": 730.2372,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 13328.3721,
+                "Y": 730.2372,
+                "FrameIndex": 130,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 13328.3721,
+                "Y": 730.2373,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 191939159,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.7692,
+                "Y": 1.0,
+                "FrameIndex": 110,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.4999,
+                "Y": 1.0,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.2416,
+                "Y": 1.0,
+                "FrameIndex": 130,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.1262,
+                "Y": 1.0,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 191939159,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 110,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 130,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1381259971,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 13715.9707,
+                "Y": 1101.053,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 13715.9707,
+                "Y": 1101.053,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1381259971,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1381259971,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 40,
+          "Name": "house_door",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 50,
+          "EndIndex": 90,
+          "Name": "granary_door",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 100,
+          "EndIndex": 140,
+          "Name": "barnhouse_door",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 5,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse2/floor.png",
+              "Plist": "farmhouse/farmhouse2/farmhouse2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1939.1798,
+              "Y": 222.3425
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.505,
+              "Y": 0.0794
+            },
+            "PreSize": {
+              "X": 1.0005,
+              "Y": 0.1607
+            },
+            "LeftMargin": 18.1798,
+            "RightMargin": -20.1797,
+            "TopMargin": 2352.6575,
+            "BottomMargin": -2.6575,
+            "Tag": 320,
+            "ActionTag": -680936404,
+            "Size": {
+              "X": 3842.0,
+              "Y": 450.0
+            },
+            "Name": "floor_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse2/floor.png",
+              "Plist": "farmhouse/farmhouse2/farmhouse2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5778.4258,
+              "Y": 221.3105
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.5048,
+              "Y": 0.079
+            },
+            "PreSize": {
+              "X": 1.0005,
+              "Y": 0.1607
+            },
+            "LeftMargin": 3857.4258,
+            "RightMargin": -3859.4258,
+            "TopMargin": 2353.6895,
+            "BottomMargin": -3.6895,
+            "Tag": 321,
+            "ActionTag": -1283155476,
+            "Size": {
+              "X": 3842.0,
+              "Y": 450.0
+            },
+            "Name": "floor_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse2/floor.png",
+              "Plist": "farmhouse/farmhouse2/farmhouse2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 9604.1816,
+              "Y": 224.9058
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.5011,
+              "Y": 0.0803
+            },
+            "PreSize": {
+              "X": 1.0005,
+              "Y": 0.1607
+            },
+            "LeftMargin": 7683.1816,
+            "RightMargin": -7685.1816,
+            "TopMargin": 2350.0942,
+            "BottomMargin": -0.0942,
+            "Tag": 322,
+            "ActionTag": 1627767687,
+            "Size": {
+              "X": 3842.0,
+              "Y": 450.0
+            },
+            "Name": "floor_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse2/floor.png",
+              "Plist": "farmhouse/farmhouse2/farmhouse2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 13445.8945,
+              "Y": 224.904
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.5015,
+              "Y": 0.0803
+            },
+            "PreSize": {
+              "X": 1.0005,
+              "Y": 0.1607
+            },
+            "LeftMargin": 11524.8945,
+            "RightMargin": -11526.8945,
+            "TopMargin": 2350.0959,
+            "BottomMargin": -0.096,
+            "Tag": 323,
+            "ActionTag": -2097819214,
+            "Size": {
+              "X": 3842.0,
+              "Y": 450.0
+            },
+            "Name": "floor_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/hut.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 401.2781,
+              "Y": 906.7065
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1045,
+              "Y": 0.3238
+            },
+            "PreSize": {
+              "X": 0.1685,
+              "Y": 0.3639
+            },
+            "LeftMargin": 77.7781,
+            "RightMargin": 3115.2219,
+            "TopMargin": 1383.7935,
+            "BottomMargin": 397.2065,
+            "Tag": 325,
+            "ActionTag": -490959669,
+            "Size": {
+              "X": 647.0,
+              "Y": 1019.0
+            },
+            "Name": "hut_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/tractor1.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1209.4099,
+              "Y": 600.7363
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.315,
+              "Y": 0.2145
+            },
+            "PreSize": {
+              "X": 0.2062,
+              "Y": 0.1446
+            },
+            "LeftMargin": 813.4099,
+            "RightMargin": 2234.5901,
+            "TopMargin": 1996.7637,
+            "BottomMargin": 398.2363,
+            "Tag": 719,
+            "ActionTag": 7934133,
+            "Size": {
+              "X": 792.0,
+              "Y": 405.0
+            },
+            "Name": "tractor1_369",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/tractor.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1814.665,
+              "Y": 748.2366
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4726,
+              "Y": 0.2672
+            },
+            "PreSize": {
+              "X": 0.2242,
+              "Y": 0.25
+            },
+            "LeftMargin": 1384.165,
+            "RightMargin": 1594.835,
+            "TopMargin": 1701.7634,
+            "BottomMargin": 398.2366,
+            "Tag": 327,
+            "ActionTag": -181166252,
+            "Size": {
+              "X": 861.0,
+              "Y": 700.0
+            },
+            "Name": "tractor_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/granaryhouse1.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 11214.9863,
+              "Y": 1180.2362
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.9206,
+              "Y": 0.4215
+            },
+            "PreSize": {
+              "X": 0.1771,
+              "Y": 0.5586
+            },
+            "LeftMargin": 10874.9863,
+            "RightMargin": -7714.9863,
+            "TopMargin": 837.7638,
+            "BottomMargin": 398.2362,
+            "Tag": 725,
+            "ActionTag": 586211342,
+            "Size": {
+              "X": 680.0,
+              "Y": 1564.0
+            },
+            "Name": "granaryhouse1_375",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse3/power_house.png",
+              "Plist": "farmhouse/farmhouse3/farmhouse3.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2885.2456,
+              "Y": 1428.7328
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7514,
+              "Y": 0.5103
+            },
+            "PreSize": {
+              "X": 0.324,
+              "Y": 0.7361
+            },
+            "LeftMargin": 2263.2456,
+            "RightMargin": 332.7544,
+            "TopMargin": 340.7671,
+            "BottomMargin": 398.2328,
+            "Tag": 330,
+            "ActionTag": -1710891294,
+            "Size": {
+              "X": 1244.0,
+              "Y": 2061.0
+            },
+            "Name": "power_house_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse3/treehouse.png",
+              "Plist": "farmhouse/farmhouse3/farmhouse3.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4292.8076,
+              "Y": 1347.793
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1179,
+              "Y": 0.4814
+            },
+            "PreSize": {
+              "X": 0.4411,
+              "Y": 0.7321
+            },
+            "LeftMargin": 3445.8076,
+            "RightMargin": -1299.8076,
+            "TopMargin": 427.207,
+            "BottomMargin": 322.793,
+            "Tag": 332,
+            "ActionTag": -403670159,
+            "Size": {
+              "X": 1694.0,
+              "Y": 2050.0
+            },
+            "Name": "treehouse_11",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse2/farm_house1.png",
+              "Plist": "farmhouse/farmhouse2/farmhouse2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5529.2666,
+              "Y": 1740.8079
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.4399,
+              "Y": 0.6217
+            },
+            "PreSize": {
+              "X": 0.1836,
+              "Y": 0.3696
+            },
+            "LeftMargin": 5176.7666,
+            "RightMargin": -2041.7666,
+            "TopMargin": 541.6921,
+            "BottomMargin": 1223.3079,
+            "Tag": 724,
+            "ActionTag": 1841355267,
+            "Size": {
+              "X": 705.0,
+              "Y": 1035.0
+            },
+            "Name": "farm_house1_374",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse2/farm_house.png",
+              "Plist": "farmhouse/farmhouse2/farmhouse2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7254.5015,
+              "Y": 1180.9135
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.8892,
+              "Y": 0.4218
+            },
+            "PreSize": {
+              "X": 0.3688,
+              "Y": 0.6011
+            },
+            "LeftMargin": 6546.5015,
+            "RightMargin": -4122.5015,
+            "TopMargin": 777.5865,
+            "BottomMargin": 339.4135,
+            "Tag": 333,
+            "ActionTag": 1778601776,
+            "Size": {
+              "X": 1416.0,
+              "Y": 1683.0
+            },
+            "Name": "farm_house_12",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse2/farm_house.png",
+              "Plist": "farmhouse/farmhouse2/farmhouse2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5839.2354,
+              "Y": 1180.6003
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.5206,
+              "Y": 0.4216
+            },
+            "PreSize": {
+              "X": 0.3688,
+              "Y": 0.6011
+            },
+            "LeftMargin": 5131.2354,
+            "RightMargin": -2707.2354,
+            "TopMargin": 777.8997,
+            "BottomMargin": 339.1003,
+            "Tag": 1510,
+            "ActionTag": -329134585,
+            "Size": {
+              "X": 1416.0,
+              "Y": 1683.0
+            },
+            "Name": "farm_house_left_388",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/colortree.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 11733.0869,
+              "Y": 1026.2361
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.0555,
+              "Y": 0.3665
+            },
+            "PreSize": {
+              "X": 0.2615,
+              "Y": 0.4486
+            },
+            "LeftMargin": 11231.0869,
+            "RightMargin": -8395.0869,
+            "TopMargin": 1145.7639,
+            "BottomMargin": 398.2361,
+            "Tag": 336,
+            "ActionTag": -701928043,
+            "Size": {
+              "X": 1004.0,
+              "Y": 1256.0
+            },
+            "Name": "colortree_15",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse2/barnhouse2.png",
+              "Plist": "farmhouse/farmhouse2/farmhouse2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 12588.9512,
+              "Y": 890.7356
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.2784,
+              "Y": 0.3181
+            },
+            "PreSize": {
+              "X": 0.2667,
+              "Y": 0.3518
+            },
+            "LeftMargin": 12076.9512,
+            "RightMargin": -9260.9512,
+            "TopMargin": 1416.7644,
+            "BottomMargin": 398.2356,
+            "Tag": 728,
+            "ActionTag": -1713815786,
+            "Size": {
+              "X": 1024.0,
+              "Y": 985.0
+            },
+            "Name": "barnhouse2_377",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse2/barnhouse1.png",
+              "Plist": "farmhouse/farmhouse2/farmhouse2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 14810.5371,
+              "Y": 890.2361
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.8569,
+              "Y": 0.3179
+            },
+            "PreSize": {
+              "X": 0.2664,
+              "Y": 0.3514
+            },
+            "LeftMargin": 14299.0371,
+            "RightMargin": -11482.0371,
+            "TopMargin": 1417.7639,
+            "BottomMargin": 398.2361,
+            "Tag": 726,
+            "ActionTag": -892655757,
+            "Size": {
+              "X": 1023.0,
+              "Y": 984.0
+            },
+            "Name": "barnhouse1_376",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse2/barnhouse.png",
+              "Plist": "farmhouse/farmhouse2/farmhouse2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 13691.2432,
+              "Y": 1336.2366
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.5654,
+              "Y": 0.4772
+            },
+            "PreSize": {
+              "X": 0.4901,
+              "Y": 0.6696
+            },
+            "LeftMargin": 12750.2432,
+            "RightMargin": -10792.2432,
+            "TopMargin": 526.2634,
+            "BottomMargin": 398.7366,
+            "Tag": 337,
+            "ActionTag": 313416633,
+            "Size": {
+              "X": 1882.0,
+              "Y": 1875.0
+            },
+            "Name": "barnhouse_16",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse3/granaryhouse.png",
+              "Plist": "farmhouse/farmhouse3/farmhouse3.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 9771.2139,
+              "Y": 1567.7362
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.5446,
+              "Y": 0.5599
+            },
+            "PreSize": {
+              "X": 0.6297,
+              "Y": 0.8354
+            },
+            "LeftMargin": 8562.2139,
+            "RightMargin": -7140.2139,
+            "TopMargin": 62.7637,
+            "BottomMargin": 398.2362,
+            "Tag": 338,
+            "ActionTag": -53692141,
+            "Size": {
+              "X": 2418.0,
+              "Y": 2339.0
+            },
+            "Name": "granaryhouse_17",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/milkbottle.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 13055.3193,
+              "Y": 482.4426
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.3998,
+              "Y": 0.1723
+            },
+            "PreSize": {
+              "X": 0.0255,
+              "Y": 0.0793
+            },
+            "LeftMargin": 13006.3193,
+            "RightMargin": -9264.3193,
+            "TopMargin": 2206.5574,
+            "BottomMargin": 371.4426,
+            "Tag": 339,
+            "ActionTag": 1721975411,
+            "Size": {
+              "X": 98.0,
+              "Y": 222.0
+            },
+            "Name": "milkbottle_18",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/waterbottle.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5210.0215,
+              "Y": 392.136
+            },
+            "Scale": {
+              "ScaleX": 0.6784,
+              "ScaleY": 0.6784
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3568,
+              "Y": 0.14
+            },
+            "PreSize": {
+              "X": 0.068,
+              "Y": 0.0539
+            },
+            "LeftMargin": 5079.5215,
+            "RightMargin": -1500.5215,
+            "TopMargin": 2332.364,
+            "BottomMargin": 316.636,
+            "UserData": "canInteract=true ",
+            "Tag": 343,
+            "ActionTag": 149927675,
+            "Size": {
+              "X": 261.0,
+              "Y": 151.0
+            },
+            "Name": "waterbottle_22",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/tool4.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 10514.6523,
+              "Y": 933.413
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.7382,
+              "Y": 0.3334
+            },
+            "PreSize": {
+              "X": 0.0107,
+              "Y": 0.0339
+            },
+            "LeftMargin": 10494.1523,
+            "RightMargin": -6695.1523,
+            "TopMargin": 1819.0869,
+            "BottomMargin": 885.913,
+            "Tag": 346,
+            "ActionTag": 966358259,
+            "Size": {
+              "X": 41.0,
+              "Y": 95.0
+            },
+            "Name": "tool4_25",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/tool5.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 10629.7363,
+              "Y": 934.2667
+            },
+            "Scale": {
+              "ScaleX": 0.7482,
+              "ScaleY": 0.7482
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.7682,
+              "Y": 0.3337
+            },
+            "PreSize": {
+              "X": 0.0208,
+              "Y": 0.0561
+            },
+            "LeftMargin": 10589.7363,
+            "RightMargin": -6829.7363,
+            "TopMargin": 1787.2333,
+            "BottomMargin": 855.7667,
+            "Tag": 347,
+            "ActionTag": 516632140,
+            "Size": {
+              "X": 80.0,
+              "Y": 157.0
+            },
+            "Name": "tool5_26",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/tool5.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 13048.7539,
+              "Y": 883.382
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.3981,
+              "Y": 0.3155
+            },
+            "PreSize": {
+              "X": 0.0208,
+              "Y": 0.0561
+            },
+            "LeftMargin": 13008.7539,
+            "RightMargin": -9248.7539,
+            "TopMargin": 1838.1179,
+            "BottomMargin": 804.882,
+            "Tag": 348,
+            "ActionTag": -120680319,
+            "Size": {
+              "X": 80.0,
+              "Y": 157.0
+            },
+            "Name": "tool5_27",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/tool4.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 13155.5332,
+              "Y": 791.0338
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.4259,
+              "Y": 0.2825
+            },
+            "PreSize": {
+              "X": 0.0107,
+              "Y": 0.0339
+            },
+            "LeftMargin": 13135.0332,
+            "RightMargin": -9336.0332,
+            "TopMargin": 1961.4662,
+            "BottomMargin": 743.5338,
+            "Tag": 349,
+            "ActionTag": 199026186,
+            "Size": {
+              "X": 41.0,
+              "Y": 95.0
+            },
+            "Name": "tool4_28",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/basket.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1074.4531,
+              "Y": 687.0095
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2798,
+              "Y": 0.2454
+            },
+            "PreSize": {
+              "X": 0.0331,
+              "Y": 0.0579
+            },
+            "LeftMargin": 1010.9531,
+            "RightMargin": 2702.0469,
+            "TopMargin": 2031.9905,
+            "BottomMargin": 606.0095,
+            "UserData": "canInteract=true ",
+            "Tag": 350,
+            "ActionTag": -1313872321,
+            "Size": {
+              "X": 127.0,
+              "Y": 162.0
+            },
+            "Name": "basket_29",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/stone1.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 170.0668,
+              "Y": 95.6606
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0443,
+              "Y": 0.0342
+            },
+            "PreSize": {
+              "X": 0.0401,
+              "Y": 0.0346
+            },
+            "LeftMargin": 93.0668,
+            "RightMargin": 3592.9331,
+            "TopMargin": 2655.8394,
+            "BottomMargin": 47.1606,
+            "Tag": 351,
+            "ActionTag": 2085830962,
+            "Size": {
+              "X": 154.0,
+              "Y": 97.0
+            },
+            "Name": "stone1_30",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/stone1.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1368.2087,
+              "Y": 397.2434
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3563,
+              "Y": 0.1419
+            },
+            "PreSize": {
+              "X": 0.0401,
+              "Y": 0.0346
+            },
+            "LeftMargin": 1291.2087,
+            "RightMargin": 2394.7913,
+            "TopMargin": 2354.2566,
+            "BottomMargin": 348.7434,
+            "Tag": 352,
+            "ActionTag": 1450805137,
+            "Size": {
+              "X": 154.0,
+              "Y": 97.0
+            },
+            "Name": "stone1_31",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/stone1.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3685.8979,
+              "Y": 446.7365
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9599,
+              "Y": 0.1595
+            },
+            "PreSize": {
+              "X": 0.0401,
+              "Y": 0.0346
+            },
+            "LeftMargin": 3608.8979,
+            "RightMargin": 77.1021,
+            "TopMargin": 2304.7634,
+            "BottomMargin": 398.2365,
+            "Tag": 353,
+            "ActionTag": -561331896,
+            "Size": {
+              "X": 154.0,
+              "Y": 97.0
+            },
+            "Name": "stone1_32",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/stone1.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7951.231,
+              "Y": 403.9497
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.0706,
+              "Y": 0.1443
+            },
+            "PreSize": {
+              "X": 0.0401,
+              "Y": 0.0346
+            },
+            "LeftMargin": 7874.231,
+            "RightMargin": -4188.231,
+            "TopMargin": 2347.5503,
+            "BottomMargin": 355.4497,
+            "Tag": 354,
+            "ActionTag": 1781451617,
+            "Size": {
+              "X": 154.0,
+              "Y": 97.0
+            },
+            "Name": "stone1_33",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/stone1.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7863.2246,
+              "Y": 402.591
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.0477,
+              "Y": 0.1438
+            },
+            "PreSize": {
+              "X": 0.0401,
+              "Y": 0.0346
+            },
+            "LeftMargin": 7786.2246,
+            "RightMargin": -4100.2246,
+            "TopMargin": 2348.9089,
+            "BottomMargin": 354.091,
+            "Tag": 355,
+            "ActionTag": 687379772,
+            "Size": {
+              "X": 154.0,
+              "Y": 97.0
+            },
+            "Name": "stone1_34",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/stone2.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 15242.5762,
+              "Y": 391.8531
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.9694,
+              "Y": 0.1399
+            },
+            "PreSize": {
+              "X": 0.0289,
+              "Y": 0.0246
+            },
+            "LeftMargin": 15187.0762,
+            "RightMargin": -11458.0762,
+            "TopMargin": 2373.647,
+            "BottomMargin": 357.3531,
+            "Tag": 357,
+            "ActionTag": -389828971,
+            "Size": {
+              "X": 111.0,
+              "Y": 69.0
+            },
+            "Name": "stone2_36",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/stone2.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 11884.8818,
+              "Y": 417.7188
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.095,
+              "Y": 0.1492
+            },
+            "PreSize": {
+              "X": 0.0289,
+              "Y": 0.0246
+            },
+            "LeftMargin": 11829.3818,
+            "RightMargin": -8100.3818,
+            "TopMargin": 2347.7812,
+            "BottomMargin": 383.2188,
+            "Tag": 358,
+            "ActionTag": -1010197829,
+            "Size": {
+              "X": 111.0,
+              "Y": 69.0
+            },
+            "Name": "stone2_37",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/stone2.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 8831.4873,
+              "Y": 415.406
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.2999,
+              "Y": 0.1484
+            },
+            "PreSize": {
+              "X": 0.0289,
+              "Y": 0.0246
+            },
+            "LeftMargin": 8775.9873,
+            "RightMargin": -5046.9873,
+            "TopMargin": 2350.094,
+            "BottomMargin": 380.906,
+            "Tag": 359,
+            "ActionTag": -1231470239,
+            "Size": {
+              "X": 111.0,
+              "Y": 69.0
+            },
+            "Name": "stone2_38",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/stone2.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6904.1641,
+              "Y": 363.7366
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.798,
+              "Y": 0.1299
+            },
+            "PreSize": {
+              "X": 0.0289,
+              "Y": 0.0246
+            },
+            "LeftMargin": 6848.6641,
+            "RightMargin": -3119.6641,
+            "TopMargin": 2401.7634,
+            "BottomMargin": 329.2366,
+            "Tag": 360,
+            "ActionTag": -2070584945,
+            "Size": {
+              "X": 111.0,
+              "Y": 69.0
+            },
+            "Name": "stone2_39",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/stone2.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5014.8174,
+              "Y": 474.4067
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3059,
+              "Y": 0.1694
+            },
+            "PreSize": {
+              "X": 0.0289,
+              "Y": 0.0246
+            },
+            "LeftMargin": 4959.3174,
+            "RightMargin": -1230.3174,
+            "TopMargin": 2291.0933,
+            "BottomMargin": 439.9067,
+            "Tag": 361,
+            "ActionTag": -1972431870,
+            "Size": {
+              "X": 111.0,
+              "Y": 69.0
+            },
+            "Name": "stone2_40",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/stone3.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1247.4832,
+              "Y": 387.2076
+            },
+            "Scale": {
+              "ScaleX": 0.7836,
+              "ScaleY": 0.7836
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3249,
+              "Y": 0.1383
+            },
+            "PreSize": {
+              "X": 0.0466,
+              "Y": 0.0332
+            },
+            "LeftMargin": 1157.9832,
+            "RightMargin": 2503.0168,
+            "TopMargin": 2366.2925,
+            "BottomMargin": 340.7076,
+            "Tag": 362,
+            "ActionTag": 1757797263,
+            "Size": {
+              "X": 179.0,
+              "Y": 93.0
+            },
+            "Name": "stone3_41",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/stone3.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2773.4187,
+              "Y": 196.1151
+            },
+            "Scale": {
+              "ScaleX": 0.7458,
+              "ScaleY": 0.7458
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7222,
+              "Y": 0.07
+            },
+            "PreSize": {
+              "X": 0.0466,
+              "Y": 0.0332
+            },
+            "LeftMargin": 2683.9187,
+            "RightMargin": 977.0813,
+            "TopMargin": 2557.385,
+            "BottomMargin": 149.6151,
+            "Tag": 363,
+            "ActionTag": 493638321,
+            "Size": {
+              "X": 179.0,
+              "Y": 93.0
+            },
+            "Name": "stone3_42",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/stone3.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4058.8948,
+              "Y": 402.6948
+            },
+            "Scale": {
+              "ScaleX": 0.5643,
+              "ScaleY": 0.5643
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.057,
+              "Y": 0.1438
+            },
+            "PreSize": {
+              "X": 0.0466,
+              "Y": 0.0332
+            },
+            "LeftMargin": 3969.3948,
+            "RightMargin": -308.3945,
+            "TopMargin": 2350.8052,
+            "BottomMargin": 356.1948,
+            "Tag": 364,
+            "ActionTag": 1423909887,
+            "Size": {
+              "X": 179.0,
+              "Y": 93.0
+            },
+            "Name": "stone3_43",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/stone3.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 8743.8789,
+              "Y": 411.4818
+            },
+            "Scale": {
+              "ScaleX": 0.6849,
+              "ScaleY": 0.6849
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.2771,
+              "Y": 0.147
+            },
+            "PreSize": {
+              "X": 0.0466,
+              "Y": 0.0332
+            },
+            "LeftMargin": 8654.3789,
+            "RightMargin": -4993.3789,
+            "TopMargin": 2342.0181,
+            "BottomMargin": 364.9818,
+            "Tag": 365,
+            "ActionTag": 1072844805,
+            "Size": {
+              "X": 179.0,
+              "Y": 93.0
+            },
+            "Name": "stone3_44",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/stone3.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 13183.9717,
+              "Y": 385.9924
+            },
+            "Scale": {
+              "ScaleX": 0.4811,
+              "ScaleY": 0.4811
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.4333,
+              "Y": 0.1379
+            },
+            "PreSize": {
+              "X": 0.0466,
+              "Y": 0.0332
+            },
+            "LeftMargin": 13094.4717,
+            "RightMargin": -9433.4717,
+            "TopMargin": 2367.5076,
+            "BottomMargin": 339.4924,
+            "Tag": 366,
+            "ActionTag": 1776979692,
+            "Size": {
+              "X": 179.0,
+              "Y": 93.0
+            },
+            "Name": "stone3_45",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/stone3.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 15139.9121,
+              "Y": 383.8846
+            },
+            "Scale": {
+              "ScaleX": 0.6396,
+              "ScaleY": 0.6396
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.9427,
+              "Y": 0.1371
+            },
+            "PreSize": {
+              "X": 0.0466,
+              "Y": 0.0332
+            },
+            "LeftMargin": 15050.4121,
+            "RightMargin": -11389.4121,
+            "TopMargin": 2369.6155,
+            "BottomMargin": 337.3846,
+            "Tag": 367,
+            "ActionTag": -1106690063,
+            "Size": {
+              "X": 179.0,
+              "Y": 93.0
+            },
+            "Name": "stone3_46",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/stone2.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3905.5452,
+              "Y": 248.3879
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0171,
+              "Y": 0.0887
+            },
+            "PreSize": {
+              "X": 0.0289,
+              "Y": 0.0246
+            },
+            "LeftMargin": 3850.0452,
+            "RightMargin": -121.0452,
+            "TopMargin": 2517.1121,
+            "BottomMargin": 213.8879,
+            "Tag": 368,
+            "ActionTag": -146452000,
+            "Size": {
+              "X": 111.0,
+              "Y": 69.0
+            },
+            "Name": "stone2_47",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/stone1.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5786.3945,
+              "Y": 220.9088
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.5069,
+              "Y": 0.0789
+            },
+            "PreSize": {
+              "X": 0.0401,
+              "Y": 0.0346
+            },
+            "LeftMargin": 5709.3945,
+            "RightMargin": -2023.3945,
+            "TopMargin": 2530.5913,
+            "BottomMargin": 172.4088,
+            "Tag": 369,
+            "ActionTag": -986019,
+            "Size": {
+              "X": 154.0,
+              "Y": 97.0
+            },
+            "Name": "stone1_48",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/stone2.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 10943.9287,
+              "Y": 207.3341
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.85,
+              "Y": 0.074
+            },
+            "PreSize": {
+              "X": 0.0289,
+              "Y": 0.0246
+            },
+            "LeftMargin": 10888.4287,
+            "RightMargin": -7159.4287,
+            "TopMargin": 2558.166,
+            "BottomMargin": 172.8341,
+            "Tag": 370,
+            "ActionTag": 577689102,
+            "Size": {
+              "X": 111.0,
+              "Y": 69.0
+            },
+            "Name": "stone2_49",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/stone3.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 11970.6318,
+              "Y": 240.1653
+            },
+            "Scale": {
+              "ScaleX": 0.7828,
+              "ScaleY": 0.7828
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.1174,
+              "Y": 0.0858
+            },
+            "PreSize": {
+              "X": 0.0466,
+              "Y": 0.0332
+            },
+            "LeftMargin": 11881.1318,
+            "RightMargin": -8220.1318,
+            "TopMargin": 2513.3347,
+            "BottomMargin": 193.6653,
+            "Tag": 371,
+            "ActionTag": -100872083,
+            "Size": {
+              "X": 179.0,
+              "Y": 93.0
+            },
+            "Name": "stone3_50",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/mango.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3905.6489,
+              "Y": 1034.4707
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0171,
+              "Y": 0.3695
+            },
+            "PreSize": {
+              "X": 0.0151,
+              "Y": 0.0354
+            },
+            "LeftMargin": 3876.6489,
+            "RightMargin": -94.6489,
+            "TopMargin": 1716.0293,
+            "BottomMargin": 984.9707,
+            "Tag": 422,
+            "ActionTag": -788829615,
+            "Size": {
+              "X": 58.0,
+              "Y": 99.0
+            },
+            "Name": "mango_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/mango.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4169.3569,
+              "Y": 945.4367
+            },
+            "Scale": {
+              "ScaleX": 0.72,
+              "ScaleY": 0.72
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0858,
+              "Y": 0.3377
+            },
+            "PreSize": {
+              "X": 0.0151,
+              "Y": 0.0354
+            },
+            "LeftMargin": 4140.3569,
+            "RightMargin": -358.3569,
+            "TopMargin": 1805.0632,
+            "BottomMargin": 895.9367,
+            "Tag": 423,
+            "ActionTag": 294820525,
+            "Size": {
+              "X": 58.0,
+              "Y": 99.0
+            },
+            "Name": "mango_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/mango.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4927.2373,
+              "Y": 1132.6821
+            },
+            "Scale": {
+              "ScaleX": 0.9038,
+              "ScaleY": 0.9038
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.2831,
+              "Y": 0.4045
+            },
+            "PreSize": {
+              "X": 0.0151,
+              "Y": 0.0354
+            },
+            "LeftMargin": 4898.2373,
+            "RightMargin": -1116.2373,
+            "TopMargin": 1617.8179,
+            "BottomMargin": 1083.1821,
+            "UserData": "canInteract=true",
+            "Tag": 424,
+            "ActionTag": 1749385858,
+            "Size": {
+              "X": 58.0,
+              "Y": 99.0
+            },
+            "Name": "mango_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/wind_meal_02.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2666.8586,
+              "Y": 2116.2324
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6945,
+              "Y": 0.7558
+            },
+            "PreSize": {
+              "X": 0.1055,
+              "Y": 0.0511
+            },
+            "LeftMargin": 2464.3586,
+            "RightMargin": 970.6414,
+            "TopMargin": 612.2676,
+            "BottomMargin": 2044.7324,
+            "Tag": 507,
+            "ActionTag": 584865706,
+            "Size": {
+              "X": 405.0,
+              "Y": 143.0
+            },
+            "Name": "wind_meal_02_220",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/green_button.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2572.2258,
+              "Y": 654.6204
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6699,
+              "Y": 0.2338
+            },
+            "PreSize": {
+              "X": 0.0164,
+              "Y": 0.0225
+            },
+            "LeftMargin": 2540.7258,
+            "RightMargin": 1236.2742,
+            "TopMargin": 2113.8796,
+            "BottomMargin": 623.1204,
+            "UserData": "canInteract=true",
+            "Tag": 297,
+            "ActionTag": -249679483,
+            "Size": {
+              "X": 63.0,
+              "Y": 63.0
+            },
+            "Name": "green_button_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/red_button.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2572.137,
+              "Y": 655.3593
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6698,
+              "Y": 0.2341
+            },
+            "PreSize": {
+              "X": 0.0164,
+              "Y": 0.0225
+            },
+            "LeftMargin": 2540.637,
+            "RightMargin": 1236.363,
+            "TopMargin": 2113.1406,
+            "BottomMargin": 623.8593,
+            "UserData": "canInteract=true",
+            "Tag": 298,
+            "ActionTag": -20594843,
+            "Size": {
+              "X": 63.0,
+              "Y": 63.0
+            },
+            "Name": "red_button_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "farmhouse/wind_meal.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 0.25,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2899.3501,
+              "Y": 2118.436
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.755,
+              "Y": 0.7566
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2899.3501,
+            "RightMargin": 940.6499,
+            "TopMargin": 681.564,
+            "BottomMargin": 2118.436,
+            "Tag": 307,
+            "ActionTag": -37258864,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "wind_meal",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/bucket.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 8602.0352,
+              "Y": 465.5845
+            },
+            "Scale": {
+              "ScaleX": 0.596,
+              "ScaleY": 0.596
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.2401,
+              "Y": 0.1663
+            },
+            "PreSize": {
+              "X": 0.0547,
+              "Y": 0.0807
+            },
+            "LeftMargin": 8497.0352,
+            "RightMargin": -4867.0352,
+            "TopMargin": 2221.4155,
+            "BottomMargin": 352.5845,
+            "Tag": 342,
+            "ActionTag": -432658238,
+            "Size": {
+              "X": 210.0,
+              "Y": 226.0
+            },
+            "Name": "bucket_16",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/well.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 8327.7734,
+              "Y": 783.2371
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.1687,
+              "Y": 0.2797
+            },
+            "PreSize": {
+              "X": 0.1513,
+              "Y": 0.275
+            },
+            "LeftMargin": 8037.2734,
+            "RightMargin": -4778.2734,
+            "TopMargin": 1631.7629,
+            "BottomMargin": 398.2371,
+            "UserData": "canInteract=true",
+            "Tag": 648,
+            "ActionTag": 1756871728,
+            "Size": {
+              "X": 581.0,
+              "Y": 770.0
+            },
+            "Name": "well_166",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 367.7946,
+              "Y": 333.9228
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0958,
+              "Y": 0.1193
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 367.7946,
+            "RightMargin": 3472.2056,
+            "TopMargin": 2466.0771,
+            "BottomMargin": 333.9228,
+            "UserData": "canInteract=true,fileName=hero_skeleton.csb ",
+            "Tag": 1109,
+            "ActionTag": 175927872,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "Hero",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1508.0104,
+              "Y": 339.7492
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.3927,
+              "Y": 0.1213
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1508.0104,
+            "RightMargin": 2331.9897,
+            "TopMargin": 2460.2507,
+            "BottomMargin": 339.7492,
+            "UserData": "canInteract=true,fileName=farmer_skeleton.csb ",
+            "Tag": 1110,
+            "ActionTag": -1174523074,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "Farmer",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2.585,
+              "Y": -0.1589
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0007,
+              "Y": -0.0001
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2.585,
+            "RightMargin": 3837.415,
+            "TopMargin": 2800.1589,
+            "BottomMargin": -0.1589,
+            "UserData": "left ",
+            "Tag": 464,
+            "ActionTag": -2012694819,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "left",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 15362.4658,
+              "Y": 1.2542
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 4.0006,
+              "Y": 0.0004
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 15362.4658,
+            "RightMargin": -11522.4658,
+            "TopMargin": 2798.7458,
+            "BottomMargin": 1.2542,
+            "UserData": "right",
+            "Tag": 465,
+            "ActionTag": 711835912,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "right",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/farm_house_door_01.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6545.8032,
+              "Y": 798.6686
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.7046,
+              "Y": 0.2852
+            },
+            "PreSize": {
+              "X": 0.1115,
+              "Y": 0.2164
+            },
+            "LeftMargin": 6331.8032,
+            "RightMargin": -2919.8032,
+            "TopMargin": 1698.3314,
+            "BottomMargin": 495.6686,
+            "Tag": 345,
+            "ActionTag": 870313810,
+            "Size": {
+              "X": 428.0,
+              "Y": 606.0
+            },
+            "Name": "farm_house_door_01_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/farm_house_door.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6736.7646,
+              "Y": 788.9867
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.7544,
+              "Y": 0.2818
+            },
+            "PreSize": {
+              "X": 0.0992,
+              "Y": 0.2089
+            },
+            "LeftMargin": 6355.7646,
+            "RightMargin": -2896.7646,
+            "TopMargin": 1718.5133,
+            "BottomMargin": 496.4867,
+            "UserData": "canInteract=true,nextScene=farmhouse_inside",
+            "Tag": 346,
+            "ActionTag": 1801477527,
+            "Size": {
+              "X": 381.0,
+              "Y": 585.0
+            },
+            "Name": "farm_house_door_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/granary_door.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 9768.4736,
+              "Y": 682.7368
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.5439,
+              "Y": 0.2438
+            },
+            "PreSize": {
+              "X": 0.2539,
+              "Y": 0.2032
+            },
+            "LeftMargin": 9280.9736,
+            "RightMargin": -6415.9736,
+            "TopMargin": 1832.7632,
+            "BottomMargin": 398.2368,
+            "Tag": 332,
+            "ActionTag": 1595821152,
+            "Size": {
+              "X": 975.0,
+              "Y": 569.0
+            },
+            "Name": "granary_door_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/granary_door_01.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleY": 0.4794
+            },
+            "Position": {
+              "X": 9304.6377,
+              "Y": 647.0541
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.4231,
+              "Y": 0.2311
+            },
+            "PreSize": {
+              "X": 0.1182,
+              "Y": 0.1854
+            },
+            "LeftMargin": 9304.6377,
+            "RightMargin": -5918.6377,
+            "TopMargin": 1882.7545,
+            "BottomMargin": 398.2455,
+            "UserData": "canInteract=true,nextScene=granary",
+            "Tag": 333,
+            "ActionTag": 392427792,
+            "Size": {
+              "X": 454.0,
+              "Y": 519.0
+            },
+            "Name": "granary_door_01_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/granary_door_01.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 10227.1465,
+              "Y": 657.7374
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.6633,
+              "Y": 0.2349
+            },
+            "PreSize": {
+              "X": 0.1182,
+              "Y": 0.1854
+            },
+            "LeftMargin": 9773.1465,
+            "RightMargin": -6387.1465,
+            "TopMargin": 1882.7626,
+            "BottomMargin": 398.2374,
+            "UserData": "canInteract=true,nextScene=granary",
+            "Tag": 334,
+            "ActionTag": -1237237528,
+            "Size": {
+              "X": 454.0,
+              "Y": 519.0
+            },
+            "Name": "granary_door_01_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/barnhouse_door.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 13719.8379,
+              "Y": 776.2335
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.5729,
+              "Y": 0.2772
+            },
+            "PreSize": {
+              "X": 0.2755,
+              "Y": 0.27
+            },
+            "LeftMargin": 13190.8379,
+            "RightMargin": -10408.8379,
+            "TopMargin": 1645.7665,
+            "BottomMargin": 398.2335,
+            "Tag": 335,
+            "ActionTag": 555568725,
+            "Size": {
+              "X": 1058.0,
+              "Y": 756.0
+            },
+            "Name": "barnhouse_door_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/barnhouse_door2.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 14111.1865,
+              "Y": 730.2365
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.6748,
+              "Y": 0.2608
+            },
+            "PreSize": {
+              "X": 0.1021,
+              "Y": 0.2371
+            },
+            "LeftMargin": 13719.1865,
+            "RightMargin": -10271.1865,
+            "TopMargin": 1737.7634,
+            "BottomMargin": 398.2365,
+            "UserData": "canInteract=true,nextScene=barn_house",
+            "Tag": 337,
+            "ActionTag": 1824296788,
+            "Size": {
+              "X": 392.0,
+              "Y": 664.0
+            },
+            "Name": "barnhouse_door2_11",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/barnhouse_door2.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 13328.3652,
+              "Y": 730.2371
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.4709,
+              "Y": 0.2608
+            },
+            "PreSize": {
+              "X": 0.1021,
+              "Y": 0.2371
+            },
+            "LeftMargin": 13328.3652,
+            "RightMargin": -9880.3652,
+            "TopMargin": 1737.7629,
+            "BottomMargin": 398.2371,
+            "UserData": "canInteract=true,nextScene=barn_house",
+            "Tag": 338,
+            "ActionTag": 191939159,
+            "Size": {
+              "X": 392.0,
+              "Y": 664.0
+            },
+            "Name": "barnhouse_door2_12",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/barnhouse_door1.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 13715.9707,
+              "Y": 1101.053
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.5719,
+              "Y": 0.3932
+            },
+            "PreSize": {
+              "X": 0.3253,
+              "Y": 0.0925
+            },
+            "LeftMargin": 13091.4707,
+            "RightMargin": -10500.4707,
+            "TopMargin": 1569.447,
+            "BottomMargin": 971.553,
+            "Tag": 339,
+            "ActionTag": 1381259971,
+            "Size": {
+              "X": 1249.0,
+              "Y": 259.0
+            },
+            "Name": "barnhouse_door1_13",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2907.2048,
+              "Y": 358.0378
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7571,
+              "Y": 0.1279
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2907.2048,
+            "RightMargin": 932.7952,
+            "TopMargin": 2441.9622,
+            "BottomMargin": 358.0378,
+            "UserData": " canInteract=true,fileName=electrician_skeleton.csb",
+            "Tag": 649,
+            "ActionTag": -1023235489,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "Basket_man",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 5404.0498,
+              "Y": 353.2561
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.4073,
+              "Y": 0.1262
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 5404.0498,
+            "RightMargin": -1564.0498,
+            "TopMargin": 2446.7439,
+            "BottomMargin": 353.2561,
+            "UserData": "canInteract=true,fileName=police_skeleton.csb",
+            "Tag": 650,
+            "ActionTag": -1628177740,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "Mango_man",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/tool2.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3044.3147,
+              "Y": -220.1751
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7928,
+              "Y": -0.0786
+            },
+            "PreSize": {
+              "X": 0.0182,
+              "Y": 0.0875
+            },
+            "LeftMargin": 3009.3147,
+            "RightMargin": 760.6853,
+            "TopMargin": 2897.675,
+            "BottomMargin": -342.6751,
+            "UserData": "canInteract=true",
+            "Tag": 468,
+            "ActionTag": -289715785,
+            "Size": {
+              "X": 70.0,
+              "Y": 245.0
+            },
+            "Name": "tool2_10",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "farmhouse/farmhouse1/bag_02.png",
+              "Plist": "farmhouse/farmhouse1/farmhouse1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3205.5942,
+              "Y": -188.8448
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8348,
+              "Y": -0.0674
+            },
+            "PreSize": {
+              "X": 0.0393,
+              "Y": 0.0639
+            },
+            "LeftMargin": 3130.0942,
+            "RightMargin": 558.9058,
+            "TopMargin": 2899.3447,
+            "BottomMargin": -278.3448,
+            "UserData": "canInteract=true",
+            "Tag": 471,
+            "ActionTag": 208127492,
+            "Size": {
+              "X": 151.0,
+              "Y": 179.0
+            },
+            "Name": "bag_02_23",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 3840.0,
+          "Y": 2800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "farmhouse1/farmhouse1.plist",
+        "farmhouse1/farmhouse1.png",
+        "farmhouse2/farmhouse2.plist",
+        "farmhouse2/farmhouse2.png",
+        "farmhouse3/farmhouse3.plist",
+        "farmhouse3/farmhouse3.png",
+        "wind_meal.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

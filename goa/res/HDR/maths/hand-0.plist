@@ -9,13 +9,28 @@
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{0.5,-1}</string>
                 <key>spriteSize</key>
-                <string>{900,900}</string>
+                <string>{92,92}</string>
                 <key>spriteSourceSize</key>
-                <string>{900,900}</string>
+                <string>{91,90}</string>
                 <key>textureRect</key>
-                <string>{{460,612},{900,900}}</string>
+                <string>{{1648,1348},{92,92}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hand/eight.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{1.5,-1}</string>
+                <key>spriteSize</key>
+                <string>{1112,672}</string>
+                <key>spriteSourceSize</key>
+                <string>{1109,670}</string>
+                <key>textureRect</key>
+                <string>{{0,1348},{1112,672}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -24,13 +39,13 @@
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{0.5,-1}</string>
                 <key>spriteSize</key>
-                <string>{460,612}</string>
+                <string>{620,672}</string>
                 <key>spriteSourceSize</key>
-                <string>{460,612}</string>
+                <string>{619,670}</string>
                 <key>textureRect</key>
-                <string>{{0,612},{460,612}}</string>
+                <string>{{1160,676},{620,672}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -39,28 +54,43 @@
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{0,-1}</string>
                 <key>spriteSize</key>
-                <string>{440,612}</string>
+                <string>{536,672}</string>
                 <key>spriteSourceSize</key>
-                <string>{440,612}</string>
+                <string>{536,670}</string>
                 <key>textureRect</key>
-                <string>{{440,0},{440,612}}</string>
+                <string>{{1112,1348},{536,672}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>hand/one.png</key>
+            <key>hand/nine.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{0.5,-1}</string>
                 <key>spriteSize</key>
-                <string>{440,612}</string>
+                <string>{1160,672}</string>
                 <key>spriteSourceSize</key>
-                <string>{440,612}</string>
+                <string>{1159,670}</string>
                 <key>textureRect</key>
-                <string>{{880,0},{440,612}}</string>
+                <string>{{0,672},{1160,672}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hand/ten.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{1.5,-1}</string>
+                <key>spriteSize</key>
+                <string>{1248,672}</string>
+                <key>spriteSourceSize</key>
+                <string>{1245,670}</string>
+                <key>textureRect</key>
+                <string>{{0,0},{1248,672}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -69,28 +99,13 @@
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{1,-1}</string>
                 <key>spriteSize</key>
-                <string>{440,611}</string>
+                <string>{500,676}</string>
                 <key>spriteSourceSize</key>
-                <string>{440,611}</string>
+                <string>{498,674}</string>
                 <key>textureRect</key>
-                <string>{{0,0},{440,611}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>hand/two.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{440,612}</string>
-                <key>spriteSourceSize</key>
-                <string>{440,612}</string>
-                <key>textureRect</key>
-                <string>{{1320,0},{440,612}}</string>
+                <string>{{1248,0},{500,676}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -100,17 +115,17 @@
             <key>format</key>
             <integer>3</integer>
             <key>pixelFormat</key>
-            <string>RGBA4444</string>
+            <string>RGBA8888</string>
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>hand.png</string>
+            <string>hand-0.png</string>
             <key>size</key>
-            <string>{1760,1512}</string>
+            <string>{1780,2020}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:1f16c4dc3528d0767ac35a974531be61:67fcb1f77cdbabddd7adf25dbc779a20:aa97a32786b3b529dc29f088121ccc4d$</string>
+            <string>$TexturePacker:SmartUpdate:ed37aafcdcf405b88df75b1587144110:a3e804436a5bc1c2f7f3247e3b4d0128:5e8f7bdb30532251fd9982d0cbf3ee09$</string>
             <key>textureFileName</key>
-            <string>hand.png</string>
+            <string>hand-0.png</string>
         </dict>
     </dict>
 </plist>

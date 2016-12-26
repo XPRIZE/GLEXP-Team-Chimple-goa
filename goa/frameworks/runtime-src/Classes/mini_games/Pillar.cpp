@@ -119,6 +119,7 @@ bool Pillar::init()
 }
 void Pillar::onEnterTransitionDidFinish()
 {
+	CCLOG("onEnterTransitionDidFinish begin");
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Node::onEnterTransitionDidFinish();
 	int level = menu->getCurrentLevel();
@@ -226,8 +227,11 @@ void Pillar::onEnterTransitionDidFinish()
 	}
 	else if (_scenePath.at("animation_select").compare("two") == 0)
 	{
-		_pointRef = (Sprite*)_Ref.at(0);
-		_pointRef->setContentSize(Size(200 + extraX, _pointRef->getContentSize().height));
+		_pointRef = (Sprite*)background->getChildByName("base_1");
+		//_pointRef->setPositionX(visibleSize.width/2 - 230 + extraX);
+		//_pointRef->setPositionY(visibleSize.height/2 - 800);
+		//_pointRef->setVisible(false);
+		//this->addChild(_pointRef);
 	}
 	else if (_scenePath.at("animation_select").compare("three") == 0)
 	{
@@ -237,9 +241,9 @@ void Pillar::onEnterTransitionDidFinish()
 	//_pointRef->setAnchorPoint(Vec2(0, 0.5));
 	//_pointRef->setContentSize(Size(200 + extraX, _pointRef->getContentSize().height));
 	//_pointRef->setVisible(true);
-	auto node = DrawNode::create();
+	//auto node = DrawNode::create();
 	//auto nodeWidth = sssize.width * 1.25;
-	Vec2 vertices[] =
+	/* Vec2 vertices[] =
 	{
 		Vec2(_pointRef->getPositionX(),_pointRef->getPositionY()),
 		Vec2(_pointRef->getPositionX()+ 500 + extraX, _pointRef->getPositionY()),
@@ -249,7 +253,7 @@ void Pillar::onEnterTransitionDidFinish()
 
 	};
 	node->drawPolygon(vertices, 4, Color4F(1.0f, 0.3f, 0.3f, 0), 3, Color4F(0.2f, 0.2f, 0.2f, 1));
-	//addChild(node);
+	addChild(node);*/
 
 	auto swingAction = CallFunc::create(CC_CALLBACK_0(Pillar::blink, this, "blink", false));
 	runAction(RepeatForever::create(Sequence::create(DelayTime::create(1 + (rand() % 60) / 30.0), swingAction, NULL)));
@@ -301,10 +305,11 @@ void Pillar::onEnterTransitionDidFinish()
 	ladderMove();
 	this->scheduleUpdate();
 	menu->setMaxPoints(4);
-	
+	CCLOG("onEnterTransitionDidFinish end");
 }
 void Pillar::gameHelp()
 {
+	CCLOG("gameHelp begin");
 	_helpFlage = true;
 	//game help only for first level
 	auto labelSize = _cake->getContentSize();
@@ -324,17 +329,19 @@ void Pillar::gameHelp()
 	help->click(Vec2(_pointRef->getPositionX() + extraX, _ladder->getContentSize().height + _ladder->getPositionY() ));
 	help->setName("helpLayer");
 	this->addChild(help);
-
+	CCLOG("gameHelp end");
 }
 void Pillar::blink(std::string animationName, bool loop)
 {
+	CCLOG("blink begin");
 	auto timeline = CSLoader::createTimeline(_scenePath.at("character"));
 	_character->runAction(timeline);
 	timeline->play(animationName, loop);
+	CCLOG("blink end");
 }
 void Pillar::ladderMove()
 {
-   
+	CCLOG("ladderMove begin");
 	auto rotate = RotateBy::create(1.0, 40);
 	auto rev = rotate->reverse();
 	auto rotate1 = RotateBy::create(1.0, -40);
@@ -342,11 +349,12 @@ void Pillar::ladderMove()
 	auto seq = Sequence::create(rotate, rev, rotate1, rev1, NULL);
     auto action = RepeatForever::create(seq);
 	_ladder->runAction(action);
-
+	CCLOG("ladderMove end");
 	
 }
 void Pillar::newCake()
 {
+	CCLOG("newCake begin");
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	_ladder->setRotation(0.0f);
 	_cake = Sprite::createWithSpriteFrameName(_scenePath.at("cakePath"));
@@ -400,10 +408,13 @@ void Pillar::newCake()
 		this->removeChildByName("helpLayer");
 		gameHelp();
 	}
+	CCLOG("newCake end");
 }
 
 void Pillar::update(float dt)
 {
+	CCLOG("update begin");
+	Size visibleSize = Director::getInstance()->getVisibleSize();
 	if (_cakeMove != nullptr)
 	{
 		
@@ -481,7 +492,11 @@ void Pillar::update(float dt)
 						}
 						else if (_scenePath.at("animation_select").compare("two") == 0)
 						{
-							_pointRef = (Sprite*)_Ref.at(0);
+							_pointRef = (Sprite*)background->getChildByName("base_1");
+							//_pointRef->setPositionX(visibleSize.width / 2  - 230+ extraX);
+							//_pointRef->setPositionY(visibleSize.height / 2 - 800);
+							//_pointRef->setVisible(false);
+							//this->addChild(_pointRef);
 
 						}
 						else if (_scenePath.at("animation_select").compare("three") == 0)
@@ -505,7 +520,11 @@ void Pillar::update(float dt)
 					}
 					else if (_scenePath.at("animation_select").compare("two") == 0)
 					{
-						_pointRef = (Sprite*)_Ref.at(0);
+						_pointRef = (Sprite*)background->getChildByName("base_1");
+						//_pointRef->setPositionX(visibleSize.width / 2  - 230+ extraX);
+						//_pointRef->setPositionY(visibleSize.height / 2 - 800);
+						//_pointRef->setVisible(false);
+						//this->addChild(_pointRef);
 
 					}
 					else if (_scenePath.at("animation_select").compare("three") == 0)
@@ -524,17 +543,32 @@ void Pillar::update(float dt)
 			//CCLOG("size = %d", _pillarRef.size());
 			if (_pillarRef.size() == 4)
 			{
+				std::string header = "";
 				//CCLOG("size = %d", _pillarRef.size());
-				menu->showScore();
+				if (_scenePath.at("animation_select").compare("one") == 0)
+				{
+					 header = LangUtil::getInstance()->translateString("List of Nouns");
+				}
+				else if (_scenePath.at("animation_select").compare("two") == 0)
+				{
+					 header = LangUtil::getInstance()->translateString("List of Verbs");
+				}
+				else
+				{
+					 header = LangUtil::getInstance()->translateString("List of Adjectives");
+				}
+				menu->showAnswer("Words", header);
 			}
 			//_cakeMove->setPosition(_Ref.at(0)->getPositionX(), _Ref.at(0)->getPositionY());
 		}
 		
 	}
+	CCLOG("update end");
 }
 
 bool Pillar::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 {
+	CCLOG("onTouchBegan begin");
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	
 	auto target = event->getCurrentTarget();
@@ -605,6 +639,7 @@ bool Pillar::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				
 				this->removeChildByName("helpLayer");
 				_helpFlage = false;
+				menu->wordPairList(check);
 			}
 
 			else
@@ -683,6 +718,6 @@ bool Pillar::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		
 	
 	}
-		
+	CCLOG("onTouchBegan end");
 	return false;
 }

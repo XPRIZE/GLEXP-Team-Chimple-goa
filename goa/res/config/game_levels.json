@@ -397,6 +397,10 @@
       "levels": [
         1
       ],
+      "concepts":[
+        "addition",
+        "subtraction"
+      ],
       "help": "Count the number of dots with your fingers. Choose the fingers that match the number of dots on the screen.",
       "video": "Dots_1.webm"
     }
@@ -675,6 +679,12 @@
       "levels": [
         1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26
       ],
+      "level_concepts": [
+        "A","B","C"
+      ],
+      "concepts": [
+        "alphabet"
+      ],
       "help": "Drag the monster to feed the correct alphabet.",
       "video": "Alphamon Feed_1.webm"
     }
@@ -683,6 +693,12 @@
     {
       "levels": [
         1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26
+      ],
+      "level_concepts": [
+        "A","B","C"
+      ],
+      "concepts": [
+        "alphabet"
       ],
       "help": "Whack the alphabet monster if it is the same one shown on the upper left.",
       "video": "alphamole_1.webm"
@@ -819,6 +835,11 @@
     {
       "levels": [
         1
+      ],
+      "concepts": [
+        "addition",
+        "addition_carryover_1",
+        "addition_carryover_2"
       ],
       "help": "Place the correct vegetable on the weighing machine and calculate the total price of vegetables on the calculator.",
       "video": "shop_1.webm"

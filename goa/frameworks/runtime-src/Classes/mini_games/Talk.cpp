@@ -276,7 +276,7 @@ void Talk::displayWord()
 	if (_allSentense.size() == 0 || _enemyFish.size() == 5 || _heroFish.size() == 5)
 	{
 		//_menuContext->showScore();
-		_menuContext->showAnswer("Sentence", "list of noun");
+		_menuContext->showAnswer("Sentence", _questionType);
 		return;
 	}
 
@@ -534,7 +534,7 @@ void Talk::update(float d)
 		else
 		{
 			//_menuContext->showScore();
-			_menuContext->showAnswer("Sentence", "list of noun");
+			_menuContext->showAnswer("Sentence", _questionType);
 			this->unscheduleUpdate();
 		}
 	}
@@ -565,7 +565,7 @@ void Talk::update(float d)
 		else
 		{
 			//_menuContext->showScore();
-			_menuContext->showAnswer("Sentence", "list of noun");
+			_menuContext->showAnswer("Sentence", _questionType);
 			this->unscheduleUpdate();
 		}
 	}
