@@ -357,7 +357,6 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClCompile Include="..\Classes\util\logger\logger.cpp" />
     <ClCompile Include="..\Classes\util\logger\LTKLogger.cpp" />
     <ClCompile Include="..\Classes\WalkingState.cpp" />
-    <ClCompile Include="..\Classes\WordBubble.cpp" />
     <ClCompile Include="..\Classes\WordSceneLipiTKNode.cpp" />
     <ClCompile Include="..\Classes\WordSprite.cpp" />
     <ClCompile Include="main.cpp" />
@@ -561,7 +560,6 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClInclude Include="..\Classes\util\lib\LTKWindowsUtil.h" />
     <ClInclude Include="..\Classes\util\logger\logger.h" />
     <ClInclude Include="..\Classes\WalkingState.h" />
-    <ClInclude Include="..\Classes\WordBubble.hpp" />
     <ClInclude Include="..\Classes\WordSceneLipiTKNode.h" />
     <ClInclude Include="..\Classes\WordSprite.h" />
     <ClInclude Include="main.h" />
