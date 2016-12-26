@@ -225,8 +225,8 @@ var t_resources = [];
 xc.CatalogueLayer.res = {
         thumbnails_png: xc.path + "wikitaki/thumbnails.png",
         thumbnails_plist: xc.path + "wikitaki/thumbnails.plist",
-        human_skeleton_png: xc.path + "wikitaki/human_skeleton.png",
-        human_skeleton_plist: xc.path + "wikitaki/human_skeleton.plist",
+        // human_skeleton_png: xc.path + "wikitaki/human_skeleton.png",
+        // human_skeleton_plist: xc.path + "wikitaki/human_skeleton.plist",
         animalskeleton_png: xc.path + "wikitaki/animalskeleton.png",
         animalskeleton_plist: xc.path + "wikitaki/animalskeleton.plist",
         animalskeleton_json: xc.path + "wikitaki/animalskeleton.json",
@@ -234,7 +234,7 @@ xc.CatalogueLayer.res = {
         birdskeleton_plist: xc.path + "wikitaki/birdskeleton.plist",
         birdskeleton_json: xc.path + "wikitaki/birdskeleton.json",
         HelloWorld_png: xc.path + "wikitaki/HelloWorld.png",
-        human_skeleton_json: xc.path + "wikitaki/human_skeleton.json",
+        // human_skeleton_json: xc.path + "wikitaki/human_skeleton.json",
         play_png: xc.path + "wikitaki/play.png",
         record_animation_png: xc.path + "wikitaki/recording.png",
         record_animation_plist: xc.path + "wikitaki/recording.plist",
@@ -251,7 +251,16 @@ xc.CatalogueLayer.res = {
         template_02_png: xc.path + "template/template_02/template_02.png",
         template_02_plist: xc.path + "template/template_02/template_02.plist",        
         level_plist: xc.path + "levelstep/levelstep.plist",
-        level_png: xc.path + "levelstep/levelstep.png"        
+        level_png: xc.path + "levelstep/levelstep.png",
+        // human_skeleton_json: xc.path + "animation/human_skeleton.json",
+        // animation_skeleton_png: xc.path + "animation/animation.png",
+        // animation_skeleton_plist: xc.path + "animation/animation.plist",
+        // animationa_skeleton_png: xc.path + "animation/animationa/animationa.png",
+        // animationa_skeleton_plist: xc.path + "animation/animationa/animationa.plist",
+        // animationb_skeleton_png: xc.path + "animation/animationa/animationb.png",
+        // animationb_skeleton_plist: xc.path + "animation/animationa/animationb.plist",
+        // animationc_skeleton_png: xc.path + "animation/animationa/animationc.png",
+        // animationc_skeleton_plist: xc.path + "animation/animationa/animationc.plist"              
 };
 
 

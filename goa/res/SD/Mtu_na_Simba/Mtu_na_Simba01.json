@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 390,
         "Speed": 1.0,
-        "ActivedAnimationName": "rain",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -136398506,
@@ -78,6 +78,14 @@
                 "FrameIndex": 235,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 390,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -135,6 +143,14 @@
                 "CurrentAniamtionName": "rain",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 235,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 390,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
