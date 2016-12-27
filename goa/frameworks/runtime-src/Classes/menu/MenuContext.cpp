@@ -217,7 +217,7 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
                 
 				_settingMenu = this->createMenuItem("menu/settings.png", "menu/settings.png", "menu/settings.png", 3 * POINTS_TO_LEFT);
-				_settingMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showSettingMenu, this));
+				_settingMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::addCalculator, this));
 				
 
 //                _photoMenu = this->createAvatarMenuItem("", "", "", 6 * POINTS_TO_LEFT);
@@ -1009,25 +1009,17 @@ void MenuContext::showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touc
     }
 }
 
-void MenuContext::showSettingMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
-	if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
-		removeMenu();
-
-		_menuButton->setEnabled(false);
-		addGreyLayer();
-		pauseNodeAndDescendants(_main);
-		_calcFlag = true;
+void MenuContext::showSettingMenu(){
 
 		std::string _levelStatus;
 		localStorageGetItem(UNLOCK_ALL, &_levelStatus);
-		if (!_levelStatus.empty()) {
-			localStorageSetItem(UNLOCK_ALL, "0");
+		if (_levelStatus.empty()) {
+			localStorageSetItem(UNLOCK_ALL, "1");
 		}
-
 
 		std::string _language;
 		localStorageGetItem(LANGUAGE, &_language);
-		if (!_language.empty()) {
+		if (_language.empty()) {
 			localStorageSetItem(LANGUAGE, "");
 		}
 
@@ -1041,11 +1033,11 @@ void MenuContext::showSettingMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::To
 		_settingNode->setAnchorPoint(Vec2(0.5, 0.5));
 		_settingLayer->addChild(_settingNode);
 
-		CheckBox *_checkBox = (CheckBox*)_settingNode->getChildByName("CheckBox_1");
+		_checkBox = (CheckBox*)_settingNode->getChildByName("CheckBox_1");
 		if (_levelStatus == "0")
-			_checkBox->setSelected(false);
-		else if(_levelStatus == "1")
 			_checkBox->setSelected(true);
+		else if(_levelStatus == "1" || _levelStatus == "")
+			_checkBox->setSelected(false);
 
 		RadioButton *_rd1 = (RadioButton*) _settingNode->getChildByName("radio1");
 		_rd1->setName("radio1");
@@ -1089,7 +1081,7 @@ void MenuContext::showSettingMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::To
 		_english->setPosition(Vec2(_settingNode->getChildByName("Node_2")->getPositionX(), _settingNode->getChildByName("Node_2")->getPositionY()));
 		_settingLayer->addChild(_english);
 
-		auto _disable = LabelTTF::create("Show level", "Arial", 150);
+		auto _disable = LabelTTF::create("Unlock all", "Arial", 150);
 		_disable->setAnchorPoint(Vec2(0, .5));
 		_disable->setPosition(Vec2(_settingNode->getChildByName("Node_1")->getPositionX(), _settingNode->getChildByName("Node_1")->getPositionY()));
 		_settingLayer->addChild(_disable);
@@ -1102,47 +1094,96 @@ void MenuContext::showSettingMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::To
 		_settingNode->getChildByName("submit")->setTag(1);
 		_settingNode->getChildByName("close")->setTag(0);
 
-		auto _listener = EventListenerTouchOneByOne::create();
-		_listener->setSwallowTouches(true);
-		_listener->onTouchBegan = CC_CALLBACK_2(MenuContext::onTouchBeganOnSubmitButton, this);
-		_eventDispatcher->addEventListenerWithSceneGraphPriority(_listener->clone(), _settingNode->getChildByName("submit"));
-		_eventDispatcher->addEventListenerWithSceneGraphPriority(_listener->clone(), _settingNode->getChildByName("close"));
+		Button *_submit = (Button*)_settingNode->getChildByName("submit");
+		_submit->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type) {
+			switch (type)
+			{
+			case cocos2d::ui::Widget::TouchEventType::BEGAN:
+				break;
+			case cocos2d::ui::Widget::TouchEventType::ENDED:
+				if (_radio1Select->isVisible())
+				{
+					LangUtil::getInstance()->changeLanguage(SupportedLanguages::ENGLISH);
+					localStorageSetItem(LANGUAGE, "English");
+				}
+				else
+				{
+					LangUtil::getInstance()->changeLanguage(SupportedLanguages::SWAHILI);
+					localStorageSetItem(LANGUAGE, "Swahili");
+				}
 
-//		addCalculator();
-	}
+				if (_checkBox->isSelected())
+					localStorageSetItem(UNLOCK_ALL, "0");
+				else
+					localStorageSetItem(UNLOCK_ALL, "1");
+
+				_menuButton->setEnabled(true);
+				removeChild(_greyLayer);
+				removeChild(_settingLayer);
+				resumeNodeAndDescendants(_main);
+
+				break;
+			default:
+				break;
+			}
+		});
+
+		Button *close = (Button*)_settingNode->getChildByName("close");
+		close->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type) {
+			switch (type)
+			{
+			case cocos2d::ui::Widget::TouchEventType::BEGAN:
+				break;
+			case cocos2d::ui::Widget::TouchEventType::ENDED:
+				_menuButton->setEnabled(true);
+				removeChild(_greyLayer);
+				removeChild(_settingLayer);
+				resumeNodeAndDescendants(_main);
+				break;
+			default:
+				break;
+			}
+		});
+
 }
 
-void MenuContext::addCalculator() {
+void MenuContext::addCalculator(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
+	if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
 
-	this->scheduleUpdate();
-	Size visibleSize = Director::getInstance()->getVisibleSize();
-	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+		removeMenu();
+		_menuButton->setEnabled(false);
+		addGreyLayer();
+		pauseNodeAndDescendants(_main);
 
-	_calcLayer = LayerColor::create(Color4B(255.0, 255.0, 255.0, 255.0));
-	_calcLayer->setContentSize(visibleSize);
-	this->addChild(_calcLayer, 4);
+		this->scheduleUpdate();
+		Size visibleSize = Director::getInstance()->getVisibleSize();
+		Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	Button *_closeButton = Button::create("menu/close.png", "menu/close.png", "menu/close.png", Widget::TextureResType::LOCAL);
-	_closeButton->addTouchEventListener(CC_CALLBACK_2(MenuContext::closeCalc, this));
-	_closeButton->setPosition(Vec2(visibleSize.width - _closeButton->getContentSize().width, visibleSize.height - _closeButton->getContentSize().height));
-	_calcLayer->addChild(_closeButton, 5);
+		_calcLayer = LayerColor::create(Color4B(255.0, 255.0, 255.0, 255.0));
+		_calcLayer->setContentSize(visibleSize);
+		this->addChild(_calcLayer, 4);
 
-	auto _label = LabelTTF::create("Enter cheat code", "Arial", 200);
-	_label->setAnchorPoint(Vec2(.5, .5));
-	_label->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * .75));
-	_calcLayer->addChild(_label, 5);
-	_label->setColor(Color3B::BLACK);
+		Button *_closeButton = Button::create("menu/close.png", "menu/close.png", "menu/close.png", Widget::TextureResType::LOCAL);
+		_closeButton->addTouchEventListener(CC_CALLBACK_2(MenuContext::closeCalc, this));
+		_closeButton->setPosition(Vec2(visibleSize.width - _closeButton->getContentSize().width, visibleSize.height - _closeButton->getContentSize().height));
+		_calcLayer->addChild(_closeButton, 5);
 
-	_calculator = new Calculator();
-	_calculator->createCalculator(Vec2(visibleSize.width / 2, visibleSize.height /3), Vec2(0.5, 0.5), 0.7, 0.7);
-	_calcLayer->addChild(_calculator, 5);
+		auto _label = LabelTTF::create("Enter cheat code", "Arial", 200);
+		_label->setAnchorPoint(Vec2(.5, .5));
+		_label->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * .75));
+		_calcLayer->addChild(_label, 5);
+		_label->setColor(Color3B::BLACK);
+
+		_calculator = new Calculator();
+		_calculator->createCalculator(Vec2(visibleSize.width / 2, visibleSize.height / 3), Vec2(0.5, 0.5), 0.7, 0.7);
+		_calcLayer->addChild(_calculator, 5);
+	}
 }
 
 void MenuContext::closeCalc(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
 	if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
 		_menuButton->setEnabled(true);
 		removeChild(_greyLayer);
-		removeChild(_settingLayer);
 		resumeNodeAndDescendants(_main);
 		this->removeChild(_calcLayer);
 		this->unscheduleUpdate();
@@ -1154,8 +1195,8 @@ void MenuContext::update(float d)
 	if (_calculator->checkAnswer(1234))
 	{
 		this->removeChild(_calcLayer);
-		_calcFlag = true;
 		this->unscheduleUpdate();
+		showSettingMenu();
 	}
 }
 
@@ -1185,7 +1226,7 @@ bool MenuContext::onTouchBeganOnSubmitButton(Touch *touch, Event *event)
 	Size size = target->getContentSize();
 	Rect rect = Rect(0, 0, target->getContentSize().width, target->getContentSize().height);
 
-	if (rect.containsPoint(locationInNode) && _calcFlag == true)
+	if (rect.containsPoint(locationInNode))
 	{
 		if (target->getTag() == 1)
 		{
@@ -1213,7 +1254,7 @@ bool MenuContext::onTouchBeganOnSubmitButton(Touch *touch, Event *event)
 		removeChild(_settingLayer);
 		resumeNodeAndDescendants(_main);
 
-		return true;
+		return false;
 	}
 	return false;
 }

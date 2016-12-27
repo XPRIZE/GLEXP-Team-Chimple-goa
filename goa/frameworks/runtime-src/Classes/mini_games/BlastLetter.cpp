@@ -191,7 +191,7 @@ void BlastLetter::removeAllWritingScene()
 	auto timelineBlast = CSLoader::createTimeline("blastletter/screen_blast.csb");	
 	this->getChildByName("blastScene")->runAction(timelineBlast);
 	timelineBlast->play("bang", false);
-	((BlastLetterNode *)this->getChildByName(stringStream.str()))->setblast(true);
+	//((BlastLetterNode *)this->getChildByName(stringStream.str()))->setblast(true);
 	((BlastLetterNode *)this->getChildByName(stringStream.str()))->drawAllowance(false);
 	((BlastLetterNode *)this->getChildByName(stringStream.str()))->_drawingBoard->removeAllChildren();
 	_bang = false;
@@ -205,7 +205,8 @@ void BlastLetter::removeAllWritingScene()
 		label->getChildByName(LangUtil::convertUTF16CharToString(nameLetterBoard.str().at(1)))->runAction(FadeIn::create(2.0f));
 		this->removeChildByName(stringStream.str());
 		this->removeChildByName("blastScene");
-		this->removeChildByName("tempBoard");
+		if (this->getChildByName("tempBoard"))
+			this->removeChildByName("tempBoard");
 		this->removeChildByName("tempBg");
 		_touch = true;
 	}), NULL));
@@ -223,7 +224,7 @@ bool BlastLetter::checkRecognizeLetter(string letter)
 	if (_result.size() > 0) {
 		if ((_result.at(0).compare("o") == 0 || _result.at(0).compare("0") == 0) && (LangUtil::convertUTF16CharToString(_data_value[_counterLetter]).compare("O") == 0)) {
 			_result.clear();
-			_clearButton->setEnabled(false);
+	//		_clearButton->setEnabled(false);
 			return true;
 		}
 	}
@@ -231,13 +232,13 @@ bool BlastLetter::checkRecognizeLetter(string letter)
 	for (size_t i = 0; i < _result.size(); i++) {
 		if (_result.at(i).compare(letter) == 0) {
 			_result.clear();
-			_clearButton->setEnabled(false);
+		//	_clearButton->setEnabled(false);
 			return true;
 		}
 	}
-	if (_clearButton) {
-		_clearButton->setEnabled(true);
-	}
+	//if (_clearButton) {
+	//	_clearButton->setEnabled(true);
+	//}
 	return false;
 }
 
@@ -350,8 +351,8 @@ void BlastLetter::addEventsOnGrid(cocos2d::Sprite* callerObject)
 				
 				timelineBlast->play("blast",false);
 				timelineBlast->setAnimationEndCallFunc("blast", CC_CALLBACK_0(BlastLetter::removeAllWritingScene, this));
-			
-				this->removeChildByName("tempBoard");
+				if(this->getChildByName("tempBoard"))
+					this->removeChildByName("tempBoard");
 			});
 
 			this->runAction(Sequence::create(DelayTime::create(1), letterCharacterBoard, DelayTime::create(2), letterCharacter, NULL));
@@ -385,7 +386,8 @@ void BlastLetter::checkAlphabets()
 		_touch = true;
 
 		this->removeChildByName("blastScene");
-		this->removeChildByName("tempBoard");
+		if (this->getChildByName("tempBoard"))
+			this->removeChildByName("tempBoard");
 		this->removeChildByName("tempBg");
 
 		_counterLetter++;

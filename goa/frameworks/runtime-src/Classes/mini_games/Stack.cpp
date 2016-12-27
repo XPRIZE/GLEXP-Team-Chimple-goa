@@ -59,14 +59,17 @@ void Stack::onEnterTransitionDidFinish()
 	if (_currentLevel >= 1 && _currentLevel <= 24)
 	{
 		_textToSHow = TextGenerator::getInstance()->getInitialSyllableWords(5, 4, 1);	//1 starting word
+		_maxLetterInWord = 1;
 	}
 	else if (_currentLevel >= 25 && _currentLevel <= 48)
 	{
 		_textToSHow = TextGenerator::getInstance()->getInitialSyllableWords(5, 4, 2);	//2 starting word
+		_maxLetterInWord = 2;
 	}
 	else if (_currentLevel >= 49 && _currentLevel <= 72)
 	{
 		_textToSHow = TextGenerator::getInstance()->getInitialSyllableWords(5, 4, 3);	//3 starting word
+		_maxLetterInWord = 3;
 	}
 
 	if (sceneName == "island")
@@ -111,7 +114,7 @@ void Stack::onEnterTransitionDidFinish()
 
 	auto secondChild = stackbg->getChildren().at(1);
 
-	_textToSHow = TextGenerator::getInstance()->getInitialSyllableWords(5, 4);
+//	_textToSHow = TextGenerator::getInstance()->getInitialSyllableWords(5, 4);
 
 	for (int i = 0; i < secondChild->getChildrenCount(); i++)
 	{
@@ -230,7 +233,13 @@ void Stack::generateWord()
 {
 	if (_allWords.size() != 0)
 	{
+		if (_helpFlag == 0 && _currentLevel == 1)
+		{
+			_word = _allWords.at(0);
+		}
+		else
 		_word = _allWords.at(rand() % _allWords.size());
+
 		_wordLabel = CommonLabelTTF::create(_word, "Helvetica", 150);
 		_wordLabel->setColor(Color3B::BLACK);
 		this->addChild(_wordLabel);
@@ -245,7 +254,7 @@ void Stack::generateWord()
 				stackbg->stopAction(treadmill);
 			}), NULL);
 
-			int pos = std::find(_startName.begin(), _startName.end() - 1, _word.substr(0, 2)) - _startName.begin();
+			int pos = std::find(_startName.begin(), _startName.end()-1, _word.substr(0, _maxLetterInWord)) - _startName.begin();
 			_trayfillbar->setColor(_color.at(pos));
 			_suckpipebar->setColor(_color.at(pos));
 
@@ -291,16 +300,9 @@ void Stack::generateWord()
 				{
 					if ((_word.substr(0, _startName.at(i).length()) == _startName.at(i)))
 					{
-						if (i == 3)
-						{
-							break;
-						}
-						else
-						{
-							_help = HelpLayer::create(Rect(containerBar.at(i)->getPositionX(), containerBar.at(i)->getPositionY() - containerBar.at(i)->getContentSize().height * .10, containerBar.at(i)->getContentSize().width, containerBar.at(i)->getContentSize().height * 1.37), Rect(visibleSize.width * .15, _wordLabel->getPositionY(), _wordLabel->getBoundingBox().size.width, _wordLabel->getBoundingBox().size.height));
-							_help->click(Vec2(containerBar.at(i)->getPositionX(), containerBar.at(i)->getPositionY()));
-							break;
-						}
+						_help = HelpLayer::create(Rect(containerBar.at(i)->getPositionX(), containerBar.at(i)->getPositionY() - containerBar.at(i)->getContentSize().height * .10, containerBar.at(i)->getContentSize().width, containerBar.at(i)->getContentSize().height * 1.37), Rect(visibleSize.width * .15, _wordLabel->getPositionY(), _wordLabel->getBoundingBox().size.width, _wordLabel->getBoundingBox().size.height));
+						_help->click(Vec2(containerBar.at(i)->getPositionX(), containerBar.at(i)->getPositionY()));
+						break;
 					}
 				}
 				addChild(_help, 5);
