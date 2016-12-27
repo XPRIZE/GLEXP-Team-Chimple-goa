@@ -113,6 +113,7 @@ protected:
     cocos2d::ParticleSystem* _ps;
 	cocos2d::Sprite *_radio1Select, *_radio2Select;
 	Calculator *_calculator;
+	cocos2d::ui::CheckBox *_checkBox;
     int _chimpAudioId;
     void expandMenu(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
 	void closeCalc(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
@@ -121,7 +122,7 @@ protected:
     void showMap(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void showBook(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
-	void showSettingMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+	void showSettingMenu();
     void changePhoto(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void showHelp(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void waitForAudioLoad(std::string audioFileName, std::function<void(bool isSuccess)>callback);
@@ -134,7 +135,7 @@ protected:
     void happyFace();
     void sadFace();
     void normalFace();
-	void addCalculator();
+	void addCalculator(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
 	void update(float);
     void removeMenuOnly();
     void unlockNextStory();

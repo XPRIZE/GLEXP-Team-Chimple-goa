@@ -49,7 +49,7 @@ public:
 	cocos2d::Size visibleSize;
 	std::string sceneName;
 	HelpLayer *_help;
-	int _helpFlag, _currentLevel;
+	int _helpFlag, _currentLevel, _maxLetterInWord;
 	// implement the "static create()" method manually
 	CREATE_FUNC(Stack);
     
