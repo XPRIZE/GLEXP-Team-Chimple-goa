@@ -1099,9 +1099,9 @@ void MenuContext::showSettingMenu(){
 		_submit->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type) {
 			switch (type)
 			{
-			case ui::Widget::TouchEventType::BEGAN:
+			case cocos2d::ui::Widget::TouchEventType::BEGAN:
 				break;
-			case ui::Widget::TouchEventType::ENDED:
+			case cocos2d::ui::Widget::TouchEventType::ENDED:
 				if (_radio1Select->isVisible())
 				{
 					LangUtil::getInstance()->changeLanguage(SupportedLanguages::ENGLISH);
@@ -1133,9 +1133,9 @@ void MenuContext::showSettingMenu(){
 		close->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type) {
 			switch (type)
 			{
-			case ui::Widget::TouchEventType::BEGAN:
+			case cocos2d::ui::Widget::TouchEventType::BEGAN:
 				break;
-			case ui::Widget::TouchEventType::ENDED:
+			case cocos2d::ui::Widget::TouchEventType::ENDED:
 				_menuButton->setEnabled(true);
 				removeChild(_greyLayer);
 				removeChild(_settingLayer);

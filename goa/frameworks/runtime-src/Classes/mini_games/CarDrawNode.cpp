@@ -104,7 +104,8 @@ cocos2d::ui::Button * carDrawNode::createButton(const std::string normalImage, c
 	spritecache1->addSpriteFramesWithFile("cardraw/cardraw.plist");
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	_button = cocos2d::ui::Button::create("cardraw/ref.png", "cardraw/ref_clicked.png", "cardraw/ref.png", cocos2d::ui::Widget::TextureResType::PLIST);
-	_button->setPosition(Vec2(_button->getContentSize().width / 2, visibleSize.height - (_button->getContentSize().height* 1.2)));
+	_button->setPosition(Vec2(_button->getContentSize().width / 2, visibleSize.height - (_button->getContentSize().height/2)));
+	_button->setScale(0.9);
 	_button->setName("carDrawRefresh");
 	_button->addTouchEventListener(CC_CALLBACK_2(carDrawNode::clearDrawing, this));
 
