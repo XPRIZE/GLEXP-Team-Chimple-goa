@@ -766,7 +766,7 @@ void Decomon::onEnterTransitionDidFinish()
 
 	};
 	node->drawPolygon(vertices, 4, Color4F(1.0f, 0.3f, 0.3f, 0), 3, Color4F(0.2f, 0.2f, 0.2f, 1));
-	addChild(node);
+	//addChild(node);
 
 	_paintingNode = DrawNode::create();
 	_maskingLayer->addChild(_paintingNode);

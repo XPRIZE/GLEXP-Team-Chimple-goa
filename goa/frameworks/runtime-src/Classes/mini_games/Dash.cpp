@@ -106,7 +106,7 @@ bool Dash::init()
 				   { "step", "dashcandy/step.png" },
 				   { "step_winning", "dashcandy/step_winning.png" },
 				   { "flag", "dashcandy/flag.png" },
-				   { "button", "dashcandy/answer_button.png" },
+				   { "button", "dashcandy/answer_button1.png" },
 				   { "character", "dashcandy/character.csb" },
 				   { "right_animation", "jump" },
 				   { "wrong_animation", "angry" },
