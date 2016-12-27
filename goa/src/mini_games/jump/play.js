@@ -890,8 +890,15 @@ this.remove();
                       }  
                         }    
                        if(target.id == "Hint"){ 
-                         self.help();
                          
+                         if(self.dict.length == 0)
+                         {
+                          cc.eventManager.removeListener(target);
+                         }
+                         else if (self.dict.length > 0)
+                         {
+                           self.help();
+                         }
                        }   
                        if(self._level == 1 && self.helpIsFirst)
             {
