@@ -615,10 +615,11 @@ bool MemoryJungle::onTouchBegan(Touch* touch, Event* event) {
 									_menuContext->addPoints(_right);
 								}
 
-								_menuContext->showScore();
+								//_menuContext->showScore();
+								_menuContext->showAnswer("wordPairs", _hint);
 							});
 
-							auto completeSequence = Sequence::create(createMatchLayer, DelayTime::create(5.0), showScore, NULL);
+							auto completeSequence = Sequence::create(createMatchLayer, DelayTime::create(0), showScore, NULL);
 
 							this->runAction(completeSequence);
 						}
@@ -833,6 +834,9 @@ void MemoryJungle::chickenFly() {
 
 	chicken2->runAction(moveTonest2);
 
+
+
+	_menuContext->wordPairList(_memoryfarm->getChildByName("mainground")->getChildByName(querynest1)->getChildByName("leave")->getChildByName("leave")->getChildren().at(0)->getName(), _memoryfarm->getChildByName("mainground")->getChildByName(querynest2)->getChildByName("leave")->getChildByName("leave")->getChildren().at(0)->getName());
 
 
 }
