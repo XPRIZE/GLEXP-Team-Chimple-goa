@@ -38,7 +38,7 @@ BlastLetterNode * BlastLetterNode::create(int width, int height, cocos2d::Point 
 	return nullptr;
 }
 void BlastLetterNode::postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint) {
-	if (!_blastHappend) {
+	if (_clearButton && !_blastHappend) {
 		_clearButton->setEnabled(false);
 	}
 }
