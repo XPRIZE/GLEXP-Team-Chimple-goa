@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 450,
         "Speed": 1.0,
-        "ActivedAnimationName": "bird",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -2142792326,
@@ -18,6 +18,14 @@
                 "CurrentAniamtionName": "fly",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 185,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 335,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -77,6 +85,14 @@
                 "CurrentAniamtionName": "fly",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 450,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }

@@ -274,6 +274,14 @@
                 "FrameIndex": 300,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 390,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -299,6 +307,15 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              },
+              {
+                "X": 1572.0398,
+                "Y": 420.4533,
+                "FrameIndex": 390,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -315,6 +332,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.553,
+                "Y": 0.553,
+                "FrameIndex": 390,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -327,6 +353,15 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 390,
                 "EasingData": {
                   "Type": 0
                 },
@@ -678,7 +713,7 @@
             "RightMargin": 1252.2598,
             "TopMargin": 153.8381,
             "BottomMargin": 524.1618,
-            "UserData": "pop",
+            "UserData": "main.pop",
             "Tag": 3268,
             "ActionTag": 1802391240,
             "Size": {
@@ -775,7 +810,7 @@
             "RightMargin": -35.1855,
             "TopMargin": 441.0985,
             "BottomMargin": 499.9015,
-            "UserData": "pop",
+            "UserData": "main.pop",
             "Tag": 3269,
             "ActionTag": -52222499,
             "Size": {
@@ -1053,7 +1088,7 @@
             "RightMargin": 1522.699,
             "TopMargin": 950.804,
             "BottomMargin": 146.196,
-            "UserData": "bottle",
+            "UserData": "main.bottle",
             "Tag": 2557,
             "ActionTag": 1098559599,
             "Size": {
@@ -1101,7 +1136,7 @@
             "RightMargin": 1191.825,
             "TopMargin": 982.0331,
             "BottomMargin": 188.9669,
-            "UserData": "bottle_1",
+            "UserData": "main.bottle_1",
             "Tag": 2558,
             "ActionTag": 586547250,
             "Size": {

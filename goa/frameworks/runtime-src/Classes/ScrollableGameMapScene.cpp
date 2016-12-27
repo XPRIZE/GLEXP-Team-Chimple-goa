@@ -217,7 +217,7 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             {
                 ScriptingCore::getInstance()->runScript("src/start/characterConfigure.js");
             }
-            else if(clickedButton->getName() == "story-teller")
+            else if(clickedButton->getName() == "story-telling")
             {
                 ScriptingCore::getInstance()->runScript("src/start/storytelling.js");
             }

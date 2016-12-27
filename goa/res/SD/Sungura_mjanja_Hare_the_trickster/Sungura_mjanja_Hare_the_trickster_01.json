@@ -10,12 +10,12 @@
         "ActivedAnimationName": "master",
         "Timelines": [
           {
-            "ActionTag": -998079649,
+            "ActionTag": 1015259403,
             "Property": "ActionValue",
             "Frames": [
               {
                 "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "walk",
+                "CurrentAniamtionName": "hop",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
                 "Tween": false,
@@ -23,7 +23,7 @@
               },
               {
                 "InnerActionType": "SingleFrame",
-                "CurrentAniamtionName": "walk",
+                "CurrentAniamtionName": "hop",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 305,
                 "Tween": false,
@@ -33,12 +33,12 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": -998079649,
+            "ActionTag": 1015259403,
             "Property": "Position",
             "Frames": [
               {
-                "X": -971.1881,
-                "Y": 121.9509,
+                "X": 2908.1848,
+                "Y": 178.4106,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -46,8 +46,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 601.4446,
-                "Y": 101.5276,
+                "X": 1910.4929,
+                "Y": 157.5723,
                 "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
@@ -58,12 +58,12 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": -998079649,
+            "ActionTag": 1015259403,
             "Property": "Scale",
             "Frames": [
               {
-                "X": -1.0,
-                "Y": 1.0,
+                "X": 0.5438,
+                "Y": 0.5438,
                 "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
@@ -74,7 +74,7 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": -998079649,
+            "ActionTag": 1015259403,
             "Property": "RotationSkew",
             "Frames": [
               {
@@ -266,12 +266,12 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": 1015259403,
+            "ActionTag": -998079649,
             "Property": "ActionValue",
             "Frames": [
               {
                 "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "hop",
+                "CurrentAniamtionName": "walk",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
                 "Tween": false,
@@ -279,7 +279,7 @@
               },
               {
                 "InnerActionType": "SingleFrame",
-                "CurrentAniamtionName": "hop",
+                "CurrentAniamtionName": "walk",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 305,
                 "Tween": false,
@@ -289,12 +289,12 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": 1015259403,
+            "ActionTag": -998079649,
             "Property": "Position",
             "Frames": [
               {
-                "X": 2908.1848,
-                "Y": 178.4106,
+                "X": -971.1881,
+                "Y": 121.9509,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -302,8 +302,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 1910.4929,
-                "Y": 157.5723,
+                "X": 601.4446,
+                "Y": 101.5276,
                 "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
@@ -314,12 +314,12 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": 1015259403,
+            "ActionTag": -998079649,
             "Property": "Scale",
             "Frames": [
               {
-                "X": 0.5438,
-                "Y": 0.5438,
+                "X": -1.0,
+                "Y": 1.0,
                 "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
@@ -330,7 +330,7 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": 1015259403,
+            "ActionTag": -998079649,
             "Property": "RotationSkew",
             "Frames": [
               {
@@ -447,8 +447,8 @@
             "Scale9Height": 1,
             "AnchorPoint": {},
             "Position": {
-              "X": -1964.1006,
-              "Y": -281.84
+              "X": -1964.0997,
+              "Y": -276.6126
             },
             "Scale": {
               "ScaleX": 30.6741,
@@ -458,16 +458,16 @@
             "IconVisible": false,
             "PrePosition": {
               "X": -0.7672,
-              "Y": -0.1566
+              "Y": -0.1537
             },
             "PreSize": {
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": -1964.1006,
-            "RightMargin": 4324.1006,
-            "TopMargin": 1881.84,
-            "BottomMargin": -281.84,
+            "LeftMargin": -1964.0997,
+            "RightMargin": 4324.0996,
+            "TopMargin": 1876.6125,
+            "BottomMargin": -276.6126,
             "Tag": 55,
             "ActionTag": 1690729190,
             "Size": {
@@ -476,94 +476,6 @@
             },
             "Name": "Panel_2",
             "ctype": "PanelObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "Sungura_mjanja_Hare_the_trickster/elephant.json",
-              "Plist": ""
-            },
-            "StretchWidthEnable": false,
-            "StretchHeightEnable": false,
-            "InnerActionSpeed": 1.0,
-            "AnchorPoint": {},
-            "Position": {
-              "X": -971.1881,
-              "Y": 121.9509
-            },
-            "Scale": {
-              "ScaleX": -1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": true,
-            "PrePosition": {
-              "X": -0.3794,
-              "Y": 0.0678
-            },
-            "PreSize": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "LeftMargin": -971.1881,
-            "RightMargin": 3531.188,
-            "TopMargin": 1678.0491,
-            "BottomMargin": 121.9509,
-            "UserData": "walk;drag ",
-            "Tag": 56,
-            "ActionTag": -998079649,
-            "Size": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "Name": "elephant",
-            "ctype": "ProjectNodeObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Sungura_mjanja_Hare_the_trickster/pot.png",
-              "Plist": "Sungura_mjanja_Hare_the_trickster/Sungura_mjanja_Hare_the_trickster.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": -938.2183,
-              "Y": 881.8929
-            },
-            "Scale": {
-              "ScaleX": 0.6943,
-              "ScaleY": 0.6943
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": -0.3665,
-              "Y": 0.4899
-            },
-            "PreSize": {
-              "X": 0.1125,
-              "Y": 0.1783
-            },
-            "LeftMargin": -1082.2183,
-            "RightMargin": 3354.2183,
-            "TopMargin": 757.6072,
-            "BottomMargin": 721.3929,
-            "UserData": "pot",
-            "Tag": 110,
-            "ActionTag": -582220063,
-            "Size": {
-              "X": 288.0,
-              "Y": 321.0
-            },
-            "Name": "pot_50",
-            "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
@@ -637,7 +549,7 @@
             },
             "LeftMargin": 307.25,
             "RightMargin": 2252.75,
-            "TopMargin": 1312.626,
+            "TopMargin": 1312.6259,
             "BottomMargin": 487.3741,
             "UserData": "bird_fly",
             "Tag": 285,
@@ -679,7 +591,7 @@
             },
             "LeftMargin": 1847.916,
             "RightMargin": 712.084,
-            "TopMargin": 1361.4174,
+            "TopMargin": 1361.4172,
             "BottomMargin": 438.5827,
             "UserData": "fly",
             "Tag": 309,
@@ -721,7 +633,7 @@
             },
             "LeftMargin": 1143.1443,
             "RightMargin": 1416.8557,
-            "TopMargin": 1325.402,
+            "TopMargin": 1325.4019,
             "BottomMargin": 474.5981,
             "UserData": "hop",
             "Tag": 301,
@@ -814,6 +726,94 @@
               "Y": 0.0
             },
             "Name": "tree _0",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Sungura_mjanja_Hare_the_trickster/pot.png",
+              "Plist": "Sungura_mjanja_Hare_the_trickster/Sungura_mjanja_Hare_the_trickster.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -938.2183,
+              "Y": 881.8929
+            },
+            "Scale": {
+              "ScaleX": 0.6943,
+              "ScaleY": 0.6943
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.3665,
+              "Y": 0.4899
+            },
+            "PreSize": {
+              "X": 0.1125,
+              "Y": 0.1783
+            },
+            "LeftMargin": -1082.2183,
+            "RightMargin": 3354.2183,
+            "TopMargin": 757.6072,
+            "BottomMargin": 721.3929,
+            "UserData": "main.pot",
+            "Tag": 110,
+            "ActionTag": -582220063,
+            "Size": {
+              "X": 288.0,
+              "Y": 321.0
+            },
+            "Name": "pot_50",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Sungura_mjanja_Hare_the_trickster/elephant.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -971.1881,
+              "Y": 121.9509
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.3794,
+              "Y": 0.0678
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -971.1881,
+            "RightMargin": 3531.188,
+            "TopMargin": 1678.0491,
+            "BottomMargin": 121.9509,
+            "UserData": "walk;drag ",
+            "Tag": 56,
+            "ActionTag": -998079649,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "elephant",
             "ctype": "ProjectNodeObjectData"
           }
         ],
