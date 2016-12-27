@@ -341,7 +341,7 @@ void Memory::onEnterTransitionDidFinish() {
 	if (_menuContext->getCurrentLevel() == 1) {
 
 		auto box1 = _memoryfarm->getChildByName("background")->getChildByName("nest9");
-
+		
 		auto matchNode = box1->getChildByName("nestfront")->getChildren();
 		auto stringOne = matchNode.at(0)->getName();
 
@@ -374,11 +374,13 @@ void Memory::onEnterTransitionDidFinish() {
 
 
 		box1pos = box1->getPosition() + Vec2(visibleSize.width * 0.03, visibleSize.height * 0.05);
+
 		box2pos = box2->getPosition() + Vec2(visibleSize.width * 0.03, visibleSize.height * 0.05);
 
-		help1 = HelpLayer::create(Rect(box1pos.x, box1pos.y, box1->getChildByName("nestfront")->getContentSize().width, box1->getChildByName("nestfront")->getContentSize().height), Rect(0, 0, 0, 0));
 
+		help1 = HelpLayer::create(Rect(box1pos.x + origin.x, box1pos.y + origin.y, box1->getChildByName("nestfront")->getContentSize().width, box1->getChildByName("nestfront")->getContentSize().height), Rect(0, 0, 0, 0));
 
+		//help1->setAnchorPoint(Vec2(0.5,0.5));
 		help1->click(Vec2(box1pos));
 
 
@@ -510,7 +512,7 @@ bool Memory::onTouchBegan(Touch* touch, Event* event) {
 			box1pos = box1->getPosition() + Vec2(visibleSize.width * 0.03, visibleSize.height * 0.05);
 			box2pos = box2->getPosition() + Vec2(visibleSize.width * 0.03, visibleSize.height * 0.05);
 
-			help2 = HelpLayer::create(Rect(box2pos.x, box2pos.y, box2->getChildByName("nestfront")->getContentSize().width, box2->getChildByName("nestfront")->getContentSize().height), Rect(0, 0, 0, 0));
+			help2 = HelpLayer::create(Rect(box2pos.x + origin.x, box2pos.y + origin.y, box2->getChildByName("nestfront")->getContentSize().width, box2->getChildByName("nestfront")->getContentSize().height), Rect(0, 0, 0, 0));
 
 
 			help2->click(Vec2(box2pos));

@@ -191,8 +191,9 @@ void BlastLetter::removeAllWritingScene()
 	auto timelineBlast = CSLoader::createTimeline("blastletter/screen_blast.csb");	
 	this->getChildByName("blastScene")->runAction(timelineBlast);
 	timelineBlast->play("bang", false);
-	((BlastLetterNode *)this->getChildByName(stringStream.str()))->_drawingBoard->removeAllChildren();
+	((BlastLetterNode *)this->getChildByName(stringStream.str()))->setblast(true);
 	((BlastLetterNode *)this->getChildByName(stringStream.str()))->drawAllowance(false);
+	((BlastLetterNode *)this->getChildByName(stringStream.str()))->_drawingBoard->removeAllChildren();
 	_bang = false;
 	_menuContext->addPoints(-1);
 	runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() {
@@ -233,6 +234,9 @@ bool BlastLetter::checkRecognizeLetter(string letter)
 			_clearButton->setEnabled(false);
 			return true;
 		}
+	}
+	if (_clearButton) {
+		_clearButton->setEnabled(true);
 	}
 	return false;
 }

@@ -65,6 +65,7 @@ protected:
 	std::string _bingoCurrentTheme = "";
 	std::string _bingoGridDimension = "";
 	std::string _resourcePath = "";
+	std::string _wordPairTitle = "";
 	bool _flagForSingleTouch = true;
 	int _maxPointSetter=0;
 

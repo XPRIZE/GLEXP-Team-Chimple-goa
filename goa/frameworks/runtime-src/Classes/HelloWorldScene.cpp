@@ -1025,6 +1025,11 @@ void HelloWorld::processShowMessage(std::vector<MessageContent*>showMessages) {
     for (std::vector<MessageContent* >::iterator it = showMessages.begin() ; it != showMessages.end(); ++it)
     {
         MessageContent* content = (MessageContent*) *it;
+        if(!content->getHint().empty()) {
+            CCLOG("content->hint %s", content->getHint().c_str());
+            _hintText = content->getHint();
+        }
+
         CCLOG("content owner %s", content->getOwner().c_str());
         Node* ownerNode = this->mainLayer->getChildByName(content->getOwner());
         RPGSprite* ownerSprite = NULL;
@@ -1569,6 +1574,12 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
         MessageContent* content = (MessageContent*) *it;
 //        CCLOG("content owner %s", content->getOwner().c_str());
         
+        
+        if(!content->getHint().empty()) {
+            CCLOG("content->hint %s", content->getHint().c_str());
+            _hintText = content->getHint();
+        }
+
         //find out animation name
         std::size_t found = -1;
         if(!content->getDialog().empty()) {
@@ -1638,6 +1649,11 @@ void HelloWorld::processCustomAnimationMessage(std::vector<MessageContent*>custo
     {
         MessageContent* content = (MessageContent*) *it;
         //find out animation name
+        if(!content->getHint().empty()) {
+            CCLOG("content->hint %s", content->getHint().c_str());
+            _hintText = content->getHint();
+        }
+
         if(!content->getDialog().empty() && !content->getOwner().empty()) {
 
             

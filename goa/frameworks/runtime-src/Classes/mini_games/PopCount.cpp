@@ -109,7 +109,7 @@ void PopCount::onEnterTransitionDidFinish() {
 	
 	if (gameCurrentLevel >= 1 && gameCurrentLevel <= 3) {
 		_popCharacter = "character1";
-		_popStayDelay = 4.0f;
+		_popStayDelay = 5.0f;
 		_maxPopStarLimits = 5;
 
 	}else if (gameCurrentLevel >= 4 && gameCurrentLevel <= 6) {
@@ -183,16 +183,62 @@ void PopCount::popUpCharacter(Node* character, string animationName) {
 		auto timelinecharacter = CSLoader::createTimeline(_sceneMap.at(_popcountCurrentTheme).at(_popCharacter));
 		character->runAction(timelinecharacter);
 		timelinecharacter->play(animationName, true);
+		auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+		audioBg->playEffect("res/sounds/sfx/playerpop.ogg", false);
 		character->runAction(MoveTo::create(0.5f, Vec2(character->getPositionX(), character->getPositionY() + height)));
 	});
 	auto popDown = CallFunc::create([=]() {
+
+		if(this->getChildByName("helpLayer1"))
+			this->removeChildByName("helpLayer1");
+
 		character->runAction(MoveTo::create(0.5f, Vec2(character->getPositionX(), character->getPositionY() - height)));
 	});
+	auto helpLayer = CallFunc::create([=]() {
+		if (_menuContext->getCurrentLevel() == 1 && _setHelpLayerMode) {
+			_setHelpLayerMode = false;
+			auto help = HelpLayer::create(Rect(Director::getInstance()->getVisibleSize().width * 0.5, Director::getInstance()->getVisibleSize().height * 0.5, Director::getInstance()->getVisibleSize().width*0.99, 250), Rect(0,0,0,0));
+			help->setName("helpLayer1");
+			this->addChild(help, 4);
+			_delayNumber = 0.5f;
+			
+			for (size_t i = 0; i < _getElementObject.size(); i++) {
+				auto fish = this->getChildByName("bg")->getChildByName("background")->getChildByTag(_getElementObject[i] + 1000);
+				auto innerSpriteSize = fish->getChildByName(_sceneMap.at(_popcountCurrentTheme).at("characterSpriteName"))->getContentSize();
+				std::ostringstream hintNumber;	hintNumber << (i+1);
+				
+				auto labelSprite = Sprite::create();
+				labelSprite->setTextureRect(Rect(0, 0, innerSpriteSize.width*0.5, innerSpriteSize.height*0.5));
+				labelSprite->setColor(Color3B(22, 156, 163));
+				labelSprite->setOpacity(90);
+				labelSprite->setPosition(Vec2(innerSpriteSize.width * 0.22, innerSpriteSize.height * 0.5));
+				fish->addChild(labelSprite);
+				labelSprite->setName("board");
+				
+				auto labelNumber = CommonLabelTTF::create(hintNumber.str(), "Helvetica", 150);
+				labelNumber->setColor(Color3B::BLACK);
+				labelNumber->setScale(2);
+				labelNumber->setPosition(Vec2(innerSpriteSize.width * 0.22, innerSpriteSize.height * 0.5));
+				fish->addChild(labelNumber);
+				labelNumber->setName("number");
+
+				labelSprite->runAction(FadeOut::create(0.0f));
+				labelNumber->runAction(FadeOut::create(0.0f));
+
+				_delayNumber = _delayNumber + 1.0f;
+				fish->getChildByName("board")->runAction(Sequence::create(DelayTime::create(_delayNumber), FadeIn::create(1.0f),DelayTime::create(_popStayDelay), CallFunc::create([=]() {fish->getChildByName("board")->setVisible(false); }), NULL));
+				fish->getChildByName("number")->runAction(Sequence::create(DelayTime::create(_delayNumber),FadeIn::create(1.0f), DelayTime::create(_popStayDelay), CallFunc::create([=]() {fish->getChildByName("number")->setVisible(false); }) ,NULL));
+			}
+		}
+	});
+
 	auto removeWaterWave = CallFunc::create([=]() {
 		removeChild(water);
 	});
-	this->runAction(Sequence::create(popUp, DelayTime::create(_popStayDelay), popDown, DelayTime::create(0.5f), removeWaterWave, NULL));
+	auto delayTiming = _popStayDelay;
 
+	this->runAction(Sequence::create(popUp, helpLayer, DelayTime::create(_popStayDelay), popDown, DelayTime::create(0.5f), removeWaterWave, NULL));
+	
 }
 
 vector<int> PopCount::getRandomValueRange(int min, int max, int getValue) {
@@ -215,6 +261,7 @@ vector<int> PopCount::getRandomValueRange(int min, int max, int getValue) {
 		}
 	}
 
+	sort(objectVector.begin(), objectVector.end());
 	return objectVector;
 }
 
@@ -307,6 +354,13 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 				_popElementCount = _popElementCount - 1;
 				_totalHit++;
 
+				if (this->getChildByName("helpLayer2")) {
+					this->removeChildByName("helpLayer2");
+				}
+
+				auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+				audioBg->playEffect("res/sounds/sfx/success.ogg", false);
+
 				auto star = this->getChildByName("centerStar");
 				star->runAction(Sequence::create(ScaleTo::create(1.0f, star->getScaleX() * 1.2,star->getScaleY() * 1.2), CallFunc::create([=]() {}), ScaleTo::create(1.0f, star->getScaleX() * 1, star->getScaleY() * 1), NULL));
 
@@ -318,12 +372,14 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 						this->getChildByName("gridpanel")->setVisible(false);
 						popUpCall(_popUpAnswer,false);
 					});
+
 					this->runAction(Sequence::create(DelayTime::create(2), popUpProperty, DelayTime::create(_popStayDelay + 2), 
 						CallFunc::create([=]() {
 						this->getChildByName("midButton")->setVisible(true); 
 						_popMidButtonClickPermision = true;   
 						this->getChildByName("gridpanel")->setVisible(true); 		
 						this->getChildByName("gridpanel")->runAction(Sequence::create(ScaleTo::create(0.3f, 1.1, 1.1), ScaleTo::create(0.3f, 1, 1), NULL)); 
+						
 					}), NULL));
 				}
 			}
@@ -336,6 +392,9 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 
 				FShake* shake2 = FShake::actionWithDuration(0.5f, 10.0f);
 				this->getChildByName("centerStar")->runAction(shake2);
+
+				auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+				audioBg->playEffect("res/sounds/sfx/error.ogg", false);
 
 //				this->runAction(Sequence::create(DelayTime::create(_popStayDelay + 2), CallFunc::create([=]() {_timelineCenterStarFish->play("blink", true); }), NULL));
 				CCLOG(" ------------------- CLICKED WRONG ---------------");
@@ -357,7 +416,11 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 				(target->getChildByTag(0))->setName("WATCH AGAIN");
 				auto texture = SpriteFrameCache::getInstance()->getSpriteFrameByName(_sceneMap.at(_popcountCurrentTheme).at("watchagain"));
 				((Sprite*)target->getChildByTag(0))->setSpriteFrame(texture);
+
 				_popUpAnswer = RandomHelper::random_int(1, _maxPopStarLimits);
+				if (_setHelpLayerMode && _menuContext->getCurrentLevel() == 1) {
+					_popUpAnswer = 3;
+				}
 				popUpCall(_popUpAnswer,false);
 				target->setVisible(false);
 				_popMidButtonClickPermision = false;
@@ -443,11 +506,27 @@ void PopCount::popUpCall(int popNumberOfCharacter , bool replay) {
 		}
 
 	}), DelayTime::create(1 + _popStayDelay), CallFunc::create([=]() {
-	
+
+		auto helpLayer2 = CallFunc::create([=]() {
+			auto intiGapX = Director::getInstance()->getVisibleSize().width/2 - (this->getChildByName("gridpanel")->getContentSize().width/2);
+			auto smallgrid = this->getChildByName("gridpanel")->getChildByTag(_getElementObject.size());
+			auto help = HelpLayer::create(Rect(smallgrid->getPositionX() + intiGapX,this->getChildByName("gridpanel")->getPositionY(), _popcountPropertyMap.at(_popcountCurrentTheme).at("smallGridSize"), _popcountPropertyMap.at(_popcountCurrentTheme).at("smallGridSize")), Rect(0, 0, 0, 0));
+			help->setName("helpLayer2");
+			help->click(Vec2(smallgrid->getPositionX() + intiGapX, this->getChildByName("gridpanel")->getPositionY()));
+			this->addChild(help, 4);
+		});
+
 		this->getChildByName("midButton")->setVisible(true);
 		_popMidButtonClickPermision = true;
 		this->getChildByName("gridpanel")->setVisible(true);
-		this->getChildByName("gridpanel")->runAction(Sequence::create(ScaleTo::create(0.3f, 1.1, 1.1), ScaleTo::create(0.3f,1,1), NULL));
+
+		if(_popElementCount >= 3 && _menuContext->getCurrentLevel()==1){
+			this->getChildByName("gridpanel")->runAction(Sequence::create(helpLayer2,ScaleTo::create(0.3f, 1.1, 1.1), ScaleTo::create(0.3f,1,1), NULL));
+		}
+		else {
+			this->getChildByName("gridpanel")->runAction(Sequence::create(ScaleTo::create(0.3f, 1.1, 1.1), ScaleTo::create(0.3f, 1, 1), NULL));
+		}
+
 	}),NULL));
 }
 
