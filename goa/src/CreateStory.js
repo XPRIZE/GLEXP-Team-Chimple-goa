@@ -266,15 +266,15 @@ xc.CreateStoryLayer.res = {
         book_json: xc.path + "template/book.json",
         book_cover_plist: xc.path + "template.plist",
         book_cover_json: xc.path + "template.png",
-        // human_skeleton_json: xc.path + "animation/human_skeleton.json",
-        // animation_skeleton_png: xc.path + "animation/animation.png",
-        // animation_skeleton_plist: xc.path + "animation/animation.plist",
-        // animationa_skeleton_png: xc.path + "animation/animationa/animationa.png",
-        // animationa_skeleton_plist: xc.path + "animation/animationa/animationa.plist",
-        // animationb_skeleton_png: xc.path + "animation/animationa/animationb.png",
-        // animationb_skeleton_plist: xc.path + "animation/animationa/animationb.plist",
-        // animationc_skeleton_png: xc.path + "animation/animationa/animationc.png",
-        // animationc_skeleton_plist: xc.path + "animation/animationa/animationc.plist"           
+        human_skeleton_json: xc.path + "human_skeleton.json",
+        animation_skeleton_png: xc.path + "animation/animation.png",
+        animation_skeleton_plist: xc.path + "animation/animation.plist",
+        animationa_skeleton_png: xc.path + "animation/animationa/animationa.png",
+        animationa_skeleton_plist: xc.path + "animation/animationa/animationa.plist",
+        animationb_skeleton_png: xc.path + "animation/animationb/animationb.png",
+        animationb_skeleton_plist: xc.path + "animation/animationb/animationb.plist",
+        animationc_skeleton_png: xc.path + "animation/animationc/animationc.png",
+        animationc_skeleton_plist: xc.path + "animation/animationc/animationc.plist"           
 };
 
 

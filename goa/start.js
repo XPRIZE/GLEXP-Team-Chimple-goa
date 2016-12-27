@@ -55,9 +55,9 @@
 var chimple = chimple || {};
 var xc = xc || {};
 var goa = goa || {};
-xc.path = "res/SD/";
+xc.path = "res/HD/";
 xc.RESOURCE_DESIGN_HEIGHT = 1800;
-xc.DEVICE_WIDTH = 640;
+xc.DEVICE_WIDTH = 1260;
 xc.DEVICE_HEIGHT = 1800;
 xc.customSprites = [];
 xc.HAND_GEAR_LEFT = "hand_gear_left";
