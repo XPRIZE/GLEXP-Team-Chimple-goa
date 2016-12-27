@@ -365,7 +365,7 @@ void Door::characterRecognisation(std::vector<string> str)
 //	CCLOG("character = %s", str.at(0).c_str());
 	if (str.size() > 0)
 	{
-		if (str.at(0).compare(word) == 0)
+		if (str.at(0).compare(word) == 0 && _score <_BoxRef.size())
 		{
 			auto timeline = CSLoader::createTimeline("doors/box.csb");
 			_BoxRef.at(_score)->runAction(timeline);

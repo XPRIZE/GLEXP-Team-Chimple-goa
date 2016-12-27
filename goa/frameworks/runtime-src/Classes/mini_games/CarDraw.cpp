@@ -141,12 +141,13 @@ void CarDraw::characterRecogination(std::vector<string> str)
         for (std::vector<std::string>::iterator itStr = str.begin() ; itStr != str.end(); ++itStr)
         {
             std::string res = *itStr;
-            if(res.compare(_myChar) == 0)
+            if(res.compare(_myChar) == 0 && _gameEnd)
             {
 				menu->addPoints(5);
 				cocos2d::ui::Button* refreshButton = _carDrawNodeLiPi->_button;
 				refreshButton->setEnabled(false);
                 flage = true;
+				_gameEnd = false;
                 _carDrawNodeLiPi->writingEnable(false);
             }
         }
