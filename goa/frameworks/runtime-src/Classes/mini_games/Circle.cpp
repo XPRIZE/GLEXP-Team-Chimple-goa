@@ -396,7 +396,7 @@ void Circle::change(char  str)
 		addEnemy(num);
 	}), NULL));
 	
-	
+	CCLOG("out num= %d", num);
 }
 
 void Circle::addEnemy(int num)
