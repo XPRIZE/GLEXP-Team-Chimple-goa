@@ -36,7 +36,7 @@ public:
 protected:
 	int _gameScore, _enemyScore;
 	int _wordCount;
-	std::string _gameWord;
+	std::string _gameWord, _title, _catagory;
 	int _jumpCount, _enemyJumpCount;
 	cocos2d::Layer * _stepLayer;
 	cocos2d::Label * _topLabel;
@@ -64,6 +64,7 @@ protected:
 	bool _helpFlage = false;
 	void onEnterTransitionDidFinish();
 	void gameHelp();
+	std::map<std::string, std::map<std::string, std::string>> _differntSceneMapping;
 //	std::string _gameWord;
 	//int _jumpCount, _enemyJumpCount;
 //	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);

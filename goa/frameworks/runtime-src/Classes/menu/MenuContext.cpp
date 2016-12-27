@@ -932,7 +932,6 @@ void MenuContext::launchGameFinally(std::string gameName) {
 			
 			
 			
-			
     	}
 		else if (gameName == BALLONHERO) {
 			Director::getInstance()->replaceScene(BalloonHero::createScene());

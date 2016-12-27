@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 305,
         "Speed": 1.0,
-        "ActivedAnimationName": "bird",
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": -1883288668,
@@ -68,6 +68,14 @@
                 "CurrentAniamtionName": "fly",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 180,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 305,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }

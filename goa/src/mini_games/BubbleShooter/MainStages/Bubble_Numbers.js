@@ -158,7 +158,7 @@ xc.Bubble_Number = cc.Layer.extend({
 
         //Set the gun Base
         this.gunBase =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/gun.png"));
-        this.gunBase.setPosition(trnspImg.width/2 , cc.director.getWinSize().height * 0.0575);
+        this.gunBase.setPosition(trnspImg.width/2 , cc.director.getWinSize().height * 0.0560);
         this.addChild(this.gunBase);  
 
         // Init the this.player in gun 
@@ -237,9 +237,9 @@ xc.Bubble_Number = cc.Layer.extend({
       var extendedGameX = (gamePlayAreaWidth + (gamePlayAreaWidth + widthAreaExtendPart))/2;
 
       this.extendLetter = new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/BalooBhai-Regular.ttf", widthAreaExtendPart*2);
-      this.extendLetter.setPosition(extendedGameX - (widthAreaExtendPart * 0.25), cc.director.getWinSize().height * 0.4);
+      this.extendLetter.setPosition(extendedGameX - (widthAreaExtendPart * 0.25), cc.director.getWinSize().height * 0.5);
       this.addChild(this.extendLetter);
-      this.extendLetter.setAnchorPoint(0.5,0);
+    //  this.extendLetter.setAnchorPoint(0.5,0);
 
        if(bubblelevelValues == 100){
             var window = cc.director.getWinSize();

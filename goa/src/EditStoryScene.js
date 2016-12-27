@@ -105,8 +105,8 @@ xc.EditStoryScene.load = function(layer) {
 xc.EditStoryLayer.res = {
         thumbnails_png: xc.path + "wikitaki/thumbnails.png",
         thumbnails_plist: xc.path + "wikitaki/thumbnails.plist",
-        human_skeleton_png: xc.path + "wikitaki/human_skeleton.png",
-        human_skeleton_plist: xc.path + "wikitaki/human_skeleton.plist",
+        // human_skeleton_png: xc.path + "wikitaki/human_skeleton.png",
+        // human_skeleton_plist: xc.path + "wikitaki/human_skeleton.plist",
         animalskeleton_png: xc.path + "wikitaki/animalskeleton.png",
         animalskeleton_plist: xc.path + "wikitaki/animalskeleton.plist",
         animalskeleton_json: xc.path + "wikitaki/animalskeleton.json",
@@ -114,13 +114,22 @@ xc.EditStoryLayer.res = {
         birdskeleton_plist: xc.path + "wikitaki/birdskeleton.plist",
         birdskeleton_json: xc.path + "wikitaki/birdskeleton.json",
         HelloWorld_png: xc.path + "wikitaki/HelloWorld.png",
-        human_skeleton_json: xc.path + "wikitaki/human_skeleton.json",
+        // human_skeleton_json: xc.path + "wikitaki/human_skeleton.json",
         play_png: xc.path + "wikitaki/play.png",
         record_animation_png: xc.path + "wikitaki/recording.png",
         record_animation_plist: xc.path + "wikitaki/recording.plist",
         Config_json: xc.path + "wikitaki/misc/storyConfig.json",
         EditPlayConfig_json: xc.path + "wikitaki/misc/playConfig.json",
-        OnlyStoryPlayConfig_json: xc.path + "wikitaki/misc/onlyPlayConfig.json"
+        OnlyStoryPlayConfig_json: xc.path + "wikitaki/misc/onlyPlayConfig.json",
+        human_skeleton_json: xc.path + "human_skeleton.json",
+        animation_skeleton_png: xc.path + "animation/animation.png",
+        animation_skeleton_plist: xc.path + "animation/animation.plist",
+        animationa_skeleton_png: xc.path + "animation/animationa/animationa.png",
+        animationa_skeleton_plist: xc.path + "animation/animationa/animationa.plist",
+        animationb_skeleton_png: xc.path + "animation/animationb/animationb.png",
+        animationb_skeleton_plist: xc.path + "animation/animationb/animationb.plist",
+        animationc_skeleton_png: xc.path + "animation/animationc/animationc.png",
+        animationc_skeleton_plist: xc.path + "animation/animationc/animationc.plist"        
 };
 
 

@@ -112,6 +112,104 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 1385096476,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1385096476,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1544.0785,
+                "Y": 641.1102,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 244.3542,
+                "Y": 634.8828,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1385096476,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.18,
+                "Y": 0.18,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.18,
+                "Y": 0.18,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1385096476,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 112206256,
             "Property": "Position",
             "Frames": [
@@ -1195,6 +1293,47 @@
           },
           {
             "FileData": {
+              "Type": "Normal",
+              "Path": "Mbuzi_Mbwa_na_Ng_ombe/boy.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1544.0785,
+              "Y": 641.1102
+            },
+            "Scale": {
+              "ScaleX": 0.18,
+              "ScaleY": 0.18
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.6032,
+              "Y": 0.3562
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1544.0785,
+            "RightMargin": 1015.9215,
+            "TopMargin": 1158.8898,
+            "BottomMargin": 641.1102,
+            "Tag": 1565,
+            "ActionTag": 1385096476,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "boy",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
               "Type": "MarkedSubImage",
               "Path": "Mbuzi_Mbwa_na_Ng_ombe/Mbuzi_van.png",
               "Plist": "Mbuzi_Mbwa_na_Ng_ombe/Mbuzi_Mbwa_na_Ng_ombe.plist"
@@ -1290,6 +1429,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "boy.json",
         "cow.json",
         "Mbuzi_Mbwa_na_Ng_ombe.plist",
         "Mbuzi_Mbwa_na_Ng_ombe.png"
