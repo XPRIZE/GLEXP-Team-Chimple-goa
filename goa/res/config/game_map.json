@@ -11,17 +11,6 @@
         "script": "src/start/catalogue.js"
     },
     {
-        "name": "story-telling",
-        "title": "Stories",
-        "unlock": true,
-        "cIcon": "gameicons/story_pressed.png",
-        "icon": "gameicons/story.png",
-        "multiPlayer": false,
-        "isJSGame": true,
-        "pureJS": "",
-        "script": "src/start/storytelling.js"
-    },
-    {
         "name": "dino",
         "title": "Alphabet",
         "cIcon": "gameicons/dino_pressed.png",
@@ -358,38 +347,6 @@
         }
     },
     {
-        "name": "sortit",
-        "title": "Sort It",
-        "unlock": true,
-        "cIcon": "gameicons/sortit_pressed.png",
-        "icon": "gameicons/sortit.png",
-        "multiPlayer": false,
-        "isJSGame": true,
-        "pureJS": "sortitlevelLayer",
-        "script": "src/start/sortit.js",
-        "span": "2",
-        "numLevels": "6",
-        "rewards" : {
-            "1": {
-                "unlock": "Dots"
-            },
-            "2": {
-                "badge": "soaring_eagle",
-                "unlockMin": "step",
-                "min": "3"
-            },
-            "3": {
-                "badge": "fearless_warrior"
-            }
-        },
-        "backgroundJson": "sortitlevel/background.json",
-        "foregroundJson": "sortitlevel/foreground.json",
-        "frontgroundJson": "sortitlevel/frontground.json",
-        "maingroundJson": "sortitlevel/mainground.json",
-        "menuPlist": "sortitlevel/sortitlevel.plist",
-        "menuPng": "sortitlevel/sortitlevel.png"
-    },
-    {
         "name": "alphamole",
         "title": "Whack a Monster",
         "cIcon": "gameicons/alphamole_pressed.png",
@@ -631,24 +588,6 @@
         "menuPng": "patchthewalllevel/patchthewalllevel.png"
     },
     {
-        "name": "shape",
-        "title": "Patch the Holes",
-        "unlock": true,
-        "cIcon": "gameicons/shape_pressed.png",
-        "icon": "gameicons/shape.png",
-        "multiPlayer": false,
-        "isJSGame": false,
-        "script": "src/NonJSGameLauncher.js",
-        "span": "2",
-        "numLevels": "10",
-        "backgroundJson": "shapelevel/shapelevelbackground.json",
-        "foregroundJson": "shapelevel/shapelevelforeground.json",
-        "frontgroundJson": "shapelevel/shapelevelfrontground.json",
-        "maingroundJson": "shapelevel/shapelevelmainground.json",
-        "menuPlist": "shapelevel/shapelevel.plist",
-        "menuPng": "shapelevel/shapelevel.png"
-    },
-    {
         "name": "Kung Fu Alpha",
         "title": "Trace",
         "cIcon": "gameicons/Kung Fu Alpha_pressed.png",
@@ -856,6 +795,45 @@
         "maingroundJson": "boxlevel/mainground.json",
         "menuPlist": "boxlevel/boxlevel.plist",
         "menuPng": "boxlevel/boxlevel.png"
+    },
+    {
+        "name": "story-telling",
+        "title": "Create A Story",
+        "unlock": true,
+        "cIcon": "gameicons/story_pressed.png",
+        "icon": "gameicons/story.png",
+        "multiPlayer": false,
+        "isJSGame": true,
+        "pureJS": "",
+        "script": "src/start/storytelling.js"
+    },
+    {
+        "name": "JumpOnWords",
+        "title": "Jump on Words",
+        "cIcon": "gameicons/JumpOnWords_pressed.png",
+        "icon": "gameicons/JumpOnWords.png",
+        "multiPlayer": false,
+        "isJSGame": true,
+        "pureJS": "playLayer",
+        "script": "src/start/jump.js",
+        "span": "12",
+        "numLevels": "90",
+        "backgroundJson": "jump_on_words_level/background.json",
+        "foregroundJson": "jump_on_words_level/foreground.json",
+        "frontgroundJson": "jump_on_words_level/frontground.json",
+        "maingroundJson": "jump_on_words_level/mainground.json",
+        "menuPlist": "jump_on_words_level/jump_on_words_level.plist",
+        "menuPng": "jump_on_words_level/jump_on_words_level.png"
+    },
+    {
+        "name": "dummy",
+        "cIcon": "gameicons/JumpOnWords_pressed.png",
+        "icon": "gameicons/JumpOnWords.png"
+    },
+    {
+        "name": "dummy",
+        "cIcon": "gameicons/JumpOnWords_pressed.png",
+        "icon": "gameicons/JumpOnWords.png"
     },
     {
         "name": "baja",
@@ -1455,22 +1433,36 @@
         "menuPng": "circleislandlevel/circleislandlevel.png"
     },
     {
-        "name": "JumpOnWords",
-        "title": "Jump on Words",
-        "cIcon": "gameicons/JumpOnWords_pressed.png",
-        "icon": "gameicons/JumpOnWords.png",
+        "name": "sortit",
+        "title": "Sort It",
+        "unlock": true,
+        "cIcon": "gameicons/sortit_pressed.png",
+        "icon": "gameicons/sortit.png",
         "multiPlayer": false,
         "isJSGame": true,
-        "pureJS": "playLayer",
-        "script": "src/start/jump.js",
-        "span": "12",
-        "numLevels": "90",
-        "backgroundJson": "jump_on_words_level/background.json",
-        "foregroundJson": "jump_on_words_level/foreground.json",
-        "frontgroundJson": "jump_on_words_level/frontground.json",
-        "maingroundJson": "jump_on_words_level/mainground.json",
-        "menuPlist": "jump_on_words_level/jump_on_words_level.plist",
-        "menuPng": "jump_on_words_level/jump_on_words_level.png"
+        "pureJS": "sortitlevelLayer",
+        "script": "src/start/sortit.js",
+        "span": "2",
+        "numLevels": "6",
+        "rewards" : {
+            "1": {
+                "unlock": "Dots"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "step",
+                "min": "3"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
+        "backgroundJson": "sortitlevel/background.json",
+        "foregroundJson": "sortitlevel/foreground.json",
+        "frontgroundJson": "sortitlevel/frontground.json",
+        "maingroundJson": "sortitlevel/mainground.json",
+        "menuPlist": "sortitlevel/sortitlevel.plist",
+        "menuPng": "sortitlevel/sortitlevel.png"
     },
     {
         "name": "Maze",
@@ -1671,6 +1663,24 @@
         "maingroundJson": "plevelscreen2/cflevelmng.json",
         "menuPlist": "plevelscreen2/plevelscreen2.plist",
         "menuPng": "plevelscreen2/plevelscreen2.png"
+    },
+    {
+        "name": "shape",
+        "title": "Patch the Holes",
+        "unlock": true,
+        "cIcon": "gameicons/shape_pressed.png",
+        "icon": "gameicons/shape.png",
+        "multiPlayer": false,
+        "isJSGame": false,
+        "script": "src/NonJSGameLauncher.js",
+        "span": "2",
+        "numLevels": "10",
+        "backgroundJson": "shapelevel/shapelevelbackground.json",
+        "foregroundJson": "shapelevel/shapelevelforeground.json",
+        "frontgroundJson": "shapelevel/shapelevelfrontground.json",
+        "maingroundJson": "shapelevel/shapelevelmainground.json",
+        "menuPlist": "shapelevel/shapelevel.plist",
+        "menuPng": "shapelevel/shapelevel.png"
     },
     {
         "name": "step",
