@@ -49,7 +49,7 @@ void Card::onEnterTransitionDidFinish()
 	}
 	else
 	{
-		_menuContext->setMaxPoints(9);
+		_menuContext->setMaxPoints(6);
 		_pairCard = 3;
 	}
 
