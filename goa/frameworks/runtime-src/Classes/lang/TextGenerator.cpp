@@ -150,11 +150,15 @@ std::map<std::string, std::string> TextGenerator::getPairs(std::string type, int
         while (std::getline(sline, item, ';')) {
             elems.push_back(item);
         }
-        if(atoi(elems[0].c_str()) == level) {
+        if(level == 0 || atoi(elems[0].c_str()) == level) {
             pairs.push_back(std::pair<std::string, std::string>(elems[1], elems[2]));
         }
     }
-
+    //for safety in case we didnt get enough data for this level, get from all levels
+    if(level != 0 && pairs.size() < maxNum) {
+        return getPairs(type, maxNum, 0);
+    };
+    
     std::map<std::string, std::string> data;
     for(int i = 0; i < maxNum; i++) {
         int rIndex = rand() % pairs.size();
@@ -162,7 +166,6 @@ std::map<std::string, std::string> TextGenerator::getPairs(std::string type, int
         pairs.erase(pairs.begin() + rIndex);
         data.insert(pair);
     }
-    
     return data;
 }
 
@@ -183,11 +186,10 @@ std::vector<std::string> TextGenerator::getWordList(std::string type, int level)
         while (std::getline(sline, item, ';')) {
             elems.push_back(item);
         }
-        if(atoi(elems[0].c_str()) == level) {
+        if(level == 0 || atoi(elems[0].c_str()) == level) {
             pairs.push_back(elems[1]);
         }
     }
-    
     return pairs;
 }
 
@@ -209,7 +211,7 @@ std::string TextGenerator::getSingle(std::string type, int level, int length) {
             elems.push_back(item);
         }
         if(length == 0) {
-            if(atoi(elems[0].c_str()) == level) {
+            if(level == 0 || atoi(elems[0].c_str()) == level) {
                 pairs.push_back(elems[1]);
             }
         } else {
@@ -243,7 +245,7 @@ std::map<std::string, std::map<std::string, std::string>> TextGenerator::getMapO
         while (std::getline(sline, item, ';')) {
             elems.push_back(item);
         }
-        if(atoi(elems[0].c_str()) == level) {
+        if(level == 0 || atoi(elems[0].c_str()) == level) {
             pairMap[elems[1]].push_back(elems[2]);
             auto valueVector = pairMap[elems[1]];
             if(valueVector.size() == 1) {
@@ -251,6 +253,10 @@ std::map<std::string, std::map<std::string, std::string>> TextGenerator::getMapO
             }
         }
     }
+
+    if(level != 0 && keys.size() < maxNum) {
+        return getMapOfWords(type, maxNum, maxChoices, 0);
+    };
     
     std::vector<std::vector<std::string>> pairs;
     std::map<std::string, std::map<std::string, std::string>> data;
@@ -260,6 +266,11 @@ std::map<std::string, std::map<std::string, std::string>> TextGenerator::getMapO
         auto choices = pairMap[key];
         keys.erase(keys.begin() + rIndex);
         std::map<std::string, std::string> newChoices;
+
+        if(level != 0 && choices.size() < maxNum) {
+            return getMapOfWords(type, maxNum, maxChoices, 0);
+        };
+
         for(int j = 0; j < maxChoices; j++) {
             int rx = rand() % choices.size();
             auto choice = choices[rx];
@@ -277,6 +288,7 @@ std::map<std::string, std::map<std::string, std::string>> TextGenerator::getInit
 }
 
 std::vector<std::string> TextGenerator::getWords(TextGenerator::P_O_S partOfSpeech, int maxLength, int level) {
+    int originalLevel = level;
     level = MAX(1, MIN(level, 10));
     std::string pos = "";
     switch( partOfSpeech ) {
@@ -324,10 +336,14 @@ std::vector<std::string> TextGenerator::getWords(TextGenerator::P_O_S partOfSpee
         while (std::getline(sline, item, ';')) {
             elems.push_back(item);
         }
-        if(atoi(elems[0].c_str()) == level && (pos.empty() || pos == elems[1])) {
+        if((originalLevel == 0 || atoi(elems[0].c_str()) == level) && (pos.empty() || pos == elems[1])) {
             words.push_back(elems[2]);
         }
     }
+    
+    if(level != 0 && words.size() < maxLength) {
+        return getWords(partOfSpeech, maxLength, 0);
+    };
     
     std::vector<std::string> data;
     for(int i = 0; i < maxLength; i++) {
@@ -477,6 +493,7 @@ std::vector<std::string> TextGenerator::getOrderedConcepts(int level) {
 
 std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> TextGenerator::getSentenceWithPOS(TextGenerator::P_O_S partOfSpeech, int maxLength, int level) {
     /* minimum 10 sentences per level and 10 levels */
+    int originalLevel = level;
     level = MAX(1, MIN(level, 10));
     std::string pos = "";
     switch( partOfSpeech ) {
@@ -525,7 +542,7 @@ std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> TextGener
         while (std::getline(sline, item, ';')) {
             elems.push_back(item);
         }
-        if(atoi(elems[0].c_str()) == level) {
+        if(level == 0 || atoi(elems[0].c_str()) == level) {
             bool foundPos = false;
             if(!pos.empty()) {
                 for (auto it=elems.begin() + 1; it!=elems.end(); ++it) {
@@ -574,6 +591,10 @@ std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> TextGener
         }
     }
     
+    if(level != 0 && Sentences.size() < maxLength) {
+        return getSentenceWithPOS(partOfSpeech, maxLength, 0);
+    };
+    
     std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> data;
     for(int i = 0; i < maxLength; i++) {
         int rIndex = rand() % Sentences.size();
@@ -581,7 +602,6 @@ std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> TextGener
         Sentences.erase(Sentences.begin() + rIndex);
         data.push_back(word);
     }
-    
     return data;
 }
 
