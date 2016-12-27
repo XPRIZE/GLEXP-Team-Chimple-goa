@@ -15,9 +15,24 @@
                 <key>spriteSourceSize</key>
                 <string>{49,25}</string>
                 <key>textureRect</key>
-                <string>{{186,50},{49,25}}</string>
+                <string>{{145,50},{49,25}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
+            </dict>
+            <key>hero/beard1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{13,10}</string>
+                <key>spriteSourceSize</key>
+                <string>{13,10}</string>
+                <key>textureRect</key>
+                <string>{{491,28},{13,10}}</string>
+                <key>textureRotated</key>
+                <false/>
             </dict>
             <key>hero/body.png</key>
             <dict>
@@ -30,7 +45,7 @@
                 <key>spriteSourceSize</key>
                 <string>{33,38}</string>
                 <key>textureRect</key>
-                <string>{{344,34},{33,38}}</string>
+                <string>{{459,85},{33,38}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -45,9 +60,354 @@
                 <key>spriteSourceSize</key>
                 <string>{51,30}</string>
                 <key>textureRect</key>
-                <string>{{552,1},{51,30}}</string>
+                <string>{{839,1},{51,30}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/camp_director_hat.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,1}</string>
+                <key>spriteSize</key>
+                <string>{49,23}</string>
+                <key>spriteSourceSize</key>
+                <string>{49,25}</string>
+                <key>textureRect</key>
+                <string>{{242,72},{49,23}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/camp_director_pant_lower_left.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{3,9}</string>
+                <key>spriteSourceSize</key>
+                <string>{3,9}</string>
+                <key>textureRect</key>
+                <string>{{837,109},{3,9}}</string>
                 <key>textureRotated</key>
                 <false/>
+            </dict>
+            <key>hero/camp_director_pant_lower_right.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{3,9}</string>
+                <key>spriteSourceSize</key>
+                <string>{3,9}</string>
+                <key>textureRect</key>
+                <string>{{721,120},{3,9}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/camp_director_pant_upper_left.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{3,12}</string>
+                <key>spriteSourceSize</key>
+                <string>{3,12}</string>
+                <key>textureRect</key>
+                <string>{{697,110},{3,12}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/camp_director_pant_upper_right.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{4,12}</string>
+                <key>spriteSourceSize</key>
+                <string>{4,12}</string>
+                <key>textureRect</key>
+                <string>{{633,112},{4,12}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/camp_director_patn.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{33,33}</string>
+                <key>spriteSourceSize</key>
+                <string>{33,33}</string>
+                <key>textureRect</key>
+                <string>{{664,40},{33,33}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/camp_director_shit.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,3}</string>
+                <key>spriteSize</key>
+                <string>{37,46}</string>
+                <key>spriteSourceSize</key>
+                <string>{37,54}</string>
+                <key>textureRect</key>
+                <string>{{125,77},{37,46}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/camp_director_shoe.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{13,4}</string>
+                <key>spriteSourceSize</key>
+                <string>{13,4}</string>
+                <key>textureRect</key>
+                <string>{{850,75},{13,4}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/camp_director_upper_sleave.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,5}</string>
+                <key>spriteSize</key>
+                <string>{5,12}</string>
+                <key>spriteSourceSize</key>
+                <string>{5,22}</string>
+                <key>textureRect</key>
+                <string>{{858,54},{5,12}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/camper_pant.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{33,33}</string>
+                <key>spriteSourceSize</key>
+                <string>{33,33}</string>
+                <key>textureRect</key>
+                <string>{{699,40},{33,33}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/camper_pant_upper_left.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{3,12}</string>
+                <key>spriteSourceSize</key>
+                <string>{3,12}</string>
+                <key>textureRect</key>
+                <string>{{711,110},{3,12}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/camper_pant_upper_right.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{4,12}</string>
+                <key>spriteSourceSize</key>
+                <string>{4,12}</string>
+                <key>textureRect</key>
+                <string>{{647,112},{4,12}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/camper_shirt.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,2}</string>
+                <key>spriteSize</key>
+                <string>{37,50}</string>
+                <key>spriteSourceSize</key>
+                <string>{37,54}</string>
+                <key>textureRect</key>
+                <string>{{787,1},{37,50}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/camper_sleave.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,5}</string>
+                <key>spriteSize</key>
+                <string>{5,12}</string>
+                <key>spriteSourceSize</key>
+                <string>{5,22}</string>
+                <key>textureRect</key>
+                <string>{{858,61},{5,12}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/cowboy_hat.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,-2}</string>
+                <key>spriteSize</key>
+                <string>{49,19}</string>
+                <key>spriteSourceSize</key>
+                <string>{49,25}</string>
+                <key>textureRect</key>
+                <string>{{440,28},{49,19}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/cowboy_lower_sleave.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{5,13}</string>
+                <key>spriteSourceSize</key>
+                <string>{5,13}</string>
+                <key>textureRect</key>
+                <string>{{423,70},{5,13}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/cowboy_pant.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{33,33}</string>
+                <key>spriteSourceSize</key>
+                <string>{33,33}</string>
+                <key>textureRect</key>
+                <string>{{734,40},{33,33}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/cowboy_pant_lower_left.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{3,9}</string>
+                <key>spriteSourceSize</key>
+                <string>{3,9}</string>
+                <key>textureRect</key>
+                <string>{{732,120},{3,9}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/cowboy_pant_lower_right.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{3,9}</string>
+                <key>spriteSourceSize</key>
+                <string>{3,9}</string>
+                <key>textureRect</key>
+                <string>{{743,120},{3,9}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/cowboy_pant_upper_left.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{4,12}</string>
+                <key>spriteSourceSize</key>
+                <string>{4,12}</string>
+                <key>textureRect</key>
+                <string>{{639,118},{4,12}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/cowboy_pant_upper_right.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{3,12}</string>
+                <key>spriteSourceSize</key>
+                <string>{3,12}</string>
+                <key>textureRect</key>
+                <string>{{69,116},{3,12}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/cowboy_shirt.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,2}</string>
+                <key>spriteSize</key>
+                <string>{37,50}</string>
+                <key>spriteSourceSize</key>
+                <string>{37,54}</string>
+                <key>textureRect</key>
+                <string>{{214,33},{37,50}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/cowboy_upper_sleave.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{5,22}</string>
+                <key>spriteSourceSize</key>
+                <string>{5,22}</string>
+                <key>textureRect</key>
+                <string>{{562,118},{5,22}}</string>
+                <key>textureRotated</key>
+                <true/>
             </dict>
             <key>hero/electrican_upper_sleave.png</key>
             <dict>
@@ -60,9 +420,9 @@
                 <key>spriteSourceSize</key>
                 <string>{5,22}</string>
                 <key>textureRect</key>
-                <string>{{171,106},{5,10}}</string>
+                <string>{{865,89},{5,10}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>hero/electrician_pant.png</key>
             <dict>
@@ -75,7 +435,7 @@
                 <key>spriteSourceSize</key>
                 <string>{33,33}</string>
                 <key>textureRect</key>
-                <string>{{469,44},{33,33}}</string>
+                <string>{{769,40},{33,33}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -90,7 +450,7 @@
                 <key>spriteSourceSize</key>
                 <string>{3,9}</string>
                 <key>textureRect</key>
-                <string>{{136,116},{3,9}}</string>
+                <string>{{754,120},{3,9}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -105,7 +465,7 @@
                 <key>spriteSourceSize</key>
                 <string>{3,9}</string>
                 <key>textureRect</key>
-                <string>{{239,111},{3,9}}</string>
+                <string>{{765,120},{3,9}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -120,9 +480,9 @@
                 <key>spriteSourceSize</key>
                 <string>{4,12}</string>
                 <key>textureRect</key>
-                <string>{{574,58},{4,12}}</string>
+                <string>{{725,110},{4,12}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>hero/electrician_pant_upper_right.png</key>
             <dict>
@@ -135,7 +495,7 @@
                 <key>spriteSourceSize</key>
                 <string>{3,12}</string>
                 <key>textureRect</key>
-                <string>{{122,116},{3,12}}</string>
+                <string>{{83,116},{3,12}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -150,9 +510,9 @@
                 <key>spriteSourceSize</key>
                 <string>{37,54}</string>
                 <key>textureRect</key>
-                <string>{{214,33},{37,46}}</string>
+                <string>{{164,77},{37,46}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>hero/electrician_shoe.png</key>
             <dict>
@@ -165,7 +525,7 @@
                 <key>spriteSourceSize</key>
                 <string>{13,4}</string>
                 <key>textureRect</key>
-                <string>{{262,67},{13,4}}</string>
+                <string>{{850,81},{13,4}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -180,7 +540,7 @@
                 <key>spriteSourceSize</key>
                 <string>{9,9}</string>
                 <key>textureRect</key>
-                <string>{{539,110},{9,9}}</string>
+                <string>{{586,114},{9,9}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -195,9 +555,9 @@
                 <key>spriteSourceSize</key>
                 <string>{17,16}</string>
                 <key>textureRect</key>
-                <string>{{574,40},{17,16}}</string>
+                <string>{{196,50},{17,16}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>hero/eye_outer_left.png</key>
             <dict>
@@ -210,9 +570,9 @@
                 <key>spriteSourceSize</key>
                 <string>{24,22}</string>
                 <key>textureRect</key>
-                <string>{{552,75},{24,22}}</string>
+                <string>{{411,32},{24,22}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>hero/eye_outer_right.png</key>
             <dict>
@@ -225,9 +585,9 @@
                 <key>spriteSourceSize</key>
                 <string>{19,17}</string>
                 <key>textureRect</key>
-                <string>{{552,101},{19,17}}</string>
+                <string>{{839,54},{19,17}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>hero/farmer_coat.png</key>
             <dict>
@@ -240,9 +600,9 @@
                 <key>spriteSourceSize</key>
                 <string>{37,54}</string>
                 <key>textureRect</key>
-                <string>{{213,72},{37,46}}</string>
+                <string>{{306,73},{37,46}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>hero/farmer_lower_sleave.png</key>
             <dict>
@@ -255,9 +615,9 @@
                 <key>spriteSourceSize</key>
                 <string>{5,13}</string>
                 <key>textureRect</key>
-                <string>{{172,113},{5,9}}</string>
+                <string>{{597,114},{5,9}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>hero/farmer_pant.png</key>
             <dict>
@@ -270,7 +630,7 @@
                 <key>spriteSourceSize</key>
                 <string>{33,33}</string>
                 <key>textureRect</key>
-                <string>{{504,40},{33,33}}</string>
+                <string>{{804,40},{33,33}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -285,7 +645,7 @@
                 <key>spriteSourceSize</key>
                 <string>{3,9}</string>
                 <key>textureRect</key>
-                <string>{{241,116},{3,9}}</string>
+                <string>{{776,120},{3,9}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -300,7 +660,7 @@
                 <key>spriteSourceSize</key>
                 <string>{3,9}</string>
                 <key>textureRect</key>
-                <string>{{250,111},{3,9}}</string>
+                <string>{{787,120},{3,9}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -315,9 +675,9 @@
                 <key>spriteSourceSize</key>
                 <string>{4,12}</string>
                 <key>textureRect</key>
-                <string>{{580,58},{4,12}}</string>
+                <string>{{739,110},{4,12}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>hero/farmer_pant_upper_right.png</key>
             <dict>
@@ -330,7 +690,7 @@
                 <key>spriteSourceSize</key>
                 <string>{3,12}</string>
                 <key>textureRect</key>
-                <string>{{426,116},{3,12}}</string>
+                <string>{{97,116},{3,12}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -345,9 +705,9 @@
                 <key>spriteSourceSize</key>
                 <string>{37,54}</string>
                 <key>textureRect</key>
-                <string>{{296,34},{37,46}}</string>
+                <string>{{345,73},{37,46}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>hero/farmer_shoe.png</key>
             <dict>
@@ -360,7 +720,7 @@
                 <key>spriteSourceSize</key>
                 <string>{13,4}</string>
                 <key>textureRect</key>
-                <string>{{277,67},{13,4}}</string>
+                <string>{{850,87},{13,4}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -375,7 +735,7 @@
                 <key>spriteSourceSize</key>
                 <string>{5,22}</string>
                 <key>textureRect</key>
-                <string>{{552,33},{5,22}}</string>
+                <string>{{69,109},{5,22}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -390,7 +750,7 @@
                 <key>spriteSourceSize</key>
                 <string>{34,38}</string>
                 <key>textureRect</key>
-                <string>{{376,81},{34,38}}</string>
+                <string>{{423,85},{34,38}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -420,7 +780,7 @@
                 <key>spriteSourceSize</key>
                 <string>{12,3}</string>
                 <key>textureRect</key>
-                <string>{{108,116},{12,3}}</string>
+                <string>{{669,110},{12,3}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -435,9 +795,84 @@
                 <key>spriteSourceSize</key>
                 <string>{12,3}</string>
                 <key>textureRect</key>
-                <string>{{412,116},{12,3}}</string>
+                <string>{{683,110},{12,3}}</string>
                 <key>textureRotated</key>
                 <false/>
+            </dict>
+            <key>hero/gym_owner_pant.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{33,33}</string>
+                <key>spriteSourceSize</key>
+                <string>{33,33}</string>
+                <key>textureRect</key>
+                <string>{{564,79},{33,33}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/gym_owner_pant_upper_left.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{3,12}</string>
+                <key>spriteSourceSize</key>
+                <string>{3,12}</string>
+                <key>textureRect</key>
+                <string>{{809,115},{3,12}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/gym_owner_pant_upper_right.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{4,12}</string>
+                <key>spriteSourceSize</key>
+                <string>{4,12}</string>
+                <key>textureRect</key>
+                <string>{{753,110},{4,12}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/gym_owner_shirt.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,2}</string>
+                <key>spriteSize</key>
+                <string>{37,48}</string>
+                <key>spriteSourceSize</key>
+                <string>{37,54}</string>
+                <key>textureRect</key>
+                <string>{{203,72},{37,48}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/gym_owner_upper_sleave.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,3}</string>
+                <key>spriteSize</key>
+                <string>{5,16}</string>
+                <key>spriteSourceSize</key>
+                <string>{5,22}</string>
+                <key>textureRect</key>
+                <string>{{411,63},{5,16}}</string>
+                <key>textureRotated</key>
+                <true/>
             </dict>
             <key>hero/hadn2.png</key>
             <dict>
@@ -450,9 +885,9 @@
                 <key>spriteSourceSize</key>
                 <string>{5,22}</string>
                 <key>textureRect</key>
-                <string>{{201,101},{5,10}}</string>
+                <string>{{858,99},{5,10}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>hero/hair.png</key>
             <dict>
@@ -480,7 +915,7 @@
                 <key>spriteSourceSize</key>
                 <string>{60,43}</string>
                 <key>textureRect</key>
-                <string>{{440,1},{54,41}}</string>
+                <string>{{69,66},{54,41}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -499,6 +934,21 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
+            <key>hero/hair4.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{66,25}</string>
+                <key>spriteSourceSize</key>
+                <string>{66,25}</string>
+                <key>textureRect</key>
+                <string>{{440,1},{66,25}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
             <key>hero/hand.png</key>
             <dict>
                 <key>aliases</key>
@@ -510,7 +960,7 @@
                 <key>spriteSourceSize</key>
                 <string>{6,9}</string>
                 <key>textureRect</key>
-                <string>{{161,113},{6,9}}</string>
+                <string>{{39,117},{6,9}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -555,7 +1005,7 @@
                 <key>spriteSourceSize</key>
                 <string>{32,32}</string>
                 <key>textureRect</key>
-                <string>{{262,33},{32,32}}</string>
+                <string>{{809,75},{32,32}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -570,7 +1020,7 @@
                 <key>spriteSourceSize</key>
                 <string>{35,42}</string>
                 <key>textureRect</key>
-                <string>{{425,44},{35,42}}</string>
+                <string>{{620,40},{35,42}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -585,7 +1035,7 @@
                 <key>spriteSourceSize</key>
                 <string>{34,44}</string>
                 <key>textureRect</key>
-                <string>{{379,32},{34,44}}</string>
+                <string>{{437,49},{34,44}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -600,9 +1050,9 @@
                 <key>spriteSourceSize</key>
                 <string>{5,18}</string>
                 <key>textureRect</key>
-                <string>{{573,101},{5,18}}</string>
+                <string>{{125,66},{5,18}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>hero/lower_leg_left.png</key>
             <dict>
@@ -615,7 +1065,7 @@
                 <key>spriteSourceSize</key>
                 <string>{3,10}</string>
                 <key>textureRect</key>
-                <string>{{227,111},{3,10}}</string>
+                <string>{{703,115},{3,10}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -630,7 +1080,37 @@
                 <key>spriteSourceSize</key>
                 <string>{3,10}</string>
                 <key>textureRect</key>
-                <string>{{229,116},{3,10}}</string>
+                <string>{{709,120},{3,10}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/model_shirt.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,-3}</string>
+                <key>spriteSize</key>
+                <string>{35,45}</string>
+                <key>spriteSourceSize</key>
+                <string>{35,51}</string>
+                <key>textureRect</key>
+                <string>{{266,34},{35,45}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/model_skirt.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{34,44}</string>
+                <key>spriteSourceSize</key>
+                <string>{34,44}</string>
+                <key>textureRect</key>
+                <string>{{483,49},{34,44}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -645,7 +1125,7 @@
                 <key>spriteSourceSize</key>
                 <string>{31,5}</string>
                 <key>textureRect</key>
-                <string>{{482,114},{31,5}}</string>
+                <string>{{529,118},{31,5}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -660,7 +1140,7 @@
                 <key>spriteSourceSize</key>
                 <string>{12,6}</string>
                 <key>textureRect</key>
-                <string>{{147,113},{12,6}}</string>
+                <string>{{1,117},{12,6}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -675,7 +1155,7 @@
                 <key>spriteSourceSize</key>
                 <string>{33,33}</string>
                 <key>textureRect</key>
-                <string>{{412,81},{33,33}}</string>
+                <string>{{599,77},{33,33}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -690,9 +1170,9 @@
                 <key>spriteSourceSize</key>
                 <string>{3,9}</string>
                 <key>textureRect</key>
-                <string>{{576,83},{3,9}}</string>
+                <string>{{798,120},{3,9}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>hero/painter_pant_lower_right.png</key>
             <dict>
@@ -705,9 +1185,9 @@
                 <key>spriteSourceSize</key>
                 <string>{3,9}</string>
                 <key>textureRect</key>
-                <string>{{583,72},{3,9}}</string>
+                <string>{{809,120},{3,9}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>hero/painter_pant_upper_left.png</key>
             <dict>
@@ -720,7 +1200,7 @@
                 <key>spriteSourceSize</key>
                 <string>{3,12}</string>
                 <key>textureRect</key>
-                <string>{{440,116},{3,12}}</string>
+                <string>{{823,115},{3,12}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -735,9 +1215,9 @@
                 <key>spriteSourceSize</key>
                 <string>{4,12}</string>
                 <key>textureRect</key>
-                <string>{{586,58},{4,12}}</string>
+                <string>{{767,110},{4,12}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>hero/painter_shirt.png</key>
             <dict>
@@ -750,9 +1230,9 @@
                 <key>spriteSourceSize</key>
                 <string>{37,54}</string>
                 <key>textureRect</key>
-                <string>{{261,73},{37,46}}</string>
+                <string>{{363,34},{37,46}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>hero/painter_shoe.png</key>
             <dict>
@@ -765,7 +1245,7 @@
                 <key>spriteSourceSize</key>
                 <string>{13,4}</string>
                 <key>textureRect</key>
-                <string>{{379,68},{13,4}}</string>
+                <string>{{850,93},{13,4}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -780,9 +1260,9 @@
                 <key>spriteSourceSize</key>
                 <string>{5,22}</string>
                 <key>textureRect</key>
-                <string>{{201,108},{5,10}}</string>
+                <string>{{865,101},{5,10}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>hero/pant.png</key>
             <dict>
@@ -795,7 +1275,7 @@
                 <key>spriteSourceSize</key>
                 <string>{33,33}</string>
                 <key>textureRect</key>
-                <string>{{447,81},{33,33}}</string>
+                <string>{{634,77},{33,33}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -810,9 +1290,9 @@
                 <key>spriteSourceSize</key>
                 <string>{3,9}</string>
                 <key>textureRect</key>
-                <string>{{581,83},{3,9}}</string>
+                <string>{{820,120},{3,9}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>hero/pant_lower_right.png</key>
             <dict>
@@ -825,7 +1305,7 @@
                 <key>spriteSourceSize</key>
                 <string>{3,9}</string>
                 <key>textureRect</key>
-                <string>{{576,94},{3,9}}</string>
+                <string>{{831,120},{3,9}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -840,7 +1320,7 @@
                 <key>spriteSourceSize</key>
                 <string>{3,12}</string>
                 <key>textureRect</key>
-                <string>{{454,116},{3,12}}</string>
+                <string>{{653,120},{3,12}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -855,9 +1335,129 @@
                 <key>spriteSourceSize</key>
                 <string>{4,12}</string>
                 <key>textureRect</key>
-                <string>{{186,101},{4,12}}</string>
+                <string>{{781,110},{4,12}}</string>
                 <key>textureRotated</key>
                 <true/>
+            </dict>
+            <key>hero/photographer_pant.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{33,33}</string>
+                <key>spriteSourceSize</key>
+                <string>{33,33}</string>
+                <key>textureRect</key>
+                <string>{{769,40},{33,33}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/photographer_pant_lower_left.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{3,9}</string>
+                <key>spriteSourceSize</key>
+                <string>{3,9}</string>
+                <key>textureRect</key>
+                <string>{{754,120},{3,9}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/photographer_pant_lower_right.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{3,9}</string>
+                <key>spriteSourceSize</key>
+                <string>{3,9}</string>
+                <key>textureRect</key>
+                <string>{{765,120},{3,9}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/photographer_pant_upper_left.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{3,12}</string>
+                <key>spriteSourceSize</key>
+                <string>{3,12}</string>
+                <key>textureRect</key>
+                <string>{{83,116},{3,12}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/photographer_pant_upper_right.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{4,12}</string>
+                <key>spriteSourceSize</key>
+                <string>{4,12}</string>
+                <key>textureRect</key>
+                <string>{{725,110},{4,12}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/photographer_shirt.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,3}</string>
+                <key>spriteSize</key>
+                <string>{37,48}</string>
+                <key>spriteSourceSize</key>
+                <string>{37,54}</string>
+                <key>textureRect</key>
+                <string>{{267,71},{37,48}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/photographer_shoe.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{13,4}</string>
+                <key>spriteSourceSize</key>
+                <string>{13,4}</string>
+                <key>textureRect</key>
+                <string>{{850,81},{13,4}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/photographer_upper_sleave.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,6}</string>
+                <key>spriteSize</key>
+                <string>{5,10}</string>
+                <key>spriteSourceSize</key>
+                <string>{5,22}</string>
+                <key>textureRect</key>
+                <string>{{865,89},{5,10}}</string>
+                <key>textureRotated</key>
+                <false/>
             </dict>
             <key>hero/police_hat.png</key>
             <dict>
@@ -885,7 +1485,7 @@
                 <key>spriteSourceSize</key>
                 <string>{33,33}</string>
                 <key>textureRect</key>
-                <string>{{482,79},{33,33}}</string>
+                <string>{{669,75},{33,33}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -900,7 +1500,7 @@
                 <key>spriteSourceSize</key>
                 <string>{3,9}</string>
                 <key>textureRect</key>
-                <string>{{588,72},{3,9}}</string>
+                <string>{{842,111},{3,9}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -915,7 +1515,7 @@
                 <key>spriteSourceSize</key>
                 <string>{3,9}</string>
                 <key>textureRect</key>
-                <string>{{586,83},{3,9}}</string>
+                <string>{{847,111},{3,9}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -930,7 +1530,7 @@
                 <key>spriteSourceSize</key>
                 <string>{3,12}</string>
                 <key>textureRect</key>
-                <string>{{468,116},{3,12}}</string>
+                <string>{{667,120},{3,12}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -945,9 +1545,9 @@
                 <key>spriteSourceSize</key>
                 <string>{4,12}</string>
                 <key>textureRect</key>
-                <string>{{183,107},{4,12}}</string>
+                <string>{{795,110},{4,12}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>hero/police_shirt.png</key>
             <dict>
@@ -960,9 +1560,9 @@
                 <key>spriteSourceSize</key>
                 <string>{37,54}</string>
                 <key>textureRect</key>
-                <string>{{108,66},{37,48}}</string>
+                <string>{{313,34},{37,48}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>hero/police_shoe.png</key>
             <dict>
@@ -975,9 +1575,9 @@
                 <key>spriteSourceSize</key>
                 <string>{13,4}</string>
                 <key>textureRect</key>
-                <string>{{599,33},{13,4}}</string>
+                <string>{{50,117},{13,4}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>hero/police_upper_sleave.png</key>
             <dict>
@@ -990,9 +1590,9 @@
                 <key>spriteSourceSize</key>
                 <string>{5,22}</string>
                 <key>textureRect</key>
-                <string>{{592,58},{5,10}}</string>
+                <string>{{604,118},{5,10}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>hero/shirt_1.png</key>
             <dict>
@@ -1005,9 +1605,9 @@
                 <key>spriteSourceSize</key>
                 <string>{37,55}</string>
                 <key>textureRect</key>
-                <string>{{69,66},{37,53}}</string>
+                <string>{{732,1},{37,53}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>hero/shirt_lower.png</key>
             <dict>
@@ -1020,9 +1620,9 @@
                 <key>spriteSourceSize</key>
                 <string>{5,13}</string>
                 <key>textureRect</key>
-                <string>{{425,32},{5,13}}</string>
+                <string>{{430,63},{5,13}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>hero/shirt_upper.png</key>
             <dict>
@@ -1035,7 +1635,7 @@
                 <key>spriteSourceSize</key>
                 <string>{5,22}</string>
                 <key>textureRect</key>
-                <string>{{376,74},{5,22}}</string>
+                <string>{{411,56},{5,22}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -1050,9 +1650,9 @@
                 <key>spriteSourceSize</key>
                 <string>{13,4}</string>
                 <key>textureRect</key>
-                <string>{{593,40},{13,4}}</string>
+                <string>{{843,99},{13,4}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>hero/shoe_2.png</key>
             <dict>
@@ -1065,9 +1665,189 @@
                 <key>spriteSourceSize</key>
                 <string>{12,4}</string>
                 <key>textureRect</key>
-                <string>{{409,68},{12,4}}</string>
+                <string>{{619,112},{12,4}}</string>
                 <key>textureRotated</key>
                 <false/>
+            </dict>
+            <key>hero/shop_keeper_2_shirt.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{37,54}</string>
+                <key>spriteSourceSize</key>
+                <string>{37,54}</string>
+                <key>textureRect</key>
+                <string>{{508,1},{37,54}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/shop_keeper_2_skirt.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{33,37}</string>
+                <key>spriteSourceSize</key>
+                <string>{33,37}</string>
+                <key>textureRect</key>
+                <string>{{494,85},{33,37}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/shop_keeper_2_upper_sleave.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,5}</string>
+                <key>spriteSize</key>
+                <string>{5,12}</string>
+                <key>spriteSourceSize</key>
+                <string>{5,22}</string>
+                <key>textureRect</key>
+                <string>{{858,68},{5,12}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/shop_keeper_shirt.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{37,54}</string>
+                <key>spriteSourceSize</key>
+                <string>{37,54}</string>
+                <key>textureRect</key>
+                <string>{{564,1},{37,54}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/shop_keeper_skirt.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{33,37}</string>
+                <key>spriteSourceSize</key>
+                <string>{33,37}</string>
+                <key>textureRect</key>
+                <string>{{529,79},{33,37}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/shop_keeper_upper_sleave.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,5}</string>
+                <key>spriteSize</key>
+                <string>{5,12}</string>
+                <key>spriteSourceSize</key>
+                <string>{5,22}</string>
+                <key>textureRect</key>
+                <string>{{865,75},{5,12}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/soccer_player_pant.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{33,33}</string>
+                <key>spriteSourceSize</key>
+                <string>{33,33}</string>
+                <key>textureRect</key>
+                <string>{{704,75},{33,33}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/soccer_player_pant_upper_left.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{3,12}</string>
+                <key>spriteSourceSize</key>
+                <string>{3,12}</string>
+                <key>textureRect</key>
+                <string>{{661,115},{3,12}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/soccer_player_pant_upper_right.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{4,12}</string>
+                <key>spriteSourceSize</key>
+                <string>{4,12}</string>
+                <key>textureRect</key>
+                <string>{{809,109},{4,12}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/soccer_player_shirt.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,3}</string>
+                <key>spriteSize</key>
+                <string>{37,44}</string>
+                <key>spriteSourceSize</key>
+                <string>{37,54}</string>
+                <key>textureRect</key>
+                <string>{{529,40},{37,44}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/soccer_player_shoe.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{13,4}</string>
+                <key>spriteSourceSize</key>
+                <string>{13,4}</string>
+                <key>textureRect</key>
+                <string>{{506,40},{13,4}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/soccer_player_sleace.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,6}</string>
+                <key>spriteSize</key>
+                <string>{5,10}</string>
+                <key>spriteSourceSize</key>
+                <string>{5,22}</string>
+                <key>textureRect</key>
+                <string>{{616,118},{5,10}}</string>
+                <key>textureRotated</key>
+                <true/>
             </dict>
             <key>hero/store_keeper_lower_sleave.png</key>
             <dict>
@@ -1080,7 +1860,7 @@
                 <key>spriteSourceSize</key>
                 <string>{5,13}</string>
                 <key>textureRect</key>
-                <string>{{400,74},{5,13}}</string>
+                <string>{{491,40},{5,13}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -1095,7 +1875,7 @@
                 <key>spriteSourceSize</key>
                 <string>{33,33}</string>
                 <key>textureRect</key>
-                <string>{{517,75},{33,33}}</string>
+                <string>{{739,75},{33,33}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -1110,7 +1890,7 @@
                 <key>spriteSourceSize</key>
                 <string>{3,9}</string>
                 <key>textureRect</key>
-                <string>{{580,99},{3,9}}</string>
+                <string>{{852,111},{3,9}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -1125,7 +1905,7 @@
                 <key>spriteSourceSize</key>
                 <string>{3,9}</string>
                 <key>textureRect</key>
-                <string>{{580,110},{3,9}}</string>
+                <string>{{857,111},{3,9}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -1140,7 +1920,7 @@
                 <key>spriteSourceSize</key>
                 <string>{3,12}</string>
                 <key>textureRect</key>
-                <string>{{425,39},{3,12}}</string>
+                <string>{{675,115},{3,12}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -1155,9 +1935,9 @@
                 <key>spriteSourceSize</key>
                 <string>{4,12}</string>
                 <key>textureRect</key>
-                <string>{{189,107},{4,12}}</string>
+                <string>{{823,109},{4,12}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>hero/store_keeper_shirt.png</key>
             <dict>
@@ -1170,7 +1950,7 @@
                 <key>spriteSourceSize</key>
                 <string>{37,54}</string>
                 <key>textureRect</key>
-                <string>{{496,1},{37,54}}</string>
+                <string>{{620,1},{37,54}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -1185,9 +1965,9 @@
                 <key>spriteSourceSize</key>
                 <string>{13,4}</string>
                 <key>textureRect</key>
-                <string>{{599,48},{13,4}}</string>
+                <string>{{843,105},{13,4}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>hero/store_keeper_upper_sleave.png</key>
             <dict>
@@ -1200,9 +1980,9 @@
                 <key>spriteSourceSize</key>
                 <string>{5,22}</string>
                 <key>textureRect</key>
-                <string>{{515,114},{5,22}}</string>
+                <string>{{843,75},{5,22}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>hero/tribalred.png</key>
             <dict>
@@ -1215,9 +1995,9 @@
                 <key>spriteSourceSize</key>
                 <string>{35,45}</string>
                 <key>textureRect</key>
-                <string>{{339,74},{35,43}}</string>
+                <string>{{575,40},{35,43}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>hero/upper_arm.png</key>
             <dict>
@@ -1230,7 +2010,7 @@
                 <key>spriteSourceSize</key>
                 <string>{5,21}</string>
                 <key>textureRect</key>
-                <string>{{576,33},{5,21}}</string>
+                <string>{{93,109},{5,21}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -1245,7 +2025,7 @@
                 <key>spriteSourceSize</key>
                 <string>{3,12}</string>
                 <key>textureRect</key>
-                <string>{{213,111},{3,12}}</string>
+                <string>{{681,120},{3,12}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -1260,7 +2040,7 @@
                 <key>spriteSourceSize</key>
                 <string>{3,12}</string>
                 <key>textureRect</key>
-                <string>{{201,116},{3,12}}</string>
+                <string>{{689,115},{3,12}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -1275,7 +2055,7 @@
                 <key>spriteSourceSize</key>
                 <string>{37,54}</string>
                 <key>textureRect</key>
-                <string>{{300,73},{37,46}}</string>
+                <string>{{384,73},{37,46}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -1305,9 +2085,9 @@
                 <key>spriteSourceSize</key>
                 <string>{5,13}</string>
                 <key>textureRect</key>
-                <string>{{576,72},{5,9}}</string>
+                <string>{{628,118},{5,9}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>hero/woker_pant.png</key>
             <dict>
@@ -1320,7 +2100,7 @@
                 <key>spriteSourceSize</key>
                 <string>{33,33}</string>
                 <key>textureRect</key>
-                <string>{{539,40},{33,33}}</string>
+                <string>{{774,75},{33,33}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -1335,7 +2115,7 @@
                 <key>spriteSourceSize</key>
                 <string>{3,9}</string>
                 <key>textureRect</key>
-                <string>{{593,70},{3,9}}</string>
+                <string>{{862,113},{3,9}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -1350,7 +2130,7 @@
                 <key>spriteSourceSize</key>
                 <string>{3,9}</string>
                 <key>textureRect</key>
-                <string>{{591,83},{3,9}}</string>
+                <string>{{867,113},{3,9}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -1365,7 +2145,7 @@
                 <key>spriteSourceSize</key>
                 <string>{3,12}</string>
                 <key>textureRect</key>
-                <string>{{215,116},{3,12}}</string>
+                <string>{{695,120},{3,12}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -1380,9 +2160,9 @@
                 <key>spriteSourceSize</key>
                 <string>{4,12}</string>
                 <key>textureRect</key>
-                <string>{{195,107},{4,12}}</string>
+                <string>{{111,116},{4,12}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>hero/woker_shirt.png</key>
             <dict>
@@ -1395,9 +2175,9 @@
                 <key>spriteSourceSize</key>
                 <string>{37,54}</string>
                 <key>textureRect</key>
-                <string>{{147,50},{37,54}}</string>
+                <string>{{676,1},{37,54}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>hero/woker_shoe.png</key>
             <dict>
@@ -1410,7 +2190,7 @@
                 <key>spriteSourceSize</key>
                 <string>{13,4}</string>
                 <key>textureRect</key>
-                <string>{{394,68},{13,4}}</string>
+                <string>{{604,112},{13,4}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -1425,7 +2205,7 @@
                 <key>spriteSourceSize</key>
                 <string>{5,22}</string>
                 <key>textureRect</key>
-                <string>{{147,106},{5,22}}</string>
+                <string>{{15,117},{5,22}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -1441,9 +2221,9 @@
             <key>realTextureFileName</key>
             <string>hero.png</string>
             <key>size</key>
-            <string>{604,120}</string>
+            <string>{871,124}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:d302b51ca734d8b38ea9f0239242fdfe:ec40b3d386683f10a794509cb1381bb6:24811c9fe845da5822501508d7996631$</string>
+            <string>$TexturePacker:SmartUpdate:efe5fb18fc66b331260c6dbc7202a4ae:54c495623539a0b22c47b0eae745217e:24811c9fe845da5822501508d7996631$</string>
             <key>textureFileName</key>
             <string>hero.png</string>
         </dict>

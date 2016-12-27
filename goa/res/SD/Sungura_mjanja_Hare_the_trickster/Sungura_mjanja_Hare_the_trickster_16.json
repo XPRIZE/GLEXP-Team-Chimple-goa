@@ -33,12 +33,12 @@
                 "InnerActionType": "LoopAction",
                 "CurrentAniamtionName": "idle",
                 "SingleFrameIndex": 0,
-                "FrameIndex": 0,
+                "FrameIndex": 1,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               },
               {
-                "InnerActionType": "LoopAction",
+                "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "idle",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 305,
@@ -55,7 +55,7 @@
               {
                 "X": 2165.2329,
                 "Y": 366.4549,
-                "FrameIndex": 0,
+                "FrameIndex": 1,
                 "EasingData": {
                   "Type": 0
                 },
@@ -80,7 +80,7 @@
               {
                 "X": 0.361,
                 "Y": 0.361,
-                "FrameIndex": 0,
+                "FrameIndex": 1,
                 "EasingData": {
                   "Type": 0
                 },
@@ -125,6 +125,14 @@
                 "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "hop",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 305,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -137,15 +145,6 @@
                 "X": 1546.0032,
                 "Y": 292.1377,
                 "FrameIndex": 0,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 1584.9565,
-                "Y": 266.1663,
-                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -611,7 +610,7 @@
             },
             "LeftMargin": 1462.9592,
             "RightMargin": 1097.0408,
-            "TopMargin": 1296.052,
+            "TopMargin": 1296.0519,
             "BottomMargin": 503.9481,
             "Tag": 8946,
             "ActionTag": 725960451,
@@ -989,6 +988,7 @@
             "RightMargin": 394.7671,
             "TopMargin": 1433.5452,
             "BottomMargin": 366.4549,
+            "UserData": "walk;drag",
             "Tag": 528,
             "ActionTag": -1508415167,
             "Size": {

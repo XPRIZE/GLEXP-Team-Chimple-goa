@@ -14,7 +14,7 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": -711.2482,
+                "X": -711.2476,
                 "Y": -273.3472,
                 "FrameIndex": 0,
                 "EasingData": {
@@ -36,6 +36,14 @@
                 "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 305,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -48,6 +56,15 @@
                 "X": 601.4446,
                 "Y": 101.5276,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 601.4446,
+                "Y": 101.5276,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -68,6 +85,15 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -80,6 +106,15 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -162,6 +197,14 @@
                 "FrameIndex": 0,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "idle",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 305,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -178,6 +221,15 @@
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              },
+              {
+                "X": 1948.7859,
+                "Y": 352.1978,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -190,6 +242,31 @@
                 "X": 0.361,
                 "Y": 0.361,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.361,
+                "Y": 0.361,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1508415167,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 305,
                 "EasingData": {
                   "Type": 0
                 },
@@ -426,7 +503,7 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -711.2482,
+              "X": -711.2476,
               "Y": -273.3472
             },
             "Scale": {
@@ -443,8 +520,8 @@
               "X": 0.0781,
               "Y": 0.1111
             },
-            "LeftMargin": -711.2482,
-            "RightMargin": 3071.2483,
+            "LeftMargin": -711.2476,
+            "RightMargin": 3071.2476,
             "TopMargin": 1873.3472,
             "BottomMargin": -273.3472,
             "Tag": 55,
@@ -653,7 +730,7 @@
             },
             "LeftMargin": 417.2437,
             "RightMargin": 2142.7563,
-            "TopMargin": 1212.6272,
+            "TopMargin": 1212.6273,
             "BottomMargin": 587.3727,
             "UserData": "bird_fly",
             "Tag": 4310,
@@ -778,7 +855,7 @@
             },
             "LeftMargin": 183.1292,
             "RightMargin": 2376.8708,
-            "TopMargin": 1245.4021,
+            "TopMargin": 1245.4022,
             "BottomMargin": 554.5978,
             "UserData": "hop",
             "Tag": 4194,
@@ -996,6 +1073,7 @@
             "RightMargin": 611.2141,
             "TopMargin": 1447.8022,
             "BottomMargin": 352.1978,
+            "UserData": "idle;drag",
             "Tag": 528,
             "ActionTag": -1508415167,
             "Size": {
@@ -1016,8 +1094,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1445.3043,
-              "Y": 202.7342
+              "X": 1446.4797,
+              "Y": 179.1523
             },
             "Scale": {
               "ScaleX": 0.5438,
@@ -1026,17 +1104,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.5646,
-              "Y": 0.1126
+              "X": 0.565,
+              "Y": 0.0995
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1445.3043,
-            "RightMargin": 1114.6957,
-            "TopMargin": 1597.2657,
-            "BottomMargin": 202.7342,
+            "LeftMargin": 1446.4797,
+            "RightMargin": 1113.5203,
+            "TopMargin": 1620.8477,
+            "BottomMargin": 179.1523,
             "UserData": "hop;drag",
             "Tag": 815,
             "ActionTag": -1237556958,

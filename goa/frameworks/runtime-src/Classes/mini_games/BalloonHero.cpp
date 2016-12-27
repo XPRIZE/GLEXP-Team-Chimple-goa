@@ -487,7 +487,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 	
 	_menuContext->setMaxPoints(20);
 
-	//_sceneNumber = 1;
+	//_sceneNumber = 3;
 
 	std::string mainSceneplist;
 
@@ -975,7 +975,7 @@ void BalloonHero::generateObjectsAndMove() {
 			}
 			
 			if (_sceneNumber == 3) { 
-				label->setPosition(Vec2(visibleSize.width * 0.07, visibleSize.height * 0.4));
+				label->setPosition(Vec2(visibleSize.width * 0.07, visibleSize.height * 0.25));
 				label->setAnchorPoint(Vec2(0.5, 0.5));
 				label->setTextColor(Color4B::BLUE);
 				label->setScaleX(0.5);
@@ -1043,7 +1043,7 @@ void BalloonHero::generateObjectsAndMove() {
 
 
 			if (_sceneNumber == 3) {
-				label->setPosition(Vec2(visibleSize.width * 0.07, visibleSize.height * 0.4));
+				label->setPosition(Vec2(visibleSize.width * 0.07, visibleSize.height * 0.25));
 				label->setAnchorPoint(Vec2(0.5, 0.5));
 				label->setTextColor(Color4B::BLUE);
 				label->setScaleX(0.5);
@@ -1109,7 +1109,7 @@ void BalloonHero::generateObjectsAndMove() {
 
 
 			if (_sceneNumber == 3) {
-				label->setPosition(Vec2(visibleSize.width * 0.07, visibleSize.height * 0.4));
+				label->setPosition(Vec2(visibleSize.width * 0.07, visibleSize.height * 0.25));
 				label->setAnchorPoint(Vec2(0.5, 0.5));
 				label->setTextColor(Color4B::BLUE);
 				label->setScaleX(0.5);
@@ -1178,7 +1178,7 @@ void BalloonHero::generateObjectsAndMove() {
 			}
 
 			if (_sceneNumber == 3) {
-				label->setPosition(Vec2(visibleSize.width * 0.07, visibleSize.height * 0.4));
+				label->setPosition(Vec2(visibleSize.width * 0.07, visibleSize.height * 0.25));
 				label->setAnchorPoint(Vec2(0.5, 0.5));
 				label->setTextColor(Color4B::BLUE);
 				label->setScaleX(0.5);
