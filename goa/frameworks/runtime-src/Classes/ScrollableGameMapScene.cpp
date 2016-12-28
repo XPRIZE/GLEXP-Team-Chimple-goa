@@ -190,10 +190,16 @@ bool ScrollableGameMapScene::init() {
         }
 
         for (auto it = topBarGames.begin() ; it != topBarGames.end(); ++it) {
-            auto topBarButton = createButton(d[topBarGamesIndexes[*it]]);
+            const rapidjson::Value& game = d[topBarGamesIndexes[*it]];
+            auto topBarButton = createButton(game);
             auto index = std::distance(topBarGames.begin(), it);
             topBarButton->setPosition(Vec2((index + 0.5) * visibleSize.width / numCols, visibleSize.height + yOffset - (0 + 0.5) * ((visibleSize.height + yOffset) / (numRows + 1))));
-            topBarButton->addTouchEventListener(CC_CALLBACK_2(ScrollableGameMapScene::gameSelected, this));
+            auto gameName = game["name"].GetString();
+            if(!lockAll ||  (game.HasMember("unlock") && game["unlock"].GetBool()) || (doc.IsObject() && doc.HasMember(gameName))) {
+                topBarButton->addTouchEventListener(CC_CALLBACK_2(ScrollableGameMapScene::gameSelected, this));
+            } else {
+                topBarButton->setBright(false);
+            }
             addChild(topBarButton);
         }
 
