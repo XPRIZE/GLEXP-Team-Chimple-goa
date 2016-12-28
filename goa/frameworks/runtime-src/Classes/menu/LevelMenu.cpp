@@ -21,6 +21,8 @@ Scene *LevelMenu::createScene(std::string gameName) {
     auto layer = LevelMenu::create(gameName);
     auto scene = Scene::create();
     scene->addChild(layer);
+    layer->_menuContext = MenuContext::create(layer, "levelMenu");
+    scene->addChild(layer->_menuContext);
     return scene;
     
 }
