@@ -928,8 +928,7 @@ void MenuContext::launchGameFinally(std::string gameName) {
     		case 0: Director::getInstance()->replaceScene(MemoryJungle::createScene());  break;
     		case 1: Director::getInstance()->replaceScene(MemoryHero::createScene());  break;
     		case 2: Director::getInstance()->replaceScene(Memory::createScene());  break;
-    		}
-			
+    		}		
 			
     	}
 		else if (gameName == BALLONHERO) {
