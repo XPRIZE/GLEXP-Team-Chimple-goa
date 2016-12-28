@@ -60,12 +60,33 @@ xc.Pinata = cc.Layer.extend({
 
     if(info.category == 1){
          this.map =  goa.TextGenerator.getInstance().getHomonyms(15,info.level);
+         var mapKeyArray = Object.keys(this.map);
+         while(mapKeyArray.length != 15){
+              console.log("length is not correct , length value is : "+mapKeyArray.length);
+              this.map =  goa.TextGenerator.getInstance().getHomonyms(15,info.level);
+              console.log("new generated length is  : "+mapKeyArray.length);
+              mapKeyArray = Object.keys(this.map);
+         }
          upText.setString(goa.TextGenerator.getInstance().translateString("choose same sounding word"));
     }else if(info.category == 2){
          this.map =  goa.TextGenerator.getInstance().getAntonyms(15,info.level);
+          var mapKeyArray = Object.keys(this.map);
+          while(mapKeyArray.length != 15){
+             console.log("length is not correct , length value is : "+mapKeyArray.length);
+              this.map =  goa.TextGenerator.getInstance().getAntonyms(15,info.level);
+              console.log("new generated length is  : "+mapKeyArray.length);
+              mapKeyArray = Object.keys(this.map);
+         }
          upText.setString(goa.TextGenerator.getInstance().translateString("choose opposite word"));
     }else if(info.category == 3){
          this.map =  goa.TextGenerator.getInstance().getSynonyms(15,info.level);
+          var mapKeyArray = Object.keys(this.map);
+          while(mapKeyArray.length != 15){
+             console.log("length is not correct , length value is : "+mapKeyArray.length);
+              this.map =  goa.TextGenerator.getInstance().getSynonyms(15,info.level);
+              console.log("new generated length is  : "+mapKeyArray.length);
+              mapKeyArray = Object.keys(this.map);
+         }
          upText.setString(goa.TextGenerator.getInstance().translateString("choose meaning word"));
     }else{
       //  console.log("ERROR :: Your category is wrong , please check your code : line no : 23");

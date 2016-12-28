@@ -20,7 +20,7 @@
         "isJSGame": true,
         "pureJS": "",
         "script": "src/start/storytelling.js"
-    },
+    },    
     {
         "name": "dino",
         "title": "Alphabet",
@@ -358,38 +358,6 @@
         }
     },
     {
-        "name": "sortit",
-        "title": "Sort It",
-        "unlock": true,
-        "cIcon": "gameicons/sortit_pressed.png",
-        "icon": "gameicons/sortit.png",
-        "multiPlayer": false,
-        "isJSGame": true,
-        "pureJS": "sortitlevelLayer",
-        "script": "src/start/sortit.js",
-        "span": "2",
-        "numLevels": "6",
-        "rewards" : {
-            "1": {
-                "unlock": "Dots"
-            },
-            "2": {
-                "badge": "soaring_eagle",
-                "unlockMin": "step",
-                "min": "3"
-            },
-            "3": {
-                "badge": "fearless_warrior"
-            }
-        },
-        "backgroundJson": "sortitlevel/background.json",
-        "foregroundJson": "sortitlevel/foreground.json",
-        "frontgroundJson": "sortitlevel/frontground.json",
-        "maingroundJson": "sortitlevel/mainground.json",
-        "menuPlist": "sortitlevel/sortitlevel.plist",
-        "menuPng": "sortitlevel/sortitlevel.png"
-    },
-    {
         "name": "alphamole",
         "title": "Whack a Monster",
         "cIcon": "gameicons/alphamole_pressed.png",
@@ -629,24 +597,6 @@
         "maingroundJson": "patchthewalllevel/mainground.json",
         "menuPlist": "patchthewalllevel/patchthewalllevel.plist",
         "menuPng": "patchthewalllevel/patchthewalllevel.png"
-    },
-    {
-        "name": "shape",
-        "title": "Patch the Holes",
-        "unlock": true,
-        "cIcon": "gameicons/shape_pressed.png",
-        "icon": "gameicons/shape.png",
-        "multiPlayer": false,
-        "isJSGame": false,
-        "script": "src/NonJSGameLauncher.js",
-        "span": "2",
-        "numLevels": "10",
-        "backgroundJson": "shapelevel/shapelevelbackground.json",
-        "foregroundJson": "shapelevel/shapelevelforeground.json",
-        "frontgroundJson": "shapelevel/shapelevelfrontground.json",
-        "maingroundJson": "shapelevel/shapelevelmainground.json",
-        "menuPlist": "shapelevel/shapelevel.plist",
-        "menuPng": "shapelevel/shapelevel.png"
     },
     {
         "name": "Kung Fu Alpha",
@@ -1455,6 +1405,17 @@
         "menuPng": "circleislandlevel/circleislandlevel.png"
     },
     {
+        "name": "story-telling",
+        "title": "Create A Story",
+        "unlock": true,
+        "cIcon": "gameicons/story_pressed.png",
+        "icon": "gameicons/story.png",
+        "multiPlayer": false,
+        "isJSGame": true,
+        "pureJS": "",
+        "script": "src/start/storytelling.js"
+    },
+    {
         "name": "JumpOnWords",
         "title": "Jump on Words",
         "cIcon": "gameicons/JumpOnWords_pressed.png",
@@ -1471,6 +1432,38 @@
         "maingroundJson": "jump_on_words_level/mainground.json",
         "menuPlist": "jump_on_words_level/jump_on_words_level.plist",
         "menuPng": "jump_on_words_level/jump_on_words_level.png"
+    },    
+    {
+        "name": "sortit",
+        "title": "Sort It",
+        "unlock": true,
+        "cIcon": "gameicons/sortit_pressed.png",
+        "icon": "gameicons/sortit.png",
+        "multiPlayer": false,
+        "isJSGame": true,
+        "pureJS": "sortitlevelLayer",
+        "script": "src/start/sortit.js",
+        "span": "2",
+        "numLevels": "6",
+        "rewards" : {
+            "1": {
+                "unlock": "Dots"
+            },
+            "2": {
+                "badge": "soaring_eagle",
+                "unlockMin": "step",
+                "min": "3"
+            },
+            "3": {
+                "badge": "fearless_warrior"
+            }
+        },
+        "backgroundJson": "sortitlevel/background.json",
+        "foregroundJson": "sortitlevel/foreground.json",
+        "frontgroundJson": "sortitlevel/frontground.json",
+        "maingroundJson": "sortitlevel/mainground.json",
+        "menuPlist": "sortitlevel/sortitlevel.plist",
+        "menuPng": "sortitlevel/sortitlevel.png"
     },
     {
         "name": "Maze",
@@ -1635,12 +1628,12 @@
                 "badge": "fearless_warrior"
             }
         },
-        "backgroundJson": "cityscreen/background.json",
-        "foregroundJson": "cityscreen/foreground.json",
-        "frontgroundJson": "cityscreen/frontground.json",
-        "maingroundJson": "cityscreen/mainground.json",
-        "menuPlist": "cityscreen/cityscreen.plist",
-        "menuPng": "cityscreen/cityscreen.png"
+        "backgroundJson": "connectlevel/background.json",
+        "foregroundJson": "connectlevel/foreground.json",
+        "frontgroundJson": "connectlevel/frontground.json",
+        "maingroundJson": "connectlevel/mainground.json",
+        "menuPlist": "connectlevel/connectlevel.plist",
+        "menuPng": "connectlevel/connectlevel.png"
     },
     {
         "name": "chocolateFactory",
@@ -1671,6 +1664,24 @@
         "maingroundJson": "plevelscreen2/cflevelmng.json",
         "menuPlist": "plevelscreen2/plevelscreen2.plist",
         "menuPng": "plevelscreen2/plevelscreen2.png"
+    },
+    {
+        "name": "shape",
+        "title": "Patch the Holes",
+        "unlock": true,
+        "cIcon": "gameicons/shape_pressed.png",
+        "icon": "gameicons/shape.png",
+        "multiPlayer": false,
+        "isJSGame": false,
+        "script": "src/NonJSGameLauncher.js",
+        "span": "2",
+        "numLevels": "10",
+        "backgroundJson": "shapelevel/shapelevelbackground.json",
+        "foregroundJson": "shapelevel/shapelevelforeground.json",
+        "frontgroundJson": "shapelevel/shapelevelfrontground.json",
+        "maingroundJson": "shapelevel/shapelevelmainground.json",
+        "menuPlist": "shapelevel/shapelevel.plist",
+        "menuPng": "shapelevel/shapelevel.png"
     },
     {
         "name": "step",

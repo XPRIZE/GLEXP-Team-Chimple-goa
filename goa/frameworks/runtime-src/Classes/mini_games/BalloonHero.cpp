@@ -1004,7 +1004,7 @@ void BalloonHero::generateObjectsAndMove() {
 		if (numberPicker == 3) {
 
 			_cloud2->setName("m");
-			_cloud1->setTag(1);
+			_cloud2->setTag(1);
 
 		}
 
@@ -1021,7 +1021,7 @@ void BalloonHero::generateObjectsAndMove() {
 			if (numberPicker == 0) {
 				label->setString(_set2[otherPicker]);
 				_cloud2->setName("m");
-				_cloud1->setTag(2);
+				_cloud2->setTag(2);
 			}
 			label->setFontSize(_labelFontSize);
 			label->setFontName("fonts/BalooBhai-Regular.ttf");
@@ -1072,7 +1072,7 @@ void BalloonHero::generateObjectsAndMove() {
 		if (numberPicker == 3) {
 
 			_cloud3->setName("m");
-			_cloud1->setTag(1);
+			_cloud3->setTag(1);
 
 		}
 
@@ -1088,7 +1088,7 @@ void BalloonHero::generateObjectsAndMove() {
 			if (numberPicker == 0) {
 				label->setString(_set2[otherPicker]);
 				_cloud3->setName("m");
-				_cloud1->setTag(2);
+				_cloud3->setTag(2);
 			}
 			label->setFontSize(_labelFontSize);
 			label->setFontName("fonts/BalooBhai-Regular.ttf");
@@ -1140,7 +1140,7 @@ void BalloonHero::generateObjectsAndMove() {
 		if (numberPicker == 3) {
 
 			_cloud4->setName("m");
-			_cloud1->setTag(1);
+			_cloud4->setTag(1);
 
 		}
 

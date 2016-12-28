@@ -90,8 +90,14 @@ xc.EditStoryScene.load = function(layer) {
         t_resources.push(layer.res[i]);
     }
 
-    cc.spriteFrameCache.addSpriteFrames(xc.StoryLayer.res.thumbnails_plist);
-    cc.spriteFrameCache.addSpriteFrames(xc.StoryLayer.res.record_animation_plist);
+    cc.spriteFrameCache.addSpriteFrames(xc.EditStoryLayer.res.thumbnails_plist);
+    cc.spriteFrameCache.addSpriteFrames(xc.EditStoryLayer.res.record_animation_plist);
+
+    cc.spriteFrameCache.addSpriteFrames(xc.EditStoryLayer.res.animation_skeleton_plist);
+    cc.spriteFrameCache.addSpriteFrames(xc.EditStoryLayer.res.animationa_skeleton_plist);
+    cc.spriteFrameCache.addSpriteFrames(xc.EditStoryLayer.res.animationb_skeleton_plist);
+    cc.spriteFrameCache.addSpriteFrames(xc.EditStoryLayer.res.animationc_skeleton_plist);
+
     cc.LoaderScene.preload(t_resources, function () {            
         
     var scene = new xc.EditStoryScene(layer);

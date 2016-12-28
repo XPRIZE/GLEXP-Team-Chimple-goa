@@ -235,8 +235,12 @@ void Bingo::onEnterTransitionDidFinish()
 	{
 		int pairNo = static_cast<int>(_gridBasedValue.at("pairRequired"));
 		_data = TextGenerator::getInstance()->getHomonyms(pairNo, levelNo);
+		while (_data.size() != pairNo)
+		{
+			_data = TextGenerator::getInstance()->getHomonyms(pairNo, levelNo);
+		}
 		_menuContext->setMaxPoints(pairNo*1);
-	 	categoryTitle = "choose same sounding word : ";
+	   	categoryTitle = "choose same sounding word : ";
 		_wordPairTitle = LangUtil::getInstance()->translateString("List of Homonyms");
 	}
 	else if (levelKeyNumber.second == 1)
@@ -244,6 +248,10 @@ void Bingo::onEnterTransitionDidFinish()
 		//_bingoCurrentTheme = "bingojungle";
 		int pairNo = static_cast<int>(_gridBasedValue.at("pairRequired"));
 		_data = TextGenerator::getInstance()->getSynonyms(pairNo, levelNo);
+		while (_data.size() != pairNo)
+		{
+			_data = TextGenerator::getInstance()->getSynonyms(pairNo, levelNo);
+		}
 		_menuContext->setMaxPoints(pairNo*1);
 		categoryTitle = "choose meaning word of : ";
 		_wordPairTitle = LangUtil::getInstance()->translateString("List of Synonyms");
@@ -253,6 +261,10 @@ void Bingo::onEnterTransitionDidFinish()
 		//_bingoCurrentTheme = "bingocity";
 		int pairNo = static_cast<int>(_gridBasedValue.at("pairRequired"));
 		_data = TextGenerator::getInstance()->getAntonyms(pairNo, levelNo);
+		while (_data.size() != pairNo)
+		{
+			_data = TextGenerator::getInstance()->getAntonyms(pairNo, levelNo);
+		}
 		_menuContext->setMaxPoints(pairNo*1);
 		categoryTitle = "choose opposite word of : ";
 		_wordPairTitle = LangUtil::getInstance()->translateString("List of Antonyms");

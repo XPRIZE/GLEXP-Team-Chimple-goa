@@ -38,9 +38,9 @@ BlastLetterNode * BlastLetterNode::create(int width, int height, cocos2d::Point 
 	return nullptr;
 }
 void BlastLetterNode::postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint) {
-	if (_clearButton && !_blastHappend) {
-		_clearButton->setEnabled(false);
-	}
+//	if (_clearButton && !_blastHappend) {
+//		_clearButton->setEnabled(false);
+//	}
 }
 void BlastLetterNode::draw(cocos2d::DrawNode * paintingNode, cocos2d::Point fromPoint, cocos2d::Point currentPoint)
 {
@@ -56,7 +56,10 @@ void BlastLetterNode::broadCastRecognizedChars(std::vector<std::string> results)
 
 ui::Button * BlastLetterNode::createButton(const std::string normalImage, const std::string selectedImage, const std::string disableImage, Vec2 position)
 {
-	cocos2d::ui::Button* button = cocos2d::ui::Button::create(normalImage, selectedImage, disableImage, cocos2d::ui::Widget::TextureResType::LOCAL);
+	auto spritecache1 = SpriteFrameCache::getInstance();
+	spritecache1->addSpriteFramesWithFile("cardraw/cardraw.plist");
+
+	cocos2d::ui::Button* button = cocos2d::ui::Button::create("cardraw/ref.png", "cardraw/ref_clicked.png", "cardraw/ref.png", cocos2d::ui::Widget::TextureResType::PLIST);
 	button->setPosition(position);
 	_clearButton = button;
 	button->addTouchEventListener(CC_CALLBACK_2(BlastLetterNode::clearDrawing, this));

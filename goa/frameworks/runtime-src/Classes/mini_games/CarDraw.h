@@ -35,7 +35,7 @@ public:
 protected:
 	string _myChar;
 	MenuContext * menu;
-	bool _helpLayerFlag = false;
+	bool _helpLayerFlag = false, _gameEnd = true;
 	cocos2d::Node* _car;
 	cocos2d::DrawNode * _road;
 	float _prevDegree;

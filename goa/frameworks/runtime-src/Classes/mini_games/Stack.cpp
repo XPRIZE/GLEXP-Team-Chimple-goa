@@ -233,7 +233,13 @@ void Stack::generateWord()
 {
 	if (_allWords.size() != 0)
 	{
+		if (_helpFlag == 0 && _currentLevel == 1)
+		{
+			_word = _allWords.at(0);
+		}
+		else
 		_word = _allWords.at(rand() % _allWords.size());
+
 		_wordLabel = CommonLabelTTF::create(_word, "Helvetica", 150);
 		_wordLabel->setColor(Color3B::BLACK);
 		this->addChild(_wordLabel);
@@ -294,16 +300,9 @@ void Stack::generateWord()
 				{
 					if ((_word.substr(0, _startName.at(i).length()) == _startName.at(i)))
 					{
-						if (i == 3)
-						{
-							break;
-						}
-						else
-						{
-							_help = HelpLayer::create(Rect(containerBar.at(i)->getPositionX(), containerBar.at(i)->getPositionY() - containerBar.at(i)->getContentSize().height * .10, containerBar.at(i)->getContentSize().width, containerBar.at(i)->getContentSize().height * 1.37), Rect(visibleSize.width * .15, _wordLabel->getPositionY(), _wordLabel->getBoundingBox().size.width, _wordLabel->getBoundingBox().size.height));
-							_help->click(Vec2(containerBar.at(i)->getPositionX(), containerBar.at(i)->getPositionY()));
-							break;
-						}
+						_help = HelpLayer::create(Rect(containerBar.at(i)->getPositionX(), containerBar.at(i)->getPositionY() - containerBar.at(i)->getContentSize().height * .10, containerBar.at(i)->getContentSize().width, containerBar.at(i)->getContentSize().height * 1.37), Rect(visibleSize.width * .15, _wordLabel->getPositionY(), _wordLabel->getBoundingBox().size.width, _wordLabel->getBoundingBox().size.height));
+						_help->click(Vec2(containerBar.at(i)->getPositionX(), containerBar.at(i)->getPositionY()));
+						break;
 					}
 				}
 				addChild(_help, 5);
