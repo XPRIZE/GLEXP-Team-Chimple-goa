@@ -11,6 +11,7 @@
 #include "scripting/js-bindings/manual/ScriptingCore.h"
 
 #include "ScrollableGameMapScene.hpp"
+#include "MapScene.h"
 #include "menu/LevelMenu.h"
 #include "alphamon/SelectAlphamonScene.h"
 #include "puzzle/DuelScene.h"
@@ -267,6 +268,10 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             else if(clickedButton->getName() == "story-play")
             {
                 ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
+            }
+            else if(clickedButton->getName() == "map")
+            {
+                Director::getInstance()->replaceScene(MapScene::createScene());
             }
             else
             {

@@ -1416,6 +1416,16 @@
         "script": "src/start/storytelling.js"
     },
     {
+        "name": "map",
+        "title": "Be a Hero",
+        "unlock": true,
+        "cIcon": "gameicons/hero_pressed.png",
+        "icon": "gameicons/hero.png",
+        "multiPlayer": false,
+        "isJSGame": false,
+        "script": "src/NonJSGameLauncher.js"
+    },
+    {
         "name": "JumpOnWords",
         "title": "Jump on Words",
         "cIcon": "gameicons/JumpOnWords_pressed.png",

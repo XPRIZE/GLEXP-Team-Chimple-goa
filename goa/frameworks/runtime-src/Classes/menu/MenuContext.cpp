@@ -979,6 +979,9 @@ void MenuContext::launchGameFinally(std::string gameName) {
 		else if (gameName == DINO) {
 			Director::getInstance()->replaceScene(DinoGame::createScene());
 		}
+        else if (gameName == MAP) {
+            Director::getInstance()->replaceScene(MapScene::createScene());
+        }
 		else{
             CCLOG("Failed starting scene: %s", gameName.c_str());
         }
