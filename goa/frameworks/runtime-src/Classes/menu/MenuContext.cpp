@@ -931,7 +931,6 @@ void MenuContext::launchGameFinally(std::string gameName) {
     		}
 			
 			
-			
     	}
 		else if (gameName == BALLONHERO) {
 			Director::getInstance()->replaceScene(BalloonHero::createScene());
@@ -1011,12 +1010,12 @@ void MenuContext::showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touc
 }
 
 void MenuContext::showSettingMenu(){
+
 		std::string _levelStatus;
 		localStorageGetItem(UNLOCK_ALL, &_levelStatus);
 		if (_levelStatus.empty()) {
-			localStorageSetItem(UNLOCK_ALL, "0");
+			localStorageSetItem(UNLOCK_ALL, "1");
 		}
-
 
 		std::string _language;
 		localStorageGetItem(LANGUAGE, &_language);
@@ -1035,10 +1034,10 @@ void MenuContext::showSettingMenu(){
 		_settingLayer->addChild(_settingNode);
 
 		_checkBox = (CheckBox*)_settingNode->getChildByName("CheckBox_1");
-		if (_levelStatus == "0" || _levelStatus == "")
-			_checkBox->setSelected(false);
-		else if(_levelStatus == "1")
+		if (_levelStatus == "0")
 			_checkBox->setSelected(true);
+		else if(_levelStatus == "1" || _levelStatus == "")
+			_checkBox->setSelected(false);
 
 		RadioButton *_rd1 = (RadioButton*) _settingNode->getChildByName("radio1");
 		_rd1->setName("radio1");
@@ -1082,7 +1081,7 @@ void MenuContext::showSettingMenu(){
 		_english->setPosition(Vec2(_settingNode->getChildByName("Node_2")->getPositionX(), _settingNode->getChildByName("Node_2")->getPositionY()));
 		_settingLayer->addChild(_english);
 
-		auto _disable = LabelTTF::create("Show level", "Arial", 150);
+		auto _disable = LabelTTF::create("Unlock all", "Arial", 150);
 		_disable->setAnchorPoint(Vec2(0, .5));
 		_disable->setPosition(Vec2(_settingNode->getChildByName("Node_1")->getPositionX(), _settingNode->getChildByName("Node_1")->getPositionY()));
 		_settingLayer->addChild(_disable);
@@ -1114,9 +1113,9 @@ void MenuContext::showSettingMenu(){
 				}
 
 				if (_checkBox->isSelected())
-					localStorageSetItem(UNLOCK_ALL, "1");
-				else
 					localStorageSetItem(UNLOCK_ALL, "0");
+				else
+					localStorageSetItem(UNLOCK_ALL, "1");
 
 				_menuButton->setEnabled(true);
 				removeChild(_greyLayer);

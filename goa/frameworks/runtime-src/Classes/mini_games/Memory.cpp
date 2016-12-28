@@ -382,7 +382,8 @@ void Memory::onEnterTransitionDidFinish() {
 
 		//help1->setAnchorPoint(Vec2(0.5,0.5));
 		help1->click(Vec2(box1pos));
-
+		
+		//help1->setPosition(Vec2(visibleSize.width/2,visibleSize.height/2));
 
 		this->addChild(help1);
 	}
@@ -624,10 +625,11 @@ bool Memory::onTouchBegan(Touch* touch, Event* event) {
 							_menuContext->addPoints(_right);
 						}
 
-						_menuContext->showScore();
+						//_menuContext->showScore();
+						_menuContext->showAnswer("wordPairs", _hint);
 					});
 
-					auto completeSequence = Sequence::create(createMatchLayer, DelayTime::create(5.0), showScore, NULL);
+					auto completeSequence = Sequence::create(createMatchLayer, DelayTime::create(0), showScore, NULL);
 
 					this->runAction(completeSequence);
 				}
@@ -832,7 +834,7 @@ void Memory::chickenFly() {
 	Sprite *chicken2 = (Sprite *)_memoryfarm->getChildByName("background")->getChildByName(querynest2)->getChildByName("chicken");
 	chicken2->runAction(moveTonest2);
 
-	
+	_menuContext->wordPairList(_memoryfarm->getChildByName("background")->getChildByName(querynest1)->getChildByName("nestfront")->getChildren().at(0)->getName(), _memoryfarm->getChildByName("background")->getChildByName(querynest2)->getChildByName("nestfront")->getChildren().at(0)->getName());
 
 }
 
