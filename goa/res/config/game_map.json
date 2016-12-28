@@ -797,45 +797,6 @@
         "menuPng": "boxlevel/boxlevel.png"
     },
     {
-        "name": "story-telling",
-        "title": "Create A Story",
-        "unlock": true,
-        "cIcon": "gameicons/story_pressed.png",
-        "icon": "gameicons/story.png",
-        "multiPlayer": false,
-        "isJSGame": true,
-        "pureJS": "",
-        "script": "src/start/storytelling.js"
-    },
-    {
-        "name": "JumpOnWords",
-        "title": "Jump on Words",
-        "cIcon": "gameicons/JumpOnWords_pressed.png",
-        "icon": "gameicons/JumpOnWords.png",
-        "multiPlayer": false,
-        "isJSGame": true,
-        "pureJS": "playLayer",
-        "script": "src/start/jump.js",
-        "span": "12",
-        "numLevels": "90",
-        "backgroundJson": "jump_on_words_level/background.json",
-        "foregroundJson": "jump_on_words_level/foreground.json",
-        "frontgroundJson": "jump_on_words_level/frontground.json",
-        "maingroundJson": "jump_on_words_level/mainground.json",
-        "menuPlist": "jump_on_words_level/jump_on_words_level.plist",
-        "menuPng": "jump_on_words_level/jump_on_words_level.png"
-    },
-    {
-        "name": "dummy",
-        "cIcon": "gameicons/JumpOnWords_pressed.png",
-        "icon": "gameicons/JumpOnWords.png"
-    },
-    {
-        "name": "dummy",
-        "cIcon": "gameicons/JumpOnWords_pressed.png",
-        "icon": "gameicons/JumpOnWords.png"
-    },
-    {
         "name": "baja",
         "title": "Drive",
         "cIcon": "gameicons/baja_pressed.png",
@@ -1432,6 +1393,35 @@
         "menuPlist": "circleislandlevel/circleislandlevel.plist",
         "menuPng": "circleislandlevel/circleislandlevel.png"
     },
+    {
+        "name": "story-telling",
+        "title": "Create A Story",
+        "unlock": true,
+        "cIcon": "gameicons/story_pressed.png",
+        "icon": "gameicons/story.png",
+        "multiPlayer": false,
+        "isJSGame": true,
+        "pureJS": "",
+        "script": "src/start/storytelling.js"
+    },
+    {
+        "name": "JumpOnWords",
+        "title": "Jump on Words",
+        "cIcon": "gameicons/JumpOnWords_pressed.png",
+        "icon": "gameicons/JumpOnWords.png",
+        "multiPlayer": false,
+        "isJSGame": true,
+        "pureJS": "playLayer",
+        "script": "src/start/jump.js",
+        "span": "12",
+        "numLevels": "90",
+        "backgroundJson": "jump_on_words_level/background.json",
+        "foregroundJson": "jump_on_words_level/foreground.json",
+        "frontgroundJson": "jump_on_words_level/frontground.json",
+        "maingroundJson": "jump_on_words_level/mainground.json",
+        "menuPlist": "jump_on_words_level/jump_on_words_level.plist",
+        "menuPng": "jump_on_words_level/jump_on_words_level.png"
+    },    
     {
         "name": "sortit",
         "title": "Sort It",

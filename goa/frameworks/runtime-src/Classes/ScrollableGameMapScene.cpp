@@ -127,14 +127,25 @@ bool ScrollableGameMapScene::init() {
         if (unlockStr.empty() || unlockStr == "1") {
             lockAll = true;
         }
-
+        std::vector<int> orderedGameIndexes;
+        int unlockPosition = 0;
+        for (int dIndex = 1; dIndex < d.Size(); dIndex++) {
+            const rapidjson::Value& game = d[dIndex];
+            auto gameName = game["name"].GetString();
+            if((game.HasMember("unlock") && game["unlock"].GetBool()) || (doc.IsObject() && doc.HasMember(gameName))) {
+                orderedGameIndexes.insert(orderedGameIndexes.begin() + unlockPosition, dIndex);
+                unlockPosition++;
+            } else {
+                orderedGameIndexes.push_back(dIndex);
+            }
+        }
         _pageView = ui::PageView::create();
         addChild(_pageView);
 
         auto topBarGames = getTopBarGames();
         topBarGames.insert(topBarGames.begin(), "story-play");
         std::map<std::string, int> topBarGamesIndexes = {{"story-play", 0}};
-        int index = 1;
+        int index = 0;
         int yOffset = 50;
         
         for(int k = 0; k < numberOfPages; k++) {
@@ -154,8 +165,9 @@ bool ScrollableGameMapScene::init() {
             
             for (int i = 0; i < numRows; i++) {
                 for (int j = 0; j < numCols; j++) {
-                    if(index < d.Size()) {
-                        const rapidjson::Value& game = d[index];
+                    if(index < orderedGameIndexes.size()) {
+                        int dIndex = orderedGameIndexes[index];
+                        const rapidjson::Value& game = d[dIndex];
                         auto button = createButton(game);
                         if(button != nullptr) {
                             button->setPosition(Vec2((j + 0.5) * visibleSize.width / numCols, visibleSize.height + yOffset - (i + 1.5) * ((visibleSize.height + yOffset) / (numRows + 1))));
@@ -168,7 +180,7 @@ bool ScrollableGameMapScene::init() {
                             
                             page->addChild(button);
                             if(std::find(topBarGames.begin(), topBarGames.end(), gameName) != topBarGames.end()) {
-                                topBarGamesIndexes[gameName] = index;
+                                topBarGamesIndexes[gameName] = dIndex;
                             }
                         }
                     }
@@ -314,22 +326,19 @@ std::vector<std::string> ScrollableGameMapScene::getTopBarGames() {
     std::vector<std::string> topBarGames;
     std::string firstGame;
     localStorageGetItem("topBarGame.1", &firstGame);
-    if(firstGame.empty()) {
-        firstGame = "dino";
+    if(!firstGame.empty()) {
+        topBarGames.push_back(firstGame);
     }
-    topBarGames.push_back(firstGame);
     std::string secondGame;
     localStorageGetItem("topBarGame.2", &secondGame);
-    if(secondGame.empty()) {
-        secondGame = "sortit";
+    if(!secondGame.empty()) {
+        topBarGames.push_back(secondGame);
     }
-    topBarGames.push_back(secondGame);
     std::string thirdGame;
     localStorageGetItem("topBarGame.3", &thirdGame);
-    if(thirdGame.empty()) {
-        thirdGame = "shape";
+    if(!thirdGame.empty()) {
+        topBarGames.push_back(thirdGame);
     }
-    topBarGames.push_back(thirdGame);
     return topBarGames;
 }
 
@@ -339,17 +348,25 @@ void ScrollableGameMapScene::pushTopBarGame(std::string game) {
     }
     auto topBarGames = getTopBarGames();
     auto shiftedGame = game;
+    bool shouldInsert = true;
     for (auto it = topBarGames.begin(); it != topBarGames.end(); ++it) {
         auto temp = *it;
         *it = shiftedGame;
         shiftedGame = temp;
         if(game == shiftedGame) {
+            shouldInsert = false;
             break;
         }
     }
-    localStorageSetItem("topBarGame.1", topBarGames[0]);
-    localStorageSetItem("topBarGame.2", topBarGames[1]);
-    localStorageSetItem("topBarGame.3", topBarGames[2]);
+    if(topBarGames.size() < 3 && shouldInsert) {
+        topBarGames.push_back(shiftedGame);
+    }
+    if(topBarGames.size() >= 1)
+        localStorageSetItem("topBarGame.1", topBarGames[0]);
+    if(topBarGames.size() >= 2)
+        localStorageSetItem("topBarGame.2", topBarGames[1]);
+    if(topBarGames.size() >= 3)
+        localStorageSetItem("topBarGame.3", topBarGames[2]);
 }
 
 
