@@ -471,7 +471,9 @@ void spot::changeQuestion() {
 	questionPlate->addChild(animalSprite);
 
 	//questionPlate->getChildByName("animalsprite")->setPosition(platePosition - Vec2(platePosition.x * 0.50, 0));
-	questionPlate->getChildByName("animalsprite")->setPosition(_label1->getPosition() + Vec2(platePosition.x * 0.25, platePosition.y * 0.35));
+	//questionPlate->getChildByName("animalsprite")->setPosition(_label1->getPosition() + Vec2(platePosition.x * 0.25, platePosition.y * 0.35));
+
+	questionPlate->getChildByName("animalsprite")->setPosition(_label1->getPosition() + Vec2(platePosition.x * 0.23, platePosition.y * 0.40));
 
 	//questionPlate->getChildByName("animalsprite")->setPosition(_label1->getPosition() + platePosition + Vec2(platePosition.x * 0.10, 0));
 
