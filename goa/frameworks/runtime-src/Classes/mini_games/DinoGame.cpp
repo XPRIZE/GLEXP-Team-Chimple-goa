@@ -1,5 +1,5 @@
 //
-//  Decomon.cpp 
+//  DinoGame.cpp 
 //  goa
 //
 //  Created by Kirankumar CS on 08/12/16
@@ -8,6 +8,7 @@
 
 #include "DinoGame.h"
 #include "../menu/HelpLayer.h"
+#include "../menu/Award.h"
 
 USING_NS_CC;
 
@@ -92,6 +93,7 @@ bool DinoGame::init() {
 
 void DinoGame::onEnterTransitionDidFinish()
 {
+	Director::getInstance()->replaceScene(TransitionFade::create(1.0, Award::createScene()));
 	if (_menu->getCurrentLevel() < 4) {
 		_mapping = _levelConfig.at(_menu->getCurrentLevel());
 	}
