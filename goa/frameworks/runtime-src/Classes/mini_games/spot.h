@@ -38,7 +38,8 @@ public:
 	void addAnimals();
 	void gameHelpLayer();
 	int _calculateFlag = 0;
-	cocos2d::ui::Text * _label;
+	cocos2d::ui::Text * _label1;
+	cocos2d::ui::Text * _label2;
 	void update(float delta);
 	bool _calculatorTouched = false;
 	int _answerValue=0;
