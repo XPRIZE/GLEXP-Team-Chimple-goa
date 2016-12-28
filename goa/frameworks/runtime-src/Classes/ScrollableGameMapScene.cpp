@@ -77,7 +77,7 @@ Scene* ScrollableGameMapScene::createScene() {
     auto scene = Scene::create();    
     auto layer = ScrollableGameMapScene::create();
     scene->addChild(layer);
-    layer->menuContext = MenuContext::create(layer);
+    layer->menuContext = MenuContext::create(layer, "menu");
     scene->addChild(layer->menuContext);
     return scene;
 }
