@@ -217,6 +217,7 @@ bool ScoreBoardContext::unlockGame(std::string gameToUnlock) {
         unlockDoc.Accept(writer);
         const char* output = buffer.GetString();
         localStorageSetItem("unlockedGames", output);
+        ScrollableGameMapScene::pushTopBarGame(gameToUnlock);
         _gameToUnlock = gameToUnlock;
         return true;
     }

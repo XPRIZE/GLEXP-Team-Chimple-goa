@@ -1,27 +1,1994 @@
 {
-  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
-  "Version": "3.10.0.0",
-  "Name": "camp_MainScene",
+  "ID": "9f726335-be82-4b49-a954-f183c544a369",
+  "Version": "2.3.4",
+  "Name": "camp_main",
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 0,
+        "Duration": 25,
         "Speed": 1.0,
-        "Timelines": [],
+        "ActivedAnimationName": "camp_clothshop_door",
+        "Timelines": [
+          {
+            "ActionTag": 645240048,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 3683.7034,
+                "Y": 1771.527,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 3668.0391,
+                "Y": 1772.6447,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 3644.5386,
+                "Y": 1772.6445,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 645240048,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.82,
+                "Y": 1.0,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.59,
+                "Y": 1.0,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1890805718,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 6812.3755,
+                "Y": 1263.1697,
+                "FrameIndex": 15,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 6826.3799,
+                "Y": 1263.1697,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 6837.3799,
+                "Y": 1263.1697,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1890805718,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 15,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.76,
+                "Y": 1.0,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.55,
+                "Y": 1.0,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
         "ctype": "TimelineActionData"
       },
-      "AnimationList": [],
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 10,
+          "Name": "camp_gym_dooor",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 15,
+          "EndIndex": 25,
+          "Name": "camp_clothshop_door",
+          "ctype": "AnimationInfoData"
+        }
+      ],
       "ObjectData": {
+        "Tag": 234,
         "Children": [
           {
             "FileData": {
-              "Type": "Normal",
-              "Path": "camp/camp_background.json",
-              "Plist": ""
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/main_ground.png",
+              "Plist": "camp/camp4/camp4.plist"
             },
-            "StretchWidthEnable": false,
-            "StretchHeightEnable": false,
-            "InnerActionSpeed": 1.0,
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7183.0674,
+              "Y": 372.53
+            },
+            "Scale": {
+              "ScaleX": 1.0324,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.8059,
+              "Y": 0.1455
+            },
+            "PreSize": {
+              "X": 0.3754,
+              "Y": 0.291
+            },
+            "LeftMargin": 6702.5674,
+            "RightMargin": -5103.5674,
+            "TopMargin": 1814.97,
+            "BottomMargin": 0.03,
+            "Tag": 255,
+            "ActionTag": -1584555767,
+            "Size": {
+              "X": 961.0,
+              "Y": 745.0
+            },
+            "Name": "main_ground_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/main_ground.png",
+              "Plist": "camp/camp4/camp4.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6208.9302,
+              "Y": 372.53
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.4254,
+              "Y": 0.1455
+            },
+            "PreSize": {
+              "X": 0.3754,
+              "Y": 0.291
+            },
+            "LeftMargin": 5728.4302,
+            "RightMargin": -4129.4302,
+            "TopMargin": 1814.97,
+            "BottomMargin": 0.03,
+            "Tag": 254,
+            "ActionTag": 823448230,
+            "Size": {
+              "X": 961.0,
+              "Y": 745.0
+            },
+            "Name": "main_ground_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/main_ground.png",
+              "Plist": "camp/camp4/camp4.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5253.1304,
+              "Y": 372.53
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.052,
+              "Y": 0.1455
+            },
+            "PreSize": {
+              "X": 0.3754,
+              "Y": 0.291
+            },
+            "LeftMargin": 4772.6304,
+            "RightMargin": -3173.6304,
+            "TopMargin": 1814.97,
+            "BottomMargin": 0.03,
+            "Tag": 253,
+            "ActionTag": -1036460602,
+            "Size": {
+              "X": 961.0,
+              "Y": 745.0
+            },
+            "Name": "main_ground_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/main_ground.png",
+              "Plist": "camp/camp4/camp4.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4294.8584,
+              "Y": 372.53
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.6777,
+              "Y": 0.1455
+            },
+            "PreSize": {
+              "X": 0.3754,
+              "Y": 0.291
+            },
+            "LeftMargin": 3814.3584,
+            "RightMargin": -2215.3584,
+            "TopMargin": 1814.97,
+            "BottomMargin": 0.03,
+            "Tag": 252,
+            "ActionTag": 333013033,
+            "Size": {
+              "X": 961.0,
+              "Y": 745.0
+            },
+            "Name": "main_ground_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/main_ground.png",
+              "Plist": "camp/camp4/camp4.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3345.6201,
+              "Y": 372.5321
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3069,
+              "Y": 0.1455
+            },
+            "PreSize": {
+              "X": 0.3754,
+              "Y": 0.291
+            },
+            "LeftMargin": 2865.1201,
+            "RightMargin": -1266.1201,
+            "TopMargin": 1814.9679,
+            "BottomMargin": 0.0321,
+            "Tag": 251,
+            "ActionTag": 2058719226,
+            "Size": {
+              "X": 961.0,
+              "Y": 745.0
+            },
+            "Name": "main_ground_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/main_ground.png",
+              "Plist": "camp/camp4/camp4.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2385.9299,
+              "Y": 372.5322
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.932,
+              "Y": 0.1455
+            },
+            "PreSize": {
+              "X": 0.3754,
+              "Y": 0.291
+            },
+            "LeftMargin": 1905.4299,
+            "RightMargin": -306.4299,
+            "TopMargin": 1814.9678,
+            "BottomMargin": 0.0322,
+            "Tag": 250,
+            "ActionTag": 1945456980,
+            "Size": {
+              "X": 961.0,
+              "Y": 745.0
+            },
+            "Name": "main_ground_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/main_ground.png",
+              "Plist": "camp/camp4/camp4.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1435.9279,
+              "Y": 371.0815
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5609,
+              "Y": 0.145
+            },
+            "PreSize": {
+              "X": 0.3754,
+              "Y": 0.291
+            },
+            "LeftMargin": 955.4279,
+            "RightMargin": 643.5721,
+            "TopMargin": 1816.4185,
+            "BottomMargin": -1.4185,
+            "Tag": 249,
+            "ActionTag": 1654153860,
+            "Size": {
+              "X": 961.0,
+              "Y": 745.0
+            },
+            "Name": "main_ground_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/main_ground.png",
+              "Plist": "camp/camp4/camp4.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 480.4,
+              "Y": 372.532
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1877,
+              "Y": 0.1455
+            },
+            "PreSize": {
+              "X": 0.3754,
+              "Y": 0.291
+            },
+            "LeftMargin": -0.1,
+            "RightMargin": 1599.1,
+            "TopMargin": 1814.968,
+            "BottomMargin": 0.032,
+            "Tag": 248,
+            "ActionTag": -322149057,
+            "Size": {
+              "X": 961.0,
+              "Y": 745.0
+            },
+            "Name": "main_ground_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp3/main_tree1.png",
+              "Plist": "camp/camp3/camp3.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1190.3761,
+              "Y": 1494.723
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.465,
+              "Y": 0.5839
+            },
+            "PreSize": {
+              "X": 0.9293,
+              "Y": 0.8324
+            },
+            "LeftMargin": 0.8761,
+            "RightMargin": 180.124,
+            "TopMargin": -0.2231,
+            "BottomMargin": 429.223,
+            "Tag": 256,
+            "ActionTag": -2053882432,
+            "Size": {
+              "X": 2379.0,
+              "Y": 2131.0
+            },
+            "Name": "main_tree1_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/main_stone.png",
+              "Plist": "camp/camp4/camp4.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 291.0833,
+              "Y": 464.0912
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1137,
+              "Y": 0.1813
+            },
+            "PreSize": {
+              "X": 0.093,
+              "Y": 0.0484
+            },
+            "LeftMargin": 172.0833,
+            "RightMargin": 2149.9167,
+            "TopMargin": 2033.9088,
+            "BottomMargin": 402.0912,
+            "Tag": 257,
+            "ActionTag": -364547200,
+            "Size": {
+              "X": 238.0,
+              "Y": 124.0
+            },
+            "Name": "main_stone_10",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/main_bush.png",
+              "Plist": "camp/camp4/camp4.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 713.8494,
+              "Y": 498.5458
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2788,
+              "Y": 0.1947
+            },
+            "PreSize": {
+              "X": 0.0914,
+              "Y": 0.0566
+            },
+            "LeftMargin": 596.8494,
+            "RightMargin": 1729.1506,
+            "TopMargin": 1988.9542,
+            "BottomMargin": 426.0458,
+            "Tag": 258,
+            "ActionTag": -1364031002,
+            "Size": {
+              "X": 234.0,
+              "Y": 145.0
+            },
+            "Name": "main_bush_11",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/main_treehouse1.png",
+              "Plist": "camp/camp4/camp4.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1043.5662,
+              "Y": 2043.8311
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4076,
+              "Y": 0.7984
+            },
+            "PreSize": {
+              "X": 0.7332,
+              "Y": 0.4055
+            },
+            "LeftMargin": 105.0662,
+            "RightMargin": 577.9338,
+            "TopMargin": -2.8311,
+            "BottomMargin": 1524.8311,
+            "Tag": 259,
+            "ActionTag": 1769173713,
+            "Size": {
+              "X": 1877.0,
+              "Y": 1038.0
+            },
+            "Name": "main_treehouse1_12",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp1/main_tree4.png",
+              "Plist": "camp/camp1/camp1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2622.6758,
+              "Y": 1525.551
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0245,
+              "Y": 0.5959
+            },
+            "PreSize": {
+              "X": 0.6164,
+              "Y": 0.8059
+            },
+            "LeftMargin": 1833.6758,
+            "RightMargin": -851.6758,
+            "TopMargin": 2.949,
+            "BottomMargin": 494.051,
+            "Tag": 261,
+            "ActionTag": -1642790435,
+            "Size": {
+              "X": 1578.0,
+              "Y": 2063.0
+            },
+            "Name": "main_tree4_14",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/main_treehouse3.png",
+              "Plist": "camp/camp4/camp4.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2679.1665,
+              "Y": 2072.9377
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0465,
+              "Y": 0.8097
+            },
+            "PreSize": {
+              "X": 0.6832,
+              "Y": 0.407
+            },
+            "LeftMargin": 1804.6665,
+            "RightMargin": -993.6665,
+            "TopMargin": -33.9377,
+            "BottomMargin": 1551.9377,
+            "Tag": 262,
+            "ActionTag": -1479350938,
+            "Size": {
+              "X": 1749.0,
+              "Y": 1042.0
+            },
+            "Name": "main_treehouse3_15",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/main_bridge.png",
+              "Plist": "camp/camp4/camp4.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1762.8242,
+              "Y": 1674.1216
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6886,
+              "Y": 0.654
+            },
+            "PreSize": {
+              "X": 0.5246,
+              "Y": 0.123
+            },
+            "LeftMargin": 1091.3242,
+            "RightMargin": 125.6758,
+            "TopMargin": 728.3784,
+            "BottomMargin": 1516.6216,
+            "Tag": 260,
+            "ActionTag": 897081793,
+            "Size": {
+              "X": 1343.0,
+              "Y": 315.0
+            },
+            "Name": "main_bridge_13",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/main_treehouse2.png",
+              "Plist": "camp/camp4/camp4.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1767.6484,
+              "Y": 1221.2041
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6905,
+              "Y": 0.477
+            },
+            "PreSize": {
+              "X": 0.4691,
+              "Y": 0.5437
+            },
+            "LeftMargin": 1167.1484,
+            "RightMargin": 191.8516,
+            "TopMargin": 642.7959,
+            "BottomMargin": 525.2041,
+            "Tag": 263,
+            "ActionTag": 1031785390,
+            "Size": {
+              "X": 1201.0,
+              "Y": 1392.0
+            },
+            "Name": "main_treehouse2_16",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/main_lantern.png",
+              "Plist": "camp/camp4/camp4.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2120.2368,
+              "Y": 613.4539
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8282,
+              "Y": 0.2396
+            },
+            "PreSize": {
+              "X": 0.0539,
+              "Y": 0.0996
+            },
+            "LeftMargin": 2051.2368,
+            "RightMargin": 370.7632,
+            "TopMargin": 1819.0461,
+            "BottomMargin": 485.9539,
+            "UserData": "canInteract=true",
+            "Tag": 264,
+            "ActionTag": 927287167,
+            "Size": {
+              "X": 138.0,
+              "Y": 255.0
+            },
+            "Name": "main_lantern_17",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/main_lantern_glow.png",
+              "Plist": "camp/camp4/camp4.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2120.24,
+              "Y": 613.45
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8282,
+              "Y": 0.2396
+            },
+            "PreSize": {
+              "X": 0.0539,
+              "Y": 0.0996
+            },
+            "LeftMargin": 2051.24,
+            "RightMargin": 370.76,
+            "TopMargin": 1819.05,
+            "BottomMargin": 485.95,
+            "UserData": "lantern_on",
+            "Tag": 214,
+            "ActionTag": 376873701,
+            "Size": {
+              "X": 138.0,
+              "Y": 255.0
+            },
+            "VisibleForFrame": false,
+            "Name": "main_lantern_glow_76",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/main_bush.png",
+              "Plist": "camp/camp4/camp4.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2572.8293,
+              "Y": 548.9744
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.005,
+              "Y": 0.2144
+            },
+            "PreSize": {
+              "X": 0.0914,
+              "Y": 0.0566
+            },
+            "LeftMargin": 2455.8293,
+            "RightMargin": -129.8293,
+            "TopMargin": 1938.5256,
+            "BottomMargin": 476.4744,
+            "Tag": 265,
+            "ActionTag": -1404303821,
+            "Size": {
+              "X": 234.0,
+              "Y": 145.0
+            },
+            "Name": "main_bush_18",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/main_treehouse4.png",
+              "Plist": "camp/camp4/camp4.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3705.25,
+              "Y": 1237.067
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.4474,
+              "Y": 0.4832
+            },
+            "PreSize": {
+              "X": 0.4816,
+              "Y": 0.6887
+            },
+            "LeftMargin": 3088.75,
+            "RightMargin": -1761.75,
+            "TopMargin": 441.4331,
+            "BottomMargin": 355.567,
+            "Tag": 267,
+            "ActionTag": -1998302152,
+            "Size": {
+              "X": 1233.0,
+              "Y": 1763.0
+            },
+            "Name": "main_treehouse4_20",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/main_tent.png",
+              "Plist": "camp/camp4/camp4.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5182.8208,
+              "Y": 799.138
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.0245,
+              "Y": 0.3122
+            },
+            "PreSize": {
+              "X": 0.7734,
+              "Y": 0.2941
+            },
+            "LeftMargin": 4192.8208,
+            "RightMargin": -3612.8208,
+            "TopMargin": 1384.3621,
+            "BottomMargin": 422.638,
+            "Tag": 268,
+            "ActionTag": -975337959,
+            "Size": {
+              "X": 1980.0,
+              "Y": 753.0
+            },
+            "Name": "main_tent_21",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp2/main_tree2.png",
+              "Plist": "camp/camp2/camp2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4656.4785,
+              "Y": 1702.6299
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.8189,
+              "Y": 0.6651
+            },
+            "PreSize": {
+              "X": 0.7875,
+              "Y": 1.0
+            },
+            "LeftMargin": 3648.4785,
+            "RightMargin": -3104.4785,
+            "TopMargin": -422.6299,
+            "BottomMargin": 422.6299,
+            "Tag": 269,
+            "ActionTag": 1238066136,
+            "Size": {
+              "X": 2016.0,
+              "Y": 2560.0
+            },
+            "Name": "main_tree2_22",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/main_tree3.png",
+              "Plist": "camp/camp4/camp4.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6839.0938,
+              "Y": 700.426
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.6715,
+              "Y": 0.2736
+            },
+            "PreSize": {
+              "X": 0.5422,
+              "Y": 0.4551
+            },
+            "LeftMargin": 6145.0938,
+            "RightMargin": -4973.0938,
+            "TopMargin": 1277.074,
+            "BottomMargin": 117.926,
+            "Tag": 270,
+            "ActionTag": -67289190,
+            "Size": {
+              "X": 1388.0,
+              "Y": 1165.0
+            },
+            "Name": "main_tree3_23",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/main_treehouse5.png",
+              "Plist": "camp/camp4/camp4.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7064.9717,
+              "Y": 1450.1663
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.7598,
+              "Y": 0.5665
+            },
+            "PreSize": {
+              "X": 0.4805,
+              "Y": 0.2676
+            },
+            "LeftMargin": 6449.9717,
+            "RightMargin": -5119.9717,
+            "TopMargin": 767.3337,
+            "BottomMargin": 1107.6663,
+            "Tag": 271,
+            "ActionTag": 1196416120,
+            "Size": {
+              "X": 1230.0,
+              "Y": 685.0
+            },
+            "Name": "main_treehouse5_24",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/door2.png",
+              "Plist": "camp/camp4/camp4.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1610.7806,
+              "Y": 950.3667
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6292,
+              "Y": 0.3712
+            },
+            "PreSize": {
+              "X": 0.1,
+              "Y": 0.0645
+            },
+            "LeftMargin": 1482.7806,
+            "RightMargin": 821.2194,
+            "TopMargin": 1527.1333,
+            "BottomMargin": 867.8667,
+            "UserData": "canInteract=true,nextScene=camp_studio",
+            "Tag": 97,
+            "ActionTag": -423891578,
+            "Size": {
+              "X": 256.0,
+              "Y": 165.0
+            },
+            "Name": "camp_photostudio_door",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2291.8574,
+              "Y": 520.2003
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8953,
+              "Y": 0.2032
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2291.8574,
+            "RightMargin": 268.1426,
+            "TopMargin": 2039.7997,
+            "BottomMargin": 520.2003,
+            "Tag": 173,
+            "ActionTag": -1506662742,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "alphamon_1",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1036.458,
+              "Y": 379.037
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.4049,
+              "Y": 0.1481
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1036.458,
+            "RightMargin": 1523.542,
+            "TopMargin": 2180.9629,
+            "BottomMargin": 379.037,
+            "Tag": 174,
+            "ActionTag": -903732483,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "alphamon_2",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 4255.5522,
+              "Y": 517.8616
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.6623,
+              "Y": 0.2023
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 4255.5522,
+            "RightMargin": -1695.5522,
+            "TopMargin": 2042.1384,
+            "BottomMargin": 517.8616,
+            "Tag": 175,
+            "ActionTag": -908161157,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "alphamon_3",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1311.1072,
+              "Y": 1690.9541
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5122,
+              "Y": 0.6605
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1311.1072,
+            "RightMargin": 1248.8928,
+            "TopMargin": 869.0459,
+            "BottomMargin": 1690.9541,
+            "Tag": 176,
+            "ActionTag": 1103461477,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "alphamon_4",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2821.2759,
+              "Y": 1700.6621
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.1021,
+              "Y": 0.6643
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2821.2759,
+            "RightMargin": -261.2759,
+            "TopMargin": 859.3379,
+            "BottomMargin": 1700.6621,
+            "Tag": 177,
+            "ActionTag": 531850134,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "alphamon_5",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1441.0723,
+              "Y": 887.9232
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5629,
+              "Y": 0.3468
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1441.0723,
+            "RightMargin": 1118.9277,
+            "TopMargin": 1672.0768,
+            "BottomMargin": 887.9232,
+            "Tag": 178,
+            "ActionTag": 1791775965,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "alphamon_6",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 63.1006,
+              "Y": 509.7064
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0246,
+              "Y": 0.1991
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 63.1006,
+            "RightMargin": 2496.8994,
+            "TopMargin": 2050.2937,
+            "BottomMargin": 509.7064,
+            "Tag": 179,
+            "ActionTag": 1772103846,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "alphamon_7",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 3035.5825,
+              "Y": 1194.9481
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.1858,
+              "Y": 0.4668
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 3035.5825,
+            "RightMargin": -475.5825,
+            "TopMargin": 1365.0519,
+            "BottomMargin": 1194.9481,
+            "Tag": 180,
+            "ActionTag": -439273853,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "alphamon_8",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 4135.229,
+              "Y": 1076.0068
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.6153,
+              "Y": 0.4203
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 4135.229,
+            "RightMargin": -1575.229,
+            "TopMargin": 1483.9932,
+            "BottomMargin": 1076.0068,
+            "Tag": 181,
+            "ActionTag": 817517844,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "alphamon_9",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 3257.2634,
+              "Y": 556.9009
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.2724,
+              "Y": 0.2175
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 3257.2634,
+            "RightMargin": -697.2634,
+            "TopMargin": 2003.0991,
+            "BottomMargin": 556.9009,
+            "Tag": 182,
+            "ActionTag": -2068353299,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "alphamon_10",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 5697.5708,
+              "Y": 476.0897
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.2256,
+              "Y": 0.186
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 5697.5708,
+            "RightMargin": -3137.5708,
+            "TopMargin": 2083.9104,
+            "BottomMargin": 476.0897,
+            "Tag": 183,
+            "ActionTag": -1765524739,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "alphamon_11",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 6525.1387,
+              "Y": 1166.1646
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.5489,
+              "Y": 0.4555
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 6525.1387,
+            "RightMargin": -3965.1387,
+            "TopMargin": 1393.8354,
+            "BottomMargin": 1166.1646,
+            "Tag": 184,
+            "ActionTag": -205771983,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "alphamon_12",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 6342.4404,
+              "Y": 916.9215
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.4775,
+              "Y": 0.3582
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 6342.4404,
+            "RightMargin": -3782.4404,
+            "TopMargin": 1643.0785,
+            "BottomMargin": 916.9215,
+            "Tag": 185,
+            "ActionTag": 1605176897,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "alphamon_13",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 7102.21,
+              "Y": 563.2353
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.7743,
+              "Y": 0.22
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 7102.21,
+            "RightMargin": -4542.21,
+            "TopMargin": 1996.7646,
+            "BottomMargin": 563.2353,
+            "Tag": 186,
+            "ActionTag": 1437100745,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "alphamon_14",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 7570.5239,
+              "Y": 530.4866
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.9572,
+              "Y": 0.2072
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 7570.5239,
+            "RightMargin": -5010.5239,
+            "TopMargin": 2029.5134,
+            "BottomMargin": 530.4866,
+            "Tag": 187,
+            "ActionTag": 1139468763,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "alphamon_15",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 204.1402,
+              "Y": 1529.2246
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0797,
+              "Y": 0.5974
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 204.1402,
+            "RightMargin": 2355.8599,
+            "TopMargin": 1030.7754,
+            "BottomMargin": 1529.2246,
+            "Tag": 188,
+            "ActionTag": -1159449150,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "alphamon_16",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 5545.5649,
+              "Y": 1684.889
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.1662,
+              "Y": 0.6582
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 5545.5649,
+            "RightMargin": -2985.5649,
+            "TopMargin": 875.111,
+            "BottomMargin": 1684.889,
+            "Tag": 189,
+            "ActionTag": -1325037656,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "alphamon_17",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 4066.0967,
+              "Y": 1665.9602
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.5883,
+              "Y": 0.6508
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 4066.0967,
+            "RightMargin": -1506.0967,
+            "TopMargin": 894.0398,
+            "BottomMargin": 1665.9602,
+            "Tag": 190,
+            "ActionTag": -759010004,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "alphamon_18",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 7342.9536,
+              "Y": 1095.2932
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.8683,
+              "Y": 0.4278
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 7342.9536,
+            "RightMargin": -4782.9536,
+            "TopMargin": 1464.7068,
+            "BottomMargin": 1095.2932,
+            "Tag": 191,
+            "ActionTag": 694077620,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "alphamon_19",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2306.9128,
+              "Y": 867.1338
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.9011,
+              "Y": 0.3387
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2306.9128,
+            "RightMargin": 253.0872,
+            "TopMargin": 1692.8662,
+            "BottomMargin": 867.1338,
+            "Tag": 192,
+            "ActionTag": -63984613,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "alphamon_20",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1541.408,
+              "Y": 429.2517
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.6021,
+              "Y": 0.1677
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1541.408,
+            "RightMargin": 1018.592,
+            "TopMargin": 2130.7483,
+            "BottomMargin": 429.2517,
+            "UserData": " canInteract=true,fileName=hero_skeleton.csb",
+            "Tag": 193,
+            "ActionTag": 1313104020,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "Hero",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
             "AnchorPoint": {},
             "Position": {
               "X": 0.0,
@@ -38,32 +2005,25 @@
               "Y": 0.0
             },
             "PreSize": {
-              "X": 0.3333,
-              "Y": 1.0
+              "X": 0.0,
+              "Y": 0.0
             },
-            "RightMargin": 5120.0,
-            "UserData": "background",
-            "Tag": 87,
-            "ActionTag": 1513633076,
+            "RightMargin": 2560.0,
+            "TopMargin": 2560.0,
+            "UserData": "leftboundary",
+            "Tag": 198,
+            "ActionTag": 1832903051,
             "Size": {
-              "X": 2560.0,
-              "Y": 2560.0
+              "X": 0.0,
+              "Y": 0.0
             },
-            "Name": "FileNode_1",
-            "ctype": "ProjectNodeObjectData"
+            "Name": "leftboundary",
+            "ctype": "SingleNodeObjectData"
           },
           {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "camp/camp_main.json",
-              "Plist": ""
-            },
-            "StretchWidthEnable": false,
-            "StretchHeightEnable": false,
-            "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 0.0,
+              "X": 7680.0,
               "Y": 0.0
             },
             "Scale": {
@@ -73,121 +2033,230 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.0,
+              "X": 3.0,
               "Y": 0.0
             },
             "PreSize": {
-              "X": 0.3333,
-              "Y": 1.0
-            },
-            "RightMargin": 5120.0,
-            "UserData": "main",
-            "Tag": 375,
-            "ActionTag": -1931053857,
-            "Size": {
-              "X": 2560.0,
-              "Y": 2560.0
-            },
-            "Name": "FileNode_2",
-            "ctype": "ProjectNodeObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "camp/camp_foreground.json",
-              "Plist": ""
-            },
-            "StretchWidthEnable": false,
-            "StretchHeightEnable": false,
-            "InnerActionSpeed": 1.0,
-            "AnchorPoint": {},
-            "Position": {
               "X": 0.0,
               "Y": 0.0
+            },
+            "LeftMargin": 7680.0,
+            "RightMargin": -5120.0,
+            "TopMargin": 2560.0,
+            "UserData": "rightboundary",
+            "Tag": 199,
+            "ActionTag": -425271658,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "rightboundary",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp2/main_tree2.png",
+              "Plist": "camp/camp2/camp2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6604.0029,
+              "Y": 1702.6378
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
             "CColor": {},
-            "IconVisible": true,
+            "IconVisible": false,
             "PrePosition": {
-              "X": 0.0,
-              "Y": 0.0
+              "X": 2.5797,
+              "Y": 0.6651
             },
             "PreSize": {
-              "X": 0.3333,
+              "X": 0.7875,
               "Y": 1.0
             },
-            "RightMargin": 5120.0,
-            "UserData": "foreground",
-            "Tag": 83,
-            "ActionTag": 256437059,
+            "LeftMargin": 5596.0029,
+            "RightMargin": -5052.0029,
+            "TopMargin": -422.6377,
+            "BottomMargin": 422.6378,
+            "Tag": 186,
+            "ActionTag": 1861450872,
             "Size": {
-              "X": 2560.0,
+              "X": 2016.0,
               "Y": 2560.0
             },
-            "Name": "FileNode_3",
-            "ctype": "ProjectNodeObjectData"
+            "Name": "main_tree2_22_0",
+            "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
-              "Type": "Normal",
-              "Path": "human_skeleton.json",
-              "Plist": ""
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/door1.png",
+              "Plist": "camp/camp4/camp4.plist"
             },
-            "StretchWidthEnable": false,
-            "StretchHeightEnable": false,
-            "InnerActionSpeed": 1.0,
-            "AnchorPoint": {},
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
             "Position": {
-              "X": 800.34,
-              "Y": 1620.8989
+              "X": 3683.7034,
+              "Y": 1771.527
             },
             "Scale": {
-              "ScaleX": 0.22,
-              "ScaleY": 0.22
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
             },
             "CColor": {},
-            "IconVisible": true,
+            "IconVisible": false,
             "PrePosition": {
-              "X": 0.1042,
-              "Y": 0.6332
+              "X": 1.4389,
+              "Y": 0.692
             },
             "PreSize": {
-              "X": 0.0,
-              "Y": 0.0
+              "X": 0.073,
+              "Y": 0.0984
             },
-            "LeftMargin": 800.34,
-            "RightMargin": 6879.6602,
-            "TopMargin": 939.1011,
-            "BottomMargin": 1620.8989,
-            "UserData": "externalSkeleton",
-            "Tag": 418,
-            "ActionTag": -1441768840,
+            "LeftMargin": 3590.2034,
+            "RightMargin": -1217.2034,
+            "TopMargin": 662.473,
+            "BottomMargin": 1645.527,
+            "UserData": "canInteract=true,nextScene=camp_gym",
+            "Tag": 241,
+            "ActionTag": 645240048,
             "Size": {
-              "X": 0.0,
-              "Y": 0.0
+              "X": 187.0,
+              "Y": 252.0
             },
-            "Name": "FileNode_6",
-            "ctype": "ProjectNodeObjectData"
+            "Name": "door1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/clothshop_door_open1.png",
+              "Plist": "camp/camp4/camp4.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6812.3755,
+              "Y": 1263.1697
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.6611,
+              "Y": 0.4934
+            },
+            "PreSize": {
+              "X": 0.043,
+              "Y": 0.0773
+            },
+            "LeftMargin": 6757.3755,
+            "RightMargin": -4307.3755,
+            "TopMargin": 1197.8303,
+            "BottomMargin": 1164.1697,
+            "UserData": "canInteract=true,nextScene=camp_clothshop",
+            "Tag": 246,
+            "ActionTag": 1890805718,
+            "Size": {
+              "X": 110.0,
+              "Y": 198.0
+            },
+            "Name": "clothshop_door_open1_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/main_picnic.png",
+              "Plist": "camp/camp4/camp4.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5263.3271,
+              "Y": 208.3717
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.056,
+              "Y": 0.0814
+            },
+            "PreSize": {
+              "X": 0.2398,
+              "Y": 0.1066
+            },
+            "LeftMargin": 4956.3271,
+            "RightMargin": -3010.3271,
+            "TopMargin": 2215.1284,
+            "BottomMargin": 71.8717,
+            "UserData": "canInteract=true",
+            "Tag": 177,
+            "ActionTag": -2005797570,
+            "Size": {
+              "X": 614.0,
+              "Y": 273.0
+            },
+            "Name": "main_picnic_27",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
-          "X": 7680.0,
+          "X": 2560.0,
           "Y": 2560.0
         },
-        "Name": "Scene",
-        "ctype": "SingleNodeObjectData"
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
       },
       "UsedResources": [
-        "../human_skeleton.json",
-        "camp_background.json",
-        "camp_foreground.json",
-        "camp_main.json"
+        "camp1/camp1.plist",
+        "camp1/camp1.png",
+        "camp2/camp2.plist",
+        "camp2/camp2.png",
+        "camp3/camp3.plist",
+        "camp3/camp3.png",
+        "camp4/camp4.plist",
+        "camp4/camp4.png"
       ],
       "ctype": "GameFileData"
     }
   },
-  "Type": "Scene"
+  "Type": "Layer"
 }
