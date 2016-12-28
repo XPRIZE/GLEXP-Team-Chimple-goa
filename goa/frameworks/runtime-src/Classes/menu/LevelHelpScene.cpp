@@ -215,11 +215,11 @@ void LevelHelpScene::videoEventCallback(Ref* sender, cocos2d::experimental::ui::
 
 void LevelHelpScene::videoPlayStart()
 {
-    if(!_videos.empty() && FileUtils::getInstance()->isFileExist("help/" + _videos[_currentVideo])) {
+    if(!_videos.empty() && FileUtils::getInstance()->isFileExist(LangUtil::getInstance()->getDir() + "/help/" + _videos[_currentVideo])) {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
         _vp = experimental::ui::VideoPlayer::create();
         _vp->setContentSize(cocos2d::Size(1280, 800));
-        _vp->setFileName("help/" + _videos[_currentVideo]);
+        _vp->setFileName(LangUtil::getInstance()->getDir() + "/help/" + _videos[_currentVideo]);
         _vp->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
         _vp->play();
         _vp->setName("video");
