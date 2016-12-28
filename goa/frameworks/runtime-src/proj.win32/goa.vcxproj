@@ -223,6 +223,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClCompile Include="..\Classes\LipiTKResult.cpp" />
     <ClCompile Include="..\Classes\MapIsland.cpp" />
     <ClCompile Include="..\Classes\MapScene.cpp" />
+    <ClCompile Include="..\Classes\menu\Award.cpp" />
     <ClCompile Include="..\Classes\menu\HelpLayer.cpp" />
     <ClCompile Include="..\Classes\menu\LevelHelpOverlay.cpp" />
     <ClCompile Include="..\Classes\menu\LevelHelpScene.cpp" />
@@ -434,6 +435,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClInclude Include="..\Classes\LTKWordRecoResult.h" />
     <ClInclude Include="..\Classes\MapIsland.h" />
     <ClInclude Include="..\Classes\MapScene.h" />
+    <ClInclude Include="..\Classes\menu\Award.h" />
     <ClInclude Include="..\Classes\menu\HelpLayer.h" />
     <ClInclude Include="..\Classes\menu\LevelHelpOverlay.h" />
     <ClInclude Include="..\Classes\menu\LevelHelpScene.h" />
