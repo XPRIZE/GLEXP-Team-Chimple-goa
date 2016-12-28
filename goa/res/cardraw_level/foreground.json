@@ -1,6 +1,6 @@
 {
   "ID": "9a8ffcba-42be-4993-b3ff-be5d798af334",
-  "Version": "3.10.0.0",
+  "Version": "2.3.4",
   "Name": "foreground",
   "Content": {
     "Content": {
@@ -49,17 +49,17 @@
               "Y": 0.1862
             },
             "PreSize": {
-              "X": 4.6875,
+              "X": 6.25,
               "Y": 0.1861
             },
             "LeftMargin": -0.3873,
-            "RightMargin": -9439.6123,
+            "RightMargin": -13439.6123,
             "TopMargin": 1129.8076,
             "BottomMargin": 335.1924,
             "Tag": 388,
             "ActionTag": 1831919825,
             "Size": {
-              "X": 12000.0,
+              "X": 16000.0,
               "Y": 335.0
             },
             "Name": "Panel_1",
@@ -198,6 +198,96 @@
               "Y": 362.0
             },
             "Name": "building03_32",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cardraw_level/building13.png",
+              "Plist": "cardraw_level/cardraw_level.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 11269.8086,
+              "Y": 731.9257
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 4.4023,
+              "Y": 0.4066
+            },
+            "PreSize": {
+              "X": 0.2707,
+              "Y": 0.2394
+            },
+            "LeftMargin": 10923.3086,
+            "RightMargin": -9056.3086,
+            "TopMargin": 852.5743,
+            "BottomMargin": 516.4257,
+            "Tag": 81,
+            "ActionTag": -1002294242,
+            "Size": {
+              "X": 693.0,
+              "Y": 431.0
+            },
+            "Name": "building13_29_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cardraw_level/building03.png",
+              "Plist": "cardraw_level/cardraw_level.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 14598.8711,
+              "Y": 803.5916
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 5.7027,
+              "Y": 0.4464
+            },
+            "PreSize": {
+              "X": 0.2387,
+              "Y": 0.2011
+            },
+            "LeftMargin": 14293.3711,
+            "RightMargin": -12344.3711,
+            "TopMargin": 815.4084,
+            "BottomMargin": 622.5916,
+            "Tag": 82,
+            "ActionTag": 1008225518,
+            "Size": {
+              "X": 611.0,
+              "Y": 362.0
+            },
+            "Name": "building03_32_0",
             "ctype": "SpriteObjectData"
           }
         ],

@@ -61,6 +61,7 @@ public:
 	int _answerValue;
 	int _level;
 	//Node* _tempCookie;
+	
 	cocostudio::timeline::ActionTimeline* _openTimeline;
 	
 	//void addCookiesToPizza(int pizzaToppingStartId, int pizzaToppingEndId, int cookiesStartId, int cookiesEndId);

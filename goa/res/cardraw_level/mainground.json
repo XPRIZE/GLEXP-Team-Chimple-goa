@@ -1,6 +1,6 @@
 {
   "ID": "cefa718c-93af-4dee-83a1-25d490099e60",
-  "Version": "3.10.0.0",
+  "Version": "2.3.4",
   "Name": "mainground",
   "Content": {
     "Content": {
@@ -147,6 +147,96 @@
               "Y": 250.0
             },
             "Name": "building04_29",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cardraw_level/building01.png",
+              "Plist": "cardraw_level/cardraw_level.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 8426.7734,
+              "Y": 806.2484
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.2917,
+              "Y": 0.4479
+            },
+            "PreSize": {
+              "X": 0.2559,
+              "Y": 0.2294
+            },
+            "LeftMargin": 8099.2734,
+            "RightMargin": -6194.2734,
+            "TopMargin": 787.2516,
+            "BottomMargin": 599.7484,
+            "Tag": 79,
+            "ActionTag": 763507323,
+            "Size": {
+              "X": 655.0,
+              "Y": 413.0
+            },
+            "Name": "building01_26_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cardraw_level/building03.png",
+              "Plist": "cardraw_level/cardraw_level.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 11018.2246,
+              "Y": 780.7592
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 4.304,
+              "Y": 0.4338
+            },
+            "PreSize": {
+              "X": 0.2387,
+              "Y": 0.2011
+            },
+            "LeftMargin": 10712.7246,
+            "RightMargin": -8763.7246,
+            "TopMargin": 838.2408,
+            "BottomMargin": 599.7592,
+            "Tag": 80,
+            "ActionTag": 1683183384,
+            "Size": {
+              "X": 611.0,
+              "Y": 362.0
+            },
+            "Name": "building03_28_0",
             "ctype": "SpriteObjectData"
           }
         ],
