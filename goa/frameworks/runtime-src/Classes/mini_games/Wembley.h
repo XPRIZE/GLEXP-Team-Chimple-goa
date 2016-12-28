@@ -31,6 +31,7 @@ protected:
 	std::vector<cocos2d::Point> _clickBallInitialPoints;
 	std::vector<cocos2d::Sprite* > _clickBalls;
 	int _finish;
+	HelpLayer * _help;
 	
 };
 
