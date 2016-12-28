@@ -4,18 +4,63 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>farmhouse_bagpack/bag_01.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{2551,1031}</string>
+                <key>spriteSourceSize</key>
+                <string>{2551,1031}</string>
+                <key>textureRect</key>
+                <string>{{1,717},{2551,1031}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>farmhouse_bagpack/bag_02.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{2361,800}</string>
+                <key>spriteSourceSize</key>
+                <string>{2361,800}</string>
+                <key>textureRect</key>
+                <string>{{1034,595},{2361,800}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
             <key>farmhouse_bagpack/bag_02_23.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{6,-6}</string>
+                <string>{0,-10}</string>
                 <key>spriteSize</key>
-                <string>{294,348}</string>
+                <string>{197,234}</string>
                 <key>spriteSourceSize</key>
-                <string>{400,400}</string>
+                <string>{265,268}</string>
                 <key>textureRect</key>
-                <string>{{830,625},{294,348}}</string>
+                <string>{{1836,717},{197,234}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>farmhouse_bagpack/bag_02_23_dis.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,-10}</string>
+                <key>spriteSize</key>
+                <string>{197,234}</string>
+                <key>spriteSourceSize</key>
+                <string>{265,268}</string>
+                <key>textureRect</key>
+                <string>{{1836,953},{197,234}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -24,15 +69,30 @@
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{2,-1}</string>
+                <string>{3,-12}</string>
                 <key>spriteSize</key>
-                <string>{268,342}</string>
+                <string>{183,234}</string>
                 <key>spriteSourceSize</key>
-                <string>{400,400}</string>
+                <string>{265,268}</string>
                 <key>textureRect</key>
-                <string>{{1126,685},{268,342}}</string>
+                <string>{{1836,2225},{183,234}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
+            </dict>
+            <key>farmhouse_bagpack/basket_29_dis.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{3,-12}</string>
+                <key>spriteSize</key>
+                <string>{183,234}</string>
+                <key>spriteSourceSize</key>
+                <string>{265,268}</string>
+                <key>textureRect</key>
+                <string>{{1836,2461},{183,234}}</string>
+                <key>textureRotated</key>
+                <false/>
             </dict>
             <key>farmhouse_bagpack/click_cross.png</key>
             <dict>
@@ -45,7 +105,7 @@
                 <key>spriteSourceSize</key>
                 <string>{171,171}</string>
                 <key>textureRect</key>
-                <string>{{1692,729},{169,169}}</string>
+                <string>{{1836,2697},{169,169}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -60,7 +120,7 @@
                 <key>spriteSourceSize</key>
                 <string>{171,171}</string>
                 <key>textureRect</key>
-                <string>{{1863,827},{169,169}}</string>
+                <string>{{1836,2868},{169,169}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -69,43 +129,88 @@
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{3,3}</string>
+                <string>{2,-7}</string>
                 <key>spriteSize</key>
-                <string>{156,370}</string>
+                <string>{107,254}</string>
                 <key>spriteSourceSize</key>
-                <string>{400,400}</string>
+                <string>{265,268}</string>
                 <key>textureRect</key>
-                <string>{{1958,455},{156,370}}</string>
+                <string>{{245,595},{107,254}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
+            </dict>
+            <key>farmhouse_bagpack/flower_27_dis.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{2,-7}</string>
+                <key>spriteSize</key>
+                <string>{107,254}</string>
+                <key>spriteSourceSize</key>
+                <string>{265,268}</string>
+                <key>textureRect</key>
+                <string>{{501,595},{107,254}}</string>
+                <key>textureRotated</key>
+                <true/>
             </dict>
             <key>farmhouse_bagpack/mango_3.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{-1,-2}</string>
+                <string>{6,-6}</string>
                 <key>spriteSize</key>
-                <string>{216,366}</string>
+                <string>{185,256}</string>
                 <key>spriteSourceSize</key>
-                <string>{400,400}</string>
+                <string>{265,268}</string>
                 <key>textureRect</key>
-                <string>{{440,745},{216,366}}</string>
+                <string>{{1836,1709},{185,256}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
-            <key>farmhouse_bagpack/milk_bottle_173.png</key>
+            <key>farmhouse_bagpack/mango_3_dis.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{6,-6}</string>
                 <key>spriteSize</key>
-                <string>{168,376}</string>
+                <string>{185,256}</string>
                 <key>spriteSourceSize</key>
-                <string>{400,400}</string>
+                <string>{265,268}</string>
                 <key>textureRect</key>
-                <string>{{830,455},{168,376}}</string>
+                <string>{{1836,1967},{185,256}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>farmhouse_bagpack/milk_bottle_173.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{2,-9}</string>
+                <key>spriteSize</key>
+                <string>{109,242}</string>
+                <key>spriteSourceSize</key>
+                <string>{265,268}</string>
+                <key>textureRect</key>
+                <string>{{1888,473},{109,242}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>farmhouse_bagpack/milk_bottle_173_dis.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{2,-9}</string>
+                <key>spriteSize</key>
+                <string>{109,242}</string>
+                <key>spriteSourceSize</key>
+                <string>{265,268}</string>
+                <key>textureRect</key>
+                <string>{{1,595},{109,242}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -114,58 +219,58 @@
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{7,0}</string>
+                <string>{4,-11}</string>
                 <key>spriteSize</key>
-                <string>{228,374}</string>
+                <string>{143,234}</string>
                 <key>spriteSourceSize</key>
-                <string>{400,400}</string>
+                <string>{265,268}</string>
                 <key>textureRect</key>
-                <string>{{1208,455},{228,374}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>farmhouse_bagpack/text.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{-1,10}</string>
-                <key>spriteSize</key>
-                <string>{2205,452}</string>
-                <key>spriteSourceSize</key>
-                <string>{2207,480}</string>
-                <key>textureRect</key>
-                <string>{{1,1},{2205,452}}</string>
+                <string>{{1888,1},{143,234}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>farmhouse_bagpack/text1.png</key>
+            <key>farmhouse_bagpack/painting_small_01_41_dis.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{4,-11}</string>
                 <key>spriteSize</key>
-                <string>{434,437}</string>
+                <string>{143,234}</string>
                 <key>spriteSourceSize</key>
-                <string>{434,437}</string>
+                <string>{265,268}</string>
                 <key>textureRect</key>
-                <string>{{1,455},{434,437}}</string>
+                <string>{{1888,237},{143,234}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
-            <key>farmhouse_bagpack/tick.png</key>
+            <key>farmhouse_bagpack/paper.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{220,213}</string>
+                <string>{1885,592}</string>
                 <key>spriteSourceSize</key>
-                <string>{220,213}</string>
+                <string>{1885,592}</string>
                 <key>textureRect</key>
-                <string>{{1470,729},{220,213}}</string>
+                <string>{{1,1},{1885,592}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>farmhouse_bagpack/pouch.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{451,382}</string>
+                <key>spriteSourceSize</key>
+                <string>{451,382}</string>
+                <key>textureRect</key>
+                <string>{{1034,2958},{451,382}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -174,30 +279,60 @@
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{2,0}</string>
+                <string>{1,2}</string>
                 <key>spriteSize</key>
-                <string>{272,372}</string>
+                <string>{189,258}</string>
                 <key>spriteSourceSize</key>
-                <string>{400,400}</string>
+                <string>{265,268}</string>
                 <key>textureRect</key>
-                <string>{{1584,455},{272,372}}</string>
+                <string>{{1836,1189},{189,258}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
+            </dict>
+            <key>farmhouse_bagpack/tool2_10_dis.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{1,2}</string>
+                <key>spriteSize</key>
+                <string>{189,258}</string>
+                <key>spriteSourceSize</key>
+                <string>{265,268}</string>
+                <key>textureRect</key>
+                <string>{{1836,1449},{189,258}}</string>
+                <key>textureRotated</key>
+                <false/>
             </dict>
             <key>farmhouse_bagpack/tool5_13.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{-5,4}</string>
+                <string>{1,-2}</string>
                 <key>spriteSize</key>
-                <string>{288,388}</string>
+                <string>{253,246}</string>
                 <key>spriteSourceSize</key>
-                <string>{400,400}</string>
+                <string>{265,268}</string>
                 <key>textureRect</key>
-                <string>{{440,455},{288,388}}</string>
+                <string>{{1487,2958},{253,246}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
+            </dict>
+            <key>farmhouse_bagpack/tool5_13_dis.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{1,-2}</string>
+                <key>spriteSize</key>
+                <string>{253,246}</string>
+                <key>spriteSourceSize</key>
+                <string>{265,268}</string>
+                <key>textureRect</key>
+                <string>{{1742,3039},{253,246}}</string>
+                <key>textureRotated</key>
+                <false/>
             </dict>
         </dict>
         <key>metadata</key>
@@ -211,9 +346,9 @@
             <key>realTextureFileName</key>
             <string>farmhouse_bagpack.png</string>
             <key>size</key>
-            <string>{2207,997}</string>
+            <string>{2034,3341}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:951e945d249b7f771fa2ce3ba26c6501:0489b04d9078ae09da94b41fccfd1fea:d629785f52f7a2ea6aadb2fa63a4950e$</string>
+            <string>$TexturePacker:SmartUpdate:d6f1d934d2b21c0a798d72b57c1256fd:551ebb408413c7fddb966c9394e06312:d629785f52f7a2ea6aadb2fa63a4950e$</string>
             <key>textureFileName</key>
             <string>farmhouse_bagpack.png</string>
         </dict>

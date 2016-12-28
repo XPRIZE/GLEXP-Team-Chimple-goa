@@ -1,480 +1,656 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
     <dict>
+        <key>frames</key>
+        <dict>
+            <key>camp_clothshop/Cloud.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{597,369}</string>
+                <key>spriteSourceSize</key>
+                <string>{597,369}</string>
+                <key>textureRect</key>
+                <string>{{830,1},{597,369}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>camp_clothshop/branch.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{125,36}</string>
+                <key>spriteSourceSize</key>
+                <string>{125,36}</string>
+                <key>textureRect</key>
+                <string>{{2244,465},{125,36}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>camp_clothshop/clothshop_door_close1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{283,250}</string>
+                <key>spriteSourceSize</key>
+                <string>{283,250}</string>
+                <key>textureRect</key>
+                <string>{{1429,1},{283,250}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>camp_clothshop/clothshop_door_close2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{29,0}</string>
+                <key>spriteSize</key>
+                <string>{225,250}</string>
+                <key>spriteSourceSize</key>
+                <string>{283,250}</string>
+                <key>textureRect</key>
+                <string>{{1482,286},{225,250}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>camp_clothshop/clothshop_door_close3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{82,0}</string>
+                <key>spriteSize</key>
+                <string>{119,250}</string>
+                <key>spriteSourceSize</key>
+                <string>{283,250}</string>
+                <key>textureRect</key>
+                <string>{{2424,1},{119,250}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>camp_clothshop/shop_bag_1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{98,79}</string>
+                <key>spriteSourceSize</key>
+                <string>{98,79}</string>
+                <key>textureRect</key>
+                <string>{{2917,204},{98,79}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>camp_clothshop/shop_bag_2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{102,68}</string>
+                <key>spriteSourceSize</key>
+                <string>{102,68}</string>
+                <key>textureRect</key>
+                <string>{{545,438},{102,68}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>camp_clothshop/shop_bag_3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{91,124}</string>
+                <key>spriteSourceSize</key>
+                <string>{91,124}</string>
+                <key>textureRect</key>
+                <string>{{2791,204},{91,124}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>camp_clothshop/shop_bag_4.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{122,137}</string>
+                <key>spriteSourceSize</key>
+                <string>{124,137}</string>
+                <key>textureRect</key>
+                <string>{{919,372},{122,137}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>camp_clothshop/shop_bag_5.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{135,111}</string>
+                <key>spriteSourceSize</key>
+                <string>{135,111}</string>
+                <key>textureRect</key>
+                <string>{{1043,372},{135,111}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>camp_clothshop/shop_case.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{201,201}</string>
+                <key>spriteSourceSize</key>
+                <string>{201,201}</string>
+                <key>textureRect</key>
+                <string>{{2791,1},{201,201}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>camp_clothshop/shop_door.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{283,250}</string>
+                <key>spriteSourceSize</key>
+                <string>{283,250}</string>
+                <key>textureRect</key>
+                <string>{{1681,1},{283,250}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>camp_clothshop/shop_floor.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{241,111}</string>
+                <key>spriteSourceSize</key>
+                <string>{241,111}</string>
+                <key>textureRect</key>
+                <string>{{2384,268},{241,111}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>camp_clothshop/shop_obj1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{130,161}</string>
+                <key>spriteSourceSize</key>
+                <string>{130,161}</string>
+                <key>textureRect</key>
+                <string>{{1156,372},{130,161}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>camp_clothshop/shop_obj10.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{121,223}</string>
+                <key>spriteSourceSize</key>
+                <string>{121,223}</string>
+                <key>textureRect</key>
+                <string>{{1858,286},{121,223}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>camp_clothshop/shop_obj11.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{122,222}</string>
+                <key>spriteSourceSize</key>
+                <string>{122,222}</string>
+                <key>textureRect</key>
+                <string>{{1981,286},{122,222}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>camp_clothshop/shop_obj12.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{121,222}</string>
+                <key>spriteSourceSize</key>
+                <string>{121,222}</string>
+                <key>textureRect</key>
+                <string>{{2497,253},{121,222}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>camp_clothshop/shop_obj13.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{122,222}</string>
+                <key>spriteSourceSize</key>
+                <string>{122,222}</string>
+                <key>textureRect</key>
+                <string>{{2105,286},{122,222}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>camp_clothshop/shop_obj14.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{121,222}</string>
+                <key>spriteSourceSize</key>
+                <string>{121,222}</string>
+                <key>textureRect</key>
+                <string>{{2545,1},{121,222}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>camp_clothshop/shop_obj15.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{122,223}</string>
+                <key>spriteSourceSize</key>
+                <string>{122,223}</string>
+                <key>textureRect</key>
+                <string>{{1734,286},{122,223}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>camp_clothshop/shop_obj16.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{121,222}</string>
+                <key>spriteSourceSize</key>
+                <string>{121,222}</string>
+                <key>textureRect</key>
+                <string>{{2620,225},{121,222}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>camp_clothshop/shop_obj17.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{121,222}</string>
+                <key>spriteSourceSize</key>
+                <string>{121,222}</string>
+                <key>textureRect</key>
+                <string>{{2668,1},{121,222}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>camp_clothshop/shop_obj18.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{154,435}</string>
+                <key>spriteSourceSize</key>
+                <string>{154,435}</string>
+                <key>textureRect</key>
+                <string>{{497,1},{154,435}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>camp_clothshop/shop_obj19.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{2,7}</string>
+                <key>spriteSize</key>
+                <string>{177,480}</string>
+                <key>spriteSourceSize</key>
+                <string>{181,494}</string>
+                <key>textureRect</key>
+                <string>{{318,1},{177,480}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>camp_clothshop/shop_obj2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{130,161}</string>
+                <key>spriteSourceSize</key>
+                <string>{130,161}</string>
+                <key>textureRect</key>
+                <string>{{1319,372},{130,161}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>camp_clothshop/shop_obj3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{130,161}</string>
+                <key>spriteSourceSize</key>
+                <string>{130,161}</string>
+                <key>textureRect</key>
+                <string>{{2244,302},{130,161}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>camp_clothshop/shop_obj4.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{13,200}</string>
+                <key>spriteSourceSize</key>
+                <string>{13,200}</string>
+                <key>textureRect</key>
+                <string>{{2229,302},{13,200}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>camp_clothshop/shop_obj5.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{14,217}</string>
+                <key>spriteSourceSize</key>
+                <string>{14,217}</string>
+                <key>textureRect</key>
+                <string>{{2497,494},{14,217}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>camp_clothshop/shop_obj6.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{17,225}</string>
+                <key>spriteSourceSize</key>
+                <string>{17,225}</string>
+                <key>textureRect</key>
+                <string>{{318,483},{17,225}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>camp_clothshop/shop_obj7.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{14,152}</string>
+                <key>spriteSourceSize</key>
+                <string>{14,152}</string>
+                <key>textureRect</key>
+                <string>{{2229,286},{14,152}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>camp_clothshop/shop_obj8.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{13,207}</string>
+                <key>spriteSourceSize</key>
+                <string>{13,207}</string>
+                <key>textureRect</key>
+                <string>{{653,423},{13,207}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>camp_clothshop/shop_obj9.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{15,198}</string>
+                <key>spriteSourceSize</key>
+                <string>{15,198}</string>
+                <key>textureRect</key>
+                <string>{{2497,477},{15,198}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>camp_clothshop/shop_pc.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{245,265}</string>
+                <key>spriteSourceSize</key>
+                <string>{245,265}</string>
+                <key>textureRect</key>
+                <string>{{2177,1},{245,265}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>camp_clothshop/shop_shelf.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{315,507}</string>
+                <key>spriteSourceSize</key>
+                <string>{315,507}</string>
+                <key>textureRect</key>
+                <string>{{1,1},{315,507}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>camp_clothshop/shop_shelf1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{283,242}</string>
+                <key>spriteSourceSize</key>
+                <string>{283,242}</string>
+                <key>textureRect</key>
+                <string>{{1933,1},{283,242}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>camp_clothshop/shop_shoe_1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{1,10}</string>
+                <key>spriteSize</key>
+                <string>{122,94}</string>
+                <key>spriteSourceSize</key>
+                <string>{140,128}</string>
+                <key>textureRect</key>
+                <string>{{2743,297},{122,94}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>camp_clothshop/shop_shoe_2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{2,0}</string>
+                <key>spriteSize</key>
+                <string>{121,93}</string>
+                <key>spriteSourceSize</key>
+                <string>{165,93}</string>
+                <key>textureRect</key>
+                <string>{{2867,304},{121,93}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>camp_clothshop/shop_shoe_3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{119,92}</string>
+                <key>spriteSourceSize</key>
+                <string>{119,92}</string>
+                <key>textureRect</key>
+                <string>{{2743,393},{119,92}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>camp_clothshop/shop_shoe_4.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{119,92}</string>
+                <key>spriteSourceSize</key>
+                <string>{119,92}</string>
+                <key>textureRect</key>
+                <string>{{2864,399},{119,92}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>camp_clothshop/shop_step.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{268,63}</string>
+                <key>spriteSourceSize</key>
+                <string>{268,63}</string>
+                <key>textureRect</key>
+                <string>{{649,438},{268,63}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>camp_clothshop/shop_surface.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{205,16}</string>
+                <key>spriteSourceSize</key>
+                <string>{205,16}</string>
+                <key>textureRect</key>
+                <string>{{2177,268},{205,16}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>camp_clothshop/shop_trialroom.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-35,0}</string>
+                <key>spriteSize</key>
+                <string>{175,420}</string>
+                <key>spriteSourceSize</key>
+                <string>{601,420}</string>
+                <key>textureRect</key>
+                <string>{{653,1},{175,420}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+        </dict>
         <key>metadata</key>
         <dict>
             <key>format</key>
-            <integer>1</integer>
-        </dict>
-        <key>category_names</key>
-        <array>
-        </array>
-        <key>bodies</key>
-        <dict>
-
-            <key>shop_shelf</key>
-            <dict>
-                <key>anchorpoint</key>
-                <string>{ 0.50000,0.50000 }</string>
-                <key>is_dynamic</key>
-                <false />
-                <key>affected_by_gravity</key>
-                <false />
-                <key>allows_rotation</key>
-                <false />
-                <key>linear_damping</key>
-                <real>0</real>
-                <key>velocity_limit</key>
-                <real>1000000</real>
-                <key>angular_damping</key>
-                <real>0</real>
-                <key>angular_velocity_limit</key>
-                <real>1000000</real>
-                <key>fixtures</key>
-                <array>
-
-                    <dict>
-                        <key>density</key>
-                        <real>1</real>
-                        <key>restitution</key>
-                        <real>0.200000003</real>
-                        <key>friction</key>
-                        <real>0.699999988</real>
-                        <key>tag</key>
-                        <integer>0</integer>
-                        <key>group</key>
-                        <integer>0</integer>
-                        <key>category_mask</key>
-                        <integer>1</integer>
-                        <key>collision_mask</key>
-                        <integer>2</integer>
-                        <key>contact_test_mask</key>
-                        <integer>2</integer>
-                        <key>fixture_type</key>
-                        <string>POLYGON</string>
-                        
-                        <key>polygons</key>
-                        <array>
-                            <array>
-                                <string>{ 142.50000,20.50000 }</string>
-                                <string>{ 142.50000,0.50000 }</string>
-                                <string>{ -139.50000,0.50000 }</string>
-                                <string>{ -139.50000,20.50000 }</string>
-                            </array>
-                        </array>
-                        
-                    </dict>
-
-                    <dict>
-                        <key>density</key>
-                        <real>1</real>
-                        <key>restitution</key>
-                        <real>0.200000003</real>
-                        <key>friction</key>
-                        <real>0.699999988</real>
-                        <key>tag</key>
-                        <integer>0</integer>
-                        <key>group</key>
-                        <integer>0</integer>
-                        <key>category_mask</key>
-                        <integer>1</integer>
-                        <key>collision_mask</key>
-                        <integer>2</integer>
-                        <key>contact_test_mask</key>
-                        <integer>2</integer>
-                        <key>fixture_type</key>
-                        <string>POLYGON</string>
-                        
-                        <key>polygons</key>
-                        <array>
-                            <array>
-                                <string>{ -139.50000,246.50000 }</string>
-                                <string>{ 143.00000,245.50000 }</string>
-                                <string>{ 142.50000,227.00000 }</string>
-                                <string>{ -139.50000,226.50000 }</string>
-                            </array>
-                        </array>
-                        
-                    </dict>
-
-                </array>
-            </dict>
-
-            <key>shop_shelf1</key>
-            <dict>
-                <key>anchorpoint</key>
-                <string>{ 0.49900,0.50000 }</string>
-                <key>is_dynamic</key>
-                <false />
-                <key>affected_by_gravity</key>
-                <false />
-                <key>allows_rotation</key>
-                <false />
-                <key>linear_damping</key>
-                <real>0</real>
-                <key>velocity_limit</key>
-                <real>1000000</real>
-                <key>angular_damping</key>
-                <real>0</real>
-                <key>angular_velocity_limit</key>
-                <real>1000000</real>
-                <key>fixtures</key>
-                <array>
-
-                    <dict>
-                        <key>density</key>
-                        <real>1</real>
-                        <key>restitution</key>
-                        <real>0.200000003</real>
-                        <key>friction</key>
-                        <real>0.699999988</real>
-                        <key>tag</key>
-                        <integer>0</integer>
-                        <key>group</key>
-                        <integer>0</integer>
-                        <key>category_mask</key>
-                        <integer>1</integer>
-                        <key>collision_mask</key>
-                        <integer>2</integer>
-                        <key>contact_test_mask</key>
-                        <integer>2</integer>
-                        <key>fixture_type</key>
-                        <string>POLYGON</string>
-                        
-                        <key>polygons</key>
-                        <array>
-                            <array>
-                                <string>{ 141.75000,115.00000 }</string>
-                                <string>{ 141.75000,95.00000 }</string>
-                                <string>{ -141.25000,95.00000 }</string>
-                                <string>{ -141.25000,115.00000 }</string>
-                            </array>
-                        </array>
-                        
-                    </dict>
-
-                    <dict>
-                        <key>density</key>
-                        <real>1</real>
-                        <key>restitution</key>
-                        <real>0.200000003</real>
-                        <key>friction</key>
-                        <real>0.699999988</real>
-                        <key>tag</key>
-                        <integer>0</integer>
-                        <key>group</key>
-                        <integer>0</integer>
-                        <key>category_mask</key>
-                        <integer>1</integer>
-                        <key>collision_mask</key>
-                        <integer>2</integer>
-                        <key>contact_test_mask</key>
-                        <integer>2</integer>
-                        <key>fixture_type</key>
-                        <string>POLYGON</string>
-                        
-                        <key>polygons</key>
-                        <array>
-                            <array>
-                                <string>{ -141.25000,-101.50000 }</string>
-                                <string>{ 141.25000,-102.50000 }</string>
-                                <string>{ 140.75000,-121.00000 }</string>
-                                <string>{ -141.25000,-121.50000 }</string>
-                            </array>
-                        </array>
-                        
-                    </dict>
-
-                </array>
-            </dict>
-
-            <key>shop_step</key>
-            <dict>
-                <key>anchorpoint</key>
-                <string>{ 0.50100,0.50000 }</string>
-                <key>is_dynamic</key>
-                <false />
-                <key>affected_by_gravity</key>
-                <false />
-                <key>allows_rotation</key>
-                <false />
-                <key>linear_damping</key>
-                <real>0</real>
-                <key>velocity_limit</key>
-                <real>1000000</real>
-                <key>angular_damping</key>
-                <real>0</real>
-                <key>angular_velocity_limit</key>
-                <real>1000000</real>
-                <key>fixtures</key>
-                <array>
-
-                    <dict>
-                        <key>density</key>
-                        <real>1</real>
-                        <key>restitution</key>
-                        <real>0.200000003</real>
-                        <key>friction</key>
-                        <real>0.699999988</real>
-                        <key>tag</key>
-                        <integer>0</integer>
-                        <key>group</key>
-                        <integer>0</integer>
-                        <key>category_mask</key>
-                        <integer>1</integer>
-                        <key>collision_mask</key>
-                        <integer>2</integer>
-                        <key>contact_test_mask</key>
-                        <integer>2</integer>
-                        <key>fixture_type</key>
-                        <string>POLYGON</string>
-                        
-                        <key>polygons</key>
-                        <array>
-                            <array>
-                                <string>{ -102.75000,32.50000 }</string>
-                                <string>{ 94.25000,32.50000 }</string>
-                                <string>{ 93.75000,14.00000 }</string>
-                                <string>{ -102.75000,12.50000 }</string>
-                            </array>
-                        </array>
-                        
-                    </dict>
-
-                </array>
-            </dict>
-
-            <key>shop_surface</key>
-            <dict>
-                <key>anchorpoint</key>
-                <string>{ 0.50000,0.50000 }</string>
-                <key>is_dynamic</key>
-                <false />
-                <key>affected_by_gravity</key>
-                <false />
-                <key>allows_rotation</key>
-                <false />
-                <key>linear_damping</key>
-                <real>0</real>
-                <key>velocity_limit</key>
-                <real>1000000</real>
-                <key>angular_damping</key>
-                <real>0</real>
-                <key>angular_velocity_limit</key>
-                <real>1000000</real>
-                <key>fixtures</key>
-                <array>
-
-                    <dict>
-                        <key>density</key>
-                        <real>1</real>
-                        <key>restitution</key>
-                        <real>0.200000003</real>
-                        <key>friction</key>
-                        <real>0.699999988</real>
-                        <key>tag</key>
-                        <integer>0</integer>
-                        <key>group</key>
-                        <integer>0</integer>
-                        <key>category_mask</key>
-                        <integer>1</integer>
-                        <key>collision_mask</key>
-                        <integer>2</integer>
-                        <key>contact_test_mask</key>
-                        <integer>2</integer>
-                        <key>fixture_type</key>
-                        <string>POLYGON</string>
-                        
-                        <key>polygons</key>
-                        <array>
-                            <array>
-                                <string>{ -102.25000,-7.75000 }</string>
-                                <string>{ -102.75000,7.75000 }</string>
-                                <string>{ 102.25000,8.25000 }</string>
-                                <string>{ 102.25000,-7.75000 }</string>
-                            </array>
-                        </array>
-                        
-                    </dict>
-
-                </array>
-            </dict>
-
-            <key>shop_floor</key>
-            <dict>
-                <key>anchorpoint</key>
-                <string>{ 0.50000,0.50000 }</string>
-                <key>is_dynamic</key>
-                <false />
-                <key>affected_by_gravity</key>
-                <false />
-                <key>allows_rotation</key>
-                <false />
-                <key>linear_damping</key>
-                <real>0</real>
-                <key>velocity_limit</key>
-                <real>1000000</real>
-                <key>angular_damping</key>
-                <real>0</real>
-                <key>angular_velocity_limit</key>
-                <real>1000000</real>
-                <key>fixtures</key>
-                <array>
-
-                    <dict>
-                        <key>density</key>
-                        <real>1</real>
-                        <key>restitution</key>
-                        <real>0.20000000000000001</real>
-                        <key>friction</key>
-                        <real>0.69999999999999996</real>
-                        <key>tag</key>
-                        <integer>0</integer>
-                        <key>group</key>
-                        <integer>0</integer>
-                        <key>category_mask</key>
-                        <integer>3</integer>
-                        <key>collision_mask</key>
-                        <integer>2</integer>
-                        <key>contact_test_mask</key>
-                        <integer>1</integer>
-                        <key>fixture_type</key>
-                        <string>POLYGON</string>
-                        
-                        <key>polygons</key>
-                        <array>
-                            <array>
-                                <string>{ -136.75000,23.75000 }</string>
-                                <string>{ 138.75000,24.25000 }</string>
-                                <string>{ 138.25000,-54.75000 }</string>
-                                <string>{ -136.25000,-55.25000 }</string>
-                            </array>
-                        </array>
-                        
-                    </dict>
-
-                </array>
-            </dict>
-
-            <key>shop_pc</key>
-            <dict>
-                <key>anchorpoint</key>
-                <string>{ 0.49900,0.50000 }</string>
-                <key>is_dynamic</key>
-                <false />
-                <key>affected_by_gravity</key>
-                <false />
-                <key>allows_rotation</key>
-                <false />
-                <key>linear_damping</key>
-                <real>0</real>
-                <key>velocity_limit</key>
-                <real>1000000</real>
-                <key>angular_damping</key>
-                <real>0</real>
-                <key>angular_velocity_limit</key>
-                <real>1000000</real>
-                <key>fixtures</key>
-                <array>
-
-                    <dict>
-                        <key>density</key>
-                        <real>1</real>
-                        <key>restitution</key>
-                        <real>0.200000003</real>
-                        <key>friction</key>
-                        <real>0.699999988</real>
-                        <key>tag</key>
-                        <integer>0</integer>
-                        <key>group</key>
-                        <integer>0</integer>
-                        <key>category_mask</key>
-                        <integer>0</integer>
-                        <key>collision_mask</key>
-                        <integer>0</integer>
-                        <key>contact_test_mask</key>
-                        <integer>0</integer>
-                        <key>fixture_type</key>
-                        <string>POLYGON</string>
-                        
-                        <key>polygons</key>
-                        <array>
-                            <array>
-                                <string>{ -45.75000,28.00000 }</string>
-                                <string>{ -45.75000,8.00000 }</string>
-                                <string>{ -122.25000,8.00000 }</string>
-                                <string>{ -122.25000,28.00000 }</string>
-                            </array>
-                        </array>
-                        
-                    </dict>
-
-                    <dict>
-                        <key>density</key>
-                        <real>1</real>
-                        <key>restitution</key>
-                        <real>0.200000003</real>
-                        <key>friction</key>
-                        <real>0.699999988</real>
-                        <key>tag</key>
-                        <integer>0</integer>
-                        <key>group</key>
-                        <integer>0</integer>
-                        <key>category_mask</key>
-                        <integer>1</integer>
-                        <key>collision_mask</key>
-                        <integer>2</integer>
-                        <key>contact_test_mask</key>
-                        <integer>2</integer>
-                        <key>fixture_type</key>
-                        <string>POLYGON</string>
-                        
-                        <key>polygons</key>
-                        <array>
-                            <array>
-                                <string>{ 122.25000,27.50000 }</string>
-                                <string>{ 122.25000,7.50000 }</string>
-                                <string>{ 52.75000,7.50000 }</string>
-                                <string>{ 52.75000,27.50000 }</string>
-                            </array>
-                        </array>
-                        
-                    </dict>
-
-                    <dict>
-                        <key>density</key>
-                        <real>1</real>
-                        <key>restitution</key>
-                        <real>0.200000003</real>
-                        <key>friction</key>
-                        <real>0.699999988</real>
-                        <key>tag</key>
-                        <integer>0</integer>
-                        <key>group</key>
-                        <integer>0</integer>
-                        <key>category_mask</key>
-                        <integer>1</integer>
-                        <key>collision_mask</key>
-                        <integer>2</integer>
-                        <key>contact_test_mask</key>
-                        <integer>2</integer>
-                        <key>fixture_type</key>
-                        <string>POLYGON</string>
-                        
-                        <key>polygons</key>
-                        <array>
-                            <array>
-                                <string>{ 43.75000,112.00000 }</string>
-                                <string>{ -36.75000,112.00000 }</string>
-                                <string>{ -36.75000,132.00000 }</string>
-                                <string>{ 43.75000,132.50000 }</string>
-                            </array>
-                        </array>
-                        
-                    </dict>
-
-                </array>
-            </dict>
-
+            <integer>3</integer>
+            <key>pixelFormat</key>
+            <string>RGBA4444</string>
+            <key>premultiplyAlpha</key>
+            <false/>
+            <key>realTextureFileName</key>
+            <string>camp_clothshop.png</string>
+            <key>size</key>
+            <string>{2997,512}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:86f0d6b6ec99380352412ec7772e2db1:7f4f2490e0bced76372de15f5dd59855:40d228f1f5be8ce4d2f1bca71f2189e0$</string>
+            <key>textureFileName</key>
+            <string>camp_clothshop.png</string>
         </dict>
     </dict>
 </plist>
