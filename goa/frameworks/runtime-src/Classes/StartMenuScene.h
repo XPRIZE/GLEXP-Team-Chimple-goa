@@ -74,6 +74,7 @@ static const std::string DOTS = "Dots";
 static const std::string CONNECT_THE_DOTS = "ConnectTheDots";
 static const std::string BOUNCE = "Bounce";
 static const std::string MAZE = "Maze";
+static const std::string MAP = "map";
 
 class StartMenu {
 public:
