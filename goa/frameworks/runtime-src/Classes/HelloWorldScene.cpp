@@ -178,11 +178,7 @@ void HelloWorld::showBagpackOpenAnimation(std::unordered_map<int, std::string> t
     
         CCLOG("show bag pack for %s", this->getIsland().c_str());
         std::string backPackFile = "";
-        if(this->getIsland().compare("miningbg") == 0) {
-            backPackFile = "mining_bagpack/mining_bagpack.csb";
-        } else {
-            backPackFile = this->getIsland()+"_bagpack" + "/" + this->getIsland() + "_bagpack.csb";
-        }
+        backPackFile = this->getIsland()+"_bagpack" + "/" + this->getIsland() + "_bagpack.csb";
     
         if(FileUtils::getInstance()->isFileExist(backPackFile)) {
             Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -682,11 +678,7 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName, b
     
     CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile("template/template_02/template_02.plist");
     
-    if(this->getIsland().compare("miningbg") == 0) {
-        CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile("mining_bagpack/mining_bagpack.plist");
-    } else {
-        CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile(this->getIsland()+"_bagpack" + "/" + this->getIsland() + "_bagpack.plist");
-    }
+    CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile(this->getIsland()+"_bagpack" + "/" + this->getIsland() + "_bagpack.plist");
     
     
     return true;
@@ -916,16 +908,13 @@ void HelloWorld::processUseInBackPackMessages(std::vector<MessageContent*>showMe
 //            cache->addSpriteFramesWithFile("res/HD/camp_bagpack/camp_bagpack.plist");
 //            auto sprite = Sprite::createWithSpriteFrameName("camp_bagpack/latern.png");
             
-            if(content->getPreOutComeAction().compare("lantern") == 0) {
-                imageFile = this->getIsland()+"_bagpack" + "/latern.png";
-            } else {
-                if(this->getIsland().compare("miningbg") == 0) {
-                    imageFile = "mining_bagpack/" + content->getPreOutComeAction() + ".png";
-                } else {
-                    imageFile = this->getIsland()+"_bagpack" + "/" + content->getPreOutComeAction() + ".png";
-                }
-            }
+//            if(content->getPreOutComeAction().compare("lantern") == 0) {
+//                imageFile = this->getIsland()+"_bagpack" + "/latern.png";
+//            }
+            imageFile = this->getIsland()+"_bagpack" + "/" + content->getPreOutComeAction() + ".png";
         }
+        
+        
         
         
         if(!imageFile.empty()) {
