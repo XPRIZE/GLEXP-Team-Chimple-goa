@@ -157,7 +157,7 @@
         {
       "levels": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26 ],
       "help": "Write the alphabet shown before the bomb blasts.",
-      "video": "blastletter_1.webm",
+      "video": "defuse_the_bomb_1.webm",
         "writing": [
         {
            "level":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26],
@@ -168,7 +168,7 @@
     {
       "levels": [ 27,28,29,30,31,32,33,34,35,36 ],
       "help": "Write the number shown before the bomb blasts.",
-      "video": "blastletter_1.webm",
+      "video": "defuse_the_bomb_1.webm",
       "writing": [
         {
            "level":[27,28,29,30,31,32,33,34,35,36],
@@ -179,7 +179,7 @@
     {
       "levels": [37,38,39,40,41,42,43,44,45,46],
       "help": "Write the word shown before the bomb blasts.",
-      "video": "blastletter_1.webm",
+      "video": "defuse_the_bomb_1.webm",
       "writing": [
         {
            "level":[37,38,39,40,41,42,43,44,45,46],
@@ -190,7 +190,7 @@
     {
       "levels": [47,48,49,50,51,52,53,54,55,56],
       "help": "Write the plural of the word shown before the bomb blasts.",
-      "video": "blastletter_1.webm",
+      "video": "defuse_the_bomb_1.webm",
       "writing": [
         {
            "level":[47,48,49,50,51,52,53,54,55,56],
@@ -201,7 +201,7 @@
     {
       "levels": [57,58,59,60,61,62,63,64,65,66],
       "help": "Write the opposite of the word shown before the bomb blasts.",
-      "video": "blastletter_1.webm",
+      "video": "defuse_the_bomb_1.webm",
       "writing": [
         {
            "level":[57,58,59,60,61,62,63,64,65,66],
@@ -212,7 +212,7 @@
     {
       "levels": [67,68,69,70,71,72,73,74,75,76],
       "help": "Write the word with the same meaning of the word shown before the bomb blasts.",
-      "video": "blastletter_1.webm",
+      "video": "defuse_the_bomb_1.webm",
       "writing": [
         {
            "level":[67,68,69,70,71,72,73,74,75,76],
@@ -223,7 +223,7 @@
     {
       "levels": [77,78,79,80,81,82,83,84,85,86],
       "help": "Write the word with the same pronunciation of the word shown before the bomb blasts.",
-      "video": "blastletter_1.webm",
+      "video": "defuse_the_bomb_1.webm",
       "writing": [
         {
            "level":[77,78,79,80,81,82,83,84,85,86],
@@ -297,7 +297,7 @@
         1
       ],
       "help": "Catch the correct alphabet shown above by jumping. Do not catch the wrong alphabet.",
-      "video": "EndlessRunner_1.webm"
+      "video": "endlessrunner_1.webm"
     }
   ],
   "baja": [
@@ -312,10 +312,17 @@
   "bubble": [
     {
       "levels": [
-        1
+        1,2,3,4,5,6,7,8,9,15
       ],
-      "help": "Shoot the bubble and match the correct letter or number.",
-      "video": "bubble_1.webm"
+      "help": "Shoot the bubble and match the correct letter.",
+      "video": "bubbleshooter_letter_1.webm"
+    },
+    {
+      "levels": [
+        10,11,12,13,14,15
+      ],
+      "help": "Shoot the bubble and match the correct number.",
+      "video": "bubbleshooter_number_1.webm"
     }
   ],
   "shoot": [
