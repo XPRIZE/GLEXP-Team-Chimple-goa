@@ -948,11 +948,11 @@ void BalloonHero::generateObjectsAndMove() {
 
 			auto label = CommonText::create();
 			if (numberPicker == 5 || numberPicker == 1) {
-				label->setString(_set1[nounPicker]);
+				label->setString(LangUtil::getInstance()->translateString(_set1[nounPicker]));
 				_cloud1->setName("balloon");
 			}
 			if (numberPicker == 0) {
-				label->setString(_set2[otherPicker]);
+				label->setString(LangUtil::getInstance()->translateString(_set2[otherPicker]));
 				_cloud1->setName("m");
 				_cloud1->setTag(2);
 			}
@@ -1015,11 +1015,11 @@ void BalloonHero::generateObjectsAndMove() {
 
 			auto label = CommonText::create();
 			if (numberPicker == 5 || numberPicker == 1) {
-				label->setString(_set1[nounPicker]);
+				label->setString(LangUtil::getInstance()->translateString(_set1[nounPicker]));
 				_cloud2->setName("balloon");
 			}
 			if (numberPicker == 0) {
-				label->setString(_set2[otherPicker]);
+				label->setString(LangUtil::getInstance()->translateString(_set2[otherPicker]));
 				_cloud2->setName("m");
 				_cloud2->setTag(2);
 			}
@@ -1082,11 +1082,11 @@ void BalloonHero::generateObjectsAndMove() {
 
             auto label = CommonText::create();
 			if (numberPicker == 5 || numberPicker == 1) {
-				label->setString(_set1[nounPicker]);
+				label->setString(LangUtil::getInstance()->translateString(_set1[nounPicker]));
 				_cloud3->setName("balloon");
 			}
 			if (numberPicker == 0) {
-				label->setString(_set2[otherPicker]);
+				label->setString(LangUtil::getInstance()->translateString(_set2[otherPicker]));
 				_cloud3->setName("m");
 				_cloud3->setTag(2);
 			}
@@ -1152,11 +1152,11 @@ void BalloonHero::generateObjectsAndMove() {
 
 			auto label = CommonText::create();
 			if (numberPicker == 5 || numberPicker == 1) {
-				label->setString(_set1[nounPicker]);
+				label->setString(LangUtil::getInstance()->translateString(_set1[nounPicker]));
 				_cloud4->setName("balloon");
 			}
 			if (numberPicker == 0) {
-				label->setString(_set2[otherPicker]);
+				label->setString(LangUtil::getInstance()->translateString(_set2[otherPicker]));
 				_cloud4->setName("m");
 				_cloud1->setTag(2);
 			}
