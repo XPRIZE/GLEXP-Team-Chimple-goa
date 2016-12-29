@@ -37,6 +37,7 @@ protected:
     std::string _gameToUnlock;
     std::vector<std::string> _badges;
 private:
+    std::map<std::string, int> _gameNumberOfLevels;
     void createScoreBoard();
     void processChildNodes(cocos2d::Node *rootNode);
     void buttonClicked(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);

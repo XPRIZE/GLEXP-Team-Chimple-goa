@@ -1,0 +1,4356 @@
+{
+  "ID": "3b4124af-eb9c-426e-bc1b-9099677ec3ba",
+  "Version": "3.10.0.0",
+  "Name": "bank_mainground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 31,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 142,
+              "G": 188,
+              "B": 175
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1.1037,
+              "Y": 260.2765
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0004,
+              "Y": 0.1446
+            },
+            "PreSize": {
+              "X": 3.0,
+              "Y": 0.8556
+            },
+            "LeftMargin": 1.1037,
+            "RightMargin": -5121.1035,
+            "TopMargin": -0.2765,
+            "BottomMargin": 260.2765,
+            "Tag": 34,
+            "ActionTag": 1824822771,
+            "Size": {
+              "X": 7680.0,
+              "Y": 1540.0
+            },
+            "Name": "wall",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/floor.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 321.4682,
+              "Y": 130.6762
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1256,
+              "Y": 0.0726
+            },
+            "PreSize": {
+              "X": 0.2512,
+              "Y": 0.145
+            },
+            "LeftMargin": -0.0318,
+            "RightMargin": 1917.0317,
+            "TopMargin": 1538.8237,
+            "BottomMargin": 0.1762,
+            "Tag": 35,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/floor.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 955.2872,
+                  "Y": 130.6768
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.4857,
+                  "Y": 0.5007
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 633.7872,
+                "RightMargin": -633.7871,
+                "TopMargin": -0.1768,
+                "BottomMargin": 0.1768,
+                "Tag": 36,
+                "ActionTag": 1454459154,
+                "Size": {
+                  "X": 643.0,
+                  "Y": 261.0
+                },
+                "Name": "floor_2",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/floor.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1595.7812,
+                  "Y": 130.6764
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 2.4818,
+                  "Y": 0.5007
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1274.2812,
+                "RightMargin": -1274.2812,
+                "TopMargin": -0.1764,
+                "BottomMargin": 0.1764,
+                "Tag": 37,
+                "ActionTag": -340307173,
+                "Size": {
+                  "X": 643.0,
+                  "Y": 261.0
+                },
+                "Name": "floor_3",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/floor.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2236.1982,
+                  "Y": 130.6765
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 3.4778,
+                  "Y": 0.5007
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1914.6982,
+                "RightMargin": -1914.6982,
+                "TopMargin": -0.1765,
+                "BottomMargin": 0.1765,
+                "Tag": 38,
+                "ActionTag": 1600135278,
+                "Size": {
+                  "X": 643.0,
+                  "Y": 261.0
+                },
+                "Name": "floor_4",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/floor.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2877.0605,
+                  "Y": 130.6763
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 4.4744,
+                  "Y": 0.5007
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2555.5605,
+                "RightMargin": -2555.5605,
+                "TopMargin": -0.1763,
+                "BottomMargin": 0.1763,
+                "Tag": 39,
+                "ActionTag": -1082608065,
+                "Size": {
+                  "X": 643.0,
+                  "Y": 261.0
+                },
+                "Name": "floor_5",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/floor.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 3516.7124,
+                  "Y": 130.4997
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 5.4692,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 3195.2124,
+                "RightMargin": -3195.2124,
+                "TopMargin": 0.0003,
+                "BottomMargin": -0.0003,
+                "Tag": 40,
+                "ActionTag": 1614180404,
+                "Size": {
+                  "X": 643.0,
+                  "Y": 261.0
+                },
+                "Name": "floor_2_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/floor.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 4157.1973,
+                  "Y": 130.4989
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 6.4653,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 3835.6973,
+                "RightMargin": -3835.6973,
+                "TopMargin": 0.0011,
+                "BottomMargin": -0.0011,
+                "Tag": 41,
+                "ActionTag": -1989384256,
+                "Size": {
+                  "X": 643.0,
+                  "Y": 261.0
+                },
+                "Name": "floor_3_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/floor.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 4797.6133,
+                  "Y": 130.4989
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 7.4613,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 4476.1133,
+                "RightMargin": -4476.1133,
+                "TopMargin": 0.0011,
+                "BottomMargin": -0.0011,
+                "Tag": 42,
+                "ActionTag": 1412746582,
+                "Size": {
+                  "X": 643.0,
+                  "Y": 261.0
+                },
+                "Name": "floor_4_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/floor.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 5437.4556,
+                  "Y": 130.4989
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 8.4564,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 5115.9556,
+                "RightMargin": -5115.9556,
+                "TopMargin": 0.0011,
+                "BottomMargin": -0.0011,
+                "Tag": 43,
+                "ActionTag": 496729141,
+                "Size": {
+                  "X": 643.0,
+                  "Y": 261.0
+                },
+                "Name": "floor_5_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/floor.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 6078.1689,
+                  "Y": 130.5018
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 9.4528,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 5756.6689,
+                "RightMargin": -5756.6689,
+                "TopMargin": -0.0018,
+                "BottomMargin": 0.0018,
+                "Tag": 44,
+                "ActionTag": 1460506048,
+                "Size": {
+                  "X": 643.0,
+                  "Y": 261.0
+                },
+                "Name": "floor_2_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/floor.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 6719.647,
+                  "Y": 130.501
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 10.4505,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 6398.147,
+                "RightMargin": -6398.147,
+                "TopMargin": -0.001,
+                "BottomMargin": 0.001,
+                "Tag": 45,
+                "ActionTag": -54389301,
+                "Size": {
+                  "X": 643.0,
+                  "Y": 261.0
+                },
+                "Name": "floor_3_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/floor.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 7360.0615,
+                  "Y": 130.501
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 11.4464,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 7038.5615,
+                "RightMargin": -7038.5615,
+                "TopMargin": -0.001,
+                "BottomMargin": 0.001,
+                "Tag": 46,
+                "ActionTag": 1523772036,
+                "Size": {
+                  "X": 643.0,
+                  "Y": 261.0
+                },
+                "Name": "floor_4_0_0",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": 802384336,
+            "Size": {
+              "X": 643.0,
+              "Y": 261.0
+            },
+            "Name": "floor_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/floor-up.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 321.5367,
+              "Y": 1037.3545
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1256,
+              "Y": 0.5763
+            },
+            "PreSize": {
+              "X": 0.2504,
+              "Y": 0.0272
+            },
+            "LeftMargin": 1.0367,
+            "RightMargin": 1917.9633,
+            "TopMargin": 738.1455,
+            "BottomMargin": 1012.8545,
+            "Tag": 48,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/floor-up.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 959.8697,
+                  "Y": 24.4873
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.4975,
+                  "Y": 0.4997
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 639.3697,
+                "RightMargin": -639.3696,
+                "TopMargin": 0.0127,
+                "BottomMargin": -0.0127,
+                "Tag": 49,
+                "ActionTag": -843217772,
+                "Size": {
+                  "X": 641.0,
+                  "Y": 49.0
+                },
+                "Name": "floor-up_15",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/floor-up.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1599.2172,
+                  "Y": 24.4911
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 2.4949,
+                  "Y": 0.4998
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1278.7172,
+                "RightMargin": -1278.7172,
+                "TopMargin": 0.0089,
+                "BottomMargin": -0.0089,
+                "Tag": 50,
+                "ActionTag": 1694273149,
+                "Size": {
+                  "X": 641.0,
+                  "Y": 49.0
+                },
+                "Name": "floor-up_16",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/floor-up.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2238.5762,
+                  "Y": 24.4926
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 3.4923,
+                  "Y": 0.4998
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1918.0762,
+                "RightMargin": -1918.0762,
+                "TopMargin": 0.0074,
+                "BottomMargin": -0.0074,
+                "Tag": 51,
+                "ActionTag": 1898364324,
+                "Size": {
+                  "X": 641.0,
+                  "Y": 49.0
+                },
+                "Name": "floor-up_17",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/floor-up.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2878.2358,
+                  "Y": 24.4979
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 4.4902,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2557.7358,
+                "RightMargin": -2557.7358,
+                "TopMargin": 0.0021,
+                "BottomMargin": -0.0021,
+                "Tag": 52,
+                "ActionTag": 926460676,
+                "Size": {
+                  "X": 641.0,
+                  "Y": 49.0
+                },
+                "Name": "floor-up_15_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/floor-up.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 3517.5703,
+                  "Y": 24.5018
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 5.4876,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 3197.0703,
+                "RightMargin": -3197.0703,
+                "TopMargin": -0.0018,
+                "BottomMargin": 0.0018,
+                "Tag": 53,
+                "ActionTag": 195466220,
+                "Size": {
+                  "X": 641.0,
+                  "Y": 49.0
+                },
+                "Name": "floor-up_16_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/floor-up.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 4156.9136,
+                  "Y": 24.5029
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 6.485,
+                  "Y": 0.5001
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 3836.4136,
+                "RightMargin": -3836.4136,
+                "TopMargin": -0.0029,
+                "BottomMargin": 0.0029,
+                "Tag": 54,
+                "ActionTag": -709388532,
+                "Size": {
+                  "X": 641.0,
+                  "Y": 49.0
+                },
+                "Name": "floor-up_17_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/floor-up.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 4796.0605,
+                  "Y": 24.4985
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 7.4822,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 4475.5605,
+                "RightMargin": -4475.5605,
+                "TopMargin": 0.0015,
+                "BottomMargin": -0.0015,
+                "Tag": 59,
+                "ActionTag": 1975093011,
+                "Size": {
+                  "X": 641.0,
+                  "Y": 49.0
+                },
+                "Name": "floor-up_15_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/floor-up.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 5435.4004,
+                  "Y": 24.5022
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 8.4796,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 5114.9004,
+                "RightMargin": -5114.9004,
+                "TopMargin": -0.0022,
+                "BottomMargin": 0.0022,
+                "Tag": 60,
+                "ActionTag": -1905079067,
+                "Size": {
+                  "X": 641.0,
+                  "Y": 49.0
+                },
+                "Name": "floor-up_16_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/floor-up.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 6074.7559,
+                  "Y": 24.504
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 9.477,
+                  "Y": 0.5001
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 5754.2559,
+                "RightMargin": -5754.2559,
+                "TopMargin": -0.004,
+                "BottomMargin": 0.004,
+                "Tag": 61,
+                "ActionTag": 1452362420,
+                "Size": {
+                  "X": 641.0,
+                  "Y": 49.0
+                },
+                "Name": "floor-up_17_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/floor-up.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 6716.4004,
+                  "Y": 24.5089
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 10.478,
+                  "Y": 0.5002
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 6395.9004,
+                "RightMargin": -6395.9004,
+                "TopMargin": -0.0089,
+                "BottomMargin": 0.0089,
+                "Tag": 62,
+                "ActionTag": -1884590101,
+                "Size": {
+                  "X": 641.0,
+                  "Y": 49.0
+                },
+                "Name": "floor-up_15_0_0",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": 1070598303,
+            "Size": {
+              "X": 641.0,
+              "Y": 49.0
+            },
+            "Name": "floor-up_14",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/wall-tile.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 252.5154,
+              "Y": 433.7816
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0986,
+              "Y": 0.241
+            },
+            "PreSize": {
+              "X": 0.1957,
+              "Y": 0.1928
+            },
+            "LeftMargin": 2.0154,
+            "RightMargin": 2056.9846,
+            "TopMargin": 1192.7184,
+            "BottomMargin": 260.2816,
+            "Tag": 69,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 749.3168,
+                  "Y": 173.5011
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.4956,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 498.8168,
+                "RightMargin": -498.8168,
+                "TopMargin": -0.0011,
+                "BottomMargin": 0.0011,
+                "Tag": 71,
+                "ActionTag": -128269186,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1248.9801,
+                  "Y": 173.4999
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 2.493,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 998.4801,
+                "RightMargin": -998.4801,
+                "TopMargin": 0.0001,
+                "BottomMargin": -0.0001,
+                "Tag": 72,
+                "ActionTag": -379135459,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1748.5879,
+                  "Y": 173.5006
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 3.4902,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1498.0879,
+                "RightMargin": -1498.0879,
+                "TopMargin": -0.0006,
+                "BottomMargin": 0.0006,
+                "Tag": 73,
+                "ActionTag": -1611432506,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2248.2402,
+                  "Y": 173.4994
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 4.4875,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1997.7402,
+                "RightMargin": -1997.7402,
+                "TopMargin": 0.0006,
+                "BottomMargin": -0.0006,
+                "Tag": 74,
+                "ActionTag": -1806384300,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2745.7424,
+                  "Y": 173.5021
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 5.4805,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2495.2424,
+                "RightMargin": -2495.2424,
+                "TopMargin": -0.0021,
+                "BottomMargin": 0.0021,
+                "Tag": 75,
+                "ActionTag": -1044652988,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_2",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 3245.4041,
+                  "Y": 173.501
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 6.4779,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2994.9041,
+                "RightMargin": -2994.9041,
+                "TopMargin": -0.001,
+                "BottomMargin": 0.001,
+                "Tag": 76,
+                "ActionTag": 667842032,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_0_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 3745.0115,
+                  "Y": 173.501
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 7.4751,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 3494.5115,
+                "RightMargin": -3494.5115,
+                "TopMargin": -0.001,
+                "BottomMargin": 0.001,
+                "Tag": 77,
+                "ActionTag": -306722374,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_1_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 4244.6699,
+                  "Y": 173.501
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 8.4724,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 3994.1699,
+                "RightMargin": -3994.1699,
+                "TopMargin": -0.001,
+                "BottomMargin": 0.001,
+                "Tag": 78,
+                "ActionTag": 1859201057,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_0_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 4744.2798,
+                  "Y": 173.5016
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 9.4696,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 4493.7798,
+                "RightMargin": -4493.7798,
+                "TopMargin": -0.0016,
+                "BottomMargin": 0.0016,
+                "Tag": 79,
+                "ActionTag": -580605759,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_3",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 5243.9492,
+                  "Y": 173.4998
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 10.467,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 4993.4492,
+                "RightMargin": -4993.4492,
+                "TopMargin": 0.0002,
+                "BottomMargin": -0.0002,
+                "Tag": 80,
+                "ActionTag": -1008714482,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_0_2",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 5743.562,
+                  "Y": 173.5008
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 11.4642,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 5493.062,
+                "RightMargin": -5493.062,
+                "TopMargin": -0.0008,
+                "BottomMargin": 0.0008,
+                "Tag": 81,
+                "ActionTag": -394085988,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_1_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 6243.2075,
+                  "Y": 173.499
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 12.4615,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 5992.7075,
+                "RightMargin": -5992.7075,
+                "TopMargin": 0.001,
+                "BottomMargin": -0.001,
+                "Tag": 82,
+                "ActionTag": -1018005883,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_0_0_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 6740.7178,
+                  "Y": 173.5019
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 13.4545,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 6490.2178,
+                "RightMargin": -6490.2178,
+                "TopMargin": -0.0019,
+                "BottomMargin": 0.0019,
+                "Tag": 83,
+                "ActionTag": -242543922,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_2_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 7240.3794,
+                  "Y": 173.5008
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 14.4519,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 6989.8794,
+                "RightMargin": -6989.8794,
+                "TopMargin": -0.0008,
+                "BottomMargin": 0.0008,
+                "Tag": 84,
+                "ActionTag": 1428746776,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_0_1_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 7583.9814,
+                  "Y": 173.4987
+                },
+                "Scale": {
+                  "ScaleX": 0.3759,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 15.1377,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 7333.4814,
+                "RightMargin": -7333.4814,
+                "TopMargin": 0.0013,
+                "BottomMargin": -0.0013,
+                "Tag": 87,
+                "ActionTag": -425058661,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_0_1_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 749.627,
+                  "Y": 543.3948
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.4963,
+                  "Y": 1.566
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 499.127,
+                "RightMargin": -499.127,
+                "TopMargin": -369.8948,
+                "BottomMargin": 369.8948,
+                "Tag": 88,
+                "ActionTag": 1453066977,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_4",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1249.2866,
+                  "Y": 543.3937
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 2.4936,
+                  "Y": 1.566
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 998.7866,
+                "RightMargin": -998.7866,
+                "TopMargin": -369.8937,
+                "BottomMargin": 369.8937,
+                "Tag": 89,
+                "ActionTag": 934942743,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_0_3",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1748.8931,
+                  "Y": 543.3944
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 3.4908,
+                  "Y": 1.566
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1498.3931,
+                "RightMargin": -1498.3931,
+                "TopMargin": -369.8944,
+                "BottomMargin": 369.8944,
+                "Tag": 90,
+                "ActionTag": 589881801,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_1_2",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2248.5405,
+                  "Y": 543.3932
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 4.4881,
+                  "Y": 1.566
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1998.0405,
+                "RightMargin": -1998.0405,
+                "TopMargin": -369.8932,
+                "BottomMargin": 369.8932,
+                "Tag": 91,
+                "ActionTag": -1665828676,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_0_0_2",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2746.0303,
+                  "Y": 543.3965
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 5.4811,
+                  "Y": 1.566
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2495.5303,
+                "RightMargin": -2495.5303,
+                "TopMargin": -369.8965,
+                "BottomMargin": 369.8965,
+                "Tag": 92,
+                "ActionTag": 316573677,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_2_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 3245.7031,
+                  "Y": 543.3948
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 6.4784,
+                  "Y": 1.566
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2995.2031,
+                "RightMargin": -2995.2031,
+                "TopMargin": -369.8948,
+                "BottomMargin": 369.8948,
+                "Tag": 93,
+                "ActionTag": -1248816299,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_0_1_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 3745.2849,
+                  "Y": 543.3948
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 7.4756,
+                  "Y": 1.566
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 3494.7849,
+                "RightMargin": -3494.7849,
+                "TopMargin": -369.8948,
+                "BottomMargin": 369.8948,
+                "Tag": 94,
+                "ActionTag": -2102957440,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_1_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 4244.9336,
+                  "Y": 543.3948
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 8.4729,
+                  "Y": 1.566
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 3994.4336,
+                "RightMargin": -3994.4336,
+                "TopMargin": -369.8948,
+                "BottomMargin": 369.8948,
+                "Tag": 95,
+                "ActionTag": 830097725,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_0_0_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 4744.5703,
+                  "Y": 543.395
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 9.4702,
+                  "Y": 1.566
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 4494.0703,
+                "RightMargin": -4494.0703,
+                "TopMargin": -369.895,
+                "BottomMargin": 369.895,
+                "Tag": 96,
+                "ActionTag": -3199049,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_3_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 5244.2632,
+                  "Y": 543.3937
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 10.4676,
+                  "Y": 1.566
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 4993.7632,
+                "RightMargin": -4993.7632,
+                "TopMargin": -369.8937,
+                "BottomMargin": 369.8937,
+                "Tag": 97,
+                "ActionTag": -230169608,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_0_2_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 5743.8892,
+                  "Y": 543.3948
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 11.4648,
+                  "Y": 1.566
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 5493.3892,
+                "RightMargin": -5493.3892,
+                "TopMargin": -369.8948,
+                "BottomMargin": 369.8948,
+                "Tag": 98,
+                "ActionTag": 362154321,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_1_1_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 6243.5254,
+                  "Y": 543.3932
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 12.4621,
+                  "Y": 1.566
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 5993.0254,
+                "RightMargin": -5993.0254,
+                "TopMargin": -369.8932,
+                "BottomMargin": 369.8932,
+                "Tag": 99,
+                "ActionTag": 2028724351,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_0_0_1_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 6741.042,
+                  "Y": 543.395
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 13.4552,
+                  "Y": 1.566
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 6490.542,
+                "RightMargin": -6490.542,
+                "TopMargin": -369.895,
+                "BottomMargin": 369.895,
+                "Tag": 100,
+                "ActionTag": 1525731284,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_2_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 7240.7085,
+                  "Y": 543.3948
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 14.4525,
+                  "Y": 1.566
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 6990.2085,
+                "RightMargin": -6990.2085,
+                "TopMargin": -369.8948,
+                "BottomMargin": 369.8948,
+                "Tag": 101,
+                "ActionTag": -640696876,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_0_1_0_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 7584.2725,
+                  "Y": 543.3926
+                },
+                "Scale": {
+                  "ScaleX": 0.3759,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 15.1383,
+                  "Y": 1.566
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 7333.7725,
+                "RightMargin": -7333.7725,
+                "TopMargin": -369.8926,
+                "BottomMargin": 369.8926,
+                "Tag": 102,
+                "ActionTag": 1582154034,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_0_1_0_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bank/bank_mainground/wall-tile.png",
+                  "Plist": "bank/bank_mainground/bank_mainground.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 250.1071,
+                  "Y": 543.7175
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4992,
+                  "Y": 1.5669
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": -0.3929,
+                "RightMargin": 0.3929,
+                "TopMargin": -370.2175,
+                "BottomMargin": 370.2175,
+                "Tag": 103,
+                "ActionTag": 421851719,
+                "Size": {
+                  "X": 501.0,
+                  "Y": 347.0
+                },
+                "Name": "wall-tile_1_5",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": 810227631,
+            "Size": {
+              "X": 501.0,
+              "Y": 347.0
+            },
+            "Name": "wall-tile",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/cashier-counter.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 552.4077,
+              "Y": 478.8825
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2158,
+              "Y": 0.266
+            },
+            "PreSize": {
+              "X": 0.4363,
+              "Y": 0.3056
+            },
+            "LeftMargin": -6.0923,
+            "RightMargin": 1449.0923,
+            "TopMargin": 1046.1174,
+            "BottomMargin": 203.8825,
+            "Tag": 104,
+            "ActionTag": 708600148,
+            "Size": {
+              "X": 1117.0,
+              "Y": 550.0
+            },
+            "Name": "cashier-counter",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/screen.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 173.7486,
+              "Y": 908.3538
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0679,
+              "Y": 0.5046
+            },
+            "PreSize": {
+              "X": 0.1152,
+              "Y": 0.1161
+            },
+            "LeftMargin": 26.2486,
+            "RightMargin": 2238.7515,
+            "TopMargin": 787.1462,
+            "BottomMargin": 803.8538,
+            "Tag": 105,
+            "ActionTag": 750891188,
+            "Size": {
+              "X": 295.0,
+              "Y": 209.0
+            },
+            "Name": "screen_71",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/screen.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 545.7515,
+              "Y": 908.3548
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2132,
+              "Y": 0.5046
+            },
+            "PreSize": {
+              "X": 0.1152,
+              "Y": 0.1161
+            },
+            "LeftMargin": 398.2515,
+            "RightMargin": 1866.7485,
+            "TopMargin": 787.1452,
+            "BottomMargin": 803.8548,
+            "Tag": 106,
+            "ActionTag": -1290582358,
+            "Size": {
+              "X": 295.0,
+              "Y": 209.0
+            },
+            "Name": "screen_72",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/screen.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 904.9033,
+              "Y": 908.355
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3535,
+              "Y": 0.5046
+            },
+            "PreSize": {
+              "X": 0.1152,
+              "Y": 0.1161
+            },
+            "LeftMargin": 757.4033,
+            "RightMargin": 1507.5967,
+            "TopMargin": 787.145,
+            "BottomMargin": 803.855,
+            "Tag": 107,
+            "ActionTag": -1658662125,
+            "Size": {
+              "X": 295.0,
+              "Y": 209.0
+            },
+            "Name": "screen_73",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/lamp.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1511.8003,
+              "Y": 404.8823
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5905,
+              "Y": 0.2249
+            },
+            "PreSize": {
+              "X": 0.0809,
+              "Y": 0.2233
+            },
+            "LeftMargin": 1408.3003,
+            "RightMargin": 944.6997,
+            "TopMargin": 1194.1177,
+            "BottomMargin": 203.8823,
+            "Tag": 108,
+            "ActionTag": -1566271663,
+            "Size": {
+              "X": 207.0,
+              "Y": 402.0
+            },
+            "Name": "lamp_74",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/small-table.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1869.6091,
+              "Y": 312.8824
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7303,
+              "Y": 0.1738
+            },
+            "PreSize": {
+              "X": 0.0965,
+              "Y": 0.1211
+            },
+            "LeftMargin": 1746.1091,
+            "RightMargin": 566.8909,
+            "TopMargin": 1378.1177,
+            "BottomMargin": 203.8824,
+            "Tag": 109,
+            "ActionTag": -371726532,
+            "Size": {
+              "X": 247.0,
+              "Y": 218.0
+            },
+            "Name": "small-table",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/phone.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1870.6659,
+              "Y": 452.0987
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7307,
+              "Y": 0.2512
+            },
+            "PreSize": {
+              "X": 0.0531,
+              "Y": 0.0506
+            },
+            "LeftMargin": 1802.6659,
+            "RightMargin": 621.3341,
+            "TopMargin": 1302.4014,
+            "BottomMargin": 406.5987,
+            "UserData": " canInteract=true",
+            "Tag": 110,
+            "ActionTag": -1220783973,
+            "Size": {
+              "X": 136.0,
+              "Y": 91.0
+            },
+            "Name": "phone_76",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/chair.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2487.436,
+              "Y": 504.4883
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9717,
+              "Y": 0.2803
+            },
+            "PreSize": {
+              "X": 0.0863,
+              "Y": 0.1839
+            },
+            "LeftMargin": 2376.936,
+            "RightMargin": -37.936,
+            "TopMargin": 1130.0117,
+            "BottomMargin": 338.9883,
+            "Tag": 115,
+            "ActionTag": -2074106009,
+            "Size": {
+              "X": 221.0,
+              "Y": 331.0
+            },
+            "Name": "chair_81",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/chair.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2859.6372,
+              "Y": 504.4882
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.117,
+              "Y": 0.2803
+            },
+            "PreSize": {
+              "X": 0.0863,
+              "Y": 0.1839
+            },
+            "LeftMargin": 2749.1372,
+            "RightMargin": -410.1372,
+            "TopMargin": 1130.0118,
+            "BottomMargin": 338.9882,
+            "Tag": 116,
+            "ActionTag": 809592152,
+            "Size": {
+              "X": 221.0,
+              "Y": 331.0
+            },
+            "Name": "chair_82",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/counter.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2677.249,
+              "Y": 429.8816
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0458,
+              "Y": 0.2388
+            },
+            "PreSize": {
+              "X": 0.4305,
+              "Y": 0.2511
+            },
+            "LeftMargin": 2126.249,
+            "RightMargin": -668.249,
+            "TopMargin": 1144.1184,
+            "BottomMargin": 203.8816,
+            "Tag": 112,
+            "ActionTag": -2104902858,
+            "Size": {
+              "X": 1102.0,
+              "Y": 452.0
+            },
+            "Name": "counter_78",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/computer.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3077.7405,
+              "Y": 564.4289
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.2022,
+              "Y": 0.3136
+            },
+            "PreSize": {
+              "X": 0.0738,
+              "Y": 0.0778
+            },
+            "LeftMargin": 2983.2405,
+            "RightMargin": -612.2405,
+            "TopMargin": 1165.571,
+            "BottomMargin": 494.4289,
+            "Tag": 113,
+            "ActionTag": 1117135978,
+            "Size": {
+              "X": 189.0,
+              "Y": 140.0
+            },
+            "Name": "computer_79",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/computer.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2241.6123,
+              "Y": 567.652
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8756,
+              "Y": 0.3154
+            },
+            "PreSize": {
+              "X": 0.0738,
+              "Y": 0.0778
+            },
+            "LeftMargin": 2147.1123,
+            "RightMargin": 223.8877,
+            "TopMargin": 1162.348,
+            "BottomMargin": 497.652,
+            "Tag": 114,
+            "ActionTag": -1193755303,
+            "Size": {
+              "X": 189.0,
+              "Y": 140.0
+            },
+            "Name": "computer_80",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/shell.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2684.5696,
+              "Y": 830.2805
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0487,
+              "Y": 0.4613
+            },
+            "PreSize": {
+              "X": 0.1633,
+              "Y": 0.0161
+            },
+            "LeftMargin": 2475.5696,
+            "RightMargin": -333.5696,
+            "TopMargin": 955.2195,
+            "BottomMargin": 815.7805,
+            "Tag": 117,
+            "ActionTag": 1594837854,
+            "Size": {
+              "X": 418.0,
+              "Y": 29.0
+            },
+            "Name": "shell_83",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/shell-item.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2691.9678,
+              "Y": 890.4545
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0515,
+              "Y": 0.4947
+            },
+            "PreSize": {
+              "X": 0.1164,
+              "Y": 0.0594
+            },
+            "LeftMargin": 2542.9678,
+            "RightMargin": -280.9678,
+            "TopMargin": 856.0455,
+            "BottomMargin": 836.9545,
+            "Tag": 118,
+            "ActionTag": -1032079648,
+            "Size": {
+              "X": 298.0,
+              "Y": 107.0
+            },
+            "Name": "shell-item",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/small-table-1.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3453.3635,
+              "Y": 309.8822
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.349,
+              "Y": 0.1722
+            },
+            "PreSize": {
+              "X": 0.0906,
+              "Y": 0.1178
+            },
+            "LeftMargin": 3337.3635,
+            "RightMargin": -1009.3635,
+            "TopMargin": 1384.1178,
+            "BottomMargin": 203.8822,
+            "Tag": 119,
+            "ActionTag": -1877617027,
+            "Size": {
+              "X": 232.0,
+              "Y": 212.0
+            },
+            "Name": "small-table-1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/flower.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3446.1138,
+              "Y": 505.6945
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3461,
+              "Y": 0.2809
+            },
+            "PreSize": {
+              "X": 0.0332,
+              "Y": 0.1133
+            },
+            "LeftMargin": 3403.6138,
+            "RightMargin": -928.6138,
+            "TopMargin": 1192.3055,
+            "BottomMargin": 403.6945,
+            "Tag": 120,
+            "ActionTag": -1100392762,
+            "Size": {
+              "X": 85.0,
+              "Y": 204.0
+            },
+            "Name": "flower_86",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/computer-1.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4748.6602,
+              "Y": 546.4246
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.8549,
+              "Y": 0.3036
+            },
+            "PreSize": {
+              "X": 0.0656,
+              "Y": 0.0694
+            },
+            "LeftMargin": 4664.6602,
+            "RightMargin": -2272.6602,
+            "TopMargin": 1191.0754,
+            "BottomMargin": 483.9246,
+            "Tag": 122,
+            "ActionTag": 1695617569,
+            "Size": {
+              "X": 168.0,
+              "Y": 125.0
+            },
+            "Name": "computer-1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/lamp-small.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4381.0898,
+              "Y": 550.749
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.7114,
+              "Y": 0.306
+            },
+            "PreSize": {
+              "X": 0.0395,
+              "Y": 0.065
+            },
+            "LeftMargin": 4330.5898,
+            "RightMargin": -1871.5898,
+            "TopMargin": 1190.751,
+            "BottomMargin": 492.249,
+            "Tag": 123,
+            "ActionTag": -719529529,
+            "Size": {
+              "X": 101.0,
+              "Y": 117.0
+            },
+            "Name": "lamp-small",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/counter-1.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4560.6274,
+              "Y": 564.8823
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.7815,
+              "Y": 0.3138
+            },
+            "PreSize": {
+              "X": 0.2469,
+              "Y": 0.4011
+            },
+            "LeftMargin": 4244.6274,
+            "RightMargin": -2316.6274,
+            "TopMargin": 874.1177,
+            "BottomMargin": 203.8823,
+            "Tag": 121,
+            "ActionTag": -448140397,
+            "Size": {
+              "X": 632.0,
+              "Y": 722.0
+            },
+            "Name": "counter-1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/sofa.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5451.0488,
+              "Y": 386.8823
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.1293,
+              "Y": 0.2149
+            },
+            "PreSize": {
+              "X": 0.3309,
+              "Y": 0.2033
+            },
+            "LeftMargin": 5027.5488,
+            "RightMargin": -3314.5488,
+            "TopMargin": 1230.1177,
+            "BottomMargin": 203.8823,
+            "Tag": 124,
+            "ActionTag": -562890963,
+            "Size": {
+              "X": 847.0,
+              "Y": 366.0
+            },
+            "Name": "sofa_90",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/atm-machine.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6576.4893,
+              "Y": 1342.9325
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.5689,
+              "Y": 0.7461
+            },
+            "PreSize": {
+              "X": 0.0965,
+              "Y": 0.3133
+            },
+            "LeftMargin": 6452.9893,
+            "RightMargin": -4139.9893,
+            "TopMargin": 175.0675,
+            "BottomMargin": 1060.9325,
+            "Tag": 125,
+            "ActionTag": -742948076,
+            "Size": {
+              "X": 247.0,
+              "Y": 564.0
+            },
+            "Name": "atm-machine",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/atm-machine.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6833.9512,
+              "Y": 1344.9779
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.6695,
+              "Y": 0.7472
+            },
+            "PreSize": {
+              "X": 0.0965,
+              "Y": 0.3133
+            },
+            "LeftMargin": 6710.4512,
+            "RightMargin": -4397.4512,
+            "TopMargin": 173.0221,
+            "BottomMargin": 1062.9779,
+            "Tag": 127,
+            "ActionTag": -409249548,
+            "Size": {
+              "X": 247.0,
+              "Y": 564.0
+            },
+            "Name": "atm-machine_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/stairs.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7334.6802,
+              "Y": 636.8595
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0252
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.8651,
+              "Y": 0.3538
+            },
+            "PreSize": {
+              "X": 0.2691,
+              "Y": 0.4111
+            },
+            "LeftMargin": 6990.1802,
+            "RightMargin": -5119.1802,
+            "TopMargin": 793.1405,
+            "BottomMargin": 266.8595,
+            "Tag": 128,
+            "ActionTag": -420700651,
+            "Size": {
+              "X": 689.0,
+              "Y": 740.0
+            },
+            "Name": "stairs_94",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/moneyexchange-counter.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6390.3574,
+              "Y": 543.4167
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.4962,
+              "Y": 0.3019
+            },
+            "PreSize": {
+              "X": 0.2383,
+              "Y": 0.3911
+            },
+            "LeftMargin": 6085.3574,
+            "RightMargin": -4135.3574,
+            "TopMargin": 904.5833,
+            "BottomMargin": 191.4167,
+            "Tag": 129,
+            "ActionTag": -1148244013,
+            "Size": {
+              "X": 610.0,
+              "Y": 704.0
+            },
+            "Name": "moneyexchange-counter",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/almirah.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6162.6919,
+              "Y": 1408.2195
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.4073,
+              "Y": 0.7823
+            },
+            "PreSize": {
+              "X": 0.0867,
+              "Y": 0.3817
+            },
+            "LeftMargin": 6051.6919,
+            "RightMargin": -3713.6919,
+            "TopMargin": 48.2805,
+            "BottomMargin": 1064.7195,
+            "Tag": 130,
+            "ActionTag": 597373530,
+            "Size": {
+              "X": 222.0,
+              "Y": 687.0
+            },
+            "Name": "almirah_96",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/chair-1.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5836.4546,
+              "Y": 1230.2185
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.2799,
+              "Y": 0.6835
+            },
+            "PreSize": {
+              "X": 0.068,
+              "Y": 0.1839
+            },
+            "LeftMargin": 5749.4546,
+            "RightMargin": -3363.4546,
+            "TopMargin": 404.2815,
+            "BottomMargin": 1064.7185,
+            "Tag": 131,
+            "ActionTag": 395704313,
+            "Size": {
+              "X": 174.0,
+              "Y": 331.0
+            },
+            "Name": "chair-1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/chair-1.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5598.9111,
+              "Y": 1230.218
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.1871,
+              "Y": 0.6835
+            },
+            "PreSize": {
+              "X": 0.068,
+              "Y": 0.1839
+            },
+            "LeftMargin": 5511.9111,
+            "RightMargin": -3125.9111,
+            "TopMargin": 404.282,
+            "BottomMargin": 1064.718,
+            "Tag": 132,
+            "ActionTag": 1863083275,
+            "Size": {
+              "X": 174.0,
+              "Y": 331.0
+            },
+            "Name": "chair-1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/chair-1.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5372.2725,
+              "Y": 1230.218
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.0985,
+              "Y": 0.6835
+            },
+            "PreSize": {
+              "X": 0.068,
+              "Y": 0.1839
+            },
+            "LeftMargin": 5285.2725,
+            "RightMargin": -2899.2725,
+            "TopMargin": 404.282,
+            "BottomMargin": 1064.718,
+            "Tag": 133,
+            "ActionTag": -1176174480,
+            "Size": {
+              "X": 174.0,
+              "Y": 331.0
+            },
+            "Name": "chair-1_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/window.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3818.6052,
+              "Y": 1550.468
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.4916,
+              "Y": 0.8614
+            },
+            "PreSize": {
+              "X": 0.3367,
+              "Y": 0.2089
+            },
+            "LeftMargin": 3387.6052,
+            "RightMargin": -1689.6055,
+            "TopMargin": 61.532,
+            "BottomMargin": 1362.468,
+            "Tag": 134,
+            "ActionTag": 164871984,
+            "Size": {
+              "X": 862.0,
+              "Y": 376.0
+            },
+            "Name": "window_100",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/singlesofa.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4706.4058,
+              "Y": 1202.718
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.8384,
+              "Y": 0.6682
+            },
+            "PreSize": {
+              "X": 0.1582,
+              "Y": 0.1533
+            },
+            "LeftMargin": 4503.9058,
+            "RightMargin": -2348.9058,
+            "TopMargin": 459.282,
+            "BottomMargin": 1064.718,
+            "Tag": 135,
+            "ActionTag": -914609289,
+            "Size": {
+              "X": 405.0,
+              "Y": 276.0
+            },
+            "Name": "singlesofa_101",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/singlesofa.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2934.563,
+              "Y": 1202.7183
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1463,
+              "Y": 0.6682
+            },
+            "PreSize": {
+              "X": 0.1582,
+              "Y": 0.1533
+            },
+            "LeftMargin": 2732.063,
+            "RightMargin": -577.063,
+            "TopMargin": 459.2817,
+            "BottomMargin": 1064.7183,
+            "Tag": 136,
+            "ActionTag": 191909912,
+            "Size": {
+              "X": 405.0,
+              "Y": 276.0
+            },
+            "Name": "singlesofa_102",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/desk.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1796.3406,
+              "Y": 1199.217
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7017,
+              "Y": 0.6662
+            },
+            "PreSize": {
+              "X": 0.5938,
+              "Y": 0.1494
+            },
+            "LeftMargin": 1036.3406,
+            "RightMargin": 3.6594,
+            "TopMargin": 466.283,
+            "BottomMargin": 1064.717,
+            "Tag": 137,
+            "ActionTag": -1266085905,
+            "Size": {
+              "X": 1520.0,
+              "Y": 269.0
+            },
+            "Name": "desk_103",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/locker.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 384.7236,
+              "Y": 1416.7057
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1503,
+              "Y": 0.7871
+            },
+            "PreSize": {
+              "X": 0.2289,
+              "Y": 0.3911
+            },
+            "LeftMargin": 91.7236,
+            "RightMargin": 1882.2764,
+            "TopMargin": 31.2943,
+            "BottomMargin": 1064.7057,
+            "Tag": 138,
+            "ActionTag": 439996593,
+            "Size": {
+              "X": 586.0,
+              "Y": 704.0
+            },
+            "Name": "locker_104",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/cup.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4594.9658,
+              "Y": 496.9689
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.7949,
+              "Y": 0.2761
+            },
+            "PreSize": {
+              "X": 0.0148,
+              "Y": 0.0172
+            },
+            "LeftMargin": 4575.9658,
+            "RightMargin": -2053.9658,
+            "TopMargin": 1287.5311,
+            "BottomMargin": 481.4689,
+            "Tag": 139,
+            "ActionTag": 1596832024,
+            "Size": {
+              "X": 38.0,
+              "Y": 31.0
+            },
+            "Name": "cup_105",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1.0823,
+              "Y": 0.4459
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0004,
+              "Y": 0.0002
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1.0823,
+            "RightMargin": 2558.9177,
+            "TopMargin": 1799.5541,
+            "BottomMargin": 0.4459,
+            "UserData": "left ",
+            "Tag": 140,
+            "ActionTag": -1338183815,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "left",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 7679.8672,
+              "Y": 1.7559
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.9999,
+              "Y": 0.001
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 7679.8672,
+            "RightMargin": -5119.8672,
+            "TopMargin": 1798.2441,
+            "BottomMargin": 1.7559,
+            "UserData": "right ",
+            "Tag": 141,
+            "ActionTag": -1439950861,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "right",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 4310.9497,
+              "Y": 135.8874
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.684,
+              "Y": 0.0755
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 4310.9497,
+            "RightMargin": -1750.9497,
+            "TopMargin": 1664.1125,
+            "BottomMargin": 135.8874,
+            "UserData": "canInteract=true,fileName=chimple_skeleton.csb  ",
+            "Tag": 142,
+            "ActionTag": 945979501,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "Hero",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 6015.958,
+              "Y": 1081.6831
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.35,
+              "Y": 0.6009
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 6015.958,
+            "RightMargin": -3455.958,
+            "TopMargin": 718.3169,
+            "BottomMargin": 1081.6831,
+            "UserData": "canInteract=true,fileName=manager_skeleton.csb",
+            "Tag": 197,
+            "ActionTag": 332850302,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "manger",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bank/bank_mainground/100.png",
+              "Plist": "bank/bank_mainground/bank_mainground.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6833.8853,
+              "Y": 1354.9302
+            },
+            "Scale": {
+              "ScaleX": 0.3003,
+              "ScaleY": 0.3003
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.6695,
+              "Y": 0.7527
+            },
+            "PreSize": {
+              "X": 0.1641,
+              "Y": 0.0939
+            },
+            "LeftMargin": 6623.8853,
+            "RightMargin": -4483.8853,
+            "TopMargin": 360.5698,
+            "BottomMargin": 1270.4302,
+            "UserData": "canInteract=true",
+            "Tag": 198,
+            "ActionTag": 1257715670,
+            "Size": {
+              "X": 420.0,
+              "Y": 169.0
+            },
+            "Name": "Sprite_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1326.9454,
+              "Y": 199.3057
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5183,
+              "Y": 0.1107
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1326.9454,
+            "RightMargin": 1233.0546,
+            "TopMargin": 1600.6943,
+            "BottomMargin": 199.3057,
+            "UserData": "canInteract=true,fileName=teller_skeleton.csb",
+            "Tag": 201,
+            "ActionTag": 1865883644,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "teller",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bank/door.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 3874.1201,
+              "Y": 591.8935
+            },
+            "Scale": {
+              "ScaleX": 1.82,
+              "ScaleY": 1.82
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.5133,
+              "Y": 0.3288
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 3874.1201,
+            "RightMargin": -1314.1201,
+            "TopMargin": 1208.1064,
+            "BottomMargin": 591.8935,
+            "UserData": "canInteract=true,nextScene=city1",
+            "Tag": 206,
+            "ActionTag": 1929049567,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "door",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "bank_mainground/bank_mainground.plist",
+        "bank_mainground/bank_mainground.png",
+        "door.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}
