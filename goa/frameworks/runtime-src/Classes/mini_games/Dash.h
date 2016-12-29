@@ -65,6 +65,7 @@ protected:
 	void onEnterTransitionDidFinish();
 	void gameHelp();
 	std::map<std::string, std::map<std::string, std::string>> _differntSceneMapping;
+	cocos2d::RepeatForever * _enemyActions;
 //	std::string _gameWord;
 	//int _jumpCount, _enemyJumpCount;
 //	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
