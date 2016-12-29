@@ -1,0 +1,78 @@
+{
+  "ID": "8e0360b0-0f17-49e8-845a-82472a1a8003",
+  "Version": "3.10.0.0",
+  "Name": "camp_studio_foreground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 289,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp_studio/studio_obj4.png",
+              "Plist": "camp_studio/camp_studio.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3453.0156,
+              "Y": 416.572
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3488,
+              "Y": 0.2314
+            },
+            "PreSize": {
+              "X": 0.1684,
+              "Y": 0.4694
+            },
+            "LeftMargin": 3237.5156,
+            "RightMargin": -1108.5156,
+            "TopMargin": 960.928,
+            "BottomMargin": -5.928,
+            "Tag": 290,
+            "ActionTag": 130714940,
+            "Size": {
+              "X": 431.0,
+              "Y": 845.0
+            },
+            "Name": "studio_obj4_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "camp_studio.plist",
+        "camp_studio.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

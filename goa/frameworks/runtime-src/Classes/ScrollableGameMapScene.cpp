@@ -11,6 +11,7 @@
 #include "scripting/js-bindings/manual/ScriptingCore.h"
 
 #include "ScrollableGameMapScene.hpp"
+#include "MapScene.h"
 #include "menu/LevelMenu.h"
 #include "alphamon/SelectAlphamonScene.h"
 #include "puzzle/DuelScene.h"
@@ -76,7 +77,7 @@ Scene* ScrollableGameMapScene::createScene() {
     auto scene = Scene::create();    
     auto layer = ScrollableGameMapScene::create();
     scene->addChild(layer);
-    layer->menuContext = MenuContext::create(layer);
+    layer->menuContext = MenuContext::create(layer, "menu");
     scene->addChild(layer->menuContext);
     return scene;
 }
@@ -95,15 +96,12 @@ std::vector<std::string> ScrollableGameMapScene::split(std::string s, char delim
 }
 
 bool ScrollableGameMapScene::init() {
-    if(!ScrollView::init())
+    if(!Node::init())
     {
         return false;
     }
-    
-    
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    std::string ICONS = ICON_FOLDER;
     
     auto spriteCache = SpriteFrameCache::getInstance();
     spriteCache->addSpriteFramesWithFile("gamemap/gamemap/gamemap.plist");
@@ -130,66 +128,111 @@ bool ScrollableGameMapScene::init() {
         if (unlockStr.empty() || unlockStr == "1") {
             lockAll = true;
         }
-
-        Texture2D *texture = Director::getInstance()->getTextureCache()->addImage("black_concrete.png");
-        Texture2D::TexParams tp = {GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT};
-        texture->setTexParameters(&tp);
-        Sprite *backgroundSpriteMapTile = Sprite::createWithTexture(texture, Rect(0, 0, visibleSize.width * numberOfPages, visibleSize.height));
-        backgroundSpriteMapTile->setPosition(Vec2( numberOfPages * visibleSize.width/2, visibleSize.height/2 ));
-        addChild(backgroundSpriteMapTile);
-        
-        for (int i = 0; i < numberOfPages; i++) {
-            auto node = CSLoader::createNode("gamemap/gamemap_bg.csb");
-            node->setPosition(Vec2(visibleSize.width * i, 0));
-            addChild(node);
+        std::vector<int> orderedGameIndexes;
+        int unlockPosition = 0;
+        for (int dIndex = 1; dIndex < d.Size(); dIndex++) {
+            const rapidjson::Value& game = d[dIndex];
+            auto gameName = game["name"].GetString();
+            if((game.HasMember("unlock") && game["unlock"].GetBool()) || (doc.IsObject() && doc.HasMember(gameName))) {
+                orderedGameIndexes.insert(orderedGameIndexes.begin() + unlockPosition, dIndex);
+                unlockPosition++;
+            } else {
+                orderedGameIndexes.push_back(dIndex);
+            }
         }
-        
+        _pageView = ui::PageView::create();
+        addChild(_pageView);
+
+        auto topBarGames = getTopBarGames();
+        topBarGames.insert(topBarGames.begin(), "story-play");
+        std::map<std::string, int> topBarGamesIndexes = {{"story-play", 0}};
         int index = 0;
-        int initialYOffSet = 1;
+        int yOffset = 50;
         
         for(int k = 0; k < numberOfPages; k++) {
+            auto page = ui::Widget::create();
+            page->setContentSize(visibleSize);
+            _pageView->addPage(page);
+            Texture2D *texture = Director::getInstance()->getTextureCache()->addImage("black_concrete.png");
+            Texture2D::TexParams tp = {GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT};
+            texture->setTexParameters(&tp);
+            Sprite *backgroundSpriteMapTile = Sprite::createWithTexture(texture, Rect(0, 0, visibleSize.width, visibleSize.height));
+            backgroundSpriteMapTile->setPosition(Vec2( visibleSize.width/2, visibleSize.height/2 ));
+            page->addChild(backgroundSpriteMapTile);
+            
+            auto node = CSLoader::createNode("gamemap/gamemap_bg.csb");
+            page->addChild(node);
+            
             
             for (int i = 0; i < numRows; i++) {
                 for (int j = 0; j < numCols; j++) {
-                    if(index < d.Size()) {
-                        const rapidjson::Value& game = d[index];
-                        std::string gameName = game["name"].GetString();
-                        std::string buttonNormalIcon = game["icon"].GetString();
-                        std::string buttonPressedIcon = game["cIcon"].GetString();
-                        std::string buttonDisabledIcon = ICONS + "/" + game["name"].GetString() + "_disabled.png";
-                        cocos2d::ui::Button* button = ui::Button::create();
-                        button->loadTextureNormal(buttonNormalIcon);
-                        button->loadTexturePressed(buttonPressedIcon);
-                        button->setName(game["name"].GetString());
-                        button->setPosition(Vec2(k * visibleSize.width + (j + 0.5) * visibleSize.width / numCols, visibleSize.height - 200 - (i + 0.5) * ((visibleSize.height - 200) / numRows)));
-                        button->setTitleText(LangUtil::getInstance()->translateString(game["title"].GetString()));
-                        button->setTitleAlignment(TextHAlignment::CENTER, TextVAlignment::BOTTOM);
-                        button->setTitleFontName("Arial");
-                        button->setTitleColor(Color3B(0xFF, 0xF2, 0x00));
-                        button->setTitleFontSize(72);
-                        if(!lockAll ||  (game.HasMember("unlock") && game["unlock"].GetBool()) || (doc.IsObject() && doc.HasMember(gameName.c_str()))) {
-                            button->addTouchEventListener(CC_CALLBACK_2(ScrollableGameMapScene::gameSelected, this));
-                        } else {
-                            button->setBright(false);
+                    if(index < orderedGameIndexes.size()) {
+                        int dIndex = orderedGameIndexes[index];
+                        const rapidjson::Value& game = d[dIndex];
+                        auto button = createButton(game);
+                        if(button != nullptr) {
+                            button->setPosition(Vec2((j + 0.5) * visibleSize.width / numCols, visibleSize.height + yOffset - (i + 1.5) * ((visibleSize.height + yOffset) / (numRows + 1))));
+                            auto gameName = game["name"].GetString();
+                            if(!lockAll ||  (game.HasMember("unlock") && game["unlock"].GetBool()) || (doc.IsObject() && doc.HasMember(gameName))) {
+                                button->addTouchEventListener(CC_CALLBACK_2(ScrollableGameMapScene::gameSelected, this));
+                            } else {
+                                button->setBright(false);
+                            }
+                            
+                            page->addChild(button);
+                            if(std::find(topBarGames.begin(), topBarGames.end(), gameName) != topBarGames.end()) {
+                                topBarGamesIndexes[gameName] = dIndex;
+                            }
                         }
-                        auto label = button->getTitleRenderer();
-                        label->setPosition(Vec2(label->getPositionX(), label->getPositionY()- 300));
-                        button->setScale(0.5);
-                        addChild(button);
-                        
-                        
                     }
                     index++;
                 }
             }
         }
-        setContentSize(visibleSize);
-        setDirection(cocos2d::ui::ScrollView::Direction::HORIZONTAL);
-        setInnerContainerSize(Size(visibleSize.width * numberOfPages, visibleSize.height));
+
+        for (auto it = topBarGames.begin() ; it != topBarGames.end(); ++it) {
+            const rapidjson::Value& game = d[topBarGamesIndexes[*it]];
+            auto topBarButton = createButton(game);
+            auto index = std::distance(topBarGames.begin(), it);
+            topBarButton->setPosition(Vec2((index + 0.5) * visibleSize.width / numCols, visibleSize.height + yOffset - (0 + 0.5) * ((visibleSize.height + yOffset) / (numRows + 1))));
+            auto gameName = game["name"].GetString();
+            if(!lockAll ||  (game.HasMember("unlock") && game["unlock"].GetBool()) || (doc.IsObject() && doc.HasMember(gameName))) {
+                topBarButton->addTouchEventListener(CC_CALLBACK_2(ScrollableGameMapScene::gameSelected, this));
+            } else {
+                topBarButton->setBright(false);
+            }
+            addChild(topBarButton);
+        }
+
+        _pageView->setContentSize(visibleSize);
+        _pageView->setDirection(cocos2d::ui::ScrollView::Direction::HORIZONTAL);
+        _pageView->setInnerContainerSize(Size(visibleSize.width * numberOfPages, visibleSize.height));
     }
-    setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::GRADIENT);
-    setBackGroundColor(Color3B(255, 159, 0), Color3B::WHITE);
     return true;
+}
+
+cocos2d::ui::Button* ScrollableGameMapScene::createButton(const rapidjson::Value& gameJson) {
+    std::string ICONS = ICON_FOLDER;
+    std::string gameName = gameJson["name"].GetString();
+    if(gameName != "dummy") {
+        std::string buttonNormalIcon = gameJson["icon"].GetString();
+        std::string buttonPressedIcon = gameJson["cIcon"].GetString();
+        std::string buttonDisabledIcon = ICONS + "/" + gameJson["name"].GetString() + "_disabled.png";
+        cocos2d::ui::Button* button = ui::Button::create();
+        button->loadTextureNormal(buttonNormalIcon);
+        button->loadTexturePressed(buttonPressedIcon);
+        button->setName(gameJson["name"].GetString());
+        button->setTitleText(LangUtil::getInstance()->translateString(gameJson["title"].GetString()));
+        button->setTitleAlignment(TextHAlignment::CENTER, TextVAlignment::BOTTOM);
+        button->setTitleFontName("Arial");
+        button->setTitleColor(Color3B(0xFF, 0xF2, 0x00));
+        button->setTitleFontSize(72);
+        auto label = button->getTitleRenderer();
+        label->setPosition(Vec2(label->getPositionX(), label->getPositionY()- 300));
+        button->setScale(0.5);
+        return button;
+    }
+    return nullptr;
 }
 
 void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventType eEventType)
@@ -203,6 +246,7 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
         case ui::Widget::TouchEventType::ENDED:
         {
             clickedButton->setEnabled(false);
+            pushTopBarGame(clickedButton->getName());
             std::string gameConfig;
             localStorageGetItem(clickedButton->getName(), &gameConfig);
             CCLOG("gameConfig %s", gameConfig.c_str());
@@ -224,6 +268,10 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             else if(clickedButton->getName() == "story-play")
             {
                 ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
+            }
+            else if(clickedButton->getName() == "map")
+            {
+                Director::getInstance()->replaceScene(MapScene::createScene());
             }
             else
             {
@@ -283,6 +331,53 @@ std::map<std::string, std::string> ScrollableGameMapScene::parseGameConfigToMap(
         // error
     }
     return returnMap;
+}
+
+std::vector<std::string> ScrollableGameMapScene::getTopBarGames() {
+    std::vector<std::string> topBarGames;
+    std::string firstGame;
+    localStorageGetItem("topBarGame.1", &firstGame);
+    if(!firstGame.empty()) {
+        topBarGames.push_back(firstGame);
+    }
+    std::string secondGame;
+    localStorageGetItem("topBarGame.2", &secondGame);
+    if(!secondGame.empty()) {
+        topBarGames.push_back(secondGame);
+    }
+    std::string thirdGame;
+    localStorageGetItem("topBarGame.3", &thirdGame);
+    if(!thirdGame.empty()) {
+        topBarGames.push_back(thirdGame);
+    }
+    return topBarGames;
+}
+
+void ScrollableGameMapScene::pushTopBarGame(std::string game) {
+    if(game == "story-play") {
+        return;
+    }
+    auto topBarGames = getTopBarGames();
+    auto shiftedGame = game;
+    bool shouldInsert = true;
+    for (auto it = topBarGames.begin(); it != topBarGames.end(); ++it) {
+        auto temp = *it;
+        *it = shiftedGame;
+        shiftedGame = temp;
+        if(game == shiftedGame) {
+            shouldInsert = false;
+            break;
+        }
+    }
+    if(topBarGames.size() < 3 && shouldInsert) {
+        topBarGames.push_back(shiftedGame);
+    }
+    if(topBarGames.size() >= 1)
+        localStorageSetItem("topBarGame.1", topBarGames[0]);
+    if(topBarGames.size() >= 2)
+        localStorageSetItem("topBarGame.2", topBarGames[1]);
+    if(topBarGames.size() >= 3)
+        localStorageSetItem("topBarGame.3", topBarGames[2]);
 }
 
 

@@ -21,6 +21,8 @@ Scene *LevelMenu::createScene(std::string gameName) {
     auto layer = LevelMenu::create(gameName);
     auto scene = Scene::create();
     scene->addChild(layer);
+    layer->_menuContext = MenuContext::create(layer, "levelMenu");
+    scene->addChild(layer->_menuContext);
     return scene;
     
 }
@@ -159,7 +161,7 @@ bool LevelMenu::initWithGame(std::string gameName) {
         std::string _levelStatus;
         localStorageGetItem(".unlock", &_levelStatus);
         bool lockAll = true;
-        if (_levelStatus.empty() || _levelStatus == "0") {
+        if (_levelStatus == "0") {
             lockAll = false;
         }
         

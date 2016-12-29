@@ -259,6 +259,11 @@ private:
     void hideWordBubbles(EventCustom * event);
     
     
+    void hideObject(Sprite* copySprite);
+    
+    
+    void createAndUseItemFromBag(std::string imageName, MessageContent* content, std::unordered_map<int, std::string> textMapFollowedByAnimation);
+    
 public:
     static cocos2d::Scene* createScene(const std::string& island, const std::string& sceneName, bool fromMenu);
         

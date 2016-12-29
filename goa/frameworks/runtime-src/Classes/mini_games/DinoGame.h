@@ -1,5 +1,5 @@
 //
-//  Decomon.cpp 
+//  DinoGame.h 
 //  goa
 //
 //  Created by Kirankumar CS on 08/12/16

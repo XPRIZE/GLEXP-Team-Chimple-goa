@@ -162,6 +162,23 @@ void Units::onEnterTransitionDidFinish() {
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener->clone(), calculatorButton);
 
 	
+	if (_menuContext->getCurrentLevel() == 1 && orderIteration == 0) {
+
+		auto box1 = handle;
+		
+		auto box1pos = box1->getPosition();// +Vec2(visibleSize.width * 0.03, visibleSize.height * 0.05);
+		//box1->setPosition(Vec2(box1pos.x + visibleSize.width * 0.07, box1pos.y + visibleSize.height * 0.15));
+
+		_help = HelpLayer::create(Rect(box1pos.x + visibleSize.width * 0.06, box1pos.y + visibleSize.height * 0.13, box1->getContentSize().height, box1->getContentSize().width), Rect(0,0,0,0));
+
+		
+		_help->click(Vec2(box1pos.x + visibleSize.width * 0.06, box1pos.y + visibleSize.height * 0.13));
+
+
+		this->addChild(_help);
+	}
+
+
 	this->scheduleUpdate();
 
 }
@@ -405,12 +422,16 @@ bool Units::onTouchBegan(Touch* touch, Event* event) {
 	auto target = event->getCurrentTarget();
 	Point locationInNode = Vec2(0,0);
 
+
+
 	if (target->getName() == "handle") {
 		locationInNode = target->getParent()->convertToNodeSpace(touch->getLocation());
 	}
 
 	if (target->getName() == "calbutton") {
 		locationInNode = target->getParent()->convertToNodeSpace(touch->getLocation());
+
+		
 	}
 
 
@@ -422,6 +443,13 @@ bool Units::onTouchBegan(Touch* touch, Event* event) {
 		if (target->getName() == "handle" && orderIteration<=3) {
 			if (handleTriggered == 0) {
 				
+				auto flag = 0;
+				if (_menuContext->getCurrentLevel() == 1 && flag == 0 && orderIteration == 0) {
+					this->removeChild(_help);
+					flag = 1;
+				}
+
+
 				_openTimeline->play("open", false);
 				
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();

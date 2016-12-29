@@ -214,9 +214,14 @@ xc.CreateStoryScene.load = function(layer) {
 
     cc.LoaderScene.preload(t_resources, function () {            
         //config data
-        cc.spriteFrameCache.addSpriteFrames(xc.CatalogueLayer.res.thumbnails_plist);
-        cc.spriteFrameCache.addSpriteFrames(xc.CatalogueLayer.res.record_animation_plist);
-        cc.spriteFrameCache.addSpriteFrames(xc.CatalogueLayer.res.book_cover_plist);
+        cc.spriteFrameCache.addSpriteFrames(xc.CreateStoryLayer.res.thumbnails_plist);
+        cc.spriteFrameCache.addSpriteFrames(xc.CreateStoryLayer.res.record_animation_plist);
+        cc.spriteFrameCache.addSpriteFrames(xc.CreateStoryLayer.res.book_cover_plist);
+
+        cc.spriteFrameCache.addSpriteFrames(xc.CreateStoryLayer.res.animation_skeleton_plist);
+        cc.spriteFrameCache.addSpriteFrames(xc.CreateStoryLayer.res.animationa_skeleton_plist);
+        cc.spriteFrameCache.addSpriteFrames(xc.CreateStoryLayer.res.animationb_skeleton_plist);
+        cc.spriteFrameCache.addSpriteFrames(xc.CreateStoryLayer.res.animationc_skeleton_plist);
         
         if(cc.sys.isNative) {
             xc.storyConfigurationObject = cc.loader.getRes(xc.CreateStoryLayer.res.Config_json);
