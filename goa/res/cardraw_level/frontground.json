@@ -1,6 +1,6 @@
 {
   "ID": "b4be610d-59d5-4028-8936-ec4114a58e3d",
-  "Version": "3.10.0.0",
+  "Version": "2.3.4",
   "Name": "frontground",
   "Content": {
     "Content": {
@@ -49,17 +49,17 @@
               "Y": -0.0005
             },
             "PreSize": {
-              "X": 6.0,
+              "X": 8.1406,
               "Y": 0.1861
             },
             "LeftMargin": 0.3343,
-            "RightMargin": -12800.334,
+            "RightMargin": -18280.334,
             "TopMargin": 1465.9469,
             "BottomMargin": -0.9469,
             "Tag": 389,
             "ActionTag": 1564001610,
             "Size": {
-              "X": 15360.0,
+              "X": 20840.0,
               "Y": 335.0
             },
             "Name": "Panel_2",
@@ -99,7 +99,7 @@
             },
             "LeftMargin": 22.6051,
             "RightMargin": 1060.3949,
-            "TopMargin": 1629.2987,
+            "TopMargin": 1629.2988,
             "BottomMargin": 161.7012,
             "Tag": 390,
             "ActionTag": -537509361,
@@ -144,7 +144,7 @@
             },
             "LeftMargin": 1583.9424,
             "RightMargin": -500.9424,
-            "TopMargin": 1629.6918,
+            "TopMargin": 1629.6917,
             "BottomMargin": 161.3083,
             "Tag": 391,
             "ActionTag": -1070854964,
@@ -695,6 +695,186 @@
               "Y": 542.0
             },
             "Name": "car_86_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cardraw_level/roadbar.png",
+              "Plist": "cardraw_level/cardraw_level.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 16322.7598,
+              "Y": 164.9381
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 6.3761,
+              "Y": 0.0916
+            },
+            "PreSize": {
+              "X": 0.577,
+              "Y": 0.005
+            },
+            "LeftMargin": 15584.2598,
+            "RightMargin": -14501.2598,
+            "TopMargin": 1630.5619,
+            "BottomMargin": 160.4381,
+            "Tag": 83,
+            "ActionTag": 1205604742,
+            "Size": {
+              "X": 1477.0,
+              "Y": 9.0
+            },
+            "Name": "roadbar_2_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cardraw_level/roadbar.png",
+              "Plist": "cardraw_level/cardraw_level.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 17843.4648,
+              "Y": 164.938
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 6.9701,
+              "Y": 0.0916
+            },
+            "PreSize": {
+              "X": 0.577,
+              "Y": 0.005
+            },
+            "LeftMargin": 17104.9648,
+            "RightMargin": -16021.9648,
+            "TopMargin": 1630.562,
+            "BottomMargin": 160.438,
+            "Tag": 84,
+            "ActionTag": -413219541,
+            "Size": {
+              "X": 1477.0,
+              "Y": 9.0
+            },
+            "Name": "roadbar_2_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cardraw_level/roadbar.png",
+              "Plist": "cardraw_level/cardraw_level.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 20897.6367,
+              "Y": 164.9379
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 8.1631,
+              "Y": 0.0916
+            },
+            "PreSize": {
+              "X": 0.577,
+              "Y": 0.005
+            },
+            "LeftMargin": 20159.1367,
+            "RightMargin": -19076.1367,
+            "TopMargin": 1630.562,
+            "BottomMargin": 160.4379,
+            "Tag": 85,
+            "ActionTag": -54196410,
+            "Size": {
+              "X": 1477.0,
+              "Y": 9.0
+            },
+            "Name": "roadbar_2_0_0_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cardraw_level/roadbar.png",
+              "Plist": "cardraw_level/cardraw_level.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 19368.8086,
+              "Y": 164.9382
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 7.5659,
+              "Y": 0.0916
+            },
+            "PreSize": {
+              "X": 0.577,
+              "Y": 0.005
+            },
+            "LeftMargin": 18630.3086,
+            "RightMargin": -17547.3086,
+            "TopMargin": 1630.5618,
+            "BottomMargin": 160.4382,
+            "Tag": 86,
+            "ActionTag": -1565576486,
+            "Size": {
+              "X": 1477.0,
+              "Y": 9.0
+            },
+            "Name": "roadbar_2_0_0_0_0_0",
             "ctype": "SpriteObjectData"
           }
         ],

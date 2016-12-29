@@ -182,13 +182,20 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 auto moveTo = MoveTo::create(0.5, _menuButton->getPosition());
                 auto elastic = EaseBackIn::create(moveTo);
                 auto callbackRemoveMenu = CallFunc::create(CC_CALLBACK_0(MenuContext::removeMenu, this));
-                auto targetHelpCloseAction = TargetedAction::create(_helpMenu, elastic->clone());
-                auto targetBookCloseAction = TargetedAction::create(_bookMenu, elastic->clone());
-                auto targetMapCloseAction = TargetedAction::create(_mapMenu, elastic->clone());
-                
-                auto targetSettingCloseAction = TargetedAction::create(_settingMenu, elastic);
-                 
-                auto targetGamesCloseAction = TargetedAction::create(_gamesMenu, elastic->clone());
+                Vector<FiniteTimeAction *> closeActions;
+                if(_helpMenu) {
+                    closeActions.pushBack(TargetedAction::create(_helpMenu, elastic->clone()));
+                }
+                if(_bookMenu) {
+                    closeActions.pushBack(TargetedAction::create(_bookMenu, elastic->clone()));
+                }
+                if(_settingMenu) {
+                    closeActions.pushBack(TargetedAction::create(_settingMenu, elastic->clone()));
+                }
+                if(_gamesMenu) {
+                    closeActions.pushBack(TargetedAction::create(_gamesMenu, elastic->clone()));
+                }
+
 //                if(_photoMenu) {
 //                    auto targetPhotoCloseAction = TargetedAction::create(_photoMenu, elastic->clone());
 //                    auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction,targetBookCloseAction,targetGamesCloseAction,targetPhotoCloseAction, targetSettingCloseAction, nullptr);
@@ -198,28 +205,30 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 //                        runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
 //                }
                 
-                auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction, targetBookCloseAction,targetGamesCloseAction, targetSettingCloseAction, nullptr);
+                auto spawnAction = Spawn::create(closeActions);
                 runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
-                
-                
             } else {
                 addGreyLayer();
-                _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png", 5 * POINTS_TO_LEFT);
-                _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
-                
-                _mapMenu = this->createMenuItem("menu/map.png", "menu/map.png", "menu/map.png", 2 * POINTS_TO_LEFT);
-                _mapMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showMap, this));
-                
-                _bookMenu = this->createMenuItem("menu/book.png", "menu/book.png", "menu/book.png", 4 * POINTS_TO_LEFT);
-                _bookMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showBook, this));
-
-                _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
-                _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
-                
-				_settingMenu = this->createMenuItem("menu/settings.png", "menu/settings.png", "menu/settings.png", 3 * POINTS_TO_LEFT);
-				_settingMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::addCalculator, this));
-				
-
+                if(gameName == "menu") {
+                    _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
+                    _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
+                    _settingMenu = this->createMenuItem("menu/settings.png", "menu/settings.png", "menu/settings.png", 2 * POINTS_TO_LEFT);
+                    _settingMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::addCalculator, this));
+                    _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png", 3 * POINTS_TO_LEFT);
+                    _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
+                } else if(gameName == "levelMenu" || gameName == "story-play" || gameName == "map") {
+                    _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
+                    _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
+                    _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png", 2 * POINTS_TO_LEFT);
+                    _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
+                } else {
+                    _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
+                    _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
+                    _bookMenu = this->createMenuItem("menu/back.png", "menu/back.png", "menu/back.png", 2 * POINTS_TO_LEFT);
+                    _bookMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showBook, this));
+                    _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png", 3 * POINTS_TO_LEFT);
+                    _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
+                }
 //                _photoMenu = this->createAvatarMenuItem("", "", "", 6 * POINTS_TO_LEFT);
                 
 
@@ -514,23 +523,26 @@ std::vector<std::string> MenuContext::split(std::string s, char delim)
 
 void MenuContext::removeMenuOnly() {
     if(_menuSelected) {
-        removeChild(_exitMenu);
-        _exitMenu = nullptr;
-        
-        removeChild(_helpMenu);
-        _helpMenu = nullptr;
-        
-        removeChild(_bookMenu);
-        _bookMenu = nullptr;
-        
-        removeChild(_mapMenu);
-        _mapMenu = nullptr;
-        
-        removeChild(_gamesMenu);
-        _gamesMenu = nullptr;
-        
-        removeChild(_settingMenu);
-        _settingMenu = nullptr;
+        if(_exitMenu) {
+            removeChild(_exitMenu);
+            _exitMenu = nullptr;
+        }
+        if(_helpMenu) {
+            removeChild(_helpMenu);
+            _helpMenu = nullptr;
+        }
+        if(_bookMenu) {
+            removeChild(_bookMenu);
+            _bookMenu = nullptr;
+        }
+        if(_gamesMenu) {
+            removeChild(_gamesMenu);
+            _gamesMenu = nullptr;
+        }
+        if(_settingMenu) {
+            removeChild(_settingMenu);
+            _settingMenu = nullptr;            
+        }
         
         //        if(_photoMenu) {
         //            removeChild(_photoMenu);
@@ -979,6 +991,9 @@ void MenuContext::launchGameFinally(std::string gameName) {
 		else if (gameName == DINO) {
 			Director::getInstance()->replaceScene(DinoGame::createScene());
 		}
+        else if (gameName == MAP) {
+            Director::getInstance()->replaceScene(MapScene::createScene());
+        }
 		else{
             CCLOG("Failed starting scene: %s", gameName.c_str());
         }
@@ -1614,6 +1629,10 @@ MenuContext::MenuContext() :
 	_gameIsPaused(false),
 	_startupCallback(nullptr),
 	_photoMenu(nullptr),
+    _gamesMenu(nullptr),
+    _bookMenu(nullptr),
+    _settingMenu(nullptr),
+    _helpMenu(nullptr),
 	_currentLevel(1),
 	_closeButton(nullptr),
 

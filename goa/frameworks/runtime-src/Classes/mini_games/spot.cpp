@@ -151,7 +151,7 @@ void spot::onEnterTransitionDidFinish() {
 	platePosition = questionPlate->getChildByName("cal")->getPosition();
 
 
-	questionPlate->getChildByName("cal")->setPosition(platePosition - Vec2(platePosition.x * 0.25,0));
+	//questionPlate->getChildByName("cal")->setPosition(platePosition - Vec2(platePosition.x * 0.25,0));
 
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener->clone(), questionPlate->getChildByName("cal"));
 
@@ -159,18 +159,31 @@ void spot::onEnterTransitionDidFinish() {
 
 	
 
-	_label = CommonText::create();
-	_label->setFontName("fonts/Marker Felt.ttf");
-	_label->setString(LangUtil::getInstance()->translateString("How many         are there?"));
-	_label->setFontSize(100);
-	_label->setPosition(Vec2((visibleSize.width * 0.24), (visibleSize.height * 0.04)));
-	_label->setAnchorPoint(Vec2(0, 0));
-	_label->setName("label");
-	_label->setTextColor(Color4B::BLUE);
-	_label->setColor(Color3B::RED);
-	_label->setScaleX(1);
-	_label->setScaleY(1);
+	_label1 = CommonText::create();
+	_label1->setFontName("fonts/Marker Felt.ttf");
+	_label1->setString(LangUtil::getInstance()->translateString("How many"));
+	_label1->setFontSize(100);
+	_label1->setPosition(Vec2((visibleSize.width * 0.20), (visibleSize.height * 0.03)));
+	_label1->setAnchorPoint(Vec2(0, 0));
+	_label1->setName("label1");
+	_label1->setTextColor(Color4B::BLUE);
+	_label1->setColor(Color3B::RED);
+	_label1->setScaleX(1);
+	_label1->setScaleY(1);
 
+	///label 2
+
+	_label2 = CommonText::create();
+	_label2->setFontName("fonts/Marker Felt.ttf");
+_label2->setString(LangUtil::getInstance()->translateString("are there?"));
+	_label2->setFontSize(100);
+	//_label2->setPosition(Vec2((visibleSize.width * 0.24), (visibleSize.height * 0.04)));
+	_label2->setAnchorPoint(Vec2(0, 0));
+	_label2->setName("label2");
+	_label2->setTextColor(Color4B::BLUE);
+	_label2->setColor(Color3B::RED);
+	_label2->setScaleX(1);
+	_label2->setScaleY(1);
 
 	//_scrollView->addChild(_label,15);
 
@@ -178,7 +191,10 @@ void spot::onEnterTransitionDidFinish() {
 	
 	//_scrollView->addChild(questionPlate, 10);
 	this->addChild(questionPlate, 14);
-	questionPlate->addChild(_label, 15);
+	questionPlate->addChild(_label1, 15);
+	questionPlate->addChild(_label2, 15);
+
+
 	CCLOG("%d", _answerValue);
 
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("spot/spot.plist");
@@ -190,11 +206,15 @@ void spot::onEnterTransitionDidFinish() {
 	animalSprite->setName("animalsprite");
 	questionPlate->addChild(animalSprite);
 
-	questionPlate->getChildByName("animalsprite")->setPosition(platePosition - Vec2(platePosition.x * 0.50, 0));
+	//questionPlate->getChildByName("animalsprite")->setPosition(platePosition - Vec2(platePosition.x * 0.50, 0));
+
+	questionPlate->getChildByName("animalsprite")->setPosition(_label1->getPosition() + Vec2(platePosition.x * 0.23, platePosition.y * 0.40));
 
 
-
+	_label2->setPosition(animalSprite->getPosition() + Vec2(platePosition.x * 0.05, - platePosition.y * 0.40));
 	///
+
+	questionPlate->getChildByName("cal")->setPosition(_label2->getPosition()  + Vec2(platePosition.x * 0.25, platePosition.y * 0.45));
 
 		cocostudio::timeline::ActionTimeline * _windmillTimeline;
 		_windmillTimeline = CSLoader::createTimeline("spot/windmill.csb");
@@ -450,7 +470,12 @@ void spot::changeQuestion() {
 	animalSprite->setName("animalsprite");
 	questionPlate->addChild(animalSprite);
 
-	questionPlate->getChildByName("animalsprite")->setPosition(platePosition - Vec2(platePosition.x * 0.50, 0));
-	
+	//questionPlate->getChildByName("animalsprite")->setPosition(platePosition - Vec2(platePosition.x * 0.50, 0));
+	//questionPlate->getChildByName("animalsprite")->setPosition(_label1->getPosition() + Vec2(platePosition.x * 0.25, platePosition.y * 0.35));
+
+	questionPlate->getChildByName("animalsprite")->setPosition(_label1->getPosition() + Vec2(platePosition.x * 0.23, platePosition.y * 0.40));
+
+	//questionPlate->getChildByName("animalsprite")->setPosition(_label1->getPosition() + platePosition + Vec2(platePosition.x * 0.10, 0));
+
 	_answerValue = _slots[_currentSlot].count;
 }

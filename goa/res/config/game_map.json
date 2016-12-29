@@ -698,7 +698,7 @@
         "multiPlayer": false,
         "isJSGame": false,
         "script": "src/NonJSGameLauncher.js",
-        "span": "5",
+        "span": "8",
         "numLevels": "62",
         "rewards" : {
             "1": {
@@ -1414,6 +1414,16 @@
         "isJSGame": true,
         "pureJS": "",
         "script": "src/start/storytelling.js"
+    },
+    {
+        "name": "map",
+        "title": "Be a Hero",
+        "unlock": true,
+        "cIcon": "gameicons/hero_pressed.png",
+        "icon": "gameicons/hero.png",
+        "multiPlayer": false,
+        "isJSGame": false,
+        "script": "src/NonJSGameLauncher.js"
     },
     {
         "name": "JumpOnWords",

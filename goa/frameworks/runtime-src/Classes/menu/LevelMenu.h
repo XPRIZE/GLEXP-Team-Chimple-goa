@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
+#include "MenuContext.h"
 
 
 class LevelMenu: public cocos2d::Node {
@@ -27,6 +28,7 @@ CC_CONSTRUCTOR_ACCESS:
     virtual bool initWithGame(std::string gameName);
 protected:
     std::string _gameName;
+    MenuContext* _menuContext;
     cocos2d::ParallaxNode *_parallax;
     cocos2d::ui::ScrollView *_scrollView;
     cocos2d::Vec2 _initPos;

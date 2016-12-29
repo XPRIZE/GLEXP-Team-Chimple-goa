@@ -448,7 +448,7 @@ if(this._level == 1)
         }else{
             x = -1;
         }
-        var jump = new cc.JumpBy(1.5,cc.p(x * this.size.width /4,300),200,1);
+        var jump = new cc.JumpBy(1,cc.p(x * this.size.width /4,300),200,1);
        this.char.node.runAction(cc.sequence( jump, cc.callFunc(this.jumpCallback, this)));//runAction(jump);
        if(this._level <= 10 ) {
        var animation = ccs.load(xc.playLayer.res.char,xc.path);
@@ -627,13 +627,14 @@ this.remove();
      help : function ()
      {
         // cc.log(this.nameLabel);
-         if (this.nameLabel){
+         if (this.nameLabel && (this.score != -3)){
             cc.log(this.nameLabel);
              this.removeChild(this.nameLabel);
+             
          }
        //  this.removeChild(this.nameLabel);
          cc.log("hiint");
-        this.decrementScore();
+        if (this.score != -3){
         this.random = Math.floor(Math.random()*(this.dict.length-1));  
         this.nameLabel = new cc.LabelTTF(this.dict[this.random].toUpperCase(),'Arial', 100 );
 		this.nameLabel.setAnchorPoint(0.5,0.5); 
@@ -642,18 +643,25 @@ this.remove();
         this.nameLabel.setName("hintlabel");
         this.nameLabel.setColor(cc.color(0,0,0));
         this.addChild(this.nameLabel, 1);
+        this.decrementScore();
         this.scheduleOnce(function(){
-           this.removeChild(this.nameLabel);
+            if( this.score != -3){
+                this.removeChild(this.nameLabel);
            this.nameLabel = null;
+            }
+           
         },3);
 
-     if(this.score <= -4 )
+        }
+        
+     
      {
-         if (cc.sys.isNative) {
+         
+        /* if (cc.sys.isNative) {
                 menuContext = this.getParent().menuContext;
                 cc.log("showscore");
                 menuContext.showScore();
-            }
+            }*/
      }
      },
 
