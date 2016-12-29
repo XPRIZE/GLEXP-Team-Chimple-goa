@@ -123,6 +123,9 @@ void Wembley::gameOver(bool correct) {
 	if (correct) {
 		//_menuContext->showScore();
 
+		
+
+
 		float wid = Director::getInstance()->getVisibleSize().width;
 		float hei = Director::getInstance()->getVisibleSize().height;
 		
@@ -180,6 +183,27 @@ void Wembley::gameOver(bool correct) {
 			
 		}
 
+
+		////help
+
+		if (_menuContext->getCurrentLevel() == 1) {
+
+			auto box1 = _clickBalls[0];
+
+			auto box1pos = box1->getPosition();// +Vec2(visibleSize.width * 0.03, visibleSize.height * 0.05);
+											   //box1->setPosition(Vec2(box1pos.x + visibleSize.width * 0.07, box1pos.y + visibleSize.height * 0.15));
+
+			_help = HelpLayer::create(Rect(box1pos.x, box1pos.y, box1->getContentSize().height, box1->getContentSize().width), Rect(0, 0, 0, 0));
+
+
+			_help->click(Vec2(box1pos));
+
+
+			this->addChild(_help);
+		}
+
+		////
+
 		_answerVector.clear();
 		_finish = 1;
 
@@ -205,6 +229,15 @@ void Wembley::addEventsBall(cocos2d::Sprite* callerObject)
 		Size s = target->getContentSize();
 		Rect rect = Rect(0, 0, s.width, s.height);
 		if (target->getBoundingBox().containsPoint(touch->getLocation())) {
+
+			
+			auto flag = 0;
+			if (_menuContext->getCurrentLevel() == 1 && flag == 0 ) {
+				this->removeChild(_help);
+				flag = 1;
+			}
+
+
 
 			CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("./sounds/kick.wav");
 

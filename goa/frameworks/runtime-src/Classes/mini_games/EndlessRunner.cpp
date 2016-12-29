@@ -61,9 +61,11 @@ void EndlessRunner::onEnterTransitionDidFinish()
 	}
 
 	tempChar = _alphabets[letterBoardAlphaLength];
-	letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 21, 1, 70, _caseSensitivity);
+	letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 1, 21, 70, _caseSensitivity);
 	_menuContext->setMaxPoints(_alphabets.size() * 5);
 	
+	//std::random_shuffle(letters.at(0).begin(), letters.at(20).end());
+
 	auto bgLayerGradient = LayerGradient::create(Color4B(255, 255, 255, 255), Color4B(255, 255, 255, 255));
 	this->addChild(bgLayerGradient, 0);
 	EndlessRunner::addEvents(bgLayerGradient);
@@ -351,7 +353,7 @@ void EndlessRunner::startingIntersectMode() {
 					
 					letterOnBoard->setString(LangUtil::convertUTF16CharToString(tempChar));
 					counterAlphabets = 0;
-					letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 21, 1, 70, _caseSensitivity);
+					letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 1, 21, 70, _caseSensitivity);
 					counterLetter = 0;
 				});
 
@@ -774,10 +776,10 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 
 		monsterImage->runAction(timeline);  timeline->gotoFrameAndPlay(0);
 
-		auto str = letters.at(counterLetter).at(0);
+		auto str = letters.at(0).at(counterLetter);
 		counterLetter++;
 		if (counterLetter == 21) {
-			letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 21, 1, 70, _caseSensitivity);
+			letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 1, 21, 70, _caseSensitivity);
 			counterLetter = 0;
 		}
 		

@@ -242,6 +242,9 @@ bool RPGSprite::onTouchBegan(Touch *touch, Event *event)
         }
     } else {
         boundingBoxRect = this->getSprite()->getBoundingBox();
+        if(this->getSprite()->getName().compare("cookies") == 0) {
+            boundingBoxRect = Rect(this->getSprite()->getBoundingBox().origin.x, this->getSprite()->getBoundingBox().origin.y, this->getSprite()->getBoundingBox().size.width * 2, this->getSprite()->getBoundingBox().size.height * 2);
+        }
     }
     if(this->getSprite()->isVisible() && this->getInterAct() == "true" && this->getVicinityToMainCharacter() == true && boundingBoxRect.containsPoint(n)) {
 
@@ -251,8 +254,7 @@ bool RPGSprite::onTouchBegan(Touch *touch, Event *event)
             return true;
         }
         
-    }
-    
+    } 
     return false;
 }
 

@@ -11,6 +11,7 @@
 #include "scripting/js-bindings/manual/ScriptingCore.h"
 
 #include "ScrollableGameMapScene.hpp"
+#include "MapScene.h"
 #include "menu/LevelMenu.h"
 #include "alphamon/SelectAlphamonScene.h"
 #include "puzzle/DuelScene.h"
@@ -76,7 +77,7 @@ Scene* ScrollableGameMapScene::createScene() {
     auto scene = Scene::create();    
     auto layer = ScrollableGameMapScene::create();
     scene->addChild(layer);
-    layer->menuContext = MenuContext::create(layer);
+    layer->menuContext = MenuContext::create(layer, "menu");
     scene->addChild(layer->menuContext);
     return scene;
 }
@@ -190,10 +191,16 @@ bool ScrollableGameMapScene::init() {
         }
 
         for (auto it = topBarGames.begin() ; it != topBarGames.end(); ++it) {
-            auto topBarButton = createButton(d[topBarGamesIndexes[*it]]);
+            const rapidjson::Value& game = d[topBarGamesIndexes[*it]];
+            auto topBarButton = createButton(game);
             auto index = std::distance(topBarGames.begin(), it);
             topBarButton->setPosition(Vec2((index + 0.5) * visibleSize.width / numCols, visibleSize.height + yOffset - (0 + 0.5) * ((visibleSize.height + yOffset) / (numRows + 1))));
-            topBarButton->addTouchEventListener(CC_CALLBACK_2(ScrollableGameMapScene::gameSelected, this));
+            auto gameName = game["name"].GetString();
+            if(!lockAll ||  (game.HasMember("unlock") && game["unlock"].GetBool()) || (doc.IsObject() && doc.HasMember(gameName))) {
+                topBarButton->addTouchEventListener(CC_CALLBACK_2(ScrollableGameMapScene::gameSelected, this));
+            } else {
+                topBarButton->setBright(false);
+            }
             addChild(topBarButton);
         }
 
@@ -261,6 +268,10 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             else if(clickedButton->getName() == "story-play")
             {
                 ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
+            }
+            else if(clickedButton->getName() == "map")
+            {
+                Director::getInstance()->replaceScene(MapScene::createScene());
             }
             else
             {

@@ -332,18 +332,21 @@ void ATM::oneNotePressed()
 	ss << _totalCount;
 	std::string str = ss.str();
 
+	float position = (2560 / 1.41) + _extraX - (visibleSize.width*0.05);
 	_hundreadLabel->setString(str);
-
+	CCLOG(" check one  = %d", _oneCount);
+	CCLOG(" check one RS Position = %f", _one_XPosition);
 	cocos2d::MoveTo * move;
 	if (_oneCount < 6) {
-		move = MoveTo::create(1, Vec2(_one_XPosition, 1350));
+		move = MoveTo::create(1, Vec2(position +((visibleSize.width*0.05)* _oneCount), 1350));
 	 }
 	else if (_oneCount == 6) {
 		_one_XPosition = (2560 / 1.41) + _extraX;
-		move = MoveTo::create(1, Vec2(_one_XPosition, 1150));
+		move = MoveTo::create(1, Vec2(position + visibleSize.width* 0.05, 1150));
 	}
 	else if (_oneCount > 6 && _oneCount < 11) {
-		move = MoveTo::create(1, Vec2(_one_XPosition, 1150));
+		int temp = _oneCount - 5;
+		move = MoveTo::create(1, Vec2(position + ((visibleSize.width*0.05)* temp), 1150));
 	}
 	if (_oneCount == 10) {
 		///
@@ -383,17 +386,18 @@ void ATM::tenNotePressed()
 	std::string str = ss.str();
 
 	_hundreadLabel->setString(str);
-
+	float position = (2560 / 1.41) + _extraX - (visibleSize.width*0.05);
 	cocos2d::MoveTo * move;
 	if (_tensCount < 6) {
-		move = MoveTo::create(1, Vec2(_ten_XPosition, 950));
+		move = MoveTo::create(1, Vec2(position + ((visibleSize.width*0.05)* _tensCount), 950));
 	}
 	else if (_tensCount == 6) {
 		_ten_XPosition = (2560 / 1.41) + _extraX;
-		move = MoveTo::create(1, Vec2(_ten_XPosition, 750));
+		move = MoveTo::create(1, Vec2(position + visibleSize.width* 0.05, 750));
 	}
 	else if (_tensCount > 6 ) {
-		move = MoveTo::create(1, Vec2(_ten_XPosition, 750));
+		int temp = _tensCount - 5;
+		move = MoveTo::create(1, Vec2(position + ((visibleSize.width*0.05)* temp), 750));
 	}
 	if (_tensCount == 10) {
 		CCLOG("disable the listener");
@@ -429,16 +433,18 @@ void ATM::hundredNotePressed()
 	ss << _totalCount;
 	std::string str = ss.str();
 	_hundreadLabel->setString(str);
+	float position = (2560 / 1.41) + _extraX - (visibleSize.width*0.05);
 	cocos2d::MoveTo * move;
 	if (_hundredCount < 6) {
-		move = MoveTo::create(1, Vec2(_hundredXPosition, 550));
+		move = MoveTo::create(1, Vec2(position + ((visibleSize.width*0.05)* _hundredCount), 550));
 	}
 	else if (_hundredCount == 6) {
-		_hundredXPosition = (2560 / 1.41) + _extraX;
-		move = MoveTo::create(1, Vec2(_hundredXPosition, 350));	
+		_ten_XPosition = (2560 / 1.41) + _extraX;
+		move = MoveTo::create(1, Vec2(position + visibleSize.width* 0.05, 350));
 	}
 	else if (_hundredCount > 6) {
-		move = MoveTo::create(1, Vec2(_hundredXPosition, 350));
+		int temp = _hundredCount - 5;
+		move = MoveTo::create(1, Vec2(position + ((visibleSize.width*0.05)* temp), 350));
 	}
 	if (_hundredCount == 10) {
 		CCLOG("disable the listener");

@@ -290,11 +290,12 @@ void Dash::onEnterTransitionDidFinish()
 	//auto defaultCharacter = CallFunc::create(CC_CALLBACK_0(Dash::otherCharacterJumping, this));
 	//randomly calling other character(If multiplayer Mode is off)
 
-
-	runAction(RepeatForever::create(Sequence::create(DelayTime::create(10 + (rand() % 60) / 30.0), CallFunc::create([=]() {
+	_enemyActions = RepeatForever::create(Sequence::create(DelayTime::create(10 + (rand() % 60) / 30.0), CallFunc::create([=]() {
 		_enemyScore++;
 		updatePlayerPosition("enemy", _enemyScore);
-	}), NULL)));
+	}), NULL));
+
+	runAction(_enemyActions);
 
 }
 
@@ -377,14 +378,20 @@ void Dash::otherCharacterJumping(int jumpCount)
 	_enemyJumpCount++;
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto jump = JumpBy::create(1, Vec2(visibleSize.width / 5, 0), 200, 1);
-	_otherCharacter->runAction(jump);
+	_otherCharacter->runAction(Sequence::create(jump, CallFunc::create([=]() {
+		if (_enemyJumpCount == 10) {
+			stopAction(_enemyActions);
+			auto audioEffect = CocosDenshion::SimpleAudioEngine::getInstance();
+			audioEffect->playEffect("sounds/sfx/error.ogg");
+			menu->showAnswer("wordPairs", _catagory);
+		}
+	}), NULL));
 	jumpTimeline(_otherCharacter, _scenePath.at("right_animation"));
-	if (_enemyJumpCount == 10) {
+	
 		//menu->showScore();
-		auto audioEffect = CocosDenshion::SimpleAudioEngine::getInstance();
-		audioEffect->playEffect("sounds/sfx/error.ogg");
-		menu->showAnswer("wordPairs", _catagory);
-	}
+
+		
+		
 }
 
 
@@ -479,6 +486,7 @@ void Dash::winningCelebration()
 	_character->runAction(RepeatForever::create(Sequence::create(danceAction,jump, CallFunc::create([=]() {
 		if (_wordCount == 8) {
 			//menu->showScore();
+			stopAction(_enemyActions);
 			menu->showAnswer("wordPairs", _catagory);
 		} else {
 			//fallingWords(_wordCount);
@@ -542,6 +550,7 @@ void Dash::iceLandThemeAnimation()
 	this->runAction(RepeatForever::create(Sequence::create(CallFunc::create([=]() {
 		if (_wordCount == 8) {
 			//menu->showScore();
+			stopAction(_enemyActions);
 			menu->showAnswer("wordPairs", _catagory);
 		} else {
 			//fallingWords(_wordCount);

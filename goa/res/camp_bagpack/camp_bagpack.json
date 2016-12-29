@@ -552,80 +552,6 @@
           },
           {
             "FontSize": 14,
-            "ButtonText": "",
-            "TextColor": {
-              "R": 65,
-              "G": 65,
-              "B": 70
-            },
-            "DisabledFileData": {
-              "Type": "MarkedSubImage",
-              "Path": "camp_bagpack/latern_dis.png",
-              "Plist": "camp_bagpack/camp_bagpack.plist"
-            },
-            "PressedFileData": {
-              "Type": "Default",
-              "Path": "Default/Button_Press.png",
-              "Plist": ""
-            },
-            "NormalFileData": {
-              "Type": "MarkedSubImage",
-              "Path": "camp_bagpack/latern.png",
-              "Plist": "camp_bagpack/camp_bagpack.plist"
-            },
-            "Scale9Enable": true,
-            "Scale9OriginX": 15,
-            "Scale9OriginY": 11,
-            "Scale9Width": 226,
-            "Scale9Height": 234,
-            "OutlineColor": {
-              "G": 0,
-              "B": 0
-            },
-            "ShadowColor": {
-              "R": 110,
-              "G": 110,
-              "B": 110
-            },
-            "ShadowOffsetX": 2.0,
-            "ShadowOffsetY": -2.0,
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 412.4103,
-              "Y": 633.6661
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.1611,
-              "Y": 0.352
-            },
-            "PreSize": {
-              "X": 0.1,
-              "Y": 0.1422
-            },
-            "LeftMargin": 284.4103,
-            "RightMargin": 2019.5897,
-            "TopMargin": 1038.334,
-            "BottomMargin": 505.6661,
-            "Tag": 45,
-            "ActionTag": 1695968144,
-            "Size": {
-              "X": 256.0,
-              "Y": 256.0
-            },
-            "Name": "\nlantern",
-            "ctype": "ButtonObjectData"
-          },
-          {
-            "FontSize": 14,
             "ButtonText": " ",
             "TextColor": {
               "R": 65,
@@ -1162,7 +1088,7 @@
             },
             "Position": {
               "X": 413.7869,
-              "Y": 810.6422
+              "Y": 811.6421
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1172,7 +1098,7 @@
             "IconVisible": false,
             "PrePosition": {
               "X": 0.1616,
-              "Y": 0.4504
+              "Y": 0.4509
             },
             "PreSize": {
               "X": 0.0352,
@@ -1180,8 +1106,8 @@
             },
             "LeftMargin": 368.7869,
             "RightMargin": 2101.2131,
-            "TopMargin": 977.8578,
-            "BottomMargin": 799.1422,
+            "TopMargin": 976.8579,
+            "BottomMargin": 800.1421,
             "Tag": 53,
             "ActionTag": -1702796739,
             "Size": {
@@ -1607,6 +1533,80 @@
               "Y": 200.0
             },
             "Name": "Button",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": " ",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp_bagpack/lantern_dis.png",
+              "Plist": "camp_bagpack/camp_bagpack.plist"
+            },
+            "PressedFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Press.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp_bagpack/lantern.png",
+              "Plist": "camp_bagpack/camp_bagpack.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 226,
+            "Scale9Height": 234,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 420.5613,
+              "Y": 621.3397
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1643,
+              "Y": 0.3452
+            },
+            "PreSize": {
+              "X": 0.1,
+              "Y": 0.1422
+            },
+            "LeftMargin": 292.5613,
+            "RightMargin": 2011.4387,
+            "TopMargin": 1050.6604,
+            "BottomMargin": 493.3397,
+            "Tag": 31,
+            "ActionTag": 1292674325,
+            "Size": {
+              "X": 256.0,
+              "Y": 256.0
+            },
+            "Name": "lantern",
             "ctype": "ButtonObjectData"
           }
         ],

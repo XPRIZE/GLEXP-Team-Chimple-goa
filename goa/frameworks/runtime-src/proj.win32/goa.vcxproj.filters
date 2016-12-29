@@ -613,6 +613,9 @@
     <ClCompile Include="..\Classes\WordBubble.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\menu\Award.cpp">
+      <Filter>Classes\menu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1221,6 +1224,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\WordBubble.hpp">
       <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\menu\Award.h">
+      <Filter>Classes\menu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

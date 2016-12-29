@@ -11,6 +11,17 @@
         "script": "src/start/catalogue.js"
     },
     {
+        "name": "story-telling",
+        "title": "Stories",
+        "unlock": true,
+        "cIcon": "gameicons/story_pressed.png",
+        "icon": "gameicons/story.png",
+        "multiPlayer": false,
+        "isJSGame": true,
+        "pureJS": "",
+        "script": "src/start/storytelling.js"
+    },    
+    {
         "name": "dino",
         "title": "Alphabet",
         "cIcon": "gameicons/dino_pressed.png",
@@ -687,7 +698,7 @@
         "multiPlayer": false,
         "isJSGame": false,
         "script": "src/NonJSGameLauncher.js",
-        "span": "5",
+        "span": "8",
         "numLevels": "62",
         "rewards" : {
             "1": {
@@ -1405,6 +1416,16 @@
         "script": "src/start/storytelling.js"
     },
     {
+        "name": "map",
+        "title": "Be a Hero",
+        "unlock": true,
+        "cIcon": "gameicons/hero_pressed.png",
+        "icon": "gameicons/hero.png",
+        "multiPlayer": false,
+        "isJSGame": false,
+        "script": "src/NonJSGameLauncher.js"
+    },
+    {
         "name": "JumpOnWords",
         "title": "Jump on Words",
         "cIcon": "gameicons/JumpOnWords_pressed.png",
@@ -1617,12 +1638,12 @@
                 "badge": "fearless_warrior"
             }
         },
-        "backgroundJson": "cityscreen/background.json",
-        "foregroundJson": "cityscreen/foreground.json",
-        "frontgroundJson": "cityscreen/frontground.json",
-        "maingroundJson": "cityscreen/mainground.json",
-        "menuPlist": "cityscreen/cityscreen.plist",
-        "menuPng": "cityscreen/cityscreen.png"
+        "backgroundJson": "connectlevel/background.json",
+        "foregroundJson": "connectlevel/foreground.json",
+        "frontgroundJson": "connectlevel/frontground.json",
+        "maingroundJson": "connectlevel/mainground.json",
+        "menuPlist": "connectlevel/connectlevel.plist",
+        "menuPng": "connectlevel/connectlevel.png"
     },
     {
         "name": "chocolateFactory",
