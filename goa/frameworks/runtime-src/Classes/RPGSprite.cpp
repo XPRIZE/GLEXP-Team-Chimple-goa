@@ -232,11 +232,12 @@ cocostudio::timeline::ActionTimeline* RPGSprite::getActionTimeLine() {
 bool RPGSprite::onTouchBegan(Touch *touch, Event *event)
 {
     auto n = this->convertTouchToNodeSpace(touch);
+    CCLOG("this->getSprite()->getName() %s", this->getSprite()->getName().c_str());
     Rect boundingBoxRect = Rect::ZERO;
     
     if(this->getSprite()->getBoundingBox().size.width == 0 && this->getSprite()->getBoundingBox().size.height == 0)
     {
-        if(this->getSprite()->getChildren().size() == 1) {
+        if(this->getSprite()->getChildren().size() >= 1) {
             n = this->getSprite()->convertTouchToNodeSpace(touch);
             boundingBoxRect = this->getSprite()->getChildren().at(0)->getBoundingBox();
         }
@@ -245,6 +246,7 @@ bool RPGSprite::onTouchBegan(Touch *touch, Event *event)
         if(this->getSprite()->getName().compare("cookies") == 0) {
             boundingBoxRect = Rect(this->getSprite()->getBoundingBox().origin.x, this->getSprite()->getBoundingBox().origin.y, this->getSprite()->getBoundingBox().size.width * 2, this->getSprite()->getBoundingBox().size.height * 2);
         }
+        
     }
     if(this->getSprite()->isVisible() && this->getInterAct() == "true" && this->getVicinityToMainCharacter() == true && boundingBoxRect.containsPoint(n)) {
 

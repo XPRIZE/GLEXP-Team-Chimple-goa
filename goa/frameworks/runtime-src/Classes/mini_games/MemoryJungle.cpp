@@ -387,6 +387,11 @@ void MemoryJungle::onEnterTransitionDidFinish() {
 		box1pos = box1->getPosition() + Vec2(visibleSize.width * 0.03, 0);
 		box2pos = box2->getPosition() + Vec2(visibleSize.width * 0.03, 0);
 
+		if (Director::getInstance()->getVisibleSize().width == 2560) {
+			box1pos = box1->getPosition() + Vec2(visibleSize.width * 0, visibleSize.height * 0);
+
+		}
+
 		help1 = HelpLayer::create(Rect(box1pos.x + origin.x, box1pos.y + origin.y, box1->getChildByName("leave")->getChildByName("leave")->getContentSize().width, box1->getChildByName("leave")->getChildByName("leave")->getContentSize().height), Rect(0, 0, 0, 0));
 
 
@@ -506,6 +511,12 @@ bool MemoryJungle::onTouchBegan(Touch* touch, Event* event) {
 
 		box1pos = box1->getPosition() + Vec2(visibleSize.width * 0.03, 0);
 		box2pos = box2->getPosition() + Vec2(visibleSize.width * 0.03, 0);
+
+		if (Director::getInstance()->getVisibleSize().width == 2560) {
+			box2pos = box2->getPosition() + Vec2(visibleSize.width * 0, visibleSize.height * 0);
+
+		}
+
 
 		help2 = HelpLayer::create(Rect(box2pos.x + origin.x, box2pos.y + origin.y, box2->getChildByName("leave")->getChildByName("leave")->getContentSize().width, box2->getChildByName("leave")->getChildByName("leave")->getContentSize().height), Rect(0, 0, 0, 0));
 

@@ -1,0 +1,167 @@
+{
+  "ID": "83432037-5536-4661-9905-d273b3db48e2",
+  "Version": "3.10.0.0",
+  "Name": "firestation_medicaldoor",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 5,
+        "Speed": 1.0,
+        "Timelines": [
+          {
+            "ActionTag": -476754872,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 0.938,
+                "Y": 0.6541,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 0.938,
+                "Y": -12.836,
+                "FrameIndex": 1,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 0.938,
+                "Y": 0.6541,
+                "FrameIndex": 2,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 0.9379,
+                "Y": 0.654,
+                "FrameIndex": 3,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 0.938,
+                "Y": 0.6541,
+                "FrameIndex": 4,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -48.8831,
+                "Y": -33.6592,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -476754872,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "firestation/medicaldoor1.png",
+                  "Plist": "firestation/firestation.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "firestation/medicaldoor2.png",
+                  "Plist": "firestation/firestation.plist"
+                },
+                "FrameIndex": 5,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 944,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "firestation/medicaldoor2.png",
+              "Plist": "firestation/firestation.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -48.8831,
+              "Y": -33.6592
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -100.8831,
+            "RightMargin": -3.1169,
+            "TopMargin": -117.3408,
+            "BottomMargin": -184.6592,
+            "Tag": 945,
+            "ActionTag": -476754872,
+            "Size": {
+              "X": 104.0,
+              "Y": 302.0
+            },
+            "Name": "Sprite_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "firestation.plist",
+        "firestation.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

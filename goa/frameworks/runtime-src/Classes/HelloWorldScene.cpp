@@ -553,7 +553,7 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
                                 }
                            } while(regex_match(matchingName, pattern));
                         
-//                        CCLOG("matchingName %s", matchingName.c_str());
+                        CCLOG("matchingName %s", matchingName.c_str());
                         PhysicsShapeCache::getInstance()->setBodyOnSprite(matchingName, (Sprite *)subChild);
 
                         auto body = subChild->getPhysicsBody();
@@ -1821,7 +1821,7 @@ void HelloWorld::processCustomAnimationMessage(std::vector<MessageContent*>custo
             
             Node* node = this->mainLayer->getChildByName(content->getOwner());
             RPGSprite* ownerSprite = dynamic_cast<RPGSprite *>(node);
-            if(node != NULL) {
+            if(node != NULL &&  ownerSprite != NULL) {
                 FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
                 node->runAction(TargetedAction::create(node, shake));
                 ownerSprite->setEventProcessed(false);
