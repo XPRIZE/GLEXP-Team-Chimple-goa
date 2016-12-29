@@ -177,7 +177,13 @@ void HelloWorld::renderBagPack() {
 void HelloWorld::showBagpackOpenAnimation(std::unordered_map<int, std::string> textMapFollowedByAnimation, std::string owner) {
     
         CCLOG("show bag pack for %s", this->getIsland().c_str());
-        std::string backPackFile = this->getIsland()+"_bagpack" + "/" + this->getIsland() + "_bagpack.csb";
+        std::string backPackFile = "";
+        if(this->getIsland().compare("miningbg") == 0) {
+            backPackFile = "mining_bagpack/mining_bagpack.csb";
+        } else {
+            backPackFile = this->getIsland()+"_bagpack" + "/" + this->getIsland() + "_bagpack.csb";
+        }
+    
         if(FileUtils::getInstance()->isFileExist(backPackFile)) {
             Size visibleSize = Director::getInstance()->getVisibleSize();
             Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -675,7 +681,13 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName, b
 //    CCLOG("translatedString %s", translatedString.c_str());
     
     CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile("template/template_02/template_02.plist");
-    CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile(this->getIsland()+"_bagpack" + "/" + this->getIsland() + "_bagpack.plist");
+    
+    if(this->getIsland().compare("miningbg") == 0) {
+        CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile("mining_bagpack/mining_bagpack.plist");
+    } else {
+        CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile(this->getIsland()+"_bagpack" + "/" + this->getIsland() + "_bagpack.plist");
+    }
+    
     
     return true;
 }
@@ -907,7 +919,11 @@ void HelloWorld::processUseInBackPackMessages(std::vector<MessageContent*>showMe
             if(content->getPreOutComeAction().compare("lantern") == 0) {
                 imageFile = this->getIsland()+"_bagpack" + "/latern.png";
             } else {
-                imageFile = this->getIsland()+"_bagpack" + "/" + content->getPreOutComeAction() + ".png";
+                if(this->getIsland().compare("miningbg") == 0) {
+                    imageFile = "mining_bagpack/" + content->getPreOutComeAction() + ".png";
+                } else {
+                    imageFile = this->getIsland()+"_bagpack" + "/" + content->getPreOutComeAction() + ".png";
+                }
             }
         }
         
