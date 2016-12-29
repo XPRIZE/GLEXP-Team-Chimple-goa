@@ -11,6 +11,7 @@
 #include "LevelMenu.h"
 #include "storage/local-storage/LocalStorage.h"
 #include "scripting/js-bindings/manual/ScriptingCore.h"
+#include"../MapScene.h"
 
 USING_NS_CC;
 
@@ -58,6 +59,7 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
         for (rapidjson::SizeType i = 0; i < d.Size(); i++) {
             const rapidjson::Value& game = d[i];
             std::string jsonGameName = game["name"].GetString();
+            _gameNumberOfLevels[jsonGameName+"_numLevels"] = game["numLevels"].GetInt();
             gameIcons[jsonGameName] = game["icon"].GetString();
             if(gameName == jsonGameName) {
                 if(game.HasMember("rewards")) {
@@ -329,19 +331,31 @@ void ScoreBoardContext::buttonClicked(Ref* pSender, ui::Widget::TouchEventType e
                 this->transit();
             }
             else if(clickedButton->getName() == "level") {
-                Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
-            }
-            else if(clickedButton->getName() == "home") {
-                if(!this->_sceneName.empty()) {
-                    Director::getInstance()->replaceScene(TransitionFade::create(0.5, HelloWorld::createScene("camp","", true), Color3B::BLACK));
-                    
+                if(_gameName == "Show Stories") {
+                    ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
+                } else if(_gameName == "Safari RPG") {
+                    Director::getInstance()->replaceScene(MapScene::createScene());
                 } else {
                     Director::getInstance()->replaceScene(LevelMenu::createScene(_gameName));
-                    
-                }
+                }                
+            }
+            else if(clickedButton->getName() == "home") {
+                Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
             }
             else if(clickedButton->getName() == "next")  {
-                
+//                if(_gameName == "Show Stories") {
+//                    ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
+//                } else if(_gameName == "Safari RPG") {
+//                    Director::getInstance()->replaceScene(MapScene::createScene());
+//                } else {
+//                    std::string currentLevel;
+//                    //_gameNumberOfLevels
+//                    localStorageGetItem(_gameName + ".currentLevel", &currentLevel);
+//                    int curLevel = atoi(currentLevel.c_str());
+//                    curLevel++;
+//                    //localStorageSetItem(_gameName + ".currentLevel", curLevel);
+//                    MenuContext::launchGameFromJS(_gameName);
+//                }
             }
             break;
         }
