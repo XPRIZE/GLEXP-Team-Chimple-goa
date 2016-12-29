@@ -113,10 +113,13 @@ void MapScene::processChildNodes(cocos2d::Node *rootNode) {
             
             if ( it != attributes.end() ) {
                 //process text
-                std::string mapText = this->currentLangUtil->translateString(it->second);
-                cocos2d::Label* label = Label::createWithTTF(mapText, "fonts/arial.ttf", 50);
-                label->setPosition(node->getPosition());
-                mainLayer->addChild(label);                
+                if(it->first.compare("text") == 0) {
+                    std::string mapText = this->currentLangUtil->translateString(node->getName());
+                    cocos2d::Label* label = Label::createWithTTF(mapText, "fonts/arial.ttf", 50);
+                    label->setPosition(Vec2(node->getPosition().x, node->getPosition().y));
+                    mainLayer->addChild(label);
+                    
+                }
             }
             
             if(itNextScene != attributes.end())
@@ -125,6 +128,7 @@ void MapScene::processChildNodes(cocos2d::Node *rootNode) {
                 cocos2d::ui::Button* button = dynamic_cast<cocos2d::ui::Button *>(node);
                 if(button) {
                     button->setName(itNextScene->second);
+                    button->setTitleText("");
                     button->addTouchEventListener(CC_CALLBACK_2(MapScene::islandSelected, this));
                 }
             }
