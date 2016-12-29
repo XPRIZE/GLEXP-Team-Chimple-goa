@@ -7,7 +7,7 @@
 //
 
 #include "ScoreBoardContext.h"
-#include "HelloWorldScene.h"
+#include "../HelloWorldScene.h"
 #include "LevelMenu.h"
 #include "storage/local-storage/LocalStorage.h"
 #include "scripting/js-bindings/manual/ScriptingCore.h"
@@ -325,10 +325,10 @@ void ScoreBoardContext::buttonClicked(Ref* pSender, ui::Widget::TouchEventType e
             break;
         case ui::Widget::TouchEventType::ENDED:
         {
-            if(clickedButton->getName() == "close") {                
+            if(clickedButton->getName() == "replay") {
                 this->transit();
             }
-            else if(clickedButton->getName() == "home") {
+            else if(clickedButton->getName() == "level") {
                 if(!this->_sceneName.empty()) {
                     Director::getInstance()->replaceScene(TransitionFade::create(0.5, HelloWorld::createScene("camp","", true), Color3B::BLACK));
                     
@@ -337,10 +337,12 @@ void ScoreBoardContext::buttonClicked(Ref* pSender, ui::Widget::TouchEventType e
                     
                 }
             }
-            else  {
-                this->transit();
+            else if(clickedButton->getName() == "home") {
+                Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
             }
-            
+            else if(clickedButton->getName() == "next")  {
+                
+            }
             break;
         }
             
