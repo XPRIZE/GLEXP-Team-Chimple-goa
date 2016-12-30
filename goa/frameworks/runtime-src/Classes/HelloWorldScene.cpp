@@ -2733,7 +2733,7 @@ bool HelloWorld::onContactBegin(PhysicsContact &contact) {
     // We we handle what happen when character collide with something else
     // if we return true, we say: collision happen please. => Top-Down Char Jump
     // otherwise, we say the engine to ignore this collision => Bottom-Up Char Jump
-    CCLOG("contact BEGAN 1111!!! %d", this->stateMachine->getCurrentState()->getState());
+//    CCLOG("contact BEGAN 1111!!! %d", this->stateMachine->getCurrentState()->getState());
     cocos2d::Node* nodeA = contact.getShapeA()->getBody()->getNode();
     cocos2d::Node* nodeB = contact.getShapeB()->getBody()->getNode();
     
