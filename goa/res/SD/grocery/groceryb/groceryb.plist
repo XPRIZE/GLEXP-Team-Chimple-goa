@@ -15,7 +15,7 @@
                 <key>spriteSourceSize</key>
                 <string>{72,68}</string>
                 <key>textureRect</key>
-                <string>{{249,56},{72,68}}</string>
+                <string>{{133,199},{72,68}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -30,9 +30,9 @@
                 <key>spriteSourceSize</key>
                 <string>{42,40}</string>
                 <key>textureRect</key>
-                <string>{{419,56},{42,40}}</string>
+                <string>{{133,426},{42,40}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>grocery/groceryb/door.png</key>
             <dict>
@@ -45,9 +45,9 @@
                 <key>spriteSourceSize</key>
                 <string>{53,94}</string>
                 <key>textureRect</key>
-                <string>{{350,1},{53,94}}</string>
+                <string>{{1,377},{53,94}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>grocery/groceryb/doorouter.png</key>
             <dict>
@@ -60,7 +60,7 @@
                 <key>spriteSourceSize</key>
                 <string>{60,97}</string>
                 <key>textureRect</key>
-                <string>{{117,64},{60,97}}</string>
+                <string>{{117,324},{60,97}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -75,9 +75,9 @@
                 <key>spriteSourceSize</key>
                 <string>{53,94}</string>
                 <key>textureRect</key>
-                <string>{{323,56},{53,94}}</string>
+                <string>{{56,377},{53,94}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>grocery/groceryb/floor.png</key>
             <dict>
@@ -90,7 +90,7 @@
                 <key>spriteSourceSize</key>
                 <string>{114,113}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{114,113}}</string>
+                <string>{{1,262},{114,113}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -105,7 +105,7 @@
                 <key>spriteSourceSize</key>
                 <string>{61,130}</string>
                 <key>textureRect</key>
-                <string>{{117,1},{61,130}}</string>
+                <string>{{1,199},{61,130}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -120,7 +120,7 @@
                 <key>spriteSourceSize</key>
                 <string>{53,99}</string>
                 <key>textureRect</key>
-                <string>{{249,1},{53,99}}</string>
+                <string>{{117,269},{53,99}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -135,7 +135,7 @@
                 <key>spriteSourceSize</key>
                 <string>{45,38}</string>
                 <key>textureRect</key>
-                <string>{{446,1},{45,38}}</string>
+                <string>{{133,386},{45,38}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -150,7 +150,22 @@
                 <key>spriteSourceSize</key>
                 <string>{28,35}</string>
                 <key>textureRect</key>
-                <string>{{461,80},{28,35}}</string>
+                <string>{{180,386},{28,35}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>grocery/groceryb/stepsa.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{212,196}</string>
+                <key>spriteSourceSize</key>
+                <string>{212,196}</string>
+                <key>textureRect</key>
+                <string>{{1,1},{212,196}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -165,7 +180,7 @@
                 <key>spriteSourceSize</key>
                 <string>{33,37}</string>
                 <key>textureRect</key>
-                <string>{{461,41},{33,37}}</string>
+                <string>{{180,416},{33,37}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -180,7 +195,7 @@
                 <key>spriteSourceSize</key>
                 <string>{56,48}</string>
                 <key>textureRect</key>
-                <string>{{216,64},{56,20}}</string>
+                <string>{{111,386},{56,20}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -190,15 +205,15 @@
             <key>format</key>
             <integer>3</integer>
             <key>pixelFormat</key>
-            <string>RGBA4444</string>
+            <string>RGBA8888</string>
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
             <string>groceryb.png</string>
             <key>size</key>
-            <string>{495,125}</string>
+            <string>{217,472}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:5db549c919ddaaae64b0d15d5e9ce642:88a3fbdb20e0f8229c022f7b9bcbf8ad:a25acce6e93d44cc0b911ef3ece3027a$</string>
+            <string>$TexturePacker:SmartUpdate:faced998cd400b4edd64594efb9ee688:f4dfd546fd8250b798d874cd9f8899e0:a25acce6e93d44cc0b911ef3ece3027a$</string>
             <key>textureFileName</key>
             <string>groceryb.png</string>
         </dict>

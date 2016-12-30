@@ -36,8 +36,13 @@ protected:
     std::vector<std::string> getStarBadges(int level);
     std::string _gameToUnlock;
     std::vector<std::string> _badges;
+    cocos2d::Vector<cocos2d::SpriteFrame*> _giftFrames;
+    cocos2d::Animation* _giftAnimation;
+    cocos2d::Animate* _giftAction;
+    cocos2d::Sprite* _gift;
+    
 private:
-    std::map<std::string, int> _gameNumberOfLevels;
+    
     void createScoreBoard();
     void processChildNodes(cocos2d::Node *rootNode);
     void buttonClicked(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
@@ -49,6 +54,7 @@ private:
     std::string _gameName;
     std::string _sceneName;
     int _stars;
-    
+    std::string _numberOfLevels;
+    cocos2d::ui::Button * _nextButton;
 };
 #endif /* ScoreBoardContext_h */

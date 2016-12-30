@@ -33,7 +33,7 @@ public:
     void nagivateToGame(std::string gameName);
     static std::vector<std::string> getTopBarGames();
     static void pushTopBarGame(std::string game);
-    
+
 CC_CONSTRUCTOR_ACCESS:
     virtual bool init();
     ScrollableGameMapScene();
@@ -43,6 +43,7 @@ protected:
     cocos2d::Layer* _layer;
     cocos2d::ui::PageView* _pageView;
     MenuContext* menuContext;
+    cocos2d::ParallaxNode *_parallax;
     map_type mymap;
     void gameSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     std::vector<std::string> split(std::string s, char delim);

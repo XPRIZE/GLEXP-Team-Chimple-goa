@@ -73,7 +73,7 @@ xc.StoryCoverButtonPanel = ccui.Layout.extend({
                         var storyStatus = JSON.parse(cc.sys.localStorage.getItem(storyId + xc.storyLevel)) || {};                        
 
                         if(storyStatus.locked) {                       
-                            if(unlockALL == 1) {
+                            if(unlockALL == 0 || unlockALL == undefined || unlockALL == null) {
                                 item.locked = false;
                             } else {
                                 var lockSprite = new cc.Sprite(xc.path + "template/lock.png");

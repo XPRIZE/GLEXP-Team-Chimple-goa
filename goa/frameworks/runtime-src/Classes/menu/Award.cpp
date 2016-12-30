@@ -65,28 +65,28 @@ void Award::onEnterTransitionDidFinish()
 	_tab->setContentSize(Size(visibleSize.width, visibleSize.height));
 	_tab->setAnchorPoint(Vec2(0.5, 0.5));
 	_tab->setHeaderHeight(300.f);
-	_tab->setHeaderWidth(300.f);
-	_tab->setHeaderSelectedZoom(.1f);
+	_tab->setHeaderWidth(390.f);
+	//_tab->setHeaderSelectedZoom(.1f);
 	_tab->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
 	_tab->setHeaderDockPlace(ui::TabControl::Dock::TOP);
 
-	auto header1 = ui::TabHeader::create("cross1", "menu/back.png", "menu/book.png");
+	auto header1 = ui::TabHeader::create("tab1", "tab/bluetab_deselected.png", "tab/bluetab_selected.png");
 	header1->setName("0");
-	header1->setTitleText("background");
+	/*header1->setTitleText("background");*/
 	
-	auto header2 = ui::TabHeader::create("cross2", "menu/help.png", "menu/map.png");
+	auto header2 = ui::TabHeader::create("tab2", "tab/greentab_deselected.png", "tab/greentab_selected.png");
 	header2->setName("2");
 	
-	auto header3 = ui::TabHeader::create("cross3", "menu/back.png", "menu/book.png");
+	auto header3 = ui::TabHeader::create("tab3", "tab/orangetab_deselected.png", "tab/orangetab_selected.png");
 	header3->setName("3");
 	
-	auto header4 = ui::TabHeader::create("cross3", "menu/book.png", "menu/back.png");
+	auto header4 = ui::TabHeader::create("tab4", "tab/purpletab_deselected.png", "tab/purpletab_selected.png");
 	header4->setName("4");
 
-	auto header5 = ui::TabHeader::create("cross3", "menu/clothes.png", "menu/back.png");
+	auto header5 = ui::TabHeader::create("tab5", "tab/redtab_deselected.png", "tab/redtab_selected.png");
 	header4->setName("5");
 
-	auto header6 = ui::TabHeader::create("cross3", "menu/camera.png", "menu/back.png");
+	auto header6 = ui::TabHeader::create("tab6", "tab/yellowtab_deselected.png", "tab/yellowtab_selected.png");
 	header4->setName("6");
 
 

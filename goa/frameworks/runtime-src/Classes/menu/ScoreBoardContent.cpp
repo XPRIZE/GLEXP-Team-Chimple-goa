@@ -59,9 +59,24 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
         for (rapidjson::SizeType i = 0; i < d.Size(); i++) {
             const rapidjson::Value& game = d[i];
             std::string jsonGameName = game["name"].GetString();
-            _gameNumberOfLevels[jsonGameName+"_numLevels"] = game["numLevels"].GetInt();
             gameIcons[jsonGameName] = game["icon"].GetString();
             if(gameName == jsonGameName) {
+                if(game.HasMember("numLevels")) {
+                    _numberOfLevels = game["numLevels"].GetString();
+                    
+                    std::string currentLevel;
+                    localStorageGetItem(_gameName + ".currentLevel", &currentLevel);
+                    int curLevel = atoi(currentLevel.c_str());
+                    int totalLevels = atoi(_numberOfLevels.c_str());
+                    if(curLevel > totalLevels) {
+                        _nextButton->setEnabled(false);
+                    } else {
+                        _nextButton->setEnabled(true);
+                    }
+                } else {
+                    _nextButton->setEnabled(false);
+                }
+                
                 if(game.HasMember("rewards")) {
                     const rapidjson::Value& rewards = game["rewards"];
                     if(rewards.HasMember(MenuContext::to_string(level).c_str())) {
@@ -126,10 +141,68 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
             }
         }
     }
-    if(!_gameToUnlock.empty() && gameIcons.count(_gameToUnlock) > 0) {
-        auto sprite = Sprite::create(gameIcons[_gameToUnlock]);
-        addChild(sprite);
+    if((!_gameToUnlock.empty() && gameIcons.count(_gameToUnlock) > 0) || _badges.size() > 0) {
+        SpriteFrameCache* cache = SpriteFrameCache::getInstance();
+        cache->addSpriteFramesWithFile("gift.plist"); // relative
+        _gift = Sprite::createWithSpriteFrameName("Gift0001.png");
+        for (int i = 1; i < 61; i++)
+        {
+            std::string num = StringUtils::format("%02d", i);
+            _giftFrames.pushBack(cache->getSpriteFrameByName("Gift00" + num + ".png"));
+        }
+        
+        // create the animation out of the frames and an action for the new animation
+        
+        _giftAnimation = Animation::createWithSpriteFrames(_giftFrames, 0.06f);
+        _giftAnimation->retain();
+        
+        // use/run the animation
+        
+        auto openGift = Animate::create(_giftAnimation);
+        Vector<FiniteTimeAction *> actions;
+        int numRewards = 0;
+        
+        if(!_gameToUnlock.empty() && gameIcons.count(_gameToUnlock) > 0) {
+            numRewards++;
+            auto sprite = Sprite::create(gameIcons[_gameToUnlock]);
+            sprite->setScale(0.1, 0.1);
+            addChild(sprite);
+            auto jumpAction = JumpTo::create(1.0, Vec2(500, 500), 600, 2);
+            auto scaleAction = ScaleTo::create(1.0, 1.0);
+            auto spawn = Spawn::create(jumpAction, scaleAction, NULL);
+            actions.pushBack(TargetedAction::create(sprite, spawn));
+        }
+        if(_badges.size() > 0) {
+            for (auto it = _badges.begin() ; it != _badges.end(); ++it) {
+                auto badge = *it;
+                auto sprite = Sprite::create("rewards/" + badge + ".png");
+                if(sprite != nullptr) {
+                    sprite->setScale(0.1, 0.1);
+                    addChild(sprite);
+                    auto finalPos = Vec2(500, 500);
+                    if(numRewards == 1) {
+                        finalPos = Vec2(0, 500);
+                    } else {
+                        finalPos = Vec2(-500, 500);
+                    }
+                    auto jumpAction = JumpTo::create(1.0, finalPos, 600, 2);
+                    auto scaleAction = ScaleTo::create(1.0, 1.0);
+                    auto spawn = Spawn::create(jumpAction, scaleAction, NULL);
+                    actions.pushBack(TargetedAction::create(sprite, spawn));
+                }
+            }
+        }
+        if(actions.size() > 0) {
+            addChild(_gift);
+            _gift->runAction(Sequence::create(openGift, Spawn::create(actions), NULL));
+        }
     }
+    
+    std::size_t isStories = _gameName.find("storyId");
+    if (isStories!=std::string::npos) {
+        _nextButton->setEnabled(false);
+    }
+    
     return true;
 }
 
@@ -271,6 +344,11 @@ void ScoreBoardContext::processChildNodes(cocos2d::Node *rootNode) {
                 if(button) {
                     button->addTouchEventListener(CC_CALLBACK_2(ScoreBoardContext::buttonClicked, this));
                     button->setName(action);
+                    
+                    if(button->getName() == "next") {
+                        _nextButton = button;
+                    }
+                    
                 }
                 
             } else if(dynamic_cast<Sprite *>(node)) {
@@ -307,9 +385,11 @@ void ScoreBoardContext::showStars() {
 }
 
 void ScoreBoardContext::transit() {
-    if(!this->_sceneName.empty()) {
+    std::size_t isStories = _gameName.find("storyId");
+    if (isStories!=std::string::npos) {
+        ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
+    } else if(!this->_sceneName.empty()) {
         Director::getInstance()->replaceScene(TransitionFade::create(0.5, HelloWorld::createScene(this->_gameName,this->_sceneName, true), Color3B::BLACK));
-
     } else {
         StartMenu::startScene(this->_gameName);
     }
@@ -331,7 +411,8 @@ void ScoreBoardContext::buttonClicked(Ref* pSender, ui::Widget::TouchEventType e
                 this->transit();
             }
             else if(clickedButton->getName() == "level") {
-                if(_gameName == "Show Stories") {
+                std::size_t isStories = _gameName.find("storyId");
+                if (isStories!=std::string::npos || _gameName == "Show Stories"){
                     ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
                 } else if(_gameName == "Safari RPG") {
                     Director::getInstance()->replaceScene(MapScene::createScene());
@@ -343,19 +424,25 @@ void ScoreBoardContext::buttonClicked(Ref* pSender, ui::Widget::TouchEventType e
                 Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
             }
             else if(clickedButton->getName() == "next")  {
-//                if(_gameName == "Show Stories") {
-//                    ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
-//                } else if(_gameName == "Safari RPG") {
-//                    Director::getInstance()->replaceScene(MapScene::createScene());
-//                } else {
-//                    std::string currentLevel;
-//                    //_gameNumberOfLevels
-//                    localStorageGetItem(_gameName + ".currentLevel", &currentLevel);
-//                    int curLevel = atoi(currentLevel.c_str());
-//                    curLevel++;
-//                    //localStorageSetItem(_gameName + ".currentLevel", curLevel);
-//                    MenuContext::launchGameFromJS(_gameName);
-//                }
+
+                std::size_t isStories = _gameName.find("storyId");
+                
+                if (isStories!=std::string::npos || _gameName == "Show Stories") {
+                    ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
+                } else if(_gameName == "Safari RPG") {
+                    Director::getInstance()->replaceScene(MapScene::createScene());
+                } else {
+                    std::string currentLevel;
+                    localStorageGetItem(_gameName + ".currentLevel", &currentLevel);
+                    int curLevel = atoi(currentLevel.c_str());
+                    curLevel++;
+                    int totalLevels = atoi(_numberOfLevels.c_str());
+                    if(curLevel <= totalLevels) {
+                        localStorageSetItem(_gameName + ".currentLevel", MenuContext::to_string(curLevel));
+                        MenuContext::launchGameFromJS(_gameName);
+                    }
+                    
+                }
             }
             break;
         }
