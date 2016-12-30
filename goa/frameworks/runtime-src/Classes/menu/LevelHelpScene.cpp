@@ -206,6 +206,8 @@ void LevelHelpScene::videoEventCallback(Ref* sender, cocos2d::experimental::ui::
         case cocos2d::experimental::ui::VideoPlayer::EventType::COMPLETED:
 			_resumeButton->setEnabled(true);
 			_resumeButton->setVisible(true);
+//			removeChild(getChildByName("bg")->getChildByName("screen_1")->getChildByName("video"));
+			getChildByName("bg")->getChildByName("screen_1")->removeChild(getChildByName("bg")->getChildByName("screen_1")->getChildByName("video"));
             break;
         default:
             break;
@@ -225,13 +227,16 @@ void LevelHelpScene::videoPlayStart()
         _vp->setName("video");
         auto bg = getChildByName("bg");
         auto screen_1 = bg->getChildByName("screen_1");
-        screen_1->addChild(_vp);
+        screen_1->addChild(_vp, 2);
         auto cSize = screen_1->getContentSize();
         _vp->setPosition(Vec2(cSize.width / 2, cSize.height / 2));
         _vp->addEventListener(CC_CALLBACK_2(LevelHelpScene::videoEventCallback, this));
 
-		_resumeButton = Button::create("menu/game.png", "menu/game.png", "menu/game.png", Widget::TextureResType::LOCAL);
-		_resumeButton->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
+		auto spritecache1 = SpriteFrameCache::getInstance();
+		spritecache1->addSpriteFramesWithFile("cardraw/cardraw.plist");
+
+		_resumeButton = Button::create("cardraw/ref.png", "cardraw/ref_clicked.png", "cardraw/ref.png", Widget::TextureResType::PLIST);
+		_resumeButton->setPosition(Vec2(cSize.width / 2, cSize.height / 2));
 		_resumeButton->addTouchEventListener(CC_CALLBACK_2(LevelHelpScene::ResumeButtonAction, this));
 		screen_1->addChild(_resumeButton, 3);
 
@@ -246,10 +251,10 @@ void LevelHelpScene::videoPlayStart()
 
 void LevelHelpScene::ResumeButtonAction(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
 	if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
-		_resumeButton->setEnabled(false);
-		_resumeButton->setVisible(false);
+//		_resumeButton->setEnabled(false);
+//		_resumeButton->setVisible(false);
 		
-		removeChild(getChildByName("bg")->getChildByName("screen_1")->getChildByName("video"));
+//		removeChild(getChildByName("bg")->getChildByName("screen_1")->getChildByName("video"));
 		getChildByName("bg")->getChildByName("screen_1")->removeChild(_resumeButton);
 		videoPlayStart();
 	}

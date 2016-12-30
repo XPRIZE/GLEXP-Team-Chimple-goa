@@ -11,17 +11,6 @@
         "script": "src/start/catalogue.js"
     },
     {
-        "name": "story-telling",
-        "title": "Stories",
-        "unlock": true,
-        "cIcon": "gameicons/story_pressed.png",
-        "icon": "gameicons/story.png",
-        "multiPlayer": false,
-        "isJSGame": true,
-        "pureJS": "",
-        "script": "src/start/storytelling.js"
-    },    
-    {
         "name": "dino",
         "title": "Alphabet",
         "cIcon": "gameicons/dino_pressed.png",
@@ -1408,13 +1397,13 @@
         "name": "story-telling",
         "title": "Create A Story",
         "unlock": true,
-        "cIcon": "gameicons/story_pressed.png",
-        "icon": "gameicons/story.png",
+        "cIcon": "gameicons/story_maker_pressed.png",
+        "icon": "gameicons/story_maker.png",
         "multiPlayer": false,
         "isJSGame": true,
         "pureJS": "",
         "script": "src/start/storytelling.js"
-    },
+    },        
     {
         "name": "map",
         "title": "Be a Hero",
