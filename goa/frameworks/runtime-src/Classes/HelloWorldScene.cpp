@@ -8,9 +8,11 @@
 #include "ScrollableGameMapScene.hpp"
 #include "MapScene.h"
 #include "effects/FShake.h"
+#include "storage/local-storage/LocalStorage.h"
 
 USING_NS_CC;
 
+static const std::string HINT_TEXT = ".hintText";
 
 Scene* HelloWorld::createScene(const std::string& island, const std::string& sceneName, bool fromMenu)
 {
@@ -78,7 +80,9 @@ _textDisplayAnimationRunning(false),
 _greyLayer(nullptr),
 _wordToPronounce(""),
 _bagPackNode(nullptr),
-_hintText("")
+_hintText(""),
+leftBoundaryNodeExists(false),
+rightBoundaryNodeExists(false)
 {
     this->stateMachine = NULL;
 }
@@ -166,7 +170,10 @@ void HelloWorld::renderBagPack() {
     cocos2d::ui::TextField* sTextField = dynamic_cast<cocos2d::ui::TextField*>(textFieldNode);
     if(sTextField != NULL) {
         //store hint into local storage
-        sTextField->setString(_hintText);
+        std::string hintText;
+        localStorageGetItem(HINT_TEXT, &hintText);
+        
+        sTextField->setString(hintText);
         sTextField->setFontName("Arial");
         sTextField->setFontSize(50);
         sTextField->setTextColor(Color4B::BLACK);
@@ -418,6 +425,26 @@ void HelloWorld::processMainLayerNonAlphamonChildrenForCustomEvents() {
         this->processNodeWithCustomAttributes(node, this->mainLayer);
     }
     
+    if(!leftBoundaryNodeExists) {
+        Node* leftNode = Node::create();
+        this->mainLayer->addChild(leftNode);
+        leftNode->setPosition(Vec2(0,0));
+        leftNode->setAnchorPoint(Vec2(0.5,0.5));
+        leftBoundaryNodeExists = true;
+        createLeftBoundary(leftNode);
+        
+    }
+
+    
+    if(!rightBoundaryNodeExists) {
+        Node* rightNode = Node::create();
+        this->mainLayer->addChild(rightNode);
+        rightNode->setPosition(Vec2(this->getSceneSize().width,0));
+        rightNode->setAnchorPoint(Vec2(0.5,0.5));
+        rightBoundaryNodeExists = true;
+        createRightBoundary(rightNode);
+    }
+
     this->skeletonCharacter->setExternalCharacterNames(this->getExternalCharacterNames());
     
 }
@@ -439,6 +466,10 @@ void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
                 std::unordered_map<std::string,std::string>::const_iterator it = attributes.find("fileName");
                 std::unordered_map<std::string,std::string>::const_iterator itLeft = attributes.find("left");
                 std::unordered_map<std::string,std::string>::const_iterator itRight = attributes.find("right");
+                std::unordered_map<std::string,std::string>::const_iterator itLeftBoundary = attributes.find("leftboundary");
+                std::unordered_map<std::string,std::string>::const_iterator itRightBoundary = attributes.find("rightboundary");
+                
+                
                 if ( it != attributes.end() ) {
                     std::string fileName(it->second);
                     //    fileName = std::regex_replace(fileName, std::regex("^ +| +$|( ) +"), "$1");
@@ -460,30 +491,12 @@ void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
                             
                         }
                     }
-                } else if(itLeft != attributes.end()) {
-                    CCLOG("Creating Left boundary");
-                    auto physicsBody = PhysicsBody::createBox(Size(INVISIBLE_BOUNDARY_WIDTH, this->getSceneSize().height), PHYSICSBODY_MATERIAL_DEFAULT, Vec2(INVISIBLE_LEFT_BOUNDARY_OFFSET,this->getSceneSize().height/2));
-                    physicsBody->setDynamic(false);
-                    physicsBody->setMass(INFINITY);
-                    node->setPhysicsBody(physicsBody);
-                    
-                    node->getPhysicsBody()->setRotationEnable(false);
-                    node->getPhysicsBody()->setCategoryBitmask(INVISIBLE_BOUNDARY_CATEGORY_BITMASK);
-                    node->getPhysicsBody()->setCollisionBitmask(INVISIBLE_BOUNDARY_COLLISION_BITMASK);
-                    node->getPhysicsBody()->setContactTestBitmask(INVISIBLE_BOUNDARY_CONTACT_BITMASK);
-                    
-                } else if(itRight != attributes.end()) {
-                    CCLOG("Creating Right boundary");
-                    auto physicsBody = PhysicsBody::createBox(Size(INVISIBLE_BOUNDARY_WIDTH, this->getSceneSize().height), PHYSICSBODY_MATERIAL_DEFAULT, Vec2(INVISIBLE_RIGHT_BOUNDARY_OFFSET,this->getSceneSize().height/2));
-                    physicsBody->setDynamic(false);
-                    physicsBody->setMass(INFINITY);
-                    node->setPhysicsBody(physicsBody);
-                    node->getPhysicsBody()->setRotationEnable(false);
-                    node->getPhysicsBody()->setCategoryBitmask(INVISIBLE_BOUNDARY_CATEGORY_BITMASK);
-                    node->getPhysicsBody()->setCollisionBitmask(INVISIBLE_BOUNDARY_CONTACT_BITMASK);
-                    node->getPhysicsBody()->setContactTestBitmask(INVISIBLE_BOUNDARY_CONTACT_BITMASK);
-                    
-                    
+                } else if(itLeft != attributes.end() || itLeftBoundary != attributes.end()) {
+                    leftBoundaryNodeExists = true;
+                    createLeftBoundary(node);                    
+                } else if(itRight != attributes.end() || itRightBoundary != attributes.end()) {
+                    rightBoundaryNodeExists = true;
+                    createRightBoundary(node);
                 }
                 else {
                     CCLOG("Creating RPG Sprite for Node %s", node->getName().c_str());
@@ -491,6 +504,33 @@ void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
                 }
             }
     }
+}
+
+
+void HelloWorld::createRightBoundary(Node* node) {
+    CCLOG("Creating Right boundary");
+    auto physicsBody = PhysicsBody::createBox(Size(INVISIBLE_BOUNDARY_WIDTH, this->getSceneSize().height), PHYSICSBODY_MATERIAL_DEFAULT, Vec2(INVISIBLE_RIGHT_BOUNDARY_OFFSET,this->getSceneSize().height/2));
+    physicsBody->setDynamic(false);
+    physicsBody->setMass(INFINITY);
+    node->setPhysicsBody(physicsBody);
+    node->getPhysicsBody()->setRotationEnable(false);
+    node->getPhysicsBody()->setCategoryBitmask(INVISIBLE_BOUNDARY_CATEGORY_BITMASK);
+    node->getPhysicsBody()->setCollisionBitmask(INVISIBLE_BOUNDARY_CONTACT_BITMASK);
+    node->getPhysicsBody()->setContactTestBitmask(INVISIBLE_BOUNDARY_CONTACT_BITMASK);
+    
+}
+
+
+void HelloWorld::createLeftBoundary(Node* node) {
+    auto physicsBody = PhysicsBody::createBox(Size(INVISIBLE_BOUNDARY_WIDTH, this->getSceneSize().height), PHYSICSBODY_MATERIAL_DEFAULT, Vec2(INVISIBLE_LEFT_BOUNDARY_OFFSET,this->getSceneSize().height/2));
+    physicsBody->setDynamic(false);
+    physicsBody->setMass(INFINITY);
+    node->setPhysicsBody(physicsBody);
+    
+    node->getPhysicsBody()->setRotationEnable(false);
+    node->getPhysicsBody()->setCategoryBitmask(INVISIBLE_BOUNDARY_CATEGORY_BITMASK);
+    node->getPhysicsBody()->setCollisionBitmask(INVISIBLE_BOUNDARY_COLLISION_BITMASK);
+    node->getPhysicsBody()->setContactTestBitmask(INVISIBLE_BOUNDARY_CONTACT_BITMASK);
 }
 
 void HelloWorld::createRPGSprite(Node* node, std::unordered_map<std::string, std::string> attributes, Node* parentNode)
@@ -942,16 +982,21 @@ void HelloWorld::processUseInBackPackMessages(std::vector<MessageContent*>showMe
                 
                 if(result == 1 && content->getShouldDisplayInBag())
                 {
+                    if(!content->getHint().empty()) {
+                        CCLOG("content->hint %s", content->getHint().c_str());
+                        _hintText = content->getHint();
+                        if (!_hintText.empty()) {
+                            localStorageSetItem(HINT_TEXT, _hintText);
+                        }
+                        
+                    }
+                    
                     createAndUseItemFromBag(imageFile, content, textMapFollowedByAnimation);
                 } else if(content->getHasTextAfterAnimation() == 1) {
                     CCLOG("calling text after animation");
                     this->processTextMessage(textMapFollowedByAnimation, content->getOwner());
                 }
                 
-                if(!content->getHint().empty()) {
-                    CCLOG("content->hint %s", content->getHint().c_str());
-                    _hintText = content->getHint();
-                }
                 
                 
                 
@@ -1104,15 +1149,21 @@ void HelloWorld::processPutInBackPackMessages(std::vector<MessageContent*>showMe
                 CCLOG("content->getPostOutComeAction() %s", content->getPostOutComeAction().c_str());
 
                 
-                if(!content->getHint().empty()) {
-                    CCLOG("content->hint %s", content->getHint().c_str());
-                    _hintText = content->getHint();
-                }
                 
                 
                 //play animation
                 
                 if(content->getShouldDisplayInBag() && result == 1) {
+                    if(!content->getHint().empty()) {
+                        CCLOG("content->hint %s", content->getHint().c_str());
+                        _hintText = content->getHint();
+                        
+                        if (!_hintText.empty()) {
+                            localStorageSetItem(HINT_TEXT, _hintText);
+                        }
+                        
+                    }
+                    
                     copySpriteForAnimation(ownerSprite, textMapFollowedByAnimation, content->getOwner());
                 } else if(content->getHasTextAfterAnimation() == 1) {
                     this->processTextMessage(textMapFollowedByAnimation, content->getOwner());
@@ -1136,6 +1187,10 @@ void HelloWorld::processShowMessage(std::vector<MessageContent*>showMessages) {
         if(!content->getHint().empty()) {
             CCLOG("content->hint %s", content->getHint().c_str());
             _hintText = content->getHint();
+            if (!_hintText.empty()) {
+                localStorageSetItem(HINT_TEXT, _hintText);
+            }
+            
         }
 
         CCLOG("content owner %s", content->getOwner().c_str());
@@ -1746,6 +1801,10 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
         if(!content->getHint().empty()) {
             CCLOG("content->hint %s", content->getHint().c_str());
             _hintText = content->getHint();
+            if (!_hintText.empty()) {
+                localStorageSetItem(HINT_TEXT, _hintText);
+            }
+            
         }
 
         //find out animation name
@@ -1819,6 +1878,10 @@ void HelloWorld::processCustomAnimationMessage(std::vector<MessageContent*>custo
         if(!content->getHint().empty()) {
             CCLOG("content->hint %s", content->getHint().c_str());
             _hintText = content->getHint();
+            if (!_hintText.empty()) {
+                localStorageSetItem(HINT_TEXT, _hintText);
+            }
+            
         }
 
         if(!content->getDialog().empty() && !content->getOwner().empty()) {

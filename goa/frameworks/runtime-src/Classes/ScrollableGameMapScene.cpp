@@ -258,40 +258,7 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
         case ui::Widget::TouchEventType::ENDED:
         {
             clickedButton->setEnabled(false);
-            pushTopBarGame(clickedButton->getName());
-            std::string gameConfig;
-            localStorageGetItem(clickedButton->getName(), &gameConfig);
-            CCLOG("gameConfig %s", gameConfig.c_str());
-            CCLOG("clickedButton->getName() %s", clickedButton->getName().c_str());
-            std::string script = parseGameConfig(gameConfig);
-            localStorageSetItem("currentGame", clickedButton->getName());
-            if(clickedButton->getName() == "show_bluetoothPeers")
-            {
-                ScriptingCore::getInstance()->runScript("src/start/showBluetoothPeers.js");
-            }
-            else if(clickedButton->getName() == "choose_character")
-            {
-                ScriptingCore::getInstance()->runScript("src/start/characterConfigure.js");
-            }
-            else if(clickedButton->getName() == "story-telling")
-            {
-                ScriptingCore::getInstance()->runScript("src/start/storytelling.js");
-            }
-            else if(clickedButton->getName() == "story-play")
-            {
-                ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
-            }
-            else if(clickedButton->getName() == "map")
-            {
-                Director::getInstance()->replaceScene(MapScene::createScene());
-            }
-            else
-            {
-//                ScriptingCore::getInstance()->runScript("src/start/menu.js");
-                Director::getInstance()->replaceScene(LevelMenu::createScene(clickedButton->getName()));
-            }
-            
-            
+            nagivateToGame(clickedButton->getName());
             break;
         }
 
@@ -394,5 +361,38 @@ void ScrollableGameMapScene::pushTopBarGame(std::string game) {
 
 
 void ScrollableGameMapScene::nagivateToGame(std::string gameName) {
+    pushTopBarGame(gameName);
+    std::string gameConfig;
+    localStorageGetItem(gameName, &gameConfig);
+    CCLOG("gameConfig %s", gameConfig.c_str());
+    CCLOG("gameName %s", gameName.c_str());
+    std::string script = parseGameConfig(gameConfig);
+    localStorageSetItem("currentGame", gameName);
+    if(gameName == "show_bluetoothPeers")
+    {
+        ScriptingCore::getInstance()->runScript("src/start/showBluetoothPeers.js");
+    }
+    else if(gameName == "choose_character")
+    {
+        ScriptingCore::getInstance()->runScript("src/start/characterConfigure.js");
+    }
+    else if(gameName == "story-telling")
+    {
+        ScriptingCore::getInstance()->runScript("src/start/storytelling.js");
+    }
+    else if(gameName == "story-play")
+    {
+        ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
+    }
+    else if(gameName == "map")
+    {
+        Director::getInstance()->replaceScene(MapScene::createScene());
+    }
+    else
+    {
+        //                ScriptingCore::getInstance()->runScript("src/start/menu.js");
+        Director::getInstance()->replaceScene(LevelMenu::createScene(gameName));
+    }
+    
     
 }
