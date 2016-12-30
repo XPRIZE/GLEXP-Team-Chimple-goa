@@ -235,7 +235,7 @@ void LevelHelpScene::videoPlayStart()
 		auto spritecache1 = SpriteFrameCache::getInstance();
 		spritecache1->addSpriteFramesWithFile("cardraw/cardraw.plist");
 
-		_resumeButton = Button::create("cardraw/ref.png", "cardraw/ref_clicked.png", "cardraw/ref.png", Widget::TextureResType::LOCAL);
+		_resumeButton = Button::create("cardraw/ref.png", "cardraw/ref_clicked.png", "cardraw/ref.png", Widget::TextureResType::PLIST);
 		_resumeButton->setPosition(Vec2(cSize.width / 2, cSize.height / 2));
 		_resumeButton->addTouchEventListener(CC_CALLBACK_2(LevelHelpScene::ResumeButtonAction, this));
 		screen_1->addChild(_resumeButton, 3);
