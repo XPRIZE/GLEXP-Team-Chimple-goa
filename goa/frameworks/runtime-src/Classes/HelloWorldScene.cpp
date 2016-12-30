@@ -982,20 +982,21 @@ void HelloWorld::processUseInBackPackMessages(std::vector<MessageContent*>showMe
                 
                 if(result == 1 && content->getShouldDisplayInBag())
                 {
+                    if(!content->getHint().empty()) {
+                        CCLOG("content->hint %s", content->getHint().c_str());
+                        _hintText = content->getHint();
+                        if (!_hintText.empty()) {
+                            localStorageSetItem(HINT_TEXT, _hintText);
+                        }
+                        
+                    }
+                    
                     createAndUseItemFromBag(imageFile, content, textMapFollowedByAnimation);
                 } else if(content->getHasTextAfterAnimation() == 1) {
                     CCLOG("calling text after animation");
                     this->processTextMessage(textMapFollowedByAnimation, content->getOwner());
                 }
                 
-                if(!content->getHint().empty()) {
-                    CCLOG("content->hint %s", content->getHint().c_str());
-                    _hintText = content->getHint();
-                    if (!_hintText.empty()) {
-                        localStorageSetItem(HINT_TEXT, _hintText);
-                    }
-
-                }
                 
                 
                 
@@ -1148,20 +1149,21 @@ void HelloWorld::processPutInBackPackMessages(std::vector<MessageContent*>showMe
                 CCLOG("content->getPostOutComeAction() %s", content->getPostOutComeAction().c_str());
 
                 
-                if(!content->getHint().empty()) {
-                    CCLOG("content->hint %s", content->getHint().c_str());
-                    _hintText = content->getHint();
-                    
-                    if (!_hintText.empty()) {
-                        localStorageSetItem(HINT_TEXT, _hintText);
-                    }
-                    
-                }
                 
                 
                 //play animation
                 
                 if(content->getShouldDisplayInBag() && result == 1) {
+                    if(!content->getHint().empty()) {
+                        CCLOG("content->hint %s", content->getHint().c_str());
+                        _hintText = content->getHint();
+                        
+                        if (!_hintText.empty()) {
+                            localStorageSetItem(HINT_TEXT, _hintText);
+                        }
+                        
+                    }
+                    
                     copySpriteForAnimation(ownerSprite, textMapFollowedByAnimation, content->getOwner());
                 } else if(content->getHasTextAfterAnimation() == 1) {
                     this->processTextMessage(textMapFollowedByAnimation, content->getOwner());

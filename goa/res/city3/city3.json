@@ -1,0 +1,118 @@
+{
+  "ID": "515324ca-5998-4976-85d2-b6cafa351a51",
+  "Version": "3.10.0.0",
+  "Name": "city3",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "UserData": "mainCharacterFile=human_skeleton.csb,physicsFile=city3.plist,dialogFile=city3.db3",
+        "Tag": 375,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "city/city3_background.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -0.252,
+              "Y": 0.5922
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0003
+            },
+            "PreSize": {
+              "X": 0.256,
+              "Y": 1.4222
+            },
+            "LeftMargin": -0.252,
+            "RightMargin": 7440.252,
+            "TopMargin": -760.5923,
+            "BottomMargin": 0.5922,
+            "UserData": "background",
+            "Tag": 521,
+            "ActionTag": -543767567,
+            "Size": {
+              "X": 2560.0,
+              "Y": 2560.0
+            },
+            "Name": "background",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "city/city3_mainground.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -0.7647,
+              "Y": 1.4096
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.0001,
+              "Y": 0.0008
+            },
+            "PreSize": {
+              "X": 0.256,
+              "Y": 1.4222
+            },
+            "LeftMargin": -0.7647,
+            "RightMargin": 7440.7646,
+            "TopMargin": -761.4097,
+            "BottomMargin": 1.4096,
+            "UserData": "main",
+            "Tag": 542,
+            "ActionTag": 1701755361,
+            "Size": {
+              "X": 2560.0,
+              "Y": 2560.0
+            },
+            "Name": "mainground",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 10000.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "city3_background.json",
+        "city3_mainground.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
