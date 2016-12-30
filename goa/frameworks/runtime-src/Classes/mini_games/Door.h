@@ -26,6 +26,7 @@ public:
 	void showScore(float dt);
 	void gameHelpLayer();
 	float extraX;
+	bool _type;
 	std::string _randomWord;
 	std::string _alphabet;
 	int _score = 0;
@@ -33,12 +34,16 @@ public:
 	std::string _myWord;
 	cocos2d::Vector <cocos2d::Node *> _BoxRef;
 	std::vector<std::string> _animalRef;
+	void postTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
+	virtual void postTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
+	virtual void postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
 	void characterRecognisation(std::vector<string> str);
 	DoorNode *_doorNode;
 	cocos2d::Vector <DoorNode *> _doorNodeRef;
 	MenuContext * menu;
 	void clearScreen();
 	void nextDoor();
+	void createCanvas(int index);
 	int _count = 0;
 protected:
 	
