@@ -11,6 +11,7 @@
 #include "CarDrawNode.h"
 #include "../menu/HelpLayer.h"
 #include "../util/CommonLabel.h"
+#include "AlphabetWriting.h"
 
 USING_NS_CC;
 
@@ -178,7 +179,7 @@ void CarDraw::gameHelpLayer()
 	points.push_back(Vec2(visibleSize.width / 2 + boxWidth / 1.25, visibleSize.height / 2 - boxHeight*0.6));
 	points.push_back(Vec2(visibleSize.width / 2 - boxWidth / 2, visibleSize.height / 2 - boxHeight*0.1));
 	points.push_back(Vec2(visibleSize.width / 2 + boxWidth / 2, visibleSize.height / 2 - boxHeight*0.1));
-	helpLayer->writing(points);
+//	helpLayer->writing(points);
 	this->addChild(helpLayer);
 	helpLayer->setName("gameHelpLayer");
 }
@@ -321,13 +322,16 @@ void CarDraw::clearScreen(float ft)
 	menu->addPoints(-1);
 	_carStrokes.clear();
 //	_carDrawNodeLiPi->clearDrawing(nullptr, cocos2d::ui::Widget::TouchEventType::ENDED);
+	this->removeChildByName("Alphabet");
 	gameStart();
 }
 
 void CarDraw::gameStart()
 {
+	bool type;
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	if ((menu->getCurrentLevel() > 0) && (menu->getCurrentLevel() < 27)) {
+		type = true;
 		if (menu->getCurrentLevel() > LangUtil::getInstance()->getNumberOfCharacters()) {
 			int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 1);
 			auto mychar = LangUtil::getInstance()->getAllCharacters()[randomNumber];
@@ -340,6 +344,7 @@ void CarDraw::gameStart()
 	}
 	else if ((menu->getCurrentLevel() > 26) && (menu->getCurrentLevel() < 53)) {
 		int level = menu->getCurrentLevel() - 27;
+		type = false;
 		if (level > LangUtil::getInstance()->getNumberOfCharacters()) {
 			int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 1);
 			auto mychar = LangUtil::getInstance()->getAllLowerCaseCharacters()[randomNumber];
@@ -351,13 +356,25 @@ void CarDraw::gameStart()
 
 	}
 	else {
+		type = true;
 		int level = menu->getCurrentLevel() - 53;
 		auto mychar = LangUtil::getInstance()->getAllNumbers()[level];
 		_myChar = LangUtil::convertUTF16CharToString(mychar);
 
 	}
+	auto alphabetHelp = AlphabetWriting::createAlphabetWithAnimation(_myChar, type);
+	alphabetHelp->setPositionX(visibleSize.width / 2);
+	alphabetHelp->setPositionY(visibleSize.height / 2);
+	this->addChild(alphabetHelp);
+	alphabetHelp->setName("Alphabet");
+
+
+
+
+
+
 	//_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1]);
-	auto myLabel = CommonLabel::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), _myChar);
+	/*auto myLabel = CommonLabel::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), _myChar);
 	myLabel->setPositionX(visibleSize.width/2);
 	myLabel->setPositionY(visibleSize.height / 2);
 	myLabel->setScale(3);
@@ -369,7 +386,7 @@ void CarDraw::gameStart()
 	else {
 		auto fadeOut = FadeOut::create(2.0f);
 		myLabel->runAction(fadeOut);
-	}
+	}*/
 
 }
 
