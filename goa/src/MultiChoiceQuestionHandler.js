@@ -206,7 +206,8 @@ xc.MultipleChoiceQuestionHandler = cc.Layer.extend({
                var nodeName = "A"+(index+1);
                 var node = context._constructedScene.node.getChildByName(nodeName);
                 if(node) {
-                    node.setTouchEnabled(false);                    
+                    node.setTouchEnabled(false);
+                    node.setEnabled(false);                 
                 }                                                                
             });
         }

@@ -221,6 +221,7 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
                 var node = context._constructedScene.node.getChildByName(nodeName);
                 if(node) {
                     node.setTouchEnabled(false);                    
+                    node.setEnabled(false);
                 }                                                                
             });                                                   
         }
