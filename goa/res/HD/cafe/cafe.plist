@@ -4,7 +4,7 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>cafe/cafe_mainground/apple.png</key>
+            <key>cafe/apple.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -15,11 +15,11 @@
                 <key>spriteSourceSize</key>
                 <string>{48,55}</string>
                 <key>textureRect</key>
-                <string>{{433,2762},{48,55}}</string>
+                <string>{{454,1},{48,55}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>cafe/cafe_mainground/avacado.png</key>
+            <key>cafe/avacado.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -30,11 +30,11 @@
                 <key>spriteSourceSize</key>
                 <string>{57,56}</string>
                 <key>textureRect</key>
-                <string>{{435,2704},{57,56}}</string>
+                <string>{{450,456},{57,56}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/bottle.png</key>
+            <key>cafe/bottle.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -45,11 +45,11 @@
                 <key>spriteSourceSize</key>
                 <string>{21,68}</string>
                 <key>textureRect</key>
-                <string>{{481,278},{21,68}}</string>
+                <string>{{477,1507},{21,68}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/brinjal.png</key>
+            <key>cafe/brinjal.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -60,11 +60,11 @@
                 <key>spriteSourceSize</key>
                 <string>{32,55}</string>
                 <key>textureRect</key>
-                <string>{{198,1723},{32,55}}</string>
+                <string>{{454,51},{32,55}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
-            <key>cafe/cafe_mainground/capsicum.png</key>
+            <key>cafe/capsicum.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -75,11 +75,11 @@
                 <key>spriteSourceSize</key>
                 <string>{45,63}</string>
                 <key>textureRect</key>
-                <string>{{386,2725},{45,63}}</string>
+                <string>{{450,514},{45,63}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/cherries.png</key>
+            <key>cafe/cherries.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -90,71 +90,71 @@
                 <key>spriteSourceSize</key>
                 <string>{67,71}</string>
                 <key>textureRect</key>
-                <string>{{435,2635},{67,71}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>cafe/cafe_mainground/cooker.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{84,85}</string>
-                <key>spriteSourceSize</key>
-                <string>{84,85}</string>
-                <key>textureRect</key>
-                <string>{{411,1887},{84,85}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>cafe/cafe_mainground/counter.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{530,202}</string>
-                <key>spriteSourceSize</key>
-                <string>{530,202}</string>
-                <key>textureRect</key>
-                <string>{{277,1},{530,202}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>cafe/cafe_mainground/diner_chair.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{95,75}</string>
-                <key>spriteSourceSize</key>
-                <string>{95,75}</string>
-                <key>textureRect</key>
-                <string>{{360,2520},{95,75}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>cafe/cafe_mainground/diner_divider.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{274,779}</string>
-                <key>spriteSourceSize</key>
-                <string>{274,779}</string>
-                <key>textureRect</key>
-                <string>{{1,1},{274,779}}</string>
+                <string>{{277,2961},{67,71}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/diner_light.png</key>
+            <key>cafe/cooker.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{84,85}</string>
+                <key>spriteSourceSize</key>
+                <string>{84,85}</string>
+                <key>textureRect</key>
+                <string>{{421,805},{84,85}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>cafe/counter.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{530,202}</string>
+                <key>spriteSourceSize</key>
+                <string>{530,202}</string>
+                <key>textureRect</key>
+                <string>{{290,2094},{530,202}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>cafe/diner_chair.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{95,75}</string>
+                <key>spriteSourceSize</key>
+                <string>{95,75}</string>
+                <key>textureRect</key>
+                <string>{{413,1051},{95,75}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>cafe/diner_divider.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{274,779}</string>
+                <key>spriteSourceSize</key>
+                <string>{274,779}</string>
+                <key>textureRect</key>
+                <string>{{1,2228},{274,779}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>cafe/diner_light.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -165,11 +165,11 @@
                 <key>spriteSourceSize</key>
                 <string>{276,372}</string>
                 <key>textureRect</key>
-                <string>{{244,1308},{254,362}}</string>
+                <string>{{1,1100},{254,362}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
-            <key>cafe/cafe_mainground/diner_table.png</key>
+            <key>cafe/diner_table.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -180,11 +180,26 @@
                 <key>spriteSourceSize</key>
                 <string>{227,169}</string>
                 <key>textureRect</key>
-                <string>{{198,1964},{227,169}}</string>
+                <string>{{277,2626},{227,169}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>cafe/diner_tile.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{146,287}</string>
+                <key>spriteSourceSize</key>
+                <string>{146,287}</string>
+                <key>textureRect</key>
+                <string>{{1,2080},{146,287}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>cafe/cafe_mainground/divider.png</key>
+            <key>cafe/divider.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -195,11 +210,11 @@
                 <key>spriteSourceSize</key>
                 <string>{110,330}</string>
                 <key>textureRect</key>
-                <string>{{369,1973},{110,330}}</string>
+                <string>{{365,1343},{110,330}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/door.png</key>
+            <key>cafe/door.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -210,11 +225,11 @@
                 <key>spriteSourceSize</key>
                 <string>{195,324}</string>
                 <key>textureRect</key>
-                <string>{{1,1651},{195,324}}</string>
+                <string>{{1,1566},{195,324}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
-            <key>cafe/cafe_mainground/flower_pot.png</key>
+            <key>cafe/flower_pot.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -225,11 +240,11 @@
                 <key>spriteSourceSize</key>
                 <string>{181,196}</string>
                 <key>textureRect</key>
-                <string>{{1,1977},{181,196}}</string>
+                <string>{{327,1675},{181,196}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/flower_vase.png</key>
+            <key>cafe/flower_vase.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -240,11 +255,11 @@
                 <key>spriteSourceSize</key>
                 <string>{53,113}</string>
                 <key>textureRect</key>
-                <string>{{437,2520},{53,113}}</string>
+                <string>{{454,85},{53,113}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/juice.png</key>
+            <key>cafe/juice.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -255,11 +270,56 @@
                 <key>spriteSourceSize</key>
                 <string>{115,111}</string>
                 <key>textureRect</key>
-                <string>{{360,2407},{115,111}}</string>
+                <string>{{365,1230},{115,111}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/main_counter.png</key>
+            <key>cafe/kitchen_tile.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{145,288}</string>
+                <key>spriteSourceSize</key>
+                <string>{145,288}</string>
+                <key>textureRect</key>
+                <string>{{1,1933},{145,288}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>cafe/kitchen_tile2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{146,48}</string>
+                <key>spriteSourceSize</key>
+                <string>{146,48}</string>
+                <key>textureRect</key>
+                <string>{{454,200},{146,48}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>cafe/lights.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{96,158}</string>
+                <key>spriteSourceSize</key>
+                <string>{96,158}</string>
+                <key>textureRect</key>
+                <string>{{413,891},{96,158}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>cafe/main_counter.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -270,11 +330,11 @@
                 <key>spriteSourceSize</key>
                 <string>{447,271}</string>
                 <key>textureRect</key>
-                <string>{{1,782},{447,271}}</string>
+                <string>{{1,360},{447,271}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
-            <key>cafe/cafe_mainground/pan.png</key>
+            <key>cafe/pan.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -285,11 +345,11 @@
                 <key>spriteSourceSize</key>
                 <string>{106,47}</string>
                 <key>textureRect</key>
-                <string>{{386,2617},{106,47}}</string>
+                <string>{{454,348},{106,47}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>cafe/cafe_mainground/photos.png</key>
+            <key>cafe/photos.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -300,11 +360,11 @@
                 <key>spriteSourceSize</key>
                 <string>{361,208}</string>
                 <key>textureRect</key>
-                <string>{{274,945},{361,208}}</string>
+                <string>{{1,1356},{361,208}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
-            <key>cafe/cafe_mainground/plate.png</key>
+            <key>cafe/plate.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -315,11 +375,11 @@
                 <key>spriteSourceSize</key>
                 <string>{65,27}</string>
                 <key>textureRect</key>
-                <string>{{244,1231},{65,27}}</string>
+                <string>{{421,633},{65,27}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>cafe/cafe_mainground/pot.png</key>
+            <key>cafe/pot.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -330,11 +390,11 @@
                 <key>spriteSourceSize</key>
                 <string>{85,103}</string>
                 <key>textureRect</key>
-                <string>{{411,1672},{85,103}}</string>
+                <string>{{421,700},{85,103}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/raddish.png</key>
+            <key>cafe/raddish.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -345,11 +405,11 @@
                 <key>spriteSourceSize</key>
                 <string>{70,41}</string>
                 <key>textureRect</key>
-                <string>{{198,1651},{70,41}}</string>
+                <string>{{450,579},{70,41}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>cafe/cafe_mainground/refridgerator.png</key>
+            <key>cafe/refridgerator.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -360,11 +420,11 @@
                 <key>spriteSourceSize</key>
                 <string>{241,418}</string>
                 <key>textureRect</key>
-                <string>{{1,1231},{241,418}}</string>
+                <string>{{1,633},{241,418}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
-            <key>cafe/cafe_mainground/register.png</key>
+            <key>cafe/register.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -375,11 +435,11 @@
                 <key>spriteSourceSize</key>
                 <string>{108,69}</string>
                 <key>textureRect</key>
-                <string>{{411,1777},{108,69}}</string>
+                <string>{{346,2961},{108,69}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
-            <key>cafe/cafe_mainground/shelf.png</key>
+            <key>cafe/shelf.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -390,11 +450,11 @@
                 <key>spriteSourceSize</key>
                 <string>{275,25}</string>
                 <key>textureRect</key>
-                <string>{{481,1},{275,25}}</string>
+                <string>{{482,1230},{275,25}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>cafe/cafe_mainground/stand.png</key>
+            <key>cafe/stand.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -405,11 +465,11 @@
                 <key>spriteSourceSize</key>
                 <string>{222,410}</string>
                 <key>textureRect</key>
-                <string>{{277,533},{222,410}}</string>
+                <string>{{1,876},{222,410}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
-            <key>cafe/cafe_mainground/stove.png</key>
+            <key>cafe/stove.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -420,56 +480,56 @@
                 <key>spriteSourceSize</key>
                 <string>{199,162}</string>
                 <key>textureRect</key>
-                <string>{{222,2646},{199,162}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>cafe/cafe_mainground/table.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{290,168}</string>
-                <key>spriteSourceSize</key>
-                <string>{290,168}</string>
-                <key>textureRect</key>
-                <string>{{241,1672},{290,168}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>cafe/cafe_mainground/tools_stand.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{134,100}</string>
-                <key>spriteSourceSize</key>
-                <string>{134,100}</string>
-                <key>textureRect</key>
-                <string>{{360,2305},{134,100}}</string>
+                <string>{{277,2797},{199,162}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/welcome_board.png</key>
+            <key>cafe/table.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{215,219}</string>
+                <string>{290,168}</string>
                 <key>spriteSourceSize</key>
-                <string>{215,219}</string>
+                <string>{290,168}</string>
                 <key>textureRect</key>
-                <string>{{1,2646},{215,219}}</string>
+                <string>{{1,1763},{290,168}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
-            <key>cafe/cafe_mainground/window.png</key>
+            <key>cafe/tools_stand.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{134,100}</string>
+                <key>spriteSourceSize</key>
+                <string>{134,100}</string>
+                <key>textureRect</key>
+                <string>{{365,1128},{134,100}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>cafe/welcome_board.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{215,219}</string>
+                <key>spriteSourceSize</key>
+                <string>{215,219}</string>
+                <key>textureRect</key>
+                <string>{{293,1873},{215,219}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>cafe/window.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -480,9 +540,9 @@
                 <key>spriteSourceSize</key>
                 <string>{451,357}</string>
                 <key>textureRect</key>
-                <string>{{1,2193},{451,357}}</string>
+                <string>{{1,1},{451,357}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
         </dict>
         <key>metadata</key>
@@ -494,13 +554,13 @@
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>cafe_mainground.png</string>
+            <string>cafe.png</string>
             <key>size</key>
-            <string>{507,2862}</string>
+            <string>{510,3033}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:710f3606584c20aa3a4105c919cbad28:3aec987c4651c3c6e756ee959ebbdde6:cc99eb3a90e808c0e441489800494518$</string>
+            <string>$TexturePacker:SmartUpdate:288b61083496475d5f6c37a071dac4eb:20cf38f8ebdd5d7d000ca3244e5a31b7:b606cee1c0cc52b845b217be9561f6c8$</string>
             <key>textureFileName</key>
-            <string>cafe_mainground.png</string>
+            <string>cafe.png</string>
         </dict>
     </dict>
 </plist>

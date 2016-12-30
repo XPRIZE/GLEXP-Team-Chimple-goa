@@ -17,7 +17,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "cafe/cafe_foreground/lights.png",
+              "Path": "cafe/lights.png",
               "Plist": "cafe/cafe.plist"
             },
             "BlendFunc": {
@@ -61,9 +61,9 @@
           },
           {
             "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "cafe/cafe_foreground/table.png",
-              "Plist": "cafe/cafe.plist"
+              "Type": "Default",
+              "Path": "Default/Sprite.png",
+              "Plist": ""
             },
             "BlendFunc": {
               "Src": 1,
@@ -107,7 +107,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "cafe/cafe_mainground/diner_light.png",
+              "Path": "cafe/diner_light.png",
               "Plist": "cafe/cafe.plist"
             },
             "BlendFunc": {
@@ -152,7 +152,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "cafe/cafe_mainground/diner_light.png",
+              "Path": "cafe/diner_light.png",
               "Plist": "cafe/cafe.plist"
             },
             "BlendFunc": {
@@ -197,7 +197,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "cafe/cafe_mainground/diner_light.png",
+              "Path": "cafe/diner_light.png",
               "Plist": "cafe/cafe.plist"
             },
             "BlendFunc": {
@@ -248,6 +248,7 @@
         "ctype": "LayerObjectData"
       },
       "UsedResources": [
+        "../Default/Sprite.png",
         "cafe.plist",
         "cafe.png"
       ],
