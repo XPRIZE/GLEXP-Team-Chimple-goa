@@ -166,14 +166,21 @@ void Units::onEnterTransitionDidFinish() {
 
 		auto box1 = handle;
 		
-		auto box1pos = box1->getPosition();// +Vec2(visibleSize.width * 0.03, visibleSize.height * 0.05);
+		auto box1pos = box1->getPosition() + Vec2( visibleSize.width * 0.06,  visibleSize.height * 0.13);// +Vec2(visibleSize.width * 0.03, visibleSize.height * 0.05);
 		//box1->setPosition(Vec2(box1pos.x + visibleSize.width * 0.07, box1pos.y + visibleSize.height * 0.15));
 
-		_help = HelpLayer::create(Rect(box1pos.x + visibleSize.width * 0.06, box1pos.y + visibleSize.height * 0.13, box1->getContentSize().height, box1->getContentSize().width), Rect(0,0,0,0));
+		if (Director::getInstance()->getVisibleSize().width == 2560) {
+			box1pos = box1->getPosition() + Vec2(visibleSize.width * 0.04, visibleSize.height * 0.13);
+
+		}
+
+		_help = HelpLayer::create(Rect(box1pos.x , box1pos.y, box1->getContentSize().height, box1->getContentSize().width), Rect(0,0,0,0));
 
 		
-		_help->click(Vec2(box1pos.x + visibleSize.width * 0.06, box1pos.y + visibleSize.height * 0.13));
+		_help->click(Vec2(box1pos));
 
+
+		
 
 		this->addChild(_help);
 	}
