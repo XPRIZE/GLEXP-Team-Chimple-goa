@@ -229,6 +229,8 @@ void HelloWorld::removeBagPack(std::unordered_map<int, std::string> textMapFollo
     {
         this->processTextMessage(textMapFollowedByAnimation, owner);
     }
+    
+    _bagPackMenu->setVisible(true);
 }
 
 void HelloWorld::closeBagPack(Ref* pSender, ui::Widget::TouchEventType eEventType, std::unordered_map<int, std::string> textMapFollowedByAnimation, std::string owner)
@@ -242,7 +244,6 @@ void HelloWorld::closeBagPack(Ref* pSender, ui::Widget::TouchEventType eEventTyp
             break;
         case ui::Widget::TouchEventType::ENDED:
         {
-            _bagPackMenu->setVisible(true);
             Size visibleSize = Director::getInstance()->getVisibleSize();
             Vec2 origin = Director::getInstance()->getVisibleOrigin();
             auto moveTo = MoveTo::create(1.0, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height + 750));
