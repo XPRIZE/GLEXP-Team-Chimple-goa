@@ -18,6 +18,9 @@ public:
 	static DoorNode *create(int width, int height, cocos2d::Point position);
 	cocos2d::Layer * carLayer;
 	void draw(cocos2d::DrawNode* paintingNode, cocos2d::Point fromPoint, cocos2d::Point currentPoint);
+	virtual void postTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
+	virtual void postTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
+	virtual void postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
 	virtual void broadCastRecognizedChars(std::vector<std::string> results) override;
 	//virtual void broadCastRecognizedChars(std::vector<std::string> results);
 	void setParent(Door* parent);
