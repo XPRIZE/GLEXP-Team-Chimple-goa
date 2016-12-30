@@ -183,7 +183,7 @@
             "FileData": {
               "Type": "MarkedSubImage",
               "Path": "bank/bank_mainground/door_out.png",
-              "Plist": "bank/bank_mainground/bank_mainground.plist"
+              "Plist": "bank/bank.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -228,7 +228,7 @@
             "FileData": {
               "Type": "MarkedSubImage",
               "Path": "bank/bank_mainground/door.png",
-              "Plist": "bank/bank_mainground/bank_mainground.plist"
+              "Plist": "bank/bank.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -277,8 +277,8 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "bank_mainground/bank_mainground.plist",
-        "bank_mainground/bank_mainground.png"
+        "bank.plist",
+        "bank.png"
       ],
       "ctype": "GameFileData"
     }

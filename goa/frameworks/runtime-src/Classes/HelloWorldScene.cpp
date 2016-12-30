@@ -165,6 +165,7 @@ void HelloWorld::renderBagPack() {
     Node* textFieldNode = _bagPackNode->getChildByName("TextField");
     cocos2d::ui::TextField* sTextField = dynamic_cast<cocos2d::ui::TextField*>(textFieldNode);
     if(sTextField != NULL) {
+        //store hint into local storage
         sTextField->setString(_hintText);
         sTextField->setFontName("Arial");
         sTextField->setFontSize(50);
@@ -220,8 +221,10 @@ void HelloWorld::showBagPack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 
 
 void HelloWorld::removeBagPack(std::unordered_map<int, std::string> textMapFollowedByAnimation, std::string owner) {
-    _bagPackNode->removeFromParent();
-    _bagPackNode = NULL;
+    if(_bagPackNode != NULL) {
+        _bagPackNode->removeFromParent();
+        _bagPackNode = NULL;        
+    }
     if(textMapFollowedByAnimation.size() > 0 && !owner.empty())
     {
         this->processTextMessage(textMapFollowedByAnimation, owner);
@@ -1069,8 +1072,9 @@ void HelloWorld::processPutInBackPackMessages(std::vector<MessageContent*>showMe
         CCLOG("content owner %s", content->getOwner().c_str());
         Node* ownerNode = this->mainLayer->getChildByName(content->getOwner());
         RPGSprite* ownerSprite = NULL;
+        Sprite* sprite = NULL;
         if(ownerNode != NULL) {
-            ownerSprite = dynamic_cast<RPGSprite *>(ownerNode);
+            ownerSprite = dynamic_cast<RPGSprite *>(ownerNode);            
         }
         
         if(content != NULL && ownerSprite != NULL) {
