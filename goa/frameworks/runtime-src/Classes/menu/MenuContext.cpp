@@ -1360,8 +1360,11 @@ void MenuContext::showScore() {
 	if (_closeButton != nullptr) {
 		_closeButton->setEnabled(false);
 	}
-    addGreyLayer();
-    pauseNodeAndDescendants(_main);
+	else 
+	{
+		addGreyLayer();
+		pauseNodeAndDescendants(_main);
+	}
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     CCLOG("Points: %d MaxPoints: %d", _points, _maxPoints);
@@ -1690,6 +1693,9 @@ void MenuContext::wordPairList(std::string question, std::string answer,bool isI
 
 void MenuContext::showAnswer(std::string type, std::string header)
 {
+	addGreyLayer();
+	pauseNodeAndDescendants(_main);
+
 	auto spritecache1 = SpriteFrameCache::getInstance();
 	spritecache1->addSpriteFramesWithFile("dash/dash.plist");
 	Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -1714,9 +1720,10 @@ void MenuContext::showAnswer(std::string type, std::string header)
 	label1->setAnchorPoint(Vec2(0.5, 0.5));
 	headerBlock->addChild(label1);
 
-	_closeButton = Button::create("scoreboard/scoremainground/closebuttonoff.png", "scoreboard/scoremainground/closebuttonon.png", "scoreboard/scoremainground/closebuttonoff.png", Widget::TextureResType::LOCAL);
+	_closeButton = Button::create("menu/close.png", "menu/close.png", "menu/close.png", Widget::TextureResType::LOCAL);
 	_closeButton->addTouchEventListener(CC_CALLBACK_0(MenuContext::showScore, this));
-	_closeButton->setPosition(Vec2(200, visibleSize.height*0.9));
+	_closeButton->setAnchorPoint(Vec2(0, 1));
+	_closeButton->setPosition(Vec2(0, visibleSize.height));
 	this->addChild(_closeButton);
 
 	if (type.compare("wordPairs") == 0) {

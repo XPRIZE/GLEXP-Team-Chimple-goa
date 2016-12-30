@@ -93,7 +93,7 @@ bool DinoGame::init() {
 
 void DinoGame::onEnterTransitionDidFinish()
 {
-	//Director::getInstance()->replaceScene(TransitionFade::create(1.0, Award::createScene()));
+	Director::getInstance()->replaceScene(TransitionFade::create(1.0, Award::createScene()));
 	if (_menu->getCurrentLevel() < 4) {
 		_mapping = _levelConfig.at(_menu->getCurrentLevel());
 	}

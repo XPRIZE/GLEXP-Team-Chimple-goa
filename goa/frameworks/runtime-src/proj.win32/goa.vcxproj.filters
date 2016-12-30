@@ -1234,6 +1234,15 @@
     <ClInclude Include="..\Classes\mini_games\AlphabetWriting.h">
       <Filter>Classes\mini_games</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\util\CommonLabel.h">
+      <Filter>Classes\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\CommonLabelTTF.h">
+      <Filter>Classes\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\CommonText.h">
+      <Filter>Classes\util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
