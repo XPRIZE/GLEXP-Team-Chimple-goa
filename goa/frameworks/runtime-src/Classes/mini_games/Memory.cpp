@@ -378,6 +378,11 @@ void Memory::onEnterTransitionDidFinish() {
 		box2pos = box2->getPosition() + Vec2(visibleSize.width * 0.03, visibleSize.height * 0.05);
 
 
+		if (Director::getInstance()->getVisibleSize().width == 2560) {
+			box1pos = box1->getPosition() + Vec2(visibleSize.width * 0, visibleSize.height * 0.05);
+
+		}
+
 		help1 = HelpLayer::create(Rect(box1pos.x + origin.x, box1pos.y + origin.y, box1->getChildByName("nestfront")->getContentSize().width, box1->getChildByName("nestfront")->getContentSize().height), Rect(0, 0, 0, 0));
 
 		//help1->setAnchorPoint(Vec2(0.5,0.5));
@@ -512,6 +517,11 @@ bool Memory::onTouchBegan(Touch* touch, Event* event) {
 
 			box1pos = box1->getPosition() + Vec2(visibleSize.width * 0.03, visibleSize.height * 0.05);
 			box2pos = box2->getPosition() + Vec2(visibleSize.width * 0.03, visibleSize.height * 0.05);
+
+			if (Director::getInstance()->getVisibleSize().width == 2560) {
+				box2pos = box2->getPosition() + Vec2(visibleSize.width * 0, visibleSize.height * 0.05);
+
+			}
 
 			help2 = HelpLayer::create(Rect(box2pos.x + origin.x, box2pos.y + origin.y, box2->getChildByName("nestfront")->getContentSize().width, box2->getChildByName("nestfront")->getContentSize().height), Rect(0, 0, 0, 0));
 
