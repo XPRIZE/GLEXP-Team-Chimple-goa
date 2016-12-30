@@ -417,7 +417,7 @@ void MemoryJungle::onEnterTransitionDidFinish() {
 
 	_label->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * 0.95));
 	_label->setAnchorPoint(Vec2(0.5, 0.5));
-	_label->setName("label");
+	_label->setName("hintLabel");
 	_label->setTextColor(Color4B::BLUE);
 	_label->setColor(Color3B::BLACK);
 
@@ -627,6 +627,8 @@ bool MemoryJungle::onTouchBegan(Touch* touch, Event* event) {
 								}
 
 								//_menuContext->showScore();
+                                auto hintLabel = getChildByName("hintLabel");
+                                hintLabel->removeFromParent();
 								_menuContext->showAnswer("wordPairs", _hint);
 							});
 
