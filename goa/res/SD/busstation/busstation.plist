@@ -15,9 +15,9 @@
                 <key>spriteSourceSize</key>
                 <string>{72,71}</string>
                 <key>textureRect</key>
-                <string>{{356,103},{72,71}}</string>
+                <string>{{1,724},{72,71}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>busstation/door.png</key>
             <dict>
@@ -30,9 +30,9 @@
                 <key>spriteSourceSize</key>
                 <string>{53,94}</string>
                 <key>textureRect</key>
-                <string>{{164,116},{53,94}}</string>
+                <string>{{72,488},{53,94}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>busstation/doorright.png</key>
             <dict>
@@ -45,9 +45,9 @@
                 <key>spriteSourceSize</key>
                 <string>{53,94}</string>
                 <key>textureRect</key>
-                <string>{{260,116},{53,94}}</string>
+                <string>{{72,584},{53,94}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>busstation/floor.png</key>
             <dict>
@@ -60,7 +60,22 @@
                 <key>spriteSourceSize</key>
                 <string>{113,113}</string>
                 <key>textureRect</key>
-                <string>{{164,1},{113,113}}</string>
+                <string>{{1,373},{113,113}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>busstation/paper.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{28,35}</string>
+                <key>spriteSourceSize</key>
+                <string>{28,35}</string>
+                <key>textureRect</key>
+                <string>{{93,197},{28,35}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -75,9 +90,9 @@
                 <key>spriteSourceSize</key>
                 <string>{65,67}</string>
                 <key>textureRect</key>
-                <string>{{429,103},{65,67}}</string>
+                <string>{{1,657},{65,67}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>busstation/seat1.png</key>
             <dict>
@@ -90,7 +105,7 @@
                 <key>spriteSourceSize</key>
                 <string>{174,90}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{174,90}}</string>
+                <string>{{1,197},{174,90}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -105,9 +120,9 @@
                 <key>spriteSourceSize</key>
                 <string>{100,194}</string>
                 <key>textureRect</key>
-                <string>{{279,1},{100,194}}</string>
+                <string>{{1,1},{100,194}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>busstation/waterstand.png</key>
             <dict>
@@ -120,7 +135,7 @@
                 <key>spriteSourceSize</key>
                 <string>{69,167}</string>
                 <key>textureRect</key>
-                <string>{{93,1},{69,167}}</string>
+                <string>{{1,488},{69,167}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -130,15 +145,15 @@
             <key>format</key>
             <integer>3</integer>
             <key>pixelFormat</key>
-            <string>RGBA4444</string>
+            <string>RGBA8888</string>
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
             <string>busstation.png</string>
             <key>size</key>
-            <string>{495,176}</string>
+            <string>{126,796}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:f88acf7a4548e283c7716eee50a474e1:605c828470941175840055b8e9d7ec8b:783ad0f03069643306fdc3867f0d3213$</string>
+            <string>$TexturePacker:SmartUpdate:8747491c826772c7baf620765cd320a3:f762ef32a7db340bbd3d49c002c54ead:783ad0f03069643306fdc3867f0d3213$</string>
             <key>textureFileName</key>
             <string>busstation.png</string>
         </dict>

@@ -248,6 +248,8 @@ bool RPGSprite::onTouchBegan(Touch *touch, Event *event)
         }
         
     }
+    
+    
     if(this->getSprite()->isVisible() && this->getInterAct() == "true" && this->getVicinityToMainCharacter() == true && boundingBoxRect.containsPoint(n)) {
 
         if(getEventProcessed()) {
@@ -255,8 +257,9 @@ bool RPGSprite::onTouchBegan(Touch *touch, Event *event)
         } else {
             return true;
         }
-        
-    } 
+
+//        return true;
+    }
     return false;
 }
 

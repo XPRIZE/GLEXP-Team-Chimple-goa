@@ -165,6 +165,7 @@ void HelloWorld::renderBagPack() {
     Node* textFieldNode = _bagPackNode->getChildByName("TextField");
     cocos2d::ui::TextField* sTextField = dynamic_cast<cocos2d::ui::TextField*>(textFieldNode);
     if(sTextField != NULL) {
+        //store hint into local storage
         sTextField->setString(_hintText);
         sTextField->setFontName("Arial");
         sTextField->setFontSize(50);
@@ -220,8 +221,10 @@ void HelloWorld::showBagPack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 
 
 void HelloWorld::removeBagPack(std::unordered_map<int, std::string> textMapFollowedByAnimation, std::string owner) {
-    _bagPackNode->removeFromParent();
-    _bagPackNode = NULL;
+    if(_bagPackNode != NULL) {
+        _bagPackNode->removeFromParent();
+        _bagPackNode = NULL;        
+    }
     if(textMapFollowedByAnimation.size() > 0 && !owner.empty())
     {
         this->processTextMessage(textMapFollowedByAnimation, owner);
@@ -1069,8 +1072,9 @@ void HelloWorld::processPutInBackPackMessages(std::vector<MessageContent*>showMe
         CCLOG("content owner %s", content->getOwner().c_str());
         Node* ownerNode = this->mainLayer->getChildByName(content->getOwner());
         RPGSprite* ownerSprite = NULL;
+        Sprite* sprite = NULL;
         if(ownerNode != NULL) {
-            ownerSprite = dynamic_cast<RPGSprite *>(ownerNode);
+            ownerSprite = dynamic_cast<RPGSprite *>(ownerNode);            
         }
         
         if(content != NULL && ownerSprite != NULL) {
@@ -2729,7 +2733,7 @@ bool HelloWorld::onContactBegin(PhysicsContact &contact) {
     // We we handle what happen when character collide with something else
     // if we return true, we say: collision happen please. => Top-Down Char Jump
     // otherwise, we say the engine to ignore this collision => Bottom-Up Char Jump
-    CCLOG("contact BEGAN 1111!!! %d", this->stateMachine->getCurrentState()->getState());
+//    CCLOG("contact BEGAN 1111!!! %d", this->stateMachine->getCurrentState()->getState());
     cocos2d::Node* nodeA = contact.getShapeA()->getBody()->getNode();
     cocos2d::Node* nodeB = contact.getShapeB()->getBody()->getNode();
     

@@ -221,6 +221,7 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
                 var node = context._constructedScene.node.getChildByName(nodeName);
                 if(node) {
                     node.setTouchEnabled(false);                    
+                    node.setEnabled(false);
                 }                                                                
             });                                                   
         }
@@ -259,6 +260,7 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
     },
 
     verifyAnswer: function(sender) {
+        sender.setEnabled(false);
         var str2 = sender.getTitleText().replace(/\n|\r/g, "");
         var isCorrectAnswered = sender.getTitleText().trim().toLowerCase() === this._question.answer.trim().toLowerCase();
         this.hintForCorrectAnswer(sender, isCorrectAnswered);
