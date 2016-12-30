@@ -556,6 +556,10 @@ void MenuContext::removeMenuOnly() {
             removeChild(_settingMenu);
             _settingMenu = nullptr;            
         }
+        if(_mapMenu) {
+            removeChild(_mapMenu);
+            _mapMenu = nullptr;
+        }
         
         //        if(_photoMenu) {
         //            removeChild(_photoMenu);
