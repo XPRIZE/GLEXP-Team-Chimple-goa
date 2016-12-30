@@ -164,6 +164,13 @@ xc.Bubble_Alphabets = cc.Layer.extend({
       this.extendLetter.setPosition(extendedGameX - (widthAreaExtendPart * 0.25), cc.director.getWinSize().height * 0.5);
       this.addChild(this.extendLetter);
 
+     if(cc.director.getWinSize().width > 2560){
+         this.extendLetter.setFontSize(widthAreaExtendPart*1.3);
+      }else if (cc.director.getWinSize().width == 2560) {
+         this.extendedGameX = this.extendedGameX - 45;
+      }
+
+
        if(bubblelevelValues == 1){
             var window = cc.director.getWinSize();
             var help = new xc.HelpLayer(cc.rect((window.width - (cc.director.getWinSize().width - 2560)) * 0.5 , window.height *0.75 , window.width - (cc.director.getWinSize().width - 2560),window.height *0.5), cc.rect(this.gunBase.x, this.gunBase.y,this.bubblePlayer.width,this.bubblePlayer.height))

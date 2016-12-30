@@ -240,6 +240,12 @@ xc.Bubble_Number = cc.Layer.extend({
       this.extendLetter.setPosition(extendedGameX - (widthAreaExtendPart * 0.25), cc.director.getWinSize().height * 0.5);
       this.addChild(this.extendLetter);
     //  this.extendLetter.setAnchorPoint(0.5,0);
+      
+      if(cc.director.getWinSize().width > 2560){
+         this.extendLetter.setFontSize(widthAreaExtendPart*1.3);
+      }else if (cc.director.getWinSize().width == 2560) {
+         this.extendedGameX = this.extendedGameX - 45;
+      }
 
        if(bubblelevelValues == 100){
             var window = cc.director.getWinSize();
