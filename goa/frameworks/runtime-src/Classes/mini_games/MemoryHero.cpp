@@ -405,7 +405,7 @@ void MemoryHero::onEnterTransitionDidFinish() {
 
 	_label->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * 0.95));
 	_label->setAnchorPoint(Vec2(0.5, 0.5));
-	_label->setName("label");
+	_label->setName("hintLabel");
 	_label->setTextColor(Color4B::BLUE);
 	_label->setColor(Color3B::BLACK);
 
@@ -608,6 +608,8 @@ bool MemoryHero::onTouchBegan(Touch* touch, Event* event) {
 							if (_wrong == 0) {
 								_menuContext->addPoints(_right);
 							}
+                            auto hintLabel = getChildByName("hintLabel");
+                            hintLabel->removeFromParent();
 
 							//_menuContext->showScore();
 							_menuContext->showAnswer("wordPairs", _hint);

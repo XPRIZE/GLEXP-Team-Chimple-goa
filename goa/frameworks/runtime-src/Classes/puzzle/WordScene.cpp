@@ -354,6 +354,7 @@ void WordScene::checkAnswer() {
 
 void WordScene::gameOver(bool correct) {
     if(correct) {
+        MenuContext::pronounceWord(_word);
         _menuContext->showScore();
     }
 }
