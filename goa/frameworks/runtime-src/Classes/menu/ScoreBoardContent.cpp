@@ -372,7 +372,10 @@ void ScoreBoardContext::buttonClicked(Ref* pSender, ui::Widget::TouchEventType e
                 Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
             }
             else if(clickedButton->getName() == "next")  {
-                if(_gameName == "Show Stories") {
+
+                std::size_t isStories = _gameName.find("storyId");
+                
+                if (isStories!=std::string::npos || _gameName == "Show Stories") {
                     ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
                 } else if(_gameName == "Safari RPG") {
                     Director::getInstance()->replaceScene(MapScene::createScene());

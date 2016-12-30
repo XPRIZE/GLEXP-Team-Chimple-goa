@@ -792,7 +792,9 @@ void MenuContext::waitForAudioLoad(std::string audioFileName, std::function<void
 
 void MenuContext::showBook(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
-        if(gameName == "Show Stories") {
+        
+        std::size_t isStories = gameName.find("storyId");
+        if (isStories!=std::string::npos || gameName == "Show Stories"){
             ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
         } else if(gameName == "Safari RPG") {
             Director::getInstance()->replaceScene(MapScene::createScene());
