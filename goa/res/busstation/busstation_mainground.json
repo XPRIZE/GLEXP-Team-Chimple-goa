@@ -1,0 +1,2210 @@
+{
+  "ID": "30563c1c-f558-4c0b-aa3a-8df5453f5a3b",
+  "Version": "3.10.0.0",
+  "Name": "busstation_mainground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 20,
+        "Speed": 1.0,
+        "Timelines": [
+          {
+            "ActionTag": 7331540,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 778.9371,
+                "Y": 633.4845,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 958.9388,
+                "Y": 633.4847,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 7331540,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 7331540,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1860418838,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 567.215,
+                "Y": 633.4845,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 387.2159,
+                "Y": 633.4847,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1860418838,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1860418838,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 3,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 237,
+              "G": 237,
+              "B": 133
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -4.334,
+              "Y": -0.1657
+            },
+            "Scale": {
+              "ScaleX": 1.4824,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0017,
+              "Y": -0.0001
+            },
+            "PreSize": {
+              "X": 2.0,
+              "Y": 1.2778
+            },
+            "LeftMargin": -4.334,
+            "RightMargin": -2555.666,
+            "TopMargin": -499.8342,
+            "BottomMargin": -0.1657,
+            "Tag": 4,
+            "ActionTag": 1560454829,
+            "Size": {
+              "X": 5120.0,
+              "Y": 2300.0
+            },
+            "Name": "wall",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/floor.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 226.0191,
+              "Y": 224.8342
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0883,
+              "Y": 0.1249
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.25
+            },
+            "LeftMargin": 1.0191,
+            "RightMargin": 2108.981,
+            "TopMargin": 1350.1658,
+            "BottomMargin": -0.1658,
+            "Tag": 5,
+            "ActionTag": 1649929087,
+            "Size": {
+              "X": 450.0,
+              "Y": 450.0
+            },
+            "Name": "floor_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/floor.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 670.641,
+              "Y": 224.8343
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.262,
+              "Y": 0.1249
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.25
+            },
+            "LeftMargin": 445.641,
+            "RightMargin": 1664.359,
+            "TopMargin": 1350.1658,
+            "BottomMargin": -0.1657,
+            "Tag": 6,
+            "ActionTag": 9061643,
+            "Size": {
+              "X": 450.0,
+              "Y": 450.0
+            },
+            "Name": "floor_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/floor.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1120.6968,
+              "Y": 224.8342
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4378,
+              "Y": 0.1249
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.25
+            },
+            "LeftMargin": 895.6968,
+            "RightMargin": 1214.3032,
+            "TopMargin": 1350.1658,
+            "BottomMargin": -0.1658,
+            "Tag": 7,
+            "ActionTag": 1979094933,
+            "Size": {
+              "X": 450.0,
+              "Y": 450.0
+            },
+            "Name": "floor_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/floor.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1567.1306,
+              "Y": 224.8344
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6122,
+              "Y": 0.1249
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.25
+            },
+            "LeftMargin": 1342.1306,
+            "RightMargin": 767.8694,
+            "TopMargin": 1350.1655,
+            "BottomMargin": -0.1656,
+            "Tag": 8,
+            "ActionTag": 220524182,
+            "Size": {
+              "X": 450.0,
+              "Y": 450.0
+            },
+            "Name": "floor_1_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/floor.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2013.5618,
+              "Y": 224.8342
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7865,
+              "Y": 0.1249
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.25
+            },
+            "LeftMargin": 1788.5618,
+            "RightMargin": 321.4382,
+            "TopMargin": 1350.1658,
+            "BottomMargin": -0.1658,
+            "Tag": 9,
+            "ActionTag": 1094577869,
+            "Size": {
+              "X": 450.0,
+              "Y": 450.0
+            },
+            "Name": "floor_1_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/floor.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2459.9944,
+              "Y": 224.8344
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9609,
+              "Y": 0.1249
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.25
+            },
+            "LeftMargin": 2234.9944,
+            "RightMargin": -124.9944,
+            "TopMargin": 1350.1655,
+            "BottomMargin": -0.1656,
+            "Tag": 10,
+            "ActionTag": 1721629183,
+            "Size": {
+              "X": 450.0,
+              "Y": 450.0
+            },
+            "Name": "floor_1_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/floor.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2908.23,
+              "Y": 224.8342
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.136,
+              "Y": 0.1249
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.25
+            },
+            "LeftMargin": 2683.23,
+            "RightMargin": -573.23,
+            "TopMargin": 1350.1658,
+            "BottomMargin": -0.1658,
+            "Tag": 11,
+            "ActionTag": 1572484045,
+            "Size": {
+              "X": 450.0,
+              "Y": 450.0
+            },
+            "Name": "floor_1_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/floor.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3354.6648,
+              "Y": 224.8342
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3104,
+              "Y": 0.1249
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.25
+            },
+            "LeftMargin": 3129.6648,
+            "RightMargin": -1019.6648,
+            "TopMargin": 1350.1658,
+            "BottomMargin": -0.1658,
+            "Tag": 12,
+            "ActionTag": -1115211238,
+            "Size": {
+              "X": 450.0,
+              "Y": 450.0
+            },
+            "Name": "floor_1_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/floor.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3802.9062,
+              "Y": 224.8344
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.4855,
+              "Y": 0.1249
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.25
+            },
+            "LeftMargin": 3577.9062,
+            "RightMargin": -1467.9062,
+            "TopMargin": 1350.1655,
+            "BottomMargin": -0.1656,
+            "Tag": 13,
+            "ActionTag": -244449822,
+            "Size": {
+              "X": 450.0,
+              "Y": 450.0
+            },
+            "Name": "floor_1_0_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/floor.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4251.9536,
+              "Y": 224.8343
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.6609,
+              "Y": 0.1249
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.25
+            },
+            "LeftMargin": 4026.9536,
+            "RightMargin": -1916.9536,
+            "TopMargin": 1350.1658,
+            "BottomMargin": -0.1657,
+            "Tag": 14,
+            "ActionTag": -585855761,
+            "Size": {
+              "X": 450.0,
+              "Y": 450.0
+            },
+            "Name": "floor_1_0_0_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/floor.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4700.1831,
+              "Y": 224.8345
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.836,
+              "Y": 0.1249
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.25
+            },
+            "LeftMargin": 4475.1831,
+            "RightMargin": -2365.1831,
+            "TopMargin": 1350.1655,
+            "BottomMargin": -0.1655,
+            "Tag": 15,
+            "ActionTag": -1381017944,
+            "Size": {
+              "X": 450.0,
+              "Y": 450.0
+            },
+            "Name": "floor_1_0_0_0_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/floor.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5148.48,
+              "Y": 224.8343
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.0111,
+              "Y": 0.1249
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.25
+            },
+            "LeftMargin": 4923.48,
+            "RightMargin": -2813.48,
+            "TopMargin": 1350.1658,
+            "BottomMargin": -0.1657,
+            "Tag": 16,
+            "ActionTag": -91177692,
+            "Size": {
+              "X": 450.0,
+              "Y": 450.0
+            },
+            "Name": "floor_1_0_0_0_0_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/floor.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5597.1367,
+              "Y": 224.8343
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.1864,
+              "Y": 0.1249
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.25
+            },
+            "LeftMargin": 5372.1367,
+            "RightMargin": -3262.1367,
+            "TopMargin": 1350.1658,
+            "BottomMargin": -0.1657,
+            "Tag": 26,
+            "ActionTag": 4485906,
+            "Size": {
+              "X": 450.0,
+              "Y": 450.0
+            },
+            "Name": "floor_1_0_0_0_0_0_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/floor.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6045.416,
+              "Y": 224.8341
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.3615,
+              "Y": 0.1249
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.25
+            },
+            "LeftMargin": 5820.416,
+            "RightMargin": -3710.416,
+            "TopMargin": 1350.1659,
+            "BottomMargin": -0.1659,
+            "Tag": 27,
+            "ActionTag": 1988639829,
+            "Size": {
+              "X": 450.0,
+              "Y": 450.0
+            },
+            "Name": "floor_1_0_0_0_0_0_0_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/floor.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6491.688,
+              "Y": 224.8332
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.5358,
+              "Y": 0.1249
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.25
+            },
+            "LeftMargin": 6266.688,
+            "RightMargin": -4156.688,
+            "TopMargin": 1350.1667,
+            "BottomMargin": -0.1668,
+            "Tag": 28,
+            "ActionTag": -1075684862,
+            "Size": {
+              "X": 450.0,
+              "Y": 450.0
+            },
+            "Name": "floor_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/floor.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6933.9893,
+              "Y": 224.8332
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.7086,
+              "Y": 0.1249
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.25
+            },
+            "LeftMargin": 6708.9893,
+            "RightMargin": -4598.9893,
+            "TopMargin": 1350.1667,
+            "BottomMargin": -0.1668,
+            "Tag": 30,
+            "ActionTag": -1185832163,
+            "Size": {
+              "X": 450.0,
+              "Y": 450.0
+            },
+            "Name": "floor_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/floor.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7376.2573,
+              "Y": 224.8338
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.8814,
+              "Y": 0.1249
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.25
+            },
+            "LeftMargin": 7151.2573,
+            "RightMargin": -5041.2573,
+            "TopMargin": 1350.1663,
+            "BottomMargin": -0.1662,
+            "Tag": 31,
+            "ActionTag": -1413977871,
+            "Size": {
+              "X": 450.0,
+              "Y": 450.0
+            },
+            "Name": "floor_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/ticketsand.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5329.4385,
+              "Y": 788.8054
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.0818,
+              "Y": 0.4382
+            },
+            "PreSize": {
+              "X": 0.1563,
+              "Y": 0.4317
+            },
+            "LeftMargin": 5129.4385,
+            "RightMargin": -2969.4385,
+            "TopMargin": 622.6946,
+            "BottomMargin": 400.3054,
+            "Tag": 32,
+            "ActionTag": 1137598468,
+            "Size": {
+              "X": 400.0,
+              "Y": 777.0
+            },
+            "Name": "ticketsand_27",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/ticketsand.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4929.3657,
+              "Y": 788.8054
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.9255,
+              "Y": 0.4382
+            },
+            "PreSize": {
+              "X": 0.1563,
+              "Y": 0.4317
+            },
+            "LeftMargin": 4729.3657,
+            "RightMargin": -2569.3657,
+            "TopMargin": 622.6946,
+            "BottomMargin": 400.3054,
+            "Tag": 33,
+            "ActionTag": 1898927593,
+            "Size": {
+              "X": 400.0,
+              "Y": 777.0
+            },
+            "Name": "ticketsand_27_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/ticketsand.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4533.6284,
+              "Y": 788.8054
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.7709,
+              "Y": 0.4382
+            },
+            "PreSize": {
+              "X": 0.1563,
+              "Y": 0.4317
+            },
+            "LeftMargin": 4333.6284,
+            "RightMargin": -2173.6284,
+            "TopMargin": 622.6946,
+            "BottomMargin": 400.3054,
+            "Tag": 34,
+            "ActionTag": 1910587175,
+            "Size": {
+              "X": 400.0,
+              "Y": 777.0
+            },
+            "Name": "ticketsand_27_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/ticketsand.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4135.2051,
+              "Y": 788.8055
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.6153,
+              "Y": 0.4382
+            },
+            "PreSize": {
+              "X": 0.1563,
+              "Y": 0.4317
+            },
+            "LeftMargin": 3935.2051,
+            "RightMargin": -1775.2051,
+            "TopMargin": 622.6946,
+            "BottomMargin": 400.3055,
+            "Tag": 35,
+            "ActionTag": -307551532,
+            "Size": {
+              "X": 400.0,
+              "Y": 777.0
+            },
+            "Name": "ticketsand_27_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/waterstand.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2962.6167,
+              "Y": 598.0757
+            },
+            "Scale": {
+              "ScaleX": 0.6216,
+              "ScaleY": 0.6185
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1573,
+              "Y": 0.3323
+            },
+            "PreSize": {
+              "X": 0.107,
+              "Y": 0.3717
+            },
+            "LeftMargin": 2825.6167,
+            "RightMargin": -539.6167,
+            "TopMargin": 867.4243,
+            "BottomMargin": 263.5757,
+            "Tag": 37,
+            "ActionTag": -1699813717,
+            "Size": {
+              "X": 274.0,
+              "Y": 669.0
+            },
+            "Name": "waterstand_32",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/clock.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2899.2405,
+              "Y": 1403.114
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1325,
+              "Y": 0.7795
+            },
+            "PreSize": {
+              "X": 0.1121,
+              "Y": 0.1567
+            },
+            "LeftMargin": 2755.7405,
+            "RightMargin": -482.7405,
+            "TopMargin": 255.886,
+            "BottomMargin": 1262.114,
+            "UserData": "canInteract=true",
+            "Tag": 39,
+            "ActionTag": 1974855169,
+            "Size": {
+              "X": 287.0,
+              "Y": 282.0
+            },
+            "Name": "clock_34",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/plant.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3276.8867,
+              "Y": 495.1007
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.28,
+              "Y": 0.2751
+            },
+            "PreSize": {
+              "X": 0.1016,
+              "Y": 0.1494
+            },
+            "LeftMargin": 3146.8867,
+            "RightMargin": -846.8867,
+            "TopMargin": 1170.3993,
+            "BottomMargin": 360.6007,
+            "Tag": 40,
+            "ActionTag": -2107485763,
+            "Size": {
+              "X": 260.0,
+              "Y": 269.0
+            },
+            "Name": "plant_35",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/plant.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6334.5664,
+              "Y": 530.1484
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.4744,
+              "Y": 0.2945
+            },
+            "PreSize": {
+              "X": 0.1016,
+              "Y": 0.1494
+            },
+            "LeftMargin": 6204.5664,
+            "RightMargin": -3904.5664,
+            "TopMargin": 1135.3516,
+            "BottomMargin": 395.6484,
+            "Tag": 41,
+            "ActionTag": -1197571430,
+            "Size": {
+              "X": 260.0,
+              "Y": 269.0
+            },
+            "Name": "plant_35_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 110,
+              "G": 114,
+              "B": 118
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 446.302,
+              "Y": 447.1047
+            },
+            "Scale": {
+              "ScaleX": 2.2615,
+              "ScaleY": 1.9213
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1743,
+              "Y": 0.2484
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 446.302,
+            "RightMargin": 1913.698,
+            "TopMargin": 1152.8953,
+            "BottomMargin": 447.1047,
+            "Tag": 44,
+            "ActionTag": -2037754763,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "doorback",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 144,
+              "G": 199
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 462.3026,
+              "Y": 444.1047
+            },
+            "Scale": {
+              "ScaleX": 2.1039,
+              "ScaleY": 1.8881
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1806,
+              "Y": 0.2467
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 462.3026,
+            "RightMargin": 1897.6974,
+            "TopMargin": 1155.8953,
+            "BottomMargin": 444.1047,
+            "Tag": 45,
+            "ActionTag": 1035154170,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "doorback_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 38,
+              "G": 38,
+              "B": 38
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 462.303,
+              "Y": 447.1049
+            },
+            "Scale": {
+              "ScaleX": 2.1039,
+              "ScaleY": 0.2863
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1806,
+              "Y": 0.2484
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 462.303,
+            "RightMargin": 1897.697,
+            "TopMargin": 1152.8951,
+            "BottomMargin": 447.1049,
+            "Tag": 46,
+            "ActionTag": 1318819106,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "doorback_0_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/door.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 778.9371,
+              "Y": 633.4845
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3043,
+              "Y": 0.3519
+            },
+            "PreSize": {
+              "X": 0.0832,
+              "Y": 0.2083
+            },
+            "LeftMargin": 672.4371,
+            "RightMargin": 1674.563,
+            "TopMargin": 979.0155,
+            "BottomMargin": 445.9845,
+            "UserData": "canInteract=true,nextScene=city2",
+            "Tag": 42,
+            "ActionTag": 7331540,
+            "Size": {
+              "X": 213.0,
+              "Y": 375.0
+            },
+            "Name": "door_37",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/doorright.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 567.215,
+              "Y": 633.4845
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2216,
+              "Y": 0.3519
+            },
+            "PreSize": {
+              "X": 0.0832,
+              "Y": 0.2083
+            },
+            "LeftMargin": 460.715,
+            "RightMargin": 1886.2849,
+            "TopMargin": 979.0155,
+            "BottomMargin": 445.9845,
+            "UserData": "canInteract=true,nextScene=city2",
+            "Tag": 43,
+            "ActionTag": 1860418838,
+            "Size": {
+              "X": 213.0,
+              "Y": 375.0
+            },
+            "Name": "doorright_38",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/seat1.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2345.9348,
+              "Y": 523.6356
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9164,
+              "Y": 0.2909
+            },
+            "PreSize": {
+              "X": 0.2711,
+              "Y": 0.1989
+            },
+            "LeftMargin": 1998.9348,
+            "RightMargin": -132.9348,
+            "TopMargin": 1097.3644,
+            "BottomMargin": 344.6356,
+            "Tag": 47,
+            "ActionTag": -2032884275,
+            "Size": {
+              "X": 694.0,
+              "Y": 358.0
+            },
+            "Name": "seat1_39",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/seat1.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1610.4788,
+              "Y": 533.6029
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6291,
+              "Y": 0.2964
+            },
+            "PreSize": {
+              "X": 0.2711,
+              "Y": 0.1989
+            },
+            "LeftMargin": 1263.4788,
+            "RightMargin": 602.5212,
+            "TopMargin": 1087.3971,
+            "BottomMargin": 354.6029,
+            "Tag": 48,
+            "ActionTag": 838078009,
+            "Size": {
+              "X": 694.0,
+              "Y": 358.0
+            },
+            "Name": "seat1_39_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 44,
+              "G": 182,
+              "B": 58
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1336.2515,
+              "Y": 857.4846
+            },
+            "Scale": {
+              "ScaleX": 6.5115,
+              "ScaleY": 2.3966
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.522,
+              "Y": 0.4764
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 1336.2515,
+            "RightMargin": 1023.7485,
+            "TopMargin": 742.5154,
+            "BottomMargin": 857.4846,
+            "Tag": 49,
+            "ActionTag": 1323164151,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "board",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/seat1.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6985.9287,
+              "Y": 533.6351
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.7289,
+              "Y": 0.2965
+            },
+            "PreSize": {
+              "X": 0.2711,
+              "Y": 0.1989
+            },
+            "LeftMargin": 6638.9287,
+            "RightMargin": -4772.9287,
+            "TopMargin": 1087.365,
+            "BottomMargin": 354.6351,
+            "Tag": 53,
+            "ActionTag": -1752164009,
+            "Size": {
+              "X": 694.0,
+              "Y": 358.0
+            },
+            "Name": "seat1_39_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {},
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1360.249,
+              "Y": 884.3305
+            },
+            "Scale": {
+              "ScaleX": 6.2444,
+              "ScaleY": 2.1223
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5313,
+              "Y": 0.4913
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 1360.249,
+            "RightMargin": 999.751,
+            "TopMargin": 715.6694,
+            "BottomMargin": 884.3305,
+            "Tag": 55,
+            "ActionTag": -113580807,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "board_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 44,
+              "G": 182,
+              "B": 58
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 6156.272,
+              "Y": 887.4865
+            },
+            "Scale": {
+              "ScaleX": 6.5115,
+              "ScaleY": 2.3966
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.4048,
+              "Y": 0.493
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 6156.272,
+            "RightMargin": -3796.272,
+            "TopMargin": 712.5134,
+            "BottomMargin": 887.4865,
+            "Tag": 56,
+            "ActionTag": -256200965,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "board_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {},
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 6180.2686,
+              "Y": 914.3319
+            },
+            "Scale": {
+              "ScaleX": 6.2444,
+              "ScaleY": 2.1223
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.4142,
+              "Y": 0.508
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 6180.2686,
+            "RightMargin": -3820.2686,
+            "TopMargin": 685.6681,
+            "BottomMargin": 914.3319,
+            "Tag": 57,
+            "ActionTag": -1933972006,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "board_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/seat1.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5944.2891,
+              "Y": 533.635
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.322,
+              "Y": 0.2965
+            },
+            "PreSize": {
+              "X": 0.2711,
+              "Y": 0.1989
+            },
+            "LeftMargin": 5597.2891,
+            "RightMargin": -3731.2891,
+            "TopMargin": 1087.365,
+            "BottomMargin": 354.635,
+            "Tag": 102,
+            "ActionTag": 860441565,
+            "Size": {
+              "X": 694.0,
+              "Y": 358.0
+            },
+            "Name": "seat1_39_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "RightMargin": 2560.0,
+            "TopMargin": 1800.0,
+            "UserData": "left",
+            "Tag": 99,
+            "ActionTag": 2034968565,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "left",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 7578.9561,
+              "Y": 3.5477
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.9605,
+              "Y": 0.002
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 7578.9561,
+            "RightMargin": -5018.9561,
+            "TopMargin": 1796.4523,
+            "BottomMargin": 3.5477,
+            "UserData": "right",
+            "Tag": 100,
+            "ActionTag": 963987951,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "right",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 984.9936,
+              "Y": 334.7942
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.3848,
+              "Y": 0.186
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 984.9936,
+            "RightMargin": 1575.0063,
+            "TopMargin": 1465.2058,
+            "BottomMargin": 334.7942,
+            "UserData": "canInteract=true,fileName=chimple_skeleton.csb",
+            "Tag": 101,
+            "ActionTag": 1416576936,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "Hero",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 4778.1553,
+              "Y": 3097.8621
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.8665,
+              "Y": 1.721
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 4778.1553,
+            "RightMargin": -2418.1553,
+            "TopMargin": -1497.8621,
+            "BottomMargin": 3097.8621,
+            "Tag": 175,
+            "ActionTag": -328186972,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_17",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "busstation/paper.png",
+              "Plist": "busstation/busstation.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5749.937,
+              "Y": 563.141
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.2461,
+              "Y": 0.3129
+            },
+            "PreSize": {
+              "X": 0.0434,
+              "Y": 0.0778
+            },
+            "LeftMargin": 5694.437,
+            "RightMargin": -3245.437,
+            "TopMargin": 1166.859,
+            "BottomMargin": 493.141,
+            "UserData": "canInteract=true",
+            "Tag": 91,
+            "ActionTag": -1289720235,
+            "Size": {
+              "X": 111.0,
+              "Y": 140.0
+            },
+            "Name": "paper_32",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 3126.5876,
+              "Y": 332.5763
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.2213,
+              "Y": 0.1848
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 3126.5876,
+            "RightMargin": -566.5876,
+            "TopMargin": 1467.4237,
+            "BottomMargin": 332.5763,
+            "UserData": "canInteract=true,fileName=driver_skeleton.csb",
+            "Tag": 94,
+            "ActionTag": -1466371179,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "driver ",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 5721.9097,
+              "Y": 259.136
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.2351,
+              "Y": 0.144
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 5721.9097,
+            "RightMargin": -3161.9097,
+            "TopMargin": 1540.864,
+            "BottomMargin": 259.136,
+            "UserData": "canInteract=true,fileName=conductor_skeleton.csb",
+            "Tag": 95,
+            "ActionTag": -2080959897,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "conductor",
+            "ctype": "SingleNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "busstation.plist",
+        "busstation.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

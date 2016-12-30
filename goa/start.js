@@ -55,7 +55,7 @@
 var chimple = chimple || {};
 var xc = xc || {};
 var goa = goa || {};
-xc.path = "res/HD/";
+xc.path = "res/SD/";
 xc.RESOURCE_DESIGN_HEIGHT = 1800;
 xc.DEVICE_WIDTH = 1260;
 xc.DEVICE_HEIGHT = 1800;

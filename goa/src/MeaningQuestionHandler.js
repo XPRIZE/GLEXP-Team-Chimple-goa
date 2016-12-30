@@ -14,6 +14,8 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
     _totalCorrectAnswers: 0,
     _questionHelpNode: null,
     _unfinishedQuestions: [],
+    _finishedAnswers:[],
+    _answerNodes:[],
     _finishedQuestions: [],
     ctor: function (nodeJSON, width, height, question, callback, callbackContext) {
         this._super(width, height);
@@ -32,7 +34,7 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
         this.configureQuestions();
         this.configureAnswers();
 
-        this.scheduleOnce(this.initQuestionHelp, 2);
+        this.scheduleOnce(this.initQuestionHelp, 0.1);
     },
 
     initAnswerHelp: function() {
@@ -113,6 +115,7 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
     configureAnswers: function() {
         var context = this;      
         context._answers = [];
+        context._finishedAnswers = [];
         var obj = this._question;  
         Object.keys(context._question).forEach(function (key) {
             var val = context._question[key];
@@ -203,6 +206,7 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
                         node.setTitleText(output);
                         cc.log("qText setting:" + output);
                         node.addTouchEventListener(this.answerSelected, this);
+                        this._answerNodes.push(node);
                     }                    
                 }                             
             };
@@ -242,6 +246,20 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
                         n.setEnabled(true);
                     }
                 });
+
+                var that = this;
+                this._answerNodes.forEach(function(n) {
+                        that._finishedAnswers.forEach(function(n1) {
+                            if(n1 && n1.getName() == n.getName()) {
+                                cc.log("disabe for answer:" + n.getName());
+                                n.setEnabled(false);
+                            } else {
+                                cc.log("enable for answer:" + n.getName());
+                                n.setEnabled(true);
+                            }
+                        });
+                });
+
                 if(this._questionHelp != null) {
                     this._questionHelp.setVisible(false);
                     this._questionHelp.setPosition(cc.p(0,0));                    
@@ -327,7 +345,7 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
     },
 
     showHintAnimation: function(sender) {
-        sender.setEnabled(true);
+        sender.setEnabled(false);
         if(this._numberOfTimesInCorrectAnswered > 2) {
             //glow correct question and answer      
             var aNode = null;      
@@ -404,6 +422,7 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
     
 
     disableNodesForCorrectAnswer:function(sender, questionNode) {
+        this._finishedAnswers.push(sender);
         sender.setEnabled(false);
         questionNode.setEnabled(false);
 
@@ -452,6 +471,7 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
             this._selectedQuestionDrawNode.setVisible(false);
             this._selectedQuestionDrawNode.removeFromParent();
         } else {
+            sender.setEnabled(false);
             this.hintForCorrectAnswer(sender, isCorrectAnswered);
             this._selectedQuestionForAnswer._isPressed = true;
             this._selectedQuestionForAnswer.setHighlighted(true);

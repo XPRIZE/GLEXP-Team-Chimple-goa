@@ -25,7 +25,7 @@ xc.MultipleChoiceQuestionHandler = cc.Layer.extend({
         this.showQuestionTemplate();
         this.configureQuestion();
         this.configureAnswers();
-        this.scheduleOnce(this.initHelp, 2);
+        this.scheduleOnce(this.initHelp, 0.1);
     },
 
     initHelp: function() {
@@ -206,7 +206,8 @@ xc.MultipleChoiceQuestionHandler = cc.Layer.extend({
                var nodeName = "A"+(index+1);
                 var node = context._constructedScene.node.getChildByName(nodeName);
                 if(node) {
-                    node.setTouchEnabled(false);                    
+                    node.setTouchEnabled(false);
+                    node.setEnabled(false);                 
                 }                                                                
             });
         }
@@ -214,6 +215,7 @@ xc.MultipleChoiceQuestionHandler = cc.Layer.extend({
     },
 
     verifyAnswer: function(sender) {
+        sender.setEnabled(false);
         var str2 = sender.getTitleText().replace(/\n|\r/g, "");
         var isCorrectAnswered = str2.trim().toLowerCase() === this._question.answer.trim().toLowerCase();
         this.hintForCorrectAnswer(sender, isCorrectAnswered);        
