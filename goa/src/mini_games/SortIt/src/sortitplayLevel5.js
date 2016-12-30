@@ -46,7 +46,7 @@ xc.sortitlevel5Layer = cc.Layer.extend({
         // this.audioEngine.playEffect(res.explosive_mp3);
 
     
-
+        cc.spriteFrameCache.addSpriteFrames(xc.sortitlevel5Layer.res.sortittwo_plist);
 
         var size = cc.winSize;
 
@@ -189,7 +189,7 @@ xc.sortitlevel5Layer.res = {
     
     
     comedyBubble_mp3:  "res/sounds/sortit/comedyBubble.mp3",
-    explosive_mp3:  "res/sounds/sortit/explosive.mp3",
+   
     failure_mp3:  "res/sounds/sortit/failure.mp3"
 }
 
