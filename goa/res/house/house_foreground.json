@@ -1,0 +1,78 @@
+{
+  "ID": "7f203082-a6a0-40a6-b764-96bddec6a3bd",
+  "Version": "3.10.0.0",
+  "Name": "house_foreground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 233,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "house/house_main/dustbin.png",
+              "Plist": "house/house_main/house_main.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2388.1213,
+              "Y": 192.206
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9329,
+              "Y": 0.1068
+            },
+            "PreSize": {
+              "X": 0.068,
+              "Y": 0.12
+            },
+            "LeftMargin": 2301.1213,
+            "RightMargin": 84.8787,
+            "TopMargin": 1499.7939,
+            "BottomMargin": 84.206,
+            "Tag": 235,
+            "ActionTag": 1703383203,
+            "Size": {
+              "X": 174.0,
+              "Y": 216.0
+            },
+            "Name": "dustbin_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "house_main/house_main.plist",
+        "house_main/house_main.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}
