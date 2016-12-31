@@ -32,7 +32,7 @@ public:
 	std::vector<std::string> _scene;
 	Node *_talkBg;
 	int _level;
-
+	std::string _qName;
 	cocostudio::timeline::ActionTimeline *_heroChar, *_enemyChar;
 
 	cocos2d::Sprite *_hhand, *_hero, *_ehand, *_enemy, *_fish, *_hbasket, *_ebasket;

@@ -46,6 +46,7 @@ void Talk::onEnterTransitionDidFinish()
 	if ((_level >= 1 && _level <= 6) || (_level >= 55 && _level <= 60))
 	{
 		_questionType = "VERB";
+		_qName = LangUtil::getInstance()->translateString("Select Verb");
 
 		if (_level <= 6)
 		{
@@ -64,6 +65,7 @@ void Talk::onEnterTransitionDidFinish()
 	else if ((_level >= 7 && _level <= 12) || (_level >= 61 && _level <= 66))
 	{
 		_questionType = "NOUN";
+		_qName = LangUtil::getInstance()->translateString("Select Noun");
 
 		if (_level <= 12)
 		{
@@ -82,6 +84,7 @@ void Talk::onEnterTransitionDidFinish()
 	else if ((_level >= 13 && _level <= 18) || (_level >= 67 && _level <= 72))
 	{
 		_questionType = "PRONOUN";
+		_qName = LangUtil::getInstance()->translateString("Select Pronoun");
 
 		if (_level <= 18)
 		{
@@ -100,31 +103,37 @@ void Talk::onEnterTransitionDidFinish()
 	else if (_level >= 19 && _level <= 24)
 	{
 		_questionType = "ADVERB";
+		_qName = LangUtil::getInstance()->translateString("Select Adverb");
 		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::ADVERB, 10, -(19 - _level));
 	}
 	else if (_level >= 25 && _level <= 30)
 	{
 		_questionType = "ADJECTIVE";
+		_qName = LangUtil::getInstance()->translateString("Select Adjective");
 		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::ADJECTIVE, 10, -(25 - _level));
 	}
 	else if (_level >= 31 && _level <= 36)
 	{
 		_questionType = "PREPOSITION";
+		_qName = LangUtil::getInstance()->translateString("Select Preposition");
 		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::PREPOSITION, 10, -(31 - _level));
 	}
 	else if (_level >= 37 && _level <= 42)
 	{
 		_questionType = "CONJUNCTION";
+		_qName = LangUtil::getInstance()->translateString("Select Conjunction");
 		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::CONJUNCTION, 10, -(37 - _level));
 	}
 	else if (_level >= 43 && _level <= 48)
 	{
 		_questionType = "INTERJECTION";
+		_qName = LangUtil::getInstance()->translateString("Select Interjection");
 		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::INTERJECTION, 10, -(43 - _level));
 	}
 	else if (_level >= 49 && _level <= 54)
 	{
 		_questionType = "ARTICLE";
+		_qName = LangUtil::getInstance()->translateString("Select Article");
 		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::ARTICLE, 10, -(49 - _level));
 	}
 
@@ -233,12 +242,6 @@ void Talk::onEnterTransitionDidFinish()
 
 	std::vector<std::string> _question = { "NOUN","PRONOUN","ADJECTIVE","VERB","ADVERB","PREPOSITION",
 		"CONJUNCTION","INTERJECTION", "ARTICLE" };
-
-	std::ostringstream _question_Name;
-//	_questionType = _question.at(rand() % _question.size());
-	_question_Name << "SELECT " << _questionType;
-
-	std::string _qName = LangUtil::getInstance()->translateString(_question_Name.str());
 
 	_imgName << sceneName << "/patch_image.png";
 
