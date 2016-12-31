@@ -1,5 +1,6 @@
 #include "BlastLetter.h"
 #include "../util/CommonLabelTTF.h"
+#include "AlphabetWriting.h"
 
 USING_NS_CC;
 
@@ -72,11 +73,18 @@ void BlastLetter::onEnterTransitionDidFinish() {
 		_data_value = namemyLabel.str();
 	}else if (currentLevel >= 37 && currentLevel <= 46) {
 		auto level = (_menuContext->getCurrentLevel() - 36);
-		if (level >= 3) {
-			level = 3;
+		if (level >= 4) {
+			level = 4;
 		}
 		_data_key = TextGenerator::getInstance()->generateAWord(level);
 		_data_value = _data_key;
+
+		while (!(_data_key.size() <= 6)) {
+			level = 3;
+			_data_key = TextGenerator::getInstance()->generateAWord(level);
+			_data_value = _data_key;
+		}
+
 	}else if (currentLevel >= 47 && currentLevel <= 56) {
 		auto level = (_menuContext->getCurrentLevel() - 46);
 		if (level >= 3) {
@@ -151,10 +159,12 @@ void BlastLetter::onEnterTransitionDidFinish() {
 			auto board = this->getChildByName("bg")->getChildByName("topboard ");
 			auto downGrid = this->getChildByName(nameLetterBoard.str());
 			this->getChildByName("bg")->getChildByName("topboard ")->setPositionX(Director::getInstance()->getVisibleSize().width / 2 - (board->getContentSize().width / 2));
+			
 			auto help = HelpLayer::create(Rect(downGrid->getPositionX(), downGrid->getPositionY(), downGrid->getContentSize().width, downGrid->getContentSize().height), Rect(Director::getInstance()->getVisibleSize().width / 2 + 70, board->getContentSize().height / 2 + board->getPositionY(), board->getContentSize().width * 0.9, board->getContentSize().height));
 			help->click(Vec2(downGrid->getPositionX(), downGrid->getPositionY()));
 			help->setName("helpLayer");
 			this->addChild(help, 4);
+
 		}
 		this->scheduleUpdate();
 }
@@ -289,7 +299,18 @@ void BlastLetter::addEventsOnGrid(cocos2d::Sprite* callerObject)
 		target->setColor(Color3B(219, 224, 252));
 		_touch = false;
 		if (target->getBoundingBox().containsPoint(touch->getLocation())) {
-			
+			AlphabetWriting *alphabetHelp;
+			float writingTime = 1.0f;
+			if (36 >= _menuContext->getCurrentLevel()) {
+				alphabetHelp = AlphabetWriting::createAlphabetWithAnimation(LangUtil::convertUTF16CharToString(_data_value[_counterLetter]), true);
+				alphabetHelp->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height * 0.540072222));
+				writingTime = alphabetHelp->getTotalAnimationDuration();
+				this->addChild(alphabetHelp, 10);
+				alphabetHelp->setVisible(false);
+				alphabetHelp->setScale(0.90);
+				alphabetHelp->setName("Alphabet");
+			}
+
 			auto fadeOut = FadeOut::create(2.0f);
 			std::ostringstream nameLetterBoard;
 			nameLetterBoard << (_counterLetter + 1);
@@ -323,13 +344,22 @@ void BlastLetter::addEventsOnGrid(cocos2d::Sprite* callerObject)
 				nameLetterBoard << (_counterLetter + 1);
 				auto fadeOut1 = FadeOut::create(1.0f);
 				target->getChildByName(nameLetterBoard.str())->runAction(fadeOut1);
-				auto fadeOut2 = FadeOut::create(2.0f);
-				myLabel->runAction(fadeOut2);
+
+				if (36 >= _menuContext->getCurrentLevel()) {
+					myLabel->setVisible(false);
+					((AlphabetWriting *)this->getChildByName("Alphabet"))->setVisible(true);
+					((AlphabetWriting *)this->getChildByName("Alphabet"))->playAnimation(false);
+				}
+				else {
+					auto fadeOut2 = FadeOut::create(1.0f);
+					myLabel->runAction(fadeOut2);
+				}
 			});
 			auto letterCharacter = CallFunc::create([=]() {
 				Node* popGrid = CSLoader::createNode("blastletter/screen_blast.csb");
 				auto timelineBlast = CSLoader::createTimeline("blastletter/screen_blast.csb");
-				
+				this->removeChildByName("Alphabet");
+
 				addChild(popGrid, 4);
 				popGrid->setName("blastScene");
 				popGrid->runAction(timelineBlast);
@@ -355,7 +385,7 @@ void BlastLetter::addEventsOnGrid(cocos2d::Sprite* callerObject)
 					this->removeChildByName("tempBoard");
 			});
 
-			this->runAction(Sequence::create(DelayTime::create(1), letterCharacterBoard, DelayTime::create(2), letterCharacter, NULL));
+			this->runAction(Sequence::create(DelayTime::create(1), letterCharacterBoard, DelayTime::create(writingTime+ 1), letterCharacter, NULL));
 		}
 		else {
 			_touch = true;

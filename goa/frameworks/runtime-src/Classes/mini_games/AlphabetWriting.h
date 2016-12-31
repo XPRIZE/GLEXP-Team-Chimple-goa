@@ -24,6 +24,8 @@ CC_CONSTRUCTOR_ACCESS:
 	virtual ~AlphabetWriting();
 	bool initWithAlphabet(std::string alphabet, bool type);
 
+	float getTotalAnimationDuration();
+
 protected:
 	
 };
