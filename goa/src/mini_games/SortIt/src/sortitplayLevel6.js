@@ -48,7 +48,7 @@ xc.sortitlevel6Layer = cc.Layer.extend({
         // this.audioEngine = cc.audioEngine;
         // this.audioEngine.playEffect(res.explosive_mp3);
 
-        
+        cc.spriteFrameCache.addSpriteFrames(xc.sortitlevel6Layer.res.sortittwo_plist);    
 
         var size = cc.winSize;
 
@@ -189,6 +189,6 @@ xc.sortitlevel6Layer.res = {
     level6bg_json: xc.path + "sortit/levelsix.json",
     
     comedyBubble_mp3:  "res/sounds/sortit/comedyBubble.mp3",
-    explosive_mp3:  "res/sounds/sortit/explosive.mp3",
+   
     failure_mp3:  "res/sounds/sortit/failure.mp3"
 }

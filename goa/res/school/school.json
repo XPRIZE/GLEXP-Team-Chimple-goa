@@ -1,0 +1,117 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "school",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "UserData": "mainCharacterFile=human_skeleton.csb,physicsFile=school.plist,dialogFile=school.db3",
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "school/school_mainground.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0006,
+              "Y": -0.0002
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.5,
+              "Y": 1.0
+            },
+            "LeftMargin": 0.0006,
+            "RightMargin": 2559.9995,
+            "TopMargin": 0.0002,
+            "BottomMargin": -0.0002,
+            "UserData": "main",
+            "Tag": 269,
+            "ActionTag": 1431727624,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "school_mainground",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "school/school_foreground.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -0.8267,
+              "Y": -3.3303
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.0002,
+              "Y": -0.0019
+            },
+            "PreSize": {
+              "X": 0.5,
+              "Y": 1.0
+            },
+            "LeftMargin": -0.8267,
+            "RightMargin": 2560.8267,
+            "TopMargin": 3.3303,
+            "BottomMargin": -3.3303,
+            "UserData": "foreground",
+            "Tag": 470,
+            "ActionTag": -1138954668,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "school_foreground",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 5120.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "school_foreground.json",
+        "school_mainground.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

@@ -1,0 +1,578 @@
+{
+  "ID": "d4ecef84-6240-45b8-a352-ce73bfa8550e",
+  "Version": "3.10.0.0",
+  "Name": "bgmap_foreground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 93,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bgmap/bird_8.png",
+              "Plist": "bgmap/bgmap.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1173.8896,
+              "Y": 311.3711
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4586,
+              "Y": 0.173
+            },
+            "PreSize": {
+              "X": 0.2145,
+              "Y": 0.345
+            },
+            "LeftMargin": 899.3896,
+            "RightMargin": 1111.6104,
+            "TopMargin": 1178.1289,
+            "BottomMargin": 0.8711,
+            "Tag": 93,
+            "ActionTag": 83569547,
+            "Size": {
+              "X": 549.0,
+              "Y": 621.0
+            },
+            "Name": "bird_8_14",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bgmap/bird_8.png",
+              "Plist": "bgmap/bgmap.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3105.4919,
+              "Y": 213.9913
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.2131,
+              "Y": 0.1189
+            },
+            "PreSize": {
+              "X": 0.2145,
+              "Y": 0.345
+            },
+            "LeftMargin": 2830.9919,
+            "RightMargin": -819.9919,
+            "TopMargin": 1275.5087,
+            "BottomMargin": -96.5087,
+            "Tag": 94,
+            "ActionTag": -1723413638,
+            "Size": {
+              "X": 549.0,
+              "Y": 621.0
+            },
+            "Name": "bird_8_14_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bgmap/bird_7.png",
+              "Plist": "bgmap/bgmap.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 900.482,
+              "Y": 903.3737
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3518,
+              "Y": 0.5019
+            },
+            "PreSize": {
+              "X": 0.0957,
+              "Y": 0.1172
+            },
+            "LeftMargin": 777.982,
+            "RightMargin": 1537.0181,
+            "TopMargin": 791.1263,
+            "BottomMargin": 797.8737,
+            "Tag": 95,
+            "ActionTag": 949567129,
+            "Size": {
+              "X": 245.0,
+              "Y": 211.0
+            },
+            "Name": "bird_7_16",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bgmap/bird_7.png",
+              "Plist": "bgmap/bgmap.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 657.3575,
+              "Y": 902.9183
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2568,
+              "Y": 0.5016
+            },
+            "PreSize": {
+              "X": 0.0957,
+              "Y": 0.1172
+            },
+            "LeftMargin": 534.8575,
+            "RightMargin": 1780.1426,
+            "TopMargin": 791.5817,
+            "BottomMargin": 797.4183,
+            "Tag": 96,
+            "ActionTag": 151618914,
+            "Size": {
+              "X": 245.0,
+              "Y": 211.0
+            },
+            "Name": "bird_7_16_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bgmap/bird_6.png",
+              "Plist": "bgmap/bgmap.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3932.019,
+              "Y": 872.3916
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.5359,
+              "Y": 0.4847
+            },
+            "PreSize": {
+              "X": 0.0797,
+              "Y": 0.1389
+            },
+            "LeftMargin": 3830.019,
+            "RightMargin": -1474.019,
+            "TopMargin": 802.6084,
+            "BottomMargin": 747.3916,
+            "Tag": 97,
+            "ActionTag": 1641792014,
+            "Size": {
+              "X": 204.0,
+              "Y": 250.0
+            },
+            "Name": "bird_6_18",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bgmap/bird_6.png",
+              "Plist": "bgmap/bgmap.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3730.9155,
+              "Y": 872.7993
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.4574,
+              "Y": 0.4849
+            },
+            "PreSize": {
+              "X": 0.0797,
+              "Y": 0.1389
+            },
+            "LeftMargin": 3628.9155,
+            "RightMargin": -1272.9155,
+            "TopMargin": 802.2007,
+            "BottomMargin": 747.7993,
+            "Tag": 98,
+            "ActionTag": -290185126,
+            "Size": {
+              "X": 204.0,
+              "Y": 250.0
+            },
+            "Name": "bird_6_18_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bgmap/bird_5.png",
+              "Plist": "bgmap/bgmap.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2303.3691,
+              "Y": 972.0844
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8998,
+              "Y": 0.54
+            },
+            "PreSize": {
+              "X": 0.091,
+              "Y": 0.1194
+            },
+            "LeftMargin": 2186.8691,
+            "RightMargin": 140.1309,
+            "TopMargin": 720.4156,
+            "BottomMargin": 864.5844,
+            "Tag": 99,
+            "ActionTag": 185032191,
+            "Size": {
+              "X": 233.0,
+              "Y": 215.0
+            },
+            "Name": "bird_5_20",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bgmap/bird_5.png",
+              "Plist": "bgmap/bgmap.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2072.3938,
+              "Y": 973.0975
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8095,
+              "Y": 0.5406
+            },
+            "PreSize": {
+              "X": 0.091,
+              "Y": 0.1194
+            },
+            "LeftMargin": 1955.8938,
+            "RightMargin": 371.1062,
+            "TopMargin": 719.4025,
+            "BottomMargin": 865.5975,
+            "Tag": 100,
+            "ActionTag": -491671909,
+            "Size": {
+              "X": 233.0,
+              "Y": 215.0
+            },
+            "Name": "bird_5_20_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bgmap/bird_7.png",
+              "Plist": "bgmap/bgmap.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5210.4248,
+              "Y": 583.3702
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.0353,
+              "Y": 0.3241
+            },
+            "PreSize": {
+              "X": 0.0957,
+              "Y": 0.1172
+            },
+            "LeftMargin": 5087.9248,
+            "RightMargin": -2772.9248,
+            "TopMargin": 1111.1299,
+            "BottomMargin": 477.8702,
+            "Tag": 101,
+            "ActionTag": 830877410,
+            "Size": {
+              "X": 245.0,
+              "Y": 211.0
+            },
+            "Name": "bird_7_16_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bgmap/bird_7.png",
+              "Plist": "bgmap/bgmap.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4967.3071,
+              "Y": 582.9146
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.9404,
+              "Y": 0.3238
+            },
+            "PreSize": {
+              "X": 0.0957,
+              "Y": 0.1172
+            },
+            "LeftMargin": 4844.8071,
+            "RightMargin": -2529.8071,
+            "TopMargin": 1111.5854,
+            "BottomMargin": 477.4146,
+            "Tag": 102,
+            "ActionTag": 1067883055,
+            "Size": {
+              "X": 245.0,
+              "Y": 211.0
+            },
+            "Name": "bird_7_16_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bgmap/bird_5.png",
+              "Plist": "bgmap/bgmap.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5224.0835,
+              "Y": 1362.0892
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.0407,
+              "Y": 0.7567
+            },
+            "PreSize": {
+              "X": 0.091,
+              "Y": 0.1194
+            },
+            "LeftMargin": 5107.5835,
+            "RightMargin": -2780.5835,
+            "TopMargin": 330.4108,
+            "BottomMargin": 1254.5892,
+            "Tag": 105,
+            "ActionTag": -922748681,
+            "Size": {
+              "X": 233.0,
+              "Y": 215.0
+            },
+            "Name": "bird_5_20_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bgmap/bird_5.png",
+              "Plist": "bgmap/bgmap.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4993.1216,
+              "Y": 1363.1012
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.9504,
+              "Y": 0.7573
+            },
+            "PreSize": {
+              "X": 0.091,
+              "Y": 0.1194
+            },
+            "LeftMargin": 4876.6216,
+            "RightMargin": -2549.6216,
+            "TopMargin": 329.3988,
+            "BottomMargin": 1255.6012,
+            "Tag": 106,
+            "ActionTag": -366726238,
+            "Size": {
+              "X": 233.0,
+              "Y": 215.0
+            },
+            "Name": "bird_5_20_0_0",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "bgmap.plist",
+        "bgmap.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}
