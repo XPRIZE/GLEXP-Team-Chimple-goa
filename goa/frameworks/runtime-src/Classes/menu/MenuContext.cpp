@@ -75,6 +75,7 @@
 #include "../mini_games/PopCount.h"
 #include "../mini_games/DinoGame.h"
 #include "../util/CommonLabel.h"
+#include "Award.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -220,7 +221,7 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                     _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
                     _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
                     _mapMenu = this->createMenuItem("menu/reward.png", "menu/reward.png", "menu/reward.png", 2 * POINTS_TO_LEFT);
-                    _mapMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
+                    _mapMenu->addTouchEventListener(CC_CALLBACK_0(MenuContext::showRewards, this));
                     _settingMenu = this->createMenuItem("menu/settings.png", "menu/settings.png", "menu/settings.png", 3 * POINTS_TO_LEFT);
                     _settingMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::addCalculator, this));
                     _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png", 4 * POINTS_TO_LEFT);
@@ -229,14 +230,14 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                     _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
                     _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
                     _mapMenu = this->createMenuItem("menu/reward.png", "menu/reward.png", "menu/reward.png", 2 * POINTS_TO_LEFT);
-                    _mapMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
+                    _mapMenu->addTouchEventListener(CC_CALLBACK_0(MenuContext::showRewards, this));
                     _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png", 3 * POINTS_TO_LEFT);
                     _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
                 } else {
                     _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
                     _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
                     _mapMenu = this->createMenuItem("menu/reward.png", "menu/reward.png", "menu/reward.png", 2 * POINTS_TO_LEFT);
-                    _mapMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
+                    _mapMenu->addTouchEventListener(CC_CALLBACK_0(MenuContext::showRewards, this));
                     _bookMenu = this->createMenuItem("menu/back.png", "menu/back.png", "menu/back.png", 3 * POINTS_TO_LEFT);
                     _bookMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showBook, this));
                     _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png", 4 * POINTS_TO_LEFT);
@@ -1333,6 +1334,11 @@ void MenuContext::createUnlockStoryDocument(std::string storyToUnlock) {
     
 }
 
+void MenuContext::showRewards()
+{
+	Director::getInstance()->replaceScene(TransitionFade::create(1.0, Award::createScene()));
+}
+
 void MenuContext::unlockNextStory() {
     CCLOG("unlock next story");
     std::string unlockedStoryIdOrderStr;
@@ -1379,9 +1385,13 @@ void MenuContext::showScore() {
 	_menuButton->setEnabled(false);
 	if (_closeButton != nullptr) {
 		_closeButton->setEnabled(false);
+		this->removeChild(_showAnswerLayer);
 	}
-    addGreyLayer();
-    pauseNodeAndDescendants(_main);
+	else 
+	{
+		addGreyLayer();
+		pauseNodeAndDescendants(_main);
+	}
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     CCLOG("Points: %d MaxPoints: %d", _points, _maxPoints);
@@ -1710,12 +1720,17 @@ void MenuContext::wordPairList(std::string question, std::string answer,bool isI
 
 void MenuContext::showAnswer(std::string type, std::string header)
 {
+	addGreyLayer();
+	pauseNodeAndDescendants(_main);
+	_menuButton->setEnabled(false);
+	_showAnswerLayer = Layer::create();
+	this->addChild(_showAnswerLayer);
 	auto spritecache1 = SpriteFrameCache::getInstance();
 	spritecache1->addSpriteFramesWithFile("dash/dash.plist");
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto bg = Sprite::create("gamemap_bg/game_map_bg1.png");
 	bg->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
-	this->addChild(bg);
+	_showAnswerLayer->addChild(bg);
 	
 	
 
@@ -1727,7 +1742,7 @@ void MenuContext::showAnswer(std::string type, std::string header)
 	headerBlock->setPositionX(visibleSize.width / 2);
 	headerBlock->setPositionY(visibleSize.height - headerBlock->getContentSize().height / 1.5);
 	headerBlock->setAnchorPoint(Vec2(0.5, 0.5));
-	this->addChild(headerBlock);
+	_showAnswerLayer->addChild(headerBlock);
 	auto label1 = CommonLabel::createWithSystemFont(header.c_str(), "Arial", 100);
 	label1->setColor(Color3B(0, 0, 0));
 	label1->setPosition(Vec2(headerBlock->getContentSize().width / 2, headerBlock->getContentSize().height / 2));
@@ -1736,8 +1751,9 @@ void MenuContext::showAnswer(std::string type, std::string header)
 
 	_closeButton = Button::create("menu/close.png", "menu/close.png", "menu/close.png", Widget::TextureResType::LOCAL);
 	_closeButton->addTouchEventListener(CC_CALLBACK_0(MenuContext::showScore, this));
-	_closeButton->setPosition(Vec2(200, visibleSize.height*0.9));
-	this->addChild(_closeButton);
+	_closeButton->setAnchorPoint(Vec2(0, 1));
+	_closeButton->setPosition(Vec2(0, visibleSize.height));
+	_showAnswerLayer->addChild(_closeButton);
 
 	if (type.compare("wordPairs") == 0) {
 		//dash/small_button_01.png
@@ -1790,7 +1806,7 @@ void MenuContext::showAnswer(std::string type, std::string header)
 			labelWidth = label1->getContentSize().width;
 			labelHeight = label1->getContentSize().height;
 			blockSize++;
-			this->addChild(duplicatNode);
+			_showAnswerLayer->addChild(duplicatNode);
 			numberOfWordShow++;
 			if (numberOfWordShow == 10) {
 				break;
@@ -1807,7 +1823,7 @@ void MenuContext::showAnswer(std::string type, std::string header)
 			obj1->setPositionX((xp / 3) *(i + 1) + obj1->getContentSize().width / 2 * (i + 1) + obj1->getContentSize().width / 2 * (i));
 			obj1->setPositionY(y);
 			obj1->setAnchorPoint(Vec2(0.5, 0.5));
-			this->addChild(obj1);
+			_showAnswerLayer->addChild(obj1);
 			auto label1 = CommonLabel::createWithSystemFont(_listOfWords.at(index).c_str(), "Arial", 100);
 			label1->setColor(Color3B(0, 0, 0));
 			label1->setPosition(Vec2(obj1->getContentSize().width / 2, obj1->getContentSize().height / 2));
@@ -1838,7 +1854,7 @@ void MenuContext::showAnswer(std::string type, std::string header)
 			sentenceBlock->setPositionY(y);
 			sentenceBlock->setAnchorPoint(Vec2(0.5, 0.5));
 			sentenceBlock->setScaleY(0.75);
-			this->addChild(sentenceBlock);
+			_showAnswerLayer->addChild(sentenceBlock);
 
 			auto sentencelabel1 = CommonLabel::createWithSystemFont(wordPair->first.c_str(), "Arial", 100);
 			sentencelabel1->setColor(Color3B(0, 0, 0));
@@ -1869,7 +1885,7 @@ void MenuContext::showAnswer(std::string type, std::string header)
 				}
 				labelBase1->setScaleY(0.75);
 				labelBase1->setAnchorPoint(Vec2(0.5, 0.5));
-				this->addChild(labelBase1);
+				_showAnswerLayer->addChild(labelBase1);
 				auto label3 = CommonLabel::createWithSystemFont(listOfAnswers.at(i).c_str(), "Arial", 100);
 				label3->setColor(Color3B(255, 255, 255));
 				label3->setPosition(Vec2(labelBase1->getContentSize().width / 2, labelBase1->getContentSize().height / 2));

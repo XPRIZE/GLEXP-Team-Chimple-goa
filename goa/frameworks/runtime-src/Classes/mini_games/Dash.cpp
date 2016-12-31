@@ -171,8 +171,8 @@ void Dash::onEnterTransitionDidFinish()
 		CCLOG("Sysnonyms sub Level = %d", subLevel);
 	//	std::vector<std::string> theme = { "city","candy","iceLand" };
 		_scenePath = _differntSceneMapping.at("city");
-		_title = "Make word of same meaning as : ";
-		_catagory = "List of same meaning words";
+		_title = LangUtil::getInstance()->translateString("Make word of same meaning as : ");
+		_catagory = LangUtil::getInstance()->translateString("List of same meaning words");
 		_synonyms = TextGenerator::getInstance()->getSynonyms(15, subLevel);
 	} 
 	else if (division >5 && division < 11) {
@@ -190,8 +190,8 @@ void Dash::onEnterTransitionDidFinish()
 		}
 		CCLOG("Antonyms Sub Level = %d", subLevel);
 		_scenePath = _differntSceneMapping.at("candy");
-		_title = "Make opposite of : ";
-		_catagory = "List of opposite words";
+		_title = LangUtil::getInstance()->translateString("Make opposite of : ");
+		_catagory = LangUtil::getInstance()->translateString("List of opposite words");
 		_synonyms = TextGenerator::getInstance()->getAntonyms(15, subLevel);
 	}
 	else {
@@ -209,8 +209,8 @@ void Dash::onEnterTransitionDidFinish()
 		}
 		CCLOG("Homonyms SubLevel = %d", subLevel);
 		_scenePath = _differntSceneMapping.at("iceLand");
-		_title = "Make same sounding word as : ";
-		_catagory = "List of same sounding words";
+		_title = LangUtil::getInstance()->translateString("Make same sounding word as : ");
+		_catagory = LangUtil::getInstance()->translateString("List of same sounding words");
 		_synonyms = TextGenerator::getInstance()->getHomonyms(15, subLevel);
 	}
 	
@@ -423,10 +423,10 @@ void Dash::wordGenerateWithOptions()
 	_gameWord = _mapKey.at(cocos2d::RandomHelper::random_int(0, size-1));
 	answer.push_back(_synonyms.at(_gameWord));
 
-	auto translateStr = LangUtil::getInstance()->translateString(_title);
+	//auto translateStr = 
 
 	std::ostringstream boardName;
-	boardName << translateStr << _gameWord;
+	boardName << _title << _gameWord;
 
 	auto board = Sprite::createWithSpriteFrameName(_scenePath.at("board"));
 	board->setPositionY(visibleSize.height - board->getContentSize().height / 2);
