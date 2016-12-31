@@ -29,6 +29,8 @@ public:
 	void addCalculator();
 	bool _helpFlage = false;
 	bool _clickFlag = true;
+	cocos2d::EventListenerTouchOneByOne* _listener1;
+	cocos2d::EventListenerTouchOneByOne* _listener2;
 	void calculatedResult(std::string result);
 	static const char* gameName() { return ITEM.c_str(); }
 protected:
