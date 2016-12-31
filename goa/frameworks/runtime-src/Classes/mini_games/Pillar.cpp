@@ -139,7 +139,7 @@ void Pillar::onEnterTransitionDidFinish()
 		}
 		CCLOG("Synonyms Level = %d", inner);
 		themeName = "candy";
-		_title = "Identify the NOUN";
+		_title = LangUtil::getInstance()->translateString("Identify the NOUN");
 		_wordCorrect = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, subLevel);
 		std::copy(std::begin(_wordCorrect), std::end(_wordCorrect), std::back_inserter(_wordList));
 		auto wordVerb = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 6, subLevel);
@@ -162,7 +162,7 @@ void Pillar::onEnterTransitionDidFinish()
 		}
 		CCLOG("Antonyms Level = %d", inner);
 		themeName = "iceLand";
-		_title = "Identify the VERB";
+		_title = LangUtil::getInstance()->translateString("Identify the VERB");
 		_wordCorrect = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, subLevel);
 		std::copy(std::begin(_wordCorrect), std::end(_wordCorrect), std::back_inserter(_wordList));
 		auto wordVerb = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 6, subLevel);
@@ -184,7 +184,7 @@ void Pillar::onEnterTransitionDidFinish()
 			subLevel += 5;
 		}
 		themeName = "farm";
-		_title = "Identify the ADJECTIVE";
+		_title = LangUtil::getInstance()->translateString("Identify the ADJECTIVE");
 		_wordCorrect = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ADJECTIVE, 10, subLevel);
 		std::copy(std::begin(_wordCorrect), std::end(_wordCorrect), std::back_inserter(_wordList));
 		auto wordVerb = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 6, subLevel);
@@ -377,8 +377,8 @@ void Pillar::newCake()
 	_ladder->addChild(_cake);
 	
 
-	_sentence = LangUtil::getInstance()->translateString(_title);
-	auto topLabel = Label::createWithSystemFont(_sentence, "Arial", 100);
+	//_sentence = LangUtil::getInstance()->translateString(_title);
+	auto topLabel = Label::createWithSystemFont(_title, "Arial", 100);
 	topLabel->setColor(Color3B(0, 0, 0));
 	topLabel->setPositionX(visibleSize.width / 2);
 	topLabel->setPositionY(visibleSize.height - 50);

@@ -309,7 +309,7 @@ void Door::createCanvas(int index )
 			auto alphabetHelp = AlphabetWriting::createAlphabetWithAnimation(_myWord, _type);
 			alphabetHelp->setPositionX(x);
 			alphabetHelp->setPositionY(y);
-			alphabetHelp->setScale(0.6);
+			alphabetHelp->setScale(0.4);
 			this->addChild(alphabetHelp);
 			alphabetHelp->setName("Alphabet");
 			/*auto myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), _myWord);

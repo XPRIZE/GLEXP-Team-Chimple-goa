@@ -116,7 +116,7 @@ void Award::onEnterTransitionDidFinish()
 		}
 	}
 	scrollView->setInnerContainerSize(Size(3 * visibleSize.width, visibleSize.height* 0.8));
-	container1->addChild(scrollView);
+//	container1->addChild(scrollView);
 
 
 
@@ -145,7 +145,7 @@ void Award::onEnterTransitionDidFinish()
 		}
 	}
 	scrollView1->setInnerContainerSize(Size(3 * visibleSize.width, visibleSize.height* 0.8));
-	container2->addChild(scrollView1);
+//	container2->addChild(scrollView1);
 
 
 	auto scrollView3 = ui::ScrollView::create();
@@ -164,7 +164,7 @@ void Award::onEnterTransitionDidFinish()
 		}
 	}
 	scrollView3->setInnerContainerSize(Size(3 * visibleSize.width, visibleSize.height* 0.8));
-	container3->addChild(scrollView3);
+//	container3->addChild(scrollView3);
 
 
 
@@ -190,7 +190,7 @@ void Award::onEnterTransitionDidFinish()
 		}
 	}
 	scrollView4->setInnerContainerSize(Size(3 * visibleSize.width, visibleSize.height* 0.8));
-	container4->addChild(scrollView4);
+//	container4->addChild(scrollView4);
 
 
 	auto container5 = ui::Layout::create();
@@ -215,7 +215,7 @@ void Award::onEnterTransitionDidFinish()
 		}
 	}
 	scrollView5->setInnerContainerSize(Size(3 * visibleSize.width, visibleSize.height* 0.8));
-	container5->addChild(scrollView5);
+	//container5->addChild(scrollView5);
 
 
 
@@ -241,7 +241,14 @@ void Award::onEnterTransitionDidFinish()
 		}
 	}
 	scrollView6->setInnerContainerSize(Size(3 * visibleSize.width, visibleSize.height* 0.8));
-	container6->addChild(scrollView6);
+	//container6->addChild(scrollView6);
+
+	objectsAddInTabContainer(container6, "tab/yellowtile.png");
+	objectsAddInTabContainer(container5, "tab/redtile.png");
+	objectsAddInTabContainer(container4, "tab/purpletile.png");
+	objectsAddInTabContainer(container3, "tab/orangetile.png");
+	objectsAddInTabContainer(container2, "tab/greentile.png");
+	objectsAddInTabContainer(container1, "tab/bluetile.png");
 
 	_tab->insertTab(0, header1, container1);
 	_tab->insertTab(1, header2, container2);
@@ -249,8 +256,6 @@ void Award::onEnterTransitionDidFinish()
 	_tab->insertTab(3, header4, container4);
 	_tab->insertTab(4, header5, container5);
 	_tab->insertTab(5, header6, container6);
-
-
 	_tab->setSelectTab(1);
 	addChild(_tab);
 
@@ -271,4 +276,37 @@ bool Award::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		}
 	}
 	return false;
+}
+
+void Award::objectsAddInTabContainer(cocos2d::Node * parent, std::string tile)
+{
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	auto scrollView6 = ui::ScrollView::create();
+	scrollView6->setDirection(ui::ScrollView::Direction::HORIZONTAL);
+	scrollView6->setContentSize(Size(visibleSize.width, visibleSize.height - 300));
+	//scrollView6->setAnchorPoint(Vec2(0, 1));
+	//scrollView6->setPosition(Vec2(0, parent->getContentSize().height));
+	Texture2D *texture = Director::getInstance()->getTextureCache()->addImage(tile);
+	Texture2D::TexParams tp = { GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT };
+	texture->setTexParameters(&tp);
+	Sprite *backgroundSpriteMapTile = Sprite::createWithTexture(texture, Rect(0, 0, visibleSize.width * 3, visibleSize.height));
+	backgroundSpriteMapTile->setPosition(Vec2(3 * visibleSize.width / 2, visibleSize.height / 2));
+	scrollView6->addChild(backgroundSpriteMapTile);
+
+
+	for (int k = 0; k < 3; k++) {
+		for (int j = 0; j < 3; j++) {
+			float yy = visibleSize.height * 0.2;
+			for (int i = 0; i < 4; i++) {
+				float xx = visibleSize.width / 4;
+				auto child = Sprite::create("menu/camera.png");
+				child->setPosition(Vec2((xx / 2 + (xx * i)) + (k * visibleSize.width), yy + (yy * j)));
+				scrollView6->addChild(child);
+
+			}
+		}
+	}
+	scrollView6->setInnerContainerSize(Size(3 * visibleSize.width, visibleSize.height* 0.8));
+	parent->addChild(scrollView6);
+
 }
