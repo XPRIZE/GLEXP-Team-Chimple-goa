@@ -1,9 +1,9 @@
 #include "Setting.h"
 #include "editor-support/cocostudio/CocoStudio.h"
-#include "../lang/TextGenerator.h"
+#include "lang/TextGenerator.h"
 #include "ui/UIScale9Sprite.h"
-#include "../menu/HelpLayer.h"
-#include "../util/CommonLabelTTF.h"
+#include "menu/HelpLayer.h"
+#include "util/CommonLabelTTF.h"
 
 USING_NS_CC;
 
