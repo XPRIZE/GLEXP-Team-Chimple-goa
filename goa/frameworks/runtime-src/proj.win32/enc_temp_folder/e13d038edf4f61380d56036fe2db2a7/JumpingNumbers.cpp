@@ -294,8 +294,6 @@ bool JumpingNumber::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 	auto  location = target->convertToNodeSpace(touch->getLocation());
 	Size s = target->getContentSize();
 	Rect rect = Rect(0, 0, s.width, s.height);
-	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-	
 	if (rect.containsPoint(location) && _isTouched) {
 		CCLOG("onTouchBegan");
 		_isTouched = false;
@@ -312,17 +310,14 @@ bool JumpingNumber::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			jumpAnimation(target->getPosition());
 			menu->addPoints(1);
 			_maxScore++;
-			audio->playEffect("sounds/sfx/success.ogg", false);
 		} 
 		else if (target->getName().compare("base") == 0 && _passingNumber == _lastNumber) {
 			menu->setMaxPoints(_maxScore);
-			audio->playEffect("sounds/sfx/success.ogg", false);
 			jumpAnimation(target->getPosition(), true);
 		} 
 		else {
 			
 			menu->addPoints(-1);
-			audio->playEffect("sounds/sfx/error.ogg", false);
 			this->getChildByName("character")->stopAllActions();
 			wrongAnimation(target, target->getPosition());
 		}
