@@ -2,6 +2,8 @@
 #include "../WordSceneLipiTKNode.h"
 #include "TreasureHuntNode.h"
 #include "../util/CommonText.h"
+#include "AlphabetWriting.h"
+
 
 USING_NS_CC;
 
@@ -29,8 +31,9 @@ TreasureHunt *TreasureHunt::create() {
 bool TreasureHunt::init()
 {
 	if (!Layer::init()) { return false; }
-
+	
 	return true;
+
 }
 
 void TreasureHunt::onEnterTransitionDidFinish() {
@@ -50,23 +53,16 @@ void TreasureHunt::onEnterTransitionDidFinish() {
 	bg->runAction(bubble);
 	bubble->play("bubble", true);
 
-	//auto bgLayerGradient = LayerGradient::create(Color4B(25, 115, 155, 55), Color4B(255, 255, 255, 255));
-	//this->addChild(bgLayerGradient, 0);
-
 	_alpha = LangUtil::getInstance()->getAllCharacters();
 	
 	
 	setLevel(_menuContext->getCurrentLevel()-1);
 
-
-	//TreasureHuntNode* TreasureHuntNodeObj;
-	//TreasureHuntNodeObj.resize(6);
-
-
-	TreasureHuntNodeObj = TreasureHuntNode::create(1550, 800, Vec2(visibleSize.width/2 + 120, visibleSize.height/2));
+	TreasureHuntNodeObj = TreasureHuntNode::create(visibleSize.width / 2, visibleSize.height * 0.6, Vec2(visibleSize.width / 2 + visibleSize.width * 0.03, visibleSize.height / 2 - visibleSize.height * 0.05));
 	TreasureHuntNodeObj->setName("1");
 	this->addChild(TreasureHuntNodeObj);
-	
+	TreasureHuntNodeObj->setParent(this);
+
 	_box = (Sprite *)CSLoader::createNode("box/box1.csb");
 	_box->setPosition(Vec2(350, visibleSize.height / 2));
 	auto texture = SpriteFrameCache::getInstance()->getSpriteFrameByName("box/box1.png");
@@ -80,7 +76,7 @@ void TreasureHunt::onEnterTransitionDidFinish() {
 
 
 	Sprite* labelBoard = Sprite::createWithSpriteFrameName("box/board.png");
-	labelBoard->setPosition(Vec2(visibleSize.width / 2 + 100, visibleSize.height / 2 + 750));
+	labelBoard->setPosition(Vec2(visibleSize.width / 2 + visibleSize.width * 0.03, visibleSize.height / 2 + visibleSize.height * 0.41));
 	labelBoard->setAnchorPoint(Vec2(0.5, 0.5));
 	labelBoard->setScaleX(1);
 	labelBoard->setScaleY(1.2);
@@ -90,8 +86,7 @@ void TreasureHunt::onEnterTransitionDidFinish() {
 	auto label = CommonText::create();
 	label->setString(_currentLetter);
 	label->setFontSize(150);
-	label->setFontName("fonts/Marker Felt.ttf");
-	//label->setPosition(Vec2(labelBoard->getPositionX()/2, labelBoard->getPositionY()/2));
+	label->setFontName("fonts/Helvetica.ttf");
 	label->setPosition(Vec2(labelBoard->getBoundingBox().size.width/2, labelBoard->getBoundingBox().size.height / 2 - 20));
 	label->setAnchorPoint(Vec2(0.5, 0.5));
 	label->setTextColor(Color4B::BLUE);
@@ -99,57 +94,21 @@ void TreasureHunt::onEnterTransitionDidFinish() {
 	labelBoard->addChild(label);
 	
 	if (_menuContext->getCurrentLevel() == 1) {
-		
-		//auto startPos = Vec2(visibleSize.width / 2, visibleSize.height / 2 - 300);
-		//auto endPos = Vec2(visibleSize.width / 2 + 300, visibleSize.height / 2);
-
-		//_help = HelpLayer::create(Rect(startPos.x, startPos.y, 50, 50), Rect(endPos.x, endPos.y, 50, 50));
-
-		//_help->clickAndDrag(startPos, endPos);
-
-		//this->addChild(_help);
-		
+	
 		gameHelpLayer();
 		
 	}
 	
 
 	_menuContext->setMaxPoints(1);
-	//std::vector<Sprite*> boxes;
-	//boxes.resize(6);
+	
 
-	//std::vector<Sprite*> layer;
-	//layer.resize(6);
+	auto alphabetHelp = AlphabetWriting::createAlphabetWithAnimation(_currentLetter, true);
+	alphabetHelp->setPositionX(visibleSize.width / 2 + visibleSize.width * 0.03);
+	alphabetHelp->setPositionY(visibleSize.height / 2 - visibleSize.height * 0.05);
+	this->addChild(alphabetHelp);
+	alphabetHelp->setName("Alphabet");
 
-	//auto coord = getAllGridCoord(1, 6);
-	/*
-	for (size_t coordIndex = 0; coordIndex < coord.size(); coordIndex++) {
-		TreasureHuntNodeObj[coordIndex] = TreasureHuntNode::create(350, 380, Vec2(coord.at(coordIndex).second, coord.at(coordIndex).first));
-		addChild(TreasureHuntNodeObj[coordIndex]);
-		std::ostringstream stringStream;
-		stringStream << (coordIndex + 1);
-		TreasureHuntNodeObj[coordIndex]->setName(stringStream.str());
-
-		boxes[coordIndex] = Sprite::createWithSpriteFrameName("box/box1.png");
-		boxes[coordIndex]->setPosition(Vec2(coord.at(coordIndex).second, coord.at(coordIndex).first + 450));
-		boxes[coordIndex]->setAnchorPoint(Vec2(0.5, 0.5));
-		boxes[coordIndex]->setScaleX(0.8);
-		boxes[coordIndex]->setScaleY(0.8);
-		boxes[coordIndex]->setName(stringStream.str());
-		this->addChild(boxes[coordIndex], 1);
-
-		layer[coordIndex] = Sprite::create();
-		layer[coordIndex]->setName(stringStream.str());
-		layer[coordIndex]->setTextureRect(Rect(0, 0, 350, 380));
-		layer[coordIndex]->setAnchorPoint(Vec2(0.5, 0.5));
-		layer[coordIndex]->setColor(Color3B::WHITE);
-		layer[coordIndex]->setOpacity(GLubyte(6));
-		layer[coordIndex]->setPosition(Vec2(coord.at(coordIndex).second, coord.at(coordIndex).first));
-		this->addChild(layer[coordIndex], 10);
-
-	}
-	this->removeChild(layer[0], 4);
-	*/
 	this->scheduleUpdate();
 
 }
@@ -248,7 +207,7 @@ void TreasureHunt::openCoinBox() {
 
 
 void TreasureHunt::openStoneBox() {
-	//_drawingBoard->removechild(_clearButton);
+	
 	
 	cocostudio::timeline::ActionTimeline * _openBox;
 	_openBox = CSLoader::createTimeline("box/box1.csb");
@@ -271,18 +230,19 @@ void TreasureHunt::gameHelpLayer()
 
 	
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-	_help = HelpLayer::create(Rect(visibleSize.width / 2, visibleSize.height / 2, visibleSize.width / 2.8, visibleSize.height * 0.4), Rect(0, 0, 0, 0));
-	std::vector <Point> points;
-	float boxWidth = (visibleSize.width / 2.8) / 2;
-	float boxHeight = (visibleSize.height * 0.4) / 2;
-	points.push_back(Vec2(visibleSize.width / 2 - boxWidth / 1.25, visibleSize.height / 2 - boxHeight*0.6));
-	points.push_back(Vec2(visibleSize.width / 2, visibleSize.height / 2 + boxHeight*0.7));
-	points.push_back(Vec2(visibleSize.width / 2 + boxWidth / 1.25, visibleSize.height / 2 - boxHeight*0.6));
-	points.push_back(Vec2(visibleSize.width / 2 - boxWidth / 2, visibleSize.height / 2 - boxHeight*0.1));
-	points.push_back(Vec2(visibleSize.width / 2 + boxWidth / 2, visibleSize.height / 2 - boxHeight*0.1));
-	_help->writing(points);
+	_help = HelpLayer::create(Rect(visibleSize.width / 2 + visibleSize.width * 0.03, visibleSize.height / 2 - visibleSize.height * 0.05, visibleSize.width / 2, visibleSize.height * 0.6), Rect(0, 0, 0, 0));
+	
+
+
 	this->addChild(_help);
 	_help->setName("gameHelpLayer");
 }
 
 
+void TreasureHunt::postTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint)
+{
+	
+	this->removeChildByName("Alphabet");
+	
+
+}
