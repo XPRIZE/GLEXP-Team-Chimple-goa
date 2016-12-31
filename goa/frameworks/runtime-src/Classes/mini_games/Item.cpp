@@ -378,12 +378,12 @@ void Item::fish1Create()
 
 
 	_fish1->setContentSize(Size(600, 200));
-	auto listener1 = EventListenerTouchOneByOne::create();
-	listener1->setSwallowTouches(true);
-	listener1->onTouchBegan = CC_CALLBACK_2(Item::onTouchBegan, this);
-	listener1->onTouchMoved = CC_CALLBACK_2(Item::onTouchMoved, this);
-	listener1->onTouchEnded = CC_CALLBACK_2(Item::onTouchEnded, this);
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, _fish1);
+	_listener1 = EventListenerTouchOneByOne::create();
+	_listener1->setSwallowTouches(true);
+	_listener1->onTouchBegan = CC_CALLBACK_2(Item::onTouchBegan, this);
+	_listener1->onTouchMoved = CC_CALLBACK_2(Item::onTouchMoved, this);
+	_listener1->onTouchEnded = CC_CALLBACK_2(Item::onTouchEnded, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(_listener1, _fish1);
 
 	
 }
@@ -402,12 +402,12 @@ void Item::fish2Create()
 	_timeline2->gotoFrameAndPause(0);
 
 	_fish2->setContentSize(Size(600, 200));
-	auto listener2 = EventListenerTouchOneByOne::create();
-	listener2->setSwallowTouches(true);
-	listener2->onTouchBegan = CC_CALLBACK_2(Item::onTouchBegan, this);
-	listener2->onTouchMoved = CC_CALLBACK_2(Item::onTouchMoved, this);
-	listener2->onTouchEnded = CC_CALLBACK_2(Item::onTouchEnded, this);
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener2, _fish2);
+	_listener2 = EventListenerTouchOneByOne::create();
+	_listener2->setSwallowTouches(true);
+	_listener2->onTouchBegan = CC_CALLBACK_2(Item::onTouchBegan, this);
+	_listener2->onTouchMoved = CC_CALLBACK_2(Item::onTouchMoved, this);
+	_listener2->onTouchEnded = CC_CALLBACK_2(Item::onTouchEnded, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(_listener2, _fish2);
 
 }
 
@@ -447,12 +447,15 @@ void Item::scoreBoard(float dt)
 	_frogCount1 = 0;
 	_frogCount2 = 0;
 	_frogCount3 = 0;
+	
 	menu->showScore();
 }
 void Item::result()
 {
 	if (_num1 == _count1 && _num2 == _count2)
 	{
+		_eventDispatcher->removeEventListener(_listener1);
+		_eventDispatcher->removeEventListener(_listener2);
 		CCLOG("Done.........");
 		for (int i = 0; i < _fishMove.size(); i++)
 		{
@@ -483,7 +486,7 @@ void Item::result()
 			//_count1 = 0;
 			//_count2 = 0;
 		}
-		_fishMove.clear();
+	//	_fishMove.clear();
 	}
 }
 void Item::verify()
@@ -713,6 +716,7 @@ void Item::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 				if (target == _fishMove.at(i))
 				{
 					_fishMove.erase(_fishMove.begin() + i);
+					CCLOG("fishSize %d", _fishMove.size());
 				}
 			}
 			//_fishMove.pop_back();
