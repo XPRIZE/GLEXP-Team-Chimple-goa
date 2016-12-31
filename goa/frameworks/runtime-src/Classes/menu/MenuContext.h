@@ -141,9 +141,13 @@ protected:
     void removeMenuOnly();
     void unlockNextStory();
     void createUnlockStoryDocument(std::string storyToUnlock);
+
+	void showRewards();
     
     cocostudio::timeline::SkeletonNode* _character;
     
+	cocos2d::Layer * _showAnswerLayer;
+
     std::string gameName;
     std::string sceneName;
     std::function<void()> _startupCallback;

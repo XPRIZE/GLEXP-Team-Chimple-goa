@@ -301,7 +301,7 @@ void CatGame::gameEnd(float ft)
 	_menuContext->setMaxPoints(_maxPoints * 2);
 	_catAnimation->pause();
 	tailAnimation();
-	//_menuContext->showScore();
-	_menuContext->showAnswer("Words", "List of Words");
+	auto str = LangUtil::getInstance()->translateString("List of words");
+	_menuContext->showAnswer("Words", str);
 }
 
