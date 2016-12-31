@@ -1763,6 +1763,13 @@ void HelloWorld::onExitTransitionDidStart() {
     
     this->gesture_layer_->disableAllTouch();
     this->cleanUpResources();
+    
+    std::string hintText;
+    localStorageGetItem(HINT_TEXT, &hintText);
+    if(!hintText.empty()) {
+        localStorageRemoveItem(HINT_TEXT);
+    }
+    
 }
 
 
