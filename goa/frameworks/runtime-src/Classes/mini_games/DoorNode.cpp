@@ -76,7 +76,27 @@ void DoorNode::clearDrawing(cocos2d::Ref * pSender, cocos2d::ui::Widget::TouchEv
 		_Door->clearScreen();
 	}
 }
+void DoorNode::postTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint)
+{
+	CCLOG("touchPoint.x %f", touchPoint.x);
+	CCLOG("touchPoint.y %f", touchPoint.y);
+	_Door->postTouchBegan(touch, event, touchPoint);
+}
 
+void DoorNode::postTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint)
+{
+	CCLOG("touchPoint.x  in move %f", touchPoint.x);
+	CCLOG("touchPoint.y  in move %f", touchPoint.y);
+	_Door->postTouchMoved(touch, event, touchPoint);
+	//	paintingNode->drawSegment(fromPoint, currentPoint, 5, Color4F(255 / 255.0f, 255 / 255.0f, 255 / 255.0f, 1.0f));
+}
+
+void DoorNode::postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint)
+{
+	CCLOG("touchPoint.x  in end %f", touchPoint.x);
+	CCLOG("touchPoint.y  in end %f", touchPoint.y);
+	_Door->postTouchEnded(touch, event, touchPoint);
+}
 cocos2d::ui::Button * DoorNode::createButton(const std::string normalImage, const std::string selectedImage, const std::string disableImage, cocos2d::Vec2 position)
 {
 

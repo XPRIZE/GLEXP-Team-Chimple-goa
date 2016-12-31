@@ -164,6 +164,13 @@ xc.Bubble_Alphabets = cc.Layer.extend({
       this.extendLetter.setPosition(extendedGameX - (widthAreaExtendPart * 0.25), cc.director.getWinSize().height * 0.5);
       this.addChild(this.extendLetter);
 
+     if(cc.director.getWinSize().width > 2560){
+         this.extendLetter.setFontSize(widthAreaExtendPart*1.3);
+      }else if (cc.director.getWinSize().width == 2560) {
+         this.extendedGameX = this.extendedGameX - 45;
+      }
+
+
        if(bubblelevelValues == 1){
             var window = cc.director.getWinSize();
             var help = new xc.HelpLayer(cc.rect((window.width - (cc.director.getWinSize().width - 2560)) * 0.5 , window.height *0.75 , window.width - (cc.director.getWinSize().width - 2560),window.height *0.5), cc.rect(this.gunBase.x, this.gunBase.y,this.bubblePlayer.width,this.bubblePlayer.height))
@@ -377,7 +384,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
        
         // Handle left and right collisions with the level
         if (this.player.bubble.x <=  this.bubblePlayer.width/2) {
-           console.log("");
+         //  console.log("");
             // Left edge
             this.player.bubble.angle = 180 - this.player.bubble.angle;
             this.player.bubble.x =  this.bubblePlayer.width/2;
@@ -515,7 +522,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
                     
                     return;
                 }else{
-                    console.log("not matched --- > 503" + ++this.negativePoints);
+                    console.log("not matched --- > 518  " + ++this.negativePoints);
                 }   
             }
  
@@ -606,11 +613,13 @@ xc.Bubble_Alphabets = cc.Layer.extend({
                           this.bubbleName[tile.x][tile.y].runAction(new cc.ScaleTo(1.5,3));
                          
                           this.bubbleName[tile.x][tile.y].runAction(new cc.MoveTo(1,cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2)));
-                          
-                         // if(this.LetterName[tile.x][tile.y].name.toLowerCase() != undefined){
-                         //     cc.audioEngine.playEffect("res/english/sounds/"+this.LetterName[tile.x][tile.y].name.toLowerCase()+".wav");
-                         // }
-
+                          this.LetterName[tile.x][tile.y].setName(""+this.LetterName[tile.x][tile.y].name);
+                          if(this.LetterName[tile.x][tile.y].getName() != undefined){
+                              var alphabetName = this.LetterName[tile.x][tile.y].getName();
+                              var audioPathForAlpha = alphabetName.toLowerCase();
+                              cc.audioEngine.playEffect("res/english/sounds/"+audioPathForAlpha+".wav");
+                          }
+                       
                             var playerDieCallFunc = function()
                             {
                                 self.finalFlag = true;

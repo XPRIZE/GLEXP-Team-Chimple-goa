@@ -4,6 +4,21 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>trainstationinside/drink.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-2,0}</string>
+                <key>spriteSize</key>
+                <string>{83,211}</string>
+                <key>spriteSourceSize</key>
+                <string>{93,211}</string>
+                <key>textureRect</key>
+                <string>{{1373,763},{83,211}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
             <key>trainstationinside/exit.png</key>
             <dict>
                 <key>aliases</key>
@@ -15,7 +30,7 @@
                 <key>spriteSourceSize</key>
                 <string>{546,566}</string>
                 <key>textureRect</key>
-                <string>{{383,1},{546,566}}</string>
+                <string>{{1,1},{546,566}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -30,9 +45,24 @@
                 <key>spriteSourceSize</key>
                 <string>{454,451}</string>
                 <key>textureRect</key>
-                <string>{{195,1137},{454,451}}</string>
+                <string>{{1097,1},{454,451}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
+            </dict>
+            <key>trainstationinside/object_23.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{113,72}</string>
+                <key>spriteSourceSize</key>
+                <string>{113,72}</string>
+                <key>textureRect</key>
+                <string>{{1373,848},{113,72}}</string>
+                <key>textureRotated</key>
+                <true/>
             </dict>
             <key>trainstationinside/paper.png</key>
             <dict>
@@ -45,7 +75,7 @@
                 <key>spriteSourceSize</key>
                 <string>{111,140}</string>
                 <key>textureRect</key>
-                <string>{{1,1664},{111,140}}</string>
+                <string>{{1586,763},{111,140}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -60,9 +90,9 @@
                 <key>spriteSourceSize</key>
                 <string>{852,192}</string>
                 <key>textureRect</key>
-                <string>{{1,810},{852,192}}</string>
+                <string>{{810,569},{852,192}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>trainstationinside/sign.png</key>
             <dict>
@@ -75,7 +105,7 @@
                 <key>spriteSourceSize</key>
                 <string>{546,566}</string>
                 <key>textureRect</key>
-                <string>{{383,569},{546,566}}</string>
+                <string>{{549,1},{546,566}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -90,7 +120,7 @@
                 <key>spriteSourceSize</key>
                 <string>{245,518}</string>
                 <key>textureRect</key>
-                <string>{{651,1137},{245,518}}</string>
+                <string>{{1550,1},{245,518}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -105,7 +135,7 @@
                 <key>spriteSourceSize</key>
                 <string>{203,561}</string>
                 <key>textureRect</key>
-                <string>{{195,1657},{203,561}}</string>
+                <string>{{810,763},{203,561}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -120,9 +150,9 @@
                 <key>spriteSourceSize</key>
                 <string>{380,807}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{380,807}}</string>
+                <string>{{1,569},{380,807}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
         </dict>
         <key>metadata</key>
@@ -130,15 +160,15 @@
             <key>format</key>
             <integer>3</integer>
             <key>pixelFormat</key>
-            <string>RGBA4444</string>
+            <string>RGBA8888</string>
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
             <string>trainstationinside.png</string>
             <key>size</key>
-            <string>{930,1861}</string>
+            <string>{1796,967}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:388d84458247235a256111f7d0416cc4:244fbf90c6ac9729f5c213ea37c68978:508d8a1a409e1b71aca0543b0e8ee96e$</string>
+            <string>$TexturePacker:SmartUpdate:bbf4d8fc2de0a2623d86aaf1e26e5921:6cff608bf10e89daa1a4715eeb74dfb4:508d8a1a409e1b71aca0543b0e8ee96e$</string>
             <key>textureFileName</key>
             <string>trainstationinside.png</string>
         </dict>

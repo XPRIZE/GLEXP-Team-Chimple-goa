@@ -9,7 +9,7 @@
 #include "../lang/TextGenerator.h"
 #include "../menu/HelpLayer.h"
 #include "../util/CommonLabel.h"
-
+#include "AlphabetWriting.h"
 USING_NS_CC;
 
 //DoorNode * DoorLiPi;
@@ -78,7 +78,7 @@ void Door::onEnterTransitionDidFinish()
 	
 	if(level<=26)
 	{ 
-	
+		_type = true;
 	if (level > LangUtil::getInstance()->getNumberOfCharacters())
 	{
 		if (level == 25 || level == 26)
@@ -98,6 +98,7 @@ void Door::onEnterTransitionDidFinish()
 	}
 	else if (level<=52)
 	{
+		_type = false;
 		if ((level - 26) > LangUtil::getInstance()->getNumberOfCharacters())
 		{
 			if (level == 51 || level == 52)
@@ -117,23 +118,28 @@ void Door::onEnterTransitionDidFinish()
 	}
 	else if (level<=62)
 	{
+		_type = true;
 		_alphabet = LangUtil::getInstance()->getAllNumbers()[menu->getCurrentLevel()  -53];
 		_randomWord.append(6, _alphabet.at(0));
 	}
 	else if(level<=65)
 	{
+		_type = true;
 		_randomWord = text->generateAWord(menu->getCurrentLevel() - 62 , 3);
 	}
 	else if (level<=70)
 	{
+		_type = true;
 		_randomWord = text->generateAWord(menu->getCurrentLevel() - 65, 4);
 	}
 	else if (level<=75)
 	{
+		_type = true;
 		_randomWord = text->generateAWord(menu->getCurrentLevel() - 70, 5);
 	}
 	else if (level<=80)
 	{
+		_type = true;
 		_randomWord = text->generateAWord(menu->getCurrentLevel() - 75, 6);
 	}
 	
@@ -259,49 +265,63 @@ void Door::onEnterTransitionDidFinish()
 	}
 	
 
+	createCanvas(_score);
+	if (menu->getCurrentLevel() == 1) {
+		gameHelpLayer();
+	}
+	
+}
+void Door::createCanvas(int index )
+{
 	auto box6 = CSLoader::createNode("doors/box.csb");
 	float boxWidth = box6->getChildByName("boxdoor_6")->getContentSize().width;
 	float boxHeight = box6->getChildByName("boxdoor_6")->getContentSize().height;
 
-	for (int i = 0; i < _BoxRef.size(); i++)
-	{
+	//for (int i = 0; i < _BoxRef.size(); i++)
+	//{
+	auto i = index;
 		float x = _BoxRef.at(i)->getPositionX();
-		float y = _BoxRef.at(i)->getPositionY() - boxHeight/2;
-		
-		_doorNode = DoorNode::create(boxWidth, boxHeight,Vec2( x, y));
-		this->addChild(_doorNode,2);
+		float y = _BoxRef.at(i)->getPositionY() - boxHeight / 2;
+
+		_doorNode = DoorNode::create(boxWidth, boxHeight, Vec2(x, y));
+		this->addChild(_doorNode, 2);
 		_doorNode->setParent(this);
 		_doorNodeRef.pushBack(_doorNode);
 		_doorNode->writingEnable(false);
 		cocos2d::ui::Button* refreshButton = _doorNodeRef.at(i)->_button;
 		refreshButton->setEnabled(false);
 
-	}
-	if (_score == 0)
-	{
-		_doorNodeRef.at(_score)->writingEnable(true);
-		cocos2d::ui::Button* refreshButton = _doorNodeRef.at(_score)->_button;
-		refreshButton->setEnabled(true);
-	}
-	
-	for (int i = 0; i<_wordLength; i++)
-	{
-		float x = _BoxRef.at(i)->getPositionX();
-		float y = _BoxRef.at(i)->getPositionY() - boxHeight / 2;
 
-		_myWord = _randomWord.at(i);
-		auto myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), _myWord);
-		myLabel->setPositionX(x);
-		myLabel->setPositionY(y);
-		myLabel->setScale(0.8);
-		this->addChild(myLabel);
-		auto fadeOut = FadeOut::create(3.0f);
-		myLabel->runAction(fadeOut);
-	}
-	if (menu->getCurrentLevel() == 1) {
-		gameHelpLayer();
-	}
-	
+		if (_score == 0)
+		{
+			_doorNodeRef.at(_score)->writingEnable(true);
+			cocos2d::ui::Button* refreshButton = _doorNodeRef.at(_score)->_button;
+			refreshButton->setEnabled(true);
+		}
+
+		//for (int i = 0; i<_wordLength; i++)
+		//{
+		//	float x = _BoxRef.at(i)->getPositionX();
+		//	float y = _BoxRef.at(i)->getPositionY() - boxHeight / 2;
+
+
+			_myWord = _randomWord.at(i);
+			auto alphabetHelp = AlphabetWriting::createAlphabetWithAnimation(_myWord, _type);
+			alphabetHelp->setPositionX(x);
+			alphabetHelp->setPositionY(y);
+			alphabetHelp->setScale(0.4);
+			this->addChild(alphabetHelp);
+			alphabetHelp->setName("Alphabet");
+			/*auto myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), _myWord);
+			myLabel->setPositionX(x);
+			myLabel->setPositionY(y);
+			myLabel->setScale(0.8);
+			this->addChild(myLabel);
+			auto fadeOut = FadeOut::create(3.0f);
+			myLabel->runAction(fadeOut);*/
+		//}
+	//}
+
 }
 void Door::gameHelpLayer()
 {
@@ -319,7 +339,7 @@ void Door::gameHelpLayer()
 	points.push_back(Vec2(x + boxWidth / 1.25, y - boxHeight*0.6));
 	points.push_back(Vec2(x - boxWidth / 2, y - boxHeight*0.1));
 	points.push_back(Vec2(x + boxWidth / 2, y - boxHeight*0.1));
-	helpLayer->writing(points);
+	//helpLayer->writing(points);
 	this->addChild(helpLayer);
 	helpLayer->setName("gameHelpLayer");
 }
@@ -332,20 +352,27 @@ void Door::clearScreen(float dt)
 }
 void Door::nextDoor()
 {
-	_score++;
-	if (_score < _randomWord.size())
-	{
-		_doorNodeRef.at(_score)->writingEnable(true);
-		cocos2d::ui::Button* refreshButton = _doorNodeRef.at(_score)->_button;
-		refreshButton->setEnabled(true);
-	}
-	if (_score == _randomWord.size())
+	if (_score == _randomWord.size() - 1)
 	{
 		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 		audio->playEffect("sounds/sfx/success.ogg", false);
-		this->scheduleOnce(schedule_selector(Door::showScore), 6);
+		this->scheduleOnce(schedule_selector(Door::showScore), 3);
+		
 	}
-	menu->addPoints(1);
+	
+	if (_score < _randomWord.size() - 1)
+	{
+		_score++;
+		createCanvas(_score);
+
+		_doorNodeRef.at(_score)->writingEnable(true);
+		cocos2d::ui::Button* refreshButton = _doorNodeRef.at(_score)->_button;
+		refreshButton->setEnabled(true);
+		
+		menu->addPoints(1);
+	}
+	
+	
 
 }
 void Door::showScore(float dt)
@@ -356,6 +383,21 @@ void Door::showScore(float dt)
 void Door::clearScreen()
 {
 	menu->addPoints(-1);
+}
+void Door::postTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint)
+{
+	CCLOG("postTouchBegan");
+	this->removeChildByName("Alphabet");
+}
+
+void Door::postTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint)
+{
+
+}
+
+void Door::postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint)
+{
+
 }
 void Door::characterRecognisation(std::vector<string> str)
 {
@@ -387,7 +429,7 @@ void Door::characterRecognisation(std::vector<string> str)
 				cocos2d::ui::Button* refreshButton = _doorNodeRef.at(_score)->_button;
 				refreshButton->setEnabled(false);
 			}
-			this->runAction(Sequence::create(DelayTime::create(2.0f), CallFunc::create([=]() {
+			this->runAction(Sequence::create(DelayTime::create(1.0f), CallFunc::create([=]() {
 				nextDoor();
 			}), NULL));
 		}

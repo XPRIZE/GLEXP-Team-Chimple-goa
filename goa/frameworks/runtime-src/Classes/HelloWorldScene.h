@@ -86,6 +86,10 @@ private:
     
     MenuContext* menuContext;
     
+    bool leftBoundaryNodeExists;
+    
+    bool rightBoundaryNodeExists;
+    
     SkeletonPosition* skeletonPositionInLastVisitedScene;
     
     void loadGameScene();
@@ -263,6 +267,11 @@ private:
     
     
     void createAndUseItemFromBag(std::string imageName, MessageContent* content, std::unordered_map<int, std::string> textMapFollowedByAnimation);
+    
+    
+    void createLeftBoundary(Node* node);
+    
+    void createRightBoundary(Node* node);
     
 public:
     static cocos2d::Scene* createScene(const std::string& island, const std::string& sceneName, bool fromMenu);

@@ -245,6 +245,17 @@ void Stack::generateWord()
 		this->addChild(_wordLabel);
 
 
+		if (_word.length() >= 9)
+		{
+			_wordLabel->setScaleX(.6);
+			_wordLabel->setScaleY(.7);
+		}
+		else if (_word.length() > 6)
+		{
+			_wordLabel->setScaleX(.7);
+			_wordLabel->setScaleY(.9);
+		}
+
 		if (sceneName == "superhero")
 		{
 			_wordLabel->setPosition(-200, visibleSize.height * .27);

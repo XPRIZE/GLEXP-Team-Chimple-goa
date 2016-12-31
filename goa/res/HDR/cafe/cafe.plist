@@ -4,82 +4,7 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>cafe/cafe_background/diner_tile.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{291,574}</string>
-                <key>spriteSourceSize</key>
-                <string>{291,574}</string>
-                <key>textureRect</key>
-                <string>{{1489,1712},{291,574}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>cafe/cafe_background/kitchen_tile.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{290,575}</string>
-                <key>spriteSourceSize</key>
-                <string>{290,575}</string>
-                <key>textureRect</key>
-                <string>{{851,2467},{290,575}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>cafe/cafe_background/kitchen_tile2.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{291,96}</string>
-                <key>spriteSourceSize</key>
-                <string>{291,96}</string>
-                <key>textureRect</key>
-                <string>{{1889,724},{291,96}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>cafe/cafe_foreground/lights.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{192,316}</string>
-                <key>spriteSourceSize</key>
-                <string>{192,316}</string>
-                <key>textureRect</key>
-                <string>{{1171,2759},{192,316}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>cafe/cafe_foreground/table.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{579,336}</string>
-                <key>spriteSourceSize</key>
-                <string>{579,336}</string>
-                <key>textureRect</key>
-                <string>{{1388,1374},{579,336}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>cafe/cafe_mainground/apple.png</key>
+            <key>cafe/apple.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -94,7 +19,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/avacado.png</key>
+            <key>cafe/avacado.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -109,7 +34,7 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>cafe/cafe_mainground/bottle.png</key>
+            <key>cafe/bottle.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -124,7 +49,7 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>cafe/cafe_mainground/brinjal.png</key>
+            <key>cafe/brinjal.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -139,7 +64,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/capsicum.png</key>
+            <key>cafe/capsicum.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -154,7 +79,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/cherries.png</key>
+            <key>cafe/cherries.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -169,7 +94,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/cooker.png</key>
+            <key>cafe/cooker.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -184,7 +109,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/counter.png</key>
+            <key>cafe/counter.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -199,7 +124,7 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>cafe/cafe_mainground/diner_chair.png</key>
+            <key>cafe/diner_chair.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -214,7 +139,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/diner_divider.png</key>
+            <key>cafe/diner_divider.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -229,7 +154,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/diner_light.png</key>
+            <key>cafe/diner_light.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -244,7 +169,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/diner_table.png</key>
+            <key>cafe/diner_table.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -259,7 +184,22 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>cafe/cafe_mainground/divider.png</key>
+            <key>cafe/diner_tile.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{291,574}</string>
+                <key>spriteSourceSize</key>
+                <string>{291,574}</string>
+                <key>textureRect</key>
+                <string>{{1489,1712},{291,574}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>cafe/divider.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -274,7 +214,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/door.png</key>
+            <key>cafe/door.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -289,7 +229,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/flower_pot.png</key>
+            <key>cafe/flower_pot.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -304,7 +244,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/flower_vase.png</key>
+            <key>cafe/flower_vase.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -319,7 +259,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/juice.png</key>
+            <key>cafe/juice.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -334,7 +274,52 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>cafe/cafe_mainground/main_counter.png</key>
+            <key>cafe/kitchen_tile.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{290,575}</string>
+                <key>spriteSourceSize</key>
+                <string>{290,575}</string>
+                <key>textureRect</key>
+                <string>{{851,2467},{290,575}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>cafe/kitchen_tile2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{291,96}</string>
+                <key>spriteSourceSize</key>
+                <string>{291,96}</string>
+                <key>textureRect</key>
+                <string>{{1889,724},{291,96}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>cafe/lights.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{192,316}</string>
+                <key>spriteSourceSize</key>
+                <string>{192,316}</string>
+                <key>textureRect</key>
+                <string>{{1171,2759},{192,316}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>cafe/main_counter.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -349,7 +334,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/pan.png</key>
+            <key>cafe/pan.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -364,7 +349,7 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>cafe/cafe_mainground/photos.png</key>
+            <key>cafe/photos.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -379,7 +364,7 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>cafe/cafe_mainground/plate.png</key>
+            <key>cafe/plate.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -394,7 +379,7 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>cafe/cafe_mainground/pot.png</key>
+            <key>cafe/pot.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -409,7 +394,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/raddish.png</key>
+            <key>cafe/raddish.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -424,7 +409,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/refridgerator.png</key>
+            <key>cafe/refridgerator.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -439,7 +424,7 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>cafe/cafe_mainground/register.png</key>
+            <key>cafe/register.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -454,7 +439,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/shelf.png</key>
+            <key>cafe/shelf.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -469,7 +454,7 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>cafe/cafe_mainground/stand.png</key>
+            <key>cafe/stand.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -484,7 +469,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/stove.png</key>
+            <key>cafe/stove.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -499,7 +484,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/table.png</key>
+            <key>cafe/table.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -514,7 +499,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/tools_stand.png</key>
+            <key>cafe/tools_stand.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -529,7 +514,7 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>cafe/cafe_mainground/welcome_board.png</key>
+            <key>cafe/welcome_board.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -544,7 +529,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>cafe/cafe_mainground/window.png</key>
+            <key>cafe/window.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -573,7 +558,7 @@
             <key>size</key>
             <string>{1986,3084}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:ff4adb0df7de46e3ba8d6e7eb3063838:9447585fc2ef948e4e185ee6afcfa276:b606cee1c0cc52b845b217be9561f6c8$</string>
+            <string>$TexturePacker:SmartUpdate:288b61083496475d5f6c37a071dac4eb:20cf38f8ebdd5d7d000ca3244e5a31b7:b606cee1c0cc52b845b217be9561f6c8$</string>
             <key>textureFileName</key>
             <string>cafe.png</string>
         </dict>

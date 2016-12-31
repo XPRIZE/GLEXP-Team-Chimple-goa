@@ -102,9 +102,9 @@ bool ScrollableGameMapScene::init() {
     }
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    
-    auto spriteCache = SpriteFrameCache::getInstance();
-    spriteCache->addSpriteFramesWithFile("gamemap/gamemap/gamemap.plist");
+
+//    auto spriteCache = SpriteFrameCache::getInstance();
+//    spriteCache->addSpriteFramesWithFile("gamemap/gamemap/gamemap.plist");
     
     std::string contents = FileUtils::getInstance()->getStringFromFile("config/game_map.json");
     
@@ -143,6 +143,18 @@ bool ScrollableGameMapScene::init() {
         _pageView = ui::PageView::create();
         addChild(_pageView);
 
+        _parallax = ParallaxNode::create();
+        _parallax->setContentSize(Size(visibleSize.width * 3, visibleSize.height));
+        auto node = CSLoader::createNode("bgmap/bgmap_background.csb");
+        _parallax->addChild(node, -4, Vec2(0.2, 0.2), Vec2::ZERO);
+        node = CSLoader::createNode("bgmap/bgmap_mainground.csb");
+        _parallax->addChild(node, -3, Vec2(0.4, 0.4), Vec2::ZERO);
+        node = CSLoader::createNode("bgmap/bgmap_foreground.csb");
+        _parallax->addChild(node, -2, Vec2(0.6, 0.6), Vec2::ZERO);
+        node = CSLoader::createNode("bgmap/bgmap_frontground.csb");
+        _parallax->addChild(node, -1, Vec2(0.8, 0.8), Vec2::ZERO);
+        _pageView->addChild(_parallax);
+        
         auto topBarGames = getTopBarGames();
         topBarGames.insert(topBarGames.begin(), "story-play");
         std::map<std::string, int> topBarGamesIndexes = {{"story-play", 0}};
@@ -153,15 +165,15 @@ bool ScrollableGameMapScene::init() {
             auto page = ui::Widget::create();
             page->setContentSize(visibleSize);
             _pageView->addPage(page);
-            Texture2D *texture = Director::getInstance()->getTextureCache()->addImage("black_concrete.png");
-            Texture2D::TexParams tp = {GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT};
-            texture->setTexParameters(&tp);
-            Sprite *backgroundSpriteMapTile = Sprite::createWithTexture(texture, Rect(0, 0, visibleSize.width, visibleSize.height));
-            backgroundSpriteMapTile->setPosition(Vec2( visibleSize.width/2, visibleSize.height/2 ));
-            page->addChild(backgroundSpriteMapTile);
+//            Texture2D *texture = Director::getInstance()->getTextureCache()->addImage("black_concrete.png");
+//            Texture2D::TexParams tp = {GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT};
+//            texture->setTexParameters(&tp);
+//            Sprite *backgroundSpriteMapTile = Sprite::createWithTexture(texture, Rect(0, 0, visibleSize.width, visibleSize.height));
+//            backgroundSpriteMapTile->setPosition(Vec2( visibleSize.width/2, visibleSize.height/2 ));
+//            page->addChild(backgroundSpriteMapTile);
             
-            auto node = CSLoader::createNode("gamemap/gamemap_bg.csb");
-            page->addChild(node);
+//            auto node = CSLoader::createNode("gamemap/gamemap_bg.csb");
+//            page->addChild(node);
             
             
             for (int i = 0; i < numRows; i++) {
@@ -246,40 +258,7 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
         case ui::Widget::TouchEventType::ENDED:
         {
             clickedButton->setEnabled(false);
-            pushTopBarGame(clickedButton->getName());
-            std::string gameConfig;
-            localStorageGetItem(clickedButton->getName(), &gameConfig);
-            CCLOG("gameConfig %s", gameConfig.c_str());
-            CCLOG("clickedButton->getName() %s", clickedButton->getName().c_str());
-            std::string script = parseGameConfig(gameConfig);
-            localStorageSetItem("currentGame", clickedButton->getName());
-            if(clickedButton->getName() == "show_bluetoothPeers")
-            {
-                ScriptingCore::getInstance()->runScript("src/start/showBluetoothPeers.js");
-            }
-            else if(clickedButton->getName() == "choose_character")
-            {
-                ScriptingCore::getInstance()->runScript("src/start/characterConfigure.js");
-            }
-            else if(clickedButton->getName() == "story-telling")
-            {
-                ScriptingCore::getInstance()->runScript("src/start/storytelling.js");
-            }
-            else if(clickedButton->getName() == "story-play")
-            {
-                ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
-            }
-            else if(clickedButton->getName() == "map")
-            {
-                Director::getInstance()->replaceScene(MapScene::createScene());
-            }
-            else
-            {
-//                ScriptingCore::getInstance()->runScript("src/start/menu.js");
-                Director::getInstance()->replaceScene(LevelMenu::createScene(clickedButton->getName()));
-            }
-            
-            
+            nagivateToGame(clickedButton->getName());
             break;
         }
 
@@ -382,5 +361,38 @@ void ScrollableGameMapScene::pushTopBarGame(std::string game) {
 
 
 void ScrollableGameMapScene::nagivateToGame(std::string gameName) {
+    pushTopBarGame(gameName);
+    std::string gameConfig;
+    localStorageGetItem(gameName, &gameConfig);
+    CCLOG("gameConfig %s", gameConfig.c_str());
+    CCLOG("gameName %s", gameName.c_str());
+    std::string script = parseGameConfig(gameConfig);
+    localStorageSetItem("currentGame", gameName);
+    if(gameName == "show_bluetoothPeers")
+    {
+        ScriptingCore::getInstance()->runScript("src/start/showBluetoothPeers.js");
+    }
+    else if(gameName == "choose_character")
+    {
+        ScriptingCore::getInstance()->runScript("src/start/characterConfigure.js");
+    }
+    else if(gameName == "story-telling")
+    {
+        ScriptingCore::getInstance()->runScript("src/start/storytelling.js");
+    }
+    else if(gameName == "story-play")
+    {
+        ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
+    }
+    else if(gameName == "map")
+    {
+        Director::getInstance()->replaceScene(MapScene::createScene());
+    }
+    else
+    {
+        //                ScriptingCore::getInstance()->runScript("src/start/menu.js");
+        Director::getInstance()->replaceScene(LevelMenu::createScene(gameName));
+    }
+    
     
 }

@@ -87,6 +87,7 @@ int jazz::getGridHeight()
 }
 void jazz::gameOver(bool correct) {
 	if (correct) {
+        MenuContext::pronounceWord(_word);
 		_grid->touchEndedCallback = nullptr;
 		for (auto item = _gorilla.rbegin(); item != _gorilla.rend(); ++item)
 		{
@@ -151,6 +152,7 @@ void jazz::gameOver(bool correct) {
 void jazz::showScore(float dt)
 {
 	_audioCorrect->stopAllEffects();
+    _audioCorrect->stopBackgroundMusic();
 	_menuContext->showScore();
 }
 

@@ -422,6 +422,15 @@ xc.PictureQuestionHandler = cc.Layer.extend({
 
         //get node at index of questionNode
 
+        this._unfinishedQuestions.forEach(function(n) {
+            n.setEnabled(false);
+        });
+
+        this._answerNodes.forEach(function(n) {
+            n.setEnabled(false);
+        });
+        
+
         var node2NewName = "A"+(questionNode.selectedIndex+1);
         var node1 = this._constructedScene.node.getChildByName(node2NewName);
 

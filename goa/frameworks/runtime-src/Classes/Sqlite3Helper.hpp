@@ -62,6 +62,8 @@ protected:
     std::string pathToSQLConnection;
     
     virtual void initializeConnection();
+    
+    std::string trim(const std::string &s);
 };
 
 #endif /* Sqlite3Helper_hpp */
