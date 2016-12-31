@@ -1,0 +1,116 @@
+{
+  "ID": "b595ef0e-790b-41e7-8e23-7b999704270d",
+  "Version": "3.10.0.0",
+  "Name": "dramatheatre_outdoor",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 10,
+        "Speed": 1.0,
+        "Timelines": [
+          {
+            "ActionTag": 532142648,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "dramatheatre/dooranimation1.png",
+                  "Plist": "dramatheatre/dramatheatre.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "dramatheatre/dooranimation2.png",
+                  "Plist": "dramatheatre/dramatheatre.plist"
+                },
+                "FrameIndex": 5,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "dramatheatre/dooranimation3.png",
+                  "Plist": "dramatheatre/dramatheatre.plist"
+                },
+                "FrameIndex": 10,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 6,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "dramatheatre/dooranimation1.png",
+              "Plist": "dramatheatre/dramatheatre.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -314.0,
+            "RightMargin": -314.0,
+            "TopMargin": -320.5,
+            "BottomMargin": -320.5,
+            "Tag": 7,
+            "ActionTag": 532142648,
+            "Size": {
+              "X": 628.0,
+              "Y": 641.0
+            },
+            "Name": "dooranimation",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "dramatheatre.plist",
+        "dramatheatre.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

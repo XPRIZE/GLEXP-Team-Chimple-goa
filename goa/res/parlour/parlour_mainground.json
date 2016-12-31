@@ -1,0 +1,2960 @@
+{
+  "ID": "080dc56c-f079-47fd-ae77-7c4fb187e525",
+  "Version": "3.10.0.0",
+  "Name": "parlour_mainground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 14,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 253,
+              "G": 230,
+              "B": 218
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.3582,
+              "Y": 1.0
+            },
+            "RightMargin": -917.0,
+            "Tag": 169,
+            "ActionTag": -303004503,
+            "Size": {
+              "X": 3477.0,
+              "Y": 1800.0
+            },
+            "Name": "bg1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "G": 216,
+              "B": 202
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 3475.9849,
+              "Y": 1.0005
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3578,
+              "Y": 0.0006
+            },
+            "PreSize": {
+              "X": 1.3582,
+              "Y": 1.0
+            },
+            "LeftMargin": 3475.9849,
+            "RightMargin": -4392.9849,
+            "TopMargin": -1.0005,
+            "BottomMargin": 1.0005,
+            "Tag": 170,
+            "ActionTag": -1760084723,
+            "Size": {
+              "X": 3477.0,
+              "Y": 1800.0
+            },
+            "Name": "bg2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/tile1.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 145.0462,
+              "Y": 286.6133
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0567,
+              "Y": 0.1592
+            },
+            "PreSize": {
+              "X": 0.1141,
+              "Y": 0.3189
+            },
+            "LeftMargin": -0.9538,
+            "RightMargin": 2268.9539,
+            "TopMargin": 1226.3867,
+            "BottomMargin": -0.3867,
+            "Tag": 171,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "parlour/tile1.png",
+                  "Plist": "parlour/parlour.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 434.385,
+                  "Y": 285.9569
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.4876,
+                  "Y": 0.4982
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 288.385,
+                "RightMargin": -288.385,
+                "TopMargin": 1.0431,
+                "BottomMargin": -1.0431,
+                "Tag": 172,
+                "ActionTag": 447510731,
+                "Size": {
+                  "X": 292.0,
+                  "Y": 574.0
+                },
+                "Name": "tile1_1_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "parlour/tile1.png",
+                  "Plist": "parlour/parlour.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 724.4301,
+                  "Y": 284.9285
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 2.4809,
+                  "Y": 0.4964
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 578.4301,
+                "RightMargin": -578.4301,
+                "TopMargin": 2.0715,
+                "BottomMargin": -2.0715,
+                "Tag": 173,
+                "ActionTag": -1821993772,
+                "Size": {
+                  "X": 292.0,
+                  "Y": 574.0
+                },
+                "Name": "tile1_1_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "parlour/tile1.png",
+                  "Plist": "parlour/parlour.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1013.7669,
+                  "Y": 284.2723
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 3.4718,
+                  "Y": 0.4952
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 867.7669,
+                "RightMargin": -867.7668,
+                "TopMargin": 2.7277,
+                "BottomMargin": -2.7277,
+                "Tag": 174,
+                "ActionTag": -1259831539,
+                "Size": {
+                  "X": 292.0,
+                  "Y": 574.0
+                },
+                "Name": "tile1_1_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "parlour/tile1.png",
+                  "Plist": "parlour/parlour.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1303.3667,
+                  "Y": 282.4014
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 4.4636,
+                  "Y": 0.492
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1157.3667,
+                "RightMargin": -1157.3667,
+                "TopMargin": 4.5986,
+                "BottomMargin": -4.5986,
+                "Tag": 175,
+                "ActionTag": -556093530,
+                "Size": {
+                  "X": 292.0,
+                  "Y": 574.0
+                },
+                "Name": "tile1_1_2",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "parlour/tile1.png",
+                  "Plist": "parlour/parlour.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1592.7053,
+                  "Y": 281.7451
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 5.4545,
+                  "Y": 0.4908
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1446.7053,
+                "RightMargin": -1446.7053,
+                "TopMargin": 5.2549,
+                "BottomMargin": -5.2549,
+                "Tag": 176,
+                "ActionTag": 306124432,
+                "Size": {
+                  "X": 292.0,
+                  "Y": 574.0
+                },
+                "Name": "tile1_1_0_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "parlour/tile1.png",
+                  "Plist": "parlour/parlour.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1882.755,
+                  "Y": 280.7169
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 6.4478,
+                  "Y": 0.4891
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1736.755,
+                "RightMargin": -1736.755,
+                "TopMargin": 6.2831,
+                "BottomMargin": -6.2831,
+                "Tag": 177,
+                "ActionTag": 558479115,
+                "Size": {
+                  "X": 292.0,
+                  "Y": 574.0
+                },
+                "Name": "tile1_1_1_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "parlour/tile1.png",
+                  "Plist": "parlour/parlour.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2172.0952,
+                  "Y": 280.0604
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 7.4387,
+                  "Y": 0.4879
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2026.0952,
+                "RightMargin": -2026.0952,
+                "TopMargin": 6.9396,
+                "BottomMargin": -6.9396,
+                "Tag": 178,
+                "ActionTag": 1281470831,
+                "Size": {
+                  "X": 292.0,
+                  "Y": 574.0
+                },
+                "Name": "tile1_1_0_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "parlour/tile1.png",
+                  "Plist": "parlour/parlour.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2462.6885,
+                  "Y": 278.9712
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 8.4339,
+                  "Y": 0.486
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2316.6885,
+                "RightMargin": -2316.6885,
+                "TopMargin": 8.0288,
+                "BottomMargin": -8.0288,
+                "Tag": 179,
+                "ActionTag": 2134830044,
+                "Size": {
+                  "X": 292.0,
+                  "Y": 574.0
+                },
+                "Name": "tile1_1_2_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "parlour/tile1.png",
+                  "Plist": "parlour/parlour.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2752.0303,
+                  "Y": 278.3155
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 9.4248,
+                  "Y": 0.4849
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2606.0303,
+                "RightMargin": -2606.0303,
+                "TopMargin": 8.6845,
+                "BottomMargin": -8.6845,
+                "Tag": 180,
+                "ActionTag": 1019491221,
+                "Size": {
+                  "X": 292.0,
+                  "Y": 574.0
+                },
+                "Name": "tile1_1_0_1_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "parlour/tile1.png",
+                  "Plist": "parlour/parlour.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 3042.0857,
+                  "Y": 277.2868
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 10.4181,
+                  "Y": 0.4831
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2896.0857,
+                "RightMargin": -2896.0857,
+                "TopMargin": 9.7132,
+                "BottomMargin": -9.7132,
+                "Tag": 181,
+                "ActionTag": 1313072435,
+                "Size": {
+                  "X": 292.0,
+                  "Y": 574.0
+                },
+                "Name": "tile1_1_1_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "parlour/tile1.png",
+                  "Plist": "parlour/parlour.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 3331.4321,
+                  "Y": 276.6306
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 11.409,
+                  "Y": 0.4819
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 3185.4321,
+                "RightMargin": -3185.4321,
+                "TopMargin": 10.3694,
+                "BottomMargin": -10.3694,
+                "Tag": 182,
+                "ActionTag": -2087090622,
+                "Size": {
+                  "X": 292.0,
+                  "Y": 574.0
+                },
+                "Name": "tile1_1_0_0_0_0",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": -1478425601,
+            "Size": {
+              "X": 292.0,
+              "Y": 574.0
+            },
+            "Name": "tile1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/tile2.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5124,
+              "ScaleY": 0.5362
+            },
+            "Position": {
+              "X": 3623.709,
+              "Y": 295.8981
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.4155,
+              "Y": 0.1644
+            },
+            "PreSize": {
+              "X": 0.1137,
+              "Y": 0.3194
+            },
+            "LeftMargin": 3474.6006,
+            "RightMargin": -1205.6006,
+            "TopMargin": 1237.4169,
+            "BottomMargin": -12.4169,
+            "Tag": 183,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "parlour/tile2.png",
+                  "Plist": "parlour/parlour.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 434.6946,
+                  "Y": 286.2222
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.4938,
+                  "Y": 0.4978
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 289.1946,
+                "RightMargin": -289.1946,
+                "TopMargin": 1.2778,
+                "BottomMargin": -1.2778,
+                "Tag": 184,
+                "ActionTag": 1855414603,
+                "Size": {
+                  "X": 291.0,
+                  "Y": 575.0
+                },
+                "Name": "tile2_64_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "parlour/tile2.png",
+                  "Plist": "parlour/parlour.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 724.0299,
+                  "Y": 285.1835
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 2.4881,
+                  "Y": 0.496
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 578.5299,
+                "RightMargin": -578.5299,
+                "TopMargin": 2.3165,
+                "BottomMargin": -2.3165,
+                "Tag": 185,
+                "ActionTag": -323140972,
+                "Size": {
+                  "X": 291.0,
+                  "Y": 575.0
+                },
+                "Name": "tile2_64_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "parlour/tile2.png",
+                  "Plist": "parlour/parlour.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1013.1487,
+                  "Y": 284.3357
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 3.4816,
+                  "Y": 0.4945
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 867.6487,
+                "RightMargin": -867.6487,
+                "TopMargin": 3.1643,
+                "BottomMargin": -3.1643,
+                "Tag": 186,
+                "ActionTag": 1395220819,
+                "Size": {
+                  "X": 291.0,
+                  "Y": 575.0
+                },
+                "Name": "tile2_64_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "parlour/tile2.png",
+                  "Plist": "parlour/parlour.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1301.5789,
+                  "Y": 282.4254
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 4.4728,
+                  "Y": 0.4912
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1156.0789,
+                "RightMargin": -1156.0789,
+                "TopMargin": 5.0746,
+                "BottomMargin": -5.0746,
+                "Tag": 187,
+                "ActionTag": -661312211,
+                "Size": {
+                  "X": 291.0,
+                  "Y": 575.0
+                },
+                "Name": "tile2_64_2",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "parlour/tile2.png",
+                  "Plist": "parlour/parlour.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1590.698,
+                  "Y": 281.5773
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 5.4663,
+                  "Y": 0.4897
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1445.198,
+                "RightMargin": -1445.198,
+                "TopMargin": 5.9227,
+                "BottomMargin": -5.9227,
+                "Tag": 188,
+                "ActionTag": 977913939,
+                "Size": {
+                  "X": 291.0,
+                  "Y": 575.0
+                },
+                "Name": "tile2_64_0_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "parlour/tile2.png",
+                  "Plist": "parlour/parlour.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1880.0396,
+                  "Y": 280.5393
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 6.4606,
+                  "Y": 0.4879
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1734.5396,
+                "RightMargin": -1734.5396,
+                "TopMargin": 6.9607,
+                "BottomMargin": -6.9607,
+                "Tag": 189,
+                "ActionTag": 968193048,
+                "Size": {
+                  "X": 291.0,
+                  "Y": 575.0
+                },
+                "Name": "tile2_64_1_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "parlour/tile2.png",
+                  "Plist": "parlour/parlour.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2169.155,
+                  "Y": 279.6904
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 7.4541,
+                  "Y": 0.4864
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2023.655,
+                "RightMargin": -2023.655,
+                "TopMargin": 7.8096,
+                "BottomMargin": -7.8096,
+                "Tag": 190,
+                "ActionTag": -2076933632,
+                "Size": {
+                  "X": 291.0,
+                  "Y": 575.0
+                },
+                "Name": "tile2_64_0_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "parlour/tile2.png",
+                  "Plist": "parlour/parlour.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2458.4099,
+                  "Y": 278.006
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 8.4481,
+                  "Y": 0.4835
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2312.9099,
+                "RightMargin": -2312.9099,
+                "TopMargin": 9.494,
+                "BottomMargin": -9.494,
+                "Tag": 191,
+                "ActionTag": 672834975,
+                "Size": {
+                  "X": 291.0,
+                  "Y": 575.0
+                },
+                "Name": "tile2_64_1_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "parlour/tile2.png",
+                  "Plist": "parlour/parlour.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2747.53,
+                  "Y": 277.1583
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 9.4417,
+                  "Y": 0.482
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2602.03,
+                "RightMargin": -2602.03,
+                "TopMargin": 10.3417,
+                "BottomMargin": -10.3417,
+                "Tag": 192,
+                "ActionTag": -1658248657,
+                "Size": {
+                  "X": 291.0,
+                  "Y": 575.0
+                },
+                "Name": "tile2_64_0_0_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "parlour/tile2.png",
+                  "Plist": "parlour/parlour.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 3035.9541,
+                  "Y": 275.248
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 10.4328,
+                  "Y": 0.4787
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2890.4541,
+                "RightMargin": -2890.4541,
+                "TopMargin": 12.252,
+                "BottomMargin": -12.252,
+                "Tag": 193,
+                "ActionTag": -26183480,
+                "Size": {
+                  "X": 291.0,
+                  "Y": 575.0
+                },
+                "Name": "tile2_64_2_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "parlour/tile2.png",
+                  "Plist": "parlour/parlour.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 3325.072,
+                  "Y": 274.3999
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 11.4264,
+                  "Y": 0.4772
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 3179.572,
+                "RightMargin": -3179.572,
+                "TopMargin": 13.1001,
+                "BottomMargin": -13.1001,
+                "Tag": 194,
+                "ActionTag": -1299022234,
+                "Size": {
+                  "X": 291.0,
+                  "Y": 575.0
+                },
+                "Name": "tile2_64_0_1_0",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": -363677173,
+            "Size": {
+              "X": 291.0,
+              "Y": 575.0
+            },
+            "Name": "tile2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/shelf.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 921.8564,
+              "Y": 1146.522
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3601,
+              "Y": 0.637
+            },
+            "PreSize": {
+              "X": 0.1824,
+              "Y": 0.0322
+            },
+            "LeftMargin": 688.3564,
+            "RightMargin": 1404.6436,
+            "TopMargin": 624.478,
+            "BottomMargin": 1117.522,
+            "Tag": 44,
+            "ActionTag": 1003947271,
+            "Size": {
+              "X": 467.0,
+              "Y": 58.0
+            },
+            "Name": "shelf1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/sink.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2331.6318,
+              "Y": 773.2874
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9108,
+              "Y": 0.4296
+            },
+            "PreSize": {
+              "X": 0.1234,
+              "Y": 0.34
+            },
+            "LeftMargin": 2173.6318,
+            "RightMargin": 70.3682,
+            "TopMargin": 720.7126,
+            "BottomMargin": 467.2874,
+            "Tag": 45,
+            "ActionTag": -2092392205,
+            "Size": {
+              "X": 316.0,
+              "Y": 612.0
+            },
+            "Name": "sink",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/table.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1395.1672,
+              "Y": 691.6546
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.545,
+              "Y": 0.3843
+            },
+            "PreSize": {
+              "X": 0.3305,
+              "Y": 0.2378
+            },
+            "LeftMargin": 972.1672,
+            "RightMargin": 741.8328,
+            "TopMargin": 894.3454,
+            "BottomMargin": 477.6546,
+            "Tag": 46,
+            "ActionTag": -368092367,
+            "Size": {
+              "X": 846.0,
+              "Y": 428.0
+            },
+            "Name": "table",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/shelf.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1892.1609,
+              "Y": 1155.4711
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7391,
+              "Y": 0.6419
+            },
+            "PreSize": {
+              "X": 0.1824,
+              "Y": 0.0322
+            },
+            "LeftMargin": 1658.6609,
+            "RightMargin": 434.3391,
+            "TopMargin": 615.5289,
+            "BottomMargin": 1126.4711,
+            "Tag": 47,
+            "ActionTag": -1335935161,
+            "Size": {
+              "X": 467.0,
+              "Y": 58.0
+            },
+            "Name": "shelf2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/shelf.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2313.8853,
+              "Y": 1402.3577
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9039,
+              "Y": 0.7791
+            },
+            "PreSize": {
+              "X": 0.1824,
+              "Y": 0.0322
+            },
+            "LeftMargin": 2080.3853,
+            "RightMargin": 12.6147,
+            "TopMargin": 368.6423,
+            "BottomMargin": 1373.3577,
+            "Tag": 48,
+            "ActionTag": 2102662219,
+            "Size": {
+              "X": 467.0,
+              "Y": 58.0
+            },
+            "Name": "shelf3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/heater.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 451.0573,
+              "Y": 824.6217
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1762,
+              "Y": 0.4581
+            },
+            "PreSize": {
+              "X": 0.15,
+              "Y": 0.5478
+            },
+            "LeftMargin": 259.0573,
+            "RightMargin": 1916.9426,
+            "TopMargin": 482.3783,
+            "BottomMargin": 331.6217,
+            "Tag": 49,
+            "ActionTag": 2076432048,
+            "Size": {
+              "X": 384.0,
+              "Y": 986.0
+            },
+            "Name": "heater",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/brushes1.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1124.1958,
+              "Y": 975.7471
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4391,
+              "Y": 0.5421
+            },
+            "PreSize": {
+              "X": 0.0531,
+              "Y": 0.1156
+            },
+            "LeftMargin": 1056.1958,
+            "RightMargin": 1367.8042,
+            "TopMargin": 720.2529,
+            "BottomMargin": 871.7471,
+            "Tag": 50,
+            "ActionTag": 2131216075,
+            "Size": {
+              "X": 136.0,
+              "Y": 208.0
+            },
+            "Name": "brushes1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/brushes2.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1715.7122,
+              "Y": 994.3964
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6702,
+              "Y": 0.5524
+            },
+            "PreSize": {
+              "X": 0.0496,
+              "Y": 0.1272
+            },
+            "LeftMargin": 1652.2122,
+            "RightMargin": 780.7878,
+            "TopMargin": 691.1035,
+            "BottomMargin": 879.8964,
+            "Tag": 51,
+            "ActionTag": 476988898,
+            "Size": {
+              "X": 127.0,
+              "Y": 229.0
+            },
+            "Name": "brushes2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/chair.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 446.7725,
+              "Y": 560.0183
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1745,
+              "Y": 0.3111
+            },
+            "PreSize": {
+              "X": 0.1945,
+              "Y": 0.3767
+            },
+            "LeftMargin": 197.7725,
+            "RightMargin": 1864.2275,
+            "TopMargin": 900.9817,
+            "BottomMargin": 221.0183,
+            "Tag": 52,
+            "ActionTag": -1416732015,
+            "Size": {
+              "X": 498.0,
+              "Y": 678.0
+            },
+            "Name": "chair",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/combs.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1769.7693,
+              "Y": 1259.9778
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6913,
+              "Y": 0.7
+            },
+            "PreSize": {
+              "X": 0.0625,
+              "Y": 0.1056
+            },
+            "LeftMargin": 1689.7693,
+            "RightMargin": 710.2307,
+            "TopMargin": 445.0222,
+            "BottomMargin": 1164.9778,
+            "UserData": "canInteract=true",
+            "Tag": 53,
+            "ActionTag": 422957685,
+            "Size": {
+              "X": 160.0,
+              "Y": 190.0
+            },
+            "Name": "combs",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/compact1.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 769.6764,
+              "Y": 1213.537
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3007,
+              "Y": 0.6742
+            },
+            "PreSize": {
+              "X": 0.0355,
+              "Y": 0.0583
+            },
+            "LeftMargin": 724.1764,
+            "RightMargin": 1744.8236,
+            "TopMargin": 533.963,
+            "BottomMargin": 1161.037,
+            "Tag": 54,
+            "ActionTag": 2040109989,
+            "Size": {
+              "X": 91.0,
+              "Y": 105.0
+            },
+            "Name": "compact1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/compact2.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 882.2775,
+              "Y": 1233.1772
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3446,
+              "Y": 0.6851
+            },
+            "PreSize": {
+              "X": 0.0484,
+              "Y": 0.0933
+            },
+            "LeftMargin": 820.2775,
+            "RightMargin": 1615.7224,
+            "TopMargin": 482.8228,
+            "BottomMargin": 1149.1772,
+            "Tag": 55,
+            "ActionTag": 1703720079,
+            "Size": {
+              "X": 124.0,
+              "Y": 168.0
+            },
+            "Name": "compact2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/compact3.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 998.1669,
+              "Y": 1210.0282
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3899,
+              "Y": 0.6722
+            },
+            "PreSize": {
+              "X": 0.034,
+              "Y": 0.0517
+            },
+            "LeftMargin": 954.6669,
+            "RightMargin": 1518.3331,
+            "TopMargin": 543.4718,
+            "BottomMargin": 1163.5282,
+            "Tag": 56,
+            "ActionTag": 1811890780,
+            "Size": {
+              "X": 87.0,
+              "Y": 93.0
+            },
+            "Name": "compact3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/cream.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1304.9287,
+              "Y": 919.4432
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5097,
+              "Y": 0.5108
+            },
+            "PreSize": {
+              "X": 0.0598,
+              "Y": 0.0456
+            },
+            "LeftMargin": 1228.4287,
+            "RightMargin": 1178.5713,
+            "TopMargin": 839.5568,
+            "BottomMargin": 878.4432,
+            "UserData": "canInteract=true",
+            "Tag": 57,
+            "ActionTag": -2104529407,
+            "Size": {
+              "X": 153.0,
+              "Y": 82.0
+            },
+            "Name": "cream",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/foundations.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1970.8125,
+              "Y": 1240.6654
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7698,
+              "Y": 0.6893
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.0794
+            },
+            "LeftMargin": 1870.8125,
+            "RightMargin": 489.1875,
+            "TopMargin": 487.8346,
+            "BottomMargin": 1169.1654,
+            "Tag": 58,
+            "ActionTag": -1556851127,
+            "Size": {
+              "X": 200.0,
+              "Y": 143.0
+            },
+            "Name": "foundations",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/light1.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 837.8894,
+              "Y": 1801.6268
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3273,
+              "Y": 1.0009
+            },
+            "PreSize": {
+              "X": 0.1078,
+              "Y": 0.4189
+            },
+            "LeftMargin": 699.8894,
+            "RightMargin": 1584.1106,
+            "TopMargin": -378.627,
+            "BottomMargin": 1424.6268,
+            "Tag": 59,
+            "ActionTag": 1925137467,
+            "Size": {
+              "X": 276.0,
+              "Y": 754.0
+            },
+            "Name": "light1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/lip_gloss.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1446.847,
+              "Y": 954.0505
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5652,
+              "Y": 0.53
+            },
+            "PreSize": {
+              "X": 0.023,
+              "Y": 0.0794
+            },
+            "LeftMargin": 1417.347,
+            "RightMargin": 1083.653,
+            "TopMargin": 774.4495,
+            "BottomMargin": 882.5505,
+            "Tag": 60,
+            "ActionTag": 723776110,
+            "Size": {
+              "X": 59.0,
+              "Y": 143.0
+            },
+            "Name": "lip_gloss",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/mascara.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1590.9324,
+              "Y": 952.9993
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6215,
+              "Y": 0.5294
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0778
+            },
+            "LeftMargin": 1566.4324,
+            "RightMargin": 944.5676,
+            "TopMargin": 777.0007,
+            "BottomMargin": 882.9993,
+            "Tag": 61,
+            "ActionTag": 78263340,
+            "Size": {
+              "X": 49.0,
+              "Y": 140.0
+            },
+            "Name": "mascara",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/mirror.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1425.4142,
+              "Y": 1351.5226
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5568,
+              "Y": 0.7508
+            },
+            "PreSize": {
+              "X": 0.1258,
+              "Y": 0.2344
+            },
+            "LeftMargin": 1264.4142,
+            "RightMargin": 973.5858,
+            "TopMargin": 237.4774,
+            "BottomMargin": 1140.5226,
+            "Tag": 62,
+            "ActionTag": -438931376,
+            "Size": {
+              "X": 322.0,
+              "Y": 422.0
+            },
+            "Name": "mirror",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/pencils.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1097.3074,
+              "Y": 1210.6063
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4286,
+              "Y": 0.6726
+            },
+            "PreSize": {
+              "X": 0.0145,
+              "Y": 0.05
+            },
+            "LeftMargin": 1078.8074,
+            "RightMargin": 1444.1926,
+            "TopMargin": 544.3937,
+            "BottomMargin": 1165.6063,
+            "Tag": 63,
+            "ActionTag": 804200260,
+            "Size": {
+              "X": 37.0,
+              "Y": 90.0
+            },
+            "Name": "pencils",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/straightener.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2274.8662,
+              "Y": 1429.6901
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8886,
+              "Y": 0.7943
+            },
+            "PreSize": {
+              "X": 0.077,
+              "Y": 0.0178
+            },
+            "LeftMargin": 2176.3662,
+            "RightMargin": 186.6338,
+            "TopMargin": 354.3099,
+            "BottomMargin": 1413.6901,
+            "Tag": 64,
+            "ActionTag": -1238143380,
+            "Size": {
+              "X": 197.0,
+              "Y": 32.0
+            },
+            "Name": "straightener",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/light1.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 617.7883,
+              "Y": 1925.8478
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2413,
+              "Y": 1.0699
+            },
+            "PreSize": {
+              "X": 0.1078,
+              "Y": 0.4189
+            },
+            "LeftMargin": 479.7883,
+            "RightMargin": 1804.2117,
+            "TopMargin": -502.8477,
+            "BottomMargin": 1548.8478,
+            "Tag": 65,
+            "ActionTag": -229583703,
+            "Size": {
+              "X": 276.0,
+              "Y": 754.0
+            },
+            "Name": "light1_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/light1.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1044.8417,
+              "Y": 1930.2255
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4081,
+              "Y": 1.0723
+            },
+            "PreSize": {
+              "X": 0.1078,
+              "Y": 0.4189
+            },
+            "LeftMargin": 906.8417,
+            "RightMargin": 1377.1583,
+            "TopMargin": -507.2256,
+            "BottomMargin": 1553.2255,
+            "Tag": 66,
+            "ActionTag": -988716145,
+            "Size": {
+              "X": 276.0,
+              "Y": 754.0
+            },
+            "Name": "light1_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/heater.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2919.7656,
+              "Y": 824.3523
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1405,
+              "Y": 0.458
+            },
+            "PreSize": {
+              "X": 0.15,
+              "Y": 0.5478
+            },
+            "LeftMargin": 2727.7656,
+            "RightMargin": -551.7656,
+            "TopMargin": 482.6477,
+            "BottomMargin": 331.3523,
+            "Tag": 67,
+            "ActionTag": -932285940,
+            "Size": {
+              "X": 384.0,
+              "Y": 986.0
+            },
+            "Name": "heater",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/chair.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2917.5034,
+              "Y": 555.5093
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1396,
+              "Y": 0.3086
+            },
+            "PreSize": {
+              "X": 0.1945,
+              "Y": 0.3767
+            },
+            "LeftMargin": 2668.5034,
+            "RightMargin": -606.5034,
+            "TopMargin": 905.4907,
+            "BottomMargin": 216.5093,
+            "Tag": 68,
+            "ActionTag": 743993798,
+            "Size": {
+              "X": 498.0,
+              "Y": 678.0
+            },
+            "Name": "chair",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/window.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4732.5107,
+              "Y": 1302.7428
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.8486,
+              "Y": 0.7237
+            },
+            "PreSize": {
+              "X": 0.3523,
+              "Y": 0.3978
+            },
+            "LeftMargin": 4281.5107,
+            "RightMargin": -2623.5107,
+            "TopMargin": 139.2572,
+            "BottomMargin": 944.7428,
+            "Tag": 132,
+            "ActionTag": 1543902047,
+            "Size": {
+              "X": 902.0,
+              "Y": 716.0
+            },
+            "Name": "window",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/flower_pot.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3513.8872,
+              "Y": 689.8028
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3726,
+              "Y": 0.3832
+            },
+            "PreSize": {
+              "X": 0.1418,
+              "Y": 0.2178
+            },
+            "LeftMargin": 3332.3872,
+            "RightMargin": -1135.3872,
+            "TopMargin": 914.1972,
+            "BottomMargin": 493.8028,
+            "Tag": 133,
+            "ActionTag": -758776464,
+            "Size": {
+              "X": 363.0,
+              "Y": 392.0
+            },
+            "Name": "flower_pot",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/sofa.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4036.9189,
+              "Y": 663.524
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.5769,
+              "Y": 0.3686
+            },
+            "PreSize": {
+              "X": 0.2488,
+              "Y": 0.3167
+            },
+            "LeftMargin": 3718.4189,
+            "RightMargin": -1795.4189,
+            "TopMargin": 851.476,
+            "BottomMargin": 378.524,
+            "Tag": 134,
+            "ActionTag": 2129019195,
+            "Size": {
+              "X": 637.0,
+              "Y": 570.0
+            },
+            "Name": "sofa",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/flower_table.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4708.1016,
+              "Y": 164.3903
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.8391,
+              "Y": 0.0913
+            },
+            "PreSize": {
+              "X": 0.1332,
+              "Y": 0.1361
+            },
+            "LeftMargin": 4537.6016,
+            "RightMargin": -2318.6016,
+            "TopMargin": 1513.1096,
+            "BottomMargin": 41.8903,
+            "Tag": 135,
+            "ActionTag": -261858336,
+            "Size": {
+              "X": 341.0,
+              "Y": 245.0
+            },
+            "Name": "flower_table",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/flower.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4700.4722,
+              "Y": 290.9096
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.8361,
+              "Y": 0.1616
+            },
+            "PreSize": {
+              "X": 0.0312,
+              "Y": 0.0722
+            },
+            "LeftMargin": 4660.4722,
+            "RightMargin": -2180.4722,
+            "TopMargin": 1444.0903,
+            "BottomMargin": 225.9096,
+            "Tag": 136,
+            "ActionTag": 1083038809,
+            "Size": {
+              "X": 80.0,
+              "Y": 130.0
+            },
+            "Name": "flower",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/sofa.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5344.4375,
+              "Y": 669.2839
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.0877,
+              "Y": 0.3718
+            },
+            "PreSize": {
+              "X": 0.2488,
+              "Y": 0.3167
+            },
+            "LeftMargin": 5025.9375,
+            "RightMargin": -3102.9375,
+            "TopMargin": 845.7161,
+            "BottomMargin": 384.2839,
+            "Tag": 137,
+            "ActionTag": -1615810292,
+            "Size": {
+              "X": 637.0,
+              "Y": 570.0
+            },
+            "Name": "sofa",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/light2.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3954.8169,
+              "Y": 1660.4487
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.5449,
+              "Y": 0.9225
+            },
+            "PreSize": {
+              "X": 0.0867,
+              "Y": 0.3283
+            },
+            "LeftMargin": 3843.8169,
+            "RightMargin": -1505.8169,
+            "TopMargin": -155.9487,
+            "BottomMargin": 1364.9487,
+            "Tag": 138,
+            "ActionTag": -485823860,
+            "Size": {
+              "X": 222.0,
+              "Y": 591.0
+            },
+            "Name": "light2_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/light2.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5667.2871,
+              "Y": 1746.0938
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.2138,
+              "Y": 0.9701
+            },
+            "PreSize": {
+              "X": 0.0867,
+              "Y": 0.3283
+            },
+            "LeftMargin": 5556.2871,
+            "RightMargin": -3218.2871,
+            "TopMargin": -241.5938,
+            "BottomMargin": 1450.5938,
+            "Tag": 139,
+            "ActionTag": 1207153307,
+            "Size": {
+              "X": 222.0,
+              "Y": 591.0
+            },
+            "Name": "light2_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/light2.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5868.5659,
+              "Y": 1606.9729
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.2924,
+              "Y": 0.8928
+            },
+            "PreSize": {
+              "X": 0.0867,
+              "Y": 0.3283
+            },
+            "LeftMargin": 5757.5659,
+            "RightMargin": -3419.5659,
+            "TopMargin": -102.4729,
+            "BottomMargin": 1311.4729,
+            "Tag": 140,
+            "ActionTag": -1552989357,
+            "Size": {
+              "X": 222.0,
+              "Y": 591.0
+            },
+            "Name": "light2_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "RightMargin": 2560.0,
+            "TopMargin": 1800.0,
+            "UserData": "left",
+            "Tag": 199,
+            "ActionTag": -48828790,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "Node_1",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 6954.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.7164,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 6954.0,
+            "RightMargin": -4394.0,
+            "TopMargin": 1800.0,
+            "UserData": "right",
+            "Tag": 200,
+            "ActionTag": -582047759,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "Node_2",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 6474.5049,
+              "Y": 432.8264
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.5291,
+              "Y": 0.2405
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 6474.5049,
+            "RightMargin": -3914.5049,
+            "TopMargin": 1367.1736,
+            "BottomMargin": 432.8264,
+            "UserData": "canInteract=true,fileName=chimple_skeleton.csb",
+            "Tag": 201,
+            "ActionTag": 1158024302,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "Hero",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "parlour/door.png",
+              "Plist": "parlour/parlour.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6473.7812,
+              "Y": 875.4839
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.5288,
+              "Y": 0.4864
+            },
+            "PreSize": {
+              "X": 0.152,
+              "Y": 0.36
+            },
+            "LeftMargin": 6279.2812,
+            "RightMargin": -4108.2812,
+            "TopMargin": 600.5161,
+            "BottomMargin": 551.4839,
+            "UserData": "canInteract=true,nextScene=city3",
+            "Tag": 259,
+            "ActionTag": -2048080481,
+            "Size": {
+              "X": 389.0,
+              "Y": 648.0
+            },
+            "Name": "door_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 995.3403,
+              "Y": 316.6698
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.3888,
+              "Y": 0.1759
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 995.3403,
+            "RightMargin": 1564.6597,
+            "TopMargin": 1483.3302,
+            "BottomMargin": 316.6698,
+            "UserData": "canInteract=true,fileName=beautician_skeleton.csb",
+            "Tag": 133,
+            "ActionTag": -563418356,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "beautician ",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2311.9746,
+              "Y": 305.8528
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.9031,
+              "Y": 0.1699
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2311.9746,
+            "RightMargin": 248.0254,
+            "TopMargin": 1494.1472,
+            "BottomMargin": 305.8528,
+            "UserData": " canInteract=true,fileName=hairstylist_skeleton.csb",
+            "Tag": 134,
+            "ActionTag": -16532337,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "hairstylist",
+            "ctype": "SingleNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "parlour.plist",
+        "parlour.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

@@ -240,6 +240,12 @@ xc.Bubble_Number = cc.Layer.extend({
       this.extendLetter.setPosition(extendedGameX - (widthAreaExtendPart * 0.25), cc.director.getWinSize().height * 0.5);
       this.addChild(this.extendLetter);
     //  this.extendLetter.setAnchorPoint(0.5,0);
+      
+      if(cc.director.getWinSize().width > 2560){
+         this.extendLetter.setFontSize(widthAreaExtendPart*1.3);
+      }else if (cc.director.getWinSize().width == 2560) {
+         this.extendedGameX = this.extendedGameX - 45;
+      }
 
        if(bubblelevelValues == 100){
             var window = cc.director.getWinSize();
@@ -691,16 +697,17 @@ xc.Bubble_Number = cc.Layer.extend({
                          
                           this.bubbleName[tile.x][tile.y].runAction(new cc.MoveTo(1,cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2)));
                          
-//                           cc.audioEngine.playEffect("res/english/sounds/"+this.LetterName[tile.x][tile.y].name.toLowerCase()+".wav");
+                          this.LetterName[tile.x][tile.y].setName(""+this.LetterName[tile.x][tile.y].name);
+                          if(this.LetterName[tile.x][tile.y].getName() != undefined){
+                              var alphabetName = this.LetterName[tile.x][tile.y].getName();
+                              var audioPathForAlpha = alphabetName.toLowerCase();
+                               cc.audioEngine.playEffect("res/english/sounds/"+audioPathForAlpha+".wav");
+                          }
 
                            var playerDieCallFunc = function()
                             {
-                              //  self.playerDie(tile.x,tile.y,tempColorType);
-                                // self.bubbleName[tile.x][tile.y].alpha = 0;
                                 self.finalFlag = true;
                                 self.removeChild(self.bubbleName[tile.x][tile.y]);
-                               // cc.audioEngine.playEffect("res/english/sounds/"+self.LetterName[tile.x][tile.y].name.toLowerCase()+".wav");
-                                // renderPlayer();
                             }
                             this.runAction(new cc.Sequence(cc.delayTime(1.6),new cc.CallFunc(playerDieCallFunc, this)));  
                               

@@ -86,6 +86,7 @@ void Cat::createAnswer()
 void Cat::gameOver(bool correct)
 {
 	if (correct) {
+        MenuContext::pronounceWord(_word);
 			_gameContinue = true;
 			_state = "";
 	}

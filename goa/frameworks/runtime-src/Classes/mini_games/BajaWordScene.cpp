@@ -92,6 +92,7 @@ BajaWordScene* BajaWordScene::create() {
 
 void BajaWordScene::gameOver(bool correct) {
 	if (correct) {
+        MenuContext::pronounceWord(_word);
         _grid->touchEndedCallback = nullptr;
         float fuelPer = 0, delay=0;
 
