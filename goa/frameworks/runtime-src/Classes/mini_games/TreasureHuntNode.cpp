@@ -1,5 +1,6 @@
 
 #include "TreasureHuntNode.h"
+#include "TreasureHunt.h"
 #include "../WordSceneLipiTKNode.h"
 
 USING_NS_CC;
@@ -71,6 +72,19 @@ void TreasureHuntNode::postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * e
 	TreasureHuntNode::done = 1;
 
 }
+
+
+void TreasureHuntNode::setParent(TreasureHunt* parent) {
+	this->_Treasurehunt = parent;
+}
+
+void TreasureHuntNode::postTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint)
+{
+	CCLOG("touchPoint.x %f", touchPoint.x);
+	CCLOG("touchPoint.y %f", touchPoint.y);
+	_Treasurehunt->postTouchBegan(touch, event, touchPoint);
+}
+
 
 
 void TreasureHuntNode::removeClearButton() {

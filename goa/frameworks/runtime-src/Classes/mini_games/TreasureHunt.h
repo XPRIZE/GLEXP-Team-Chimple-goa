@@ -10,7 +10,7 @@
 #include "TreasureHuntNode.h"
 
 using namespace cocos2d;
-
+class TreasureHuntNode;
 class TreasureHunt : public cocos2d::Layer
 {
 
@@ -24,6 +24,7 @@ public:
 	virtual bool init();
 	static TreasureHunt* create();
 	std::string _currentLetter;
+	virtual void postTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
 	bool checkRecognizeLetter(std::string letter);
 	void onEnterTransitionDidFinish();
 	TreasureHuntNode* TreasureHuntNodeObj;

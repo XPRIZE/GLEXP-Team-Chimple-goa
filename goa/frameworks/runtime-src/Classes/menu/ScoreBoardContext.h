@@ -34,6 +34,7 @@ protected:
     bool unlockGame(std::string gameToUnlock);
     bool addBadges(std::vector<std::string> badges);
     std::vector<std::string> getStarBadges(int level);
+    static std::map<std::string, std::map<std::string, int>> getRewards();
     std::string _gameToUnlock;
     std::vector<std::string> _badges;
     cocos2d::Vector<cocos2d::SpriteFrame*> _giftFrames;
