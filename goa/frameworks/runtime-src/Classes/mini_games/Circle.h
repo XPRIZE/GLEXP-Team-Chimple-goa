@@ -41,7 +41,7 @@ public:
 	std::vector <std::string> _mapKey;
 	void wordGenerateWithOptions();
 	std::string _gameWord;
-	std::string _title = "", _sentence = "";
+	std::string _title = "", _header = "";
 	std::map<std::string, std::map<std::string, std::string>> _differntSceneMapping;
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
 

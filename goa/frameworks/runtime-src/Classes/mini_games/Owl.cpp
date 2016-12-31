@@ -140,27 +140,32 @@ void Owl::onEnterTransitionDidFinish()
 			CCLOG("index = %d   key :  %s ----> %s", index, listOfWords[index].c_str(), listOfWords[index].c_str());
 		}
 		_data_value = _data_key;
-		categoryTitle = "Make same word : ";
-		_sentenceShow = "List of same words";
+		//categoryTitle = "Make same word : ";
+		_sentence = LangUtil::getInstance()->translateString("Make same word : ");
+		_sentenceShow = LangUtil::getInstance()->translateString("List of same words");
 	}
 	else if (std::get<0>(levelKeyNumber) == 2) {
-		categoryTitle = "Make plural of : ";
-		_sentenceShow = "List of singular-plural words";
+	//	categoryTitle = "Make plural of : ";
+		_sentence = LangUtil::getInstance()->translateString("Make plural of : ");
+		_sentenceShow = LangUtil::getInstance()->translateString("List of singular-plural words");
 		_data = TextGenerator::getInstance()->getSingularPlurals(5, std::get<2>(levelKeyNumber));
 	}
 	else if (std::get<0>(levelKeyNumber) == 3) {
-		categoryTitle = "Make opposite of : ";
-		_sentenceShow = "List of opposite words";
+		//categoryTitle = "Make opposite of : ";
+		_sentence = LangUtil::getInstance()->translateString("Make opposite of : ");
+		_sentenceShow = LangUtil::getInstance()->translateString("List of opposite words");
 		_data = TextGenerator::getInstance()->getAntonyms(5, std::get<2>(levelKeyNumber));
 	}
 	else if (std::get<0>(levelKeyNumber) == 4) {
-		categoryTitle = "Make word of same meaning as : ";
-		_sentenceShow = "List of same meaning words";
+		//categoryTitle = "Make word of same meaning as : ";
+		_sentence = LangUtil::getInstance()->translateString("Make word of same meaning as : ");
+		_sentenceShow = LangUtil::getInstance()->translateString("List of same meaning words");
 		_data = TextGenerator::getInstance()->getSynonyms(5, std::get<2>(levelKeyNumber));
 	}
 	else if (std::get<0>(levelKeyNumber) == 5) {
-		categoryTitle = "Make same sounding word as : ";
-		_sentenceShow = "List of same sounding words";
+		//categoryTitle = "Make same sounding word as : ";
+		_sentence = LangUtil::getInstance()->translateString("Make same sounding word as : ");
+		_sentenceShow = LangUtil::getInstance()->translateString("List of same sounding words");
 		_data = TextGenerator::getInstance()->getHomonyms(5, std::get<2>(levelKeyNumber));
 	}
 
@@ -244,8 +249,6 @@ void Owl::onEnterTransitionDidFinish()
 	auto board = bg->getChildByName(themeResourcePath.at("topBoard"));
 	board->setName("topBoard");
 	
-	_sentence = LangUtil::getInstance()->translateString(categoryTitle);
-
 	std::ostringstream boardName;	
 	boardName << _sentence << _data_key[_textBoard];
 
@@ -671,7 +674,7 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 
 								}),
 									DelayTime::create(3),
-									CallFunc::create([=]() {this->removeChildByName("celebration");  _menuContext->showAnswer("wordPairs", LangUtil::getInstance()->translateString(_sentenceShow)); }), NULL));
+									CallFunc::create([=]() {this->removeChildByName("celebration");  _menuContext->showAnswer("wordPairs", _sentenceShow); }), NULL));
 							}
 						});
 						//_textCounter == blockChild.size() && _blockLevel1 == _data_key.size()

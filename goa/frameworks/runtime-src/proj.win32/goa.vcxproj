@@ -551,6 +551,9 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClInclude Include="..\Classes\State.h" />
     <ClInclude Include="..\Classes\StateMachine.h" />
     <ClInclude Include="..\Classes\Stroke.hpp" />
+    <ClInclude Include="..\Classes\util\CommonLabel.h" />
+    <ClInclude Include="..\Classes\util\CommonLabelTTF.h" />
+    <ClInclude Include="..\Classes\util\CommonText.h" />
     <ClInclude Include="..\Classes\util\lib\LTKCheckSumGenerate.h" />
     <ClInclude Include="..\Classes\util\lib\LTKConfigFileReader.h" />
     <ClInclude Include="..\Classes\util\lib\LTKDynamicTimeWarping.h" />
