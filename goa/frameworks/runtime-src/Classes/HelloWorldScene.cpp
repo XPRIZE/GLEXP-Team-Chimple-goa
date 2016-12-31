@@ -110,6 +110,7 @@ void HelloWorld::showBagPackButton() {
 
 void HelloWorld::renderBagPack() {
     _bagPackMenu->setVisible(false);
+    _bagPackMenu->setEnabled(false);
     auto children = _bagPackNode->getChildren();
     ;
     for (std::vector<Node*>::iterator it = children.begin() ; it != children.end(); ++it) {
@@ -237,7 +238,10 @@ void HelloWorld::removeBagPack(std::unordered_map<int, std::string> textMapFollo
         this->processTextMessage(textMapFollowedByAnimation, owner);
     }
     
+    
     _bagPackMenu->setVisible(true);
+    _bagPackMenu->setEnabled(true);
+    
 }
 
 void HelloWorld::closeBagPack(Ref* pSender, ui::Widget::TouchEventType eEventType, std::unordered_map<int, std::string> textMapFollowedByAnimation, std::string owner)
