@@ -26,5 +26,6 @@ protected:
 	MenuContext *_menu;
 	bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
 	cocos2d::ui::TabControl * _tab;
+	void objectsAddInTabContainer(cocos2d::Node * parent, std::string);
 };
 #endif

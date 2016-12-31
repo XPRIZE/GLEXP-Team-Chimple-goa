@@ -16,6 +16,13 @@
 
 USING_NS_CC;
 
+static const std::string REWARD_STICKER = "s";
+static const std::string REWARD_PATCH = "p";
+static const std::string REWARD_MEDAL = "m";
+static const std::string REWARD_GEM = "g";
+static const std::string REWARD_CANDY = "c";
+static const std::string REWARD_BADGE = "b";
+
 ScoreBoardContext* ScoreBoardContext::create(int stars, std::string gameName, std::string sceneName, int level)
 {
     ScoreBoardContext* scoreBoard = new (std::nothrow) ScoreBoardContext();
@@ -191,7 +198,7 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
                 auto badgeButton = ui::Button::create("rewards/" + badge + ".png", "rewards/" + badge + ".png", "rewards/" + badge + ".png", ui::Widget::TextureResType::LOCAL);
                 std::replace(badge.begin(), badge.end(), '_', ' ');
                 if(badgeButton != nullptr) {
-                    badgeButton->setTitleText(LangUtil::getInstance()->translateString(badge));
+                    badgeButton->setTitleText(LangUtil::getInstance()->translateString(badge.substr(2)));
                     badgeButton->setTitleFontName("Arial");
                     badgeButton->setTitleColor(Color3B(0xFF, 0xF2, 0x00));
                     badgeButton->setTitleFontSize(72);
@@ -202,7 +209,7 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
                     auto finalPos = Vec2(1000, 200);
                     if(numRewards == 1) {
                         finalPos = Vec2(-1000, 200);
-                    } else {
+                    } else if(numRewards > 1) {
                         finalPos = Vec2(0, 700);
                     }
                     auto jumpAction = JumpTo::create(1.0, finalPos, 600, 2);
@@ -227,6 +234,31 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
     return true;
 }
 
+std::map<std::string, std::map<std::string, int>> ScoreBoardContext::getRewards() {
+    std::map<std::string, std::map<std::string, int>> rewards;
+    std::string badgesStr;
+    localStorageGetItem("badges", &badgesStr);
+    if(!badgesStr.empty()) {
+        rapidjson::Document badgesDoc;
+        if (false == badgesDoc.Parse<0>(badgesStr.c_str()).HasParseError()) {
+            for (rapidjson::Value::ConstMemberIterator itr = badgesDoc.MemberBegin();
+                 itr != badgesDoc.MemberEnd(); ++itr) {
+                std::string badge = itr->name.GetString();
+                auto badgeType = badge.substr(0, 1);
+                if(rewards.count(badgeType) > 0) {
+                    rewards[badgeType][badge] = 1;
+                } else {
+                    std::map<std::string, int> badgesOfAType;
+                    badgesOfAType[badge] = 1;
+                    rewards[badgeType] = badgesOfAType;
+                }
+            }
+        }
+    }
+    return rewards;
+}
+
+
 std::vector<std::string> ScoreBoardContext::getStarBadges(int level) {
     std::vector<std::string> starBadges;
     std::string progressStr;
@@ -236,16 +268,16 @@ std::vector<std::string> ScoreBoardContext::getStarBadges(int level) {
         d.Parse(progressStr.c_str());
         if(d.Size() >= level) {
             if(d[level].GetInt() == 3) {
-                starBadges.push_back("3_star");
+                starBadges.push_back("b/3_star");
             }
             if(level >= 3) {
                 if(d[level-2].GetInt() == 3 && d[level-1].GetInt() == 3 && d[level].GetInt() == 3) {
-                    starBadges.push_back("3_3_star_in_a_row");
+                    starBadges.push_back("m/3_3_star_in_a_row");
                 }
             }
             if(level >= 5) {
                 if(d[level-4].GetInt() == 3 && d[level-3].GetInt() == 3 && d[level-2].GetInt() == 3 && d[level-1].GetInt() == 3 && d[level].GetInt() == 3) {
-                    starBadges.push_back("5_3_star_in_a_row");
+                    starBadges.push_back("c/5_3_star_in_a_row");
                 }
             }
         }
@@ -293,6 +325,7 @@ bool ScoreBoardContext::addBadges(std::vector<std::string> badges) {
         const char* output = buffer.GetString();
         localStorageSetItem("badges", output);
     }
+    auto test = getRewards();
     return badgeModified;
 }
 

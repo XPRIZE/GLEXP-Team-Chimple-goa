@@ -107,27 +107,19 @@ protected:
 	cocos2d::ui::Button* _settingMenu;
 	cocos2d::ui::Button* _closeButton;
     cocos2d::Node* _photoMenu;
-	cocos2d::Node* _settingNode;
     cocos2d::LayerColor* _greyLayer;
-	cocos2d::LayerColor* _settingLayer, *_calcLayer;
     cocos2d::Node* _chimp;
     cocos2d::ParticleSystem* _ps;
-	cocos2d::Sprite *_radio1Select, *_radio2Select;
-	Calculator *_calculator;
-	cocos2d::ui::CheckBox *_checkBox;
     int _chimpAudioId;
     void expandMenu(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
-	void closeCalc(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void pauseNodeAndDescendants(Node *pNode);
     void resumeNodeAndDescendants(Node *pNode);
     void showMap(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void showBook(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
-	void showSettingMenu();
     void changePhoto(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void showHelp(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void waitForAudioLoad(std::string audioFileName, std::function<void(bool isSuccess)>callback);
-	void radioButton(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void chimpHelp();
     void tellHelp();
     void stopTellHelp();
@@ -137,13 +129,16 @@ protected:
     void sadFace();
     void normalFace();
 	void addCalculator(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
-	void update(float);
     void removeMenuOnly();
     void unlockNextStory();
     void createUnlockStoryDocument(std::string storyToUnlock);
+
+	void showRewards();
     
     cocostudio::timeline::SkeletonNode* _character;
     
+	cocos2d::Layer * _showAnswerLayer;
+
     std::string gameName;
     std::string sceneName;
     std::function<void()> _startupCallback;
@@ -155,7 +150,6 @@ protected:
 	void videoPlayStart(std::string gameName);
 	void videoPlayOverCallback();
 
-	bool onTouchBeganOnSubmitButton(cocos2d::Touch *touch, cocos2d::Event *event);
     bool onTouchBeganOnCharacter(cocos2d::Touch *touch, cocos2d::Event *event);
     
     cocos2d::ui::Button* createMenuItem(const std::string normalImage,
