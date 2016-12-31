@@ -198,7 +198,7 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
                 auto badgeButton = ui::Button::create("rewards/" + badge + ".png", "rewards/" + badge + ".png", "rewards/" + badge + ".png", ui::Widget::TextureResType::LOCAL);
                 std::replace(badge.begin(), badge.end(), '_', ' ');
                 if(badgeButton != nullptr) {
-                    badgeButton->setTitleText(LangUtil::getInstance()->translateString(badge));
+                    badgeButton->setTitleText(LangUtil::getInstance()->translateString(badge.substr(2)));
                     badgeButton->setTitleFontName("Arial");
                     badgeButton->setTitleColor(Color3B(0xFF, 0xF2, 0x00));
                     badgeButton->setTitleFontSize(72);
@@ -209,7 +209,7 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
                     auto finalPos = Vec2(1000, 200);
                     if(numRewards == 1) {
                         finalPos = Vec2(-1000, 200);
-                    } else {
+                    } else if(numRewards > 1) {
                         finalPos = Vec2(0, 700);
                     }
                     auto jumpAction = JumpTo::create(1.0, finalPos, 600, 2);

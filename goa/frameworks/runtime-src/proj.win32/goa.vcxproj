@@ -329,6 +329,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClCompile Include="..\Classes\RPGSprite.cpp" />
     <ClCompile Include="..\Classes\RunningState.cpp" />
     <ClCompile Include="..\Classes\ScrollableGameMapScene.cpp" />
+    <ClCompile Include="..\Classes\Setting.cpp" />
     <ClCompile Include="..\Classes\SkeletonCharacter.cpp" />
     <ClCompile Include="..\Classes\SkeletonConfiguration.cpp" />
     <ClCompile Include="..\Classes\SkeletonPosition.cpp" />
@@ -538,6 +539,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClInclude Include="..\Classes\RPGSprite.h" />
     <ClInclude Include="..\Classes\RunningState.h" />
     <ClInclude Include="..\Classes\ScrollableGameMapScene.hpp" />
+    <ClInclude Include="..\Classes\Setting.h" />
     <ClInclude Include="..\Classes\SkeletonCharacter.h" />
     <ClInclude Include="..\Classes\SkeletonConfiguration.h" />
     <ClInclude Include="..\Classes\SkeletonPosition.h" />
