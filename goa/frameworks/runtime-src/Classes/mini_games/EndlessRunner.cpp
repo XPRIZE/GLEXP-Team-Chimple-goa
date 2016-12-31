@@ -37,6 +37,10 @@ void EndlessRunner::onEnterTransitionDidFinish()
 	const wchar_t*  alpha;
 	int currentLevel = _menuContext->getCurrentLevel();
 
+	if (currentLevel != 1) {
+		_flagHelp = false;
+	}
+
 	std::ostringstream blockName;
 	if (currentLevel >= 1 && currentLevel <= 9) {
 		alpha = LangUtil::getInstance()->getAllCharacters();
@@ -146,7 +150,7 @@ void EndlessRunner::scheduleMethod() {
 	this->schedule(schedule_selector(EndlessRunner::sceneTree1Flow), 2.5f);
 	this->schedule(schedule_selector(EndlessRunner::sceneTree2Flow), 1.4f);
 	this->schedule(schedule_selector(EndlessRunner::CreateMonsterWithLetter), _speedForLetterComing);
-	this->schedule(schedule_selector(EndlessRunner::addFirstBlockSecondLayer), randmValueIncludeBoundery(10,13));
+	this->schedule(schedule_selector(EndlessRunner::addFirstBlockSecondLayer), RandomHelper::random_int(16, 24));
 
 	this->scheduleUpdate();
 }
@@ -611,8 +615,8 @@ void EndlessRunner::addFirstBlockSecondLayer(float dt) {
 		currentSecondLayerRock = newSprite;
 		currentSecondLayerRock->runAction(MoveTo::create(EndlessRunner::movingTime(currentSecondLayerRock), Vec2(leftBarrier->getPosition().x + origin.x, (int)(visibleSize.height * 11 / 100) + origin.y)));
 		SecondLayerModes = 2;
-		int midValue[8] = {10,3,5,1,6,8,2,9};
-		SecondLayerCounterMidObjectValue = midValue[randmValueIncludeBoundery(0,7)];
+		int midValue[9] = {1,3,5,1,6,4,2,9,4};
+		SecondLayerCounterMidObjectValue = midValue[RandomHelper::random_int(0,8)];
 		startSecondFlag = false;
 	}
 }
@@ -621,13 +625,13 @@ int EndlessRunner::getSpeedForMonsterRunning()
 {
 	int totalAlphabets = _alphabets.size() * 5;
 	if (_totalCounterAlphabets > floor(totalAlphabets * 0.75)) {
-		return 3;
+		return 2;
 	}else if (_totalCounterAlphabets > floor(totalAlphabets * 0.50)) {
-		return 4;
+		return 3;
 	}else if (_totalCounterAlphabets > floor(totalAlphabets * 0.25)) {
-		return 5;
+		return 4;
 	}else if (_totalCounterAlphabets > floor(totalAlphabets * 0)) {
-		return 6;
+		return 5;
 	}
 	return 5;
 }
@@ -639,7 +643,7 @@ void EndlessRunner::AddRocksInSecondLayerPath() {
 		allPathBlocks.push_back(currentImage);
 		currentSecondLayerRock = currentImage;
 		currentSecondLayerRock->runAction(MoveTo::create(EndlessRunner::movingTime(currentSecondLayerRock), Vec2(leftBarrier->getPosition().x + origin.x, (int)(visibleSize.height * 11 / 100) + origin.y)));
-		startSecondFlag = true;
+		//startSecondFlag = true;
 	}
 
 	if (currentSecondLayerRock->NextRockName == "midLand") {
@@ -770,7 +774,6 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 		if(initBool)
 		currentFirstLayerRock = allPathBlocks[4];
 
-		auto nameLand = currentFirstLayerRock->currentRockName;
 		monsterImage->setScale(1.175);
 		Rect box = monsterImage->getChildByName("monster_egg")->getBoundingBox();
 
@@ -795,16 +798,31 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 		monsterImage->setTag(Character.uniqueId);
 
 		if (!startSecondFlag) {
-			monsterImage->setPosition(Vec2(rightBarrier->getPosition().x, (visibleSize.height * 58.8 / 100) + origin.y));
-		}
-		else if (FirstLayerModes == LayerMode.FirstLayerRightIntersectMode) {
-			monsterImage->setPosition(Vec2(rightBarrier->getPosition().x, (visibleSize.height * 47.3 / 100) + origin.y));
-			if (nameLand == "endLand") {
+			startSecondFlag = true;
+			monsterImage->setPosition(Vec2(rightBarrier->getPosition().x, (visibleSize.height * 0.52)));
+			auto nameLand = currentSecondLayerRock->currentRockName;
+			if (nameLand == "startLand") {
 				monsterImage->setPositionX(rightBarrier->getPosition().x - 500);
 			}
+			else if(nameLand == "midLand"){
+				monsterImage->setPositionX(rightBarrier->getPosition().x);
+			}
+			else
+			{
+				if (SecondLayerCounterMidObjectValue >= 5) {
+					monsterImage->setPositionX(rightBarrier->getPosition().x - 500);
+				}
+				else {
+					monsterImage->setPosition(Vec2(rightBarrier->getPosition().x - 300, (visibleSize.height * 0.473)));
+
+				}
+			}
+		}
+		else if (FirstLayerModes == LayerMode.FirstLayerRightIntersectMode) {
+			monsterImage->setPosition(Vec2(rightBarrier->getPosition().x - 300, (visibleSize.height * 0.473)));
 		}
 		else {
-			monsterImage->setPosition(Vec2(rightBarrier->getPosition().x, (visibleSize.height * 47 / 100) + origin.y));
+			monsterImage->setPosition(Vec2(rightBarrier->getPosition().x - 300, (visibleSize.height * 0.473)));
 		}
 		auto parent = monsterImage->getBoundingBox();
 		auto boxs = Rect(parent.origin.x + (box.origin.x), parent.origin.y + (box.origin.y), box.size.width, box.size.height);
