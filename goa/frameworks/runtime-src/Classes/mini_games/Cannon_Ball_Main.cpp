@@ -593,7 +593,7 @@ void MainGame::cannonBallHitAnimation(Node *nd)
 void MainGame::meteorBlast(Node *nd)
 {
 	self->removeChild(nd);
-	if (_score == 10)
+	if (_score >= 10)
 	{
 		_menuContext->setMaxPoints(MainGame::_totalHit);
 		_menuContext->addPoints(_score);

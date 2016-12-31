@@ -122,10 +122,7 @@ Wembley* Wembley::create() {
 void Wembley::gameOver(bool correct) {
 	if (correct) {
 		//_menuContext->showScore();
-
-		
-
-
+        MenuContext::pronounceWord(_word);
 		float wid = Director::getInstance()->getVisibleSize().width;
 		float hei = Director::getInstance()->getVisibleSize().height;
 		

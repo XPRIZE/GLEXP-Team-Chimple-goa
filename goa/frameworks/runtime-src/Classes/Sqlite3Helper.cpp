@@ -266,16 +266,33 @@ int Sqlite3Helper::checkIfItemExistsInBag(const char* item, const char* island) 
     return result;
 }
 
+
+std::string Sqlite3Helper::trim(const std::string &s)
+{
+    std::string::const_iterator it = s.begin();
+    while (it != s.end() && isspace(*it))
+        it++;
+    
+    std::string::const_reverse_iterator rit = s.rbegin();
+    while (rit.base() != it && isspace(*rit))
+        rit++;
+    
+    return std::string(it, rit.base());
+}
+
 std::vector<MessageContent*> Sqlite3Helper::findEventsByOwnerInScene(const char* owner, const char* sceneName) {
     /* Create SQL statement */
     
     sqlite3_stmt *res;
     int rc = 0;
+    
+    
+    owner = trim(owner).c_str();
+    sceneName = trim(sceneName).c_str();
 
     const char* querySQL = "SELECT EVENT_ID, PRE_CONDITION_EVENT_ID, CONDITION, CONDITION_RESULT, ACTION, DIALOG, OWNER, PLAY_ANIMATION_IN_LOOP, PRE_OUTCOME_ACTION, POST_OUTCOME_ACTION, SCENE_NAME, SHOULD_DISPLAY_IN_BAG, HINTS FROM EVENTS WHERE OWNER=@owner_1 AND SCENE_NAME = @sceneName_1 AND CONDITION = '' AND PRE_CONDITION_EVENT_ID = 0 UNION SELECT EVENT_ID, PRE_CONDITION_EVENT_ID, CONDITION, CONDITION_RESULT, ACTION, DIALOG, OWNER, PLAY_ANIMATION_IN_LOOP, PRE_OUTCOME_ACTION, POST_OUTCOME_ACTION, SCENE_NAME, SHOULD_DISPLAY_IN_BAG, HINTS FROM EVENTS E INNER JOIN MY_BAG B ON E.CONDITION = B.ITEM AND E.OWNER = @owner_2 AND SCENE_NAME = @sceneName_2 AND E.CONDITION_RESULT = 1 AND E.PRE_CONDITION_EVENT_ID = 0 AND B.USED IN(0,1) UNION SELECT EVENT_ID, PRE_CONDITION_EVENT_ID, CONDITION, CONDITION_RESULT, ACTION, DIALOG, OWNER, PLAY_ANIMATION_IN_LOOP, PRE_OUTCOME_ACTION, POST_OUTCOME_ACTION, SCENE_NAME, SHOULD_DISPLAY_IN_BAG, HINTS FROM EVENTS WHERE OWNER=@owner_3 AND SCENE_NAME = @sceneName_3 AND CONDITION_RESULT= 0 AND CONDITION != '' AND CONDITION NOT IN (SELECT ITEM FROM MY_BAG) ORDER BY EVENT_ID ASC";
     
     
-        //std::replace(sceneName.begin(), sceneName.end(), ' ', '');
     /* Execute SQL statement */
     
     rc = sqlite3_prepare_v2(this->dataBaseConnection, querySQL, -1, &res, 0);

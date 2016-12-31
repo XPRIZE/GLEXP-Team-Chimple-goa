@@ -141,6 +141,10 @@ bool MenuContext::init(Node* main) {
     return true;
 }
 
+void MenuContext::onExitTransitionDidStart() {
+    CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+}
+
 void MenuContext::pauseNodeAndDescendants(Node *pNode)
 {
     _gameIsPaused = true;
@@ -195,6 +199,9 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 if(_gamesMenu) {
                     closeActions.pushBack(TargetedAction::create(_gamesMenu, elastic->clone()));
                 }
+                if(_mapMenu) {
+                    closeActions.pushBack(TargetedAction::create(_mapMenu, elastic->clone()));
+                }
 
 //                if(_photoMenu) {
 //                    auto targetPhotoCloseAction = TargetedAction::create(_photoMenu, elastic->clone());
@@ -212,21 +219,27 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 if(gameName == "menu") {
                     _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
                     _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
-                    _settingMenu = this->createMenuItem("menu/settings.png", "menu/settings.png", "menu/settings.png", 2 * POINTS_TO_LEFT);
+                    _mapMenu = this->createMenuItem("menu/reward.png", "menu/reward.png", "menu/reward.png", 2 * POINTS_TO_LEFT);
+                    _mapMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
+                    _settingMenu = this->createMenuItem("menu/settings.png", "menu/settings.png", "menu/settings.png", 3 * POINTS_TO_LEFT);
                     _settingMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::addCalculator, this));
-                    _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png", 3 * POINTS_TO_LEFT);
+                    _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png", 4 * POINTS_TO_LEFT);
                     _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
                 } else if(gameName == "levelMenu" || gameName == "story-play" || gameName == "map") {
                     _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
                     _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
-                    _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png", 2 * POINTS_TO_LEFT);
+                    _mapMenu = this->createMenuItem("menu/reward.png", "menu/reward.png", "menu/reward.png", 2 * POINTS_TO_LEFT);
+                    _mapMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
+                    _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png", 3 * POINTS_TO_LEFT);
                     _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
                 } else {
                     _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
                     _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
-                    _bookMenu = this->createMenuItem("menu/back.png", "menu/back.png", "menu/back.png", 2 * POINTS_TO_LEFT);
+                    _mapMenu = this->createMenuItem("menu/reward.png", "menu/reward.png", "menu/reward.png", 2 * POINTS_TO_LEFT);
+                    _mapMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
+                    _bookMenu = this->createMenuItem("menu/back.png", "menu/back.png", "menu/back.png", 3 * POINTS_TO_LEFT);
                     _bookMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showBook, this));
-                    _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png", 3 * POINTS_TO_LEFT);
+                    _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png", 4 * POINTS_TO_LEFT);
                     _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
                 }
 //                _photoMenu = this->createAvatarMenuItem("", "", "", 6 * POINTS_TO_LEFT);
@@ -543,6 +556,10 @@ void MenuContext::removeMenuOnly() {
             removeChild(_settingMenu);
             _settingMenu = nullptr;            
         }
+        if(_mapMenu) {
+            removeChild(_mapMenu);
+            _mapMenu = nullptr;
+        }
         
         //        if(_photoMenu) {
         //            removeChild(_photoMenu);
@@ -792,7 +809,9 @@ void MenuContext::waitForAudioLoad(std::string audioFileName, std::function<void
 
 void MenuContext::showBook(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
-        if(gameName == "Show Stories") {
+        
+        std::size_t isStories = gameName.find("storyId");
+        if (isStories!=std::string::npos || gameName == "Show Stories"){
             ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
         } else if(gameName == "Safari RPG") {
             Director::getInstance()->replaceScene(MapScene::createScene());

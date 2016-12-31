@@ -197,6 +197,7 @@ void Chain::createAnswer() {
 void Chain::gameOver(bool correct)
 {
 	if (correct) {
+        MenuContext::pronounceWord(_word);
 		_grid->touchEndedCallback = nullptr;
 		if (!Chain::_SS.compare("monkey"))
 		{

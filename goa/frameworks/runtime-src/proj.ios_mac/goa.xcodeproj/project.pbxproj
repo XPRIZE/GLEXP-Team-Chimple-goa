@@ -66,6 +66,8 @@
 		9C1E82FB1E13FD3B0052E8B5 /* Award.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C1E82F61E13FD040052E8B5 /* Award.cpp */; };
 		9C4C88A21DEE5AA70022EB1C /* PopCount.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C4C88A01DEE5AA70022EB1C /* PopCount.cpp */; };
 		9C4C88A51DEE5AAA0022EB1C /* PopCount.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C4C88A01DEE5AA70022EB1C /* PopCount.cpp */; };
+		9C4D1B6F1E165CF600277926 /* AlphabetWriting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C4D1B6D1E165CF600277926 /* AlphabetWriting.cpp */; };
+		9C4D1B721E165D4800277926 /* AlphabetWriting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C4D1B6D1E165CF600277926 /* AlphabetWriting.cpp */; };
 		9C6007A71DC1DBB700F9C184 /* CarDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6007A31DC1DBB700F9C184 /* CarDraw.cpp */; };
 		9C6007A81DC1DBB700F9C184 /* CarDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6007A31DC1DBB700F9C184 /* CarDraw.cpp */; };
 		9C6007A91DC1DBB700F9C184 /* CarDrawNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6007A51DC1DBB700F9C184 /* CarDrawNode.cpp */; };
@@ -576,6 +578,8 @@
 		9C1E82F71E13FD040052E8B5 /* Award.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Award.h; sourceTree = "<group>"; };
 		9C4C88A01DEE5AA70022EB1C /* PopCount.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PopCount.cpp; sourceTree = "<group>"; };
 		9C4C88A11DEE5AA70022EB1C /* PopCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopCount.h; sourceTree = "<group>"; };
+		9C4D1B6D1E165CF600277926 /* AlphabetWriting.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AlphabetWriting.cpp; sourceTree = "<group>"; };
+		9C4D1B6E1E165CF600277926 /* AlphabetWriting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphabetWriting.h; sourceTree = "<group>"; };
 		9C6007A31DC1DBB700F9C184 /* CarDraw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CarDraw.cpp; sourceTree = "<group>"; };
 		9C6007A41DC1DBB700F9C184 /* CarDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDraw.h; sourceTree = "<group>"; };
 		9C6007A51DC1DBB700F9C184 /* CarDrawNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CarDrawNode.cpp; sourceTree = "<group>"; };
@@ -1309,6 +1313,8 @@
 		F352471A1D6D9D1A0077C333 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				9C4D1B6D1E165CF600277926 /* AlphabetWriting.cpp */,
+				9C4D1B6E1E165CF600277926 /* AlphabetWriting.h */,
 				9C6F61961DFA725B00B6A8B6 /* DinoGame.cpp */,
 				9C6F61971DFA725B00B6A8B6 /* DinoGame.h */,
 				9C4C88A01DEE5AA70022EB1C /* PopCount.cpp */,
@@ -1925,6 +1931,7 @@
 				509D4A8117EBB24E00697056 /* AppDelegate.cpp in Sources */,
 				F35247F51D6D9D1A0077C333 /* LangUtil.cpp in Sources */,
 				9C7C1A721DD8F78000DD5C6B /* ChocolateFactory.cpp in Sources */,
+				9C4D1B721E165D4800277926 /* AlphabetWriting.cpp in Sources */,
 				F3667D191DB4BA6F00EC8908 /* LTKCaptureDevice.cpp in Sources */,
 				F3667D5D1DB4BA7000EC8908 /* LTKCheckSumGenerate.cpp in Sources */,
 				F35248431D6D9D1A0077C333 /* I18nUtils.cpp in Sources */,
@@ -2180,6 +2187,7 @@
 				F36944971E06FBCE00C69875 /* CommonLabel.cpp in Sources */,
 				F35248081D6D9D1A0077C333 /* Grapheme.cpp in Sources */,
 				F3D201A31D7409B400FDB750 /* Train.cpp in Sources */,
+				9C4D1B6F1E165CF600277926 /* AlphabetWriting.cpp in Sources */,
 				F35247E21D6D9D1A0077C333 /* SmashTheRockLevelScene.cpp in Sources */,
 				F35247F01D6D9D1A0077C333 /* EnglishUtil.cpp in Sources */,
 				F37286F21DCB4B5000F4804A /* BlastLetter.cpp in Sources */,
