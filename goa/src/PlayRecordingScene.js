@@ -3,7 +3,7 @@ var xc = xc || {};
 xc.PLAY_KEY = xc.path + "wikitaki/xcPlayStory.json";
 xc.PLAY_RECORD_LAYER_INIT = false;
 
-xc.PlayRecordingLayer = cc.Layer.extend({
+xc.PlayRecordingLayer = cc.LayerColor.extend({
     _defaultPageIndex: 0,
     _contentPanel: null,
     _pageConfigPanel: null,
@@ -12,7 +12,7 @@ xc.PlayRecordingLayer = cc.Layer.extend({
     _configPanelWidth: null,
     _configPanelHeight: null,
     ctor: function () {
-        this._super(xc.DARK_PRIMARY_COLOR);
+        this._super(xc.PRIMARY_COLOR);
         this._name = "PlayLayer";
         this._controlPanel = null;
         this._contentPanelWidth = cc.director.getWinSize().width; //assuming landscape
@@ -28,7 +28,11 @@ xc.PlayRecordingLayer = cc.Layer.extend({
         this.addChild(this._contentPanel);
         this._pageConfigPanel = new xc.BaseConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(0, 0), xc.storyPlayConfigurationObject.editDefault, this._contentPanel);
         this.addChild(this._pageConfigPanel);
-        this._pageConfigPanel.setVisible(false);
+
+        this._blankPageConfigPanel = new xc.BaseConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(this._contentPanelWidth - this._configPanelWidth, 0), [], this._contentPanel);
+        this.addChild(this._blankPageConfigPanel);
+        
+        this._pageConfigPanel.setVisible(true);
         this.playRecordedScene();
 
     },
@@ -43,7 +47,6 @@ xc.PlayRecordingLayer = cc.Layer.extend({
 
     playEnded: function () {
         //create delay action
-        cc.log('ended 1111');
         var delayAction = new cc.DelayTime(2);
         var createWebViewAction = new cc.CallFunc(this.referenceToContext.createWebView, this.referenceToContext);
         var playEndSequence = cc.Sequence.create(delayAction, createWebViewAction);
@@ -52,17 +55,16 @@ xc.PlayRecordingLayer = cc.Layer.extend({
     },
     
     createWebView: function() {
-        if (xc.story.items[xc.pageIndex].sceneText != null && xc.story.items[xc.pageIndex].sceneText !== "undefined") {
-            this.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), xc.story.items[xc.pageIndex].sceneText, this.processText, null, this, false));
+        var that = this;
+        if (xc.story.items[xc.pageIndex].sceneText != null && xc.story.items[xc.pageIndex].sceneText !== "undefined" 
+        && xc.story.items[xc.pageIndex].sceneText.length > 0) {
+            this.addChild(new xc.TextCreatePanel(xc.PlayRecordingLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), xc.story.items[xc.pageIndex].sceneText, that.processText, null, that));
         }     
-        cc.log('ended 22222');
         this._pageConfigPanel.setVisible(true);           
     },
     
     playRecordedScene: function () {      
-        cc.log('555555555');  
         if (this._contentPanel._constructedScene.node && this._contentPanel._constructedScene.action.getDuration() > 0) {            
-            cc.log('666666');
             this._contentPanel._constructedScene.action.referenceToContext = this;
             this._contentPanel._constructedScene.action.setLastFrameCallFunc(this.playEnded);
             this._contentPanel._constructedScene.action.gotoFrameAndPause(0);
@@ -132,5 +134,6 @@ xc.PlayRecordingLayer.res = {
         animationb_skeleton_png: xc.path + "animation/animationb/animationb.png",
         animationb_skeleton_plist: xc.path + "animation/animationb/animationb.plist",
         animationc_skeleton_png: xc.path + "animation/animationc/animationc.png",
-        animationc_skeleton_plist: xc.path + "animation/animationc/animationc.plist"
+        animationc_skeleton_plist: xc.path + "animation/animationc/animationc.plist",
+        textBubble_json: xc.path + "template/bubble_tem.json"
 };

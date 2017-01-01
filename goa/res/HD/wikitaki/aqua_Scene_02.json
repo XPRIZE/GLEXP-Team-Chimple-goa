@@ -1,0 +1,302 @@
+{
+  "ID": "77d6e08e-955a-4a40-b90e-4cbe2bbadfe0",
+  "Version": "3.10.0.0",
+  "Name": "Scene_02",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 45,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {},
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 47,
+            "ActionTag": 414531779,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/aqua_bg_2.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 894.8197,
+              "Y": 869.25
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4971,
+              "Y": 0.4829
+            },
+            "PreSize": {
+              "X": 0.9367,
+              "Y": 0.8294
+            },
+            "LeftMargin": 51.8197,
+            "RightMargin": 62.1803,
+            "TopMargin": 184.25,
+            "BottomMargin": 122.75,
+            "Tag": 46,
+            "ActionTag": -1947233186,
+            "Size": {
+              "X": 1686.0,
+              "Y": 1493.0
+            },
+            "Name": "bg_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path":"ob/kitchen/aqua_bonfire.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 709.4645,
+              "Y": 396.2778
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3941,
+              "Y": 0.2202
+            },
+            "PreSize": {
+              "X": 0.13,
+              "Y": 0.2322
+            },
+            "LeftMargin": 592.4645,
+            "RightMargin": 973.5355,
+            "TopMargin": 1194.7222,
+            "BottomMargin": 187.2778,
+            "Tag": 48,
+            "ActionTag": 944469839,
+            "Size": {
+              "X": 234.0,
+              "Y": 418.0
+            },
+            "Name": "bonfire",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/sky/moon.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1003.4764,
+              "Y": 1450.8853
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5575,
+              "Y": 0.806
+            },
+            "PreSize": {
+              "X": 0.1339,
+              "Y": 0.1344
+            },
+            "LeftMargin": 882.9764,
+            "RightMargin": 676.0236,
+            "TopMargin": 228.1147,
+            "BottomMargin": 1329.8853,
+            "Tag": 49,
+            "ActionTag": -1385093691,
+            "Size": {
+              "X": 241.0,
+              "Y": 242.0
+            },
+            "Name": "moon",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/aqua_trees.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 494.8633,
+              "Y": 1215.5967
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2749,
+              "Y": 0.6753
+            },
+            "PreSize": {
+              "X": 0.5144,
+              "Y": 0.4111
+            },
+            "LeftMargin": 31.8633,
+            "RightMargin": 842.1367,
+            "TopMargin": 214.4033,
+            "BottomMargin": 845.5967,
+            "Tag": 51,
+            "ActionTag": 1629315119,
+            "Size": {
+              "X": 926.0,
+              "Y": 740.0
+            },
+            "Name": "trees",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/aqua_tent.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 552.7791,
+              "Y": 913.6078
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3071,
+              "Y": 0.5076
+            },
+            "PreSize": {
+              "X": 0.5483,
+              "Y": 0.3417
+            },
+            "LeftMargin": 59.2791,
+            "RightMargin": 753.7209,
+            "TopMargin": 578.8922,
+            "BottomMargin": 606.1078,
+            "Tag": 50,
+            "ActionTag": -406381703,
+            "Size": {
+              "X": 987.0,
+              "Y": 615.0
+            },
+            "Name": "tent",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bg/aqua_bg_2.png",
+       "ob/kitchen/aqua_bonfire.png",
+        "ob/sky/moon.png",
+        "ob/house/aqua_tent.png",
+        "ob/tree/aqua_trees.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

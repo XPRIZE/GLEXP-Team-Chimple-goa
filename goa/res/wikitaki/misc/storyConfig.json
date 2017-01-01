@@ -620,7 +620,7 @@
              {
               "icon": "human/costume/austronaut_thumbnail.png",
               "json": "human_skeleton.json",
-              "skeletonConfigJson": "wikitaki/characters/skeletonConfig/female_Human_Skeleton.json",              
+              "skeletonConfigJson": "wikitaki/characters/skeletonConfig/female_human_skeleton.json",              
               "skinNameMap": "female_lawyer",
               "colorSkins": [
                 {
@@ -2549,19 +2549,9 @@
       "icon": "icons/edit.png"
     },
     {
-      "name": "delete",
-      "cIcon": "icons/delete_onclick.png",
-      "icon": "icons/delete.png"
-    },
-    {
-      "name": "prev",
-      "cIcon": "icons/back_onclick.png",
-      "icon": "icons/back.png"
-    },
-    {
-      "name": "next",
-      "cIcon": "icons/next_arrow_onclick.png",
-      "icon": "icons/next_arrow.png"
+      "name": "play",
+      "cIcon": "icons/play_disabled.png",
+      "icon": "icons/play.png"
     }
   ],
   "blank": []

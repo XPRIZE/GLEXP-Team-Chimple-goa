@@ -1,0 +1,443 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "MainScene",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "G": 225,
+              "B": 141
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -0.314,
+              "Y": -0.2856
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0002,
+              "Y": -0.0002
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": -0.314,
+            "RightMargin": 0.314,
+            "TopMargin": 0.2856,
+            "BottomMargin": -0.2856,
+            "Tag": 3,
+            "ActionTag": -386402261,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/the_hungry_mouse_background.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 892.4026,
+              "Y": 456.7734
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4958,
+              "Y": 0.2538
+            },
+            "PreSize": {
+              "X": 0.9678,
+              "Y": 0.3939
+            },
+            "LeftMargin": 21.4026,
+            "RightMargin": 36.5974,
+            "TopMargin": 988.7266,
+            "BottomMargin": 102.2734,
+            "Tag": 4,
+            "ActionTag": -1223698797,
+            "Size": {
+              "X": 1742.0,
+              "Y": 709.0
+            },
+            "Name": "background_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/sky/the_hungry_mouse_cloud.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 330.9418,
+              "Y": 1579.9509
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1839,
+              "Y": 0.8778
+            },
+            "PreSize": {
+              "X": 0.2089,
+              "Y": 0.0578
+            },
+            "LeftMargin": 142.9418,
+            "RightMargin": 1281.0582,
+            "TopMargin": 168.0491,
+            "BottomMargin": 1527.9509,
+            "Tag": 5,
+            "ActionTag": -829171684,
+            "Size": {
+              "X": 376.0,
+              "Y": 104.0
+            },
+            "Name": "cloud_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/sky/the_hungry_mouse_cloud.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 838.4103,
+              "Y": 1435.47
+            },
+            "Scale": {
+              "ScaleX": 1.1815,
+              "ScaleY": 1.5623
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4658,
+              "Y": 0.7975
+            },
+            "PreSize": {
+              "X": 0.2089,
+              "Y": 0.0578
+            },
+            "LeftMargin": 650.4103,
+            "RightMargin": 773.5897,
+            "TopMargin": 312.53,
+            "BottomMargin": 1383.47,
+            "Tag": 6,
+            "ActionTag": -849733995,
+            "Size": {
+              "X": 376.0,
+              "Y": 104.0
+            },
+            "Name": "cloud_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/sky/the_hungry_mouse_cloud.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1487.6876,
+              "Y": 1635.2235
+            },
+            "Scale": {
+              "ScaleX": 0.8849,
+              "ScaleY": 0.8849
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8265,
+              "Y": 0.9085
+            },
+            "PreSize": {
+              "X": 0.2089,
+              "Y": 0.0578
+            },
+            "LeftMargin": 1299.6876,
+            "RightMargin": 124.3124,
+            "TopMargin": 112.7765,
+            "BottomMargin": 1583.2235,
+            "Tag": 7,
+            "ActionTag": -1530626353,
+            "Size": {
+              "X": 376.0,
+              "Y": 104.0
+            },
+            "Name": "cloud_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/the_hungry_mouse_house.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1342.027,
+              "Y": 992.5945
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7456,
+              "Y": 0.5514
+            },
+            "PreSize": {
+              "X": 0.4333,
+              "Y": 0.5444
+            },
+            "LeftMargin": 952.027,
+            "RightMargin": 67.973,
+            "TopMargin": 317.4055,
+            "BottomMargin": 502.5945,
+            "Tag": 8,
+            "ActionTag": 1680023262,
+            "Size": {
+              "X": 780.0,
+              "Y": 980.0
+            },
+            "Name": "house_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/the_hungry_mouse_tree.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 204.0129,
+              "Y": 905.5009
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1133,
+              "Y": 0.5031
+            },
+            "PreSize": {
+              "X": 0.2006,
+              "Y": 0.4722
+            },
+            "LeftMargin": 23.5129,
+            "RightMargin": 1415.4871,
+            "TopMargin": 469.4991,
+            "BottomMargin": 480.5009,
+            "Tag": 9,
+            "ActionTag": 201618400,
+            "Size": {
+              "X": 361.0,
+              "Y": 850.0
+            },
+            "Name": "tree_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/the_hungry_mouse_tree.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 407.3481,
+              "Y": 787.7087
+            },
+            "Scale": {
+              "ScaleX": 0.7112,
+              "ScaleY": 0.7112
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2263,
+              "Y": 0.4376
+            },
+            "PreSize": {
+              "X": 0.2006,
+              "Y": 0.4722
+            },
+            "LeftMargin": 226.8481,
+            "RightMargin": 1212.1519,
+            "TopMargin": 587.2913,
+            "BottomMargin": 362.7087,
+            "Tag": 10,
+            "ActionTag": -406695030,
+            "Size": {
+              "X": 361.0,
+              "Y": 850.0
+            },
+            "Name": "tree_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/food/the_hungry_mouse_corn_bucket.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1534.6733,
+              "Y": 546.6133
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8526,
+              "Y": 0.3037
+            },
+            "PreSize": {
+              "X": 0.0817,
+              "Y": 0.1317
+            },
+            "LeftMargin": 1461.1733,
+            "RightMargin": 191.8267,
+            "TopMargin": 1134.8867,
+            "BottomMargin": 428.1133,
+            "Tag": 11,
+            "ActionTag": 580315223,
+            "Size": {
+              "X": 147.0,
+              "Y": 237.0
+            },
+            "Name": "corn_bucket_8",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bg/the_hungry_mouse_background.png",
+        "ob/sky/the_hungry_mouse_cloud.png",
+        "ob/food/the_hungry_mouse_corn_bucket.png",
+        "ob/house/the_hungry_mouse_house.png",
+        "ob/tree/the_hungry_mouse_tree.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
