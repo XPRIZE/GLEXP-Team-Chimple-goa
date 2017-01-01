@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-12-15 22:45+0530\n"
-"PO-Revision-Date: 2016-12-15 22:46+0530\n"
+"POT-Creation-Date: 2017-01-01 15:46+0530\n"
+"PO-Revision-Date: 2017-01-01 15:55+0530\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sw_TZ\n"
@@ -16,180 +16,329 @@ msgstr ""
 "X-Poedit-SearchPath-0: frameworks/runtime-src/Classes\n"
 "X-Poedit-SearchPath-1: res/config/game_map.json\n"
 
-#: frameworks/runtime-src/Classes/HelloWorldScene.cpp:470
+#: frameworks/runtime-src/Classes/HelloWorldScene.cpp:719
 msgid "Hello world!"
 msgstr ""
 
-#: frameworks/runtime-src/Classes/ScrollableGameMapScene.cpp:175
-#: frameworks/runtime-src/Classes/ScrollableGameMapScene.cpp:283
+#: frameworks/runtime-src/Classes/ScrollableGameMapScene.cpp:237
+#: frameworks/runtime-src/Classes/ScrollableGameMapScene.cpp:303
+#: frameworks/runtime-src/Classes/menu/LevelMenu.cpp:58
+#: frameworks/runtime-src/Classes/menu/ScoreBoardContent.cpp:73
 msgid "title"
 msgstr ""
 
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:87
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:91
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:95
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:99
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:103
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:107
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:111
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:115
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:88
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:92
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:96
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:100
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:104
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:108
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:112
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:116
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:457
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:465
 msgid "Catch the nouns"
 msgstr "Kukamata majina"
 
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:132
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:136
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:140
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:144
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:148
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:152
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:156
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:160
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:133
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:137
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:141
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:145
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:149
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:153
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:157
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:161
 msgid "Catch the adjective"
 msgstr "Kukamata kivumishi"
 
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:177
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:181
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:185
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:189
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:193
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:197
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:201
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:205
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:178
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:182
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:186
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:190
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:194
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:198
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:202
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:206
 msgid "Catch the verb"
 msgstr "Kukamata verb"
 
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:223
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:227
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:231
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:235
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:239
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:243
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:247
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:251
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:224
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:228
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:232
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:236
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:240
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:244
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:248
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:252
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:481
 msgid "Catch the pronouns"
 msgstr "Kukamata pronouns"
 
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:269
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:273
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:277
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:281
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:285
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:289
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:293
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:297
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:270
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:274
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:278
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:282
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:286
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:290
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:294
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:298
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:461
 msgid "Catch the adverbs"
 msgstr "Kukamata vielezi"
 
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:315
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:319
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:323
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:327
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:331
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:335
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:339
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:343
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:316
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:320
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:324
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:328
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:332
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:336
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:340
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:344
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:469
 msgid "Catch the prepositions"
 msgstr "Kukamata viunganishi"
 
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:360
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:364
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:368
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:372
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:376
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:380
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:384
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:388
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:361
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:365
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:369
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:373
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:377
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:381
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:385
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:389
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:473
 msgid "Catch the conjuctions"
 msgstr "Kukamata viunganishi"
 
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:406
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:410
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:414
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:418
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:422
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:426
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:430
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:434
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:407
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:411
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:415
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:419
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:423
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:427
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:431
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:435
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:453
+#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:477
 msgid "Catch the interjections"
 msgstr "Kukamata "
 
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:452
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:456
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:460
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:464
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:468
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:472
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:476
-#: frameworks/runtime-src/Classes/mini_games/BalloonHero.cpp:480
-msgid "Catch the articles"
-msgstr "kukamata makala"
+#: frameworks/runtime-src/Classes/mini_games/Bingo.cpp:243
+msgid "choose same sounding word : "
+msgstr ""
 
-#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:100
-#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:125
-#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:150
-#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:175
-#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:199
-#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:224
-#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:107
-#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:132
-#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:156
-#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:180
-#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:204
-#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:228
-#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:105
-#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:130
-#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:154
-#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:178
-#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:202
-#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:226
+#: frameworks/runtime-src/Classes/mini_games/Bingo.cpp:244
+msgid "List of Homonyms"
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Bingo.cpp:256
+msgid "choose meaning word of : "
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Bingo.cpp:257
+msgid "List of Synonyms"
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Bingo.cpp:269
+msgid "choose opposite word of : "
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Bingo.cpp:270
+msgid "List of Antonyms"
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/CatGameScene.cpp:304
+msgid "List of words"
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Circle.cpp:136
+#: frameworks/runtime-src/Classes/mini_games/Dash.cpp:174
+#: frameworks/runtime-src/Classes/mini_games/Owl.cpp:161
+msgid "Make word of same meaning as : "
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Circle.cpp:137
+#: frameworks/runtime-src/Classes/mini_games/Dash.cpp:175
+#: frameworks/runtime-src/Classes/mini_games/Owl.cpp:162
+msgid "List of same meaning words"
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Circle.cpp:155
+#: frameworks/runtime-src/Classes/mini_games/Dash.cpp:193
+#: frameworks/runtime-src/Classes/mini_games/Owl.cpp:155
+msgid "Make opposite of : "
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Circle.cpp:156
+#: frameworks/runtime-src/Classes/mini_games/Dash.cpp:194
+#: frameworks/runtime-src/Classes/mini_games/Owl.cpp:156
+msgid "List of opposite words"
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Circle.cpp:174
+#: frameworks/runtime-src/Classes/mini_games/Dash.cpp:212
+#: frameworks/runtime-src/Classes/mini_games/Owl.cpp:167
+msgid "Make same sounding word as : "
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Circle.cpp:175
+#: frameworks/runtime-src/Classes/mini_games/Dash.cpp:213
+#: frameworks/runtime-src/Classes/mini_games/Owl.cpp:168
+msgid "List of same sounding words"
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:101
+#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:126
+#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:151
+#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:176
+#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:200
+#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:225
+#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:108
+#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:133
+#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:157
+#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:181
+#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:205
+#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:229
+#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:106
+#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:131
+#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:155
+#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:179
+#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:203
+#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:227
 msgid "Match the opposites"
 msgstr "mechi kinyume"
 
-#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:105
-#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:130
-#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:155
-#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:180
-#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:204
-#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:229
-#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:112
-#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:137
-#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:161
-#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:185
-#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:209
-#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:233
-#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:110
-#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:135
-#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:159
-#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:183
-#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:207
-#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:231
+#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:106
+#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:131
+#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:156
+#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:181
+#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:205
+#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:230
+#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:113
+#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:138
+#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:162
+#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:186
+#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:210
+#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:234
+#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:111
+#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:136
+#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:160
+#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:184
+#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:208
+#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:232
 msgid "Match the same meaning words"
 msgstr "Mechi maneno yale yale maana"
 
-#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:110
-#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:135
-#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:160
-#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:185
-#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:209
-#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:234
-#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:117
-#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:142
-#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:166
-#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:190
-#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:214
-#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:238
-#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:115
-#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:140
-#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:164
-#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:188
-#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:212
-#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:236
+#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:111
+#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:136
+#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:161
+#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:186
+#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:210
+#: frameworks/runtime-src/Classes/mini_games/Memory.cpp:235
+#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:118
+#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:143
+#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:167
+#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:191
+#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:215
+#: frameworks/runtime-src/Classes/mini_games/MemoryHero.cpp:239
+#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:116
+#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:141
+#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:165
+#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:189
+#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:213
+#: frameworks/runtime-src/Classes/mini_games/MemoryJungle.cpp:237
 msgid "Match the same sounding words"
 msgstr "Mechi maneno yale yale sounding"
 
-#: frameworks/runtime-src/Classes/mini_games/spot.cpp:163
-msgid "How many         are there?"
-msgstr "Wangapi            huko?"
+#: frameworks/runtime-src/Classes/mini_games/Owl.cpp:144
+msgid "Make same word : "
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Owl.cpp:145
+msgid "List of same words"
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Owl.cpp:149
+msgid "Make plural of : "
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Owl.cpp:150
+msgid "List of singular-plural words"
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Pillar.cpp:142
+msgid "Identify the NOUN"
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Pillar.cpp:165
+msgid "Identify the VERB"
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Pillar.cpp:187
+msgid "Identify the ADJECTIVE"
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Pillar.cpp:558
+msgid "List of Nouns"
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Pillar.cpp:562
+msgid "List of Verbs"
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Pillar.cpp:566
+msgid "List of Adjectives"
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Talk.cpp:49
+msgid "Select Verb"
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Talk.cpp:68
+msgid "Select Noun"
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Talk.cpp:87
+msgid "Select Pronoun"
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Talk.cpp:106
+msgid "Select Adverb"
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Talk.cpp:112
+msgid "Select Adjective"
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Talk.cpp:118
+msgid "Select Preposition"
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Talk.cpp:124
+msgid "Select Conjunction"
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Talk.cpp:130
+msgid "Select Interjection"
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/Talk.cpp:136
+msgid "Select Article"
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/spot.cpp:164
+msgid "How many"
+msgstr ""
+
+#: frameworks/runtime-src/Classes/mini_games/spot.cpp:178
+msgid "are there?"
+msgstr ""
+
+#~ msgid "Catch the articles"
+#~ msgstr "kukamata makala"
+
+#~ msgid "How many         are there?"
+#~ msgstr "Wangapi            huko?"
 
 #~ msgid "Stories"
 #~ msgstr "hadithi"
