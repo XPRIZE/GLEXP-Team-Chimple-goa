@@ -573,19 +573,26 @@ void Pillar::update(float dt)
 	}
 	CCLOG("update end");
 }
+void Pillar::enableListener(float dt)
+{
+	_cakeTouchFlag = true;
 
+}
 bool Pillar::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 {
 	CCLOG("onTouchBegan begin");
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	
-	auto target = event->getCurrentTarget();
-	auto  location = _cake->getParent()->convertToWorldSpace(_cake->getPosition());
-	Rect rect = Rect(0, 0, target->getContentSize().width, target->getContentSize().height);
+	
+	//Rect rect = Rect(0, 0, target->getContentSize().width, target->getContentSize().height);
 	
 
-	//if (rect.containsPoint(location))
+	if (_cakeTouchFlag && _cake != nullptr)
 	{
+		auto target = event->getCurrentTarget();
+		auto  location = _cake->getParent()->convertToWorldSpace(_cake->getPosition());
+		_cakeTouchFlag = false;
+		this->scheduleOnce(schedule_selector(Pillar::enableListener), 3);
 		auto check =_wordList.at(_num);
 			if (std::find(_wordCorrect.begin(), _wordCorrect.end(),check) != _wordCorrect.end())
 			{
@@ -593,6 +600,7 @@ bool Pillar::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				_cakeFlag = false;
 				_ladder->stopAllActions();
 				_ladder->removeChild(_cake);
+				_cake = nullptr;
 				_ladder->removeChild(_topLabel);
 				_cakeMove = Sprite::createWithSpriteFrameName(_scenePath.at("cakePath"));
 				//_cakeMove->setScale(0.55);
@@ -655,6 +663,7 @@ bool Pillar::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				_cakeFlag = true;
 				_ladder->stopAllActions();
 				_ladder->removeChild(_cake);
+				_cake = nullptr;
 				_ladder->removeChild(_topLabel);
 				_cakeMove = Sprite::createWithSpriteFrameName(_scenePath.at("cakePath"));
 				//_cakeMove->setScale(0.55);

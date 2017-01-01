@@ -394,7 +394,7 @@ void Circle::change(char  str)
 		blastref->runAction(timeline);
 		timeline->play("blast", false);
 		
-	}), DelayTime::create(1.0f), CallFunc::create([=]() {
+	}), DelayTime::create(2.0f), CallFunc::create([=]() {
 	//	_friend->setRotation(0.0f);
 		addEnemy(num);
 	}), NULL));
