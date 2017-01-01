@@ -318,7 +318,7 @@ void MemoryHero::onEnterTransitionDidFinish() {
 		auto label = CommonText::create();
 		label->setString(labelName);
 		label->setFontSize(50);
-		label->setFontName("fonts/Marker Felt.ttf");
+		label->setFontName("fonts/Roboto-Regular.ttf");
 		label->setPosition(Vec2(nestWidth * 0.48, nestHeight * 0.25));
 		label->setAnchorPoint(Vec2(0.5, 0.5));
 		label->setColor(Color3B::BLUE);

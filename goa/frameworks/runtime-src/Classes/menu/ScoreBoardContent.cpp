@@ -178,7 +178,7 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
             numRewards++;
             auto unlockedGameButton = ui::Button::create(gameIcons[_gameToUnlock]["icon"], gameIcons[_gameToUnlock]["cIcon"], gameIcons[_gameToUnlock]["icon"], ui::Widget::TextureResType::LOCAL);
             unlockedGameButton->setTitleText(gameIcons[_gameToUnlock]["title"]);
-            unlockedGameButton->setTitleFontName("Arial");
+            unlockedGameButton->setTitleFontName("fonts/Roboto-Regular.ttf");
             unlockedGameButton->setTitleColor(Color3B(0xFF, 0xF2, 0x00));
             unlockedGameButton->setTitleFontSize(72);
             auto label = unlockedGameButton->getTitleRenderer();
@@ -199,7 +199,7 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
                 std::replace(badge.begin(), badge.end(), '_', ' ');
                 if(badgeButton != nullptr) {
                     badgeButton->setTitleText(LangUtil::getInstance()->translateString(badge.substr(2)));
-                    badgeButton->setTitleFontName("Arial");
+                    badgeButton->setTitleFontName("fonts/Roboto-Regular.ttf");
                     badgeButton->setTitleColor(Color3B(0xFF, 0xF2, 0x00));
                     badgeButton->setTitleFontSize(72);
                     auto label = badgeButton->getTitleRenderer();

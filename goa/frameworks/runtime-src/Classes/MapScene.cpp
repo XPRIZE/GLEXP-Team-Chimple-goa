@@ -115,7 +115,7 @@ void MapScene::processChildNodes(cocos2d::Node *rootNode) {
                 //process text
                 if(it->first.compare("text") == 0) {
                     std::string mapText = this->currentLangUtil->translateString(node->getName());
-                    cocos2d::Label* label = Label::createWithTTF(mapText, "fonts/arial.ttf", 50);
+                    cocos2d::Label* label = Label::createWithTTF(mapText, "fonts/Roboto-Regular.ttf", 50);
                     label->setPosition(Vec2(node->getPosition().x, node->getPosition().y));
                     mainLayer->addChild(label);
                     

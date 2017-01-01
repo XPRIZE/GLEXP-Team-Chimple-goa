@@ -546,7 +546,7 @@ void Circle::wordGenerateWithOptions()
 
 	std::ostringstream boardName;
 	boardName << _title << _gameWord;
-	_topLabel = CommonLabel::createWithSystemFont(boardName.str(), "Arial", 100);
+	_topLabel = CommonLabel::createWithTTF(boardName.str(), "fonts/Roboto-Regular.ttf", 100);
 	_topLabel->setColor(Color3B(0, 0, 0));
 	if (_scenePath.at("animation_select").compare("one") == 0)
 	{
@@ -583,7 +583,7 @@ void Circle::wordGenerateWithOptions()
 	for (int i = 0; i < _enemyRef.size(); i++) {
 
 		auto str = answer.at(randomInt % (answerSize + 1));
-		auto myLabel = CommonLabel::createWithSystemFont(str, "Arial", 100);
+		auto myLabel = CommonLabel::createWithTTF(str, "fonts/Roboto-Regular.ttf", 100);
 		std::stringstream ss;
 		ss << (i+1);
 		std::string str1 = ss.str();

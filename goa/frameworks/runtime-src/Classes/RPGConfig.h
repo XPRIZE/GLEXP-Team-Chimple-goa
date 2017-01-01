@@ -96,7 +96,7 @@
 #define HORIZONTAL_PARALLEX_RATIO 0.7f
 #define VERTICAL_PARALLEX_RATIO 0.7f
 
-#define SPEECH_TEXT_FONT_FILE "fonts/Marker Felt.ttf"
+#define SPEECH_TEXT_FONT_FILE "fonts/Roboto-Regular.ttf"
 #define SPEECH_TEXT_WIDTH 350.0f
 #define SPEECH_TEXT_HEIGHT 200.0f
 #define SPEECH_TEXT_COLOR
