@@ -20,6 +20,7 @@ public:
 	int _num = 0;
 	int _score = 0;
 	int _count = 0;
+	bool _cakeTouchFlag = true;
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
     cocos2d::Node* background;
 	cocos2d::Sprite* _cake;
@@ -34,6 +35,7 @@ public:
 	std::vector<std::string> _wordList;
 	std::string _title = "", _sentence = "";
 	void ladderMove();
+	void enableListener(float dt);
 	void newCake();
 	void onEnterTransitionDidFinish();
 	void gameHelp();
