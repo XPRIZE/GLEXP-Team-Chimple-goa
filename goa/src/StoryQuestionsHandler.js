@@ -23,7 +23,10 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
     _menuContext: null,
     _storyId: null,
     _hasWordsQuestions: false,
-    ctor: function (storyId, storyBaseDir) {
+    _handler: null,
+    _resources: [],
+
+    ctor: function (storyId, storyBaseDir, resources) {
         this._super();
         this._name = "StoryQuestionHandlerLayer";
         this._tabHeight = 64;
@@ -33,6 +36,7 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
         this._contentPanelWidth = cc.director.getWinSize().width; //assuming landscape
         this._contentPanelHeight = cc.director.getWinSize().height; //assuming landscape
         this._configPanelWidth = (cc.director.getWinSize().width - this._contentPanelWidth) / 2;
+        this._resources = resources;
 
         return true;
     },
@@ -76,13 +80,13 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
         }        
     },
 
-    loadCelebrationNode: function() {
-        this._particleSystem  = new cc.ParticleSystem (xc.StoryQuestionHandlerLayer.res.particle_system_plist);
-        var texture = cc.textureCache.addImage(xc.StoryQuestionHandlerLayer.res.particle_system_png);
-        this._particleSystem.setTexture(texture);
-        this._particleSystem.setPosition(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2 + 200);
-        this.addChild(this._particleSystem, 10);  
-    },
+    // loadCelebrationNode: function() {
+    //     this._particleSystem  = new cc.ParticleSystem (xc.StoryQuestionHandlerLayer.res.particle_system_plist);
+    //     var texture = cc.textureCache.addImage(xc.StoryQuestionHandlerLayer.res.particle_system_png);
+    //     this._particleSystem.setTexture(texture);
+    //     this._particleSystem.setPosition(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2 + 200);
+    //     this.addChild(this._particleSystem, 10);  
+    // },
 
     wordQuestionHandler: function(questions) {
         if(this._currentQName) {
@@ -92,37 +96,40 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
             }
             
         }
-        var handler = new xc.WordQuestionHandler(this._storyId, cc.director.getWinSize().width, cc.director.getWinSize().height, questions, this._storyBaseDir, this.getParent()._menuContext.getMaxPoints(), this.getParent()._menuContext.getPoints());
-        handler.setName(this._Q_WORDS); 
+        this._handler = new xc.WordQuestionHandler(this._storyId, cc.director.getWinSize().width, cc.director.getWinSize().height, questions, this._storyBaseDir, this.getParent()._menuContext.getMaxPoints(), this.getParent()._menuContext.getPoints());
+        this._handler.setName(this._Q_WORDS); 
         this._currentQName = this._Q_WORDS;
         this._hasWordsQuestions = true;
-        this.addChild(handler);        
+        this.addChild(this._handler);        
     },
     questionHandler: function(question) {
         if(this._currentQName) {
             var oldQuestionChild = this.getChildByName(this._currentQName);
-            oldQuestionChild.removeFromParent();
+            if(oldQuestionChild) {
+                oldQuestionChild.removeFromParent();
+            }
+            
         }
         var questionType = question["type"];
         if(questionType == this._Q_MULTIPLE_CHOICE) {
             cc.log('handle multiple choice question');
-            var handler = new xc.MultipleChoiceQuestionHandler(xc.StoryQuestionHandlerLayer.res.multi_question_choice_json, cc.director.getWinSize().width, cc.director.getWinSize().height, question, this.questionCallBack, this);
-            handler.setName(this._Q_MULTIPLE_CHOICE); 
+            this._handler = new xc.MultipleChoiceQuestionHandler(xc.StoryQuestionHandlerLayer.res.multi_question_choice_json, cc.director.getWinSize().width, cc.director.getWinSize().height, question, this.questionCallBack, this);
+            this._handler.setName(this._Q_MULTIPLE_CHOICE); 
             this._currentQName = this._Q_MULTIPLE_CHOICE;          
         } else if(questionType == this._Q_FILL_IN_THE_BLANKS) {
-            var handler = new xc.FillInTheBlanksQuestionHandler(xc.StoryQuestionHandlerLayer.res.multi_question_choice_json, cc.director.getWinSize().width, cc.director.getWinSize().height, question, this.questionCallBack, this);
-            handler.setName(this._Q_FILL_IN_THE_BLANKS); 
+            this._handler = new xc.FillInTheBlanksQuestionHandler(xc.StoryQuestionHandlerLayer.res.multi_question_choice_json, cc.director.getWinSize().width, cc.director.getWinSize().height, question, this.questionCallBack, this);
+            this._handler.setName(this._Q_FILL_IN_THE_BLANKS); 
             this._currentQName = this._Q_FILL_IN_THE_BLANKS;          
         } else if(questionType == this._Q_MEANINGS) {
-            var handler = new xc.MeaningQuestionHandler(xc.StoryQuestionHandlerLayer.res.meaning_question_choice_json, cc.director.getWinSize().width, cc.director.getWinSize().height, question, this.questionCallBack, this);
-            handler.setName(this._Q_MEANINGS); 
+            this._handler = new xc.MeaningQuestionHandler(xc.StoryQuestionHandlerLayer.res.meaning_question_choice_json, cc.director.getWinSize().width, cc.director.getWinSize().height, question, this.questionCallBack, this);
+            this._handler.setName(this._Q_MEANINGS); 
             this._currentQName = this._Q_MEANINGS;          
         } else if(questionType == this._Q_PICTURES) {
-            var handler = new xc.PictureQuestionHandler(this._storyBaseDir, xc.StoryQuestionHandlerLayer.res.picture_question_choice_json, cc.director.getWinSize().width, cc.director.getWinSize().height, question, this.questionCallBack, this);
-            handler.setName(this._Q_PICTURES); 
+            this._handler = new xc.PictureQuestionHandler(this._storyBaseDir, xc.StoryQuestionHandlerLayer.res.picture_question_choice_json, cc.director.getWinSize().width, cc.director.getWinSize().height, question, this.questionCallBack, this);
+            this._handler.setName(this._Q_PICTURES); 
             this._currentQName = this._Q_PICTURES;
         } 
-        this.addChild(handler);        
+        this.addChild(this._handler);        
     },
 
     questionCallBack: function(sender, isCorrect, isAllAnswered) {
@@ -145,7 +152,7 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
     },
 
     finishedSuccessAnimation: function() {
-        this._particleSystem.setVisible(false);
+        //this._particleSystem.setVisible(false);
         if(this._referenceToContext._isAllAnswered) {
             this._referenceToContext.nextQuestion();
         }
@@ -156,14 +163,17 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
         this._isAllAnswered = isAllAnswered;
         if(this._isAllAnswered) {
             cc.log("play success animation");
-            this.loadCelebrationNode();            
-            var delayAction = new cc.DelayTime(5.0);                        
+            // this.loadCelebrationNode();            
+            var delayAction = new cc.DelayTime(1.0);                        
             var sequenceAction = new cc.Sequence(delayAction, new cc.CallFunc(this.finishedSuccessAnimation, this));
             this.runAction(sequenceAction);          
         }
     },
 
     nextQuestion: function () {
+        if(this._handler) {
+        this._handler.removeFromParent();
+        }        
         this._currentQuestionIndex++;
         this._item.setEnabled(true);
         if(this._currentQuestionIndex < this._questions.length) {
@@ -272,6 +282,9 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
         }
         //create UI for questions
         var question = this._questions[this._currentQuestionIndex];
+        if(this._handler) {
+            this._handler.removeFromParent();
+        }
         if(question) {
             if(question["type"] == "words") {
                 this.wordQuestionHandler(this._questions);
@@ -320,17 +333,43 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
 
 
     onExit: function() {        
-        this._super();                
+        this._super();   
+        var that = this;
+            that._resources.forEach(function(url) {                
+                if(url.endsWith(".json")) {
+                    cc.log('cleaning url:' + url);
+                    cc.loader.release(url);
+                    delete cc.loader[url];                        
+                };                
+            });
+            
+            that._resources.forEach(function(url) {                    
+                if(url.endsWith(".plist")) {
+                    cc.log('cleaning url:' + url);
+                    cc.spriteFrameCache.removeSpriteFramesFromFile(url);
+                    cc.loader.release(url);
+                    delete cc.loader[url];                        
+                };   
+
+                if(url.endsWith(".png")) {
+                    cc.log("removing image: " + url);
+                    cc.textureCache.removeTextureForKey(url);
+                    cc.loader.release(url);
+                    delete cc.loader[url]
+                }                                 
+            });
+
+            that._resources = [];  
     }    
 });
 
 xc.StoryQuestionHandlerScene = cc.Scene.extend({
     layerClass: null,
     _menuContext: null,
-    ctor: function (storyId, storyBaseDir, layer) {
+    ctor: function (storyId, storyBaseDir, resources, layer) {
         this._super();
         this.layerClass = layer;
-        this._sceneLayer = new this.layerClass(storyId, storyBaseDir);
+        this._sceneLayer = new this.layerClass(storyId, storyBaseDir, resources);
         this.addChild(this._sceneLayer);
         if (cc.sys.isNative) {
             this._menuContext = goa.MenuContext.create(this._sceneLayer, storyId);
@@ -363,7 +402,7 @@ xc.StoryQuestionHandlerScene.load = function(storyId, storyBaseDir, layer, enabl
             cc.spriteFrameCache.addSpriteFrames(xc.StoryQuestionHandlerLayer.res.template_plist);
             cc.spriteFrameCache.addSpriteFrames(xc.StoryQuestionHandlerLayer.res.template_01_plist);                        
             cc.spriteFrameCache.addSpriteFrames(xc.StoryQuestionHandlerLayer.res.template_02_plist);
-            var scene = new xc.StoryQuestionHandlerScene(storyId, storyBaseDir, layer);
+            var scene = new xc.StoryQuestionHandlerScene(storyId, storyBaseDir, t_resources, layer);
             scene.layerClass = layer;            
             if(enableTransition) {
                 cc.director.runScene(new cc.TransitionFade(2.0, scene, true));
