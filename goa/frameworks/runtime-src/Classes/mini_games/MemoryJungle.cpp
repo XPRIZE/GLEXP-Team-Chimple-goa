@@ -328,7 +328,7 @@ void MemoryJungle::onEnterTransitionDidFinish() {
 		auto label = CommonText::create();
 		label->setString(labelName);
 		label->setFontSize(100);
-		label->setFontName("fonts/Marker Felt.ttf");
+		label->setFontName("fonts/Roboto-Regular.ttf");
 		label->setPosition(Vec2(nestWidth * 0.48, nestHeight * 0.53));
 		label->setAnchorPoint(Vec2(0.5, 0.5));
 		label->setTextColor(Color4B::BLUE);

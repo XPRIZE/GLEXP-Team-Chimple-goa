@@ -174,6 +174,7 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/reco/shaperec/preprocessing/LTKPreprocessor.cpp \
 					../../Classes/reco/shaperec/preprocessing/preprocessing.cpp \
 					../../Classes/Calculator.cpp \
+					../../Classes/Setting.cpp \
 					../../Classes/mini_games/CarDraw.cpp \
 					../../Classes/mini_games/CarDrawNode.cpp \
 					../../Classes/mini_games/Door.cpp \

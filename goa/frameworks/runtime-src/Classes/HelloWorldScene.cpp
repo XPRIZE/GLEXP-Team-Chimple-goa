@@ -157,7 +157,7 @@ void HelloWorld::renderBagPack() {
                     std::string labelStr = it->second;
                     sLabel->setString(labelStr);
                     sLabel->setFontSize(50);
-                    sLabel->setFontName("Arial");
+                    sLabel->setFontName("fonts/Roboto-Regular.ttf");
                     sLabel->setTextColor(Color4B::BLACK);
                 }
                 
@@ -175,7 +175,7 @@ void HelloWorld::renderBagPack() {
         localStorageGetItem(HINT_TEXT, &hintText);
         
         sTextField->setString(hintText);
-        sTextField->setFontName("Arial");
+        sTextField->setFontName("fonts/Roboto-Regular.ttf");
         sTextField->setFontSize(50);
         sTextField->setTextColor(Color4B::BLACK);
         sTextField->setTextHorizontalAlignment(TextHAlignment::CENTER);

@@ -378,7 +378,7 @@ void Pillar::newCake()
 	
 
 	//_sentence = LangUtil::getInstance()->translateString(_title);
-	auto topLabel = Label::createWithSystemFont(_title, "Arial", 100);
+	auto topLabel = Label::createWithTTF(_title, "fonts/Roboto-Regular.ttf", 100);
 	topLabel->setColor(Color3B(0, 0, 0));
 	topLabel->setPositionX(visibleSize.width / 2);
 	topLabel->setPositionY(visibleSize.height - 50);
@@ -388,7 +388,7 @@ void Pillar::newCake()
 	int size = _wordList.size();
 	_num = cocos2d::RandomHelper::random_int(0, size-1);
 	//int num = rand() % _wordList.size();
-	_topLabel = Label::createWithSystemFont(_wordList.at(_num).c_str(), "Arial", 100);
+	_topLabel = Label::createWithTTF(_wordList.at(_num).c_str(), "fonts/Roboto-Regular.ttf", 100);
 	_topLabel->setPositionX(_cake->getContentSize().width / 2);
 	_topLabel->setPositionY(_cake->getContentSize().height/2);
 	if (_scenePath.at("animation_select").compare("one") == 0)
@@ -573,19 +573,26 @@ void Pillar::update(float dt)
 	}
 	CCLOG("update end");
 }
+void Pillar::enableListener(float dt)
+{
+	_cakeTouchFlag = true;
 
+}
 bool Pillar::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 {
 	CCLOG("onTouchBegan begin");
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	
-	auto target = event->getCurrentTarget();
-	auto  location = _cake->getParent()->convertToWorldSpace(_cake->getPosition());
-	Rect rect = Rect(0, 0, target->getContentSize().width, target->getContentSize().height);
+	
+	//Rect rect = Rect(0, 0, target->getContentSize().width, target->getContentSize().height);
 	
 
-	//if (rect.containsPoint(location))
+	if (_cakeTouchFlag && _cake != nullptr)
 	{
+		auto target = event->getCurrentTarget();
+		auto  location = _cake->getParent()->convertToWorldSpace(_cake->getPosition());
+		_cakeTouchFlag = false;
+		this->scheduleOnce(schedule_selector(Pillar::enableListener), 3);
 		auto check =_wordList.at(_num);
 			if (std::find(_wordCorrect.begin(), _wordCorrect.end(),check) != _wordCorrect.end())
 			{
@@ -593,6 +600,7 @@ bool Pillar::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				_cakeFlag = false;
 				_ladder->stopAllActions();
 				_ladder->removeChild(_cake);
+				_cake = nullptr;
 				_ladder->removeChild(_topLabel);
 				_cakeMove = Sprite::createWithSpriteFrameName(_scenePath.at("cakePath"));
 				//_cakeMove->setScale(0.55);
@@ -611,7 +619,7 @@ bool Pillar::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				_cakeMove->setPositionX(location.x);
 				_cakeMove->setPositionY(location.y);
 				this->addChild(_cakeMove);
-				auto labelCake = Label::createWithSystemFont(check.c_str(), "Arial", 100);
+				auto labelCake = Label::createWithTTF(check.c_str(), "fonts/Roboto-Regular.ttf", 100);
 				labelCake->setPositionX(_cakeMove->getContentSize().width/2);
 				if (_scenePath.at("animation_select").compare("three") == 0)
 				{
@@ -655,6 +663,7 @@ bool Pillar::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				_cakeFlag = true;
 				_ladder->stopAllActions();
 				_ladder->removeChild(_cake);
+				_cake = nullptr;
 				_ladder->removeChild(_topLabel);
 				_cakeMove = Sprite::createWithSpriteFrameName(_scenePath.at("cakePath"));
 				//_cakeMove->setScale(0.55);
@@ -673,7 +682,7 @@ bool Pillar::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				_cakeMove->setPositionX(location.x);
 				_cakeMove->setPositionY(location.y);
 				this->addChild(_cakeMove);
-				auto labelCake = Label::createWithSystemFont(check.c_str(), "Arial", 100);
+				auto labelCake = Label::createWithTTF(check.c_str(), "fonts/Roboto-Regular.ttf", 100);
 				labelCake->setPositionX(_cakeMove->getContentSize().width / 2);
 				if (_scenePath.at("animation_select").compare("three") == 0)
 				{

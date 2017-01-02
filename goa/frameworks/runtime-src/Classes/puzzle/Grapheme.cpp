@@ -31,7 +31,7 @@ bool Grapheme::init(std::string graphemeString) {
     _text->setFontSize(200);
 	_text->setTextColor(Color4B::BLUE);
     if(LangUtil::getInstance()->getLang() == "eng") {
-        _text->setFontName("fonts/arial.ttf");
+        _text->setFontName("fonts/Roboto-Regular.ttf");
        
     }
     _text->setString(graphemeString);
