@@ -568,9 +568,9 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this._showTextAgainButton.setVisible(false);
         this._showTextAgainButton.addTouchEventListener(this.showTextAgain, this);
 
-        this.showText();
-        // this.bindTouchListenerToLayer(this);
-        // this.sceneTouched();
+        // this.showText();
+        this.bindTouchListenerToLayer(this);
+        this.sceneTouched();
 
     },
 
@@ -979,9 +979,9 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
             return;
         }
-        xc._currentQuestionIndex = 0;
-        // xc.NarrateStoryScene.load(curIndex, this._storyInformation, xc.NarrateStoryLayer, true);
-        xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
+        // xc._currentQuestionIndex = 0;
+        xc.NarrateStoryScene.load(curIndex, this._storyInformation, xc.NarrateStoryLayer, true);
+        // xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
     },
 
     rePlayEnded: function() {
