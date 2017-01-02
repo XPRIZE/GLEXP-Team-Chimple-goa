@@ -42,6 +42,7 @@ protected:
 	bool _helpFlag = false, _initObj = true, _flagForIndex= true;
 	float _gapBetweenTwoBasket;
 	string _levelOneString;
+	std::string _labelPrefix = "";
 
 public:
 	~Drop();

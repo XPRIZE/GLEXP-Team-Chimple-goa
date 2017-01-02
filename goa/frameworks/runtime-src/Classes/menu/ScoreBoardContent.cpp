@@ -91,17 +91,16 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
                 
                 if(game.HasMember("rewards")) {
                     const rapidjson::Value& rewards = game["rewards"];
+                    auto badgesToAdd = getStarBadges(level);
                     if(rewards.HasMember(MenuContext::to_string(level).c_str())) {
                         const rapidjson::Value& levelRewards = rewards[MenuContext::to_string(level).c_str()];
                         if(levelRewards.HasMember("unlock")) {
                             std::string gameToUnlock = levelRewards["unlock"].GetString();
                             unlockGame(gameToUnlock);
                         }
-                        auto badgesToAdd = getStarBadges(level);
                         if(levelRewards.HasMember("badge")) {
                             badgesToAdd.push_back(levelRewards["badge"].GetString());
                         }
-                        addBadges(badgesToAdd);
                         if(levelRewards.HasMember("unlockMin")) {
                             std::string unlockMin = levelRewards["unlockMin"].GetString();
                             std::string unlockMinStr;
@@ -149,6 +148,7 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
                             }
                         }
                     }
+                    addBadges(badgesToAdd);
                 }
             }
         }
@@ -172,10 +172,8 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
         
         auto openGift = Animate::create(_giftAnimation);
         Vector<FiniteTimeAction *> actions;
-        int numRewards = 0;
         
         if(!_gameToUnlock.empty() && gameIcons.count(_gameToUnlock) > 0) {
-            numRewards++;
             auto unlockedGameButton = ui::Button::create(gameIcons[_gameToUnlock]["icon"], gameIcons[_gameToUnlock]["cIcon"], gameIcons[_gameToUnlock]["icon"], ui::Widget::TextureResType::LOCAL);
             auto titleStr = LangUtil::getInstance()->translateString("Game Unlocked");
             unlockedGameButton->setTitleText(titleStr + "\n" + gameIcons[_gameToUnlock]["title"]);
@@ -195,6 +193,7 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
             actions.pushBack(TargetedAction::create(unlockedGameButton, spawn));
         }
         if(_badges.size() > 0) {
+            int numRewards = 0;
             for (auto it = _badges.begin() ; it != _badges.end(); ++it) {
                 auto badge = *it;
                 auto badgeButton = ui::Button::create("rewards/" + badge + ".png", "rewards/" + badge + ".png", "rewards/" + badge + ".png", ui::Widget::TextureResType::LOCAL);
@@ -211,7 +210,7 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
                     badgeButton->setScale(0.1, 0.1);
                     addChild(badgeButton);
                     auto finalPos = Vec2(-1000, 200);
-                    if(numRewards > 1) {
+                    if(numRewards > 0) {
                         finalPos = Vec2(0, 700);
                     }
                     auto jumpAction = JumpTo::create(1.0, finalPos, 600, 2);
