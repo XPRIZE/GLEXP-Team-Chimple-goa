@@ -245,7 +245,7 @@ void Talk::onEnterTransitionDidFinish()
 
 	_imgName << sceneName << "/patch_image.png";
 
-	auto _lbl = CommonLabelTTF::create(_qName, "Arial", 80);
+	auto _lbl = CommonLabelTTF::create(_qName, "fonts/Roboto-Regular.ttf", 80);
 	_board = cocos2d::ui::Scale9Sprite::createWithSpriteFrameName(_imgName.str());
 	_board->setContentSize(Size(_lbl->getBoundingBox().size.width * 1.2, _lbl->getBoundingBox().size.height));
 	_board->setPosition(Vec2(visibleSize.width * .1 , visibleSize.height * .90));
@@ -343,7 +343,7 @@ void Talk::displayWord()
 
 		for (int i = 0; i < _textToShow.size(); i++)
 		{
-			LabelDetails.label = CommonLabelTTF::create(_textToShow.at(i).first, "Arial", 120);
+			LabelDetails.label = CommonLabelTTF::create(_textToShow.at(i).first, "fonts/Roboto-Regular.ttf", 120);
 			LabelDetails.sprite = cocos2d::ui::Scale9Sprite::createWithSpriteFrameName(_imgName.str());
 			LabelDetails.sprite->setContentSize(Size(LabelDetails.label->getBoundingBox().size.width * 1.3, LabelDetails.label->getBoundingBox().size.height * 1.2));
 

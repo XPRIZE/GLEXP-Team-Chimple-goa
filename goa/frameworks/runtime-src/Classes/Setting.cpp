@@ -1,9 +1,9 @@
 #include "Setting.h"
 #include "editor-support/cocostudio/CocoStudio.h"
-#include "../lang/TextGenerator.h"
+#include "lang/TextGenerator.h"
 #include "ui/UIScale9Sprite.h"
-#include "../menu/HelpLayer.h"
-#include "../util/CommonLabelTTF.h"
+#include "menu/HelpLayer.h"
+#include "util/CommonLabelTTF.h"
 
 USING_NS_CC;
 
@@ -52,7 +52,7 @@ void Setting::onEnterTransitionDidFinish()
 		}
 	});
 
-	auto _label = LabelTTF::create("Enter cheat code", "Arial", 200);
+    auto _label = LabelTTF::create(LangUtil::getInstance()->translateString("Enter secret code to unlock all levels"), "fonts/Roboto-Regular.ttf", 200);
 	_label->setAnchorPoint(Vec2(.5, .5));
 	_label->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * .75));
 	_calcLayer->addChild(_label, 5);
@@ -145,22 +145,22 @@ void Setting::showSettingMenu() {
 	else
 		_radio2Select->setVisible(false);
 
-	auto _swahili = LabelTTF::create("Swahili", "Arial", 150);
+	auto _swahili = LabelTTF::create("Swahili", "fonts/Roboto-Regular.ttf", 150);
 	_swahili->setAnchorPoint(Vec2(0, .5));
 	_swahili->setPosition(Vec2(_settingNode->getChildByName("Node_3")->getPositionX(), _settingNode->getChildByName("Node_3")->getPositionY()));
 	_settingLayer->addChild(_swahili);
 
-	auto _english = LabelTTF::create("English", "Arial", 150);
+	auto _english = LabelTTF::create("English", "fonts/Roboto-Regular.ttf", 150);
 	_english->setAnchorPoint(Vec2(0, .5));
 	_english->setPosition(Vec2(_settingNode->getChildByName("Node_2")->getPositionX(), _settingNode->getChildByName("Node_2")->getPositionY()));
 	_settingLayer->addChild(_english);
 
-	auto _disable = LabelTTF::create("Unlock all", "Arial", 150);
+	auto _disable = LabelTTF::create("Unlock all", "fonts/Roboto-Regular.ttf", 150);
 	_disable->setAnchorPoint(Vec2(0, .5));
 	_disable->setPosition(Vec2(_settingNode->getChildByName("Node_1")->getPositionX(), _settingNode->getChildByName("Node_1")->getPositionY()));
 	_settingLayer->addChild(_disable);
 
-	auto _submitLabel = LabelTTF::create("Submit", "Arial", 150);
+	auto _submitLabel = LabelTTF::create("Submit", "fonts/Roboto-Regular.ttf", 150);
 	_submitLabel->setAnchorPoint(Vec2(1, 1));
 	_submitLabel->setPosition(Vec2(_settingNode->getChildByName("submit")->getPositionX() - _settingNode->getChildByName("submit")->getContentSize().width * .45, _settingNode->getChildByName("submit")->getPositionY() - _settingNode->getChildByName("submit")->getContentSize().height * .6));
 	_settingNode->getChildByName("submit")->addChild(_submitLabel);

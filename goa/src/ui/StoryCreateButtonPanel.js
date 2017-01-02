@@ -14,6 +14,7 @@ xc.StoryCreateButtonPanel = ccui.Layout.extend({
         this._buttonHandler = buttonHandler;
         this._loadLocalTexture = loadLocalTexture;
         this.setPosition(position);
+        this.setName("StoryCreateButtonPanel");
         start = start || 0;
         numButtons = numButtons || configuration.length;
         var index = start;
@@ -47,7 +48,7 @@ xc.StoryCreateButtonPanel = ccui.Layout.extend({
                         item.setAnchorPoint(cc.p(0.5,0.5));
                         item.setPosition(pageIndex * size.width + (colIndex + 0.5) * size.width / numButtonsPerRow, size.height - (bookHeight * 1.2 +  (rowIndex) * 512));
                         item._selectedIndex = index;
-                        item.setName(configuration[index]['icon']);
+                        item.setName(configuration[index]['storyId']);
                         item._configuration = configuration[index];
                         if (configuration[index].hasOwnProperty('json')) {
                             item._jsonFileToLoad = configuration[index]['json'];
@@ -83,11 +84,10 @@ xc.StoryCreateButtonPanel = ccui.Layout.extend({
                         bookText.setPlaceHolder("");
                         bookText.setTouchEnabled(false);
                         bookNode.node.setPosition(item.getPosition());
+                        cc.log('book node position' + item.getPosition());
                         bookNode.node.setAnchorPoint(cc.p(0.5,0.5));
                         this.addChild(bookNode.node,2);                        
                         this.addChild(item, 3);
- 
-
                     }
                 }
             }

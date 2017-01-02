@@ -4,12 +4,12 @@
 #include "cocos2d.h"
 #include <vector>
 #include "editor-support/cocostudio/CocoStudio.h"
-#include "../menu/MenuContext.h"
-#include "../StartMenuScene.h"
+#include "menu/MenuContext.h"
+#include "StartMenuScene.h"
 #include "ui/CocosGUI.h"
 #include <string>
 #include <sstream>
-#include "../Calculator.h"
+#include "Calculator.h"
 #include "storage/local-storage/LocalStorage.h"
 
 class Setting : public cocos2d::Layer

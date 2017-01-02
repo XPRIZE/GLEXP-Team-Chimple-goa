@@ -57,9 +57,6 @@ xc.PlayContentPanel = xc.AbstractContentPanel.extend({
         node.children.forEach(function (element) {
                 if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
                     xc.CharacterUtil.loadSkeletonConfig(element);
-                    // if(element && element.getComponent('ComExtensionData') && element.getComponent('ComExtensionData').getCustomProperty()) {
-                    //     element.UserData = JSON.parse(element.getComponent('ComExtensionData').getCustomProperty());
-                    // }
                     
                     if (element.UserData && element.UserData.visibleSkins) {
                         xc.CharacterUtil.displaySkins(element, element.UserData.visibleSkins);

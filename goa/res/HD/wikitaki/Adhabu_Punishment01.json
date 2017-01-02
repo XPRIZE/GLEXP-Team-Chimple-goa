@@ -1,0 +1,404 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "2.3.4",
+  "Name": "Adhabu_Punishment01",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 153,
+              "B": 218
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -272.1637,
+              "Y": 598.9168
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1063,
+              "Y": 0.3327
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.6667
+            },
+            "LeftMargin": -272.1637,
+            "RightMargin": -267.8364,
+            "TopMargin": 1.0833,
+            "BottomMargin": 598.9168,
+            "Tag": 2,
+            "ActionTag": 314966606,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/sky/cloud.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 338.9557,
+              "Y": 1586.0846
+            },
+            "Scale": {
+              "ScaleX": 1.3421,
+              "ScaleY": 1.3421
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1324,
+              "Y": 0.8812
+            },
+            "PreSize": {
+              "X": 0.1641,
+              "Y": 0.0933
+            },
+            "LeftMargin": 128.9557,
+            "RightMargin": 2011.0443,
+            "TopMargin": 129.9154,
+            "BottomMargin": 1502.0846,
+            "Tag": 24,
+            "ActionTag": 374016089,
+            "Size": {
+              "X": 420.0,
+              "Y": 168.0
+            },
+            "Name": "cloud_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 208,
+              "G": 234,
+              "B": 169
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -272.2067,
+              "Y": -1.0097
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1063,
+              "Y": -0.0006
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.3333
+            },
+            "LeftMargin": -272.2067,
+            "RightMargin": -267.7932,
+            "TopMargin": 1201.0098,
+            "BottomMargin": -1.0097,
+            "Tag": 3,
+            "ActionTag": -511697373,
+            "Size": {
+              "X": 3100.0,
+              "Y": 600.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/adhabu_house.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1315.3401,
+              "Y": 1172.9181
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5138,
+              "Y": 0.6516
+            },
+            "PreSize": {
+              "X": 0.5781,
+              "Y": 0.6444
+            },
+            "LeftMargin": 575.3401,
+            "RightMargin": 504.6599,
+            "TopMargin": 47.0819,
+            "BottomMargin": 592.9181,
+            "Tag": 4,
+            "ActionTag": -791319283,
+            "Size": {
+              "X": 1480.0,
+              "Y": 1160.0
+            },
+            "Name": "house_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/other/adhabu_flower.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 412.0704,
+              "Y": 681.2511
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.161,
+              "Y": 0.3785
+            },
+            "PreSize": {
+              "X": 0.066,
+              "Y": 0.18
+            },
+            "LeftMargin": 327.5704,
+            "RightMargin": 2063.4297,
+            "TopMargin": 956.7489,
+            "BottomMargin": 519.2511,
+            "Tag": 5,
+            "ActionTag": -399000180,
+            "Size": {
+              "X": 169.0,
+              "Y": 324.0
+            },
+            "Name": "flower_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/other/adhabu_flower.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2267.0042,
+              "Y": 676.7758
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8855,
+              "Y": 0.376
+            },
+            "PreSize": {
+              "X": 0.066,
+              "Y": 0.18
+            },
+            "LeftMargin": 2182.5042,
+            "RightMargin": 208.4958,
+            "TopMargin": 961.2242,
+            "BottomMargin": 514.7758,
+            "Tag": 6,
+            "ActionTag": 1354841011,
+            "Size": {
+              "X": 169.0,
+              "Y": 324.0
+            },
+            "Name": "flower_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/other/adhabu_basket.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1557.7963,
+              "Y": 447.9285
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6085,
+              "Y": 0.2488
+            },
+            "PreSize": {
+              "X": 0.1887,
+              "Y": 0.3583
+            },
+            "LeftMargin": 1316.2963,
+            "RightMargin": 760.7037,
+            "TopMargin": 1029.5715,
+            "BottomMargin": 125.4285,
+            "Tag": 7,
+            "ActionTag": 1773292674,
+            "Size": {
+              "X": 483.0,
+              "Y": 645.0
+            },
+            "Name": "basket_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/sky/cloud.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2290.1948,
+              "Y": 1421.7589
+            },
+            "Scale": {
+              "ScaleX": 0.9218,
+              "ScaleY": 0.9218
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8946,
+              "Y": 0.7899
+            },
+            "PreSize": {
+              "X": 0.1641,
+              "Y": 0.0933
+            },
+            "LeftMargin": 2080.1948,
+            "RightMargin": 59.8052,
+            "TopMargin": 294.2411,
+            "BottomMargin": 1337.7589,
+            "Tag": 25,
+            "ActionTag": 1929166582,
+            "Size": {
+              "X": 420.0,
+              "Y": 168.0
+            },
+            "Name": "cloud_4",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "ob/house/adhabu_house.png",
+        "ob/other/adhabu_basket.png",
+        "ob/other/adhabu_flower.png",
+        "ob/sky/cloud.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

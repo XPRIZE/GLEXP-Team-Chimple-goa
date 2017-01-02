@@ -1,5 +1,11 @@
 /// <reference path="cocos2d-typescript-definitions-master/cocos2d/cocos2d-lib.d.ts" />
 var xc = xc || {};
+xc.storyCoverPageFontSize = 120;
+xc.storyFontName = "Arial";
+xc.storyFontSize = 85;
+xc.storyCoverPageFontSize = 120;
+xc.storyFontColor = cc.color.BLACK;
+
 xc.StoryCoverPageLayer = cc.Layer.extend({
     _contentPanel: null,
     _pageConfigPanel: null,

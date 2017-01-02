@@ -1,0 +1,215 @@
+{
+  "ID": "9f77ecfd-6d2d-474c-aa74-767c9d141033",
+  "Version": "3.10.0.0",
+  "Name": "scene3",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 14,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/scene_mybg3.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 898.02,
+              "Y": 902.1733
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4989,
+              "Y": 0.5012
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": -1.98,
+            "RightMargin": 1.98,
+            "TopMargin": -2.1733,
+            "BottomMargin": 2.1733,
+            "Tag": 15,
+            "ActionTag": 442776354,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1800.0
+            },
+            "Name": "bg3_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/trees.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1533.9355,
+              "Y": 801.569
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8522,
+              "Y": 0.4453
+            },
+            "PreSize": {
+              "X": 0.6117,
+              "Y": 0.7089
+            },
+            "LeftMargin": 983.4355,
+            "RightMargin": -284.4355,
+            "TopMargin": 360.4309,
+            "BottomMargin": 163.569,
+            "Tag": 17,
+            "ActionTag": -448537431,
+            "Size": {
+              "X": 1101.0,
+              "Y": 1276.0
+            },
+            "Name": "trees_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/trees2.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 379.8281,
+              "Y": 1288.0239
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.211,
+              "Y": 0.7156
+            },
+            "PreSize": {
+              "X": 0.4917,
+              "Y": 0.5928
+            },
+            "LeftMargin": -62.6719,
+            "RightMargin": 977.6719,
+            "TopMargin": -21.5239,
+            "BottomMargin": 754.5239,
+            "Tag": 18,
+            "ActionTag": 1091756646,
+            "Size": {
+              "X": 885.0,
+              "Y": 1067.0
+            },
+            "Name": "trees2_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/shop.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 270.1029,
+              "Y": 730.0302
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1501,
+              "Y": 0.4056
+            },
+            "PreSize": {
+              "X": 0.3156,
+              "Y": 0.4028
+            },
+            "LeftMargin": -13.8971,
+            "RightMargin": 1245.8971,
+            "TopMargin": 707.4698,
+            "BottomMargin": 367.5302,
+            "Tag": 16,
+            "ActionTag": -844155984,
+            "Size": {
+              "X": 568.0,
+              "Y": 725.0
+            },
+            "Name": "shop_2",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bg/scene_mybg3.png",
+        "bg/shop.png",
+        "bg/trees.png",
+        "bg/trees2.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
