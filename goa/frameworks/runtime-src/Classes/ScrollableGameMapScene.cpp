@@ -236,7 +236,7 @@ cocos2d::ui::Button* ScrollableGameMapScene::createButton(const rapidjson::Value
         button->setName(gameJson["name"].GetString());
         button->setTitleText(LangUtil::getInstance()->translateString(gameJson["title"].GetString()));
         button->setTitleAlignment(TextHAlignment::CENTER, TextVAlignment::BOTTOM);
-        button->setTitleFontName("Arial");
+        button->setTitleFontName("fonts/Roboto-Regular.ttf");
         button->setTitleColor(Color3B(0xFF, 0xF2, 0x00));
         button->setTitleFontSize(72);
         auto label = button->getTitleRenderer();

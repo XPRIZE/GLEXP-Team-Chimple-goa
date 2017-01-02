@@ -1,7 +1,7 @@
 var xc = xc || {};
 xc.customSprites = xc.customSprites || [];
 xc.HAND_GEAR_LEFT = "hand_gear_left"; 
-xc.PRIMARY_COLOR = cc.color("#FF8E88");
+xc.PRIMARY_COLOR = cc.color("#B06A3B");
 xc.DARK_PRIMARY_COLOR = cc.color("#B2524D");
 xc.SECONDARY_COLOR = cc.color("#5895CC");
 xc.DARK_SECONDARY_COLOR = cc.color("#ee0a21");
@@ -38,14 +38,7 @@ xc.CreateStoryLayer = cc.Layer.extend({
         this._buttonPanel.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
         this._buttonPanel.setBackGroundColor(xc.PRIMARY_COLOR);
 
-        this.addChild(this._buttonPanel, 2);
-        this._optionPanel = new xc.ScrollableButtonPanel(cc.p(0,0), cc.size(500, 500), 2, 2, xc.storyConfigurationObject.editPage, this.chooseEditPageOption, this, true);
-        this._optionPanel.setVisible(false);
-        this._optionPanel.setOpacity(150);
-        this._optionPanel.setAnchorPoint(cc.p(0.5,0.5));
-        this._optionPanel.setColor(xc.TERTIARY_COLOR);
-        this.addChild(this._optionPanel, 1);
-        
+        this.addChild(this._buttonPanel, 2);        
         this.createStoriesUI();        
     },
 
@@ -63,7 +56,7 @@ xc.CreateStoryLayer = cc.Layer.extend({
             this.addChild(this._help, 1);
         }
 
-        this._panel = new xc.StoryCreateScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height), 1, 1, displayStories, this.loadOptions, this, false, true);        
+        this._panel = new xc.StoryCreateScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height), 5, 3, displayStories, this.loadOptions, this, false, true);        
         this.addChild(this._panel);
     },
 
@@ -94,14 +87,17 @@ xc.CreateStoryLayer = cc.Layer.extend({
 
     loadOptions: function (sender) {
         if(!this._optionPanel) {
-            cc.log('sender:' + sender.getName());
-            this._optionPanel.setAnchorPoint(0.5,0.5);
-            this._optionPanel = new xc.ScrollableButtonPanel(cc.p(sender.getPosition().x - sender.width/2 - 100, sender.getPosition().y - sender.height), cc.size(500, 500), 2, 2, xc.storyConfigurationObject.editPage, this.chooseEditPageOption, this, true);
-            this.addChild(this._optionPanel, 1);
+            cc.log('sender:' + sender.getName());            
+            this._optionPanel = new xc.ScrollableButtonPanel(cc.p(sender.getPosition().x - sender.width, sender.getPosition().y - sender.height), cc.size(256, 256), 2, 1, xc.storyConfigurationObject.editPage, this.chooseEditPageOption, this, true);
+            this._optionPanel.setAnchorPoint(0,0);
+            this._optionPanel.setPosition(cc.p(sender.getPosition().x - sender.width, sender.getPosition().y - sender.height));
+            sender.getParent().addChild(this._optionPanel, 4);
+            this._optionPanel.setVisible(true);
         } else {
             cc.log('sender:' + sender.getName());
-            this._optionPanel.setAnchorPoint(0.5,0.5);
-            this._optionPanel.setPosition(cc.p(sender.getPosition().x - sender.width/2 - 100, sender.getPosition().y - sender.height));
+            this._optionPanel.setAnchorPoint(0,0);
+            this._optionPanel.setOpacity(150);
+            this._optionPanel.setPosition(cc.p(sender.getPosition().x - sender.width, sender.getPosition().y - sender.height));
             this._optionPanel.setVisible(true);
         }
         this._curSelectedStoryIndex = sender._selectedIndex;
@@ -124,6 +120,8 @@ xc.CreateStoryLayer = cc.Layer.extend({
         } else if (sender.getName() == 'icons/play.png') {
             cc.log('clicked play');
             this._optionPanel.setVisible(false);
+            xc.currentStoryId = xc.storiesJSON.stories[xc.currentStoryIndex].storyId;
+            xc.PlayFullStoryScene.load(0,xc.PlayFullStoryLayer);            
         } else if (sender.getName() == 'icons/delete.png') {            
             if (xc.storiesJSON.stories && xc.storiesJSON.stories.length > this._curSelectedStoryIndex) {
                 var deleteStoryId = xc.storiesJSON.stories[this._curSelectedStoryIndex].storyId;
@@ -279,7 +277,8 @@ xc.CreateStoryLayer.res = {
         animationb_skeleton_png: xc.path + "animation/animationb/animationb.png",
         animationb_skeleton_plist: xc.path + "animation/animationb/animationb.plist",
         animationc_skeleton_png: xc.path + "animation/animationc/animationc.png",
-        animationc_skeleton_plist: xc.path + "animation/animationc/animationc.plist"           
+        animationc_skeleton_plist: xc.path + "animation/animationc/animationc.plist",
+        textBubble_json: xc.path + "template/bubble_tem.json"
 };
 
 

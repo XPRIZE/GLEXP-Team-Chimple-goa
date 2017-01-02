@@ -1,0 +1,123 @@
+{
+  "ID": "fe234022-15d1-4b09-834b-0ac55c2eb248",
+  "Version": "3.10.0.0",
+  "Name": "scene1",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 9,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/scene_mybg1.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 902.32,
+              "Y": 901.45
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5013,
+              "Y": 0.5008
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": 2.32,
+            "RightMargin": -2.3201,
+            "TopMargin": -1.45,
+            "BottomMargin": 1.45,
+            "Tag": 10,
+            "ActionTag": 321834911,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1800.0
+            },
+            "Name": "bg1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/box.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 427.7077,
+              "Y": 660.2074
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2376,
+              "Y": 0.3668
+            },
+            "PreSize": {
+              "X": 0.3294,
+              "Y": 0.2794
+            },
+            "LeftMargin": 131.2077,
+            "RightMargin": 1075.7922,
+            "TopMargin": 888.2926,
+            "BottomMargin": 408.7074,
+            "Tag": 11,
+            "ActionTag": -1259271909,
+            "Size": {
+              "X": 593.0,
+              "Y": 503.0
+            },
+            "Name": "box_2",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bg/scene_mybg1.png",
+        "bg/box.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

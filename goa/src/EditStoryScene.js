@@ -135,7 +135,8 @@ xc.EditStoryLayer.res = {
         animationb_skeleton_png: xc.path + "animation/animationb/animationb.png",
         animationb_skeleton_plist: xc.path + "animation/animationb/animationb.plist",
         animationc_skeleton_png: xc.path + "animation/animationc/animationc.png",
-        animationc_skeleton_plist: xc.path + "animation/animationc/animationc.plist"        
+        animationc_skeleton_plist: xc.path + "animation/animationc/animationc.plist",
+        textBubble_json: xc.path + "template/bubble_tem.json"    
 };
 
 

@@ -144,77 +144,77 @@ void Shape::onEnterTransitionDidFinish()
 
 		{ 1,
 		{
-			{ 0, "circle" },
-			{ 1, "diamond" }
+            { 0, LangUtil::getInstance()->translateString("circle") },
+			{ 1, LangUtil::getInstance()->translateString("diamond") }
 		} },
 		{ 2,
 		{
-			{ 0, "pentagon" },
-			{ 1, "square" },
+			{ 0, LangUtil::getInstance()->translateString("pentagon") },
+			{ 1, LangUtil::getInstance()->translateString("square") },
 		} },
 
 		{ 3,
 		{
-			{ 0, "Hexagon" },
-			{ 1, "Octagon" },
-			{ 2, "circle" },
+			{ 0, LangUtil::getInstance()->translateString("hexagon") },
+			{ 1, LangUtil::getInstance()->translateString("octagon") },
+			{ 2, LangUtil::getInstance()->translateString("circle") },
 		} },
 		{ 4,
 		{
-			{ 0, "Rectangle" },
-			{ 1, "cross" },
-			{ 2, "pentagon" },
+			{ 0, LangUtil::getInstance()->translateString("rectangle") },
+			{ 1, LangUtil::getInstance()->translateString("cross") },
+			{ 2, LangUtil::getInstance()->translateString("pentagon") },
 		} },
 
 		{ 5,
 		{
-			{ 0, "heart" },
-			{ 1, "oval" },
-			{ 2, "pentagon" },
-			{ 3, "Hexagon" },
+			{ 0, LangUtil::getInstance()->translateString("heart") },
+			{ 1, LangUtil::getInstance()->translateString("oval") },
+			{ 2, LangUtil::getInstance()->translateString("pentagon") },
+			{ 3, LangUtil::getInstance()->translateString("hexagon") },
 		} },
 		{ 6,
 		{
-			{ 0, "star" },
-			{ 1, "triangle" },
-			{ 2, "cross" },
-			{ 3, "heart" },
+			{ 0, LangUtil::getInstance()->translateString("star") },
+			{ 1, LangUtil::getInstance()->translateString("triangle") },
+			{ 2, LangUtil::getInstance()->translateString("cross") },
+			{ 3, LangUtil::getInstance()->translateString("heart") },
 		} },
 
 		{ 7,
 		{
-			{ 0, "Rectangle" },
-			{ 1, "Octagon" },
-			{ 2, "square" },
-			{ 3, "diamond" },
-			{ 4, "circle" },
+			{ 0, LangUtil::getInstance()->translateString("rectangle") },
+			{ 1, LangUtil::getInstance()->translateString("octagon") },
+			{ 2, LangUtil::getInstance()->translateString("square") },
+			{ 3, LangUtil::getInstance()->translateString("diamond") },
+			{ 4, LangUtil::getInstance()->translateString("circle") },
 		} },
 		{ 8,
 		{
-			{ 0, "heart" },
-			{ 1, "oval" },
-			{ 2, "pentagon" },
-			{ 3, "Hexagon" },
-			{ 4, "star" },
+			{ 0, LangUtil::getInstance()->translateString("heart") },
+			{ 1, LangUtil::getInstance()->translateString("oval") },
+			{ 2, LangUtil::getInstance()->translateString("pentagon") },
+			{ 3, LangUtil::getInstance()->translateString("hexagon") },
+			{ 4, LangUtil::getInstance()->translateString("star") },
 		} },
 
 		{ 9,
 		{
-			{ 0, "Hexagon" },
-			{ 1, "heart" },
-			{ 2, "square" },
-			{ 3, "oval" },
-			{ 4, "star" },
-			{ 5, "diamond" },
+			{ 0, LangUtil::getInstance()->translateString("hexagon") },
+			{ 1, LangUtil::getInstance()->translateString("heart") },
+			{ 2, LangUtil::getInstance()->translateString("square") },
+			{ 3, LangUtil::getInstance()->translateString("oval") },
+			{ 4, LangUtil::getInstance()->translateString("star") },
+			{ 5, LangUtil::getInstance()->translateString("diamond") },
 		} },
 		{ 10,
 		{
-			{ 0, "pentagon" },
-			{ 1, "oval" },
-			{ 2, "Rectangle" },
-			{ 3, "Hexagon" },
-			{ 4, "circle" },
-			{ 5, "star" },
+			{ 0, LangUtil::getInstance()->translateString("pentagon") },
+			{ 1, LangUtil::getInstance()->translateString("oval") },
+			{ 2, LangUtil::getInstance()->translateString("rectangle") },
+			{ 3, LangUtil::getInstance()->translateString("hexagon") },
+			{ 4, LangUtil::getInstance()->translateString("circle") },
+			{ 5, LangUtil::getInstance()->translateString("star") },
 		} },
 	};
 
@@ -301,7 +301,7 @@ void Shape::onEnterTransitionDidFinish()
 		addEvents(RealSpriteDetails);
 	}
 
-	_shapeName = CommonLabel::createWithSystemFont("", "Arial", 50);
+	_shapeName = CommonLabel::createWithSystemFont("", "fonts/Roboto-Regular.ttf", 50);
 	_shapeName->setPositionX(_ShapeBg->getChildByName("alphabet_board_4")->getContentSize().width /2);
 	_shapeName->setPositionY(_ShapeBg->getChildByName("alphabet_board_4")->getContentSize().height / 2.5);
 //	_shapeName->setAnchorPoint(Vec2(.3, 1));

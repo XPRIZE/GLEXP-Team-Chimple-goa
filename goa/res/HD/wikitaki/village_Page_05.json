@@ -1,0 +1,626 @@
+{
+  "ID": "9e7fdb9c-59dd-40ef-84dd-d2aa78ab9abc",
+  "Version": "3.10.0.0",
+  "Name": "Page_05",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 59,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/village_background_04.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 898.5842,
+              "Y": 899.4186
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4992,
+              "Y": 0.4997
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": -1.4158,
+            "RightMargin": 1.4158,
+            "TopMargin": 0.5814,
+            "BottomMargin": -0.5814,
+            "Tag": 60,
+            "ActionTag": -813664789,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1800.0
+            },
+            "Name": "background_04",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/hill/village_hill_04.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 531.7921,
+              "Y": 935.0673
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2954,
+              "Y": 0.5195
+            },
+            "PreSize": {
+              "X": 0.5911,
+              "Y": 0.2061
+            },
+            "LeftMargin": -0.2079,
+            "RightMargin": 736.2079,
+            "TopMargin": 679.4327,
+            "BottomMargin": 749.5673,
+            "Tag": 61,
+            "ActionTag": 523389783,
+            "Size": {
+              "X": 1064.0,
+              "Y": 371.0
+            },
+            "Name": "hill_04",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/hill/village_hill_05.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1397.1838,
+              "Y": 1082.1631
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7762,
+              "Y": 0.6012
+            },
+            "PreSize": {
+              "X": 0.4439,
+              "Y": 0.3694
+            },
+            "LeftMargin": 997.6838,
+            "RightMargin": 3.3162,
+            "TopMargin": 385.3369,
+            "BottomMargin": 749.6631,
+            "Tag": 62,
+            "ActionTag": -488953156,
+            "Size": {
+              "X": 799.0,
+              "Y": 665.0
+            },
+            "Name": "hill_05",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/sky/village_cloud.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 451.4327,
+              "Y": 1508.2463
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2508,
+              "Y": 0.8379
+            },
+            "PreSize": {
+              "X": 0.2894,
+              "Y": 0.1161
+            },
+            "LeftMargin": 190.9327,
+            "RightMargin": 1088.0674,
+            "TopMargin": 187.2537,
+            "BottomMargin": 1403.7463,
+            "Tag": 63,
+            "ActionTag": -1804994602,
+            "Size": {
+              "X": 521.0,
+              "Y": 209.0
+            },
+            "Name": "cloud",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/sky/village_cloud.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1601.8116,
+              "Y": 1370.0552
+            },
+            "Scale": {
+              "ScaleX": 0.4933,
+              "ScaleY": 0.4933
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8899,
+              "Y": 0.7611
+            },
+            "PreSize": {
+              "X": 0.2894,
+              "Y": 0.1161
+            },
+            "LeftMargin": 1341.3116,
+            "RightMargin": -62.3116,
+            "TopMargin": 325.4448,
+            "BottomMargin": 1265.5552,
+            "Tag": 64,
+            "ActionTag": -1508608801,
+            "Size": {
+              "X": 521.0,
+              "Y": 209.0
+            },
+            "Name": "cloud_01",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/village_tree_04.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 227.6346,
+              "Y": 720.5447
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1265,
+              "Y": 0.4003
+            },
+            "PreSize": {
+              "X": 0.2372,
+              "Y": 0.3211
+            },
+            "LeftMargin": 14.1346,
+            "RightMargin": 1358.8655,
+            "TopMargin": 790.4553,
+            "BottomMargin": 431.5447,
+            "Tag": 66,
+            "ActionTag": -931816590,
+            "Size": {
+              "X": 427.0,
+              "Y": 578.0
+            },
+            "Name": "tree_04",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/village_house_04.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 540.2798,
+              "Y": 783.0803
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3002,
+              "Y": 0.435
+            },
+            "PreSize": {
+              "X": 0.3767,
+              "Y": 0.4067
+            },
+            "LeftMargin": 201.2798,
+            "RightMargin": 920.7202,
+            "TopMargin": 650.9197,
+            "BottomMargin": 417.0803,
+            "Tag": 67,
+            "ActionTag": 119180061,
+            "Size": {
+              "X": 678.0,
+              "Y": 732.0
+            },
+            "Name": "house",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/village_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 85.6818,
+              "Y": 417.8268
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0476,
+              "Y": 0.2321
+            },
+            "PreSize": {
+              "X": 0.0506,
+              "Y": 0.0294
+            },
+            "LeftMargin": 40.1818,
+            "RightMargin": 1668.8181,
+            "TopMargin": 1355.6732,
+            "BottomMargin": 391.3268,
+            "Tag": 68,
+            "ActionTag": -2109370318,
+            "Size": {
+              "X": 91.0,
+              "Y": 53.0
+            },
+            "Name": "stone",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/village_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 148.6033,
+              "Y": 416.8256
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0826,
+              "Y": 0.2316
+            },
+            "PreSize": {
+              "X": 0.0506,
+              "Y": 0.0294
+            },
+            "LeftMargin": 103.1033,
+            "RightMargin": 1605.8967,
+            "TopMargin": 1356.6744,
+            "BottomMargin": 390.3256,
+            "Tag": 69,
+            "ActionTag": 143578236,
+            "Size": {
+              "X": 91.0,
+              "Y": 53.0
+            },
+            "Name": "stone_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/village_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 95.2765,
+              "Y": 377.2153
+            },
+            "Scale": {
+              "ScaleX": 0.7768,
+              "ScaleY": 0.7768
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0529,
+              "Y": 0.2096
+            },
+            "PreSize": {
+              "X": 0.0506,
+              "Y": 0.0294
+            },
+            "LeftMargin": 49.7765,
+            "RightMargin": 1659.2235,
+            "TopMargin": 1396.2847,
+            "BottomMargin": 350.7153,
+            "Tag": 70,
+            "ActionTag": 574115605,
+            "Size": {
+              "X": 91.0,
+              "Y": 53.0
+            },
+            "Name": "stone_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/village_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 215.1391,
+              "Y": 445.5673
+            },
+            "Scale": {
+              "ScaleX": 1.1624,
+              "ScaleY": 1.1624
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1195,
+              "Y": 0.2475
+            },
+            "PreSize": {
+              "X": 0.0506,
+              "Y": 0.0294
+            },
+            "LeftMargin": 169.6391,
+            "RightMargin": 1539.3608,
+            "TopMargin": 1327.9327,
+            "BottomMargin": 419.0673,
+            "Tag": 71,
+            "ActionTag": -175893984,
+            "Size": {
+              "X": 91.0,
+              "Y": 53.0
+            },
+            "Name": "stone_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/village_tree_01.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1091.7893,
+              "Y": 520.6979
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6065,
+              "Y": 0.2893
+            },
+            "PreSize": {
+              "X": 0.0672,
+              "Y": 0.1828
+            },
+            "LeftMargin": 1031.2893,
+            "RightMargin": 647.7107,
+            "TopMargin": 1114.8021,
+            "BottomMargin": 356.1979,
+            "Tag": 72,
+            "ActionTag": 1446034686,
+            "Size": {
+              "X": 121.0,
+              "Y": 329.0
+            },
+            "Name": "tree_01",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/village_tree_05.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1717.7693,
+              "Y": 818.2612
+            },
+            "Scale": {
+              "ScaleX": 0.578,
+              "ScaleY": 0.578
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9543,
+              "Y": 0.4546
+            },
+            "PreSize": {
+              "X": 0.0922,
+              "Y": 0.2172
+            },
+            "LeftMargin": 1634.7693,
+            "RightMargin": -0.7693,
+            "TopMargin": 786.2388,
+            "BottomMargin": 622.7612,
+            "Tag": 73,
+            "ActionTag": 139082134,
+            "Size": {
+              "X": 166.0,
+              "Y": 391.0
+            },
+            "Name": "tree_02",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bg/village_background_04.png",
+        "ob/sky/village_cloud.png",
+        "ob/hill/village_hill_04.png",
+        "ob/hill/village_hill_05.png",
+        "ob/house/village_house_04.png",
+        "ob/stone/village_stone.png",
+        "ob/tree/village_tree_01.png",
+        "ob/tree/village_tree_04.png",
+        "ob/tree/village_tree_05.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
