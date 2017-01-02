@@ -1,0 +1,171 @@
+{
+  "ID": "2d7062ed-b3c9-4e59-87fb-b2509c4dfd64",
+  "Version": "2.3.4",
+  "Name": "Scene_5",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 40,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 246,
+              "G": 140,
+              "B": 30
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 42,
+            "ActionTag": 1028004336,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/desert_bg_2.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 898.745,
+              "Y": 980.756
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "G": 195,
+              "B": 0
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4993,
+              "Y": 0.5449
+            },
+            "PreSize": {
+              "X": 0.9928,
+              "Y": 0.2011
+            },
+            "LeftMargin": 5.245,
+            "RightMargin": 7.755,
+            "TopMargin": 638.244,
+            "BottomMargin": 799.756,
+            "Tag": 43,
+            "ActionTag": -590747549,
+            "Size": {
+              "X": 1787.0,
+              "Y": 362.0
+            },
+            "Name": "bg_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/desert_sand_hil.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 899.81,
+              "Y": 665.93
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4999,
+              "Y": 0.37
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.37
+            },
+            "LeftMargin": -0.19,
+            "RightMargin": 0.1899,
+            "TopMargin": 801.07,
+            "BottomMargin": 332.93,
+            "Tag": 44,
+            "ActionTag": -243201869,
+            "Size": {
+              "X": 1800.0,
+              "Y": 666.0
+            },
+            "Name": "sand_hil_2",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bg/desert_bg_2.png",
+        "bg/desert_sand_hil.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

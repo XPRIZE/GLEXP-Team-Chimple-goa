@@ -2673,7 +2673,7 @@
             "RightMargin": 1187.3245,
             "TopMargin": 1739.5825,
             "BottomMargin": 234.4175,
-            "UserData": "canInteract=true,nextScene=trainstation",
+            "UserData": "canInteract=true,nextScene=trainstationinside",
             "Tag": 1755,
             "ActionTag": -1731489918,
             "Size": {
@@ -2720,7 +2720,7 @@
             "RightMargin": 935.5829,
             "TopMargin": 1739.568,
             "BottomMargin": 234.432,
-            "UserData": "canInteract=true,nextScene=trainstation",
+            "UserData": "canInteract=true,nextScene=trainstationinside",
             "Tag": 1756,
             "ActionTag": -136975748,
             "Size": {
@@ -3141,7 +3141,7 @@
             },
             "LeftMargin": 2643.5791,
             "RightMargin": -232.5791,
-            "TopMargin": 1788.5844,
+            "TopMargin": 1788.5845,
             "BottomMargin": 237.4156,
             "Tag": 309,
             "ActionTag": 2031039839,
@@ -3234,8 +3234,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "city/city5_2/gardenfront.png",
-              "Plist": "city/city5_2/city5_2.plist"
+              "Path": "city/gardenfront.png",
+              "Plist": "city/city.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -3246,8 +3246,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 4060.1812,
-              "Y": 1212.1609
+              "X": 4039.5139,
+              "Y": 1218.1544
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -3256,31 +3256,32 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 1.586,
-              "Y": 0.4735
+              "X": 1.5779,
+              "Y": 0.4758
             },
             "PreSize": {
               "X": 0.5309,
               "Y": 0.2121
             },
-            "LeftMargin": 3380.6812,
-            "RightMargin": -2179.6812,
-            "TopMargin": 1076.3391,
-            "BottomMargin": 940.6609,
-            "Tag": 188,
-            "ActionTag": 2028356954,
+            "LeftMargin": 3360.0139,
+            "RightMargin": -2159.0137,
+            "TopMargin": 1070.3456,
+            "BottomMargin": 946.6544,
+            "Tag": 440,
+            "ActionTag": 5227433,
             "Size": {
               "X": 1359.0,
               "Y": 543.0
             },
-            "Name": "gardenfront_3",
+            "Name": "gardenfront_67",
             "ctype": "SpriteObjectData"
           },
           {
+            "FlipX": true,
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "city/city5_2/gardenside.png",
-              "Plist": "city/city5_2/city5_2.plist"
+              "Path": "city/gardenside.png",
+              "Plist": "city/city.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -3291,8 +3292,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 4878.1455,
-              "Y": 624.4153
+              "X": 3241.3398,
+              "Y": 624.415
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -3301,32 +3302,32 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 1.9055,
+              "X": 1.2661,
               "Y": 0.2439
             },
             "PreSize": {
               "X": 0.2695,
               "Y": 0.3023
             },
-            "LeftMargin": 4533.1455,
-            "RightMargin": -2663.1455,
-            "TopMargin": 1548.5847,
-            "BottomMargin": 237.4153,
-            "Tag": 186,
-            "ActionTag": -360973135,
+            "LeftMargin": 2896.3398,
+            "RightMargin": -1026.3398,
+            "TopMargin": 1548.585,
+            "BottomMargin": 237.415,
+            "Tag": 441,
+            "ActionTag": 1232082225,
             "Size": {
               "X": 690.0,
               "Y": 774.0
             },
-            "Name": "gardenside_1",
+            "Name": "gardenside_68",
             "ctype": "SpriteObjectData"
           },
           {
             "FlipX": true,
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "city/city5_2/gardenside.png",
-              "Plist": "city/city5_2/city5_2.plist"
+              "Path": "city/Gate.png",
+              "Plist": "city/city.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -3337,127 +3338,126 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 3237.105,
-              "Y": 624.4153
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 1.2645,
-              "Y": 0.2439
-            },
-            "PreSize": {
-              "X": 0.2695,
-              "Y": 0.3023
-            },
-            "LeftMargin": 2892.105,
-            "RightMargin": -1022.105,
-            "TopMargin": 1548.5847,
-            "BottomMargin": 237.4153,
-            "Tag": 187,
-            "ActionTag": -1842585299,
-            "Size": {
-              "X": 690.0,
-              "Y": 774.0
-            },
-            "Name": "gardenside_2",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "city/city5_2/Gate.png",
-              "Plist": "city/city5_2/city5_2.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 3805.3901,
-              "Y": 553.9156
-            },
-            "Scale": {
-              "ScaleX": 1.166,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 1.4865,
-              "Y": 0.2164
-            },
-            "PreSize": {
-              "X": 0.166,
-              "Y": 0.2473
-            },
-            "LeftMargin": 3592.8901,
-            "RightMargin": -1457.8901,
-            "TopMargin": 1689.5844,
-            "BottomMargin": 237.4156,
-            "UserData": "canInteract=true,nextScene=park",
-            "Tag": 191,
-            "ActionTag": -1659162142,
-            "Size": {
-              "X": 425.0,
-              "Y": 633.0
-            },
-            "Name": "Gate_5_0",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FlipX": true,
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "city/city5_2/Gate.png",
-              "Plist": "city/city5_2/city5_2.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 4308.9487,
+              "X": 3798.5503,
               "Y": 553.9155
             },
             "Scale": {
-              "ScaleX": 1.166,
+              "ScaleX": 1.13,
               "ScaleY": 1.0
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 1.6832,
+              "X": 1.4838,
               "Y": 0.2164
             },
             "PreSize": {
               "X": 0.166,
               "Y": 0.2473
             },
-            "LeftMargin": 4096.4487,
-            "RightMargin": -1961.4487,
+            "LeftMargin": 3586.0503,
+            "RightMargin": -1451.0503,
             "TopMargin": 1689.5845,
             "BottomMargin": 237.4155,
             "UserData": "canInteract=true,nextScene=park",
-            "Tag": 192,
-            "ActionTag": 2082211362,
+            "Tag": 442,
+            "ActionTag": 93646621,
             "Size": {
               "X": 425.0,
               "Y": 633.0
             },
-            "Name": "Gate_5_0_0",
+            "Name": "Gate_69",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "city/gardenside.png",
+              "Plist": "city/city.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4819.1069,
+              "Y": 624.4154
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.8825,
+              "Y": 0.2439
+            },
+            "PreSize": {
+              "X": 0.2695,
+              "Y": 0.3023
+            },
+            "LeftMargin": 4474.1069,
+            "RightMargin": -2604.1069,
+            "TopMargin": 1548.5846,
+            "BottomMargin": 237.4154,
+            "Tag": 443,
+            "ActionTag": -999208911,
+            "Size": {
+              "X": 690.0,
+              "Y": 774.0
+            },
+            "Name": "gardenside_70",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "city/Gate.png",
+              "Plist": "city/city.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4271.0537,
+              "Y": 553.9156
+            },
+            "Scale": {
+              "ScaleX": 1.0578,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.6684,
+              "Y": 0.2164
+            },
+            "PreSize": {
+              "X": 0.166,
+              "Y": 0.2473
+            },
+            "LeftMargin": 4058.5537,
+            "RightMargin": -1923.5537,
+            "TopMargin": 1689.5845,
+            "BottomMargin": 237.4156,
+            "UserData": "canInteract=true,nextScene=park",
+            "Tag": 444,
+            "ActionTag": 916047948,
+            "Size": {
+              "X": 425.0,
+              "Y": 633.0
+            },
+            "Name": "Gate_71",
             "ctype": "SpriteObjectData"
           }
         ],
@@ -3469,12 +3469,12 @@
         "ctype": "LayerObjectData"
       },
       "UsedResources": [
+        "city.plist",
+        "city.png",
         "city1/city1.plist",
         "city1/city1.png",
         "city5/city5.plist",
-        "city5/city5.png",
-        "city5_2/city5_2.plist",
-        "city5_2/city5_2.png"
+        "city5/city5.png"
       ],
       "ctype": "GameFileData"
     }

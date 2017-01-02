@@ -434,7 +434,7 @@ void Dash::wordGenerateWithOptions()
 	this->addChild(board);
 
 
-	_topLabel = CommonLabel::createWithSystemFont(boardName.str(), "Arial", 100);
+	_topLabel = CommonLabel::createWithTTF(boardName.str(), "fonts/Roboto-Regular.ttf", 100);
 	_topLabel->setPositionX(visibleSize.width/2);
 	_topLabel->setName(_gameWord.c_str());
 	_topLabel->setPositionY(visibleSize.height - _topLabel->getContentSize().height);
@@ -459,7 +459,7 @@ void Dash::wordGenerateWithOptions()
 	int randomInt = cocos2d::RandomHelper::random_int(0, answerSize);
 	for (int i = 0; i < _choiceButton.size(); i++) {
 		auto str = answer.at(randomInt % (answerSize + 1));
-		auto myLabel = CommonLabel::createWithSystemFont(str, "Arial", 150);
+		auto myLabel = CommonLabel::createWithSystemFont(str, "fonts/Roboto-Regular.ttf", 150);
 		myLabel->setName(str);
 		myLabel->setPositionX(_choiceButton.at(i)->getPositionX());
 		myLabel->setPositionY(_choiceButton.at(i)->getPositionY());
@@ -508,7 +508,7 @@ void Dash::fallingWords(int i)
 		word = word + "" + test;
 	}
 	std::string str = word +"   " +_synonyms.at(word);
-	auto myLabel = CommonLabel::createWithSystemFont(str, "Arial", 100);
+	auto myLabel = CommonLabel::createWithSystemFont(str, "fonts/Roboto-Regular.ttf", 100);
 	myLabel->setName(str);
 	myLabel->setPositionX(visibleSize.width/1.75);
 	myLabel->setPositionY(visibleSize.height + 300);

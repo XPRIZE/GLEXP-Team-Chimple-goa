@@ -1,0 +1,221 @@
+{
+  "ID": "13ee0bbb-60bc-4ebb-86fd-2174301e3725",
+  "Version": "2.3.4",
+  "Name": "Adhabu_Punishment02",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 8,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "G": 214,
+              "B": 123
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -272.9207,
+              "Y": 796.6414
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1066,
+              "Y": 0.4426
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.5556
+            },
+            "LeftMargin": -272.9207,
+            "RightMargin": -267.0793,
+            "TopMargin": 3.3586,
+            "BottomMargin": 796.6414,
+            "Tag": 9,
+            "ActionTag": -1153532300,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1000.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "G": 205,
+              "B": 82
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -272.9231,
+              "Y": -1.4954
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1066,
+              "Y": -0.0008
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.4444
+            },
+            "LeftMargin": -272.9231,
+            "RightMargin": -267.0769,
+            "TopMargin": 1001.4954,
+            "BottomMargin": -1.4954,
+            "Tag": 10,
+            "ActionTag": 448769805,
+            "Size": {
+              "X": 3100.0,
+              "Y": 800.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/furniture/adhabu_table.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1291.2278,
+              "Y": 469.4131
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5044,
+              "Y": 0.2608
+            },
+            "PreSize": {
+              "X": 0.5297,
+              "Y": 0.3933
+            },
+            "LeftMargin": 613.2278,
+            "RightMargin": 590.7722,
+            "TopMargin": 976.5869,
+            "BottomMargin": 115.4131,
+            "Tag": 11,
+            "ActionTag": -68316327,
+            "Size": {
+              "X": 1356.0,
+              "Y": 708.0
+            },
+            "Name": "table_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/other/adhabu_basket.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1332.7311,
+              "Y": 977.8676
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5206,
+              "Y": 0.5433
+            },
+            "PreSize": {
+              "X": 0.1887,
+              "Y": 0.3583
+            },
+            "LeftMargin": 1091.2311,
+            "RightMargin": 985.7689,
+            "TopMargin": 499.6323,
+            "BottomMargin": 655.3676,
+            "Tag": 12,
+            "ActionTag": 1782906410,
+            "Size": {
+              "X": 483.0,
+              "Y": 645.0
+            },
+            "Name": "basket_2",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "ob/furniture/adhabu_table.png",
+        "ob/other/adhabu_basket.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

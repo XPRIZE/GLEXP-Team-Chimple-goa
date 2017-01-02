@@ -1,57 +1,68 @@
 var xc = xc || {};
 xc.TextCreatePanel = cc.Layer.extend({
-    ctor: function (width, height, position, existingText, callback, audiocallback, callbackContext, enabled) {
+    ctor: function (jsonNode, width, height, position, existingText, callback, audiocallback, callbackContext, fontSize, enableOutline) {
         this._super(width, height);
-        var backButton = new ccui.Button('icons/check.png', 'icons/check_onclick.png', 'icons/check_onclick.png', ccui.Widget.PLIST_TEXTURE);
-        backButton.setPosition(cc.director.getWinSize().width * 0.55,cc.director.getWinSize().height * 0.65);
-        backButton.addTouchEventListener(this.goBack, this);
         this.callback = callback;
         this.audiocallback = audiocallback;
         this._callbackContext = callbackContext;
         this._text = existingText;
+        this._nodeJSON = jsonNode;
+        this._fontSize = fontSize;
+        this._constructedScene = ccs.load(this._nodeJSON,xc.path);
+        this._constructedScene.node.retain();
+        this._enableOutline = enableOutline;
+        if (this._constructedScene.node) {
+            this.addChild(this._constructedScene.node,0);
+        }                        
 
-        var backgroundLayer = cc.LayerColor.create(new cc.Color(140, 140, 140, 255), cc.director.getWinSize().width * 0.7, cc.director.getWinSize().height * 0.7);        
-        backgroundLayer.setPosition(position);
-        backgroundLayer.setAnchorPoint(0.5, 0.5);        
-        this.addChild(backgroundLayer, 0);
+        this._constructedScene.node.setPosition(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2);
+        this._constructedScene.node.setAnchorPoint(cc.p(0.5,0.5));
 
-        var textContentMargin = 100; 
 
-        this._textField = new ccui.TextField();
-        this._textField.setFontSize(50);
+        var closeButton = this._constructedScene.node.getChildByName("Button_1");
+        closeButton.setTitleText("");
+        closeButton.addTouchEventListener(this.close, this);
+
+        var soundButton = this._constructedScene.node.getChildByName("sound");
+        soundButton.setVisible(false);
+        
+        this._textField = this._constructedScene.node.getChildByName("TextField_2");
+        this._textField.setFontName(xc.storyFontName);
+        this._textField.setTextColor(xc.storyFontColor);
+        if(this._fontSize > 0) {
+            this._textField.setFontSize(this._fontSize);    
+        } else {
+            this._textField.setFontSize(xc.storyFontSize);
+        }
+        
         this._textField.setAnchorPoint(0.5, 0.5);
-        this._textField.setPosition(cc.director.getWinSize().width / 2 - 2 * textContentMargin + textContentMargin, cc.director.getWinSize().height/2 - 2 * textContentMargin);
-        this._textField.setMaxLengthEnabled(true);
-        this._textField.setMaxLength(500);
+        this._textField.setPlaceHolder("");
         this._textField.ignoreContentAdaptWithSize(false);
-        this._textField.setPlaceHolderColor(cc.color.BLUE);
         this._textField.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_LEFT);
-        this._textField.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_TOP);
-        this._textField.setContentSize(cc.size(cc.director.getWinSize().width  * 0.6 , cc.director.getWinSize().height * 0.6));
-        if (this._text) {
+        this._textField.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
+        if (!this._enableOutline && this._text) {
             this._textField.setString(this._text);
         }
+        this._textField.setTouchEnabled(true);
 
-        this._textField.addChild(backButton);
-
-        var audioButton = new ccui.Button('icons/check.png', 'icons/check_onclick.png', 'icons/check_onclick.png', ccui.Widget.PLIST_TEXTURE);
-        audioButton.setPosition(cc.director.getWinSize().width * 0.55,cc.director.getWinSize().height * 0.15);
-        audioButton.addTouchEventListener(this.audiocallback, this._callbackContext);
-        this._textField.addChild(audioButton);
-
-        this.addChild(this._textField, 0);
-        if(enabled) {
-            this._textField.addEventListener(this.updateText, this);
-            this._textField.setTouchEnabled(true);
-        }  else {
-            this._textField.setTouchEnabled(false);
+        if(this._enableOutline) {
+            this._label = new ccui.Text(this._text, "Arial", 100);
+            if(this._fontSize > 0) {
+                this._label.setFontSize(this._fontSize);    
+            } else {
+                this._label.setFontSize(xc.storyFontSize);
+            }        
+            this._label.enableOutline(cc.color.RED, 10);
+            this._label.color = cc.color.WHITE;
+            this._label.setPosition(this._textField.getPosition());
+            this.addChild(this._label);
         }
-    },   
+    },
 
-    goBack: function (sender, type) {
+    close: function (sender, type) {
         switch (type) {
             case ccui.Widget.TOUCH_ENDED:
-                var contents = this._text;
+                var contents = this._textField.getString();
                 this._textField.cleanup();
                 this.parent.removeChild(this, true);
                 if (this.callback != null && this._callbackContext != null) {
@@ -59,19 +70,5 @@ xc.TextCreatePanel = cc.Layer.extend({
                 }
                 break;
         }
-    },
-    
-    updateText: function (sender, type) {
-        switch (type) {
-            case ccui.TextField.EVENT_ATTACH_WITH_IME:
-                break;
-            case ccui.TextField.EVENT_DETACH_WITH_IME:
-                break;
-            case ccui.TextField.EVENT_INSERT_TEXT:
-                this._text = sender.getString();
-                break;
-        }
-    },
-    
-
+    }
 });

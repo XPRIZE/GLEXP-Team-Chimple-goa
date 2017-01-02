@@ -75,6 +75,7 @@
 #include "../mini_games/PopCount.h"
 #include "../mini_games/DinoGame.h"
 #include "../util/CommonLabel.h"
+#include "../Setting.h"
 #include "Award.h"
 
 USING_NS_CC;
@@ -1049,255 +1050,12 @@ void MenuContext::showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touc
     }
 }
 
-void MenuContext::showSettingMenu(){
-
-		std::string _levelStatus;
-		localStorageGetItem(UNLOCK_ALL, &_levelStatus);
-		if (_levelStatus.empty()) {
-			localStorageSetItem(UNLOCK_ALL, "1");
-		}
-
-		std::string _language;
-		localStorageGetItem(LANGUAGE, &_language);
-		if (_language.empty()) {
-			localStorageSetItem(LANGUAGE, "");
-		}
-
-		Size visibleSize = Director::getInstance()->getVisibleSize();
-		_settingLayer = LayerColor::create(Color4B(128.0, 128.0, 128.0, 200.0));
-		_settingLayer->setContentSize(visibleSize);
-		this->addChild(_settingLayer, 3);
-
-		_settingNode = CSLoader::createNode("settings/settings.csb");
-		_settingNode->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
-		_settingNode->setAnchorPoint(Vec2(0.5, 0.5));
-		_settingLayer->addChild(_settingNode);
-
-		_checkBox = (CheckBox*)_settingNode->getChildByName("CheckBox_1");
-		if (_levelStatus == "0")
-			_checkBox->setSelected(true);
-		else if(_levelStatus == "1" || _levelStatus == "")
-			_checkBox->setSelected(false);
-
-		RadioButton *_rd1 = (RadioButton*) _settingNode->getChildByName("radio1");
-		_rd1->setName("radio1");
-		_rd1->addTouchEventListener(CC_CALLBACK_2(MenuContext::radioButton, this));
-
-		RadioButton *_rd2 = (RadioButton*)_settingNode->getChildByName("radio2");
-		_rd2->addTouchEventListener(CC_CALLBACK_2(MenuContext::radioButton, this));
-		_rd2->setName("radio2");
-
-		_radio1Select = Sprite::createWithSpriteFrameName("settings/radiopressed.png");
-		_radio1Select->setPosition(Vec2(_rd1->getPositionX(), _rd1->getPositionY()));
-		_settingNode->addChild(_radio1Select);
-
-		if (_language == "English" || _language == "")
-		{
-			LangUtil::getInstance()->changeLanguage(SupportedLanguages::ENGLISH);
-			_radio1Select->setVisible(true);
-		}
-		else
-		{
-			LangUtil::getInstance()->changeLanguage(SupportedLanguages::SWAHILI);
-			_radio1Select->setVisible(false);
-		}
-
-		_radio2Select = Sprite::createWithSpriteFrameName("settings/radiopressed.png");
-		_radio2Select->setPosition(Vec2(_rd2->getPositionX(), _rd2->getPositionY()));
-		_settingNode->addChild(_radio2Select);
-
-		if (_language == "Swahili")
-			_radio2Select->setVisible(true);
-		else
-			_radio2Select->setVisible(false);
-
-		auto _swahili = LabelTTF::create("Swahili", "Arial", 150);
-		_swahili->setAnchorPoint(Vec2(0, .5));
-		_swahili->setPosition(Vec2(_settingNode->getChildByName("Node_3")->getPositionX(), _settingNode->getChildByName("Node_3")->getPositionY()));
-		_settingLayer->addChild(_swahili);
-
-		auto _english = LabelTTF::create("English", "Arial", 150);
-		_english->setAnchorPoint(Vec2(0, .5));
-		_english->setPosition(Vec2(_settingNode->getChildByName("Node_2")->getPositionX(), _settingNode->getChildByName("Node_2")->getPositionY()));
-		_settingLayer->addChild(_english);
-
-		auto _disable = LabelTTF::create("Unlock all", "Arial", 150);
-		_disable->setAnchorPoint(Vec2(0, .5));
-		_disable->setPosition(Vec2(_settingNode->getChildByName("Node_1")->getPositionX(), _settingNode->getChildByName("Node_1")->getPositionY()));
-		_settingLayer->addChild(_disable);
-
-		auto _submitLabel = LabelTTF::create("Submit", "Arial", 150);
-		_submitLabel->setAnchorPoint(Vec2(1, 1));
-		_submitLabel->setPosition(Vec2(_settingNode->getChildByName("submit")->getPositionX() - _settingNode->getChildByName("submit")->getContentSize().width * .45, _settingNode->getChildByName("submit")->getPositionY() - _settingNode->getChildByName("submit")->getContentSize().height * .6));
-		_settingNode->getChildByName("submit")->addChild(_submitLabel);
-
-		_settingNode->getChildByName("submit")->setTag(1);
-		_settingNode->getChildByName("close")->setTag(0);
-
-		Button *_submit = (Button*)_settingNode->getChildByName("submit");
-		_submit->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type) {
-			switch (type)
-			{
-			case cocos2d::ui::Widget::TouchEventType::BEGAN:
-				break;
-			case cocos2d::ui::Widget::TouchEventType::ENDED:
-				if (_radio1Select->isVisible())
-				{
-					LangUtil::getInstance()->changeLanguage(SupportedLanguages::ENGLISH);
-					localStorageSetItem(LANGUAGE, "English");
-				}
-				else
-				{
-					LangUtil::getInstance()->changeLanguage(SupportedLanguages::SWAHILI);
-					localStorageSetItem(LANGUAGE, "Swahili");
-				}
-
-				if (_checkBox->isSelected())
-					localStorageSetItem(UNLOCK_ALL, "0");
-				else
-					localStorageSetItem(UNLOCK_ALL, "1");
-
-				_menuButton->setEnabled(true);
-				removeChild(_greyLayer);
-				removeChild(_settingLayer);
-				resumeNodeAndDescendants(_main);
-
-				break;
-			default:
-				break;
-			}
-		});
-
-		Button *close = (Button*)_settingNode->getChildByName("close");
-		close->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type) {
-			switch (type)
-			{
-			case cocos2d::ui::Widget::TouchEventType::BEGAN:
-				break;
-			case cocos2d::ui::Widget::TouchEventType::ENDED:
-				_menuButton->setEnabled(true);
-				removeChild(_greyLayer);
-				removeChild(_settingLayer);
-				resumeNodeAndDescendants(_main);
-				break;
-			default:
-				break;
-			}
-		});
-
-}
-
 void MenuContext::addCalculator(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
 	if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
-
-		removeMenu();
-		_menuButton->setEnabled(false);
-		addGreyLayer();
-		pauseNodeAndDescendants(_main);
-
-		this->scheduleUpdate();
-		Size visibleSize = Director::getInstance()->getVisibleSize();
-		Vec2 origin = Director::getInstance()->getVisibleOrigin();
-
-		_calcLayer = LayerColor::create(Color4B(255.0, 255.0, 255.0, 255.0));
-		_calcLayer->setContentSize(visibleSize);
-		this->addChild(_calcLayer, 4);
-
-		Button *_closeButton = Button::create("menu/close.png", "menu/close.png", "menu/close.png", Widget::TextureResType::LOCAL);
-		_closeButton->addTouchEventListener(CC_CALLBACK_2(MenuContext::closeCalc, this));
-		_closeButton->setPosition(Vec2(visibleSize.width - _closeButton->getContentSize().width, visibleSize.height - _closeButton->getContentSize().height));
-		_calcLayer->addChild(_closeButton, 5);
-
-		auto _label = LabelTTF::create("Enter cheat code", "Arial", 200);
-		_label->setAnchorPoint(Vec2(.5, .5));
-		_label->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * .75));
-		_calcLayer->addChild(_label, 5);
-		_label->setColor(Color3B::BLACK);
-
-		_calculator = new Calculator();
-		_calculator->createCalculator(Vec2(visibleSize.width / 2, visibleSize.height / 3), Vec2(0.5, 0.5), 0.7, 0.7);
-		_calcLayer->addChild(_calculator, 5);
+		Director::getInstance()->replaceScene(Setting::createScene());
 	}
 }
 
-void MenuContext::closeCalc(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
-	if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
-		_menuButton->setEnabled(true);
-		removeChild(_greyLayer);
-		resumeNodeAndDescendants(_main);
-		this->removeChild(_calcLayer);
-		this->unscheduleUpdate();
-	}
-}
-
-void MenuContext::update(float d)
-{
-	if (_calculator->checkAnswer(1234))
-	{
-		this->removeChild(_calcLayer);
-		this->unscheduleUpdate();
-		showSettingMenu();
-	}
-}
-
-void MenuContext::radioButton(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType)
-{
-	if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED)
-	{
-		Button* clickedButton = dynamic_cast<Button*>(pSender);
-		if (clickedButton->getName() == "radio1")
-		{
-			_radio2Select->setVisible(false);
-			_radio1Select->setVisible(true);
-		}
-		else
-		{
-			_radio1Select->setVisible(false);
-			_radio2Select->setVisible(true);
-		}
-	}
-}
-
-
-bool MenuContext::onTouchBeganOnSubmitButton(Touch *touch, Event *event)
-{
-	auto target = event->getCurrentTarget();
-	Point locationInNode = target->convertToNodeSpace(touch->getLocation());
-	Size size = target->getContentSize();
-	Rect rect = Rect(0, 0, target->getContentSize().width, target->getContentSize().height);
-
-	if (rect.containsPoint(locationInNode))
-	{
-		if (target->getTag() == 1)
-		{
-			if (_radio1Select->isVisible())
-			{
-				LangUtil::getInstance()->changeLanguage(SupportedLanguages::ENGLISH);
-				localStorageSetItem(LANGUAGE, "English");
-			}
-			else
-			{
-				LangUtil::getInstance()->changeLanguage(SupportedLanguages::SWAHILI);
-				localStorageSetItem(LANGUAGE, "Swahili");
-			}
-
-			CheckBox *_checkBox = (CheckBox*)_settingNode->getChildByName("CheckBox_1");
-
-			if (_checkBox->isSelected())
-				localStorageSetItem(UNLOCK_ALL, "1");
-			else
-				localStorageSetItem(UNLOCK_ALL, "0");
-		}
-
-		_menuButton->setEnabled(true);
-		removeChild(_greyLayer);
-		removeChild(_settingLayer);
-		resumeNodeAndDescendants(_main);
-
-		return false;
-	}
-	return false;
-}
 
 void MenuContext::changePhoto(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
@@ -1743,7 +1501,7 @@ void MenuContext::showAnswer(std::string type, std::string header)
 	headerBlock->setPositionY(visibleSize.height - headerBlock->getContentSize().height / 1.5);
 	headerBlock->setAnchorPoint(Vec2(0.5, 0.5));
 	_showAnswerLayer->addChild(headerBlock);
-	auto label1 = CommonLabel::createWithSystemFont(header.c_str(), "Arial", 100);
+	auto label1 = CommonLabel::createWithTTF(header.c_str(), "fonts/Roboto-Regular.ttf", 100);
 	label1->setColor(Color3B(0, 0, 0));
 	label1->setPosition(Vec2(headerBlock->getContentSize().width / 2, headerBlock->getContentSize().height / 2));
 	label1->setAnchorPoint(Vec2(0.5, 0.5));
@@ -1774,7 +1532,7 @@ void MenuContext::showAnswer(std::string type, std::string header)
 			labelBase1->setPosition(Vec2(0,0));
 			labelBase1->setAnchorPoint(Vec2(0, 0));
 			duplicatNode->addChild(labelBase1);
-			auto label1 = CommonLabel::createWithSystemFont(wordPair->first.c_str(), "Arial", 100);
+			auto label1 = CommonLabel::createWithTTF(wordPair->first.c_str(), "fonts/Roboto-Regular.ttf", 100);
 			label1->setColor(Color3B(0, 0, 0));
 			label1->setPosition(Vec2(labelBase1->getContentSize().width / 2, labelBase1->getContentSize().height / 2));
 			label1->setAnchorPoint(Vec2(0.5, 0.5));
@@ -1792,7 +1550,7 @@ void MenuContext::showAnswer(std::string type, std::string header)
 			labelBase3->setAnchorPoint(Vec2(1, 0));
 			duplicatNode->addChild(labelBase3);
 
-			auto label3 = CommonLabel::createWithSystemFont(wordPair->second.c_str(), "Arial", 100);
+			auto label3 = CommonLabel::createWithTTF(wordPair->second.c_str(), "fonts/Roboto-Regular.ttf", 100);
 			label3->setColor(Color3B(0, 0, 0));
 			label3->setPosition(Vec2(labelBase3->getContentSize().width / 2, labelBase3->getContentSize().height / 2));
 			label3->setAnchorPoint(Vec2(0.5, 0.5));
@@ -1824,7 +1582,7 @@ void MenuContext::showAnswer(std::string type, std::string header)
 			obj1->setPositionY(y);
 			obj1->setAnchorPoint(Vec2(0.5, 0.5));
 			_showAnswerLayer->addChild(obj1);
-			auto label1 = CommonLabel::createWithSystemFont(_listOfWords.at(index).c_str(), "Arial", 100);
+			auto label1 = CommonLabel::createWithTTF(_listOfWords.at(index).c_str(), "fonts/Roboto-Regular.ttf", 100);
 			label1->setColor(Color3B(0, 0, 0));
 			label1->setPosition(Vec2(obj1->getContentSize().width / 2, obj1->getContentSize().height / 2));
 			label1->setAnchorPoint(Vec2(0.5, 0.5));
@@ -1856,7 +1614,7 @@ void MenuContext::showAnswer(std::string type, std::string header)
 			sentenceBlock->setScaleY(0.75);
 			_showAnswerLayer->addChild(sentenceBlock);
 
-			auto sentencelabel1 = CommonLabel::createWithSystemFont(wordPair->first.c_str(), "Arial", 100);
+			auto sentencelabel1 = CommonLabel::createWithTTF(wordPair->first.c_str(), "fonts/Roboto-Regular.ttf", 100);
 			sentencelabel1->setColor(Color3B(0, 0, 0));
 			sentencelabel1->setPosition(Vec2(sentenceBlock->getContentSize().width / 2, sentenceBlock->getContentSize().height / 2));
 			sentencelabel1->setAnchorPoint(Vec2(0.5, 0.5));
@@ -1886,7 +1644,7 @@ void MenuContext::showAnswer(std::string type, std::string header)
 				labelBase1->setScaleY(0.75);
 				labelBase1->setAnchorPoint(Vec2(0.5, 0.5));
 				_showAnswerLayer->addChild(labelBase1);
-				auto label3 = CommonLabel::createWithSystemFont(listOfAnswers.at(i).c_str(), "Arial", 100);
+				auto label3 = CommonLabel::createWithTTF(listOfAnswers.at(i).c_str(), "fonts/Roboto-Regular.ttf", 100);
 				label3->setColor(Color3B(255, 255, 255));
 				label3->setPosition(Vec2(labelBase1->getContentSize().width / 2, labelBase1->getContentSize().height / 2));
 				label3->setAnchorPoint(Vec2(0.5, 0.5));

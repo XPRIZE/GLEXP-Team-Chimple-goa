@@ -414,6 +414,8 @@
 		F3AB34D41DCDA95900613C20 /* Door.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3AB34CF1DCDA95900613C20 /* Door.cpp */; };
 		F3AB34D51DCDA95900613C20 /* DoorNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3AB34D11DCDA95900613C20 /* DoorNode.cpp */; };
 		F3AB34D61DCDA95900613C20 /* DoorNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3AB34D11DCDA95900613C20 /* DoorNode.cpp */; };
+		F3CD27D31E17D1460008033B /* Setting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3CD27D11E17D1460008033B /* Setting.cpp */; };
+		F3CD27D41E17D1460008033B /* Setting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3CD27D11E17D1460008033B /* Setting.cpp */; };
 		F3D201A31D7409B400FDB750 /* Train.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3D2019F1D7409B400FDB750 /* Train.cpp */; };
 		F3D201A41D7409B400FDB750 /* Pop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3D201A11D7409B400FDB750 /* Pop.cpp */; };
 		F3D201A71D740C6C00FDB750 /* Train.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3D2019F1D7409B400FDB750 /* Train.cpp */; };
@@ -944,6 +946,8 @@
 		F3AB34D01DCDA95900613C20 /* Door.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Door.h; sourceTree = "<group>"; };
 		F3AB34D11DCDA95900613C20 /* DoorNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DoorNode.cpp; sourceTree = "<group>"; };
 		F3AB34D21DCDA95900613C20 /* DoorNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoorNode.h; sourceTree = "<group>"; };
+		F3CD27D11E17D1460008033B /* Setting.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Setting.cpp; sourceTree = "<group>"; };
+		F3CD27D21E17D1460008033B /* Setting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Setting.h; sourceTree = "<group>"; };
 		F3D2019F1D7409B400FDB750 /* Train.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Train.cpp; sourceTree = "<group>"; };
 		F3D201A01D7409B400FDB750 /* Train.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Train.h; sourceTree = "<group>"; };
 		F3D201A11D7409B400FDB750 /* Pop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pop.cpp; sourceTree = "<group>"; };
@@ -1171,6 +1175,8 @@
 		D4545214156E28EF00887EB5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F3CD27D11E17D1460008033B /* Setting.cpp */,
+				F3CD27D21E17D1460008033B /* Setting.h */,
 				F3EEA3E41DE2D53A00CA7D31 /* Calculator.cpp */,
 				F3EEA3E51DE2D53A00CA7D31 /* Calculator.h */,
 				F3667C931DB4BA6F00EC8908 /* AsyncTask.cpp */,
@@ -1988,6 +1994,7 @@
 				F35248531D6D9D1A0077C333 /* FShake.cpp in Sources */,
 				F33052411DF04E6000BA235E /* LevelHelpScene.cpp in Sources */,
 				F35247E11D6D9D1A0077C333 /* PatchTheWallScene.cpp in Sources */,
+				F3CD27D41E17D1460008033B /* Setting.cpp in Sources */,
 				F352485B1D6D9D1A0077C333 /* State.cpp in Sources */,
 				F3667D6F1DB4BA7000EC8908 /* LTKOSUtilFactory.cpp in Sources */,
 				F3E210321DCC60D300C301F8 /* TreasureHuntNode.cpp in Sources */,
@@ -2178,6 +2185,7 @@
 				9C7B1AC71DAA1BCE00EBD1FE /* Order.cpp in Sources */,
 				9C6007A71DC1DBB700F9C184 /* CarDraw.cpp in Sources */,
 				F3667D641DB4BA7000EC8908 /* LTKInkFileReader.cpp in Sources */,
+				F3CD27D31E17D1460008033B /* Setting.cpp in Sources */,
 				F3667D3A1DB4BA6F00EC8908 /* LTKShapeRecoUtil.cpp in Sources */,
 				F3667D341DB4BA6F00EC8908 /* LTKShapeRecoConfig.cpp in Sources */,
 				F3667D501DB4BA6F00EC8908 /* NNAdapt.cpp in Sources */,

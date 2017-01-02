@@ -619,6 +619,9 @@
     <ClCompile Include="..\Classes\mini_games\AlphabetWriting.cpp">
       <Filter>Classes\mini_games</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Setting.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1234,6 +1237,8 @@
     <ClInclude Include="..\Classes\mini_games\AlphabetWriting.h">
       <Filter>Classes\mini_games</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Setting.h">
+      <Filter>Classes</Filter>
     <ClInclude Include="..\Classes\util\CommonLabel.h">
       <Filter>Classes\util</Filter>
     </ClInclude>

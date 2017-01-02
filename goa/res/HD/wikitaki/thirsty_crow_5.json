@@ -1,0 +1,1160 @@
+{
+  "ID": "a610b6ab-864c-4f81-8ff5-585ea909e95d",
+  "Version": "3.10.0.0",
+  "Name": "Page_05",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 124,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/thirsty_crow_background_05.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 899.9528,
+              "Y": 900.5115
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5003
+            },
+            "PreSize": {
+              "X": 1.0033,
+              "Y": 1.0011
+            },
+            "LeftMargin": -3.0472,
+            "RightMargin": -2.9528,
+            "TopMargin": -1.5115,
+            "BottomMargin": -0.4885,
+            "Tag": 125,
+            "ActionTag": 1523694288,
+            "Size": {
+              "X": 1806.0,
+              "Y": 1802.0
+            },
+            "Name": "background",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/kitchen/thirsty_crow_jug.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 927.7876,
+              "Y": 538.0333
+            },
+            "Scale": {
+              "ScaleX": 1.6531,
+              "ScaleY": 1.6531
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5154,
+              "Y": 0.2989
+            },
+            "PreSize": {
+              "X": 0.1817,
+              "Y": 0.1872
+            },
+            "LeftMargin": 764.2876,
+            "RightMargin": 708.7124,
+            "TopMargin": 1093.4668,
+            "BottomMargin": 369.5333,
+            "Tag": 126,
+            "ActionTag": -484254132,
+            "Size": {
+              "X": 327.0,
+              "Y": 337.0
+            },
+            "Name": "jug",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/thirsty_crow_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1304.2068,
+              "Y": 434.5309
+            },
+            "Scale": {
+              "ScaleX": 1.2199,
+              "ScaleY": 1.2199
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7246,
+              "Y": 0.2414
+            },
+            "PreSize": {
+              "X": 0.0422,
+              "Y": 0.025
+            },
+            "LeftMargin": 1266.2068,
+            "RightMargin": 457.7932,
+            "TopMargin": 1342.9691,
+            "BottomMargin": 412.0309,
+            "Tag": 127,
+            "ActionTag": 1128311657,
+            "Size": {
+              "X": 76.0,
+              "Y": 45.0
+            },
+            "Name": "stone_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/thirsty_crow_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1261.7499,
+              "Y": 366.8399
+            },
+            "Scale": {
+              "ScaleX": 0.7801,
+              "ScaleY": 0.7801
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.701,
+              "Y": 0.2038
+            },
+            "PreSize": {
+              "X": 0.0422,
+              "Y": 0.025
+            },
+            "LeftMargin": 1223.7499,
+            "RightMargin": 500.2501,
+            "TopMargin": 1410.66,
+            "BottomMargin": 344.3399,
+            "Tag": 128,
+            "ActionTag": 1105071077,
+            "Size": {
+              "X": 76.0,
+              "Y": 45.0
+            },
+            "Name": "stone_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/thirsty_crow_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1335.2743,
+              "Y": 381.8791
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7418,
+              "Y": 0.2122
+            },
+            "PreSize": {
+              "X": 0.0422,
+              "Y": 0.025
+            },
+            "LeftMargin": 1297.2743,
+            "RightMargin": 426.7257,
+            "TopMargin": 1395.621,
+            "BottomMargin": 359.3791,
+            "Tag": 129,
+            "ActionTag": -1251259067,
+            "Size": {
+              "X": 76.0,
+              "Y": 45.0
+            },
+            "Name": "stone_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/thirsty_crow_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1397.1016,
+              "Y": 413.6282
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7762,
+              "Y": 0.2298
+            },
+            "PreSize": {
+              "X": 0.0422,
+              "Y": 0.025
+            },
+            "LeftMargin": 1359.1016,
+            "RightMargin": 364.8984,
+            "TopMargin": 1363.8718,
+            "BottomMargin": 391.1282,
+            "Tag": 130,
+            "ActionTag": -1413956804,
+            "Size": {
+              "X": 76.0,
+              "Y": 45.0
+            },
+            "Name": "stone_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/thirsty_crow_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1320.2354,
+              "Y": 328.4068
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7335,
+              "Y": 0.1824
+            },
+            "PreSize": {
+              "X": 0.0422,
+              "Y": 0.025
+            },
+            "LeftMargin": 1282.2354,
+            "RightMargin": 441.7646,
+            "TopMargin": 1449.0933,
+            "BottomMargin": 305.9068,
+            "Tag": 131,
+            "ActionTag": 1308483656,
+            "Size": {
+              "X": 76.0,
+              "Y": 45.0
+            },
+            "Name": "stone_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/thirsty_crow_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1240.0289,
+              "Y": 320.6066
+            },
+            "Scale": {
+              "ScaleX": 0.7654,
+              "ScaleY": 0.7654
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6889,
+              "Y": 0.1781
+            },
+            "PreSize": {
+              "X": 0.0422,
+              "Y": 0.025
+            },
+            "LeftMargin": 1202.0289,
+            "RightMargin": 521.9711,
+            "TopMargin": 1456.8933,
+            "BottomMargin": 298.1066,
+            "Tag": 132,
+            "ActionTag": -804311697,
+            "Size": {
+              "X": 76.0,
+              "Y": 45.0
+            },
+            "Name": "stone_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/thirsty_crow_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1399.9143,
+              "Y": 349.5748
+            },
+            "Scale": {
+              "ScaleX": 0.6775,
+              "ScaleY": 0.6775
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7777,
+              "Y": 0.1942
+            },
+            "PreSize": {
+              "X": 0.0422,
+              "Y": 0.025
+            },
+            "LeftMargin": 1361.9143,
+            "RightMargin": 362.0857,
+            "TopMargin": 1427.9252,
+            "BottomMargin": 327.0748,
+            "Tag": 133,
+            "ActionTag": -1546887106,
+            "Size": {
+              "X": 76.0,
+              "Y": 45.0
+            },
+            "Name": "stone_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/thirsty_crow_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1403.2568,
+              "Y": 303.8926
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7796,
+              "Y": 0.1688
+            },
+            "PreSize": {
+              "X": 0.0422,
+              "Y": 0.025
+            },
+            "LeftMargin": 1365.2568,
+            "RightMargin": 358.7432,
+            "TopMargin": 1473.6074,
+            "BottomMargin": 281.3926,
+            "Tag": 134,
+            "ActionTag": 1741497641,
+            "Size": {
+              "X": 76.0,
+              "Y": 45.0
+            },
+            "Name": "stone_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/thirsty_crow_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1335.2883,
+              "Y": 283.8367
+            },
+            "Scale": {
+              "ScaleX": 0.7948,
+              "ScaleY": 0.7948
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7418,
+              "Y": 0.1577
+            },
+            "PreSize": {
+              "X": 0.0422,
+              "Y": 0.025
+            },
+            "LeftMargin": 1297.2883,
+            "RightMargin": 426.7117,
+            "TopMargin": 1493.6633,
+            "BottomMargin": 261.3367,
+            "Tag": 135,
+            "ActionTag": 1627352997,
+            "Size": {
+              "X": 76.0,
+              "Y": 45.0
+            },
+            "Name": "stone_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/thirsty_crow_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1251.7256,
+              "Y": 270.4667
+            },
+            "Scale": {
+              "ScaleX": 1.2932,
+              "ScaleY": 1.2932
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6954,
+              "Y": 0.1503
+            },
+            "PreSize": {
+              "X": 0.0422,
+              "Y": 0.025
+            },
+            "LeftMargin": 1213.7256,
+            "RightMargin": 510.2744,
+            "TopMargin": 1507.0333,
+            "BottomMargin": 247.9667,
+            "Tag": 136,
+            "ActionTag": 851820162,
+            "Size": {
+              "X": 76.0,
+              "Y": 45.0
+            },
+            "Name": "stone_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/thirsty_crow_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 576.5675,
+              "Y": 359.163
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3203,
+              "Y": 0.1995
+            },
+            "PreSize": {
+              "X": 0.0422,
+              "Y": 0.025
+            },
+            "LeftMargin": 538.5675,
+            "RightMargin": 1185.4325,
+            "TopMargin": 1418.337,
+            "BottomMargin": 336.663,
+            "Tag": 137,
+            "ActionTag": 2126926486,
+            "Size": {
+              "X": 76.0,
+              "Y": 45.0
+            },
+            "Name": "stone_10",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/thirsty_crow_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 521.0027,
+              "Y": 323.5096
+            },
+            "Scale": {
+              "ScaleX": 0.7738,
+              "ScaleY": 0.7738
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2894,
+              "Y": 0.1797
+            },
+            "PreSize": {
+              "X": 0.0422,
+              "Y": 0.025
+            },
+            "LeftMargin": 483.0027,
+            "RightMargin": 1240.9973,
+            "TopMargin": 1453.9904,
+            "BottomMargin": 301.0096,
+            "Tag": 138,
+            "ActionTag": 921422719,
+            "Size": {
+              "X": 76.0,
+              "Y": 45.0
+            },
+            "Name": "stone_11",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/thirsty_crow_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 612.6071,
+              "Y": 299.3806
+            },
+            "Scale": {
+              "ScaleX": 1.2222,
+              "ScaleY": 1.2222
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3403,
+              "Y": 0.1663
+            },
+            "PreSize": {
+              "X": 0.0422,
+              "Y": 0.025
+            },
+            "LeftMargin": 574.6071,
+            "RightMargin": 1149.3929,
+            "TopMargin": 1478.1194,
+            "BottomMargin": 276.8806,
+            "Tag": 139,
+            "ActionTag": 825218987,
+            "Size": {
+              "X": 76.0,
+              "Y": 45.0
+            },
+            "Name": "stone_12",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/thirsty_crow_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 526.1427,
+              "Y": 271.5509
+            },
+            "Scale": {
+              "ScaleX": 0.88,
+              "ScaleY": 0.88
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2923,
+              "Y": 0.1509
+            },
+            "PreSize": {
+              "X": 0.0422,
+              "Y": 0.025
+            },
+            "LeftMargin": 488.1427,
+            "RightMargin": 1235.8573,
+            "TopMargin": 1505.9491,
+            "BottomMargin": 249.0509,
+            "Tag": 140,
+            "ActionTag": 258760922,
+            "Size": {
+              "X": 76.0,
+              "Y": 45.0
+            },
+            "Name": "stone_13",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/thirsty_crow_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 471.4421,
+              "Y": 370.9236
+            },
+            "Scale": {
+              "ScaleX": 1.2639,
+              "ScaleY": 1.2639
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2619,
+              "Y": 0.2061
+            },
+            "PreSize": {
+              "X": 0.0422,
+              "Y": 0.025
+            },
+            "LeftMargin": 433.4421,
+            "RightMargin": 1290.5579,
+            "TopMargin": 1406.5764,
+            "BottomMargin": 348.4236,
+            "Tag": 141,
+            "ActionTag": -409198831,
+            "Size": {
+              "X": 76.0,
+              "Y": 45.0
+            },
+            "Name": "stone_14",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/thirsty_crow_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 446.8262,
+              "Y": 318.9577
+            },
+            "Scale": {
+              "ScaleX": 0.7121,
+              "ScaleY": 0.7121
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2482,
+              "Y": 0.1772
+            },
+            "PreSize": {
+              "X": 0.0422,
+              "Y": 0.025
+            },
+            "LeftMargin": 408.8262,
+            "RightMargin": 1315.1738,
+            "TopMargin": 1458.5422,
+            "BottomMargin": 296.4577,
+            "Tag": 142,
+            "ActionTag": 806723452,
+            "Size": {
+              "X": 76.0,
+              "Y": 45.0
+            },
+            "Name": "stone_15",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/thirsty_crow_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 451.3848,
+              "Y": 278.844
+            },
+            "Scale": {
+              "ScaleX": 0.6881,
+              "ScaleY": 0.6881
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2508,
+              "Y": 0.1549
+            },
+            "PreSize": {
+              "X": 0.0422,
+              "Y": 0.025
+            },
+            "LeftMargin": 413.3848,
+            "RightMargin": 1310.6152,
+            "TopMargin": 1498.656,
+            "BottomMargin": 256.344,
+            "Tag": 143,
+            "ActionTag": 958827525,
+            "Size": {
+              "X": 76.0,
+              "Y": 45.0
+            },
+            "Name": "stone_16",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/thirsty_crow_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 590.4662,
+              "Y": 249.0635
+            },
+            "Scale": {
+              "ScaleX": 0.6081,
+              "ScaleY": 0.6081
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.328,
+              "Y": 0.1384
+            },
+            "PreSize": {
+              "X": 0.0422,
+              "Y": 0.025
+            },
+            "LeftMargin": 552.4662,
+            "RightMargin": 1171.5337,
+            "TopMargin": 1528.4365,
+            "BottomMargin": 226.5635,
+            "Tag": 144,
+            "ActionTag": 1871999203,
+            "Size": {
+              "X": 76.0,
+              "Y": 45.0
+            },
+            "Name": "stone_17",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/thirsty_crow_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 479.7411,
+              "Y": 239.6413
+            },
+            "Scale": {
+              "ScaleX": 0.7459,
+              "ScaleY": 0.7459
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2665,
+              "Y": 0.1331
+            },
+            "PreSize": {
+              "X": 0.0422,
+              "Y": 0.025
+            },
+            "LeftMargin": 441.7411,
+            "RightMargin": 1282.2589,
+            "TopMargin": 1537.8586,
+            "BottomMargin": 217.1413,
+            "Tag": 145,
+            "ActionTag": 1025813371,
+            "Size": {
+              "X": 76.0,
+              "Y": 45.0
+            },
+            "Name": "stone_18",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/thirsty_crow_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 542.1435,
+              "Y": 229.9838
+            },
+            "Scale": {
+              "ScaleX": 0.7068,
+              "ScaleY": 0.7068
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3012,
+              "Y": 0.1278
+            },
+            "PreSize": {
+              "X": 0.0422,
+              "Y": 0.025
+            },
+            "LeftMargin": 504.1435,
+            "RightMargin": 1219.8564,
+            "TopMargin": 1547.5162,
+            "BottomMargin": 207.4838,
+            "Tag": 146,
+            "ActionTag": 404869998,
+            "Size": {
+              "X": 76.0,
+              "Y": 45.0
+            },
+            "Name": "stone_19",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/thirsty_crow_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 658.7761,
+              "Y": 247.0701
+            },
+            "Scale": {
+              "ScaleX": 0.8436,
+              "ScaleY": 0.8436
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.366,
+              "Y": 0.1373
+            },
+            "PreSize": {
+              "X": 0.0422,
+              "Y": 0.025
+            },
+            "LeftMargin": 620.7761,
+            "RightMargin": 1103.2239,
+            "TopMargin": 1530.4299,
+            "BottomMargin": 224.5701,
+            "Tag": 147,
+            "ActionTag": -104777492,
+            "Size": {
+              "X": 76.0,
+              "Y": 45.0
+            },
+            "Name": "stone_20",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/sky/thirsty_crow_cloud.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 487.1718,
+              "Y": 1474.8643
+            },
+            "Scale": {
+              "ScaleX": 1.8506,
+              "ScaleY": 1.8506
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2707,
+              "Y": 0.8194
+            },
+            "PreSize": {
+              "X": 0.1133,
+              "Y": 0.0633
+            },
+            "LeftMargin": 385.1718,
+            "RightMargin": 1210.8282,
+            "TopMargin": 268.1357,
+            "BottomMargin": 1417.8643,
+            "Tag": 174,
+            "ActionTag": -1949131871,
+            "Size": {
+              "X": 204.0,
+              "Y": 114.0
+            },
+            "Name": "cloud_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/sky/thirsty_crow_cloud.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1374.7618,
+              "Y": 1234.6156
+            },
+            "Scale": {
+              "ScaleX": 1.5234,
+              "ScaleY": 1.5234
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7638,
+              "Y": 0.6859
+            },
+            "PreSize": {
+              "X": 0.1133,
+              "Y": 0.0633
+            },
+            "LeftMargin": 1272.7618,
+            "RightMargin": 323.2382,
+            "TopMargin": 508.3844,
+            "BottomMargin": 1177.6156,
+            "Tag": 175,
+            "ActionTag": 1696011848,
+            "Size": {
+              "X": 204.0,
+              "Y": 114.0
+            },
+            "Name": "cloud_2",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "ob/sky/thirsty_crow_cloud.png",
+        "ob/kitchen/thirsty_crow_jug.png",
+        "ob/stone/thirsty_crow_stone.png",
+        "bg/thirsty_crow_background_05.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
