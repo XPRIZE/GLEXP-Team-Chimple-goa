@@ -1,7 +1,7 @@
 {
-  "ID": "34b19617-29eb-4edb-96a5-0df23ec1e12e",
+  "ID": "5445550c-1dd5-41a1-b1bf-a8338c71b974",
   "Version": "3.10.0.0",
-  "Name": "postoffice_outdoor",
+  "Name": "miningrailway_outdoor",
   "Content": {
     "Content": {
       "Animation": {
@@ -9,14 +9,14 @@
         "Speed": 1.0,
         "Timelines": [
           {
-            "ActionTag": -1413641761,
+            "ActionTag": -9795993,
             "Property": "FileData",
             "Frames": [
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "postoffice/postoffice2/edooranimation1.png",
-                  "Plist": "postoffice/postoffice2/postoffice2.plist"
+                  "Path": "miningrailway/miningrailway2/rdooranimation1.png",
+                  "Plist": "miningrailway/miningrailway2/miningrailway2.plist"
                 },
                 "FrameIndex": 0,
                 "Tween": false,
@@ -25,8 +25,8 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "postoffice/postoffice2/edooranimation2.png",
-                  "Plist": "postoffice/postoffice2/postoffice2.plist"
+                  "Path": "miningrailway/miningrailway2/rdooranimation2.png",
+                  "Plist": "miningrailway/miningrailway2/miningrailway2.plist"
                 },
                 "FrameIndex": 5,
                 "Tween": false,
@@ -35,8 +35,8 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "postoffice/postoffice2/edooranimation3.png",
-                  "Plist": "postoffice/postoffice2/postoffice2.plist"
+                  "Path": "miningrailway/miningrailway2/rdooranimation3.png",
+                  "Plist": "miningrailway/miningrailway2/miningrailway2.plist"
                 },
                 "FrameIndex": 10,
                 "Tween": false,
@@ -50,13 +50,13 @@
       },
       "AnimationList": [],
       "ObjectData": {
-        "Tag": 372,
+        "Tag": 1853,
         "Children": [
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "postoffice/postoffice2/edooranimation3.png",
-              "Plist": "postoffice/postoffice2/postoffice2.plist"
+              "Path": "miningrailway/miningrailway2/rdooranimation3.png",
+              "Plist": "miningrailway/miningrailway2/miningrailway2.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -88,13 +88,13 @@
             "RightMargin": -23.0,
             "TopMargin": -23.0,
             "BottomMargin": -23.0,
-            "Tag": 373,
-            "ActionTag": -1413641761,
+            "Tag": 1854,
+            "ActionTag": -9795993,
             "Size": {
-              "X": 497.0,
-              "Y": 565.0
+              "X": 1088.0,
+              "Y": 862.0
             },
-            "Name": "dooranimation",
+            "Name": "Sprite_1",
             "ctype": "SpriteObjectData"
           }
         ],
@@ -106,8 +106,8 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "postoffice2/postoffice2.plist",
-        "postoffice2/postoffice2.png"
+        "miningrailway2/miningrailway2.plist",
+        "miningrailway2/miningrailway2.png"
       ],
       "ctype": "GameFileData"
     }

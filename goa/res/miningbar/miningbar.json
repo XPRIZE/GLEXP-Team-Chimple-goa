@@ -1,7 +1,7 @@
 {
   "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
   "Version": "3.10.0.0",
-  "Name": "airport",
+  "Name": "miningbar",
   "Content": {
     "Content": {
       "Animation": {
@@ -16,7 +16,7 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "airport/airport_main.json",
+              "Path": "miningbar/miningbar_mainground.json",
               "Plist": ""
             },
             "StretchWidthEnable": false,
@@ -24,8 +24,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 0.0,
-              "Y": 0.0
+              "X": -10.2996,
+              "Y": -0.1052
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -34,28 +34,31 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.0,
+              "X": -0.0013,
               "Y": 0.0
             },
             "PreSize": {
-              "X": 0.5,
-              "Y": 1.0
+              "X": 0.3333,
+              "Y": 0.5
             },
-            "RightMargin": 2560.0,
+            "LeftMargin": -10.2996,
+            "RightMargin": 5130.2998,
+            "TopMargin": 1800.1052,
+            "BottomMargin": -0.1052,
             "UserData": "main",
-            "Tag": 65,
-            "ActionTag": 1744699411,
+            "Tag": 586,
+            "ActionTag": -386003547,
             "Size": {
               "X": 2560.0,
               "Y": 1800.0
             },
-            "Name": "FileNode_1",
+            "Name": "main",
             "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "airport/airport_foreground.json",
+              "Path": "miningbar/miningbar_foreground.json",
               "Plist": ""
             },
             "StretchWidthEnable": false,
@@ -63,8 +66,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 0.0,
-              "Y": 0.0
+              "X": -9.2634,
+              "Y": 0.5405
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -73,35 +76,38 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.0,
-              "Y": 0.0
+              "X": -0.0012,
+              "Y": 0.0002
             },
             "PreSize": {
-              "X": 0.5,
-              "Y": 1.0
+              "X": 0.3333,
+              "Y": 0.5
             },
-            "RightMargin": 2560.0,
+            "LeftMargin": -9.2634,
+            "RightMargin": 5129.2637,
+            "TopMargin": 1799.4595,
+            "BottomMargin": 0.5405,
             "UserData": "foreground",
-            "Tag": 111,
-            "ActionTag": 237534181,
+            "Tag": 480,
+            "ActionTag": -837842201,
             "Size": {
               "X": 2560.0,
               "Y": 1800.0
             },
-            "Name": "FileNode_2",
+            "Name": "foreground",
             "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
-          "X": 5120.0,
-          "Y": 1800.0
+          "X": 7680.0,
+          "Y": 3600.0
         },
         "Name": "Scene",
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "airport_foreground.json",
-        "airport_main.json"
+        "miningbar_foreground.json",
+        "miningbar_mainground.json"
       ],
       "ctype": "GameFileData"
     }
