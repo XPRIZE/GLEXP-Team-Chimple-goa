@@ -5,7 +5,7 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 60,
+        "Duration": 10,
         "Speed": 1.0,
         "Timelines": [
           {
@@ -16,6 +16,51 @@
                 "X": 2.6376,
                 "Y": -0.4522,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2.6376,
+                "Y": -0.4523,
+                "FrameIndex": 1,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2.6376,
+                "Y": -0.4523,
+                "FrameIndex": 2,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2.6376,
+                "Y": -0.4523,
+                "FrameIndex": 3,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2.6375,
+                "Y": -0.4522,
+                "FrameIndex": 4,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2.0,
+                "Y": -26.9991,
+                "FrameIndex": 5,
                 "EasingData": {
                   "Type": 0
                 },
@@ -41,10 +86,20 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
+                  "Path": "firestation/firestation2/dooranimation2.png",
+                  "Plist": "firestation/firestation2/firestation2.plist"
+                },
+                "FrameIndex": 5,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
                   "Path": "firestation/firestation2/dooranimation3.png",
                   "Plist": "firestation/firestation2/firestation2.plist"
                 },
-                "FrameIndex": 60,
+                "FrameIndex": 10,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               }
@@ -61,7 +116,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "firestation/firestation2/dooranimation3.png",
+              "Path": "firestation/firestation2/dooranimation1.png",
               "Plist": "firestation/firestation2/firestation2.plist"
             },
             "BlendFunc": {
@@ -92,13 +147,13 @@
             },
             "LeftMargin": -311.3624,
             "RightMargin": -316.6376,
-            "TopMargin": -345.0478,
-            "BottomMargin": -345.9522,
+            "TopMargin": -320.0478,
+            "BottomMargin": -320.9522,
             "Tag": 746,
             "ActionTag": -1980362535,
             "Size": {
               "X": 628.0,
-              "Y": 691.0
+              "Y": 641.0
             },
             "Name": "Sprite_1",
             "ctype": "SpriteObjectData"

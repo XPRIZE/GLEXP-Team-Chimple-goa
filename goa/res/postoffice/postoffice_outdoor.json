@@ -5,7 +5,7 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 59,
+        "Duration": 10,
         "Speed": 1.0,
         "Timelines": [
           {
@@ -28,7 +28,7 @@
                   "Path": "postoffice/postoffice2/edooranimation2.png",
                   "Plist": "postoffice/postoffice2/postoffice2.plist"
                 },
-                "FrameIndex": 30,
+                "FrameIndex": 5,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               },
@@ -38,7 +38,7 @@
                   "Path": "postoffice/postoffice2/edooranimation3.png",
                   "Plist": "postoffice/postoffice2/postoffice2.plist"
                 },
-                "FrameIndex": 59,
+                "FrameIndex": 10,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               }
@@ -55,7 +55,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "postoffice/postoffice2/edooranimation2.png",
+              "Path": "postoffice/postoffice2/edooranimation3.png",
               "Plist": "postoffice/postoffice2/postoffice2.plist"
             },
             "BlendFunc": {
@@ -84,15 +84,15 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -248.5,
-            "RightMargin": -248.5,
-            "TopMargin": -282.5,
-            "BottomMargin": -282.5,
+            "LeftMargin": -23.0,
+            "RightMargin": -23.0,
+            "TopMargin": -23.0,
+            "BottomMargin": -23.0,
             "Tag": 373,
             "ActionTag": -1413641761,
             "Size": {
               "X": 497.0,
-              "Y": 566.0
+              "Y": 565.0
             },
             "Name": "dooranimation",
             "ctype": "SpriteObjectData"
