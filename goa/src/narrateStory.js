@@ -561,14 +561,6 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this.addChild(this._rightButtonPanel);
         this._rightButtonPanel.setVisible(false);
 
-        this._replayButton = new ccui.Button("template/template_02/refersh_button.png", "template/template_02/refersh_button_click.png", "template/template_02/refersh_button_click.png", ccui.Widget.PLIST_TEXTURE);
-        this._replayButton.setPosition(120, cc.director.getWinSize().height - 150);
-        this._replayButton.setAnchorPoint(cc.p(0.5,0.5));
-        this.addChild(this._replayButton, 5);
-        this._replayButton.setVisible(false);
-        this._replayButton.addTouchEventListener(this.replayScene, this);
-
-
         this._showTextAgainButton = new ccui.Button("template/template_02/text_button.png", "template/template_02/text_button_clicked.png", "template/template_02/text_button_clicked.png", ccui.Widget.PLIST_TEXTURE);
         this._showTextAgainButton.setPosition(320, cc.director.getWinSize().height - 150);
         this._showTextAgainButton.setAnchorPoint(cc.p(0.5,0.5));
@@ -576,9 +568,9 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this._showTextAgainButton.setVisible(false);
         this._showTextAgainButton.addTouchEventListener(this.showTextAgain, this);
 
-        // this.showText();
-        this.bindTouchListenerToLayer(this);
-        this.sceneTouched();
+        this.showText();
+        // this.bindTouchListenerToLayer(this);
+        // this.sceneTouched();
 
     },
 
@@ -586,7 +578,6 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     showTextAgain: function(sender, type) {
         switch (type) {
             case ccui.Widget.TOUCH_ENDED:
-                this._replayButton.setVisible(false);
                 this._showTextAgainButton.setVisible(false);
                 this._rightButtonPanel.setVisible(false);
                 this._leftButtonPanel.setVisible(false);
@@ -595,18 +586,17 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         }        
     },
 
-    replayScene: function(sender, type) {
-        switch (type) {
-            case ccui.Widget.TOUCH_ENDED:
-                this.setUpSceneForReplay();                
-                this._replayButton.setVisible(false);
-                this._showTextAgainButton.setVisible(false);
-                this._rightButtonPanel.setVisible(false);
-                this._leftButtonPanel.setVisible(false);            
-                this.sceneTouched();                 
-                break;
-        }        
-    },
+    // replayScene: function(sender, type) {
+    //     switch (type) {
+    //         case ccui.Widget.TOUCH_ENDED:
+    //             this.setUpSceneForReplay();                
+    //             this._showTextAgainButton.setVisible(false);
+    //             this._rightButtonPanel.setVisible(false);
+    //             this._leftButtonPanel.setVisible(false);            
+    //             this.sceneTouched();                 
+    //             break;
+    //     }        
+    // },
 
     pronounceWord:function() {
         var textField = this._wordBoard.node.getChildByName("TextField_1");
@@ -985,11 +975,13 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         var storyId = this._storyInformation["storyId"];
         if (curIndex >= pages.length) {
             this._storyEnded = true;
+            xc._currentQuestionIndex = 0;
             xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
             return;
         }
-        xc.NarrateStoryScene.load(curIndex, this._storyInformation, xc.NarrateStoryLayer, true);
-        // xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
+        xc._currentQuestionIndex = 0;
+        // xc.NarrateStoryScene.load(curIndex, this._storyInformation, xc.NarrateStoryLayer, true);
+        xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
     },
 
     rePlayEnded: function() {
@@ -1075,7 +1067,6 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this._referenceToContext._wordBoard.node.setVisible(true);
         this._referenceToContext.renderNextButton();
         this._referenceToContext.renderPreviousButton();       
-        this._replayButton.setVisible(false);
         this._showTextAgainButton.setVisible(true);                                                               
                  
         

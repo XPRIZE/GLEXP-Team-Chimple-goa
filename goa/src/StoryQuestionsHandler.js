@@ -107,8 +107,7 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
             var oldQuestionChild = this.getChildByName(this._currentQName);
             if(oldQuestionChild) {
                 oldQuestionChild.removeFromParent();
-            }
-            
+            }            
         }
         var questionType = question["type"];
         if(questionType == this._Q_MULTIPLE_CHOICE) {
@@ -172,21 +171,33 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
 
     nextQuestion: function () {
         if(this._handler) {
-        this._handler.removeFromParent();
-        }        
-        this._currentQuestionIndex++;
+            this._handler.removeFromParent();
+        }
+
+        if(xc._currentQuestionIndex == undefined) {
+            xc._currentQuestionIndex = 0;
+        }                
         this._item.setEnabled(true);
-        if(this._currentQuestionIndex < this._questions.length) {
-            var question = this._questions[this._currentQuestionIndex];
+
+        cc.log('current meny point before transition: ' + this._menuContext.getPoints());
+        cc.sys.localStorage.setItem("xc.story.totalPoints", ""+this._menuContext.getMaxPoints());
+        cc.sys.localStorage.setItem("xc.story.currentPoints", ""+this._menuContext.getPoints());
+
+        if(xc._currentQuestionIndex < this._questions.length) {
+            var question = this._questions[xc._currentQuestionIndex];
             cc.log('question["type"]:' + question["type"]);
             if(question["type"] == "words") {
-                var cIndex = this._currentQuestionIndex;
+                xc._currentQuestionIndex++;
+                var cIndex = xc._currentQuestionIndex;
+                cc.log("cIndex 1111:" + cIndex);
                 var questions = this._questions.filter(function(element, index) {
                     return index >= cIndex;
                 });
-                this.wordQuestionHandler(questions);
+                xc.wordQuestions = questions;
+                xc.StoryQuestionHandlerScene.load(this._storyId, this._storyBaseDir, xc.StoryQuestionHandlerLayer, true);
             } else {
-                this.questionHandler(question);
+                xc._currentQuestionIndex++;
+                xc.StoryQuestionHandlerScene.load(this._storyId, this._storyBaseDir, xc.StoryQuestionHandlerLayer, true);
             }                            
         } else {
             this.showCopyRight();                      
@@ -281,13 +292,18 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
             this._menuContext.setMaxPoints(this._totalPoints);
         }
         //create UI for questions
-        var question = this._questions[this._currentQuestionIndex];
+        var question = this._questions[xc._currentQuestionIndex];
         if(this._handler) {
             this._handler.removeFromParent();
         }
         if(question) {
             if(question["type"] == "words") {
-                this.wordQuestionHandler(this._questions);
+                if(xc.wordQuestions) {
+                    this.wordQuestionHandler(xc.wordQuestions);
+                } else {
+                    this.wordQuestionHandler(this._questions);
+                }
+                
             } else {
                 this.questionHandler(question);
             }
@@ -374,7 +390,11 @@ xc.StoryQuestionHandlerScene = cc.Scene.extend({
         if (cc.sys.isNative) {
             this._menuContext = goa.MenuContext.create(this._sceneLayer, storyId);
             this.addChild(this._menuContext, 10);
-            this._menuContext.setVisible(true);
+            this._menuContext.setVisible(true);        
+            cc.log('current meny point at entry transition: ' + this._menuContext.getPoints());
+            var currentPoints = cc.sys.localStorage.getItem("xc.story.currentPoints");
+            this._menuContext.addPoints(currentPoints);
+                
         }                                        
         
         this._sceneLayer.init(this._menuContext);
