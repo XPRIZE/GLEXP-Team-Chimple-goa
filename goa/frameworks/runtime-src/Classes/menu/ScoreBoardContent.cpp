@@ -210,10 +210,8 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
                     label->setAlignment(TextHAlignment::CENTER, TextVAlignment::CENTER);
                     badgeButton->setScale(0.1, 0.1);
                     addChild(badgeButton);
-                    auto finalPos = Vec2(1000, 200);
-                    if(numRewards == 1) {
-                        finalPos = Vec2(-1000, 200);
-                    } else if(numRewards > 1) {
+                    auto finalPos = Vec2(-1000, 200);
+                    if(numRewards > 1) {
                         finalPos = Vec2(0, 700);
                     }
                     auto jumpAction = JumpTo::create(1.0, finalPos, 600, 2);
