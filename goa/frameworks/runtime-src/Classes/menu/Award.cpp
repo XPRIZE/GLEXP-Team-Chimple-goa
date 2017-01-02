@@ -7,6 +7,7 @@
 //
 
 #include "Award.h"
+#include "ScoreBoardContext.h"
 
 USING_NS_CC;
 
@@ -65,10 +66,11 @@ void Award::onEnterTransitionDidFinish()
 	_tab->setContentSize(Size(visibleSize.width, visibleSize.height));
 	_tab->setAnchorPoint(Vec2(0.5, 0.5));
 	_tab->setHeaderHeight(300.f);
-	_tab->setHeaderWidth(390.f);
-	//_tab->setHeaderSelectedZoom(.1f);
+	_tab->setHeaderWidth(370.f);
 	_tab->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
 	_tab->setHeaderDockPlace(ui::TabControl::Dock::TOP);
+
+	auto rewards = ScoreBoardContext::getRewards();
 
 	auto header1 = ui::TabHeader::create("tab1", "tab/bluetab_deselected.png", "tab/bluetab_selected.png");
 	header1->setName("0");
@@ -100,73 +102,12 @@ void Award::onEnterTransitionDidFinish()
 	container2->setOpacity(255);
 	container2->setBackGroundColor(Color3B::BLUE);
 	container2->setBackGroundColorOpacity(255);
-	auto scrollView = ui::ScrollView::create();
-	scrollView->setDirection(ui::ScrollView::Direction::HORIZONTAL);
-	scrollView->setContentSize(Size(visibleSize.width,visibleSize.height * 0.8));
 	
-	for (int k = 0; k < 3; k++) {
-		for (int j = 0; j < 3; j++) {
-			float yy = visibleSize.height * 0.2;
-			for (int i = 0; i < 4; i++) {
-				float xx = visibleSize.width / 4;
-				auto child = Sprite::create("menu/back.png");
-				child->setPosition(Vec2((xx / 2 + (xx * i)) + (k * visibleSize.width), yy + (yy * j)));
-				scrollView->addChild(child);
-			}
-		}
-	}
-	scrollView->setInnerContainerSize(Size(3 * visibleSize.width, visibleSize.height* 0.8));
-	container1->addChild(scrollView);
-
-
-
 	auto container3 = ui::Layout::create();
 	container3->setBackGroundColorType(ui::Layout::BackGroundColorType::SOLID);
 	container3->setOpacity(255);
 	container3->setBackGroundColor(Color3B::RED);
 	container3->setBackGroundColorOpacity(255);
-
-	
-
-
-	auto scrollView1 = ui::ScrollView::create();
-	scrollView1->setDirection(ui::ScrollView::Direction::HORIZONTAL);
-	scrollView1->setContentSize(Size(visibleSize.width, visibleSize.height * 0.8));
-	for (int k = 0; k < 3; k++) {
-		for (int j = 0; j < 3; j++) {
-			float yy = visibleSize.height * 0.2;
-			for (int i = 0; i < 4; i++) {
-				float xx = visibleSize.width / 4;
-				auto child = Sprite::create("menu/map.png");
-				child->setPosition(Vec2((xx / 2 + (xx * i)) + (k * visibleSize.width), yy + (yy * j)));
-				scrollView1->addChild(child);
-
-			}
-		}
-	}
-	scrollView1->setInnerContainerSize(Size(3 * visibleSize.width, visibleSize.height* 0.8));
-	container2->addChild(scrollView1);
-
-
-	auto scrollView3 = ui::ScrollView::create();
-	scrollView3->setDirection(ui::ScrollView::Direction::HORIZONTAL);
-	scrollView3->setContentSize(Size(visibleSize.width, visibleSize.height * 0.8));
-	for (int k = 0; k < 3; k++) {
-		for (int j = 0; j < 3; j++) {
-			float yy = visibleSize.height * 0.2;
-			for (int i = 0; i < 4; i++) {
-				float xx = visibleSize.width / 4;
-				auto child = Sprite::create("menu/book.png");
-				child->setPosition(Vec2((xx / 2 + (xx * i)) + (k * visibleSize.width), yy + (yy * j)));
-				scrollView3->addChild(child);
-
-			}
-		}
-	}
-	scrollView3->setInnerContainerSize(Size(3 * visibleSize.width, visibleSize.height* 0.8));
-	container3->addChild(scrollView3);
-
-
 
 	auto container4 = ui::Layout::create();
 	container4->setBackGroundColorType(ui::Layout::BackGroundColorType::SOLID);
@@ -174,50 +115,11 @@ void Award::onEnterTransitionDidFinish()
 	container4->setBackGroundColor(Color3B::ORANGE);
 	container4->setBackGroundColorOpacity(255);
 
-	auto scrollView4 = ui::ScrollView::create();
-	scrollView4->setDirection(ui::ScrollView::Direction::HORIZONTAL);
-	scrollView4->setContentSize(Size(visibleSize.width, visibleSize.height * 0.8));
-	for (int k = 0; k < 3; k++) {
-		for (int j = 0; j < 3; j++) {
-			float yy = visibleSize.height * 0.2;
-			for (int i = 0; i < 4; i++) {
-				float xx = visibleSize.width / 4;
-				auto child = Sprite::create("menu/happy.png");
-				child->setPosition(Vec2((xx / 2 + (xx * i)) + (k * visibleSize.width), yy + (yy * j)));
-				scrollView4->addChild(child);
-
-			}
-		}
-	}
-	scrollView4->setInnerContainerSize(Size(3 * visibleSize.width, visibleSize.height* 0.8));
-	container4->addChild(scrollView4);
-
-
 	auto container5 = ui::Layout::create();
 	container5->setBackGroundColorType(ui::Layout::BackGroundColorType::SOLID);
 	container5->setOpacity(255);
 	container5->setBackGroundColor(Color3B::YELLOW);
 	container5->setBackGroundColorOpacity(255);
-
-	auto scrollView5 = ui::ScrollView::create();
-	scrollView5->setDirection(ui::ScrollView::Direction::HORIZONTAL);
-	scrollView5->setContentSize(Size(visibleSize.width, visibleSize.height * 0.8));
-	for (int k = 0; k < 3; k++) {
-		for (int j = 0; j < 3; j++) {
-			float yy = visibleSize.height * 0.2;
-			for (int i = 0; i < 4; i++) {
-				float xx = visibleSize.width / 4;
-				auto child = Sprite::create("menu/backpack_icon.png");
-				child->setPosition(Vec2((xx / 2 + (xx * i)) + (k * visibleSize.width), yy + (yy * j)));
-				scrollView5->addChild(child);
-
-			}
-		}
-	}
-	scrollView5->setInnerContainerSize(Size(3 * visibleSize.width, visibleSize.height* 0.8));
-	container5->addChild(scrollView5);
-
-
 
 	auto container6 = ui::Layout::create();
 	container6->setBackGroundColorType(ui::Layout::BackGroundColorType::SOLID);
@@ -225,23 +127,68 @@ void Award::onEnterTransitionDidFinish()
 	container6->setBackGroundColor(Color3B::MAGENTA);
 	container6->setBackGroundColorOpacity(255);
 
-	auto scrollView6 = ui::ScrollView::create();
-	scrollView6->setDirection(ui::ScrollView::Direction::HORIZONTAL);
-	scrollView6->setContentSize(Size(visibleSize.width, visibleSize.height * 0.8));
-	for (int k = 0; k < 3; k++) {
-		for (int j = 0; j < 3; j++) {
-			float yy = visibleSize.height * 0.2;
-			for (int i = 0; i < 4; i++) {
-				float xx = visibleSize.width / 4;
-				auto child = Sprite::create("menu/camera.png");
-				child->setPosition(Vec2((xx / 2 + (xx * i)) + (k * visibleSize.width), yy + (yy * j)));
-				scrollView6->addChild(child);
-
-			}
-		}
+	/*static const std::string REWARD_STICKER = "s";
+static const std::string REWARD_PATCH = "p";
+static const std::string REWARD_MEDAL = "m";
+static const std::string REWARD_GEM = "g";
+static const std::string REWARD_CANDY = "c";
+static const std::string REWARD_BADGE = "b";
+*/
+	auto it = rewards.find("b");
+	if (it != rewards.end()) {
+		objectsAddInTabContainer(container6, "tab/yellowtile.png", rewards.at("b"));
 	}
-	scrollView6->setInnerContainerSize(Size(3 * visibleSize.width, visibleSize.height* 0.8));
-	container6->addChild(scrollView6);
+	else
+	{
+		rewardsBackground(container6, "tab/yellowtile.png");
+	}
+	
+
+	auto it1 = rewards.find("c");
+	if (it1 != rewards.end()) {
+		objectsAddInTabContainer(container5, "tab/redtile.png", rewards.at("c"));
+	}
+	else
+	{
+		rewardsBackground(container5, "tab/redtile.png");
+	}
+	
+	auto it2 = rewards.find("g");
+	if (it2 != rewards.end()) {
+		objectsAddInTabContainer(container4, "tab/purpletile.png", rewards.at("g"));
+	}
+	else
+	{
+		rewardsBackground(container4, "tab/purpletile.png");
+	}
+
+	auto it3 = rewards.find("m");
+	if (it3 != rewards.end()) {
+		objectsAddInTabContainer(container3, "tab/orangetile.png", rewards.at("m"));
+	}
+	else
+	{
+		rewardsBackground(container3, "tab/orangetile.png");
+	}
+
+	auto it4 = rewards.find("p");
+	if (it4 != rewards.end()) {
+		objectsAddInTabContainer(container2, "tab/greentile.png", rewards.at("p"));
+	}
+	else
+	{
+		rewardsBackground(container2, "tab/greentile.png");
+	}
+	
+	auto it5 = rewards.find("s");
+	if (it5 != rewards.end()) {
+		objectsAddInTabContainer(container1, "tab/bluetile.png", rewards.at("s"));
+	}
+	else
+	{
+		rewardsBackground(container1, "tab/bluetile.png");
+	}
+	
 
 	_tab->insertTab(0, header1, container1);
 	_tab->insertTab(1, header2, container2);
@@ -249,8 +196,6 @@ void Award::onEnterTransitionDidFinish()
 	_tab->insertTab(3, header4, container4);
 	_tab->insertTab(4, header5, container5);
 	_tab->insertTab(5, header6, container6);
-
-
 	_tab->setSelectTab(1);
 	addChild(_tab);
 
@@ -271,4 +216,88 @@ bool Award::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		}
 	}
 	return false;
+}
+
+void Award::objectsAddInTabContainer(cocos2d::Node * parent, std::string tile, std::map<std::string, int> rewardsInfo)
+{
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	auto scrollView6 = ui::ScrollView::create();
+	scrollView6->setDirection(ui::ScrollView::Direction::HORIZONTAL);
+	scrollView6->setContentSize(Size(visibleSize.width, visibleSize.height - 300));
+	Texture2D *texture = Director::getInstance()->getTextureCache()->addImage(tile);
+	Texture2D::TexParams tp = { GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT };
+	texture->setTexParameters(&tp);
+	Sprite *backgroundSpriteMapTile = Sprite::createWithTexture(texture, Rect(0, 0, visibleSize.width * 3, visibleSize.height));
+	backgroundSpriteMapTile->setPosition(Vec2(3 * visibleSize.width / 2, visibleSize.height / 2));
+	scrollView6->addChild(backgroundSpriteMapTile);
+
+	int numberOfPages = (std::ceil(rewardsInfo.size() / 20.0f));
+	int numberOfRewards = 0;
+	std::vector<std::string> imagePath;
+
+	for (auto it = rewardsInfo.begin(); it != rewardsInfo.end(); ++it) {
+		imagePath.push_back(it->first);
+	}
+	for (int k = 0; k < numberOfPages; k++) {
+		for (int j = 3; j >= 0; j--) {
+			float yy = visibleSize.height * 0.2;
+			for (int i = 0; i < 5; i++) {
+				if (numberOfRewards < imagePath.size()) {
+					float xx = visibleSize.width / 5;
+					//std::string rewardName = 
+					std::string path = "rewards/" + imagePath.at(numberOfRewards) + ".png";
+					auto child = Sprite::create(path);
+					child->setPosition(Vec2((xx / 2 + (xx * i)) + (k * visibleSize.width), visibleSize.height * 0.1 + (yy * j)));
+					scrollView6->addChild(child);
+
+					auto drawNode = DrawNode::create();
+					drawNode->drawDot(Vec2(child->getContentSize().width,child->getContentSize().height), 30, Color4F(111.0f, 111.0f, 111.0f, 1.0f));
+					child->addChild(drawNode);
+					
+					std::stringstream ss;
+					ss << rewardsInfo.at(imagePath.at(numberOfRewards));
+					std::string mycharString = ss.str();
+
+					auto targetLabel = Label::createWithTTF(mycharString, "fonts/Roboto-Regular.ttf", 30);
+					targetLabel->setColor(Color3B(0, 0, 0));
+					targetLabel->setPositionX(child->getContentSize().width);
+					targetLabel->setPositionY(child->getContentSize().height);
+					drawNode->addChild(targetLabel);
+
+					std::replace(imagePath.at(numberOfRewards).begin(), imagePath.at(numberOfRewards).end(), '_', ' ');
+					auto rewardLabel = Label::createWithTTF(LangUtil::getInstance()->translateString(imagePath.at(numberOfRewards).substr(2)), "fonts/Roboto-Regular.ttf", 80);
+					rewardLabel->setColor(Color3B(0, 0, 0));
+					rewardLabel->setPositionX(child->getContentSize().width/2);
+					//rewardLabel->setPositionY(child->getContentSize().height);
+					child->addChild(rewardLabel);
+					numberOfRewards++;
+				}
+			}
+		}
+	}
+	scrollView6->setInnerContainerSize(Size(numberOfPages * visibleSize.width, visibleSize.height* 0.8));
+	parent->addChild(scrollView6);
+
+}
+
+void Award::rewardsBackground(cocos2d::Node * parent, std::string tile)
+{
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	auto scrollView6 = ui::ScrollView::create();
+	scrollView6->setDirection(ui::ScrollView::Direction::HORIZONTAL);
+	scrollView6->setContentSize(Size(visibleSize.width, visibleSize.height - 300));
+	Texture2D *texture = Director::getInstance()->getTextureCache()->addImage(tile);
+	Texture2D::TexParams tp = { GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT };
+	texture->setTexParameters(&tp);
+	Sprite *backgroundSpriteMapTile = Sprite::createWithTexture(texture, Rect(0, 0, visibleSize.width * 3, visibleSize.height));
+	backgroundSpriteMapTile->setPosition(Vec2(3 * visibleSize.width / 2, visibleSize.height / 2));
+	scrollView6->addChild(backgroundSpriteMapTile);
+	scrollView6->setInnerContainerSize(Size(visibleSize.width, visibleSize.height* 0.8));
+	std::string headLabel = LangUtil::getInstance()->translateString("You have not yet earned any rewards");
+	auto targetLabel = Label::createWithTTF(headLabel, "fonts/Roboto-Regular.ttf", 150);
+	targetLabel->setColor(Color3B(255, 255, 255));
+	targetLabel->setPositionX(visibleSize.width/2);
+	targetLabel->setPositionY(visibleSize.height/2);
+	parent->addChild(scrollView6);
+	parent->addChild(targetLabel);
 }

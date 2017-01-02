@@ -1,0 +1,626 @@
+{
+  "ID": "ec09580c-3755-492d-a821-61b6977ad292",
+  "Version": "2.3.4",
+  "Name": "Scene_2",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 113,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "G": 222,
+              "B": 117
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.4389
+            },
+            "TopMargin": 1010.0,
+            "Tag": 114,
+            "ActionTag": -689190504,
+            "Size": {
+              "X": 1800.0,
+              "Y": 790.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 218,
+              "G": 239,
+              "B": 237
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 789.0364
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.4384
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.5611
+            },
+            "TopMargin": 0.9636,
+            "BottomMargin": 789.0364,
+            "Tag": 115,
+            "ActionTag": -916255715,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1010.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/desert_mountain.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 531.7845,
+              "Y": 872.2882
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2954,
+              "Y": 0.4846
+            },
+            "PreSize": {
+              "X": 0.4406,
+              "Y": 0.0933
+            },
+            "LeftMargin": 135.2845,
+            "RightMargin": 871.7155,
+            "TopMargin": 843.7118,
+            "BottomMargin": 788.2882,
+            "Tag": 116,
+            "ActionTag": -70640250,
+            "Size": {
+              "X": 793.0,
+              "Y": 168.0
+            },
+            "Name": "mountain_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/desert_mountain.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1342.7488,
+              "Y": 872.553
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.746,
+              "Y": 0.4848
+            },
+            "PreSize": {
+              "X": 0.4406,
+              "Y": 0.0933
+            },
+            "LeftMargin": 946.2488,
+            "RightMargin": 60.7512,
+            "TopMargin": 843.447,
+            "BottomMargin": 788.553,
+            "Tag": 117,
+            "ActionTag": 1687994750,
+            "Size": {
+              "X": 793.0,
+              "Y": 168.0
+            },
+            "Name": "mountain_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/desert_pyramid.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 906.298,
+              "Y": 990.4871
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5035,
+              "Y": 0.5503
+            },
+            "PreSize": {
+              "X": 0.3478,
+              "Y": 0.2639
+            },
+            "LeftMargin": 593.298,
+            "RightMargin": 580.702,
+            "TopMargin": 572.0129,
+            "BottomMargin": 752.9871,
+            "Tag": 119,
+            "ActionTag": 1969106825,
+            "Size": {
+              "X": 626.0,
+              "Y": 475.0
+            },
+            "Name": "pyramid_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/desert_pyramid.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 464.505,
+              "Y": 907.1663
+            },
+            "Scale": {
+              "ScaleX": 0.66,
+              "ScaleY": 0.66
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2581,
+              "Y": 0.504
+            },
+            "PreSize": {
+              "X": 0.3478,
+              "Y": 0.2639
+            },
+            "LeftMargin": 151.505,
+            "RightMargin": 1022.495,
+            "TopMargin": 655.3337,
+            "BottomMargin": 669.6663,
+            "Tag": 120,
+            "ActionTag": -240145398,
+            "Size": {
+              "X": 626.0,
+              "Y": 475.0
+            },
+            "Name": "pyramid_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/desert_pyramid.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1328.4343,
+              "Y": 885.608
+            },
+            "Scale": {
+              "ScaleX": 0.56,
+              "ScaleY": 0.56
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.738,
+              "Y": 0.492
+            },
+            "PreSize": {
+              "X": 0.3478,
+              "Y": 0.2639
+            },
+            "LeftMargin": 1015.4343,
+            "RightMargin": 158.5657,
+            "TopMargin": 676.892,
+            "BottomMargin": 648.108,
+            "Tag": 121,
+            "ActionTag": -2045217538,
+            "Size": {
+              "X": 626.0,
+              "Y": 475.0
+            },
+            "Name": "pyramid_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/desert_rock_1.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 125.6461,
+              "Y": 787.4998
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0698,
+              "Y": 0.4375
+            },
+            "PreSize": {
+              "X": 0.0717,
+              "Y": 0.2039
+            },
+            "LeftMargin": 61.1461,
+            "RightMargin": 1609.854,
+            "TopMargin": 829.0002,
+            "BottomMargin": 603.9998,
+            "Tag": 123,
+            "ActionTag": -2057389276,
+            "Size": {
+              "X": 129.0,
+              "Y": 367.0
+            },
+            "Name": "rock_1_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/desert_rock_2.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 317.6392,
+              "Y": 720.9246
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1765,
+              "Y": 0.4005
+            },
+            "PreSize": {
+              "X": 0.1922,
+              "Y": 0.1278
+            },
+            "LeftMargin": 144.6392,
+            "RightMargin": 1309.3608,
+            "TopMargin": 964.0754,
+            "BottomMargin": 605.9246,
+            "Tag": 124,
+            "ActionTag": 909097476,
+            "Size": {
+              "X": 346.0,
+              "Y": 230.0
+            },
+            "Name": "rock_2_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/desert_rock_3.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1634.1128,
+              "Y": 707.075
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9078,
+              "Y": 0.3928
+            },
+            "PreSize": {
+              "X": 0.1789,
+              "Y": 0.0822
+            },
+            "LeftMargin": 1473.1128,
+            "RightMargin": 4.8872,
+            "TopMargin": 1018.925,
+            "BottomMargin": 633.075,
+            "Tag": 125,
+            "ActionTag": 749287598,
+            "Size": {
+              "X": 322.0,
+              "Y": 148.0
+            },
+            "Name": "rock_3_10",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/desert_rock_4.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1413.8732,
+              "Y": 612.2623
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7855,
+              "Y": 0.3401
+            },
+            "PreSize": {
+              "X": 0.1272,
+              "Y": 0.0789
+            },
+            "LeftMargin": 1299.3732,
+            "RightMargin": 271.6268,
+            "TopMargin": 1116.7378,
+            "BottomMargin": 541.2623,
+            "Tag": 126,
+            "ActionTag": 1000619208,
+            "Size": {
+              "X": 229.0,
+              "Y": 142.0
+            },
+            "Name": "rock_4_11",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/other/desert_container.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 267.068,
+              "Y": 246.8539
+            },
+            "Scale": {
+              "ScaleX": 0.65,
+              "ScaleY": 0.65
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1484,
+              "Y": 0.1371
+            },
+            "PreSize": {
+              "X": 0.1783,
+              "Y": 0.2311
+            },
+            "LeftMargin": 106.568,
+            "RightMargin": 1372.432,
+            "TopMargin": 1345.1461,
+            "BottomMargin": 38.8539,
+            "Tag": 127,
+            "ActionTag": -2078016544,
+            "Size": {
+              "X": 321.0,
+              "Y": 416.0
+            },
+            "Name": "container_12",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/sky/desert_sun.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 490.9573,
+              "Y": 1481.9292
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2728,
+              "Y": 0.8233
+            },
+            "PreSize": {
+              "X": 0.0939,
+              "Y": 0.0933
+            },
+            "LeftMargin": 406.4573,
+            "RightMargin": 1224.5427,
+            "TopMargin": 234.0708,
+            "BottomMargin": 1397.9292,
+            "Tag": 128,
+            "ActionTag": -2142264166,
+            "Size": {
+              "X": 169.0,
+              "Y": 168.0
+            },
+            "Name": "sun_13",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "ob/other/desert_container.png",
+        "bg/desert_mountain.png",
+        "ob/stone/desert_rock_1.png",
+        "ob/stone/desert_pyramid.png",
+        "ob/stone/desert_rock_2.png",
+        "ob/stone/desert_rock_3.png",
+        "ob/stone/desert_rock_4.png",
+        "ob/sky/desert_sun.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

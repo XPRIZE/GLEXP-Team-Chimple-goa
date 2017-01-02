@@ -133,7 +133,8 @@ void Circle::onEnterTransitionDidFinish()
 		CCLOG("Sysnonyms sub Level = %d", subLevel);
 		themeName = "city";
 		_synonyms = TextGenerator::getInstance()->getSynonyms(10, subLevel);
-		_title = "Make word of same meaning as : ";
+		_title = LangUtil::getInstance()->translateString("Make word of same meaning as : ");
+		_header = LangUtil::getInstance()->translateString("List of same meaning words");
 	}
 	else if (division >5 && division < 11) {
 		int roundLevel = std::ceil(level / 15.0);
@@ -151,7 +152,8 @@ void Circle::onEnterTransitionDidFinish()
 		CCLOG("Antonyms Sub Level = %d", subLevel);
 		themeName = "iceLand";
 		_synonyms = TextGenerator::getInstance()->getAntonyms(10, subLevel);
-		_title = "Make opposite of : ";
+		_title = LangUtil::getInstance()->translateString("Make opposite of : ");
+		_header = LangUtil::getInstance()->translateString("List of opposite words");
 	}
 	else {
 		int roundLevel = std::ceil(level / 15.0);
@@ -169,7 +171,8 @@ void Circle::onEnterTransitionDidFinish()
 		CCLOG("Homonyms SubLevel = %d", subLevel);
 		themeName = "candy";
 		_synonyms = TextGenerator::getInstance()->getHomonyms(10, subLevel);
-		_title = "Make same sounding word as : ";
+		_title = LangUtil::getInstance()->translateString("Make same sounding word as : ");
+		_header = LangUtil::getInstance()->translateString("List of same sounding words");
 	}
 
 	for (auto it = _synonyms.begin(); it != _synonyms.end(); ++it) {
@@ -351,7 +354,7 @@ void Circle::eat(char str)
 
 void Circle::change(char  str)
 {
-	
+	CCLOG("change begin");
 	std::stringstream ss;
 	ss << str;
 	ss >> _target;
@@ -391,16 +394,17 @@ void Circle::change(char  str)
 		blastref->runAction(timeline);
 		timeline->play("blast", false);
 		
-	}), DelayTime::create(1.0f), CallFunc::create([=]() {
+	}), DelayTime::create(2.0f), CallFunc::create([=]() {
 	//	_friend->setRotation(0.0f);
 		addEnemy(num);
 	}), NULL));
-	
+	CCLOG("change end");
 	CCLOG("out num= %d", num);
 }
 
 void Circle::addEnemy(int num)
 {
+	CCLOG("addEnemy begin");
 	CCLOG(" addEnemy num= %d", num);
 	auto mouthTimeline = CSLoader::createTimeline(("circlehero/punch.csb"));
 	_friend->runAction(mouthTimeline);
@@ -446,7 +450,7 @@ void Circle::addEnemy(int num)
 
 	enemyadding->runAction(timeline);
 	timeline->play("meteorfloat", false);
-
+	CCLOG("addEnemy end");
 }
 
 void Circle::topping(char  str)
@@ -492,8 +496,10 @@ void Circle::puff()
 }
 void Circle::scoreBoard(float dt)
 {
+	CCLOG("scoreBoard begin");
 	//menu->showScore();
-	menu->showAnswer("wordPairs", _title);
+	menu->showAnswer("wordPairs", _header);
+	CCLOG("scoreBoard end");
 }
 void Circle::bigpuff(float dt)
 {
@@ -526,6 +532,7 @@ void Circle::bigpuff(float dt)
 }
 void Circle::wordGenerateWithOptions()
 {
+	CCLOG("wordGenerateWithOptions begin");
 	if (_helpFlage) {
 		this->removeChildByName("helpLayer");
 		_helpFlage = false;
@@ -535,11 +542,11 @@ void Circle::wordGenerateWithOptions()
 	int size = _mapKey.size();
 	_gameWord = _mapKey.at(cocos2d::RandomHelper::random_int(0, size - 1));
 	answer.push_back(_synonyms.at(_gameWord));
-	_sentence = LangUtil::getInstance()->translateString(_title);
+	//_sentence = LangUtil::getInstance()->translateString(_title);
 
 	std::ostringstream boardName;
-	boardName << _sentence << _gameWord;
-	_topLabel = CommonLabel::createWithSystemFont(boardName.str(), "Arial", 100);
+	boardName << _title << _gameWord;
+	_topLabel = CommonLabel::createWithTTF(boardName.str(), "fonts/Roboto-Regular.ttf", 100);
 	_topLabel->setColor(Color3B(0, 0, 0));
 	if (_scenePath.at("animation_select").compare("one") == 0)
 	{
@@ -576,7 +583,7 @@ void Circle::wordGenerateWithOptions()
 	for (int i = 0; i < _enemyRef.size(); i++) {
 
 		auto str = answer.at(randomInt % (answerSize + 1));
-		auto myLabel = CommonLabel::createWithSystemFont(str, "Arial", 100);
+		auto myLabel = CommonLabel::createWithTTF(str, "fonts/Roboto-Regular.ttf", 100);
 		std::stringstream ss;
 		ss << (i+1);
 		std::string str1 = ss.str();
@@ -601,6 +608,7 @@ void Circle::wordGenerateWithOptions()
 	if (menu->getCurrentLevel() == 1 && _score == 0) {
 		gameHelp();
 	}
+	CCLOG("wordGenerateWithOptions end");
 }
 
 bool Circle::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
@@ -636,12 +644,13 @@ bool Circle::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			menu->wordPairList(_gameWord, _synonyms.at(_gameWord));
 			if (_scenePath.at("animation_select").compare("one") == 0)
 			{
+				CCLOG("addpoints begin");
 				_score++;
 				menu->addPoints(1);
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 				audio->playEffect("sounds/sfx/success.ogg", false);
 				change(ssss);
-				
+				CCLOG("addpoints end");
 			}
 			else if (_scenePath.at("animation_select").compare("two") == 0)
 			{
@@ -665,12 +674,13 @@ bool Circle::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		}
 		else
 		{
+			CCLOG("shake begin");
 			auto audio1 = CocosDenshion::SimpleAudioEngine::getInstance();
 			audio1->playEffect("sounds/sfx/error.ogg", false);
 			menu->addPoints(-1);
 			FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
 			_friend->runAction(shake);
-			
+			CCLOG("shake ends");
 		}
 		return true;
 	}

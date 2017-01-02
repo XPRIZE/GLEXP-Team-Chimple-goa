@@ -15,7 +15,7 @@ xc.PlayFullStoryLayer = cc.Layer.extend({
         this._tabHeight = 64;
         xc.pageIndex = pageIndex;
         this._controlPanel = null;
-        this._contentPanelWidth = cc.director.getWinSize().width; //assuming landscape
+        this._contentPanelWidth = cc.director.getWinSize().height; //assuming landscape
         this._contentPanelHeight = cc.director.getWinSize().height; //assuming landscape
         this._configPanelWidth = (cc.director.getWinSize().width - this._contentPanelWidth) / 2;
         this._configPanelHeight = cc.director.getWinSize().height;
@@ -48,28 +48,23 @@ xc.PlayFullStoryLayer = cc.Layer.extend({
     },
 
     init: function () {
-        this._contentPanel = new xc.PlayContentPanel(this._contentPanelWidth, this._contentPanelHeight, cc.p(this._configPanelWidth, 0));
-        this._contentPanel.setOpacity(0.2);
+        this._contentPanel = new xc.PlayContentPanel(this._contentPanelHeight - this._contentPanelWidth, this._contentPanelHeight, cc.p(this._configPanelWidth, 0));
         this.addChild(this._contentPanel);
         this._contentPanel._constructedScene.node.retain();
         this._contentPanel._constructedScene.action.retain();
 
-        this._pageConfigPanel = new xc.BaseConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(150, 0), xc.storyPlayConfigurationObject.editDefault, this._contentPanel);
+        this._pageConfigPanel = new xc.BaseConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(0, 0), xc.storyPlayConfigurationObject.editDefault, this._contentPanel);
         this.addChild(this._pageConfigPanel);
-        this._pageConfigPanel.setVisible(false);
+        this._pageConfigPanel.setVisible(true);
 
+        this._blankPageConfigPanel = new xc.BaseConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(cc.director.getWinSize().width - this._configPanelWidth, 0), [], this._contentPanel);
+        this.addChild(this._blankPageConfigPanel);
+        this._blankPageConfigPanel.setVisible(true);
 
-        this._leftButtonPanel = new xc.ButtonPanel(new cc.p(150, 0), cc.size(this._configPanelWidth, this._contentPanelHeight), 1, 1, xc.onlyStoryPlayConfigurationObject.prevDefault, new xc.ButtonHandler(this.previousStory, this, false));        
-        this._leftButtonPanel.scaleX *= -1;
-        this._leftButtonPanel.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
-        this._leftButtonPanel.setBackGroundColor(xc.PRIMARY_COLOR);
-        this._leftButtonPanel.setVisible(false);
-        this.addChild(this._leftButtonPanel);
-
-        this._rightButtonPanel = new xc.ButtonPanel(new cc.p(this._contentPanelWidth - 380/2, 0), cc.size(this._configPanelWidth, this._contentPanelHeight), 1, 1, xc.onlyStoryPlayConfigurationObject.nextDefault, new xc.ButtonHandler(this.nextStory, this, false));
+        this._rightButtonPanel = new xc.ButtonPanel(new cc.p(this._contentPanelWidth + this._configPanelWidth, 0), cc.size(this._configPanelWidth, this._contentPanelHeight), 1, 1, xc.onlyStoryPlayConfigurationObject.nextDefault, new xc.ButtonHandler(this.nextStory, this, false));
         this._rightButtonPanel.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
         this._rightButtonPanel.setBackGroundColor(xc.PRIMARY_COLOR);
-        this.addChild(this._rightButtonPanel);
+        this.addChild(this._rightButtonPanel,2);
         this._rightButtonPanel.setVisible(false);
         this.setUpRecordedScene();
         if(xc.pageIndex == 0) {
@@ -99,14 +94,7 @@ xc.PlayFullStoryLayer = cc.Layer.extend({
         }
     },
 
-    renderPreviousButton: function () {
-        if (xc.story != null && xc.story.items != null && !(xc.pageIndex == 0)) {
-            this._leftButtonPanel.setVisible(true);
-        } else {
-            this._leftButtonPanel.setVisible(false);
-        }
-    },
-
+    
     sceneTouched: function () {
         this._contentPanel._constructedScene.action.gotoFrameAndPause(0);
         this.playRecordedScene();
@@ -144,7 +132,6 @@ xc.PlayFullStoryLayer = cc.Layer.extend({
 
     playEnded: function () {
         //create delay action
-        xc.story.items[xc.pageIndex].sceneText = "dummy test";
         if (xc.story.items[xc.pageIndex].sceneText != null && xc.story.items[xc.pageIndex].sceneText !== "undefined") {
             var delayAction = new cc.DelayTime(2);
             var createWebViewAction = new cc.CallFunc(this.referenceToContext.createWebView, this.referenceToContext);
@@ -152,19 +139,16 @@ xc.PlayFullStoryLayer = cc.Layer.extend({
             this.referenceToContext.runAction(playEndSequence);
         } else {
             this.referenceToContext.renderNextButton();
-            this.referenceToContext.renderPreviousButton();
                         
         }
     },
 
     createWebView: function() {
-        if (xc.story.items[xc.pageIndex].sceneText != null && xc.story.items[xc.pageIndex].sceneText !== "undefined") {
-            this.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), xc.story.items[xc.pageIndex].sceneText, this.processText, null, this, false));
+        var that = this;
+        if (xc.story.items[xc.pageIndex].sceneText != null && xc.story.items[xc.pageIndex].sceneText !== "undefined" && xc.story.items[xc.pageIndex].sceneText.length > 0) {
+            this.addChild(new xc.TextCreatePanel(xc.PlayFullStoryLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), xc.story.items[xc.pageIndex].sceneText, that.processText, null, that));
         }     
-
-        this._pageConfigPanel.setVisible(true);
         this.renderNextButton();
-        this.renderPreviousButton();
     },
 
     playRecordedScene: function () {
@@ -206,12 +190,8 @@ xc.PlayFullStoryScene.load = function(pageIndex, layer, enableTransition) {
     cc.LoaderScene.preload(t_resources, function () {
         var scene = new xc.PlayFullStoryScene(pageIndex, layer);
         scene.layerClass = layer;
-            
-        if(enableTransition) {
-            cc.director.runScene(new cc.TransitionPageTurn(1.5, scene, true));
-        }  else {
-            cc.director.runScene(scene);
-        }              
+
+        cc.director.runScene(scene);            
     }, this);
 }
 
@@ -220,8 +200,6 @@ xc.PlayFullStoryScene.load = function(pageIndex, layer, enableTransition) {
 xc.PlayFullStoryLayer.res = {
         thumbnails_png: xc.path + "wikitaki/thumbnails.png",
         thumbnails_plist: xc.path + "wikitaki/thumbnails.plist",
-        // human_skeleton_png: xc.path + "wikitaki/human_skeleton.png",
-        // human_skeleton_plist: xc.path + "wikitaki/human_skeleton.plist",
         animalskeleton_png: xc.path + "wikitaki/animalskeleton.png",
         animalskeleton_plist: xc.path + "wikitaki/animalskeleton.plist",
         animalskeleton_json: xc.path + "wikitaki/animalskeleton.json",
@@ -244,5 +222,6 @@ xc.PlayFullStoryLayer.res = {
         animationb_skeleton_png: xc.path + "animation/animationb/animationb.png",
         animationb_skeleton_plist: xc.path + "animation/animationb/animationb.plist",
         animationc_skeleton_png: xc.path + "animation/animationc/animationc.png",
-        animationc_skeleton_plist: xc.path + "animation/animationc/animationc.plist"        
+        animationc_skeleton_plist: xc.path + "animation/animationc/animationc.plist",
+        textBubble_json: xc.path + "template/bubble_tem.json"      
 };

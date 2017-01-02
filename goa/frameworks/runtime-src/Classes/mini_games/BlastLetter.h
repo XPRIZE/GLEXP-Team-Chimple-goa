@@ -21,11 +21,10 @@ protected:
 	MenuContext *_menuContext;
 	std::vector<std::string> _result;
 	std::map<std::string, std::string> _data;
-	std::string _data_key;
-	std::string _data_value;
+	std::string _data_key , _data_value, _sentence ="";
 	int _counterLetter = 0 , _maxWrong = 3;
 	Node* _popGrid = NULL;
-	bool _checkingAlphabets = false , _bang = true ,_touch = true , _flagTurnHelp = true;
+	bool _checkingAlphabets = false , _bang = true ,_touch = true , _flagTurnHelp = true , _alphaAnimationFlag = true;
 	cocostudio::timeline::ActionTimeline *_timelineBlast;
 
 public:

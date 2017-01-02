@@ -15,7 +15,7 @@
                 <key>spriteSourceSize</key>
                 <string>{73,73}</string>
                 <key>textureRect</key>
-                <string>{{329,163},{73,73}}</string>
+                <string>{{1329,112},{73,73}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -30,7 +30,7 @@
                 <key>spriteSourceSize</key>
                 <string>{125,278}</string>
                 <key>textureRect</key>
-                <string>{{440,112},{125,278}}</string>
+                <string>{{329,112},{125,278}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -41,11 +41,11 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{515,109}</string>
+                <string>{1192,109}</string>
                 <key>spriteSourceSize</key>
-                <string>{515,109}</string>
+                <string>{1192,109}</string>
                 <key>textureRect</key>
-                <string>{{440,1},{515,109}}</string>
+                <string>{{329,1},{1192,109}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -77,7 +77,7 @@
                 <key>textureRect</key>
                 <string>{{180,174},{64,55}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>dropcity/blast2.png</key>
             <dict>
@@ -90,7 +90,7 @@
                 <key>spriteSourceSize</key>
                 <string>{119,117}</string>
                 <key>textureRect</key>
-                <string>{{957,1},{119,117}}</string>
+                <string>{{774,112},{119,117}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -135,7 +135,22 @@
                 <key>spriteSourceSize</key>
                 <string>{160,109}</string>
                 <key>textureRect</key>
-                <string>{{329,1},{160,109}}</string>
+                <string>{{893,112},{160,109}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>dropcity/single_balloon.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{125,163}</string>
+                <key>spriteSourceSize</key>
+                <string>{125,163}</string>
+                <key>textureRect</key>
+                <string>{{609,112},{125,163}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -150,7 +165,7 @@
                 <key>spriteSourceSize</key>
                 <string>{272,88}</string>
                 <key>textureRect</key>
-                <string>{{720,122},{272,88}}</string>
+                <string>{{1055,112},{272,88}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -160,15 +175,15 @@
             <key>format</key>
             <integer>3</integer>
             <key>pixelFormat</key>
-            <string>RGBA4444</string>
+            <string>RGBA8888</string>
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
             <string>dropcity.png</string>
             <key>size</key>
-            <string>{1075,239}</string>
+            <string>{1522,238}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:082c674161b1444ddc7d49833013bbc4:e96a872d5761a05f9acb30fea35ef051:d3f162ee53a6e0468d3d7bebb28f5001$</string>
+            <string>$TexturePacker:SmartUpdate:9909ccac5782d80955db2c187cbeb40f:44f057b6ae05d4fe6838622c967a1d7a:d3f162ee53a6e0468d3d7bebb28f5001$</string>
             <key>textureFileName</key>
             <string>dropcity.png</string>
         </dict>

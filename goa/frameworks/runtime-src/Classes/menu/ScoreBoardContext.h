@@ -24,7 +24,7 @@ class ScoreBoardContext : public cocos2d::Layer {
 public:
     
     static ScoreBoardContext* create(int stars, std::string gameName, std::string sceneName = "", int level = 0);
-    
+	static std::map<std::string, std::map<std::string, int>> getRewards();
 CC_CONSTRUCTOR_ACCESS:
     virtual bool init(int stars, std::string gameName, std::string sceneName, int level);
     ScoreBoardContext();
@@ -34,6 +34,7 @@ protected:
     bool unlockGame(std::string gameToUnlock);
     bool addBadges(std::vector<std::string> badges);
     std::vector<std::string> getStarBadges(int level);
+   
     std::string _gameToUnlock;
     std::vector<std::string> _badges;
     cocos2d::Vector<cocos2d::SpriteFrame*> _giftFrames;

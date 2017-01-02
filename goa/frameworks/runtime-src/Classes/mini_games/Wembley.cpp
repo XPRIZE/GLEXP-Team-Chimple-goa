@@ -34,7 +34,7 @@ void Wembley::createAnswer() {
 	label->setFontSize(200);
 
 	if (LangUtil::getInstance()->getLang() == "eng") {
-		label->setFontName("fonts/arial.ttf");
+		label->setFontName("fonts/Roboto-Regular.ttf");
 	}
 	label->setTextColor(Color4B::BLUE);
 	_answer = Node::create();

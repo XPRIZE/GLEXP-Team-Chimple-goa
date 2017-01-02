@@ -2673,7 +2673,7 @@
             "RightMargin": 1187.3245,
             "TopMargin": 1739.5825,
             "BottomMargin": 234.4175,
-            "UserData": "canInteract=true,nextScene=trainstation",
+            "UserData": "canInteract=true,nextScene=trainstationinside",
             "Tag": 1755,
             "ActionTag": -1731489918,
             "Size": {
@@ -2720,7 +2720,7 @@
             "RightMargin": 935.5829,
             "TopMargin": 1739.568,
             "BottomMargin": 234.432,
-            "UserData": "canInteract=true,nextScene=trainstation",
+            "UserData": "canInteract=true,nextScene=trainstationinside",
             "Tag": 1756,
             "ActionTag": -136975748,
             "Size": {
@@ -3019,189 +3019,6 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "city/city4/school.png",
-              "Plist": "city/city4/city4.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 3435.9526,
-              "Y": 1397.8932
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 1.3422,
-              "Y": 0.5461
-            },
-            "PreSize": {
-              "X": 0.4625,
-              "Y": 0.9066
-            },
-            "LeftMargin": 2843.9526,
-            "RightMargin": -1467.9526,
-            "TopMargin": 1.6069,
-            "BottomMargin": 237.3932,
-            "Tag": 1403,
-            "ActionTag": 196090542,
-            "Size": {
-              "X": 1184.0,
-              "Y": 2321.0
-            },
-            "Name": "school_1",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FlipX": true,
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "city/city4/school.png",
-              "Plist": "city/city4/city4.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 4615.9277,
-              "Y": 1397.8876
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 1.8031,
-              "Y": 0.546
-            },
-            "PreSize": {
-              "X": 0.4625,
-              "Y": 0.9066
-            },
-            "LeftMargin": 4023.9277,
-            "RightMargin": -2647.9277,
-            "TopMargin": 1.6123,
-            "BottomMargin": 237.3876,
-            "Tag": 1404,
-            "ActionTag": 1513434080,
-            "Size": {
-              "X": 1184.0,
-              "Y": 2321.0
-            },
-            "Name": "school_2",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "city/city4/schooldoor.png",
-              "Plist": "city/city4/city4.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 3925.1699,
-              "Y": 670.8103
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 1.5333,
-              "Y": 0.262
-            },
-            "PreSize": {
-              "X": 0.0824,
-              "Y": 0.1809
-            },
-            "LeftMargin": 3819.6699,
-            "RightMargin": -1470.6699,
-            "TopMargin": 1657.6897,
-            "BottomMargin": 439.3103,
-            "UserData": "canInteract=true,nextScene=school",
-            "Tag": 1405,
-            "ActionTag": -256518228,
-            "Size": {
-              "X": 211.0,
-              "Y": 463.0
-            },
-            "Name": "schooldoor_3",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "city/city4/schooldoor.png",
-              "Plist": "city/city4/city4.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.4595,
-              "ScaleY": 0.559
-            },
-            "Position": {
-              "X": 4119.6309,
-              "Y": 698.0045
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 1.6092,
-              "Y": 0.2727
-            },
-            "PreSize": {
-              "X": 0.0824,
-              "Y": 0.1809
-            },
-            "LeftMargin": 4022.6763,
-            "RightMargin": -1673.6763,
-            "TopMargin": 1657.8125,
-            "BottomMargin": 439.1875,
-            "UserData": "canInteract=true,nextScene=school",
-            "Tag": 1406,
-            "ActionTag": -1410851861,
-            "Size": {
-              "X": 211.0,
-              "Y": 463.0
-            },
-            "Name": "schooldoor_4",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
               "Path": "city/city5/bench.png",
               "Plist": "city/city5/city5.plist"
             },
@@ -3290,141 +3107,6 @@
             "ctype": "SpriteObjectData"
           },
           {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "city/city5/dustbin.png",
-              "Plist": "city/city5/city5.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 8029.0625,
-              "Y": 377.4182
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 3.1364,
-              "Y": 0.1474
-            },
-            "PreSize": {
-              "X": 0.0645,
-              "Y": 0.1094
-            },
-            "LeftMargin": 7946.5625,
-            "RightMargin": -5551.5625,
-            "TopMargin": 2042.5818,
-            "BottomMargin": 237.4182,
-            "Tag": 306,
-            "ActionTag": 1930170377,
-            "Size": {
-              "X": 165.0,
-              "Y": 280.0
-            },
-            "Name": "dustbin_3",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "city/city5/flower.png",
-              "Plist": "city/city5/city5.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 3503.9851,
-              "Y": 572.7953
-            },
-            "Scale": {
-              "ScaleX": 0.7909,
-              "ScaleY": 0.7909
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 1.3687,
-              "Y": 0.2237
-            },
-            "PreSize": {
-              "X": 0.0785,
-              "Y": 0.134
-            },
-            "LeftMargin": 3403.4851,
-            "RightMargin": -1044.4851,
-            "TopMargin": 1815.7047,
-            "BottomMargin": 401.2953,
-            "Tag": 307,
-            "ActionTag": -926470297,
-            "Size": {
-              "X": 201.0,
-              "Y": 343.0
-            },
-            "Name": "flower_4",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "city/city5/flower.png",
-              "Plist": "city/city5/city5.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 4529.3613,
-              "Y": 573.4059
-            },
-            "Scale": {
-              "ScaleX": 0.7909,
-              "ScaleY": 0.7909
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 1.7693,
-              "Y": 0.224
-            },
-            "PreSize": {
-              "X": 0.0785,
-              "Y": 0.134
-            },
-            "LeftMargin": 4428.8613,
-            "RightMargin": -2069.8613,
-            "TopMargin": 1815.0941,
-            "BottomMargin": 401.9059,
-            "Tag": 308,
-            "ActionTag": 366416770,
-            "Size": {
-              "X": 201.0,
-              "Y": 343.0
-            },
-            "Name": "flower_5",
-            "ctype": "SpriteObjectData"
-          },
-          {
             "FlipX": true,
             "FileData": {
               "Type": "MarkedSubImage",
@@ -3440,8 +3122,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2745.2214,
-              "Y": 504.4157
+              "X": 2718.0791,
+              "Y": 504.4156
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -3450,17 +3132,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 1.0724,
+              "X": 1.0617,
               "Y": 0.197
             },
             "PreSize": {
               "X": 0.0582,
               "Y": 0.2086
             },
-            "LeftMargin": 2670.7214,
-            "RightMargin": -259.7214,
-            "TopMargin": 1788.5842,
-            "BottomMargin": 237.4157,
+            "LeftMargin": 2643.5791,
+            "RightMargin": -232.5791,
+            "TopMargin": 1788.5845,
+            "BottomMargin": 237.4156,
             "Tag": 309,
             "ActionTag": 2031039839,
             "Size": {
@@ -3485,8 +3167,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 5281.1665,
-              "Y": 504.416
+              "X": 5317.897,
+              "Y": 504.4158
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -3495,17 +3177,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 2.063,
+              "X": 2.0773,
               "Y": 0.197
             },
             "PreSize": {
               "X": 0.0582,
               "Y": 0.2086
             },
-            "LeftMargin": 5206.6665,
-            "RightMargin": -2795.6665,
-            "TopMargin": 1788.584,
-            "BottomMargin": 237.416,
+            "LeftMargin": 5243.397,
+            "RightMargin": -2832.397,
+            "TopMargin": 1788.5842,
+            "BottomMargin": 237.4158,
             "Tag": 310,
             "ActionTag": -517920085,
             "Size": {
@@ -3548,6 +3230,235 @@
             },
             "Name": "scientist",
             "ctype": "SingleNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "city/gardenfront.png",
+              "Plist": "city/city.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4039.5139,
+              "Y": 1218.1544
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.5779,
+              "Y": 0.4758
+            },
+            "PreSize": {
+              "X": 0.5309,
+              "Y": 0.2121
+            },
+            "LeftMargin": 3360.0139,
+            "RightMargin": -2159.0137,
+            "TopMargin": 1070.3456,
+            "BottomMargin": 946.6544,
+            "Tag": 440,
+            "ActionTag": 5227433,
+            "Size": {
+              "X": 1359.0,
+              "Y": 543.0
+            },
+            "Name": "gardenfront_67",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "city/gardenside.png",
+              "Plist": "city/city.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3241.3398,
+              "Y": 624.415
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.2661,
+              "Y": 0.2439
+            },
+            "PreSize": {
+              "X": 0.2695,
+              "Y": 0.3023
+            },
+            "LeftMargin": 2896.3398,
+            "RightMargin": -1026.3398,
+            "TopMargin": 1548.585,
+            "BottomMargin": 237.415,
+            "Tag": 441,
+            "ActionTag": 1232082225,
+            "Size": {
+              "X": 690.0,
+              "Y": 774.0
+            },
+            "Name": "gardenside_68",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "city/Gate.png",
+              "Plist": "city/city.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3798.5503,
+              "Y": 553.9155
+            },
+            "Scale": {
+              "ScaleX": 1.13,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.4838,
+              "Y": 0.2164
+            },
+            "PreSize": {
+              "X": 0.166,
+              "Y": 0.2473
+            },
+            "LeftMargin": 3586.0503,
+            "RightMargin": -1451.0503,
+            "TopMargin": 1689.5845,
+            "BottomMargin": 237.4155,
+            "UserData": "canInteract=true,nextScene=park",
+            "Tag": 442,
+            "ActionTag": 93646621,
+            "Size": {
+              "X": 425.0,
+              "Y": 633.0
+            },
+            "Name": "Gate_69",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "city/gardenside.png",
+              "Plist": "city/city.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4819.1069,
+              "Y": 624.4154
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.8825,
+              "Y": 0.2439
+            },
+            "PreSize": {
+              "X": 0.2695,
+              "Y": 0.3023
+            },
+            "LeftMargin": 4474.1069,
+            "RightMargin": -2604.1069,
+            "TopMargin": 1548.5846,
+            "BottomMargin": 237.4154,
+            "Tag": 443,
+            "ActionTag": -999208911,
+            "Size": {
+              "X": 690.0,
+              "Y": 774.0
+            },
+            "Name": "gardenside_70",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "city/Gate.png",
+              "Plist": "city/city.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4271.0537,
+              "Y": 553.9156
+            },
+            "Scale": {
+              "ScaleX": 1.0578,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.6684,
+              "Y": 0.2164
+            },
+            "PreSize": {
+              "X": 0.166,
+              "Y": 0.2473
+            },
+            "LeftMargin": 4058.5537,
+            "RightMargin": -1923.5537,
+            "TopMargin": 1689.5845,
+            "BottomMargin": 237.4156,
+            "UserData": "canInteract=true,nextScene=park",
+            "Tag": 444,
+            "ActionTag": 916047948,
+            "Size": {
+              "X": 425.0,
+              "Y": 633.0
+            },
+            "Name": "Gate_71",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
@@ -3558,10 +3469,10 @@
         "ctype": "LayerObjectData"
       },
       "UsedResources": [
+        "city.plist",
+        "city.png",
         "city1/city1.plist",
         "city1/city1.png",
-        "city4/city4.plist",
-        "city4/city4.png",
         "city5/city5.plist",
         "city5/city5.png"
       ],

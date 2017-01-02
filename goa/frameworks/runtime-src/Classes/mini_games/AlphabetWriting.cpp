@@ -19,7 +19,7 @@ AlphabetWriting * AlphabetWriting::createAlphabetWithAnimation(std::string alpha
 	}
 	CC_SAFE_DELETE(alphamon);
 	return nullptr;
-	\
+	
 }
 
 void AlphabetWriting::playAnimation(bool loop)
@@ -51,6 +51,12 @@ bool AlphabetWriting::initWithAlphabet(std::string alphabet, bool type)
 
 	return true;
 }
+
+float AlphabetWriting::getTotalAnimationDuration()
+{
+	return ((_animationReff->getDuration()+0.0f)/60.0f);
+}
+
 AlphabetWriting::AlphabetWriting()
 {
 

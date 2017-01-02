@@ -1,0 +1,907 @@
+{
+  "ID": "ddf7feae-24b6-4d8a-963b-4cbdeb5591ea",
+  "Version": "3.10.0.0",
+  "Name": "Scene_01",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 5,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 177,
+              "G": 147,
+              "B": 73
+            },
+            "FirstColor": {
+              "R": 34,
+              "G": 132,
+              "B": 240
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleX": -0.4695,
+              "ScaleY": -0.8829
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -33.5327,
+              "Y": -10.0345
+            },
+            "Scale": {
+              "ScaleX": 1.0258,
+              "ScaleY": 0.5793
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0186,
+              "Y": -0.0056
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": -33.5327,
+            "RightMargin": 33.5327,
+            "TopMargin": 10.0344,
+            "BottomMargin": -10.0345,
+            "Tag": 41,
+            "ActionTag": -1630278221,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1800.0
+            },
+            "Name": "ground_01",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 34,
+              "G": 132,
+              "B": 240
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleX": -0.0872,
+              "ScaleY": -0.9962
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -25.3864,
+              "Y": 909.2639
+            },
+            "Scale": {
+              "ScaleX": 1.0258,
+              "ScaleY": 0.5112
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0141,
+              "Y": 0.5051
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": -25.3864,
+            "RightMargin": 25.3864,
+            "TopMargin": -909.2639,
+            "BottomMargin": 909.2639,
+            "Tag": 42,
+            "ActionTag": -2140760776,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1800.0
+            },
+            "Name": "sky_01",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/ground_02.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 848.4049,
+              "Y": 732.7141
+            },
+            "Scale": {
+              "ScaleX": 1.0725,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4713,
+              "Y": 0.4071
+            },
+            "PreSize": {
+              "X": 1.0633,
+              "Y": 0.5683
+            },
+            "LeftMargin": -108.5951,
+            "RightMargin": -5.4049,
+            "TopMargin": 555.7859,
+            "BottomMargin": 221.2141,
+            "Tag": 43,
+            "ActionTag": 1694297312,
+            "Size": {
+              "X": 1914.0,
+              "Y": 1023.0
+            },
+            "Name": "ground_02",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/vehicle/bus_01.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1480.4497,
+              "Y": 208.524
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8225,
+              "Y": 0.1158
+            },
+            "PreSize": {
+              "X": 0.5689,
+              "Y": 0.1894
+            },
+            "LeftMargin": 968.4497,
+            "RightMargin": -192.4497,
+            "TopMargin": 1420.9761,
+            "BottomMargin": 38.024,
+            "Tag": 7,
+            "ActionTag": -617029499,
+            "Size": {
+              "X": 1024.0,
+              "Y": 341.0
+            },
+            "Name": "bus_01",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/bush_day_11.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 229.8966,
+              "Y": 987.637
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1277,
+              "Y": 0.5487
+            },
+            "PreSize": {
+              "X": 0.0728,
+              "Y": 0.0178
+            },
+            "LeftMargin": 164.3966,
+            "RightMargin": 1504.6034,
+            "TopMargin": 796.363,
+            "BottomMargin": 971.637,
+            "Tag": 8,
+            "ActionTag": 155999790,
+            "Size": {
+              "X": 131.0,
+              "Y": 32.0
+            },
+            "Name": "bush_day_11_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/bush_day_11.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 796.9318,
+              "Y": 879.6975
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4427,
+              "Y": 0.4887
+            },
+            "PreSize": {
+              "X": 0.0728,
+              "Y": 0.0178
+            },
+            "LeftMargin": 731.4318,
+            "RightMargin": 937.5682,
+            "TopMargin": 904.3025,
+            "BottomMargin": 863.6975,
+            "Tag": 9,
+            "ActionTag": 1694680722,
+            "Size": {
+              "X": 131.0,
+              "Y": 32.0
+            },
+            "Name": "bush_day_11_3_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/bush_day_11.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1323.3599,
+              "Y": 1109.2454
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7352,
+              "Y": 0.6162
+            },
+            "PreSize": {
+              "X": 0.0728,
+              "Y": 0.0178
+            },
+            "LeftMargin": 1257.8599,
+            "RightMargin": 411.1401,
+            "TopMargin": 674.7546,
+            "BottomMargin": 1093.2454,
+            "Tag": 10,
+            "ActionTag": -240253297,
+            "Size": {
+              "X": 131.0,
+              "Y": 32.0
+            },
+            "Name": "bush_day_11_3_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/bush_day_11.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1520.0588,
+              "Y": 927.8506
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8445,
+              "Y": 0.5155
+            },
+            "PreSize": {
+              "X": 0.0728,
+              "Y": 0.0178
+            },
+            "LeftMargin": 1454.5588,
+            "RightMargin": 214.4412,
+            "TopMargin": 856.1494,
+            "BottomMargin": 911.8506,
+            "Tag": 13,
+            "ActionTag": -2066861735,
+            "Size": {
+              "X": 131.0,
+              "Y": 32.0
+            },
+            "Name": "bush_day_11_3_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/bush_day_11.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1227.3379,
+              "Y": 648.8775
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6819,
+              "Y": 0.3605
+            },
+            "PreSize": {
+              "X": 0.0728,
+              "Y": 0.0178
+            },
+            "LeftMargin": 1161.8379,
+            "RightMargin": 507.1621,
+            "TopMargin": 1135.1226,
+            "BottomMargin": 632.8775,
+            "Tag": 14,
+            "ActionTag": -1569489535,
+            "Size": {
+              "X": 131.0,
+              "Y": 32.0
+            },
+            "Name": "bush_day_11_3_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/bush_day_11.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1199.792,
+              "Y": 933.5165
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6666,
+              "Y": 0.5186
+            },
+            "PreSize": {
+              "X": 0.0728,
+              "Y": 0.0178
+            },
+            "LeftMargin": 1134.292,
+            "RightMargin": 534.708,
+            "TopMargin": 850.4835,
+            "BottomMargin": 917.5165,
+            "Tag": 15,
+            "ActionTag": -1386680116,
+            "Size": {
+              "X": 131.0,
+              "Y": 32.0
+            },
+            "Name": "bush_day_11_3_1_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/bush_day_11.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 630.5146,
+              "Y": 1098.7919
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3503,
+              "Y": 0.6104
+            },
+            "PreSize": {
+              "X": 0.0728,
+              "Y": 0.0178
+            },
+            "LeftMargin": 565.0146,
+            "RightMargin": 1103.9854,
+            "TopMargin": 685.2081,
+            "BottomMargin": 1082.7919,
+            "Tag": 16,
+            "ActionTag": -1778053517,
+            "Size": {
+              "X": 131.0,
+              "Y": 32.0
+            },
+            "Name": "bush_day_11_3_1_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/bush_day_11.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1111.0339,
+              "Y": 1221.2172
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6172,
+              "Y": 0.6785
+            },
+            "PreSize": {
+              "X": 0.0728,
+              "Y": 0.0178
+            },
+            "LeftMargin": 1045.5339,
+            "RightMargin": 623.4661,
+            "TopMargin": 562.7828,
+            "BottomMargin": 1205.2172,
+            "Tag": 17,
+            "ActionTag": -1259496863,
+            "Size": {
+              "X": 131.0,
+              "Y": 32.0
+            },
+            "Name": "bush_day_11_3_1_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/bush_day_11.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1576.2502,
+              "Y": 1156.944
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8757,
+              "Y": 0.6427
+            },
+            "PreSize": {
+              "X": 0.0728,
+              "Y": 0.0178
+            },
+            "LeftMargin": 1510.7502,
+            "RightMargin": 158.2498,
+            "TopMargin": 627.056,
+            "BottomMargin": 1140.944,
+            "Tag": 18,
+            "ActionTag": -886899198,
+            "Size": {
+              "X": 131.0,
+              "Y": 32.0
+            },
+            "Name": "bush_day_11_3_1_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/house_01.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 175.7829,
+              "Y": 1190.9852
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0977,
+              "Y": 0.6617
+            },
+            "PreSize": {
+              "X": 0.1672,
+              "Y": 0.1422
+            },
+            "LeftMargin": 25.2829,
+            "RightMargin": 1473.717,
+            "TopMargin": 481.0148,
+            "BottomMargin": 1062.9852,
+            "Tag": 22,
+            "ActionTag": 1761546943,
+            "Size": {
+              "X": 301.0,
+              "Y": 256.0
+            },
+            "Name": "house_01",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/house_01.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1021.3353,
+              "Y": 1165.6823
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5674,
+              "Y": 0.6476
+            },
+            "PreSize": {
+              "X": 0.1672,
+              "Y": 0.1422
+            },
+            "LeftMargin": 870.8353,
+            "RightMargin": 628.1647,
+            "TopMargin": 506.3177,
+            "BottomMargin": 1037.6823,
+            "Tag": 23,
+            "ActionTag": -1366795405,
+            "Size": {
+              "X": 301.0,
+              "Y": 256.0
+            },
+            "Name": "house_01",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/house_01.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1532.4609,
+              "Y": 1275.865
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8514,
+              "Y": 0.7088
+            },
+            "PreSize": {
+              "X": 0.1672,
+              "Y": 0.1422
+            },
+            "LeftMargin": 1381.9609,
+            "RightMargin": 117.0391,
+            "TopMargin": 396.135,
+            "BottomMargin": 1147.865,
+            "Tag": 24,
+            "ActionTag": -1292854078,
+            "Size": {
+              "X": 301.0,
+              "Y": 256.0
+            },
+            "Name": "house_01",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/shop.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1272.3882,
+              "Y": 581.5278
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7069,
+              "Y": 0.3231
+            },
+            "PreSize": {
+              "X": 0.2639,
+              "Y": 0.2133
+            },
+            "LeftMargin": 1034.8882,
+            "RightMargin": 290.1118,
+            "TopMargin": 1026.4722,
+            "BottomMargin": 389.5278,
+            "Tag": 28,
+            "ActionTag": 935653824,
+            "Size": {
+              "X": 475.0,
+              "Y": 384.0
+            },
+            "Name": "shop_20",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/shop.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 573.4718,
+              "Y": 682.5292
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3186,
+              "Y": 0.3792
+            },
+            "PreSize": {
+              "X": 0.2639,
+              "Y": 0.2133
+            },
+            "LeftMargin": 335.9718,
+            "RightMargin": 989.0282,
+            "TopMargin": 925.4708,
+            "BottomMargin": 490.5292,
+            "Tag": 29,
+            "ActionTag": 1249899099,
+            "Size": {
+              "X": 475.0,
+              "Y": 384.0
+            },
+            "Name": "shop_20",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/shop.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 118.0941,
+              "Y": 522.1318
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0656,
+              "Y": 0.2901
+            },
+            "PreSize": {
+              "X": 0.2639,
+              "Y": 0.2133
+            },
+            "LeftMargin": -119.4059,
+            "RightMargin": 1444.4059,
+            "TopMargin": 1085.8682,
+            "BottomMargin": 330.1318,
+            "Tag": 30,
+            "ActionTag": 615278487,
+            "Size": {
+              "X": 475.0,
+              "Y": 384.0
+            },
+            "Name": "shop_20",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bg/ground_02.png",
+        "ob/vehicle/bus_01.png",
+        "ob/tree/bush_day_11.png",
+        "ob/house/house_01.png",
+        "ob/house/shop.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

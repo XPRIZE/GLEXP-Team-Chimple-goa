@@ -312,7 +312,7 @@ xc.PictureQuestionHandler = cc.Layer.extend({
                     this._selectedQuestionDrawNode.removeFromParent();
                 } else {
                     this._selectedQuestionDrawNode = new cc.DrawNode();
-                    this._selectedQuestionDrawNode.drawRect(cc.p(this._selectedQuestionForAnswer.getBoundingBox().x   ,this._selectedQuestionForAnswer.getBoundingBox().y), cc.p(this._selectedQuestionForAnswer.getBoundingBox().x   + this._selectedQuestionForAnswer.getBoundingBox().width,this._selectedQuestionForAnswer.getBoundingBox().y + this._selectedQuestionForAnswer.getBoundingBox().height), cc.color(255,255,255,0), 10, cc.color(255,0,0,255));
+                    this._selectedQuestionDrawNode.drawRect(cc.p(this._selectedQuestionForAnswer.getBoundingBox().x,this._selectedQuestionForAnswer.getBoundingBox().y), cc.p(this._selectedQuestionForAnswer.getBoundingBox().x   + this._selectedQuestionForAnswer.getBoundingBox().width,this._selectedQuestionForAnswer.getBoundingBox().y + this._selectedQuestionForAnswer.getBoundingBox().height), cc.color(255,255,255,0), 10, cc.color(255,0,0,255));
                     this._constructedScene.node.addChild(this._selectedQuestionDrawNode);
 
                     sender.setHighlighted(true);

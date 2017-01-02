@@ -35,7 +35,7 @@ xc.StoryLayer = cc.Layer.extend({
         this._buttonPanel.setBackGroundColor(xc.PRIMARY_COLOR);
         this.addChild(this._buttonPanel);
 
-        this._optionPanel = new xc.ScrollableButtonPanel(cc.p(0,0), cc.size(500, 500), 2, 2, xc.storyConfigurationObject.editPage, this.chooseEditPageOption, this, true);
+        this._optionPanel = new xc.ScrollableButtonPanel(cc.p(0,0), cc.size(256, 256), 2, 1, xc.storyConfigurationObject.editPage, this.chooseEditPageOption, this, true);
         this._optionPanel.setVisible(false);
         this._optionPanel.setOpacity(150);
         this._optionPanel.setColor(xc.TERTIARY_COLOR);
@@ -106,14 +106,13 @@ xc.StoryLayer = cc.Layer.extend({
 
     loadOptions: function (sender) {
         if(!this._optionPanel) {
-            this._optionPanel = new xc.ScrollableButtonPanel(cc.p(sender.getPosition().x - 150, sender.getPosition().y - 250), cc.size(500, 500), 2, 2, xc.storyConfigurationObject.editPage, this.chooseEditPageOption, this, true);
+            this._optionPanel = new xc.ScrollableButtonPanel(cc.p(sender.getPosition().x, sender.getPosition().y - sender.height), cc.size(256, 256), 2, 2, xc.storyConfigurationObject.editPage, this.chooseEditPageOption, this, true);
             this.addChild(this._optionPanel, 1);
         } else {
-            this._optionPanel.setPosition(cc.p(sender.getPosition().x - 150, sender.getPosition().y - 250));
+            this._optionPanel.setPosition(cc.p(sender.getPosition().x, sender.getPosition().y - sender.height));
             this._optionPanel.setVisible(true);
         }
         
-//        this._optionPanel = new xc.ScrollableButtonPanel(cc.p(sender.getPosition().x + sender.width / 2 - 250, sender.getPosition().y - 250), cc.size(500, 500), 2, 2, xc.storyConfigurationObject.editPage, this.chooseEditPageOption, this, true);
         this._curSelectedPageIndex = sender._selectedIndex;
     },
 
@@ -127,31 +126,20 @@ xc.StoryLayer = cc.Layer.extend({
     chooseEditPageOption: function (sender) {
         if (sender.getName() == 'icons/edit.png') {
             this.loadExistingPage(sender);
-        } else if (sender.getName() == 'icons/back.png') {
-            if (this._curSelectedPageIndex != 0) {
-                this.shufflePage(xc.story.items, this._curSelectedPageIndex, this._curSelectedPageIndex - 1);
-                this.reDrawPages();
-                var button = this._panel.getButtonByIndex(this._curSelectedPageIndex - 1);
-                this.loadOptions(button);
-            }
+        } else if (sender.getName() == 'icons/play.png') {
 
-        } else if (sender.getName() == 'icons/next_arrow.png') {
-            if (this._curSelectedPageIndex < xc.story.items.length - 1) {
-                this.shufflePage(xc.story.items, this._curSelectedPageIndex, this._curSelectedPageIndex + 1);
-                this.reDrawPages();
-                var button = this._panel.getButtonByIndex(this._curSelectedPageIndex + 1);
-                if(this._curSelectedPageIndex + 1 == (this._panel._numButtonsPerRow * this._panel._numButtonsPerColumn)) {
-                    this._panel.moveRightAutomatically(this._curSelectedPageIndex + 1);
+            xc.story = xc.storiesJSON.stories[xc.currentStoryIndex].data;
+            if(xc.story != undefined) {
+                var pages = xc.story.items;
+                if(pages && pages.length > this._curSelectedPageIndex) {
+                    xc.pageIndex = this._curSelectedPageIndex;
                 }
-                this.loadOptions(button);
-
             }
-        } else if (sender.getName() == 'icons/delete.png') {
+            xc.currentStoryId = xc.storiesJSON.stories[xc.currentStoryIndex].storyId;
+            cc.log("xc.currentStoryId on edit:" + xc.currentStoryId);                                
+            xc.PlayRecordingScene.load(xc.PlayRecordingLayer);
+        }  else if (sender.getName() == 'icons/delete.png') {
             if (xc.story && xc.story.items && xc.story.items.length > this._curSelectedPageIndex) {
-                // xc.currentStoryIndex = this._curSelectedPageIndex; //index of selected button
-                // xc.currentStoryId = xc.storiesJSON.stories[xc.currentStoryIndex].storyId;
-                // cc.log("xc.currentStoryId on edit:" + xc.currentStoryId);                                
-                // xc.PlayFullStoryScene.load(0,xc.PlayFullStoryLayer);
                 
                 xc.story.items.splice(this._curSelectedPageIndex, 1);
                 xc.currentStoryIndex = xc.currentStoryIndex -1;

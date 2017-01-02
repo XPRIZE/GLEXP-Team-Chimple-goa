@@ -16,6 +16,13 @@
 
 USING_NS_CC;
 
+static const std::string REWARD_STICKER = "s";
+static const std::string REWARD_PATCH = "p";
+static const std::string REWARD_MEDAL = "m";
+static const std::string REWARD_GEM = "g";
+static const std::string REWARD_CANDY = "c";
+static const std::string REWARD_BADGE = "b";
+
 ScoreBoardContext* ScoreBoardContext::create(int stars, std::string gameName, std::string sceneName, int level)
 {
     ScoreBoardContext* scoreBoard = new (std::nothrow) ScoreBoardContext();
@@ -84,17 +91,16 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
                 
                 if(game.HasMember("rewards")) {
                     const rapidjson::Value& rewards = game["rewards"];
+                    auto badgesToAdd = getStarBadges(level);
                     if(rewards.HasMember(MenuContext::to_string(level).c_str())) {
                         const rapidjson::Value& levelRewards = rewards[MenuContext::to_string(level).c_str()];
                         if(levelRewards.HasMember("unlock")) {
                             std::string gameToUnlock = levelRewards["unlock"].GetString();
                             unlockGame(gameToUnlock);
                         }
-                        auto badgesToAdd = getStarBadges(level);
                         if(levelRewards.HasMember("badge")) {
                             badgesToAdd.push_back(levelRewards["badge"].GetString());
                         }
-                        addBadges(badgesToAdd);
                         if(levelRewards.HasMember("unlockMin")) {
                             std::string unlockMin = levelRewards["unlockMin"].GetString();
                             std::string unlockMinStr;
@@ -142,6 +148,7 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
                             }
                         }
                     }
+                    addBadges(badgesToAdd);
                 }
             }
         }
@@ -165,17 +172,17 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
         
         auto openGift = Animate::create(_giftAnimation);
         Vector<FiniteTimeAction *> actions;
-        int numRewards = 0;
         
         if(!_gameToUnlock.empty() && gameIcons.count(_gameToUnlock) > 0) {
-            numRewards++;
             auto unlockedGameButton = ui::Button::create(gameIcons[_gameToUnlock]["icon"], gameIcons[_gameToUnlock]["cIcon"], gameIcons[_gameToUnlock]["icon"], ui::Widget::TextureResType::LOCAL);
-            unlockedGameButton->setTitleText(gameIcons[_gameToUnlock]["title"]);
-            unlockedGameButton->setTitleFontName("Arial");
+            auto titleStr = LangUtil::getInstance()->translateString("Game Unlocked");
+            unlockedGameButton->setTitleText(titleStr + "\n" + gameIcons[_gameToUnlock]["title"]);
+            unlockedGameButton->setTitleFontName("fonts/Roboto-Regular.ttf");
             unlockedGameButton->setTitleColor(Color3B(0xFF, 0xF2, 0x00));
             unlockedGameButton->setTitleFontSize(72);
             auto label = unlockedGameButton->getTitleRenderer();
             label->setPosition(Vec2(label->getPositionX(), label->getPositionY()- 300));
+            label->setAlignment(TextHAlignment::CENTER, TextVAlignment::CENTER);
             unlockedGameButton->setScale(0.1, 0.1);
             unlockedGameButton->addTouchEventListener(CC_CALLBACK_2(ScoreBoardContext::buttonClicked, this));
             unlockedGameButton->setName("unlockedGame");
@@ -186,23 +193,24 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
             actions.pushBack(TargetedAction::create(unlockedGameButton, spawn));
         }
         if(_badges.size() > 0) {
+            int numRewards = 0;
             for (auto it = _badges.begin() ; it != _badges.end(); ++it) {
                 auto badge = *it;
                 auto badgeButton = ui::Button::create("rewards/" + badge + ".png", "rewards/" + badge + ".png", "rewards/" + badge + ".png", ui::Widget::TextureResType::LOCAL);
                 std::replace(badge.begin(), badge.end(), '_', ' ');
                 if(badgeButton != nullptr) {
-                    badgeButton->setTitleText(LangUtil::getInstance()->translateString(badge));
-                    badgeButton->setTitleFontName("Arial");
+                    auto titleStr = LangUtil::getInstance()->translateString("Trophy earned");
+                    badgeButton->setTitleText(titleStr + "\n" + LangUtil::getInstance()->translateString(badge.substr(2)));
+                    badgeButton->setTitleFontName("fonts/Roboto-Regular.ttf");
                     badgeButton->setTitleColor(Color3B(0xFF, 0xF2, 0x00));
                     badgeButton->setTitleFontSize(72);
                     auto label = badgeButton->getTitleRenderer();
                     label->setPosition(Vec2(label->getPositionX(), label->getPositionY()- 200));
+                    label->setAlignment(TextHAlignment::CENTER, TextVAlignment::CENTER);
                     badgeButton->setScale(0.1, 0.1);
                     addChild(badgeButton);
-                    auto finalPos = Vec2(1000, 200);
-                    if(numRewards == 1) {
-                        finalPos = Vec2(-1000, 200);
-                    } else {
+                    auto finalPos = Vec2(-1000, 200);
+                    if(numRewards > 0) {
                         finalPos = Vec2(0, 700);
                     }
                     auto jumpAction = JumpTo::create(1.0, finalPos, 600, 2);
@@ -227,6 +235,31 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
     return true;
 }
 
+std::map<std::string, std::map<std::string, int>> ScoreBoardContext::getRewards() {
+    std::map<std::string, std::map<std::string, int>> rewards;
+    std::string badgesStr;
+    localStorageGetItem("badges", &badgesStr);
+    if(!badgesStr.empty()) {
+        rapidjson::Document badgesDoc;
+        if (false == badgesDoc.Parse<0>(badgesStr.c_str()).HasParseError()) {
+            for (rapidjson::Value::ConstMemberIterator itr = badgesDoc.MemberBegin();
+                 itr != badgesDoc.MemberEnd(); ++itr) {
+                std::string badge = itr->name.GetString();
+                auto badgeType = badge.substr(0, 1);
+                if(rewards.count(badgeType) > 0) {
+                    rewards[badgeType][badge] = 1;
+                } else {
+                    std::map<std::string, int> badgesOfAType;
+                    badgesOfAType[badge] = 1;
+                    rewards[badgeType] = badgesOfAType;
+                }
+            }
+        }
+    }
+    return rewards;
+}
+
+
 std::vector<std::string> ScoreBoardContext::getStarBadges(int level) {
     std::vector<std::string> starBadges;
     std::string progressStr;
@@ -236,16 +269,16 @@ std::vector<std::string> ScoreBoardContext::getStarBadges(int level) {
         d.Parse(progressStr.c_str());
         if(d.Size() >= level) {
             if(d[level].GetInt() == 3) {
-                starBadges.push_back("3_star");
+                starBadges.push_back("b/3_star");
             }
             if(level >= 3) {
                 if(d[level-2].GetInt() == 3 && d[level-1].GetInt() == 3 && d[level].GetInt() == 3) {
-                    starBadges.push_back("3_3_star_in_a_row");
+                    starBadges.push_back("m/3_3_star_in_a_row");
                 }
             }
             if(level >= 5) {
                 if(d[level-4].GetInt() == 3 && d[level-3].GetInt() == 3 && d[level-2].GetInt() == 3 && d[level-1].GetInt() == 3 && d[level].GetInt() == 3) {
-                    starBadges.push_back("5_3_star_in_a_row");
+                    starBadges.push_back("c/5_3_star_in_a_row");
                 }
             }
         }
@@ -293,6 +326,7 @@ bool ScoreBoardContext::addBadges(std::vector<std::string> badges) {
         const char* output = buffer.GetString();
         localStorageSetItem("badges", output);
     }
+    auto test = getRewards();
     return badgeModified;
 }
 

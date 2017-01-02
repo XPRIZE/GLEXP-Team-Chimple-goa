@@ -1,7 +1,7 @@
 /// <reference path="cocos2d-typescript-definitions-master/cocos2d/cocos2d-lib.d.ts" />
 var xc = xc || {};
 xc.LAYER_INIT = false;
-xc.PRIMARY_COLOR = cc.color("#FF8E88");
+xc.PRIMARY_COLOR = cc.color("#B06A3B");
 xc.DARK_PRIMARY_COLOR = cc.color("#B2524D");
 xc.SECONDARY_COLOR = cc.color("#5895CC");
 xc.DARK_SECONDARY_COLOR = cc.color("#5687B2");
