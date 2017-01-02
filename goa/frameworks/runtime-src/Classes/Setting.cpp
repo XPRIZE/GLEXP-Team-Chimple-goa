@@ -52,7 +52,7 @@ void Setting::onEnterTransitionDidFinish()
 		}
 	});
 
-    auto _label = LabelTTF::create(LangUtil::getInstance()->translateString("Enter secret code to unlock all levels"), "fonts/Roboto-Regular.ttf", 200);
+    auto _label = LabelTTF::create(LangUtil::getInstance()->translateString("Enter secret code to unlock all levels"), "fonts/Roboto-Regular.ttf", 150);
 	_label->setAnchorPoint(Vec2(.5, .5));
 	_label->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * .75));
 	_calcLayer->addChild(_label, 5);
