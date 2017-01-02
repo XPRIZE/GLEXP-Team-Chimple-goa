@@ -16,7 +16,9 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
     _configPanelHeight: null,
     _isTitleDisplayed: false,
     _isTextShown: false,
-    ctor: function (pageIndex, storyInformation) {
+    _storyCoverPageSceneJSON: null,
+
+    ctor: function (pageIndex, storyInformation, storyCoverPageSceneJSON) {
         this._super();
         this._name = "StoryCoverPageLayer";
         this._tabHeight = 64;
@@ -26,6 +28,7 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
         this._contentPanelWidth = cc.director.getWinSize().width; //assuming landscape
         this._contentPanelHeight = cc.director.getWinSize().height; //assuming landscape
         this._configPanelWidth = (cc.director.getWinSize().width - this._contentPanelWidth) / 2;
+        this._storyCoverPageSceneJSON = storyCoverPageSceneJSON;
 
         return true;
     },
@@ -85,6 +88,18 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
         }
     },
 
+
+    onExit: function() {        
+        this._super();
+        var that = this;
+
+        if(that._storyCoverPageSceneJSON && that._storyCoverPageSceneJSON.length > 0 && 
+            that._storyCoverPageSceneJSON.endsWith(".json")) {
+            cc.log('cleaning url:' + that._storyCoverPageSceneJSON);
+            cc.loader.release(that._storyCoverPageSceneJSON);
+            delete cc.loader[that._storyCoverPageSceneJSON];            
+        };                
+    },
 
     enterFrameEvent: function(event) {
         cc.log('enterFrameEvent' + event.getEvent());    
@@ -190,10 +205,10 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
 xc.StoryCoverPageScene = cc.Scene.extend({
     layerClass: null,
     _menuContext: null,
-    ctor: function (pageIndex, storyInformation, layer) {
+    ctor: function (pageIndex, storyInformation, storyCoverPageSceneJSON, layer) {
         this._super();
         this.layerClass = layer;
-        this._sceneLayer = new this.layerClass(pageIndex, storyInformation);
+        this._sceneLayer = new this.layerClass(pageIndex, storyInformation, storyCoverPageSceneJSON);
         this.addChild(this._sceneLayer);
         this._sceneLayer.init();
                 
@@ -239,7 +254,7 @@ xc.StoryCoverPageScene.load = function(pageIndex, storyInformation, layer, enabl
                 cc.spriteFrameCache.addSpriteFrames(xc.StoryCoverPageLayer.res.template_01_plist);
                 cc.spriteFrameCache.addSpriteFrames(xc.StoryCoverPageLayer.res.template_02_plist);
                 
-                var scene = new xc.StoryCoverPageScene(pageIndex, storyInformation, layer);
+                var scene = new xc.StoryCoverPageScene(pageIndex, storyInformation, coverPageJSON, layer);
                 scene.layerClass = layer;            
                 if(enableTransition) {
                     cc.director.runScene(new cc.TransitionFade(2.0, scene, true));
