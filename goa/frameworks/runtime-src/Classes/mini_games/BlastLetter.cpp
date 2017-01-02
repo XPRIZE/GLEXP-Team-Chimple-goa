@@ -62,7 +62,7 @@ void BlastLetter::onEnterTransitionDidFinish() {
 			namemyLabel << _data_key;
 		}
 		_data_value = namemyLabel.str();
-
+		_sentence = LangUtil::getInstance()->translateString("Write letter : ");
 	}else if (currentLevel >= 27 && currentLevel <= 36) {
 		auto allNumbers = LangUtil::getInstance()->getAllNumbers();
 		std::ostringstream namemyLabel;
@@ -71,6 +71,7 @@ void BlastLetter::onEnterTransitionDidFinish() {
 			namemyLabel << _data_key;
 		}
 		_data_value = namemyLabel.str();
+		_sentence = LangUtil::getInstance()->translateString("Write number : ");
 	}else if (currentLevel >= 37 && currentLevel <= 46) {
 		auto level = (_menuContext->getCurrentLevel() - 36);
 		if (level >= 4) {
@@ -84,34 +85,39 @@ void BlastLetter::onEnterTransitionDidFinish() {
 			_data_key = TextGenerator::getInstance()->generateAWord(level);
 			_data_value = _data_key;
 		}
-
+		_sentence = LangUtil::getInstance()->translateString("Write word : ");
 	}else if (currentLevel >= 47 && currentLevel <= 56) {
 		auto level = (_menuContext->getCurrentLevel() - 46);
 		if (level >= 3) {
 			level = 3;
 		}
 		_data = TextGenerator::getInstance()->getSingularPlurals(1, level);
+		_sentence = LangUtil::getInstance()->translateString("Write plural of : ");
 	}else if (currentLevel >= 57 && currentLevel <= 66) {
 		auto level = (_menuContext->getCurrentLevel() - 56);
 		if (level >= 3) {
 			level = 3;
 		}
 		_data = TextGenerator::getInstance()->getAntonyms(1, level);
+		_sentence = LangUtil::getInstance()->translateString("Write opposite of : ");
 	}else if (currentLevel >= 67 && currentLevel <= 76) {
 		auto level = (_menuContext->getCurrentLevel() - 66);
 		if (level >= 3) {
 			level = 3;
 		}
 		_data = TextGenerator::getInstance()->getSynonyms(1, level);
+		_sentence = LangUtil::getInstance()->translateString("Write word of same meaning as : ");
 	}else if (currentLevel >= 77 && currentLevel <= 86) {
 		auto level = (_menuContext->getCurrentLevel() - 76);
 		if (level >= 3) {
 			level = 3;
 		}
 		_data = TextGenerator::getInstance()->getHomonyms(1, level);
+		_sentence = LangUtil::getInstance()->translateString("Write same sounding word as : ");
 	}else{
 		CCLOG("ERROR : Level code error !!!!!! ");
 	}
+
 	if(currentLevel >= 47 && currentLevel <= 86)
 	for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
 		_data_key = (getConvertInUpperCase(it->first));
@@ -148,7 +154,11 @@ void BlastLetter::onEnterTransitionDidFinish() {
 			myLabel->runAction(RepeatForever::create(shakingCharacter()));
 		}
 	}
-		auto myLabel = CommonLabelTTF::create(_data_key, "Helvetica", this->getChildByName("bg")->getChildByName("topboard ")->getContentSize().height *0.8);
+
+		std::ostringstream boardName;
+		boardName << _sentence << _data_key;
+
+		auto myLabel = CommonLabelTTF::create(boardName.str(), "Helvetica", this->getChildByName("bg")->getChildByName("topboard ")->getContentSize().height *0.8);
 		myLabel->setPosition(Vec2(this->getChildByName("bg")->getChildByName("topboard ")->getContentSize().width/2, this->getChildByName("bg")->getChildByName("topboard ")->getContentSize().height/2));
 		myLabel->setName(myLabel->getString());
 		this->getChildByName("bg")->getChildByName("topboard ")->addChild(myLabel);
@@ -301,7 +311,7 @@ void BlastLetter::addEventsOnGrid(cocos2d::Sprite* callerObject)
 		if (target->getBoundingBox().containsPoint(touch->getLocation())) {
 			AlphabetWriting *alphabetHelp;
 			float writingTime = 1.0f;
-			if (36 >= _menuContext->getCurrentLevel()) {
+			if (36 >= _menuContext->getCurrentLevel() && _alphaAnimationFlag) {
 				alphabetHelp = AlphabetWriting::createAlphabetWithAnimation(LangUtil::convertUTF16CharToString(_data_value[_counterLetter]), true);
 				alphabetHelp->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height * 0.540072222));
 				writingTime = alphabetHelp->getTotalAnimationDuration();
@@ -345,13 +355,14 @@ void BlastLetter::addEventsOnGrid(cocos2d::Sprite* callerObject)
 				auto fadeOut1 = FadeOut::create(1.0f);
 				target->getChildByName(nameLetterBoard.str())->runAction(fadeOut1);
 
-				if (36 >= _menuContext->getCurrentLevel()) {
+				if (36 >= _menuContext->getCurrentLevel() && _alphaAnimationFlag) {
+					_alphaAnimationFlag = false;
 					myLabel->setVisible(false);
 					((AlphabetWriting *)this->getChildByName("Alphabet"))->setVisible(true);
 					((AlphabetWriting *)this->getChildByName("Alphabet"))->playAnimation(false);
 				}
 				else {
-					auto fadeOut2 = FadeOut::create(1.0f);
+					auto fadeOut2 = FadeOut::create(3.0f);
 					myLabel->runAction(fadeOut2);
 				}
 			});
