@@ -1328,6 +1328,9 @@ std::vector<std::vector<cocos2d::Point>> MenuContext::getTrianglePointsForSprite
         points.push_back(triangles);
     }
     
+    
+    delete ap;
+    
     return points;
 }
 
