@@ -97,11 +97,11 @@ bool MenuContext::_gameIsStatic = false;
 
 MenuContext* MenuContext::create(Node* main, std::string gameName, bool launchCustomEventOnExit, std::string sceneName) {
     MenuContext* menuContext = new (std::nothrow) MenuContext();
+    menuContext->gameName = gameName;
+    menuContext->sceneName = sceneName;
     if(menuContext && menuContext->init(main)) {
         menuContext->autorelease();
         menuContext->_launchCustomEventOnExit = launchCustomEventOnExit;
-        menuContext->gameName = gameName;
-        menuContext->sceneName = sceneName;
 
         std::string currentLevelStr;
         localStorageGetItem(gameName + CURRENT_LEVEL, &currentLevelStr);
@@ -125,7 +125,11 @@ bool MenuContext::init(Node* main) {
 
     _menuButton = Button::create("menu/menu.png", "menu/menu.png", "menu/menu.png", Widget::TextureResType::LOCAL);
     _menuButton->addTouchEventListener(CC_CALLBACK_2(MenuContext::expandMenu, this));
-    _menuButton->setPosition(Vec2(origin.x + visibleSize.width - 150, origin.y + visibleSize.height - 150));
+    if(gameName == "menu") {
+        _menuButton->setPosition(Vec2((NUMBER_OF_BUTTONS_COLS - 0.5) * visibleSize.width / NUMBER_OF_BUTTONS_COLS, visibleSize.height + 50 - (0.5) * (visibleSize.height + 50) / (NUMBER_OF_BUTTONS_ROWS + 1)));        
+    } else {
+        _menuButton->setPosition(Vec2(origin.x + visibleSize.width - 150, origin.y + visibleSize.height - 150));
+    }
     addChild(_menuButton, 1);
     
 //    _label = Label::createWithTTF("Points: 0", "fonts/arial.ttf", 50);
