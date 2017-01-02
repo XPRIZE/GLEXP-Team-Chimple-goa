@@ -97,11 +97,11 @@ bool MenuContext::_gameIsStatic = false;
 
 MenuContext* MenuContext::create(Node* main, std::string gameName, bool launchCustomEventOnExit, std::string sceneName) {
     MenuContext* menuContext = new (std::nothrow) MenuContext();
+    menuContext->gameName = gameName;
+    menuContext->sceneName = sceneName;
     if(menuContext && menuContext->init(main)) {
         menuContext->autorelease();
         menuContext->_launchCustomEventOnExit = launchCustomEventOnExit;
-        menuContext->gameName = gameName;
-        menuContext->sceneName = sceneName;
 
         std::string currentLevelStr;
         localStorageGetItem(gameName + CURRENT_LEVEL, &currentLevelStr);
@@ -125,7 +125,11 @@ bool MenuContext::init(Node* main) {
 
     _menuButton = Button::create("menu/menu.png", "menu/menu.png", "menu/menu.png", Widget::TextureResType::LOCAL);
     _menuButton->addTouchEventListener(CC_CALLBACK_2(MenuContext::expandMenu, this));
-    _menuButton->setPosition(Vec2(origin.x + visibleSize.width - 150, origin.y + visibleSize.height - 150));
+    if(gameName == "menu") {
+        _menuButton->setPosition(Vec2((NUMBER_OF_BUTTONS_COLS - 0.5) * visibleSize.width / NUMBER_OF_BUTTONS_COLS, visibleSize.height + 50 - (0.5) * (visibleSize.height + 50) / (NUMBER_OF_BUTTONS_ROWS + 1)));        
+    } else {
+        _menuButton->setPosition(Vec2(origin.x + visibleSize.width - 150, origin.y + visibleSize.height - 150));
+    }
     addChild(_menuButton, 1);
     
 //    _label = Label::createWithTTF("Points: 0", "fonts/arial.ttf", 50);
@@ -219,13 +223,13 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
             } else {
                 addGreyLayer();
                 if(gameName == "menu") {
-                    _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
-                    _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
-                    _mapMenu = this->createMenuItem("menu/reward.png", "menu/reward.png", "menu/reward.png", 2 * POINTS_TO_LEFT);
+               ///     _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
+               //     _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
+                    _mapMenu = this->createMenuItem("menu/reward.png", "menu/reward.png", "menu/reward.png", 1 * POINTS_TO_LEFT);
                     _mapMenu->addTouchEventListener(CC_CALLBACK_0(MenuContext::showRewards, this));
-                    _settingMenu = this->createMenuItem("menu/settings.png", "menu/settings.png", "menu/settings.png", 3 * POINTS_TO_LEFT);
+                    _settingMenu = this->createMenuItem("menu/settings.png", "menu/settings.png", "menu/settings.png", 2 * POINTS_TO_LEFT);
                     _settingMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::addCalculator, this));
-                    _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png", 4 * POINTS_TO_LEFT);
+                    _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png", 3 * POINTS_TO_LEFT);
                     _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
                 } else if(gameName == "levelMenu" || gameName == "story-play" || gameName == "map") {
                     _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
@@ -233,6 +237,11 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                     _mapMenu = this->createMenuItem("menu/reward.png", "menu/reward.png", "menu/reward.png", 2 * POINTS_TO_LEFT);
                     _mapMenu->addTouchEventListener(CC_CALLBACK_0(MenuContext::showRewards, this));
                     _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png", 3 * POINTS_TO_LEFT);
+                    _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
+                } else if(gameName == "Award") {
+                    _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
+                    _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
+                    _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png", 2 * POINTS_TO_LEFT);
                     _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
                 } else {
                     _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
@@ -1535,10 +1544,15 @@ void MenuContext::showAnswer(std::string type, std::string header)
 			labelBase1->setPosition(Vec2(0,0));
 			labelBase1->setAnchorPoint(Vec2(0, 0));
 			duplicatNode->addChild(labelBase1);
+
 			auto label1 = CommonLabel::createWithTTF(wordPair->first.c_str(), "fonts/Roboto-Regular.ttf", 100);
+			if (wordPair->first.length() > 8) {
+				label1 = CommonLabel::createWithTTF(wordPair->first.c_str(), "fonts/Roboto-Regular.ttf", 80);
+			}
 			label1->setColor(Color3B(0, 0, 0));
 			label1->setPosition(Vec2(labelBase1->getContentSize().width / 2, labelBase1->getContentSize().height / 2));
 			label1->setAnchorPoint(Vec2(0.5, 0.5));
+			
 			float xx = label1->getContentSize().width;
 
 
@@ -1554,10 +1568,13 @@ void MenuContext::showAnswer(std::string type, std::string header)
 			duplicatNode->addChild(labelBase3);
 
 			auto label3 = CommonLabel::createWithTTF(wordPair->second.c_str(), "fonts/Roboto-Regular.ttf", 100);
+			if (wordPair->second.length() > 8) {
+				label3 = CommonLabel::createWithTTF(wordPair->second.c_str(), "fonts/Roboto-Regular.ttf", 80);
+			}
 			label3->setColor(Color3B(0, 0, 0));
 			label3->setPosition(Vec2(labelBase3->getContentSize().width / 2, labelBase3->getContentSize().height / 2));
 			label3->setAnchorPoint(Vec2(0.5, 0.5));
-
+			
 			labelBase1->addChild(label1);
 			//duplicatNode->addChild(label2);
 			labelBase3->addChild(label3);

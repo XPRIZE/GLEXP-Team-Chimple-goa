@@ -304,14 +304,29 @@ void Door::createCanvas(int index )
 		//	float x = _BoxRef.at(i)->getPositionX();
 		//	float y = _BoxRef.at(i)->getPositionY() - boxHeight / 2;
 
-
+		
 			_myWord = _randomWord.at(i);
 			auto alphabetHelp = AlphabetWriting::createAlphabetWithAnimation(_myWord, _type);
 			alphabetHelp->setPositionX(x);
 			alphabetHelp->setPositionY(y);
 			alphabetHelp->setScale(0.4);
-			this->addChild(alphabetHelp);
+			if (i == 0)
+			{
+				this->addChild(alphabetHelp);
+			}
+			else
+			{
+				auto myLabel = Label::createWithTTF(_myWord,"fonts/DroidSans.ttf",600);
+				myLabel->setPositionX(x);
+				myLabel->setPositionY(y);
+				myLabel->setScale(0.8);
+				this->addChild(myLabel);
+				auto fadeOut = FadeOut::create(3.0f);
+				myLabel->runAction(fadeOut);
+			}
 			alphabetHelp->setName("Alphabet");
+		
+		
 			/*auto myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), _myWord);
 			myLabel->setPositionX(x);
 			myLabel->setPositionY(y);
