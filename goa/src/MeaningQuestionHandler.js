@@ -332,9 +332,9 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
     },
     
     scaleAnimation: function(correctAnswerNode) {
-        var increase = new cc.ScaleTo(0.5, 1.2);
-        var decrease = new cc.ScaleTo(0.5, 1); 
-        var delay = new cc.DelayTime(1);
+        var increase = new cc.ScaleTo(0.3, 1.2);
+        var decrease = new cc.ScaleTo(0.3, 1); 
+        var delay = new cc.DelayTime(0.5);
         var repeatAction = new cc.Repeat(new cc.Sequence(increase, decrease, delay), 3);
         var sequenceAction = new cc.Sequence(repeatAction, new cc.CallFunc(this.updateSelectedQuestionForAnswer, this));
         correctAnswerNode.runAction(sequenceAction);   
@@ -411,8 +411,8 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
         var node1NewName = "A"+(sender.selectedIndex+1);
         var node2 = this._constructedScene.node.getChildByName(node1NewName);
 
-        var moveNode2Action = new cc.moveTo(1.5, cc.p(node1.getPosition().x, node1.getPosition().y));
-        var moveNode1Action = new cc.moveTo(1.5, cc.p(node2.getPosition().x, node2.getPosition().y));
+        var moveNode2Action = new cc.moveTo(1.0, cc.p(node1.getPosition().x, node1.getPosition().y));
+        var moveNode1Action = new cc.moveTo(1.0, cc.p(node2.getPosition().x, node2.getPosition().y));
         node1.runAction(new cc.Sequence(moveNode1Action, new cc.CallFunc(this.updateNodeName, this, node1NewName)));        
         node2.runAction(new cc.Sequence(moveNode2Action, new cc.CallFunc(this.disableNodesForCorrectAnswer, this, questionNode, node2NewName)));
         node2.setName(node2NewName);

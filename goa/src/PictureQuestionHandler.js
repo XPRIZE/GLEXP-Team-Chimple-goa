@@ -357,9 +357,9 @@ xc.PictureQuestionHandler = cc.Layer.extend({
     },
     
     scaleAnimation: function(correctAnswerNode) {
-        var increase = new cc.ScaleTo(0.5, 1.2);
-        var decrease = new cc.ScaleTo(0.5, 1); 
-        var delay = new cc.DelayTime(1);
+        var increase = new cc.ScaleTo(0.3, 1.2);
+        var decrease = new cc.ScaleTo(0.3, 1); 
+        var delay = new cc.DelayTime(0.5);
         var repeatAction = new cc.Repeat(new cc.Sequence(increase, decrease, delay), 3);
         var sequenceAction = new cc.Sequence(repeatAction, new cc.CallFunc(this.updateSelectedQuestionForAnswer, this));
         correctAnswerNode.runAction(sequenceAction);   
