@@ -1,7 +1,7 @@
 {
-  "ID": "ee41b7f3-69dc-4870-955d-9f18e105acbd",
+  "ID": "117efc5e-7424-4d65-b02e-a10e5f449136",
   "Version": "3.10.0.0",
-  "Name": "firestation_outdoor",
+  "Name": "miningsupply_outdoor",
   "Content": {
     "Content": {
       "Animation": {
@@ -9,12 +9,12 @@
         "Speed": 1.0,
         "Timelines": [
           {
-            "ActionTag": -1980362535,
+            "ActionTag": 2091646236,
             "Property": "Position",
             "Frames": [
               {
-                "X": 2.6376,
-                "Y": -0.4522,
+                "X": 0.0,
+                "Y": -0.9989,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -22,35 +22,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 2.6376,
-                "Y": -0.4523,
-                "FrameIndex": 1,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 2.6376,
-                "Y": -0.4523,
-                "FrameIndex": 2,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 2.6376,
-                "Y": -0.4523,
-                "FrameIndex": 3,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 2.6375,
-                "Y": -0.4522,
+                "X": 0.0,
+                "Y": -1.3328,
                 "FrameIndex": 4,
                 "EasingData": {
                   "Type": 0
@@ -58,9 +31,18 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 2.0,
-                "Y": -26.9991,
+                "X": 0.0,
+                "Y": -26.9994,
                 "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": -25.9994,
+                "FrameIndex": 10,
                 "EasingData": {
                   "Type": 0
                 },
@@ -70,14 +52,14 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": -1980362535,
+            "ActionTag": 2091646236,
             "Property": "FileData",
             "Frames": [
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "firestation/firestation2/dooranimation1.png",
-                  "Plist": "firestation/firestation2/firestation2.plist"
+                  "Path": "miningsupply/miningsupply2/dooranimation1.png",
+                  "Plist": "miningsupply/miningsupply2/miningsupply2.plist"
                 },
                 "FrameIndex": 0,
                 "Tween": false,
@@ -86,8 +68,8 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "firestation/firestation2/dooranimation2.png",
-                  "Plist": "firestation/firestation2/firestation2.plist"
+                  "Path": "miningsupply/miningsupply2/dooranimation2.png",
+                  "Plist": "miningsupply/miningsupply2/miningsupply2.plist"
                 },
                 "FrameIndex": 5,
                 "Tween": false,
@@ -96,8 +78,8 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "firestation/firestation2/dooranimation3.png",
-                  "Plist": "firestation/firestation2/firestation2.plist"
+                  "Path": "miningsupply/miningsupply2/dooranimation3.png",
+                  "Plist": "miningsupply/miningsupply2/miningsupply2.plist"
                 },
                 "FrameIndex": 10,
                 "Tween": false,
@@ -111,13 +93,13 @@
       },
       "AnimationList": [],
       "ObjectData": {
-        "Tag": 745,
+        "Tag": 1517,
         "Children": [
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "firestation/firestation2/dooranimation1.png",
-              "Plist": "firestation/firestation2/firestation2.plist"
+              "Path": "miningsupply/miningsupply2/dooranimation3.png",
+              "Plist": "miningsupply/miningsupply2/miningsupply2.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -128,8 +110,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2.6376,
-              "Y": -0.4522
+              "X": 0.0,
+              "Y": -25.9994
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -145,15 +127,15 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -311.3624,
-            "RightMargin": -316.6376,
-            "TopMargin": -320.0478,
-            "BottomMargin": -320.9522,
-            "Tag": 746,
-            "ActionTag": -1980362535,
+            "LeftMargin": -313.5,
+            "RightMargin": -313.5,
+            "TopMargin": -320.0006,
+            "BottomMargin": -371.9994,
+            "Tag": 1518,
+            "ActionTag": 2091646236,
             "Size": {
-              "X": 628.0,
-              "Y": 641.0
+              "X": 627.0,
+              "Y": 692.0
             },
             "Name": "Sprite_1",
             "ctype": "SpriteObjectData"
@@ -167,8 +149,8 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "firestation2/firestation2.plist",
-        "firestation2/firestation2.png"
+        "miningsupply2/miningsupply2.plist",
+        "miningsupply2/miningsupply2.png"
       ],
       "ctype": "GameFileData"
     }

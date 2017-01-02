@@ -1,7 +1,7 @@
 {
-  "ID": "ee41b7f3-69dc-4870-955d-9f18e105acbd",
+  "ID": "ddfca686-d56c-430e-8b99-ddb7010a4fb5",
   "Version": "3.10.0.0",
-  "Name": "firestation_outdoor",
+  "Name": "dooranimation",
   "Content": {
     "Content": {
       "Animation": {
@@ -9,12 +9,12 @@
         "Speed": 1.0,
         "Timelines": [
           {
-            "ActionTag": -1980362535,
+            "ActionTag": 289433728,
             "Property": "Position",
             "Frames": [
               {
-                "X": 2.6376,
-                "Y": -0.4522,
+                "X": 0.0,
+                "Y": -1.9992,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -22,8 +22,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 2.6376,
-                "Y": -0.4523,
+                "X": 0.0,
+                "Y": -2.3321,
                 "FrameIndex": 1,
                 "EasingData": {
                   "Type": 0
@@ -31,8 +31,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 2.6376,
-                "Y": -0.4523,
+                "X": 0.0,
+                "Y": -1.1656,
                 "FrameIndex": 2,
                 "EasingData": {
                   "Type": 0
@@ -40,8 +40,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 2.6376,
-                "Y": -0.4523,
+                "X": 0.0,
+                "Y": -0.7768,
                 "FrameIndex": 3,
                 "EasingData": {
                   "Type": 0
@@ -49,8 +49,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 2.6375,
-                "Y": -0.4522,
+                "X": 0.0,
+                "Y": -0.388,
                 "FrameIndex": 4,
                 "EasingData": {
                   "Type": 0
@@ -58,9 +58,18 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 2.0,
-                "Y": -26.9991,
+                "X": 0.0,
+                "Y": -29.9987,
                 "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": -26.9987,
+                "FrameIndex": 10,
                 "EasingData": {
                   "Type": 0
                 },
@@ -70,14 +79,14 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": -1980362535,
+            "ActionTag": 289433728,
             "Property": "FileData",
             "Frames": [
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "firestation/firestation2/dooranimation1.png",
-                  "Plist": "firestation/firestation2/firestation2.plist"
+                  "Path": "miningbar/miningbar2/dooranimation1.png",
+                  "Plist": "miningbar/miningbar2/miningbar2.plist"
                 },
                 "FrameIndex": 0,
                 "Tween": false,
@@ -86,8 +95,8 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "firestation/firestation2/dooranimation2.png",
-                  "Plist": "firestation/firestation2/firestation2.plist"
+                  "Path": "miningbar/miningbar2/dooranimation2.png",
+                  "Plist": "miningbar/miningbar2/miningbar2.plist"
                 },
                 "FrameIndex": 5,
                 "Tween": false,
@@ -96,8 +105,8 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "firestation/firestation2/dooranimation3.png",
-                  "Plist": "firestation/firestation2/firestation2.plist"
+                  "Path": "miningbar/miningbar2/dooranimation3.png",
+                  "Plist": "miningbar/miningbar2/miningbar2.plist"
                 },
                 "FrameIndex": 10,
                 "Tween": false,
@@ -111,13 +120,13 @@
       },
       "AnimationList": [],
       "ObjectData": {
-        "Tag": 745,
+        "Tag": 531,
         "Children": [
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "firestation/firestation2/dooranimation1.png",
-              "Plist": "firestation/firestation2/firestation2.plist"
+              "Path": "miningbar/miningbar2/dooranimation1.png",
+              "Plist": "miningbar/miningbar2/miningbar2.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -128,8 +137,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2.6376,
-              "Y": -0.4522
+              "X": 0.0,
+              "Y": -1.9992
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -145,12 +154,12 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -311.3624,
-            "RightMargin": -316.6376,
-            "TopMargin": -320.0478,
-            "BottomMargin": -320.9522,
-            "Tag": 746,
-            "ActionTag": -1980362535,
+            "LeftMargin": -314.0,
+            "RightMargin": -314.0,
+            "TopMargin": -318.5008,
+            "BottomMargin": -322.4992,
+            "Tag": 532,
+            "ActionTag": 289433728,
             "Size": {
               "X": 628.0,
               "Y": 641.0
@@ -167,8 +176,8 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "firestation2/firestation2.plist",
-        "firestation2/firestation2.png"
+        "miningbar2/miningbar2.plist",
+        "miningbar2/miningbar2.png"
       ],
       "ctype": "GameFileData"
     }
