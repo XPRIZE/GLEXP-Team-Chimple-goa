@@ -1,0 +1,170 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "2.3.4",
+  "Name": "Adie_na_adhoch01",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 176,
+              "G": 177,
+              "B": 70
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.6072,
+              "Y": -0.1347
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0002,
+              "Y": -0.0001
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": 0.6072,
+            "RightMargin": -0.6072,
+            "TopMargin": 0.1348,
+            "BottomMargin": -0.1347,
+            "Tag": 2,
+            "ActionTag": 333036872,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "OB/furniture/adie_table.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1305.7278,
+              "Y": 445.3612
+            },
+            "Scale": {
+              "ScaleX": 1.0785,
+              "ScaleY": 1.0785
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.51,
+              "Y": 0.2474
+            },
+            "PreSize": {
+              "X": 0.4613,
+              "Y": 0.4517
+            },
+            "LeftMargin": 715.2278,
+            "RightMargin": 663.7722,
+            "TopMargin": 948.1388,
+            "BottomMargin": 38.8612,
+            "Tag": 3,
+            "ActionTag": -1626816080,
+            "Size": {
+              "X": 1181.0,
+              "Y": 813.0
+            },
+            "Name": "table_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "OB/other/adie_candle.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1776.6848,
+              "Y": 1048.1547
+            },
+            "Scale": {
+              "ScaleX": 0.71,
+              "ScaleY": 0.71
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.694,
+              "Y": 0.5823
+            },
+            "PreSize": {
+              "X": 0.0461,
+              "Y": 0.2611
+            },
+            "LeftMargin": 1717.6848,
+            "RightMargin": 724.3152,
+            "TopMargin": 516.8453,
+            "BottomMargin": 813.1547,
+            "Tag": 4,
+            "ActionTag": 1096729390,
+            "Size": {
+              "X": 118.0,
+              "Y": 470.0
+            },
+            "Name": "candle_2",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 960.0,
+          "Y": 640.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "OB/furniture/adie_table.png",
+        "OB/other/adie_candle.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

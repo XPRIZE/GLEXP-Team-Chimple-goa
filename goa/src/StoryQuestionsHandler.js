@@ -316,7 +316,12 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
             });
             this._questions = this._questions.concat(array);
         }
-    }
+    },
+
+
+    onExit: function() {        
+        this._super();                
+    }    
 });
 
 xc.StoryQuestionHandlerScene = cc.Scene.extend({
@@ -378,8 +383,8 @@ xc.StoryQuestionHandlerLayer.res = {
         multi_question_choice_plist: xc.path + "template/template.plist",
         multi_question_choice_png: xc.path + "template/template.png",
         celebration_json: xc.path + "template/celebration.json",
-        particle_system_plist: "res/scoreboard/particle_success.plist",
-        particle_system_png: "res/scoreboard/success_particle.png",
+        particle_system_plist: "scoreboard/particle_success.plist",
+        particle_system_png: "scoreboard/success_particle.png",
         copyright_json: xc.path + "template/copyright.json",
         template_plist: xc.path + "template/template.plist",
         template_png: xc.path + "template/template.png",

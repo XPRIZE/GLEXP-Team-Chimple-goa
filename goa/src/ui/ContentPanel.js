@@ -437,20 +437,8 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
     },
 
     addTextToScene: function () {
-        //load text file based on Current Story Id and Page index
-        var langDir = goa.TextGenerator.getInstance().getLang();
-        cc.log("langDir:" + langDir);
-        var textFileUrl = xc.path + "wikitaki/misc/" + langDir + "/" + xc.currentStoryId+".json";
-        // var textFileUrl = xc.path + "wikitaki/misc/" + langDir + "/txt.json";
-        var storyText = "";
         var that = this;
-        cc.loader.loadJson(textFileUrl, function(err, json) {
-            if(json != null && json != undefined) {
-                storyText = json[xc.pageIndex]
-                xc.story.items[xc.pageIndex].sceneText = storyText;                                
-            } 
-            that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), xc.story.items[xc.pageIndex].sceneText, that.processText, null, that, true));           
-        });
+        that.parent.addChild(new xc.TextCreatePanel(xc.EditStoryLayer.res.textBubble_json, cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), xc.story.items[xc.pageIndex].sceneText, that.processText, null, that));
     },
 
     processText: function (text) {
