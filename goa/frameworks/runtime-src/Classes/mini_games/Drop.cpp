@@ -135,12 +135,14 @@ void Drop::onEnterTransitionDidFinish()
 		auto _data = TextGenerator::getInstance()->getAntonyms(1, level);
 		wordOnLabel = getConvertInUpperCase(_data.begin()->first);
 		wordOnLayout = getConvertInUpperCase(_data.begin()->second);
+		_labelPrefix = LangUtil::getInstance()->translateString("Make opposite of : ");
 	}
 	else if (levelKeyNumber.second == 1)
 	{
 		auto word = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ANY,1,level);
 		wordOnLabel = getConvertInUpperCase(word[0]);
 		wordOnLayout = wordOnLabel;
+		_labelPrefix = LangUtil::getInstance()->translateString("Make same word : ");
 	}
 	else
 	{
@@ -148,6 +150,7 @@ void Drop::onEnterTransitionDidFinish()
 		auto _data = TextGenerator::getInstance()->getSynonyms(1, level);
 		wordOnLabel = getConvertInUpperCase(_data.begin()->first);
 		wordOnLayout = getConvertInUpperCase(_data.begin()->second);
+		_labelPrefix = LangUtil::getInstance()->translateString("Make word of same meaning as : ");
 	}
 
 	_scenePath = dropSceneMap.at(_dropCurrentTheme);
@@ -196,7 +199,9 @@ void Drop::onEnterTransitionDidFinish()
 	////aa->drawRect(Vec2(i*gap + gap / 2 - basketImg->getContentSize().width / 2, visibleSize.height*0.08) , Vec2(i*gap + gap / 2 + basketImg->getContentSize().width / 2, visibleSize.height*0.08 + basketImg->getContentSize().height), Color4F(0, 0, 255, 22)); //jungle drop
 	//aab->drawRect(Vec2((visibleSize.width*0.13) - _removalPole->getContentSize().width / 2, (visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"))- _removalPole->getContentSize().height*0.1), Vec2((visibleSize.width*0.13) + _removalPole->getContentSize().width / 2, visibleSize.height *_sceneBasedNumericalVal.at("floatBoxHeightFactor") + _removalPole->getContentSize().height/2), Color4F(0, 0, 255, 22));
 
-	_label = setAllLabelProperties(wordOnLabel, 2, (visibleSize.width / 2), (visibleSize.height*_sceneBasedNumericalVal.at("helpBoardHeight")), true, 0.5, 0.5, 0, 1, 1, 150);
+	std::ostringstream boardName;
+	boardName << _labelPrefix << wordOnLabel;
+	_label = setAllLabelProperties(boardName.str(), 2, (visibleSize.width / 2), (visibleSize.height*_sceneBasedNumericalVal.at("helpBoardHeight")), true, 0.5, 0.5, 0, 1, 1, 100);
 	this->addChild(_label, 2);
 
 	//Random index getter for blanks
