@@ -38,7 +38,8 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
     },
 
     initAnswerHelp: function() {
-        if(!xc._MEANING_HELP_SHOWN)
+        var helpShown = cc.sys.localStorage.getItem("helpShown");
+        if(!xc._MEANING_HELP_SHOWN && helpShown != "true")
         {
             var context = this;
             if(this._answerHelpNode != null) {

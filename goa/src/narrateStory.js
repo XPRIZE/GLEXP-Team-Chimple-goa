@@ -974,31 +974,28 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         var curIndex = this._pageIndex; 
         curIndex++;
         var storyId = this._storyInformation["storyId"];
+        xc._currentQuestionIndex = 0;
         if (curIndex >= pages.length) {
             this._storyEnded = true;
             xc._currentQuestionIndex = 0;
-            // var langDir = goa.TextGenerator.getInstance().getLang();
-            // cc.log("langDir:" + langDir);
-            // var storyText = "";
-            // var that = this;
-            // var questionFileUrl =  "res/story" + "/" + langDir + "/" + this._storyBaseDir + ".questions.json";
-            // cc.log('questionFileUrl:' + questionFileUrl);
+            var langDir = goa.TextGenerator.getInstance().getLang();
+            cc.log("langDir:" + langDir);
+            var storyText = "";
+            var that = this;
+            var questionFileUrl =  "res/story" + "/" + langDir + "/" + this._baseDir + ".questions.json";
+            cc.log('questionFileUrl:' + questionFileUrl);
 
-            // if(cc.sys.isNative) {
-            //     var fileExists = jsb.fileUtils.isFileExist(questionFileUrl);
-            //     if(fileExists) {
-            //         xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
-            //     }
-            // }
-            xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
-
-            return;
+            if(cc.sys.isNative) {
+                var fileExists = jsb.fileUtils.isFileExist(questionFileUrl);
+                if(fileExists) {
+                    xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
+                } else {
+                    this._menuContext.showScore();
+                }
+            }             
+        } else {
+            xc.NarrateStoryScene.load(curIndex, this._storyInformation, xc.NarrateStoryLayer, true);
         }
-        xc._currentQuestionIndex = 0;
-
-
-        xc.NarrateStoryScene.load(curIndex, this._storyInformation, xc.NarrateStoryLayer, true);
-        // xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
     },
 
     rePlayEnded: function() {

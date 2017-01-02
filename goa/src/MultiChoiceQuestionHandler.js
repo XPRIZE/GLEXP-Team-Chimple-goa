@@ -29,7 +29,8 @@ xc.MultipleChoiceQuestionHandler = cc.Layer.extend({
     },
 
     initHelp: function() {
-        if(!xc._MULTIPLE_CHOICE_HELP_SHOWN)
+        var helpShown = cc.sys.localStorage.getItem("helpShown");
+        if(!xc._MULTIPLE_CHOICE_HELP_SHOWN && helpShown != "true")
         {
             var context = this;
             var correctAnswerNode = this._constructedScene.node.getChildByName(context._correctAnswerNode);
