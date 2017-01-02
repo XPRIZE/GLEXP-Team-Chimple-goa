@@ -37,15 +37,15 @@
             "IconVisible": true,
             "PrePosition": {
               "X": 0.0001,
-              "Y": -0.0002
+              "Y": -0.0003
             },
             "PreSize": {
               "X": 0.256,
-              "Y": 1.0
+              "Y": 1.4222
             },
             "LeftMargin": 0.8493,
             "RightMargin": 7439.1504,
-            "TopMargin": 0.6208,
+            "TopMargin": -759.3792,
             "BottomMargin": -0.6209,
             "UserData": "background",
             "Tag": 2495,
@@ -79,15 +79,15 @@
             "IconVisible": true,
             "PrePosition": {
               "X": 0.0001,
-              "Y": -0.0002
+              "Y": -0.0003
             },
             "PreSize": {
               "X": 0.256,
-              "Y": 1.0
+              "Y": 1.4222
             },
             "LeftMargin": 0.8493,
             "RightMargin": 7439.1504,
-            "TopMargin": 0.6208,
+            "TopMargin": -759.3792,
             "BottomMargin": -0.6209,
             "UserData": "main",
             "Tag": 2516,
@@ -98,53 +98,6 @@
             },
             "Name": "mainground",
             "ctype": "ProjectNodeObjectData"
-          },
-          {
-            "FlipX": true,
-            "FileData": {
-              "Type": "Default",
-              "Path": "Default/Sprite.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 9858.4697,
-              "Y": 167.4459
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.9858,
-              "Y": 0.0654
-            },
-            "PreSize": {
-              "X": 0.0263,
-              "Y": 0.0434
-            },
-            "LeftMargin": 9726.9697,
-            "RightMargin": 10.0303,
-            "TopMargin": 2337.054,
-            "BottomMargin": 111.9459,
-            "UserData": "canInteract=true,nextScene=city3",
-            "Tag": 501,
-            "ActionTag": -18544549,
-            "Size": {
-              "X": 263.0,
-              "Y": 111.0
-            },
-            "Name": "arrow_1",
-            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
@@ -155,7 +108,6 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "../Default/Sprite.png",
         "city2_background.json",
         "city2_mainground.json"
       ],

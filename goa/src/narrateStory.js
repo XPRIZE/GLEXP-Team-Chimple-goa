@@ -22,8 +22,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     _wordMapping: {},
     _storyEnded: false,
     _resources: [],
-
-    ctor: function (pageIndex, storyInformation, resources) {
+    _content_resources: [],
+    ctor: function (pageIndex, storyInformation, resources, content_resources) {
         this._super();
         this._name = "NarrateStoryLayer";
         this._tabHeight = 64;
@@ -38,6 +38,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this._wordMapping = {};   
         this._storyEnded = false;
         this._resources = resources;
+        this._content_resources = content_resources;
 
         return true;
     },
@@ -1130,7 +1131,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
         //if story ended playing then release all resources
         
-            that._resources.forEach(function(url) {                
+            that._content_resources.forEach(function(url) {                
                 if(url.endsWith(".json")) {
                     cc.log('cleaning url:' + url);
                     cc.loader.release(url);
@@ -1140,17 +1141,33 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             });
                 
             if(that._storyEnded) {
+
+                that._resources.forEach(function(url) {                
+                    if(url.endsWith(".json")) {
+                        cc.log('cleaning url:' + url);
+                        cc.loader.release(url);
+                        delete cc.loader[url];                        
+                    };                
+                });
+                
                 that._resources.forEach(function(url) {                    
                     if(url.endsWith(".plist")) {
                         cc.log('cleaning url:' + url);
                         cc.spriteFrameCache.removeSpriteFramesFromFile(url);
                         cc.loader.release(url);
-                        delete cc.loader[url];
-                        
-                    };                
+                        delete cc.loader[url];                        
+                    };   
+
+                    if(url.endsWith(".png")) {
+                        cc.log("removing image: " + url);
+                        cc.textureCache.removeTextureForKey(url);
+                        cc.loader.release(url);
+                        delete cc.loader[url]
+                    }                                 
                 });
 
-                that._resources = [];                        
+                that._resources = [];  
+                that._content_resources = [];                      
             }
     }
 
@@ -1159,10 +1176,10 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 xc.NarrateStoryScene = cc.Scene.extend({
     layerClass: null,
     _menuContext: null,
-    ctor: function (pageIndex, storyInformation, resources, layer) {
+    ctor: function (pageIndex, storyInformation, resources, content_resources, layer) {
         this._super();
         this.layerClass = layer;
-        this._sceneLayer = new this.layerClass(pageIndex, storyInformation, resources);
+        this._sceneLayer = new this.layerClass(pageIndex, storyInformation, resources, content_resources);
         this.addChild(this._sceneLayer);
         
 
@@ -1181,6 +1198,7 @@ xc.NarrateStoryScene = cc.Scene.extend({
 xc.NarrateStoryScene.load = function(pageIndex, storyInformation, layer, enableTransition) {
     var that = this;
     var t_resources = [];
+    var content_resources = [];
     //also push json
     var currentStoryJSON = null;
     if(storyInformation != null) {
@@ -1189,6 +1207,7 @@ xc.NarrateStoryScene.load = function(pageIndex, storyInformation, layer, enableT
 
         var storyContents = storyInformation["pages"];
         var storyResources = storyInformation["resources"];
+        var coverPage = storyInformation["coverPage"];
 
         if(storyContents != null && pageIndex < storyContents.length) {
            
@@ -1197,7 +1216,13 @@ xc.NarrateStoryScene.load = function(pageIndex, storyInformation, layer, enableT
                     var contentUrl = page["contentJson"];
                     if(contentUrl) {                        
                         t_resources.push(xc.path + contentUrl);
+                        content_resources.push(xc.path + contentUrl);
                     }
+
+                    if(coverPage) {
+                        content_resources.push(xc.path + coverPage);
+                    }
+
                     if(storyResources != undefined) {
                         storyResources.forEach(function(e) {
                             t_resources.push(xc.path + e);
@@ -1234,7 +1259,8 @@ xc.NarrateStoryScene.load = function(pageIndex, storyInformation, layer, enableT
                         } else {
                             xc.onlyStoryNarrateConfigurationObject = cc.loader.cache[xc.NarrateStoryLayer.res.OnlyStoryPlayConfig_json];
                         }
-                        var scene = new xc.NarrateStoryScene(pageIndex, storyInformation, t_resources, layer);
+                        cc.log("content_resources" + content_resources);
+                        var scene = new xc.NarrateStoryScene(pageIndex, storyInformation, t_resources, content_resources, layer);
                         scene.layerClass = layer;
                         if(enableTransition) {
                             cc.director.runScene(new cc.TransitionFade(2.0, scene, true));

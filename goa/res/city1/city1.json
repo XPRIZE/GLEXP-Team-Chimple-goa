@@ -1,7 +1,7 @@
 {
   "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
   "Version": "3.10.0.0",
-  "Name": "airport",
+  "Name": "city1",
   "Content": {
     "Content": {
       "Animation": {
@@ -12,11 +12,12 @@
       },
       "AnimationList": [],
       "ObjectData": {
+        "UserData": "mainCharacterFile=human_skeleton.csb,physicsFile=city1.plist,dialogFile=city1.db3",
         "Children": [
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "airport/airport_main.json",
+              "Path": "city/city1_background.json",
               "Plist": ""
             },
             "StretchWidthEnable": false,
@@ -24,8 +25,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 0.0,
-              "Y": 0.0
+              "X": 0.6526,
+              "Y": -0.7454
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -34,28 +35,31 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.0,
-              "Y": 0.0
+              "X": 0.0001,
+              "Y": -0.0004
             },
             "PreSize": {
-              "X": 0.5,
-              "Y": 1.0
+              "X": 0.256,
+              "Y": 1.4222
             },
-            "RightMargin": 2560.0,
-            "UserData": "main",
-            "Tag": 65,
-            "ActionTag": 1744699411,
+            "LeftMargin": 0.6526,
+            "RightMargin": 7439.3477,
+            "TopMargin": -759.2546,
+            "BottomMargin": -0.7454,
+            "UserData": "background",
+            "Tag": 378,
+            "ActionTag": 716772888,
             "Size": {
               "X": 2560.0,
-              "Y": 1800.0
+              "Y": 2560.0
             },
-            "Name": "FileNode_1",
+            "Name": "background",
             "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "airport/airport_foreground.json",
+              "Path": "city/city1_mainground.json",
               "Plist": ""
             },
             "StretchWidthEnable": false,
@@ -63,8 +67,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 0.0,
-              "Y": 0.0
+              "X": 0.6263,
+              "Y": -0.9387
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -73,35 +77,38 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.0,
-              "Y": 0.0
+              "X": 0.0001,
+              "Y": -0.0005
             },
             "PreSize": {
-              "X": 0.5,
-              "Y": 1.0
+              "X": 0.2569,
+              "Y": 1.4222
             },
-            "RightMargin": 2560.0,
-            "UserData": "foreground",
-            "Tag": 111,
-            "ActionTag": 237534181,
+            "LeftMargin": 0.6263,
+            "RightMargin": 7430.374,
+            "TopMargin": -759.0613,
+            "BottomMargin": -0.9387,
+            "UserData": "main",
+            "Tag": 390,
+            "ActionTag": 1302977091,
             "Size": {
-              "X": 2560.0,
-              "Y": 1800.0
+              "X": 2569.0,
+              "Y": 2560.0
             },
-            "Name": "FileNode_2",
+            "Name": "mainground",
             "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
-          "X": 5120.0,
+          "X": 10000.0,
           "Y": 1800.0
         },
         "Name": "Scene",
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "airport_foreground.json",
-        "airport_main.json"
+        "city1_background.json",
+        "city1_mainground.json"
       ],
       "ctype": "GameFileData"
     }

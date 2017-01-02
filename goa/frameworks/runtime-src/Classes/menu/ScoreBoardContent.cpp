@@ -177,12 +177,14 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
         if(!_gameToUnlock.empty() && gameIcons.count(_gameToUnlock) > 0) {
             numRewards++;
             auto unlockedGameButton = ui::Button::create(gameIcons[_gameToUnlock]["icon"], gameIcons[_gameToUnlock]["cIcon"], gameIcons[_gameToUnlock]["icon"], ui::Widget::TextureResType::LOCAL);
-            unlockedGameButton->setTitleText(gameIcons[_gameToUnlock]["title"]);
+            auto titleStr = LangUtil::getInstance()->translateString("Game Unlocked");
+            unlockedGameButton->setTitleText(titleStr + "\n" + gameIcons[_gameToUnlock]["title"]);
             unlockedGameButton->setTitleFontName("fonts/Roboto-Regular.ttf");
             unlockedGameButton->setTitleColor(Color3B(0xFF, 0xF2, 0x00));
             unlockedGameButton->setTitleFontSize(72);
             auto label = unlockedGameButton->getTitleRenderer();
             label->setPosition(Vec2(label->getPositionX(), label->getPositionY()- 300));
+            label->setAlignment(TextHAlignment::CENTER, TextVAlignment::CENTER);
             unlockedGameButton->setScale(0.1, 0.1);
             unlockedGameButton->addTouchEventListener(CC_CALLBACK_2(ScoreBoardContext::buttonClicked, this));
             unlockedGameButton->setName("unlockedGame");
@@ -198,18 +200,18 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
                 auto badgeButton = ui::Button::create("rewards/" + badge + ".png", "rewards/" + badge + ".png", "rewards/" + badge + ".png", ui::Widget::TextureResType::LOCAL);
                 std::replace(badge.begin(), badge.end(), '_', ' ');
                 if(badgeButton != nullptr) {
-                    badgeButton->setTitleText(LangUtil::getInstance()->translateString(badge.substr(2)));
+                    auto titleStr = LangUtil::getInstance()->translateString("Trophy earned");
+                    badgeButton->setTitleText(titleStr + "\n" + LangUtil::getInstance()->translateString(badge.substr(2)));
                     badgeButton->setTitleFontName("fonts/Roboto-Regular.ttf");
                     badgeButton->setTitleColor(Color3B(0xFF, 0xF2, 0x00));
                     badgeButton->setTitleFontSize(72);
                     auto label = badgeButton->getTitleRenderer();
                     label->setPosition(Vec2(label->getPositionX(), label->getPositionY()- 200));
+                    label->setAlignment(TextHAlignment::CENTER, TextVAlignment::CENTER);
                     badgeButton->setScale(0.1, 0.1);
                     addChild(badgeButton);
-                    auto finalPos = Vec2(1000, 200);
-                    if(numRewards == 1) {
-                        finalPos = Vec2(-1000, 200);
-                    } else if(numRewards > 1) {
+                    auto finalPos = Vec2(-1000, 200);
+                    if(numRewards > 1) {
                         finalPos = Vec2(0, 700);
                     }
                     auto jumpAction = JumpTo::create(1.0, finalPos, 600, 2);
