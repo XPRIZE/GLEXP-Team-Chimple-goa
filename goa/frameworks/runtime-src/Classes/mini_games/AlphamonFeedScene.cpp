@@ -307,7 +307,13 @@ bool AlphamonFeed::onTouchBegan(cocos2d::Touch *touch,cocos2d::Event * event)
 		return true;
 	}else if  ((touch->getLocation().y < Director::getInstance()->getVisibleSize().height - 350) && (!menu->isGamePaused())) {
 		sprite1->alphamonLegAnimation("walk", true);
-		target->setPositionX(touch->getLocation().x);
+		if (touch->getLocation().x < Director::getInstance()->getVisibleSize().width * 0.13) {
+			target->setPositionX(Director::getInstance()->getVisibleSize().width * 0.13);
+		}
+		else 
+		{
+			target->setPositionX(touch->getLocation().x);
+		}
 		return true;
 	}
 	return false;
