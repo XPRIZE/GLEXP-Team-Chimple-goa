@@ -199,6 +199,8 @@ void StoryWordBoard::checkAnswer() {
 void StoryWordBoard::gameOver(bool correct) {
     if(correct) {
         
+        MenuContext::pronounceWord(_word);
+        
         if(!_anyTimeWrongAlphabetChosen) {
             _menuContext->addPoints(1);
         }

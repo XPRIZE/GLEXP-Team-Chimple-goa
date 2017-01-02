@@ -132,7 +132,7 @@ cc.LoaderScene = cc.Scene.extend({
         this._renderCmd.setDirtyFlag(cc.Node._dirtyFlags.transformDirty);
         this._bgLayer._renderCmd.setDirtyFlag(cc.Node._dirtyFlags.transformDirty);
         this._label._renderCmd.setDirtyFlag(cc.Node._dirtyFlags.transformDirty);
-        this._logo._renderCmd.setDirtyFlag(cc.Node._dirtyFlags.transformDirty);
+        // this._logo._renderCmd.setDirtyFlag(cc.Node._dirtyFlags.transformDirty);
     }
 });
 /**

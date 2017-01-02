@@ -5,7 +5,7 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 360,
+        "Duration": 450,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
@@ -379,6 +379,162 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1085930137,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1194.9088,
+                "Y": 258.8887,
+                "FrameIndex": 370,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1194.908,
+                "Y": 258.8883,
+                "FrameIndex": 390,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1194.906,
+                "Y": 258.888,
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1194.908,
+                "Y": 258.8883,
+                "FrameIndex": 430,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1194.9088,
+                "Y": 258.8887,
+                "FrameIndex": 450,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1085930137,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.6937,
+                "Y": 0.6608,
+                "FrameIndex": 370,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8314,
+                "Y": 0.792,
+                "FrameIndex": 390,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.6653,
+                "Y": 0.6337,
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8314,
+                "Y": 0.792,
+                "FrameIndex": 430,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.6937,
+                "Y": 0.6608,
+                "FrameIndex": 450,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1085930137,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -61.7118,
+                "Y": -61.6796,
+                "FrameIndex": 370,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -61.7108,
+                "Y": -61.69,
+                "FrameIndex": 390,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -61.712,
+                "Y": -61.6845,
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -61.7108,
+                "Y": -61.69,
+                "FrameIndex": 430,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -61.7118,
+                "Y": -61.6796,
+                "FrameIndex": 450,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -388,6 +544,12 @@
           "StartIndex": 0,
           "EndIndex": 360,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 370,
+          "EndIndex": 450,
+          "Name": "pot",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -785,7 +947,7 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": -611.1031,
+              "X": 59.079,
               "Y": 300.0
             },
             "Scale": {
@@ -795,15 +957,15 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": -0.2387,
+              "X": 0.0231,
               "Y": 0.1667
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -611.1031,
-            "RightMargin": 3171.103,
+            "LeftMargin": 59.079,
+            "RightMargin": 2500.9211,
             "TopMargin": 1500.0,
             "BottomMargin": 300.0,
             "UserData": "hi;drag",
@@ -896,7 +1058,7 @@
             "RightMargin": 1164.0912,
             "TopMargin": 1386.1113,
             "BottomMargin": 103.8887,
-            "UserData": "drag",
+            "UserData": "drag;main.pot",
             "Tag": 55,
             "ActionTag": -1085930137,
             "Size": {

@@ -6838,6 +6838,166 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 634663522,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 203.9687,
+                "Y": 3.9646,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 203.9687,
+                "Y": 3.9646,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 203.9687,
+                "Y": 3.9646,
+                "FrameIndex": 55,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 203.9687,
+                "Y": 3.9646,
+                "FrameIndex": 75,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 634663522,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.6675,
+                "Y": 0.6743,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.6675,
+                "Y": 0.6743,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.6675,
+                "Y": 0.6743,
+                "FrameIndex": 55,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.6675,
+                "Y": 0.6743,
+                "FrameIndex": 75,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 634663522,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 90.0,
+                "Y": 90.0,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 90.0,
+                "Y": 90.0,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 90.0,
+                "Y": 90.0,
+                "FrameIndex": 55,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 90.0,
+                "Y": 90.0,
+                "FrameIndex": 75,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 634663522,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "walking",
+                "FrameIndex": 10,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "walking",
+                "FrameIndex": 30,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "walking",
+                "FrameIndex": 55,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "walking",
+                "FrameIndex": 75,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 1103410760,
             "Property": "Position",
             "Frames": [
@@ -12094,7 +12254,11 @@
                             },
                             "RotationSkewX": -90.2011,
                             "RotationSkewY": -90.1981,
-                            "CColor": {},
+                            "CColor": {
+                              "R": 118,
+                              "G": 80,
+                              "B": 56
+                            },
                             "IconVisible": false,
                             "PrePosition": {
                               "X": 0.0,
@@ -12130,6 +12294,57 @@
                       {
                         "FileData": {
                           "Type": "MarkedSubImage",
+                          "Path": "jinsi_usiku_ulivyoingia/boy_lower_hand.png",
+                          "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                        },
+                        "BlendFunc": {
+                          "Src": 1,
+                          "Dst": 771
+                        },
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 74.2155,
+                          "Y": -0.0943
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 0.9133
+                        },
+                        "RotationSkewX": -90.201,
+                        "RotationSkewY": -90.1957,
+                        "CColor": {
+                          "R": 118,
+                          "G": 80,
+                          "B": 56
+                        },
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "PreSize": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "LeftMargin": 60.2155,
+                        "RightMargin": -88.2155,
+                        "TopMargin": -85.9057,
+                        "BottomMargin": -86.0943,
+                        "Tag": 5075,
+                        "ActionTag": -789532474,
+                        "Size": {
+                          "X": 28.0,
+                          "Y": 172.0
+                        },
+                        "Name": "boy_lower_hand_1_0",
+                        "ctype": "SpriteObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "MarkedSubImage",
                           "Path": "jinsi_usiku_ulivyoingia/farmer_shirt_sleave_lower.png",
                           "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
                         },
@@ -12142,15 +12357,15 @@
                           "ScaleY": 0.5
                         },
                         "Position": {
-                          "X": 28.4234,
-                          "Y": -0.3412
+                          "X": 30.0433,
+                          "Y": 0.3497
                         },
                         "Scale": {
-                          "ScaleX": 1.0,
-                          "ScaleY": 0.9187
+                          "ScaleX": 0.9899,
+                          "ScaleY": 0.9281
                         },
-                        "RotationSkewX": -90.1907,
-                        "RotationSkewY": -90.1592,
+                        "RotationSkewX": -450.1928,
+                        "RotationSkewY": -90.1587,
                         "CColor": {},
                         "IconVisible": false,
                         "PrePosition": {
@@ -12161,10 +12376,10 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -7.5766,
-                        "RightMargin": -64.4234,
-                        "TopMargin": -58.1588,
-                        "BottomMargin": -58.8412,
+                        "LeftMargin": -5.9567,
+                        "RightMargin": -66.0433,
+                        "TopMargin": -58.8497,
+                        "BottomMargin": -58.1503,
                         "Tag": 652,
                         "ActionTag": 401995314,
                         "Size": {
@@ -12320,7 +12535,11 @@
                             },
                             "RotationSkewX": -90.2002,
                             "RotationSkewY": -90.1982,
-                            "CColor": {},
+                            "CColor": {
+                              "R": 118,
+                              "G": 80,
+                              "B": 56
+                            },
                             "IconVisible": false,
                             "PrePosition": {
                               "X": 0.0,
@@ -12356,6 +12575,57 @@
                       {
                         "FileData": {
                           "Type": "MarkedSubImage",
+                          "Path": "jinsi_usiku_ulivyoingia/boy_lower_hand.png",
+                          "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                        },
+                        "BlendFunc": {
+                          "Src": 1,
+                          "Dst": 771
+                        },
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 65.509,
+                          "Y": 1.0249
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 0.9133
+                        },
+                        "RotationSkewX": -90.2008,
+                        "RotationSkewY": -90.1957,
+                        "CColor": {
+                          "R": 118,
+                          "G": 80,
+                          "B": 56
+                        },
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "PreSize": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "LeftMargin": 51.509,
+                        "RightMargin": -79.509,
+                        "TopMargin": -87.0249,
+                        "BottomMargin": -84.9751,
+                        "Tag": 5074,
+                        "ActionTag": -844565535,
+                        "Size": {
+                          "X": 28.0,
+                          "Y": 172.0
+                        },
+                        "Name": "boy_lower_hand_1",
+                        "ctype": "SpriteObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "MarkedSubImage",
                           "Path": "jinsi_usiku_ulivyoingia/farmer_shirt_sleave_lower.png",
                           "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
                         },
@@ -12372,11 +12642,11 @@
                           "Y": 0.8267
                         },
                         "Scale": {
-                          "ScaleX": 1.0,
-                          "ScaleY": 0.9187
+                          "ScaleX": 0.9899,
+                          "ScaleY": 0.9281
                         },
-                        "RotationSkewX": -88.9035,
-                        "RotationSkewY": -88.872,
+                        "RotationSkewX": -88.9319,
+                        "RotationSkewY": -88.8414,
                         "CColor": {},
                         "IconVisible": false,
                         "PrePosition": {
@@ -12387,10 +12657,10 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": -5.5347,
-                        "RightMargin": -66.4653,
-                        "TopMargin": -59.3267,
-                        "BottomMargin": -57.6733,
+                        "LeftMargin": 44.9191,
+                        "RightMargin": -116.9191,
+                        "TopMargin": -480.6909,
+                        "BottomMargin": 363.6909,
                         "Tag": 647,
                         "ActionTag": -2107163047,
                         "Size": {
@@ -12576,9 +12846,9 @@
                             "RotationSkewX": 89.8923,
                             "RotationSkewY": 89.8945,
                             "CColor": {
-                              "R": 71,
-                              "G": 51,
-                              "B": 26
+                              "R": 0,
+                              "G": 0,
+                              "B": 0
                             },
                             "IconVisible": false,
                             "PrePosition": {
@@ -12627,9 +12897,9 @@
                             "RotationSkewX": 89.8937,
                             "RotationSkewY": 89.8944,
                             "CColor": {
-                              "R": 251,
-                              "G": 205,
-                              "B": 173
+                              "R": 118,
+                              "G": 80,
+                              "B": 56
                             },
                             "IconVisible": false,
                             "PrePosition": {
@@ -12810,9 +13080,9 @@
                             "RotationSkewX": -190.1079,
                             "RotationSkewY": 169.6882,
                             "CColor": {
-                              "R": 71,
-                              "G": 51,
-                              "B": 26
+                              "R": 0,
+                              "G": 0,
+                              "B": 0
                             },
                             "IconVisible": false,
                             "PrePosition": {
@@ -12861,9 +13131,9 @@
                             "RotationSkewX": -190.1079,
                             "RotationSkewY": 169.6882,
                             "CColor": {
-                              "R": 71,
-                              "G": 51,
-                              "B": 26
+                              "R": 0,
+                              "G": 0,
+                              "B": 0
                             },
                             "IconVisible": false,
                             "PrePosition": {
@@ -12922,8 +13192,9 @@
                         "RotationSkewX": 89.8941,
                         "RotationSkewY": 89.8952,
                         "CColor": {
-                          "G": 208,
-                          "B": 176
+                          "R": 118,
+                          "G": 80,
+                          "B": 56
                         },
                         "IconVisible": false,
                         "PrePosition": {
@@ -13152,7 +13423,11 @@
                     },
                     "RotationSkewX": 89.799,
                     "RotationSkewY": 89.8032,
-                    "CColor": {},
+                    "CColor": {
+                      "R": 118,
+                      "G": 80,
+                      "B": 56
+                    },
                     "IconVisible": false,
                     "PrePosition": {
                       "X": 0.0,
@@ -13814,51 +14089,6 @@
             },
             "Name": "hip",
             "ctype": "BoneNodeObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "jinsi_usiku_ulivyoingia/touch.png",
-              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
-            },
-            "BlendFunc": {
-              "Src": 770,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 50.3926,
-              "Y": 629.6614
-            },
-            "Scale": {
-              "ScaleX": 2.0418,
-              "ScaleY": 3.4024
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "PreSize": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "LeftMargin": -151.6074,
-            "RightMargin": -252.3926,
-            "TopMargin": -831.6614,
-            "BottomMargin": 427.6614,
-            "Tag": 1219,
-            "ActionTag": -899870861,
-            "Size": {
-              "X": 404.0,
-              "Y": 404.0
-            },
-            "Name": "touch",
-            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
