@@ -1,0 +1,168 @@
+{
+  "ID": "544fee0e-9286-4cb0-95bd-0ae8846840d5",
+  "Version": "3.10.0.0",
+  "Name": "miningrailway_foreground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 6062,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "miningrailway/crate.png",
+              "Plist": "miningrailway/miningrailway.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1038.2032,
+              "Y": 1771.7048
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4055,
+              "Y": 0.9843
+            },
+            "PreSize": {
+              "X": 0.116,
+              "Y": 0.1533
+            },
+            "LeftMargin": 889.7032,
+            "RightMargin": 1373.2968,
+            "TopMargin": -109.7048,
+            "BottomMargin": 1633.7048,
+            "Tag": 6063,
+            "ActionTag": -1775565356,
+            "Size": {
+              "X": 297.0,
+              "Y": 276.0
+            },
+            "Name": "crate_2740",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "miningrailway/crate.png",
+              "Plist": "miningrailway/miningrailway.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1344.3358,
+              "Y": 1771.708
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5251,
+              "Y": 0.9843
+            },
+            "PreSize": {
+              "X": 0.116,
+              "Y": 0.1533
+            },
+            "LeftMargin": 1195.8358,
+            "RightMargin": 1067.1642,
+            "TopMargin": -109.708,
+            "BottomMargin": 1633.708,
+            "Tag": 6064,
+            "ActionTag": 1783968878,
+            "Size": {
+              "X": 297.0,
+              "Y": 276.0
+            },
+            "Name": "crate_2740_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "miningrailway/crate.png",
+              "Plist": "miningrailway/miningrailway.plist"
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1123.3932,
+              "Y": 2046.9705
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4388,
+              "Y": 1.1372
+            },
+            "PreSize": {
+              "X": 0.116,
+              "Y": 0.1533
+            },
+            "LeftMargin": 974.8932,
+            "RightMargin": 1288.1068,
+            "TopMargin": -384.9705,
+            "BottomMargin": 1908.9705,
+            "Tag": 6065,
+            "ActionTag": -1537407065,
+            "Size": {
+              "X": 297.0,
+              "Y": 276.0
+            },
+            "Name": "crate_2740_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "miningrailway.plist",
+        "miningrailway.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}
