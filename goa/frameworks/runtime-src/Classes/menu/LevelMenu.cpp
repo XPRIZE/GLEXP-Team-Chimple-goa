@@ -194,7 +194,7 @@ bool LevelMenu::initWithGame(std::string gameName) {
                 star->setPosition(Vec2(300 / 2, 300 * 7 / 8 - 10));
                 but->addChild(star);
                 
-                star = iStar >= 1 ? Sprite::createWithSpriteFrameName("levelstep/star.png") : Sprite::createWithSpriteFrameName("levelstep/star_empty.png");
+                star = iStar >= 3 ? Sprite::createWithSpriteFrameName("levelstep/star.png") : Sprite::createWithSpriteFrameName("levelstep/star_empty.png");
                 star->setScale(0.8);
                 star->setPosition(Vec2(300 * 3 / 4 - 10, 300 * 3 / 4 - 10));
                 but->addChild(star);
