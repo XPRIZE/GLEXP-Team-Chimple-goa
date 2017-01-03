@@ -1149,7 +1149,7 @@ void MenuContext::unlockNextStory() {
 
 void MenuContext::showScore() {
     //compute score
-    Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
+    //Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
 	_menuButton->setEnabled(false);
 	if (_closeButton != nullptr) {
 		_closeButton->setEnabled(false);
