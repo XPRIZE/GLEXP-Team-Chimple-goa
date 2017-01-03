@@ -463,12 +463,20 @@ void ScoreBoardContext::buttonClicked(Ref* pSender, ui::Widget::TouchEventType e
         case ui::Widget::TouchEventType::ENDED:
         {
             if(clickedButton->getName() == "replay") {
-                this->transit();
+                std::size_t isStories = _gameName.find("storyId");
+                if (isStories!=std::string::npos || _gameName == "Show Stories"){
+                    Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));                    
+                } else {
+                    this->transit();
+                }
+                
             }
             else if(clickedButton->getName() == "level") {
                 std::size_t isStories = _gameName.find("storyId");
                 if (isStories!=std::string::npos || _gameName == "Show Stories"){
-                    ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
+                    Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
+
+                    //ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
                 } else if(_gameName == "Safari RPG") {
                     Director::getInstance()->replaceScene(MapScene::createScene());
                 } else {

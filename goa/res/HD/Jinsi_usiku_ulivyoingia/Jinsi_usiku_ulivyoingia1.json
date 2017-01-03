@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 240,
+        "Duration": 420,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "blanket",
         "Timelines": [
           {
             "ActionTag": -1865203583,
@@ -103,6 +103,94 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 711545262,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1167.4778,
+                "Y": 506.0871,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1167.4723,
+                "Y": 506.0851,
+                "FrameIndex": 420,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 711545262,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8278,
+                "Y": 1.0,
+                "FrameIndex": 420,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 711545262,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 360,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 420,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 711545262,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "blanket",
+                "FrameIndex": 360,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -274,6 +362,156 @@
               }
             ],
             "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -783332555,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 409.817,
+                "Y": 409.6011,
+                "FrameIndex": 260,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 409.817,
+                "Y": 409.6011,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -783332555,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.5292,
+                "Y": 0.5292,
+                "FrameIndex": 260,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -783332555,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 260,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 295,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2146478313,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 587.6284,
+                "Y": 407.0892,
+                "FrameIndex": 310,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 587.6284,
+                "Y": 407.0892,
+                "FrameIndex": 345,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2146478313,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.6205,
+                "Y": 0.6205,
+                "FrameIndex": 310,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 345,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2146478313,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 310,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 345,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
           }
         ],
         "ctype": "TimelineActionData"
@@ -281,8 +519,26 @@
       "AnimationList": [
         {
           "StartIndex": 0,
-          "EndIndex": 180,
+          "EndIndex": 240,
           "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 260,
+          "EndIndex": 295,
+          "Name": "smallplant",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 310,
+          "EndIndex": 345,
+          "Name": "bigplant",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 360,
+          "EndIndex": 420,
+          "Name": "blanket",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -342,7 +598,7 @@
             "FileData": {
               "Type": "MarkedSubImage",
               "Path": "jinsi_usiku_ulivyoingia/sun.png",
-              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+              "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -387,7 +643,7 @@
             "FileData": {
               "Type": "MarkedSubImage",
               "Path": "jinsi_usiku_ulivyoingia/hill.png",
-              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+              "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -434,7 +690,7 @@
             "FileData": {
               "Type": "MarkedSubImage",
               "Path": "jinsi_usiku_ulivyoingia/hill.png",
-              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+              "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -498,8 +754,8 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -239.4325,
-              "Y": -0.0829
+              "X": -246.4322,
+              "Y": -0.0827
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -508,17 +764,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0935,
+              "X": -0.0963,
               "Y": 0.0
             },
             "PreSize": {
               "X": 1.2109,
               "Y": 1.0881
             },
-            "LeftMargin": -239.4325,
-            "RightMargin": -300.5674,
-            "TopMargin": -158.507,
-            "BottomMargin": -0.0829,
+            "LeftMargin": -246.4322,
+            "RightMargin": -293.5679,
+            "TopMargin": -158.5071,
+            "BottomMargin": -0.0827,
             "Tag": 9,
             "ActionTag": -33289625,
             "Size": {
@@ -583,7 +839,7 @@
             "FileData": {
               "Type": "MarkedSubImage",
               "Path": "jinsi_usiku_ulivyoingia/stick2.png",
-              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+              "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -629,7 +885,7 @@
             "FileData": {
               "Type": "MarkedSubImage",
               "Path": "jinsi_usiku_ulivyoingia/stick2.png",
-              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+              "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -676,7 +932,7 @@
             "FileData": {
               "Type": "MarkedSubImage",
               "Path": "jinsi_usiku_ulivyoingia/pillow.png",
-              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+              "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -721,7 +977,7 @@
             "FileData": {
               "Type": "MarkedSubImage",
               "Path": "jinsi_usiku_ulivyoingia/soil.png",
-              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+              "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -766,7 +1022,7 @@
             "FileData": {
               "Type": "MarkedSubImage",
               "Path": "jinsi_usiku_ulivyoingia/soil.png",
-              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+              "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -853,19 +1109,18 @@
             "FileData": {
               "Type": "MarkedSubImage",
               "Path": "jinsi_usiku_ulivyoingia/bed.png",
-              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+              "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
             },
             "BlendFunc": {
               "Src": 1,
               "Dst": 771
             },
             "AnchorPoint": {
-              "ScaleX": 0.5,
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1456.5548,
-              "Y": 504.3897
+              "X": 1167.4778,
+              "Y": 506.0871
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -874,18 +1129,20 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.569,
-              "Y": 0.2802
+              "X": 0.456,
+              "Y": 0.2812
             },
             "PreSize": {
               "X": 0.3094,
               "Y": 0.1189
             },
-            "LeftMargin": 1060.5548,
-            "RightMargin": 707.4452,
-            "TopMargin": 1188.6104,
-            "BottomMargin": 397.3897,
+            "LeftMargin": 1167.4778,
+            "RightMargin": 600.5222,
+            "TopMargin": 1186.9128,
+            "BottomMargin": 399.0871,
+            "UserData": "main.blanket",
             "Tag": 16,
+            "FrameEvent": "blanket",
             "ActionTag": 711545262,
             "Size": {
               "X": 792.0,
@@ -897,55 +1154,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "jinsi_usiku_ulivyoingia/sheet.png",
-              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1758.3752,
-              "Y": 904.3304
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "RotationSkewX": 15.3171,
-            "RotationSkewY": 15.307,
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.6869,
-              "Y": 0.5024
-            },
-            "PreSize": {
-              "X": 0.4887,
-              "Y": 0.2206
-            },
-            "LeftMargin": 1132.8752,
-            "RightMargin": 176.1248,
-            "TopMargin": 697.1697,
-            "BottomMargin": 705.8304,
-            "Tag": 13,
-            "ActionTag": -1003009359,
-            "Size": {
-              "X": 1251.0,
-              "Y": 397.0
-            },
-            "Name": "sheet_5",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
               "Path": "jinsi_usiku_ulivyoingia/stick1.png",
-              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+              "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -991,7 +1201,7 @@
             "FileData": {
               "Type": "MarkedSubImage",
               "Path": "jinsi_usiku_ulivyoingia/stick1.png",
-              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+              "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -1045,7 +1255,7 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": -537.937,
+              "X": 400.0,
               "Y": 535.5564
             },
             "Scale": {
@@ -1055,15 +1265,15 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": -0.2101,
+              "X": 0.1563,
               "Y": 0.2975
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -537.937,
-            "RightMargin": 3097.937,
+            "LeftMargin": 400.0,
+            "RightMargin": 2160.0,
             "TopMargin": 1264.4436,
             "BottomMargin": 535.5564,
             "UserData": "hi;drag",
@@ -1080,19 +1290,18 @@
             "FileData": {
               "Type": "MarkedSubImage",
               "Path": "jinsi_usiku_ulivyoingia/plant2.png",
-              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+              "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
             },
             "BlendFunc": {
               "Src": 1,
               "Dst": 771
             },
             "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
+              "ScaleX": 0.535
             },
             "Position": {
-              "X": 403.351,
-              "Y": 499.6011
+              "X": 409.817,
+              "Y": 409.6011
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1101,17 +1310,18 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.1576,
-              "Y": 0.2776
+              "X": 0.1601,
+              "Y": 0.2276
             },
             "PreSize": {
               "X": 0.0723,
               "Y": 0.1
             },
-            "LeftMargin": 310.851,
-            "RightMargin": 2064.1489,
+            "LeftMargin": 310.842,
+            "RightMargin": 2064.158,
             "TopMargin": 1210.3989,
             "BottomMargin": 409.6011,
+            "UserData": "main.smallplant",
             "Tag": 21,
             "ActionTag": -783332555,
             "Size": {
@@ -1125,7 +1335,52 @@
             "FileData": {
               "Type": "MarkedSubImage",
               "Path": "jinsi_usiku_ulivyoingia/plant1.png",
-              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+              "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5
+            },
+            "Position": {
+              "X": 587.6284,
+              "Y": 407.0892
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2295,
+              "Y": 0.2262
+            },
+            "PreSize": {
+              "X": 0.0723,
+              "Y": 0.1317
+            },
+            "LeftMargin": 495.1284,
+            "RightMargin": 1879.8716,
+            "TopMargin": 1155.9108,
+            "BottomMargin": 407.0892,
+            "UserData": "main.bigplant",
+            "Tag": 20,
+            "ActionTag": -2146478313,
+            "Size": {
+              "X": 185.0,
+              "Y": 237.0
+            },
+            "Name": "plant_1_12",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jinsi_usiku_ulivyoingia/sheet.png",
+              "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -1136,34 +1391,36 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 587.6284,
-              "Y": 525.5892
+              "X": 1758.3752,
+              "Y": 904.3304
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
+            "RotationSkewX": 15.3171,
+            "RotationSkewY": 15.307,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.2295,
-              "Y": 0.292
+              "X": 0.6869,
+              "Y": 0.5024
             },
             "PreSize": {
-              "X": 0.0723,
-              "Y": 0.1317
+              "X": 0.4887,
+              "Y": 0.2206
             },
-            "LeftMargin": 495.1284,
-            "RightMargin": 1879.8716,
-            "TopMargin": 1155.9109,
-            "BottomMargin": 407.0892,
-            "Tag": 20,
-            "ActionTag": -2146478313,
+            "LeftMargin": 1132.8752,
+            "RightMargin": 176.1248,
+            "TopMargin": 697.1697,
+            "BottomMargin": 705.8304,
+            "Tag": 13,
+            "ActionTag": -1003009359,
             "Size": {
-              "X": 185.0,
-              "Y": 237.0
+              "X": 1251.0,
+              "Y": 397.0
             },
-            "Name": "plant_1_12",
+            "Name": "sheet_5",
             "ctype": "SpriteObjectData"
           }
         ],
@@ -1177,8 +1434,8 @@
       "UsedResources": [
         "boy.json",
         "farmer.json",
-        "Jinsi_usiku_ulivyoingia.plist",
-        "Jinsi_usiku_ulivyoingia.png"
+        "jinsi_usiku_ulivyoingia.plist",
+        "jinsi_usiku_ulivyoingia.png"
       ],
       "ctype": "GameFileData"
     }
