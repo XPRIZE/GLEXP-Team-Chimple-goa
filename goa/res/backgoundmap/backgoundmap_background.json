@@ -1,0 +1,308 @@
+{
+  "ID": "2a3d4ee9-3153-4b20-97f7-6df87ef29120",
+  "Version": "3.10.0.0",
+  "Name": "backgoundmap_background",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 94,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 63,
+              "G": 54,
+              "B": 85
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.5234,
+              "Y": 1.0
+            },
+            "RightMargin": -1340.0,
+            "Tag": 82,
+            "ActionTag": 1571634467,
+            "Size": {
+              "X": 3900.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "backgoundmap/hill.png",
+              "Plist": "backgoundmap/backgoundmap.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 541.2855,
+              "Y": 649.0001
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2114,
+              "Y": 0.3606
+            },
+            "PreSize": {
+              "X": 0.4223,
+              "Y": 0.4444
+            },
+            "LeftMargin": 0.7855,
+            "RightMargin": 1478.2145,
+            "TopMargin": 750.9999,
+            "BottomMargin": 249.0001,
+            "Tag": 20,
+            "ActionTag": -1243013605,
+            "Size": {
+              "X": 1081.0,
+              "Y": 800.0
+            },
+            "Name": "hill_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 99,
+              "G": 20,
+              "B": 56
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.5234,
+              "Y": 0.15
+            },
+            "RightMargin": -1340.0,
+            "TopMargin": 1530.0,
+            "Tag": 21,
+            "ActionTag": 895666027,
+            "Size": {
+              "X": 3900.0,
+              "Y": 270.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "backgoundmap/hill.png",
+              "Plist": "backgoundmap/backgoundmap.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1691.8413,
+              "Y": 489.0134
+            },
+            "Scale": {
+              "ScaleX": 0.6,
+              "ScaleY": 0.6
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6609,
+              "Y": 0.2717
+            },
+            "PreSize": {
+              "X": 0.4223,
+              "Y": 0.4444
+            },
+            "LeftMargin": 1151.3413,
+            "RightMargin": 327.6587,
+            "TopMargin": 910.9866,
+            "BottomMargin": 89.0134,
+            "Tag": 22,
+            "ActionTag": -695099106,
+            "Size": {
+              "X": 1081.0,
+              "Y": 800.0
+            },
+            "Name": "hill_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "backgoundmap/hill.png",
+              "Plist": "backgoundmap/backgoundmap.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3331.2651,
+              "Y": 649.012
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3013,
+              "Y": 0.3606
+            },
+            "PreSize": {
+              "X": 0.4223,
+              "Y": 0.4444
+            },
+            "LeftMargin": 2790.7651,
+            "RightMargin": -1311.7651,
+            "TopMargin": 750.988,
+            "BottomMargin": 249.012,
+            "Tag": 23,
+            "ActionTag": -283767504,
+            "Size": {
+              "X": 1081.0,
+              "Y": 800.0
+            },
+            "Name": "hill_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "backgoundmap/hill.png",
+              "Plist": "backgoundmap/backgoundmap.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2811.2573,
+              "Y": 649.0059
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0981,
+              "Y": 0.3606
+            },
+            "PreSize": {
+              "X": 0.4223,
+              "Y": 0.4444
+            },
+            "LeftMargin": 2270.7573,
+            "RightMargin": -791.7573,
+            "TopMargin": 750.9941,
+            "BottomMargin": 249.0059,
+            "Tag": 24,
+            "ActionTag": -1941231284,
+            "Size": {
+              "X": 1081.0,
+              "Y": 800.0
+            },
+            "Name": "hill_1_2",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "backgoundmap.plist",
+        "backgoundmap.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

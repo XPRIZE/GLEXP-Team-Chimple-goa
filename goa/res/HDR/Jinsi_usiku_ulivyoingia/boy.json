@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 1250,
         "Speed": 1.0,
-        "ActivedAnimationName": "sleep",
+        "ActivedAnimationName": "run",
         "Timelines": [
           {
             "ActionTag": -1299471080,
@@ -7864,6 +7864,166 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -391590956,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 194.9579,
+                "Y": -0.2562,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 194.9579,
+                "Y": -0.2562,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 194.9579,
+                "Y": -0.2562,
+                "FrameIndex": 54,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 194.9579,
+                "Y": -0.2562,
+                "FrameIndex": 72,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -391590956,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.7082,
+                "Y": 0.7154,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.7082,
+                "Y": 0.7154,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.7082,
+                "Y": 0.7154,
+                "FrameIndex": 54,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.7082,
+                "Y": 0.7154,
+                "FrameIndex": 72,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -391590956,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 90.0,
+                "Y": 90.0,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 90.0,
+                "Y": 90.0,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 90.0,
+                "Y": 90.0,
+                "FrameIndex": 54,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 90.0,
+                "Y": 90.0,
+                "FrameIndex": 72,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -391590956,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "walking",
+                "FrameIndex": 10,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "walking",
+                "FrameIndex": 30,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "walking",
+                "FrameIndex": 54,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "walking",
+                "FrameIndex": 72,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": 1103410760,
             "Property": "Position",
             "Frames": [
@@ -13034,7 +13194,7 @@
             "Length": 400.0,
             "Position": {
               "X": 0.0089,
-              "Y": 256.6854
+              "Y": 246.721
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -13059,8 +13219,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 180.1992,
-                "RotationSkewY": 180.1996,
+                "RotationSkewX": 143.8955,
+                "RotationSkewY": 143.8958,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -13078,6 +13238,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
+                    "RotationSkewX": 87.8853,
+                    "RotationSkewY": 87.8853,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -13095,6 +13257,8 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
+                        "RotationSkewX": 20.7747,
+                        "RotationSkewY": 20.7747,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -13106,7 +13270,7 @@
                             "FileData": {
                               "Type": "MarkedSubImage",
                               "Path": "jinsi_usiku_ulivyoingia/boy_hand.png",
-                              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                              "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
                             },
                             "BlendFunc": {
                               "Src": 1,
@@ -13126,7 +13290,11 @@
                             },
                             "RotationSkewX": -90.2011,
                             "RotationSkewY": -90.1981,
-                            "CColor": {},
+                            "CColor": {
+                              "R": 99,
+                              "G": 67,
+                              "B": 48
+                            },
                             "IconVisible": false,
                             "PrePosition": {
                               "X": 0.0,
@@ -13163,7 +13331,7 @@
                         "FileData": {
                           "Type": "MarkedSubImage",
                           "Path": "jinsi_usiku_ulivyoingia/boy_lower_hand.png",
-                          "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                          "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
                         },
                         "BlendFunc": {
                           "Src": 1,
@@ -13183,7 +13351,11 @@
                         },
                         "RotationSkewX": -90.2033,
                         "RotationSkewY": -90.1967,
-                        "CColor": {},
+                        "CColor": {
+                          "R": 99,
+                          "G": 67,
+                          "B": 48
+                        },
                         "IconVisible": false,
                         "PrePosition": {
                           "X": 0.0,
@@ -13220,7 +13392,7 @@
                     "FileData": {
                       "Type": "MarkedSubImage",
                       "Path": "jinsi_usiku_ulivyoingia/boy_upper_hand.png",
-                      "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                      "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
                     },
                     "BlendFunc": {
                       "Src": 1,
@@ -13240,7 +13412,11 @@
                     },
                     "RotationSkewX": -90.2028,
                     "RotationSkewY": -90.1976,
-                    "CColor": {},
+                    "CColor": {
+                      "R": 99,
+                      "G": 67,
+                      "B": 48
+                    },
                     "IconVisible": false,
                     "PrePosition": {
                       "X": 0.0,
@@ -13267,7 +13443,7 @@
                     "FileData": {
                       "Type": "MarkedSubImage",
                       "Path": "jinsi_usiku_ulivyoingia/motu_shirt_sleave.png",
-                      "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                      "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
                     },
                     "BlendFunc": {
                       "Src": 1,
@@ -13330,8 +13506,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 180.1992,
-                "RotationSkewY": 540.1992,
+                "RotationSkewX": 189.9315,
+                "RotationSkewY": 549.9313,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -13349,7 +13525,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewY": 360.0,
+                    "RotationSkewX": 96.114,
+                    "RotationSkewY": 456.1141,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -13367,7 +13544,8 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewY": 720.0,
+                        "RotationSkewX": 11.4036,
+                        "RotationSkewY": 731.4037,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -13379,7 +13557,7 @@
                             "FileData": {
                               "Type": "MarkedSubImage",
                               "Path": "jinsi_usiku_ulivyoingia/boy_hand.png",
-                              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                              "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
                             },
                             "BlendFunc": {
                               "Src": 1,
@@ -13399,7 +13577,11 @@
                             },
                             "RotationSkewX": -90.2002,
                             "RotationSkewY": -90.1982,
-                            "CColor": {},
+                            "CColor": {
+                              "R": 99,
+                              "G": 67,
+                              "B": 48
+                            },
                             "IconVisible": false,
                             "PrePosition": {
                               "X": 0.0,
@@ -13436,7 +13618,7 @@
                         "FileData": {
                           "Type": "MarkedSubImage",
                           "Path": "jinsi_usiku_ulivyoingia/boy_lower_hand.png",
-                          "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                          "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
                         },
                         "BlendFunc": {
                           "Src": 1,
@@ -13456,7 +13638,11 @@
                         },
                         "RotationSkewX": -90.2026,
                         "RotationSkewY": -90.1968,
-                        "CColor": {},
+                        "CColor": {
+                          "R": 99,
+                          "G": 67,
+                          "B": 48
+                        },
                         "IconVisible": false,
                         "PrePosition": {
                           "X": 0.0,
@@ -13493,7 +13679,7 @@
                     "FileData": {
                       "Type": "MarkedSubImage",
                       "Path": "jinsi_usiku_ulivyoingia/boy_upper_hand.png",
-                      "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                      "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
                     },
                     "BlendFunc": {
                       "Src": 1,
@@ -13513,7 +13699,11 @@
                     },
                     "RotationSkewX": -90.2026,
                     "RotationSkewY": -90.1968,
-                    "CColor": {},
+                    "CColor": {
+                      "R": 99,
+                      "G": 67,
+                      "B": 48
+                    },
                     "IconVisible": false,
                     "PrePosition": {
                       "X": 0.0,
@@ -13540,7 +13730,7 @@
                     "FileData": {
                       "Type": "MarkedSubImage",
                       "Path": "jinsi_usiku_ulivyoingia/motu_shirt_sleave.png",
-                      "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                      "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
                     },
                     "BlendFunc": {
                       "Src": 1,
@@ -13634,8 +13824,8 @@
                       {
                         "Length": 425.0,
                         "Position": {
-                          "X": 40.2756,
-                          "Y": 2.5808
+                          "X": 40.2757,
+                          "Y": 2.5809
                         },
                         "Scale": {
                           "ScaleX": 1.0,
@@ -13681,7 +13871,7 @@
                             "FileData": {
                               "Type": "MarkedSubImage",
                               "Path": "jinsi_usiku_ulivyoingia/boy_curtained_hair.png",
-                              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                              "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
                             },
                             "BlendFunc": {
                               "Src": 1,
@@ -13702,9 +13892,9 @@
                             "RotationSkewX": 89.8921,
                             "RotationSkewY": 89.8946,
                             "CColor": {
-                              "R": 53,
-                              "G": 36,
-                              "B": 21
+                              "R": 0,
+                              "G": 0,
+                              "B": 0
                             },
                             "IconVisible": false,
                             "PrePosition": {
@@ -13732,7 +13922,7 @@
                             "FileData": {
                               "Type": "MarkedSubImage",
                               "Path": "jinsi_usiku_ulivyoingia/boy_ear_round.png",
-                              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                              "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
                             },
                             "BlendFunc": {
                               "Src": 1,
@@ -13753,8 +13943,9 @@
                             "RotationSkewX": 89.8921,
                             "RotationSkewY": 89.8948,
                             "CColor": {
-                              "G": 209,
-                              "B": 177
+                              "R": 99,
+                              "G": 67,
+                              "B": 48
                             },
                             "IconVisible": false,
                             "PrePosition": {
@@ -13811,7 +14002,7 @@
                             "FileData": {
                               "Type": "MarkedSubImage",
                               "Path": "jinsi_usiku_ulivyoingia/mouth_smile.png",
-                              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                              "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
                             },
                             "BlendFunc": {
                               "Src": 1,
@@ -13887,7 +14078,7 @@
                             "FileData": {
                               "Type": "MarkedSubImage",
                               "Path": "jinsi_usiku_ulivyoingia/boy_eyebrow_boy.png",
-                              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                              "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
                             },
                             "BlendFunc": {
                               "Src": 1,
@@ -13908,9 +14099,9 @@
                             "RotationSkewX": -350.9313,
                             "RotationSkewY": 9.2386,
                             "CColor": {
-                              "R": 51,
-                              "G": 35,
-                              "B": 20
+                              "R": 0,
+                              "G": 0,
+                              "B": 0
                             },
                             "IconVisible": false,
                             "PrePosition": {
@@ -13967,7 +14158,7 @@
                             "FileData": {
                               "Type": "MarkedSubImage",
                               "Path": "jinsi_usiku_ulivyoingia/boy_eyebrow_boy.png",
-                              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                              "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
                             },
                             "BlendFunc": {
                               "Src": 1,
@@ -13988,9 +14179,9 @@
                             "RotationSkewX": -190.1091,
                             "RotationSkewY": 169.6911,
                             "CColor": {
-                              "R": 51,
-                              "G": 35,
-                              "B": 20
+                              "R": 0,
+                              "G": 0,
+                              "B": 0
                             },
                             "IconVisible": false,
                             "PrePosition": {
@@ -14028,7 +14219,7 @@
                         "FileData": {
                           "Type": "MarkedSubImage",
                           "Path": "jinsi_usiku_ulivyoingia/boy_face.png",
-                          "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                          "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
                         },
                         "BlendFunc": {
                           "Src": 1,
@@ -14049,8 +14240,9 @@
                         "RotationSkewX": 89.8941,
                         "RotationSkewY": 89.8952,
                         "CColor": {
-                          "G": 208,
-                          "B": 176
+                          "R": 99,
+                          "G": 67,
+                          "B": 48
                         },
                         "IconVisible": false,
                         "PrePosition": {
@@ -14097,7 +14289,7 @@
                             "FileData": {
                               "Type": "MarkedSubImage",
                               "Path": "jinsi_usiku_ulivyoingia/boy_lightbrown.png",
-                              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                              "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
                             },
                             "BlendFunc": {
                               "Src": 770,
@@ -14117,7 +14309,11 @@
                             },
                             "RotationSkewX": 0.5084,
                             "RotationSkewY": 0.5259,
-                            "CColor": {},
+                            "CColor": {
+                              "R": 128,
+                              "G": 96,
+                              "B": 73
+                            },
                             "IconVisible": false,
                             "PrePosition": {
                               "X": 0.0,
@@ -14145,7 +14341,7 @@
                             "FileData": {
                               "Type": "MarkedSubImage",
                               "Path": "jinsi_usiku_ulivyoingia/boy_lightbrown.png",
-                              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                              "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
                             },
                             "BlendFunc": {
                               "Src": 770,
@@ -14165,7 +14361,11 @@
                             },
                             "RotationSkewX": 0.5084,
                             "RotationSkewY": 0.5259,
-                            "CColor": {},
+                            "CColor": {
+                              "R": 128,
+                              "G": 96,
+                              "B": 73
+                            },
                             "IconVisible": false,
                             "PrePosition": {
                               "X": 0.0,
@@ -14202,7 +14402,7 @@
                         "FileData": {
                           "Type": "MarkedSubImage",
                           "Path": "jinsi_usiku_ulivyoingia/boy_nose.png",
-                          "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                          "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
                         },
                         "BlendFunc": {
                           "Src": 1,
@@ -14259,7 +14459,7 @@
                     "FileData": {
                       "Type": "MarkedSubImage",
                       "Path": "jinsi_usiku_ulivyoingia/boy_neck.png",
-                      "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                      "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
                     },
                     "BlendFunc": {
                       "Src": 1,
@@ -14280,8 +14480,9 @@
                     "RotationSkewX": 89.799,
                     "RotationSkewY": 89.8032,
                     "CColor": {
-                      "G": 208,
-                      "B": 177
+                      "R": 99,
+                      "G": 67,
+                      "B": 48
                     },
                     "IconVisible": false,
                     "PrePosition": {
@@ -14319,7 +14520,7 @@
                 "FileData": {
                   "Type": "MarkedSubImage",
                   "Path": "jinsi_usiku_ulivyoingia/motu_shirt.png",
-                  "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                  "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
                 },
                 "BlendFunc": {
                   "Src": 1,
@@ -14376,7 +14577,7 @@
             "Length": 139.0,
             "Position": {
               "X": 0.0089,
-              "Y": 256.6854
+              "Y": 246.721
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -14401,7 +14602,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewY": 360.0,
+                "RotationSkewX": 23.6878,
+                "RotationSkewY": 383.6879,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -14419,6 +14621,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
+                    "RotationSkewX": -11.2358,
+                    "RotationSkewY": -11.2358,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -14436,8 +14640,8 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewX": 90.0,
-                        "RotationSkewY": 90.0,
+                        "RotationSkewX": 102.3588,
+                        "RotationSkewY": 102.3588,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -14449,7 +14653,7 @@
                             "FileData": {
                               "Type": "MarkedSubImage",
                               "Path": "jinsi_usiku_ulivyoingia/motu_shoes_right.png",
-                              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                              "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
                             },
                             "BlendFunc": {
                               "Src": 1,
@@ -14506,7 +14710,7 @@
                         "FileData": {
                           "Type": "MarkedSubImage",
                           "Path": "jinsi_usiku_ulivyoingia/motu_pant_lower_right.png",
-                          "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                          "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
                         },
                         "BlendFunc": {
                           "Src": 1,
@@ -14563,7 +14767,7 @@
                     "FileData": {
                       "Type": "MarkedSubImage",
                       "Path": "jinsi_usiku_ulivyoingia/motu_pant_upper_right.png",
-                      "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                      "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
                     },
                     "BlendFunc": {
                       "Src": 1,
@@ -14626,7 +14830,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewY": 360.0001,
+                "RotationSkewX": -27.6553,
+                "RotationSkewY": 332.3448,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -14644,6 +14849,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
+                    "RotationSkewX": -93.7044,
+                    "RotationSkewY": -93.7044,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -14661,8 +14868,8 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewX": 90.0,
-                        "RotationSkewY": 90.0,
+                        "RotationSkewX": 105.0999,
+                        "RotationSkewY": 105.0999,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -14674,7 +14881,7 @@
                             "FileData": {
                               "Type": "MarkedSubImage",
                               "Path": "jinsi_usiku_ulivyoingia/motu_shoes_left.png",
-                              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                              "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
                             },
                             "BlendFunc": {
                               "Src": 1,
@@ -14731,7 +14938,7 @@
                         "FileData": {
                           "Type": "MarkedSubImage",
                           "Path": "jinsi_usiku_ulivyoingia/motu_pant_lower_left.png",
-                          "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                          "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
                         },
                         "BlendFunc": {
                           "Src": 1,
@@ -14788,7 +14995,7 @@
                     "FileData": {
                       "Type": "MarkedSubImage",
                       "Path": "jinsi_usiku_ulivyoingia/motu_pant_upper_left.png",
-                      "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                      "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
                     },
                     "BlendFunc": {
                       "Src": 1,
@@ -14845,7 +15052,7 @@
                 "FileData": {
                   "Type": "MarkedSubImage",
                   "Path": "jinsi_usiku_ulivyoingia/motu_pant_hip.png",
-                  "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
+                  "Plist": "jinsi_usiku_ulivyoingia/jinsi_usiku_ulivyoingia.plist"
                 },
                 "BlendFunc": {
                   "Src": 1,
@@ -14897,51 +15104,6 @@
             },
             "Name": "hip",
             "ctype": "BoneNodeObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "jinsi_usiku_ulivyoingia/touch.png",
-              "Plist": "jinsi_usiku_ulivyoingia/Jinsi_usiku_ulivyoingia.plist"
-            },
-            "BlendFunc": {
-              "Src": 770,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 38.8528,
-              "Y": 629.6614
-            },
-            "Scale": {
-              "ScaleX": 1.8462,
-              "ScaleY": 3.1712
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "PreSize": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "LeftMargin": -163.1472,
-            "RightMargin": -240.8528,
-            "TopMargin": -831.6614,
-            "BottomMargin": 427.6614,
-            "Tag": 1269,
-            "ActionTag": -939574654,
-            "Size": {
-              "X": 404.0,
-              "Y": 404.0
-            },
-            "Name": "touch",
-            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
@@ -14952,8 +15114,8 @@
         "ctype": "SkeletonNodeObjectData"
       },
       "UsedResources": [
-        "Jinsi_usiku_ulivyoingia.plist",
-        "Jinsi_usiku_ulivyoingia.png"
+        "jinsi_usiku_ulivyoingia.plist",
+        "jinsi_usiku_ulivyoingia.png"
       ],
       "ctype": "GameFileData"
     }

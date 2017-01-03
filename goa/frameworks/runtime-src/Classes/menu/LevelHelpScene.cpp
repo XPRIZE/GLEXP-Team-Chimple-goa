@@ -21,6 +21,7 @@ static const std::string CURRENT_LEVEL = ".currentLevel";
 static const std::string NUMERIC_WRITING = ".numeric";
 static const std::string UPPER_ALPHABET_WRITING = ".upper";
 static const std::string VIDEO_EXT = ".webm";
+static const std::string CONCEPTS_DIR = "concepts/";
 static const int MAX_VIEWS = 3;
 
 Scene *LevelHelpScene::createScene(std::string gameName) {
@@ -105,7 +106,7 @@ bool LevelHelpScene::initWithGame(std::string gameName) {
                     const rapidjson::Value& concepts = helpMap["concepts"];
                     assert(concepts.IsArray());
                     for (rapidjson::SizeType i = 0; i < concepts.Size(); i++) {
-                        std::string concept  = concepts[i].GetString() + VIDEO_EXT;
+                        std::string concept  = CONCEPTS_DIR + concepts[i].GetString() + VIDEO_EXT;
                         _videos.push_back(concept);
                     }
                 }
@@ -114,7 +115,7 @@ bool LevelHelpScene::initWithGame(std::string gameName) {
                     assert(levelConcepts.IsArray());
                     std::string levelConcept;
                     if(videoLevel == _currentLevel && levelConcepts.Size() >= videoLevel) {
-                        levelConcept = levelConcepts[videoLevelIndex].GetString() + VIDEO_EXT;
+                        levelConcept = CONCEPTS_DIR + levelConcepts[videoLevelIndex].GetString() + VIDEO_EXT;
                         _videos.push_back(levelConcept);
                     }
                 }
