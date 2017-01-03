@@ -21,7 +21,6 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
     ctor: function(args) {
     this._super(cc.color(0, 0, 248), cc.director.getVisibleSize().width, cc.director.getVisibleSize().height)
     cc.spriteFrameCache.addSpriteFrames(xc.ConnectTheDotsLayer.res.hand_plist)
-    cc.spriteFrameCache.addSpriteFrames(xc.ConnectTheDotsLayer.res.hand_1_plist)
     this._dotNode = new cc.Node()
     this._dotNode.setPosition(xc.ConnectTheDotsLayer.WHITEBOARD_PADDING, 0)
     var whiteboard = new cc.Sprite(xc.ConnectTheDotsLayer.res.whiteboard_png)
@@ -45,9 +44,10 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
     this._handNode.setPosition(cc.director.getVisibleSize().height + (cc.director.getVisibleSize().width - cc.director.getVisibleSize().height) / 2 + xc.ConnectTheDotsLayer.WHITEBOARD_PADDING / 2, (cc.director.getVisibleSize().width - cc.director.getVisibleSize().height) * 1.5 - xc.ConnectTheDotsLayer.WHITEBOARD_PADDING * 2)
     var handboard = new cc.Sprite(xc.ConnectTheDotsLayer.res.whiteboard_png)
     handboard.setScale((cc.director.getVisibleSize().width - cc.director.getVisibleSize().height - 3 * xc.ConnectTheDotsLayer.WHITEBOARD_PADDING) / xc.ConnectTheDotsLayer.WHITEBOARD_HEIGHT)
+    handboard.setColor(new cc.Color(218, 113, 109))
     this._handNode.addChild(handboard)
     this._hand = new cc.Sprite("#" + xc.DotsLayer.fingerRep[this._targetNum])
-    this._hand.setScale(0.4)
+    this._hand.setScale(0.5)
     this._handNode.addChild(this._hand)
     this.addChild(this._handNode)
 
@@ -136,7 +136,11 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
     pulse.runAction(seq)
   },
   showNum: function(num) {
-    this._num.setString(num.toString())    
+    this._num.setString(num.toString())  
+    var menuContext = this.getParent().menuContext
+    if(menuContext) {
+      menuContext.pronounceWord(xc.DotsLayer.numberToString[num])
+    }
   },
   dotTouched: function(touch, event) {
     switch (event.getEventCode()) {
@@ -207,6 +211,7 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
             this.removeChild(this._help)
             this._help = null
           }
+          cc.AudioEngine.getInstance().playEffect(xc.ConnectTheDotsLayer.res.pop_sound);
           if(++this._score >= 5) {
             var menuContext = this.getParent().menuContext
             menuContext.setMaxPoints(5)
@@ -304,12 +309,11 @@ xc.ConnectTheDotsLayer.WHITEBOARD_HEIGHT = 1640
 xc.ConnectTheDotsLayer.WHITEBOARD_PADDING = 80
 
 xc.ConnectTheDotsLayer.res = {
-  hand_plist: xc.path + "maths/hand-0.plist",
-  hand_png: xc.path + "maths/hand-0.png",
-  hand_1_plist: xc.path + "maths/hand-1.plist",
-  hand_1_png: xc.path + "maths/hand-1.png",
+  hand_plist: xc.path + "maths/hand.plist",
+  hand_png: xc.path + "maths/hand.png",
   graywindow_png: xc.path + "help/graywindow.png",
-  whiteboard_png: xc.path + "help/whiteboard.png"
+  whiteboard_png: xc.path + "help/whiteboard.png",
+  pop_sound: "res/sounds/sfx/pop.ogg"
 }
 
 xc.ConnectTheDotsMenu = xc.LevelMenuLayer.extend({
