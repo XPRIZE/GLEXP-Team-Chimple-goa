@@ -30,7 +30,8 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
     },
 
     initHelp: function() {
-        if(!xc._FILL_IN_THE_BLANKS_HELP_SHOWN)
+        var helpShown = cc.sys.localStorage.getItem("helpShown");
+        if(!xc._FILL_IN_THE_BLANKS_HELP_SHOWN  && helpShown != "true")
         {
             var context = this;
             var correctAnswerNode = this._constructedScene.node.getChildByName(context._correctAnswerNode);
@@ -167,9 +168,9 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
     },
     
     scaleAnimation: function(correctAnswerNode) {
-        var increase = new cc.ScaleTo(0.5, 1.2);
-        var decrease = new cc.ScaleTo(0.5, 1); 
-        var delay = new cc.DelayTime(1);
+        var increase = new cc.ScaleTo(0.3, 1.2);
+        var decrease = new cc.ScaleTo(0.3, 1); 
+        var delay = new cc.DelayTime(0.5);
         var repeatAction = new cc.Repeat(new cc.Sequence(increase, decrease, delay), 3);
         var sequenceAction = new cc.Sequence(repeatAction, new cc.CallFunc(this.resetNumberOfIncorrectAnswered, this));
         correctAnswerNode.runAction(sequenceAction);          
@@ -250,7 +251,7 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
     cleanUpLabel: function(sender) {
         this._label.removeFromParent();
         this._questionNode.setString(this._question.question);
-        var delay = new cc.DelayTime(1);
+        var delay = new cc.DelayTime(0.2);
         var sequenceAction = new cc.Sequence(delay, new cc.CallFunc(this.executeCallBack, this, sender));
         this.runAction(sequenceAction);        
     },

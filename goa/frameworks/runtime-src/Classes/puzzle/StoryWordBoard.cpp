@@ -215,7 +215,8 @@ void StoryWordBoard::gameOver(bool correct) {
             localStorageSetItem("xc.story.currentPoints", MenuContext::to_string(_menuContext->getPoints()));
             localStorageSetItem("xc.story.baseDir", _baseDir);
             localStorageSetItem("xc.story.curStoryId", _storyId);
-            ScriptingCore::getInstance()->runScript("src/start/nativeCopyRightHandler.js");
+            _menuContext->showScore();
+            //ScriptingCore::getInstance()->runScript("src/start/nativeCopyRightHandler.js");
         } else {
             _currentIndex++;
              Director::getInstance()->replaceScene(StoryWordBoard::createSceneWithWords(_storyId, _words, _currentIndex, _baseDir, _menuContext->getMaxPoints(), _menuContext->getPoints()));                        

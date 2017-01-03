@@ -20,8 +20,9 @@ xc.NativeCopyRightHandlerLayer = cc.Layer.extend({
         this.configureCopyRightText();
         
         this.scheduleOnce(function() {
+            cc.sys.localStorage.setItem("notShowParticleAnimation", "true");
             context.getParent()._menuContext.showScore();
-        },1.5);
+        },1.0);
     },
 
     showCopyRight: function() {
