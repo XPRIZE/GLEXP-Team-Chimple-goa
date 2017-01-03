@@ -389,7 +389,7 @@ if(this._level == 1)
      charMove : function()
      {
 
-        var jump = new cc.jumpBy(1,cc.p(this.size.width /4 - (cc.winSize.width * 0.06),230),150,1);
+        var jump = new cc.jumpBy(0.8,cc.p(this.size.width /4 - (cc.winSize.width * 0.06),230),150,1);
         this.char.node.runAction(jump);
 
 
@@ -448,7 +448,7 @@ if(this._level == 1)
         }else{
             x = -1;
         }
-        var jump = new cc.JumpBy(1,cc.p(x * this.size.width /4,300),200,1);
+        var jump = new cc.JumpBy(0.8,cc.p(x * this.size.width /4,300),200,1);
        this.char.node.runAction(cc.sequence( jump, cc.callFunc(this.jumpCallback, this)));//runAction(jump);
        if(this._level <= 10 ) {
        var animation = ccs.load(xc.playLayer.res.char,xc.path);
