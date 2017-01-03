@@ -31,6 +31,7 @@ public:
 	bool _clickFlag = true;
 	cocos2d::EventListenerTouchOneByOne* _listener1;
 	cocos2d::EventListenerTouchOneByOne* _listener2;
+	cocos2d::EventListenerTouchOneByOne* _doneListener;
 	void calculatedResult(std::string result);
 	static const char* gameName() { return ITEM.c_str(); }
 protected:

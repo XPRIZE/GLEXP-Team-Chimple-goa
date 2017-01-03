@@ -510,11 +510,13 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 {
                     
                     if(context._pixelPerfectImages.indexOf("pixelperfect/" + child.FileData.Path) != -1) {
-                        cc.log("filepath 11111 :" + xc.path + "pixelperfect/" + child.FileData.Path);
-                        context._nodeToFileNameMapping[child.Name] = xc.path + "pixelperfect/" + child.FileData.Path;
+                        var fileExists = jsb.fileUtils.isFileExist("pixelperfect/" + child.FileData.Path);
+                        if(fileExists) {
+                            cc.log("filepath 11111 :" + xc.path + "pixelperfect/" + child.FileData.Path);
+                            context._nodeToFileNameMapping[child.Name] = xc.path + "pixelperfect/" + child.FileData.Path;
+                        }                        
                     }                
-                }
-                
+                }                
             });
         }
 
