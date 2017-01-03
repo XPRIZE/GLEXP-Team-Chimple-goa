@@ -294,12 +294,12 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
     cocos2d::ui::Button* clickedButton = dynamic_cast<cocos2d::ui::Button *>(pSender);
     switch (eEventType) {
         case ui::Widget::TouchEventType::BEGAN:
-            addGreyLayer();
             break;
         case ui::Widget::TouchEventType::MOVED:
             break;
         case ui::Widget::TouchEventType::ENDED:
         {            
+            addGreyLayer();
             clickedButton->setEnabled(false);
             nagivateToGame(clickedButton->getName());
             break;
