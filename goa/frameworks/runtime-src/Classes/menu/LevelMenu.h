@@ -20,6 +20,7 @@ public:
     static LevelMenu *create(std::string gameName);
     void scrolled(cocos2d::Ref *target, cocos2d::ui::ScrollView::EventType event);
     void onEnterTransitionDidFinish();
+    void onExitTransitionDidStart() override;
     void startGame(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     
 CC_CONSTRUCTOR_ACCESS:
@@ -27,12 +28,17 @@ CC_CONSTRUCTOR_ACCESS:
     virtual ~LevelMenu();
     virtual bool initWithGame(std::string gameName);
 protected:
+    cocos2d::LayerColor* _greyLayer;
     std::string _gameName;
     MenuContext* _menuContext;
     cocos2d::ParallaxNode *_parallax;
     cocos2d::ui::ScrollView *_scrollView;
     cocos2d::Vec2 _initPos;
     std::map<std::string, std::string> parseGameConfigToMap(std::string gameConfig);
+    
+    void addGreyLayer();
+    bool greyLayerTouched(cocos2d::Touch *touch, cocos2d::Event *event);
+    
 };
 
 #endif /* LevelMenu_h */
