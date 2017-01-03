@@ -145,13 +145,13 @@ bool ScrollableGameMapScene::init() {
 
         _parallax = ParallaxNode::create();
         _parallax->setContentSize(Size(visibleSize.width * 3, visibleSize.height));
-        auto node = CSLoader::createNode("bgmap/bgmap_background.csb");
+        auto node = CSLoader::createNode("backgoundmap/backgoundmap_background.csb");
         _parallax->addChild(node, -4, Vec2(0.2, 0.2), Vec2::ZERO);
-        node = CSLoader::createNode("bgmap/bgmap_mainground.csb");
+        node = CSLoader::createNode("backgoundmap/backgoundmap_mainground.csb");
         _parallax->addChild(node, -3, Vec2(0.4, 0.4), Vec2::ZERO);
-        node = CSLoader::createNode("bgmap/bgmap_foreground.csb");
+        node = CSLoader::createNode("backgoundmap/backgoundmap_foreground.csb");
         _parallax->addChild(node, -2, Vec2(0.6, 0.6), Vec2::ZERO);
-        node = CSLoader::createNode("bgmap/bgmap_frontground.csb");
+        node = CSLoader::createNode("backgoundmap/backgoundmap_frontground.csb");
         _parallax->addChild(node, -1, Vec2(0.8, 0.8), Vec2::ZERO);
         _pageView->addChild(_parallax);
         
