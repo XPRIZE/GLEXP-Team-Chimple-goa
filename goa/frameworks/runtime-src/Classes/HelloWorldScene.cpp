@@ -2089,6 +2089,8 @@ void HelloWorld::update(float dt) {
                 
             } 
         }
+        
+        
     }
     
     this->moveLayersInParallex();
@@ -2332,14 +2334,17 @@ void HelloWorld::HoldOrDragBehaviour(Point position) {
 
     if(this->skeletonCharacter->isJumping || this->skeletonCharacter->isJumpingAttemptedWhileDragging) {
 
-        if(this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y == 0 )
+        
+        if(std::abs(this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y) == 0.0 )
         {
             this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
             this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->resetForces();
             this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(0,0));
             this->skeletonCharacter->isRunning = false;
             this->skeletonCharacter->isWalking = false;
-
+            this->skeletonCharacter->isJumping = false;
+            this->skeletonCharacter->isJumpingAttemptedWhileDragging = false;
+            this->skeletonCharacter->isPlayingContinousRotationWhileJumping = false;
         }
 
         return;
@@ -2547,13 +2552,16 @@ void HelloWorld::HandleTap(Point position)
     
     if(this->skeletonCharacter->isJumping)
     {
-        if(this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y == 0 )
+        if(std::abs(this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y) == 0 )
         {
             this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
             this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->resetForces();
             this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(0,0));
             this->skeletonCharacter->isRunning = false;
             this->skeletonCharacter->isWalking = false;
+            this->skeletonCharacter->isJumping = false;
+            this->skeletonCharacter->isJumpingAttemptedWhileDragging = false;
+            this->skeletonCharacter->isPlayingContinousRotationWhileJumping = false;
 
         }
         
