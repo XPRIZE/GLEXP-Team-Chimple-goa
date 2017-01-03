@@ -62,9 +62,9 @@ void StoryWordBoard::onEnterTransitionDidFinish() {
             bb.origin = _answer->convertToWorldSpace(word->getPosition());
             _helpGraphemeText = _answerGraphemes.at(0);
             auto graphemeRect = _grid->getGraphemeRect(_helpGraphemeText);
-            _helpLayer = HelpLayer::create(graphemeRect, bb);
-            addChild(_helpLayer);
-            _helpLayer->click(graphemeRect.origin);
+//            _helpLayer = HelpLayer::create(graphemeRect, bb);
+//            addChild(_helpLayer);
+//            _helpLayer->click(graphemeRect.origin);
         }
     }
 }
@@ -199,6 +199,8 @@ void StoryWordBoard::checkAnswer() {
 void StoryWordBoard::gameOver(bool correct) {
     if(correct) {
         
+        MenuContext::pronounceWord(_word);
+        
         if(!_anyTimeWrongAlphabetChosen) {
             _menuContext->addPoints(1);
         }
@@ -206,11 +208,6 @@ void StoryWordBoard::gameOver(bool correct) {
         Size visibleSize = Director::getInstance()->getVisibleSize();
         Vec2 origin = Director::getInstance()->getVisibleOrigin();
         
-//        _ps = CCParticleSystemQuad::create("scoreboard/particle_success.plist");
-//        _ps->setTexture(CCTextureCache::sharedTextureCache()->addImage("scoreboard/success_particle.png"));
-//        
-//        _ps->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
-//        this->addChild(_ps, 10);
         
         if(_currentIndex == _words.size() - 1)
         {
@@ -218,24 +215,11 @@ void StoryWordBoard::gameOver(bool correct) {
             localStorageSetItem("xc.story.currentPoints", MenuContext::to_string(_menuContext->getPoints()));
             localStorageSetItem("xc.story.baseDir", _baseDir);
             localStorageSetItem("xc.story.curStoryId", _storyId);
-            ScriptingCore::getInstance()->runScript("src/start/nativeCopyRightHandler.js");
-//            runAction(Sequence::create(DelayTime::create(5.0), CallFunc::create([=] {
-//                this->removeChild(_ps);
-//                _ps = nullptr;
-//                ScriptingCore::getInstance()->runScript("src/start/nativeCopyRightHandler.js");
-//            }), NULL));            
+            _menuContext->showScore();
+            //ScriptingCore::getInstance()->runScript("src/start/nativeCopyRightHandler.js");
         } else {
             _currentIndex++;
-             Director::getInstance()->replaceScene(StoryWordBoard::createSceneWithWords(_storyId, _words, _currentIndex, _baseDir, _menuContext->getMaxPoints(), _menuContext->getPoints()));
-            
-//            runAction(Sequence::create(DelayTime::create(5.0), CallFunc::create([=] {
-//                this->removeChild(_ps);
-//                _ps = nullptr;
-//                CCLOG("_menuContext->getPoints() %d", _menuContext->getPoints());
-//                CCLOG("_menuContext->getMaxPoints() %d", _menuContext->getMaxPoints());
-//                Director::getInstance()->replaceScene(StoryWordBoard::createSceneWithWords(_storyId, _words, _currentIndex, _baseDir, _menuContext->getMaxPoints(), _menuContext->getPoints()));
-//            }), NULL));
-            
+             Director::getInstance()->replaceScene(StoryWordBoard::createSceneWithWords(_storyId, _words, _currentIndex, _baseDir, _menuContext->getMaxPoints(), _menuContext->getPoints()));                        
         }
     }
 }

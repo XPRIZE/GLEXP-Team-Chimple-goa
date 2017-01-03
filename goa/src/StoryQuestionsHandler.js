@@ -80,14 +80,6 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
         }        
     },
 
-    // loadCelebrationNode: function() {
-    //     this._particleSystem  = new cc.ParticleSystem (xc.StoryQuestionHandlerLayer.res.particle_system_plist);
-    //     var texture = cc.textureCache.addImage(xc.StoryQuestionHandlerLayer.res.particle_system_png);
-    //     this._particleSystem.setTexture(texture);
-    //     this._particleSystem.setPosition(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2 + 200);
-    //     this.addChild(this._particleSystem, 10);  
-    // },
-
     wordQuestionHandler: function(questions) {
         if(this._currentQName) {
             var oldQuestionChild = this.getChildByName(this._currentQName);
@@ -107,8 +99,7 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
             var oldQuestionChild = this.getChildByName(this._currentQName);
             if(oldQuestionChild) {
                 oldQuestionChild.removeFromParent();
-            }
-            
+            }            
         }
         var questionType = question["type"];
         if(questionType == this._Q_MULTIPLE_CHOICE) {
@@ -152,7 +143,6 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
     },
 
     finishedSuccessAnimation: function() {
-        //this._particleSystem.setVisible(false);
         if(this._referenceToContext._isAllAnswered) {
             this._referenceToContext.nextQuestion();
         }
@@ -164,7 +154,7 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
         if(this._isAllAnswered) {
             cc.log("play success animation");
             // this.loadCelebrationNode();            
-            var delayAction = new cc.DelayTime(1.0);                        
+            var delayAction = new cc.DelayTime(0.1);                        
             var sequenceAction = new cc.Sequence(delayAction, new cc.CallFunc(this.finishedSuccessAnimation, this));
             this.runAction(sequenceAction);          
         }
@@ -172,21 +162,33 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
 
     nextQuestion: function () {
         if(this._handler) {
-        this._handler.removeFromParent();
-        }        
-        this._currentQuestionIndex++;
+            this._handler.removeFromParent();
+        }
+
+        if(xc._currentQuestionIndex == undefined) {
+            xc._currentQuestionIndex = 0;
+        }                
         this._item.setEnabled(true);
-        if(this._currentQuestionIndex < this._questions.length) {
-            var question = this._questions[this._currentQuestionIndex];
+
+        cc.log('current meny point before transition: ' + this._menuContext.getPoints());
+        cc.sys.localStorage.setItem("xc.story.totalPoints", ""+this._menuContext.getMaxPoints());
+        cc.sys.localStorage.setItem("xc.story.currentPoints", ""+this._menuContext.getPoints());
+
+        if(xc._currentQuestionIndex < this._questions.length) {
+            var question = this._questions[xc._currentQuestionIndex];
             cc.log('question["type"]:' + question["type"]);
             if(question["type"] == "words") {
-                var cIndex = this._currentQuestionIndex;
+                xc._currentQuestionIndex++;
+                var cIndex = xc._currentQuestionIndex;
+                cc.log("cIndex 1111:" + cIndex);
                 var questions = this._questions.filter(function(element, index) {
                     return index >= cIndex;
                 });
-                this.wordQuestionHandler(questions);
+                xc.wordQuestions = questions;
+                xc.StoryQuestionHandlerScene.load(this._storyId, this._storyBaseDir, xc.StoryQuestionHandlerLayer, true);
             } else {
-                this.questionHandler(question);
+                xc._currentQuestionIndex++;
+                xc.StoryQuestionHandlerScene.load(this._storyId, this._storyBaseDir, xc.StoryQuestionHandlerLayer, true);
             }                            
         } else {
             this.showCopyRight();                      
@@ -281,13 +283,18 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
             this._menuContext.setMaxPoints(this._totalPoints);
         }
         //create UI for questions
-        var question = this._questions[this._currentQuestionIndex];
+        var question = this._questions[xc._currentQuestionIndex];
         if(this._handler) {
             this._handler.removeFromParent();
         }
         if(question) {
             if(question["type"] == "words") {
-                this.wordQuestionHandler(this._questions);
+                if(xc.wordQuestions) {
+                    this.wordQuestionHandler(xc.wordQuestions);
+                } else {
+                    this.wordQuestionHandler(this._questions);
+                }
+                
             } else {
                 this.questionHandler(question);
             }
@@ -335,31 +342,31 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
     onExit: function() {        
         this._super();   
         var that = this;
-            that._resources.forEach(function(url) {                
-                if(url.endsWith(".json")) {
-                    cc.log('cleaning url:' + url);
-                    cc.loader.release(url);
-                    delete cc.loader[url];                        
-                };                
-            });
+            // that._resources.forEach(function(url) {                
+            //     if(url.endsWith(".json")) {
+            //         cc.log('cleaning url:' + url);
+            //         cc.loader.release(url);
+            //         delete cc.loader[url];                        
+            //     };                
+            // });
             
-            that._resources.forEach(function(url) {                    
-                if(url.endsWith(".plist")) {
-                    cc.log('cleaning url:' + url);
-                    cc.spriteFrameCache.removeSpriteFramesFromFile(url);
-                    cc.loader.release(url);
-                    delete cc.loader[url];                        
-                };   
+            // that._resources.forEach(function(url) {                    
+            //     if(url.endsWith(".plist")) {
+            //         cc.log('cleaning url:' + url);
+            //         cc.spriteFrameCache.removeSpriteFramesFromFile(url);
+            //         cc.loader.release(url);
+            //         delete cc.loader[url];                        
+            //     };   
 
-                if(url.endsWith(".png")) {
-                    cc.log("removing image: " + url);
-                    cc.textureCache.removeTextureForKey(url);
-                    cc.loader.release(url);
-                    delete cc.loader[url]
-                }                                 
-            });
+            //     if(url.endsWith(".png")) {
+            //         cc.log("removing image: " + url);
+            //         cc.textureCache.removeTextureForKey(url);
+            //         cc.loader.release(url);
+            //         delete cc.loader[url]
+            //     }                                 
+            // });
 
-            that._resources = [];  
+            // that._resources = [];  
     }    
 });
 
@@ -374,7 +381,11 @@ xc.StoryQuestionHandlerScene = cc.Scene.extend({
         if (cc.sys.isNative) {
             this._menuContext = goa.MenuContext.create(this._sceneLayer, storyId);
             this.addChild(this._menuContext, 10);
-            this._menuContext.setVisible(true);
+            this._menuContext.setVisible(true);        
+            cc.log('current meny point at entry transition: ' + this._menuContext.getPoints());
+            var currentPoints = cc.sys.localStorage.getItem("xc.story.currentPoints");
+            this._menuContext.addPoints(currentPoints);
+                
         }                                        
         
         this._sceneLayer.init(this._menuContext);
@@ -398,10 +409,10 @@ xc.StoryQuestionHandlerScene.load = function(storyId, storyBaseDir, layer, enabl
                 xc.storyQuestionConfigurationObject = cc.loader.cache[xc.StoryQuestionHandlerLayer.res.storyQuestionsConfig_json];
             }
 
-            cc.spriteFrameCache.addSpriteFrames(xc.StoryQuestionHandlerLayer.res.particle_system_plist);
-            cc.spriteFrameCache.addSpriteFrames(xc.StoryQuestionHandlerLayer.res.template_plist);
-            cc.spriteFrameCache.addSpriteFrames(xc.StoryQuestionHandlerLayer.res.template_01_plist);                        
-            cc.spriteFrameCache.addSpriteFrames(xc.StoryQuestionHandlerLayer.res.template_02_plist);
+            // cc.spriteFrameCache.addSpriteFrames(xc.StoryQuestionHandlerLayer.res.particle_system_plist);
+            // cc.spriteFrameCache.addSpriteFrames(xc.StoryQuestionHandlerLayer.res.template_plist);
+            // cc.spriteFrameCache.addSpriteFrames(xc.StoryQuestionHandlerLayer.res.template_01_plist);                        
+            // cc.spriteFrameCache.addSpriteFrames(xc.StoryQuestionHandlerLayer.res.template_02_plist);
             var scene = new xc.StoryQuestionHandlerScene(storyId, storyBaseDir, t_resources, layer);
             scene.layerClass = layer;            
             if(enableTransition) {
@@ -419,16 +430,11 @@ xc.StoryQuestionHandlerLayer.res = {
         multi_question_choice_json: xc.path + "template/template.json",
         picture_question_choice_json: xc.path + "template/template_1.json",
         meaning_question_choice_json: xc.path + "template/template_2.json",
-        multi_question_choice_plist: xc.path + "template/template.plist",
-        multi_question_choice_png: xc.path + "template/template.png",
-        celebration_json: xc.path + "template/celebration.json",
-        particle_system_plist: "scoreboard/particle_success.plist",
-        particle_system_png: "scoreboard/success_particle.png",
-        copyright_json: xc.path + "template/copyright.json",
-        template_plist: xc.path + "template/template.plist",
-        template_png: xc.path + "template/template.png",
-        template_01_png: xc.path + "template/template_01/template_01.png",
-        template_01_plist: xc.path + "template/template_01/template_01.plist",
-        template_02_png: xc.path + "template/template_02/template_02.png",
-        template_02_plist: xc.path + "template/template_02/template_02.plist"        
+        copyright_json: xc.path + "template/copyright.json"
+        // template_plist: xc.path + "template/template.plist",
+        // template_png: xc.path + "template/template.png",
+        // template_01_png: xc.path + "template/template_01/template_01.png",
+        // template_01_plist: xc.path + "template/template_01/template_01.plist",
+        // template_02_png: xc.path + "template/template_02/template_02.png",
+        // template_02_plist: xc.path + "template/template_02/template_02.plist"        
 };

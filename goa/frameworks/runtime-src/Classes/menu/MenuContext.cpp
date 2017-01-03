@@ -1146,6 +1146,7 @@ void MenuContext::unlockNextStory() {
     }
 }
 
+
 void MenuContext::showScore() {
     //compute score
     Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
@@ -1226,27 +1227,38 @@ void MenuContext::showScore() {
         localStorageSetItem(gameName + LEVEL, output);
     }
     
+    std::string notShowParticleAnimation;
+    localStorageGetItem("notShowParticleAnimation", &notShowParticleAnimation);
 
-    if(FileUtils::getInstance()->isFileExist("scoreboard/" + gameName + "_success.plist")) {
-        _ps = CCParticleSystemQuad::create("scoreboard/" + gameName + "_success.plist");
-    } else {
-        _ps = CCParticleSystemQuad::create("scoreboard/particle_success.plist");
-    }
-    if(FileUtils::getInstance()->isFileExist("scoreboard/" + gameName + "_particle.png")) {
-        _ps->setTexture(CCTextureCache::sharedTextureCache()->addImage("scoreboard/" + gameName + "_particle.png"));
-    }
-    _ps->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
-    this->addChild(_ps, 10);
-    
-    runAction(Sequence::create(DelayTime::create(5.0), CallFunc::create([=] {
-        this->removeChild(_ps);
-        _ps = nullptr;
+    if(notShowParticleAnimation == "true") {
         _greyLayer->addChild(LayerColor::create(Color4B(128.0, 128.0, 128.0, 200.0), visibleSize.width, visibleSize.height));
-
-       auto scoreNode = ScoreBoardContext::create(stars, this->gameName, this->sceneName, _currentLevel);
-       scoreNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+        
+        auto scoreNode = ScoreBoardContext::create(stars, this->gameName, this->sceneName, _currentLevel);
+        scoreNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
         addChild(scoreNode);
-    }), NULL));
+        
+    } else {
+        if(FileUtils::getInstance()->isFileExist("scoreboard/" + gameName + "_success.plist")) {
+            _ps = CCParticleSystemQuad::create("scoreboard/" + gameName + "_success.plist");
+        } else {
+            _ps = CCParticleSystemQuad::create("scoreboard/particle_success.plist");
+        }
+        if(FileUtils::getInstance()->isFileExist("scoreboard/" + gameName + "_particle.png")) {
+            _ps->setTexture(CCTextureCache::sharedTextureCache()->addImage("scoreboard/" + gameName + "_particle.png"));
+        }
+        _ps->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+        this->addChild(_ps, 10);
+        
+        runAction(Sequence::create(DelayTime::create(5.0), CallFunc::create([=] {
+            this->removeChild(_ps);
+            _ps = nullptr;
+            _greyLayer->addChild(LayerColor::create(Color4B(128.0, 128.0, 128.0, 200.0), visibleSize.width, visibleSize.height));
+            
+            auto scoreNode = ScoreBoardContext::create(stars, this->gameName, this->sceneName, _currentLevel);
+            scoreNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+            addChild(scoreNode);
+        }), NULL));
+    }
 
 }
 

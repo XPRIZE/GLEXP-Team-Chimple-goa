@@ -503,19 +503,22 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
         //rendering info
         var info = cc.loader.getRes(xc.path + contentUrl);
-        cc.log("info ID:" + info.ID);
-        info.Content.Content.ObjectData.Children.forEach(function(child) {
-            if(child && child.FileData && child.FileData.Path && child.ctype === 'SpriteObjectData')
-            {
-                
-                if(context._pixelPerfectImages.indexOf("pixelperfect/" + child.FileData.Path) != -1) {
-                    cc.log("filepath 11111 :" + xc.path + "pixelperfect/" + child.FileData.Path);
-                    context._nodeToFileNameMapping[child.Name] = xc.path + "pixelperfect/" + child.FileData.Path;
+        if(info != undefined && info.Content != undefined && info.Content.Content != undefined && 
+        info.Content.Content.ObjectData.Children != undefined ) {
+            info.Content.Content.ObjectData.Children.forEach(function(child) {
+                if(child && child.FileData && child.FileData.Path && child.ctype === 'SpriteObjectData')
+                {
+                    
+                    if(context._pixelPerfectImages.indexOf("pixelperfect/" + child.FileData.Path) != -1) {
+                        var fileExists = jsb.fileUtils.isFileExist("pixelperfect/" + child.FileData.Path);
+                        if(fileExists) {
+                            cc.log("filepath 11111 :" + xc.path + "pixelperfect/" + child.FileData.Path);
+                            context._nodeToFileNameMapping[child.Name] = xc.path + "pixelperfect/" + child.FileData.Path;
+                        }                        
+                    }                
                 }                
-            }
-            
-        });
-
+            });
+        }
 
         this.processScene(this._constructedScene.node);
         if (this._constructedScene.node) {
@@ -561,14 +564,6 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this.addChild(this._rightButtonPanel);
         this._rightButtonPanel.setVisible(false);
 
-        this._replayButton = new ccui.Button("template/template_02/refersh_button.png", "template/template_02/refersh_button_click.png", "template/template_02/refersh_button_click.png", ccui.Widget.PLIST_TEXTURE);
-        this._replayButton.setPosition(120, cc.director.getWinSize().height - 150);
-        this._replayButton.setAnchorPoint(cc.p(0.5,0.5));
-        this.addChild(this._replayButton, 5);
-        this._replayButton.setVisible(false);
-        this._replayButton.addTouchEventListener(this.replayScene, this);
-
-
         this._showTextAgainButton = new ccui.Button("template/template_02/text_button.png", "template/template_02/text_button_clicked.png", "template/template_02/text_button_clicked.png", ccui.Widget.PLIST_TEXTURE);
         this._showTextAgainButton.setPosition(320, cc.director.getWinSize().height - 150);
         this._showTextAgainButton.setAnchorPoint(cc.p(0.5,0.5));
@@ -586,7 +581,6 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     showTextAgain: function(sender, type) {
         switch (type) {
             case ccui.Widget.TOUCH_ENDED:
-                this._replayButton.setVisible(false);
                 this._showTextAgainButton.setVisible(false);
                 this._rightButtonPanel.setVisible(false);
                 this._leftButtonPanel.setVisible(false);
@@ -595,18 +589,17 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         }        
     },
 
-    replayScene: function(sender, type) {
-        switch (type) {
-            case ccui.Widget.TOUCH_ENDED:
-                this.setUpSceneForReplay();                
-                this._replayButton.setVisible(false);
-                this._showTextAgainButton.setVisible(false);
-                this._rightButtonPanel.setVisible(false);
-                this._leftButtonPanel.setVisible(false);            
-                this.sceneTouched();                 
-                break;
-        }        
-    },
+    // replayScene: function(sender, type) {
+    //     switch (type) {
+    //         case ccui.Widget.TOUCH_ENDED:
+    //             this.setUpSceneForReplay();                
+    //             this._showTextAgainButton.setVisible(false);
+    //             this._rightButtonPanel.setVisible(false);
+    //             this._leftButtonPanel.setVisible(false);            
+    //             this.sceneTouched();                 
+    //             break;
+    //     }        
+    // },
 
     pronounceWord:function() {
         var textField = this._wordBoard.node.getChildByName("TextField_1");
@@ -983,13 +976,28 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         var curIndex = this._pageIndex; 
         curIndex++;
         var storyId = this._storyInformation["storyId"];
+        xc._currentQuestionIndex = 0;
         if (curIndex >= pages.length) {
             this._storyEnded = true;
-            xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
-            return;
+            xc._currentQuestionIndex = 0;
+            var langDir = goa.TextGenerator.getInstance().getLang();
+            cc.log("langDir:" + langDir);
+            var storyText = "";
+            var that = this;
+            var questionFileUrl =  "res/story" + "/" + langDir + "/" + this._baseDir + ".questions.json";
+            cc.log('questionFileUrl:' + questionFileUrl);
+
+            if(cc.sys.isNative) {
+                var fileExists = jsb.fileUtils.isFileExist(questionFileUrl);
+                if(fileExists) {
+                    xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
+                } else {
+                    this._menuContext.showScore();
+                }
+            }             
+        } else {
+            xc.NarrateStoryScene.load(curIndex, this._storyInformation, xc.NarrateStoryLayer, true);
         }
-        xc.NarrateStoryScene.load(curIndex, this._storyInformation, xc.NarrateStoryLayer, true);
-        // xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
     },
 
     rePlayEnded: function() {
@@ -1075,7 +1083,6 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this._referenceToContext._wordBoard.node.setVisible(true);
         this._referenceToContext.renderNextButton();
         this._referenceToContext.renderPreviousButton();       
-        this._replayButton.setVisible(false);
         this._showTextAgainButton.setVisible(true);                                                               
                  
         
@@ -1250,9 +1257,9 @@ xc.NarrateStoryScene.load = function(pageIndex, storyInformation, layer, enableT
                     
 
                     cc.LoaderScene.preload(t_resources, function () {
-                        cc.spriteFrameCache.addSpriteFrames(xc.NarrateStoryLayer.res.template_plist);
-                        cc.spriteFrameCache.addSpriteFrames(xc.NarrateStoryLayer.res.template_01_plist);
-                        cc.spriteFrameCache.addSpriteFrames(xc.NarrateStoryLayer.res.template_02_plist);    
+                        // cc.spriteFrameCache.addSpriteFrames(xc.NarrateStoryLayer.res.template_plist);
+                        // cc.spriteFrameCache.addSpriteFrames(xc.NarrateStoryLayer.res.template_01_plist);
+                        // cc.spriteFrameCache.addSpriteFrames(xc.NarrateStoryLayer.res.template_02_plist);    
                         //config data
                         if(cc.sys.isNative) {
                             xc.onlyStoryNarrateConfigurationObject = cc.loader.getRes(xc.NarrateStoryLayer.res.OnlyStoryPlayConfig_json);                         
@@ -1281,11 +1288,11 @@ xc.NarrateStoryLayer.res = {
         wordBubble_json: xc.path + "template/hang_bubble.json",        
         correctAnswerSound_json: "res/sounds/sfx/success.ogg",
         wrongAnswerSound_json: "res/sounds/sfx/error.ogg",
-        pixelPerfectConfig_json: xc.path + "misc/pixelPerfectConfig.json",
-        template_plist: xc.path + "template/template.plist",
-        template_png: xc.path + "template/template.png",
-        template_01_png: xc.path + "template/template_01/template_01.png",
-        template_01_plist: xc.path + "template/template_01/template_01.plist",
-        template_02_png: xc.path + "template/template_02/template_02.png",
-        template_02_plist: xc.path + "template/template_02/template_02.plist",
+        pixelPerfectConfig_json: xc.path + "misc/pixelPerfectConfig.json"
+        // template_plist: xc.path + "template/template.plist",
+        // template_png: xc.path + "template/template.png",
+        // template_01_png: xc.path + "template/template_01/template_01.png",
+        // template_01_plist: xc.path + "template/template_01/template_01.plist",
+        // template_02_png: xc.path + "template/template_02/template_02.png",
+        // template_02_plist: xc.path + "template/template_02/template_02.plist",
 };
