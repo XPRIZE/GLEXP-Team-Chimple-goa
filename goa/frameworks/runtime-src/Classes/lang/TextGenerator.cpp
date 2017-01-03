@@ -433,7 +433,7 @@ std::vector<std::string> TextGenerator::getOrderedConcepts(int level) {
 			{ "K","L","M","N","O","P","R","S","T" }
 			},
 			{ 3,
-			{ "Q","R","S","T","U","V","W","Y","Z" }
+			{ "R","S","T","U","V","W","Y","Z" }
 			},
 			{ 4,
 			{ "A == a","B == b","C == c","D == d","E == e","F == f","G == g","H == h","I == i","J == j" }
