@@ -632,9 +632,8 @@ bool MemoryJungle::onTouchBegan(Touch* touch, Event* event) {
 								_menuContext->showAnswer("wordPairs", _hint);
 							});
 
-							auto completeSequence = Sequence::create(createMatchLayer, DelayTime::create(0), showScore, NULL);
 
-							this->runAction(completeSequence);
+							this->runAction(showScore);
 						}
 						});
                     
