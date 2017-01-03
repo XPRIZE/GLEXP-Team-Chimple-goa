@@ -17,6 +17,7 @@
 #include "external/json/document.h"
 
 
+#define ANIMATION_FILE "template/loading_screen.csb"
 #define ICON_FOLDER "gameicons"
 #define NUMBER_OF_BUTTONS_ROWS 4
 #define NUMBER_OF_BUTTONS_COLS 5
@@ -45,6 +46,7 @@ protected:
     MenuContext* menuContext;
     cocos2d::ParallaxNode *_parallax;
     map_type mymap;
+    cocos2d::Node* _loadingNode;
     void gameSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     std::vector<std::string> split(std::string s, char delim);
     std::string static parseGameConfig(std::string gameConfig);

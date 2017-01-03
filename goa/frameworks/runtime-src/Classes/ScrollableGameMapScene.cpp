@@ -108,6 +108,13 @@ bool ScrollableGameMapScene::init() {
     
     std::string contents = FileUtils::getInstance()->getStringFromFile("config/game_map.json");
     
+    _loadingNode = CSLoader::createNode(ANIMATION_FILE);
+    this->addChild(_loadingNode, 2);
+    _loadingNode->setPosition(Vec2(visibleSize.width/2, visibleSize.height/2));
+    _loadingNode->setAnchorPoint(Vec2(0.5,0.5));
+    _loadingNode->setVisible(false);
+
+    
     rapidjson::Document d;
     
     if (false == d.Parse<0>(contents.c_str()).HasParseError()) {
@@ -252,11 +259,12 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
     cocos2d::ui::Button* clickedButton = dynamic_cast<cocos2d::ui::Button *>(pSender);
     switch (eEventType) {
         case ui::Widget::TouchEventType::BEGAN:
+            _loadingNode->setVisible(true);
             break;
         case ui::Widget::TouchEventType::MOVED:
             break;
         case ui::Widget::TouchEventType::ENDED:
-        {
+        {            
             clickedButton->setEnabled(false);
             nagivateToGame(clickedButton->getName());
             break;

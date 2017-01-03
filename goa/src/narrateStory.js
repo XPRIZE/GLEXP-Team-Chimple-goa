@@ -990,12 +990,14 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             if(cc.sys.isNative) {
                 var fileExists = jsb.fileUtils.isFileExist(questionFileUrl);
                 if(fileExists) {
+                    cc.sys.localStorage.removeItem("xc.story.currentPoints");
                     xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
                 } else {
                     this._menuContext.showScore();
                 }
             }             
-        } else {
+        } else {            
+            cc.sys.localStorage.removeItem("xc.story.currentPoints");
             xc.NarrateStoryScene.load(curIndex, this._storyInformation, xc.NarrateStoryLayer, true);
         }
     },
