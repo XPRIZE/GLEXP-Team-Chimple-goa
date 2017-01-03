@@ -144,7 +144,85 @@ void Shape::onEnterTransitionDidFinish()
 
 		{ 1,
 		{
-            { 0, LangUtil::getInstance()->translateString("circle") },
+            { 0, "circle" },
+			{ 1, "diamond" }
+		} },
+		{ 2,
+		{
+			{ 0, "pentagon" },
+			{ 1, "square" },
+		} },
+
+		{ 3,
+		{
+			{ 0, "Hexagon" },
+			{ 1, "Octagon" },
+			{ 2, "circle" },
+		} },
+		{ 4,
+		{
+			{ 0, "Rectangle" },
+			{ 1, "cross" },
+			{ 2, "pentagon" },
+		} },
+
+		{ 5,
+		{
+			{ 0, "heart" },
+			{ 1, "oval" },
+			{ 2, "pentagon" },
+			{ 3, "Hexagon" },
+		} },
+		{ 6,
+		{
+			{ 0, "star" },
+			{ 1, "triangle" },
+			{ 2, "cross" },
+			{ 3, "heart" },
+		} },
+
+		{ 7,
+		{
+			{ 0, "Rectangle" },
+			{ 1, "Octagon" },
+			{ 2, "square" },
+			{ 3, "diamond" },
+			{ 4, "circle" },
+		} },
+		{ 8,
+		{
+			{ 0, "heart" },
+			{ 1, "oval" },
+			{ 2, "pentagon" },
+			{ 3, "Hexagon" },
+			{ 4, "star" },
+		} },
+
+		{ 9,
+		{
+			{ 0, "Hexagon" },
+			{ 1, "heart" },
+			{ 2, "square" },
+			{ 3, "oval" },
+			{ 4, "star" },
+			{ 5, "diamond" },
+		} },
+		{ 10,
+		{
+			{ 0, "pentagon" },
+			{ 1, "oval" },
+			{ 2, "Rectangle" },
+			{ 3, "Hexagon" },
+			{ 4, "circle" },
+			{ 5, "star" },
+		} },
+	};
+
+	_shapeNameInLanguage = {
+
+		{ 1,
+		{
+			{ 0, LangUtil::getInstance()->translateString("circle") },
 			{ 1, LangUtil::getInstance()->translateString("diamond") }
 		} },
 		{ 2,
@@ -293,7 +371,7 @@ void Shape::onEnterTransitionDidFinish()
 		RealSpriteDetails._yp = RealSpriteDetails._sprite->getPositionY();
 		this->addChild(RealSpriteDetails._sprite, 2);
 
-		std::string _shapeName = _differntSceneMapping.at(_level).at(i);
+		std::string _shapeName = _shapeNameInLanguage.at(_level).at(i);
 		std::transform(_shapeName.begin(), _shapeName.end(), _shapeName.begin(), ::toupper);
 		RealSpriteDetails._name = _shapeName;
 		_realSpriteDetails.push_back(RealSpriteDetails);
@@ -361,7 +439,7 @@ void Shape::createTrans()
 			this->addChild(TransSpriteDetails._sprite);
 			_position.erase(_position.begin() + _ind);
 
-			std::string _shapeName = _differntSceneMapping.at(_level).at(_randNumber);
+			std::string _shapeName = _shapeNameInLanguage.at(_level).at(_randNumber);
 			std::transform(_shapeName.begin(), _shapeName.end(), _shapeName.begin(), ::toupper);
 			TransSpriteDetails._name = _shapeName;
 			_transSpriteDetails.push_back(TransSpriteDetails);

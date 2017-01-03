@@ -36,6 +36,7 @@ public:
 	cocos2d::Label *_shapeName;
 
 	std::map<int, std::map<int, std::string>> _differntSceneMapping;
+	std::map<int, std::map<int, std::string>> _shapeNameInLanguage;
 	std::map<int, std::map<int, float>> _differntPosition;
 
 	struct SpriteDetails
