@@ -962,16 +962,112 @@
   "memory": [
     {
       "levels": [
-        1
+        1,2,7,8,13,14,19,20,25,26,31,32
       ],
-      "help": "Match the same words to form a pair.",
+      "concepts": [
+        "antonym"
+      ],
+      "help": "Match the opposites words to form a pair.",
+      "video": "memory_1.webm"
+    },
+    {
+      "levels": [
+        3,4,9,10,15,16,21,22,27,28,33,34
+      ],
+      "concepts": [
+        "synonym"
+      ],
+      "help": "Match the same meaning words to form a pair.",
+      "video": "memory_1.webm"
+    },
+    {
+      "levels": [       
+        5,6,11,12,17,18,23,24,29,30,35,36
+      ],
+      "concepts": [
+        "homonym"
+      ],
+      "help": "Match the same sounding words to form a pair.",
       "video": "memory_1.webm"
     }
   ],
   "balloon": [
     {
       "levels": [
-        1
+        1,2,3,4,5,6,7,8,66,68
+      ],
+      "concepts": [
+        "noun"
+      ],
+      "help": "Catch the words of the given type to make the pilot fly up. Avoid the rocks.",
+      "video": "balloon_1.webm"
+    },
+    {
+      "levels": [
+        9,10,11,12,13,14,15,16
+      ],
+      "concepts": [
+        "adjective"
+      ],
+      "help": "Catch the words of the given type to make the pilot fly up. Avoid the rocks.",
+      "video": "balloon_1.webm"
+    },
+    {
+      "levels": [
+        17,18,19,20,21,22,23,24
+      ],
+      "concepts": [
+        "verb"
+      ],
+      "help": "Catch the words of the given type to make the pilot fly up. Avoid the rocks.",
+      "video": "balloon_1.webm"
+    },
+    {
+      "levels": [
+        25,26,27,28,29,30,31,32,72
+      ],
+      "concepts": [
+        "pronoun"
+      ],
+      "help": "Catch the words of the given type to make the pilot fly up. Avoid the rocks.",
+      "video": "balloon_1.webm"
+    },
+    {
+      "levels": [
+        33,34,35,36,37,38,39,40,67
+      ],
+      "concepts": [
+        "adverb"
+      ],
+      "help": "Catch the words of the given type to make the pilot fly up. Avoid the rocks.",
+      "video": "balloon_1.webm"
+    },
+    {
+      "levels": [
+        41,42,43,44,45,46,47,48,69
+      ],
+      "concepts": [
+        "preposition"
+      ],
+      "help": "Catch the words of the given type to make the pilot fly up. Avoid the rocks.",
+      "video": "balloon_1.webm"
+    },
+    {
+      "levels": [
+        49,50,51,52,53,54,55,56,70
+      ],
+      "concepts": [
+        "conjunction"
+      ],
+      "help": "Catch the words of the given type to make the pilot fly up. Avoid the rocks.",
+      "video": "balloon_1.webm"
+    },
+    {
+      "levels": [
+        55,56,57,58,59,60,61,62,63,64,65,71
+      ],
+      "concepts": [
+        "interjection"
       ],
       "help": "Catch the words of the given type to make the pilot fly up. Avoid the rocks.",
       "video": "balloon_1.webm"
