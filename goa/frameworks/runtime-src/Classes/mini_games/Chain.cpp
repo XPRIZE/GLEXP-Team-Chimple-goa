@@ -26,7 +26,7 @@ Scene* Chain::createScene()
 }
 Chain::~Chain(void)
 {
-
+	this->removeAllChildrenWithCleanup(true);
 }
 Chain::Chain(void)
 {
@@ -41,7 +41,6 @@ GraphemeGrid* Chain::createGraphemeGrid(GLfloat width, GLfloat height, int numRo
 Node* Chain::loadNode() {
 	std::string chainSceneType[] = { "monkey","elephant","flamingo" };
 	Chain::_SS = chainSceneType[RandomHelper::random_int(0, 2)];
-	//Chain::_SS = "monkey";
 	if (!Chain::_SS.compare("monkey"))
 	{
 		_node = CSLoader::createNode("chain/chain.csb");
@@ -201,7 +200,7 @@ void Chain::gameOver(bool correct)
 		_grid->touchEndedCallback = nullptr;
 		if (!Chain::_SS.compare("monkey"))
 		{
-			Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
+			//Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
 					auto callShowScore = CCCallFunc::create([=] {
 						_menuContext->showScore();
 					});
@@ -219,7 +218,7 @@ void Chain::gameOver(bool correct)
 		}
 		else if (!Chain::_SS.compare("elephant"))
 		{
-			Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
+			//Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
 					auto callShowScore = CCCallFunc::create([=]
 					{
 						_menuContext->showScore();
@@ -237,18 +236,20 @@ void Chain::gameOver(bool correct)
 		}
 		else if (!Chain::_SS.compare("flamingo"))
 		{
-			Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
+			//Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
 					auto callShowScore = CCCallFunc::create([=]
 					{
-						
 						_menuContext->showScore();
-						_choice->removeAllChildrenWithCleanup(true);
+					//	_choice->removeAllChildrenWithCleanup(true);
 					});
 					auto flamingoAnimation = CCCallFunc::create([=] {
 
 						for (std::size_t i = 0; i < _flamContainer.size(); i++)
 						{
-							_answerVector.at(i).second->setVisible(false);
+							//_isEnabled = true;
+							//this->removeChild(_answerVector.at(i).second);
+							//_answerVector.at(i).second->setVisible(false);
+							_answerVector.at(i).second->removeFromParent();
 							cocostudio::timeline::ActionTimeline *timeline = CSLoader::createTimeline("chain/flemingo.csb");
 							_flamContainer[i]->runAction(timeline);
 							timeline->play("flamingo", true);
