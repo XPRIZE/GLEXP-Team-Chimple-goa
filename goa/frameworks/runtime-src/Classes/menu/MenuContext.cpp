@@ -1029,6 +1029,10 @@ void MenuContext::launchGameFinally(std::string gameName) {
 		}
         else if (gameName == MAP) {
             Director::getInstance()->replaceScene(MapScene::createScene());
+        }    
+        else if(gameName == MININGBG || gameName == CAMP || gameName == FARMHOUSE || gameName == CITY1 || gameName == CITY2 || gameName == CITY3 || gameName == CITY4 || gameName == CITY5) {
+            Director::getInstance()->replaceScene(TransitionFade::create(0.5, HelloWorld::createScene(gameName.c_str(),"", true), Color3B::BLACK));
+            
         }
 		else{
             CCLOG("Failed starting scene: %s", gameName.c_str());
