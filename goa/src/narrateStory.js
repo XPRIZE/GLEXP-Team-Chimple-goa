@@ -503,19 +503,20 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
         //rendering info
         var info = cc.loader.getRes(xc.path + contentUrl);
-        cc.log("info ID:" + info.ID);
-        info.Content.Content.ObjectData.Children.forEach(function(child) {
-            if(child && child.FileData && child.FileData.Path && child.ctype === 'SpriteObjectData')
-            {
+        if(info != undefined && info.Content != undefined && info.Content.Content != undefined && 
+        info.Content.Content.ObjectData.Children != undefined ) {
+            info.Content.Content.ObjectData.Children.forEach(function(child) {
+                if(child && child.FileData && child.FileData.Path && child.ctype === 'SpriteObjectData')
+                {
+                    
+                    if(context._pixelPerfectImages.indexOf("pixelperfect/" + child.FileData.Path) != -1) {
+                        cc.log("filepath 11111 :" + xc.path + "pixelperfect/" + child.FileData.Path);
+                        context._nodeToFileNameMapping[child.Name] = xc.path + "pixelperfect/" + child.FileData.Path;
+                    }                
+                }
                 
-                if(context._pixelPerfectImages.indexOf("pixelperfect/" + child.FileData.Path) != -1) {
-                    cc.log("filepath 11111 :" + xc.path + "pixelperfect/" + child.FileData.Path);
-                    context._nodeToFileNameMapping[child.Name] = xc.path + "pixelperfect/" + child.FileData.Path;
-                }                
-            }
-            
-        });
-
+            });
+        }
 
         this.processScene(this._constructedScene.node);
         if (this._constructedScene.node) {
