@@ -1,2 +1,2 @@
 var xc = xc || {};
-xc.GameScene.load(xc.ConnectTheDotsMenu);
+xc.GameScene.load(xc.ConnectTheDotsLayer);

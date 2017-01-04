@@ -128,7 +128,7 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
         //load content
         if(this._storyInformation != undefined && this._storyInformation.hasOwnProperty("pages") && this._storyInformation["pages"] != undefined && this._storyInformation["pages"].length > 0) {
             cc.log('loading story:' + this._storyInformation["pages"][0]);
-            xc.NarrateStoryScene.load(0, this._storyInformation, xc.NarrateStoryLayer);
+            xc.SceenTransitionScene.load(0, this._storyInformation, xc.SceenTransitionLayer);
         }
     },
 
@@ -269,8 +269,8 @@ xc.StoryCoverPageScene.load = function(pageIndex, storyInformation, layer, enabl
 }
 
 xc.StoryCoverPageLayer.res = {
-    play_png: xc.path + "wikitaki/play.png",
-    textBubble_json: xc.path + "template/bubble_tem_01.json",
+        play_png: xc.path + "wikitaki/play.png",
+        textBubble_json: xc.path + "template/bubble_tem_01.json",
         template_plist: xc.path + "template/template.plist",
         template_png: xc.path + "template/template.png",
         template_01_png: xc.path + "template/template_01/template_01.png",

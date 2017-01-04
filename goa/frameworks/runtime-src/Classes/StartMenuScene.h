@@ -75,6 +75,13 @@ static const std::string CONNECT_THE_DOTS = "ConnectTheDots";
 static const std::string BOUNCE = "Bounce";
 static const std::string MAZE = "Maze";
 static const std::string MAP = "map";
+static const std::string MININGBG = "miningbg";
+static const std::string FARMHOUSE = "farm_house";
+static const std::string CITY1 = "city1";
+static const std::string CITY2 = "city2";
+static const std::string CITY3 = "city3";
+static const std::string CITY4 = "city4";
+static const std::string CITY5 = "city5";
 
 class StartMenu {
 public:

@@ -63,7 +63,7 @@ std::map<std::string, std::string> LevelMenu::parseGameConfigToMap(std::string g
 }
 
 
-LevelMenu::LevelMenu() {
+LevelMenu::LevelMenu():_greyLayer(NULL) {
     
 }
 
@@ -239,9 +239,52 @@ void LevelMenu::onEnterTransitionDidFinish() {
 
 void LevelMenu::startGame(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
+        addGreyLayer();
         auto but = static_cast<ui::Button *>(pSender);
         auto level = but->getName();
         localStorageSetItem(_gameName + ".currentLevel", level);
         MenuContext::launchGameFromJS(_gameName);
     }
+}
+
+
+
+void LevelMenu::addGreyLayer() {
+    if(!_greyLayer) {
+        //later customize and add image
+        Size visibleSize = Director::getInstance()->getVisibleSize();
+        _greyLayer = LayerGradient::create(Color4B(255, 255, 100, 255), Color4B(255, 255, 255, 255));
+        _greyLayer->setOpacity(100);
+        _greyLayer->setContentSize(visibleSize);
+        addChild(_greyLayer, 3);
+        
+        Sprite* loadingIcon = Sprite::create("loading_image.png");
+        if(loadingIcon != NULL) {
+            loadingIcon->setPositionX(visibleSize.width/2);
+            loadingIcon->setPositionY(visibleSize.height/2);
+            _greyLayer->addChild(loadingIcon,1);
+        }
+        
+        auto _listener = EventListenerTouchOneByOne::create();
+        _listener->setSwallowTouches(true);
+        _listener->onTouchBegan = CC_CALLBACK_2(LevelMenu::greyLayerTouched, this);
+        _eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, _greyLayer);
+        
+    }
+}
+
+
+bool LevelMenu::greyLayerTouched(Touch *touch, Event *event)
+{
+    return true;
+}
+
+
+void LevelMenu::onExitTransitionDidStart() {
+    Node::onExitTransitionDidStart();
+    CCLOG("LevelMenu::onExitTransitionDidStart");
+    if(_greyLayer != NULL) {
+        Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(_greyLayer);
+    }
+    
 }

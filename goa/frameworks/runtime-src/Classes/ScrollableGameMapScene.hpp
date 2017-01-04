@@ -34,6 +34,8 @@ public:
     void static nagivateToGame(std::string gameName);
     static std::vector<std::string> getTopBarGames();
     static void pushTopBarGame(std::string game);
+    
+    void onExitTransitionDidStart() override;
 
 CC_CONSTRUCTOR_ACCESS:
     virtual bool init();
@@ -41,17 +43,20 @@ CC_CONSTRUCTOR_ACCESS:
     virtual ~ScrollableGameMapScene();
 
 protected:
-    cocos2d::Layer* _layer;
+    std::string _gameNameToNavigate;
+    cocos2d::LayerColor* _greyLayer;
     cocos2d::ui::PageView* _pageView;
     MenuContext* menuContext;
     cocos2d::ParallaxNode *_parallax;
     map_type mymap;
-    cocos2d::Node* _loadingNode;
     void gameSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     std::vector<std::string> split(std::string s, char delim);
     std::string static parseGameConfig(std::string gameConfig);
     std::map<std::string, std::string> static parseGameConfigToMap(std::string gameConfig);
     cocos2d::ui::Button* createButton(const rapidjson::Value& gameJson);
+    void addGreyLayer();
+    bool greyLayerTouched(cocos2d::Touch *touch, cocos2d::Event *event);
+    void transition(float dt);
 };
 
 #endif /* ScrollableGameMapScene_hpp */

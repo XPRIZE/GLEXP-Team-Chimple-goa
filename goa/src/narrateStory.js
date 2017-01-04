@@ -510,11 +510,13 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 {
                     
                     if(context._pixelPerfectImages.indexOf("pixelperfect/" + child.FileData.Path) != -1) {
-                        var fileExists = jsb.fileUtils.isFileExist("pixelperfect/" + child.FileData.Path);
-                        if(fileExists) {
-                            cc.log("filepath 11111 :" + xc.path + "pixelperfect/" + child.FileData.Path);
-                            context._nodeToFileNameMapping[child.Name] = xc.path + "pixelperfect/" + child.FileData.Path;
-                        }                        
+                        if(cc.sys.isNative) {
+                            var fileExists = jsb.fileUtils.isFileExist("pixelperfect/" + child.FileData.Path);
+                            if(fileExists) {
+                                cc.log("filepath 11111 :" + xc.path + "pixelperfect/" + child.FileData.Path);
+                                context._nodeToFileNameMapping[child.Name] = xc.path + "pixelperfect/" + child.FileData.Path;
+                            }                        
+                        }
                     }                
                 }                
             });
@@ -962,6 +964,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     },
 
     previousStory: function () {
+        this._leftButtonPanel.setVisible(true);
         var pages = this._storyInformation["pages"];
         var curIndex = this._pageIndex;
         curIndex--;
@@ -972,6 +975,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     },
 
     nextStory: function () {        
+        this._rightButtonPanel.setVisible(true);
         var pages = this._storyInformation["pages"];
         var curIndex = this._pageIndex; 
         curIndex++;
@@ -991,14 +995,17 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 var fileExists = jsb.fileUtils.isFileExist(questionFileUrl);
                 if(fileExists) {
                     cc.sys.localStorage.removeItem("xc.story.currentPoints");
-                    xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
+                    //xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
+                    xc.StoryQuestionTransitionScene.load(storyId, this._baseDir, xc.StoryQuestionTransitionLayer);
                 } else {
                     this._menuContext.showScore();
                 }
             }             
         } else {            
             cc.sys.localStorage.removeItem("xc.story.currentPoints");
-            xc.NarrateStoryScene.load(curIndex, this._storyInformation, xc.NarrateStoryLayer, true);
+            // xc.NarrateStoryScene.load(curIndex, this._storyInformation, xc.NarrateStoryLayer, true);
+            xc.SceenTransitionScene.load(curIndex, this._storyInformation, xc.SceenTransitionLayer);
+            //xc.StoryQuestionTransitionScene.load(storyId, this._baseDir, xc.StoryQuestionTransitionLayer);
         }
     },
 
@@ -1272,7 +1279,7 @@ xc.NarrateStoryScene.load = function(pageIndex, storyInformation, layer, enableT
                         var scene = new xc.NarrateStoryScene(pageIndex, storyInformation, t_resources, content_resources, layer);
                         scene.layerClass = layer;
                         if(enableTransition) {
-                            cc.director.runScene(new cc.TransitionFade(2.0, scene, true));
+                            cc.director.runScene(new cc.TransitionFade(0.5, scene, true));
                         }  else {
                             cc.director.runScene(scene);
                         }              

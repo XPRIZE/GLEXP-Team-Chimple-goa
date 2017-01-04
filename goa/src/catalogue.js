@@ -145,6 +145,7 @@ xc.CatalogueLayer = cc.Layer.extend({
     },
 
     renderStory: function (sender) {
+        sender.setEnabled(false);
         this._curSelectedIndex = sender._selectedIndex;
         this.scheduleOnce(this.transitToStory, 2);
         var delayAction = new cc.DelayTime(2.0);                        
