@@ -198,9 +198,13 @@ void Chain::gameOver(bool correct)
 	if (correct) {
         MenuContext::pronounceWord(_word);
 		_grid->touchEndedCallback = nullptr;
+        _eventDispatcher->removeCustomEventListeners("grapheme_anim_done");
+        _eventDispatcher->removeCustomEventListeners("chars_recognized");
+        _eventDispatcher->removeCustomEventListeners("clearPrintedCharacters");
+        
 		if (!Chain::_SS.compare("monkey"))
 		{
-			//Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
+
 					auto callShowScore = CCCallFunc::create([=] {
 						_menuContext->showScore();
 					});
@@ -218,7 +222,7 @@ void Chain::gameOver(bool correct)
 		}
 		else if (!Chain::_SS.compare("elephant"))
 		{
-			//Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
+
 					auto callShowScore = CCCallFunc::create([=]
 					{
 						_menuContext->showScore();
@@ -236,7 +240,8 @@ void Chain::gameOver(bool correct)
 		}
 		else if (!Chain::_SS.compare("flamingo"))
 		{
-			//Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
+
+//			Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
 					auto callShowScore = CCCallFunc::create([=]
 					{
 						_menuContext->showScore();
