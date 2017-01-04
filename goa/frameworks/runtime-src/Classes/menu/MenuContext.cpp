@@ -1650,11 +1650,41 @@ void MenuContext::showAnswer(std::string type, std::string header)
 			sentenceBlock->setScaleY(0.75);
 			_showAnswerLayer->addChild(sentenceBlock);
 
-			auto sentencelabel1 = CommonLabel::createWithTTF(wordPair->first.c_str(), "fonts/Roboto-Regular.ttf", 100);
-			sentencelabel1->setColor(Color3B(0, 0, 0));
-			sentencelabel1->setPosition(Vec2(sentenceBlock->getContentSize().width / 2, sentenceBlock->getContentSize().height / 2));
-			sentencelabel1->setAnchorPoint(Vec2(0.5, 0.5));
-			sentenceBlock->addChild(sentencelabel1);
+			if (wordPair->first.length() > 45) {
+				std::vector<std::string> configs = this->split(wordPair->first, ' ');
+				std::string str1;
+				int num = 0;
+				while (str1.length() < 35) {
+					str1 += configs.at(num) + " ";
+					num++;
+				}
+				auto sentencelabel1 = CommonLabel::createWithTTF(str1.c_str(), "fonts/Roboto-Regular.ttf", 75);
+				sentencelabel1->setColor(Color3B(0, 0, 0));
+				sentencelabel1->setPosition(Vec2(sentenceBlock->getContentSize().width/2 , sentenceBlock->getContentSize().height * 0.75 ));
+				sentencelabel1->setAnchorPoint(Vec2(0.5, 0.5));
+				sentenceBlock->addChild(sentencelabel1);
+
+				sentenceBlock->setScaleY(1);
+
+				std::string secondStr;
+				for (int i = num; i < configs.size(); i++) {
+					secondStr += configs.at(i) + " ";
+				}
+
+				auto sentencelabel2 = CommonLabel::createWithTTF(secondStr.c_str(), "fonts/Roboto-Regular.ttf", 75);
+				sentencelabel2->setColor(Color3B(0, 0, 0));
+				sentencelabel2->setPosition(Vec2(sentenceBlock->getContentSize().width /2, sentenceBlock->getContentSize().height * 0.25));
+				sentencelabel2->setAnchorPoint(Vec2(0.5, 0.5));
+				sentenceBlock->addChild(sentencelabel2);
+			}
+			else
+			{
+				auto sentencelabel1 = CommonLabel::createWithTTF(wordPair->first.c_str(), "fonts/Roboto-Regular.ttf", 100);
+				sentencelabel1->setColor(Color3B(0, 0, 0));
+				sentencelabel1->setPosition(Vec2(sentenceBlock->getContentSize().width / 2, sentenceBlock->getContentSize().height / 2));
+				sentencelabel1->setAnchorPoint(Vec2(0.5, 0.5));
+				sentenceBlock->addChild(sentencelabel1);
+			}
 			auto listOfAnswers = wordPair->second;
 
 			y -= sentenceBlock->getContentSize().height;

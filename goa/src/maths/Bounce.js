@@ -3,6 +3,7 @@
 var xc = xc || {}
 
 xc.BounceLayer = cc.Node.extend({
+   gameName: "Bounce",
   _scroll: null,
   _startNum: 0,
   _endNum: 0,
