@@ -36,6 +36,8 @@ protected:
     int _currentIndex;
     void processGrapheme(Grapheme* grapheme) override;
     
+    void transition(float dt);
+    
     std::string _storyId;
     std::vector<std::string> _words;
     std::string _baseDir;
