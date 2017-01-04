@@ -415,6 +415,7 @@ void ChocolateFactory::isTrayInRightSequence()
 	}
 	if (orderCounter == 4) {
 		CCLOG("G A M E  IS O V E R");
+
 		_isGameDone = true;
 		//Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
 		auto callShowScore = CCCallFunc::create([=] {
