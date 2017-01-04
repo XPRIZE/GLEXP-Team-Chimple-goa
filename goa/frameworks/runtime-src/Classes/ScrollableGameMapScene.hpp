@@ -43,6 +43,7 @@ CC_CONSTRUCTOR_ACCESS:
     virtual ~ScrollableGameMapScene();
 
 protected:
+    std::string _gameNameToNavigate;
     cocos2d::LayerColor* _greyLayer;
     cocos2d::ui::PageView* _pageView;
     MenuContext* menuContext;
@@ -55,6 +56,7 @@ protected:
     cocos2d::ui::Button* createButton(const rapidjson::Value& gameJson);
     void addGreyLayer();
     bool greyLayerTouched(cocos2d::Touch *touch, cocos2d::Event *event);
+    void transition(float dt);
 };
 
 #endif /* ScrollableGameMapScene_hpp */

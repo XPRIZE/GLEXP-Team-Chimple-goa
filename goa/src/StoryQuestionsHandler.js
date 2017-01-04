@@ -153,8 +153,7 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
         this._isAllAnswered = isAllAnswered;
         if(this._isAllAnswered) {
             cc.log("play success animation");
-            // this.loadCelebrationNode();            
-            var delayAction = new cc.DelayTime(0.1);                        
+            var delayAction = new cc.DelayTime(2.0);                        
             var sequenceAction = new cc.Sequence(delayAction, new cc.CallFunc(this.finishedSuccessAnimation, this));
             this.runAction(sequenceAction);          
         }
