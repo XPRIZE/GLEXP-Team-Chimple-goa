@@ -995,7 +995,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 var fileExists = jsb.fileUtils.isFileExist(questionFileUrl);
                 if(fileExists) {
                     cc.sys.localStorage.removeItem("xc.story.currentPoints");
-                    xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
+                    //xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
+                    xc.StoryQuestionTransitionScene.load(storyId, this._baseDir, xc.StoryQuestionTransitionLayer);
                 } else {
                     this._menuContext.showScore();
                 }
@@ -1004,6 +1005,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             cc.sys.localStorage.removeItem("xc.story.currentPoints");
             // xc.NarrateStoryScene.load(curIndex, this._storyInformation, xc.NarrateStoryLayer, true);
             xc.SceenTransitionScene.load(curIndex, this._storyInformation, xc.SceenTransitionLayer);
+            //xc.StoryQuestionTransitionScene.load(storyId, this._baseDir, xc.StoryQuestionTransitionLayer);
         }
     },
 

@@ -185,10 +185,12 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
                     return index >= cIndex;
                 });
                 xc.wordQuestions = questions;
-                xc.StoryQuestionHandlerScene.load(this._storyId, this._storyBaseDir, xc.StoryQuestionHandlerLayer, true);
+                xc.StoryQuestionTransitionScene.load(this._storyId, this._storyBaseDir, xc.StoryQuestionTransitionLayer);
+                //xc.StoryQuestionHandlerScene.load(this._storyId, this._storyBaseDir, xc.StoryQuestionHandlerLayer, true);
             } else {
                 xc._currentQuestionIndex++;
-                xc.StoryQuestionHandlerScene.load(this._storyId, this._storyBaseDir, xc.StoryQuestionHandlerLayer, true);
+                xc.StoryQuestionTransitionScene.load(this._storyId, this._storyBaseDir, xc.StoryQuestionTransitionLayer);
+                //xc.StoryQuestionHandlerScene.load(this._storyId, this._storyBaseDir, xc.StoryQuestionHandlerLayer, true);
             }                            
         } else {
             this.showCopyRight();                      
