@@ -14,8 +14,6 @@ xc.DotsLayer = cc.LayerGradient.extend({
     this._super(cc.color(141, 71, 33), cc.color(74, 42, 11))
     this.setContentSize(cc.director.getVisibleSize())
     cc.spriteFrameCache.addSpriteFrames(xc.DotsLayer.res.hand_plist)
-    cc.spriteFrameCache.addSpriteFrames(xc.DotsLayer.res.hand_1_plist)
-    cc.spriteFrameCache.addSpriteFrames(xc.DotsLayer.res.thumbnails_plist)
   },
   onEnterTransitionDidFinish: function() {
     this._level = this.getParent().menuContext.getCurrentLevel()
@@ -58,7 +56,7 @@ xc.DotsLayer = cc.LayerGradient.extend({
 
     var delay = new cc.DelayTime(1)
     var callFunc = new cc.CallFunc(function() {
-      this._nextButton = new ccui.Button("icons/right.png", "icons/right_onclick.png", "icons/right_onclick.png", ccui.Widget.PLIST_TEXTURE)
+      this._nextButton = new ccui.Button(xc.DotsLayer.res.next_png, xc.DotsLayer.res.next_png, xc.DotsLayer.res.next_png, ccui.Widget.LOCAL_TEXTURE)
       this.addChild(this._nextButton)
       this._nextButton.setPosition(cc.director.getVisibleSize().width * 95 / 100, 900)
       this._nextButton.setScale(0.5)
@@ -360,10 +358,20 @@ xc.DotNum = cc.Node.extend({
       }
       var allChildren = this._dotNode.getChildren()
       allTouched = true
+      pressedNumber = 0
       for (var i = 0; i < allChildren.length; i++) {
         if(!allChildren[i]._touched) {
           allTouched = false
+        } else {
+          pressedNumber++
         }
+      }
+      var menuContext = this.getParent().getParent().menuContext
+      if(!menuContext) {
+        menuContext = this.getParent().getParent().getParent().menuContext
+      }
+      if(menuContext) {
+        menuContext.pronounceWord(xc.DotsLayer.numberToString[pressedNumber])
       }
       if(allTouched) {
         this.enableTouch(false)
@@ -415,7 +423,7 @@ xc.DotsQuizLayer = cc.Node.extend({
       cc.color(102, 102, 205),
       cc.color(102, 255, 102),
       cc.color(128, 0, 255),
-      cc.color(255, 255, 102)
+      cc.color(121, 61, 28)
     ]    
     for (var i = 0; i < this._numButtons; i++) {
       var background = new cc.Sprite(xc.DotsLayer.res.whiteboard_png)
@@ -459,6 +467,7 @@ xc.DotsQuizLayer = cc.Node.extend({
         break
       case ccui.Widget.TOUCH_ENDED:
         if(this._dotNum.getNumberOfRunningActions() <= 0) {
+          this.getParent().getParent().menuContext.pronounceWord(xc.DotsLayer.numberToString[sender.getName()])
           if(sender.getName() == this._dotNum._num.toString()) {
             if(this._help) {
               this.removeChild(this._help)
@@ -491,14 +500,11 @@ xc.DotsQuizLayer = cc.Node.extend({
 })
 
 xc.DotsLayer.res = {
-  hand_plist: xc.path + "maths/hand-0.plist",
-  hand_png: xc.path + "maths/hand-0.png",
-  hand_1_plist: xc.path + "maths/hand-1.plist",
-  hand_1_png: xc.path + "maths/hand-1.png",
+  hand_plist: xc.path + "maths/hand.plist",
+  hand_png: xc.path + "maths/hand.png",
   graywindow_png: xc.path + "help/graywindow.png",
   whiteboard_png: xc.path + "help/whiteboard.png",
-  thumbnails_plist: xc.path + "wikitaki/thumbnails.plist",
-  thumbnails_png: xc.path + "wikitaki/thumbnails.png"
+  next_png: xc.path + "maths/next.png"
 }
 
 xc.DotsLayer.fingerRep = {
@@ -514,6 +520,18 @@ xc.DotsLayer.fingerRep = {
   10: "hand/ten.png"
 }
 
+xc.DotsLayer.numberToString = {
+  1: "one",
+  2: "two",
+  3: "three",
+  4: "four",
+  5: "five",
+  6: "six",  
+  7: "seven",  
+  8: "eight",  
+  9: "nine",
+  10: "ten"  
+}
 
 // Returns a random integer between min (included) and max (excluded)
 // Using Math.round() will give you a non-uniform distribution!
