@@ -185,10 +185,12 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
                     return index >= cIndex;
                 });
                 xc.wordQuestions = questions;
-                xc.StoryQuestionHandlerScene.load(this._storyId, this._storyBaseDir, xc.StoryQuestionHandlerLayer, true);
+                xc.StoryQuestionTransitionScene.load(this._storyId, this._storyBaseDir, xc.StoryQuestionTransitionLayer);
+                //xc.StoryQuestionHandlerScene.load(this._storyId, this._storyBaseDir, xc.StoryQuestionHandlerLayer, true);
             } else {
                 xc._currentQuestionIndex++;
-                xc.StoryQuestionHandlerScene.load(this._storyId, this._storyBaseDir, xc.StoryQuestionHandlerLayer, true);
+                xc.StoryQuestionTransitionScene.load(this._storyId, this._storyBaseDir, xc.StoryQuestionTransitionLayer);
+                //xc.StoryQuestionHandlerScene.load(this._storyId, this._storyBaseDir, xc.StoryQuestionHandlerLayer, true);
             }                            
         } else {
             this.showCopyRight();                      
@@ -341,32 +343,7 @@ xc.StoryQuestionHandlerLayer = cc.Layer.extend({
 
     onExit: function() {        
         this._super();   
-        var that = this;
-            // that._resources.forEach(function(url) {                
-            //     if(url.endsWith(".json")) {
-            //         cc.log('cleaning url:' + url);
-            //         cc.loader.release(url);
-            //         delete cc.loader[url];                        
-            //     };                
-            // });
-            
-            // that._resources.forEach(function(url) {                    
-            //     if(url.endsWith(".plist")) {
-            //         cc.log('cleaning url:' + url);
-            //         cc.spriteFrameCache.removeSpriteFramesFromFile(url);
-            //         cc.loader.release(url);
-            //         delete cc.loader[url];                        
-            //     };   
-
-            //     if(url.endsWith(".png")) {
-            //         cc.log("removing image: " + url);
-            //         cc.textureCache.removeTextureForKey(url);
-            //         cc.loader.release(url);
-            //         delete cc.loader[url]
-            //     }                                 
-            // });
-
-            // that._resources = [];  
+        var that = this;       
     }    
 });
 
@@ -431,10 +408,4 @@ xc.StoryQuestionHandlerLayer.res = {
         picture_question_choice_json: xc.path + "template/template_1.json",
         meaning_question_choice_json: xc.path + "template/template_2.json",
         copyright_json: xc.path + "template/copyright.json"
-        // template_plist: xc.path + "template/template.plist",
-        // template_png: xc.path + "template/template.png",
-        // template_01_png: xc.path + "template/template_01/template_01.png",
-        // template_01_plist: xc.path + "template/template_01/template_01.plist",
-        // template_02_png: xc.path + "template/template_02/template_02.png",
-        // template_02_plist: xc.path + "template/template_02/template_02.plist"        
 };

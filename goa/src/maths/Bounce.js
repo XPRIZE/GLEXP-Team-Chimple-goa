@@ -41,8 +41,13 @@ xc.BounceLayer = cc.Node.extend({
       }
       var begin = this._level
       var sum = getRandomInt(begin + 1, 10)
-      var choices = [sum - begin, getRandomInt(1, sum)]
-      var correctChoices = [0]
+      if(getRandomInt(0, 2) > 0) {
+        var choices = [sum - begin, getRandomInt(1, sum)]
+        var correctChoices = [0]        
+      } else {
+        var choices = [getRandomInt(1, sum), sum - begin]
+        var correctChoices = [1]
+      }
       this.setupLayer(startNum, endNum, sum, begin, choices, correctChoices)
       if(this._level == 1 && this._lessons == 0) {
         var dullSprite = this._bounceChoices[this._correctChoices[0]]._dullSprite
@@ -62,8 +67,13 @@ xc.BounceLayer = cc.Node.extend({
       var begin = getRandomInt(startNum, endNum - 5)
       var sum = getRandomInt(begin + 2, endNum)
       var firstChoice = getRandomInt(1, sum - begin)
-      var choices = [firstChoice, sum - begin - firstChoice, getRandomInt(1, sum)]
-      var correctChoices = [0, 1]
+      if(getRandomInt(0, 2) > 0) {
+        var choices = [firstChoice, sum - begin - firstChoice, getRandomInt(1, sum)]
+        var correctChoices = [0, 1]
+      } else {
+        var choices = [getRandomInt(1, sum), sum - begin - firstChoice, firstChoice]
+        var correctChoices = [1, 2]        
+      }
       this.setupLayer(startNum, endNum, sum, begin, choices, correctChoices)
     } else if(this._level <= 15) {
       var startNum = -10
@@ -71,8 +81,13 @@ xc.BounceLayer = cc.Node.extend({
       var begin = getRandomInt(0, endNum - 5)
       var sum = getRandomInt(begin + 1, endNum - 3)
       var firstChoice = getRandomInt(sum - begin + 1, endNum - begin)
-      var choices = [firstChoice, sum - begin - firstChoice, getRandomInt(1, sum)]
-      var correctChoices = [0, 1]
+      if(getRandomInt(0, 2) > 0) {
+        var choices = [firstChoice, sum - begin - firstChoice, getRandomInt(1, sum)]
+        var correctChoices = [0, 1]
+      } else {
+        var choices = [sum - begin - firstChoice, getRandomInt(1, sum), firstChoice]
+        var correctChoices = [0, 2]        
+      }
       this.setupLayer(startNum, endNum, sum, begin, choices, correctChoices)
     } else if(this._level <= 20) {
       var startNum = -10
@@ -80,8 +95,13 @@ xc.BounceLayer = cc.Node.extend({
       var begin = getRandomInt(0, endNum - 10)
       var sum = getRandomInt(begin + 2, endNum - 5)
       var firstChoice = getRandomInt(sum - begin + 1, endNum - begin)
-      var choices = [firstChoice, sum - begin - firstChoice, getRandomInt(1, sum)]
-      var correctChoices = [0, 1]
+      if(getRandomInt(0, 2) > 0) {
+        var choices = [firstChoice, sum - begin - firstChoice, getRandomInt(1, sum)]
+        var correctChoices = [0, 1]
+      } else {
+        var choices = [firstChoice, getRandomInt(1, sum), sum - begin - firstChoice]
+        var correctChoices = [0, 2]        
+      }
       this.setupLayer(startNum, endNum, sum, begin, choices, correctChoices)
     }
 
@@ -235,6 +255,7 @@ xc.BounceBall = cc.Sprite.extend({
       while(holder._choice) {
         var animCallFunc = new cc.CallFunc(function() {
           this._brightAction.gotoFrameAndPlay(0, false)
+          cc.AudioEngine.getInstance().playEffect(xc.BounceLayer.res.drop_sound)
         }, holder._choice)
         actionArray.push(animCallFunc)
         posNum += holder._choice._number
@@ -253,6 +274,7 @@ xc.BounceBall = cc.Sprite.extend({
         actionArray.push(moveTo)
 
         var callFunc = new cc.CallFunc(function() {
+          cc.AudioEngine.getInstance().playEffect(xc.BounceLayer.res.success_sound)          
           this._animating = false
           this.getParent().stopAction(this._follow)
           this._follow = null
@@ -269,6 +291,7 @@ xc.BounceBall = cc.Sprite.extend({
         var moveTo = new cc.MoveTo(1, cc.p(holder.getPosition().x, -100))
         actionArray.push(moveTo)
         var callFunc = new cc.CallFunc(function() {
+          cc.AudioEngine.getInstance().playEffect(xc.BounceLayer.res.error_sound)
           this.setPosition(this._layer._bounceDrop.getPosition())
           this._animating = false
           this.getParent().stopAction(this._follow)
@@ -488,5 +511,8 @@ xc.BounceLayer.res = {
   icecream_png: xc.path + "icecream/icecream.png",
   background_json: xc.path + "icecream/background.json",
   machine_json: xc.path + "icecream/machine.json",
-  cup_json: xc.path + "icecream/cup.json"
+  cup_json: xc.path + "icecream/cup.json",
+  drop_sound: xc.path + "res/sounds/sfx/water_drop.ogg",
+  error_sound: xc.path + "res/sounds/sfx/error.ogg",
+  success_sound: xc.path + "res/sounds/sfx/success.ogg"     
 }

@@ -1296,8 +1296,8 @@
             "Property": "RotationSkew",
             "Frames": [
               {
-                "X": -6.4539,
-                "Y": -6.4545,
+                "X": 0.0,
+                "Y": -0.0006,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -1305,8 +1305,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -6.4546,
-                "Y": -6.4545,
+                "X": 0.0,
+                "Y": 0.0001,
                 "FrameIndex": 60,
                 "EasingData": {
                   "Type": 0
@@ -1314,8 +1314,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -6.4552,
-                "Y": -6.4545,
+                "X": 0.0,
+                "Y": 0.0007,
                 "FrameIndex": 120,
                 "EasingData": {
                   "Type": 0
@@ -1323,8 +1323,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -6.4552,
-                "Y": -6.4545,
+                "X": 0.0,
+                "Y": 0.0007,
                 "FrameIndex": 180,
                 "EasingData": {
                   "Type": 0
@@ -1332,8 +1332,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -6.4552,
-                "Y": -6.4545,
+                "X": 0.0,
+                "Y": 0.0007,
                 "FrameIndex": 240,
                 "EasingData": {
                   "Type": 0
@@ -1341,8 +1341,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -6.4512,
-                "Y": -6.4814,
+                "X": 0.0,
+                "Y": -0.0302,
                 "FrameIndex": 290,
                 "EasingData": {
                   "Type": 0
@@ -1350,8 +1350,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -6.4512,
-                "Y": -6.4814,
+                "X": 0.0,
+                "Y": -0.0302,
                 "FrameIndex": 291,
                 "EasingData": {
                   "Type": 0
@@ -1375,18 +1375,6 @@
           "StartIndex": 305,
           "EndIndex": 415,
           "Name": "cloud",
-          "ctype": "AnimationInfoData"
-        },
-        {
-          "StartIndex": 420,
-          "EndIndex": 480,
-          "Name": "tree",
-          "ctype": "AnimationInfoData"
-        },
-        {
-          "StartIndex": 485,
-          "EndIndex": 545,
-          "Name": "tree1",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -1555,11 +1543,12 @@
               "Dst": 771
             },
             "AnchorPoint": {
-              "ScaleX": 0.486
+              "ScaleX": 0.486,
+              "ScaleY": 0.5
             },
             "Position": {
               "X": 422.2896,
-              "Y": 657.3268
+              "Y": 1087.5115
             },
             "Scale": {
               "ScaleX": 1.3722,
@@ -1569,7 +1558,7 @@
             "IconVisible": false,
             "PrePosition": {
               "X": 0.165,
-              "Y": 0.3652
+              "Y": 0.6042
             },
             "PreSize": {
               "X": 0.1875,
@@ -1577,8 +1566,8 @@
             },
             "LeftMargin": 189.0096,
             "RightMargin": 1890.9904,
-            "TopMargin": 515.6732,
-            "BottomMargin": 657.3268,
+            "TopMargin": 398.9885,
+            "BottomMargin": 774.0115,
             "UserData": "main.tree",
             "Tag": 38,
             "ActionTag": 760046114,
@@ -1600,11 +1589,12 @@
               "Dst": 771
             },
             "AnchorPoint": {
-              "ScaleX": 0.5
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
             },
             "Position": {
               "X": 2064.4109,
-              "Y": 656.085
+              "Y": 1131.1002
             },
             "Scale": {
               "ScaleX": 1.5152,
@@ -1614,7 +1604,7 @@
             "IconVisible": false,
             "PrePosition": {
               "X": 0.8064,
-              "Y": 0.3645
+              "Y": 0.6284
             },
             "PreSize": {
               "X": 0.1875,
@@ -1622,8 +1612,8 @@
             },
             "LeftMargin": 1824.4109,
             "RightMargin": 255.5891,
-            "TopMargin": 516.915,
-            "BottomMargin": 656.085,
+            "TopMargin": 355.3998,
+            "BottomMargin": 817.6002,
             "UserData": "main.tree1",
             "Tag": 39,
             "ActionTag": -633277967,
@@ -2232,8 +2222,7 @@
               "ScaleX": -1.7731,
               "ScaleY": 1.7731
             },
-            "RotationSkewX": -6.4539,
-            "RotationSkewY": -6.4545,
+            "RotationSkewY": -0.0006,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {

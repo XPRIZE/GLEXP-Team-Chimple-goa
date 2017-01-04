@@ -5,7 +5,7 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 465,
+        "Duration": 415,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
@@ -103,108 +103,6 @@
                 "X": 0.0,
                 "Y": 0.0,
                 "FrameIndex": 415,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 2129243935,
-            "Property": "Position",
-            "Frames": [
-              {
-                "X": 2210.2896,
-                "Y": 994.8043,
-                "FrameIndex": 420,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 2210.2896,
-                "Y": 994.8043,
-                "FrameIndex": 435,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 2210.2896,
-                "Y": 994.8043,
-                "FrameIndex": 465,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 2129243935,
-            "Property": "Scale",
-            "Frames": [
-              {
-                "X": 1.8271,
-                "Y": 1.8271,
-                "FrameIndex": 420,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 3.0075,
-                "Y": 3.0075,
-                "FrameIndex": 435,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 1.8271,
-                "Y": 1.8271,
-                "FrameIndex": 465,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 2129243935,
-            "Property": "RotationSkew",
-            "Frames": [
-              {
-                "X": 0.0,
-                "Y": 0.0,
-                "FrameIndex": 420,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.0,
-                "Y": 0.0,
-                "FrameIndex": 435,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.0,
-                "Y": 0.0,
-                "FrameIndex": 465,
                 "EasingData": {
                   "Type": 0
                 },
@@ -1040,12 +938,6 @@
           "EndIndex": 415,
           "Name": "sun",
           "ctype": "AnimationInfoData"
-        },
-        {
-          "StartIndex": 415,
-          "EndIndex": 465,
-          "Name": "tree",
-          "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
@@ -1664,11 +1556,12 @@
               "Dst": 771
             },
             "AnchorPoint": {
-              "ScaleX": 0.4862
+              "ScaleX": 0.4862,
+              "ScaleY": 0.5
             },
             "Position": {
               "X": 283.167,
-              "Y": 981.2876
+              "Y": 1275.1978
             },
             "Scale": {
               "ScaleX": 2.3234,
@@ -1678,7 +1571,7 @@
             "IconVisible": false,
             "PrePosition": {
               "X": 0.1106,
-              "Y": 0.5452
+              "Y": 0.7084
             },
             "PreSize": {
               "X": 0.0473,
@@ -1686,8 +1579,8 @@
             },
             "LeftMargin": 224.3368,
             "RightMargin": 2214.6631,
-            "TopMargin": 565.7124,
-            "BottomMargin": 981.2876,
+            "TopMargin": 398.3022,
+            "BottomMargin": 1148.6978,
             "Tag": 57,
             "ActionTag": 299953361,
             "Size": {
@@ -1695,51 +1588,6 @@
               "Y": 253.0
             },
             "Name": "tree_12",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "Ajali_mbaya_Serious_accident/ajali_tree1.png",
-              "Plist": "Ajali_mbaya_Serious_accident/Ajali_mbaya_Serious_accident.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5
-            },
-            "Position": {
-              "X": 2210.2896,
-              "Y": 994.8043
-            },
-            "Scale": {
-              "ScaleX": 1.8271,
-              "ScaleY": 1.8271
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.8634,
-              "Y": 0.5527
-            },
-            "PreSize": {
-              "X": 0.0473,
-              "Y": 0.1406
-            },
-            "LeftMargin": 2149.7896,
-            "RightMargin": 289.2104,
-            "TopMargin": 552.1957,
-            "BottomMargin": 994.8043,
-            "UserData": "main.tree",
-            "Tag": 58,
-            "ActionTag": 2129243935,
-            "Size": {
-              "X": 121.0,
-              "Y": 253.0
-            },
-            "Name": "tree_13",
             "ctype": "SpriteObjectData"
           },
           {

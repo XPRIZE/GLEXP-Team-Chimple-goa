@@ -198,6 +198,8 @@ xc.ButtonHandler = cc.Class.extend({
                 if (sender._configurationType == "scene") {
                     this._callBackContext.disableOrEnableAllButtons(this._callBackContext._buttonPanel, true);
                 }
+                sender.setEnabled(false);
+                sender.setVisible(false);
                 this._callBackFunction.call(this._callBackContext, sender);
             }
         }

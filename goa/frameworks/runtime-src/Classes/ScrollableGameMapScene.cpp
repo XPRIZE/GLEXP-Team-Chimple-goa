@@ -65,7 +65,7 @@
 
 USING_NS_CC;
 
-ScrollableGameMapScene::ScrollableGameMapScene()
+ScrollableGameMapScene::ScrollableGameMapScene(): _greyLayer(NULL)
 {
 }
 
@@ -94,6 +94,48 @@ std::vector<std::string> ScrollableGameMapScene::split(std::string s, char delim
     }
     return elems;
 }
+
+
+void ScrollableGameMapScene::addGreyLayer() {
+    if(!_greyLayer) {
+        //later customize and add image
+        Size visibleSize = Director::getInstance()->getVisibleSize();
+        _greyLayer = LayerGradient::create(Color4B(255, 255, 100, 255), Color4B(255, 255, 255, 255));
+        _greyLayer->setOpacity(100);
+        _greyLayer->setContentSize(visibleSize);
+        addChild(_greyLayer, 3);
+        
+        Sprite* loadingIcon = Sprite::create("loading_image.png");
+        if(loadingIcon != NULL) {
+            loadingIcon->setPositionX(visibleSize.width/2);
+            loadingIcon->setPositionY(visibleSize.height/2);
+            _greyLayer->addChild(loadingIcon,1);
+        }
+        
+        auto _listener = EventListenerTouchOneByOne::create();
+        _listener->setSwallowTouches(true);
+        _listener->onTouchBegan = CC_CALLBACK_2(ScrollableGameMapScene::greyLayerTouched, this);
+        _eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, _greyLayer);
+        
+    }
+}
+
+
+bool ScrollableGameMapScene::greyLayerTouched(Touch *touch, Event *event)
+{
+    return true;
+}
+
+
+void ScrollableGameMapScene::onExitTransitionDidStart() {
+    Node::onExitTransitionDidStart();
+    CCLOG("ScrollableGameMapScene::onExitTransitionDidStart");
+    if(_greyLayer != NULL) {
+        Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(_greyLayer);
+    }
+
+}
+
 
 bool ScrollableGameMapScene::init() {
     if(!Node::init())
@@ -256,7 +298,8 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
         case ui::Widget::TouchEventType::MOVED:
             break;
         case ui::Widget::TouchEventType::ENDED:
-        {
+        {            
+            addGreyLayer();
             clickedButton->setEnabled(false);
             nagivateToGame(clickedButton->getName());
             break;

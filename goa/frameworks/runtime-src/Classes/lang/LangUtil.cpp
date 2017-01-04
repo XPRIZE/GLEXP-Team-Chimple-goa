@@ -62,6 +62,7 @@ void LangUtil::changeLanguage(SupportedLanguages lang) {
         {
             LangUtil::_instance = new SwahiliUtil();
             Data moData = FileUtils::getInstance()->getDataFromFile("res/swahili/swa.mo");
+            I18N::I18nUtils::getInstance()->removeAllMO();
             I18N::I18nUtils::getInstance()->addMO(moData.getBytes());
             break;
         }
@@ -70,6 +71,7 @@ void LangUtil::changeLanguage(SupportedLanguages lang) {
         {
             LangUtil::_instance = new KannadaUtil();
             Data kannadaMoData = FileUtils::getInstance()->getDataFromFile("res/de.mo");
+            I18N::I18nUtils::getInstance()->removeAllMO();
             I18N::I18nUtils::getInstance()->addMO(kannadaMoData.getBytes());
             break;
         }
@@ -77,6 +79,7 @@ void LangUtil::changeLanguage(SupportedLanguages lang) {
         {
             LangUtil::_instance = new KannadaUtil();
             Data germanMoData = FileUtils::getInstance()->getDataFromFile("res/de.mo");
+            I18N::I18nUtils::getInstance()->removeAllMO();
             I18N::I18nUtils::getInstance()->addMO(germanMoData.getBytes());
             break;
         }
