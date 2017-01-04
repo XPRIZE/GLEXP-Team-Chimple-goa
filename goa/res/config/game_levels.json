@@ -39,7 +39,10 @@
   "popcount": [
     {
       "levels": [
-        1
+        1,2,3,4,5,6,7,8,9,10
+      ],
+      "concepts": [
+        "number"
       ],
       "help": "Count the number of Starfish and select the correct number.",
       "video": "popcount_1.webm"
@@ -234,8 +237,14 @@
     }
   ],
   "blastletter": [
-        {
-      "levels": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26 ],
+   {
+      "levels": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+      "level_concepts": [
+         "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"
+      ],
+      "concepts": [
+        "alphabet"
+      ],
       "help": "Write the alphabet shown before the bomb blasts.",
       "video": "defuse_the_bomb_1.webm",
         "writing": [
@@ -246,7 +255,10 @@
       ]
     },
     {
-      "levels": [ 27,28,29,30,31,32,33,34,35,36 ],
+      "levels": [ 27, 28, 29, 30, 31, 32, 33, 34, 35, 36 ],
+      "concepts": [
+        "number"
+      ],
       "help": "Write the number shown before the bomb blasts.",
       "video": "defuse_the_bomb_1.webm",
       "writing": [
@@ -257,7 +269,10 @@
       ]
     },
     {
-      "levels": [37,38,39,40,41,42,43,44,45,46],
+      "levels": [ 37, 38, 39, 40, 41, 42, 43, 44, 45, 46 ],
+      "concepts": [
+        "word"
+      ],
       "help": "Write the word shown before the bomb blasts.",
       "video": "defuse_the_bomb_1.webm",
       "writing": [
@@ -268,7 +283,10 @@
       ]
     },
     {
-      "levels": [47,48,49,50,51,52,53,54,55,56],
+      "levels": [ 47, 48, 49, 50, 51, 52, 53, 54, 55, 56 ],
+      "concepts": [
+        "plural"
+      ],
       "help": "Write the plural of the word shown before the bomb blasts.",
       "video": "defuse_the_bomb_1.webm",
       "writing": [
@@ -279,7 +297,10 @@
       ]
     },
     {
-      "levels": [57,58,59,60,61,62,63,64,65,66],
+      "levels": [ 57, 58, 59, 60, 61, 62, 63, 64, 65, 66 ],
+      "concepts": [
+        "antonym"
+      ],
       "help": "Write the opposite of the word shown before the bomb blasts.",
       "video": "defuse_the_bomb_1.webm",
       "writing": [
@@ -290,7 +311,10 @@
       ]
     },
     {
-      "levels": [67,68,69,70,71,72,73,74,75,76],
+      "levels": [ 67, 68, 69, 70, 71, 72, 73, 74, 75, 76 ],
+      "concepts": [
+        "synonym"
+      ],
       "help": "Write the word with the same meaning of the word shown before the bomb blasts.",
       "video": "defuse_the_bomb_1.webm",
       "writing": [
@@ -301,7 +325,10 @@
       ]
     },
     {
-      "levels": [77,78,79,80,81,82,83,84,85,86],
+      "levels": [ 77, 78, 79, 80, 81, 82, 83, 84, 85, 86 ],
+      "concepts": [
+        "homonym"
+      ],
       "help": "Write the word with the same pronunciation of the word shown before the bomb blasts.",
       "video": "defuse_the_bomb_1.webm",
       "writing": [
@@ -385,6 +412,9 @@
       "levels": [
         1
       ],
+      "concepts": [
+        "word"
+      ],
       "help": "Choose the correct alphabets to form the word and make your car go fast.",
       "video": "baja_1.webm"
     }
@@ -433,7 +463,10 @@
   ],
   "owl": [
     {
-      "levels": [1,2,3,4,5,26,27,28,29,30,51,52,53,54,55,76,77,78,79,80],
+      "levels": [ 1, 2, 3, 4, 5, 26, 27, 28, 29, 30, 51, 52, 53, 54, 55, 76, 77, 78, 79, 80 ],
+      "concepts": [
+        "word"
+      ],
       "help": "Spell the word shown by choosing the correct alphabets.",
       "video": "owl_1.webm"
     },
@@ -800,18 +833,27 @@
     }
   ],
   "Cross The Bridge": [
-    {
-      "levels": [
-        1
-      ],
-      "help": "Allow the same alphabet monster given on the board to cross the bridge. If a different monster tries to enter, open the bridge to make the monster fall.",
-      "video": "Cross_the_bridge.webm"
-    }
+     {
+     "levels": [
+       1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26
+     ],
+     "level_concepts": [
+       "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"
+     ],
+     "concepts": [
+       "alphabet"
+     ],
+     "help": "Allow the same alphabet monster given on the board to cross the bridge. If a different monster tries to enter, open the bridge to make the monster fall.",
+     "video": "Cross_the_bridge.webm"
+   }
   ],
   "chain": [
     {
       "levels": [
         1
+      ],
+      "concepts": [
+       "word"
       ],
       "help": "Choose the correct alphabets to form the word.",
       "video": "Chain.webm"
@@ -822,6 +864,12 @@
       "levels": [
         1
       ],
+      "concepts": [
+       "subtraction",
+       "subtraction_carryover_1",
+       "subtraction_carryover_2",
+       "subtraction_carryover_3"
+     ],
       "help": "Burst the balloons with the pin so that only the number shown will be left.",
       "video": "Balloon_math.webm"
     }
@@ -881,9 +929,11 @@
   "drop": [
     {
       "levels": [
-        1,2,3,4,5,16,17,18,19,20,31,32,33,34,35,46,47,48,49,50
-        
+        1,2,3,4,5,16,17,18,19,20,31,32,33,34,35,46,47,48,49,50  
       ], 
+      "concepts": [
+        "word"
+      ],
       "help": "Drop the correct alphabet into the empty box to make the given word.",
       "video": "Drop_Jungle.webm"
     },
