@@ -65,7 +65,7 @@
 
 USING_NS_CC;
 
-ScrollableGameMapScene::ScrollableGameMapScene(): _greyLayer(NULL)
+ScrollableGameMapScene::ScrollableGameMapScene(): _greyLayer(NULL),_gameNameToNavigate("")
 {
 }
 
@@ -301,7 +301,9 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
         {            
             addGreyLayer();
             clickedButton->setEnabled(false);
-            nagivateToGame(clickedButton->getName());
+            _gameNameToNavigate = clickedButton->getName();
+            this->scheduleOnce(schedule_selector(ScrollableGameMapScene::transition), 1.5);
+            
             break;
         }
 
@@ -313,6 +315,10 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
     
 }
 
+
+void ScrollableGameMapScene::transition(float dt) {
+    nagivateToGame(_gameNameToNavigate);
+}
 
 std::string ScrollableGameMapScene::parseGameConfig(std::string gameConfigStr) {
     rapidjson::Document gameConfig;
