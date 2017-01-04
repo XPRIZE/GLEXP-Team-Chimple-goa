@@ -65,7 +65,7 @@
 
 USING_NS_CC;
 
-ScrollableGameMapScene::ScrollableGameMapScene()
+ScrollableGameMapScene::ScrollableGameMapScene(): _greyLayer(NULL),_gameNameToNavigate("")
 {
 }
 
@@ -94,6 +94,48 @@ std::vector<std::string> ScrollableGameMapScene::split(std::string s, char delim
     }
     return elems;
 }
+
+
+void ScrollableGameMapScene::addGreyLayer() {
+    if(!_greyLayer) {
+        //later customize and add image
+        Size visibleSize = Director::getInstance()->getVisibleSize();
+        _greyLayer = LayerGradient::create(Color4B(255, 255, 100, 255), Color4B(255, 255, 255, 255));
+        _greyLayer->setOpacity(100);
+        _greyLayer->setContentSize(visibleSize);
+        addChild(_greyLayer, 3);
+        
+        Sprite* loadingIcon = Sprite::create("loading_image.png");
+        if(loadingIcon != NULL) {
+            loadingIcon->setPositionX(visibleSize.width/2);
+            loadingIcon->setPositionY(visibleSize.height/2);
+            _greyLayer->addChild(loadingIcon,1);
+        }
+        
+        auto _listener = EventListenerTouchOneByOne::create();
+        _listener->setSwallowTouches(true);
+        _listener->onTouchBegan = CC_CALLBACK_2(ScrollableGameMapScene::greyLayerTouched, this);
+        _eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, _greyLayer);
+        
+    }
+}
+
+
+bool ScrollableGameMapScene::greyLayerTouched(Touch *touch, Event *event)
+{
+    return true;
+}
+
+
+void ScrollableGameMapScene::onExitTransitionDidStart() {
+    Node::onExitTransitionDidStart();
+    CCLOG("ScrollableGameMapScene::onExitTransitionDidStart");
+    if(_greyLayer != NULL) {
+        Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(_greyLayer);
+    }
+
+}
+
 
 bool ScrollableGameMapScene::init() {
     if(!Node::init())
@@ -145,13 +187,13 @@ bool ScrollableGameMapScene::init() {
 
         _parallax = ParallaxNode::create();
         _parallax->setContentSize(Size(visibleSize.width * 3, visibleSize.height));
-        auto node = CSLoader::createNode("bgmap/bgmap_background.csb");
+        auto node = CSLoader::createNode("backgoundmap/backgoundmap_background.csb");
         _parallax->addChild(node, -4, Vec2(0.2, 0.2), Vec2::ZERO);
-        node = CSLoader::createNode("bgmap/bgmap_mainground.csb");
+        node = CSLoader::createNode("backgoundmap/backgoundmap_mainground.csb");
         _parallax->addChild(node, -3, Vec2(0.4, 0.4), Vec2::ZERO);
-        node = CSLoader::createNode("bgmap/bgmap_foreground.csb");
+        node = CSLoader::createNode("backgoundmap/backgoundmap_foreground.csb");
         _parallax->addChild(node, -2, Vec2(0.6, 0.6), Vec2::ZERO);
-        node = CSLoader::createNode("bgmap/bgmap_frontground.csb");
+        node = CSLoader::createNode("backgoundmap/backgoundmap_frontground.csb");
         _parallax->addChild(node, -1, Vec2(0.8, 0.8), Vec2::ZERO);
         _pageView->addChild(_parallax);
         
@@ -256,9 +298,12 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
         case ui::Widget::TouchEventType::MOVED:
             break;
         case ui::Widget::TouchEventType::ENDED:
-        {
+        {            
+            addGreyLayer();
             clickedButton->setEnabled(false);
-            nagivateToGame(clickedButton->getName());
+            _gameNameToNavigate = clickedButton->getName();
+            this->scheduleOnce(schedule_selector(ScrollableGameMapScene::transition), 1.5);
+            
             break;
         }
 
@@ -270,6 +315,10 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
     
 }
 
+
+void ScrollableGameMapScene::transition(float dt) {
+    nagivateToGame(_gameNameToNavigate);
+}
 
 std::string ScrollableGameMapScene::parseGameConfig(std::string gameConfigStr) {
     rapidjson::Document gameConfig;

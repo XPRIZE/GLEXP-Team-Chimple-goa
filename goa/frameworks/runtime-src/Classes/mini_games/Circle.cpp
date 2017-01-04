@@ -131,7 +131,7 @@ void Circle::onEnterTransitionDidFinish()
 			subLevel += 5;
 		}
 		CCLOG("Sysnonyms sub Level = %d", subLevel);
-		themeName = "city";
+		themeName = "candy";
 		_synonyms = TextGenerator::getInstance()->getSynonyms(10, subLevel);
 		_title = LangUtil::getInstance()->translateString("Make word of same meaning as : ");
 		_header = LangUtil::getInstance()->translateString("List of same meaning words");

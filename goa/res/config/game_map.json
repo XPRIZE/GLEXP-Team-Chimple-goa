@@ -466,7 +466,69 @@
         "frontgroundJson": "crossthebridgelevel/frontground.json",
         "maingroundJson": "crossthebridgelevel/mainground.json",
         "menuPlist": "crossthebridgelevel/crossthebridgelevel.plist",
-        "menuPng": "crossthebridgelevel/crossthebridgelevel.png"
+        "menuPng": "crossthebridgelevel/crossthebridgelevel.png",
+              "lang": {
+            "swa": {
+                "labels": [
+                    "A",
+                    "B",
+                    "C",
+                    "D",
+                    "E",
+                    "F",
+                    "G",
+                    "H",
+                    "I",
+                    "J",
+                    "K",
+                    "L",
+                    "M",
+                    "N",
+                    "O",
+                    "P",
+                    "R",
+                    "S",
+                    "T",
+                    "U",
+                    "V",
+                    "W",
+                    "Y",
+                    "Z"
+                ],
+                "numLevels": "24"
+            },
+            "eng": {
+                "labels": [
+                    "A",
+                    "B",
+                    "C",
+                    "D",
+                    "E",
+                    "F",
+                    "G",
+                    "H",
+                    "I",
+                    "J",
+                    "K",
+                    "L",
+                    "M",
+                    "N",
+                    "O",
+                    "P",
+                    "Q",
+                    "R",
+                    "S",
+                    "T",
+                    "U",
+                    "V",
+                    "W",
+                    "X",
+                    "Y",
+                    "Z"
+                ],
+                "numLevels": "26"
+            }
+        }
     },
     {
         "name": "Smash The Rock",
@@ -1535,7 +1597,7 @@
         "multiPlayer": false,
         "isJSGame": true,
         "pureJS": "MazeLayer",
-        "script": "src/start/dots.js",
+        "script": "src/start/maze.js",
         "span": "2",
         "numLevels": "10",
         "backgroundJson": "cityscreen/background.json",
@@ -1700,7 +1762,7 @@
     },
     {
         "name": "chocolateFactory",
-        "title": "Chocolate Factory",
+        "title": "Milk Factory",
         "cIcon": "gameicons/chocolatefactory_pressed.png",
         "icon": "gameicons/chocolatefactory.png",
         "multiPlayer": false,
@@ -1936,7 +1998,7 @@
         "multiPlayer": false,
         "isJSGame": true,
         "pureJS": "BounceLayer",
-        "script": "src/start/connectTheDots.js",
+        "script": "src/start/bounce.js",
         "span": "4",
         "numLevels": "20",
         "rewards" : {

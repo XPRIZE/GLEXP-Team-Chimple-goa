@@ -510,11 +510,15 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 {
                     
                     if(context._pixelPerfectImages.indexOf("pixelperfect/" + child.FileData.Path) != -1) {
-                        cc.log("filepath 11111 :" + xc.path + "pixelperfect/" + child.FileData.Path);
-                        context._nodeToFileNameMapping[child.Name] = xc.path + "pixelperfect/" + child.FileData.Path;
+                        if(cc.sys.isNative) {
+                            var fileExists = jsb.fileUtils.isFileExist("pixelperfect/" + child.FileData.Path);
+                            if(fileExists) {
+                                cc.log("filepath 11111 :" + xc.path + "pixelperfect/" + child.FileData.Path);
+                                context._nodeToFileNameMapping[child.Name] = xc.path + "pixelperfect/" + child.FileData.Path;
+                            }                        
+                        }
                     }                
-                }
-                
+                }                
             });
         }
 
@@ -960,6 +964,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     },
 
     previousStory: function () {
+        this._leftButtonPanel.setVisible(true);
         var pages = this._storyInformation["pages"];
         var curIndex = this._pageIndex;
         curIndex--;
@@ -970,19 +975,38 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     },
 
     nextStory: function () {        
+        this._rightButtonPanel.setVisible(true);
         var pages = this._storyInformation["pages"];
         var curIndex = this._pageIndex; 
         curIndex++;
         var storyId = this._storyInformation["storyId"];
+        xc._currentQuestionIndex = 0;
         if (curIndex >= pages.length) {
             this._storyEnded = true;
             xc._currentQuestionIndex = 0;
-            xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
-            return;
+            var langDir = goa.TextGenerator.getInstance().getLang();
+            cc.log("langDir:" + langDir);
+            var storyText = "";
+            var that = this;
+            var questionFileUrl =  "res/story" + "/" + langDir + "/" + this._baseDir + ".questions.json";
+            cc.log('questionFileUrl:' + questionFileUrl);
+
+            if(cc.sys.isNative) {
+                var fileExists = jsb.fileUtils.isFileExist(questionFileUrl);
+                if(fileExists) {
+                    cc.sys.localStorage.removeItem("xc.story.currentPoints");
+                    //xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
+                    xc.StoryQuestionTransitionScene.load(storyId, this._baseDir, xc.StoryQuestionTransitionLayer);
+                } else {
+                    this._menuContext.showScore();
+                }
+            }             
+        } else {            
+            cc.sys.localStorage.removeItem("xc.story.currentPoints");
+            // xc.NarrateStoryScene.load(curIndex, this._storyInformation, xc.NarrateStoryLayer, true);
+            xc.SceenTransitionScene.load(curIndex, this._storyInformation, xc.SceenTransitionLayer);
+            //xc.StoryQuestionTransitionScene.load(storyId, this._baseDir, xc.StoryQuestionTransitionLayer);
         }
-        // xc._currentQuestionIndex = 0;
-        xc.NarrateStoryScene.load(curIndex, this._storyInformation, xc.NarrateStoryLayer, true);
-        // xc.StoryQuestionHandlerScene.load(storyId, this._baseDir, xc.StoryQuestionHandlerLayer, true);
     },
 
     rePlayEnded: function() {
@@ -1242,9 +1266,9 @@ xc.NarrateStoryScene.load = function(pageIndex, storyInformation, layer, enableT
                     
 
                     cc.LoaderScene.preload(t_resources, function () {
-                        cc.spriteFrameCache.addSpriteFrames(xc.NarrateStoryLayer.res.template_plist);
-                        cc.spriteFrameCache.addSpriteFrames(xc.NarrateStoryLayer.res.template_01_plist);
-                        cc.spriteFrameCache.addSpriteFrames(xc.NarrateStoryLayer.res.template_02_plist);    
+                        // cc.spriteFrameCache.addSpriteFrames(xc.NarrateStoryLayer.res.template_plist);
+                        // cc.spriteFrameCache.addSpriteFrames(xc.NarrateStoryLayer.res.template_01_plist);
+                        // cc.spriteFrameCache.addSpriteFrames(xc.NarrateStoryLayer.res.template_02_plist);    
                         //config data
                         if(cc.sys.isNative) {
                             xc.onlyStoryNarrateConfigurationObject = cc.loader.getRes(xc.NarrateStoryLayer.res.OnlyStoryPlayConfig_json);                         
@@ -1255,7 +1279,7 @@ xc.NarrateStoryScene.load = function(pageIndex, storyInformation, layer, enableT
                         var scene = new xc.NarrateStoryScene(pageIndex, storyInformation, t_resources, content_resources, layer);
                         scene.layerClass = layer;
                         if(enableTransition) {
-                            cc.director.runScene(new cc.TransitionFade(2.0, scene, true));
+                            cc.director.runScene(new cc.TransitionFade(0.5, scene, true));
                         }  else {
                             cc.director.runScene(scene);
                         }              
@@ -1273,11 +1297,11 @@ xc.NarrateStoryLayer.res = {
         wordBubble_json: xc.path + "template/hang_bubble.json",        
         correctAnswerSound_json: "res/sounds/sfx/success.ogg",
         wrongAnswerSound_json: "res/sounds/sfx/error.ogg",
-        pixelPerfectConfig_json: xc.path + "misc/pixelPerfectConfig.json",
-        template_plist: xc.path + "template/template.plist",
-        template_png: xc.path + "template/template.png",
-        template_01_png: xc.path + "template/template_01/template_01.png",
-        template_01_plist: xc.path + "template/template_01/template_01.plist",
-        template_02_png: xc.path + "template/template_02/template_02.png",
-        template_02_plist: xc.path + "template/template_02/template_02.plist",
+        pixelPerfectConfig_json: xc.path + "misc/pixelPerfectConfig.json"
+        // template_plist: xc.path + "template/template.plist",
+        // template_png: xc.path + "template/template.png",
+        // template_01_png: xc.path + "template/template_01/template_01.png",
+        // template_01_plist: xc.path + "template/template_01/template_01.plist",
+        // template_02_png: xc.path + "template/template_02/template_02.png",
+        // template_02_plist: xc.path + "template/template_02/template_02.plist",
 };

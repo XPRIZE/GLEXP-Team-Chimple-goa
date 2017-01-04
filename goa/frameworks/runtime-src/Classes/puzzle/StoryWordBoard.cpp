@@ -196,6 +196,10 @@ void StoryWordBoard::checkAnswer() {
     WordScene::checkAnswer();
 }
 
+void StoryWordBoard::transition(float dt) {
+    Director::getInstance()->replaceScene(TransitionFade::create(2.0, StoryWordBoard::createSceneWithWords(_storyId, _words, _currentIndex, _baseDir, _menuContext->getMaxPoints(), _menuContext->getPoints())));
+}
+
 void StoryWordBoard::gameOver(bool correct) {
     if(correct) {
         
@@ -215,10 +219,11 @@ void StoryWordBoard::gameOver(bool correct) {
             localStorageSetItem("xc.story.currentPoints", MenuContext::to_string(_menuContext->getPoints()));
             localStorageSetItem("xc.story.baseDir", _baseDir);
             localStorageSetItem("xc.story.curStoryId", _storyId);
-            ScriptingCore::getInstance()->runScript("src/start/nativeCopyRightHandler.js");
+            _menuContext->showScore();
+            //ScriptingCore::getInstance()->runScript("src/start/nativeCopyRightHandler.js");
         } else {
             _currentIndex++;
-             Director::getInstance()->replaceScene(StoryWordBoard::createSceneWithWords(_storyId, _words, _currentIndex, _baseDir, _menuContext->getMaxPoints(), _menuContext->getPoints()));                        
+            this->scheduleOnce(schedule_selector(StoryWordBoard::transition), 1.5);
         }
     }
 }

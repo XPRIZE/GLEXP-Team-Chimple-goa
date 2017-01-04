@@ -142,10 +142,10 @@ void Item::onEnterTransitionDidFinish()
 	_done = background->getChildByName(_scenePath.at("done"));
 	_done->setName("done");
 	//_done->setPositionX(_done->getPositionX() - extraX);
-	auto listener = EventListenerTouchOneByOne::create();
-	listener->setSwallowTouches(true);
-	listener->onTouchBegan = CC_CALLBACK_2(Item::onTouchBegan, this);
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, _done);
+	_doneListener = EventListenerTouchOneByOne::create();
+	_doneListener->setSwallowTouches(true);
+	_doneListener->onTouchBegan = CC_CALLBACK_2(Item::onTouchBegan, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(_doneListener, _done);
 	
 
 	
@@ -413,6 +413,7 @@ void Item::fish2Create()
 
 void Item::scoreBoard(float dt)
 {
+	
 	if (menu->getCurrentLevel() <= 5)
 	{
 		menu->setMaxPoints(_num1 + _num2);
@@ -448,6 +449,7 @@ void Item::scoreBoard(float dt)
 	_frogCount2 = 0;
 	_frogCount3 = 0;
 	
+	
 	menu->showScore();
 }
 void Item::result()
@@ -461,12 +463,14 @@ void Item::result()
 		{
 			auto action = MoveBy::create(4.0, Vec2(3000, 0));
 			_fishMove.at(i)->runAction(action);
+		}
+		   _eventDispatcher->removeEventListener(_doneListener);
 			CCParticleSystemQuad *_particle = CCParticleSystemQuad::create("item/rain.plist");
 			_particle->setTexture(CCTextureCache::sharedTextureCache()->addImage("item/rain.png"));
 			//_particle->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
 			this->addChild(_particle);
-			this->scheduleOnce(schedule_selector(Item::scoreBoard), 4);
-		}
+			this->scheduleOnce(schedule_selector(Item::scoreBoard), 3);
+		
 	
 		_scoreMax++;
 	}
@@ -529,7 +533,7 @@ void Item::verify()
 		_particle->setTexture(CCTextureCache::sharedTextureCache()->addImage("item/rain.png"));
 		//_particle->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
 		this->addChild(_particle);
-		
+		_eventDispatcher->removeEventListener(_doneListener);
 		_scoreMax++;
 		this->scheduleOnce(schedule_selector(Item::scoreBoard), 2);
 	}

@@ -248,7 +248,7 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                     _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
                     _mapMenu = this->createMenuItem("menu/reward.png", "menu/reward.png", "menu/reward.png", 2 * POINTS_TO_LEFT);
                     _mapMenu->addTouchEventListener(CC_CALLBACK_0(MenuContext::showRewards, this));
-                    _bookMenu = this->createMenuItem("menu/back.png", "menu/back.png", "menu/back.png", 3 * POINTS_TO_LEFT);
+                    _bookMenu = this->createMenuItem("menu/level.png", "menu/level.png", "menu/level.png", 3 * POINTS_TO_LEFT);
                     _bookMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showBook, this));
                     _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png", 4 * POINTS_TO_LEFT);
                     _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
@@ -1029,6 +1029,10 @@ void MenuContext::launchGameFinally(std::string gameName) {
 		}
         else if (gameName == MAP) {
             Director::getInstance()->replaceScene(MapScene::createScene());
+        }    
+        else if(gameName == MININGBG || gameName == CAMP || gameName == FARMHOUSE || gameName == CITY1 || gameName == CITY2 || gameName == CITY3 || gameName == CITY4 || gameName == CITY5) {
+            Director::getInstance()->replaceScene(TransitionFade::create(0.5, HelloWorld::createScene(gameName.c_str(),"", true), Color3B::BLACK));
+            
         }
 		else{
             CCLOG("Failed starting scene: %s", gameName.c_str());
@@ -1146,9 +1150,10 @@ void MenuContext::unlockNextStory() {
     }
 }
 
+
 void MenuContext::showScore() {
     //compute score
-    Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
+    //Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
 	_menuButton->setEnabled(false);
 	if (_closeButton != nullptr) {
 		_closeButton->setEnabled(false);
@@ -1226,27 +1231,38 @@ void MenuContext::showScore() {
         localStorageSetItem(gameName + LEVEL, output);
     }
     
+    std::string notShowParticleAnimation;
+    localStorageGetItem("notShowParticleAnimation", &notShowParticleAnimation);
 
-    if(FileUtils::getInstance()->isFileExist("scoreboard/" + gameName + "_success.plist")) {
-        _ps = CCParticleSystemQuad::create("scoreboard/" + gameName + "_success.plist");
-    } else {
-        _ps = CCParticleSystemQuad::create("scoreboard/particle_success.plist");
-    }
-    if(FileUtils::getInstance()->isFileExist("scoreboard/" + gameName + "_particle.png")) {
-        _ps->setTexture(CCTextureCache::sharedTextureCache()->addImage("scoreboard/" + gameName + "_particle.png"));
-    }
-    _ps->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
-    this->addChild(_ps, 10);
-    
-    runAction(Sequence::create(DelayTime::create(5.0), CallFunc::create([=] {
-        this->removeChild(_ps);
-        _ps = nullptr;
+    if(notShowParticleAnimation == "true") {
         _greyLayer->addChild(LayerColor::create(Color4B(128.0, 128.0, 128.0, 200.0), visibleSize.width, visibleSize.height));
-
-       auto scoreNode = ScoreBoardContext::create(stars, this->gameName, this->sceneName, _currentLevel);
-       scoreNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+        
+        auto scoreNode = ScoreBoardContext::create(stars, this->gameName, this->sceneName, _currentLevel);
+        scoreNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
         addChild(scoreNode);
-    }), NULL));
+        
+    } else {
+        if(FileUtils::getInstance()->isFileExist("scoreboard/" + gameName + "_success.plist")) {
+            _ps = CCParticleSystemQuad::create("scoreboard/" + gameName + "_success.plist");
+        } else {
+            _ps = CCParticleSystemQuad::create("scoreboard/particle_success.plist");
+        }
+        if(FileUtils::getInstance()->isFileExist("scoreboard/" + gameName + "_particle.png")) {
+            _ps->setTexture(CCTextureCache::sharedTextureCache()->addImage("scoreboard/" + gameName + "_particle.png"));
+        }
+        _ps->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+        this->addChild(_ps, 10);
+        
+        runAction(Sequence::create(DelayTime::create(5.0), CallFunc::create([=] {
+            this->removeChild(_ps);
+            _ps = nullptr;
+            _greyLayer->addChild(LayerColor::create(Color4B(128.0, 128.0, 128.0, 200.0), visibleSize.width, visibleSize.height));
+            
+            auto scoreNode = ScoreBoardContext::create(stars, this->gameName, this->sceneName, _currentLevel);
+            scoreNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+            addChild(scoreNode);
+        }), NULL));
+    }
 
 }
 

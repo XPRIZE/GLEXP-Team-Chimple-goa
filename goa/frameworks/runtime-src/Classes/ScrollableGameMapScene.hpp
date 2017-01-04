@@ -17,6 +17,7 @@
 #include "external/json/document.h"
 
 
+#define ANIMATION_FILE "template/loading_screen.csb"
 #define ICON_FOLDER "gameicons"
 #define NUMBER_OF_BUTTONS_ROWS 4
 #define NUMBER_OF_BUTTONS_COLS 5
@@ -33,6 +34,8 @@ public:
     void static nagivateToGame(std::string gameName);
     static std::vector<std::string> getTopBarGames();
     static void pushTopBarGame(std::string game);
+    
+    void onExitTransitionDidStart() override;
 
 CC_CONSTRUCTOR_ACCESS:
     virtual bool init();
@@ -40,7 +43,8 @@ CC_CONSTRUCTOR_ACCESS:
     virtual ~ScrollableGameMapScene();
 
 protected:
-    cocos2d::Layer* _layer;
+    std::string _gameNameToNavigate;
+    cocos2d::LayerColor* _greyLayer;
     cocos2d::ui::PageView* _pageView;
     MenuContext* menuContext;
     cocos2d::ParallaxNode *_parallax;
@@ -50,6 +54,9 @@ protected:
     std::string static parseGameConfig(std::string gameConfig);
     std::map<std::string, std::string> static parseGameConfigToMap(std::string gameConfig);
     cocos2d::ui::Button* createButton(const rapidjson::Value& gameJson);
+    void addGreyLayer();
+    bool greyLayerTouched(cocos2d::Touch *touch, cocos2d::Event *event);
+    void transition(float dt);
 };
 
 #endif /* ScrollableGameMapScene_hpp */
