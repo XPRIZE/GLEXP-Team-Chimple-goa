@@ -165,7 +165,7 @@ void AlphamonSprite::onAlphabetSelected(cocos2d::EventCustom *event) {
     
     wchar_t* buf = static_cast<wchar_t*>(event->getUserData());
     if(alphabet == buf[0]) {
-        EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, static_cast<void*>(&s));
+        //EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, static_cast<void*>(&s));
     }
 }
 

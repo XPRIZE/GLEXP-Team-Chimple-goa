@@ -88,6 +88,9 @@ bool LevelMenu::initWithGame(std::string gameName) {
         auto numLevels = std::atoi(numLevelsStr);
         _parallax->setContentSize(Size(visibleSize.width * span, visibleSize.height));
         addChild(_parallax);
+        auto greyLayer = LayerColor::create(Color4B(255.0, 255.0, 255.0, 160.0));
+        greyLayer->setContentSize(visibleSize);
+        addChild(greyLayer);
         if(gameConfig.HasMember("backgroundJson")) {
             auto backgroundJson = std::string(gameConfig["backgroundJson"].GetString());
             backgroundJson.replace(backgroundJson.size() - 4, std::string::npos, "csb");
