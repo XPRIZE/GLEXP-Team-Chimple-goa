@@ -2388,8 +2388,6 @@ void HelloWorld::HoldOrDragBehaviour(Point position) {
             this->skeletonCharacter->isRunning = false;
             this->skeletonCharacter->isWalking = false;
             this->skeletonCharacter->isJumping = false;
-            this->skeletonCharacter->isJumpingAttemptedWhileDragging = false;
-            this->skeletonCharacter->isPlayingContinousRotationWhileJumping = false;
         }
 
         return;
