@@ -475,7 +475,7 @@ void Drop::addEvents(Sprite* clickedObject)
 			rect = Rect(0, 0, s.width, s.height);
 		}
 		
-		if (rect.containsPoint(locationInNode))
+		if (rect.containsPoint(locationInNode) && !_isGameDone)
 		{
 			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 
@@ -648,7 +648,8 @@ void Drop::basketLetterCollisionChecker()
 	}
 	if (_basketRect.size() == 0)
 	{
-		Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
+		//Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
+		_isGameDone = true;
 		auto unschedule = CCCallFunc::create([=] {
 			this->unschedule(schedule_selector(Drop::letterAndHolderMaker));
 			this->unscheduleUpdate();
