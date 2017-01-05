@@ -698,7 +698,10 @@ this.remove();
         if (cc.sys.isNative) {
                 menuContext = this.getParent().menuContext;
                 cc.log("showscore");
-                menuContext.showScore();
+               
+                this.scheduleOnce(function(){
+         menuContext.showScore(); 
+      },2); 
             }
     }
   },

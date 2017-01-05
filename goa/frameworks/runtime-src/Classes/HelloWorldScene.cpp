@@ -174,6 +174,13 @@ void HelloWorld::renderBagPack() {
         std::string hintText;
         localStorageGetItem(HINT_TEXT, &hintText);
         
+        if(hintText.empty()) {
+            std::string firstHint = this->sqlite3Helper->findFirstHint(this->getIsland().c_str());
+            if(!firstHint.empty()) {
+                localStorageSetItem(HINT_TEXT, firstHint);
+            }
+        }
+        
         sTextField->setString(hintText);
         sTextField->setFontName("fonts/Roboto-Regular.ttf");
         sTextField->setFontSize(50);
@@ -348,8 +355,41 @@ void HelloWorld::loadWords() {
     //create hang bubble
     
     _hangBubbleNode = CSLoader::createNode("template/hang_bubble.csb");
-//    this->addChild(_hangBubbleNode);
 
+    std::string bagPackFile = this->getIsland()+"_bagpack" + "/" + this->getIsland()+"_bagpack.mapping.json";
+    
+    if(FileUtils::getInstance()->isFileExist(bagPackFile)) {
+        std::string jsonData = FileUtils::getInstance()->getStringFromFile(bagPackFile);
+        CCLOG("got data %s", jsonData.c_str());
+        
+        
+        rapidjson::Document d;
+        rapidjson::Value::MemberIterator M;
+        const char *key,*value;
+        
+        d.Parse<0>(jsonData.c_str());
+        if (d.HasParseError()) {
+            CCLOG("GetParseError %u\n",d.GetParseError());
+        } else
+        {
+            
+            for (M=d.MemberBegin(); M!=d.MemberEnd(); M++)
+            {
+                key   = M->name.GetString();
+                value = M->value.GetString();
+                std::string sValue = value;
+                sValue = LangUtil::getInstance()->translateString(sValue);
+                
+                if (key!=NULL && value!=NULL)
+                {
+                    CCLOG("%s = %s", key,sValue.c_str());
+                }
+                
+                _wordMappings.insert({key,sValue});
+            }
+        }
+    }
+    
     
     std::string wordFile = !this->getSceneName().empty() ? this->getSceneName() + ".mapping.json":  this->getIsland() + ".mapping.json";
     
@@ -1764,11 +1804,6 @@ void HelloWorld::onExitTransitionDidStart() {
     this->gesture_layer_->disableAllTouch();
     this->cleanUpResources();
     
-    std::string hintText;
-    localStorageGetItem(HINT_TEXT, &hintText);
-    if(!hintText.empty()) {
-        localStorageRemoveItem(HINT_TEXT);
-    }
     
 }
 
@@ -1791,11 +1826,20 @@ void HelloWorld::onEnterTransitionDidFinish() {
     
     this->scheduleUpdate();
     
-    if(this->_fromMenu) {
+    int allTasksFinished = this->sqlite3Helper->checkIfAllTaskedFinished(this->getIsland().c_str());
+    
+    if(allTasksFinished == 1) {
         CCLOG("deleting all items from bag for island %s", this->getIsland().c_str());
         this->sqlite3Helper->deleteAllItemFromMyBag(this->getIsland().c_str());
+        
+        //clear all hints
+        std::string hintText;
+        localStorageGetItem(HINT_TEXT, &hintText);
+        if(!hintText.empty()) {
+            localStorageRemoveItem(HINT_TEXT);
+        }
     }
-    
+
     //CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("sounds/Adagio teru (ft. teru).m4a", true);
     //CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0f);
     this->gesture_layer_->enableAllTouch();

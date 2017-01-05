@@ -23,6 +23,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     _storyEnded: false,
     _resources: [],
     _content_resources: [],
+    _soundId: null,
+
     ctor: function (pageIndex, storyInformation, resources, content_resources) {
         this._super();
         this._name = "NarrateStoryLayer";
@@ -1087,7 +1089,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
     processText:function(sender, type) {
         if(cc.audioEngine.isMusicPlaying()) {
-            cc.audioEngine.stopMusic();
+            cc.audioEngine.pauseMusic();
         }        
         this._referenceToContext._wordBoard.node.setVisible(true);
         this._referenceToContext.renderNextButton();
@@ -1098,17 +1100,26 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     },
 
     processAudio: function(soundEnabled) {
+        var that = this;
         var langDir = goa.TextGenerator.getInstance().getLang();
         var soundFile = "res/story/" + langDir + "/" + this._baseDir + "/" + this._baseDir + "_" + (xc.pageIndex + 1) + ".ogg";
         if(cc.sys.isNative) {
             var fileExists = jsb.fileUtils.isFileExist(soundFile);
             if(fileExists) {
+                this._content_resources.push(soundFile);
+                    // if(soundEnabled) {
+                    //     cc.log('1111111 processAudio');
+                    //     this.getParent()._menuContext.playStoryAudio(soundFile);
+                    // } else {
+                    //     cc.log('222222 processAudio stop');
+                    //     this.getParent()._menuContext.stopStoryAudio();
+                    // }
                 cc.loader.load(soundFile, function(err, data) {
                     if(!err) {
                         if(soundEnabled) {
-                            cc.audioEngine.playMusic(soundFile, false);
+                            that._soundId = cc.audioEngine.playEffect(soundFile, false);
                         } else {
-                            cc.audioEngine.stopMusic();
+                            cc.audioEngine.pauseEffect(that._soundId);
                         }
                     }
                 }); 
@@ -1117,9 +1128,9 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             cc.loader.load(soundFile, function(err, data) {
                 if(!err) {
                     if(soundEnabled) {
-                        cc.audioEngine.playMusic(soundFile, false);
+                        that._soundId = cc.audioEngine.playEffect(soundFile, false);
                     } else {
-                        cc.audioEngine.stopMusic();
+                        cc.audioEngine.pauseEffect(that._soundId);
                     }
                 }
             }); 
@@ -1141,9 +1152,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     onExit: function() {        
         this._super();
         var that = this;
-        if(cc.audioEngine.isMusicPlaying()) {
-            cc.audioEngine.stopMusic();
-        }
+        //cc.audioEngine.stopMusic(true);
+        cc.audioEngine.stopAllEffects();
 
         //if story ended playing then release all resources
         
@@ -1153,7 +1163,12 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                     cc.loader.release(url);
                     delete cc.loader[url];
                     
-                };                
+                };   
+
+                if(url.endsWith(".ogg")) {
+                    cc.log('cleaning url:' + url);
+                    cc.audioEngine.unloadEffect(url);
+                }                 
             });
                 
             if(that._storyEnded) {
