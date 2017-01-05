@@ -356,7 +356,7 @@ void ChainGrapheme::animateToPositionAndChangeBackground(cocos2d::Vec2 toPositio
 	}
 	else
 	{
-		changeBackground();
+        auto callback = CallFunc::create(CC_CALLBACK_0(Grapheme::changeBackground, this));
 		auto moveTo = MoveTo::create(1, toPosition);
 		auto rotateTo = RotateBy::create(1, 360);
 		auto mySpawn = Spawn::createWithTwoActions(moveTo, rotateTo);
@@ -366,12 +366,12 @@ void ChainGrapheme::animateToPositionAndChangeBackground(cocos2d::Vec2 toPositio
 			auto rotateTo = RotateBy::create(1, 360);
 			auto mySpawn_1 = Spawn::createWithTwoActions(scaleTo, rotateTo);
 			_letterBG->runAction(mySpawn_1);
-			runAction(mySpawn);
+            runAction(Sequence::createWithTwoActions(mySpawn, callback));
 		//	_monkeyTimeline->play("monkeyflip", false);
 		}
 		else
 		{
-			runAction(moveTo);
+			runAction(Sequence::createWithTwoActions(moveTo, callback));
 		}
 	}
 }

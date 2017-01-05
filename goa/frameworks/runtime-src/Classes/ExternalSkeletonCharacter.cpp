@@ -178,7 +178,8 @@ bool ExternalSkeletonCharacter::onTouchBegan(Touch *touch, Event *event)
 
 void ExternalSkeletonCharacter::touchEnded(Touch *touch, Event *event)
 {
-    CCLOG("%s", "CLICKED ON Spekable External Skeleton dispatching speech message");    
+    
     std::string s(this->getName());
+    CCLOG("CLICKED ON Spekable External Skeleton dispatching speech message with Key %s", s.c_str());
     EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, static_cast<void*>(&s));
 }

@@ -390,7 +390,7 @@ std::vector<MessageContent*> Sqlite3Helper::findEventsByOwnerInScene(const char*
 
 
     } else {
-        fprintf(stderr, "Failed to execute statement: %s\n", sqlite3_errmsg(this->dataBaseConnection));
+        fprintf(stderr, "Failed to execute statement in findEventsByOwnerInScene: %s\n", sqlite3_errmsg(this->dataBaseConnection));
     }
     
     std::vector<MessageContent*> messages;
@@ -447,7 +447,7 @@ std::vector<MessageContent*> Sqlite3Helper::findEventsByOwnerInScene(const char*
     
     
     sqlite3_finalize(res);
-    
+    CCLOG("retuning result in findEventsByOwnerInScene with findings %ld", messages.size());
     return messages;
 
 }

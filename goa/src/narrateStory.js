@@ -1117,9 +1117,9 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 cc.loader.load(soundFile, function(err, data) {
                     if(!err) {
                         if(soundEnabled) {
-                            that._soundId = cc.audioEngine.playEffect(soundFile, false);
+                            cc.audioEngine.playMusic(soundFile, false);
                         } else {
-                            cc.audioEngine.pauseEffect(that._soundId);
+                            cc.audioEngine.pauseMusic();
                         }
                     }
                 }); 
@@ -1128,9 +1128,9 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             cc.loader.load(soundFile, function(err, data) {
                 if(!err) {
                     if(soundEnabled) {
-                        that._soundId = cc.audioEngine.playEffect(soundFile, false);
+                        cc.audioEngine.playMusic(soundFile, false);
                     } else {
-                        cc.audioEngine.pauseEffect(that._soundId);
+                        cc.audioEngine.pauseMusic();
                     }
                 }
             }); 
@@ -1152,7 +1152,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     onExit: function() {        
         this._super();
         var that = this;
-        //cc.audioEngine.stopMusic(true);
+        cc.audioEngine.stopMusic(true);
         cc.audioEngine.stopAllEffects();
 
         //if story ended playing then release all resources
