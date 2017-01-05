@@ -3,6 +3,7 @@
 var xc = xc || {}
 
 xc.DotsLayer = cc.LayerGradient.extend({
+  gameName: "Dots",
   _currentNumber: 1,
   _number: null,
   _hand: null,

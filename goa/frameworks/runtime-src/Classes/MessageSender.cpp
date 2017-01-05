@@ -61,12 +61,14 @@ void MessageSender::createMessagesForNodeWithKey(std::string key) {
     std::vector<MessageContent *> messages = this->sqlite3Helper->findEventsByOwnerInScene(key.c_str(), this->sceneName.c_str());
     
     CCLOG("query Key is %s", key.c_str());
+    CCLOG("SceneName is %s", this->sceneName.c_str());
 
     if(messages.size() != 0) {
         CCLOG("message found for query key %s", key.c_str());
         EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::RECEIVE_CUSTOM_MESSAGE_NOTIFICATION, static_cast<void*>(&messages));        
     } else {
         CCLOG("NO message found for query key !!! ALERT %s", key.c_str());
+        CCLOG("NO message found for query sceneName !!! ALERT %s", this->sceneName.c_str());
     }
 }
 

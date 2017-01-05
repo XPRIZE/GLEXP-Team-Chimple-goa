@@ -279,6 +279,7 @@ void ChocolateFactory::addTouchEvents(Sprite* obj)
 		if (rect.containsPoint(Vec2(touch->getLocation().x,touch->getLocation().y)) && _touched)
 		{
 			_touched = false;
+			if(!_isGameDone)
 			return true;
 		}
 		return false;
@@ -414,7 +415,9 @@ void ChocolateFactory::isTrayInRightSequence()
 	}
 	if (orderCounter == 4) {
 		CCLOG("G A M E  IS O V E R");
-		Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
+
+		_isGameDone = true;
+		//Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
 		auto callShowScore = CCCallFunc::create([=] {
 			_menuContext->addPoints(1);
 			_menuContext->setMaxPoints(_pointCounter);
