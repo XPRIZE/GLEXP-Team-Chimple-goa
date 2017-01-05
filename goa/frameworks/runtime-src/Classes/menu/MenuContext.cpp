@@ -1699,3 +1699,16 @@ void MenuContext::showAnswer(std::string type, std::string header)
 	//this->addChild(duplicatNode);
 
 }
+
+int MenuContext::playStoryAudio(std::string soundFile) {
+    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(soundFile.c_str());
+    return 0;
+}
+
+
+void MenuContext::stopStoryAudio() {
+    CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic(true);
+}
+
+
+
