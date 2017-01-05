@@ -50,6 +50,10 @@ public:
     
     int checkIfItemExistsInBag(const char* item, const char* island);
     
+    int checkIfAllTaskedFinished(const char* island);
+    
+    std::string findFirstHint(const char* sceneName);
+    
     static bool instanceFlag;
     static Sqlite3Helper *shared;
 

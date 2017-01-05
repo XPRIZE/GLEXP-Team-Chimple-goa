@@ -23,7 +23,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
     }
     
     console.log("the height and width : "+cc.director.getWinSize().height+"      "+cc.director.getWinSize().width);
-    this.textHitsLabel = new cc.LabelTTF("Hits : 0","res/fonts/BalooBhai-Regular.ttf",75);
+    this.textHitsLabel = new cc.LabelTTF(goa.TextGenerator.getInstance().translateString("Hits : 0"),"res/fonts/BalooBhai-Regular.ttf",75);
     this.textHitsLabel.setPosition(cc.director.getWinSize().width*0.1,cc.director.getWinSize().height*0.975);                      
  
     this.addChild(this.textHitsLabel);
@@ -482,7 +482,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
             console.log(" ---------------  you hited "+ (++ this.counterhits) +" balls --------------------");
             //   console.log("hits remaining : "+ this.hits + " count value is : " + this.count);
             //    this.DataCard();
-               this.textHitsLabel.setString("Hits : "+ this.counterhits);
+               this.textHitsLabel.setString(goa.TextGenerator.getInstance().translateString("Hits : ") + this.counterhits);
               if(this.counterhits == 7){
                 //    this.DataCard();
               }

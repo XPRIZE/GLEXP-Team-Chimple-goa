@@ -664,6 +664,49 @@ bool js_chimpleautogenbindings_MenuContext_showScore(JSContext *cx, uint32_t arg
     JS_ReportError(cx, "js_chimpleautogenbindings_MenuContext_showScore : wrong number of arguments: %d, was expecting %d", argc, 0);
     return false;
 }
+
+bool js_chimpleautogenbindings_MenuContext_stopStoryAudio(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
+    js_proxy_t *proxy = jsb_get_js_proxy(obj);
+    MenuContext* cobj = (MenuContext *)(proxy ? proxy->ptr : NULL);
+    JSB_PRECONDITION2( cobj, cx, false, "js_chimpleautogenbindings_MenuContext_stopStoryAudio : Invalid Native Object");
+    if (argc == 0) {
+        cobj->stopStoryAudio();
+        args.rval().setUndefined();
+        return true;
+    }
+    
+    JS_ReportError(cx, "js_chimpleautogenbindings_MenuContext_stopStoryAudio : wrong number of arguments: %d, was expecting %d", argc, 0);
+    return false;
+}
+
+
+bool js_chimpleautogenbindings_MenuContext_playStoryAudio(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
+    js_proxy_t *proxy = jsb_get_js_proxy(obj);
+    MenuContext* cobj = (MenuContext *)(proxy ? proxy->ptr : NULL);
+    JSB_PRECONDITION2( cobj, cx, false, "js_chimpleautogenbindings_MenuContext_playStoryAudio : Invalid Native Object");
+    if (argc == 1) {
+        std::string arg0;
+        ok &= jsval_to_std_string(cx, args.get(0), &arg0);
+        JSB_PRECONDITION2(ok, cx, false, "js_chimpleautogenbindings_MenuContext_playStoryAudio : Error processing arguments");
+        int ret = cobj->playStoryAudio(arg0);
+        jsval jsret = JSVAL_NULL;
+        jsret = int32_to_jsval(cx, ret);
+        args.rval().set(jsret);
+        return true;
+    }
+    
+    JS_ReportError(cx, "js_chimpleautogenbindings_MenuContext_playStoryAudio : wrong number of arguments: %d, was expecting %d", argc, 1);
+    return false;
+}
+
+
 bool js_chimpleautogenbindings_MenuContext_setMaxPoints(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -862,6 +905,7 @@ void js_register_chimpleautogenbindings_MenuContext(JSContext *cx, JS::HandleObj
         JS_FN("onChimpTouchBegan", js_chimpleautogenbindings_MenuContext_onChimpTouchBegan, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("jumpOut", js_chimpleautogenbindings_MenuContext_jumpOut, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getBoundingBox", js_chimpleautogenbindings_MenuContext_getBoundingBox, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("playStoryAudio", js_chimpleautogenbindings_MenuContext_playStoryAudio, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("split", js_chimpleautogenbindings_MenuContext_split, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("transitToScrollableGameMap", js_chimpleautogenbindings_MenuContext_transitToScrollableGameMap, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("setCurrentLevel", js_chimpleautogenbindings_MenuContext_setCurrentLevel, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -872,6 +916,7 @@ void js_register_chimpleautogenbindings_MenuContext(JSContext *cx, JS::HandleObj
         JS_FN("finalizePoints", js_chimpleautogenbindings_MenuContext_finalizePoints, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("showScore", js_chimpleautogenbindings_MenuContext_showScore, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("setMaxPoints", js_chimpleautogenbindings_MenuContext_setMaxPoints, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("stopStoryAudio", js_chimpleautogenbindings_MenuContext_stopStoryAudio, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
     };
 
