@@ -342,7 +342,9 @@ void JumpingNumber::jumpAnimation(cocos2d::Point pos, bool gameEnd)
 	auto jumpspeed = ccpDistance(character->getPosition(), pos);
 	auto jump = JumpTo::create(0.8, pos, 100,1);
 	auto move = MoveBy::create(dis/500, Vec2(0, -difference));
-	
+	if (gameEnd) {
+		jump = JumpTo::create(0.8, Vec2(pos.x,visibleSize.height *0.3), 100, 1);
+	}
 	auto stepMove = MoveBy::create(dis/500, Vec2(0, -difference));
 	characterAnimation(_fullDirectoryPath.at("right_animation"));
 	character->runAction(Sequence::create(jump, CallFunc::create([=]() {
@@ -353,6 +355,9 @@ void JumpingNumber::jumpAnimation(cocos2d::Point pos, bool gameEnd)
 				}
 			}
 			_stepReff.clear();
+		}
+		else if (gameEnd) {
+			menu->showScore();
 		}
 	}),move, CallFunc::create([=]() {
 	
