@@ -92,8 +92,8 @@ xc.MultipleChoiceQuestionHandler = cc.Layer.extend({
                 var secondOutput = "";
                 var secondQTest = "";
 
-                if(element.length > 25) {
-                    var i = 25;
+                if(element.length > 18) {
+                    var i = 18;
                     while(i != element.length && element.charAt(i) != " ")
                     {
                         i++;
@@ -102,9 +102,9 @@ xc.MultipleChoiceQuestionHandler = cc.Layer.extend({
                     output += "\n";
                     secondQTest = element.substring(i, element.length);
 
-                    if(secondQTest.length > 25) 
+                    if(secondQTest.length > 18) 
                     {
-                        var j = 25;
+                        var j = 18;
                         while(j != secondQTest.length && secondQTest.charAt(j) != " ")
                         {
                             j++;

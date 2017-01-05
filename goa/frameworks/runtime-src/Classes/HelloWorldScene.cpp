@@ -176,6 +176,7 @@ void HelloWorld::renderBagPack() {
         
         if(hintText.empty()) {
             std::string firstHint = this->sqlite3Helper->findFirstHint(this->getIsland().c_str());
+            hintText = firstHint;
             if(!firstHint.empty()) {
                 localStorageSetItem(HINT_TEXT, firstHint);
             }

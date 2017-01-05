@@ -361,6 +361,10 @@ std::vector<MessageContent*> Sqlite3Helper::findEventsByOwnerInScene(const char*
     
     /* Execute SQL statement */
     
+    CCLOG("owner in findEventsByOwnerInScene %s", owner);
+    CCLOG("sceneName in findEventsByOwnerInScene %s", sceneName);
+
+    
     rc = sqlite3_prepare_v2(this->dataBaseConnection, querySQL, -1, &res, 0);
     
     if (rc == SQLITE_OK) {
@@ -396,7 +400,13 @@ std::vector<MessageContent*> Sqlite3Helper::findEventsByOwnerInScene(const char*
         content->setEventId(sqlite3_column_int(res, 0));
         content->setPreConditionEventId(sqlite3_column_int(res,1));
         
-        std::string condition( reinterpret_cast< char const* >(sqlite3_column_text(res, 2))) ;
+        
+        std::string condition = "";
+        if((char *)sqlite3_column_text(res, 2))
+        {
+            condition = ( reinterpret_cast< char const* >(sqlite3_column_text(res, 2))) ;
+        }
+            
         content->setCondition(condition);
         
         content->setConditionSatisfied(sqlite3_column_int(res,3));

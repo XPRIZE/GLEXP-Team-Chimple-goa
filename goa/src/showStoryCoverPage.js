@@ -84,7 +84,12 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
         if (this._constructedScene.node) {
             this._constructedScene.action._referenceToContext = this;
             this._constructedScene.action.setFrameEventCallFunc(this.enterFrameEvent);
-            this._constructedScene.action.gotoFrameAndPause(0);   
+            this._constructedScene.action.gotoFrameAndPause(0);
+
+            var isAutoConfigued = cc.sys.localStorage.getItem("autoSoundEnabled");            
+            if(isAutoConfigued == null) {
+                cc.sys.localStorage.setItem("autoSoundEnabled", "true");
+            }            
             this.showText();                     
         }
     },
