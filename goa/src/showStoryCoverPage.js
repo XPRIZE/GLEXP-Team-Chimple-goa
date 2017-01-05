@@ -16,9 +16,10 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
     _configPanelHeight: null,
     _isTitleDisplayed: false,
     _isTextShown: false,
-    _storyCoverPageSceneJSON: null,
+    _resources: [],
+    _soundId: null,
 
-    ctor: function (pageIndex, storyInformation, storyCoverPageSceneJSON) {
+    ctor: function (pageIndex, storyInformation, resources) {
         this._super();
         this._name = "StoryCoverPageLayer";
         this._tabHeight = 64;
@@ -28,7 +29,7 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
         this._contentPanelWidth = cc.director.getWinSize().width; //assuming landscape
         this._contentPanelHeight = cc.director.getWinSize().height; //assuming landscape
         this._configPanelWidth = (cc.director.getWinSize().width - this._contentPanelWidth) / 2;
-        this._storyCoverPageSceneJSON = storyCoverPageSceneJSON;
+        this._resources = resources;
 
         return true;
     },
@@ -83,7 +84,12 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
         if (this._constructedScene.node) {
             this._constructedScene.action._referenceToContext = this;
             this._constructedScene.action.setFrameEventCallFunc(this.enterFrameEvent);
-            this._constructedScene.action.gotoFrameAndPause(0);   
+            this._constructedScene.action.gotoFrameAndPause(0);
+
+            var isAutoConfigued = cc.sys.localStorage.getItem("autoSoundEnabled");            
+            if(isAutoConfigued == null) {
+                cc.sys.localStorage.setItem("autoSoundEnabled", "true");
+            }            
             this.showText();                     
         }
     },
@@ -92,13 +98,36 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
     onExit: function() {        
         this._super();
         var that = this;
+        cc.audioEngine.stopAllEffects();
 
-        if(that._storyCoverPageSceneJSON && that._storyCoverPageSceneJSON.length > 0 && 
-            that._storyCoverPageSceneJSON.endsWith(".json")) {
-            cc.log('cleaning url:' + that._storyCoverPageSceneJSON);
-            cc.loader.release(that._storyCoverPageSceneJSON);
-            delete cc.loader[that._storyCoverPageSceneJSON];            
-        };                
+        that._resources.forEach(function(url) {                
+            if(url.endsWith(".json")) {
+                cc.log('cleaning url:' + url);
+                cc.loader.release(url);
+                delete cc.loader[url];
+                
+            };   
+
+            if(url.endsWith(".ogg")) {
+                cc.log('cleaning url:' + url);
+                cc.audioEngine.unloadEffect(url);
+            }       
+
+            if(url.endsWith(".plist")) {
+                cc.log('cleaning url:' + url);
+                cc.spriteFrameCache.removeSpriteFramesFromFile(url);
+                cc.loader.release(url);
+                delete cc.loader[url];                        
+            };   
+
+            if(url.endsWith(".png")) {
+                cc.log("removing image: " + url);
+                cc.textureCache.removeTextureForKey(url);
+                cc.loader.release(url);
+                delete cc.loader[url]
+            }                                                
+        });       
+        that._resources = [];
     },
 
     enterFrameEvent: function(event) {
@@ -107,20 +136,21 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
         var eventData = event.getEvent();
         var page = this._referenceToContext._storyInformation["pages"][this._referenceToContext._pageIndex];
         if(page) {
-            //var soundFile = page[eventData];
             var soundFile = eventData;
             if(soundFile != undefined) {
-                var soundFile = xc.path + this._referenceToContext._baseDir + "/sounds/" + soundFile + ".mp3";
-                cc.loader.load(soundFile, function(err, data) {
-                    if(!err) {
-                        if(cc.audioEngine.isMusicPlaying()) {
-                            cc.audioEngine.stopMusic();
-                        }
-                        cc.audioEngine.playMusic(soundFile, false);
+                var soundFile = xc.path + this._referenceToContext._baseDir + "/sounds/" + soundFile + ".ogg";
+                if(cc.sys.isNative) {
+                    var fileExists = jsb.fileUtils.isFileExist(soundFile);
+                    if(fileExists) {
+                        cc.loader.load(soundFile, function(err, data) {
+                            if(!err) {
+                                that._resources.push(soundFile);
+                                cc.audioEngine.playEffect(soundFile, false);
+                            }
+                        }); 
                     }
-                }); 
+                }
             }            
-
         }        
     },
     
@@ -137,6 +167,7 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
     },
 
     processAudio: function(soundEnabled) {
+        var that = this;
         var langDir = goa.TextGenerator.getInstance().getLang();
         var soundFile = "res/story/" + langDir + "/" + this._baseDir + "/" + this._baseDir + "_0.ogg";
         if(cc.sys.isNative) {
@@ -144,10 +175,12 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
             if(fileExists) {
                 cc.loader.load(soundFile, function(err, data) {
                     if(!err) {
+                        that._resources.push(soundFile);
+                        
                         if(soundEnabled) {
-                            cc.audioEngine.playMusic(soundFile, false);
+                            that._soundId = cc.audioEngine.playEffect(soundFile, false);
                         } else {
-                            cc.audioEngine.stopMusic();
+                            cc.audioEngine.pauseEffect(that._soundId);
                         }                        
                     }
                 }); 
@@ -155,10 +188,12 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
         } else {
             cc.loader.load(soundFile, function(err, data) {
                 if(!err) {
+                    that._resources.push(soundFile);
+                    var soundId;
                     if(soundEnabled) {
-                        cc.audioEngine.playMusic(soundFile, false);
+                        that._soundId = cc.audioEngine.playEffect(soundFile, false);
                     } else {
-                        cc.audioEngine.stopMusic();
+                        cc.audioEngine.pauseEffect(that._soundId);
                     }
                 }
             }); 
@@ -176,7 +211,7 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
         cc.log('textFileUrl:' + textFileUrl);
         if(cc.sys.isNative) {
             var fileExists = jsb.fileUtils.isFileExist(textFileUrl);
-            if(fileExists) {
+            if(fileExists) {                
                 cc.loader.loadJson(textFileUrl, function(err, json) {            
                     if(!err && json != null && json != undefined) {
                         storyText = json[0];
@@ -205,10 +240,10 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
 xc.StoryCoverPageScene = cc.Scene.extend({
     layerClass: null,
     _menuContext: null,
-    ctor: function (pageIndex, storyInformation, storyCoverPageSceneJSON, layer) {
+    ctor: function (pageIndex, storyInformation, t_resources, layer) {
         this._super();
         this.layerClass = layer;
-        this._sceneLayer = new this.layerClass(pageIndex, storyInformation, storyCoverPageSceneJSON);
+        this._sceneLayer = new this.layerClass(pageIndex, storyInformation, t_resources);
         this.addChild(this._sceneLayer);
         this._sceneLayer.init();
                 
@@ -254,7 +289,7 @@ xc.StoryCoverPageScene.load = function(pageIndex, storyInformation, layer, enabl
                 cc.spriteFrameCache.addSpriteFrames(xc.StoryCoverPageLayer.res.template_01_plist);
                 cc.spriteFrameCache.addSpriteFrames(xc.StoryCoverPageLayer.res.template_02_plist);
                 
-                var scene = new xc.StoryCoverPageScene(pageIndex, storyInformation, coverPageJSON, layer);
+                var scene = new xc.StoryCoverPageScene(pageIndex, storyInformation, t_resources, layer);
                 scene.layerClass = layer;            
                 if(enableTransition) {
                     cc.director.runScene(new cc.TransitionFade(2.0, scene, true));

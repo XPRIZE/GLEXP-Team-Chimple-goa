@@ -33,6 +33,7 @@ public:
 	std::vector<std::string>  _candyRef;
 	cocos2d::Node * _friend;
 	cocos2d::Node * _enemy;
+	cocos2d::Vector <cocos2d::Node *> _candyMoveRef;
 	cocos2d::Label * _topLabel;
 	cocos2d::Vector <cocos2d::Sprite *> _choiceButton;
 	cocos2d::Vector <cocos2d::Label *> _choiceLabel;
