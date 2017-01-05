@@ -84,7 +84,12 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
         if (this._constructedScene.node) {
             this._constructedScene.action._referenceToContext = this;
             this._constructedScene.action.setFrameEventCallFunc(this.enterFrameEvent);
-            this._constructedScene.action.gotoFrameAndPause(0);   
+            this._constructedScene.action.gotoFrameAndPause(0);
+
+            var isAutoConfigued = cc.sys.localStorage.getItem("autoSoundEnabled");            
+            if(isAutoConfigued == null) {
+                cc.sys.localStorage.setItem("autoSoundEnabled", "true");
+            }            
             this.showText();                     
         }
     },
@@ -94,6 +99,7 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
         this._super();
         var that = this;
         cc.audioEngine.stopAllEffects();
+        cc.audioEngine.stopMusic(true);
 
         that._resources.forEach(function(url) {                
             if(url.endsWith(".json")) {
@@ -161,7 +167,7 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
         this.sceneTouched();
     },
 
-    processAudio: function(soundEnabled) {
+    soundText: function(dt) {
         var that = this;
         var langDir = goa.TextGenerator.getInstance().getLang();
         var soundFile = "res/story/" + langDir + "/" + this._baseDir + "/" + this._baseDir + "_0.ogg";
@@ -172,10 +178,11 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
                     if(!err) {
                         that._resources.push(soundFile);
                         
-                        if(soundEnabled) {
-                            that._soundId = cc.audioEngine.playEffect(soundFile, false);
+                        if(that.soundEnabled) {
+                             cc.log('playing sound file' + soundFile);
+                             cc.audioEngine.playMusic(soundFile, false);
                         } else {
-                            cc.audioEngine.pauseEffect(that._soundId);
+                            cc.audioEngine.pauseMusic();
                         }                        
                     }
                 }); 
@@ -185,14 +192,21 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
                 if(!err) {
                     that._resources.push(soundFile);
                     var soundId;
-                    if(soundEnabled) {
-                        that._soundId = cc.audioEngine.playEffect(soundFile, false);
+                    if(that.soundEnabled) {
+                        cc.audioEngine.playMusic(soundFile, false);
                     } else {
-                        cc.audioEngine.pauseEffect(that._soundId);
+                        cc.audioEngine.pauseMusic(that._soundId);
                     }
                 }
             }); 
-        }         
+        }   
+    },
+
+    processAudio: function(soundEnabled) {
+        var that = this;
+        that.soundEnabled = soundEnabled;
+        that.scheduleOnce(this.soundText,1.0);
+      
     },    
 
     showText: function() {      
