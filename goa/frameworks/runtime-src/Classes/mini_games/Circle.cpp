@@ -466,6 +466,7 @@ void Circle::topping(char  str)
 	candyMove->setPositionY(background->getChildByName(_candyRef.at(num - 1))->getPositionY());
 	this->addChild(candyMove);
 	candyMove->setScale(0.3);
+	_candyMoveRef.pushBack(candyMove);
 	std::vector<std::string> dotRef = {"dot_43_1","dot_43_1_0","dot_43_1_0_0","dot_43_1_0_0_0","dot_43_1_0_0_0_0","dot_43_1_0_0_0_0_0"};
 	auto action = JumpTo::create(1.0, Vec2(background->getChildByName(dotRef.at(_score - 1))->getPositionX()+extraX, background->getChildByName(dotRef.at(_score - 1))->getPositionY()),500,1);
 	//candyMove->runAction(action);
@@ -681,6 +682,15 @@ bool Circle::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
 			_friend->runAction(shake);
 			CCLOG("shake ends");
+			if (_scenePath.at("animation_select").compare("three") == 0)
+			{
+				for (int i = 0; i < _candyMoveRef.size(); i++)
+				{
+					FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
+					_candyMoveRef.at(i)->runAction(shake);
+				}
+
+			}
 		}
 		return true;
 	}

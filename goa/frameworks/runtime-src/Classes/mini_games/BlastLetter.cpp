@@ -158,7 +158,7 @@ void BlastLetter::onEnterTransitionDidFinish() {
 		std::ostringstream boardName;
 		boardName << _sentence << _data_key;
 
-		auto myLabel = CommonLabelTTF::create(boardName.str(), "Helvetica", this->getChildByName("bg")->getChildByName("topboard ")->getContentSize().height *0.8);
+		auto myLabel = CommonLabelTTF::create(boardName.str(), "Helvetica", this->getChildByName("bg")->getChildByName("topboard ")->getContentSize().height *0.55);
 		myLabel->setPosition(Vec2(this->getChildByName("bg")->getChildByName("topboard ")->getContentSize().width/2, this->getChildByName("bg")->getChildByName("topboard ")->getContentSize().height/2));
 		myLabel->setName(myLabel->getString());
 		this->getChildByName("bg")->getChildByName("topboard ")->addChild(myLabel);
