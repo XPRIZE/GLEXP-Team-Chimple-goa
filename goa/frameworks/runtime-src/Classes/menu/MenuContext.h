@@ -64,6 +64,9 @@ public:
     cocos2d::Rect getBoundingBox(cocos2d::Sprite* node) const;
     std::vector<cocos2d::Point> getPolygonPointsForSprite1(cocos2d::Sprite* node);
     
+    int playStoryAudio(std::string soundFile);
+    void stopStoryAudio();
+    
     template <typename T>
     static inline std::string to_string(T value)
     {

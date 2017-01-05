@@ -106,8 +106,8 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
                 var secondOutput = "";
                 var secondQTest = "";
 
-                if(element.length > 30) {
-                    var i = 30;
+                if(element.length > 25) {
+                    var i = 25;
                     while(i != element.length && element.charAt(i) != " ")
                     {
                         i++;
@@ -116,9 +116,9 @@ xc.FillInTheBlanksQuestionHandler = cc.Layer.extend({
                     output += "\n";
                     secondQTest = element.substring(i, element.length);
 
-                    if(secondQTest.length > 30) 
+                    if(secondQTest.length > 25) 
                     {
-                        var j = 30;
+                        var j = 25;
                         while(j != secondQTest.length && secondQTest.charAt(j) != " ")
                         {
                             j++;

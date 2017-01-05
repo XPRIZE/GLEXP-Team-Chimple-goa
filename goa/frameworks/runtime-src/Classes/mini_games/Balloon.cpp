@@ -197,7 +197,8 @@ void Balloon::update(float dt)
 	{
 		_pointCounter++;
 		_menuContext->addPoints(1);
-		Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
+		_isGameDone = true;
+		//Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
 		this->runAction(Sequence::create(DelayTime::create(1),
 			CCCallFunc::create([=]	{
 			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
@@ -313,6 +314,7 @@ void Balloon::addTouchEvents(Sprite* obj)
 				if (rect.containsPoint(Vec2(touch->getLocation().x, touch->getLocation().y)) && _touched)
 				{
 					target->setOpacity(100); _touched = false;
+					if(!_isGameDone)
 					return true;
 				}
 			}
@@ -325,6 +327,7 @@ void Balloon::addTouchEvents(Sprite* obj)
 				if (rect.containsPoint(Vec2(touch->getLocation().x, touch->getLocation().y)) && _touched)
 				{
 					target->setOpacity(100); _touched = false;
+					if (!_isGameDone)
 					return true;
 				}
 			}
@@ -339,6 +342,7 @@ void Balloon::addTouchEvents(Sprite* obj)
 			if (rect.containsPoint(Vec2(touch->getLocation().x, touch->getLocation().y)) && _touched)
 			{
 				_touched = false;
+				if (!_isGameDone)
 				 return true;
 			}
 		}
@@ -435,7 +439,8 @@ void Balloon::addTouchEvents(Sprite* obj)
 			}
 			else if (_balloonsBin.size() == _answer)
 			{
-				Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
+				_isGameDone = true;
+				//Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 				audio->playEffect("sounds/sfx/success.ogg", false);
 				_menuContext->addPoints(1);
