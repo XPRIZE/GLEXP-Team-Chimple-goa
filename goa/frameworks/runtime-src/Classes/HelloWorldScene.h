@@ -323,7 +323,7 @@ public:
     
     virtual bool checkTapOnRPGSprite(RPGSprite* rpgNode, cocos2d::Point position);    
     
-    static const char* gameName() { return "Safari RPG";}
+    static char* gameName() { return "map";}
     
     std::vector<std::string> getExternalCharacterNames();
     
@@ -341,6 +341,8 @@ public:
     bool greyLayerTouched(cocos2d::Touch *touch, cocos2d::Event *event);
     
     void showBagPack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    
+    void unlockNext(float dt);
 };
 
 #endif // __HELLOWORLD_SCENE_H__

@@ -97,6 +97,8 @@ bool SpeechBubbleView::initialize(std::unordered_map<int, std::string> textMap, 
     for ( auto it = textMap.begin(); it != textMap.end(); ++it ) {
         
         _button = Button::create("Button_Normal.png", "Button_Press.png", "Button_Disable.png", ui::Widget::TextureResType::LOCAL);
+        Size visibleSize = Director::getInstance()->getVisibleSize();
+        
         
         _button->setPosition(Point(position.x, position.y + delta));
         CCLOG("Text to speak %s", it->second.c_str());
@@ -123,6 +125,22 @@ bool SpeechBubbleView::initialize(std::unordered_map<int, std::string> textMap, 
                                     lbl_size.height * 1.25f
                                     )
                                );
+        
+        
+        CCLOG("_button->getBoundingBox().size.height %f", _button->getBoundingBox().size.height);
+        if(position.y + delta + _button->getBoundingBox().size.height > visibleSize.height) {
+            position.y = position.y - _button->getBoundingBox().size.height/2;
+            _button->setPosition(Point(position.x, position.y));
+        } else if(position.y - _button->getBoundingBox().size.height < 0.0f) {
+            position.y = position.y + _button->getBoundingBox().size.height/2;
+            _button->setPosition(Point(position.x, position.y));
+        } else if(position.x + _button->getBoundingBox().size.width > visibleSize.width) {
+            position.x = position.x - _button->getBoundingBox().size.width/2;
+            _button->setPosition(Point(position.x, position.y + delta));
+        } else if(position.x - _button->getBoundingBox().size.width < 0.0f) {
+            position.x = position.x + _button->getBoundingBox().size.width/2;
+            _button->setPosition(Point(position.x, position.y + delta));
+        }
         
         
 

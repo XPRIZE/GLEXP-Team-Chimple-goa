@@ -26,19 +26,22 @@ public:
     
     static cocos2d::Scene* createScene();
     static MapScene* create();
+    static const std::map<std::string, std::string> levelToGameNameMap;    
+    static const std::map<std::string, std::string> createLevelToGameName();
     
 CC_CONSTRUCTOR_ACCESS:
     virtual bool init();
     MapScene();
     virtual ~MapScene();
-    
+    static const char* gameName() { return "map";}
 private:
+    int unlockLevel;
     MenuContext* menuContext;
     LangUtil* currentLangUtil;
     void loadMap();
     void processChildNodes(cocos2d::Node *rootNode);
     void islandSelected(Ref* pSender, ui::Widget::TouchEventType eEventType);
-    
+    std::map<std::string, std::string> gameNameToLevelMap;
 };
 
 #endif /* MapScene_h */
