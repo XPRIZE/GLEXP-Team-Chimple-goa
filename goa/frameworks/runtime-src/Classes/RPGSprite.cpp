@@ -267,6 +267,7 @@ void RPGSprite::touchEnded(Touch *touch, Event *event)
 {
     setEventProcessed(true);
     std::string s(!this->getKey().empty() ? this->getKey() : this->getName());
+    CCLOG("CLICKED ON Spekable RPG Sprite dispatching speech message with Key %s", s.c_str());
     EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, static_cast<void*>(&s));
     if(this->touchPointerNode != NULL) {
         this->touchPointerNode->setVisible(false);

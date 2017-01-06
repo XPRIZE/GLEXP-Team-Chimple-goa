@@ -1285,7 +1285,10 @@ void HelloWorld::moveItemIntoBag(Sprite* orgSprite) {
 void HelloWorld::createAndUseItemFromBag(std::string imageName, MessageContent* content, std::unordered_map<int, std::string> textMapFollowedByAnimation) {
     CCLOG("useItemFromBag %s", imageName.c_str());
     if(!imageName.empty()) {
-        
+        if(imageName.compare("camp_bagpack/main_picnic_27.png") == 0) {
+           imageName = "camp_bagpack/picnic_hamper.png";
+        }
+           
         auto newspriteFrame = SpriteFrameCache::getInstance()->getSpriteFrameByName(imageName);
         Sprite* copySprite = Sprite::createWithSpriteFrame(newspriteFrame);
 
@@ -1828,6 +1831,8 @@ void HelloWorld::onEnterTransitionDidFinish() {
     this->scheduleUpdate();
     
     int allTasksFinished = this->sqlite3Helper->checkIfAllTaskedFinished(this->getIsland().c_str());
+    int checkIfAnyItemExists = this->sqlite3Helper->checkIfAnyItemExistsInBag(this->getIsland().c_str());
+    
     
     if(allTasksFinished == 1) {
         CCLOG("deleting all items from bag for island %s", this->getIsland().c_str());
@@ -1839,6 +1844,13 @@ void HelloWorld::onEnterTransitionDidFinish() {
         if(!hintText.empty()) {
             localStorageRemoveItem(HINT_TEXT);
         }
+    } else if(checkIfAnyItemExists == 0) {
+        //clear all hints
+        std::string hintText;
+        localStorageGetItem(HINT_TEXT, &hintText);
+        if(!hintText.empty()) {
+            localStorageRemoveItem(HINT_TEXT);
+        }        
     }
 
     //CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("sounds/Adagio teru (ft. teru).m4a", true);
@@ -2388,8 +2400,6 @@ void HelloWorld::HoldOrDragBehaviour(Point position) {
             this->skeletonCharacter->isRunning = false;
             this->skeletonCharacter->isWalking = false;
             this->skeletonCharacter->isJumping = false;
-            this->skeletonCharacter->isJumpingAttemptedWhileDragging = false;
-            this->skeletonCharacter->isPlayingContinousRotationWhileJumping = false;
         }
 
         return;

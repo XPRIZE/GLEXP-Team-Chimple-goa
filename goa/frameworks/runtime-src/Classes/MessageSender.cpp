@@ -43,7 +43,8 @@ bool MessageSender::initialize(Sqlite3Helper* sqlite3Helper, std::string sceneNa
 }
 
 void MessageSender::sendMessageEvent(EventCustom * event) {
-    std::string &key = *(static_cast<std::string*>(event->getUserData()));
+    const std::string key = *(static_cast<std::string*>(event->getUserData()));
+    CCLOG("in message sender: sendMessageEvent: KEY  %s", key.c_str());
     this->createMessagesForNodeWithKey(key);
 }
 
@@ -53,18 +54,22 @@ void MessageSender::sendTextOnTapMessageEvent(EventCustom * event) {
 
 }
 
-void MessageSender::createMessagesForNodeWithKey(std::string key) {
+void MessageSender::createMessagesForNodeWithKey(const std::string key) {
     CCLOG("creating message for %s", key.c_str());
     assert(this->sqlite3Helper != NULL);
     assert(!key.empty());
 
+    CCLOG("query Key 1111 is %s", key.c_str());
+    CCLOG("SceneName 1111 is %s", this->sceneName.c_str());
+
     std::vector<MessageContent *> messages = this->sqlite3Helper->findEventsByOwnerInScene(key.c_str(), this->sceneName.c_str());
     
-    CCLOG("query Key is %s", key.c_str());
-    CCLOG("SceneName is %s", this->sceneName.c_str());
+    CCLOG("query Key 2222 is %s", key.c_str());
+    CCLOG("SceneName 2222 is %s", this->sceneName.c_str());
 
     if(messages.size() != 0) {
         CCLOG("message found for query key %s", key.c_str());
+        CCLOG("message found for query sceneName !!! ALERT %s", this->sceneName.c_str());
         EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::RECEIVE_CUSTOM_MESSAGE_NOTIFICATION, static_cast<void*>(&messages));        
     } else {
         CCLOG("NO message found for query key !!! ALERT %s", key.c_str());
