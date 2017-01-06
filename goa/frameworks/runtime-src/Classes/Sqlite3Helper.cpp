@@ -266,6 +266,34 @@ int Sqlite3Helper::checkIfItemExistsInBag(const char* item, const char* island) 
     return result;
 }
 
+int Sqlite3Helper::checkIfAnyItemExistsInBag(const char* island) {
+    sqlite3_stmt *res;
+    int rc = 0;
+    int result = 0;
+    
+    const char* querySQL = "SELECT 1 FROM MY_BAG WHERE ISLAND_NAME = @island";
+    
+    rc = sqlite3_prepare_v2(this->dataBaseConnection, querySQL, -1, &res, 0);
+    
+    if (rc == SQLITE_OK) {
+        
+        int owner_1Index = sqlite3_bind_parameter_index(res, "@island");
+        sqlite3_bind_text(res, owner_1Index, island,-1, SQLITE_TRANSIENT);
+        
+        
+    } else {
+        fprintf(stderr, "Failed to execute statement: %s\n", sqlite3_errmsg(this->dataBaseConnection));
+    }
+    
+    
+    while(sqlite3_step(res) == SQLITE_ROW)
+    {
+        result = 1;
+    }
+    
+    return result;
+}
+
 
 int Sqlite3Helper::checkIfAllTaskedFinished(const char* island) {
     sqlite3_stmt *res;
