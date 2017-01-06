@@ -454,6 +454,7 @@ void Item::scoreBoard(float dt)
 }
 void Item::result()
 {
+	this->removeChildByName("helpDone");
 	if (_num1 == _count1 && _num2 == _count2)
 	{
 		_eventDispatcher->removeEventListener(_listener1);
@@ -673,6 +674,13 @@ void Item::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 		_count1++;
 		target->setName("fish1_in_pond");
 		_fishMove.push_back(target);
+		if (_num1 == _count1 && _num2 == _count2 && menu->getCurrentLevel() == 1)
+		{
+			auto help = HelpLayer::create(Rect(_done->getPositionX() + extraX, _done->getPositionY(), _done->getContentSize().width + 200, _done->getContentSize().height), Rect(0, 0, 0, 0));
+			help->setName("helpDone");
+			help->click(_done->getPosition());
+			this->addChild(help,2);
+		}
 	}
 	else if (target->getName().compare("fish2") == 0)
 	{
@@ -703,6 +711,13 @@ void Item::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 		_count2++;
 		target->setName("fish2_in_pond");
 		_fishMove.push_back(target);
+		if (_num1 == _count1 && _num2 == _count2 && menu->getCurrentLevel() == 1)
+		{
+			auto help = HelpLayer::create(Rect(_done->getPositionX() + extraX, _done->getPositionY(), _done->getContentSize().width + 200, _done->getContentSize().height), Rect(0, 0, 0, 0));
+			help->setName("helpDone");
+			help->click(_done->getPosition());
+			this->addChild(help,2);
+		}
 	}
 
 	if (_num1 == _count1)
