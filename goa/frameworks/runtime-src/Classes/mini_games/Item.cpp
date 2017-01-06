@@ -679,7 +679,7 @@ void Item::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 			auto help = HelpLayer::create(Rect(_done->getPositionX() + extraX, _done->getPositionY(), _done->getContentSize().width + 200, _done->getContentSize().height), Rect(0, 0, 0, 0));
 			help->setName("helpDone");
 			help->click(_done->getPosition());
-			this->addChild(help);
+			this->addChild(help,2);
 		}
 	}
 	else if (target->getName().compare("fish2") == 0)
@@ -716,7 +716,7 @@ void Item::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 			auto help = HelpLayer::create(Rect(_done->getPositionX() + extraX, _done->getPositionY(), _done->getContentSize().width + 200, _done->getContentSize().height), Rect(0, 0, 0, 0));
 			help->setName("helpDone");
 			help->click(_done->getPosition());
-			this->addChild(help);
+			this->addChild(help,2);
 		}
 	}
 
