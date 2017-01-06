@@ -357,40 +357,6 @@ void HelloWorld::loadWords() {
     
     _hangBubbleNode = CSLoader::createNode("template/hang_bubble.csb");
 
-    std::string bagPackFile = this->getIsland()+"_bagpack" + "/" + this->getIsland()+"_bagpack.mapping.json";
-    
-    if(FileUtils::getInstance()->isFileExist(bagPackFile)) {
-        std::string jsonData = FileUtils::getInstance()->getStringFromFile(bagPackFile);
-        CCLOG("got data %s", jsonData.c_str());
-        
-        
-        rapidjson::Document d;
-        rapidjson::Value::MemberIterator M;
-        const char *key,*value;
-        
-        d.Parse<0>(jsonData.c_str());
-        if (d.HasParseError()) {
-            CCLOG("GetParseError %u\n",d.GetParseError());
-        } else
-        {
-            
-            for (M=d.MemberBegin(); M!=d.MemberEnd(); M++)
-            {
-                key   = M->name.GetString();
-                value = M->value.GetString();
-                std::string sValue = value;
-                sValue = LangUtil::getInstance()->translateString(sValue);
-                
-                if (key!=NULL && value!=NULL)
-                {
-                    CCLOG("%s = %s", key,sValue.c_str());
-                }
-                
-                _wordMappings.insert({key,sValue});
-            }
-        }
-    }
-    
     
     std::string wordFile = !this->getSceneName().empty() ? this->getSceneName() + ".mapping.json":  this->getIsland() + ".mapping.json";
     
@@ -426,6 +392,40 @@ void HelloWorld::loadWords() {
         }
     }
     
+    std::string bagPackFile = this->getIsland()+"_bagpack" + "/" + this->getIsland()+"_bagpack.mapping.json";
+    
+    if(FileUtils::getInstance()->isFileExist(bagPackFile)) {
+        std::string jsonData = FileUtils::getInstance()->getStringFromFile(bagPackFile);
+        CCLOG("got data %s", jsonData.c_str());
+        
+        
+        rapidjson::Document d;
+        rapidjson::Value::MemberIterator M;
+        const char *key,*value;
+        
+        d.Parse<0>(jsonData.c_str());
+        if (d.HasParseError()) {
+            CCLOG("GetParseError %u\n",d.GetParseError());
+        } else
+        {
+            
+            for (M=d.MemberBegin(); M!=d.MemberEnd(); M++)
+            {
+                key   = M->name.GetString();
+                value = M->value.GetString();
+                std::string sValue = value;
+                sValue = LangUtil::getInstance()->translateString(sValue);
+                
+                if (key!=NULL && value!=NULL)
+                {
+                    CCLOG("%s = %s", key,sValue.c_str());
+                }
+                
+                _wordMappings.insert({key,sValue});
+            }
+        }
+    }
+        
     
     std::map<std::string,std::string> mapping = _wordMappings;
     
