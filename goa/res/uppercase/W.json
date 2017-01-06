@@ -5,7 +5,7 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 396,
+        "Duration": 341,
         "Speed": 1.0,
         "ActivedAnimationName": "A",
         "Timelines": [
@@ -149,7 +149,7 @@
               },
               {
                 "Value": 0,
-                "FrameIndex": 230,
+                "FrameIndex": 5,
                 "EasingData": {
                   "Type": 0
                 },
@@ -157,7 +157,7 @@
               },
               {
                 "Value": 255,
-                "FrameIndex": 235,
+                "FrameIndex": 10,
                 "EasingData": {
                   "Type": 0
                 },
@@ -171,9 +171,9 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 487.3817,
-                "Y": 5.7488,
-                "FrameIndex": 235,
+                "X": 487.3813,
+                "Y": 5.7469,
+                "FrameIndex": 10,
                 "EasingData": {
                   "Type": 0
                 },
@@ -187,9 +187,9 @@
             "Property": "RotationSkew",
             "Frames": [
               {
-                "X": 194.5173,
-                "Y": 194.5276,
-                "FrameIndex": 235,
+                "X": 14.3511,
+                "Y": 14.3718,
+                "FrameIndex": 10,
                 "EasingData": {
                   "Type": 0
                 },
@@ -212,7 +212,7 @@
               },
               {
                 "Value": 0,
-                "FrameIndex": 230,
+                "FrameIndex": 5,
                 "EasingData": {
                   "Type": 0
                 },
@@ -220,7 +220,7 @@
               },
               {
                 "Value": 255,
-                "FrameIndex": 235,
+                "FrameIndex": 10,
                 "EasingData": {
                   "Type": 0
                 },
@@ -234,9 +234,9 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 220.6201,
-                "Y": 90.8618,
-                "FrameIndex": 235,
+                "X": 220.6208,
+                "Y": 90.8585,
+                "FrameIndex": 10,
                 "EasingData": {
                   "Type": 0
                 },
@@ -250,9 +250,9 @@
             "Property": "RotationSkew",
             "Frames": [
               {
-                "X": 345.0706,
-                "Y": 345.085,
-                "FrameIndex": 235,
+                "X": 525.8113,
+                "Y": 525.8238,
+                "FrameIndex": 10,
                 "EasingData": {
                   "Type": 0
                 },
@@ -293,18 +293,9 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": -77.5078,
-                "Y": 35.1352,
-                "FrameIndex": 250,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 480.214,
-                "Y": 468.6678,
-                "FrameIndex": 251,
+                "X": 6.2101,
+                "Y": 441.4175,
+                "FrameIndex": 181,
                 "EasingData": {
                   "Type": 0
                 },
@@ -313,16 +304,16 @@
               {
                 "X": 261.2137,
                 "Y": -364.0803,
-                "FrameIndex": 325,
+                "FrameIndex": 260,
                 "EasingData": {
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
               },
               {
-                "X": 6.2101,
-                "Y": 441.4175,
-                "FrameIndex": 395,
+                "X": 480.214,
+                "Y": 468.6678,
+                "FrameIndex": 340,
                 "EasingData": {
                   "Type": 0
                 },
@@ -389,7 +380,7 @@
                 "ctype": "IntFrameData"
               },
               {
-                "Value": 0,
+                "Value": 204,
                 "FrameIndex": 181,
                 "EasingData": {
                   "Type": 0
@@ -397,24 +388,8 @@
                 "ctype": "IntFrameData"
               },
               {
-                "Value": 0,
-                "FrameIndex": 250,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "IntFrameData"
-              },
-              {
                 "Value": 204,
-                "FrameIndex": 251,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "IntFrameData"
-              },
-              {
-                "Value": 204,
-                "FrameIndex": 395,
+                "FrameIndex": 340,
                 "EasingData": {
                   "Type": 0
                 },
@@ -422,7 +397,7 @@
               },
               {
                 "Value": 0,
-                "FrameIndex": 396,
+                "FrameIndex": 341,
                 "EasingData": {
                   "Type": 0
                 },
@@ -531,7 +506,6 @@
               "X": 153.0,
               "Y": 686.0
             },
-            "Alpha": 0,
             "Name": "arrow_1",
             "ctype": "SpriteObjectData"
           },
@@ -580,7 +554,6 @@
               "X": 153.0,
               "Y": 686.0
             },
-            "Alpha": 0,
             "Name": "arrow_1_0",
             "ctype": "SpriteObjectData"
           },
@@ -600,15 +573,15 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 487.3817,
-              "Y": 5.7488
+              "X": 487.3813,
+              "Y": 5.7469
             },
             "Scale": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
             },
-            "RotationSkewX": 194.5173,
-            "RotationSkewY": 194.5276,
+            "RotationSkewX": 14.3511,
+            "RotationSkewY": 14.3718,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
@@ -619,17 +592,16 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 410.8817,
-            "RightMargin": -563.8817,
-            "TopMargin": -348.7488,
-            "BottomMargin": -337.2512,
+            "LeftMargin": 410.8813,
+            "RightMargin": -563.8813,
+            "TopMargin": -348.7469,
+            "BottomMargin": -337.2531,
             "Tag": 31,
             "ActionTag": 823712413,
             "Size": {
               "X": 153.0,
               "Y": 686.0
             },
-            "Alpha": 0,
             "Name": "arrow_1_0_0",
             "ctype": "SpriteObjectData"
           },
@@ -649,15 +621,15 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 220.6201,
-              "Y": 90.8618
+              "X": 220.6208,
+              "Y": 90.8585
             },
             "Scale": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
             },
-            "RotationSkewX": 345.0706,
-            "RotationSkewY": 345.085,
+            "RotationSkewX": 525.8113,
+            "RotationSkewY": 525.8238,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
@@ -668,17 +640,16 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 144.1201,
-            "RightMargin": -297.1201,
-            "TopMargin": -433.8618,
-            "BottomMargin": -252.1382,
+            "LeftMargin": 144.1208,
+            "RightMargin": -297.1208,
+            "TopMargin": -433.8585,
+            "BottomMargin": -252.1415,
             "Tag": 32,
             "ActionTag": 649603782,
             "Size": {
               "X": 153.0,
               "Y": 686.0
             },
-            "Alpha": 0,
             "Name": "arrow_1_0_0_0",
             "ctype": "SpriteObjectData"
           },
@@ -697,14 +668,18 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": -488.1039,
-              "Y": 461.6068
+              "X": -444.5892,
+              "Y": 298.0222
             },
             "Scale": {
               "ScaleX": 0.4,
               "ScaleY": 0.4
             },
-            "CColor": {},
+            "CColor": {
+              "R": 235,
+              "G": 251,
+              "B": 84
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.0,
@@ -714,17 +689,17 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -736.1039,
-            "RightMargin": 240.1039,
-            "TopMargin": -709.6068,
-            "BottomMargin": 213.6068,
+            "LeftMargin": -692.5892,
+            "RightMargin": 196.5892,
+            "TopMargin": -546.0222,
+            "BottomMargin": 50.0222,
             "Tag": 115,
             "ActionTag": 147722013,
             "Size": {
               "X": 496.0,
               "Y": 496.0
             },
-            "Alpha": 0,
+            "Alpha": 204,
             "Name": "circle_4",
             "ctype": "SpriteObjectData"
           }
