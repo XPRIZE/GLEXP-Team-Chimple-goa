@@ -113,6 +113,11 @@ xc.MeaningQuestionHandler = cc.Layer.extend({
         }, this);
     },    
 
+    onExit: function() {        
+        this._super();   
+        var that = this;     
+    },
+
     configureAnswers: function() {
         var context = this;      
         context._answers = [];

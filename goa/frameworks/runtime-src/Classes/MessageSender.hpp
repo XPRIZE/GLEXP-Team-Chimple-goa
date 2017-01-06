@@ -37,7 +37,7 @@ public:
     static MessageSender* getInstance(Sqlite3Helper* sqlite3Helper, std::string sceneName);
     ~MessageSender();
         
-    virtual void createMessagesForNodeWithKey(std::string key);
+    virtual void createMessagesForNodeWithKey(const std::string key);
     
     virtual void createMessagesForPreconditionId(int preConditionId);
 
