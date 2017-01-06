@@ -41,6 +41,7 @@ public:
 protected:
     cocos2d::ui::Button* _soundButton;
     cocos2d::ui::Button* _button;
+    
 };
 
 

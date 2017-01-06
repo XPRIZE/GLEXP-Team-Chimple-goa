@@ -69,7 +69,7 @@ xc.PictureQuestionHandler = cc.Layer.extend({
 
     showQuestionTemplate: function() {
         this._constructedScene = ccs.load(this._nodeJSON,xc.path);
-        // this._constructedScene.node.retain();
+        this._constructedScene.node.retain();
 
         this._constructedScene.node.setPosition(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2);
         this._constructedScene.node.setAnchorPoint(cc.p(0.5,0.5));
@@ -78,6 +78,12 @@ xc.PictureQuestionHandler = cc.Layer.extend({
             this._callbackContext.addChild(this._constructedScene.node,0);
         }                        
     },
+
+    onExit: function() {        
+        this._super();   
+        var that = this;     
+    },
+    
 
     configureQuestions: function() {
         //randomize array

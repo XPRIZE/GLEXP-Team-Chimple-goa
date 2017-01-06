@@ -13,6 +13,7 @@
 #include "../lang/TextGenerator.h"
 #include "GraphemeGrid.h"
 #include "Grapheme.h"
+#include "CopyRight.hpp"
 
 
 USING_NS_CC;
@@ -219,7 +220,9 @@ void StoryWordBoard::gameOver(bool correct) {
             localStorageSetItem("xc.story.currentPoints", MenuContext::to_string(_menuContext->getPoints()));
             localStorageSetItem("xc.story.baseDir", _baseDir);
             localStorageSetItem("xc.story.curStoryId", _storyId);
-            _menuContext->showScore();
+            Director::getInstance()->replaceScene(TransitionFade::create(2.0, CopyRight::createScene(_storyId, _baseDir, _menuContext->getMaxPoints(), _menuContext->getPoints())));
+            
+            //_menuContext->showScore();
             //ScriptingCore::getInstance()->runScript("src/start/nativeCopyRightHandler.js");
         } else {
             _currentIndex++;
