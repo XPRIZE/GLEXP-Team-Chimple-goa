@@ -21,7 +21,7 @@ for level, lang_dict in corpus.items():
     if lang_dict.count(val) > 1:
       print("Duplicate Level: " + level + " Value: " + val)
 with open(sys.argv[1], newline='') as csvfile:
-  pattern = re.compile('\s+$')
+  pattern = re.compile('[ \t]+$')
   for row in csvfile:
     if pattern.search(row) != None:
       print("Whitespace: " + row)

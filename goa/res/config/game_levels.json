@@ -5,7 +5,7 @@
        1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
         ],
       "help": "Enter the correct number on the missing fish. The fishes are arranged according to the multiplication table. If you multiply the top of the column with the left of the row, you will get the correct number.",
-      "video": "alphamon_duel.webm"
+      "video": "table.webm"
     }
     
   ],
@@ -67,7 +67,7 @@
         "table2"
       ],
       "help": "Jump on the correct numbers according to the multiplication tables.",
-      "video": "jumpingNumbers_1.webm"
+      "video": "jumping_2.webm"
     },
     {
       "levels": [
@@ -77,7 +77,7 @@
         "table3"
       ],
       "help": "Jump on the correct numbers according to the multiplication tables.",
-      "video": "jumpingNumbers_1.webm"
+      "video": "jumping_2.webm"
     },
     {
       "levels": [
@@ -87,7 +87,7 @@
         "table4"
       ],
       "help": "Jump on the correct numbers according to the multiplication tables.",
-      "video": "jumpingNumbers_1.webm"
+      "video": "jumping_2.webm"
     },
     {
       "levels": [
@@ -97,7 +97,7 @@
         "table5"
       ],
       "help": "Jump on the correct numbers according to the multiplication tables.",
-      "video": "jumpingNumbers_1.webm"
+      "video": "jumping_2.webm"
     },
     {
       "levels": [
@@ -107,7 +107,7 @@
         "table6"
       ],
       "help": "Jump on the correct numbers according to the multiplication tables.",
-      "video": "jumpingNumbers_1.webm"
+      "video": "jumping_2.webm"
     },
     {
       "levels": [
@@ -117,7 +117,7 @@
         "table7"
       ],
       "help": "Jump on the correct numbers according to the multiplication tables.",
-      "video": "jumpingNumbers_1.webm"
+      "video": "jumping_2.webm"
     },
     {
       "levels": [
@@ -127,7 +127,7 @@
         "table8"
       ],
       "help": "Jump on the correct numbers according to the multiplication tables.",
-      "video": "jumpingNumbers_1.webm"
+      "video": "jumping_2.webm"
     },
     {
       "levels": [
@@ -137,7 +137,7 @@
         "table9"
       ],
       "help": "Jump on the correct numbers according to the multiplication tables.",
-      "video": "jumpingNumbers_1.webm"
+      "video": "jumping_2.webm"
     },
     {
       "levels": [
@@ -147,17 +147,27 @@
         "table10"
       ],
       "help": "Jump on the correct numbers according to the multiplication tables.",
-      "video": "jumpingNumbers_1.webm"
+      "video": "jumping_2.webm"
+    },
+     {
+      "levels": [
+        20
+      ],
+      "concepts": [
+        "odd"
+      ],
+     "help": "Jump on odd numbers.",
+      "video": "jumping_2.webm"
     },
     {
       "levels": [
-        20,22,24,26,28
+        22,24,26,28
       ],
       "concepts": [
         "odd"
       ],
       "help": "Jump on odd numbers.",
-      "video": "jumpingNumbers_1.webm"
+      "video": "jumping_3.webm"
     },
     {
       "levels": [
@@ -167,7 +177,7 @@
         "even"
       ],
       "help": "Jump on even numbers.",
-      "video": "jumpingNumbers_1.webm"
+      "video": "jumping_3.webm"
     }
   ],
   "atm": [
@@ -374,7 +384,7 @@
         "word"
       ],
       "help": "Write the each alphabet of the word on each door to make the animals go.",
-      "video": "Barndoor.webm",
+      "video": "door_words.webm",
       "writing": [
         {
            "level":[63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80],
@@ -708,7 +718,7 @@
   "order": [
     {
       "levels": [
-        1,2,3,4,5,6
+        1,2,3,4,5
       ],
       "concepts": [
         "alphabet"
@@ -718,13 +728,33 @@
     },
     {
       "levels": [
-        7,8,9,10,11
+        6
+      ],
+      "concepts": [
+        "alphabet"
+      ],
+      "help": "Arrange the Alphabets from bottom to top.",
+      "video": "order_2.webm"
+    },
+    {
+      "levels": [
+        7,8,9,10
       ],
       "concepts": [
         "TODO Quantity order"
       ],
       "help": "Arrange the blocks in ascending order from bottom to top.",
-      "video": "order_1.webm"
+      "video": "order_4.webm"
+    },
+    {
+      "levels": [
+        11
+      ],
+      "concepts": [
+        "TODO Quantity order"
+      ],
+      "help": "Arrange the blocks in ascending order from bottom to top.",
+      "video": "order_3.webm"
     },
     {
       "levels": [
@@ -734,7 +764,7 @@
         "number"
       ],
       "help": "Arrange the numbers in ascending order from bottom to top.",
-      "video": "order_1.webm"
+      "video": "order_5.webm"
     },
     {
       "levels": [
@@ -776,7 +806,7 @@
         "antonym"
       ],
       "help": "Click on the word with the opposite meaning of the word shown above to jump. Finish the race quicker than your opponent.",
-      "video": "dash_6.webm"
+      "video": "dash_11.webm"
     },
      {
       "levels": [
@@ -786,7 +816,7 @@
         "homonym"
       ],
       "help": "Click on the word with the same pronunciation of the word shown above to jump. Finish the race quicker than your opponent.",
-      "video": "dash_11.webm"
+      "video": "dash_22.webm"
     }
   ],
   "cat": [
@@ -817,7 +847,7 @@
   "alphamole": [
     {
       "levels": [
-        1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26
+        1,6,11,16,21,26
       ],
       "level_concepts": [
         "A","B","C"
@@ -826,7 +856,59 @@
         "alphabet"
       ],
       "help": "Whack the alphabet monster if it is the same one shown on the upper left.",
-      "video": "alphamole_1.webm"
+      "video": "Alphamole_1.webm"
+    },
+    {
+      "levels": [
+        2,7,12,17,22
+      ],
+      "level_concepts": [
+        "A","B","C"
+      ],
+      "concepts": [
+        "alphabet"
+      ],
+      "help": "Whack the alphabet monster if it is the same one shown on the upper left.",
+      "video": "Alphamole_2.webm"
+    },
+    {
+      "levels": [
+        3,8,13,18,23
+      ],
+      "level_concepts": [
+        "A","B","C"
+      ],
+      "concepts": [
+        "alphabet"
+      ],
+      "help": "Whack the alphabet monster if it is the same one shown on the upper left.",
+      "video": "Alphamole_3.webm"
+    },
+    {
+      "levels": [
+        4,9,14,19,24
+      ],
+      "level_concepts": [
+        "A","B","C"
+      ],
+      "concepts": [
+        "alphabet"
+      ],
+      "help": "Whack the alphabet monster if it is the same one shown on the upper left.",
+      "video": "Alphamole_4.webm"
+    },
+    {
+      "levels": [
+        5,10,15,20,25
+      ],
+      "level_concepts": [
+        "A","B","C"
+      ],
+      "concepts": [
+        "alphabet"
+      ],
+      "help": "Whack the alphabet monster if it is the same one shown on the upper left.",
+      "video": "Alphamole_5.webm"
     }
   ],
   "dino": [
@@ -1207,7 +1289,7 @@
         "antonym"
       ],
       "help": "Click on the word with the opposite meaning of the word in the center.",
-      "video": "circle_1.webm"
+      "video": "circle_island.webm"
     },
      {
       "levels": [

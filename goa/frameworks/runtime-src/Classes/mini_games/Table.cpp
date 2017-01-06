@@ -416,13 +416,25 @@ bool Table::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		int indexX = target->getPositionX() / 400;
 		CCLOG("X = %d", indexX);
 		CCLOG("Y = %d", indexY);
+
+		auto scale2 = ScaleTo::create(0.7, 0.5);
+		auto scale3 = ScaleTo::create(0.8, 1);
+		auto seq1 = Sequence::create(scale2, scale3, scale2, scale3, NULL);
+
+		auto scaleForNum2 = ScaleTo::create(0.7, 0.5);
+		auto scaleForNum3 = ScaleTo::create(0.8, 1);
+		auto seq2 = Sequence::create(scaleForNum2, scaleForNum3, scaleForNum2, scaleForNum3, NULL);
+
+		_fishMatrix.at(indexY).at(0)->runAction(seq1);
+		_fishMatrix.at(_config.at("column") - 1).at(indexX)->runAction(seq2);
+
 		std::string option1 = _fishMatrix.at(indexY).at(0)->getName();
 		std::string option2 = _fishMatrix.at(_config.at("column")-1).at(indexX)->getName();
 		auto hintLabel = Label::createWithTTF(option1+" X "+option2+" = ?", "fonts/digital.ttf", 200);
 		hintLabel->setColor(Color3B(255, 255, 255));
 		
 		hintLabel->setName("hintLabel");
-		this->addChild(hintLabel);
+		this->addChild(hintLabel,1);
 
 		_calculator = new Calculator();
 		_calculator->createCalculator(Vec2(0,0), Vec2(0.5, 0.5), 1, 1);
