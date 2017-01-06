@@ -196,6 +196,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClCompile Include="..\Classes\common\LTKTrace.cpp" />
     <ClCompile Include="..\Classes\common\LTKTraceFormat.cpp" />
     <ClCompile Include="..\Classes\common\LTKTraceGroup.cpp" />
+    <ClCompile Include="..\Classes\CopyRight.cpp" />
     <ClCompile Include="..\Classes\effects\FShake.cpp" />
     <ClCompile Include="..\Classes\Entry.cpp" />
     <ClCompile Include="..\Classes\ExternalSkeletonCharacter.cpp" />
@@ -373,6 +374,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\AsyncTask.hpp" />
     <ClInclude Include="..\Classes\Calculator.h" />
+    <ClInclude Include="..\Classes\CopyRight.hpp" />
     <ClInclude Include="..\Classes\effects\FShake.h" />
     <ClInclude Include="..\Classes\Entry.h" />
     <ClInclude Include="..\Classes\ExternalSkeletonCharacter.h" />
