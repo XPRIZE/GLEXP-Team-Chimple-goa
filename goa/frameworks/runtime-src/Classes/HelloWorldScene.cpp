@@ -993,14 +993,19 @@ void HelloWorld::processUseInBackPackMessages(std::vector<MessageContent*>showMe
         Node* ownerNode = NULL;
         std::string imageFile = "";
         if(!content->getPreOutComeAction().empty()) {
-//            auto cache = SpriteFrameCache::getInstance();
-//            cache->addSpriteFramesWithFile("res/HD/camp_bagpack/camp_bagpack.plist");
-//            auto sprite = Sprite::createWithSpriteFrameName("camp_bagpack/latern.png");
             
-//            if(content->getPreOutComeAction().compare("lantern") == 0) {
-//                imageFile = this->getIsland()+"_bagpack" + "/latern.png";
-//            }
-            imageFile = this->getIsland()+"_bagpack" + "/" + content->getPreOutComeAction() + ".png";
+            
+            if(content->getPreOutComeAction().compare("headphone_69") == 0) {
+                imageFile = this->getIsland()+"_bagpack" + "/headphone.png";
+            }
+            else if(content->getPreOutComeAction().compare("phone_76") == 0) {
+                imageFile = this->getIsland()+"_bagpack" + "/phone.png";
+            }
+            else
+            {
+                imageFile = this->getIsland()+"_bagpack" + "/" + content->getPreOutComeAction() + ".png";
+            }
+            
         }
         
         
