@@ -1479,6 +1479,7 @@ void HelloWorld::useItemFromBagFinished(MessageContent* content, std::unordered_
 
 void HelloWorld::hideObject(Sprite* copySprite) {
     copySprite->setVisible(false);
+    _bagPackMenu->setEnabled(true);
 }
 
 void HelloWorld::copySpriteForAnimation(RPGSprite* item, std::unordered_map<int, std::string> textMapFollowedByAnimation, std::string owner) {
@@ -1496,7 +1497,7 @@ void HelloWorld::copySpriteForAnimation(RPGSprite* item, std::unordered_map<int,
             Point posInParent = _bagPackMenu->getParent()->convertToWorldSpace(_bagPackMenu->getPosition());
             Point bagPackMenuPos = this->mainLayer->convertToNodeSpace(posInParent);
             auto copySpriteMoveTo = MoveTo::create(1, bagPackMenuPos);
-            
+            _bagPackMenu->setEnabled(false);
             auto callBack = CallFunc::create(CC_CALLBACK_0(HelloWorld::showBagpackOpenAnimation, this, textMapFollowedByAnimation, owner));
             
             auto hideObject = CallFunc::create(CC_CALLBACK_0(HelloWorld::hideObject, this, copySprite));
