@@ -43,7 +43,7 @@ bool MessageSender::initialize(Sqlite3Helper* sqlite3Helper, std::string sceneNa
 }
 
 void MessageSender::sendMessageEvent(EventCustom * event) {
-    std::string key = *(static_cast<std::string*>(event->getUserData()));
+    const std::string key = *(static_cast<std::string*>(event->getUserData()));
     CCLOG("in message sender: sendMessageEvent: KEY  %s", key.c_str());
     this->createMessagesForNodeWithKey(key);
 }
@@ -54,7 +54,7 @@ void MessageSender::sendTextOnTapMessageEvent(EventCustom * event) {
 
 }
 
-void MessageSender::createMessagesForNodeWithKey(std::string key) {
+void MessageSender::createMessagesForNodeWithKey(const std::string key) {
     CCLOG("creating message for %s", key.c_str());
     assert(this->sqlite3Helper != NULL);
     assert(!key.empty());

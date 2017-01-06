@@ -190,7 +190,8 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
                     ../../Classes/LipiTKResult.cpp \
                     ../../Classes/Stroke.cpp \
 					../../Classes/WordBubble.cpp \
-					../../Classes/lang/SwahiliUtil.cpp
+					../../Classes/lang/SwahiliUtil.cpp \
+					../../Classes/CopyRight.cpp
 					
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../extensions

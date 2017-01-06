@@ -500,7 +500,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             this._pixelPerfectImages = xc.pixcelPerfectConfig[this._baseDir]
         }
         this._constructedScene = ccs.load(xc.path + contentUrl, xc.path);
-        this._constructedScene.node.retain();
+        //this._constructedScene.node.retain();
         this._constructedScene.action.retain();
 
         //rendering info
@@ -900,12 +900,12 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 cc.log('soundFile 111:' + soundFile.trim());
                 var soundFile = "res/sounds/sfx/" + soundFile.trim() + ".ogg";
                 if(soundFile) {
-                    
-                    cc.loader.load(soundFile, function(err, data) {
-                        if(!err) {
-                            cc.audioEngine.playEffect(soundFile, false);
-                        }
-                    }); 
+                    cc.audioEngine.playEffect(soundFile, false);
+                    // cc.loader.load(soundFile, function(err, data) {
+                    //     if(!err) {
+                    //         cc.audioEngine.playEffect(soundFile, false);
+                    //     }
+                    // }); 
                 }
             }            
         }        
@@ -1106,23 +1106,22 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         if(cc.sys.isNative) {
             var fileExists = jsb.fileUtils.isFileExist(soundFile);
             if(fileExists) {
-                this._content_resources.push(soundFile);
-                    // if(soundEnabled) {
-                    //     cc.log('1111111 processAudio');
-                    //     this.getParent()._menuContext.playStoryAudio(soundFile);
-                    // } else {
-                    //     cc.log('222222 processAudio stop');
-                    //     this.getParent()._menuContext.stopStoryAudio();
-                    // }
-                cc.loader.load(soundFile, function(err, data) {
-                    if(!err) {
-                        if(soundEnabled) {
-                            cc.audioEngine.playMusic(soundFile, false);
-                        } else {
-                            cc.audioEngine.pauseMusic();
-                        }
-                    }
-                }); 
+                if(soundEnabled) {
+                    cc.audioEngine.playMusic(soundFile, false);
+                } else {
+                    cc.audioEngine.pauseMusic();
+                }
+                
+                // this._content_resources.push(soundFile);
+                //     // if(soundEnabled) {
+                //     //     cc.log('1111111 processAudio');
+                //     //     this.getParent()._menuContext.playStoryAudio(soundFile);
+                //     // } else {
+                //     //     cc.log('222222 processAudio stop');
+                //     //     this.getParent()._menuContext.stopStoryAudio();
+                //     // }
+                // cc.loader.load(soundFile, function(err, data) {
+                // }); 
             }
         } else {
             cc.loader.load(soundFile, function(err, data) {
@@ -1151,6 +1150,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
     onExit: function() {        
         this._super();
+        this._constructedScene.action.release();
         var that = this;
         cc.audioEngine.stopMusic(true);
         cc.audioEngine.stopAllEffects();
