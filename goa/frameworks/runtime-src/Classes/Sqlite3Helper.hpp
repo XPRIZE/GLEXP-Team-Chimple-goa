@@ -54,6 +54,8 @@ public:
     
     std::string findFirstHint(const char* sceneName);
     
+    int checkIfAnyItemExistsInBag(const char* island);
+    
     static bool instanceFlag;
     static Sqlite3Helper *shared;
 

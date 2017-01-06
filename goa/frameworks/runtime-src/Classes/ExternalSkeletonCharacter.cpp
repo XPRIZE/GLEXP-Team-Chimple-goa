@@ -71,10 +71,10 @@ void ExternalSkeletonCharacter::showTouchPointer() {
         this->touchPointerNode =  Sprite::create(TOUCH_POINTER_IMG);
         if(this->touchPointerNode)
         {
-            this->touchPointerNode->setScale(0.75f, 0.75f);
+            //this->touchPointerNode->setScale(0.75f, 0.75f);
 //            this->touchPointerNode->setFlippedX(true);
 //            this->touchPointerNode->setFlippedY(true);
-            this->touchPointerNode->setPosition(Vec2(this->externalSkeletonNode->getPosition().x, this->externalSkeletonNode->getPosition().y - 150));
+            this->touchPointerNode->setPosition(Vec2(this->externalSkeletonNode->getPosition().x, this->externalSkeletonNode->getPosition().y + 100));
             this->touchPointerNode->setVisible(true);
             this->externalSkeletonNode->getParent()->addChild(this->touchPointerNode, 1);
         }
@@ -178,7 +178,8 @@ bool ExternalSkeletonCharacter::onTouchBegan(Touch *touch, Event *event)
 
 void ExternalSkeletonCharacter::touchEnded(Touch *touch, Event *event)
 {
-    CCLOG("%s", "CLICKED ON Spekable External Skeleton dispatching speech message");    
+    
     std::string s(this->getName());
+    CCLOG("CLICKED ON Spekable External Skeleton dispatching speech message with Key %s", s.c_str());
     EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, static_cast<void*>(&s));
 }

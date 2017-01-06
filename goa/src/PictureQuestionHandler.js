@@ -79,6 +79,12 @@ xc.PictureQuestionHandler = cc.Layer.extend({
         }                        
     },
 
+    onExit: function() {        
+        this._super();   
+        var that = this;     
+    },
+    
+
     configureQuestions: function() {
         //randomize array
         //find out question node
