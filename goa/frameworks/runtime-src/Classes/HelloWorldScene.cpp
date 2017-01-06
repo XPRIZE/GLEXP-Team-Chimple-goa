@@ -993,14 +993,19 @@ void HelloWorld::processUseInBackPackMessages(std::vector<MessageContent*>showMe
         Node* ownerNode = NULL;
         std::string imageFile = "";
         if(!content->getPreOutComeAction().empty()) {
-//            auto cache = SpriteFrameCache::getInstance();
-//            cache->addSpriteFramesWithFile("res/HD/camp_bagpack/camp_bagpack.plist");
-//            auto sprite = Sprite::createWithSpriteFrameName("camp_bagpack/latern.png");
             
-//            if(content->getPreOutComeAction().compare("lantern") == 0) {
-//                imageFile = this->getIsland()+"_bagpack" + "/latern.png";
-//            }
-            imageFile = this->getIsland()+"_bagpack" + "/" + content->getPreOutComeAction() + ".png";
+            
+            if(content->getPreOutComeAction().compare("headphone_69") == 0) {
+                imageFile = this->getIsland()+"_bagpack" + "/headphone.png";
+            }
+            else if(content->getPreOutComeAction().compare("phone_76") == 0) {
+                imageFile = this->getIsland()+"_bagpack" + "/phone.png";
+            }
+            else
+            {
+                imageFile = this->getIsland()+"_bagpack" + "/" + content->getPreOutComeAction() + ".png";
+            }
+            
         }
         
         
@@ -1474,6 +1479,7 @@ void HelloWorld::useItemFromBagFinished(MessageContent* content, std::unordered_
 
 void HelloWorld::hideObject(Sprite* copySprite) {
     copySprite->setVisible(false);
+    _bagPackMenu->setEnabled(true);
 }
 
 void HelloWorld::copySpriteForAnimation(RPGSprite* item, std::unordered_map<int, std::string> textMapFollowedByAnimation, std::string owner) {
@@ -1491,7 +1497,7 @@ void HelloWorld::copySpriteForAnimation(RPGSprite* item, std::unordered_map<int,
             Point posInParent = _bagPackMenu->getParent()->convertToWorldSpace(_bagPackMenu->getPosition());
             Point bagPackMenuPos = this->mainLayer->convertToNodeSpace(posInParent);
             auto copySpriteMoveTo = MoveTo::create(1, bagPackMenuPos);
-            
+            _bagPackMenu->setEnabled(false);
             auto callBack = CallFunc::create(CC_CALLBACK_0(HelloWorld::showBagpackOpenAnimation, this, textMapFollowedByAnimation, owner));
             
             auto hideObject = CallFunc::create(CC_CALLBACK_0(HelloWorld::hideObject, this, copySprite));
