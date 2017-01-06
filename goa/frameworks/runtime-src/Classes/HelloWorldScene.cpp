@@ -993,14 +993,19 @@ void HelloWorld::processUseInBackPackMessages(std::vector<MessageContent*>showMe
         Node* ownerNode = NULL;
         std::string imageFile = "";
         if(!content->getPreOutComeAction().empty()) {
-//            auto cache = SpriteFrameCache::getInstance();
-//            cache->addSpriteFramesWithFile("res/HD/camp_bagpack/camp_bagpack.plist");
-//            auto sprite = Sprite::createWithSpriteFrameName("camp_bagpack/latern.png");
             
-//            if(content->getPreOutComeAction().compare("lantern") == 0) {
-//                imageFile = this->getIsland()+"_bagpack" + "/latern.png";
-//            }
-            imageFile = this->getIsland()+"_bagpack" + "/" + content->getPreOutComeAction() + ".png";
+            
+            if(content->getPreOutComeAction().compare("headphone_69") == 0) {
+                imageFile = this->getIsland()+"_bagpack" + "/headphone.png";
+            }
+            else if(content->getPreOutComeAction().compare("phone_76") == 0) {
+                imageFile = this->getIsland()+"_bagpack" + "/phone.png";
+            }
+            else
+            {
+                imageFile = this->getIsland()+"_bagpack" + "/" + content->getPreOutComeAction() + ".png";
+            }
+            
         }
         
         
@@ -1285,7 +1290,10 @@ void HelloWorld::moveItemIntoBag(Sprite* orgSprite) {
 void HelloWorld::createAndUseItemFromBag(std::string imageName, MessageContent* content, std::unordered_map<int, std::string> textMapFollowedByAnimation) {
     CCLOG("useItemFromBag %s", imageName.c_str());
     if(!imageName.empty()) {
-        
+        if(imageName.compare("camp_bagpack/main_picnic_27.png") == 0) {
+           imageName = "camp_bagpack/picnic_hamper.png";
+        }
+           
         auto newspriteFrame = SpriteFrameCache::getInstance()->getSpriteFrameByName(imageName);
         Sprite* copySprite = Sprite::createWithSpriteFrame(newspriteFrame);
 
@@ -1471,6 +1479,7 @@ void HelloWorld::useItemFromBagFinished(MessageContent* content, std::unordered_
 
 void HelloWorld::hideObject(Sprite* copySprite) {
     copySprite->setVisible(false);
+    _bagPackMenu->setEnabled(true);
 }
 
 void HelloWorld::copySpriteForAnimation(RPGSprite* item, std::unordered_map<int, std::string> textMapFollowedByAnimation, std::string owner) {
@@ -1488,7 +1497,7 @@ void HelloWorld::copySpriteForAnimation(RPGSprite* item, std::unordered_map<int,
             Point posInParent = _bagPackMenu->getParent()->convertToWorldSpace(_bagPackMenu->getPosition());
             Point bagPackMenuPos = this->mainLayer->convertToNodeSpace(posInParent);
             auto copySpriteMoveTo = MoveTo::create(1, bagPackMenuPos);
-            
+            _bagPackMenu->setEnabled(false);
             auto callBack = CallFunc::create(CC_CALLBACK_0(HelloWorld::showBagpackOpenAnimation, this, textMapFollowedByAnimation, owner));
             
             auto hideObject = CallFunc::create(CC_CALLBACK_0(HelloWorld::hideObject, this, copySprite));
@@ -1828,6 +1837,8 @@ void HelloWorld::onEnterTransitionDidFinish() {
     this->scheduleUpdate();
     
     int allTasksFinished = this->sqlite3Helper->checkIfAllTaskedFinished(this->getIsland().c_str());
+    int checkIfAnyItemExists = this->sqlite3Helper->checkIfAnyItemExistsInBag(this->getIsland().c_str());
+    
     
     if(allTasksFinished == 1) {
         CCLOG("deleting all items from bag for island %s", this->getIsland().c_str());
@@ -1839,6 +1850,13 @@ void HelloWorld::onEnterTransitionDidFinish() {
         if(!hintText.empty()) {
             localStorageRemoveItem(HINT_TEXT);
         }
+    } else if(checkIfAnyItemExists == 0) {
+        //clear all hints
+        std::string hintText;
+        localStorageGetItem(HINT_TEXT, &hintText);
+        if(!hintText.empty()) {
+            localStorageRemoveItem(HINT_TEXT);
+        }        
     }
 
     //CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("sounds/Adagio teru (ft. teru).m4a", true);

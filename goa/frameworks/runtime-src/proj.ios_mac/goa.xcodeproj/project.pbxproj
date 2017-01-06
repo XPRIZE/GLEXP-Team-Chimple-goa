@@ -72,6 +72,8 @@
 		9C6007A81DC1DBB700F9C184 /* CarDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6007A31DC1DBB700F9C184 /* CarDraw.cpp */; };
 		9C6007A91DC1DBB700F9C184 /* CarDrawNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6007A51DC1DBB700F9C184 /* CarDrawNode.cpp */; };
 		9C6007AA1DC1DBB700F9C184 /* CarDrawNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6007A51DC1DBB700F9C184 /* CarDrawNode.cpp */; };
+		9C6329C91E1F414A00842D07 /* CopyRight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6329C71E1F414A00842D07 /* CopyRight.cpp */; };
+		9C6329CA1E1F414A00842D07 /* CopyRight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6329C71E1F414A00842D07 /* CopyRight.cpp */; };
 		9C66BF601DFAF3EC002405F6 /* StoryWordBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C66BF5E1DFAF3EC002405F6 /* StoryWordBoard.cpp */; };
 		9C66BF611DFAF3EC002405F6 /* StoryWordBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C66BF5E1DFAF3EC002405F6 /* StoryWordBoard.cpp */; };
 		9C6F61981DFA725B00B6A8B6 /* DinoGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6F61961DFA725B00B6A8B6 /* DinoGame.cpp */; };
@@ -586,6 +588,8 @@
 		9C6007A41DC1DBB700F9C184 /* CarDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDraw.h; sourceTree = "<group>"; };
 		9C6007A51DC1DBB700F9C184 /* CarDrawNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CarDrawNode.cpp; sourceTree = "<group>"; };
 		9C6007A61DC1DBB700F9C184 /* CarDrawNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDrawNode.h; sourceTree = "<group>"; };
+		9C6329C71E1F414A00842D07 /* CopyRight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CopyRight.cpp; sourceTree = "<group>"; };
+		9C6329C81E1F414A00842D07 /* CopyRight.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CopyRight.hpp; sourceTree = "<group>"; };
 		9C66BF5E1DFAF3EC002405F6 /* StoryWordBoard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoryWordBoard.cpp; sourceTree = "<group>"; };
 		9C66BF5F1DFAF3EC002405F6 /* StoryWordBoard.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StoryWordBoard.hpp; sourceTree = "<group>"; };
 		9C6F61961DFA725B00B6A8B6 /* DinoGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DinoGame.cpp; sourceTree = "<group>"; };
@@ -1311,6 +1315,8 @@
 				9C0E13461DBF707E00C10A81 /* WordSceneLipiTKNode.cpp */,
 				9C0D9CE41E0F8A72006923E3 /* WordBubble.cpp */,
 				9C0D9CE51E0F8A72006923E3 /* WordBubble.hpp */,
+				9C6329C71E1F414A00842D07 /* CopyRight.cpp */,
+				9C6329C81E1F414A00842D07 /* CopyRight.hpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -2014,6 +2020,7 @@
 				F35247D51D6D9D1A0077C333 /* Chain.cpp in Sources */,
 				3740AD381D912A8E005BDCBA /* Stack.cpp in Sources */,
 				F3F7ED951DA65FF400727A7C /* Owl.cpp in Sources */,
+				9C6329CA1E1F414A00842D07 /* CopyRight.cpp in Sources */,
 				F3EEA3E71DE2D53A00CA7D31 /* Calculator.cpp in Sources */,
 				C06E23CC18CEFE680093C81A /* main.cpp in Sources */,
 				3740AD401D912D4A005BDCBA /* Circle.cpp in Sources */,
@@ -2224,6 +2231,7 @@
 				F3667D2E1DB4BA6F00EC8908 /* LipiTKNode.cpp in Sources */,
 				9C064E5C1DB8905C000892E1 /* DecomonGallery.cpp in Sources */,
 				F35247E81D6D9D1A0077C333 /* SpriteCreate.cpp in Sources */,
+				9C6329C91E1F414A00842D07 /* CopyRight.cpp in Sources */,
 				F35248281D6D9D1A0077C333 /* Alphamon.cpp in Sources */,
 				F3EEA3F01DE3011B00CA7D31 /* ATM.cpp in Sources */,
 				F3F7ED7E1D9F891000727A7C /* MemoryJungle.cpp in Sources */,
