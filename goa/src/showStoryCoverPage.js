@@ -68,8 +68,8 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
         }
         
         this._constructedScene = ccs.load(xc.path + coverPageUrl, xc.path);
-        this._constructedScene.node.retain();
-        this._constructedScene.action.retain();
+        // this._constructedScene.node.retain();
+        // this._constructedScene.action.retain();
         
         if (this._constructedScene.node) {
             this._constructedScene.node.setPosition(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2);
@@ -174,18 +174,19 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
         if(cc.sys.isNative) {
             var fileExists = jsb.fileUtils.isFileExist(soundFile);
             if(fileExists) {
-                cc.loader.load(soundFile, function(err, data) {
-                    if(!err) {
-                        that._resources.push(soundFile);
+                if(that.soundEnabled) {
+                        cc.log('playing sound file' + soundFile);
+                        cc.audioEngine.playMusic(soundFile, false);
+                } else {
+                    cc.audioEngine.pauseMusic();
+                }                        
+                
+                // cc.loader.load(soundFile, function(err, data) {
+                //     if(!err) {
+                //         that._resources.push(soundFile);
                         
-                        if(that.soundEnabled) {
-                             cc.log('playing sound file' + soundFile);
-                             cc.audioEngine.playMusic(soundFile, false);
-                        } else {
-                            cc.audioEngine.pauseMusic();
-                        }                        
-                    }
-                }); 
+                //     }
+                // }); 
             }
         } else {
             cc.loader.load(soundFile, function(err, data) {
