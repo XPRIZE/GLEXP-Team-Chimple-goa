@@ -297,16 +297,25 @@
         "span": "2",
         "rewards" : {
             "1": {
-                "unlock": "decomone"
-            },
-            "2": {
-                "badge": "g/gem_balloon",
-                "unlockMin": "Kung Fu Alpha",
+                "unlock": "decomone",
+                "badge": "s/blasting_cannon",
                 "min": "4"
             },
-            "3": {
-                "badge": "s/golden_boot"
-            }
+            "2": {
+                "badge": "m/falling_asteroid",
+            },
+            "4": {
+                "badge": "p/burning_flame"
+            },
+            "6": {
+              "badge": "g/tender_leaf"
+            },
+            "8": {
+              "badge": "b/fiery_cannonblaster"
+            },
+            "10": {
+                  "badge": "c/cannon_bolt"
+              }
         },
         "numLevels": "10",
         "backgroundJson": "plevelscreen2/cblevelbg.json",
@@ -1005,14 +1014,26 @@
         "span": "3",
         "numLevels": "10",
         "rewards" : {
-            "2": {
-                "badge": "g/gem_balloon",
+            "1": {
+                "badge": "s/bouncy_castle",
                 "unlockMin": "Kung Fu Alpha",
                 "min": "4"
             },
-            "3": {
-                "badge": "s/golden_boot"
-            }
+            "2": {
+                "badge": "m/kaboom_cannon",
+            },
+            "4": {
+                "badge": "p/great_wall"
+            },
+            "6": {
+              "badge": "g/exploding_brick"
+            },
+            "8": {
+              "badge": "b/Tough_brick"
+            },
+            "10": {
+                  "badge": "c/sugar_concrete"
+              }
         },
         "backgroundJson": "patchthewalllevel/background.json",
         "foregroundJson": "patchthewalllevel/foreground.json",
@@ -1713,14 +1734,24 @@
             "1": {
                 "unlock": "chain"
             },
-            "2": {
-                "badge": "g/gem_balloon",
-                "unlockMin": "order",
-                "min": "5"
+            "6": {
+                "badge": "s/blooming_flower"
             },
-            "3": {
-                "badge": "s/golden_boot"
-            }
+            "12": {
+                "badge": "m/smoking_pot"
+            },
+            "18": {
+                "badge": "p/fresh_sunflower"
+            },
+            "24": {
+              "badge": "g/pink_flower"
+            },
+            "30": {
+              "badge": "b/growing_leaves"
+            },
+            "36": {
+                  "badge": "c/cocoa_beans"
+              }
         },
         "backgroundJson": "jasminelevel/Layer1.json",
         "foregroundJson": "jasminelevel/Layer3.json",
@@ -1973,16 +2004,26 @@
         "numLevels": "72",
         "rewards" : {
             "1": {
-                "unlock": "talk"
+                "unlock": "talk",
             },
-            "2": {
-                "badge": "g/gem_balloon",
-                "unlockMin": "order",
-                "min": "5"
+            "12": {
+                "badge": "s/fancy_Box",
             },
-            "3": {
-                "badge": "s/golden_boot"
-            }
+            "24": {
+                "badge": "m/heavy_crate",
+            },
+            "36": {
+                "badge": "p/milk_container"
+            },
+            "48": {
+              "badge": "g/priceless_peral"
+            },
+            "60": {
+              "badge": "b/running_conveyor"
+            },
+            "72": {
+                  "badge": "c/priceless_shell"
+              }
         },
         "backgroundJson": "plevelscreen/sklevelbg.json",
         "foregroundJson": "plevelscreen/sklevelfrg.json",
@@ -2002,14 +2043,27 @@
         "span": "9",
         "numLevels": "72",
         "rewards" : {
-            "2": {
-                "badge": "g/gem_balloon",
+            "1": {
                 "unlockMin": "order",
-                "min": "5"
             },
-            "3": {
-                "badge": "s/golden_boot"
-            }
+            "12": {
+                "badge": "s/glimmering_fish",
+            },
+            "24": {
+                "badge": "m/jungly_lion"
+            },
+            "36": {
+                "badge": "p/clean_plate"
+            },
+            "48": {
+              "badge": "g/bushy_plant"
+            },
+            "60": {
+              "badge": "b/empty_basket"
+            },
+            "72": {
+                  "badge": "c/sweet_meat"
+              }
         },
         "backgroundJson": "talkislandlevel/talkbackground.json",
         "foregroundJson": "talkislandlevel/talkforeground.json",
@@ -2175,15 +2229,25 @@
         "numLevels": "48",
         "rewards" : {
             "1": {
-                "unlock": "pop"
+                "unlock": "pop",
             },
-            "2": {
-                "badge": "g/gem_balloon",
-                "unlockMin": "JumpOnWords",
-                "min": "5"
+            "8": {
+				"badge": "s/express_train",
             },
-            "3": {
-                "badge": "s/golden_boot"
+            "16": {
+                "badge": "m/melodious_whistle",
+            },
+            "24": {
+                "badge": "p/go_signal"
+            },
+            "32": {
+                "badge": "g/high_hill"
+            },
+            "40": {
+              "badge": "b/endless_traintrack"
+            },
+            "48": {
+              "badge": "c/marsmallow_cave"
             }
         },
         "backgroundJson": "trainlevel/background.json",
@@ -2721,6 +2785,29 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "2",
         "numLevels": "10",
+        "rewards" : {
+           "1": {
+               "unlock": "step",
+               "badge": "s/glass_star"
+           },
+           "2": {
+               "badge": "m/gold_plus",
+               "unlockMin": "Line",
+               "min": "4"
+           },
+         "4": {
+           "badge": "p/blue_pyramid"
+         },
+         "6": {
+           "badge": "g/pink_hexagon"
+         },
+         "8": {
+           "badge": "b/red_circle"
+         },
+         "10": {
+           "badge": "c/square_delight"
+         }
+       },
         "backgroundJson": "shapelevel/shapelevelbackground.json",
         "foregroundJson": "shapelevel/shapelevelforeground.json",
         "frontgroundJson": "shapelevel/shapelevelfrontground.json",
@@ -2747,9 +2834,24 @@
                 "unlockMin": "Line",
                 "min": "4"
             },
-            "3": {
-                "badge": "s/golden_boot"
-            }
+            "8": {
+                "badge": "s/chocolate_bar"
+            },
+            "16": {
+                "badge": "m/climbing_step"
+            },			
+			"24": {
+			   "badge": "p/slippery_steps"
+			},
+			"32": {
+			   "badge": "g/green_gem"
+			},
+			"40": {
+			   "badge": "b/creamy_donut"
+			},
+			"45": {
+			   "badge": "c/flying_fluffy"
+			}
         },
         "backgroundJson": "stepcandylevel/background.json",
         "foregroundJson": "stepcandylevel/foreground.json",
@@ -2995,9 +3097,24 @@
             "3": {
                 "unlock": "table"
             },
-            "5": {
-                "badge": "s/golden_boot"
-            }
+            "3": {
+                "badge": "s/happy_cow"
+            },
+            "6": {
+                "badge": "m/hot_dog"
+            },			
+			"9": {
+			   "badge": "p/chubby_pig"
+			},
+			"12": {
+			   "badge": "g/roast_chicken"
+			},
+			"16": {
+			   "badge": "b/gleeful_sheep"
+			},
+			"20": {
+			   "badge": "c/sweet_cards"
+			}
         },
         "backgroundJson": "cardlevel/Layer1.json",
         "foregroundJson": "cardlevel/Layer3.json",
