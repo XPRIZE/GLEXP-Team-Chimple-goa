@@ -189,6 +189,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\AsyncTask.cpp" />
     <ClCompile Include="..\Classes\Calculator.cpp" />
+    <ClCompile Include="..\Classes\ChooseCharacter.cpp" />
     <ClCompile Include="..\Classes\common\LTKCaptureDevice.cpp" />
     <ClCompile Include="..\Classes\common\LTKChannel.cpp" />
     <ClCompile Include="..\Classes\common\LTKException.cpp" />
@@ -374,6 +375,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\AsyncTask.hpp" />
     <ClInclude Include="..\Classes\Calculator.h" />
+    <ClInclude Include="..\Classes\ChooseCharacter.hpp" />
     <ClInclude Include="..\Classes\CopyRight.hpp" />
     <ClInclude Include="..\Classes\effects\FShake.h" />
     <ClInclude Include="..\Classes\Entry.h" />
