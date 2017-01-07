@@ -103,20 +103,182 @@ void StoryPlaying::load() {
     }
 }
 
+void StoryPlaying::createDialogBubble() {
+    _talkBubbleNode = CSLoader::createNode("template/bubble_tem.csb");
+    this->addChild(_talkBubbleNode, 1);
+    
+    
+    std::string contentPageText = "";
+    std::string textFileUrl = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + ".json";
+    if(!textFileUrl.empty() && FileUtils::getInstance()->isFileExist(textFileUrl))
+    {
+        std::string jsonData = FileUtils::getInstance()->getStringFromFile(textFileUrl);
+        CCLOG("got data %s", jsonData.c_str());
+        rapidjson::Document coverPageTextDocument;
+        if (false == coverPageTextDocument.Parse<0>(jsonData.c_str()).HasParseError()) {
+            // document is ok
+            rapidjson::Value::MemberIterator M;
+            const char *key,*value;
+            int i = 0;
+            for (M=coverPageTextDocument.MemberBegin(); M!=coverPageTextDocument.MemberEnd(); M++)
+            {
+                key   = M->name.GetString();
+                value = M->value.GetString();
+                std::string sValue = value;
+                
+                if(i == _pageIndex + 1) {
+                    contentPageText = value;
+                    break;
+                }
+                
+                i++;
+                
+            }
+            
+            if(!contentPageText.empty()) {
+                Node* chooseText = _talkBubbleNode->getChildByName(STORY_TEXT);
+                if(chooseText != NULL) {
+                    cocos2d::ui::TextField* chooseLabel = dynamic_cast<cocos2d::ui::TextField *>(chooseText);
+                    if(chooseLabel != NULL) {
+                        chooseLabel->setString(contentPageText);
+                        chooseLabel->setFontSize(75);
+                        chooseLabel->setFontName("fonts/Roboto-Regular.ttf");
+                        chooseLabel->setTextColor(Color4B::BLACK);
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    Node* closeNode = _talkBubbleNode->getChildByName(CLOSE_BUTTON);
+    if(closeNode != NULL) {
+        cocos2d::ui::Button* closeButton = dynamic_cast<cocos2d::ui::Button *>(closeNode);
+        if(closeButton != NULL) {
+            closeButton->addTouchEventListener(CC_CALLBACK_2(StoryPlaying::closeDialog, this));
+        }
+    }
+    
+    
+    Node* soundNode = _talkBubbleNode->getChildByName(SOUND_BUTTON);
+    if(soundNode != NULL) {
+        cocos2d::ui::Button* soundButton = dynamic_cast<cocos2d::ui::Button *>(soundNode);
+        if(soundButton != NULL) {
+            soundButton->addTouchEventListener(CC_CALLBACK_2(StoryPlaying::playSound, this));
+            
+            if(_soundEnabled.compare("true") == 0) {
+                soundButton->setHighlighted(true);
+            } else {
+                soundButton->setHighlighted(false);
+            }
+        }
+    }
+    
+    if(_soundEnabled.compare("true") == 0) {
+
+        std::string pageI = MenuContext::to_string(_pageIndex + 1);
+        _soundFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + _baseDir + "_"  + pageI + ".ogg";
+        
+        if(!_soundFile.empty() && FileUtils::getInstance()->isFileExist(_soundFile)) {
+            this->scheduleOnce(schedule_selector(StoryPlaying::narrateDialog), 1.0f);
+        }
+    }
+}
+
+
+void StoryPlaying::narrateDialog(float dt) {
+    CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0f);
+    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(_soundFile.c_str(), false);
+}
+
+void StoryPlaying::playSound(Ref* pSender, ui::Widget::TouchEventType eEventType)
+{
+    cocos2d::ui::Button* clickedButton = dynamic_cast<cocos2d::ui::Button *>(pSender);
+    switch (eEventType) {
+        case ui::Widget::TouchEventType::BEGAN:
+        {
+            break;
+        }
+        case ui::Widget::TouchEventType::MOVED:
+            break;
+        case ui::Widget::TouchEventType::ENDED:
+        {
+            
+            if(_soundEnabled.compare("true") == 0) {
+                _soundEnabled = "false";
+                clickedButton->setHighlighted(false);
+                localStorageSetItem(SOUND_ENABLED_FOR_STORIES, _soundEnabled);
+                
+                if(CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying())
+                {
+                    CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+                }
+                
+            } else {
+                _soundEnabled = "true";
+                clickedButton->setHighlighted(true);
+                localStorageSetItem(SOUND_ENABLED_FOR_STORIES, _soundEnabled);
+                CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0f);
+                CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(_soundFile.c_str(), false);
+                
+                
+            }
+            
+            break;
+        }
+            
+        case ui::Widget::TouchEventType::CANCELED:
+            break;
+        default:
+            break;
+    }
+    
+}
+
+
+void StoryPlaying::closeDialog(Ref* pSender, ui::Widget::TouchEventType eEventType)
+{
+    cocos2d::ui::Button* clickedButton = dynamic_cast<cocos2d::ui::Button *>(pSender);
+    switch (eEventType) {
+        case ui::Widget::TouchEventType::BEGAN:
+        {
+            clickedButton->setHighlighted(true);
+            break;
+        }
+        case ui::Widget::TouchEventType::MOVED:
+            break;
+        case ui::Widget::TouchEventType::ENDED:
+        {
+            clickedButton->setEnabled(false);
+            _talkBubbleNode->removeFromParentAndCleanup(true);
+
+            //show next/prev buttons
+            if(_pageIndex + 1 != _totalStoryPages)
+            {
+                _nextButton->setEnabled(true);
+                _nextButton->setVisible(true);
+            }
+            
+            if(_pageIndex != 0) {
+                _prevButton->setEnabled(true);
+                _prevButton->setVisible(true);
+            }
+            
+            
+            break;
+        }
+            
+        case ui::Widget::TouchEventType::CANCELED:
+            break;
+        default:
+            break;
+    }
+}
+
 void StoryPlaying::playEnded() {
     _isPlayEnded = true;
     
-    if(_pageIndex + 1 != _totalStoryPages)
-    {
-        _nextButton->setEnabled(true);
-        _nextButton->setVisible(true);
-    }
-    
-    if(_pageIndex != 0) {
-        _prevButton->setEnabled(true);
-        _prevButton->setVisible(true);
-    }
-
+    createDialogBubble();
 }
 
 void StoryPlaying::createNextAndPreviousButtons() {
@@ -165,13 +327,16 @@ void StoryPlaying::onFrameEvent(cocostudio::timeline::Frame* frame) {
 
 void StoryPlaying::playFrameEventEffect(std::string eventData) {
     if(!eventData.empty()) {
-        std::string eventSoundFile = "sounds/sfx/" +  eventData + ".mp3";
+        std::string eventSoundFile = "sounds/sfx/" +  eventData + ".ogg";
         if(!eventSoundFile.empty() && FileUtils::getInstance()->isFileExist(eventSoundFile)) {
             _loadedEffects.push_back(eventSoundFile);
             CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(eventSoundFile.c_str(), false);
         }
     }
 }
+
+
+
 
 void StoryPlaying::loadContentPage(std::string contentPageName) {
     Node *contentPageNode = CSLoader::createNode(contentPageName);
@@ -189,69 +354,10 @@ void StoryPlaying::loadContentPage(std::string contentPageName) {
         timeline->play("master", false);
     }
     
+    //find sound configuration
     
-//
-//    Node *talkBubbleNode = CSLoader::createNode("template/bubble_tem_01.csb");
-//    this->addChild(talkBubbleNode, 1);
-//    
-//    Node* chooseText = talkBubbleNode->getChildByName(COVER_TEXT);
-//    if(chooseText != NULL) {
-//        cocos2d::ui::TextField* chooseLabel = dynamic_cast<cocos2d::ui::TextField *>(chooseText);
-//        if(chooseLabel != NULL) {
-//            std::string coverPageText = "";
-//            std::string textFileUrl = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + ".json";
-//            if(!textFileUrl.empty() && FileUtils::getInstance()->isFileExist(textFileUrl)) {
-//                std::string jsonData = FileUtils::getInstance()->getStringFromFile(textFileUrl);
-//                CCLOG("got data %s", jsonData.c_str());
-//                rapidjson::Document coverPageTextDocument;
-//                if (false == coverPageTextDocument.Parse<0>(jsonData.c_str()).HasParseError()) {
-//                    // document is ok
-//                    coverPageText = coverPageTextDocument["0"].GetString();
-//                }
-//                
-//            }
-//            
-//            std::string chooseText = LangUtil::getInstance()->translateString(coverPageText);
-//            chooseLabel->setString(chooseText);
-//            chooseLabel->setFontSize(150);
-//            chooseLabel->setFontName("fonts/Roboto-Regular.ttf");
-//            chooseLabel->setTextColor(Color4B::WHITE);
-//        }
-//    }
-//    
-//    Node* playNode = talkBubbleNode->getChildByName(PLAY_BUTTON);
-//    if(playNode != NULL) {
-//        cocos2d::ui::Button* playButton = dynamic_cast<cocos2d::ui::Button *>(playNode);
-//        if(playButton != NULL) {
-//            playButton->addTouchEventListener(CC_CALLBACK_2(StoryPlayingPage::play, this));
-//        }
-//    }
-//
-//    _soundFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + _baseDir + "_0.mp3";
-//    
-//    //get configuration
-//    
-//    _soundEnabled = "";
-//    localStorageGetItem(SOUND_ENABLED_FOR_STORIES, &_soundEnabled);
-//    
-//    if(!(_soundEnabled.compare("false") == 0)) {
-//        _soundEnabled = "true";
-//        localStorageSetItem(SOUND_ENABLED_FOR_STORIES, "true");
-//    }
-//    
-//    Node* soundNode = talkBubbleNode->getChildByName(SOUND_BUTTON);
-//    if(soundNode != NULL) {
-//        cocos2d::ui::Button* soundButton = dynamic_cast<cocos2d::ui::Button *>(soundNode);
-//        if(soundButton != NULL) {
-//            soundButton->addTouchEventListener(CC_CALLBACK_2(StoryPlaying::playSound, this));
-//            
-//            if(_soundEnabled.compare("true") == 0) {
-//                soundButton->setHighlighted(true);
-//            } else {
-//                soundButton->setHighlighted(false);
-//            }
-//        }
-//    }
+    _soundEnabled = "";
+    localStorageGetItem(SOUND_ENABLED_FOR_STORIES, &_soundEnabled);
 }
 
 
@@ -270,13 +376,6 @@ void StoryPlaying::onExitTransitionDidStart() {
 
 void StoryPlaying::onEnterTransitionDidFinish() {
     Node::onEnterTransitionDidFinish();
-    
-//    if(_soundEnabled.compare("true") == 0) {
-//        if(!_soundFile.empty() && FileUtils::getInstance()->isFileExist(_soundFile)) {
-//            CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0f);
-//            CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(_soundFile.c_str(), false);
-//        }
-//    }
 }
 
 void StoryPlaying::nextStory(Ref* pSender, ui::Widget::TouchEventType eEventType)

@@ -26,9 +26,12 @@
 #include "storage/local-storage/LocalStorage.h"
 
 
-#define STORY_TEXT "storyText"
 #define NEXT_BUTTON "next"
 #define PREVIOUS_BUTTON "previous"
+#define CLOSE_BUTTON "close"
+#define SOUND_BUTTON "sound"
+
+#define STORY_TEXT "titleText"
 
 
 class StoryPlaying : public cocos2d::Layer {
@@ -68,6 +71,7 @@ private:
     int _pageIndex;
     bool _isPlayEnded;
     int _totalStoryPages;
+    Node* _talkBubbleNode;
     
     cocos2d::ui::Button* _nextButton;
     cocos2d::ui::Button* _prevButton;
@@ -81,7 +85,14 @@ private:
     std::vector<std::string> _loadedEffects;
     
     void createNextAndPreviousButtons();
+    
+    void createDialogBubble();
+    
+    void playSound(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    
+    void closeDialog(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
 
+    void narrateDialog(float dt);
 };
 
 
