@@ -10,7 +10,11 @@
 #include "MapScene.h"
 #include "menu/LevelHelpScene.h"
 #include "menu/LevelHelpOverlay.h"
+#include "storage/local-storage/LocalStorage.h"
+#include "StartMenuScene.h"
 
+static const std::string CURRENT_LEVEL = ".currentLevel";
+const std::map<std::string, std::string> MapScene::levelToGameNameMap = MapScene::createLevelToGameName();
 
 USING_NS_CC;
 
@@ -22,11 +26,28 @@ Scene* MapScene::createScene()
     // 'layer' is an autorelease object
     auto layer = MapScene::create();
     
+    layer->menuContext = MenuContext::create(layer, MapScene::gameName());
+    scene->addChild(layer->menuContext);
+    
+    
+    std::string currentLevelStr;
+    localStorageGetItem(MapScene::gameName() + CURRENT_LEVEL, &currentLevelStr);
+    
+    if(currentLevelStr.empty()) {
+        std::string defaultLevel = "1";
+        localStorageSetItem(MapScene::gameName() + CURRENT_LEVEL, defaultLevel);
+        layer->unlockLevel = 1;
+    }
+    localStorageGetItem(MapScene::gameName() + CURRENT_LEVEL, &currentLevelStr);
+    
+    if(!currentLevelStr.empty()) {
+        layer->menuContext->setCurrentLevel(std::atoi( currentLevelStr.c_str()));
+        layer->unlockLevel = std::atoi(currentLevelStr.c_str());
+    }
+    
+    layer->loadMap();
     // add layer as a child to scene
     scene->addChild(layer);
-    
-    layer->menuContext = MenuContext::create(layer, "map");
-    scene->addChild(layer->menuContext);
     
     // return the scene
     
@@ -46,7 +67,8 @@ MapScene* MapScene::create()
 
 
 MapScene::MapScene():
-menuContext(nullptr)
+menuContext(nullptr),
+unlockLevel(0)
 {
 }
 
@@ -67,7 +89,14 @@ bool MapScene::init()
     this->currentLangUtil = LangUtil::getInstance();
 
     
-    this->loadMap();
+    gameNameToLevelMap.insert({CAMP,"1"});
+    gameNameToLevelMap.insert({FARMHOUSE,"2"});
+    gameNameToLevelMap.insert({MININGBG,"3"});
+    gameNameToLevelMap.insert({CITY1,"4"});
+    gameNameToLevelMap.insert({CITY2,"5"});
+    gameNameToLevelMap.insert({CITY3,"6"});
+    gameNameToLevelMap.insert({CITY4,"7"});
+    gameNameToLevelMap.insert({CITY5,"8"});
     
     return true;
 }
@@ -134,6 +163,27 @@ void MapScene::processChildNodes(cocos2d::Node *rootNode) {
                     button->setName(itNextScene->second);
                     button->setTitleText("");
                     button->addTouchEventListener(CC_CALLBACK_2(MapScene::islandSelected, this));
+                    std::string buttonLevel = gameNameToLevelMap.at(button->getName());
+                    if(!buttonLevel.empty()) {
+                        std::string unlockStr;
+                        localStorageGetItem(".unlock", &unlockStr);
+                        bool lockAll = false;
+                        if (unlockStr.empty() || unlockStr == "1") {
+                            lockAll = true;
+                        }
+                        if(!lockAll) {
+                            button->setEnabled(true);
+                        } else {
+                            int cLevel = std::atoi(buttonLevel.c_str());
+                            if(cLevel <= unlockLevel) {
+                                button->setEnabled(true);
+                            } else {
+                                button->setEnabled(false);
+                            }
+                        }
+                    } else {
+                        button->setEnabled(false);
+                    }                    
                 }
             }
 
@@ -142,7 +192,6 @@ void MapScene::processChildNodes(cocos2d::Node *rootNode) {
     }
     
 }
-
 
 
 void MapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEventType)
@@ -159,11 +208,12 @@ void MapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEventTyp
         case ui::Widget::TouchEventType::ENDED:
         {
             clickedButton->setEnabled(false);
-            //LevelHelpScene::createScene(clickedButton->getName().c_str());
+            if(gameNameToLevelMap.count(clickedButton->getName()) == 1)
+            {
+                std::string level = gameNameToLevelMap.at(clickedButton->getName());
+                localStorageSetItem("map.currentLevel", level);
+            }
             Director::getInstance()->replaceScene(TransitionFade::create(0.5, LevelHelpScene::createScene(clickedButton->getName().c_str()), Color3B::BLACK));
-            
-//            Director::getInstance()->replaceScene(TransitionFade::create(0.5, HelloWorld::createScene(clickedButton->getName().c_str(),"", true), Color3B::BLACK));
-
             break;
         }
             
@@ -174,3 +224,21 @@ void MapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEventTyp
     }
     
 }
+
+const std::map<std::string, std::string> MapScene::createLevelToGameName() {
+    
+    std::map<std::string, std::string> levelToGameNameMaps;
+    
+    levelToGameNameMaps.insert(std::make_pair("1", CAMP));
+    levelToGameNameMaps.insert(std::make_pair("2", FARMHOUSE));
+    levelToGameNameMaps.insert(std::make_pair("3", MININGBG));
+    levelToGameNameMaps.insert(std::make_pair("4", CITY1));
+    levelToGameNameMaps.insert(std::make_pair("5", CITY2));
+    levelToGameNameMaps.insert(std::make_pair("6", CITY3));
+    levelToGameNameMaps.insert(std::make_pair("7", CITY4));
+    levelToGameNameMaps.insert(std::make_pair("8", CITY5));
+    
+    
+    return levelToGameNameMaps;
+}
+

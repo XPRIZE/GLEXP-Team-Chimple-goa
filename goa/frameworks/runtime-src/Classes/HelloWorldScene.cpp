@@ -357,40 +357,6 @@ void HelloWorld::loadWords() {
     
     _hangBubbleNode = CSLoader::createNode("template/hang_bubble.csb");
 
-    std::string bagPackFile = this->getIsland()+"_bagpack" + "/" + this->getIsland()+"_bagpack.mapping.json";
-    
-    if(FileUtils::getInstance()->isFileExist(bagPackFile)) {
-        std::string jsonData = FileUtils::getInstance()->getStringFromFile(bagPackFile);
-        CCLOG("got data %s", jsonData.c_str());
-        
-        
-        rapidjson::Document d;
-        rapidjson::Value::MemberIterator M;
-        const char *key,*value;
-        
-        d.Parse<0>(jsonData.c_str());
-        if (d.HasParseError()) {
-            CCLOG("GetParseError %u\n",d.GetParseError());
-        } else
-        {
-            
-            for (M=d.MemberBegin(); M!=d.MemberEnd(); M++)
-            {
-                key   = M->name.GetString();
-                value = M->value.GetString();
-                std::string sValue = value;
-                sValue = LangUtil::getInstance()->translateString(sValue);
-                
-                if (key!=NULL && value!=NULL)
-                {
-                    CCLOG("%s = %s", key,sValue.c_str());
-                }
-                
-                _wordMappings.insert({key,sValue});
-            }
-        }
-    }
-    
     
     std::string wordFile = !this->getSceneName().empty() ? this->getSceneName() + ".mapping.json":  this->getIsland() + ".mapping.json";
     
@@ -426,6 +392,40 @@ void HelloWorld::loadWords() {
         }
     }
     
+    std::string bagPackFile = this->getIsland()+"_bagpack" + "/" + this->getIsland()+"_bagpack.mapping.json";
+    
+    if(FileUtils::getInstance()->isFileExist(bagPackFile)) {
+        std::string jsonData = FileUtils::getInstance()->getStringFromFile(bagPackFile);
+        CCLOG("got data %s", jsonData.c_str());
+        
+        
+        rapidjson::Document d;
+        rapidjson::Value::MemberIterator M;
+        const char *key,*value;
+        
+        d.Parse<0>(jsonData.c_str());
+        if (d.HasParseError()) {
+            CCLOG("GetParseError %u\n",d.GetParseError());
+        } else
+        {
+            
+            for (M=d.MemberBegin(); M!=d.MemberEnd(); M++)
+            {
+                key   = M->name.GetString();
+                value = M->value.GetString();
+                std::string sValue = value;
+                sValue = LangUtil::getInstance()->translateString(sValue);
+                
+                if (key!=NULL && value!=NULL)
+                {
+                    CCLOG("%s = %s", key,sValue.c_str());
+                }
+                
+                _wordMappings.insert({key,sValue});
+            }
+        }
+    }
+        
     
     std::map<std::string,std::string> mapping = _wordMappings;
     
@@ -517,7 +517,6 @@ void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
                 
                 if ( it != attributes.end() ) {
                     std::string fileName(it->second);
-                    //    fileName = std::regex_replace(fileName, std::regex("^ +| +$|( ) +"), "$1");
                     
                     if(regex_match(fileName, skeletonFile)) {
                         //process hero node
@@ -525,6 +524,16 @@ void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
                         if(value == HUMAN_SKELETON_NAME) {
                             CCLOG("Creating HERO Skeleton for node %s", node->getName().c_str());
                             //create Hero character
+                            
+                            std::string isBoyCharacterSelected;
+                            localStorageGetItem(CHARACTER_PREFERENCE, &isBoyCharacterSelected);
+                            
+                            if(isBoyCharacterSelected.compare("true") == 0) {
+                                fileName = fileName;
+                            } else {
+                                fileName = GIRL_CHIMPLE_FILE;
+                            }
+                                                        
                             this->addMainCharacterToScene(fileName, node);
                             
                         } else  {
@@ -919,6 +928,8 @@ void HelloWorld::processTextMessage(std::unordered_map<int, std::string> textMap
             this->addChild(_speechBubbleView, 1);
         }
     }
+    
+    this->scheduleOnce(schedule_selector(HelloWorld::unlockNext), 2.0f);
 
 }
 
@@ -1653,7 +1664,6 @@ void HelloWorld::transitToMenu(EventCustom * event) {
     } else if(menuName == MAP_MENU) {
         Director::getInstance()->replaceScene(TransitionFade::create(2.0, MapScene::createScene(), Color3B::BLACK));
     } else {
-        menuContext->addPoints(3);
         menuContext->showScore();
     }
 }
@@ -1861,7 +1871,25 @@ void HelloWorld::onEnterTransitionDidFinish() {
 
     //CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("sounds/Adagio teru (ft. teru).m4a", true);
     //CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0f);
+    
     this->gesture_layer_->enableAllTouch();
+}
+
+void HelloWorld::unlockNext(float dt) {
+    //check
+    int allTasksFinished = this->sqlite3Helper->checkIfAllTaskedFinished(this->getIsland().c_str());
+    if(allTasksFinished == 1)
+    {
+        std::string currentLevel;
+        localStorageGetItem("map.currentLevel", &currentLevel);
+        int curLevel = atoi(currentLevel.c_str());
+        curLevel++;
+        if(curLevel <= 8) {
+            localStorageSetItem("map.currentLevel", MenuContext::to_string(curLevel));
+        }
+        
+        this->menuContext->showScore();
+    }
 }
 
 void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMessages) {
