@@ -88,7 +88,8 @@
 #define BREAK_ANIM "stop"
 
 
-
+#define CHARACTER_PREFERENCE "charPreference"
+#define GIRL_CHIMPLE_FILE "chimple_girl_skeleton.csb"
 #define MAIN_LAYER "main"
 #define BACK_GROUND_LAYER "background"
 #define FORE_GROUND_LAYER "foreground"

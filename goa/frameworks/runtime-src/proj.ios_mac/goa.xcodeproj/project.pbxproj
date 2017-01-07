@@ -74,6 +74,8 @@
 		9C6007AA1DC1DBB700F9C184 /* CarDrawNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6007A51DC1DBB700F9C184 /* CarDrawNode.cpp */; };
 		9C6329C91E1F414A00842D07 /* CopyRight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6329C71E1F414A00842D07 /* CopyRight.cpp */; };
 		9C6329CA1E1F414A00842D07 /* CopyRight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6329C71E1F414A00842D07 /* CopyRight.cpp */; };
+		9C6329D11E1FE09500842D07 /* ChooseCharacter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6329CF1E1FE09500842D07 /* ChooseCharacter.cpp */; };
+		9C6329D21E1FE09500842D07 /* ChooseCharacter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6329CF1E1FE09500842D07 /* ChooseCharacter.cpp */; };
 		9C66BF601DFAF3EC002405F6 /* StoryWordBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C66BF5E1DFAF3EC002405F6 /* StoryWordBoard.cpp */; };
 		9C66BF611DFAF3EC002405F6 /* StoryWordBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C66BF5E1DFAF3EC002405F6 /* StoryWordBoard.cpp */; };
 		9C6F61981DFA725B00B6A8B6 /* DinoGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6F61961DFA725B00B6A8B6 /* DinoGame.cpp */; };
@@ -590,6 +592,8 @@
 		9C6007A61DC1DBB700F9C184 /* CarDrawNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDrawNode.h; sourceTree = "<group>"; };
 		9C6329C71E1F414A00842D07 /* CopyRight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CopyRight.cpp; sourceTree = "<group>"; };
 		9C6329C81E1F414A00842D07 /* CopyRight.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CopyRight.hpp; sourceTree = "<group>"; };
+		9C6329CF1E1FE09500842D07 /* ChooseCharacter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChooseCharacter.cpp; sourceTree = "<group>"; };
+		9C6329D01E1FE09500842D07 /* ChooseCharacter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ChooseCharacter.hpp; sourceTree = "<group>"; };
 		9C66BF5E1DFAF3EC002405F6 /* StoryWordBoard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoryWordBoard.cpp; sourceTree = "<group>"; };
 		9C66BF5F1DFAF3EC002405F6 /* StoryWordBoard.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StoryWordBoard.hpp; sourceTree = "<group>"; };
 		9C6F61961DFA725B00B6A8B6 /* DinoGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DinoGame.cpp; sourceTree = "<group>"; };
@@ -1317,6 +1321,8 @@
 				9C0D9CE51E0F8A72006923E3 /* WordBubble.hpp */,
 				9C6329C71E1F414A00842D07 /* CopyRight.cpp */,
 				9C6329C81E1F414A00842D07 /* CopyRight.hpp */,
+				9C6329CF1E1FE09500842D07 /* ChooseCharacter.cpp */,
+				9C6329D01E1FE09500842D07 /* ChooseCharacter.hpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -1986,6 +1992,7 @@
 				F35247EF1D6D9D1A0077C333 /* GameScene.cpp in Sources */,
 				F3A23A821E0D22580083CEB5 /* LevelHelpOverlay.cpp in Sources */,
 				F35248491D6D9D1A0077C333 /* SpeechBubbleView.cpp in Sources */,
+				9C6329D21E1FE09500842D07 /* ChooseCharacter.cpp in Sources */,
 				F352483F1D6D9D1A0077C333 /* MessageSender.cpp in Sources */,
 				F35248251D6D9D1A0077C333 /* MapIsland.cpp in Sources */,
 				F35247C51D6D9D1A0077C333 /* AlphamonFeedLevelScene.cpp in Sources */,
@@ -2138,6 +2145,7 @@
 				F35247F61D6D9D1A0077C333 /* SafariAnalyticsManager.cpp in Sources */,
 				F3667D201DB4BA6F00EC8908 /* LTKTrace.cpp in Sources */,
 				F35247FA1D6D9D1A0077C333 /* WordInfo.cpp in Sources */,
+				9C6329D11E1FE09500842D07 /* ChooseCharacter.cpp in Sources */,
 				F35247DA1D6D9D1A0077C333 /* Jasmin_Listenerfile.cpp in Sources */,
 				F3F7ED621D93DAFE00727A7C /* Dash.cpp in Sources */,
 				F373B90E1DDAE1280027D32C /* Units.cpp in Sources */,

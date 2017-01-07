@@ -12,7 +12,8 @@
 #include "LevelMenu.h"
 #include "storage/local-storage/LocalStorage.h"
 #include "scripting/js-bindings/manual/ScriptingCore.h"
-#include"../MapScene.h"
+#include "../MapScene.h"
+#include "../menu/LevelHelpScene.h"
 
 USING_NS_CC;
 
@@ -477,7 +478,7 @@ void ScoreBoardContext::buttonClicked(Ref* pSender, ui::Widget::TouchEventType e
                     Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
 
                     //ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
-                } else if(_gameName == "Safari RPG") {
+                } else if(_gameName == "map") {
                     Director::getInstance()->replaceScene(MapScene::createScene());
                 } else {
                     Director::getInstance()->replaceScene(LevelMenu::createScene(_gameName));
@@ -492,8 +493,22 @@ void ScoreBoardContext::buttonClicked(Ref* pSender, ui::Widget::TouchEventType e
                 
                 if (isStories!=std::string::npos || _gameName == "Show Stories") {
                     ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
-                } else if(_gameName == "Safari RPG") {
-                    Director::getInstance()->replaceScene(MapScene::createScene());
+                } else if(_gameName == "map") {
+                    std::string currentLevel;
+                    localStorageGetItem(_gameName + ".currentLevel", &currentLevel);
+                    if(!currentLevel.empty())
+                    {
+                        if(MapScene::levelToGameNameMap.count(currentLevel) == 1)
+                        {
+                            std::string gameName = MapScene::levelToGameNameMap.at(currentLevel);
+                            Director::getInstance()->replaceScene(TransitionFade::create(0.5, LevelHelpScene::createScene(gameName.c_str()), Color3B::BLACK));
+                        } else {
+                            Director::getInstance()->replaceScene(MapScene::createScene());
+                        }
+                    } else {
+                        Director::getInstance()->replaceScene(MapScene::createScene());
+                    }
+                    
                 } else {
                     std::string currentLevel;
                     localStorageGetItem(_gameName + ".currentLevel", &currentLevel);

@@ -80,12 +80,10 @@ xc.CatalogueLayer = cc.Layer.extend({
                 var unlockALL = cc.sys.localStorage.getItem(xc.UNLOCK_ALL);
                 cc.log("xc.UNLOCK_ALL found in catalog.js:" + unlockALL);
                 if(unlockALL == "0" || unlockALL == 0 || unlockALL == null) {                    
-                    unlockedStories = lockedStoryIdOrders;
-                    cc.log("1111111" + JSON.stringify(unlockedStories));
+                    unlockedStories = context.getUnLockedStories();
                 } else if(unlockALL == "1" || unlockALL == 1) {
-                    unlockedStories = context.getUnLockedStories();
-                } else {
-                    unlockedStories = context.getUnLockedStories();
+                    unlockedStories = lockedStoryIdOrders;
+                    
                 }                
             }  else {
                 unlockedStories = lockedStoryIdOrders;

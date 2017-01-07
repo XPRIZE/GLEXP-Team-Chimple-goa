@@ -5,7 +5,7 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 356,
+        "Duration": 281,
         "Speed": 1.0,
         "ActivedAnimationName": "A",
         "Timelines": [
@@ -146,54 +146,6 @@
                   "Type": 0
                 },
                 "ctype": "IntFrameData"
-              },
-              {
-                "Value": 0,
-                "FrameIndex": 279,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "IntFrameData"
-              },
-              {
-                "Value": 255,
-                "FrameIndex": 284,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "IntFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 823712413,
-            "Property": "Position",
-            "Frames": [
-              {
-                "X": 42.8878,
-                "Y": -475.4418,
-                "FrameIndex": 284,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 823712413,
-            "Property": "RotationSkew",
-            "Frames": [
-              {
-                "X": 89.0278,
-                "Y": 89.044,
-                "FrameIndex": 284,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -401,36 +353,45 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 270.9677,
-                "Y": -259.4024,
-                "FrameIndex": 259,
+                "X": 272.3284,
+                "Y": -193.5137,
+                "FrameIndex": 263,
                 "EasingData": {
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
               },
               {
-                "X": -77.5078,
-                "Y": 35.1352,
-                "FrameIndex": 299,
+                "X": 287.4949,
+                "Y": -237.6793,
+                "FrameIndex": 267,
                 "EasingData": {
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
               },
               {
-                "X": -222.4564,
-                "Y": -369.6512,
-                "FrameIndex": 300,
+                "X": 331.5599,
+                "Y": -267.7792,
+                "FrameIndex": 272,
                 "EasingData": {
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
               },
               {
-                "X": 274.0252,
-                "Y": -371.1661,
-                "FrameIndex": 355,
+                "X": 361.8427,
+                "Y": -276.2612,
+                "FrameIndex": 275,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 412.3131,
+                "Y": -270.5604,
+                "FrameIndex": 280,
                 "EasingData": {
                   "Type": 0
                 },
@@ -566,7 +527,7 @@
               },
               {
                 "Value": 204,
-                "FrameIndex": 259,
+                "FrameIndex": 280,
                 "EasingData": {
                   "Type": 0
                 },
@@ -574,39 +535,7 @@
               },
               {
                 "Value": 0,
-                "FrameIndex": 260,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "IntFrameData"
-              },
-              {
-                "Value": 0,
-                "FrameIndex": 299,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "IntFrameData"
-              },
-              {
-                "Value": 204,
-                "FrameIndex": 300,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "IntFrameData"
-              },
-              {
-                "Value": 204,
-                "FrameIndex": 355,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "IntFrameData"
-              },
-              {
-                "Value": 0,
-                "FrameIndex": 356,
+                "FrameIndex": 281,
                 "EasingData": {
                   "Type": 0
                 },
@@ -621,7 +550,7 @@
       "AnimationList": [
         {
           "StartIndex": 0,
-          "EndIndex": 270,
+          "EndIndex": 290,
           "Name": "A",
           "ctype": "AnimationInfoData"
         }
@@ -716,7 +645,6 @@
               "X": 617.0,
               "Y": 810.0
             },
-            "Alpha": 0,
             "Name": "arrow_1",
             "ctype": "SpriteObjectData"
           },
@@ -765,7 +693,6 @@
               "X": 153.0,
               "Y": 686.0
             },
-            "Alpha": 0,
             "Name": "arrow_1_0",
             "ctype": "SpriteObjectData"
           },
@@ -833,14 +760,18 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 229.1,
-              "Y": 199.9142
+              "X": 412.3131,
+              "Y": -270.5604
             },
             "Scale": {
               "ScaleX": 0.4,
               "ScaleY": 0.4
             },
-            "CColor": {},
+            "CColor": {
+              "R": 235,
+              "G": 251,
+              "B": 84
+            },
             "IconVisible": false,
             "PrePosition": {
               "X": 0.0,
@@ -850,10 +781,10 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -18.9,
-            "RightMargin": -477.1,
-            "TopMargin": -447.9142,
-            "BottomMargin": -48.0858,
+            "LeftMargin": 164.3131,
+            "RightMargin": -660.3131,
+            "TopMargin": 22.5604,
+            "BottomMargin": -518.5604,
             "Tag": 115,
             "ActionTag": 147722013,
             "Size": {
