@@ -2401,7 +2401,19 @@
         "icon": "gameicons/hero.png",
         "multiPlayer": false,
         "isJSGame": false,
-        "script": "src/NonJSGameLauncher.js"
+        "script": "src/NonJSGameLauncher.js",
+        "numLevels": "8",
+        "rewards" : {
+            "1": {
+                "badge": "s/golden_boot"                
+            },
+            "2": {
+                "badge": "g/gem_balloon"
+            },
+            "3": {
+                "badge": "s/golden_boot"
+            }
+        }        
     },
     {
         "name": "JumpOnWords",
