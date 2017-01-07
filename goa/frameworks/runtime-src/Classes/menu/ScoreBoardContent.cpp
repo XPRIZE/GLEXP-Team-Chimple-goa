@@ -176,21 +176,31 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
         if(!_gameToUnlock.empty() && gameIcons.count(_gameToUnlock) > 0) {
             auto unlockedGameButton = ui::Button::create(gameIcons[_gameToUnlock]["icon"], gameIcons[_gameToUnlock]["cIcon"], gameIcons[_gameToUnlock]["icon"], ui::Widget::TextureResType::LOCAL);
             auto titleStr = LangUtil::getInstance()->translateString("Game Unlocked");
-            unlockedGameButton->setTitleText(titleStr + "\n" + gameIcons[_gameToUnlock]["title"]);
-            unlockedGameButton->setTitleFontName("fonts/Roboto-Regular.ttf");
-            unlockedGameButton->setTitleColor(Color3B(0xFF, 0xF2, 0x00));
-            unlockedGameButton->setTitleFontSize(72);
-            auto label = unlockedGameButton->getTitleRenderer();
-            label->setPosition(Vec2(label->getPositionX(), label->getPositionY()- 300));
-            label->setAlignment(TextHAlignment::CENTER, TextVAlignment::CENTER);
-            unlockedGameButton->setScale(0.1, 0.1);
+            auto rewardCard = CSLoader::createNode("scoreboard/rewardcard.csb");
+            auto rewardUnlocked = rewardCard->getChildByName("reward_unlocked");
+            if(rewardUnlocked != nullptr) {
+                auto label = Label::createWithTTF(titleStr, "fonts/Roboto-Regular.ttf", 48);
+                label->setAlignment(TextHAlignment::CENTER, TextVAlignment::CENTER);
+                label->setColor(Color3B(210.0, 76.0, 74.0));
+                rewardUnlocked->addChild(label);
+            }
+            auto rewardName = rewardCard->getChildByName("reward_name");
+            if(rewardName != nullptr) {
+                auto label = Label::createWithTTF(LangUtil::getInstance()->translateString(gameIcons[_gameToUnlock]["title"]), "fonts/Roboto-Regular.ttf", 48);
+                label->setAlignment(TextHAlignment::CENTER, TextVAlignment::CENTER);
+                label->setColor(Color3B(210.0, 76.0, 74.0));
+                rewardName->addChild(label);
+            }
             unlockedGameButton->addTouchEventListener(CC_CALLBACK_2(ScoreBoardContext::buttonClicked, this));
             unlockedGameButton->setName("unlockedGame");
-            addChild(unlockedGameButton);
-            auto jumpAction = JumpTo::create(1.0, Vec2(1000, 200), 600, 2);
-            auto scaleAction = ScaleTo::create(1.0, 0.8);
+            unlockedGameButton->setScale(0.7);
+            rewardCard->addChild(unlockedGameButton);
+            rewardCard->setScale(0.1);
+            addChild(rewardCard);
+            auto jumpAction = JumpTo::create(1.0, Vec2(1000, -800), 600, 2);
+            auto scaleAction = ScaleTo::create(1.0, 1.0);
             auto spawn = Spawn::create(jumpAction, scaleAction, NULL);
-            actions.pushBack(TargetedAction::create(unlockedGameButton, spawn));
+            actions.pushBack(TargetedAction::create(rewardCard, spawn));
         }
         if(_badges.size() > 0) {
             int numRewards = 0;
@@ -198,31 +208,45 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
                 auto badge = *it;
                 auto badgeButton = ui::Button::create("rewards/" + badge + ".png", "rewards/" + badge + ".png", "rewards/" + badge + ".png", ui::Widget::TextureResType::LOCAL);
                 std::replace(badge.begin(), badge.end(), '_', ' ');
+                auto titleStr = LangUtil::getInstance()->translateString("Trophy earned");
                 if(badgeButton != nullptr) {
-                    auto titleStr = LangUtil::getInstance()->translateString("Trophy earned");
-                    badgeButton->setTitleText(titleStr + "\n" + LangUtil::getInstance()->translateString(badge.substr(2)));
-                    badgeButton->setTitleFontName("fonts/Roboto-Regular.ttf");
-                    badgeButton->setTitleColor(Color3B(0xFF, 0xF2, 0x00));
-                    badgeButton->setTitleFontSize(72);
-                    auto label = badgeButton->getTitleRenderer();
-                    label->setPosition(Vec2(label->getPositionX(), label->getPositionY()- 200));
-                    label->setAlignment(TextHAlignment::CENTER, TextVAlignment::CENTER);
-                    badgeButton->setScale(0.1, 0.1);
-                    addChild(badgeButton);
-                    auto finalPos = Vec2(-1000, 200);
+                    auto rewardCard = CSLoader::createNode("scoreboard/rewardcard.csb");
+                    auto rewardUnlocked = rewardCard->getChildByName("reward_unlocked");
+                    if(rewardUnlocked != nullptr) {
+                        auto label = Label::createWithTTF(titleStr, "fonts/Roboto-Regular.ttf", 48);
+                        label->setAlignment(TextHAlignment::CENTER, TextVAlignment::CENTER);
+                        label->setColor(Color3B(210.0, 76.0, 74.0));
+                        rewardUnlocked->addChild(label);
+                    }
+                    auto rewardName = rewardCard->getChildByName("reward_name");
+                    if(rewardName != nullptr) {
+                        auto label = Label::createWithTTF(LangUtil::getInstance()->translateString(badge.substr(2)), "fonts/Roboto-Regular.ttf", 48);
+                        label->setAlignment(TextHAlignment::CENTER, TextVAlignment::CENTER);
+                        label->setColor(Color3B(210.0, 76.0, 74.0));
+                        rewardName->addChild(label);
+                    }
+//                    badgeButton->setScale(0.5);
+                    rewardCard->addChild(badgeButton);
+                    rewardCard->setScale(0.1);
+                    addChild(rewardCard);
+
+                    auto finalPos = Vec2(-1000, -800);
                     if(numRewards > 0) {
-                        finalPos = Vec2(0, 700);
+                        finalPos = Vec2(0, -800);
                     }
                     auto jumpAction = JumpTo::create(1.0, finalPos, 600, 2);
                     auto scaleAction = ScaleTo::create(1.0, 1.0);
                     auto spawn = Spawn::create(jumpAction, scaleAction, NULL);
-                    actions.pushBack(TargetedAction::create(badgeButton, spawn));
+                    actions.pushBack(TargetedAction::create(rewardCard, spawn));
                 }
                 numRewards++;
             }
         }
         if(actions.size() > 0) {
             addChild(_gift);
+            Size visibleSize = Director::getInstance()->getVisibleSize();
+            auto moveAction = MoveTo::create(1.0, Vec2(visibleSize.width / 2, visibleSize.height * 5 / 8));
+            actions.pushBack(TargetedAction::create(this, moveAction));
             _gift->runAction(Sequence::create(openGift, Spawn::create(actions), NULL));
         }
     }
