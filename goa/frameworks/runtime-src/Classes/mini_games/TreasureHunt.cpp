@@ -55,8 +55,22 @@ void TreasureHunt::onEnterTransitionDidFinish() {
 
 	_alpha = LangUtil::getInstance()->getAllCharacters();
 	
-	
-	setLevel(_menuContext->getCurrentLevel()-1);
+	if (LangUtil::getInstance()->getLang() == "swa") {
+		if (_menuContext->getCurrentLevel() == 25) {
+			setLevel(RandomHelper::random_int(0,12));
+		}
+		else if (_menuContext->getCurrentLevel() == 26) {
+			setLevel(RandomHelper::random_int(12, 23));
+		}
+		else {
+			setLevel(_menuContext->getCurrentLevel() - 1);
+		}
+	}
+	else {
+
+		setLevel(_menuContext->getCurrentLevel() - 1);
+	}
+	//setLevel(_menuContext->getCurrentLevel()-1);
 
 	TreasureHuntNodeObj = TreasureHuntNode::create(visibleSize.width / 2, visibleSize.height * 0.6, Vec2(visibleSize.width / 2 + visibleSize.width * 0.03, visibleSize.height / 2 - visibleSize.height * 0.05));
 	TreasureHuntNodeObj->setName("1");
