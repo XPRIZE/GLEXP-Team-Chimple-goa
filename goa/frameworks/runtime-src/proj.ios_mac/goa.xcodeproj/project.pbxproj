@@ -94,6 +94,10 @@
 		9CA07C991DE6BFC8007578FF /* spot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA07C901DE6BFBF007578FF /* spot.cpp */; };
 		9CB54DC01DED46E3006B9D59 /* Balloon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CB54DBE1DED46E3006B9D59 /* Balloon.cpp */; };
 		9CB54DC31DED46E7006B9D59 /* Balloon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CB54DBE1DED46E3006B9D59 /* Balloon.cpp */; };
+		9CE534C61E20DF70005066E7 /* StoryPlaying.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE534C41E20DF70005066E7 /* StoryPlaying.cpp */; };
+		9CE534C71E20DF70005066E7 /* StoryPlaying.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE534C41E20DF70005066E7 /* StoryPlaying.cpp */; };
+		9CE534CC1E20E261005066E7 /* StoryCoverPage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE534CA1E20E261005066E7 /* StoryCoverPage.cpp */; };
+		9CE534CD1E20E261005066E7 /* StoryCoverPage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE534CA1E20E261005066E7 /* StoryCoverPage.cpp */; };
 		9CE8E1EC1DE98718004A4F35 /* Table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8E1EA1DE98718004A4F35 /* Table.cpp */; };
 		9CE8E1EF1DE9871B004A4F35 /* Table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8E1EA1DE98718004A4F35 /* Table.cpp */; };
 		9FA3AE461BE9BBCA00FC9645 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA3AE451BE9BBCA00FC9645 /* GameController.framework */; };
@@ -612,6 +616,10 @@
 		9CA07C911DE6BFBF007578FF /* spot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spot.h; sourceTree = "<group>"; };
 		9CB54DBE1DED46E3006B9D59 /* Balloon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Balloon.cpp; sourceTree = "<group>"; };
 		9CB54DBF1DED46E3006B9D59 /* Balloon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Balloon.h; sourceTree = "<group>"; };
+		9CE534C41E20DF70005066E7 /* StoryPlaying.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoryPlaying.cpp; sourceTree = "<group>"; };
+		9CE534C51E20DF70005066E7 /* StoryPlaying.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StoryPlaying.hpp; sourceTree = "<group>"; };
+		9CE534CA1E20E261005066E7 /* StoryCoverPage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoryCoverPage.cpp; sourceTree = "<group>"; };
+		9CE534CB1E20E261005066E7 /* StoryCoverPage.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StoryCoverPage.hpp; sourceTree = "<group>"; };
 		9CE8E1EA1DE98718004A4F35 /* Table.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Table.cpp; sourceTree = "<group>"; };
 		9CE8E1EB1DE98718004A4F35 /* Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Table.h; sourceTree = "<group>"; };
 		9FA3AE451BE9BBCA00FC9645 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
@@ -1323,6 +1331,10 @@
 				9C6329C81E1F414A00842D07 /* CopyRight.hpp */,
 				9C6329CF1E1FE09500842D07 /* ChooseCharacter.cpp */,
 				9C6329D01E1FE09500842D07 /* ChooseCharacter.hpp */,
+				9CE534C41E20DF70005066E7 /* StoryPlaying.cpp */,
+				9CE534CA1E20E261005066E7 /* StoryCoverPage.cpp */,
+				9CE534CB1E20E261005066E7 /* StoryCoverPage.hpp */,
+				9CE534C51E20DF70005066E7 /* StoryPlaying.hpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -2032,6 +2044,7 @@
 				C06E23CC18CEFE680093C81A /* main.cpp in Sources */,
 				3740AD401D912D4A005BDCBA /* Circle.cpp in Sources */,
 				F35248371D6D9D1A0077C333 /* WalkingState.cpp in Sources */,
+				9CE534CD1E20E261005066E7 /* StoryCoverPage.cpp in Sources */,
 				F3D201A81D740C7C00FDB750 /* Pop.cpp in Sources */,
 				F352482F1D6D9D1A0077C333 /* FallingState.cpp in Sources */,
 				F352484F1D6D9D1A0077C333 /* MessageContent.cpp in Sources */,
@@ -2106,6 +2119,7 @@
 				F3667D751DB4BA7000EC8908 /* LTKVersionCompatibilityCheck.cpp in Sources */,
 				F35248011D6D9D1A0077C333 /* Alphabet.cpp in Sources */,
 				F3667D511DB4BA6F00EC8908 /* NNAdapt.cpp in Sources */,
+				9CE534C71E20DF70005066E7 /* StoryPlaying.cpp in Sources */,
 				F36944881E0553BC00C69875 /* CommonText.cpp in Sources */,
 				F373B9111DDAE1280027D32C /* Card.cpp in Sources */,
 				F35247FD1D6D9D1A0077C333 /* WordManager.cpp in Sources */,
@@ -2145,6 +2159,7 @@
 				F35247F61D6D9D1A0077C333 /* SafariAnalyticsManager.cpp in Sources */,
 				F3667D201DB4BA6F00EC8908 /* LTKTrace.cpp in Sources */,
 				F35247FA1D6D9D1A0077C333 /* WordInfo.cpp in Sources */,
+				9CE534C61E20DF70005066E7 /* StoryPlaying.cpp in Sources */,
 				9C6329D11E1FE09500842D07 /* ChooseCharacter.cpp in Sources */,
 				F35247DA1D6D9D1A0077C333 /* Jasmin_Listenerfile.cpp in Sources */,
 				F3F7ED621D93DAFE00727A7C /* Dash.cpp in Sources */,
@@ -2228,6 +2243,7 @@
 				F352481E1D6D9D1A0077C333 /* GameMapScene.cpp in Sources */,
 				F3667D241DB4BA6F00EC8908 /* LTKTraceGroup.cpp in Sources */,
 				F35247CE1D6D9D1A0077C333 /* Cannon_Ball_Main.cpp in Sources */,
+				9CE534CC1E20E261005066E7 /* StoryCoverPage.cpp in Sources */,
 				F3667D761DB4BA7000EC8908 /* logger.cpp in Sources */,
 				F33052401DF04E6000BA235E /* LevelHelpScene.cpp in Sources */,
 				F35247D41D6D9D1A0077C333 /* Chain.cpp in Sources */,
