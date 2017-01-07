@@ -116,10 +116,10 @@ void Trace::onEnterTransitionDidFinish() {
     //_background = CSLoader::createNode(std::string(path) + alphabet +  std::string(".csb"));
 	if (LangUtil::getInstance()->getLang() == "swa") {
 		if (_menuContext->getCurrentLevel() == 25) {
-			_background = CSLoader::createNode(LangUtil::getInstance()->getSpecialAnimationFileName(_alpha[0], "Alpha Kombat"));
+			_background = CSLoader::createNode(LangUtil::getInstance()->getSpecialAnimationFileName(_alpha[RandomHelper::random_int(0, 12)], "Alpha Kombat"));
 		}
 		else if (_menuContext->getCurrentLevel() == 26) {
-				_background = CSLoader::createNode(LangUtil::getInstance()->getSpecialAnimationFileName(_alpha[1], "Alpha Kombat"));
+				_background = CSLoader::createNode(LangUtil::getInstance()->getSpecialAnimationFileName(_alpha[RandomHelper::random_int(13, 23)], "Alpha Kombat"));
 		}
 		else {
 			_background = CSLoader::createNode(LangUtil::getInstance()->getSpecialAnimationFileName(_alpha[_menuContext->getCurrentLevel() - 1], "Alpha Kombat"));
