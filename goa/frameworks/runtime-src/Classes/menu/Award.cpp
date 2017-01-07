@@ -62,69 +62,63 @@ void Award::onEnterTransitionDidFinish()
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 
+
+	auto greyLayer = LayerColor::create(Color4B(128.0, 128.0, 128.0, 255));
+	greyLayer->setContentSize(visibleSize);
+	addChild(greyLayer);
+
 	_tab = ui::TabControl::create();
 	_tab->setContentSize(Size(visibleSize.width, visibleSize.height));
 	_tab->setAnchorPoint(Vec2(0.5, 0.5));
-	_tab->setHeaderHeight(300.f);
-	_tab->setHeaderWidth(370.f);
-	_tab->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
+	_tab->setHeaderHeight(260.f);
+	_tab->setHeaderWidth(390.f);
+	_tab->setPosition(Vec2(visibleSize.width / 2, visibleSize.height /2.05));
 	_tab->setHeaderDockPlace(ui::TabControl::Dock::TOP);
 
 	auto rewards = ScoreBoardContext::getRewards();
 
-	auto header1 = ui::TabHeader::create("tab1", "tab/bluetab_deselected.png", "tab/bluetab_selected.png");
+	auto header1 = ui::TabHeader::create("", "tab/stickers_deselected.png", "tab/stickers_selected.png");
 	header1->setName("0");
 	/*header1->setTitleText("background");*/
 	
-	auto header2 = ui::TabHeader::create("tab2", "tab/greentab_deselected.png", "tab/greentab_selected.png");
+	auto header2 = ui::TabHeader::create("", "tab/patch_deselected.png", "tab/patch_selected.png");
 	header2->setName("2");
 	
-	auto header3 = ui::TabHeader::create("tab3", "tab/orangetab_deselected.png", "tab/orangetab_selected.png");
+	auto header3 = ui::TabHeader::create("", "tab/medal_deselected.png", "tab/medal_selected.png");
 	header3->setName("3");
 	
-	auto header4 = ui::TabHeader::create("tab4", "tab/purpletab_deselected.png", "tab/purpletab_selected.png");
+	auto header4 = ui::TabHeader::create("", "tab/gem_deselected.png", "tab/gem_selected.png"); 
 	header4->setName("4");
 
-	auto header5 = ui::TabHeader::create("tab5", "tab/redtab_deselected.png", "tab/redtab_selected.png");
+	auto header5 = ui::TabHeader::create("", "tab/candies_deselected.png", "tab/candies_selected.png");
 	header4->setName("5");
 
-	auto header6 = ui::TabHeader::create("tab6", "tab/yellowtab_deselected.png", "tab/yellowtab_selected.png");
+	auto header6 = ui::TabHeader::create("", "tab/badges_deselected.png", "tab/badges_selected.png"); 
 	header4->setName("6");
 
 
 	auto container1 = ui::Layout::create();
 	container1->setOpacity(255);
-	container1->setBackGroundColorType(ui::Layout::BackGroundColorType::SOLID);
-	container1->setBackGroundColor(Color3B::GRAY);
 	container1->setBackGroundColorOpacity(255);
+
 	auto container2 = ui::Layout::create();
-	container2->setBackGroundColorType(ui::Layout::BackGroundColorType::SOLID);
 	container2->setOpacity(255);
-	container2->setBackGroundColor(Color3B::BLUE);
 	container2->setBackGroundColorOpacity(255);
 	
 	auto container3 = ui::Layout::create();
-	container3->setBackGroundColorType(ui::Layout::BackGroundColorType::SOLID);
 	container3->setOpacity(255);
-	container3->setBackGroundColor(Color3B::RED);
 	container3->setBackGroundColorOpacity(255);
 
 	auto container4 = ui::Layout::create();
-	container4->setBackGroundColorType(ui::Layout::BackGroundColorType::SOLID);
 	container4->setOpacity(255);
-	container4->setBackGroundColor(Color3B::ORANGE);
 	container4->setBackGroundColorOpacity(255);
 
 	auto container5 = ui::Layout::create();
-	container5->setBackGroundColorType(ui::Layout::BackGroundColorType::SOLID);
 	container5->setOpacity(255);
-	container5->setBackGroundColor(Color3B::YELLOW);
 	container5->setBackGroundColorOpacity(255);
 
 	auto container6 = ui::Layout::create();
-	container6->setBackGroundColorType(ui::Layout::BackGroundColorType::SOLID);
 	container6->setOpacity(255);
-	container6->setBackGroundColor(Color3B::MAGENTA);
 	container6->setBackGroundColorOpacity(255);
 
 	/*static const std::string REWARD_STICKER = "s";
@@ -136,57 +130,57 @@ static const std::string REWARD_BADGE = "b";
 */
 	auto it = rewards.find("b");
 	if (it != rewards.end()) {
-		objectsAddInTabContainer(container6, "tab/yellowtile.png", rewards.at("b"));
+		objectsAddInTabContainer(container6, "tab/badges_tile.png", rewards.at("b"));
 	}
 	else
 	{
-		rewardsBackground(container6, "tab/yellowtile.png");
+		rewardsBackground(container6, "tab/badges_tile.png");
 	}
 	
 
 	auto it1 = rewards.find("c");
 	if (it1 != rewards.end()) {
-		objectsAddInTabContainer(container5, "tab/redtile.png", rewards.at("c"));
+		objectsAddInTabContainer(container5, "tab/candies_tile.png", rewards.at("c"));
 	}
 	else
 	{
-		rewardsBackground(container5, "tab/redtile.png");
+		rewardsBackground(container5, "tab/candies_tile.png");
 	}
 	
 	auto it2 = rewards.find("g");
 	if (it2 != rewards.end()) {
-		objectsAddInTabContainer(container4, "tab/purpletile.png", rewards.at("g"));
+		objectsAddInTabContainer(container4, "tab/gem_tile.png", rewards.at("g"));
 	}
 	else
 	{
-		rewardsBackground(container4, "tab/purpletile.png");
+		rewardsBackground(container4, "tab/gem_tile.png");
 	}
 
 	auto it3 = rewards.find("m");
 	if (it3 != rewards.end()) {
-		objectsAddInTabContainer(container3, "tab/orangetile.png", rewards.at("m"));
+		objectsAddInTabContainer(container3, "tab/medal_tile.png", rewards.at("m"));
 	}
 	else
 	{
-		rewardsBackground(container3, "tab/orangetile.png");
+		rewardsBackground(container3, "tab/medal_tile.png");
 	}
 
 	auto it4 = rewards.find("p");
 	if (it4 != rewards.end()) {
-		objectsAddInTabContainer(container2, "tab/greentile.png", rewards.at("p"));
+		objectsAddInTabContainer(container2, "tab/patch_tile.png", rewards.at("p"));
 	}
 	else
 	{
-		rewardsBackground(container2, "tab/greentile.png");
+		rewardsBackground(container2, "tab/patch_tile.png");
 	}
 	
 	auto it5 = rewards.find("s");
 	if (it5 != rewards.end()) {
-		objectsAddInTabContainer(container1, "tab/bluetile.png", rewards.at("s"));
+		objectsAddInTabContainer(container1, "tab/stickers_tile.png", rewards.at("s"));
 	}
 	else
 	{
-		rewardsBackground(container1, "tab/bluetile.png");
+		rewardsBackground(container1, "tab/stickers_tile.png");
 	}
 	
 
@@ -223,7 +217,7 @@ void Award::objectsAddInTabContainer(cocos2d::Node * parent, std::string tile, s
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto scrollView6 = ui::ScrollView::create();
 	scrollView6->setDirection(ui::ScrollView::Direction::HORIZONTAL);
-	scrollView6->setContentSize(Size(visibleSize.width, visibleSize.height - 300));
+	scrollView6->setContentSize(Size(visibleSize.width, visibleSize.height - 260.f));
 	Texture2D *texture = Director::getInstance()->getTextureCache()->addImage(tile);
 	Texture2D::TexParams tp = { GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT };
 	texture->setTexParameters(&tp);
@@ -244,7 +238,6 @@ void Award::objectsAddInTabContainer(cocos2d::Node * parent, std::string tile, s
 			for (int i = 0; i < 5; i++) {
 				if (numberOfRewards < imagePath.size()) {
 					float xx = visibleSize.width / 5;
-					//std::string rewardName = 
 					std::string path = "rewards/" + imagePath.at(numberOfRewards) + ".png";
 					auto child = Sprite::create(path);
 					child->setPosition(Vec2((xx / 2 + (xx * i)) + (k * visibleSize.width), visibleSize.height * 0.1 + (yy * j)));
@@ -265,10 +258,9 @@ void Award::objectsAddInTabContainer(cocos2d::Node * parent, std::string tile, s
 					drawNode->addChild(targetLabel);
 
 					std::replace(imagePath.at(numberOfRewards).begin(), imagePath.at(numberOfRewards).end(), '_', ' ');
-					auto rewardLabel = Label::createWithTTF(LangUtil::getInstance()->translateString(imagePath.at(numberOfRewards).substr(2)), "fonts/Roboto-Regular.ttf", 80);
+					auto rewardLabel = Label::createWithTTF(LangUtil::getInstance()->translateString(imagePath.at(numberOfRewards).substr(2)), "fonts/Roboto-Regular.ttf", 50);
 					rewardLabel->setColor(Color3B(0, 0, 0));
 					rewardLabel->setPositionX(child->getContentSize().width/2);
-					//rewardLabel->setPositionY(child->getContentSize().height);
 					child->addChild(rewardLabel);
 					numberOfRewards++;
 				}
@@ -285,7 +277,7 @@ void Award::rewardsBackground(cocos2d::Node * parent, std::string tile)
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto scrollView6 = ui::ScrollView::create();
 	scrollView6->setDirection(ui::ScrollView::Direction::HORIZONTAL);
-	scrollView6->setContentSize(Size(visibleSize.width, visibleSize.height - 300));
+	scrollView6->setContentSize(Size(visibleSize.width, visibleSize.height - 260));
 	Texture2D *texture = Director::getInstance()->getTextureCache()->addImage(tile);
 	Texture2D::TexParams tp = { GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT };
 	texture->setTexParameters(&tp);
