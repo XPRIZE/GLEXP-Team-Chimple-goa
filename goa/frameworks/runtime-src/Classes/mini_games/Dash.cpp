@@ -459,7 +459,7 @@ void Dash::wordGenerateWithOptions()
 	int randomInt = cocos2d::RandomHelper::random_int(0, answerSize);
 	for (int i = 0; i < _choiceButton.size(); i++) {
 		auto str = answer.at(randomInt % (answerSize + 1));
-		auto myLabel = CommonLabel::createWithSystemFont(str, "fonts/Roboto-Regular.ttf", 150);
+		auto myLabel = CommonLabel::createWithTTF(str, "fonts/Roboto-Regular.ttf", 150);
 		myLabel->setName(str);
 		myLabel->setPositionX(_choiceButton.at(i)->getPositionX());
 		myLabel->setPositionY(_choiceButton.at(i)->getPositionY());

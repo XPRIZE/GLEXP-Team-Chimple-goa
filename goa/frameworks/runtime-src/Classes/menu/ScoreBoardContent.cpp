@@ -467,7 +467,8 @@ void ScoreBoardContext::buttonClicked(Ref* pSender, ui::Widget::TouchEventType e
                 if (isStories!=std::string::npos || _gameName == "Show Stories"){
                     Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));                    
                 } else {
-                    this->transit();
+                   // this->transit();
+					MenuContext::launchGameFromJS(_gameName);
                 }
                 
             }
