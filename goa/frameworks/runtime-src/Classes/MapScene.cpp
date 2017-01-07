@@ -165,11 +165,21 @@ void MapScene::processChildNodes(cocos2d::Node *rootNode) {
                     button->addTouchEventListener(CC_CALLBACK_2(MapScene::islandSelected, this));
                     std::string buttonLevel = gameNameToLevelMap.at(button->getName());
                     if(!buttonLevel.empty()) {
-                        int cLevel = std::atoi(buttonLevel.c_str());
-                        if(cLevel <= unlockLevel) {
+                        std::string unlockStr;
+                        localStorageGetItem(".unlock", &unlockStr);
+                        bool lockAll = false;
+                        if (unlockStr.empty() || unlockStr == "1") {
+                            lockAll = true;
+                        }
+                        if(!lockAll) {
                             button->setEnabled(true);
                         } else {
-                            button->setEnabled(false);
+                            int cLevel = std::atoi(buttonLevel.c_str());
+                            if(cLevel <= unlockLevel) {
+                                button->setEnabled(true);
+                            } else {
+                                button->setEnabled(false);
+                            }
                         }
                     } else {
                         button->setEnabled(false);
@@ -198,6 +208,11 @@ void MapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEventTyp
         case ui::Widget::TouchEventType::ENDED:
         {
             clickedButton->setEnabled(false);
+            if(gameNameToLevelMap.count(clickedButton->getName()) == 1)
+            {
+                std::string level = gameNameToLevelMap.at(clickedButton->getName());
+                localStorageSetItem("map.currentLevel", level);
+            }
             Director::getInstance()->replaceScene(TransitionFade::create(0.5, LevelHelpScene::createScene(clickedButton->getName().c_str()), Color3B::BLACK));
             break;
         }

@@ -498,9 +498,13 @@ void ScoreBoardContext::buttonClicked(Ref* pSender, ui::Widget::TouchEventType e
                     localStorageGetItem(_gameName + ".currentLevel", &currentLevel);
                     if(!currentLevel.empty())
                     {
-                        std::string gameName = MapScene::levelToGameNameMap.at(currentLevel);
-                        Director::getInstance()->replaceScene(TransitionFade::create(0.5, LevelHelpScene::createScene(gameName.c_str()), Color3B::BLACK));
-                        
+                        if(MapScene::levelToGameNameMap.count(currentLevel) == 1)
+                        {
+                            std::string gameName = MapScene::levelToGameNameMap.at(currentLevel);
+                            Director::getInstance()->replaceScene(TransitionFade::create(0.5, LevelHelpScene::createScene(gameName.c_str()), Color3B::BLACK));
+                        } else {
+                            Director::getInstance()->replaceScene(MapScene::createScene());
+                        }
                     } else {
                         Director::getInstance()->replaceScene(MapScene::createScene());
                     }

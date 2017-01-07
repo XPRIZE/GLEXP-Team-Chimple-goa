@@ -1871,6 +1871,7 @@ void HelloWorld::onEnterTransitionDidFinish() {
 
     //CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("sounds/Adagio teru (ft. teru).m4a", true);
     //CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0f);
+    
     this->gesture_layer_->enableAllTouch();
 }
 
@@ -1888,7 +1889,6 @@ void HelloWorld::unlockNext(float dt) {
         }
         
         this->menuContext->showScore();
-
     }
 }
 
