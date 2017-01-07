@@ -224,6 +224,9 @@ void EndlessRunner::update(float delta) {
 	EndlessRunner::removePathBlockTouchByLeftBarrier();
 	
 	if (counterLife == 1) {
+		//auto totalMax = _menuContext->getMaxPoints();
+		float points = _menuContext->getPoints();
+		_menuContext->addPoints(-points/3.0f);
 		_menuContext->showScore();
 	}
 }
@@ -623,17 +626,32 @@ void EndlessRunner::addFirstBlockSecondLayer(float dt) {
 
 int EndlessRunner::getSpeedForMonsterRunning()
 {
+	bool highLevelSpeed = false;
+	if(_menuContext->getCurrentLevel() >= 19) {
+		highLevelSpeed = true;
+	}
+
 	int totalAlphabets = _alphabets.size() * 5;
 	if (_totalCounterAlphabets > floor(totalAlphabets * 0.75)) {
-		return 2;
+		if (highLevelSpeed)
+			return 1;
+		return 1;
 	}else if (_totalCounterAlphabets > floor(totalAlphabets * 0.50)) {
-		return 3;
+		if (highLevelSpeed)
+			return 1;
+		return 2;
 	}else if (_totalCounterAlphabets > floor(totalAlphabets * 0.25)) {
-		return 4;
+		if (highLevelSpeed)
+			return 2;
+		return 3;
 	}else if (_totalCounterAlphabets > floor(totalAlphabets * 0)) {
-		return 5;
+		if (highLevelSpeed)
+			return 3;
+		return 4;
 	}
-	return 5;
+	if (highLevelSpeed)
+		return 3;
+	return 4;
 }
 void EndlessRunner::AddRocksInSecondLayerPath() {
 	

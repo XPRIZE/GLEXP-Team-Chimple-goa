@@ -88,7 +88,7 @@ xc.PopLayer = cc.Layer.extend({
             dummySentance = dummySentance +" "+ wordForSentanceArray[i];
         }
 
-            this.sentanceInRightOrder = new cc.LabelTTF(dummySentance, "Arial", 100);
+            this.sentanceInRightOrder = new cc.LabelTTF(dummySentance, "Arial", 90);
             this.sentanceInRightOrder.color = new cc.Color(255,255,255);
             this.sentanceInRightOrder.attr({
                 x: cc.director.getWinSize().width / 2,
@@ -273,7 +273,7 @@ xc.PopLayer = cc.Layer.extend({
     },
     makeSentance: function (word) {
         if (this.wordInOrder.length == 0) {
-            this.correctSentance = new cc.LabelTTF(word.children[0].getString(), "Arial", 120);
+            this.correctSentance = new cc.LabelTTF(word.children[0].getString(), "Arial", 80);
             this.correctSentance.color = new cc.Color(255,255,255);
             this.correctSentance.attr({
                 x: cc.director.getWinSize().width / 2,

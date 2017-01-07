@@ -520,7 +520,7 @@ void PopCount::popUpCall(int popNumberOfCharacter , bool replay) {
 		_popMidButtonClickPermision = true;
 		this->getChildByName("gridpanel")->setVisible(true);
 
-		if(_popElementCount >= 3 && _menuContext->getCurrentLevel()==1){
+		if(_popElementCount >= 5 && _menuContext->getCurrentLevel()==1){
 			this->getChildByName("gridpanel")->runAction(Sequence::create(helpLayer2,ScaleTo::create(0.3f, 1.1, 1.1), ScaleTo::create(0.3f,1,1), NULL));
 		}
 		else {
