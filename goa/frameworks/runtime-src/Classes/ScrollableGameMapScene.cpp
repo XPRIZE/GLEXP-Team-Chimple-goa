@@ -100,18 +100,20 @@ void ScrollableGameMapScene::addGreyLayer() {
     if(!_greyLayer) {
         //later customize and add image
         Size visibleSize = Director::getInstance()->getVisibleSize();
-        _greyLayer = LayerGradient::create(Color4B(255, 255, 100, 255), Color4B(255, 255, 255, 255));
-        _greyLayer->setOpacity(100);
+        _greyLayer = LayerGradient::create(Color4B(0, 0, 0, 100), Color4B(15, 15, 15, 100));
         _greyLayer->setContentSize(visibleSize);
         addChild(_greyLayer, 3);
         
-        Sprite* loadingIcon = Sprite::create("loading_image.png");
-        if(loadingIcon != NULL) {
-            loadingIcon->setPositionX(visibleSize.width/2);
-            loadingIcon->setPositionY(visibleSize.height/2);
-            _greyLayer->addChild(loadingIcon,1);
-        }
+        Node* animationNode = CSLoader::createNode("loading/animation_4.csb");
+        animationNode->setPosition(Vec2(visibleSize.width/2, visibleSize.height/2));
+        animationNode->setAnchorPoint(Vec2(0.5,0.5));
+        _greyLayer->addChild(animationNode,1);
         
+        cocostudio::timeline::ActionTimeline * _animationTimeLine = CSLoader::createTimeline("loading/animation_4.csb");
+        animationNode->runAction(_animationTimeLine);
+        _animationTimeLine->gotoFrameAndPlay(0);
+        
+
         auto _listener = EventListenerTouchOneByOne::create();
         _listener->setSwallowTouches(true);
         _listener->onTouchBegan = CC_CALLBACK_2(ScrollableGameMapScene::greyLayerTouched, this);
