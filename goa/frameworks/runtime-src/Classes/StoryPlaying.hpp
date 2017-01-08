@@ -89,6 +89,9 @@ private:
     
     std::map<std::string, Color3B> skinColors;
     std::map<std::string, std::string> _wordMappings;
+    std::map<std::string, std::string> _pixelPerfectMapping;
+    std::map<std::string, std::vector<std::vector<cocos2d::Point>>> _nodesToTringlePointsMapping;
+    
     
     std::vector<std::string> _loadedEffects;
     
@@ -164,6 +167,12 @@ private:
     void wordBubbleDisappeared();
     
     void pronounceWord(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    
+    void processPixelPerfectNodes(cocos2d::Node* parent);
+    
+    void playMasterAnimation();
+    
+    bool pointInTriangle(cocos2d::Point p0, cocos2d::Point p1, cocos2d::Point p2, cocos2d::Point p3);
 
 };
 

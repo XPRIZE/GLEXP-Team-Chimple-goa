@@ -13,7 +13,7 @@
 #include "ui/CocosGUI.h"
 #include "../menu/MenuContext.h"
 
-#define AUTO_CLICK 1
+#define AUTO_CLICK 0
 
 class QuestionHandler: public cocos2d::Node {
 public:

@@ -271,16 +271,45 @@ bool StoryPlaying::onTouchBeganOnNode(Touch* touch, Event* event){
     
     auto n = convertTouchToNodeSpace(touch);
     Node* target = event->getCurrentTarget();
+    
+    //check for pixel perfect touch if possible
+
     if(target->getBoundingBox().containsPoint(n)) {
-        _zOrder = target->getLocalZOrder();
-        auto tLocation = target->getParent()->convertToNodeSpace(touch->getLocation());
-        _offsetInX = tLocation.x - target->getPosition().x;
-        _offsetInY = tLocation.y - target->getPosition().y;
-        
-        bindEventsToTarget(target);
-        
-        return true;
+        if(_nodesToTringlePointsMapping.find(target->getName()) != _nodesToTringlePointsMapping.end()) {
+            auto tLocation = target->convertToNodeSpace(touch->getLocation());
+            std::vector<std::vector<cocos2d::Point>> points = _nodesToTringlePointsMapping.at(target->getName());
+            bool result = false;
+            for (std::vector<std::vector<cocos2d::Point>>::iterator it = points.begin() ; it != points.end(); ++it) {
+                std::vector<cocos2d::Point> v2 = *it;
+                if(v2.size() == 3) {
+                    Point p1 = v2.at(0);
+                    Point p2 = v2.at(1);
+                    Point p3 = v2.at(2);
+//                    CCLOG("p1.x %f", p1.x);
+//                    CCLOG("p1.y %f", p1.y);
+//                    CCLOG("p2.x %f", p2.x);
+//                    CCLOG("p2.y %f", p2.y);
+//                    CCLOG("p3.x %f", p3.x);
+//                    CCLOG("p3.y %f", p3.y);
+                    if(pointInTriangle(tLocation, p1, p2, p3)) {
+                        result = true;
+                        break;
+                    }
+                }
+            }
+            return result;
+        } else {
+            _zOrder = target->getLocalZOrder();
+            auto tLocation = target->getParent()->convertToNodeSpace(touch->getLocation());
+            _offsetInX = tLocation.x - target->getPosition().x;
+            _offsetInY = tLocation.y - target->getPosition().y;
+            
+            bindEventsToTarget(target);
+            
+            return true;
+        }
     }
+    
     
     return false;
 }
@@ -451,14 +480,18 @@ void StoryPlaying::load() {
         if(contentPageInfo.size() > 0) {
             _baseDir = contentPageInfo.at(0);
         }
+        
         loadContentPage(contentPageName);
         
         processScene(_contentPageNode);
+        
+        processPixelPerfectNodes(_contentPageNode);
         
         createNextAndPreviousButtons();
         
         createWordBubble();
         
+        playMasterAnimation();
     }
 }
 
@@ -747,7 +780,77 @@ void StoryPlaying::playFrameEventEffect(std::string eventData) {
 }
 
 
+void StoryPlaying::processPixelPerfectNodes(Node* parent) {
+    std::string pixelPerfectMappingUrl = "misc/pixelPerfectConfig.json";
+    if(!pixelPerfectMappingUrl.empty() && FileUtils::getInstance()->isFileExist(pixelPerfectMappingUrl))
+    {
+        std::string jsonData = FileUtils::getInstance()->getStringFromFile(pixelPerfectMappingUrl);
+        CCLOG("got data %s", jsonData.c_str());
+        
+        
+        rapidjson::Document mappingDocument;
+        if (false == mappingDocument.Parse<0>(jsonData.c_str()).HasParseError()) {
+            rapidjson::Value::MemberIterator M;
+            const char *key;
+            for (M=mappingDocument.MemberBegin(); M!=mappingDocument.MemberEnd(); M++)
+            {
+                key   = M->name.GetString();
+                const rapidjson::Value& mappings = mappingDocument[key];
+                
+                for (rapidjson::Value::ConstMemberIterator itr = mappings.MemberBegin();
+                     itr != mappings.MemberEnd(); ++itr)
+                {
+                    CCLOG("%s ", itr->name.GetString());
+                    CCLOG("%s ", itr->value.GetString());
+                    
+                    _pixelPerfectMapping.insert({itr->name.GetString(), itr->value.GetString()});
+                }
 
+            }
+        }
+    }
+    
+    
+    cocos2d::Vector<Node*> nodes = parent->getChildren();
+    for (std::vector<Node*>::iterator it = nodes.begin() ; it != nodes.end(); ++it) {
+        Node* n = *it;
+        CCLOG("n hererer %s", n->getName().c_str());
+        if(_pixelPerfectMapping.find(n->getName()) != _pixelPerfectMapping.end()) {
+            CCLOG("pixel processing node %s", n->getName().c_str());
+            std::string spriteUrl = _pixelPerfectMapping.at(n->getName());
+            Sprite* sprite = dynamic_cast<Sprite *>(n);
+            if(sprite != NULL)
+            {
+                std::vector<std::vector<cocos2d::Point>> points = _menuContext->getTrianglePointsForSprite(sprite, spriteUrl, 0.0f);
+                
+                _nodesToTringlePointsMapping.insert({n->getName(), points});
+            }
+        }
+    }
+}
+
+bool StoryPlaying::pointInTriangle(Point p, Point p0, Point p1, Point p2) {
+    float A = 1/2 * (-p1.y * p2.x + p0.y * (-p1.x + p2.x) + p0.x * (p1.y - p2.y) + p1.x * p2.y);
+    int sign = A < 0 ? -1 : 1;
+    float s = (p0.y * p2.x - p0.x * p2.y + (p2.y - p0.y) * p.x + (p0.x - p2.x) * p.y) * sign;
+    float t = (p0.x * p1.y - p0.y * p1.x + (p0.y - p1.y) * p.x + (p1.x - p0.x) * p.y) * sign;
+    
+    return s > 0 && t > 0 && (s + t) < 2 * A * sign;
+
+}
+
+void StoryPlaying::playMasterAnimation() {
+    
+    if(_mainTimeLine && _mainTimeLine->IsAnimationInfoExists("master")) {
+        //play master animation
+        _mainTimeLine->setAnimationEndCallFunc("master", CC_CALLBACK_0(StoryPlaying::playEnded, this));
+        _mainTimeLine->setFrameEventCallFunc(CC_CALLBACK_1(StoryPlaying::onFrameEvent, this));
+        _mainTimeLine->play("master", false);
+        _isPlayStarted = true;
+        _isPlayEnded = false;
+    }
+
+}
 
 void StoryPlaying::loadContentPage(std::string contentPageName) {
     _contentPageNode = CSLoader::createNode(contentPageName);
@@ -759,14 +862,6 @@ void StoryPlaying::loadContentPage(std::string contentPageName) {
     this->addChild(_contentPageNode);
     
     
-    if(_mainTimeLine && _mainTimeLine->IsAnimationInfoExists("master")) {
-        //play master animation
-        _mainTimeLine->setAnimationEndCallFunc("master", CC_CALLBACK_0(StoryPlaying::playEnded, this));
-        _mainTimeLine->setFrameEventCallFunc(CC_CALLBACK_1(StoryPlaying::onFrameEvent, this));
-        _mainTimeLine->play("master", false);
-        _isPlayStarted = true;
-        _isPlayEnded = false;
-    }
     
     //find sound configuration
     
@@ -777,6 +872,7 @@ void StoryPlaying::loadContentPage(std::string contentPageName) {
 
 void StoryPlaying::onExitTransitionDidStart() {
     _mainTimeLine->release();
+    _nodesToTringlePointsMapping.clear();
     
     CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
     for (std::vector<std::string>::iterator it = _loadedEffects.begin() ; it != _loadedEffects.end(); ++it)
