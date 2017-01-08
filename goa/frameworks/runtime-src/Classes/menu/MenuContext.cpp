@@ -78,6 +78,7 @@
 #include "../Setting.h"
 #include "Award.h"
 #include "../ChooseCharacter.hpp"
+#include "../StoryCoverPage.hpp"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -1034,6 +1035,11 @@ void MenuContext::launchGameFinally(std::string gameName) {
         else if(gameName == MININGBG || gameName == CAMP || gameName == FARMHOUSE || gameName == CITY1 || gameName == CITY2 || gameName == CITY3 || gameName == CITY4 || gameName == CITY5) {
             
             Director::getInstance()->replaceScene(TransitionFade::create(0.5, ChooseCharacter::createScene(gameName.c_str()), Color3B::BLACK));
+        }
+    
+        else if(gameName == STORY) {
+            Director::getInstance()->replaceScene(TransitionFade::create(0.5, StoryCoverPage::createScene(), Color3B::BLACK));
+            
         }
 		else{
             CCLOG("Failed starting scene: %s", gameName.c_str());

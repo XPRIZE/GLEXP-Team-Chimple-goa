@@ -82,6 +82,7 @@ static const std::string CITY2 = "city2";
 static const std::string CITY3 = "city3";
 static const std::string CITY4 = "city4";
 static const std::string CITY5 = "city5";
+static const std::string STORY = "story";
 
 class StartMenu {
 public:

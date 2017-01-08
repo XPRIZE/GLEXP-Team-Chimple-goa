@@ -303,7 +303,7 @@
                 "min": "4"
             },
             "2": {
-                "badge": "m/falling_asteroid",
+                "badge": "m/falling_asteroid"
             },
             "4": {
                 "badge": "p/burning_flame"
@@ -336,138 +336,6 @@
         "script": "src/NonJSGameLauncher.js",
         "span": "10",
         "numLevels": "62",
-        "lang": {
-            "swa": {
-                "labels": [
-                    "A",
-                    "B",
-                    "C",
-                    "D",
-                    "E",
-                    "F",
-                    "G",
-                    "H",
-                    "I",
-                    "J",
-                    "K",
-                    "L",
-                    "M",
-                    "N",
-                    "O",
-                    "P",
-                    "R",
-                    "S",
-                    "T",
-                    "U",
-                    "V",
-                    "W",
-                    "Y",
-                    "Z",
-                    "a",
-                    "b",
-                    "c",
-                    "d",
-                    "e",
-                    "f",
-                    "g",
-                    "h",
-                    "i",
-                    "j",
-                    "k",
-                    "l",
-                    "m",
-                    "n",
-                    "o",
-                    "p",
-                    "r",
-                    "s",
-                    "t",
-                    "u",
-                    "v",
-                    "w",
-                    "y",
-                    "z",
-                    "0",
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                    "5",
-                    "6",
-                    "7",
-                    "8",
-                    "9"
-                ],
-                "numLevels": "58"
-            },
-            "eng": {
-                "labels": [
-                    "A",
-                    "B",
-                    "C",
-                    "D",
-                    "E",
-                    "F",
-                    "G",
-                    "H",
-                    "I",
-                    "J",
-                    "K",
-                    "L",
-                    "M",
-                    "N",
-                    "O",
-                    "P",
-                    "Q",
-                    "R",
-                    "S",
-                    "T",
-                    "U",
-                    "V",
-                    "W",
-                    "X",
-                    "Y",
-                    "Z",
-                     "a",
-                    "b",
-                    "c",
-                    "d",
-                    "e",
-                    "f",
-                    "g",
-                    "h",
-                    "i",
-                    "j",
-                    "k",
-                    "l",
-                    "m",
-                    "n",
-                    "o",
-                    "p",
-                    "q",
-                    "r",
-                    "s",
-                    "t",
-                    "u",
-                    "v",
-                    "w",
-                    "x",
-                    "y",
-                    "z",
-                    "0",
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                    "5",
-                    "6",
-                    "7",
-                    "8",
-                    "9"
-                ],
-                "numLevels": "62"
-            }
-        },
         "rewards" : {
             "1": {
                 "unlock": "Alphamon Feed"
@@ -562,7 +430,7 @@
                     "8",
                     "9"
                 ],
-                "numLevels": "58"
+                "numLevels": "62"
             },
             "eng": {
                 "labels": [
@@ -1082,7 +950,7 @@
                 "min": "4"
             },
             "2": {
-                "badge": "m/kaboom_cannon",
+                "badge": "m/kaboom_cannon"
             },
             "4": {
                 "badge": "p/great_wall"
@@ -1174,9 +1042,11 @@
                     "V",
                     "W",
                     "Y",
-                    "Z"
+                    "Z",
+                    "A-M",
+                    "N-Z"
                 ],
-                "numLevels": "24"
+                "numLevels": "26"
             },
             "eng": {
                 "labels": [
@@ -1316,7 +1186,7 @@
                     "8",
                     "9"
                 ],
-                "numLevels": "58"
+                "numLevels": "62"
             },
             "eng": {
                 "labels": [
@@ -1734,9 +1604,11 @@
                     "V",
                     "W",
                     "Y",
-                    "Z"
+                    "Z",
+                    "A-Z",
+                    "A-Z"
                 ],
-                "numLevels": "24"
+                "numLevels": "26"
             },
             "eng": {
                 "labels": [
@@ -2128,13 +2000,13 @@
         "numLevels": "72",
         "rewards" : {
             "1": {
-                "unlock": "talk",
+                "unlock": "talk"
             },
             "12": {
-                "badge": "s/fancy_Box",
+                "badge": "s/fancy_Box"
             },
             "24": {
-                "badge": "m/heavy_crate",
+                "badge": "m/heavy_crate"
             },
             "36": {
                 "badge": "p/milk_container"
@@ -2168,10 +2040,10 @@
         "numLevels": "72",
         "rewards" : {
             "1": {
-                "unlockMin": "order",
+                "unlockMin": "order"
             },
             "12": {
-                "badge": "s/glimmering_fish",
+                "badge": "s/glimmering_fish"
             },
             "24": {
                 "badge": "m/jungly_lion"
@@ -2384,13 +2256,13 @@
         "numLevels": "48",
         "rewards" : {
             "1": {
-                "unlock": "pop",
+                "unlock": "pop"
             },
             "8": {
-				"badge": "s/express_train",
+				"badge": "s/express_train"
             },
             "16": {
-                "badge": "m/melodious_whistle",
+                "badge": "m/melodious_whistle"
             },
             "24": {
                 "badge": "p/go_signal"
@@ -3357,7 +3229,7 @@
         "span": "3",
         "numLevels": "20",
         "rewards" : {
-            "3": {
+            "1": {
                 "unlock": "table"
             },
             "3": {

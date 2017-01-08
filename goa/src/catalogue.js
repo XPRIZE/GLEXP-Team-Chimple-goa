@@ -12,6 +12,7 @@ xc.DARK_SECONDARY_COLOR = cc.color("#ee0a21");
 xc.TERTIARY_COLOR = cc.color("#F6FF88");
 xc.DEFAULT_BOUNDING_BOX_TAG = 999;
 xc.DARK_BOUNDING_BOX_TAG = 998;
+xc.STORY_JSON = ".storyJSON";
 
 xc.BOOK_COLORS = [cc.color("#E5155A"),cc.color("#0E700B"),cc.color("#0834C1"),cc.color("#C90D0D"),cc.color("#EF6A0F")];
  
@@ -21,6 +22,7 @@ xc.CatalogueLayer = cc.Layer.extend({
     _contentPanelWidth: null,
     _configPanelWidth: null,
     _configPanelHeight: null,
+    _menuContext: null,
     ctor: function (storyCatalogueObject) {
         this._super();
         this._name = "CatalogueLayer";
@@ -33,9 +35,11 @@ xc.CatalogueLayer = cc.Layer.extend({
         return true;
     },
 
-    init: function () {
+    init: function (menuContext) {
         //create new content panel for showing all stories
         //create tile
+        var context = this;
+        context._menuContext = menuContext;
         this.loadStories();
         this.loadingScene();        
         this.displayStories();        
@@ -138,7 +142,10 @@ xc.CatalogueLayer = cc.Layer.extend({
         cc.log('loading story with index:' + this._curSelectedIndex);
         var storyInfo = this._stories[this._curSelectedIndex];
         if(storyInfo != undefined && storyInfo.hasOwnProperty("pages") && storyInfo["pages"] != undefined && storyInfo["pages"].length > 0) {
-            xc.StoryCoverPageScene.load(0, storyInfo, xc.StoryCoverPageLayer);
+            cc.sys.localStorage.setItem(xc.STORY_JSON, JSON.stringify(storyInfo));
+            cc.log('this.menucontext' + this._menuContext);
+            goa.MenuContext.launchGameFinally("story");
+            //xc.StoryCoverPageScene.load(0, storyInfo, xc.StoryCoverPageLayer);
         }
     },
 
@@ -160,11 +167,12 @@ xc.CatalogueScene = cc.Scene.extend({
         this.layerClass = layer;
         this._catalogueLayer = new this.layerClass(storyCatalogueObject);
         this.addChild(this._catalogueLayer);
-        this._catalogueLayer.init();     
+             
         if (cc.sys.isNative) {
             this._menuContext = goa.MenuContext.create(this._catalogueLayer, "story-play");
-            this.addChild(this._menuContext, 1);
+            this.addChild(this._menuContext, 10);
             this._menuContext.setVisible(true);
+            this._catalogueLayer.init(this._menuContext);
         }                                        
            
     }
@@ -224,16 +232,6 @@ var t_resources = [];
 xc.CatalogueLayer.res = {
         thumbnails_png: xc.path + "wikitaki/thumbnails.png",
         thumbnails_plist: xc.path + "wikitaki/thumbnails.plist",
-        // human_skeleton_png: xc.path + "wikitaki/human_skeleton.png",
-        // human_skeleton_plist: xc.path + "wikitaki/human_skeleton.plist",
-        animalskeleton_png: xc.path + "wikitaki/animalskeleton.png",
-        animalskeleton_plist: xc.path + "wikitaki/animalskeleton.plist",
-        animalskeleton_json: xc.path + "wikitaki/animalskeleton.json",
-        birdskeleton_png: xc.path + "wikitaki/birdskeleton.png",
-        birdskeleton_plist: xc.path + "wikitaki/birdskeleton.plist",
-        birdskeleton_json: xc.path + "wikitaki/birdskeleton.json",
-        HelloWorld_png: xc.path + "wikitaki/HelloWorld.png",
-        // human_skeleton_json: xc.path + "wikitaki/human_skeleton.json",
         play_png: xc.path + "wikitaki/play.png",
         record_animation_png: xc.path + "wikitaki/recording.png",
         record_animation_plist: xc.path + "wikitaki/recording.plist",
@@ -250,16 +248,7 @@ xc.CatalogueLayer.res = {
         template_02_png: xc.path + "template/template_02/template_02.png",
         template_02_plist: xc.path + "template/template_02/template_02.plist",        
         level_plist: xc.path + "levelstep/levelstep.plist",
-        level_png: xc.path + "levelstep/levelstep.png",
-        human_skeleton_json: xc.path + "animation/human_skeleton.json",
-        animation_skeleton_png: xc.path + "animation/animation.png",
-        animation_skeleton_plist: xc.path + "animation/animation.plist",
-        animationa_skeleton_png: xc.path + "animation/animationa/animationa.png",
-        animationa_skeleton_plist: xc.path + "animation/animationa/animationa.plist",
-        animationb_skeleton_png: xc.path + "animation/animationb/animationb.png",
-        animationb_skeleton_plist: xc.path + "animation/animationb/animationb.plist",
-        animationc_skeleton_png: xc.path + "animation/animationc/animationc.png",
-        animationc_skeleton_plist: xc.path + "animation/animationc/animationc.plist"                    
+        level_png: xc.path + "levelstep/levelstep.png"
 };
 
 

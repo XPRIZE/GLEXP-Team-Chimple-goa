@@ -12,6 +12,8 @@
 USING_NS_CC;
 
 bool CommonLabel::touchSpeak(Touch* touch, Event* event) {
+//	CCLOG("++++++++++++++++++++ CommonLabel::touchSpeak- ++++++++Listner = %d", &_listener);
+	auto target = event->getCurrentTarget();
     if(!MenuContext::isGameStatic() && isVisible() && getOpacity() > 0) {
         auto n = getParent()->convertTouchToNodeSpace(touch);
         auto rect = this->getBoundingBox();
@@ -30,14 +32,16 @@ void CommonLabel::onEnterTransitionDidFinish() {
     auto scaleDown = ScaleTo::create(0.5, 1.0);
     auto elasticDown = EaseIn::create(scaleDown, 2.0);
     runAction(Sequence::create(elasticUp, elasticDown, NULL));
-    
+//	CCLOG("--------CommonLabel::onEnterTransitionDidFinish--------------------");
 //    MenuContext::pronounceWord(this->getString());
 }
 
 void CommonLabel::onExitTransitionDidStart() {
     Label::onExitTransitionDidStart();
+	//CCLOG("++++++++++++++++++++ CommonLabel::onExitTransitionDidStart- ++++++++Listner = %d", &_listener);
+//	CCLOG("++++++++++++++++++++CommonLabel++++++++ = %s",this->getString().c_str());
     _eventDispatcher->removeEventListener(_listener);
-    _listener = nullptr;
+    //_listener = nullptr;
 }
 
 CommonLabel* CommonLabel::createWithSystemFont(const std::string& text, const std::string& font, float fontSize, const Size& dimensions, TextHAlignment hAlignment, TextVAlignment vAlignment) {
@@ -106,6 +110,7 @@ bool CommonLabel::init() {
     if(Label::init()) {
         _listener = EventListenerTouchOneByOne::create();
         _listener->onTouchBegan = CC_CALLBACK_2(CommonLabel::touchSpeak, this);
+	//	CCLOG("=============== CommonLabel::addEventListenerWithFixedPriority  Listner = %d", &_listener);
         _eventDispatcher->addEventListenerWithFixedPriority(_listener, -1);
         return true;
     }
@@ -138,5 +143,6 @@ CommonLabel::CommonLabel(TextHAlignment hAlignment/* = TextHAlignment::LEFT*/,
 }
 
 CommonLabel::~CommonLabel() {
-    
+//	CCLOG("CommonLabel::~CommonLabel");
+	_eventDispatcher->removeEventListener(_listener);
 }
