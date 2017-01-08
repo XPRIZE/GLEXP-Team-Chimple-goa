@@ -9,6 +9,9 @@
 #include "QuestionHandler.h"
 #include "storage/local-storage/LocalStorage.h"
 #include "MultipleChoice.hpp"
+#include "FillInTheBlanks.hpp"
+#include "Meaning.hpp"
+#include "Picture.hpp"
 #include "ui/CocosGUI.h"
 
 USING_NS_CC;
@@ -42,7 +45,7 @@ QuestionHandler *QuestionHandler::create(std::string storyId) {
 }
 
 void QuestionHandler::onEnterTransitionDidFinish() {
-    addChild(MultipleChoice::create(this, _questions[0]));
+    gotoNextQuestion(0);
 }
 
 void QuestionHandler::gotoNextQuestion(int score) {
@@ -50,14 +53,28 @@ void QuestionHandler::gotoNextQuestion(int score) {
         if(_currentQuestionNode != nullptr) {
             removeChild(_currentQuestionNode);
         }
-        addChild(MultipleChoice::create(this, _questions[_currentQuestion]));
+        if(_questions[_currentQuestion][0] == "multiple_choice") {
+            _currentQuestionNode = MultipleChoice::create(this, _questions[_currentQuestion]);
+            addChild(_currentQuestionNode);
+        } else if(_questions[_currentQuestion][0] == "fill_in_the_blanks") {
+            _currentQuestionNode = FillInTheBlanks::create(this, _questions[_currentQuestion]);
+            addChild(_currentQuestionNode);
+        } else if(_questions[_currentQuestion][0] == "meanings") {
+                _currentQuestionNode = Meaning::create(this, _questions[_currentQuestion]);
+                addChild(_currentQuestionNode);
+        } else if(_questions[_currentQuestion][0] == "picture") {
+            _currentQuestionNode = Picture::create(this, _questions[_currentQuestion]);
+            addChild(_currentQuestionNode);
+        } else {
+            _menuContext->showScore();
+        }
     } else {
         _menuContext->showScore();
     }
 }
 
 QuestionHandler::QuestionHandler() :
-_currentQuestion(0)
+_currentQuestion(-1)
 {
     
 }
@@ -68,6 +85,10 @@ QuestionHandler::~QuestionHandler() {
 
 bool QuestionHandler::init() {
     return true;
+}
+
+std::string QuestionHandler::getBaseDir() {
+    return _baseDir;
 }
 
 bool QuestionHandler::initWithStoryId(std::string storyId) {
@@ -112,7 +133,18 @@ bool QuestionHandler::initWithStoryId(std::string storyId) {
                         }
                     }
                 } else if(itr->name == "meanings") {
-                    
+                    const rapidjson::Value& f = itr->value;
+                    assert(f.IsArray());
+                    for (rapidjson::SizeType i = 0; i < f.Size(); i++) {
+                        const rapidjson::Value& q = f[i];
+                        std::vector<std::string> eachQ;
+                        eachQ.push_back("meanings");
+                        for (rapidjson::Value::ConstMemberIterator itr = q.MemberBegin(); itr != q.MemberEnd(); ++itr) {
+                            eachQ.push_back(itr->name.GetString());
+                            eachQ.push_back(itr->value.GetString());
+                        }
+                        _questions.push_back(eachQ);
+                    }
                 } else if(itr->name == "multiple_choice") {
                     const rapidjson::Value& f = itr->value;
                     assert(f.IsArray());
@@ -120,7 +152,7 @@ bool QuestionHandler::initWithStoryId(std::string storyId) {
                         const rapidjson::Value& q = f[i];
                         if(q.HasMember("answer") && q.HasMember("choices") && q.HasMember("question")) {
                             std::vector<std::string> eachQ;
-                            eachQ.push_back("fill_in_the_blanks");
+                            eachQ.push_back("multiple_choice");
                             eachQ.push_back(q["question"].GetString());
                             eachQ.push_back(q["answer"].GetString());
                             const rapidjson::Value& choicesVal = q["choices"];
@@ -132,13 +164,30 @@ bool QuestionHandler::initWithStoryId(std::string storyId) {
                         }
                     }
                 } else if(itr->name == "picture") {
-
+                    const rapidjson::Value& f = itr->value;
+                    assert(f.IsArray());
+                    for (rapidjson::SizeType i = 0; i < f.Size(); i++) {
+                        const rapidjson::Value& q = f[i];
+                        std::vector<std::string> eachQ;
+                        eachQ.push_back("picture");
+                        for (rapidjson::Value::ConstMemberIterator itr = q.MemberBegin(); itr != q.MemberEnd(); ++itr) {
+                            eachQ.push_back(itr->name.GetString());
+                            eachQ.push_back(itr->value.GetString());
+                        }
+                        _questions.push_back(eachQ);
+                    }
                 } else if(itr->name == "words") {
-                    
+                    const rapidjson::Value& f = itr->value;
+                    assert(f.IsArray());
+                    for (rapidjson::SizeType i = 0; i < f.Size(); i++) {
+                        std::vector<std::string> eachQ;
+                        eachQ.push_back("words");
+                        eachQ.push_back(f[i].GetString());
+                        _questions.push_back(eachQ);
+                    }
                 }
             }
         }
-
     }
     return true;
     

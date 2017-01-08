@@ -420,6 +420,10 @@
 		F39801F81E2171D2004B0711 /* FillInTheBlanks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39801F51E2171D2004B0711 /* FillInTheBlanks.cpp */; };
 		F39801FD1E217253004B0711 /* MultipleChoice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39801FB1E217253004B0711 /* MultipleChoice.cpp */; };
 		F39801FE1E217253004B0711 /* MultipleChoice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39801FB1E217253004B0711 /* MultipleChoice.cpp */; };
+		F39802011E2206F9004B0711 /* Meaning.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39801FF1E2206F9004B0711 /* Meaning.cpp */; };
+		F39802021E2206F9004B0711 /* Meaning.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39801FF1E2206F9004B0711 /* Meaning.cpp */; };
+		F39802051E2217C8004B0711 /* Picture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39802031E2217C8004B0711 /* Picture.cpp */; };
+		F39802061E2217C8004B0711 /* Picture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39802031E2217C8004B0711 /* Picture.cpp */; };
 		F3A23A7C1E0C0C500083CEB5 /* LevelMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3A23A7B1E0C0C500083CEB5 /* LevelMenu.cpp */; };
 		F3A23A7D1E0C0C500083CEB5 /* LevelMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3A23A7B1E0C0C500083CEB5 /* LevelMenu.cpp */; };
 		F3A23A811E0D22580083CEB5 /* LevelHelpOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3A23A801E0D22580083CEB5 /* LevelHelpOverlay.cpp */; };
@@ -966,6 +970,10 @@
 		F39801F61E2171D2004B0711 /* FillInTheBlanks.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FillInTheBlanks.hpp; sourceTree = "<group>"; };
 		F39801FB1E217253004B0711 /* MultipleChoice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MultipleChoice.cpp; sourceTree = "<group>"; };
 		F39801FC1E217253004B0711 /* MultipleChoice.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MultipleChoice.hpp; sourceTree = "<group>"; };
+		F39801FF1E2206F9004B0711 /* Meaning.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Meaning.cpp; sourceTree = "<group>"; };
+		F39802001E2206F9004B0711 /* Meaning.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Meaning.hpp; sourceTree = "<group>"; };
+		F39802031E2217C8004B0711 /* Picture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Picture.cpp; sourceTree = "<group>"; };
+		F39802041E2217C8004B0711 /* Picture.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Picture.hpp; sourceTree = "<group>"; };
 		F3A23A781E0C0C380083CEB5 /* LevelMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelMenu.h; sourceTree = "<group>"; };
 		F3A23A7B1E0C0C500083CEB5 /* LevelMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelMenu.cpp; sourceTree = "<group>"; };
 		F3A23A801E0D22580083CEB5 /* LevelHelpOverlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelHelpOverlay.cpp; sourceTree = "<group>"; };
@@ -1789,6 +1797,10 @@
 				F39801F61E2171D2004B0711 /* FillInTheBlanks.hpp */,
 				F39801FB1E217253004B0711 /* MultipleChoice.cpp */,
 				F39801FC1E217253004B0711 /* MultipleChoice.hpp */,
+				F39801FF1E2206F9004B0711 /* Meaning.cpp */,
+				F39802001E2206F9004B0711 /* Meaning.hpp */,
+				F39802031E2217C8004B0711 /* Picture.cpp */,
+				F39802041E2217C8004B0711 /* Picture.hpp */,
 			);
 			path = story;
 			sourceTree = "<group>";
@@ -2015,6 +2027,7 @@
 				F3667D551DB4BA6F00EC8908 /* LTKPreprocessor.cpp in Sources */,
 				F352484D1D6D9D1A0077C333 /* SkeletonPosition.cpp in Sources */,
 				F3667D311DB4BA6F00EC8908 /* LipiTKProcessTask.cpp in Sources */,
+				F39802021E2206F9004B0711 /* Meaning.cpp in Sources */,
 				F3667D631DB4BA7000EC8908 /* LTKImageWriter.cpp in Sources */,
 				F3AB34D41DCDA95900613C20 /* Door.cpp in Sources */,
 				9C064E5F1DB8909B000892E1 /* DecomonGallery.cpp in Sources */,
@@ -2127,6 +2140,7 @@
 				F35248471D6D9D1A0077C333 /* LanguageManager.cpp in Sources */,
 				F35247F31D6D9D1A0077C333 /* KannadaUtil.cpp in Sources */,
 				F3667D5F1DB4BA7000EC8908 /* LTKConfigFileReader.cpp in Sources */,
+				F39802061E2217C8004B0711 /* Picture.cpp in Sources */,
 				F35248351D6D9D1A0077C333 /* StandingState.cpp in Sources */,
 				F37286F31DCB4B5000F4804A /* BlastLetter.cpp in Sources */,
 				F3667D6B1DB4BA7000EC8908 /* LTKLinuxUtil.cpp in Sources */,
@@ -2216,6 +2230,7 @@
 				3740AD2B1D910EB2005BDCBA /* Memory.cpp in Sources */,
 				F352480C1D6D9D1A0077C333 /* PegWord.cpp in Sources */,
 				F35248001D6D9D1A0077C333 /* Alphabet.cpp in Sources */,
+				F39802051E2217C8004B0711 /* Picture.cpp in Sources */,
 				F35247F81D6D9D1A0077C333 /* TextGenerator.cpp in Sources */,
 				F35248441D6D9D1A0077C333 /* MO.cpp in Sources */,
 				F3E2102F1DCC60D300C301F8 /* TreasureHunt.cpp in Sources */,
@@ -2299,6 +2314,7 @@
 				F35247D01D6D9D1A0077C333 /* CatGameScene.cpp in Sources */,
 				F3667D621DB4BA7000EC8908 /* LTKImageWriter.cpp in Sources */,
 				F35248181D6D9D1A0077C333 /* ScoreBoardContent.cpp in Sources */,
+				F39802011E2206F9004B0711 /* Meaning.cpp in Sources */,
 				F3667D521DB4BA6F00EC8908 /* NNShapeRecognizer.cpp in Sources */,
 				F35248481D6D9D1A0077C333 /* SpeechBubbleView.cpp in Sources */,
 				F3667D221DB4BA6F00EC8908 /* LTKTraceFormat.cpp in Sources */,

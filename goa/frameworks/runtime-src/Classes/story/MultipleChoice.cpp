@@ -48,6 +48,7 @@ bool MultipleChoice::initWithQuestions(QuestionHandler* qHandler, std::vector<st
     auto visibleSize = Director::getInstance()->getVisibleSize();
     bg->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
     bg->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+    bg->setName("bg");
     addChild(bg);
     if(_questions.size() == 6) {
         auto qNode = static_cast<TextField*> (bg->getChildByName("TextField_2"));
@@ -66,7 +67,9 @@ bool MultipleChoice::initWithQuestions(QuestionHandler* qHandler, std::vector<st
         QuestionHandler::setButtonProperties(bg->getChildByName("Button_10"), "0", _questions[5], CC_CALLBACK_2(MultipleChoice::buttonSelected, this));
 #if defined(AUTO_CLICK) && (AUTO_CLICK > 0)
         runAction(Sequence::create(DelayTime::create(2.0), CallFunc::create([=]() {
-            this->buttonSelected(bg->getChildByName("Button_7"), ui::Widget::TouchEventType::ENDED);
+            auto bg = this->getChildByName("bg");
+            auto button = bg->getChildByName("1");
+            this->buttonSelected(button, ui::Widget::TouchEventType::ENDED);
         }), NULL));
 #endif
         
