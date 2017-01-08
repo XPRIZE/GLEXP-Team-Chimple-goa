@@ -17,8 +17,8 @@
 
 class QuestionHandler: public cocos2d::Node {
 public:
-    static cocos2d::Scene *createScene(std::string storyId);
-    static QuestionHandler *create(std::string storyId);
+    static cocos2d::Scene *createScene(std::string storyId, std::string baseDir);
+    static QuestionHandler *create(std::string storyId, std::string baseDir);
     void onEnterTransitionDidFinish() override;
     static void setButtonProperties(cocos2d::Node* button, std::string name, std::string text, const cocos2d::ui::Widget::ccWidgetTouchCallback& callback);
     void gotoNextQuestion(int score);
@@ -33,11 +33,10 @@ CC_CONSTRUCTOR_ACCESS:
     QuestionHandler();
     virtual ~QuestionHandler();
     virtual bool init() override;
-    bool initWithStoryId(std::string storyId);
+    bool initWithStoryId(std::string storyId, std::string baseDir);
 
 protected:
     std::string _storyId;
-    std::string _storyInformation;
     std::string _baseDir;
     MenuContext* _menuContext;
     std::vector<std::vector<std::string>> _questions;

@@ -19,14 +19,14 @@
 USING_NS_CC;
 using namespace cocos2d::ui;
 
-const std::string STORY_JSON = ".storyJSON";
+
 const std::string QuestionHandler::FONT_NAME = "fonts/Roboto-Regular.ttf";
 const int QuestionHandler::FONT_SIZE = 85;
 const Color3B QuestionHandler::FONT_COLOR = Color3B::BLACK;
 const Color3B QuestionHandler::FONT_HIGHLIGHT_COLOR = Color3B::BLUE;
 
-cocos2d::Scene *QuestionHandler::createScene(std::string storyId) {
-    auto layer = QuestionHandler::create(storyId);
+cocos2d::Scene *QuestionHandler::createScene(std::string storyId, std::string baseDir) {
+    auto layer = QuestionHandler::create(storyId, baseDir);
     auto scene = Scene::create();
     scene->addChild(layer);
     layer->_menuContext = MenuContext::create(layer, storyId);
@@ -34,9 +34,9 @@ cocos2d::Scene *QuestionHandler::createScene(std::string storyId) {
     return scene;
 }
 
-QuestionHandler *QuestionHandler::create(std::string storyId) {
+QuestionHandler *QuestionHandler::create(std::string storyId, std::string baseDir) {
     QuestionHandler* lhs = new (std::nothrow) QuestionHandler();
-    if(lhs && lhs->initWithStoryId(storyId))
+    if(lhs && lhs->initWithStoryId(storyId, baseDir))
     {
         lhs->autorelease();
         return lhs;
@@ -112,21 +112,8 @@ std::string QuestionHandler::getBaseDir() {
     return _baseDir;
 }
 
-bool QuestionHandler::initWithStoryId(std::string storyId) {
-    rapidjson::Document d;
-    std::string data;
-    localStorageGetItem(STORY_JSON, &data);
-    CCLOG("data received %s", data.c_str());
-    this->_storyInformation = data;
-    if (false == d.Parse<0>(_storyInformation.c_str()).HasParseError()) {
-        // document is ok
-        // get Content page
-        std::string coverPage = d["coverPage"].GetString();
-        std::vector<std::string> coverPageInfo = _menuContext->split(coverPage, '/');
-        if(coverPageInfo.size() > 0) {
-            _baseDir = coverPageInfo.at(0);
-        }
-    }
+bool QuestionHandler::initWithStoryId(std::string storyId, std::string baseDir) {
+        _baseDir = baseDir;
     std::string questionsJson = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + ".questions.json";
     if(FileUtils::getInstance()->isFileExist(questionsJson)) {
         std::string jsonData = FileUtils::getInstance()->getStringFromFile(questionsJson);
