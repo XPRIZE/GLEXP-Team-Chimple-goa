@@ -77,9 +77,15 @@ void Picture::adjustButtons() {
         sprite->setPosition(button->getContentSize().width / 2, button->getContentSize().height / 2);
         button->addChild(sprite);
     }
-    QuestionHandler::setButtonProperties(bg->getChildByName("Button_5"), "1_answer", _questions[2], CC_CALLBACK_2(Meaning::buttonSelected, this));
-    QuestionHandler::setButtonProperties(bg->getChildByName("Button_6"), "2_answer", _questions[4], CC_CALLBACK_2(Meaning::buttonSelected, this));
-    QuestionHandler::setButtonProperties(bg->getChildByName("Button_7"), "3_answer", _questions[6], CC_CALLBACK_2(Meaning::buttonSelected, this));
-    QuestionHandler::setButtonProperties(bg->getChildByName("Button_8"), "4_answer", _questions[8], CC_CALLBACK_2(Meaning::buttonSelected, this));
-    
+    std::vector<std::string> buttons = {
+        "Button_5",
+        "Button_6",
+        "Button_7",
+        "Button_8"
+    };
+    std::random_shuffle ( buttons.begin(), buttons.end() );
+    QuestionHandler::setButtonProperties(bg->getChildByName(buttons[0]), "1_answer", _questions[2], CC_CALLBACK_2(Meaning::buttonSelected, this));
+    QuestionHandler::setButtonProperties(bg->getChildByName(buttons[1]), "2_answer", _questions[4], CC_CALLBACK_2(Meaning::buttonSelected, this));
+    QuestionHandler::setButtonProperties(bg->getChildByName(buttons[2]), "3_answer", _questions[6], CC_CALLBACK_2(Meaning::buttonSelected, this));
+    QuestionHandler::setButtonProperties(bg->getChildByName(buttons[3]), "4_answer", _questions[8], CC_CALLBACK_2(Meaning::buttonSelected, this));
 }

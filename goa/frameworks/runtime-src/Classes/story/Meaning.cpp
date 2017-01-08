@@ -7,6 +7,7 @@
 //
 
 #include "Meaning.hpp"
+#include "../effects/FShake.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "platform/CCFileUtils.h"
 #include "ui/CocosGUI.h"
@@ -55,6 +56,10 @@ bool Meaning::initWithQuestions(QuestionHandler* qHandler, std::vector<std::stri
     bg->setName("bg");
     addChild(bg);
     if(_questions.size() == 9) {
+        _buttonMap[static_cast<Button*>(bg->getChildByName("Button_1"))] = static_cast<Button*>(bg->getChildByName("Button_5"));
+        _buttonMap[static_cast<Button*>(bg->getChildByName("Button_2"))] = static_cast<Button*>(bg->getChildByName("Button_6"));
+        _buttonMap[static_cast<Button*>(bg->getChildByName("Button_3"))] = static_cast<Button*>(bg->getChildByName("Button_7"));
+        _buttonMap[static_cast<Button*>(bg->getChildByName("Button_4"))] = static_cast<Button*>(bg->getChildByName("Button_8"));
         adjustButtons();
 #if defined(AUTO_CLICK) && (AUTO_CLICK > 0)
         runAction(Sequence::create(DelayTime::create(0.5), CallFunc::create([=]() {
@@ -107,20 +112,39 @@ void Meaning::buttonSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEv
         case ui::Widget::TouchEventType::ENDED:
         {
             if(_button1 == nullptr) {
-                clickedButton->setEnabled(false);
-                _button1 = clickedButton;
+                if(_buttonMap.count(clickedButton) == 1) {
+                    clickedButton->setEnabled(false);
+                    _button1 = clickedButton;
+                } else {
+                    clickedButton->runAction(FShake::actionWithDuration(1.0f, 10.0f));
+                }
             } else if(_button2 == nullptr) {
                 clickedButton->setEnabled(false);
                 _button2 = clickedButton;
                 auto buttonName = clickedButton->getName();
                 if(buttonName.substr(0, 1) == _button1->getName().substr(0, 1)) {
                     _numSolved++;
+                    auto pairButton = _buttonMap[_button1];
+                    if(pairButton) {
+                        auto pairButtonPos = pairButton->getPosition();
+                        auto clickedButtonPos = clickedButton->getPosition();
+                        for (auto it=_buttonMap.begin(); it!=_buttonMap.end(); ++it) {
+                            if(it->second == clickedButton) {
+                                it->second = pairButton;
+                            }
+                        }
+                        _buttonMap[_button1] = clickedButton;
+                        pairButton->runAction(MoveTo::create(1.0f, clickedButtonPos));
+                        clickedButton->runAction(MoveTo::create(1.0f, pairButtonPos));
+                    }
                     if(_numSolved >= 4) {
                         _qHandler->gotoNextQuestion(_numSolved);
                     }
                 } else {
                     _button1->setEnabled(true);
                     _button2->setEnabled(true);
+                    _button1->runAction(FShake::actionWithDuration(1.0f, 10.0f));
+                    _button2->runAction(FShake::actionWithDuration(1.0f, 10.0f));
                 }
                 _button1 = nullptr;
                 _button2 = nullptr;
@@ -133,13 +157,20 @@ void Meaning::buttonSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEv
 
 void Meaning::adjustButtons() {
     auto bg = this->getChildByName("bg");
+    std::vector<std::string> buttons = {
+        "Button_5",
+        "Button_6",
+        "Button_7",
+        "Button_8"
+    };
+    std::random_shuffle ( buttons.begin(), buttons.end() );
     QuestionHandler::setButtonProperties(bg->getChildByName("Button_1"), "1", _questions[1], CC_CALLBACK_2(Meaning::buttonSelected, this));
     QuestionHandler::setButtonProperties(bg->getChildByName("Button_2"), "2", _questions[3], CC_CALLBACK_2(Meaning::buttonSelected, this));
     QuestionHandler::setButtonProperties(bg->getChildByName("Button_3"), "3", _questions[5], CC_CALLBACK_2(Meaning::buttonSelected, this));
     QuestionHandler::setButtonProperties(bg->getChildByName("Button_4"), "4", _questions[7], CC_CALLBACK_2(Meaning::buttonSelected, this));
-    QuestionHandler::setButtonProperties(bg->getChildByName("Button_5"), "1_answer", _questions[2], CC_CALLBACK_2(Meaning::buttonSelected, this));
-    QuestionHandler::setButtonProperties(bg->getChildByName("Button_6"), "2_answer", _questions[4], CC_CALLBACK_2(Meaning::buttonSelected, this));
-    QuestionHandler::setButtonProperties(bg->getChildByName("Button_7"), "3_answer", _questions[6], CC_CALLBACK_2(Meaning::buttonSelected, this));
-    QuestionHandler::setButtonProperties(bg->getChildByName("Button_8"), "4_answer", _questions[8], CC_CALLBACK_2(Meaning::buttonSelected, this));
+    QuestionHandler::setButtonProperties(bg->getChildByName(buttons[0]), "1_answer", _questions[2], CC_CALLBACK_2(Meaning::buttonSelected, this));
+    QuestionHandler::setButtonProperties(bg->getChildByName(buttons[1]), "2_answer", _questions[4], CC_CALLBACK_2(Meaning::buttonSelected, this));
+    QuestionHandler::setButtonProperties(bg->getChildByName(buttons[2]), "3_answer", _questions[6], CC_CALLBACK_2(Meaning::buttonSelected, this));
+    QuestionHandler::setButtonProperties(bg->getChildByName(buttons[3]), "4_answer", _questions[8], CC_CALLBACK_2(Meaning::buttonSelected, this));
 }
 

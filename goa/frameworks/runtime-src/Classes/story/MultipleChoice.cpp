@@ -7,6 +7,7 @@
 //
 
 #include "MultipleChoice.hpp"
+#include "../effects/FShake.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "platform/CCFileUtils.h"
 #include "ui/CocosGUI.h"
@@ -61,10 +62,17 @@ bool MultipleChoice::initWithQuestions(QuestionHandler* qHandler, std::vector<st
             qNode->setTextColor(Color4B(QuestionHandler::FONT_COLOR));
             qNode->setFontSize(QuestionHandler::FONT_SIZE);
         }
-        QuestionHandler::setButtonProperties(bg->getChildByName("Button_7"), "1", _questions[2], CC_CALLBACK_2(MultipleChoice::buttonSelected, this));
-        QuestionHandler::setButtonProperties(bg->getChildByName("Button_8"), "0", _questions[3], CC_CALLBACK_2(MultipleChoice::buttonSelected, this));
-        QuestionHandler::setButtonProperties(bg->getChildByName("Button_9"), "0", _questions[4], CC_CALLBACK_2(MultipleChoice::buttonSelected, this));
-        QuestionHandler::setButtonProperties(bg->getChildByName("Button_10"), "0", _questions[5], CC_CALLBACK_2(MultipleChoice::buttonSelected, this));
+        std::vector<std::string> buttons = {
+            "Button_7",
+            "Button_8",
+            "Button_9",
+            "Button_10"
+        };
+        std::random_shuffle ( buttons.begin(), buttons.end() );
+        QuestionHandler::setButtonProperties(bg->getChildByName(buttons[0]), "1", _questions[2], CC_CALLBACK_2(MultipleChoice::buttonSelected, this));
+        QuestionHandler::setButtonProperties(bg->getChildByName(buttons[1]), "0", _questions[3], CC_CALLBACK_2(MultipleChoice::buttonSelected, this));
+        QuestionHandler::setButtonProperties(bg->getChildByName(buttons[2]), "0", _questions[4], CC_CALLBACK_2(MultipleChoice::buttonSelected, this));
+        QuestionHandler::setButtonProperties(bg->getChildByName(buttons[3]), "0", _questions[5], CC_CALLBACK_2(MultipleChoice::buttonSelected, this));
 #if defined(AUTO_CLICK) && (AUTO_CLICK > 0)
         runAction(Sequence::create(DelayTime::create(2.0), CallFunc::create([=]() {
             auto bg = this->getChildByName("bg");
@@ -87,7 +95,7 @@ void MultipleChoice::buttonSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::
             if(buttonName == "1") {
                 _qHandler->gotoNextQuestion(1);
             } else {
-                
+                clickedButton->runAction(FShake::actionWithDuration(1.0f, 10.0f));
             }
             break;
         }

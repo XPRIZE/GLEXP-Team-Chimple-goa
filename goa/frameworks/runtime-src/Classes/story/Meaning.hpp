@@ -32,6 +32,7 @@ protected:
     cocos2d::ui::Button* _button2;
     int _numSolved;
     virtual void adjustButtons();
+    std::map<cocos2d::ui::Button*, cocos2d::ui::Button*> _buttonMap;
 };
 
 #endif /* Meaning_hpp */
