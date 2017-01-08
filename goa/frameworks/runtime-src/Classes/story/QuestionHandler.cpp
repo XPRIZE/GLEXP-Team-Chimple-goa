@@ -47,41 +47,55 @@ QuestionHandler *QuestionHandler::create(std::string storyId) {
 }
 
 void QuestionHandler::onEnterTransitionDidFinish() {
+    Node::onEnterTransitionDidFinish();
     gotoNextQuestion(0);
 }
 
 void QuestionHandler::gotoNextQuestion(int score) {
-    if(++_currentQuestion < _questions.size()) {
-        if(_currentQuestionNode != nullptr) {
-            removeChild(_currentQuestionNode);
+    int delay = 0.0;
+    if(_currentQuestion >= 0) {
+        Size visibleSize = Director::getInstance()->getVisibleSize();
+        _ps = CCParticleSystemQuad::create("scoreboard/particle_success.plist");
+        _ps->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
+        this->addChild(_ps, 10);
+        delay = 3.0;
+    }
+    runAction(Sequence::create(DelayTime::create(delay), CallFunc::create([=] {
+        if(_ps) {
+            this->removeChild(_ps);
+            _ps = nullptr;
         }
-        if(_questions[_currentQuestion][0] == "multiple_choice") {
-            _currentQuestionNode = MultipleChoice::create(this, _questions[_currentQuestion]);
-            addChild(_currentQuestionNode);
-        } else if(_questions[_currentQuestion][0] == "fill_in_the_blanks") {
-            _currentQuestionNode = FillInTheBlanks::create(this, _questions[_currentQuestion]);
-            addChild(_currentQuestionNode);
-        } else if(_questions[_currentQuestion][0] == "meanings") {
-                _currentQuestionNode = Meaning::create(this, _questions[_currentQuestion]);
+        if(++_currentQuestion < _questions.size()) {
+            if(_currentQuestionNode != nullptr) {
+                removeChild(_currentQuestionNode);
+            }
+            if(_questions[_currentQuestion][0] == "multiple_choice") {
+                _currentQuestionNode = MultipleChoice::create(this, _questions[_currentQuestion]);
                 addChild(_currentQuestionNode);
-        } else if(_questions[_currentQuestion][0] == "picture") {
-            _currentQuestionNode = Picture::create(this, _questions[_currentQuestion]);
-            addChild(_currentQuestionNode);
-//        } else if(_questions[_currentQuestion][0] == "words") {
-////            _currentQuestionNode = StoryWordBoard::createWithWords(_storyId, _questions[_currentQuestion], 1, _baseDir, 10, 5);
-//            _currentQuestionNode = WordBoard::createWithWord(_questions[_currentQuestion][1]);
-//            addChild(_currentQuestionNode);
+            } else if(_questions[_currentQuestion][0] == "fill_in_the_blanks") {
+                _currentQuestionNode = FillInTheBlanks::create(this, _questions[_currentQuestion]);
+                addChild(_currentQuestionNode);
+            } else if(_questions[_currentQuestion][0] == "meanings") {
+                    _currentQuestionNode = Meaning::create(this, _questions[_currentQuestion]);
+                    addChild(_currentQuestionNode);
+            } else if(_questions[_currentQuestion][0] == "picture") {
+                _currentQuestionNode = Picture::create(this, _questions[_currentQuestion]);
+                addChild(_currentQuestionNode);
+            } else if(_questions[_currentQuestion][0] == "words") {
+                Director::getInstance()->replaceScene(TransitionFade::create(1.0, StoryWordBoard::createSceneWithWords(_storyId, _questions[_currentQuestion], 1, _baseDir, _menuContext->getMaxPoints(), _menuContext->getPoints()), Color3B::BLACK));
+            } else {
+                _menuContext->showScore();
+            }
         } else {
             _menuContext->showScore();
         }
-    } else {
-        _menuContext->showScore();
-    }
+    }), NULL));
 }
 
 QuestionHandler::QuestionHandler() :
 _currentQuestion(-1),
-_currentQuestionNode(nullptr)
+_currentQuestionNode(nullptr),
+_totalPoints(0)
 {
     
 }
@@ -102,7 +116,6 @@ bool QuestionHandler::initWithStoryId(std::string storyId) {
     rapidjson::Document d;
     std::string data;
     localStorageGetItem(STORY_JSON, &data);
-    
     CCLOG("data received %s", data.c_str());
     this->_storyInformation = data;
     if (false == d.Parse<0>(_storyInformation.c_str()).HasParseError()) {
@@ -137,6 +150,7 @@ bool QuestionHandler::initWithStoryId(std::string storyId) {
                                 eachQ.push_back(choicesVal[choicesValIndex].GetString());
                             }
                             _questions.push_back(eachQ);
+                            _totalPoints += 2;
                         }
                     }
                 } else if(itr->name == "meanings") {
@@ -151,6 +165,7 @@ bool QuestionHandler::initWithStoryId(std::string storyId) {
                             eachQ.push_back(itr->value.GetString());
                         }
                         _questions.push_back(eachQ);
+                        _totalPoints += 4;
                     }
                 } else if(itr->name == "multiple_choice") {
                     const rapidjson::Value& f = itr->value;
@@ -168,6 +183,7 @@ bool QuestionHandler::initWithStoryId(std::string storyId) {
                                 eachQ.push_back(choicesVal[choicesValIndex].GetString());
                             }
                             _questions.push_back(eachQ);
+                            _totalPoints += 2;
                         }
                     }
                 } else if(itr->name == "picture") {
@@ -182,22 +198,30 @@ bool QuestionHandler::initWithStoryId(std::string storyId) {
                             eachQ.push_back(itr->value.GetString());
                         }
                         _questions.push_back(eachQ);
+                        _totalPoints += 4;
                     }
                 } else if(itr->name == "words") {
                     const rapidjson::Value& f = itr->value;
                     assert(f.IsArray());
+                    std::vector<std::string> eachQ;
+                    eachQ.push_back("words");
                     for (rapidjson::SizeType i = 0; i < f.Size(); i++) {
-                        std::vector<std::string> eachQ;
-                        eachQ.push_back("words");
-                        eachQ.push_back(f[i].GetString());
-                        _questions.push_back(eachQ);
+                        std::string word = f[i].GetString();
+                        std::transform(word.begin(), word.end(),word.begin(), ::toupper);
+                        eachQ.push_back(word);
+                        _totalPoints++;
                     }
+                    _questions.push_back(eachQ);
                 }
             }
         }
     }
     return true;
     
+}
+
+MenuContext* QuestionHandler::getMenuContext() {
+    return _menuContext;
 }
 
 void QuestionHandler::setButtonProperties(Node* button, std::string name, std::string text, const ui::Widget::ccWidgetTouchCallback& callback) {

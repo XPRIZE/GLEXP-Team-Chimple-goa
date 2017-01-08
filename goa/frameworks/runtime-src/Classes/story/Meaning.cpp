@@ -27,7 +27,8 @@ Meaning *Meaning::create(QuestionHandler* qHandler, std::vector<std::string> que
 }
 
 void Meaning::onEnterTransitionDidFinish() {
-    
+    Node::onEnterTransitionDidFinish();
+    runAction(FadeIn::create(1.0f));    
 }
 
 Meaning::Meaning() :
@@ -124,6 +125,7 @@ void Meaning::buttonSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEv
                 auto buttonName = clickedButton->getName();
                 if(buttonName.substr(0, 1) == _button1->getName().substr(0, 1)) {
                     _numSolved++;
+                    _qHandler->getMenuContext()->addPoints(1);
                     auto pairButton = _buttonMap[_button1];
                     if(pairButton) {
                         auto pairButtonPos = pairButton->getPosition();
@@ -145,6 +147,7 @@ void Meaning::buttonSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEv
                     _button2->setEnabled(true);
                     _button1->runAction(FShake::actionWithDuration(1.0f, 10.0f));
                     _button2->runAction(FShake::actionWithDuration(1.0f, 10.0f));
+                    _qHandler->getMenuContext()->addPoints(-1);
                 }
                 _button1 = nullptr;
                 _button2 = nullptr;

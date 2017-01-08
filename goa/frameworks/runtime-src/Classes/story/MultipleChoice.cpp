@@ -27,7 +27,8 @@ MultipleChoice *MultipleChoice::create(QuestionHandler* qHandler, std::vector<st
 }
 
 void MultipleChoice::onEnterTransitionDidFinish() {
-    
+    Node::onEnterTransitionDidFinish();
+    runAction(FadeIn::create(1.0f));
 }
 
 MultipleChoice::MultipleChoice() {
@@ -93,9 +94,11 @@ void MultipleChoice::buttonSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::
             clickedButton->setEnabled(false);
             auto buttonName = clickedButton->getName();
             if(buttonName == "1") {
+                _qHandler->getMenuContext()->addPoints(1);
                 _qHandler->gotoNextQuestion(1);
             } else {
                 clickedButton->runAction(FShake::actionWithDuration(1.0f, 10.0f));
+                _qHandler->getMenuContext()->addPoints(-1);
             }
             break;
         }

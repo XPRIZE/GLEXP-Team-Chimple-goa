@@ -27,6 +27,7 @@ public:
     static const cocos2d::Color3B FONT_COLOR;
     static const cocos2d::Color3B FONT_HIGHLIGHT_COLOR;
     std::string getBaseDir();
+    MenuContext* getMenuContext();
 
 CC_CONSTRUCTOR_ACCESS:
     QuestionHandler();
@@ -42,6 +43,8 @@ protected:
     std::vector<std::vector<std::string>> _questions;
     int _currentQuestion;
     Node* _currentQuestionNode;
+    int _totalPoints;
+    cocos2d::ParticleSystem* _ps;
 };
 
 #endif /* QuestionHandler_h */
