@@ -185,6 +185,9 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/mini_games/AlphabetWriting.cpp \
 					../../Classes/story/QuestionHandler.cpp \
 					../../Classes/story/MultipleChoice.cpp \
+					../../Classes/story/FillInTheBlanks.cpp \
+					../../Classes/story/Meaning.cpp \
+					../../Classes/story/Picture.cpp \
                     ../../Classes/AsyncTask.cpp \
                     ../../Classes/LipiTKNode.cpp \
                     ../../Classes/LipiTKInterface.cpp \

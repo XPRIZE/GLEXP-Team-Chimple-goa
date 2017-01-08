@@ -30,7 +30,9 @@ void Meaning::onEnterTransitionDidFinish() {
 }
 
 Meaning::Meaning() :
-_numSolved(0)
+_numSolved(0),
+_button1(nullptr),
+_button2(nullptr)
 {
     
 }
@@ -55,39 +57,39 @@ bool Meaning::initWithQuestions(QuestionHandler* qHandler, std::vector<std::stri
     if(_questions.size() == 9) {
         adjustButtons();
 #if defined(AUTO_CLICK) && (AUTO_CLICK > 0)
-        runAction(Sequence::create(DelayTime::create(2.0), CallFunc::create([=]() {
+        runAction(Sequence::create(DelayTime::create(0.5), CallFunc::create([=]() {
             auto bg = this->getChildByName("bg");
             auto button = bg->getChildByName("1");
             this->buttonSelected(button, ui::Widget::TouchEventType::ENDED);
         }),
-                DelayTime::create(2.0), CallFunc::create([=]() {
+                DelayTime::create(0.5), CallFunc::create([=]() {
             auto bg = this->getChildByName("bg");
             auto button = bg->getChildByName("1_answer");
             this->buttonSelected(button, ui::Widget::TouchEventType::ENDED);
-        }), DelayTime::create(2.0), CallFunc::create([=]() {
+        }), DelayTime::create(0.5), CallFunc::create([=]() {
             auto bg = this->getChildByName("bg");
             auto button = bg->getChildByName("2");
             this->buttonSelected(button, ui::Widget::TouchEventType::ENDED);
         }),
-                             DelayTime::create(2.0), CallFunc::create([=]() {
+                             DelayTime::create(0.5), CallFunc::create([=]() {
             auto bg = this->getChildByName("bg");
             auto button = bg->getChildByName("2_answer");
             this->buttonSelected(button, ui::Widget::TouchEventType::ENDED);
-        }), DelayTime::create(2.0), CallFunc::create([=]() {
+        }), DelayTime::create(0.5), CallFunc::create([=]() {
             auto bg = this->getChildByName("bg");
             auto button = bg->getChildByName("3");
             this->buttonSelected(button, ui::Widget::TouchEventType::ENDED);
         }),
-                             DelayTime::create(2.0), CallFunc::create([=]() {
+                             DelayTime::create(0.5), CallFunc::create([=]() {
             auto bg = this->getChildByName("bg");
             auto button = bg->getChildByName("3_answer");
             this->buttonSelected(button, ui::Widget::TouchEventType::ENDED);
-        }), DelayTime::create(2.0), CallFunc::create([=]() {
+        }), DelayTime::create(0.5), CallFunc::create([=]() {
             auto bg = this->getChildByName("bg");
             auto button = bg->getChildByName("4");
             this->buttonSelected(button, ui::Widget::TouchEventType::ENDED);
         }),
-                             DelayTime::create(2.0), CallFunc::create([=]() {
+                             DelayTime::create(0.5), CallFunc::create([=]() {
             auto bg = this->getChildByName("bg");
             auto button = bg->getChildByName("4_answer");
             this->buttonSelected(button, ui::Widget::TouchEventType::ENDED);
@@ -104,12 +106,6 @@ void Meaning::buttonSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEv
     switch (eEventType) {
         case ui::Widget::TouchEventType::ENDED:
         {
-            if(_button1 != nullptr && _button2 != nullptr) {
-                _button1->setEnabled(true);
-                _button1 = nullptr;
-                _button2->setEnabled(true);
-                _button2 = nullptr;
-            }
             if(_button1 == nullptr) {
                 clickedButton->setEnabled(false);
                 _button1 = clickedButton;
@@ -124,10 +120,10 @@ void Meaning::buttonSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEv
                     }
                 } else {
                     _button1->setEnabled(true);
-                    _button1 = nullptr;
                     _button2->setEnabled(true);
-                    _button2 = nullptr;
                 }
+                _button1 = nullptr;
+                _button2 = nullptr;
             }
             break;
         }

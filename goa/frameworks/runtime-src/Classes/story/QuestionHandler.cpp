@@ -12,6 +12,8 @@
 #include "FillInTheBlanks.hpp"
 #include "Meaning.hpp"
 #include "Picture.hpp"
+#include "../puzzle/StoryWordBoard.hpp"
+#include "../puzzle/WordBoard.h"
 #include "ui/CocosGUI.h"
 
 USING_NS_CC;
@@ -65,6 +67,10 @@ void QuestionHandler::gotoNextQuestion(int score) {
         } else if(_questions[_currentQuestion][0] == "picture") {
             _currentQuestionNode = Picture::create(this, _questions[_currentQuestion]);
             addChild(_currentQuestionNode);
+//        } else if(_questions[_currentQuestion][0] == "words") {
+////            _currentQuestionNode = StoryWordBoard::createWithWords(_storyId, _questions[_currentQuestion], 1, _baseDir, 10, 5);
+//            _currentQuestionNode = WordBoard::createWithWord(_questions[_currentQuestion][1]);
+//            addChild(_currentQuestionNode);
         } else {
             _menuContext->showScore();
         }
@@ -74,7 +80,8 @@ void QuestionHandler::gotoNextQuestion(int score) {
 }
 
 QuestionHandler::QuestionHandler() :
-_currentQuestion(-1)
+_currentQuestion(-1),
+_currentQuestionNode(nullptr)
 {
     
 }

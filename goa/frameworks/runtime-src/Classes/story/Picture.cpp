@@ -47,32 +47,36 @@ void Picture::adjustButtons() {
     
     auto button = static_cast<Button*> (bg->getChildByName("Button_1"));
     button->setName("1");
+    button->addTouchEventListener(CC_CALLBACK_2(Meaning::buttonSelected, this));
     auto sprite = Sprite::create(_qHandler->getBaseDir() + "/" + _questions[1]);
     if(sprite) {
+        sprite->setPosition(button->getContentSize().width / 2, button->getContentSize().height / 2);
         button->addChild(sprite);
     }
     button = static_cast<Button*> (bg->getChildByName("Button_2"));
     button->setName("2");
+    button->addTouchEventListener(CC_CALLBACK_2(Meaning::buttonSelected, this));
     sprite = Sprite::create(_qHandler->getBaseDir() + "/" + _questions[3]);
     if(sprite) {
+        sprite->setPosition(button->getContentSize().width / 2, button->getContentSize().height / 2);
         button->addChild(sprite);
     }
     button = static_cast<Button*> (bg->getChildByName("Button_3"));
     button->setName("3");
+    button->addTouchEventListener(CC_CALLBACK_2(Meaning::buttonSelected, this));
     sprite = Sprite::create(_qHandler->getBaseDir() + "/" + _questions[5]);
     if(sprite) {
+        sprite->setPosition(button->getContentSize().width / 2, button->getContentSize().height / 2);
         button->addChild(sprite);
     }
     button = static_cast<Button*> (bg->getChildByName("Button_4"));
     button->setName("4");
+    button->addTouchEventListener(CC_CALLBACK_2(Meaning::buttonSelected, this));
     sprite = Sprite::create(_qHandler->getBaseDir() + "/" + _questions[7]);
     if(sprite) {
+        sprite->setPosition(button->getContentSize().width / 2, button->getContentSize().height / 2);
         button->addChild(sprite);
     }
-    QuestionHandler::setButtonProperties(bg->getChildByName("Button_1"), "1", _questions[1], CC_CALLBACK_2(Meaning::buttonSelected, this));
-    QuestionHandler::setButtonProperties(bg->getChildByName("Button_2"), "2", _questions[3], CC_CALLBACK_2(Meaning::buttonSelected, this));
-    QuestionHandler::setButtonProperties(bg->getChildByName("Button_3"), "3", _questions[5], CC_CALLBACK_2(Meaning::buttonSelected, this));
-    QuestionHandler::setButtonProperties(bg->getChildByName("Button_4"), "4", _questions[7], CC_CALLBACK_2(Meaning::buttonSelected, this));
     QuestionHandler::setButtonProperties(bg->getChildByName("Button_5"), "1_answer", _questions[2], CC_CALLBACK_2(Meaning::buttonSelected, this));
     QuestionHandler::setButtonProperties(bg->getChildByName("Button_6"), "2_answer", _questions[4], CC_CALLBACK_2(Meaning::buttonSelected, this));
     QuestionHandler::setButtonProperties(bg->getChildByName("Button_7"), "3_answer", _questions[6], CC_CALLBACK_2(Meaning::buttonSelected, this));
