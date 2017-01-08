@@ -218,10 +218,11 @@ bool StoryPlaying::onTouchBeganOnComposite(Touch* touch, Event* event){
         return false;
     }
     
-    auto n = convertTouchToNodeSpace(touch);
     Node* target = event->getCurrentTarget();
-    
-    if(target != NULL && target->getBoundingBox().containsPoint(n)) {
+    auto n = convertTouchToNodeSpace(touch);
+
+    auto boundingBox = utils::getCascadeBoundingBox(target);
+    if(target != NULL && boundingBox.containsPoint(n)) {
         auto tLocation = target->getParent()->convertToNodeSpace(touch->getLocation());
         _offsetInX = tLocation.x - target->getPosition().x;
         _offsetInY = tLocation.y - target->getPosition().y;
@@ -819,6 +820,7 @@ void StoryPlaying::processPixelPerfectNodes(Node* parent) {
             CCLOG("pixel processing node %s", n->getName().c_str());
             std::string spriteUrl = _pixelPerfectMapping.at(n->getName());
             Sprite* sprite = dynamic_cast<Sprite *>(n);
+            sprite->setScale(n->getScale());
             if(sprite != NULL)
             {
                 std::vector<std::vector<cocos2d::Point>> points = _menuContext->getTrianglePointsForSprite(sprite, spriteUrl, 0.0f);
@@ -904,7 +906,7 @@ void StoryPlaying::nextStory(Ref* pSender, ui::Widget::TouchEventType eEventType
         {
             clickedButton->setEnabled(false);
             clickedButton->setVisible(false);
-            if(false && _pageIndex + 1 != _totalStoryPages) {
+            if(_pageIndex + 1 != _totalStoryPages) {
                 Director::getInstance()->replaceScene(TransitionFade::create(1.0, StoryPlaying::createScene(_pageIndex + 1, _storyId), Color3B::BLACK));
             } else {
                 Director::getInstance()->replaceScene(TransitionFade::create(1.0, QuestionHandler::createScene(_storyId), Color3B::BLACK));
