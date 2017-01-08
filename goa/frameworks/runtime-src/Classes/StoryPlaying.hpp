@@ -30,6 +30,9 @@
 #define PREVIOUS_BUTTON "previous"
 #define CLOSE_BUTTON "close"
 #define SOUND_BUTTON "sound"
+#define SOUND_BUTTON_WORD "sound_button_2"
+#define TEXT_FIELD_WORD "TextField_1"
+
 
 #define STORY_TEXT "titleText"
 
@@ -70,8 +73,26 @@ private:
     std::string _storyId;
     int _pageIndex;
     bool _isPlayEnded;
+    bool _isPlayStarted;
     int _totalStoryPages;
     Node* _talkBubbleNode;
+    Node* _contentPageNode;
+    Node* _wordBubbleNode;
+    float _offsetInY;
+    float _offsetInX;
+    bool _isNodeDraggable;
+    bool _textDisplayAnimationRunning;
+    std::string _animationToPlayWhenTouched;
+    Color3B _originalSpriteColor;
+    std::string _pronouceWord;
+    int _zOrder;
+    
+    std::map<std::string, Color3B> skinColors;
+    std::map<std::string, std::string> _wordMappings;
+    
+    std::vector<std::string> _loadedEffects;
+    
+    cocostudio::timeline::ActionTimeline* _mainTimeLine;
     
     cocos2d::ui::Button* _nextButton;
     cocos2d::ui::Button* _prevButton;
@@ -82,7 +103,7 @@ private:
     
     void playFrameEventEffect(std::string eventData);
     
-    std::vector<std::string> _loadedEffects;
+    
     
     void createNextAndPreviousButtons();
     
@@ -91,8 +112,59 @@ private:
     void playSound(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     
     void closeDialog(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
-
+    
     void narrateDialog(float dt);
+    
+    void processScene(cocos2d::Node* parent);
+    
+    void bindListenerToSkeletonNode(cocostudio::timeline::SkeletonNode* skeletonNode);
+    
+    bool onTouchBeganOnSkeleton(cocos2d::Touch* touch, cocos2d::Event* event);
+    
+    void onTouchEndedOnSkeleton(cocos2d::Touch *touch, cocos2d::Event *event);
+    
+    void onTouchMovedOnSkeleton(cocos2d::Touch *touch, cocos2d::Event *event);
+    
+    void bindListenerToCompositeNode(cocos2d::Node* node) ;
+    
+    bool onTouchBeganOnComposite(cocos2d::Touch* touch, cocos2d::Event* event);
+    
+    void onTouchEndedOnComposite(cocos2d::Touch *touch, cocos2d::Event *event) ;
+    
+    void onTouchMovedOnComposite(cocos2d::Touch *touch, cocos2d::Event *event);
+    
+    void bindListenerToNode(cocos2d::Node* node);
+    
+    bool onTouchBeganOnNode(cocos2d::Touch* touch, cocos2d::Event* event);
+    
+    void onTouchEndedOnNode(cocos2d::Touch *touch, cocos2d::Event *event);
+    
+    void onTouchMovedOnNode(cocos2d::Touch *touch, cocos2d::Event *event);
+    
+    void bindEventsToTarget(cocos2d::Node* node);
+    
+    void playAnimationOnNode(std::string animationName, Node* node);
+    
+    void cleanUpWhenTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event);
+    
+    void changeSkinColor(cocostudio::timeline::BoneNode* bone, bool revert);
+    
+    void changeBoneColor(cocostudio::timeline::BoneNode* skeleton, bool revert);
+    
+    void createWordBubble();
+    
+    void showText(std::string nodeName);
+    
+    bool translatedText(std::string text);
+    
+    void displayTextAnimationFinished();
+    
+    void removeWordBubble(float dt);
+    
+    void wordBubbleDisappeared();
+    
+    void pronounceWord(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+
 };
 
 
