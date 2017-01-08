@@ -56,6 +56,7 @@
 #include "mini_games/Line.h"
 #include "mini_games/Item.h"
 #include "mini_games/ChocolateFactory.h"
+#include "story/ScrollableCatalogue.hpp"
 
 #include "storage/local-storage/LocalStorage.h"
 #include "external/json/document.h"
@@ -438,6 +439,10 @@ void ScrollableGameMapScene::nagivateToGame(std::string gameName) {
     else if(gameName == "map")
     {
         Director::getInstance()->replaceScene(MapScene::createScene());
+    }
+    else if(gameName == "story-catalogue")
+    {
+        Director::getInstance()->replaceScene(ScrollableCatalogue::createScene());
     }
     else
     {

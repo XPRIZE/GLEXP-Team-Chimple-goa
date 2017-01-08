@@ -65,7 +65,6 @@ CC_CONSTRUCTOR_ACCESS:
     
     
 private:
-    std::string _storyInformation;
     std::string _baseDir;
     MenuContext* _menuContext;
     std::string _soundFile;
