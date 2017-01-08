@@ -7,7 +7,7 @@
 //
 
 #include "StoryPlaying.hpp"
-
+#include "story/QuestionHandler.h"
 
 static const std::string STORY_JSON = ".storyJSON";
 static const std::string SOUND_ENABLED_FOR_STORIES = ".soundEnabledForStories";
@@ -156,6 +156,13 @@ void StoryPlaying::createDialogBubble() {
         cocos2d::ui::Button* closeButton = dynamic_cast<cocos2d::ui::Button *>(closeNode);
         if(closeButton != NULL) {
             closeButton->addTouchEventListener(CC_CALLBACK_2(StoryPlaying::closeDialog, this));
+#if defined(AUTO_CLICK) && (AUTO_CLICK > 0)
+            runAction(Sequence::create(DelayTime::create(10.0), CallFunc::create([=]() {
+                this->closeDialog(closeButton, ui::Widget::TouchEventType::ENDED);
+            }), NULL));
+            
+#endif
+            
         }
     }
     
@@ -253,11 +260,15 @@ void StoryPlaying::closeDialog(Ref* pSender, ui::Widget::TouchEventType eEventTy
             _talkBubbleNode->removeFromParentAndCleanup(true);
 
             //show next/prev buttons
-            if(_pageIndex + 1 != _totalStoryPages)
-            {
-                _nextButton->setEnabled(true);
-                _nextButton->setVisible(true);
-            }
+            _nextButton->setEnabled(true);
+            _nextButton->setVisible(true);
+#if defined(AUTO_CLICK) && (AUTO_CLICK > 0)
+            runAction(Sequence::create(DelayTime::create(1.0), CallFunc::create([=]() {
+                this->nextStory(_nextButton, ui::Widget::TouchEventType::ENDED);
+            }), NULL));
+            
+#endif
+            
             
             if(_pageIndex != 0) {
                 _prevButton->setEnabled(true);
@@ -283,17 +294,14 @@ void StoryPlaying::playEnded() {
 
 void StoryPlaying::createNextAndPreviousButtons() {
     Size visibleSize = Director::getInstance()->getVisibleSize();
-    if(_pageIndex + 1 != _totalStoryPages)
-    {
-        _nextButton = cocos2d::ui::Button::create("template/template_02/side_arrow.png", "template/template_02/click_side_arrow.png", "template/template_02/side_arrow.png", cocos2d::ui::Widget::TextureResType::PLIST);
-        _nextButton->setPosition(Vec2(visibleSize.width - 200.0, visibleSize.height/2));
-        _nextButton->setName(NEXT_BUTTON);
-        _nextButton->addTouchEventListener(CC_CALLBACK_2(StoryPlaying::nextStory, this));
-        this->addChild(_nextButton, 2);
-        _nextButton->setEnabled(false);
-        _nextButton->setVisible(false);
+    _nextButton = cocos2d::ui::Button::create("template/template_02/side_arrow.png", "template/template_02/click_side_arrow.png", "template/template_02/side_arrow.png", cocos2d::ui::Widget::TextureResType::PLIST);
+    _nextButton->setPosition(Vec2(visibleSize.width - 200.0, visibleSize.height/2));
+    _nextButton->setName(NEXT_BUTTON);
+    _nextButton->addTouchEventListener(CC_CALLBACK_2(StoryPlaying::nextStory, this));
+    this->addChild(_nextButton, 2);
+    _nextButton->setEnabled(false);
+    _nextButton->setVisible(false);
         
-    }
     
     if(_pageIndex != 0) {
         _prevButton = cocos2d::ui::Button::create("template/template_02/side_arrow.png", "template/template_02/click_side_arrow.png", "template/template_02/side_arrow.png", cocos2d::ui::Widget::TextureResType::PLIST);
@@ -394,9 +402,8 @@ void StoryPlaying::nextStory(Ref* pSender, ui::Widget::TouchEventType eEventType
             if(_pageIndex + 1 != _totalStoryPages) {
                 Director::getInstance()->replaceScene(TransitionFade::create(1.0, StoryPlaying::createScene(_pageIndex + 1, _storyId), Color3B::BLACK));
             } else {
-                //redirect to Q/A Page
+                Director::getInstance()->replaceScene(TransitionFade::create(1.0, QuestionHandler::createScene(_storyId), Color3B::BLACK));
             }
-
             break;
         }
             
