@@ -46,7 +46,7 @@ bool FillInTheBlanks::initWithQuestions(QuestionHandler* qHandler, std::vector<s
             auto fitb = _questions[1];
             std::string blanks = "______________";
             fitb.replace(fitb.find(_questions[2]), _questions[2].size(), blanks);
-            qNode->setString(fitb);
+            qNode->setString(QuestionHandler::wrapString(fitb, 40));
         }
         return true;
     }
@@ -68,7 +68,7 @@ void FillInTheBlanks::buttonSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget:
                 runAction(Sequence::create(DelayTime::create(1.0f), CallFunc::create([=]() {
                     auto bg = getChildByName("bg");
                     auto qNode = bg->getChildByName<TextField*>("TextField_2");
-                    qNode->setString(_questions[1]);
+                    qNode->setString(QuestionHandler::wrapString(_questions[1], 40));
                 }), DelayTime::create(1.0f), CallFunc::create([=]() {
                     _qHandler->gotoNextQuestion(1);
                 }), NULL));

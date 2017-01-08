@@ -55,7 +55,7 @@ bool MultipleChoice::initWithQuestions(QuestionHandler* qHandler, std::vector<st
     if(_questions.size() == 6) {
         auto qNode = static_cast<TextField*> (bg->getChildByName("TextField_2"));
         if(qNode) {
-            qNode->setString(_questions[1]);
+            qNode->setString(QuestionHandler::wrapString(_questions[1], 40));
             qNode->setEnabled(false);
             qNode->setTouchEnabled(false);
             qNode->setFocusEnabled(false);

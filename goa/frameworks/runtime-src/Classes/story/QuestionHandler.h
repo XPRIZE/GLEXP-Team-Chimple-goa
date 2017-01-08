@@ -26,6 +26,7 @@ public:
     static const int FONT_SIZE;
     static const cocos2d::Color3B FONT_COLOR;
     static const cocos2d::Color3B FONT_HIGHLIGHT_COLOR;
+    static std::string wrapString(std::string str, size_t width);
     std::string getBaseDir();
     MenuContext* getMenuContext();
 
