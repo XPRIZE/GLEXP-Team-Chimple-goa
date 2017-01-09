@@ -119,38 +119,43 @@ void Meaning::buttonSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEv
                 } else {
                     clickedButton->runAction(FShake::actionWithDuration(1.0f, 10.0f));
                 }
-            } else if(_button2 == nullptr) {
-                clickedButton->setEnabled(false);
-                _button2 = clickedButton;
-                auto buttonName = clickedButton->getName();
-                if(buttonName.substr(0, 1) == _button1->getName().substr(0, 1)) {
-                    _numSolved++;
-                    _qHandler->getMenuContext()->addPoints(1);
-                    auto pairButton = _buttonMap[_button1];
-                    if(pairButton) {
-                        auto pairButtonPos = pairButton->getPosition();
-                        auto clickedButtonPos = clickedButton->getPosition();
-                        for (auto it=_buttonMap.begin(); it!=_buttonMap.end(); ++it) {
-                            if(it->second == clickedButton) {
-                                it->second = pairButton;
-                            }
-                        }
-                        _buttonMap[_button1] = clickedButton;
-                        pairButton->runAction(MoveTo::create(1.0f, clickedButtonPos));
-                        clickedButton->runAction(MoveTo::create(1.0f, pairButtonPos));
-                    }
-                    if(_numSolved >= 4) {
-                        _qHandler->gotoNextQuestion(_numSolved);
-                    }
-                } else {
+            } else {
+                if(_buttonMap.count(clickedButton) == 1) {
                     _button1->setEnabled(true);
-                    _button2->setEnabled(true);
-                    _button1->runAction(FShake::actionWithDuration(1.0f, 10.0f));
-                    _button2->runAction(FShake::actionWithDuration(1.0f, 10.0f));
-                    _qHandler->getMenuContext()->addPoints(-1);
+                    clickedButton->setEnabled(false);
+                    _button1 = clickedButton;
+                } else {
+                    auto buttonName = clickedButton->getName();
+                    if(buttonName.substr(0, 1) == _button1->getName().substr(0, 1)) {
+                        clickedButton->setEnabled(false);
+                        _numSolved++;
+                        _qHandler->getMenuContext()->addPoints(1);
+                        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/sfx/success.ogg");
+                        auto pairButton = _buttonMap[_button1];
+                        if(pairButton) {
+                            auto pairButtonPos = pairButton->getPosition();
+                            auto clickedButtonPos = clickedButton->getPosition();
+                            for (auto it=_buttonMap.begin(); it!=_buttonMap.end(); ++it) {
+                                if(it->second == clickedButton) {
+                                    it->second = pairButton;
+                                }
+                            }
+                            _buttonMap[_button1] = clickedButton;
+                            pairButton->runAction(MoveTo::create(1.0f, clickedButtonPos));
+                            clickedButton->runAction(MoveTo::create(1.0f, pairButtonPos));
+                            _button1->setColor(Color3B(255.0f, 255.0f, 255.0f));
+                            clickedButton->setColor(Color3B(255.0f, 255.0f, 255.0f));
+                        }
+                        _button1 = nullptr;
+                        if(_numSolved >= 4) {
+                            _qHandler->gotoNextQuestion(_numSolved);
+                        }
+                    } else {
+                        clickedButton->runAction(FShake::actionWithDuration(1.0f, 10.0f));
+                        _qHandler->getMenuContext()->addPoints(-1);
+                        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/sfx/error.ogg");
+                    }
                 }
-                _button1 = nullptr;
-                _button2 = nullptr;
             }
             break;
         }
