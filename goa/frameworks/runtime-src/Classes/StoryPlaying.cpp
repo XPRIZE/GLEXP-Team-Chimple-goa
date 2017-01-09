@@ -836,7 +836,6 @@ void StoryPlaying::processPixelPerfectNodes(Node* parent) {
             CCLOG("pixel processing node %s", n->getName().c_str());
             std::string spriteUrl = _pixelPerfectMapping.at(n->getName());
             Sprite* sprite = dynamic_cast<Sprite *>(n);
-            sprite->setScale(n->getScale());
             if(sprite != NULL)
             {
                 std::vector<std::vector<cocos2d::Point>> points = _menuContext->getTrianglePointsForSprite(sprite, spriteUrl, 0.0f);
