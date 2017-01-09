@@ -60,7 +60,7 @@ public:
 	void wordPairList(std::string question, std::string answer = "it is a word",bool isInitialSyllable = false);
 	void showAnswer(std::string, std::string header);
     void onExitTransitionDidStart() override;
-
+    void closeAnswerLayer(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     cocos2d::Rect getBoundingBox(cocos2d::Sprite* node) const;
     std::vector<cocos2d::Point> getPolygonPointsForSprite1(cocos2d::Sprite* node);
     

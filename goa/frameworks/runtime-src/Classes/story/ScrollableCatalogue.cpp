@@ -109,7 +109,7 @@ bool ScrollableCatalogue::init() {
     int numCols = 0;
     //iterate and create data
     std::vector<int> orderedStories;
-
+    
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -143,10 +143,10 @@ bool ScrollableCatalogue::init() {
         isConfigLoadedSuccessfully = true;
     }
     
-
+    
     std::string lockedStoriesStr;
     localStorageGetItem(UNLOCKED_STORY_ID_ORDER, &lockedStoriesStr);
-
+    
     if(lockedStoriesStr.empty()) {
         rapidjson::Document dLockedStoriesDoc;
         rapidjson::Document::AllocatorType& allocator = dLockedStoriesDoc.GetAllocator();
@@ -188,10 +188,14 @@ bool ScrollableCatalogue::init() {
                 key   = M->name.GetString();
                 value = M->value.GetString();
                 
-                CCLOG("title key %s", key);
+                
+                std::string keyLower(key);
+                
+                std::transform(keyLower.begin(), keyLower.end(), keyLower.begin(), ::tolower);
+                CCLOG("title key %s", keyLower.c_str());
                 CCLOG("title value %s", value);
                 
-                titleMap.insert({key, value});
+                titleMap.insert({keyLower, value});
             }
         }
     }
@@ -202,7 +206,7 @@ bool ScrollableCatalogue::init() {
     if (unlockStr.empty() || unlockStr == "1") {
         lockAll = true;
     }
-
+    
     
     if (isConfigLoadedSuccessfully)
     {
@@ -215,7 +219,7 @@ bool ScrollableCatalogue::init() {
         colors.push_back(Color3B(8,52,193));
         colors.push_back(Color3B(201,13,13));
         colors.push_back(Color3B(239,106,15));
-
+        
         
         int index = 0;
         for(int k = 0; k < numberOfPages; k++)
@@ -223,7 +227,7 @@ bool ScrollableCatalogue::init() {
             auto page = ui::Widget::create();
             page->setContentSize(visibleSize);
             _pageView->addPage(page);
-
+            
             Texture2D *texture = Director::getInstance()->getTextureCache()->addImage("template/wood_01.png");
             Texture2D::TexParams tp = {GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT};
             texture->setTexParameters(&tp);
@@ -278,9 +282,9 @@ void ScrollableCatalogue::createBook(int i, int j, int numRows, int numCols, ui:
     Node *bookNode = CSLoader::createNode("template/book.csb");
     CCLOG("height position %f", visibleSize.height + yOffset - (i + 1.2) * ((visibleSize.height) / (numRows + 1)));
     bookNode->setPosition(Vec2((j + 0.5) * visibleSize.width / numCols, visibleSize.height + yOffset - (i*1.125 + 1.45) * ((visibleSize.height) / (numRows + 1))));
-
+    
     Node* book = bookNode->getChildByName("book");
-
+    
     std::string storyId = storyJson["storyId"].GetString();
     std::string unlockStoryStr;
     localStorageGetItem(storyId + LEVEL, &unlockStoryStr);
@@ -298,7 +302,7 @@ void ScrollableCatalogue::createBook(int i, int j, int numRows, int numCols, ui:
     star1->setScale(0.75f);
     star1->setPosition(Vec2(book->getBoundingBox().size.width / 4, book->getBoundingBox().size.height * 3 / 4 -  335));
     book->addChild(star1, 4);
-
+    
     
     starFile = stars >= 2 ? "levelstep/star.png" : "levelstep/star_empty.png";
     auto star2 = Sprite::createWithSpriteFrameName(starFile);
@@ -306,15 +310,15 @@ void ScrollableCatalogue::createBook(int i, int j, int numRows, int numCols, ui:
     star2->setScale(0.75f);
     star2->setPosition(Vec2(book->getBoundingBox().size.width / 2, book->getBoundingBox().size.height * 3 / 4 - 335));
     book->addChild(star2, 4);
-
+    
     starFile = stars >= 3 ? "levelstep/star.png" : "levelstep/star_empty.png";
     auto star3 = Sprite::createWithSpriteFrameName(starFile);
     star3->setAnchorPoint(Vec2(0.5,0.5));
     star3->setScale(0.75f);
     star3->setPosition(Vec2(book->getBoundingBox().size.width * 3 / 4, book->getBoundingBox().size.height * 3 / 4 - 335));
-
+    
     book->addChild(star3, 4);
-
+    
     
     storyLockedMap.insert({"book_" + menuContext->to_string(index), isStoryLocked});
     bookNode->setName("book_" + menuContext->to_string(index));
@@ -339,18 +343,25 @@ void ScrollableCatalogue::createBook(int i, int j, int numRows, int numCols, ui:
             imageNode->addChild(lockSprite, 1);
         }
     }
-
+    
     
     std::string titleText = "";
     std::string titleKey = imageFile;
     std::string removeStr = "_thumbnail.png";
     
     std::string::size_type res = titleKey.find(removeStr);
+    if (res != std::string::npos) {
+    } else {
+        removeStr = "_thumbnail.jpg";
+        res = titleKey.find(removeStr);
+    }
     
     if (res != std::string::npos) {
         titleKey.erase(res, removeStr.length());
         std::replace(titleKey.begin(), titleKey.end(), ' ', '_');
         if(!titleKey.empty()) {
+            std::transform(titleKey.begin(), titleKey.end(), titleKey.begin(), ::tolower);
+            CCLOG("query title key %s", titleKey.c_str());
             if(titleMap.find(titleKey) != titleMap.end()) {
                 titleText = titleMap.at(titleKey);
                 Node* chooseText = bookNode->getChildByName("TextField");
@@ -366,7 +377,11 @@ void ScrollableCatalogue::createBook(int i, int j, int numRows, int numCols, ui:
                     }
                 }
                 
+            } else {
+                CCLOG("title not found %s", titleKey.c_str());
             }
+        } else {
+            CCLOG("title not found %s", titleKey.c_str());
         }
     }
     
@@ -416,7 +431,7 @@ void ScrollableCatalogue::loadStory(Ref* pSender, ui::Widget::TouchEventType eEv
                 if(storyLockedMap.find("book_" + clickedButton->getName()) != storyLockedMap.end()) {
                     sLocked = storyLockedMap.at("book_" + clickedButton->getName());
                 }
-
+                
                 if(sLocked) {
                     Node* bookNode = clickedButton->getParent()->getChildByName("book_" + clickedButton->getName());
                     if(bookNode != NULL) {
