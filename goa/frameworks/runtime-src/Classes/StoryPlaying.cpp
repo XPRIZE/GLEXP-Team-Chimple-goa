@@ -529,7 +529,6 @@ void StoryPlaying::createWordBubble() {
         _wordBubbleNode->setPosition(Vec2(visibleSize.width/2, visibleSize.height + 650));
         _wordBubbleNode->setVisible(false);
         
-        
         Node* soundWordNode = _wordBubbleNode->getChildByName(SOUND_BUTTON_WORD);
         
         if(soundWordNode != NULL) {
@@ -972,7 +971,10 @@ void StoryPlaying::previousStory(Ref* pSender, ui::Widget::TouchEventType eEvent
 void StoryPlaying::showText(std::string nodeName) {
     _wordBubbleNode->setVisible(true);
     Size visibleSize = Director::getInstance()->getVisibleSize();
-    translatedText(nodeName);
+    bool mappingFound = translatedText(nodeName);
+    if(!mappingFound)
+        return;
+    
     if(_textDisplayAnimationRunning) {
         this->unschedule(schedule_selector(StoryPlaying::removeWordBubble));
         displayTextAnimationFinished();
@@ -1020,6 +1022,7 @@ bool StoryPlaying::translatedText(std::string text) {
             if(chooseText != NULL) {
                 cocos2d::ui::TextField* chooseLabel = dynamic_cast<cocos2d::ui::TextField *>(chooseText);
                 if(chooseLabel != NULL) {
+                    chooseLabel->setTouchEnabled(false);
                     chooseLabel->setString(_pronouceWord);
                     chooseLabel->setFontSize(100);
                     chooseLabel->setTextHorizontalAlignment(TextHAlignment::CENTER);

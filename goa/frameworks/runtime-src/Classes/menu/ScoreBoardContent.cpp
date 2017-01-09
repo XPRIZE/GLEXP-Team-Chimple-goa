@@ -256,6 +256,7 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
     std::size_t isStories = _gameName.find("storyId");
     if (isStories!=std::string::npos) {
         _nextButton->setEnabled(false);
+        _replayButton->setVisible(false);
     }
     
     return true;
@@ -428,6 +429,9 @@ void ScoreBoardContext::processChildNodes(cocos2d::Node *rootNode) {
                     
                     if(button->getName() == "next") {
                         _nextButton = button;
+                    }
+                    if(button->getName() == "replay") {
+                        _replayButton = button;
                     }
                     
                 }
