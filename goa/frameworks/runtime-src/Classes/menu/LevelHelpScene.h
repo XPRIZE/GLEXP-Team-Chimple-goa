@@ -30,7 +30,9 @@ protected:
     int _currentLevel;
     std::string _gameName;
     std::string _helpText;
+    cocos2d::ui::Text *_text;
     std::vector<std::string> _videos;
+    std::vector<std::string> _videoNames;
     int _currentVideo;
     virtual void gotoGame(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)

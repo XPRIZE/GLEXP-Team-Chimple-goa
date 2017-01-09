@@ -86,7 +86,20 @@ bool LevelHelpScene::initWithGame(std::string gameName) {
                 int videoLevelIndex = 0;
                 std::string video;
                 std::vector<std::string> conceptVideos;
-                if(helpMap.HasMember("levels")) {
+                auto levelStr = LangUtil::getInstance()->getLang() + "_levels";
+                if(helpMap.HasMember(levelStr.c_str())) {
+                    const rapidjson::Value& levels = helpMap[levelStr.c_str()];
+                    assert(levels.IsArray());
+                    for (rapidjson::SizeType i = 0; i < levels.Size(); i++) {
+                        int level = levels[i].GetInt();
+                        if(level == _currentLevel || (level == 1 && _helpText.empty())) {
+                            _helpText = helpMap["help"].GetString();
+                            video = helpMap["video"].GetString();
+                            videoLevel = level;
+                            videoLevelIndex = i;
+                        }
+                    }
+                } else if(helpMap.HasMember("levels")) {
                     const rapidjson::Value& levels = helpMap["levels"];
                     assert(levels.IsArray());
                     for (rapidjson::SizeType i = 0; i < levels.Size(); i++) {
@@ -101,6 +114,7 @@ bool LevelHelpScene::initWithGame(std::string gameName) {
                 }
                 if(videoLevel > 1) {
                     _videos.clear();
+                    _videoNames.clear();
                 }
                 if((videoLevel == _currentLevel || videoLevel == 1) && helpMap.HasMember("concepts")) {
                     const rapidjson::Value& concepts = helpMap["concepts"];
@@ -108,19 +122,32 @@ bool LevelHelpScene::initWithGame(std::string gameName) {
                     for (rapidjson::SizeType i = 0; i < concepts.Size(); i++) {
                         std::string concept  = CONCEPTS_DIR + concepts[i].GetString() + VIDEO_EXT;
                         _videos.push_back(concept);
+                        _videoNames.push_back(concepts[i].GetString());
                     }
                 }
-                if(helpMap.HasMember("level_concepts")) {
+                auto levelConceptStr = LangUtil::getInstance()->getLang() + "_level_concepts";
+                if(helpMap.HasMember(levelConceptStr.c_str())) {
+                    const rapidjson::Value& levelConcepts = helpMap[levelConceptStr.c_str()];
+                    assert(levelConcepts.IsArray());
+                    std::string levelConcept;
+                    if(videoLevel == _currentLevel && levelConcepts.Size() >= videoLevel) {
+                        levelConcept = CONCEPTS_DIR + levelConcepts[videoLevelIndex].GetString() + VIDEO_EXT;
+                        _videos.push_back(levelConcept);
+                        _videoNames.push_back(levelConcepts[videoLevelIndex].GetString());
+                    }
+                } else if(helpMap.HasMember("level_concepts")) {
                     const rapidjson::Value& levelConcepts = helpMap["level_concepts"];
                     assert(levelConcepts.IsArray());
                     std::string levelConcept;
                     if(videoLevel == _currentLevel && levelConcepts.Size() >= videoLevel) {
                         levelConcept = CONCEPTS_DIR + levelConcepts[videoLevelIndex].GetString() + VIDEO_EXT;
                         _videos.push_back(levelConcept);
+                        _videoNames.push_back(levelConcepts[videoLevelIndex].GetString());
                     }
                 }
                 if(!video.empty()) {
                     _videos.push_back(video);
+                    _videoNames.push_back(video);
                 }
                 if(helpMap.HasMember("writing")) {
                     const rapidjson::Value& writing = helpMap["writing"];
@@ -165,6 +192,9 @@ bool LevelHelpScene::initWithGame(std::string gameName) {
         if(!video.empty()) {
             _videos.clear();
             _videos.push_back(video);
+            _videoNames.clear();
+            _videoNames.push_back(video);
+            
         }
     }
     
@@ -177,6 +207,7 @@ bool LevelHelpScene::initWithGame(std::string gameName) {
 }
 
 void LevelHelpScene::onEnterTransitionDidFinish() {
+    Node::onEnterTransitionDidFinish();
     auto bg = getChildByName("bg");
     Size visibleSize = Director::getInstance()->getVisibleSize();
     if (visibleSize.width > 2560) {
@@ -204,17 +235,24 @@ void LevelHelpScene::onEnterTransitionDidFinish() {
 //    addChild(button);
     
     auto textField = static_cast<TextField*> (bg->getChildByName("TextField_1"));
-    auto text = Text::create(LangUtil::getInstance()->translateString(_helpText), "fonts/Roboto-Regular.ttf", 64);
-    text->setTextColor(Color4B::BLACK);
+    std::string videoText;
+    if(_currentVideo + 1 == _videos.size()) {
+        videoText = LangUtil::getInstance()->translateString(_helpText);
+    } else {
+        videoText = LangUtil::getInstance()->translateString(_videoNames[_currentVideo]);
+    }
+
+    _text = Text::create(videoText, "fonts/Roboto-Regular.ttf", 64);
+    _text->setTextColor(Color4B::BLACK);
     auto pos = textField->getPosition();
     auto wpos = bg->convertToWorldSpace(pos);
-    text->setPosition(wpos);
-    text->setTextAreaSize(Size(2000, 0));
-    text->ignoreContentAdaptWithSize(true);
-    text->setEnabled(false);
-    text->setTouchEnabled(false);
-    text->setFocusEnabled(false);
-    addChild(text);
+    _text->setPosition(wpos);
+    _text->setTextAreaSize(Size(2000, 0));
+    _text->ignoreContentAdaptWithSize(true);
+    _text->setEnabled(false);
+    _text->setTouchEnabled(false);
+    _text->setFocusEnabled(false);
+    addChild(_text);
     bg->removeChild(textField);
     videoPlayStart();
 }
@@ -316,6 +354,11 @@ void LevelHelpScene::gotoGame(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchE
         if(_currentVideo < _videos.size()) {
             removeChild(getChildByName("bg")->getChildByName("screen_1")->getChildByName("video"));
             getChildByName("bg")->getChildByName("screen_1")->removeChild(_resumeButton);
+            if(_currentVideo + 1 == _videos.size()) {
+                _text->setString(LangUtil::getInstance()->translateString(_helpText));
+            } else {
+                _text->setString(LangUtil::getInstance()->translateString(_videoNames[_currentVideo]));
+            }
             videoPlayStart();
         } else {
             MenuContext::launchGameFinally(_gameName);
