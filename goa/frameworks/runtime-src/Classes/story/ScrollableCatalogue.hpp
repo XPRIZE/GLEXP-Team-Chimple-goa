@@ -44,17 +44,16 @@ protected:
     cocos2d::ui::PageView* _pageView;
     MenuContext* menuContext;
     rapidjson::Value storyConfigs;
-    int selectedIndex;
-    
+    int selectedIndex;    
+    bool lockAll;
     std::map<std::string, std::string> titleMap;
 
     void addGreyLayer();
     bool greyLayerTouched(cocos2d::Touch *touch, cocos2d::Event *event);
-    cocos2d::ui::Button* createButton(int index, const rapidjson::Value& storyJson);
     
     void loadStory(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     
-    void transitionToStory(float dt);
+    void transitionToStory(float dt);    
 };
 
 
