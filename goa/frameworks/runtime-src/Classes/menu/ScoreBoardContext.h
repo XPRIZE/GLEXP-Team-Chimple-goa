@@ -57,5 +57,6 @@ private:
     int _stars;
     std::string _numberOfLevels;
     cocos2d::ui::Button * _nextButton;
+    cocos2d::ui::Button * _replayButton;
 };
 #endif /* ScoreBoardContext_h */
