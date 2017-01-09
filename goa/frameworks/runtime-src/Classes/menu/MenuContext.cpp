@@ -1084,6 +1084,40 @@ void MenuContext::changePhoto(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchE
     }
 }
 
+
+void MenuContext::createNewlockStoryDocument(std::string storyToUnlock) {
+    rapidjson::Document documentUnlock;
+    rapidjson::Document::AllocatorType& allocator = documentUnlock.GetAllocator();
+    documentUnlock.SetObject();
+    documentUnlock.AddMember("locked", true, allocator);
+    documentUnlock.AddMember("unlockUsed", false, allocator);
+    documentUnlock.AddMember("timesRead", 0, allocator);
+    documentUnlock.AddMember("star", 0, allocator);
+    rapidjson::StringBuffer buffer;
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+    documentUnlock.Accept(writer);
+    const char* output = buffer.GetString();
+    localStorageSetItem(storyToUnlock + LEVEL, output);
+}
+
+
+
+void MenuContext::createNewUnlockStoryDocument(std::string storyToUnlock) {
+    rapidjson::Document documentUnlock;
+    rapidjson::Document::AllocatorType& allocator = documentUnlock.GetAllocator();
+    documentUnlock.SetObject();
+    documentUnlock.AddMember("locked", false, allocator);
+    documentUnlock.AddMember("unlockUsed", false, allocator);
+    documentUnlock.AddMember("timesRead", 0, allocator);
+    documentUnlock.AddMember("star", 0, allocator);
+    rapidjson::StringBuffer buffer;
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+    documentUnlock.Accept(writer);
+    const char* output = buffer.GetString();
+    localStorageSetItem(storyToUnlock + LEVEL, output);
+}
+
+
 void MenuContext::createUnlockStoryDocument(std::string storyToUnlock) {
     std::string unlockStoryStr;
     localStorageGetItem(storyToUnlock + LEVEL, &unlockStoryStr);

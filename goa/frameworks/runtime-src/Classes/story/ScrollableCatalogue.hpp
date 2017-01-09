@@ -47,6 +47,7 @@ protected:
     int selectedIndex;    
     bool lockAll;
     std::map<std::string, std::string> titleMap;
+    std::map<std::string, bool> storyLockedMap;
 
     void addGreyLayer();
     bool greyLayerTouched(cocos2d::Touch *touch, cocos2d::Event *event);
