@@ -130,9 +130,9 @@ void StoryCoverPage::loadCoverPage(std::string coverPageUrl) {
             std::string chooseText = LangUtil::getInstance()->translateString(coverPageText);
             chooseText = QuestionHandler::wrapString(chooseText, 30);
             chooseLabel->setString(chooseText);
-            chooseLabel->setFontSize(150);
+            chooseLabel->setFontSize(130);
             chooseLabel->setFontName("fonts/Roboto-Regular.ttf");
-            chooseLabel->setTextColor(Color4B::WHITE);
+            chooseLabel->setTextColor(Color4B::BLACK);
         }
     }
     
