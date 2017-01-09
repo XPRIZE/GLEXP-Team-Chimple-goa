@@ -13,6 +13,7 @@
 
 #include "StoryCoverPage.hpp"
 #include "StoryPlaying.hpp"
+#include "story/QuestionHandler.h"
 
 static const std::string STORY_JSON = ".storyJSON";
 static const std::string SOUND_ENABLED_FOR_STORIES = ".soundEnabledForStories";
@@ -127,6 +128,7 @@ void StoryCoverPage::loadCoverPage(std::string coverPageUrl) {
             }
             
             std::string chooseText = LangUtil::getInstance()->translateString(coverPageText);
+            chooseText = QuestionHandler::wrapString(chooseText, 30);
             chooseLabel->setString(chooseText);
             chooseLabel->setFontSize(150);
             chooseLabel->setFontName("fonts/Roboto-Regular.ttf");
@@ -142,7 +144,7 @@ void StoryCoverPage::loadCoverPage(std::string coverPageUrl) {
         }
     }
     
-    _soundFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + _baseDir + "_0.mp3";
+    _soundFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + _baseDir + "_0.ogg";
     
     //get configuration
     
@@ -175,15 +177,18 @@ void StoryCoverPage::onExitTransitionDidStart() {
 }
 
 
-void StoryCoverPage::onEnterTransitionDidFinish() {
-    Node::onEnterTransitionDidFinish();
-    
+void StoryCoverPage::narrateDialog(float dt) {
     if(_soundEnabled.compare("true") == 0) {
         if(!_soundFile.empty() && FileUtils::getInstance()->isFileExist(_soundFile)) {
             CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0f);
             CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(_soundFile.c_str(), false);
         }
     }
+}
+
+void StoryCoverPage::onEnterTransitionDidFinish() {
+    Node::onEnterTransitionDidFinish();
+    this->scheduleOnce(schedule_selector(StoryCoverPage::narrateDialog), 1.0f);
 }
 
 void StoryCoverPage::playSound(Ref* pSender, ui::Widget::TouchEventType eEventType)
@@ -243,6 +248,7 @@ void StoryCoverPage::play(Ref* pSender, ui::Widget::TouchEventType eEventType)
             break;
         case ui::Widget::TouchEventType::ENDED:
         {
+            clickedButton->setVisible(false);
             clickedButton->setEnabled(false);
             
             Director::getInstance()->replaceScene(TransitionFade::create(1.0, StoryPlaying::createScene(0, _storyId), Color3B::BLACK));
