@@ -299,12 +299,15 @@ void ScrollableCatalogue::createBook(int i, int j, int numRows, int numCols, ui:
     star1->setPosition(Vec2(book->getBoundingBox().size.width / 4, book->getBoundingBox().size.height * 3 / 4 -  335));
     book->addChild(star1, 4);
 
+    
+    starFile = stars >= 2 ? "levelstep/star.png" : "levelstep/star_empty.png";
     auto star2 = Sprite::createWithSpriteFrameName(starFile);
     star2->setAnchorPoint(Vec2(0.5,0.5));
     star2->setScale(0.75f);
     star2->setPosition(Vec2(book->getBoundingBox().size.width / 2, book->getBoundingBox().size.height * 3 / 4 - 335));
     book->addChild(star2, 4);
 
+    starFile = stars >= 3 ? "levelstep/star.png" : "levelstep/star_empty.png";
     auto star3 = Sprite::createWithSpriteFrameName(starFile);
     star3->setAnchorPoint(Vec2(0.5,0.5));
     star3->setScale(0.75f);
