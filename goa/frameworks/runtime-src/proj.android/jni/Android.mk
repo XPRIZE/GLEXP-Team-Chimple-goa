@@ -183,6 +183,11 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/mini_games/Shape.cpp \
 					../../Classes/mini_games/DinoGame.cpp \
 					../../Classes/mini_games/AlphabetWriting.cpp \
+					../../Classes/story/QuestionHandler.cpp \
+					../../Classes/story/MultipleChoice.cpp \
+					../../Classes/story/FillInTheBlanks.cpp \
+					../../Classes/story/Meaning.cpp \
+					../../Classes/story/Picture.cpp \
                     ../../Classes/AsyncTask.cpp \
                     ../../Classes/LipiTKNode.cpp \
                     ../../Classes/LipiTKInterface.cpp \
@@ -192,7 +197,10 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/WordBubble.cpp \
 					../../Classes/lang/SwahiliUtil.cpp \
 					../../Classes/CopyRight.cpp \
-					../../Classes/ChooseCharacter.cpp
+					../../Classes/ChooseCharacter.cpp \
+					../../Classes/StoryPlaying.cpp \
+					../../Classes/story/ScrollableCatalogue.cpp \
+					../../Classes/StoryCoverPage.cpp
 					
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../extensions
