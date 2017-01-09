@@ -484,7 +484,9 @@ void Pillar::update(float dt)
 			{
 				
 				this->removeChild(_cakeMove);
-				
+				auto timeline1 = CSLoader::createTimeline(_scenePath.at("character"));
+				_character->runAction(timeline1);
+				timeline1->play(_scenePath.at("cry"), false);
 				if (_pillarRef.size() != 0 )
 				{
 					CCLOG("initial = % d", _pillarRef.size());
@@ -726,7 +728,7 @@ bool Pillar::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				}
 				auto timeline1 = CSLoader::createTimeline(_scenePath.at("character"));
 				_character->runAction(timeline1);
-				timeline1->play(_scenePath.at("cry"), false);
+				//timeline1->play(_scenePath.at("cry"), false);
 				runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() {
 					newCake();
 					ladderMove();
