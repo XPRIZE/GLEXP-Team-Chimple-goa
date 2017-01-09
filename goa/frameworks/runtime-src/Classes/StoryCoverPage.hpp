@@ -51,6 +51,8 @@ CC_CONSTRUCTOR_ACCESS:
     
     void onEnterTransitionDidFinish();
     
+    void narrateDialog(float dt);
+    
     
 private:
     std::string _baseDir;
