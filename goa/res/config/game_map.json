@@ -2616,7 +2616,6 @@
 }, {
 	"name": "story-telling",
 	"title": "Create A Story",
-	"unlock": true,
 	"cIcon": "gameicons/story_maker_pressed.png",
 	"icon": "gameicons/story_maker.png",
 	"multiPlayer": false,
@@ -2625,8 +2624,7 @@
 	"script": "src/start/storytelling.js"
 }, {
 	"name": "map",
-	"title": "Be a Hero",
-	"unlock": true,
+	"title": "Hero",
 	"cIcon": "gameicons/hero_pressed.png",
 	"icon": "gameicons/hero.png",
 	"multiPlayer": false,
