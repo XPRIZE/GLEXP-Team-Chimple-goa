@@ -435,7 +435,47 @@
         "frontgroundJson": "bubble_shooter_level/frontground.json",
         "maingroundJson": "bubble_shooter_level/mainground.json",
         "menuPlist": "bubble_shooter_level/bubble_shooter_level.plist",
-        "menuPng": "bubble_shooter_level/bubble_shooter_level.png"
+        "menuPng": "bubble_shooter_level/bubble_shooter_level.png",
+        "lang": {
+            "swa": {
+                "labels": [
+                    "ABC",
+                    "DEF",
+                    "GHI",
+                    "JKL",
+                    "MNO",
+                    "PRS",
+                    "TUV",
+                    "WYZ",
+                    "A-Z",
+                    "0-2",
+                    "3-5",
+                    "6-8",
+                    "9",
+                    "0-9"
+                ],
+                "numLevels": "14"
+            },
+            "eng": {
+                "labels": [
+                    "ABC",
+                    "DEF",
+                    "GHI",
+                    "JKL",
+                    "MNO",
+                    "PQR",
+                    "STU",
+                    "VWX",
+                    "YZ",
+                    "0-2",
+                    "3-5",
+                    "6-8",
+                    "9",
+                    "0-9"
+                ],
+                "numLevels": "14"
+            }
+        }
     },
     {
         "name": "Cannon Ball",
@@ -759,7 +799,7 @@
         "maingroundJson": "crossthebridgelevel/mainground.json",
         "menuPlist": "crossthebridgelevel/crossthebridgelevel.plist",
         "menuPng": "crossthebridgelevel/crossthebridgelevel.png",
-              "lang": {
+         "lang": {
             "swa": {
                 "labels": [
                     "A",
@@ -785,9 +825,11 @@
                     "V",
                     "W",
                     "Y",
-                    "Z"
+                    "Z",
+                    "A-Z",
+                    "A-Z"
                 ],
-                "numLevels": "24"
+                "numLevels": "26"
             },
             "eng": {
                 "labels": [
@@ -1908,27 +1950,27 @@
         "span": "4",
         "numLevels": "30",
         "rewards" : {
-            "15": {
+            "2": {
                 "unlock": "owl"
             },
-            "10": {
+            "4": {
                 "badge": "s/yummy_icecream",
                 "unlockMin": "order",
                 "min": "5"
             },
-            "20": {
+            "10": {
               "badge": "m/broken_branch"
             },
-            "36": {
+            "15": {
               "badge": "p/sweet_cupcake"
             },
-            "52": {
+            "20": {
               "badge": "g/yummy_lollipop"
             },
-            "65": {
+            "25": {
               "badge": "b/slinging_slingshot"
             },
-            "75": {
+            "30": {
                   "badge": "c/swirly_shots"
               }
         },
