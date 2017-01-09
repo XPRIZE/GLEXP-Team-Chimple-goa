@@ -201,8 +201,8 @@ bool ScrollableGameMapScene::init() {
         _pageView->addChild(_parallax);
         
         auto topBarGames = getTopBarGames();
-        topBarGames.insert(topBarGames.begin(), "story-play");
-        std::map<std::string, int> topBarGamesIndexes = {{"story-play", 0}};
+        topBarGames.insert(topBarGames.begin(), "story-catalogue");
+        std::map<std::string, int> topBarGamesIndexes = {{"story-catalogue", 0}};
         int index = 0;
         int yOffset = 50;
         
@@ -385,7 +385,7 @@ std::vector<std::string> ScrollableGameMapScene::getTopBarGames() {
 }
 
 void ScrollableGameMapScene::pushTopBarGame(std::string game) {
-    if(game == "story-play") {
+    if(game == "story-catalogue") {
         return;
     }
     auto topBarGames = getTopBarGames();
@@ -431,10 +431,6 @@ void ScrollableGameMapScene::nagivateToGame(std::string gameName) {
     else if(gameName == "story-telling")
     {
         ScriptingCore::getInstance()->runScript("src/start/storytelling.js");
-    }
-    else if(gameName == "story-play")
-    {
-        ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
     }
     else if(gameName == "map")
     {

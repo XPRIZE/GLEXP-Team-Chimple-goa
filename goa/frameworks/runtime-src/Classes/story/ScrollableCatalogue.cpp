@@ -46,7 +46,7 @@ Scene* ScrollableCatalogue::createScene() {
     auto scene = Scene::create();
     auto layer = ScrollableCatalogue::create();
     scene->addChild(layer);
-    layer->menuContext = MenuContext::create(layer, "story-play");
+    layer->menuContext = MenuContext::create(layer, "story-catalogue");
     scene->addChild(layer->menuContext);
     return scene;
 }
