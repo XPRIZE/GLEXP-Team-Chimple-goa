@@ -32,7 +32,7 @@ for subdir in os.walk(dirname + os.path.sep + "cocosstudio" + os.path.sep + dirn
 		imagefound = 1
 	if(imagefound):
 		print "Creating TexturePacker files for: " + tempdir + os.path.sep + dirname + os.path.sep + subdirname
-		param = ["TexturePacker", "--format", "cocos2d-x", "--algorithm", "MaxRects", "--maxrects-heuristics", "Best", "--opt", "RGBA4444", "--data", dirname + "/Resources/res/{v}/" + subdirname + "/" + imagedirname + ".plist", "--png-opt-level", "1", "--sheet", dirname + "/Resources/res/{v}/" + subdirname + "/" + imagedirname + ".png", "--variant", "1:HDR", "--variant", "0.5:HD", "--variant", "0.25:SD", "--prepend-folder-name", tempdir + os.path.sep + dirname]
+		param = ["TexturePacker", "--format", "cocos2d-x", "--algorithm", "MaxRects", "--maxrects-heuristics", "Best", "--max-size", "4096",  "--data", dirname + "/Resources/res/{v}/" + subdirname + "/" + imagedirname + ".plist", "--png-opt-level", "1", "--sheet", dirname + "/Resources/res/{v}/" + subdirname + "/" + imagedirname + ".png", "--variant", "1:HDR", "--variant", "0.5:HD", "--variant", "0.25:SD", "--prepend-folder-name", tempdir + os.path.sep + dirname]
 		param.extend(sys.argv[2:])
 		print param
 		check_call(param, stderr=STDOUT)
