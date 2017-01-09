@@ -86,6 +86,9 @@ private:
 	cocos2d::EventListenerTouchOneByOne * _listenerTouches;
     void processLipiTK();
 	virtual void removeClearButton();
+	virtual void setClearButtonTexture(const std::string normalImage,
+		const std::string selectedImage,
+		const std::string disableImage );
 };
 
 #endif /* LipiTKNode_h */
