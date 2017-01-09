@@ -21,6 +21,7 @@ USING_NS_CC;
 
 static const std::string STORY_JSON = ".storyJSON";
 static const std::string UNLOCKED_STORY_ID_ORDER = ".unlockedStoryIdOrder";
+static const std::string LEVEL = ".level";
 
 ScrollableCatalogue::ScrollableCatalogue():
 _greyLayer(NULL)
@@ -101,11 +102,73 @@ bool ScrollableCatalogue::init() {
     {
         return false;
     }
+    
+    bool isConfigLoadedSuccessfully = false;
+    int numberOfPages = 0;
+    int numRows = 0;
+    int numCols = 0;
+    //iterate and create data
+    std::vector<int> orderedStories;
+
+    
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("template.plist");
+    
+    //create list of stories which are locked
+    
+    
+    std::string contents = FileUtils::getInstance()->getStringFromFile("misc/shelfConfig.json");
+    
+    rapidjson::Document d;
+    
+    if (false == d.Parse<0>(contents.c_str()).HasParseError()) {
+        storyConfigs = d["stories"];
+        assert(storyConfigs.IsArray());
         
+        numRows = STORY_NUMBER_OF_BUTTONS_ROWS;
+        numCols = STORY_NUMBER_OF_BUTTONS_COLS;
+        
+        numberOfPages = ceil((float) storyConfigs.Size() / (numRows * numCols));
+        
+        for (int dIndex = 0; dIndex < storyConfigs.Size(); dIndex++) {
+            const rapidjson::Value& story = storyConfigs[dIndex];
+            std::string storyId = story["storyId"].GetString();
+            CCLOG("story %s", storyId.c_str());
+            orderedStories.push_back(dIndex);
+        }
+        
+        isConfigLoadedSuccessfully = true;
+    }
+    
+
+    std::string lockedStoriesStr;
+    localStorageGetItem(UNLOCKED_STORY_ID_ORDER, &lockedStoriesStr);
+
+    if(lockedStoriesStr.empty()) {
+        rapidjson::Document dLockedStoriesDoc;
+        rapidjson::Document::AllocatorType& allocator = dLockedStoriesDoc.GetAllocator();
+        dLockedStoriesDoc.SetArray();
+        
+        for (int sIndex = 2; sIndex < storyConfigs.Size(); sIndex++) {
+            const rapidjson::Value& story = storyConfigs[sIndex];
+            std::string storyId = story["storyId"].GetString();
+            dLockedStoriesDoc.PushBack(rapidjson::Value(storyId.c_str(), allocator).Move(), allocator);
+            menuContext->createNewlockStoryDocument(storyId);
+        }
+        
+        rapidjson::StringBuffer buffer;
+        rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+        dLockedStoriesDoc.Accept(writer);
+        const char* output = buffer.GetString();
+        localStorageSetItem(UNLOCKED_STORY_ID_ORDER, output);
+        
+        menuContext->createNewUnlockStoryDocument("storyId_3");
+        menuContext->createNewUnlockStoryDocument("storyId_6");
+    }
+    
+    
     
     std::string titlesFileUrl =  "story/" + TextGenerator::getInstance()->getLang() + "/titles.json";
     std::string bookTitles = "";
@@ -133,9 +196,6 @@ bool ScrollableCatalogue::init() {
     }
     
     
-    std::string unlockedStoryIdOrderStr;
-    localStorageGetItem(UNLOCKED_STORY_ID_ORDER, &unlockedStoryIdOrderStr);
-    CCLOG("storyIdOrderStr %s", unlockedStoryIdOrderStr.c_str());
 
     
     std::string unlockStr;
@@ -146,30 +206,7 @@ bool ScrollableCatalogue::init() {
     }
 
     
-    std::string contents = FileUtils::getInstance()->getStringFromFile("misc/shelfConfig.json");
-    
-    rapidjson::Document d;
-    
-    if (false == d.Parse<0>(contents.c_str()).HasParseError()) {
-        storyConfigs = d["stories"];
-        assert(storyConfigs.IsArray());
-        
-        const int numRows = STORY_NUMBER_OF_BUTTONS_ROWS;
-        const int numCols = STORY_NUMBER_OF_BUTTONS_COLS;
-
-        const int numberOfPages = ceil((float) storyConfigs.Size() / (numRows * numCols));
-
-        //iterate and create data
-        std::vector<int> orderedStories;
-        
-        for (int dIndex = 0; dIndex < storyConfigs.Size(); dIndex++) {
-            const rapidjson::Value& story = storyConfigs[dIndex];
-            std::string storyId = story["storyId"].GetString();
-            CCLOG("story %s", storyId.c_str());
-            orderedStories.push_back(dIndex);
-        }
-        
-        
+    if (isConfigLoadedSuccessfully) {
         _pageView = ui::PageView::create();
         addChild(_pageView);
         
@@ -219,22 +256,6 @@ bool ScrollableCatalogue::init() {
                         }
                         
                         createBook(i,j,numRows,numCols,page,index, story,yOffset,bookColor);
-//                        auto button = createButton(index, story);
-//                        if(button != nullptr) {
-//                            button->setPosition(Vec2((j + 0.5) * visibleSize.width / numCols, visibleSize.height + yOffset - (i + 1.5) * ((visibleSize.height + yOffset) / (numRows + 1))));
-//                            //button->addTouchEventListener(CC_CALLBACK_2(ScrollableCatalogue::loadStory, this));
-//                            
-//                            page->addChild(button);
-//                        }
-                        
-//                        auto button = createButton(index, story);
-//                        if(button != nullptr) {
-//                            button->setPosition(Vec2((j + 0.5) * visibleSize.width / numCols, visibleSize.height + yOffset - (i + 1.5) * ((visibleSize.height + yOffset) / (numRows + 1))));
-//                            button->addTouchEventListener(CC_CALLBACK_2(ScrollableCatalogue::loadStory, this));
-//                            
-//                            page->addChild(button);
-//                        }
-                        
                     }
                     index++;
                 }
@@ -257,7 +278,18 @@ void ScrollableCatalogue::createBook(int i, int j, int numRows, int numCols, ui:
     Node *bookNode = CSLoader::createNode("template/book.csb");
     CCLOG("height position %f", visibleSize.height + yOffset - (i + 1.2) * ((visibleSize.height) / (numRows + 1)));
     bookNode->setPosition(Vec2((j + 0.5) * visibleSize.width / numCols, visibleSize.height + yOffset - (i*1.125 + 1.45) * ((visibleSize.height) / (numRows + 1))));
+
     std::string storyId = storyJson["storyId"].GetString();
+    std::string unlockStoryStr;
+    localStorageGetItem(storyId + LEVEL, &unlockStoryStr);
+    
+    bool isStoryLocked = true;
+    rapidjson::Document d;
+    if (false == d.Parse<0>(unlockStoryStr.c_str()).HasParseError()) {
+        isStoryLocked = d["locked"].GetBool();
+    }
+    
+    storyLockedMap.insert({"book_" + menuContext->to_string(index), isStoryLocked});
     bookNode->setName("book_" + menuContext->to_string(index));
     Node* book = bookNode->getChildByName("book");
     book->setColor(bookColor);
@@ -274,13 +306,13 @@ void ScrollableCatalogue::createBook(int i, int j, int numRows, int numCols, ui:
     if(!lockAll) {
         //dont render lock
     } else {
-        Sprite* lockSprite = Sprite::create("template/lock.png");
-        lockSprite->setAnchorPoint(Vec2(0.5,0.5));
-        lockSprite->setPosition(Vec2(imageNode->getPosition().x, imageNode->getPosition().y + 150));
-        imageNode->addChild(lockSprite, 1);
+        if(isStoryLocked) {
+            Sprite* lockSprite = Sprite::create("template/lock.png");
+            lockSprite->setAnchorPoint(Vec2(0.5,0.5));
+            lockSprite->setPosition(Vec2(imageNode->getPosition().x, imageNode->getPosition().y + 150));
+            imageNode->addChild(lockSprite, 1);
+        }
     }
-
-    
 
     
     std::string titleText = "";
@@ -346,28 +378,31 @@ void ScrollableCatalogue::loadStory(Ref* pSender, ui::Widget::TouchEventType eEv
         case ui::Widget::TouchEventType::ENDED:
         {
             selectedIndex = atoi(clickedButton->getName().c_str());
+            
             if(!lockAll) {
                 addGreyLayer();
                 clickedButton->setEnabled(false);
                 selectedIndex = atoi(clickedButton->getName().c_str());
                 this->scheduleOnce(schedule_selector(ScrollableCatalogue::transitionToStory), 1.5);
             } else {
-                //check if story is really unlocked
-                if(true) {
+                bool sLocked = false;
+                if(storyLockedMap.find("book_" + clickedButton->getName()) != storyLockedMap.end()) {
+                    sLocked = storyLockedMap.at("book_" + clickedButton->getName());
+                }
+
+                if(sLocked) {
                     Node* bookNode = clickedButton->getParent()->getChildByName("book_" + clickedButton->getName());
                     if(bookNode != NULL) {
                         bookNode->runAction(FShake::actionWithDuration(1.0f, 10.0f));
                     }
-                    
                 } else {
                     addGreyLayer();
                     clickedButton->setEnabled(false);
                     selectedIndex = atoi(clickedButton->getName().c_str());
                     this->scheduleOnce(schedule_selector(ScrollableCatalogue::transitionToStory), 1.5);
-                    
                 }
-                
             }
+            
             break;
         }
             

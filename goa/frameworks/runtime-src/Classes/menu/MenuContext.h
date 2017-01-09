@@ -87,6 +87,9 @@ CC_CONSTRUCTOR_ACCESS:
     void launchGame(std::string gameName);
     void removeMenu();
     
+    void createNewUnlockStoryDocument(std::string storyToUnlock);
+    void createNewlockStoryDocument(std::string storyTolock);
+    
     static void launchGameFromJS(std::string gameName);
     static void launchGameFinally(std::string gameName);
     
@@ -133,9 +136,11 @@ protected:
     void normalFace();
 	void addCalculator(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void removeMenuOnly();
+
     void unlockNextStory();
     void createUnlockStoryDocument(std::string storyToUnlock);
-
+    
+    
 	void showRewards();
     
     cocostudio::timeline::SkeletonNode* _character;
