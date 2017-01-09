@@ -1194,7 +1194,8 @@ void MenuContext::showScore() {
 	_menuButton->setEnabled(false);
 	if (_closeButton != nullptr) {
 		_closeButton->setEnabled(false);
-		this->removeChild(_showAnswerLayer);
+		_showAnswerLayer->removeFromParent();
+        _showAnswerLayer = NULL;
 	}
 	else 
 	{
@@ -1531,6 +1532,12 @@ void MenuContext::wordPairList(std::string question, std::string answer,bool isI
 	}
 }
 
+void MenuContext::closeAnswerLayer(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
+    if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
+        showScore();
+    }
+}
+
 /*
  type wordPair for synonyms,antonyms,homonyms,plurals
  type word for words,list of nouns etc...
@@ -1540,6 +1547,9 @@ void MenuContext::wordPairList(std::string question, std::string answer,bool isI
 
 void MenuContext::showAnswer(std::string type, std::string header)
 {
+    if(_showAnswerLayer != NULL) {
+        return;
+    }
 	addGreyLayer();
 	pauseNodeAndDescendants(_main);
 	_menuButton->setEnabled(false);
@@ -1570,7 +1580,7 @@ void MenuContext::showAnswer(std::string type, std::string header)
 	headerBlock->addChild(label1);
 
 	_closeButton = Button::create("menu/close.png", "menu/close.png", "menu/close.png", Widget::TextureResType::LOCAL);
-	_closeButton->addTouchEventListener(CC_CALLBACK_0(MenuContext::showScore, this));
+	_closeButton->addTouchEventListener(CC_CALLBACK_2(MenuContext::closeAnswerLayer, this));
 	_closeButton->setAnchorPoint(Vec2(0, 1));
 	_closeButton->setPosition(Vec2(0, visibleSize.height));
 	_showAnswerLayer->addChild(_closeButton);
