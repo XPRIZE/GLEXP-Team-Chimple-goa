@@ -113,7 +113,8 @@ std::string QuestionHandler::getBaseDir() {
 }
 
 bool QuestionHandler::initWithStoryId(std::string storyId, std::string baseDir) {
-        _baseDir = baseDir;
+    _storyId = storyId;
+    _baseDir = baseDir;
     std::string questionsJson = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + ".questions.json";
     if(FileUtils::getInstance()->isFileExist(questionsJson)) {
         std::string jsonData = FileUtils::getInstance()->getStringFromFile(questionsJson);

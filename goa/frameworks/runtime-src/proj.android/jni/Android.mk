@@ -188,6 +188,7 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/story/FillInTheBlanks.cpp \
 					../../Classes/story/Meaning.cpp \
 					../../Classes/story/Picture.cpp \
+					../../Classes/story/ScrollableCatalogue.cpp \
                     ../../Classes/AsyncTask.cpp \
                     ../../Classes/LipiTKNode.cpp \
                     ../../Classes/LipiTKInterface.cpp \

@@ -11,324 +11,9 @@
         "script": "src/NonJSGameLauncher.js"
     },    
     {
-        "name": "dino",
-        "title": "Alphabet",
-        "cIcon": "gameicons/dino_pressed.png",
-        "icon": "gameicons/dino.png",
-        "multiPlayer": false,
-        "isJSGame": false,
-        "script": "src/NonJSGameLauncher.js",
-        "span": "2",
-        "numLevels": "3",
-        "unlock": true,
-        "rewards" : {
-            "1": {
-                 "badge": "s/cute_dino",
-                "unlock": "EndlessRunner"
-            },
-            "2": {
-                "badge": "g/old_gem",
-                "unlockMin": "Kung Fu Alpha",
-                "min": "4"
-            },
-            "3": {
-                "badge": "c/choco_saur"
-            }
-        },
-        "backgroundJson": "dinolevel/Layer1.json",
-        "foregroundJson": "dinolevel/Layer3.json",
-        "frontgroundJson": "dinolevel/Layer4.json",
-        "maingroundJson": "dinolevel/Layer2.json",
-        "menuPlist": "dinolevel/dinolevel.plist",
-        "menuPng": "dinolevel/dinolevel.png"
-    },
-    {
-        "name": "EndlessRunner",
-        "title": "Run and Catch",
-        "cIcon": "gameicons/EndlessRunner_pressed.png",
-        "icon": "gameicons/EndlessRunner.png",
-        "multiPlayer": false,
-        "isJSGame": false,
-        "script": "src/NonJSGameLauncher.js",
-        "span": "5",
-        "numLevels": "28",
-        "backgroundJson": "endlessrunner/Layer1.json",
-        "foregroundJson": "endlessrunner/Layer3.json",
-        "frontgroundJson": "endlessrunner/Layer4.json",
-        "maingroundJson": "endlessrunner/Layer2.json",
-        "menuPlist": "endlessrunner/endlessrunner_01.plist",
-        "menuPng": "endlessrunner/endlessrunner_01.png",
-        "rewards": {
-            "1": {
-              "unlock": "book"
-            },
-            "5": {
-              "badge": "s/butterfly_net",
-              "unlockMin": "Kung Fu Alpha",
-              "min": "4"
-            },
-            "10": {
-              "badge": "m/speed_runner"
-            },
-            "15": {
-              "badge": "p/cracked_egg"
-            },
-            "20": {
-              "badge": "c/shiny_goggles"
-            },
-            "25": {
-              "badge": "b/friendly_monster"
-            },
-            "28": {
-                "badge": "g/flaming_hero"
-              }
-        },
-        "lang": {
-            "swa": {
-                "labels": [
-                    "ABC",
-                    "DEF",
-                    "GHI",
-                    "JKL",
-                    "MNO",
-                    "PRS",
-                    "TUV",
-                    "WYZ",
-                    "A-Z",
-                    "abc",
-                    "def",
-                    "ghi",
-                    "jkl",
-                    "mno",
-                    "prs",
-                    "tuv",
-                    "wyz",
-                    "a-z",
-                    "A-F",
-                    "G-L",
-                    "M-S",
-                    "T-Z",
-                    "A-Z",
-                    "a-f",
-                    "g-l",
-                    "m-s",
-                    "t-z",
-                    "a-z"
-                ],
-                "numLevels": "28"
-            },
-            "eng": {
-                "labels": [
-                    "ABC",
-                    "DEF",
-                    "GHI",
-                    "JKL",
-                    "MNO",
-                    "PQR",
-                    "STU",
-                    "VWX",
-                    "YZ",
-                    "abc",
-                    "def",
-                    "ghi",
-                    "jkl",
-                    "mno",
-                    "pqr",
-                    "stu",
-                    "vwx",
-                    "yz",
-                    "A-F",
-                    "G-L",
-                    "M-R",
-                    "S-X",
-                    "YZ",
-                    "a-f",
-                    "g-l",
-                    "m-r",
-                    "s-x",
-                    "yz"
-                ],
-                "numLevels": "28"
-            }
-        }
-    },
-    {
-        "name": "book",
-        "title": "Alphabet Fight",
-        "cIcon": "gameicons/book_pressed.png",
-        "icon": "gameicons/book.png",
-        "multiPlayer": false,
-        "isJSGame": false,
-        "script": "src/NonJSGameLauncher.js",
-        "span": "3",
-        "numLevels": "26",
-        "backgroundJson": "tablelevel/background.json",
-        "foregroundJson": "tablelevel/foreground.json",
-        "frontgroundJson": "tablelevel/frontground.json",
-        "maingroundJson": "tablelevel/mainground.json",
-        "menuPlist": "tablelevel/tablelevel.plist",
-        "menuPng": "tablelevel/tablelevel.png",
-        "rewards" : {
-            "1": {
-                "unlock": "bubble"
-            },
-            "2": {
-                "badge": "g/gem_balloon",
-                "unlockMin": "Kung Fu Alpha",
-                "min": "4"
-            },
-            "3": {
-                "badge": "s/golden_boot"
-            }
-        },
-        "lang": {
-            "swa": {
-                "labels": [
-                    "A",
-                    "B",
-                    "C",
-                    "D",
-                    "E",
-                    "F",
-                    "G",
-                    "H",
-                    "I",
-                    "J",
-                    "K",
-                    "L",
-                    "M",
-                    "N",
-                    "O",
-                    "P",
-                    "R",
-                    "S",
-                    "T",
-                    "U",
-                    "V",
-                    "W",
-                    "Y",
-                    "Z"
-                ],
-                "numLevels": "24"
-            },
-            "eng": {
-                "labels": [
-                    "A",
-                    "B",
-                    "C",
-                    "D",
-                    "E",
-                    "F",
-                    "G",
-                    "H",
-                    "I",
-                    "J",
-                    "K",
-                    "L",
-                    "M",
-                    "N",
-                    "O",
-                    "P",
-                    "Q",
-                    "R",
-                    "S",
-                    "T",
-                    "U",
-                    "V",
-                    "W",
-                    "X",
-                    "Y",
-                    "Z"
-                ],
-                "numLevels": "26"
-            }
-        }
-    },
-    {
-        "name": "bubble",
-        "title": "Pop the Bubble",
-        "cIcon": "gameicons/bubble_pressed.png",
-        "icon": "gameicons/bubble.png",
-        "multiPlayer": false,
-        "isJSGame": false,
-        "pureJS": "bubbleShooterLevelInfo",
-        "script": "src/start/BubbleShooter.js",
-        "span": "3",
-        "numLevels": "14",
-        "rewards" : {
-            "1": {
-                "unlock": "Cannon Ball"
-            },
-            "2": {
-                "badge": "s/bubble_gun",
-                "unlockMin": "Kung Fu Alpha",
-                "min": "4"
-            },
-            "4": {
-              "badge": "m/yummy_mushroom"
-            },
-            "7": {
-              "badge": "p/bubbley_soap"
-            },
-            "10": {
-              "badge": "g/funky_bubble"
-            },
-            "12": {
-              "badge": "b/bubbling_foam"
-            },
-            "14": {
-                  "badge": "c/bubble_wand"
-              }
-        },
-        "backgroundJson": "bubble_shooter_level/background.json",
-        "foregroundJson": "bubble_shooter_level/foreground.json",
-        "frontgroundJson": "bubble_shooter_level/frontground.json",
-        "maingroundJson": "bubble_shooter_level/mainground.json",
-        "menuPlist": "bubble_shooter_level/bubble_shooter_level.plist",
-        "menuPng": "bubble_shooter_level/bubble_shooter_level.png"
-    },
-    {
-        "name": "Cannon Ball",
-        "title": "Cannon Ball",
-        "cIcon": "gameicons/Cannon Ball_pressed.png",
-        "icon": "gameicons/Cannon Ball.png",
-        "multiPlayer": false,
-        "isJSGame": false,
-        "script": "src/NonJSGameLauncher.js",
-        "span": "2",
-        "rewards" : {
-            "1": {
-                "unlock": "decomone",
-                "badge": "s/blasting_cannon",
-                "min": "4"
-            },
-            "2": {
-                "badge": "m/falling_asteroid"
-            },
-            "4": {
-                "badge": "p/burning_flame"
-            },
-            "6": {
-              "badge": "g/tender_leaf"
-            },
-            "8": {
-              "badge": "b/fiery_cannonblaster"
-            },
-            "10": {
-                  "badge": "c/cannon_bolt"
-              }
-        },
-        "numLevels": "10",
-        "backgroundJson": "plevelscreen2/cblevelbg.json",
-        "foregroundJson": "plevelscreen2/cblevelfrg.json",
-        "frontgroundJson": "plevelscreen2/cblevelfng.json",
-        "maingroundJson": "plevelscreen2/cblevelmng.json",
-        "menuPlist": "plevelscreen2/plevelscreen2.plist",
-        "menuPng": "plevelscreen2/plevelscreen2.png"
-    },
-    {
         "name": "decomone",
         "title": "Decorate the Alphabet",
+        "unlock": true,
         "cIcon": "gameicons/decomone_pressed.png",
         "icon": "gameicons/decomone.png",
         "multiPlayer": false,
@@ -337,13 +22,8 @@
         "span": "10",
         "numLevels": "62",
         "rewards" : {
-            "1": {
+            "26": {
                 "unlock": "Alphamon Feed"
-            },
-            "2": {
-                
-                "unlockMin": "Kung Fu Alpha",
-                "min": "4"
             },
             "10": {
                 "badge": "s/cool_cap"
@@ -353,6 +33,10 @@
             },
              "30": {
                 "badge": "p/dary_tophat"
+            },
+            "35": {                
+                "unlockMin": "Kung Fu Alpha",
+                "min": "5"
             },
              "40": {
                 "badge": "g/color_brush"
@@ -508,6 +192,322 @@
         "menuPng": "decomonlevel/decomonlevel.png"
     },
     {
+        "name": "EndlessRunner",
+        "title": "Run and Catch",
+        "cIcon": "gameicons/EndlessRunner_pressed.png",
+        "icon": "gameicons/EndlessRunner.png",
+        "multiPlayer": false,
+        "isJSGame": false,
+        "script": "src/NonJSGameLauncher.js",
+        "unlock": true,
+        "span": "5",
+        "numLevels": "28",
+        "backgroundJson": "endlessrunner/Layer1.json",
+        "foregroundJson": "endlessrunner/Layer3.json",
+        "frontgroundJson": "endlessrunner/Layer4.json",
+        "maingroundJson": "endlessrunner/Layer2.json",
+        "menuPlist": "endlessrunner/endlessrunner_01.plist",
+        "menuPng": "endlessrunner/endlessrunner_01.png",
+        "rewards": {
+            "9": {
+              "unlock": "Cannon Ball"
+            },
+            "5": {
+              "badge": "s/butterfly_net",
+              "unlockMin": "Kung Fu Alpha",
+              "min": "4"
+            },
+            "10": {
+              "badge": "m/speed_runner"
+            },
+            "15": {
+              "badge": "p/cracked_egg"
+            },
+            "20": {
+              "badge": "c/shiny_goggles"
+            },
+            "25": {
+              "badge": "b/friendly_monster"
+            },
+            "28": {
+                "badge": "g/flaming_hero"
+              }
+        },
+        "lang": {
+            "swa": {
+                "labels": [
+                    "ABC",
+                    "DEF",
+                    "GHI",
+                    "JKL",
+                    "MNO",
+                    "PRS",
+                    "TUV",
+                    "WYZ",
+                    "A-Z",
+                    "abc",
+                    "def",
+                    "ghi",
+                    "jkl",
+                    "mno",
+                    "prs",
+                    "tuv",
+                    "wyz",
+                    "a-z",
+                    "A-F",
+                    "G-L",
+                    "M-S",
+                    "T-Z",
+                    "A-Z",
+                    "a-f",
+                    "g-l",
+                    "m-s",
+                    "t-z",
+                    "a-z"
+                ],
+                "numLevels": "28"
+            },
+            "eng": {
+                "labels": [
+                    "ABC",
+                    "DEF",
+                    "GHI",
+                    "JKL",
+                    "MNO",
+                    "PQR",
+                    "STU",
+                    "VWX",
+                    "YZ",
+                    "abc",
+                    "def",
+                    "ghi",
+                    "jkl",
+                    "mno",
+                    "pqr",
+                    "stu",
+                    "vwx",
+                    "yz",
+                    "A-F",
+                    "G-L",
+                    "M-R",
+                    "S-X",
+                    "YZ",
+                    "a-f",
+                    "g-l",
+                    "m-r",
+                    "s-x",
+                    "yz"
+                ],
+                "numLevels": "28"
+            }
+        }
+    },
+    {
+        "name": "book",
+        "title": "Alphabet Fight",
+        "cIcon": "gameicons/book_pressed.png",
+        "icon": "gameicons/book.png",
+        "multiPlayer": false,
+        "isJSGame": false,
+        "script": "src/NonJSGameLauncher.js",
+        "span": "3",
+        "numLevels": "26",
+        "backgroundJson": "tablelevel/background.json",
+        "foregroundJson": "tablelevel/foreground.json",
+        "frontgroundJson": "tablelevel/frontground.json",
+        "maingroundJson": "tablelevel/mainground.json",
+        "menuPlist": "tablelevel/tablelevel.plist",
+        "menuPng": "tablelevel/tablelevel.png",
+        "rewards" : {
+            "13": {
+                "unlock": "alphamole"
+            },
+            "2": {
+                "badge": "g/gem_balloon",
+                "unlockMin": "Kung Fu Alpha",
+                "min": "4"
+            },
+            "3": {
+                "badge": "s/golden_boot"
+            }
+        },
+        "lang": {
+            "swa": {
+                "labels": [
+                    "A",
+                    "B",
+                    "C",
+                    "D",
+                    "E",
+                    "F",
+                    "G",
+                    "H",
+                    "I",
+                    "J",
+                    "K",
+                    "L",
+                    "M",
+                    "N",
+                    "O",
+                    "P",
+                    "R",
+                    "S",
+                    "T",
+                    "U",
+                    "V",
+                    "W",
+                    "Y",
+                    "Z"
+                ],
+                "numLevels": "24"
+            },
+            "eng": {
+                "labels": [
+                    "A",
+                    "B",
+                    "C",
+                    "D",
+                    "E",
+                    "F",
+                    "G",
+                    "H",
+                    "I",
+                    "J",
+                    "K",
+                    "L",
+                    "M",
+                    "N",
+                    "O",
+                    "P",
+                    "Q",
+                    "R",
+                    "S",
+                    "T",
+                    "U",
+                    "V",
+                    "W",
+                    "X",
+                    "Y",
+                    "Z"
+                ],
+                "numLevels": "26"
+            }
+        }
+    },
+    {
+        "name": "bubble",
+        "title": "Pop the Bubble",
+        "cIcon": "gameicons/bubble_pressed.png",
+        "icon": "gameicons/bubble.png",
+        "multiPlayer": false,
+        "isJSGame": false,
+        "pureJS": "bubbleShooterLevelInfo",
+        "script": "src/start/BubbleShooter.js",
+        "span": "3",
+        "numLevels": "14",
+        "rewards" : {
+            "6": {
+                "unlock": "Smash The Rock"
+            },
+            "2": {
+                "badge": "s/bubble_gun",
+                "unlockMin": "Kung Fu Alpha",
+                "min": "4"
+            },
+            "4": {
+              "badge": "m/yummy_mushroom"
+            },
+            "7": {
+              "badge": "p/bubbley_soap"
+            },
+            "10": {
+              "badge": "g/funky_bubble"
+            },
+            "12": {
+              "badge": "b/bubbling_foam"
+            },
+            "14": {
+                  "badge": "c/bubble_wand"
+              }
+        },
+        "backgroundJson": "bubble_shooter_level/background.json",
+        "foregroundJson": "bubble_shooter_level/foreground.json",
+        "frontgroundJson": "bubble_shooter_level/frontground.json",
+        "maingroundJson": "bubble_shooter_level/mainground.json",
+        "menuPlist": "bubble_shooter_level/bubble_shooter_level.plist",
+        "menuPng": "bubble_shooter_level/bubble_shooter_level.png"
+    },
+    {
+        "name": "Cannon Ball",
+        "title": "Cannon Ball",
+        "cIcon": "gameicons/Cannon Ball_pressed.png",
+        "icon": "gameicons/Cannon Ball.png",
+        "multiPlayer": false,
+        "isJSGame": false,
+        "script": "src/NonJSGameLauncher.js",
+        "span": "2",
+        "rewards" : {
+            "5": {
+                "unlock": "bubble",
+                "badge": "s/blasting_cannon",
+                "min": "4"
+            },
+            "2": {
+                "badge": "m/falling_asteroid"
+            },
+            "4": {
+                "badge": "p/burning_flame"
+            },
+            "6": {
+              "badge": "g/tender_leaf"
+            },
+            "8": {
+              "badge": "b/fiery_cannonblaster"
+            },
+            "10": {
+                  "badge": "c/cannon_bolt"
+              }
+        },
+        "numLevels": "10",
+        "backgroundJson": "plevelscreen2/cblevelbg.json",
+        "foregroundJson": "plevelscreen2/cblevelfrg.json",
+        "frontgroundJson": "plevelscreen2/cblevelfng.json",
+        "maingroundJson": "plevelscreen2/cblevelmng.json",
+        "menuPlist": "plevelscreen2/plevelscreen2.plist",
+        "menuPng": "plevelscreen2/plevelscreen2.png"
+    },
+    {
+        "name": "dino",
+        "title": "Alphabet",
+        "cIcon": "gameicons/dino_pressed.png",
+        "icon": "gameicons/dino.png",
+        "multiPlayer": false,
+        "isJSGame": false,
+        "script": "src/NonJSGameLauncher.js",
+        "span": "2",
+        "numLevels": "3",
+        "rewards" : {
+            "1": {
+                 "badge": "s/cute_dino"
+            },
+            "2": {
+                "badge": "g/old_gem",
+                "unlock": "Patch The Wall"
+            },
+            "3": {
+                "badge": "c/choco_saur",
+                "unlockMin": "Kung Fu Alpha",
+                "min": "5"
+            }
+        },
+        "backgroundJson": "dinolevel/Layer1.json",
+        "foregroundJson": "dinolevel/Layer3.json",
+        "frontgroundJson": "dinolevel/Layer4.json",
+        "maingroundJson": "dinolevel/Layer2.json",
+        "menuPlist": "dinolevel/dinolevel.plist",
+        "menuPng": "dinolevel/dinolevel.png"
+    },
+    {
         "name": "Alphamon Feed",
         "title": "Feed the Monsters",
         "cIcon": "gameicons/Alphamon Feed_pressed.png",
@@ -518,11 +518,10 @@
         "span": "5",
         "numLevels": "26",
         "rewards" : {
-            "1": {
-                "unlock": "alphamole"
+            "13": {
+                "unlock": "book"
             },
             "2": {
-                
                 "unlockMin": "Kung Fu Alpha",
                 "min": "4"
             },
@@ -626,7 +625,7 @@
         "span": "3",
         "numLevels": "26",
         "rewards" : {
-            "1": {
+            "13": {
                 "unlock": "Cross The Bridge"
             },
             "2": {
@@ -733,9 +732,6 @@
         "span": "3",
         "numLevels": "26",
         "rewards" : {
-           "1": {
-               "unlock": "Smash The Rock"
-           },
            "4": {
                "badge": "m/impervious_bridge",
                "unlockMin": "Kung Fu Alpha",
@@ -837,8 +833,8 @@
         "span": "5",
         "numLevels": "26",
         "rewards" : {
-            "1": {
-                "unlock": "Patch The Wall"
+            "13": {
+                "unlock": "dino"
             },
             "2": {
                
@@ -983,7 +979,7 @@
         "span": "5",
         "numLevels": "26",
         "rewards" : {
-           "1": {
+           "13": {
                "unlock": "cardraw"
            },
            "2": {
@@ -1092,7 +1088,7 @@
         "span": "8",
         "numLevels": "62",
         "rewards" : {
-            "1": {
+            "26": {
                 "unlock": "blastletter"
             },
             "2": {
@@ -1274,7 +1270,7 @@
         "span": "10",
         "numLevels": "86",
         "rewards" : {
-            "1": {
+            "26": {
                 "unlock": "Door"
             },
             "15": {
@@ -1500,7 +1496,7 @@
         "span": "10",
         "numLevels": "80",
         "rewards" : {
-            "1": {
+            "26": {
                 "unlock": "TreasureHunt"
             },
             "2": {
@@ -1511,7 +1507,7 @@
             "13": {
                 "badge": "s/snorting_pig"
             },
-            "26": {
+            "30": {
                 "badge": "m/mystery_box"
             },
             "39": {
@@ -1654,7 +1650,7 @@
         "span": "5",
         "numLevels": "40",
         "rewards" : {
-            "1": {
+            "15": {
                 "unlock": "jasmine"
             },
             "5": {
@@ -1696,7 +1692,7 @@
         "span": "7",
         "numLevels": "40",
         "rewards" : {
-            "1": {
+            "15": {
                 "unlock": "chain"
             },
             "6": {
@@ -1736,7 +1732,7 @@
         "span": "5",
         "numLevels": "24",
         "rewards" : {
-           "1": {
+           "15": {
                "unlock": "wembley"
            },
            "4": {
@@ -1778,7 +1774,7 @@
         "span": "5",
         "numLevels": "40",
         "rewards" : {
-           "1": {
+           "15": {
                "unlock": "jazz"
            },
            "2": {
@@ -1823,7 +1819,7 @@
         "span": "5",
         "numLevels": "40",
         "rewards" : {
-            "1": {
+            "15": {
                 "unlock": "cat"
             },
             "2": {
@@ -1868,9 +1864,6 @@
         "span": "5",
         "numLevels": "40",
         "rewards" : {
-            "1": {
-                "unlock": "shoot"
-            },
             "2": {
                 
                 "unlockMin": "order",
@@ -1915,7 +1908,7 @@
         "span": "4",
         "numLevels": "30",
         "rewards" : {
-            "1": {
+            "15": {
                 "unlock": "owl"
             },
             "10": {
@@ -1957,7 +1950,7 @@
         "span": "7",
         "numLevels": "50",
         "rewards" : {
-            "1": {
+            "20": {
                 "unlock": "stack"
             },
             "8": {
@@ -1999,7 +1992,7 @@
         "span": "9",
         "numLevels": "72",
         "rewards" : {
-            "1": {
+            "30": {
                 "unlock": "talk"
             },
             "12": {
@@ -2039,7 +2032,7 @@
         "span": "9",
         "numLevels": "72",
         "rewards" : {
-            "1": {
+            "30": {
                 "unlockMin": "order"
             },
             "12": {
@@ -2079,7 +2072,7 @@
         "span": "5",
         "numLevels": "20",
         "rewards" : {
-            "1": {
+            "10": {
                 "unlock": "dash"
             },
             "2": {
@@ -2124,7 +2117,7 @@
         "span": "10",
         "numLevels": "75",
         "rewards" : {
-            "1": {
+            "30": {
                 "unlock": "bingo"
             },
             "2": {
@@ -2170,7 +2163,7 @@
         "span": "5",
         "numLevels": "36",
         "rewards" : {
-           "1": {
+           "20": {
                "unlock": "drop"
            },
            "6": {
@@ -2212,7 +2205,7 @@
         "span": "8",
         "numLevels": "60",
         "rewards" : {
-           "1": {
+           "25": {
                "unlock": "train"
            },
            "10": {
@@ -2255,7 +2248,7 @@
         "span": "6",
         "numLevels": "48",
         "rewards" : {
-            "1": {
+            "20": {
                 "unlock": "pop"
             },
             "8": {
@@ -2296,7 +2289,7 @@
         "span": "6",
         "numLevels": "48",
         "rewards" : {
-           "1": {
+           "20": {
                "unlock": "memory"
            },
            "8": {
@@ -2383,8 +2376,8 @@
         "span": "9",
         "numLevels": "72",
         "rewards" : {
-           "1": {
-               "unlock": "pillar"
+           "32": {
+               "unlock": "JumpOnWords"
            },
            "2": {
                "unlockMin": "JumpOnWords",
@@ -2427,8 +2420,8 @@
         "span": "10",
         "numLevels": "75",
         "rewards" : {
-            "1": {
-                "unlock": "circle"
+            "30": {
+                "unlock": "balloon"
             },
             "2": {
                 
@@ -2472,8 +2465,10 @@
         "span": "10",
         "numLevels": "75",
         "rewards" : {
+            "30": {
+                "unlock": "pillar"
+            },            
             "2": {
-                
                 "unlockMin": "JumpOnWords",
                 "min": "5"
             },
@@ -2588,7 +2583,6 @@
         "numLevels": "6",
         "rewards" : {
            "1": {
-               "unlock": "Dots",
                "badge": "s/strawberry_cake"                
            },
            "2": {
@@ -2597,6 +2591,7 @@
                "min": "3"
            },
            "3": {
+            "unlock": "shape",
             "badge": "p/arranging_blocks"
           },
          "4": {
@@ -2646,7 +2641,7 @@
         "span": "2",
         "numLevels": "12",
         "rewards" : {
-            "1": {
+            "6": {
                 "unlock": "popcount",
                 "badge": "s/shining_tree"            
             },
@@ -2677,7 +2672,7 @@
         "span": "2",
         "numLevels": "10",
         "rewards" : {
-            "1": {
+            "5": {
                 "unlock": "spot"
             },
             "2": {
@@ -2720,8 +2715,7 @@
         "numLevels": "6",
         "rewards" :  {
          "1": {
-           "badge": "s/mighty_tractor",
-           "unlock": "Item"
+           "badge": "s/mighty_tractor"
          },
            "2": {
                "badge": "m/goldy_goat",
@@ -2729,7 +2723,8 @@
                "min": "4"
            },
          "3": {
-           "badge": "p/wind_mill"
+           "badge": "p/wind_mill",
+           "unlock": "Item"           
          },
          "4": {
            "badge": "g/old_house"
@@ -2759,7 +2754,7 @@
         "span": "5",
         "numLevels": "25",
         "rewards" : {
-            "1": {
+            "10": {
                 "unlock": "ConnectTheDots"
             },
             "2": {
@@ -2805,7 +2800,7 @@
         "span": "2",
         "numLevels": "10",
         "rewards" : {
-            "1": {
+            "5": {
                 "unlock": "chocolateFactory"
             },
             "2": {
@@ -2835,7 +2830,7 @@
         "span": "5",
         "numLevels": "20",
         "rewards" : {
-           "1": {
+           "8": {
                "unlock": "step"
            },
            "3": {
@@ -2879,7 +2874,6 @@
         "numLevels": "10",
         "rewards" : {
            "1": {
-               "unlock": "step",
                "badge": "s/glass_star"
            },
            "2": {
@@ -2889,6 +2883,9 @@
            },
          "4": {
            "badge": "p/blue_pyramid"
+         },
+         "5": {
+             "unlock": "Dots"
          },
          "6": {
            "badge": "g/pink_hexagon"
