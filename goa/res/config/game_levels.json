@@ -530,6 +530,9 @@
       "levels": [
         1
       ],
+      "concepts":[
+        "number"
+      ],
       "help": "Join dots of the same color to make the number shown on the right.",
       "video": "ConnectTheDots_1.webm"
     }
@@ -540,7 +543,7 @@
         1
       ],
       "concepts":[
-        "subtraction"
+        "number"
       ],
       "help": "Count the number of dots with your fingers. Choose the fingers that match the number of dots on the screen.",
       "video": "Dots_1.webm"
@@ -558,7 +561,10 @@
   "Bounce": [
     {
       "levels": [
-        1
+        1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20
+      ],
+      "level_concepts":[
+        "addition","addition","addition","addition","addition","addition_carryover_1","addition_carryover_1","addition_carryover_1","addition_carryover_1","addition_carryover_1","subtraction","subtraction","subtraction","subtraction","subtraction","subtraction_carryover_1","subtraction_carryover_1","subtraction_carryover_1","subtraction_carryover_1","subtraction_carryover_1"
       ],
       "help": "When the ice cream drops on the cup, it will jump according to the number written on it. Place the cups on the line and drop the ice cream so that it bounces and reaches the cone.",
       "video": "Bounce_1.webm"
