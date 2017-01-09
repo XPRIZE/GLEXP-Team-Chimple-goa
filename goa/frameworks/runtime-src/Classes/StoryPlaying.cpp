@@ -502,7 +502,7 @@ void StoryPlaying::load() {
 
 void StoryPlaying::createWordBubble() {
     
-    std::string mappingFileUrl = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + ".mapping.json";
+    std::string mappingFileUrl = "story/eng/" + _baseDir + ".mapping.json";
     if(!mappingFileUrl.empty() && FileUtils::getInstance()->isFileExist(mappingFileUrl))
     {
         std::string jsonData = FileUtils::getInstance()->getStringFromFile(mappingFileUrl);

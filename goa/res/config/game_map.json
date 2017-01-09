@@ -303,6 +303,113 @@
         }
     },
     {
+        "name": "Alphamon Feed",
+        "title": "Feed the Monsters",
+        "cIcon": "gameicons/Alphamon Feed_pressed.png",
+        "icon": "gameicons/Alphamon Feed.png",
+        "multiPlayer": false,
+        "isJSGame": false,
+        "script": "src/NonJSGameLauncher.js",
+        "span": "5",
+        "numLevels": "26",
+        "rewards" : {
+            "13": {
+                "unlock": "book"
+            },
+            "2": {
+                "unlockMin": "Kung Fu Alpha",
+                "min": "4"
+            },
+            "4": {
+                "badge": "s/super_s"
+            },
+             "8": {
+                "badge": "m/charming_face"
+            },
+             "12": {
+                "badge": "p/tasty_pineapple"
+            },
+             "16": {
+                "badge": "g/juicy_strawberry"
+            },
+             "20": {
+                "badge": "b/delicious_cherry"
+            },
+             "26": {
+                "badge": "c/tasty_mango"
+            }
+            
+        },
+        "backgroundJson": "alphafeedlevel/Layer1.json",
+        "foregroundJson": "alphafeedlevel/Layer3.json",
+        "frontgroundJson": "alphafeedlevel/Layer4.json",
+        "maingroundJson": "alphafeedlevel/Layer2.json",
+        "menuPlist": "alphafeedlevel/alphafeedlevel.plist",
+        "menuPng": "alphafeedlevel/alphafeedlevel.png",
+        "lang": {
+            "swa": {
+                "labels": [
+                    "A",
+                    "B",
+                    "C",
+                    "D",
+                    "E",
+                    "F",
+                    "G",
+                    "H",
+                    "I",
+                    "J",
+                    "K",
+                    "L",
+                    "M",
+                    "N",
+                    "O",
+                    "P",
+                    "R",
+                    "S",
+                    "T",
+                    "U",
+                    "V",
+                    "W",
+                    "Y",
+                    "Z"
+                ],
+                "numLevels": "24"
+            },
+            "eng": {
+                "labels": [
+                    "A",
+                    "B",
+                    "C",
+                    "D",
+                    "E",
+                    "F",
+                    "G",
+                    "H",
+                    "I",
+                    "J",
+                    "K",
+                    "L",
+                    "M",
+                    "N",
+                    "O",
+                    "P",
+                    "Q",
+                    "R",
+                    "S",
+                    "T",
+                    "U",
+                    "V",
+                    "W",
+                    "X",
+                    "Y",
+                    "Z"
+                ],
+                "numLevels": "26"
+            }
+        }
+    },
+    {
         "name": "book",
         "title": "Alphabet Fight",
         "cIcon": "gameicons/book_pressed.png",
@@ -331,6 +438,113 @@
                 "badge": "s/golden_boot"
             }
         },
+        "lang": {
+            "swa": {
+                "labels": [
+                    "A",
+                    "B",
+                    "C",
+                    "D",
+                    "E",
+                    "F",
+                    "G",
+                    "H",
+                    "I",
+                    "J",
+                    "K",
+                    "L",
+                    "M",
+                    "N",
+                    "O",
+                    "P",
+                    "R",
+                    "S",
+                    "T",
+                    "U",
+                    "V",
+                    "W",
+                    "Y",
+                    "Z"
+                ],
+                "numLevels": "24"
+            },
+            "eng": {
+                "labels": [
+                    "A",
+                    "B",
+                    "C",
+                    "D",
+                    "E",
+                    "F",
+                    "G",
+                    "H",
+                    "I",
+                    "J",
+                    "K",
+                    "L",
+                    "M",
+                    "N",
+                    "O",
+                    "P",
+                    "Q",
+                    "R",
+                    "S",
+                    "T",
+                    "U",
+                    "V",
+                    "W",
+                    "X",
+                    "Y",
+                    "Z"
+                ],
+                "numLevels": "26"
+            }
+        }
+    },
+    {
+        "name": "alphamole",
+        "title": "Whack a Monster",
+        "cIcon": "gameicons/alphamole_pressed.png",
+        "icon": "gameicons/alphamole.png",
+        "multiPlayer": false,
+        "isJSGame": false,
+        "script": "src/NonJSGameLauncher.js",
+        "span": "3",
+        "numLevels": "26",
+        "rewards" : {
+            "13": {
+                "unlock": "Cross The Bridge"
+            },
+            "2": {
+                "badge": "g/gem_balloon",
+                "unlockMin": "Kung Fu Alpha",
+                "min": "4"
+            },
+            "4": {
+                "badge": "s/fun_in_the_sand"
+            },
+             "8": {
+                "badge": "m/golden_carrot"
+            },
+             "12": {
+                "badge": "p/scary_scarecrow"
+            },
+             "16": {
+                "badge": "g/patterned_shell"
+            },
+             "20": {
+                "badge": "b/paddling_shovel"
+            },
+             "26": {
+                "badge": "c/candy_flake"
+            }
+        },
+        "backgroundJson": "alphamolelevel/alphamolebackground.json",
+        "foregroundJson": "alphamolelevel/alphamoleforeground.json",
+        "frontgroundJson": "alphamolelevel/alphamolefrontground.json",
+        "maingroundJson": "alphamolelevel/alphamolemainground.json",
+        "menuPlist": "alphamolelevel/alphamolelevel.plist",
+        "menuPng": "alphamolelevel/alphamolelevel.png",
         "lang": {
             "swa": {
                 "labels": [
@@ -506,220 +720,6 @@
         "maingroundJson": "dinolevel/Layer2.json",
         "menuPlist": "dinolevel/dinolevel.plist",
         "menuPng": "dinolevel/dinolevel.png"
-    },
-    {
-        "name": "Alphamon Feed",
-        "title": "Feed the Monsters",
-        "cIcon": "gameicons/Alphamon Feed_pressed.png",
-        "icon": "gameicons/Alphamon Feed.png",
-        "multiPlayer": false,
-        "isJSGame": false,
-        "script": "src/NonJSGameLauncher.js",
-        "span": "5",
-        "numLevels": "26",
-        "rewards" : {
-            "13": {
-                "unlock": "book"
-            },
-            "2": {
-                "unlockMin": "Kung Fu Alpha",
-                "min": "4"
-            },
-            "4": {
-                "badge": "s/super_s"
-            },
-             "8": {
-                "badge": "m/charming_face"
-            },
-             "12": {
-                "badge": "p/tasty_pineapple"
-            },
-             "16": {
-                "badge": "g/juicy_strawberry"
-            },
-             "20": {
-                "badge": "b/delicious_cherry"
-            },
-             "26": {
-                "badge": "c/tasty_mango"
-            }
-            
-        },
-        "backgroundJson": "alphafeedlevel/Layer1.json",
-        "foregroundJson": "alphafeedlevel/Layer3.json",
-        "frontgroundJson": "alphafeedlevel/Layer4.json",
-        "maingroundJson": "alphafeedlevel/Layer2.json",
-        "menuPlist": "alphafeedlevel/alphafeedlevel.plist",
-        "menuPng": "alphafeedlevel/alphafeedlevel.png",
-        "lang": {
-            "swa": {
-                "labels": [
-                    "A",
-                    "B",
-                    "C",
-                    "D",
-                    "E",
-                    "F",
-                    "G",
-                    "H",
-                    "I",
-                    "J",
-                    "K",
-                    "L",
-                    "M",
-                    "N",
-                    "O",
-                    "P",
-                    "R",
-                    "S",
-                    "T",
-                    "U",
-                    "V",
-                    "W",
-                    "Y",
-                    "Z"
-                ],
-                "numLevels": "24"
-            },
-            "eng": {
-                "labels": [
-                    "A",
-                    "B",
-                    "C",
-                    "D",
-                    "E",
-                    "F",
-                    "G",
-                    "H",
-                    "I",
-                    "J",
-                    "K",
-                    "L",
-                    "M",
-                    "N",
-                    "O",
-                    "P",
-                    "Q",
-                    "R",
-                    "S",
-                    "T",
-                    "U",
-                    "V",
-                    "W",
-                    "X",
-                    "Y",
-                    "Z"
-                ],
-                "numLevels": "26"
-            }
-        }
-    },
-    {
-        "name": "alphamole",
-        "title": "Whack a Monster",
-        "cIcon": "gameicons/alphamole_pressed.png",
-        "icon": "gameicons/alphamole.png",
-        "multiPlayer": false,
-        "isJSGame": false,
-        "script": "src/NonJSGameLauncher.js",
-        "span": "3",
-        "numLevels": "26",
-        "rewards" : {
-            "13": {
-                "unlock": "Cross The Bridge"
-            },
-            "2": {
-                "badge": "g/gem_balloon",
-                "unlockMin": "Kung Fu Alpha",
-                "min": "4"
-            },
-            "4": {
-                "badge": "s/fun_in_the_sand"
-            },
-             "8": {
-                "badge": "m/golden_carrot"
-            },
-             "12": {
-                "badge": "p/scary_scarecrow"
-            },
-             "16": {
-                "badge": "g/patterned_shell"
-            },
-             "20": {
-                "badge": "b/paddling_shovel"
-            },
-             "26": {
-                "badge": "c/candy_flake"
-            }
-        },
-        "backgroundJson": "alphamolelevel/alphamolebackground.json",
-        "foregroundJson": "alphamolelevel/alphamoleforeground.json",
-        "frontgroundJson": "alphamolelevel/alphamolefrontground.json",
-        "maingroundJson": "alphamolelevel/alphamolemainground.json",
-        "menuPlist": "alphamolelevel/alphamolelevel.plist",
-        "menuPng": "alphamolelevel/alphamolelevel.png",
-        "lang": {
-            "swa": {
-                "labels": [
-                    "A",
-                    "B",
-                    "C",
-                    "D",
-                    "E",
-                    "F",
-                    "G",
-                    "H",
-                    "I",
-                    "J",
-                    "K",
-                    "L",
-                    "M",
-                    "N",
-                    "O",
-                    "P",
-                    "R",
-                    "S",
-                    "T",
-                    "U",
-                    "V",
-                    "W",
-                    "Y",
-                    "Z"
-                ],
-                "numLevels": "24"
-            },
-            "eng": {
-                "labels": [
-                    "A",
-                    "B",
-                    "C",
-                    "D",
-                    "E",
-                    "F",
-                    "G",
-                    "H",
-                    "I",
-                    "J",
-                    "K",
-                    "L",
-                    "M",
-                    "N",
-                    "O",
-                    "P",
-                    "Q",
-                    "R",
-                    "S",
-                    "T",
-                    "U",
-                    "V",
-                    "W",
-                    "X",
-                    "Y",
-                    "Z"
-                ],
-                "numLevels": "26"
-            }
-        }
     },
     {
         "name": "Cross The Bridge",
@@ -2830,9 +2830,6 @@
         "span": "5",
         "numLevels": "20",
         "rewards" : {
-           "8": {
-               "unlock": "step"
-           },
            "3": {
                "badge": "s/milk_bottle",
                "unlockMin": "Line",
@@ -2915,7 +2912,7 @@
         "span": "6",
         "numLevels": "45",
         "rewards" : {
-            "1": {
+            "20": {
                 "unlock": "jumpingNumbers"
             },
             "2": {
@@ -3003,14 +3000,16 @@
         "numLevels": "20",
         "rewards" : {
             "3": {
-                "badge": "s/peppermint_candy",
-                "unlock": "balloonMath"
+                "badge": "s/peppermint_candy"
             },
             "6": {
                 "badge": "m/juicy_lollipop"
             },
              "9": {
                 "badge": "p/chocolate_toffee"
+            },
+             "10": {
+                "unlock": "balloonMath"
             },
              "12": {
                 "badge": "g/heart_gem"
@@ -3040,7 +3039,7 @@
         "span": "4",
         "numLevels": "30",
         "rewards" : {
-           "3": {
+           "15": {
                "unlock": "shop"
            },
          "6": {
@@ -3080,7 +3079,7 @@
         "span": "5",
         "numLevels": "30",
         "rewards" : {
-           "3": {
+           "12": {
                "unlock": "Units"
            },
          "5": {
@@ -3120,7 +3119,7 @@
         "span": "2",
         "numLevels": "10",
         "rewards" : {
-           "3": {
+           "5": {
                "unlock": "atm"
            },
          "1": {
@@ -3160,8 +3159,8 @@
         "span": "5",
         "numLevels": "25",
         "rewards" : {
-            "3": {
-                "unlock": "Bounce"
+            "14": {
+                "unlock": "card"
             },
             "4": {
                 "badge": "s/money_machine"
@@ -3190,32 +3189,6 @@
         "menuPng": "ATM_level/ATM_level.png"
     },
     {
-        "name": "Bounce",
-        "title": "Drop the Icecream",
-        "cIcon": "gameicons/icecream_pressed.png",
-        "icon": "gameicons/icecream.png",
-        "multiPlayer": false,
-        "isJSGame": true,
-        "pureJS": "BounceLayer",
-        "script": "src/start/bounce.js",
-        "span": "4",
-        "numLevels": "20",
-        "rewards" : {
-            "3": {
-                "unlock": "card"
-            },
-            "5": {
-                "badge": "s/golden_boot"
-            }
-        },
-        "backgroundJson": "icecreamlevel/background.json",
-        "foregroundJson": "icecreamlevel/foreground.json",
-        "frontgroundJson": "icecreamlevel/frontground.json",
-        "maingroundJson": "icecreamlevel/mainground.json",
-        "menuPlist": "icecreamlevel/icecreamlevel.plist",
-        "menuPng": "icecreamlevel/icecreamlevel.png"
-    },
-    {
         "name": "card",
         "title": "Add the Cards",
         "cIcon": "gameicons/card_pressed.png",
@@ -3226,8 +3199,8 @@
         "span": "3",
         "numLevels": "20",
         "rewards" : {
-            "1": {
-                "unlock": "table"
+            "10": {
+                "unlock": "Bounce"
             },
             "3": {
                 "badge": "s/happy_cow"
@@ -3254,6 +3227,32 @@
         "maingroundJson": "cardlevel/Layer2.json",
         "menuPlist": "cardlevel/cardlevel.plist",
         "menuPng": "cardlevel/cardlevel.png"
+    },
+    {
+        "name": "Bounce",
+        "title": "Drop the Icecream",
+        "cIcon": "gameicons/icecream_pressed.png",
+        "icon": "gameicons/icecream.png",
+        "multiPlayer": false,
+        "isJSGame": true,
+        "pureJS": "BounceLayer",
+        "script": "src/start/bounce.js",
+        "span": "4",
+        "numLevels": "20",
+        "rewards" : {
+            "10": {
+                "unlock": "table"
+            },
+            "5": {
+                "badge": "s/golden_boot"
+            }
+        },
+        "backgroundJson": "icecreamlevel/background.json",
+        "foregroundJson": "icecreamlevel/foreground.json",
+        "frontgroundJson": "icecreamlevel/frontground.json",
+        "maingroundJson": "icecreamlevel/mainground.json",
+        "menuPlist": "icecreamlevel/icecreamlevel.plist",
+        "menuPng": "icecreamlevel/icecreamlevel.png"
     },
     {
         "name": "table",
