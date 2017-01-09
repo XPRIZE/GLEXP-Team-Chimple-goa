@@ -15,10 +15,12 @@
 #include "external/json/document.h"
 #include "external/json/stringbuffer.h"
 #include "external/json/writer.h"
+#include "../effects/FShake.h"
 
 USING_NS_CC;
 
 static const std::string STORY_JSON = ".storyJSON";
+static const std::string UNLOCKED_STORY_ID_ORDER = ".unlockedStoryIdOrder";
 
 ScrollableCatalogue::ScrollableCatalogue():
 _greyLayer(NULL)
@@ -102,8 +104,8 @@ bool ScrollableCatalogue::init() {
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
-    // the .plist file can be generated with any of the tools mentioned below
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("template.plist");
+        
     
     std::string titlesFileUrl =  "story/" + TextGenerator::getInstance()->getLang() + "/titles.json";
     std::string bookTitles = "";
@@ -131,12 +133,24 @@ bool ScrollableCatalogue::init() {
     }
     
     
+    std::string unlockedStoryIdOrderStr;
+    localStorageGetItem(UNLOCKED_STORY_ID_ORDER, &unlockedStoryIdOrderStr);
+    CCLOG("storyIdOrderStr %s", unlockedStoryIdOrderStr.c_str());
+
+    
+    std::string unlockStr;
+    localStorageGetItem(".unlock", &unlockStr);
+    lockAll = false;
+    if (unlockStr.empty() || unlockStr == "1") {
+        lockAll = true;
+    }
+
     
     std::string contents = FileUtils::getInstance()->getStringFromFile("misc/shelfConfig.json");
     
     rapidjson::Document d;
     
-    if (false == d.Parse<0>(contents.c_str()).HasParseError()) {        
+    if (false == d.Parse<0>(contents.c_str()).HasParseError()) {
         storyConfigs = d["stories"];
         assert(storyConfigs.IsArray());
         
@@ -154,6 +168,7 @@ bool ScrollableCatalogue::init() {
             CCLOG("story %s", storyId.c_str());
             orderedStories.push_back(dIndex);
         }
+        
         
         _pageView = ui::PageView::create();
         addChild(_pageView);
@@ -242,7 +257,8 @@ void ScrollableCatalogue::createBook(int i, int j, int numRows, int numCols, ui:
     Node *bookNode = CSLoader::createNode("template/book.csb");
     CCLOG("height position %f", visibleSize.height + yOffset - (i + 1.2) * ((visibleSize.height) / (numRows + 1)));
     bookNode->setPosition(Vec2((j + 0.5) * visibleSize.width / numCols, visibleSize.height + yOffset - (i*1.125 + 1.45) * ((visibleSize.height) / (numRows + 1))));
-    
+    std::string storyId = storyJson["storyId"].GetString();
+    bookNode->setName("book_" + menuContext->to_string(index));
     Node* book = bookNode->getChildByName("book");
     book->setColor(bookColor);
     
@@ -254,6 +270,18 @@ void ScrollableCatalogue::createBook(int i, int j, int numRows, int numCols, ui:
     if(imageSprite != NULL) {
         imageNode->addChild(imageSprite);
     }
+    
+    if(!lockAll) {
+        //dont render lock
+    } else {
+        Sprite* lockSprite = Sprite::create("template/lock.png");
+        lockSprite->setAnchorPoint(Vec2(0.5,0.5));
+        lockSprite->setPosition(Vec2(imageNode->getPosition().x, imageNode->getPosition().y + 150));
+        imageNode->addChild(lockSprite, 1);
+    }
+
+    
+
     
     std::string titleText = "";
     std::string titleKey = imageFile;
@@ -298,27 +326,6 @@ void ScrollableCatalogue::createBook(int i, int j, int numRows, int numCols, ui:
     
 }
 
-
-cocos2d::ui::Button* ScrollableCatalogue::createButton(int index, const rapidjson::Value& storyJson) {
-        //create bookNode
-
-        std::string buttonNormalIcon = "gameicons/story.png";
-        cocos2d::ui::Button* button = ui::Button::create();
-        button->loadTextureNormal(buttonNormalIcon);
-        button->setName(menuContext->to_string(index));
-        button->setTitleText("test");
-        button->setTitleAlignment(TextHAlignment::CENTER, TextVAlignment::BOTTOM);
-        button->setTitleFontName("fonts/Roboto-Regular.ttf");
-        button->setTitleColor(Color3B(0xFF, 0xF2, 0x00));
-        button->setTitleFontSize(72);
-        auto label = button->getTitleRenderer();
-        label->setPosition(Vec2(label->getPositionX(), label->getPositionY()- 300));
-        button->setScale(0.5);
-        return button;
-
-}
-
-
 void ScrollableCatalogue::transitionToStory(float dt) {
     
     CCLOG("Selected story index %d", selectedIndex);
@@ -338,11 +345,29 @@ void ScrollableCatalogue::loadStory(Ref* pSender, ui::Widget::TouchEventType eEv
             break;
         case ui::Widget::TouchEventType::ENDED:
         {
-            addGreyLayer();
-            clickedButton->setEnabled(false);
             selectedIndex = atoi(clickedButton->getName().c_str());
-            this->scheduleOnce(schedule_selector(ScrollableCatalogue::transitionToStory), 1.5);
-            
+            if(!lockAll) {
+                addGreyLayer();
+                clickedButton->setEnabled(false);
+                selectedIndex = atoi(clickedButton->getName().c_str());
+                this->scheduleOnce(schedule_selector(ScrollableCatalogue::transitionToStory), 1.5);
+            } else {
+                //check if story is really unlocked
+                if(true) {
+                    Node* bookNode = clickedButton->getParent()->getChildByName("book_" + clickedButton->getName());
+                    if(bookNode != NULL) {
+                        bookNode->runAction(FShake::actionWithDuration(1.0f, 10.0f));
+                    }
+                    
+                } else {
+                    addGreyLayer();
+                    clickedButton->setEnabled(false);
+                    selectedIndex = atoi(clickedButton->getName().c_str());
+                    this->scheduleOnce(schedule_selector(ScrollableCatalogue::transitionToStory), 1.5);
+                    
+                }
+                
+            }
             break;
         }
             
