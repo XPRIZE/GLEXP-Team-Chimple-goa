@@ -69,10 +69,10 @@ bool GestureLayer::init(Ref* target, SEL_CallFuncO handler)
 
 bool GestureLayer::onTouchBegan(Touch *touch, Event *event)
 {
-    if(this->isSceneTransitionStarted) {
-        CCLOG("returning GestureLayer::onTouchBegan");
-        return false;
-    }
+//    if(this->isSceneTransitionStarted) {
+//        CCLOG("returning GestureLayer::onTouchBegan");
+//        return false;
+//    }
 
     Point touch_point = touch->getLocationInView();
     touch_point = Director::getInstance()->convertToGL(touch_point);
