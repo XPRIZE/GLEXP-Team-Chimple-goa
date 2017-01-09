@@ -20,7 +20,7 @@ USING_NS_CC;
 
 cocos2d::Scene* StoryWordBoard::createScene() {
     auto layer = StoryWordBoard::create();
-    auto scene = GameScene::createWithChild(layer, "story-play");
+    auto scene = GameScene::createWithChild(layer, "story-catalogue");
     layer->_menuContext = scene->getMenuContext();
     return scene;
 }

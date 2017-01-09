@@ -51,7 +51,6 @@ StoryPlaying* StoryPlaying::create(int pageIndex, std::string storyId)
 
 StoryPlaying::StoryPlaying():
 _menuContext(nullptr),
-_storyInformation(""),
 _baseDir(""),
 _isPlayEnded(false),
 _isPlayStarted(false),
@@ -462,18 +461,22 @@ void StoryPlaying::processScene(Node* parent) {
 }
 
 void StoryPlaying::load() {
-    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("template/template_02/template_02.plist");
     
-    rapidjson::Document d;
     std::string data;
     localStorageGetItem(STORY_JSON, &data);
     
-    CCLOG("data received %s", data.c_str());
-    this->_storyInformation = data;
-    if (false == d.Parse<0>(_storyInformation.c_str()).HasParseError()) {
-        // document is ok
-        // get Content page
-        const rapidjson::Value& dsStoryPages = d["pages"];
+    int storyIndex = atoi(data.c_str());
+    
+    std::string contents = FileUtils::getInstance()->getStringFromFile("misc/shelfConfig.json");
+    
+    rapidjson::Document d;
+    
+    if (false == d.Parse<0>(contents.c_str()).HasParseError()) {
+        const rapidjson::Value& storyConfigs = d["stories"];
+        assert(storyConfigs.IsArray());
+        const rapidjson::Value& story = storyConfigs[storyIndex];
+        const rapidjson::Value& dsStoryPages = story["pages"];
+        
         _totalStoryPages = dsStoryPages.Size();
         const std::string contentPageName = dsStoryPages[this->_pageIndex]["contentJson"].GetString();
         CCLOG("contentPageName %s", contentPageName.c_str());
@@ -493,6 +496,7 @@ void StoryPlaying::load() {
         createWordBubble();
         
         playMasterAnimation();
+        
     }
 }
 
@@ -909,7 +913,7 @@ void StoryPlaying::nextStory(Ref* pSender, ui::Widget::TouchEventType eEventType
             if(_pageIndex + 1 != _totalStoryPages) {
                 Director::getInstance()->replaceScene(TransitionFade::create(1.0, StoryPlaying::createScene(_pageIndex + 1, _storyId), Color3B::BLACK));
             } else {
-                Director::getInstance()->replaceScene(TransitionFade::create(1.0, QuestionHandler::createScene(_storyId), Color3B::BLACK));
+                Director::getInstance()->replaceScene(TransitionFade::create(1.0, QuestionHandler::createScene(_storyId, _baseDir), Color3B::BLACK));
             }
             break;
         }

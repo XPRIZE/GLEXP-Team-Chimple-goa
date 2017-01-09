@@ -6,6 +6,11 @@
 //
 //
 
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <regex>
+
 #include "StoryCoverPage.hpp"
 #include "StoryPlaying.hpp"
 
@@ -47,7 +52,6 @@ StoryCoverPage* StoryCoverPage::create()
 
 StoryCoverPage::StoryCoverPage():
 _menuContext(nullptr),
-_storyInformation(""),
 _baseDir(""),
 _storyId("")
 
@@ -73,25 +77,29 @@ bool StoryCoverPage::init()
 
 
 void StoryCoverPage::load() {
-    rapidjson::Document d;
+
     std::string data;
     localStorageGetItem(STORY_JSON, &data);
     
-    CCLOG("data received %s", data.c_str());
-    this->_storyInformation = data;
-    if (false == d.Parse<0>(_storyInformation.c_str()).HasParseError()) {
-        // document is ok
-        
-        const std::string coverPageName = d["coverPage"].GetString();
-        _storyId = d["storyId"].GetString();
-        
-        CCLOG("coverPageName %s", coverPageName.c_str());
+    int storyIndex = atoi(data.c_str());
+    
+    std::string contents = FileUtils::getInstance()->getStringFromFile("misc/shelfConfig.json");
+    
+    rapidjson::Document d;
+    
+    if (false == d.Parse<0>(contents.c_str()).HasParseError()) {
+        const rapidjson::Value& storyConfigs = d["stories"];
+        assert(storyConfigs.IsArray());
+        const rapidjson::Value& story = storyConfigs[storyIndex];
+        _storyId = story["storyId"].GetString();
+        const std::string coverPageName = story["coverPage"].GetString();
         std::vector<std::string> coverPageInfo = _menuContext->split(coverPageName, '/');
         if(coverPageInfo.size() > 0) {
             _baseDir = coverPageInfo.at(0);
         }
         loadCoverPage(coverPageName);
-    }    
+        
+    }
 }
 
 void StoryCoverPage::loadCoverPage(std::string coverPageUrl) {

@@ -17,8 +17,8 @@
 
 class QuestionHandler: public cocos2d::Node {
 public:
-    static cocos2d::Scene *createScene(std::string storyId);
-    static QuestionHandler *create(std::string storyId);
+    static cocos2d::Scene *createScene(std::string storyId, std::string baseDir);
+    static QuestionHandler *create(std::string storyId, std::string baseDir);
     void onEnterTransitionDidFinish() override;
     static void setButtonProperties(cocos2d::Node* button, std::string name, std::string text, const cocos2d::ui::Widget::ccWidgetTouchCallback& callback);
     void gotoNextQuestion(int score);
@@ -26,22 +26,25 @@ public:
     static const int FONT_SIZE;
     static const cocos2d::Color3B FONT_COLOR;
     static const cocos2d::Color3B FONT_HIGHLIGHT_COLOR;
+    static std::string wrapString(std::string str, size_t width);
     std::string getBaseDir();
+    MenuContext* getMenuContext();
 
 CC_CONSTRUCTOR_ACCESS:
     QuestionHandler();
     virtual ~QuestionHandler();
     virtual bool init() override;
-    bool initWithStoryId(std::string storyId);
+    bool initWithStoryId(std::string storyId, std::string baseDir);
 
 protected:
     std::string _storyId;
-    std::string _storyInformation;
     std::string _baseDir;
     MenuContext* _menuContext;
     std::vector<std::vector<std::string>> _questions;
     int _currentQuestion;
     Node* _currentQuestionNode;
+    int _totalPoints;
+    cocos2d::ParticleSystem* _ps;
 };
 
 #endif /* QuestionHandler_h */

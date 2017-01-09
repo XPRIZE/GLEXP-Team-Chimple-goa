@@ -1,15 +1,15 @@
 [
     {
-        "name": "story-play",
+        "name": "story-catalogue",
         "title": "Stories",
         "unlock": true,
         "cIcon": "gameicons/story_pressed.png",
         "icon": "gameicons/story.png",
         "multiPlayer": false,
-        "isJSGame": true,
+        "isJSGame": false,
         "pureJS": "",
-        "script": "src/start/catalogue.js"
-    },
+        "script": "src/NonJSGameLauncher.js"
+    },    
     {
         "name": "dino",
         "title": "Alphabet",

@@ -23,7 +23,7 @@ Picture *Picture::create(QuestionHandler* qHandler, std::vector<std::string> que
 }
 
 void Picture::onEnterTransitionDidFinish() {
-    
+    Meaning::onEnterTransitionDidFinish();
 }
 
 Picture::Picture() {

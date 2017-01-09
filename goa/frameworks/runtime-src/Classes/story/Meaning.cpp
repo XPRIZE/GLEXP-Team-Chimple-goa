@@ -27,7 +27,8 @@ Meaning *Meaning::create(QuestionHandler* qHandler, std::vector<std::string> que
 }
 
 void Meaning::onEnterTransitionDidFinish() {
-    
+    Node::onEnterTransitionDidFinish();
+    runAction(FadeIn::create(1.0f));    
 }
 
 Meaning::Meaning() :
@@ -124,6 +125,7 @@ void Meaning::buttonSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEv
                 auto buttonName = clickedButton->getName();
                 if(buttonName.substr(0, 1) == _button1->getName().substr(0, 1)) {
                     _numSolved++;
+                    _qHandler->getMenuContext()->addPoints(1);
                     auto pairButton = _buttonMap[_button1];
                     if(pairButton) {
                         auto pairButtonPos = pairButton->getPosition();
@@ -145,6 +147,7 @@ void Meaning::buttonSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEv
                     _button2->setEnabled(true);
                     _button1->runAction(FShake::actionWithDuration(1.0f, 10.0f));
                     _button2->runAction(FShake::actionWithDuration(1.0f, 10.0f));
+                    _qHandler->getMenuContext()->addPoints(-1);
                 }
                 _button1 = nullptr;
                 _button2 = nullptr;
@@ -168,9 +171,9 @@ void Meaning::adjustButtons() {
     QuestionHandler::setButtonProperties(bg->getChildByName("Button_2"), "2", _questions[3], CC_CALLBACK_2(Meaning::buttonSelected, this));
     QuestionHandler::setButtonProperties(bg->getChildByName("Button_3"), "3", _questions[5], CC_CALLBACK_2(Meaning::buttonSelected, this));
     QuestionHandler::setButtonProperties(bg->getChildByName("Button_4"), "4", _questions[7], CC_CALLBACK_2(Meaning::buttonSelected, this));
-    QuestionHandler::setButtonProperties(bg->getChildByName(buttons[0]), "1_answer", _questions[2], CC_CALLBACK_2(Meaning::buttonSelected, this));
-    QuestionHandler::setButtonProperties(bg->getChildByName(buttons[1]), "2_answer", _questions[4], CC_CALLBACK_2(Meaning::buttonSelected, this));
-    QuestionHandler::setButtonProperties(bg->getChildByName(buttons[2]), "3_answer", _questions[6], CC_CALLBACK_2(Meaning::buttonSelected, this));
-    QuestionHandler::setButtonProperties(bg->getChildByName(buttons[3]), "4_answer", _questions[8], CC_CALLBACK_2(Meaning::buttonSelected, this));
+    QuestionHandler::setButtonProperties(bg->getChildByName(buttons[0]), "1_answer", QuestionHandler::wrapString(_questions[2], 40), CC_CALLBACK_2(Meaning::buttonSelected, this));
+    QuestionHandler::setButtonProperties(bg->getChildByName(buttons[1]), "2_answer", QuestionHandler::wrapString(_questions[4], 40), CC_CALLBACK_2(Meaning::buttonSelected, this));
+    QuestionHandler::setButtonProperties(bg->getChildByName(buttons[2]), "3_answer", QuestionHandler::wrapString(_questions[6], 40), CC_CALLBACK_2(Meaning::buttonSelected, this));
+    QuestionHandler::setButtonProperties(bg->getChildByName(buttons[3]), "4_answer", QuestionHandler::wrapString(_questions[8], 40), CC_CALLBACK_2(Meaning::buttonSelected, this));
 }
 

@@ -14,6 +14,7 @@
 #include "scripting/js-bindings/manual/ScriptingCore.h"
 #include "../MapScene.h"
 #include "../menu/LevelHelpScene.h"
+#include "../story/ScrollableCatalogue.hpp"
 
 USING_NS_CC;
 
@@ -467,7 +468,8 @@ void ScoreBoardContext::showStars() {
 void ScoreBoardContext::transit() {
     std::size_t isStories = _gameName.find("storyId");
     if (isStories!=std::string::npos) {
-        ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
+        //ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
+        Director::getInstance()->replaceScene(ScrollableCatalogue::createScene());
     } else if(!this->_sceneName.empty()) {
         Director::getInstance()->replaceScene(TransitionFade::create(0.5, HelloWorld::createScene(this->_gameName,this->_sceneName, true), Color3B::BLACK));
     } else {
@@ -517,7 +519,8 @@ void ScoreBoardContext::buttonClicked(Ref* pSender, ui::Widget::TouchEventType e
                 std::size_t isStories = _gameName.find("storyId");
                 
                 if (isStories!=std::string::npos || _gameName == "Show Stories") {
-                    ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
+                    Director::getInstance()->replaceScene(ScrollableCatalogue::createScene());
+//                    ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
                 } else if(_gameName == "map") {
                     std::string currentLevel;
                     localStorageGetItem(_gameName + ".currentLevel", &currentLevel);
