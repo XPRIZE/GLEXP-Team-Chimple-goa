@@ -292,7 +292,7 @@ void ScrollableCatalogue::createBook(int i, int j, int numRows, int numCols, ui:
         isStoryLocked = d["locked"].GetBool();
         stars = d["star"].GetInt();
     }
-    std::string starFile = stars > 1 ? "levelstep/star.png" : "levelstep/star_empty.png";
+    std::string starFile = stars >= 1 ? "levelstep/star.png" : "levelstep/star_empty.png";
     auto star1 = Sprite::createWithSpriteFrameName(starFile);
     star1->setAnchorPoint(Vec2(0.5,0.5));
     star1->setScale(0.75f);
