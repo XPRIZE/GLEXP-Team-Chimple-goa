@@ -239,8 +239,6 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                     _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
                     _mapMenu = this->createMenuItem("menu/reward.png", "menu/reward.png", "menu/reward.png", 2 * POINTS_TO_LEFT);
                     _mapMenu->addTouchEventListener(CC_CALLBACK_0(MenuContext::showRewards, this));
-                    _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png", 3 * POINTS_TO_LEFT);
-                    _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
                 } else if(gameName == "Award") {
                     _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
                     _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));

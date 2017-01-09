@@ -2120,10 +2120,6 @@
 		"10": {
 			"unlock": "dash"
 		},
-		"2": {
-			"unlockMin": "JumpOnWords",
-			"min": "5"
-		},
 		"3": {
 			"badge": "s/candy_tree"
 		},
@@ -2166,11 +2162,6 @@
 	"rewards": {
 		"30": {
 			"unlock": "bingo"
-		},
-		"2": {
-
-			"unlockMin": "JumpOnWords",
-			"min": "5"
 		},
 		"13": {
 			"badge": "s/fluffy_cloud"
@@ -2217,9 +2208,7 @@
 			"unlock": "drop"
 		},
 		"6": {
-			"badge": "s/curious_giraffe",
-			"unlockMin": "JumpOnWords",
-			"min": "5"
+			"badge": "s/curious_giraffe"
 		},
 		"12": {
 			"badge": "p/healthy_cauliflower"
@@ -2262,9 +2251,7 @@
 			"unlock": "train"
 		},
 		"10": {
-			"badge": "s/popping_balloon",
-			"unlockMin": "JumpOnWords",
-			"min": "5"
+			"badge": "s/popping_balloon"
 		},
 		"20": {
 			"badge": "m/leaf_bomb"
@@ -2352,9 +2339,7 @@
 			"unlock": "memory"
 		},
 		"8": {
-			"badge": "c/chocolava_mountain",
-			"unlockMin": "JumpOnWords",
-			"min": "5"
+			"badge": "c/chocolava_mountain"
 		},
 		"16": {
 			"badge": "s/joy_ride"
@@ -2395,11 +2380,6 @@
 	"rewards": {
 		"1": {
 			"unlock": "balloon"
-		},
-		"2": {
-
-			"unlockMin": "JumpOnWords",
-			"min": "5"
 		},
 		"6": {
 			"badge": "s/mama_hen"
@@ -2444,10 +2424,6 @@
 		"30": {
 			"unlock": "pillar"
 		},
-		"2": {
-			"unlockMin": "JumpOnWords",
-			"min": "5"
-		},
 		"13": {
 			"badge": "s/falling_stone"
 		},
@@ -2491,11 +2467,6 @@
 		"30": {
 			"unlock": "balloon"
 		},
-		"2": {
-
-			"unlockMin": "JumpOnWords",
-			"min": "5"
-		},
 		"13": {
 			"badge": "s/climbing_ladder"
 		},
@@ -2538,10 +2509,6 @@
 	"rewards": {
 		"32": {
 			"unlock": "JumpOnWords"
-		},
-		"2": {
-			"unlockMin": "JumpOnWords",
-			"min": "5"
 		},
 		"12": {
 			"badge": "s/life_saver"
@@ -2616,7 +2583,6 @@
 }, {
 	"name": "story-telling",
 	"title": "Create A Story",
-	"unlock": true,
 	"cIcon": "gameicons/story_maker_pressed.png",
 	"icon": "gameicons/story_maker.png",
 	"multiPlayer": false,
@@ -2625,8 +2591,7 @@
 	"script": "src/start/storytelling.js"
 }, {
 	"name": "map",
-	"title": "Be a Hero",
-	"unlock": true,
+	"title": "Hero",
 	"cIcon": "gameicons/hero_pressed.png",
 	"icon": "gameicons/hero.png",
 	"multiPlayer": false,

@@ -58,6 +58,11 @@ void LevelHelpOverlay::gotoGame(Ref* pSender, cocos2d::ui::Widget::TouchEventTyp
         if(_currentVideo < _videos.size()) {
             removeChild(getChildByName("bg")->getChildByName("screen_1")->getChildByName("video"));
             getChildByName("bg")->getChildByName("screen_1")->removeChild(_resumeButton);
+            if(_currentVideo + 1 == _videos.size()) {
+                _text->setString(LangUtil::getInstance()->translateString(_helpText));
+            } else {
+                _text->setString(LangUtil::getInstance()->translateString(_videoNames[_currentVideo]));
+            }            
             videoPlayStart();
         } else {
             auto menuContext = static_cast<MenuContext *>(getParent());

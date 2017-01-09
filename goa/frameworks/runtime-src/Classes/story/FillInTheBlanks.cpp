@@ -44,9 +44,16 @@ bool FillInTheBlanks::initWithQuestions(QuestionHandler* qHandler, std::vector<s
         auto qNode = bg->getChildByName<TextField*>("TextField_2");
         if(qNode) {
             auto fitb = _questions[1];
+            std::transform(fitb.begin(), fitb.end(), fitb.begin(), ::tolower);
+            auto fitbOrig = _questions[1];
             std::string blanks = "______________";
-            fitb.replace(fitb.find(_questions[2]), _questions[2].size(), blanks);
-            qNode->setString(QuestionHandler::wrapString(fitb, 40));
+            std::string filler = _questions[2];
+            std::transform(filler.begin(), filler.end(), filler.begin(), ::tolower);
+            auto pos = fitb.find(filler);
+            if(pos != std::string::npos) {
+                fitbOrig.replace(pos, filler.size(), blanks);
+            }
+            qNode->setString(QuestionHandler::wrapString(fitbOrig, 40));
         }
         return true;
     }

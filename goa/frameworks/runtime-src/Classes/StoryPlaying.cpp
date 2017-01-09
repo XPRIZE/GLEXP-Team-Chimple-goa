@@ -865,6 +865,8 @@ void StoryPlaying::playMasterAnimation() {
         _mainTimeLine->play("master", false);
         _isPlayStarted = true;
         _isPlayEnded = false;
+    } else {
+        playEnded();
     }
 
 }
