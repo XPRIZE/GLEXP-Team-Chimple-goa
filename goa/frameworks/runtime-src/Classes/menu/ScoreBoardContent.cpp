@@ -484,6 +484,7 @@ void ScoreBoardContext::transit() {
 void ScoreBoardContext::buttonClicked(Ref* pSender, ui::Widget::TouchEventType eEventType)
 {
     cocos2d::ui::Button* clickedButton = dynamic_cast<cocos2d::ui::Button *>(pSender);
+	CCLOG("clicked button in scoreBoard = %s", clickedButton->getName().c_str());
     switch (eEventType) {
         case ui::Widget::TouchEventType::BEGAN:
         {
@@ -514,7 +515,7 @@ void ScoreBoardContext::buttonClicked(Ref* pSender, ui::Widget::TouchEventType e
                     Director::getInstance()->replaceScene(LevelMenu::createScene(_gameName));
                 }                
             }
-            else if(clickedButton->getName() == "home") {
+            else if(clickedButton->getName() == "game") {
                 Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
             }
             else if(clickedButton->getName() == "next")  {
