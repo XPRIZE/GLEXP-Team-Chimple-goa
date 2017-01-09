@@ -923,7 +923,7 @@ void StoryPlaying::nextStory(Ref* pSender, ui::Widget::TouchEventType eEventType
         {
             clickedButton->setEnabled(false);
             clickedButton->setVisible(false);
-            if(false && _pageIndex + 1 != _totalStoryPages) {
+            if(_pageIndex + 1 != _totalStoryPages) {
                 Director::getInstance()->replaceScene(TransitionFade::create(1.0, StoryPlaying::createScene(_pageIndex + 1, _storyId), Color3B::BLACK));
             } else {
                 Director::getInstance()->replaceScene(TransitionFade::create(1.0, QuestionHandler::createScene(_storyId, _baseDir), Color3B::BLACK));
