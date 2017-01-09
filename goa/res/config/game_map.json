@@ -303,34 +303,49 @@
         }
     },
     {
-        "name": "book",
-        "title": "Alphabet Fight",
-        "cIcon": "gameicons/book_pressed.png",
-        "icon": "gameicons/book.png",
+        "name": "Alphamon Feed",
+        "title": "Feed the Monsters",
+        "cIcon": "gameicons/Alphamon Feed_pressed.png",
+        "icon": "gameicons/Alphamon Feed.png",
         "multiPlayer": false,
         "isJSGame": false,
         "script": "src/NonJSGameLauncher.js",
-        "span": "3",
+        "span": "5",
         "numLevels": "26",
-        "backgroundJson": "tablelevel/background.json",
-        "foregroundJson": "tablelevel/foreground.json",
-        "frontgroundJson": "tablelevel/frontground.json",
-        "maingroundJson": "tablelevel/mainground.json",
-        "menuPlist": "tablelevel/tablelevel.plist",
-        "menuPng": "tablelevel/tablelevel.png",
         "rewards" : {
             "13": {
-                "unlock": "alphamole"
+                "unlock": "book"
             },
             "2": {
-                "badge": "g/gem_balloon",
                 "unlockMin": "Kung Fu Alpha",
                 "min": "4"
             },
-            "3": {
-                "badge": "s/golden_boot"
+            "4": {
+                "badge": "s/super_s"
+            },
+             "8": {
+                "badge": "m/charming_face"
+            },
+             "12": {
+                "badge": "p/tasty_pineapple"
+            },
+             "16": {
+                "badge": "g/juicy_strawberry"
+            },
+             "20": {
+                "badge": "b/delicious_cherry"
+            },
+             "26": {
+                "badge": "c/tasty_mango"
             }
+            
         },
+        "backgroundJson": "alphafeedlevel/Layer1.json",
+        "foregroundJson": "alphafeedlevel/Layer3.json",
+        "frontgroundJson": "alphafeedlevel/Layer4.json",
+        "maingroundJson": "alphafeedlevel/Layer2.json",
+        "menuPlist": "alphafeedlevel/alphafeedlevel.plist",
+        "menuPng": "alphafeedlevel/alphafeedlevel.png",
         "lang": {
             "swa": {
                 "labels": [
@@ -395,162 +410,34 @@
         }
     },
     {
-        "name": "bubble",
-        "title": "Pop the Bubble",
-        "cIcon": "gameicons/bubble_pressed.png",
-        "icon": "gameicons/bubble.png",
+        "name": "book",
+        "title": "Alphabet Fight",
+        "cIcon": "gameicons/book_pressed.png",
+        "icon": "gameicons/book.png",
         "multiPlayer": false,
         "isJSGame": false,
-        "pureJS": "bubbleShooterLevelInfo",
-        "script": "src/start/BubbleShooter.js",
+        "script": "src/NonJSGameLauncher.js",
         "span": "3",
-        "numLevels": "14",
-        "rewards" : {
-            "6": {
-                "unlock": "Smash The Rock"
-            },
-            "2": {
-                "badge": "s/bubble_gun",
-                "unlockMin": "Kung Fu Alpha",
-                "min": "4"
-            },
-            "4": {
-              "badge": "m/yummy_mushroom"
-            },
-            "7": {
-              "badge": "p/bubbley_soap"
-            },
-            "10": {
-              "badge": "g/funky_bubble"
-            },
-            "12": {
-              "badge": "b/bubbling_foam"
-            },
-            "14": {
-                  "badge": "c/bubble_wand"
-              }
-        },
-        "backgroundJson": "bubble_shooter_level/background.json",
-        "foregroundJson": "bubble_shooter_level/foreground.json",
-        "frontgroundJson": "bubble_shooter_level/frontground.json",
-        "maingroundJson": "bubble_shooter_level/mainground.json",
-        "menuPlist": "bubble_shooter_level/bubble_shooter_level.plist",
-        "menuPng": "bubble_shooter_level/bubble_shooter_level.png"
-    },
-    {
-        "name": "Cannon Ball",
-        "title": "Cannon Ball",
-        "cIcon": "gameicons/Cannon Ball_pressed.png",
-        "icon": "gameicons/Cannon Ball.png",
-        "multiPlayer": false,
-        "isJSGame": false,
-        "script": "src/NonJSGameLauncher.js",
-        "span": "2",
-        "rewards" : {
-            "5": {
-                "unlock": "bubble",
-                "badge": "s/blasting_cannon",
-                "min": "4"
-            },
-            "2": {
-                "badge": "m/falling_asteroid"
-            },
-            "4": {
-                "badge": "p/burning_flame"
-            },
-            "6": {
-              "badge": "g/tender_leaf"
-            },
-            "8": {
-              "badge": "b/fiery_cannonblaster"
-            },
-            "10": {
-                  "badge": "c/cannon_bolt"
-              }
-        },
-        "numLevels": "10",
-        "backgroundJson": "plevelscreen2/cblevelbg.json",
-        "foregroundJson": "plevelscreen2/cblevelfrg.json",
-        "frontgroundJson": "plevelscreen2/cblevelfng.json",
-        "maingroundJson": "plevelscreen2/cblevelmng.json",
-        "menuPlist": "plevelscreen2/plevelscreen2.plist",
-        "menuPng": "plevelscreen2/plevelscreen2.png"
-    },
-    {
-        "name": "dino",
-        "title": "Alphabet",
-        "cIcon": "gameicons/dino_pressed.png",
-        "icon": "gameicons/dino.png",
-        "multiPlayer": false,
-        "isJSGame": false,
-        "script": "src/NonJSGameLauncher.js",
-        "span": "2",
-        "numLevels": "3",
-        "rewards" : {
-            "1": {
-                 "badge": "s/cute_dino"
-            },
-            "2": {
-                "badge": "g/old_gem",
-                "unlock": "Patch The Wall"
-            },
-            "3": {
-                "badge": "c/choco_saur",
-                "unlockMin": "Kung Fu Alpha",
-                "min": "5"
-            }
-        },
-        "backgroundJson": "dinolevel/Layer1.json",
-        "foregroundJson": "dinolevel/Layer3.json",
-        "frontgroundJson": "dinolevel/Layer4.json",
-        "maingroundJson": "dinolevel/Layer2.json",
-        "menuPlist": "dinolevel/dinolevel.plist",
-        "menuPng": "dinolevel/dinolevel.png"
-    },
-    {
-        "name": "Alphamon Feed",
-        "title": "Feed the Monsters",
-        "cIcon": "gameicons/Alphamon Feed_pressed.png",
-        "icon": "gameicons/Alphamon Feed.png",
-        "multiPlayer": false,
-        "isJSGame": false,
-        "script": "src/NonJSGameLauncher.js",
-        "span": "5",
         "numLevels": "26",
+        "backgroundJson": "tablelevel/background.json",
+        "foregroundJson": "tablelevel/foreground.json",
+        "frontgroundJson": "tablelevel/frontground.json",
+        "maingroundJson": "tablelevel/mainground.json",
+        "menuPlist": "tablelevel/tablelevel.plist",
+        "menuPng": "tablelevel/tablelevel.png",
         "rewards" : {
             "13": {
-                "unlock": "book"
+                "unlock": "alphamole"
             },
             "2": {
+                "badge": "g/gem_balloon",
                 "unlockMin": "Kung Fu Alpha",
                 "min": "4"
             },
-            "4": {
-                "badge": "s/super_s"
-            },
-             "8": {
-                "badge": "m/charming_face"
-            },
-             "12": {
-                "badge": "p/tasty_pineapple"
-            },
-             "16": {
-                "badge": "g/juicy_strawberry"
-            },
-             "20": {
-                "badge": "b/delicious_cherry"
-            },
-             "26": {
-                "badge": "c/tasty_mango"
+            "3": {
+                "badge": "s/golden_boot"
             }
-            
         },
-        "backgroundJson": "alphafeedlevel/Layer1.json",
-        "foregroundJson": "alphafeedlevel/Layer3.json",
-        "frontgroundJson": "alphafeedlevel/Layer4.json",
-        "maingroundJson": "alphafeedlevel/Layer2.json",
-        "menuPlist": "alphafeedlevel/alphafeedlevel.plist",
-        "menuPng": "alphafeedlevel/alphafeedlevel.png",
         "lang": {
             "swa": {
                 "labels": [
@@ -720,6 +607,159 @@
                 "numLevels": "26"
             }
         }
+    },
+    {
+        "name": "bubble",
+        "title": "Pop the Bubble",
+        "cIcon": "gameicons/bubble_pressed.png",
+        "icon": "gameicons/bubble.png",
+        "multiPlayer": false,
+        "isJSGame": false,
+        "pureJS": "bubbleShooterLevelInfo",
+        "script": "src/start/BubbleShooter.js",
+        "span": "3",
+        "numLevels": "14",
+        "rewards" : {
+            "6": {
+                "unlock": "Smash The Rock"
+            },
+            "2": {
+                "badge": "s/bubble_gun",
+                "unlockMin": "Kung Fu Alpha",
+                "min": "4"
+            },
+            "4": {
+              "badge": "m/yummy_mushroom"
+            },
+            "7": {
+              "badge": "p/bubbley_soap"
+            },
+            "10": {
+              "badge": "g/funky_bubble"
+            },
+            "12": {
+              "badge": "b/bubbling_foam"
+            },
+            "14": {
+                  "badge": "c/bubble_wand"
+              }
+        },
+        "lang": {
+            "swa": {
+                "labels": [
+                    "ABC",
+                    "DEF",
+                    "GHI",
+                    "JKL",
+                    "MNO",
+                    "PRS",
+                    "TUV",
+                    "WYZ",
+                    "A-Z",
+                    "0-2",
+                    "3-5",
+                    "6-8",
+                    "9",
+                    "0-9"
+                ],
+                "numLevels": "14"
+            },
+            "eng": {
+                "labels": [
+                    "ABC",
+                    "DEF",
+                    "GHI",
+                    "JKL",
+                    "MNO",
+                    "PQR",
+                    "STU",
+                    "VWX",
+                    "YZ",
+                    "0-2",
+                    "3-5",
+                    "6-8",
+                    "9",
+                    "0-9"
+                ],
+                "numLevels": "14"
+            }
+        },
+        "backgroundJson": "bubble_shooter_level/background.json",
+        "foregroundJson": "bubble_shooter_level/foreground.json",
+        "frontgroundJson": "bubble_shooter_level/frontground.json",
+        "maingroundJson": "bubble_shooter_level/mainground.json",
+        "menuPlist": "bubble_shooter_level/bubble_shooter_level.plist",
+        "menuPng": "bubble_shooter_level/bubble_shooter_level.png"
+    },
+    {
+        "name": "Cannon Ball",
+        "title": "Cannon Ball",
+        "cIcon": "gameicons/Cannon Ball_pressed.png",
+        "icon": "gameicons/Cannon Ball.png",
+        "multiPlayer": false,
+        "isJSGame": false,
+        "script": "src/NonJSGameLauncher.js",
+        "span": "2",
+        "rewards" : {
+            "5": {
+                "unlock": "bubble",
+                "badge": "s/blasting_cannon",
+                "min": "4"
+            },
+            "2": {
+                "badge": "m/falling_asteroid"
+            },
+            "4": {
+                "badge": "p/burning_flame"
+            },
+            "6": {
+              "badge": "g/tender_leaf"
+            },
+            "8": {
+              "badge": "b/fiery_cannonblaster"
+            },
+            "10": {
+                  "badge": "c/cannon_bolt"
+              }
+        },
+        "numLevels": "10",
+        "backgroundJson": "plevelscreen2/cblevelbg.json",
+        "foregroundJson": "plevelscreen2/cblevelfrg.json",
+        "frontgroundJson": "plevelscreen2/cblevelfng.json",
+        "maingroundJson": "plevelscreen2/cblevelmng.json",
+        "menuPlist": "plevelscreen2/plevelscreen2.plist",
+        "menuPng": "plevelscreen2/plevelscreen2.png"
+    },
+    {
+        "name": "dino",
+        "title": "Alphabet",
+        "cIcon": "gameicons/dino_pressed.png",
+        "icon": "gameicons/dino.png",
+        "multiPlayer": false,
+        "isJSGame": false,
+        "script": "src/NonJSGameLauncher.js",
+        "span": "2",
+        "numLevels": "3",
+        "rewards" : {
+            "1": {
+                 "badge": "s/cute_dino"
+            },
+            "2": {
+                "badge": "g/old_gem",
+                "unlock": "Patch The Wall"
+            },
+            "3": {
+                "badge": "c/choco_saur",
+                "unlockMin": "Kung Fu Alpha",
+                "min": "5"
+            }
+        },
+        "backgroundJson": "dinolevel/Layer1.json",
+        "foregroundJson": "dinolevel/Layer3.json",
+        "frontgroundJson": "dinolevel/Layer4.json",
+        "maingroundJson": "dinolevel/Layer2.json",
+        "menuPlist": "dinolevel/dinolevel.plist",
+        "menuPng": "dinolevel/dinolevel.png"
     },
     {
         "name": "Cross The Bridge",
@@ -2830,9 +2870,6 @@
         "span": "5",
         "numLevels": "20",
         "rewards" : {
-           "8": {
-               "unlock": "step"
-           },
            "3": {
                "badge": "s/milk_bottle",
                "unlockMin": "Line",
@@ -2915,7 +2952,7 @@
         "span": "6",
         "numLevels": "45",
         "rewards" : {
-            "1": {
+            "20": {
                 "unlock": "jumpingNumbers"
             },
             "2": {
@@ -3003,14 +3040,16 @@
         "numLevels": "20",
         "rewards" : {
             "3": {
-                "badge": "s/peppermint_candy",
-                "unlock": "balloonMath"
+                "badge": "s/peppermint_candy"
             },
             "6": {
                 "badge": "m/juicy_lollipop"
             },
              "9": {
                 "badge": "p/chocolate_toffee"
+            },
+             "10": {
+                "unlock": "balloonMath"
             },
              "12": {
                 "badge": "g/heart_gem"
@@ -3040,7 +3079,7 @@
         "span": "4",
         "numLevels": "30",
         "rewards" : {
-           "3": {
+           "15": {
                "unlock": "shop"
            },
          "6": {
@@ -3080,7 +3119,7 @@
         "span": "5",
         "numLevels": "30",
         "rewards" : {
-           "3": {
+           "12": {
                "unlock": "Units"
            },
          "5": {
@@ -3120,7 +3159,7 @@
         "span": "2",
         "numLevels": "10",
         "rewards" : {
-           "3": {
+           "5": {
                "unlock": "atm"
            },
          "1": {
@@ -3160,8 +3199,8 @@
         "span": "5",
         "numLevels": "25",
         "rewards" : {
-            "3": {
-                "unlock": "Bounce"
+            "14": {
+                "unlock": "card"
             },
             "4": {
                 "badge": "s/money_machine"
@@ -3190,32 +3229,6 @@
         "menuPng": "ATM_level/ATM_level.png"
     },
     {
-        "name": "Bounce",
-        "title": "Drop the Icecream",
-        "cIcon": "gameicons/icecream_pressed.png",
-        "icon": "gameicons/icecream.png",
-        "multiPlayer": false,
-        "isJSGame": true,
-        "pureJS": "BounceLayer",
-        "script": "src/start/bounce.js",
-        "span": "4",
-        "numLevels": "20",
-        "rewards" : {
-            "3": {
-                "unlock": "card"
-            },
-            "5": {
-                "badge": "s/golden_boot"
-            }
-        },
-        "backgroundJson": "icecreamlevel/background.json",
-        "foregroundJson": "icecreamlevel/foreground.json",
-        "frontgroundJson": "icecreamlevel/frontground.json",
-        "maingroundJson": "icecreamlevel/mainground.json",
-        "menuPlist": "icecreamlevel/icecreamlevel.plist",
-        "menuPng": "icecreamlevel/icecreamlevel.png"
-    },
-    {
         "name": "card",
         "title": "Add the Cards",
         "cIcon": "gameicons/card_pressed.png",
@@ -3226,8 +3239,8 @@
         "span": "3",
         "numLevels": "20",
         "rewards" : {
-            "1": {
-                "unlock": "table"
+            "10": {
+                "unlock": "Bounce"
             },
             "3": {
                 "badge": "s/happy_cow"
@@ -3254,6 +3267,32 @@
         "maingroundJson": "cardlevel/Layer2.json",
         "menuPlist": "cardlevel/cardlevel.plist",
         "menuPng": "cardlevel/cardlevel.png"
+    },
+    {
+        "name": "Bounce",
+        "title": "Drop the Icecream",
+        "cIcon": "gameicons/icecream_pressed.png",
+        "icon": "gameicons/icecream.png",
+        "multiPlayer": false,
+        "isJSGame": true,
+        "pureJS": "BounceLayer",
+        "script": "src/start/bounce.js",
+        "span": "4",
+        "numLevels": "20",
+        "rewards" : {
+            "10": {
+                "unlock": "table"
+            },
+            "5": {
+                "badge": "s/golden_boot"
+            }
+        },
+        "backgroundJson": "icecreamlevel/background.json",
+        "foregroundJson": "icecreamlevel/foreground.json",
+        "frontgroundJson": "icecreamlevel/frontground.json",
+        "maingroundJson": "icecreamlevel/mainground.json",
+        "menuPlist": "icecreamlevel/icecreamlevel.plist",
+        "menuPng": "icecreamlevel/icecreamlevel.png"
     },
     {
         "name": "table",

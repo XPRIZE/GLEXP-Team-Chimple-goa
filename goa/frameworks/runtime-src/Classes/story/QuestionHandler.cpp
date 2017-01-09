@@ -227,6 +227,8 @@ void QuestionHandler::setButtonProperties(Node* button, std::string name, std::s
 
 std::string QuestionHandler::wrapString(std::string str, size_t width) {
     size_t curWidth = width;
+    
+    
     while( curWidth < str.length() ) {
         std::string::size_type spacePos = str.rfind( ' ', curWidth );
         if( spacePos == std::string::npos )
@@ -234,6 +236,8 @@ std::string QuestionHandler::wrapString(std::string str, size_t width) {
         if( spacePos != std::string::npos ) {
             str[ spacePos ] = '\n';
             curWidth = spacePos + width + 1;
+        } else {
+            return str;
         }
     }
     

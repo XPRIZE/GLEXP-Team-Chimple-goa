@@ -249,10 +249,7 @@
   "blastletter": [
    {
       "levels": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
-      "level_concepts": [
-         "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"
-      ],
-      "concepts": [
+       "concepts": [
         "alphabet"
       ],
       "help": "Write the alphabet shown before the bomb blasts.",
@@ -411,7 +408,10 @@
   "EndlessRunner": [
     {
       "levels": [
-        1
+        1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28
+      ],
+      "level_concepts": [
+        "ABC","DEF","GHI","JKL","MNO","PQR","STU","VWX","YZ","ABC","DEF","GHI","JKL","MNO","PQR","STU","VWX","YZ"
       ],
       "help": "Catch the correct alphabet shown above by jumping. Do not catch the wrong alphabet.",
       "video": "endlessrunner_1.webm"
@@ -432,14 +432,20 @@
   "bubble": [
     {
       "levels": [
-        1,2,3,4,5,6,7,8,9,16
+        1,2,3,4,5,6,7,8,9
+      ],
+      "level_concepts": [
+        "ABC","DEF","GHI","JKL","MNO","PQR","STU","VWX","YZ"
       ],
       "help": "Shoot the bubble and match the correct letter.",
       "video": "bubbleshooter_letter_1.webm"
     },
     {
       "levels": [
-        10,11,12,13,14,15
+        10,11,12,13,14
+      ],
+      "concepts": [
+        "number"
       ],
       "help": "Shoot the bubble and match the correct number.",
       "video": "bubbleshooter_number_1.webm"
@@ -834,9 +840,6 @@
       "levels": [
         1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26
       ],
-      "level_concepts": [
-        "A","B","C"
-      ],
       "concepts": [
         "alphabet"
       ],
@@ -849,9 +852,6 @@
       "levels": [
         1,6,11,16,21,26
       ],
-      "level_concepts": [
-        "A","B","C"
-      ],
       "concepts": [
         "alphabet"
       ],
@@ -861,9 +861,6 @@
     {
       "levels": [
         2,7,12,17,22
-      ],
-      "level_concepts": [
-        "A","B","C"
       ],
       "concepts": [
         "alphabet"
@@ -875,9 +872,6 @@
       "levels": [
         3,8,13,18,23
       ],
-      "level_concepts": [
-        "A","B","C"
-      ],
       "concepts": [
         "alphabet"
       ],
@@ -888,9 +882,6 @@
       "levels": [
         4,9,14,19,24
       ],
-      "level_concepts": [
-        "A","B","C"
-      ],
       "concepts": [
         "alphabet"
       ],
@@ -900,9 +891,6 @@
     {
       "levels": [
         5,10,15,20,25
-      ],
-      "level_concepts": [
-        "A","B","C"
       ],
       "concepts": [
         "alphabet"
@@ -924,9 +912,6 @@
      {
      "levels": [
        1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26
-     ],
-     "level_concepts": [
-       "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"
      ],
      "concepts": [
        "alphabet"

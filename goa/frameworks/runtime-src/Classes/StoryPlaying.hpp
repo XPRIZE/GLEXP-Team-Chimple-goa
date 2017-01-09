@@ -25,7 +25,7 @@
 #include "cocos-ext.h"
 #include "storage/local-storage/LocalStorage.h"
 
-
+#define SHOW_TEXT_AGAIN_BUTTON "showTextAgain"
 #define NEXT_BUTTON "next"
 #define PREVIOUS_BUTTON "previous"
 #define CLOSE_BUTTON "close"
@@ -62,7 +62,7 @@ CC_CONSTRUCTOR_ACCESS:
     
     void onEnterTransitionDidFinish();
     
-    
+    void showTextAgain(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     
 private:
     std::string _baseDir;
@@ -98,6 +98,7 @@ private:
     
     cocos2d::ui::Button* _nextButton;
     cocos2d::ui::Button* _prevButton;
+    cocos2d::ui::Button* _showAgainTextButton;
     
     void playEnded();
     

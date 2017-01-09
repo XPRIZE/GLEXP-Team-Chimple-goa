@@ -441,7 +441,7 @@ void Item::scoreBoard(float dt)
 	}
 	else if (menu->getCurrentLevel() <= 25)
 	{
-		menu->setMaxPoints(4);
+		menu->setMaxPoints(3);
 	}
 	_frog1Num = 0;
 	_frog2Num = 0;
