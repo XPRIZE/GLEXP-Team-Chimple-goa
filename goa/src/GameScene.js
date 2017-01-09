@@ -123,9 +123,10 @@ xc.GameScene.loadMenu = function() {
         t_resources.push(xc.LevelMenuLayer.res[i]);
     }    
     cc.LoaderScene.preload(t_resources, function () {
-        if(gameConfig.name == 'story-play') {
-            xc.CatalogueScene.load(xc.CatalogueLayer);
-        } else if(gameConfig.name == 'story-telling') {
+        // if(gameConfig.name == 'story-play') {
+        //     xc.CatalogueScene.load(xc.CatalogueLayer);
+        // } else
+         if(gameConfig.name == 'story-telling') {
             xc.CreateStoryScene.load(xc.CreateStoryLayer);
         } else {
             var scene = new xc.GameScene([xc.LevelMenuLayer, gameConfig]);

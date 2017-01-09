@@ -15,9 +15,9 @@
                 <key>spriteSourceSize</key>
                 <string>{145,119}</string>
                 <key>textureRect</key>
-                <string>{{138,1},{133,83}}</string>
+                <string>{{1,86},{133,83}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>scoreboard/scoreboard2/Gift0049.png</key>
             <dict>
@@ -30,7 +30,7 @@
                 <key>spriteSourceSize</key>
                 <string>{145,119}</string>
                 <key>textureRect</key>
-                <string>{{1,86},{131,83}}</string>
+                <string>{{1,171},{131,83}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -60,9 +60,9 @@
                 <key>spriteSourceSize</key>
                 <string>{145,119}</string>
                 <key>textureRect</key>
-                <string>{{122,227},{119,81}}</string>
+                <string>{{1,336},{119,81}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>scoreboard/scoreboard2/Gift0052.png</key>
             <dict>
@@ -75,7 +75,7 @@
                 <key>spriteSourceSize</key>
                 <string>{145,119}</string>
                 <key>textureRect</key>
-                <string>{{1,171},{119,85}}</string>
+                <string>{{134,249},{119,85}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -90,9 +90,9 @@
                 <key>spriteSourceSize</key>
                 <string>{145,119}</string>
                 <key>textureRect</key>
-                <string>{{134,136},{119,89}}</string>
+                <string>{{136,128},{119,89}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>scoreboard/scoreboard2/Gift0054.png</key>
             <dict>
@@ -105,7 +105,7 @@
                 <key>spriteSourceSize</key>
                 <string>{145,119}</string>
                 <key>textureRect</key>
-                <string>{{1,258},{119,73}}</string>
+                <string>{{1,256},{119,73}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -120,9 +120,9 @@
                 <key>spriteSourceSize</key>
                 <string>{145,119}</string>
                 <key>textureRect</key>
-                <string>{{122,310},{119,73}}</string>
+                <string>{{84,336},{119,73}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>scoreboard/scoreboard2/Gift0056.png</key>
             <dict>
@@ -135,9 +135,9 @@
                 <key>spriteSourceSize</key>
                 <string>{145,119}</string>
                 <key>textureRect</key>
-                <string>{{1,333},{119,73}}</string>
+                <string>{{159,336},{119,73}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>scoreboard/scoreboard2/Gift0057.png</key>
             <dict>
@@ -150,9 +150,9 @@
                 <key>spriteSourceSize</key>
                 <string>{145,119}</string>
                 <key>textureRect</key>
-                <string>{{1,333},{119,73}}</string>
+                <string>{{159,336},{119,73}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>scoreboard/scoreboard2/Gift0058.png</key>
             <dict>
@@ -165,9 +165,9 @@
                 <key>spriteSourceSize</key>
                 <string>{145,119}</string>
                 <key>textureRect</key>
-                <string>{{1,333},{119,73}}</string>
+                <string>{{159,336},{119,73}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>scoreboard/scoreboard2/Gift0059.png</key>
             <dict>
@@ -180,9 +180,9 @@
                 <key>spriteSourceSize</key>
                 <string>{145,119}</string>
                 <key>textureRect</key>
-                <string>{{1,333},{119,73}}</string>
+                <string>{{159,336},{119,73}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>scoreboard/scoreboard2/Gift0060.png</key>
             <dict>
@@ -195,7 +195,22 @@
                 <key>spriteSourceSize</key>
                 <string>{145,119}</string>
                 <key>textureRect</key>
-                <string>{{1,333},{119,73}}</string>
+                <string>{{159,336},{119,73}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>scoreboard/scoreboard2/rewardcard.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{104,125}</string>
+                <key>spriteSourceSize</key>
+                <string>{104,125}</string>
+                <key>textureRect</key>
+                <string>{{138,1},{104,125}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -205,15 +220,15 @@
             <key>format</key>
             <integer>3</integer>
             <key>pixelFormat</key>
-            <string>RGBA8888</string>
+            <string>RGBA4444</string>
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
             <string>scoreboard2.png</string>
             <key>size</key>
-            <string>{254,407}</string>
+            <string>{254,456}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:079c465af700b6c528edff1b10254ed0:ed467b12416a07408447d1bf39171c98:b4a41075017e809d3e12c55730085a53$</string>
+            <string>$TexturePacker:SmartUpdate:1cf82e8f7c5c8ebaedb768d42c3f3d37:d5001fd94cf9e6d1ad54e36e6a515bf5:b4a41075017e809d3e12c55730085a53$</string>
             <key>textureFileName</key>
             <string>scoreboard2.png</string>
         </dict>

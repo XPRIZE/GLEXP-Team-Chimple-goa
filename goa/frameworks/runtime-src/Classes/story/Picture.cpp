@@ -1,0 +1,91 @@
+//
+//  Picture.cpp
+//  goa
+//
+//  Created by Srikanth Talapadi on 08/01/2017.
+//
+//
+
+#include "Picture.hpp"
+
+USING_NS_CC;
+using namespace cocos2d::ui;
+
+Picture *Picture::create(QuestionHandler* qHandler, std::vector<std::string> questions) {
+    Picture* lhs = new (std::nothrow) Picture();
+    if(lhs && lhs->initWithQuestions(qHandler, questions))
+    {
+        lhs->autorelease();
+        return lhs;
+    }
+    CC_SAFE_DELETE(lhs);
+    return nullptr;
+}
+
+void Picture::onEnterTransitionDidFinish() {
+    Meaning::onEnterTransitionDidFinish();
+}
+
+Picture::Picture() {
+    
+}
+
+Picture::~Picture() {
+    
+}
+
+bool Picture::initWithQuestions(QuestionHandler* qHandler, std::vector<std::string> questions) {
+    return Meaning::initWithQuestions(qHandler, questions);
+}
+
+void Picture::buttonSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
+    Meaning::buttonSelected(pSender, eEventType);
+}
+
+void Picture::adjustButtons() {
+    auto bg = this->getChildByName("bg");
+    
+    auto button = static_cast<Button*> (bg->getChildByName("Button_1"));
+    button->setName("1");
+    button->addTouchEventListener(CC_CALLBACK_2(Meaning::buttonSelected, this));
+    auto sprite = Sprite::create(_qHandler->getBaseDir() + "/" + _questions[1]);
+    if(sprite) {
+        sprite->setPosition(button->getContentSize().width / 2, button->getContentSize().height / 2);
+        button->addChild(sprite);
+    }
+    button = static_cast<Button*> (bg->getChildByName("Button_2"));
+    button->setName("2");
+    button->addTouchEventListener(CC_CALLBACK_2(Meaning::buttonSelected, this));
+    sprite = Sprite::create(_qHandler->getBaseDir() + "/" + _questions[3]);
+    if(sprite) {
+        sprite->setPosition(button->getContentSize().width / 2, button->getContentSize().height / 2);
+        button->addChild(sprite);
+    }
+    button = static_cast<Button*> (bg->getChildByName("Button_3"));
+    button->setName("3");
+    button->addTouchEventListener(CC_CALLBACK_2(Meaning::buttonSelected, this));
+    sprite = Sprite::create(_qHandler->getBaseDir() + "/" + _questions[5]);
+    if(sprite) {
+        sprite->setPosition(button->getContentSize().width / 2, button->getContentSize().height / 2);
+        button->addChild(sprite);
+    }
+    button = static_cast<Button*> (bg->getChildByName("Button_4"));
+    button->setName("4");
+    button->addTouchEventListener(CC_CALLBACK_2(Meaning::buttonSelected, this));
+    sprite = Sprite::create(_qHandler->getBaseDir() + "/" + _questions[7]);
+    if(sprite) {
+        sprite->setPosition(button->getContentSize().width / 2, button->getContentSize().height / 2);
+        button->addChild(sprite);
+    }
+    std::vector<std::string> buttons = {
+        "Button_5",
+        "Button_6",
+        "Button_7",
+        "Button_8"
+    };
+    std::random_shuffle ( buttons.begin(), buttons.end() );
+    QuestionHandler::setButtonProperties(bg->getChildByName(buttons[0]), "1_answer", _questions[2], CC_CALLBACK_2(Meaning::buttonSelected, this));
+    QuestionHandler::setButtonProperties(bg->getChildByName(buttons[1]), "2_answer", _questions[4], CC_CALLBACK_2(Meaning::buttonSelected, this));
+    QuestionHandler::setButtonProperties(bg->getChildByName(buttons[2]), "3_answer", _questions[6], CC_CALLBACK_2(Meaning::buttonSelected, this));
+    QuestionHandler::setButtonProperties(bg->getChildByName(buttons[3]), "4_answer", _questions[8], CC_CALLBACK_2(Meaning::buttonSelected, this));
+}

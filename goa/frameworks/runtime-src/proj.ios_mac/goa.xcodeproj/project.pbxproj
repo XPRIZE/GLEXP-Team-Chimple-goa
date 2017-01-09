@@ -78,6 +78,8 @@
 		9C6329D21E1FE09500842D07 /* ChooseCharacter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6329CF1E1FE09500842D07 /* ChooseCharacter.cpp */; };
 		9C66BF601DFAF3EC002405F6 /* StoryWordBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C66BF5E1DFAF3EC002405F6 /* StoryWordBoard.cpp */; };
 		9C66BF611DFAF3EC002405F6 /* StoryWordBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C66BF5E1DFAF3EC002405F6 /* StoryWordBoard.cpp */; };
+		9C6A06FB1E227247007D730C /* ScrollableCatalogue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6A06F91E227247007D730C /* ScrollableCatalogue.cpp */; };
+		9C6A06FC1E227247007D730C /* ScrollableCatalogue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6A06F91E227247007D730C /* ScrollableCatalogue.cpp */; };
 		9C6F61981DFA725B00B6A8B6 /* DinoGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6F61961DFA725B00B6A8B6 /* DinoGame.cpp */; };
 		9C6F619B1DFA725D00B6A8B6 /* DinoGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6F61961DFA725B00B6A8B6 /* DinoGame.cpp */; };
 		9C7B1AC71DAA1BCE00EBD1FE /* Order.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */; };
@@ -94,6 +96,10 @@
 		9CA07C991DE6BFC8007578FF /* spot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA07C901DE6BFBF007578FF /* spot.cpp */; };
 		9CB54DC01DED46E3006B9D59 /* Balloon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CB54DBE1DED46E3006B9D59 /* Balloon.cpp */; };
 		9CB54DC31DED46E7006B9D59 /* Balloon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CB54DBE1DED46E3006B9D59 /* Balloon.cpp */; };
+		9CE534C61E20DF70005066E7 /* StoryPlaying.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE534C41E20DF70005066E7 /* StoryPlaying.cpp */; };
+		9CE534C71E20DF70005066E7 /* StoryPlaying.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE534C41E20DF70005066E7 /* StoryPlaying.cpp */; };
+		9CE534CC1E20E261005066E7 /* StoryCoverPage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE534CA1E20E261005066E7 /* StoryCoverPage.cpp */; };
+		9CE534CD1E20E261005066E7 /* StoryCoverPage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE534CA1E20E261005066E7 /* StoryCoverPage.cpp */; };
 		9CE8E1EC1DE98718004A4F35 /* Table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8E1EA1DE98718004A4F35 /* Table.cpp */; };
 		9CE8E1EF1DE9871B004A4F35 /* Table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8E1EA1DE98718004A4F35 /* Table.cpp */; };
 		9FA3AE461BE9BBCA00FC9645 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA3AE451BE9BBCA00FC9645 /* GameController.framework */; };
@@ -410,6 +416,16 @@
 		F373B9111DDAE1280027D32C /* Card.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F373B90D1DDAE1280027D32C /* Card.cpp */; };
 		F37404101D78653D00A671D2 /* boot.js in Resources */ = {isa = PBXBuildFile; fileRef = F374040F1D78653C00A671D2 /* boot.js */; };
 		F37404131D78655700A671D2 /* boot.js in Resources */ = {isa = PBXBuildFile; fileRef = F374040F1D78653C00A671D2 /* boot.js */; };
+		F39801EF1E215313004B0711 /* QuestionHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39801EE1E215313004B0711 /* QuestionHandler.cpp */; };
+		F39801F01E215313004B0711 /* QuestionHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39801EE1E215313004B0711 /* QuestionHandler.cpp */; };
+		F39801F71E2171D2004B0711 /* FillInTheBlanks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39801F51E2171D2004B0711 /* FillInTheBlanks.cpp */; };
+		F39801F81E2171D2004B0711 /* FillInTheBlanks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39801F51E2171D2004B0711 /* FillInTheBlanks.cpp */; };
+		F39801FD1E217253004B0711 /* MultipleChoice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39801FB1E217253004B0711 /* MultipleChoice.cpp */; };
+		F39801FE1E217253004B0711 /* MultipleChoice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39801FB1E217253004B0711 /* MultipleChoice.cpp */; };
+		F39802011E2206F9004B0711 /* Meaning.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39801FF1E2206F9004B0711 /* Meaning.cpp */; };
+		F39802021E2206F9004B0711 /* Meaning.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39801FF1E2206F9004B0711 /* Meaning.cpp */; };
+		F39802051E2217C8004B0711 /* Picture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39802031E2217C8004B0711 /* Picture.cpp */; };
+		F39802061E2217C8004B0711 /* Picture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39802031E2217C8004B0711 /* Picture.cpp */; };
 		F3A23A7C1E0C0C500083CEB5 /* LevelMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3A23A7B1E0C0C500083CEB5 /* LevelMenu.cpp */; };
 		F3A23A7D1E0C0C500083CEB5 /* LevelMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3A23A7B1E0C0C500083CEB5 /* LevelMenu.cpp */; };
 		F3A23A811E0D22580083CEB5 /* LevelHelpOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3A23A801E0D22580083CEB5 /* LevelHelpOverlay.cpp */; };
@@ -596,6 +612,8 @@
 		9C6329D01E1FE09500842D07 /* ChooseCharacter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ChooseCharacter.hpp; sourceTree = "<group>"; };
 		9C66BF5E1DFAF3EC002405F6 /* StoryWordBoard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoryWordBoard.cpp; sourceTree = "<group>"; };
 		9C66BF5F1DFAF3EC002405F6 /* StoryWordBoard.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StoryWordBoard.hpp; sourceTree = "<group>"; };
+		9C6A06F91E227247007D730C /* ScrollableCatalogue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScrollableCatalogue.cpp; sourceTree = "<group>"; };
+		9C6A06FA1E227247007D730C /* ScrollableCatalogue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ScrollableCatalogue.hpp; sourceTree = "<group>"; };
 		9C6F61961DFA725B00B6A8B6 /* DinoGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DinoGame.cpp; sourceTree = "<group>"; };
 		9C6F61971DFA725B00B6A8B6 /* DinoGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DinoGame.h; sourceTree = "<group>"; };
 		9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Order.cpp; sourceTree = "<group>"; };
@@ -612,6 +630,10 @@
 		9CA07C911DE6BFBF007578FF /* spot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spot.h; sourceTree = "<group>"; };
 		9CB54DBE1DED46E3006B9D59 /* Balloon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Balloon.cpp; sourceTree = "<group>"; };
 		9CB54DBF1DED46E3006B9D59 /* Balloon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Balloon.h; sourceTree = "<group>"; };
+		9CE534C41E20DF70005066E7 /* StoryPlaying.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoryPlaying.cpp; sourceTree = "<group>"; };
+		9CE534C51E20DF70005066E7 /* StoryPlaying.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StoryPlaying.hpp; sourceTree = "<group>"; };
+		9CE534CA1E20E261005066E7 /* StoryCoverPage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoryCoverPage.cpp; sourceTree = "<group>"; };
+		9CE534CB1E20E261005066E7 /* StoryCoverPage.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StoryCoverPage.hpp; sourceTree = "<group>"; };
 		9CE8E1EA1DE98718004A4F35 /* Table.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Table.cpp; sourceTree = "<group>"; };
 		9CE8E1EB1DE98718004A4F35 /* Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Table.h; sourceTree = "<group>"; };
 		9FA3AE451BE9BBCA00FC9645 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
@@ -946,6 +968,16 @@
 		F373B90C1DDAE1280027D32C /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
 		F373B90D1DDAE1280027D32C /* Card.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Card.cpp; sourceTree = "<group>"; };
 		F374040F1D78653C00A671D2 /* boot.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = boot.js; sourceTree = "<group>"; };
+		F39801ED1E215303004B0711 /* QuestionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionHandler.h; sourceTree = "<group>"; };
+		F39801EE1E215313004B0711 /* QuestionHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QuestionHandler.cpp; sourceTree = "<group>"; };
+		F39801F51E2171D2004B0711 /* FillInTheBlanks.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FillInTheBlanks.cpp; sourceTree = "<group>"; };
+		F39801F61E2171D2004B0711 /* FillInTheBlanks.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FillInTheBlanks.hpp; sourceTree = "<group>"; };
+		F39801FB1E217253004B0711 /* MultipleChoice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MultipleChoice.cpp; sourceTree = "<group>"; };
+		F39801FC1E217253004B0711 /* MultipleChoice.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MultipleChoice.hpp; sourceTree = "<group>"; };
+		F39801FF1E2206F9004B0711 /* Meaning.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Meaning.cpp; sourceTree = "<group>"; };
+		F39802001E2206F9004B0711 /* Meaning.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Meaning.hpp; sourceTree = "<group>"; };
+		F39802031E2217C8004B0711 /* Picture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Picture.cpp; sourceTree = "<group>"; };
+		F39802041E2217C8004B0711 /* Picture.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Picture.hpp; sourceTree = "<group>"; };
 		F3A23A781E0C0C380083CEB5 /* LevelMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelMenu.h; sourceTree = "<group>"; };
 		F3A23A7B1E0C0C500083CEB5 /* LevelMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelMenu.cpp; sourceTree = "<group>"; };
 		F3A23A801E0D22580083CEB5 /* LevelHelpOverlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelHelpOverlay.cpp; sourceTree = "<group>"; };
@@ -1183,6 +1215,7 @@
 		D4545214156E28EF00887EB5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F39801EA1E215183004B0711 /* story */,
 				F3CD27D11E17D1460008033B /* Setting.cpp */,
 				F3CD27D21E17D1460008033B /* Setting.h */,
 				F3EEA3E41DE2D53A00CA7D31 /* Calculator.cpp */,
@@ -1323,6 +1356,10 @@
 				9C6329C81E1F414A00842D07 /* CopyRight.hpp */,
 				9C6329CF1E1FE09500842D07 /* ChooseCharacter.cpp */,
 				9C6329D01E1FE09500842D07 /* ChooseCharacter.hpp */,
+				9CE534C41E20DF70005066E7 /* StoryPlaying.cpp */,
+				9CE534CA1E20E261005066E7 /* StoryCoverPage.cpp */,
+				9CE534CB1E20E261005066E7 /* StoryCoverPage.hpp */,
+				9CE534C51E20DF70005066E7 /* StoryPlaying.hpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -1755,6 +1792,25 @@
 			path = logger;
 			sourceTree = "<group>";
 		};
+		F39801EA1E215183004B0711 /* story */ = {
+			isa = PBXGroup;
+			children = (
+				F39801ED1E215303004B0711 /* QuestionHandler.h */,
+				F39801EE1E215313004B0711 /* QuestionHandler.cpp */,
+				F39801F51E2171D2004B0711 /* FillInTheBlanks.cpp */,
+				F39801F61E2171D2004B0711 /* FillInTheBlanks.hpp */,
+				F39801FB1E217253004B0711 /* MultipleChoice.cpp */,
+				F39801FC1E217253004B0711 /* MultipleChoice.hpp */,
+				F39801FF1E2206F9004B0711 /* Meaning.cpp */,
+				F39802001E2206F9004B0711 /* Meaning.hpp */,
+				F39802031E2217C8004B0711 /* Picture.cpp */,
+				F39802041E2217C8004B0711 /* Picture.hpp */,
+				9C6A06F91E227247007D730C /* ScrollableCatalogue.cpp */,
+				9C6A06FA1E227247007D730C /* ScrollableCatalogue.hpp */,
+			);
+			path = story;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1974,9 +2030,11 @@
 				F373B9051DD982440027D32C /* Line.cpp in Sources */,
 				F35248511D6D9D1A0077C333 /* StateMachine.cpp in Sources */,
 				F35248451D6D9D1A0077C333 /* MO.cpp in Sources */,
+				9C6A06FC1E227247007D730C /* ScrollableCatalogue.cpp in Sources */,
 				F3667D551DB4BA6F00EC8908 /* LTKPreprocessor.cpp in Sources */,
 				F352484D1D6D9D1A0077C333 /* SkeletonPosition.cpp in Sources */,
 				F3667D311DB4BA6F00EC8908 /* LipiTKProcessTask.cpp in Sources */,
+				F39802021E2206F9004B0711 /* Meaning.cpp in Sources */,
 				F3667D631DB4BA7000EC8908 /* LTKImageWriter.cpp in Sources */,
 				F3AB34D41DCDA95900613C20 /* Door.cpp in Sources */,
 				9C064E5F1DB8909B000892E1 /* DecomonGallery.cpp in Sources */,
@@ -2032,6 +2090,7 @@
 				C06E23CC18CEFE680093C81A /* main.cpp in Sources */,
 				3740AD401D912D4A005BDCBA /* Circle.cpp in Sources */,
 				F35248371D6D9D1A0077C333 /* WalkingState.cpp in Sources */,
+				9CE534CD1E20E261005066E7 /* StoryCoverPage.cpp in Sources */,
 				F3D201A81D740C7C00FDB750 /* Pop.cpp in Sources */,
 				F352482F1D6D9D1A0077C333 /* FallingState.cpp in Sources */,
 				F352484F1D6D9D1A0077C333 /* MessageContent.cpp in Sources */,
@@ -2051,6 +2110,8 @@
 				F35247F91D6D9D1A0077C333 /* TextGenerator.cpp in Sources */,
 				F3667D391DB4BA6F00EC8908 /* LTKShapeRecoResult.cpp in Sources */,
 				F36840BF1D8A812F00969162 /* Alphamole.cpp in Sources */,
+				F39801F81E2171D2004B0711 /* FillInTheBlanks.cpp in Sources */,
+				F39801F01E215313004B0711 /* QuestionHandler.cpp in Sources */,
 				F3F7ED7D1D9F891000727A7C /* MemoryHero.cpp in Sources */,
 				F36405AB1DFFEB1E0075CEF1 /* SwahiliUtil.cpp in Sources */,
 				F3667D3B1DB4BA6F00EC8908 /* LTKShapeRecoUtil.cpp in Sources */,
@@ -2070,6 +2131,7 @@
 				F3667D1D1DB4BA6F00EC8908 /* LTKException.cpp in Sources */,
 				F352481D1D6D9D1A0077C333 /* ScrollableGameMapScene.cpp in Sources */,
 				F35247E71D6D9D1A0077C333 /* Spirograph.cpp in Sources */,
+				F39801FE1E217253004B0711 /* MultipleChoice.cpp in Sources */,
 				9C66BF611DFAF3EC002405F6 /* StoryWordBoard.cpp in Sources */,
 				F3667D2B1DB4BA6F00EC8908 /* LipiEngineModule.cpp in Sources */,
 				F3667D2D1DB4BA6F00EC8908 /* LipiTKInterface.cpp in Sources */,
@@ -2085,6 +2147,7 @@
 				F35248471D6D9D1A0077C333 /* LanguageManager.cpp in Sources */,
 				F35247F31D6D9D1A0077C333 /* KannadaUtil.cpp in Sources */,
 				F3667D5F1DB4BA7000EC8908 /* LTKConfigFileReader.cpp in Sources */,
+				F39802061E2217C8004B0711 /* Picture.cpp in Sources */,
 				F35248351D6D9D1A0077C333 /* StandingState.cpp in Sources */,
 				F37286F31DCB4B5000F4804A /* BlastLetter.cpp in Sources */,
 				F3667D6B1DB4BA7000EC8908 /* LTKLinuxUtil.cpp in Sources */,
@@ -2106,6 +2169,7 @@
 				F3667D751DB4BA7000EC8908 /* LTKVersionCompatibilityCheck.cpp in Sources */,
 				F35248011D6D9D1A0077C333 /* Alphabet.cpp in Sources */,
 				F3667D511DB4BA6F00EC8908 /* NNAdapt.cpp in Sources */,
+				9CE534C71E20DF70005066E7 /* StoryPlaying.cpp in Sources */,
 				F36944881E0553BC00C69875 /* CommonText.cpp in Sources */,
 				F373B9111DDAE1280027D32C /* Card.cpp in Sources */,
 				F35247FD1D6D9D1A0077C333 /* WordManager.cpp in Sources */,
@@ -2144,7 +2208,9 @@
 				9CA07C921DE6BFBF007578FF /* Item.cpp in Sources */,
 				F35247F61D6D9D1A0077C333 /* SafariAnalyticsManager.cpp in Sources */,
 				F3667D201DB4BA6F00EC8908 /* LTKTrace.cpp in Sources */,
+				F39801EF1E215313004B0711 /* QuestionHandler.cpp in Sources */,
 				F35247FA1D6D9D1A0077C333 /* WordInfo.cpp in Sources */,
+				9CE534C61E20DF70005066E7 /* StoryPlaying.cpp in Sources */,
 				9C6329D11E1FE09500842D07 /* ChooseCharacter.cpp in Sources */,
 				F35247DA1D6D9D1A0077C333 /* Jasmin_Listenerfile.cpp in Sources */,
 				F3F7ED621D93DAFE00727A7C /* Dash.cpp in Sources */,
@@ -2171,6 +2237,7 @@
 				3740AD2B1D910EB2005BDCBA /* Memory.cpp in Sources */,
 				F352480C1D6D9D1A0077C333 /* PegWord.cpp in Sources */,
 				F35248001D6D9D1A0077C333 /* Alphabet.cpp in Sources */,
+				F39802051E2217C8004B0711 /* Picture.cpp in Sources */,
 				F35247F81D6D9D1A0077C333 /* TextGenerator.cpp in Sources */,
 				F35248441D6D9D1A0077C333 /* MO.cpp in Sources */,
 				F3E2102F1DCC60D300C301F8 /* TreasureHunt.cpp in Sources */,
@@ -2187,6 +2254,7 @@
 				F3667D381DB4BA6F00EC8908 /* LTKShapeRecoResult.cpp in Sources */,
 				F352483E1D6D9D1A0077C333 /* MessageSender.cpp in Sources */,
 				F35247F41D6D9D1A0077C333 /* LangUtil.cpp in Sources */,
+				F39801FD1E217253004B0711 /* MultipleChoice.cpp in Sources */,
 				F3667D3E1DB4BA6F00EC8908 /* LTKShapeFeatureExtractor.cpp in Sources */,
 				3740AD351D912A8B005BDCBA /* Stack.cpp in Sources */,
 				F3667D6A1DB4BA7000EC8908 /* LTKLinuxUtil.cpp in Sources */,
@@ -2228,6 +2296,7 @@
 				F352481E1D6D9D1A0077C333 /* GameMapScene.cpp in Sources */,
 				F3667D241DB4BA6F00EC8908 /* LTKTraceGroup.cpp in Sources */,
 				F35247CE1D6D9D1A0077C333 /* Cannon_Ball_Main.cpp in Sources */,
+				9CE534CC1E20E261005066E7 /* StoryCoverPage.cpp in Sources */,
 				F3667D761DB4BA7000EC8908 /* logger.cpp in Sources */,
 				F33052401DF04E6000BA235E /* LevelHelpScene.cpp in Sources */,
 				F35247D41D6D9D1A0077C333 /* Chain.cpp in Sources */,
@@ -2244,6 +2313,7 @@
 				F3EEA3F01DE3011B00CA7D31 /* ATM.cpp in Sources */,
 				F3F7ED7E1D9F891000727A7C /* MemoryJungle.cpp in Sources */,
 				F35248141D6D9D1A0077C333 /* StartMenuScene.cpp in Sources */,
+				9C6A06FB1E227247007D730C /* ScrollableCatalogue.cpp in Sources */,
 				F3667D601DB4BA7000EC8908 /* LTKErrors.cpp in Sources */,
 				509D4ABC17EBB2AB00697056 /* AppController.mm in Sources */,
 				9CA07C931DE6BFBF007578FF /* Shape.cpp in Sources */,
@@ -2252,6 +2322,7 @@
 				F35247D01D6D9D1A0077C333 /* CatGameScene.cpp in Sources */,
 				F3667D621DB4BA7000EC8908 /* LTKImageWriter.cpp in Sources */,
 				F35248181D6D9D1A0077C333 /* ScoreBoardContent.cpp in Sources */,
+				F39802011E2206F9004B0711 /* Meaning.cpp in Sources */,
 				F3667D521DB4BA6F00EC8908 /* NNShapeRecognizer.cpp in Sources */,
 				F35248481D6D9D1A0077C333 /* SpeechBubbleView.cpp in Sources */,
 				F3667D221DB4BA6F00EC8908 /* LTKTraceFormat.cpp in Sources */,
@@ -2288,6 +2359,7 @@
 				F3667D661DB4BA7000EC8908 /* LTKInkFileWriter.cpp in Sources */,
 				F352482A1D6D9D1A0077C333 /* HPMeter.cpp in Sources */,
 				F3667D261DB4BA6F00EC8908 /* lipiengine.cpp in Sources */,
+				F39801F71E2171D2004B0711 /* FillInTheBlanks.cpp in Sources */,
 				F35248261D6D9D1A0077C333 /* WordSprite.cpp in Sources */,
 				F3667D701DB4BA7000EC8908 /* LTKStrEncoding.cpp in Sources */,
 				F352483C1D6D9D1A0077C333 /* ExternalSkeletonCharacter.cpp in Sources */,

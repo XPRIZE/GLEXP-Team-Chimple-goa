@@ -78,6 +78,8 @@
 #include "../Setting.h"
 #include "Award.h"
 #include "../ChooseCharacter.hpp"
+#include "../StoryCoverPage.hpp"
+#include "../story/ScrollableCatalogue.hpp"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -232,7 +234,7 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                     _settingMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::addCalculator, this));
                     _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png", 3 * POINTS_TO_LEFT);
                     _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
-                } else if(gameName == "levelMenu" || gameName == "story-play" || gameName == "map") {
+                } else if(gameName == "levelMenu" || gameName == "story-catalogue" || gameName == "map") {
                     _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
                     _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
                     _mapMenu = this->createMenuItem("menu/reward.png", "menu/reward.png", "menu/reward.png", 2 * POINTS_TO_LEFT);
@@ -824,7 +826,8 @@ void MenuContext::showBook(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEven
         
         std::size_t isStories = gameName.find("storyId");
         if (isStories!=std::string::npos || gameName == "Show Stories"){
-            ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
+            Director::getInstance()->replaceScene(ScrollableCatalogue::createScene());
+            //ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
         } else if(gameName == "map") {
             Director::getInstance()->replaceScene(MapScene::createScene());
         } else {
@@ -1034,6 +1037,11 @@ void MenuContext::launchGameFinally(std::string gameName) {
         else if(gameName == MININGBG || gameName == CAMP || gameName == FARMHOUSE || gameName == CITY1 || gameName == CITY2 || gameName == CITY3 || gameName == CITY4 || gameName == CITY5) {
             
             Director::getInstance()->replaceScene(TransitionFade::create(0.5, ChooseCharacter::createScene(gameName.c_str()), Color3B::BLACK));
+        }
+    
+        else if(gameName == STORY) {
+            Director::getInstance()->replaceScene(TransitionFade::create(0.5, StoryCoverPage::createScene(), Color3B::BLACK));
+            
         }
 		else{
             CCLOG("Failed starting scene: %s", gameName.c_str());
