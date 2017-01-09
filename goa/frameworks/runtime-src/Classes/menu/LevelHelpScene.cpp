@@ -184,7 +184,9 @@ void LevelHelpScene::onEnterTransitionDidFinish() {
     }
     
     auto button = static_cast<Button*> (bg->getChildByName("Button_1"));
-    button->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type) {
+	button->addTouchEventListener(CC_CALLBACK_2(LevelHelpScene::gotoGame, this));
+	//button->addTouchEventListener()
+    /*button->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type) {
         if(type == cocos2d::ui::Widget::TouchEventType::ENDED) {
             _currentVideo++;
             decideIndexOfVideo();
@@ -196,7 +198,7 @@ void LevelHelpScene::onEnterTransitionDidFinish() {
                 MenuContext::launchGameFinally(_gameName);
             }
         }
-    });
+    });*/
     
 //    button->setPosition(Vec2(1280, 900));
 //    addChild(button);

@@ -115,6 +115,7 @@ bool ScrollableCatalogue::init() {
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("template.plist");
+    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("levelstep/levelstep.plist");
     
     //create list of stories which are locked
     
@@ -278,19 +279,42 @@ void ScrollableCatalogue::createBook(int i, int j, int numRows, int numCols, ui:
     CCLOG("height position %f", visibleSize.height + yOffset - (i + 1.2) * ((visibleSize.height) / (numRows + 1)));
     bookNode->setPosition(Vec2((j + 0.5) * visibleSize.width / numCols, visibleSize.height + yOffset - (i*1.125 + 1.45) * ((visibleSize.height) / (numRows + 1))));
 
+    Node* book = bookNode->getChildByName("book");
+
     std::string storyId = storyJson["storyId"].GetString();
     std::string unlockStoryStr;
     localStorageGetItem(storyId + LEVEL, &unlockStoryStr);
     
     bool isStoryLocked = true;
+    int stars = 0;
     rapidjson::Document d;
     if (false == d.Parse<0>(unlockStoryStr.c_str()).HasParseError()) {
         isStoryLocked = d["locked"].GetBool();
+        stars = d["star"].GetInt();
     }
+    std::string starFile = stars >= 1 ? "levelstep/star.png" : "levelstep/star_empty.png";
+    auto star1 = Sprite::createWithSpriteFrameName(starFile);
+    star1->setAnchorPoint(Vec2(0.5,0.5));
+    star1->setScale(0.75f);
+    star1->setPosition(Vec2(book->getBoundingBox().size.width / 4, book->getBoundingBox().size.height * 3 / 4 -  335));
+    book->addChild(star1, 4);
+
+    auto star2 = Sprite::createWithSpriteFrameName(starFile);
+    star2->setAnchorPoint(Vec2(0.5,0.5));
+    star2->setScale(0.75f);
+    star2->setPosition(Vec2(book->getBoundingBox().size.width / 2, book->getBoundingBox().size.height * 3 / 4 - 335));
+    book->addChild(star2, 4);
+
+    auto star3 = Sprite::createWithSpriteFrameName(starFile);
+    star3->setAnchorPoint(Vec2(0.5,0.5));
+    star3->setScale(0.75f);
+    star3->setPosition(Vec2(book->getBoundingBox().size.width * 3 / 4, book->getBoundingBox().size.height * 3 / 4 - 335));
+
+    book->addChild(star3, 4);
+
     
     storyLockedMap.insert({"book_" + menuContext->to_string(index), isStoryLocked});
     bookNode->setName("book_" + menuContext->to_string(index));
-    Node* book = bookNode->getChildByName("book");
     book->setColor(bookColor);
     
     std::string imageFile = storyJson["icon"].GetString();

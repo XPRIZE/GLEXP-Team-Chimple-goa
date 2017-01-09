@@ -256,6 +256,7 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
     std::size_t isStories = _gameName.find("storyId");
     if (isStories!=std::string::npos) {
         _nextButton->setEnabled(false);
+        _replayButton->setVisible(false);
     }
     
     return true;
@@ -429,6 +430,9 @@ void ScoreBoardContext::processChildNodes(cocos2d::Node *rootNode) {
                     if(button->getName() == "next") {
                         _nextButton = button;
                     }
+                    if(button->getName() == "replay") {
+                        _replayButton = button;
+                    }
                     
                 }
                 
@@ -480,6 +484,7 @@ void ScoreBoardContext::transit() {
 void ScoreBoardContext::buttonClicked(Ref* pSender, ui::Widget::TouchEventType eEventType)
 {
     cocos2d::ui::Button* clickedButton = dynamic_cast<cocos2d::ui::Button *>(pSender);
+	CCLOG("clicked button in scoreBoard = %s", clickedButton->getName().c_str());
     switch (eEventType) {
         case ui::Widget::TouchEventType::BEGAN:
         {
@@ -502,8 +507,7 @@ void ScoreBoardContext::buttonClicked(Ref* pSender, ui::Widget::TouchEventType e
             else if(clickedButton->getName() == "level") {
                 std::size_t isStories = _gameName.find("storyId");
                 if (isStories!=std::string::npos || _gameName == "Show Stories"){
-//                    Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableCatalogue::createScene(), Color3B::BLACK));
-                    Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
+                    Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableCatalogue::createScene(), Color3B::BLACK));
                     
                 } else if(_gameName == "map") {
                     Director::getInstance()->replaceScene(MapScene::createScene());
@@ -511,7 +515,7 @@ void ScoreBoardContext::buttonClicked(Ref* pSender, ui::Widget::TouchEventType e
                     Director::getInstance()->replaceScene(LevelMenu::createScene(_gameName));
                 }                
             }
-            else if(clickedButton->getName() == "home") {
+            else if(clickedButton->getName() == "game") {
                 Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
             }
             else if(clickedButton->getName() == "next")  {
