@@ -9,6 +9,7 @@
 #include "MapScene.h"
 #include "effects/FShake.h"
 #include "storage/local-storage/LocalStorage.h"
+#include "util/lib/LTKStringUtil.h"
 
 USING_NS_CC;
 
@@ -121,6 +122,7 @@ void HelloWorld::renderBagPack() {
                 continue;
             }
             std::string nodeName = node->getName();
+            nodeName = std::regex_replace(nodeName, std::regex("^ +| +$|( ) +"), "$1");
             nodeName.erase(std::remove(nodeName.begin(), nodeName.end(), '\n'), nodeName.end());
 
             int result = this->sqlite3Helper->checkIfItemExistsInBag(nodeName.c_str(), this->getIsland().c_str());

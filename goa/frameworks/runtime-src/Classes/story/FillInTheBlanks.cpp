@@ -62,6 +62,7 @@ void FillInTheBlanks::buttonSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget:
             auto buttonName = clickedButton->getName();
             if(buttonName == "1") {
                 _qHandler->getMenuContext()->addPoints(1);
+                CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/sfx/success.ogg");
                 auto bg = getChildByName("bg");
                 auto qNode = bg->getChildByName<TextField*>("TextField_2");
                 clickedButton->runAction(Spawn::createWithTwoActions(MoveTo::create(1.0f, qNode->getPosition()), FadeOut::create(1.0f)));
@@ -75,6 +76,7 @@ void FillInTheBlanks::buttonSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget:
             } else {
                 clickedButton->runAction(FShake::actionWithDuration(1.0f, 10.0f));
                 _qHandler->getMenuContext()->addPoints(-1);
+                CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/sfx/error.ogg");
             }
             break;
         }

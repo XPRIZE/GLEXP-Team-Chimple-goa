@@ -16,6 +16,7 @@
 #include "external/json/stringbuffer.h"
 #include "external/json/writer.h"
 #include "../effects/FShake.h"
+#include "QuestionHandler.h"
 
 USING_NS_CC;
 
@@ -102,7 +103,6 @@ bool ScrollableCatalogue::init() {
     {
         return false;
     }
-    
     bool isConfigLoadedSuccessfully = false;
     int numberOfPages = 0;
     int numRows = 0;
@@ -195,9 +195,6 @@ bool ScrollableCatalogue::init() {
         }
     }
     
-    
-
-    
     std::string unlockStr;
     localStorageGetItem(".unlock", &unlockStr);
     lockAll = false;
@@ -206,7 +203,8 @@ bool ScrollableCatalogue::init() {
     }
 
     
-    if (isConfigLoadedSuccessfully) {
+    if (isConfigLoadedSuccessfully)
+    {
         _pageView = ui::PageView::create();
         addChild(_pageView);
         
@@ -219,7 +217,8 @@ bool ScrollableCatalogue::init() {
 
         
         int index = 0;
-        for(int k = 0; k < numberOfPages; k++) {
+        for(int k = 0; k < numberOfPages; k++)
+        {
             auto page = ui::Widget::create();
             page->setContentSize(visibleSize);
             _pageView->addPage(page);
@@ -260,13 +259,13 @@ bool ScrollableCatalogue::init() {
                     index++;
                 }
             }
-            
             _pageView->setContentSize(visibleSize);
             _pageView->setDirection(cocos2d::ui::ScrollView::Direction::HORIZONTAL);
             _pageView->setInnerContainerSize(Size(visibleSize.width * numberOfPages, visibleSize.height));
             
         }
     }
+    
     return true;
 }
 
@@ -332,6 +331,7 @@ void ScrollableCatalogue::createBook(int i, int j, int numRows, int numCols, ui:
                     cocos2d::ui::TextField* chooseLabel = dynamic_cast<cocos2d::ui::TextField *>(chooseText);
                     if(chooseLabel != NULL) {
                         chooseLabel->setTouchEnabled(false);
+                        titleText = QuestionHandler::wrapString(titleText, 10);
                         chooseLabel->setString(titleText);
                         chooseLabel->setFontSize(40);
                         chooseLabel->setFontName("fonts/Roboto-Regular.ttf");

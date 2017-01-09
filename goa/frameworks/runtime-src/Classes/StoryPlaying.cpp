@@ -580,6 +580,7 @@ void StoryPlaying::createDialogBubble() {
                 if(chooseText != NULL) {
                     cocos2d::ui::TextField* chooseLabel = dynamic_cast<cocos2d::ui::TextField *>(chooseText);
                     if(chooseLabel != NULL) {
+                        contentPageText = QuestionHandler::wrapString(contentPageText, 50);
                         chooseLabel->setString(contentPageText);
                         chooseLabel->setFontSize(75);
                         chooseLabel->setFontName("fonts/Roboto-Regular.ttf");
@@ -699,6 +700,8 @@ void StoryPlaying::closeDialog(Ref* pSender, ui::Widget::TouchEventType eEventTy
             clickedButton->setEnabled(false);
             _talkBubbleNode->removeFromParentAndCleanup(true);
             
+            _showAgainTextButton->setEnabled(true);
+            _showAgainTextButton->setVisible(true);
             //show next/prev buttons
             _nextButton->setEnabled(true);
             _nextButton->setVisible(true);
@@ -754,6 +757,16 @@ void StoryPlaying::createNextAndPreviousButtons() {
         _prevButton->setEnabled(false);
         _prevButton->setVisible(false);
     }
+    
+    
+    _showAgainTextButton = cocos2d::ui::Button::create("template/template_02/text_button.png", "template/template_02/click_side_arrow.png", "template/template_02/text_button_clicked.png", cocos2d::ui::Widget::TextureResType::PLIST);
+    _showAgainTextButton->setPosition(Vec2(320.0, visibleSize.height - 150));
+    _showAgainTextButton->setName(SHOW_TEXT_AGAIN_BUTTON);
+    _showAgainTextButton->addTouchEventListener(CC_CALLBACK_2(StoryPlaying::showTextAgain, this));
+    this->addChild(_showAgainTextButton, 2);
+    _showAgainTextButton->setEnabled(false);
+    _showAgainTextButton->setVisible(false);
+
     
 }
 
@@ -1048,4 +1061,30 @@ void StoryPlaying::pronounceWord(Ref* pSender, ui::Widget::TouchEventType eEvent
     }
 }
 
+
+void StoryPlaying::showTextAgain(Ref* pSender, ui::Widget::TouchEventType eEventType)
+{
+    cocos2d::ui::Button* clickedButton = dynamic_cast<cocos2d::ui::Button *>(pSender);
+    switch (eEventType) {
+        case ui::Widget::TouchEventType::BEGAN:
+        {
+            clickedButton->setHighlighted(true);
+            break;
+        }
+        case ui::Widget::TouchEventType::MOVED:
+            break;
+        case ui::Widget::TouchEventType::ENDED:
+        {
+            clickedButton->setVisible(false);
+            clickedButton->setEnabled(false);
+            createDialogBubble();
+            break;
+        }
+            
+        case ui::Widget::TouchEventType::CANCELED:
+            break;
+        default:
+            break;
+    }
+}
 
