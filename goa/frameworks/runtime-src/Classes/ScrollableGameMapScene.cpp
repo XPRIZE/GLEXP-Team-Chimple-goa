@@ -274,10 +274,14 @@ cocos2d::ui::Button* ScrollableGameMapScene::createButton(const rapidjson::Value
     if(gameName != "dummy") {
         std::string buttonNormalIcon = gameJson["icon"].GetString();
         std::string buttonPressedIcon = gameJson["cIcon"].GetString();
-        std::string buttonDisabledIcon = ICONS + "/" + gameJson["name"].GetString() + "_disabled.png";
         cocos2d::ui::Button* button = ui::Button::create();
         button->loadTextureNormal(buttonNormalIcon);
         button->loadTexturePressed(buttonPressedIcon);
+        if(buttonNormalIcon.find(".png") != std::string::npos) {
+            std::string buttonDisabledIcon = buttonNormalIcon;
+            buttonDisabledIcon = buttonNormalIcon.insert(buttonNormalIcon.find(".png"), "_disabled");
+            button->loadTextureDisabled(buttonDisabledIcon);
+        }
         button->setName(gameJson["name"].GetString());
         button->setTitleText(LangUtil::getInstance()->translateString(gameJson["title"].GetString()));
         button->setTitleAlignment(TextHAlignment::CENTER, TextVAlignment::BOTTOM);
