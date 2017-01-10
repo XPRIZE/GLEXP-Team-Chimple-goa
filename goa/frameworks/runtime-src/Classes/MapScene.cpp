@@ -27,7 +27,7 @@ Scene* MapScene::createScene()
     auto layer = MapScene::create();
     
     layer->menuContext = MenuContext::create(layer, MapScene::gameName());
-    scene->addChild(layer->menuContext);
+    scene->addChild(layer->menuContext, 2);
     
     
     std::string currentLevelStr;

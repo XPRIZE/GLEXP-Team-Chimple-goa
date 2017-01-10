@@ -13,6 +13,7 @@
 #include "ScrollableGameMapScene.hpp"
 #include "MapScene.h"
 #include "menu/LevelMenu.h"
+#include "effects/FShake.h"
 #include "alphamon/SelectAlphamonScene.h"
 #include "puzzle/DuelScene.h"
 #include "puzzle/WordScene.h"
@@ -226,15 +227,11 @@ bool ScrollableGameMapScene::init() {
                     if(index < orderedGameIndexes.size()) {
                         int dIndex = orderedGameIndexes[index];
                         const rapidjson::Value& game = d[dIndex];
-                        auto button = createButton(game);
+                        auto gameName = game["name"].GetString();
+                        bool active = !lockAll ||  (game.HasMember("unlock") && game["unlock"].GetBool()) || (doc.IsObject() && doc.HasMember(gameName));
+                        auto button = createButton(game, active);
                         if(button != nullptr) {
                             button->setPosition(Vec2((j + 0.5) * visibleSize.width / numCols, visibleSize.height + yOffset - (i + 1.5) * ((visibleSize.height + yOffset) / (numRows + 1))));
-                            auto gameName = game["name"].GetString();
-                            if(!lockAll ||  (game.HasMember("unlock") && game["unlock"].GetBool()) || (doc.IsObject() && doc.HasMember(gameName))) {
-                                button->addTouchEventListener(CC_CALLBACK_2(ScrollableGameMapScene::gameSelected, this));
-                            } else {
-                                button->setBright(false);
-                            }
                             
                             page->addChild(button);
                             if(std::find(topBarGames.begin(), topBarGames.end(), gameName) != topBarGames.end()) {
@@ -249,15 +246,11 @@ bool ScrollableGameMapScene::init() {
 
         for (auto it = topBarGames.begin() ; it != topBarGames.end(); ++it) {
             const rapidjson::Value& game = d[topBarGamesIndexes[*it]];
-            auto topBarButton = createButton(game);
+            auto gameName = game["name"].GetString();
+            bool active = !lockAll ||  (game.HasMember("unlock") && game["unlock"].GetBool()) || (doc.IsObject() && doc.HasMember(gameName));
+            auto topBarButton = createButton(game, active);
             auto index = std::distance(topBarGames.begin(), it);
             topBarButton->setPosition(Vec2((index + 0.5) * visibleSize.width / numCols, visibleSize.height + yOffset - (0 + 0.5) * ((visibleSize.height + yOffset) / (numRows + 1))));
-            auto gameName = game["name"].GetString();
-            if(!lockAll ||  (game.HasMember("unlock") && game["unlock"].GetBool()) || (doc.IsObject() && doc.HasMember(gameName))) {
-                topBarButton->addTouchEventListener(CC_CALLBACK_2(ScrollableGameMapScene::gameSelected, this));
-            } else {
-                topBarButton->setBright(false);
-            }
             addChild(topBarButton);
         }
 
@@ -268,20 +261,29 @@ bool ScrollableGameMapScene::init() {
     return true;
 }
 
-cocos2d::ui::Button* ScrollableGameMapScene::createButton(const rapidjson::Value& gameJson) {
+cocos2d::ui::Button* ScrollableGameMapScene::createButton(const rapidjson::Value& gameJson, bool active) {
     std::string ICONS = ICON_FOLDER;
     std::string gameName = gameJson["name"].GetString();
     if(gameName != "dummy") {
         std::string buttonNormalIcon = gameJson["icon"].GetString();
         std::string buttonPressedIcon = gameJson["cIcon"].GetString();
         cocos2d::ui::Button* button = ui::Button::create();
-        button->loadTextureNormal(buttonNormalIcon);
-        button->loadTexturePressed(buttonPressedIcon);
-        if(buttonNormalIcon.find(".png") != std::string::npos) {
-            std::string buttonDisabledIcon = buttonNormalIcon;
-            buttonDisabledIcon = buttonNormalIcon.insert(buttonNormalIcon.find(".png"), "_disabled");
-            button->loadTextureDisabled(buttonDisabledIcon);
+        std::string buttonDisabledIcon = buttonNormalIcon;
+        if(buttonDisabledIcon.find(".png") != std::string::npos) {
+            buttonDisabledIcon = buttonDisabledIcon.insert(buttonDisabledIcon.find(".png"), "_disabled");
         }
+        if(active) {
+            button->loadTextureNormal(buttonNormalIcon);
+            button->loadTexturePressed(buttonPressedIcon);
+            button->loadTextureDisabled(buttonDisabledIcon);
+            button->addTouchEventListener(CC_CALLBACK_2(ScrollableGameMapScene::gameSelected, this));
+        } else {
+            button->loadTextureNormal(buttonDisabledIcon);
+            button->loadTexturePressed(buttonPressedIcon);
+            button->loadTextureDisabled(buttonNormalIcon);
+            button->addTouchEventListener(CC_CALLBACK_2(ScrollableGameMapScene::disabledGameSelected, this));
+        }
+        
         button->setName(gameJson["name"].GetString());
         button->setTitleText(LangUtil::getInstance()->translateString(gameJson["title"].GetString()));
         button->setTitleAlignment(TextHAlignment::CENTER, TextVAlignment::BOTTOM);
@@ -316,6 +318,22 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 
         case ui::Widget::TouchEventType::CANCELED:
             break;
+        default:
+            break;
+    }
+    
+}
+
+void ScrollableGameMapScene::disabledGameSelected(Ref* pSender, ui::Widget::TouchEventType eEventType)
+{
+    cocos2d::ui::Button* clickedButton = dynamic_cast<cocos2d::ui::Button *>(pSender);
+    switch (eEventType) {
+        case ui::Widget::TouchEventType::ENDED:
+        {
+            auto shake = FShake::actionWithDuration(1.0f, 10.0f);
+            clickedButton->runAction(shake);
+            break;
+        }
         default:
             break;
     }

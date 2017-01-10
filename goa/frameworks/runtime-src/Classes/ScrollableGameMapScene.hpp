@@ -50,10 +50,11 @@ protected:
     cocos2d::ParallaxNode *_parallax;
     map_type mymap;
     void gameSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void disabledGameSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     std::vector<std::string> split(std::string s, char delim);
     std::string static parseGameConfig(std::string gameConfig);
     std::map<std::string, std::string> static parseGameConfigToMap(std::string gameConfig);
-    cocos2d::ui::Button* createButton(const rapidjson::Value& gameJson);
+    cocos2d::ui::Button* createButton(const rapidjson::Value& gameJson, bool active=true);
     void addGreyLayer();
     bool greyLayerTouched(cocos2d::Touch *touch, cocos2d::Event *event);
     void transition(float dt);
