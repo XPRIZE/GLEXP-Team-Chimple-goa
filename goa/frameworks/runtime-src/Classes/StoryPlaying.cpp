@@ -706,6 +706,11 @@ void StoryPlaying::closeDialog(Ref* pSender, ui::Widget::TouchEventType eEventTy
             break;
         case ui::Widget::TouchEventType::ENDED:
         {
+            if(CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying())
+            {
+                CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+            }
+
             clickedButton->setEnabled(false);
             _talkBubbleNode->removeFromParentAndCleanup(true);
             
