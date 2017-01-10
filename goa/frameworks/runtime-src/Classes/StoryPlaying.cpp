@@ -872,8 +872,10 @@ bool StoryPlaying::pointInTriangle(Point p, Point p0, Point p1, Point p2) {
 }
 
 void StoryPlaying::playMasterAnimation() {
-    
-    if(_mainTimeLine && _mainTimeLine->IsAnimationInfoExists("master")) {
+    if(_mainTimeLine && _mainTimeLine->getDuration() == 0) {
+        playEnded();
+    }
+    else if(_mainTimeLine && _mainTimeLine->IsAnimationInfoExists("master")) {
         //play master animation
         _mainTimeLine->setAnimationEndCallFunc("master", CC_CALLBACK_0(StoryPlaying::playEnded, this));
         _mainTimeLine->setFrameEventCallFunc(CC_CALLBACK_1(StoryPlaying::onFrameEvent, this));
