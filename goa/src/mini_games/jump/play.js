@@ -300,47 +300,47 @@ xc.playLayer = cc.Layer.extend( {
      menuContext.setMaxPoints(10);
     cc.log("Level = ",this._level);
 
-    if(this._level <= 10 ) {
+    if(this._level <= 5 ) {
         this.char = ccs.load(xc.playLayer.res.char,xc.path);
         this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
         this.addChild(this.char.node,1);
        
-    } else if(this._level <= 20) {
+    } else if(this._level <= 10) {
         this.char = ccs.load(xc.playLayer.res.char1,xc.path);
         this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
         this.addChild(this.char.node,1);
          
-    }  else if(this._level <= 30) {
+    }  else if(this._level <= 15) {
         this.char = ccs.load(xc.playLayer.res.char2,xc.path);
         this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
         this.addChild(this.char.node,1);
          
-    }  else if(this._level <= 40) {
+    }  else if(this._level <= 20) {
         this.char = ccs.load(xc.playLayer.res.char3,xc.path);
         this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
         this.addChild(this.char.node,1);
         
-    }  else if(this._level <= 50) {
+    }  else if(this._level <= 25) {
         this.char = ccs.load(xc.playLayer.res.char4,xc.path);
         this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
         this.addChild(this.char.node,1);
         
-    }  else if(this._level <= 60) {
+    }  else if(this._level <= 30) {
         this.char = ccs.load(xc.playLayer.res.char5,xc.path);
         this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
         this.addChild(this.char.node,1);
         
-    }  else if(this._level <= 70) {
+    }  else if(this._level <= 35) {
         this.char = ccs.load(xc.playLayer.res.char6,xc.path);
         this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
         this.addChild(this.char.node,1);
         
-    }  else if(this._level <= 80) {
+    }  else if(this._level <= 40) {
         this.char = ccs.load(xc.playLayer.res.char7,xc.path);
         this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
         this.addChild(this.char.node,1);
         
-    }  else if(this._level <= 90) {
+    }  else if(this._level <= 45) {
         this.char = ccs.load(xc.playLayer.res.char8,xc.path);
         this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
         this.addChild(this.char.node,1);
@@ -393,39 +393,39 @@ if(this._level == 1)
         this.char.node.runAction(jump);
 
 
-     if(this._level <= 10 ) {
+     if(this._level <= 5 ) {
         var animation = ccs.load(xc.playLayer.res.char,xc.path);
        this.char.node.runAction(animation.action);
        animation.action.play("jumping",false);
-     }else if(this._level <= 20) {
+     }else if(this._level <= 10) {
        var animation = ccs.load(xc.playLayer.res.char1,xc.path);
        this.char.node.runAction(animation.action);
        animation.action.play("jumping",false);
-    }  else if(this._level <= 30) {
+    }  else if(this._level <= 15) {
        var animation = ccs.load(xc.playLayer.res.char2,xc.path);
        this.char.node.runAction(animation.action);
        animation.action.play("jumping",false);
-    } else if(this._level <= 40) {
+    } else if(this._level <= 20) {
        var animation = ccs.load(xc.playLayer.res.char3,xc.path);
        this.char.node.runAction(animation.action);
        animation.action.play("jumping",false);
-    } else if(this._level <= 50) {
+    } else if(this._level <= 25) {
        var animation = ccs.load(xc.playLayer.res.char4,xc.path);
        this.char.node.runAction(animation.action);
        animation.action.play("jumping",false);
-    } else if(this._level <= 60) {
+    } else if(this._level <= 30) {
        var animation = ccs.load(xc.playLayer.res.char5,xc.path);
        this.char.node.runAction(animation.action);
        animation.action.play("jumping",false);
-    } else if(this._level <= 70) {
+    } else if(this._level <= 35) {
        var animation = ccs.load(xc.playLayer.res.char6,xc.path);
        this.char.node.runAction(animation.action);
        animation.action.play("jumping",false);
-    } else if(this._level <= 80) {
+    } else if(this._level <= 40) {
        var animation = ccs.load(xc.playLayer.res.char7,xc.path);
        this.char.node.runAction(animation.action);
        animation.action.play("jumping",false);
-    } else if(this._level <= 90) {
+    } else if(this._level <= 45) {
        var animation = ccs.load(xc.playLayer.res.char8,xc.path);
        this.char.node.runAction(animation.action);
        animation.action.play("jumping",false);
@@ -450,23 +450,23 @@ if(this._level == 1)
         }
         var jump = new cc.JumpBy(0.8,cc.p(x * this.size.width /4,300),200,1);
        this.char.node.runAction(cc.sequence( jump, cc.callFunc(this.jumpCallback, this)));//runAction(jump);
-       if(this._level <= 10 ) {
+       if(this._level <= 5 ) {
        var animation = ccs.load(xc.playLayer.res.char,xc.path);
-       }else if(this._level <= 20) {
+       }else if(this._level <= 10) {
           var animation = ccs.load(xc.playLayer.res.char1,xc.path); 
-       }else if(this._level <= 30) {
+       }else if(this._level <= 15) {
           var animation = ccs.load(xc.playLayer.res.char2,xc.path); 
-       }else if(this._level <= 40) {
+       }else if(this._level <= 20) {
           var animation = ccs.load(xc.playLayer.res.char3,xc.path); 
-       }else if(this._level <= 50) {
+       }else if(this._level <= 25) {
           var animation = ccs.load(xc.playLayer.res.char4,xc.path); 
-       }else if(this._level <= 60) {
+       }else if(this._level <= 30) {
           var animation = ccs.load(xc.playLayer.res.char5,xc.path); 
-       }else if(this._level <= 70) {
+       }else if(this._level <= 35) {
           var animation = ccs.load(xc.playLayer.res.char6,xc.path); 
-       }else if(this._level <= 80) {
+       }else if(this._level <= 40) {
           var animation = ccs.load(xc.playLayer.res.char7,xc.path); 
-       }else if(this._level <= 90) {
+       }else if(this._level <= 45) {
           var animation = ccs.load(xc.playLayer.res.char8,xc.path); 
        }
 
