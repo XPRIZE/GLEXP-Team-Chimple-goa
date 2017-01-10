@@ -212,10 +212,9 @@ MenuContext* QuestionHandler::getMenuContext() {
     return _menuContext;
 }
 
-void QuestionHandler::setButtonProperties(Node* button, std::string name, std::string text, const ui::Widget::ccWidgetTouchCallback& callback) {
+void QuestionHandler::setButtonProperties(Node* button, std::string name, std::string text, const ui::Widget::ccWidgetTouchCallback& callback, size_t length) {
     auto button1 = static_cast<Button*> (button);
     if(button1) {
-        button1->setTitleText(text);
         button1->setName(name);
         button1->setTitleFontName(QuestionHandler::FONT_NAME);
         button1->setTitleColor(QuestionHandler::FONT_COLOR);
