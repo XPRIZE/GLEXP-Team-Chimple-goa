@@ -625,6 +625,7 @@ void StoryPlaying::createDialogBubble() {
             cocos2d::ui::TextField* chooseLabel = dynamic_cast<cocos2d::ui::TextField *>(chooseText);
             if(chooseLabel != NULL) {
                 contentPageText = QuestionHandler::wrapString(contentPageText, 50);
+                chooseLabel->setTouchEnabled(false);
                 chooseLabel->setString(contentPageText);
                 chooseLabel->setFontSize(75);
                 chooseLabel->setFontName("fonts/Roboto-Regular.ttf");
