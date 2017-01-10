@@ -22,6 +22,9 @@ public:
 	virtual void broadCastRecognizedChars(std::vector<std::string> results) override;
 	std::vector<std::string> getPosibileCharacter();
 	virtual void removeClearButton() override;
+	virtual void setClearButtonTexture(const std::string normalImage,
+		const std::string selectedImage,
+		const std::string disableImage) override;
 	void setParent(TreasureHunt* parent);
 protected:
 	MenuContext * menu;

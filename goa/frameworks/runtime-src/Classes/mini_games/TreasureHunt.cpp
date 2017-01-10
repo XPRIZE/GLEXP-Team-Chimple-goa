@@ -123,6 +123,11 @@ void TreasureHunt::onEnterTransitionDidFinish() {
 	this->addChild(alphabetHelp);
 	alphabetHelp->setName("Alphabet");
 
+	auto spritecache1 = SpriteFrameCache::getInstance();
+	spritecache1->addSpriteFramesWithFile("cardraw/cardraw.plist");
+
+	TreasureHuntNodeObj->setClearButtonTexture("cardraw/ref.png", "cardraw/ref_clicked.png", "cardraw/ref.png");
+
 	this->scheduleUpdate();
 
 }
