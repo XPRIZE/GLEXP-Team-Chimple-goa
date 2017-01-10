@@ -38,6 +38,7 @@ public:
 	cocos2d::Sprite *_hhand, *_hero, *_ehand, *_enemy, *_fish, *_hbasket, *_ebasket;
 	cocos2d::Action *_action;
 	int _handFlag;
+	int _flag;
 	std::vector<cocos2d::Sprite*> _enemyFish, _heroFish;
 	int _totalCount, _totalAnswer, _correctAnswer;
 	cocos2d::ui::Scale9Sprite *_board;
