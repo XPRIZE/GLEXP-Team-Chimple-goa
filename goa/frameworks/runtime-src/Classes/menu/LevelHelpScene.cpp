@@ -239,7 +239,12 @@ void LevelHelpScene::onEnterTransitionDidFinish() {
     if(_currentVideo + 1 == _videos.size()) {
         videoText = LangUtil::getInstance()->translateString(_helpText);
     } else {
-        videoText = LangUtil::getInstance()->translateString(_videoNames[_currentVideo]);
+        if(_videoNames.size() > 0)
+        {
+            videoText = LangUtil::getInstance()->translateString(_videoNames[_currentVideo]);
+        } else {
+            videoText = "";
+        }
     }
 
     _text = Text::create(videoText, "fonts/Roboto-Regular.ttf", 64);
