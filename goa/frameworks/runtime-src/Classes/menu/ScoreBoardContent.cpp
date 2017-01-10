@@ -305,7 +305,7 @@ std::vector<std::string> ScoreBoardContext::getStarBadges(int level) {
             }
             if(level >= 5) {
                 if(d[level-4].GetInt() == 3 && d[level-3].GetInt() == 3 && d[level-2].GetInt() == 3 && d[level-1].GetInt() == 3 && d[level].GetInt() == 3) {
-                    starBadges.push_back("c/5_3_star_in_a_row");
+                    starBadges.push_back("g/5_3_star_in_a_row");
                 }
             }
         }
