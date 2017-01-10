@@ -1892,6 +1892,8 @@ void HelloWorld::unlockNext(float dt) {
             localStorageSetItem("map.currentLevel", MenuContext::to_string(curLevel));
         }
         
+        menuContext->setMaxPoints(3);
+        menuContext->addPoints(3);
         this->menuContext->showScore();
     }
 }
