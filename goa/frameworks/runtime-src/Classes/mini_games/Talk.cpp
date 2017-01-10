@@ -259,7 +259,6 @@ void Talk::onEnterTransitionDidFinish()
 
 	_handFlag = 0;
 	_helpFlag = 0;
-	_flag = 0;
 	Talk::displayWord();
 
 	this->scheduleUpdate();
@@ -280,7 +279,6 @@ void Talk::displayWord()
 	if (_allSentense.size() == 0 || _enemyFish.size() == 5 || _heroFish.size() == 5)
 	{
 		//_menuContext->showScore();
-		_flag = 1;
         this->unscheduleUpdate();
 		_menuContext->showAnswer("Sentence", _questionType);
 		return;
@@ -422,162 +420,159 @@ std::vector<std::string> Talk::split(std::string s, char delim)
 
 void Talk::update(float d)
 {
-	if (_flag == 0)
+	if (_handFlag == 1)
 	{
-		if (_handFlag == 1)
+		Rect fish_Rect, hand_rect, fish_Rect_next;
+
+		hand_rect = _hhand->getBoundingBox();
+		if (sceneName == "talkcity" || sceneName == "talkjungle")
 		{
-			Rect fish_Rect, hand_rect, fish_Rect_next;
+			fish_Rect = _fish->getBoundingBox();
+		}
+		else
+		{
+			fish_Rect = Rect(_fish->getPositionX(), _fish->getPositionY(), _fish->getBoundingBox().size.width, _fish->getBoundingBox().size.height);
+		}
 
-			hand_rect = _hhand->getBoundingBox();
-			if (sceneName == "talkcity" || sceneName == "talkjungle")
+		if(sceneName == "talkjungle" || sceneName == "talkisland")
+			fish_Rect_next = Rect(_fish->getPositionX(), _fish->getPositionY(), _fish->getBoundingBox().size.width, _fish->getBoundingBox().size.height);
+		else
+			fish_Rect_next = _fish->getBoundingBox();
+
+		if (fish_Rect.intersectsRect(_hhand->getBoundingBox()) || (_heroFish.size() >= 1 && fish_Rect_next.intersectsRect(_heroFish.at(_heroFish.size() - 1)->getBoundingBox())))
+		{
+			_fish->stopAction(_action);
+			_heroFish.push_back(_fish);
+
+			if (_totalCount == _textToShow.size() || _totalAnswer == _correctAnswer)
 			{
-				fish_Rect = _fish->getBoundingBox();
-			}
-			else
-			{
-				fish_Rect = Rect(_fish->getPositionX(), _fish->getPositionY(), _fish->getBoundingBox().size.width, _fish->getBoundingBox().size.height);
-			}
-
-			if (sceneName == "talkjungle" || sceneName == "talkisland")
-				fish_Rect_next = Rect(_fish->getPositionX(), _fish->getPositionY(), _fish->getBoundingBox().size.width, _fish->getBoundingBox().size.height);
-			else
-				fish_Rect_next = _fish->getBoundingBox();
-
-			if (fish_Rect.intersectsRect(_hhand->getBoundingBox()) || (_heroFish.size() >= 1 && fish_Rect_next.intersectsRect(_heroFish.at(_heroFish.size() - 1)->getBoundingBox())))
-			{
-				_fish->stopAction(_action);
-				_heroFish.push_back(_fish);
-
-				if (_totalCount == _textToShow.size() || _totalAnswer == _correctAnswer)
+				_handFlag = -1;
+				if (sceneName == "talkjungle")
 				{
-					_handFlag = -1;
-					if (sceneName == "talkjungle")
-					{
-						std::ostringstream timeline;
-						timeline << sceneName << "/enemy" << ".csb";
+					std::ostringstream timeline;
+					timeline << sceneName << "/enemy" << ".csb";
 
-						_enemy->stopAction(_enemyChar);
-						_enemyChar = CSLoader::createTimeline(timeline.str());
-						_enemy->runAction(_enemyChar);
-						_enemyChar->play("e_die", false);
-						_totalAnswer = -1;
-						_enemyChar->setAnimationEndCallFunc("e_die", CC_CALLBACK_0(Talk::gameEnd, this));
-					}
-					else
-					{
-						Talk::displayWord();
-					}
+					_enemy->stopAction(_enemyChar);
+					_enemyChar = CSLoader::createTimeline(timeline.str());
+					_enemy->runAction(_enemyChar);
+					_enemyChar->play("e_die", false);
+					_totalAnswer = -1;
+					_enemyChar->setAnimationEndCallFunc("e_die", CC_CALLBACK_0(Talk::gameEnd, this));
 				}
-				else if (_handFlag == 1)
+				else
 				{
-					_handFlag = 0;
+					Talk::displayWord();
 				}
 			}
-			else if (fish_Rect.intersectsRect(_ehand->getBoundingBox()) || (_enemyFish.size() >= 1 && fish_Rect_next.intersectsRect(_enemyFish.at(_enemyFish.size() - 1)->getBoundingBox())))
+			else if(_handFlag == 1)
 			{
-				_fish->stopAction(_action);
-				_enemyFish.push_back(_fish);
+				_handFlag = 0;
+			}
+		}
+		else if (fish_Rect.intersectsRect(_ehand->getBoundingBox()) || (_enemyFish.size() >= 1 && fish_Rect_next.intersectsRect(_enemyFish.at(_enemyFish.size() - 1)->getBoundingBox())))
+		{
+			_fish->stopAction(_action);
+			_enemyFish.push_back(_fish);
 
-				if (_totalCount == _textToShow.size() || _totalAnswer == _correctAnswer)
+			if (_totalCount == _textToShow.size() || _totalAnswer == _correctAnswer)
+			{
+				_handFlag = -1;
+				if (sceneName == "talkjungle" || sceneName == "talkisland")
 				{
-					_handFlag = -1;
-					if (sceneName == "talkjungle" || sceneName == "talkisland")
+					if (sceneName == "talkisland")
 					{
-						if (sceneName == "talkisland")
+						_hhand->setVisible(false);
+						_hbasket->setVisible(false);
+						for (int i = 0; i < _heroFish.size(); i++)
 						{
-							_hhand->setVisible(false);
-							_hbasket->setVisible(false);
-							for (int i = 0; i < _heroFish.size(); i++)
-							{
-								_talkBg->removeChild(_heroFish.at(i));
-							}
+							_talkBg->removeChild(_heroFish.at(i));
 						}
-
-						std::ostringstream timeline;
-						timeline << sceneName << "/hero" << ".csb";
-
-						_hero->stopAction(_heroChar);
-						_heroChar = CSLoader::createTimeline(timeline.str());
-						_hero->runAction(_heroChar);
-						_heroChar->play("h_die", false);
-						_totalAnswer = -1;
-						_heroChar->setAnimationEndCallFunc("h_die", CC_CALLBACK_0(Talk::gameEnd, this));
 					}
-					else
-					{
-						Talk::displayWord();
-					}
+
+					std::ostringstream timeline;
+					timeline << sceneName << "/hero" << ".csb";
+
+					_hero->stopAction(_heroChar);
+					_heroChar = CSLoader::createTimeline(timeline.str());
+					_hero->runAction(_heroChar);
+					_heroChar->play("h_die", false);
+					_totalAnswer = -1;
+					_heroChar->setAnimationEndCallFunc("h_die", CC_CALLBACK_0(Talk::gameEnd, this));
 				}
-				else if (_handFlag == 1)
+				else
 				{
-					_handFlag = 0;
+					Talk::displayWord();
 				}
+			}
+			else if (_handFlag == 1)
+			{
+				_handFlag = 0;
 			}
 		}
+	}
 
-		if (_heroFish.size() == 5)
+	if (_heroFish.size() == 5)
+	{
+		_handFlag = -1;
+		if (sceneName == "talkisland")
 		{
-			_handFlag = -1;
-			if (sceneName == "talkisland")
+			_ehand->setVisible(false);
+			_ebasket->setVisible(false);
+			for (int i = 0; i < _enemyFish.size(); i++)
 			{
-				_ehand->setVisible(false);
-				_ebasket->setVisible(false);
-				for (int i = 0; i < _enemyFish.size(); i++)
-				{
-					_talkBg->removeChild(_enemyFish.at(i));
-				}
-
-				std::ostringstream timeline;
-				timeline << sceneName << "/enemy" << ".csb";
-
-				_enemy->stopAction(_enemyChar);
-				_enemyChar = CSLoader::createTimeline(timeline.str());
-				_enemy->runAction(_enemyChar);
-				_enemyChar->play("e_die", false);
-				_totalAnswer = -1;
-				_enemyChar->setAnimationEndCallFunc("e_die", CC_CALLBACK_0(Talk::gameEnd, this));
-				_heroFish.clear();
-				_allSentense.clear();
+				_talkBg->removeChild(_enemyFish.at(i));
 			}
-			else
-			{
-				//_menuContext->showScore();
-				_flag = 1;
-				this->unscheduleUpdate();
-				_menuContext->showAnswer("Sentence", _questionType);
-			}
+
+			std::ostringstream timeline;
+			timeline << sceneName << "/enemy" << ".csb";
+
+			_enemy->stopAction(_enemyChar);
+			_enemyChar = CSLoader::createTimeline(timeline.str());
+			_enemy->runAction(_enemyChar);
+			_enemyChar->play("e_die", false);
+			_totalAnswer = -1;
+			_enemyChar->setAnimationEndCallFunc("e_die", CC_CALLBACK_0(Talk::gameEnd, this));
+			_heroFish.clear();
+			_allSentense.clear();
 		}
-		else if (_enemyFish.size() == 5)
+		else
 		{
-			_handFlag = -1;
-			if (sceneName == "talkisland")
+			//_menuContext->showScore();
+            this->unscheduleUpdate();
+			_menuContext->showAnswer("Sentence", _questionType);
+			this->unscheduleUpdate();
+		}
+	}
+	else if (_enemyFish.size() == 5)
+	{
+		_handFlag = -1;
+		if (sceneName == "talkisland")
+		{
+			_hhand->setVisible(false);
+			_hbasket->setVisible(false);
+			for (int i = 0; i < _heroFish.size(); i++)
 			{
-				_hhand->setVisible(false);
-				_hbasket->setVisible(false);
-				for (int i = 0; i < _heroFish.size(); i++)
-				{
-					_talkBg->removeChild(_heroFish.at(i));
-				}
-
-				std::ostringstream timeline;
-				timeline << sceneName << "/hero" << ".csb";
-
-				_hero->stopAction(_heroChar);
-				_heroChar = CSLoader::createTimeline(timeline.str());
-				_hero->runAction(_heroChar);
-				_heroChar->play("h_die", false);
-				_totalAnswer = -1;
-				_heroChar->setAnimationEndCallFunc("h_die", CC_CALLBACK_0(Talk::gameEnd, this));
-				_enemyFish.clear();
-				_allSentense.clear();
+				_talkBg->removeChild(_heroFish.at(i));
 			}
-			else
-			{
-				//_menuContext->showScore();
-				_flag = 1;
-				this->unscheduleUpdate();
-				_menuContext->showAnswer("Sentence", _questionType);
-			}
+
+			std::ostringstream timeline;
+			timeline << sceneName << "/hero" << ".csb";
+
+			_hero->stopAction(_heroChar);
+			_heroChar = CSLoader::createTimeline(timeline.str());
+			_hero->runAction(_heroChar);
+			_heroChar->play("h_die", false);
+			_totalAnswer = -1;
+			_heroChar->setAnimationEndCallFunc("h_die", CC_CALLBACK_0(Talk::gameEnd, this));
+			_enemyFish.clear();
+			_allSentense.clear();
+		}
+		else
+		{
+			//_menuContext->showScore();
+            this->unscheduleUpdate();
+			_menuContext->showAnswer("Sentence", _questionType);
+			this->unscheduleUpdate();
 		}
 	}
 }
