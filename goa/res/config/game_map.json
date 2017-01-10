@@ -369,9 +369,11 @@
 				"V",
 				"W",
 				"Y",
-				"Z"
+				"Z",
+				"A-Z",
+				"A-Z"
 			],
-			"numLevels": "24"
+			"numLevels": "26"
 		},
 		"eng": {
 			"labels": [
@@ -579,9 +581,11 @@
 				"V",
 				"W",
 				"Y",
-				"Z"
+				"Z",
+				"A-Z",
+				"A-Z"
 			],
-			"numLevels": "24"
+			"numLevels": "26"
 		},
 		"eng": {
 			"labels": [
@@ -681,9 +685,11 @@
 				"V",
 				"W",
 				"Y",
-				"Z"
+				"Z",
+				"A-Z",
+				"A-Z"
 			],
-			"numLevels": "24"
+			"numLevels": "26"
 		},
 		"eng": {
 			"labels": [
@@ -911,9 +917,11 @@
 				"V",
 				"W",
 				"Y",
-				"Z"
+				"Z",
+				"A-Z",
+				"A-Z"
 			],
-			"numLevels": "24"
+			"numLevels": "26"
 		},
 		"eng": {
 			"labels": [
@@ -1567,6 +1575,178 @@
 			"min": "2"
 		}
 	},
+	  "lang": {
+            "swa": {
+                "labels": [
+                    "A",
+                    "B",
+                    "C",
+                    "D",
+                    "E",
+                    "F",
+                    "G",
+                    "H",
+                    "I",
+                    "J",
+                    "K",
+                    "L",
+                    "M",
+                    "N",
+                    "O",
+                    "P",
+                    "R",
+                    "S",
+                    "T",
+                    "U",
+                    "V",
+                    "W",
+                    "Y",
+                    "Z",
+                    "A-Z",
+                    "A-Z",
+                    "a",
+                    "b",
+                    "c",
+                    "d",
+                    "e",
+                    "f",
+                    "g",
+                    "h",
+                    "i",
+                    "j",
+                    "k",
+                    "l",
+                    "m",
+                    "n",
+                    "o",
+                    "p",
+                    "r",
+                    "s",
+                    "t",
+                    "u",
+                    "v",
+                    "w",
+                    "y",
+                    "z",
+                    "a-z",
+                    "a-z",
+                    "0",
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                    "6",
+                    "7",
+                    "8",
+                    "9",
+                    "W1",
+                    "W2",
+                    "W3",
+                    "W4",
+                    "W5",
+                    "w6",
+                    "W7",
+                    "W8",
+                    "W9",
+                    "W10",
+                    "W11",
+                    "W12",
+                    "W13",
+                    "W14",
+                    "W15",
+                    "w16",
+                    "W17",
+                    "W18"
+                ],
+                "numLevels": "80"
+            },
+            "eng": {
+                "labels": [
+                    "A",
+                    "B",
+                    "C",
+                    "D",
+                    "E",
+                    "F",
+                    "G",
+                    "H",
+                    "I",
+                    "J",
+                    "K",
+                    "L",
+                    "M",
+                    "N",
+                    "O",
+                    "P",
+                    "Q",
+                    "R",
+                    "S",
+                    "T",
+                    "U",
+                    "V",
+                    "W",
+                    "X",
+                    "Y",
+                    "Z",
+                     "a",
+                    "b",
+                    "c",
+                    "d",
+                    "e",
+                    "f",
+                    "g",
+                    "h",
+                    "i",
+                    "j",
+                    "k",
+                    "l",
+                    "m",
+                    "n",
+                    "o",
+                    "p",
+                    "q",
+                    "r",
+                    "s",
+                    "t",
+                    "u",
+                    "v",
+                    "w",
+                    "x",
+                    "y",
+                    "z",
+                    "0",
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                    "6",
+                    "7",
+                    "8",
+                    "9",
+                    "W1",
+                    "W2",
+                    "W3",
+                    "W4",
+                    "W5",
+                    "w6",
+                    "W7",
+                    "W8",
+                    "W9",
+                    "W10",
+                    "W11",
+                    "W12",
+                    "W13",
+                    "W14",
+                    "W15",
+                    "w16",
+                    "W17",
+                    "W18"
+                ],
+                "numLevels": "80"
+            }
+        },
 	"backgroundJson": "doorslevel/Layer1.json",
 	"foregroundJson": "doorslevel/Layer3.json",
 	"frontgroundJson": "doorslevel/Layer4.json",
@@ -1576,8 +1756,8 @@
 }, {
 	"name": "TreasureHunt",
 	"title": "Treasure Hunt",
-	"cIcon": "gameicons/box_pressed.png",
-	"icon": "gameicons/box.png",
+	"cIcon": "gameicons/TreasureHunt_pressed.png",
+	"icon": "gameicons/TreasureHunt.png",
 	"multiPlayer": false,
 	"isJSGame": false,
 	"script": "src/NonJSGameLauncher.js",
@@ -2549,27 +2729,27 @@
 	"pureJS": "playLayer",
 	"script": "src/start/jump.js",
 	"span": "12",
-	"numLevels": "90",
+	"numLevels": "45",
 	"rewards": {
-		"15": {
+		"7": {
 			"badge": "s/jumping_jack"
 		},
-		"30": {
+		"14": {
 			"badge": "m/tidy_shoe"
 		},
-		"45": {
+		"21": {
 			"badge": "p/jumping_frog"
 		},
-		"60": {
+		"28": {
 			"badge": "b/flying_mountain"
 		},
-		"75": {
+		"35": {
 			"badge": "c/cotton_wings"
 		},
-		"90": {
+		"42": {
 			"badge": "g/dark_hat"
 		},
-		"25": {
+		"45": {
 			"unlockMin": "map",
 			"min": "4"
 		}

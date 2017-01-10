@@ -543,9 +543,6 @@ void StoryPlaying::createWordBubble() {
 }
 
 void StoryPlaying::createDialogBubble() {
-    _talkBubbleNode = CSLoader::createNode("template/bubble_tem.csb");
-    this->addChild(_talkBubbleNode, 1);
-    
     
     std::string contentPageText = "";
     std::string textFileUrl = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + ".json";
@@ -573,62 +570,75 @@ void StoryPlaying::createDialogBubble() {
                 i++;
                 
             }
-            
-            if(!contentPageText.empty()) {
-                Node* chooseText = _talkBubbleNode->getChildByName(STORY_TEXT);
-                if(chooseText != NULL) {
-                    cocos2d::ui::TextField* chooseLabel = dynamic_cast<cocos2d::ui::TextField *>(chooseText);
-                    if(chooseLabel != NULL) {
-                        contentPageText = QuestionHandler::wrapString(contentPageText, 50);
-                        chooseLabel->setString(contentPageText);
-                        chooseLabel->setFontSize(75);
-                        chooseLabel->setFontName("fonts/Roboto-Regular.ttf");
-                        chooseLabel->setTextColor(Color4B::BLACK);
-                    }
+        }
+    }
+    
+    
+    if(!contentPageText.empty())
+    {
+        
+        _talkBubbleNode = CSLoader::createNode("template/bubble_tem.csb");
+        this->addChild(_talkBubbleNode, 1);
+
+        Node* closeNode = _talkBubbleNode->getChildByName(CLOSE_BUTTON);
+        if(closeNode != NULL) {
+            cocos2d::ui::Button* closeButton = dynamic_cast<cocos2d::ui::Button *>(closeNode);
+            if(closeButton != NULL) {
+                closeButton->addTouchEventListener(CC_CALLBACK_2(StoryPlaying::closeDialog, this));
+#if defined(AUTO_CLICK) && (AUTO_CLICK > 0)
+                runAction(Sequence::create(DelayTime::create(10.0), CallFunc::create([=]() {
+                    this->closeDialog(closeButton, ui::Widget::TouchEventType::ENDED);
+                }), NULL));
+                
+#endif
+                
+            }
+        }
+        
+        
+        Node* soundNode = _talkBubbleNode->getChildByName(SOUND_BUTTON);
+        if(soundNode != NULL) {
+            cocos2d::ui::Button* soundButton = dynamic_cast<cocos2d::ui::Button *>(soundNode);
+            if(soundButton != NULL) {
+                soundButton->addTouchEventListener(CC_CALLBACK_2(StoryPlaying::playSound, this));
+                
+                if(_soundEnabled.compare("true") == 0) {
+                    soundButton->setHighlighted(true);
+                } else {
+                    soundButton->setHighlighted(false);
                 }
             }
         }
-    }
-    
-    
-    Node* closeNode = _talkBubbleNode->getChildByName(CLOSE_BUTTON);
-    if(closeNode != NULL) {
-        cocos2d::ui::Button* closeButton = dynamic_cast<cocos2d::ui::Button *>(closeNode);
-        if(closeButton != NULL) {
-            closeButton->addTouchEventListener(CC_CALLBACK_2(StoryPlaying::closeDialog, this));
-#if defined(AUTO_CLICK) && (AUTO_CLICK > 0)
-            runAction(Sequence::create(DelayTime::create(10.0), CallFunc::create([=]() {
-                this->closeDialog(closeButton, ui::Widget::TouchEventType::ENDED);
-            }), NULL));
+        
+        if(_soundEnabled.compare("true") == 0) {
             
-#endif
+            std::string pageI = MenuContext::to_string(_pageIndex + 1);
+            _soundFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + _baseDir + "_"  + pageI + ".ogg";
             
-        }
-    }
-    
-    
-    Node* soundNode = _talkBubbleNode->getChildByName(SOUND_BUTTON);
-    if(soundNode != NULL) {
-        cocos2d::ui::Button* soundButton = dynamic_cast<cocos2d::ui::Button *>(soundNode);
-        if(soundButton != NULL) {
-            soundButton->addTouchEventListener(CC_CALLBACK_2(StoryPlaying::playSound, this));
-            
-            if(_soundEnabled.compare("true") == 0) {
-                soundButton->setHighlighted(true);
-            } else {
-                soundButton->setHighlighted(false);
+            if(!_soundFile.empty() && FileUtils::getInstance()->isFileExist(_soundFile)) {
+                this->scheduleOnce(schedule_selector(StoryPlaying::narrateDialog), 1.0f);
             }
         }
-    }
-    
-    if(_soundEnabled.compare("true") == 0) {
         
-        std::string pageI = MenuContext::to_string(_pageIndex + 1);
-        _soundFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + _baseDir + "_"  + pageI + ".ogg";
-        
-        if(!_soundFile.empty() && FileUtils::getInstance()->isFileExist(_soundFile)) {
-            this->scheduleOnce(schedule_selector(StoryPlaying::narrateDialog), 1.0f);
+        Node* chooseText = _talkBubbleNode->getChildByName(STORY_TEXT);
+        if(chooseText != NULL) {
+            cocos2d::ui::TextField* chooseLabel = dynamic_cast<cocos2d::ui::TextField *>(chooseText);
+            if(chooseLabel != NULL) {
+                contentPageText = QuestionHandler::wrapString(contentPageText, 50);
+                chooseLabel->setString(contentPageText);
+                chooseLabel->setFontSize(75);
+                chooseLabel->setFontName("fonts/Roboto-Regular.ttf");
+                chooseLabel->setTextColor(Color4B::BLACK);
+            }
         }
+    } else {
+        _nextButton->setEnabled(true);
+        _nextButton->setVisible(true);        
+        if(_pageIndex != 0) {
+            _prevButton->setEnabled(true);
+            _prevButton->setVisible(true);
+        }
+
     }
 }
 
@@ -696,6 +706,11 @@ void StoryPlaying::closeDialog(Ref* pSender, ui::Widget::TouchEventType eEventTy
             break;
         case ui::Widget::TouchEventType::ENDED:
         {
+            if(CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying())
+            {
+                CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+            }
+
             clickedButton->setEnabled(false);
             _talkBubbleNode->removeFromParentAndCleanup(true);
             
@@ -857,8 +872,10 @@ bool StoryPlaying::pointInTriangle(Point p, Point p0, Point p1, Point p2) {
 }
 
 void StoryPlaying::playMasterAnimation() {
-    
-    if(_mainTimeLine && _mainTimeLine->IsAnimationInfoExists("master")) {
+    if(_mainTimeLine && _mainTimeLine->getDuration() == 0) {
+        playEnded();
+    }
+    else if(_mainTimeLine && _mainTimeLine->IsAnimationInfoExists("master")) {
         //play master animation
         _mainTimeLine->setAnimationEndCallFunc("master", CC_CALLBACK_0(StoryPlaying::playEnded, this));
         _mainTimeLine->setFrameEventCallFunc(CC_CALLBACK_1(StoryPlaying::onFrameEvent, this));
