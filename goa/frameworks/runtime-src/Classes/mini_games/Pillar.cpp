@@ -140,7 +140,7 @@ void Pillar::onEnterTransitionDidFinish()
 		CCLOG("Synonyms Level = %d", inner);
 		themeName = "candy";
 		_title = LangUtil::getInstance()->translateString("Identify the NOUN");
-		_wordCorrect = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, subLevel);
+		_wordCorrect = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 20, subLevel);
 		std::copy(std::begin(_wordCorrect), std::end(_wordCorrect), std::back_inserter(_wordList));
 		auto wordVerb = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 6, subLevel);
 		std::copy(std::begin(wordVerb), std::end(wordVerb), std::inserter(_wordList, _wordList.end()));
@@ -163,7 +163,7 @@ void Pillar::onEnterTransitionDidFinish()
 		CCLOG("Antonyms Level = %d", inner);
 		themeName = "iceLand";
 		_title = LangUtil::getInstance()->translateString("Identify the VERB");
-		_wordCorrect = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, subLevel);
+		_wordCorrect = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 20, subLevel);
 		std::copy(std::begin(_wordCorrect), std::end(_wordCorrect), std::back_inserter(_wordList));
 		auto wordVerb = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 6, subLevel);
 		std::copy(std::begin(wordVerb), std::end(wordVerb), std::inserter(_wordList, _wordList.end()));
@@ -185,7 +185,7 @@ void Pillar::onEnterTransitionDidFinish()
 		}
 		themeName = "farm";
 		_title = LangUtil::getInstance()->translateString("Identify the ADJECTIVE");
-		_wordCorrect = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ADJECTIVE, 10, subLevel);
+		_wordCorrect = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ADJECTIVE, 20, subLevel);
 		std::copy(std::begin(_wordCorrect), std::end(_wordCorrect), std::back_inserter(_wordList));
 		auto wordVerb = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 6, subLevel);
 		std::copy(std::begin(wordVerb), std::end(wordVerb), std::inserter(_wordList, _wordList.end()));

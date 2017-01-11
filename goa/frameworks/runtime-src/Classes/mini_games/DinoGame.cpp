@@ -176,7 +176,7 @@ bool DinoGame::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		ss << targetName.at(0);
 		//target->setLocalZOrder(1);
 		std::string mystr = ss.str();
-		std::string path = "english/sounds/" + mystr + ".m4a";
+		std::string path = LangUtil::getInstance()->getAlphabetSoundFileName(targetName.at(0));
 		CCLOG("path = %s", path.c_str());
 		_audioEffect->playEffect(path.c_str());
 		target->setScale(2);

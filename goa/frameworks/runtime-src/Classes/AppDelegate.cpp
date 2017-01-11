@@ -4,6 +4,7 @@
 #include "ScrollableGameMapScene.hpp"
 #include "lang/SafariAnalyticsManager.h"
 #include "PhotoCaptureScene.hpp"
+#include "menu/Introduction.hpp"
 
 #include "audio/include/SimpleAudioEngine.h"
 #include "scripting/js-bindings/auto/jsb_cocos2dx_3d_auto.hpp"
@@ -268,6 +269,8 @@ bool AppDelegate::applicationDidFinishLaunching()
     
     ScriptingCore::getInstance()->runScript("src/LoadGameConfig.js");
     director->runWithScene(ScrollableGameMapScene::createScene());
+//    director->runWithScene(Introduction::createScene());
+    
     
 //    std::string cachedCharacterInformation;
 //    bool cachedInfoFound = this->findCachedCharacterConfiguration(&cachedCharacterInformation);

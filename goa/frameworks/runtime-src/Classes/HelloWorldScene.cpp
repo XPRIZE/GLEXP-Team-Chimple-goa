@@ -851,11 +851,23 @@ void HelloWorld::showWordBubbles(float dt) {
         
         std::map<std::string, std::string>::iterator it;
         for(it = mapping.begin(); it != mapping.end(); it++) {
-            std::string word = it->second + "_wordBubble";
-            
-            Node* node = this->mainLayer->getChildByName(word.c_str());
-            if(node != NULL) {
-                node->setVisible(true);
+            if(!it->second.empty())
+            {
+                std::string word = it->second + "_wordBubble";
+                Node* node = this->mainLayer->getChildByName(word.c_str());
+                WordBubble* wordNode = dynamic_cast<WordBubble *>(node);
+                if(wordNode != NULL) {
+                    Size visibleSize = Director::getInstance()->getVisibleSize();
+                    if(wordNode->currentButton()->getPosition().x > std::abs(this->mainLayer->getPosition().x) + 500
+                       && wordNode->currentButton()->getPosition().x < std::abs(this->mainLayer->getPosition().x) + visibleSize.width - 500)
+                    {
+                        CCLOG("wordNode->getPosition().x %f", wordNode->currentButton()->getPosition().x);
+                        CCLOG("wordNode->getPosition().y %f", wordNode->currentButton()->getPosition().y);
+                        CCLOG("wordNode->currentButton()->getTitleText() %s", wordNode->currentButton()->getTitleText().c_str());
+                        wordNode->setVisible(true);
+                    }
+                }
+                
             }
         }
     }
@@ -1892,8 +1904,8 @@ void HelloWorld::unlockNext(float dt) {
             localStorageSetItem("map.currentLevel", MenuContext::to_string(curLevel));
         }
         
-        menuContext->setMaxPoints(3);
-        menuContext->addPoints(3);
+        this->menuContext->setMaxPoints(3);
+        this->menuContext->addPoints(3);
         this->menuContext->showScore();
     }
 }

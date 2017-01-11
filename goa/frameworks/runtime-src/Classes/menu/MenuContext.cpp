@@ -1545,9 +1545,9 @@ void MenuContext::closeAnswerLayer(cocos2d::Ref *pSender, cocos2d::ui::Widget::T
 
 void MenuContext::showAnswer(std::string type, std::string header)
 {
-    if(_showAnswerLayer != NULL) {
+   /* if(_showAnswerLayer != NULL) {
         return;
-    }
+    }*/
 	addGreyLayer();
 	pauseNodeAndDescendants(_main);
 	_menuButton->setEnabled(false);
