@@ -268,8 +268,8 @@ bool AppDelegate::applicationDidFinishLaunching()
     SafariAnalyticsManager* safariManager = SafariAnalyticsManager::getInstance();
     
     ScriptingCore::getInstance()->runScript("src/LoadGameConfig.js");
-    director->runWithScene(ScrollableGameMapScene::createScene());
-//    director->runWithScene(Introduction::createScene());
+//    director->runWithScene(ScrollableGameMapScene::createScene());
+    director->runWithScene(Introduction::createScene());
     
     
 //    std::string cachedCharacterInformation;
