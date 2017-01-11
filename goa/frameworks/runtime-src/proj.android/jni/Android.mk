@@ -106,6 +106,7 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/menu/LevelHelpOverlay.cpp \
 					../../Classes/menu/HelpLayer.cpp \
 					../../Classes/menu/Award.cpp \
+					../../Classes/menu/Introduction.cpp \
 					../../Classes/lang/LangUtil.cpp \
 					../../Classes/lang/EnglishUtil.cpp \
 					../../Classes/lang/KannadaUtil.cpp \
