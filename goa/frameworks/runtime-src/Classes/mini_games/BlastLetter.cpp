@@ -92,6 +92,7 @@ void BlastLetter::onEnterTransitionDidFinish() {
 			level = 3;
 		}
 		_data = TextGenerator::getInstance()->getSingularPlurals(1, level);
+		checkWordLength();
 		_sentence = LangUtil::getInstance()->translateString("Write plural of : ");
 	}else if (currentLevel >= 57 && currentLevel <= 66) {
 		auto level = (_menuContext->getCurrentLevel() - 56);
@@ -99,6 +100,7 @@ void BlastLetter::onEnterTransitionDidFinish() {
 			level = 3;
 		}
 		_data = TextGenerator::getInstance()->getAntonyms(1, level);
+		checkWordLength();
 		_sentence = LangUtil::getInstance()->translateString("Write opposite of : ");
 	}else if (currentLevel >= 67 && currentLevel <= 76) {
 		auto level = (_menuContext->getCurrentLevel() - 66);
@@ -106,6 +108,7 @@ void BlastLetter::onEnterTransitionDidFinish() {
 			level = 3;
 		}
 		_data = TextGenerator::getInstance()->getSynonyms(1, level);
+		checkWordLength();
 		_sentence = LangUtil::getInstance()->translateString("Write word of same meaning as : ");
 	}else if (currentLevel >= 77 && currentLevel <= 86) {
 		auto level = (_menuContext->getCurrentLevel() - 76);
@@ -113,6 +116,7 @@ void BlastLetter::onEnterTransitionDidFinish() {
 			level = 3;
 		}
 		_data = TextGenerator::getInstance()->getHomonyms(1, level);
+		checkWordLength();
 		_sentence = LangUtil::getInstance()->translateString("Write same sounding word as : ");
 	}else{
 		CCLOG("ERROR : Level code error !!!!!! ");
@@ -446,6 +450,20 @@ void BlastLetter::checkAlphabets()
 	else {
 		_result = ((BlastLetterNode *)this->getChildByName(stringStream.str()))->getPosibileCharacter();
 		_clearButton = ((BlastLetterNode *)this->getChildByName(stringStream.str()))->_clearButton;
+	}
+}
+
+void BlastLetter::checkWordLength() {
+	for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
+		_data_key = (getConvertInUpperCase(it->first));
+		_data_value = (getConvertInUpperCase(it->second));
+	}
+	while (!(_data_value.size() <= 6)) {
+		_data = TextGenerator::getInstance()->getSingularPlurals(1,3);
+		for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
+			_data_key = (getConvertInUpperCase(it->first));
+			_data_value = (getConvertInUpperCase(it->second));
+		}
 	}
 }
 
