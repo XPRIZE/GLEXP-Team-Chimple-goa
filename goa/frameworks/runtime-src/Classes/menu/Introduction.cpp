@@ -7,7 +7,7 @@
 //
 
 #include "Introduction.hpp"
-#include "LangUtil.h"
+#include "../lang/LangUtil.h"
 #include "AudioEngine.h"
 
 USING_NS_CC;
