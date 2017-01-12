@@ -2760,16 +2760,8 @@
 	"maingroundJson": "jump_on_words_level/mainground.json",
 	"menuPlist": "jump_on_words_level/jump_on_words_level.plist",
 	"menuPng": "jump_on_words_level/jump_on_words_level.png"
-}, {
-	"name": "story-telling",
-	"title": "Create A Story",
-	"cIcon": "gameicons/story_maker_pressed.png",
-	"icon": "gameicons/story_maker.png",
-	"multiPlayer": false,
-	"isJSGame": true,
-	"pureJS": "",
-	"script": "src/start/storytelling.js"
-}, {
+},
+{
 	"name": "map",
 	"title": "Hero",
 	"cIcon": "gameicons/hero_pressed.png",
@@ -2868,23 +2860,6 @@
 	"maingroundJson": "shapelevel/shapelevelmainground.json",
 	"menuPlist": "shapelevel/shapelevel.plist",
 	"menuPng": "shapelevel/shapelevel.png"
-}, {
-	"name": "Maze",
-	"title": "Trace the Maze",
-	"cIcon": "gameicons/maze_pressed.png",
-	"icon": "gameicons/maze.png",
-	"multiPlayer": false,
-	"isJSGame": true,
-	"pureJS": "MazeLayer",
-	"script": "src/start/maze.js",
-	"span": "2",
-	"numLevels": "10",
-	"backgroundJson": "cityscreen/background.json",
-	"foregroundJson": "cityscreen/foreground.json",
-	"frontgroundJson": "cityscreen/frontground.json",
-	"maingroundJson": "cityscreen/mainground.json",
-	"menuPlist": "cityscreen/cityscreen.plist",
-	"menuPng": "cityscreen/cityscreen.png"
 }, {
 	"name": "Dots",
 	"title": "Number Dots",
