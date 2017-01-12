@@ -7,7 +7,6 @@
 //
 
 #include "SplashScene.hpp"
-#include "ScrollableGameMapScene.hpp"
 #include "MapScene.h"
 #include "StartMenuScene.h"
 #include "ScrollableGameMapScene.hpp"
@@ -221,6 +220,5 @@ void SplashScene::loadDepedencies() {
 
 void SplashScene::GoToMainMenuScene( float dt )
 {
-
-    Director::getInstance( )->replaceScene(ScrollableGameMapScene::createScene());
+    Director::getInstance()->replaceScene(Introduction::createScene());
 }
