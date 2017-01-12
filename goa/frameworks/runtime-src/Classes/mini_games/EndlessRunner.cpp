@@ -357,7 +357,7 @@ void EndlessRunner::startingIntersectMode() {
 					letterBoardAlphaLength++;
 					hpUiCatchAction->play("1", false);
 					tempChar = _alphabets[letterBoardAlphaLength];
-					
+					letterOnBoard->updateChar(tempChar);
 					letterOnBoard->setString(LangUtil::convertUTF16CharToString(tempChar));
 					counterAlphabets = 0;
 					letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 1, 21, 70, _caseSensitivity);

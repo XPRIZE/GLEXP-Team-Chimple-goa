@@ -124,3 +124,8 @@ bool Alphabet::initWithSize(wchar_t alphabet, float fontSize) {
     }
     return true;
 }
+
+
+void Alphabet::updateChar(wchar_t alphabet) {
+    _alphabet = alphabet;
+}

@@ -24,6 +24,7 @@ public:
     void clickButton(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void clickManyButtons(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void dragButton(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void update(float dt) override;
 
 CC_CONSTRUCTOR_ACCESS:
     Introduction();
@@ -33,10 +34,17 @@ CC_CONSTRUCTOR_ACCESS:
 protected:
     cocos2d::Node* _chimp;
     cocostudio::timeline::ActionTimeline* _anim;
+    int _currentStep;
     int _buttonsClicked;
     void introduceTouch();
     void practiceTouch();
     void introduceDrag();
     void playVideo();
     cocos2d::ui::Button* createButton(float scale, cocos2d::Vec2 position);
+    void videoPlayOverCallback();
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    void videoEventCallback(Ref* sender, cocos2d::experimental::ui::VideoPlayer::EventType eventType);
+#endif
+    
 };
