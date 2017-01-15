@@ -82,7 +82,7 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
                     localStorageGetItem(_gameName + ".currentLevel", &currentLevel);
                     int curLevel = atoi(currentLevel.c_str());
                     int totalLevels = atoi(_numberOfLevels.c_str());
-                    if(curLevel > totalLevels) {
+                    if(curLevel >= totalLevels) {
                         _nextButton->setEnabled(false);
                     } else {
                         _nextButton->setEnabled(true);

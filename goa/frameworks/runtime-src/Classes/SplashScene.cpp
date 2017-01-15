@@ -220,5 +220,5 @@ void SplashScene::loadDepedencies() {
 
 void SplashScene::GoToMainMenuScene( float dt )
 {
-    Director::getInstance()->replaceScene(Introduction::createScene());
+    Director::getInstance()->replaceScene(ScrollableGameMapScene::createScene());    
 }

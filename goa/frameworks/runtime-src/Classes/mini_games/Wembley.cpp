@@ -49,8 +49,8 @@ void Wembley::createChoice() {
 	float hei = Director::getInstance()->getVisibleSize().height;
 
 	CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("sounds/kick.wav");
-	//CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("sounds/applause.mp3", true);
-	//CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/applause.mp3");
+	//CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("sounds/applause.ogg", true);
+	//CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/applause.ogg");
 	_choice = Node::create();
 	_choice->setPosition(Vec2(0, hei * 63 / 100));
 	addChild(_choice);

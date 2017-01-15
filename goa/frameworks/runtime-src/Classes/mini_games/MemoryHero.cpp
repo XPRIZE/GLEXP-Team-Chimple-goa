@@ -523,7 +523,7 @@ bool MemoryHero::onTouchBegan(Touch* touch, Event* event) {
 		if (_counter < 2) {
 
 			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-			audio->playEffect("sounds/memory/door_open_close.mp3", false);
+			audio->playEffect("sounds/memory/door_open_close.ogg", false);
 
 			std::ostringstream sstreamc;
 			sstreamc << "board" << target->getTag();

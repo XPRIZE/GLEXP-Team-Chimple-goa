@@ -460,7 +460,7 @@ bool Units::onTouchBegan(Touch* touch, Event* event) {
 				_openTimeline->play("open", false);
 				
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-				audio->playEffect("sounds/calculator/gear_triggered.mp3", false);
+				audio->playEffect("sounds/calculator/gear_triggered.ogg", false);
 
 				createNthOrder();
 				handleTriggered = 1;
@@ -473,7 +473,7 @@ bool Units::onTouchBegan(Touch* touch, Event* event) {
 			_calculator->resetCalculator();
 			
 			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-			audio->playEffect("sounds/calculator/calculator_button_click.mp3", false);
+			audio->playEffect("sounds/calculator/calculator_button_click.ogg", false);
 			
 			if (_calculatorTouched == false) {
 				_calculator->setVisible(true);
