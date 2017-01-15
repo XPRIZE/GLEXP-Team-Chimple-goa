@@ -417,12 +417,12 @@
 	"script": "src/NonJSGameLauncher.js",
 	"span": "3",
 	"numLevels": "26",
-	"backgroundJson": "tablelevel/background.json",
-	"foregroundJson": "tablelevel/foreground.json",
-	"frontgroundJson": "tablelevel/frontground.json",
-	"maingroundJson": "tablelevel/mainground.json",
-	"menuPlist": "tablelevel/tablelevel.plist",
-	"menuPng": "tablelevel/tablelevel.png",
+	"backgroundJson": "bgmap/bgmap_background.json",
+	"foregroundJson": "bgmap/bgmap_foreground.json",
+	"frontgroundJson": "bgmap/bgmap_frontground.json",
+	"maingroundJson": "bgmap/bgmap_mainground.json",
+	"menuPlist": "bgmap/bgmap.plist",
+	"menuPng": "bgmap/bgmap.png",
 	"rewards": {
 		"13": {
 			"unlock": "alphamole"
@@ -1144,7 +1144,7 @@
 	"numLevels": "62",
 	"rewards": {
 		"26": {
-			"unlock": "blastletter"
+			"unlock": "TreasureHunt"
 		},
 		"10": {
 			"badge": "s/race_car"
@@ -1311,6 +1311,116 @@
 	"maingroundJson": "cardraw_level/mainground.json",
 	"menuPlist": "cardraw_level/cardraw_level.plist",
 	"menuPng": "cardraw_level/cardraw_level.png"
+}, {
+	"name": "TreasureHunt",
+	"title": "Treasure Hunt",
+	"cIcon": "gameicons/TreasureHunt_pressed.png",
+	"icon": "gameicons/TreasureHunt.png",
+	"multiPlayer": false,
+	"isJSGame": false,
+	"script": "src/NonJSGameLauncher.js",
+	"span": "5",
+	"numLevels": "26",
+	"rewards": {
+		"3": {
+			"badge": "s/golden_boot"
+		},
+		"4": {
+			"badge": "s/gift_box"
+		},
+		"8": {
+			"badge": "m/Treasure_box"
+		},
+		"12": {
+			"badge": "p/golden_coin"
+		},
+		"16": {
+			"badge": "g/sea_flower"
+		},
+		"20": {
+			"badge": "b/exotic_ruby"
+		},
+		"22": {
+			"unlock": "blastletter"
+		},
+		"26": {
+			"badge": "c/sugar_pearl"
+		},
+		"24": {
+			"unlockMin": "baja",
+			"min": "2"
+		}
+	},
+	"backgroundJson": "boxlevel/background.json",
+	"foregroundJson": "boxlevel/foreground.json",
+	"frontgroundJson": "boxlevel/frontground.json",
+	"maingroundJson": "boxlevel/mainground.json",
+	"menuPlist": "boxlevel/boxlevel.plist",
+	"menuPng": "boxlevel/boxlevel.png",
+	"lang": {
+		"swa": {
+			"labels": [
+				"A",
+				"B",
+				"C",
+				"D",
+				"E",
+				"F",
+				"G",
+				"H",
+				"I",
+				"J",
+				"K",
+				"L",
+				"M",
+				"N",
+				"O",
+				"P",
+				"R",
+				"S",
+				"T",
+				"U",
+				"V",
+				"W",
+				"Y",
+				"Z",
+				"A-Z",
+				"A-Z"
+			],
+			"numLevels": "26"
+		},
+		"eng": {
+			"labels": [
+				"A",
+				"B",
+				"C",
+				"D",
+				"E",
+				"F",
+				"G",
+				"H",
+				"I",
+				"J",
+				"K",
+				"L",
+				"M",
+				"N",
+				"O",
+				"P",
+				"Q",
+				"R",
+				"S",
+				"T",
+				"U",
+				"V",
+				"W",
+				"X",
+				"Y",
+				"Z"
+			],
+			"numLevels": "26"
+		}
+	}
 }, {
 	"name": "blastletter",
 	"title": "Defuse the Bomb",
@@ -1549,9 +1659,6 @@
 	"span": "10",
 	"numLevels": "80",
 	"rewards": {
-		"26": {
-			"unlock": "TreasureHunt"
-		},
 		"13": {
 			"badge": "s/snorting_pig"
 		},
@@ -1570,7 +1677,7 @@
 		"75": {
 			"badge": "c/candy_crate"
 		},
-		"86": {
+		"70": {
 			"unlockMin": "baja",
 			"min": "2"
 		}
@@ -1753,113 +1860,6 @@
 	"maingroundJson": "doorslevel/Layer2.json",
 	"menuPlist": "doorslevel/doorslevel.plist",
 	"menuPng": "doorslevel/doorslevel.png"
-}, {
-	"name": "TreasureHunt",
-	"title": "Treasure Hunt",
-	"cIcon": "gameicons/TreasureHunt_pressed.png",
-	"icon": "gameicons/TreasureHunt.png",
-	"multiPlayer": false,
-	"isJSGame": false,
-	"script": "src/NonJSGameLauncher.js",
-	"span": "5",
-	"numLevels": "26",
-	"rewards": {
-		"3": {
-			"badge": "s/golden_boot"
-		},
-		"4": {
-			"badge": "s/gift_box"
-		},
-		"8": {
-			"badge": "m/Treasure_box"
-		},
-		"12": {
-			"badge": "p/golden_coin"
-		},
-		"16": {
-			"badge": "g/sea_flower"
-		},
-		"20": {
-			"badge": "b/exotic_ruby"
-		},
-		"24": {
-			"badge": "c/sugar_pearl"
-		},
-		"26": {
-			"unlockMin": "baja",
-			"min": "2"
-		}
-	},
-	"backgroundJson": "boxlevel/background.json",
-	"foregroundJson": "boxlevel/foreground.json",
-	"frontgroundJson": "boxlevel/frontground.json",
-	"maingroundJson": "boxlevel/mainground.json",
-	"menuPlist": "boxlevel/boxlevel.plist",
-	"menuPng": "boxlevel/boxlevel.png",
-	"lang": {
-		"swa": {
-			"labels": [
-				"A",
-				"B",
-				"C",
-				"D",
-				"E",
-				"F",
-				"G",
-				"H",
-				"I",
-				"J",
-				"K",
-				"L",
-				"M",
-				"N",
-				"O",
-				"P",
-				"R",
-				"S",
-				"T",
-				"U",
-				"V",
-				"W",
-				"Y",
-				"Z",
-				"A-Z",
-				"A-Z"
-			],
-			"numLevels": "26"
-		},
-		"eng": {
-			"labels": [
-				"A",
-				"B",
-				"C",
-				"D",
-				"E",
-				"F",
-				"G",
-				"H",
-				"I",
-				"J",
-				"K",
-				"L",
-				"M",
-				"N",
-				"O",
-				"P",
-				"Q",
-				"R",
-				"S",
-				"T",
-				"U",
-				"V",
-				"W",
-				"X",
-				"Y",
-				"Z"
-			],
-			"numLevels": "26"
-		}
-	}
 }, {
 	"name": "baja",
 	"title": "Drive",
@@ -2906,9 +2906,6 @@
 		"4": {
 			"badge": "b/fantastic_four"
 		},
-		"5": {
-			"unlock": "popcount"
-		},
 		"6": {
 			"badge": "p/number_six"
 		},
@@ -2936,12 +2933,6 @@
 	"rewards": {
 		"5": {
 			"unlock": "spot"
-		},
-		"2": {
-			"badge": "s/star_fish",
-		},
-		"4": {
-			"badge": "m/sandy_castle"
 		},
 		"6": {
 			"badge": "p/lifesaver_tube"
