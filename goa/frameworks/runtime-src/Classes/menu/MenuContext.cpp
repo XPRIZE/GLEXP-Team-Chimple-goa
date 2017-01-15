@@ -1487,6 +1487,7 @@ MenuContext::MenuContext() :
 	_startupCallback(nullptr),
 	_photoMenu(nullptr),
     _gamesMenu(nullptr),
+    _mapMenu(nullptr),
     _bookMenu(nullptr),
     _settingMenu(nullptr),
     _helpMenu(nullptr),
