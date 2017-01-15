@@ -42,7 +42,7 @@ void Jasmin_Mainfile::createAnswer() {
 void Jasmin_Mainfile::createChoice() {
 
 //	audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
-//	audioBg->playEffect("jasmine/jasmin_background.mp3", true);
+//	audioBg->playEffect("jasmine/jasmin_background.ogg", true);
 
 	float wid = Director::getInstance()->getVisibleSize().width;
 	float hei = Director::getInstance()->getVisibleSize().height;

@@ -416,7 +416,7 @@ bool spot::onTouchBegan(Touch* touch, Event* event) {
 			_calculator->resetCalculator();
 
 			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-			audio->playEffect("sounds/calculator/calculator_button_click.mp3", false);
+			audio->playEffect("sounds/calculator/calculator_button_click.ogg", false);
 
 			if (_calculatorTouched == false) {
 				_calculator->setVisible(true);

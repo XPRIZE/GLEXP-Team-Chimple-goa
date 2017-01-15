@@ -491,7 +491,7 @@ void Drop::addEvents(Sprite* clickedObject)
 			if (!_dropCurrentTheme.compare("dropjungle") || !_dropCurrentTheme.compare("dropcity"))
 			{
 				if(!_dropCurrentTheme.compare("dropjungle"))
-					audio->playEffect("sounds/sfx/drop_jungle_touch.mp3", false);
+					audio->playEffect("sounds/sfx/drop_jungle_touch.ogg", false);
 				else
 					audio->playEffect("sounds/sfx/shop_balloon_burst.ogg", false);
 				std::pair<Sprite*, cocostudio::timeline::ActionTimeline*> animationData = setAnimationAndProperties(_scenePath.at("holderAnimation"), (target->getPosition().x), (target->getPosition().y), 0);
@@ -507,7 +507,7 @@ void Drop::addEvents(Sprite* clickedObject)
 					if (_dropHeroTrailerImageBin[i]->getTag() == target->getTag())
 					{
 						CCLOG("LINE NO : 504");
-						audio->playEffect("sounds/sfx/drop_hero_touch.mp3", false);
+						audio->playEffect("sounds/sfx/drop_hero_touch.ogg", false);
 
 						cocostudio::timeline::ActionTimeline* holderTimeline = CSLoader::createTimeline(_scenePath.at("holderAnimation"));
 						_dropHeroTrailerImageBin[i]->runAction(holderTimeline);
