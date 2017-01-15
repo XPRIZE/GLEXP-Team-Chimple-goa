@@ -7,8 +7,9 @@
 //
 
 #include "Introduction.hpp"
-#include "LangUtil.h"
+#include "../lang/LangUtil.h"
 #include "AudioEngine.h"
+#include "../ScrollableGameMapScene.hpp"
 
 USING_NS_CC;
 using namespace experimental;
@@ -35,7 +36,8 @@ Introduction* Introduction::create() {
 Introduction::Introduction():
 _chimp(nullptr),
 _anim(nullptr),
-_buttonsClicked(0)
+_buttonsClicked(0),
+_currentStep(0)
 {
     
 }
@@ -48,8 +50,11 @@ bool Introduction::init() {
     if(!Node::init()) {
         return false;
     }
-    auto bg = CSLoader::createNode("bgmap/bgmap.csb");
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    auto bg = Sprite::create("introduction/monkeybg.png");
+    bg->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
     addChild(bg);
+    
     _chimp = CSLoader::createNode("chimpanzee.csb");
     _chimp->setPosition(Vec2(1280, 400));
     addChild(_chimp);
@@ -58,26 +63,27 @@ bool Introduction::init() {
     return true;
 }
 
-void Introduction::onEnterTransitionDidFinish() {
-    Node::onEnterTransitionDidFinish();
-    _anim->play("talk", true);
-    int audioId = AudioEngine::play2d((LangUtil::getInstance()->getDir() + "/help/introduction/introduction_1.wav").c_str());
-    if(audioId >= 0) {
-        AudioEngine::setFinishCallback(audioId, CC_CALLBACK_0(Introduction::introduceTouch, this));
-    } else {
-        introduceTouch();
-    }
-    
-    
-}
-
 Button* Introduction::createButton(float scale, Vec2 position) {
-    auto button = Button::create("bgmap/sun.png", "bgmap/sun.png", "bgmap/sun.png", Widget::TextureResType::PLIST);
+    auto button = Button::create("introduction/ball.png", "introduction/ball.png", "introduction/ball.png", Widget::TextureResType::LOCAL);
     button->setPosition(position);
     button->setScale(0.1);
     auto scaleTo = ScaleTo::create(1.0f, scale);
     auto elastic = EaseBackOut::create(scaleTo);
-    button->runAction(elastic);
+    auto callFunc = CallFuncN::create([=](Node *b) {
+        auto scaleBy = ScaleBy::create(1.0f, 1.1f);
+        auto seq = Sequence::create(EaseBackOut::create(scaleBy), DelayTime::create(1.0), EaseBackOut::create(scaleBy->reverse()), NULL);
+        b->runAction(RepeatForever::create(seq));
+    });
+    button->runAction(Sequence::createWithTwoActions(elastic, callFunc));
+    return button;
+}
+
+void Introduction::onEnterTransitionDidFinish() {
+    Node::onEnterTransitionDidFinish();
+    _anim->play("talk", true);
+    _currentStep++;
+    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic((LangUtil::getInstance()->getDir() + "/help/introduction/introduction_1.wav").c_str());
+    runAction(Sequence::createWithTwoActions(DelayTime::create(2.0f), CallFunc::create(CC_CALLBACK_0(Introduction::scheduleUpdate, this))));
 }
 
 void Introduction::introduceTouch() {
@@ -92,12 +98,9 @@ void Introduction::clickButton(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touch
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
         Button* clickedButton = dynamic_cast<Button *>(pSender);
         _anim->play("talk", true);
-        int audioId = AudioEngine::play2d((LangUtil::getInstance()->getDir() + "/help/introduction/introduction_2.wav").c_str());
-        if(audioId >= 0) {
-            AudioEngine::setFinishCallback(audioId, CC_CALLBACK_0(Introduction::practiceTouch, this));
-        } else {
-            practiceTouch();
-        }
+        _currentStep++;
+        CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic((LangUtil::getInstance()->getDir() + "/help/introduction/introduction_2.wav").c_str());
+        runAction(Sequence::createWithTwoActions(DelayTime::create(2.0f), CallFunc::create(CC_CALLBACK_0(Introduction::scheduleUpdate, this))));
         clickedButton->removeFromParent();
     }
 }
@@ -105,16 +108,16 @@ void Introduction::clickButton(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touch
 void Introduction::practiceTouch() {
     _anim->stop();
     Size visibleSize = Director::getInstance()->getVisibleSize();
-    auto button = createButton(0.25f, Vec2(visibleSize.width * 1 / 4, visibleSize.height * 1 / 4));
+    auto button = createButton(0.5f, Vec2(visibleSize.width * 1 / 4, visibleSize.height * 1 / 4));
     button->addTouchEventListener(CC_CALLBACK_2(Introduction::clickManyButtons, this));
     addChild(button);
-    button = createButton(0.25f, Vec2(visibleSize.width * 1 / 4, visibleSize.height * 3 / 4));
+    button = createButton(0.5f, Vec2(visibleSize.width * 1 / 4, visibleSize.height * 3 / 4));
     button->addTouchEventListener(CC_CALLBACK_2(Introduction::clickManyButtons, this));
     addChild(button);
-    button = createButton(0.25f, Vec2(visibleSize.width * 3 / 4, visibleSize.height * 1 / 4));
+    button = createButton(0.5f, Vec2(visibleSize.width * 3 / 4, visibleSize.height * 1 / 4));
     button->addTouchEventListener(CC_CALLBACK_2(Introduction::clickManyButtons, this));
     addChild(button);
-    button = createButton(0.25f, Vec2(visibleSize.width * 3 / 4, visibleSize.height * 3 / 4));
+    button = createButton(0.5f, Vec2(visibleSize.width * 3 / 4, visibleSize.height * 3 / 4));
     button->addTouchEventListener(CC_CALLBACK_2(Introduction::clickManyButtons, this));
     addChild(button);
     
@@ -122,26 +125,35 @@ void Introduction::practiceTouch() {
 
 void Introduction::clickManyButtons(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
+        Button* clickedButton = dynamic_cast<Button *>(pSender);
         if(++_buttonsClicked == 4) {
-            Button* clickedButton = dynamic_cast<Button *>(pSender);
             _anim->play("talk", true);
-            int audioId = AudioEngine::play2d((LangUtil::getInstance()->getDir() + "/help/introduction/introduction_3.wav").c_str());
-            if(audioId >= 0) {
-                AudioEngine::setFinishCallback(audioId, CC_CALLBACK_0(Introduction::introduceDrag, this));
-            } else {
-                practiceTouch();
-            }
-            clickedButton->removeFromParent();
+            _currentStep++;
+            CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic((LangUtil::getInstance()->getDir() + "/help/introduction/introduction_3.wav").c_str());
+            runAction(Sequence::createWithTwoActions(DelayTime::create(2.0f), CallFunc::create(CC_CALLBACK_0(Introduction::scheduleUpdate, this))));
         }
+        clickedButton->removeFromParent();
     }
-    
 }
 
 void Introduction::introduceDrag() {
     _anim->stop();
     Size visibleSize = Director::getInstance()->getVisibleSize();
-    auto button = createButton(0.25f, Vec2(visibleSize.width * 1 / 4, visibleSize.height * 1 / 4));
-    button->addTouchEventListener(CC_CALLBACK_2(Introduction::clickManyButtons, this));
+    auto basket = Sprite::create("introduction/basket.png");
+    basket->setPosition(Vec2(visibleSize.width * 3 / 4, visibleSize.height * 1 / 4));
+    basket->setScale(0.1);
+    auto scaleTo = ScaleTo::create(1.0f, 0.5f);
+    auto elastic = EaseBackOut::create(scaleTo);
+    auto callFunc = CallFuncN::create([=](Node *b) {
+        auto scaleBy = ScaleBy::create(1.0f, 1.1f);
+        auto seq = Sequence::create(EaseBackOut::create(scaleBy), DelayTime::create(1.0), EaseBackOut::create(scaleBy->reverse()), NULL);
+        b->runAction(RepeatForever::create(seq));
+    });
+    basket->runAction(Sequence::createWithTwoActions(elastic, callFunc));
+    addChild(basket);
+    
+    auto button = createButton(0.5f, Vec2(visibleSize.width * 1 / 4, visibleSize.height * 1 / 4));
+    button->addTouchEventListener(CC_CALLBACK_2(Introduction::dragButton, this));
     addChild(button);
 }
 
@@ -149,18 +161,82 @@ void Introduction::dragButton(Ref* pSender, cocos2d::ui::Widget::TouchEventType 
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
         Button* clickedButton = dynamic_cast<Button *>(pSender);
         _anim->play("talk", true);
-        int audioId = AudioEngine::play2d((LangUtil::getInstance()->getDir() + "/help/introduction/introduction_4.wav").c_str());
-        if(audioId >= 0) {
-            AudioEngine::setFinishCallback(audioId, CC_CALLBACK_0(Introduction::practiceTouch, this));
-        } else {
-            practiceTouch();
-        }
+        _currentStep++;
+        CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic((LangUtil::getInstance()->getDir() + "/help/introduction/introduction_4.wav").c_str());
+        runAction(Sequence::createWithTwoActions(DelayTime::create(2.0f), CallFunc::create(CC_CALLBACK_0(Introduction::scheduleUpdate, this))));
         clickedButton->removeFromParent();
     }
-    
 }
 
 void Introduction::playVideo() {
-    
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    auto tv = Sprite::create("TV.png");
+    tv->setScaleX(0.73);
+    tv->setScaleY(0.70);
+    tv->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+    tv->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
+    tv->setName("tv");
+    experimental::ui::VideoPlayer* vp = experimental::ui::VideoPlayer::create();
+    this->addChild(tv, 2);
+    vp->setContentSize(cocos2d::Size((tv->getContentSize().width *0.73)-200, (tv->getContentSize().height*0.7) - 180 ));
+    vp->setFileName(LangUtil::getInstance()->getDir() + "/help/introduction/introduction.webm");
+    vp->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
+    vp->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+    vp->play();
+    vp->setName("video");
+    this->addChild(vp, 2);
+    vp->addEventListener(CC_CALLBACK_2(Introduction::videoEventCallback, this));
+#else
+    videoPlayOverCallback();
+#endif
+}
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+void Introduction::videoEventCallback(Ref* sender, cocos2d::experimental::ui::VideoPlayer::EventType eventType) {
+    switch (eventType) {
+        case cocos2d::experimental::ui::VideoPlayer::EventType::PLAYING:
+            break;
+        case cocos2d::experimental::ui::VideoPlayer::EventType::PAUSED:
+            break;
+        case cocos2d::experimental::ui::VideoPlayer::EventType::STOPPED:
+            break;
+        case cocos2d::experimental::ui::VideoPlayer::EventType::COMPLETED:
+            videoPlayOverCallback();
+            break;
+        default:
+            break;
+    }
+}
+#endif  
+
+void Introduction::videoPlayOverCallback() {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    this->removeChildByName("video");
+    this->removeChildByName("tv");
+#endif
+    Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene()));
+}
+
+void Introduction::update(float dt) {
+    if(!CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying()) {
+        unscheduleUpdate();
+        switch (_currentStep) {
+            case 1:
+                introduceTouch();
+                break;
+            case 2:
+                practiceTouch();
+                break;
+            case 3:
+                introduceDrag();
+                break;
+            case 4:
+                playVideo();
+                break;
+            default:
+                playVideo();
+                break;
+        }
+    }
 }
 

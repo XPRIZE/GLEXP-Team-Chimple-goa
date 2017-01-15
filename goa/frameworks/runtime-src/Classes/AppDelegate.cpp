@@ -5,6 +5,7 @@
 #include "lang/SafariAnalyticsManager.h"
 #include "PhotoCaptureScene.hpp"
 #include "menu/Introduction.hpp"
+#include "SplashScene.hpp"
 
 #include "audio/include/SimpleAudioEngine.h"
 #include "scripting/js-bindings/auto/jsb_cocos2dx_3d_auto.hpp"
@@ -176,99 +177,100 @@ bool AppDelegate::applicationDidFinishLaunching()
     director->setDisplayStats(false);
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0f / 60);
+    director->runWithScene(SplashScene::createScene());
     
-    ScriptingCore* sc = ScriptingCore::getInstance();
-    sc->addRegisterCallback(register_all_cocos2dx);
-    sc->addRegisterCallback(register_cocos2dx_js_core);
-    sc->addRegisterCallback(jsb_register_system);
-
-    // extension can be commented out to reduce the package
-    sc->addRegisterCallback(register_all_cocos2dx_extension);
-    sc->addRegisterCallback(register_all_cocos2dx_extension_manual);
-
-    // chipmunk can be commented out to reduce the package
-    sc->addRegisterCallback(jsb_register_chipmunk);
-    // opengl can be commented out to reduce the package
-    sc->addRegisterCallback(JSB_register_opengl);
-
-    // builder can be commented out to reduce the package
-    sc->addRegisterCallback(register_all_cocos2dx_builder);
-    sc->addRegisterCallback(register_CCBuilderReader);
-
-    // ui can be commented out to reduce the package, attension studio need ui module
-    sc->addRegisterCallback(register_all_cocos2dx_ui);
-    sc->addRegisterCallback(register_all_cocos2dx_ui_manual);
-
-    // studio can be commented out to reduce the package,
-    sc->addRegisterCallback(register_all_cocos2dx_studio);
-    sc->addRegisterCallback(register_all_cocos2dx_studio_manual);
-
-    // spine can be commented out to reduce the package
-    sc->addRegisterCallback(register_all_cocos2dx_spine);
-    sc->addRegisterCallback(register_all_cocos2dx_spine_manual);
-
-    // XmlHttpRequest can be commented out to reduce the package
-    sc->addRegisterCallback(MinXmlHttpRequest::_js_register);
-    // websocket can be commented out to reduce the package
-    sc->addRegisterCallback(register_jsb_websocket);
-    // sokcet io can be commented out to reduce the package
-    sc->addRegisterCallback(register_jsb_socketio);
-
-    // 3d can be commented out to reduce the package
-    sc->addRegisterCallback(register_all_cocos2dx_3d);
-    sc->addRegisterCallback(register_all_cocos2dx_3d_manual);
-
-    // 3d extension can be commented out to reduce the package
-    sc->addRegisterCallback(register_all_cocos2dx_3d_extension);
-
-#if CC_USE_3D_PHYSICS && CC_ENABLE_BULLET_INTEGRATION
-    // Physics 3d can be commented out to reduce the package
-    sc->addRegisterCallback(register_all_cocos2dx_physics3d);
-    sc->addRegisterCallback(register_all_cocos2dx_physics3d_manual);
-#endif
-
-#if CC_USE_NAVMESH
-    sc->addRegisterCallback(register_all_cocos2dx_navmesh);
-    sc->addRegisterCallback(register_all_cocos2dx_navmesh_manual);
-#endif
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    sc->addRegisterCallback(register_all_cocos2dx_experimental_video);
-    sc->addRegisterCallback(register_all_cocos2dx_experimental_video_manual);
-    sc->addRegisterCallback(register_all_cocos2dx_experimental_webView);
-    sc->addRegisterCallback(register_all_cocos2dx_experimental_webView_manual);
-#endif
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_MAC || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-    sc->addRegisterCallback(register_all_cocos2dx_audioengine);
-#endif
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    sc->addRegisterCallback(JavascriptJavaBridge::_js_register);
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
-    sc->addRegisterCallback(JavaScriptObjCBridge::_js_register);
-#endif
-    
-    sc->addRegisterCallback(register_all_chimpleautogenbindings);
-    sc->addRegisterCallback(register_all_textgeneratorautobindings);
-    sc->addRegisterCallback(register_all_wordgeneratorautobindings);
-    sc->addRegisterCallback(register_all_wordscenegeneratorautobindings);
-    sc->addRegisterCallback(register_all_storywordgeneratorautobindings);
-    
-    sc->start();
-    sc->runScript("script/jsb_boot.js");
-#if defined(COCOS2D_DEBUG) && (COCOS2D_DEBUG > 0)
-    sc->enableDebugger();
-#endif
-    ScriptEngineProtocol *engine = ScriptingCore::getInstance();
-    ScriptEngineManager::getInstance()->setScriptEngine(engine);
-    
-    ScriptingCore::getInstance()->runScript("main.js");
-
-    SafariAnalyticsManager* safariManager = SafariAnalyticsManager::getInstance();
-    
-    ScriptingCore::getInstance()->runScript("src/LoadGameConfig.js");
-    director->runWithScene(ScrollableGameMapScene::createScene());
+//    ScriptingCore* sc = ScriptingCore::getInstance();
+//    sc->addRegisterCallback(register_all_cocos2dx);
+//    sc->addRegisterCallback(register_cocos2dx_js_core);
+//    sc->addRegisterCallback(jsb_register_system);
+//
+//    // extension can be commented out to reduce the package
+//    sc->addRegisterCallback(register_all_cocos2dx_extension);
+//    sc->addRegisterCallback(register_all_cocos2dx_extension_manual);
+//
+//    // chipmunk can be commented out to reduce the package
+//    sc->addRegisterCallback(jsb_register_chipmunk);
+//    // opengl can be commented out to reduce the package
+//    sc->addRegisterCallback(JSB_register_opengl);
+//
+//    // builder can be commented out to reduce the package
+//    sc->addRegisterCallback(register_all_cocos2dx_builder);
+//    sc->addRegisterCallback(register_CCBuilderReader);
+//
+//    // ui can be commented out to reduce the package, attension studio need ui module
+//    sc->addRegisterCallback(register_all_cocos2dx_ui);
+//    sc->addRegisterCallback(register_all_cocos2dx_ui_manual);
+//
+//    // studio can be commented out to reduce the package,
+//    sc->addRegisterCallback(register_all_cocos2dx_studio);
+//    sc->addRegisterCallback(register_all_cocos2dx_studio_manual);
+//
+//    // spine can be commented out to reduce the package
+//    sc->addRegisterCallback(register_all_cocos2dx_spine);
+//    sc->addRegisterCallback(register_all_cocos2dx_spine_manual);
+//
+//    // XmlHttpRequest can be commented out to reduce the package
+//    sc->addRegisterCallback(MinXmlHttpRequest::_js_register);
+//    // websocket can be commented out to reduce the package
+//    sc->addRegisterCallback(register_jsb_websocket);
+//    // sokcet io can be commented out to reduce the package
+//    sc->addRegisterCallback(register_jsb_socketio);
+//
+//    // 3d can be commented out to reduce the package
+//    sc->addRegisterCallback(register_all_cocos2dx_3d);
+//    sc->addRegisterCallback(register_all_cocos2dx_3d_manual);
+//
+//    // 3d extension can be commented out to reduce the package
+//    sc->addRegisterCallback(register_all_cocos2dx_3d_extension);
+//
+//#if CC_USE_3D_PHYSICS && CC_ENABLE_BULLET_INTEGRATION
+//    // Physics 3d can be commented out to reduce the package
+//    sc->addRegisterCallback(register_all_cocos2dx_physics3d);
+//    sc->addRegisterCallback(register_all_cocos2dx_physics3d_manual);
+//#endif
+//
+//#if CC_USE_NAVMESH
+//    sc->addRegisterCallback(register_all_cocos2dx_navmesh);
+//    sc->addRegisterCallback(register_all_cocos2dx_navmesh_manual);
+//#endif
+//
+//#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+//    sc->addRegisterCallback(register_all_cocos2dx_experimental_video);
+//    sc->addRegisterCallback(register_all_cocos2dx_experimental_video_manual);
+//    sc->addRegisterCallback(register_all_cocos2dx_experimental_webView);
+//    sc->addRegisterCallback(register_all_cocos2dx_experimental_webView_manual);
+//#endif
+//
+//#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_MAC || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+//    sc->addRegisterCallback(register_all_cocos2dx_audioengine);
+//#endif
+//
+//#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+//    sc->addRegisterCallback(JavascriptJavaBridge::_js_register);
+//#elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
+//    sc->addRegisterCallback(JavaScriptObjCBridge::_js_register);
+//#endif
+//    
+//    sc->addRegisterCallback(register_all_chimpleautogenbindings);
+//    sc->addRegisterCallback(register_all_textgeneratorautobindings);
+//    sc->addRegisterCallback(register_all_wordgeneratorautobindings);
+//    sc->addRegisterCallback(register_all_wordscenegeneratorautobindings);
+//    sc->addRegisterCallback(register_all_storywordgeneratorautobindings);
+//    
+//    sc->start();
+//    sc->runScript("script/jsb_boot.js");
+//#if defined(COCOS2D_DEBUG) && (COCOS2D_DEBUG > 0)
+//    sc->enableDebugger();
+//#endif
+//    ScriptEngineProtocol *engine = ScriptingCore::getInstance();
+//    ScriptEngineManager::getInstance()->setScriptEngine(engine);
+//    
+//    ScriptingCore::getInstance()->runScript("main.js");
+//
+//    SafariAnalyticsManager* safariManager = SafariAnalyticsManager::getInstance();
+//    
+//    ScriptingCore::getInstance()->runScript("src/LoadGameConfig.js");
+////    director->runWithScene(ScrollableGameMapScene::createScene());
 //    director->runWithScene(Introduction::createScene());
     
     

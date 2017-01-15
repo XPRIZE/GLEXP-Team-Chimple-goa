@@ -63,6 +63,7 @@
 #include "external/json/document.h"
 #include "external/json/stringbuffer.h"
 #include "external/json/writer.h"
+#include "menu/LevelHelpScene.h"
 
 
 USING_NS_CC;
@@ -460,7 +461,7 @@ void ScrollableGameMapScene::nagivateToGame(std::string gameName) {
     }
     else if(gameName == "story-catalogue")
     {
-        Director::getInstance()->replaceScene(ScrollableCatalogue::createScene());
+        Director::getInstance()->replaceScene(TransitionFade::create(0.5, LevelHelpScene::createScene(gameName), Color3B::BLACK));
     }
     else
     {

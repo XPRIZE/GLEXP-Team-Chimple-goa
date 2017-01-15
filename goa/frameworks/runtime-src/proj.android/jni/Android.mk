@@ -201,7 +201,8 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/CopyRight.cpp \
 					../../Classes/ChooseCharacter.cpp \
 					../../Classes/StoryPlaying.cpp \
-					../../Classes/StoryCoverPage.cpp
+					../../Classes/StoryCoverPage.cpp \
+					../../Classes/SplashScene.cpp	
 					
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../extensions

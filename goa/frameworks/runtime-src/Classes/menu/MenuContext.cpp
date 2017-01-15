@@ -1034,8 +1034,10 @@ void MenuContext::launchGameFinally(std::string gameName) {
         else if(gameName == MININGBG || gameName == CAMP || gameName == FARMHOUSE || gameName == CITY1 || gameName == CITY2 || gameName == CITY3 || gameName == CITY4 || gameName == CITY5) {
             
             Director::getInstance()->replaceScene(TransitionFade::create(0.5, ChooseCharacter::createScene(gameName.c_str()), Color3B::BLACK));
+        } else if(gameName == STORY_CATALOGUE) {
+            Director::getInstance()->replaceScene(ScrollableCatalogue::createScene());
+
         }
-    
         else if(gameName == STORY) {
             Director::getInstance()->replaceScene(TransitionFade::create(0.5, StoryCoverPage::createScene(), Color3B::BLACK));
             
@@ -1485,6 +1487,7 @@ MenuContext::MenuContext() :
 	_startupCallback(nullptr),
 	_photoMenu(nullptr),
     _gamesMenu(nullptr),
+    _mapMenu(nullptr),
     _bookMenu(nullptr),
     _settingMenu(nullptr),
     _helpMenu(nullptr),

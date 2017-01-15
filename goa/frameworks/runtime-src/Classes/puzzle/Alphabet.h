@@ -21,6 +21,8 @@ public:
     std::function<bool(cocos2d::Touch*, cocos2d::Event*)> touchBeganCallback;
     std::function<void(cocos2d::Touch*, cocos2d::Event*)> touchMovedCallback;
     std::function<void(cocos2d::Touch*, cocos2d::Event*)> touchEndedCallback;
+    void updateChar(wchar_t alphabet);
+    
     
 CC_CONSTRUCTOR_ACCESS:
     Alphabet();

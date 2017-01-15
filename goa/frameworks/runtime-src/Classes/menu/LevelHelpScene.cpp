@@ -188,7 +188,7 @@ bool LevelHelpScene::initWithGame(std::string gameName) {
     }
     
     if(gameName == MININGBG || gameName == CAMP || gameName == FARMHOUSE || gameName == CITY1 || gameName == CITY2 || gameName == CITY3 || gameName == CITY4 || gameName == CITY5) {
-        std::string video = gameName + VIDEO_EXT;        
+        std::string video = "camp_help" + VIDEO_EXT;
         if(!video.empty()) {
             _videos.clear();
             _videos.push_back(video);
@@ -196,6 +196,16 @@ bool LevelHelpScene::initWithGame(std::string gameName) {
             _videoNames.push_back(video);
             
         }
+    }
+    
+    if(gameName == "story-catalogue") {
+        std::string video = "story_help" + VIDEO_EXT;
+        if(!video.empty()) {
+            _videos.clear();
+            _videos.push_back(video);
+            _videoNames.clear();
+            _videoNames.push_back(video);
+        }        
     }
     
     decideIndexOfVideo();
