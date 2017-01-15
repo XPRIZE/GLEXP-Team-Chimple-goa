@@ -1287,6 +1287,7 @@ void MenuContext::showScore() {
         }
         _ps->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
         this->addChild(_ps, 10);
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/sfx/applause.ogg");
         
         runAction(Sequence::create(DelayTime::create(5.0), CallFunc::create([=] {
             this->removeChild(_ps);

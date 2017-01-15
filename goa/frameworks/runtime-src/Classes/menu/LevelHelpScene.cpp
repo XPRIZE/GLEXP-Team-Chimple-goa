@@ -381,6 +381,16 @@ void LevelHelpScene::gotoGame(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchE
     }
 }
 
+void LevelHelpScene::onExitTransitionDidStart() {
+    Node::onExitTransitionDidStart();
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    if(_vp->isPlaying()) {
+        _vp->stop();
+    }
+#endif
+}
+
+
 LevelHelpScene::LevelHelpScene() :
 _currentVideo(0),
 _currentLevel(0)
