@@ -41,7 +41,7 @@ protected:
     void videoEventCallback(Ref* sender, cocos2d::experimental::ui::VideoPlayer::EventType eventType);
     
 #endif
-    
+    void playNextVideo(float dt);
     virtual void decideIndexOfVideo();
     void videoPlayStart();
     void videoPlayOverCallback();
