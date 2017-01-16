@@ -100,7 +100,7 @@ void TreasureHunt::onEnterTransitionDidFinish() {
 	auto label = CommonText::create();
 	label->setString(_currentLetter);
 	label->setFontSize(150);
-	label->setFontName("fonts/Roboto-Regular.ttf");
+	label->setFontName("fonts/DroidSans.ttf");
 	label->setPosition(Vec2(labelBoard->getBoundingBox().size.width/2, labelBoard->getBoundingBox().size.height / 2 - 20));
 	label->setAnchorPoint(Vec2(0.5, 0.5));
 	label->setTextColor(Color4B::BLUE);
