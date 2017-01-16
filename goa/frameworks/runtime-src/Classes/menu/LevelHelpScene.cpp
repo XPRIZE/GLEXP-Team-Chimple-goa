@@ -286,6 +286,7 @@ void LevelHelpScene::videoEventCallback(Ref* sender, cocos2d::experimental::ui::
 			_resumeButton->setVisible(true);
 //			removeChild(getChildByName("bg")->getChildByName("screen_1")->getChildByName("video"));
 			getChildByName("bg")->getChildByName("screen_1")->removeChild(getChildByName("bg")->getChildByName("screen_1")->getChildByName("video"));
+            _vp = NULL;
             break;
         default:
             break;
@@ -384,7 +385,7 @@ void LevelHelpScene::gotoGame(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchE
 void LevelHelpScene::onExitTransitionDidStart() {
     Node::onExitTransitionDidStart();
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    if(_vp->isPlaying()) {
+    if(_vp != NULL && _vp->isPlaying()) {
         _vp->stop();
     }
 #endif
@@ -395,7 +396,10 @@ LevelHelpScene::LevelHelpScene() :
 _currentVideo(0),
 _currentLevel(0)
 {
-    
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    _vp = NULL;
+#endif
+
 }
 
 LevelHelpScene::~LevelHelpScene() {
