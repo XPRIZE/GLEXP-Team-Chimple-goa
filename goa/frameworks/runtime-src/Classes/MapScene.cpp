@@ -154,7 +154,7 @@ void MapScene::processChildNodes(cocos2d::Node *rootNode) {
                         lName = "Los Angeles";
                     } else if(lName.compare("City3") == 0) {
                         lName = "Houston";
-                    } else if(lName.compare("City4") == 0) {
+                    } else if(lName.compare("city4") == 0) {
                         lName = "London";
                     } else if(lName.compare("City5") == 0) {
                         lName = "Dar es Salaam";
