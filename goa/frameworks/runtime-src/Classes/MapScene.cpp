@@ -151,7 +151,7 @@ void MapScene::processChildNodes(cocos2d::Node *rootNode) {
                     if(lName.compare("City1") == 0) {
                         lName = "Bengaluru";
                     } else if(lName.compare("City2") == 0) {
-                        lName = " Los Angeles";
+                        lName = "Los Angeles";
                     } else if(lName.compare("City3") == 0) {
                         lName = "Houston";
                     } else if(lName.compare("City4") == 0) {
@@ -165,6 +165,7 @@ void MapScene::processChildNodes(cocos2d::Node *rootNode) {
                     
                     cocos2d::Label* label = Label::createWithTTF(mapText, "fonts/Roboto-Regular.ttf", 50);
                     label->setPosition(Vec2(node->getPosition().x, node->getPosition().y));
+                    label->setColor(Color3B(128, 64, 0));
                     mainLayer->addChild(label);
                     
                 }
