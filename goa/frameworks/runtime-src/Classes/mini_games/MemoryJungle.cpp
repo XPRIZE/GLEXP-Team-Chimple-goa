@@ -537,7 +537,7 @@ bool MemoryJungle::onTouchBegan(Touch* touch, Event* event) {
 		if (_counter < 2) {
 
 			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-			audio->playEffect("sounds/memory/tap.mp3", false);
+			audio->playEffect("sounds/memory/tap.ogg", false);
 
 			std::ostringstream sstreamc;
 			sstreamc << "board" << target->getTag();

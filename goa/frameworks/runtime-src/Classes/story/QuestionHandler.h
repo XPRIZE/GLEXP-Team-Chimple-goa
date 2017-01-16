@@ -20,7 +20,7 @@ public:
     static cocos2d::Scene *createScene(std::string storyId, std::string baseDir);
     static QuestionHandler *create(std::string storyId, std::string baseDir);
     void onEnterTransitionDidFinish() override;
-    static void setButtonProperties(cocos2d::Node* button, std::string name, std::string text, const cocos2d::ui::Widget::ccWidgetTouchCallback& callback);
+    static void setButtonProperties(cocos2d::Node* button, std::string name, std::string text, const cocos2d::ui::Widget::ccWidgetTouchCallback& callback, size_t length = 24);
     void gotoNextQuestion(int score);
     static const std::string FONT_NAME;
     static const int FONT_SIZE;

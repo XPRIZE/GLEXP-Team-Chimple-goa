@@ -314,7 +314,7 @@ void Memory::onEnterTransitionDidFinish() {
 		auto label = CommonText::create();
 		label->setString(labelName);
 		label->setFontSize(100);
-		label->setFontName("fonts/Marker Felt.ttf");
+		label->setFontName("fonts/Roboto-Regular.ttf");
 		label->setPosition(Vec2(nestWidth * 0.47, nestHeight * 0.48));
 		label->setAnchorPoint(Vec2(0.5, 0.5));
 		label->setTextColor(Color4B::BLUE);
@@ -544,7 +544,7 @@ bool Memory::onTouchBegan(Touch* touch, Event* event) {
 		if (_counter < 2) {
 
 			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-			audio->playEffect("sounds/memory/tap.mp3", false);
+			audio->playEffect("sounds/memory/tap.ogg", false);
 
 			std::ostringstream sstreamc;
 			sstreamc << "nest" << target->getTag();

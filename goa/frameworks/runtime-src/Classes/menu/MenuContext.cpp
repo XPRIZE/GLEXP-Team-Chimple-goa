@@ -1034,8 +1034,10 @@ void MenuContext::launchGameFinally(std::string gameName) {
         else if(gameName == MININGBG || gameName == CAMP || gameName == FARMHOUSE || gameName == CITY1 || gameName == CITY2 || gameName == CITY3 || gameName == CITY4 || gameName == CITY5) {
             
             Director::getInstance()->replaceScene(TransitionFade::create(0.5, ChooseCharacter::createScene(gameName.c_str()), Color3B::BLACK));
+        } else if(gameName == STORY_CATALOGUE) {
+            Director::getInstance()->replaceScene(ScrollableCatalogue::createScene());
+
         }
-    
         else if(gameName == STORY) {
             Director::getInstance()->replaceScene(TransitionFade::create(0.5, StoryCoverPage::createScene(), Color3B::BLACK));
             
@@ -1285,6 +1287,7 @@ void MenuContext::showScore() {
         }
         _ps->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
         this->addChild(_ps, 10);
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/sfx/applause.ogg");
         
         runAction(Sequence::create(DelayTime::create(5.0), CallFunc::create([=] {
             this->removeChild(_ps);
@@ -1403,23 +1406,24 @@ void MenuContext::pronounceWord(std::string word) {
         auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
         audio->playEffect(fileName.c_str());
     }
-    else if(LangUtil::getInstance()->isTextToSpeechSupported()) {
-        CCLOG("file doesn't exists with word %s", fileName.c_str());
-        #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-            //JSB call to Android TTS Support
-            cocos2d::JniMethodInfo methodInfo;
-            if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/javascript/AppActivity", "pronounceWord", "(Ljava/lang/String;)V")) {
-                return;
-            }
-        
-            std::replace(word.begin(), word.end(), '_', ' ');
-            jstring wordArg = methodInfo.env->NewStringUTF(word.c_str());
-            methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID,wordArg);
-            methodInfo.env->DeleteLocalRef(methodInfo.classID);
-            methodInfo.env->DeleteLocalRef(wordArg);
-
-        #endif
-    } else {
+//    else if(LangUtil::getInstance()->isTextToSpeechSupported()) {
+//        CCLOG("file doesn't exists with word %s", fileName.c_str());
+//        #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+//            //JSB call to Android TTS Support
+//            cocos2d::JniMethodInfo methodInfo;
+//            if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/javascript/AppActivity", "pronounceWord", "(Ljava/lang/String;)V")) {
+//                return;
+//            }
+//        
+//            std::replace(word.begin(), word.end(), '_', ' ');
+//            jstring wordArg = methodInfo.env->NewStringUTF(word.c_str());
+//            methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID,wordArg);
+//            methodInfo.env->DeleteLocalRef(methodInfo.classID);
+//            methodInfo.env->DeleteLocalRef(wordArg);
+//
+//        #endif
+//    }
+    else {
         CCLOG("File %s not found OR Language is not supported for Pronounciation", fileName.c_str());
     }
 }
@@ -1485,6 +1489,7 @@ MenuContext::MenuContext() :
 	_startupCallback(nullptr),
 	_photoMenu(nullptr),
     _gamesMenu(nullptr),
+    _mapMenu(nullptr),
     _bookMenu(nullptr),
     _settingMenu(nullptr),
     _helpMenu(nullptr),

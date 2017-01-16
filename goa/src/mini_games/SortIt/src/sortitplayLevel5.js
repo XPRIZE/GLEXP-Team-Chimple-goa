@@ -188,8 +188,8 @@ xc.sortitlevel5Layer.res = {
     level5bg_json:  xc.path + "sortit/levelfive.json",
     
     
-    comedyBubble_mp3:  "res/sounds/sortit/comedyBubble.mp3",
+    comedyBubble_mp3:  "res/sounds/sortit/comedyBubble.ogg",
    
-    failure_mp3:  "res/sounds/sortit/failure.mp3"
+    failure_mp3:  "res/sounds/sortit/failure.ogg"
 }
 

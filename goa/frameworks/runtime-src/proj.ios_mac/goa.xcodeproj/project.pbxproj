@@ -100,6 +100,8 @@
 		9CE534C71E20DF70005066E7 /* StoryPlaying.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE534C41E20DF70005066E7 /* StoryPlaying.cpp */; };
 		9CE534CC1E20E261005066E7 /* StoryCoverPage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE534CA1E20E261005066E7 /* StoryCoverPage.cpp */; };
 		9CE534CD1E20E261005066E7 /* StoryCoverPage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE534CA1E20E261005066E7 /* StoryCoverPage.cpp */; };
+		9CE812A21E267DF600D4C846 /* SplashScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE812A01E267DF600D4C846 /* SplashScene.cpp */; };
+		9CE812A31E267DF600D4C846 /* SplashScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE812A01E267DF600D4C846 /* SplashScene.cpp */; };
 		9CE8E1EC1DE98718004A4F35 /* Table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8E1EA1DE98718004A4F35 /* Table.cpp */; };
 		9CE8E1EF1DE9871B004A4F35 /* Table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8E1EA1DE98718004A4F35 /* Table.cpp */; };
 		9FA3AE461BE9BBCA00FC9645 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA3AE451BE9BBCA00FC9645 /* GameController.framework */; };
@@ -444,6 +446,8 @@
 		F3E210301DCC60D300C301F8 /* TreasureHunt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E2102B1DCC60D300C301F8 /* TreasureHunt.cpp */; };
 		F3E210311DCC60D300C301F8 /* TreasureHuntNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E2102D1DCC60D300C301F8 /* TreasureHuntNode.cpp */; };
 		F3E210321DCC60D300C301F8 /* TreasureHuntNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E2102D1DCC60D300C301F8 /* TreasureHuntNode.cpp */; };
+		F3EE0E031E2567170007C396 /* Introduction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3EE0E011E2567170007C396 /* Introduction.cpp */; };
+		F3EE0E041E2567170007C396 /* Introduction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3EE0E011E2567170007C396 /* Introduction.cpp */; };
 		F3EEA3E61DE2D53A00CA7D31 /* Calculator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA3E41DE2D53A00CA7D31 /* Calculator.cpp */; };
 		F3EEA3E71DE2D53A00CA7D31 /* Calculator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA3E41DE2D53A00CA7D31 /* Calculator.cpp */; };
 		F3EEA3F01DE3011B00CA7D31 /* ATM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA3EC1DE3011B00CA7D31 /* ATM.cpp */; };
@@ -634,6 +638,8 @@
 		9CE534C51E20DF70005066E7 /* StoryPlaying.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StoryPlaying.hpp; sourceTree = "<group>"; };
 		9CE534CA1E20E261005066E7 /* StoryCoverPage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoryCoverPage.cpp; sourceTree = "<group>"; };
 		9CE534CB1E20E261005066E7 /* StoryCoverPage.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StoryCoverPage.hpp; sourceTree = "<group>"; };
+		9CE812A01E267DF600D4C846 /* SplashScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SplashScene.cpp; sourceTree = "<group>"; };
+		9CE812A11E267DF600D4C846 /* SplashScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SplashScene.hpp; sourceTree = "<group>"; };
 		9CE8E1EA1DE98718004A4F35 /* Table.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Table.cpp; sourceTree = "<group>"; };
 		9CE8E1EB1DE98718004A4F35 /* Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Table.h; sourceTree = "<group>"; };
 		9FA3AE451BE9BBCA00FC9645 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
@@ -996,6 +1002,8 @@
 		F3E2102C1DCC60D300C301F8 /* TreasureHunt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreasureHunt.h; sourceTree = "<group>"; };
 		F3E2102D1DCC60D300C301F8 /* TreasureHuntNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TreasureHuntNode.cpp; sourceTree = "<group>"; };
 		F3E2102E1DCC60D300C301F8 /* TreasureHuntNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreasureHuntNode.h; sourceTree = "<group>"; };
+		F3EE0E011E2567170007C396 /* Introduction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Introduction.cpp; sourceTree = "<group>"; };
+		F3EE0E021E2567170007C396 /* Introduction.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Introduction.hpp; sourceTree = "<group>"; };
 		F3EEA3E41DE2D53A00CA7D31 /* Calculator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Calculator.cpp; sourceTree = "<group>"; };
 		F3EEA3E51DE2D53A00CA7D31 /* Calculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calculator.h; sourceTree = "<group>"; };
 		F3EEA3EC1DE3011B00CA7D31 /* ATM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ATM.cpp; sourceTree = "<group>"; };
@@ -1360,6 +1368,8 @@
 				9CE534CA1E20E261005066E7 /* StoryCoverPage.cpp */,
 				9CE534CB1E20E261005066E7 /* StoryCoverPage.hpp */,
 				9CE534C51E20DF70005066E7 /* StoryPlaying.hpp */,
+				9CE812A01E267DF600D4C846 /* SplashScene.cpp */,
+				9CE812A11E267DF600D4C846 /* SplashScene.hpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -1567,6 +1577,8 @@
 				F3A23A7B1E0C0C500083CEB5 /* LevelMenu.cpp */,
 				F3A23A801E0D22580083CEB5 /* LevelHelpOverlay.cpp */,
 				F3A23A851E0D226A0083CEB5 /* LevelHelpOverlay.h */,
+				F3EE0E011E2567170007C396 /* Introduction.cpp */,
+				F3EE0E021E2567170007C396 /* Introduction.hpp */,
 			);
 			path = menu;
 			sourceTree = "<group>";
@@ -2023,6 +2035,7 @@
 				F35248211D6D9D1A0077C333 /* GestureLayer.cpp in Sources */,
 				F35248091D6D9D1A0077C333 /* Grapheme.cpp in Sources */,
 				9CA07C971DE6BFC2007578FF /* Item.cpp in Sources */,
+				9CE812A31E267DF600D4C846 /* SplashScene.cpp in Sources */,
 				F35247C31D6D9D1A0077C333 /* MapScene.cpp in Sources */,
 				F3F7ED6D1D94F22F00727A7C /* Bingo.cpp in Sources */,
 				F35247FB1D6D9D1A0077C333 /* WordInfo.cpp in Sources */,
@@ -2095,6 +2108,7 @@
 				F352482F1D6D9D1A0077C333 /* FallingState.cpp in Sources */,
 				F352484F1D6D9D1A0077C333 /* MessageContent.cpp in Sources */,
 				F35247C11D6D9D1A0077C333 /* HelloWorldScene.cpp in Sources */,
+				F3EE0E041E2567170007C396 /* Introduction.cpp in Sources */,
 				F3667D3F1DB4BA6F00EC8908 /* LTKShapeFeatureExtractor.cpp in Sources */,
 				F3F7ED931DA65FF400727A7C /* Drop.cpp in Sources */,
 				F3667D571DB4BA7000EC8908 /* preprocessing.cpp in Sources */,
@@ -2381,10 +2395,12 @@
 				F3EEA3F21DE3011B00CA7D31 /* Step.cpp in Sources */,
 				F35248301D6D9D1A0077C333 /* JumpingState.cpp in Sources */,
 				F36840BE1D8A812F00969162 /* Alphamole.cpp in Sources */,
+				F3EE0E031E2567170007C396 /* Introduction.cpp in Sources */,
 				F352481A1D6D9D1A0077C333 /* RPGSprite.cpp in Sources */,
 				F3667D561DB4BA6F00EC8908 /* preprocessing.cpp in Sources */,
 				F3667D161DB4BA6F00EC8908 /* AsyncTask.cpp in Sources */,
 				F352485A1D6D9D1A0077C333 /* State.cpp in Sources */,
+				9CE812A21E267DF600D4C846 /* SplashScene.cpp in Sources */,
 				9C6F61981DFA725B00B6A8B6 /* DinoGame.cpp in Sources */,
 				F3667D6E1DB4BA7000EC8908 /* LTKOSUtilFactory.cpp in Sources */,
 				F3667D5A1DB4BA7000EC8908 /* Stroke.cpp in Sources */,

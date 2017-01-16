@@ -1266,7 +1266,7 @@ void BalloonHero::update(float delta) {
 		_cloud1->setVisible(false);
 
 		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-		audio->playEffect("sounds/baloonhero/blast.mp3", false);
+		audio->playEffect("sounds/baloonhero/blast.ogg", false);
 
 		if (_cloud1->getTag() == 1) {
 
@@ -1308,7 +1308,7 @@ void BalloonHero::update(float delta) {
 		_cloud2->setVisible(false);
 		
 		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-		audio->playEffect("sounds/baloonhero/blast.mp3", false);
+		audio->playEffect("sounds/baloonhero/blast.ogg", false);
 
 		if (_cloud2->getTag() == 1) {
 
@@ -1350,7 +1350,7 @@ void BalloonHero::update(float delta) {
 		_cloud3->setVisible(false);
 
 		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-		audio->playEffect("sounds/baloonhero/blast.mp3", false);
+		audio->playEffect("sounds/baloonhero/blast.ogg", false);
 		
 
 		if (_cloud3->getTag() == 1) {
@@ -1390,7 +1390,7 @@ void BalloonHero::update(float delta) {
 		_cloud4->setVisible(false);
 
 		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-		audio->playEffect("sounds/baloonhero/blast.mp3", false);
+		audio->playEffect("sounds/baloonhero/blast.ogg", false);
 
 		if (_cloud4->getTag() == 1) {
 
@@ -1430,7 +1430,7 @@ void BalloonHero::update(float delta) {
 
 
 		//auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-		//audio->playEffect("sounds/baloonhero/pop_balloon.mp3", false);
+		//audio->playEffect("sounds/baloonhero/pop_balloon.ogg", false);
 
 		auto turnOffscoreAdd = CallFunc::create([=] {_flagCorrect1 = false; });
 		auto turnOnscoreAdd = CallFunc::create([=] {_flagCorrect1 = true; });
@@ -1446,7 +1446,7 @@ void BalloonHero::update(float delta) {
 		_cloud2->setVisible(false);
 
 		//auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-		//audio->playEffect("sounds/baloonhero/pop_balloon.mp3", false);
+		//audio->playEffect("sounds/baloonhero/pop_balloon.ogg", false);
 
 		auto turnOffscoreAdd = CallFunc::create([=] {_flagCorrect2 = false; });
 		auto turnOnscoreAdd = CallFunc::create([=] {_flagCorrect2 = true; });
@@ -1461,7 +1461,7 @@ void BalloonHero::update(float delta) {
 		_cloud3->setVisible(false);
 
 		//auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-		//audio->playEffect("sounds/baloonhero/pop_balloon.mp3", false);
+		//audio->playEffect("sounds/baloonhero/pop_balloon.ogg", false);
 
 		auto turnOffscoreAdd = CallFunc::create([=] {_flagCorrect3 = false; });
 		auto turnOnscoreAdd = CallFunc::create([=] {_flagCorrect3 = true; });
@@ -1476,7 +1476,7 @@ void BalloonHero::update(float delta) {
 		_cloud4->setVisible(false);
 
 		//auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-		//audio->playEffect("sounds/baloonhero/pop_balloon.mp3", false);
+		//audio->playEffect("sounds/baloonhero/pop_balloon.ogg", false);
 
 		auto turnOffscoreAdd = CallFunc::create([=] {_flagCorrect4 = false; });
 		auto turnOnscoreAdd = CallFunc::create([=] {_flagCorrect4 = true; });

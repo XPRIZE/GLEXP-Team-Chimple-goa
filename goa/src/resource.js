@@ -45,9 +45,9 @@ var SortIt = {
     level5bg_json: defaultFolder + "sortit/levelfive.json",
     level6bg_json: defaultFolder + "sortit/levelsix.json",
     
-    comedyBubble_mp3:  defaultFolder + "sounds/sortit/comedyBubble.mp3",
-    explosive_mp3:  defaultFolder + "sounds/sortit/explosive.mp3",
-    failure_mp3:  defaultFolder + "sounds/sortit/failure.mp3"
+    comedyBubble_mp3:  defaultFolder + "sounds/sortit/comedyBubble.ogg",
+    explosive_mp3:  defaultFolder + "sounds/sortit/explosive.ogg",
+    failure_mp3:  defaultFolder + "sounds/sortit/failure.ogg"
     
 };
 

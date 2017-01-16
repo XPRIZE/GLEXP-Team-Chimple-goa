@@ -125,7 +125,7 @@ bool Calculator::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 
 		if (_activeSoundFlag == 1) {
 			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-			audio->playEffect("sounds/calculator/calculator_button_click.mp3", false);
+			audio->playEffect("sounds/calculator/calculator_button_click.ogg", false);
 		}
 		_isTouchedFinished = false;
 		auto scale = ScaleBy::create(0.1, 0.75);

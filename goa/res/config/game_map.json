@@ -417,12 +417,12 @@
 	"script": "src/NonJSGameLauncher.js",
 	"span": "3",
 	"numLevels": "26",
-	"backgroundJson": "tablelevel/background.json",
-	"foregroundJson": "tablelevel/foreground.json",
-	"frontgroundJson": "tablelevel/frontground.json",
-	"maingroundJson": "tablelevel/mainground.json",
-	"menuPlist": "tablelevel/tablelevel.plist",
-	"menuPng": "tablelevel/tablelevel.png",
+	"backgroundJson": "bgmap/bgmap_background.json",
+	"foregroundJson": "bgmap/bgmap_foreground.json",
+	"frontgroundJson": "bgmap/bgmap_frontground.json",
+	"maingroundJson": "bgmap/bgmap_mainground.json",
+	"menuPlist": "bgmap/bgmap.plist",
+	"menuPng": "bgmap/bgmap.png",
 	"rewards": {
 		"13": {
 			"unlock": "alphamole"
@@ -803,44 +803,44 @@
 		}
 	},
 	"lang": {
-			"swa": {
-					"labels": [
-							"ABC",
-							"DEF",
-							"GHI",
-							"JKL",
-							"MNO",
-							"PRS",
-							"TUV",
-							"WYZ",
-							"A-Z",
-							"0-2",
-							"3-5",
-							"6-8",
-							"9",
-							"0-9"
-					],
-					"numLevels": "14"
-			},
-			"eng": {
-					"labels": [
-							"ABC",
-							"DEF",
-							"GHI",
-							"JKL",
-							"MNO",
-							"PQR",
-							"STU",
-							"VWX",
-							"YZ",
-							"0-2",
-							"3-5",
-							"6-8",
-							"9",
-							"0-9"
-					],
-					"numLevels": "14"
-			}
+		"swa": {
+			"labels": [
+				"ABC",
+				"DEF",
+				"GHI",
+				"JKL",
+				"MNO",
+				"PRS",
+				"TUV",
+				"WYZ",
+				"A-Z",
+				"0-2",
+				"3-5",
+				"6-8",
+				"9",
+				"0-9"
+			],
+			"numLevels": "14"
+		},
+		"eng": {
+			"labels": [
+				"ABC",
+				"DEF",
+				"GHI",
+				"JKL",
+				"MNO",
+				"PQR",
+				"STU",
+				"VWX",
+				"YZ",
+				"0-2",
+				"3-5",
+				"6-8",
+				"9",
+				"0-9"
+			],
+			"numLevels": "14"
+		}
 	},
 	"backgroundJson": "bubble_shooter_level/background.json",
 	"foregroundJson": "bubble_shooter_level/foreground.json",
@@ -1144,7 +1144,7 @@
 	"numLevels": "62",
 	"rewards": {
 		"26": {
-			"unlock": "blastletter"
+			"unlock": "TreasureHunt"
 		},
 		"10": {
 			"badge": "s/race_car"
@@ -1311,6 +1311,116 @@
 	"maingroundJson": "cardraw_level/mainground.json",
 	"menuPlist": "cardraw_level/cardraw_level.plist",
 	"menuPng": "cardraw_level/cardraw_level.png"
+}, {
+	"name": "TreasureHunt",
+	"title": "Treasure Hunt",
+	"cIcon": "gameicons/TreasureHunt_pressed.png",
+	"icon": "gameicons/TreasureHunt.png",
+	"multiPlayer": false,
+	"isJSGame": false,
+	"script": "src/NonJSGameLauncher.js",
+	"span": "5",
+	"numLevels": "26",
+	"rewards": {
+		"3": {
+			"badge": "s/golden_boot"
+		},
+		"4": {
+			"badge": "s/gift_box"
+		},
+		"8": {
+			"badge": "m/Treasure_box"
+		},
+		"12": {
+			"badge": "p/golden_coin"
+		},
+		"16": {
+			"badge": "g/sea_flower"
+		},
+		"20": {
+			"badge": "b/exotic_ruby"
+		},
+		"22": {
+			"unlock": "blastletter"
+		},
+		"26": {
+			"badge": "c/sugar_pearl"
+		},
+		"24": {
+			"unlockMin": "baja",
+			"min": "2"
+		}
+	},
+	"backgroundJson": "boxlevel/background.json",
+	"foregroundJson": "boxlevel/foreground.json",
+	"frontgroundJson": "boxlevel/frontground.json",
+	"maingroundJson": "boxlevel/mainground.json",
+	"menuPlist": "boxlevel/boxlevel.plist",
+	"menuPng": "boxlevel/boxlevel.png",
+	"lang": {
+		"swa": {
+			"labels": [
+				"A",
+				"B",
+				"C",
+				"D",
+				"E",
+				"F",
+				"G",
+				"H",
+				"I",
+				"J",
+				"K",
+				"L",
+				"M",
+				"N",
+				"O",
+				"P",
+				"R",
+				"S",
+				"T",
+				"U",
+				"V",
+				"W",
+				"Y",
+				"Z",
+				"A-Z",
+				"A-Z"
+			],
+			"numLevels": "26"
+		},
+		"eng": {
+			"labels": [
+				"A",
+				"B",
+				"C",
+				"D",
+				"E",
+				"F",
+				"G",
+				"H",
+				"I",
+				"J",
+				"K",
+				"L",
+				"M",
+				"N",
+				"O",
+				"P",
+				"Q",
+				"R",
+				"S",
+				"T",
+				"U",
+				"V",
+				"W",
+				"X",
+				"Y",
+				"Z"
+			],
+			"numLevels": "26"
+		}
+	}
 }, {
 	"name": "blastletter",
 	"title": "Defuse the Bomb",
@@ -1549,9 +1659,6 @@
 	"span": "10",
 	"numLevels": "80",
 	"rewards": {
-		"26": {
-			"unlock": "TreasureHunt"
-		},
 		"13": {
 			"badge": "s/snorting_pig"
 		},
@@ -1570,232 +1677,11 @@
 		"75": {
 			"badge": "c/candy_crate"
 		},
-		"86": {
+		"70": {
 			"unlockMin": "baja",
 			"min": "2"
 		}
 	},
-	  "lang": {
-            "swa": {
-                "labels": [
-                    "A",
-                    "B",
-                    "C",
-                    "D",
-                    "E",
-                    "F",
-                    "G",
-                    "H",
-                    "I",
-                    "J",
-                    "K",
-                    "L",
-                    "M",
-                    "N",
-                    "O",
-                    "P",
-                    "R",
-                    "S",
-                    "T",
-                    "U",
-                    "V",
-                    "W",
-                    "Y",
-                    "Z",
-                    "A-Z",
-                    "A-Z",
-                    "a",
-                    "b",
-                    "c",
-                    "d",
-                    "e",
-                    "f",
-                    "g",
-                    "h",
-                    "i",
-                    "j",
-                    "k",
-                    "l",
-                    "m",
-                    "n",
-                    "o",
-                    "p",
-                    "r",
-                    "s",
-                    "t",
-                    "u",
-                    "v",
-                    "w",
-                    "y",
-                    "z",
-                    "a-z",
-                    "a-z",
-                    "0",
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                    "5",
-                    "6",
-                    "7",
-                    "8",
-                    "9",
-                    "W1",
-                    "W2",
-                    "W3",
-                    "W4",
-                    "W5",
-                    "w6",
-                    "W7",
-                    "W8",
-                    "W9",
-                    "W10",
-                    "W11",
-                    "W12",
-                    "W13",
-                    "W14",
-                    "W15",
-                    "w16",
-                    "W17",
-                    "W18"
-                ],
-                "numLevels": "80"
-            },
-            "eng": {
-                "labels": [
-                    "A",
-                    "B",
-                    "C",
-                    "D",
-                    "E",
-                    "F",
-                    "G",
-                    "H",
-                    "I",
-                    "J",
-                    "K",
-                    "L",
-                    "M",
-                    "N",
-                    "O",
-                    "P",
-                    "Q",
-                    "R",
-                    "S",
-                    "T",
-                    "U",
-                    "V",
-                    "W",
-                    "X",
-                    "Y",
-                    "Z",
-                     "a",
-                    "b",
-                    "c",
-                    "d",
-                    "e",
-                    "f",
-                    "g",
-                    "h",
-                    "i",
-                    "j",
-                    "k",
-                    "l",
-                    "m",
-                    "n",
-                    "o",
-                    "p",
-                    "q",
-                    "r",
-                    "s",
-                    "t",
-                    "u",
-                    "v",
-                    "w",
-                    "x",
-                    "y",
-                    "z",
-                    "0",
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                    "5",
-                    "6",
-                    "7",
-                    "8",
-                    "9",
-                    "W1",
-                    "W2",
-                    "W3",
-                    "W4",
-                    "W5",
-                    "w6",
-                    "W7",
-                    "W8",
-                    "W9",
-                    "W10",
-                    "W11",
-                    "W12",
-                    "W13",
-                    "W14",
-                    "W15",
-                    "w16",
-                    "W17",
-                    "W18"
-                ],
-                "numLevels": "80"
-            }
-        },
-	"backgroundJson": "doorslevel/Layer1.json",
-	"foregroundJson": "doorslevel/Layer3.json",
-	"frontgroundJson": "doorslevel/Layer4.json",
-	"maingroundJson": "doorslevel/Layer2.json",
-	"menuPlist": "doorslevel/doorslevel.plist",
-	"menuPng": "doorslevel/doorslevel.png"
-}, {
-	"name": "TreasureHunt",
-	"title": "Treasure Hunt",
-	"cIcon": "gameicons/TreasureHunt_pressed.png",
-	"icon": "gameicons/TreasureHunt.png",
-	"multiPlayer": false,
-	"isJSGame": false,
-	"script": "src/NonJSGameLauncher.js",
-	"span": "5",
-	"numLevels": "26",
-	"rewards": {
-		"3": {
-			"badge": "s/golden_boot"
-		},
-		"4": {
-			"badge": "s/gift_box"
-		},
-		"8": {
-			"badge": "m/Treasure_box"
-		},
-		"12": {
-			"badge": "p/golden_coin"
-		},
-		"16": {
-			"badge": "g/sea_flower"
-		},
-		"20": {
-			"badge": "b/exotic_ruby"
-		},
-		"24": {
-			"badge": "c/sugar_pearl"
-		},
-		"26": {
-			"unlockMin": "baja",
-			"min": "2"
-		}
-	},
-	"backgroundJson": "boxlevel/background.json",
-	"foregroundJson": "boxlevel/foreground.json",
-	"frontgroundJson": "boxlevel/frontground.json",
-	"maingroundJson": "boxlevel/mainground.json",
-	"menuPlist": "boxlevel/boxlevel.plist",
-	"menuPng": "boxlevel/boxlevel.png",
 	"lang": {
 		"swa": {
 			"labels": [
@@ -1824,9 +1710,63 @@
 				"Y",
 				"Z",
 				"A-Z",
-				"A-Z"
+				"A-Z",
+				"a",
+				"b",
+				"c",
+				"d",
+				"e",
+				"f",
+				"g",
+				"h",
+				"i",
+				"j",
+				"k",
+				"l",
+				"m",
+				"n",
+				"o",
+				"p",
+				"r",
+				"s",
+				"t",
+				"u",
+				"v",
+				"w",
+				"y",
+				"z",
+				"a-z",
+				"a-z",
+				"0",
+				"1",
+				"2",
+				"3",
+				"4",
+				"5",
+				"6",
+				"7",
+				"8",
+				"9",
+				"W1",
+				"W2",
+				"W3",
+				"W4",
+				"W5",
+				"w6",
+				"W7",
+				"W8",
+				"W9",
+				"W10",
+				"W11",
+				"W12",
+				"W13",
+				"W14",
+				"W15",
+				"w16",
+				"W17",
+				"W18"
 			],
-			"numLevels": "26"
+			"numLevels": "80"
 		},
 		"eng": {
 			"labels": [
@@ -1855,11 +1795,71 @@
 				"W",
 				"X",
 				"Y",
-				"Z"
+				"Z",
+				"a",
+				"b",
+				"c",
+				"d",
+				"e",
+				"f",
+				"g",
+				"h",
+				"i",
+				"j",
+				"k",
+				"l",
+				"m",
+				"n",
+				"o",
+				"p",
+				"q",
+				"r",
+				"s",
+				"t",
+				"u",
+				"v",
+				"w",
+				"x",
+				"y",
+				"z",
+				"0",
+				"1",
+				"2",
+				"3",
+				"4",
+				"5",
+				"6",
+				"7",
+				"8",
+				"9",
+				"W1",
+				"W2",
+				"W3",
+				"W4",
+				"W5",
+				"w6",
+				"W7",
+				"W8",
+				"W9",
+				"W10",
+				"W11",
+				"W12",
+				"W13",
+				"W14",
+				"W15",
+				"w16",
+				"W17",
+				"W18"
 			],
-			"numLevels": "26"
+			"numLevels": "80"
 		}
-	}
+	},
+	"backgroundJson": "doorslevel/Layer1.json",
+	"foregroundJson": "doorslevel/Layer3.json",
+	"frontgroundJson": "doorslevel/Layer4.json",
+	"maingroundJson": "doorslevel/Layer2.json",
+	"menuPlist": "doorslevel/doorslevel.plist",
+	"menuPng": "doorslevel/doorslevel.png"
 }, {
 	"name": "baja",
 	"title": "Drive",
@@ -2170,9 +2170,7 @@
 			"unlock": "stack"
 		},
 		"8": {
-			"badge": "s/wise_owl",
-			"unlockMin": "order",
-			"min": "5"
+			"badge": "s/wise_owl"
 		},
 		"16": {
 			"badge": "m/lucky_leave"
@@ -2212,7 +2210,7 @@
 	"numLevels": "72",
 	"rewards": {
 		"30": {
-			"unlock": "talk"
+			"unlock": "order"
 		},
 		"12": {
 			"badge": "s/fancy_Box"
@@ -2235,7 +2233,7 @@
 		"25": {
 			"unlockMin": "map",
 			"min": "4"
-		}		
+		}
 	},
 	"backgroundJson": "plevelscreen/sklevelbg.json",
 	"foregroundJson": "plevelscreen/sklevelfrg.json",
@@ -2243,49 +2241,6 @@
 	"maingroundJson": "plevelscreen/sklevelmng.json",
 	"menuPlist": "plevelscreen/plevelscreen.plist",
 	"menuPng": "plevelscreen/plevelscreen.png"
-}, {
-	"name": "talk",
-	"title": "Feed the Words",
-	"cIcon": "gameicons/talk_pressed.png",
-	"icon": "gameicons/talk.png",
-	"multiPlayer": false,
-	"isJSGame": false,
-	"script": "src/NonJSGameLauncher.js",
-	"span": "9",
-	"numLevels": "72",
-	"rewards": {
-		"30": {
-			"unlockMin": "order"
-		},
-		"12": {
-			"badge": "s/glimmering_fish"
-		},
-		"24": {
-			"badge": "m/jungly_lion"
-		},
-		"36": {
-			"badge": "p/clean_plate"
-		},
-		"48": {
-			"badge": "g/bushy_plant"
-		},
-		"60": {
-			"badge": "b/empty_basket"
-		},
-		"72": {
-			"badge": "c/sweet_meat"
-		},
-		"25": {
-			"unlockMin": "map",
-			"min": "4"
-		}
-	},
-	"backgroundJson": "talkislandlevel/talkbackground.json",
-	"foregroundJson": "talkislandlevel/talkforeground.json",
-	"frontgroundJson": "talkislandlevel/talkfrontground.json",
-	"maingroundJson": "talkislandlevel/talkmainground.json",
-	"menuPlist": "talkislandlevel/talkislandlevel.plist",
-	"menuPng": "talkislandlevel/talkislandlevel.png"
 }, {
 	"name": "order",
 	"title": "Arrange in Order",
@@ -2516,7 +2471,7 @@
 	"numLevels": "48",
 	"rewards": {
 		"20": {
-			"unlock": "memory"
+			"unlock": "talk"
 		},
 		"8": {
 			"badge": "c/chocolava_mountain"
@@ -2547,6 +2502,49 @@
 	"maingroundJson": "pop/pplevelmng.json",
 	"menuPlist": "plevelscreen/plevelscreen.plist",
 	"menuPng": "plevelscreen/plevelscreen.png"
+}, {
+	"name": "talk",
+	"title": "Feed the Words",
+	"cIcon": "gameicons/talk_pressed.png",
+	"icon": "gameicons/talk.png",
+	"multiPlayer": false,
+	"isJSGame": false,
+	"script": "src/NonJSGameLauncher.js",
+	"span": "9",
+	"numLevels": "72",
+	"rewards": {
+		"30": {
+			"unlock": "memory"
+		},
+		"12": {
+			"badge": "s/glimmering_fish"
+		},
+		"24": {
+			"badge": "m/jungly_lion"
+		},
+		"36": {
+			"badge": "p/clean_plate"
+		},
+		"48": {
+			"badge": "g/bushy_plant"
+		},
+		"60": {
+			"badge": "b/empty_basket"
+		},
+		"72": {
+			"badge": "c/sweet_meat"
+		},
+		"25": {
+			"unlockMin": "map",
+			"min": "4"
+		}
+	},
+	"backgroundJson": "talkislandlevel/talkbackground.json",
+	"foregroundJson": "talkislandlevel/talkforeground.json",
+	"frontgroundJson": "talkislandlevel/talkfrontground.json",
+	"maingroundJson": "talkislandlevel/talkmainground.json",
+	"menuPlist": "talkislandlevel/talkislandlevel.plist",
+	"menuPng": "talkislandlevel/talkislandlevel.png"
 }, {
 	"name": "memory",
 	"title": "Memory",
@@ -2611,7 +2609,7 @@
 			"badge": "m/squidy_squid"
 		},
 		"39": {
-			"badge": "p/creamy_cake"
+			"badge": "p/sweet_cake"
 		},
 		"52": {
 			"badge": "g/gold_fish"
@@ -2761,15 +2759,6 @@
 	"menuPlist": "jump_on_words_level/jump_on_words_level.plist",
 	"menuPng": "jump_on_words_level/jump_on_words_level.png"
 }, {
-	"name": "story-telling",
-	"title": "Create A Story",
-	"cIcon": "gameicons/story_maker_pressed.png",
-	"icon": "gameicons/story_maker.png",
-	"multiPlayer": false,
-	"isJSGame": true,
-	"pureJS": "",
-	"script": "src/start/storytelling.js"
-}, {
 	"name": "map",
 	"title": "Hero",
 	"cIcon": "gameicons/hero_pressed.png",
@@ -2831,7 +2820,6 @@
 }, {
 	"name": "shape",
 	"title": "Patch the Holes",
-	"unlock": true,
 	"cIcon": "gameicons/shape_pressed.png",
 	"icon": "gameicons/shape.png",
 	"multiPlayer": false,
@@ -2869,23 +2857,6 @@
 	"menuPlist": "shapelevel/shapelevel.plist",
 	"menuPng": "shapelevel/shapelevel.png"
 }, {
-	"name": "Maze",
-	"title": "Trace the Maze",
-	"cIcon": "gameicons/maze_pressed.png",
-	"icon": "gameicons/maze.png",
-	"multiPlayer": false,
-	"isJSGame": true,
-	"pureJS": "MazeLayer",
-	"script": "src/start/maze.js",
-	"span": "2",
-	"numLevels": "10",
-	"backgroundJson": "cityscreen/background.json",
-	"foregroundJson": "cityscreen/foreground.json",
-	"frontgroundJson": "cityscreen/frontground.json",
-	"maingroundJson": "cityscreen/mainground.json",
-	"menuPlist": "cityscreen/cityscreen.plist",
-	"menuPng": "cityscreen/cityscreen.png"
-}, {
 	"name": "Dots",
 	"title": "Number Dots",
 	"cIcon": "gameicons/numberdot_pressed.png",
@@ -2902,6 +2873,9 @@
 		},
 		"3": {
 			"badge": "c/tri_cookie"
+		},
+		"5": {
+			"unlock": "popcount"
 		},
 		"4": {
 			"badge": "b/fantastic_four"
@@ -2935,9 +2909,7 @@
 			"unlock": "spot"
 		},
 		"2": {
-			"badge": "s/star_fish",
-			"unlockMin": "Line",
-			"min": "4"
+			"badge": "s/star_fish"
 		},
 		"4": {
 			"badge": "m/sandy_castle"
@@ -3135,7 +3107,7 @@
 	"numLevels": "45",
 	"rewards": {
 		"20": {
-			"unlock": "jumpingNumbers"
+			"unlock": "Line"
 		},
 		"2": {
 			"badge": "g/gem_balloon"
@@ -3165,45 +3137,6 @@
 	"maingroundJson": "stepcandylevel/mainground.json",
 	"menuPlist": "stepcandylevel/stepcandylevel.plist",
 	"menuPng": "stepcandylevel/stepcandylevel.png"
-}, {
-	"name": "jumpingNumbers",
-	"title": "Stepping Stones",
-	"cIcon": "gameicons/jumping numbers_pressed.png",
-	"icon": "gameicons/jumping numbers.png",
-	"multiPlayer": false,
-	"isJSGame": false,
-	"script": "src/NonJSGameLauncher.js",
-	"span": "5",
-	"numLevels": "29",
-	"rewards": {
-		"5": {
-			"badge": "s/cute_rabbit"
-		},
-		"10": {
-			"badge": "m/baked_cookie"
-		},
-		"15": {
-			"badge": "p/grass_patch"
-		},
-		"17": {
-			"unlock": "Line"
-		},
-		"20": {
-			"badge": "g/sharp_scissors"
-		},
-		"25": {
-			"badge": "b/floating_lotus"
-		},
-		"29": {
-			"badge": "c/minty_stones"
-		}
-	},
-	"backgroundJson": "jumping_number_level/background.json",
-	"foregroundJson": "jumping_number_level/foreground.json",
-	"frontgroundJson": "jumping_number_level/frontground.json",
-	"maingroundJson": "jumping_number_level/mainground.json",
-	"menuPlist": "jumping_number_level/jumping_number_level.plist",
-	"menuPng": "jumping_number_level/jumping_number_level.png"
 }, {
 	"name": "Line",
 	"title": "Candy Line",
@@ -3372,7 +3305,7 @@
 	"numLevels": "25",
 	"rewards": {
 		"14": {
-			"unlock": "card"
+			"unlock": "jumpingNumbers"
 		},
 		"4": {
 			"badge": "s/money_machine"
@@ -3399,6 +3332,45 @@
 	"maingroundJson": "ATM_level/mainground.json",
 	"menuPlist": "ATM_level/ATM_level.plist",
 	"menuPng": "ATM_level/ATM_level.png"
+}, {
+	"name": "jumpingNumbers",
+	"title": "Stepping Stones",
+	"cIcon": "gameicons/jumping numbers_pressed.png",
+	"icon": "gameicons/jumping numbers.png",
+	"multiPlayer": false,
+	"isJSGame": false,
+	"script": "src/NonJSGameLauncher.js",
+	"span": "5",
+	"numLevels": "29",
+	"rewards": {
+		"5": {
+			"badge": "s/cute_rabbit"
+		},
+		"10": {
+			"badge": "m/baked_cookie"
+		},
+		"15": {
+			"badge": "p/grass_patch"
+		},
+		"17": {
+			"unlock": "card"
+		},
+		"20": {
+			"badge": "g/sharp_scissors"
+		},
+		"25": {
+			"badge": "b/floating_lotus"
+		},
+		"29": {
+			"badge": "c/minty_stones"
+		}
+	},
+	"backgroundJson": "jumping_number_level/background.json",
+	"foregroundJson": "jumping_number_level/foreground.json",
+	"frontgroundJson": "jumping_number_level/frontground.json",
+	"maingroundJson": "jumping_number_level/mainground.json",
+	"menuPlist": "jumping_number_level/jumping_number_level.plist",
+	"menuPng": "jumping_number_level/jumping_number_level.png"
 }, {
 	"name": "card",
 	"title": "Add the Cards",

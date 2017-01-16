@@ -63,6 +63,7 @@
 #include "external/json/document.h"
 #include "external/json/stringbuffer.h"
 #include "external/json/writer.h"
+#include "menu/LevelHelpScene.h"
 
 
 USING_NS_CC;
@@ -332,6 +333,8 @@ void ScrollableGameMapScene::disabledGameSelected(Ref* pSender, ui::Widget::Touc
         {
             auto shake = FShake::actionWithDuration(1.0f, 10.0f);
             clickedButton->runAction(shake);
+            auto soundStr = LangUtil::getInstance()->getLang() + "/audio/disabled_game_help.ogg";
+            CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(soundStr.c_str(), false);
             break;
         }
         default:
@@ -460,7 +463,7 @@ void ScrollableGameMapScene::nagivateToGame(std::string gameName) {
     }
     else if(gameName == "story-catalogue")
     {
-        Director::getInstance()->replaceScene(ScrollableCatalogue::createScene());
+        Director::getInstance()->replaceScene(TransitionFade::create(0.5, LevelHelpScene::createScene(gameName), Color3B::BLACK));
     }
     else
     {

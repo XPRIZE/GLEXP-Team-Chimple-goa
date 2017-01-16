@@ -494,7 +494,7 @@ std::vector<std::string> TextGenerator::getOrderedConcepts(int level) {
 std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> TextGenerator::getSentenceWithPOS(TextGenerator::P_O_S partOfSpeech, int maxLength, int level) {
     /* minimum 10 sentences per level and 10 levels */
     int originalLevel = level;
-    level = MAX(1, MIN(level, 10));
+    level = MAX(0, MIN(level, 10));
     std::string pos = "";
     switch( partOfSpeech ) {
         case TextGenerator::P_O_S::NOUN:
