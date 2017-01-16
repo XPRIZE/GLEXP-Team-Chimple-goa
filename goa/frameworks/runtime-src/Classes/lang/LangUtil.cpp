@@ -26,6 +26,9 @@ LangUtil::~LangUtil() {
 LangUtil* LangUtil::getInstance() {
     if(!_instance) {
         _instance = new EnglishUtil();
+        Data moData = FileUtils::getInstance()->getDataFromFile("res/english/eng.mo");
+        I18N::I18nUtils::getInstance()->removeAllMO();
+        I18N::I18nUtils::getInstance()->addMO(moData.getBytes());
     }
     return _instance;
 }
@@ -56,6 +59,9 @@ void LangUtil::changeLanguage(SupportedLanguages lang) {
         case SupportedLanguages::ENGLISH:
         {
             LangUtil::_instance = new EnglishUtil();
+            Data moData = FileUtils::getInstance()->getDataFromFile("res/english/eng.mo");
+            I18N::I18nUtils::getInstance()->removeAllMO();
+            I18N::I18nUtils::getInstance()->addMO(moData.getBytes());
             break;
         }
         case SupportedLanguages::SWAHILI:
