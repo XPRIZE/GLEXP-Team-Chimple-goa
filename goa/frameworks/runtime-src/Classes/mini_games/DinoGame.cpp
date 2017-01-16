@@ -100,7 +100,13 @@ void DinoGame::onEnterTransitionDidFinish()
 		_mapping = _levelConfig.at(1);
 	}
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-	_alphabets = { "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
+	if (LangUtil::getInstance()->getLang() == "swa") {
+		_alphabets = { "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","r","s","t","u","v","w","y","z" };
+	}
+	else
+	{
+		_alphabets = { "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z" };
+	}
 	_dinoNode = CSLoader::createNode(_mapping.at("csb"));
 	if (visibleSize.width > 2560) {
 		_extraX = (visibleSize.width - 2560) / 2;
@@ -146,7 +152,7 @@ void DinoGame::onEnterTransitionDidFinish()
 	}
 
 	_isTouched = true;
-	_menu->setMaxPoints(26);
+	_menu->setMaxPoints(_alphabets.size());
 	if (_menu->getCurrentLevel() == 2) {
 		alphabetHint("a");
 	}
@@ -237,7 +243,7 @@ void DinoGame::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 			_gameScore++;
 			_menu->addPoints(1);
 			_audioEffect->playEffect("sounds/sfx/drop_obj.ogg");
-			if (_menu->getCurrentLevel() == 2 && _gameScore < 26) {
+			if (_menu->getCurrentLevel() == 2 && _gameScore < _alphabets.size()) {
 				alphabetHint(_alphabets.at(_gameScore));
 			}
 			
@@ -255,7 +261,7 @@ void DinoGame::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 			}), NULL));
 		}
 	}
-	if (_gameScore == 26) {
+	if (_gameScore == _alphabets.size()) {
 		_menu->showScore();
 	}
 }
