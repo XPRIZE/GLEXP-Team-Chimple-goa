@@ -183,7 +183,7 @@ void HelloWorld::renderBagPack() {
                 localStorageSetItem(HINT_TEXT, hintText);
             }
         }
-        
+        hintText = LangUtil::getInstance()->translateString(hintText);
         sTextField->setString(hintText);
         sTextField->setFontName("fonts/Roboto-Regular.ttf");
         sTextField->setFontSize(50);
