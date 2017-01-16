@@ -54,6 +54,12 @@ bool LevelHelpOverlay::initWithGame(std::string gameName) {
 
 void LevelHelpOverlay::gotoGame(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
+        #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+            if(_vp != NULL && _vp->isPlaying()) {
+                _vp->stop();
+            }
+        #endif
+        
         _currentVideo++;
         if(_currentVideo < _videos.size()) {
             removeChild(getChildByName("bg")->getChildByName("screen_1")->getChildByName("video"));
