@@ -23,6 +23,6 @@ all_pos = {}
 for line in f:
   spos = ''
   lis = line.split(';')
-  for word in lis[1::2]:
+  for word in lis[2::2]:
     all_pos[word.rstrip('\n')] = 1
 print(all_pos)
