@@ -264,7 +264,7 @@ void SmashTheRock::jump()
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-	//audio->playEffect("smash_de_rock/PUNCH.mp3", false);
+	//audio->playEffect("smash_de_rock/PUNCH.ogg", false);
 
 	
 }

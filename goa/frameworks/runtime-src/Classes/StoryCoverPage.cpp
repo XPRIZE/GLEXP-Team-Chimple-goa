@@ -173,6 +173,7 @@ void StoryCoverPage::loadCoverPage(std::string coverPageUrl) {
 
 
 void StoryCoverPage::onExitTransitionDidStart() {
+    Node::onExitTransitionDidStart();
     CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
 }
 

@@ -333,6 +333,8 @@ void ScrollableGameMapScene::disabledGameSelected(Ref* pSender, ui::Widget::Touc
         {
             auto shake = FShake::actionWithDuration(1.0f, 10.0f);
             clickedButton->runAction(shake);
+            auto soundStr = LangUtil::getInstance()->getLang() + "/audio/disabled_game_help.ogg";
+            CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(soundStr.c_str(), false);
             break;
         }
         default:

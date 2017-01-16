@@ -82,7 +82,7 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
                     localStorageGetItem(_gameName + ".currentLevel", &currentLevel);
                     int curLevel = atoi(currentLevel.c_str());
                     int totalLevels = atoi(_numberOfLevels.c_str());
-                    if(curLevel > totalLevels) {
+                    if(curLevel >= totalLevels) {
                         _nextButton->setEnabled(false);
                     } else {
                         _nextButton->setEnabled(true);
@@ -249,6 +249,9 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
             Size visibleSize = Director::getInstance()->getVisibleSize();
             auto moveAction = MoveTo::create(1.0, Vec2(visibleSize.width / 2, visibleSize.height * 5 / 8));
             actions.pushBack(TargetedAction::create(this, moveAction));
+            actions.pushBack(CallFunc::create([=]() {
+                CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/sfx/boing.ogg");
+            }));
             _gift->runAction(Sequence::create(openGift, Spawn::create(actions), NULL));
         }
     }
@@ -272,12 +275,14 @@ std::map<std::string, std::map<std::string, int>> ScoreBoardContext::getRewards(
             for (rapidjson::Value::ConstMemberIterator itr = badgesDoc.MemberBegin();
                  itr != badgesDoc.MemberEnd(); ++itr) {
                 std::string badge = itr->name.GetString();
+                const rapidjson::Value& badgeGames = itr->value;
+                assert(badgeGames.IsArray());
                 auto badgeType = badge.substr(0, 1);
                 if(rewards.count(badgeType) > 0) {
-                    rewards[badgeType][badge] = 1;
+                    rewards[badgeType][badge] = badgeGames.Size();
                 } else {
                     std::map<std::string, int> badgesOfAType;
-                    badgesOfAType[badge] = 1;
+                    badgesOfAType[badge] = badgeGames.Size();
                     rewards[badgeType] = badgesOfAType;
                 }
             }
@@ -328,15 +333,17 @@ bool ScoreBoardContext::addBadges(std::vector<std::string> badges) {
         auto badge = *it;
         if(badgesDoc.HasMember(badge.c_str())) {
             rapidjson::Value& badgeGames = badgesDoc[badge.c_str()];
+            bool gameHasBadge = false;
             for (rapidjson::SizeType bgi = 0; bgi < badgeGames.Size(); bgi++) {
                 if(badgeGames[bgi].GetString() == _gameName) {
+                    gameHasBadge = true;
                     break;
                 }
-                badgeModified = true;
             }
-            if(badgeModified) {
+            if(!gameHasBadge) {
                 badgeGames.PushBack(rapidjson::Value(_gameName.c_str(), allocator).Move(), allocator);
                 _badges.push_back(badge);
+                badgeModified = true;
             }
         } else {
             rapidjson::Value badgeGames(rapidjson::kArrayType);

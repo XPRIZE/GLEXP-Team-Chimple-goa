@@ -18,6 +18,7 @@ public:
     static LevelHelpScene *create(std::string gameName);
 	cocos2d::ui::Button *_resumeButton;
     void onEnterTransitionDidFinish() override;
+    void onExitTransitionDidStart() override;
 	void ResumeButtonAction(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
 CC_CONSTRUCTOR_ACCESS:
     LevelHelpScene();

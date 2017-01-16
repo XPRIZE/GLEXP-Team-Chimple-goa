@@ -1,11 +1,11 @@
 var res = {
     HelloWorld_png : "../../../../res/SortIt/HelloWorld.png",
     character_png : "../../../../res/SortIt/character.png",
-    explosive_mp3 : "../../../../res/SortIt/explosive.mp3",
+    explosive_mp3 : "../../../../res/SortIt/explosive.ogg",
     homeScreen_png : "../../../../res/SortIt/homeScreen.png",
     playButton_png : "../../../../res/SortIt/playButton.png",
-    comedyBubble_mp3 : "../../../../res/comedyBubble.mp3",
-    failure_mp3 : "../../../../res/SortIt/failure.mp3",
+    comedyBubble_mp3 : "../../../../res/comedyBubble.ogg",
+    failure_mp3 : "../../../../res/SortIt/failure.ogg",
 
     
 
@@ -33,7 +33,7 @@ var res = {
     minClock_png: "../../../../res/SortIt/level2/minClock.png",
     stand_png: "../../../../res/SortIt/level2/stand.png",
     table_png: "../../../../res/SortIt/level2/table.png",
-    tickingClock_mp3: "../../../../res/SortIt/level2/tickingClock.mp3",
+    tickingClock_mp3: "../../../../res/SortIt/level2/tickingClock.ogg",
     cake1_png: "../../../../res/SortIt/level2/cake1.png",
     cake1t_png: "../../../../res/SortIt/level2/cake1t.png",
     cake2_png: "../../../../res/SortIt/level2/cake2.png",
@@ -50,7 +50,7 @@ var res = {
     bg3_jpg: "../../../../res/SortIt/level3/bg.jpg",
     character3_png: "../../../../res/SortIt/level3/character.png",
     harp1_png: "../../../../res/SortIt/level3/harp1.png",
-    harpMusic_mp3: "../../../../res/SortIt/level3/harpMusic.mp3",
+    harpMusic_mp3: "../../../../res/SortIt/level3/harpMusic.ogg",
     harpPlay_png: "../../../../res/SortIt/level3/harpPlay.png",
     musicNotes78x73_png: "../../../../res/SortIt/level3/musicNotes78x73.png",
     sHarp_png: "../../../../res/SortIt/level3/sHarp.png",

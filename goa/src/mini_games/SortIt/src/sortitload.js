@@ -73,9 +73,9 @@ xc.sortitloadLayer.res = {
     homeScreen_png : xc.path + "HelloWorld.png",
     
     
-    comedyBubble_mp3:  "res/sounds/sortit/comedyBubble.mp3",
-    explosive_mp3:  "res/sounds/sortit/explosive.mp3",
-    failure_mp3:  "res/sounds/sortit/failure.mp3"
+    comedyBubble_mp3:  "res/sounds/sortit/comedyBubble.ogg",
+    explosive_mp3:  "res/sounds/sortit/explosive.ogg",
+    failure_mp3:  "res/sounds/sortit/failure.ogg"
 }
 
 

@@ -445,7 +445,7 @@ void Trace::finishedAll() {
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	//this->removeChild(character, true);
-	//CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("bubble.mp3");
+	//CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("bubble.ogg");
 
 
 	std::string randomAnimation = animations[RandomHelper::random_int(0, 3)];

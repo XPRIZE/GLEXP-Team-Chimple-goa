@@ -804,7 +804,7 @@ void StoryPlaying::onFrameEvent(cocostudio::timeline::Frame* frame) {
 
 void StoryPlaying::playFrameEventEffect(std::string eventData) {
     if(!eventData.empty()) {
-        std::string eventSoundFile = "sounds/sfx/" +  eventData + ".mp3";
+        std::string eventSoundFile = "sounds/sfx/" +  eventData + ".ogg";
         if(!eventSoundFile.empty() && FileUtils::getInstance()->isFileExist(eventSoundFile)) {
             _loadedEffects.push_back(eventSoundFile);
             CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(eventSoundFile.c_str(), false);
