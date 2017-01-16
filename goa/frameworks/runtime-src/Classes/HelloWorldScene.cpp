@@ -784,6 +784,24 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName, b
     return true;
 }
 
+void HelloWorld::removeLoadedSearchPath() {
+    std::vector<std::string> newPaths;
+    std::vector<std::string> paths = FileUtils::getInstance()->getSearchPaths();
+    for (std::vector<std::string>::iterator it = paths.begin() ; it != paths.end(); ++it)
+    {
+        std::string searchPath = *it;
+        CCLOG("Search Path %s", searchPath.c_str());
+        if(searchPath.compare("res/" + this->getSceneName() + "/") == 0)
+        {
+            
+        } else{
+            newPaths.push_back(searchPath);
+        }
+    }
+    FileUtils::getInstance()->setSearchPaths(newPaths);
+    
+}
+
 void HelloWorld::querySceneToLoadInIsland() {
     this->skeletonPositionInLastVisitedScene = this->sqlite3Helper->findLastVisitedSceneInIsland(this->getIsland().c_str(), this->getSceneName().c_str());
     
@@ -1734,6 +1752,7 @@ void HelloWorld::cleanUpResources() {
     }
    
     cocostudio::timeline::ActionTimelineCache::getInstance()->destroyInstance();
+    removeLoadedSearchPath();
 }
 
 void HelloWorld::changeScene(std::string nextScene, bool isMiniGame) {

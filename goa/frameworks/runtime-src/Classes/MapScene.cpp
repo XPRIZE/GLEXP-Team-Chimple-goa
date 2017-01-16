@@ -84,7 +84,7 @@ bool MapScene::init()
         return false;
     }
     
-    FileUtils::getInstance()->addSearchPath("res/map");
+//    FileUtils::getInstance()->addSearchPath("res/map");
     
     this->currentLangUtil = LangUtil::getInstance();
 
