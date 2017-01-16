@@ -79,7 +79,7 @@
 #include "Award.h"
 #include "../ChooseCharacter.hpp"
 #include "../StoryCoverPage.hpp"
-#include "../story/ScrollableCatalogue.hpp";
+#include "../story/ScrollableCatalogue.hpp"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -817,7 +817,7 @@ void MenuContext::showBook(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEven
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
         
         std::size_t isStories = gameName.find("storyId");
-        if (isStories!=std::string::npos || gameName == "Show Stories"){
+        if (isStories!=std::string::npos || gameName == "Show Stories" || gameName == "StoryCoverPage"){
             Director::getInstance()->replaceScene(ScrollableCatalogue::createScene());
         } else if(gameName == "map") {
             Director::getInstance()->replaceScene(MapScene::createScene());
