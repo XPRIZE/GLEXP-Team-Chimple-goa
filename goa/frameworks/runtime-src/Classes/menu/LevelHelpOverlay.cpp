@@ -68,14 +68,19 @@ void LevelHelpOverlay::gotoGame(Ref* pSender, cocos2d::ui::Widget::TouchEventTyp
                 _text->setString(LangUtil::getInstance()->translateString(_helpText));
             } else {
                 _text->setString(LangUtil::getInstance()->translateString(_videoNames[_currentVideo]));
-            }            
-            videoPlayStart();
+            }
+            this->scheduleOnce(schedule_selector(LevelHelpOverlay::playNextVideo), 1.0f);
+            
         } else {
             auto menuContext = static_cast<MenuContext *>(getParent());
             removeFromParent();
             menuContext->removeMenu();
         }
     }
+}
+
+void LevelHelpOverlay::playNextVideo(float dt) {
+    videoPlayStart();
 }
 
 void LevelHelpOverlay::decideIndexOfVideo() {

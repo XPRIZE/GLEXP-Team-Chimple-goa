@@ -21,6 +21,7 @@ CC_CONSTRUCTOR_ACCESS:
 protected:
     void gotoGame(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType) override;
     void decideIndexOfVideo() override;
+    void playNextVideo(float dt);
 };
 
 #endif /* LevelHelpOverlay_h */
