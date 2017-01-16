@@ -69,6 +69,13 @@ bool LevelHelpScene::initWithGame(std::string gameName) {
     if(!currentLevelStr.empty()) {
         _currentLevel = std::atoi( currentLevelStr.c_str());
     }
+    
+    std::size_t isStories = gameName.find("storyId");
+    if (isStories!=std::string::npos) {
+        _gameName = "story-catalogue";
+        gameName = "story-catalogue";
+    }
+
     std::string contents = FileUtils::getInstance()->getStringFromFile("config/game_levels.json");
     
     rapidjson::Document d;
@@ -198,7 +205,9 @@ bool LevelHelpScene::initWithGame(std::string gameName) {
         }
     }
     
-    if(gameName == "story-catalogue") {
+
+    
+    if(gameName == "story-catalogue" || gameName == "StoryCoverPage") {
         std::string video = "story_help" + VIDEO_EXT;
         if(!video.empty()) {
             _videos.clear();
@@ -368,6 +377,12 @@ void LevelHelpScene::gotoGame(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchE
         _currentVideo++;
         decideIndexOfVideo();
         if(_currentVideo < _videos.size()) {
+            #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+                if(_vp != NULL && _vp->isPlaying()) {
+                    _vp->stop();
+                }
+            #endif
+            
             removeChild(getChildByName("bg")->getChildByName("screen_1")->getChildByName("video"));
             getChildByName("bg")->getChildByName("screen_1")->removeChild(_resumeButton);
             if(_currentVideo + 1 == _videos.size()) {
@@ -384,11 +399,11 @@ void LevelHelpScene::gotoGame(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchE
 
 void LevelHelpScene::onExitTransitionDidStart() {
     Node::onExitTransitionDidStart();
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    if(_vp != NULL && _vp->isPlaying()) {
-        _vp->stop();
-    }
-#endif
+    #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+        if(_vp != NULL && _vp->isPlaying()) {
+            _vp->stop();
+        }
+    #endif
 }
 
 

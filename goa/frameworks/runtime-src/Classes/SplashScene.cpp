@@ -99,23 +99,14 @@ bool SplashScene::init()
     this->loadDepedencies();
     
     this->scheduleOnce( schedule_selector( SplashScene::GoToMainMenuScene ), DISPLAY_TIME_SPLASH_SCENE );
-    
-//    auto backgroundSprite = Sprite::create( "chimple_loading0001.png" );
-//    backgroundSprite->setPosition( Point( visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y) );
-//    
-//    this->addChild( backgroundSprite );
 
-    cocos2d::LayerColor* _greyLayer = NULL;
-    _greyLayer = LayerGradient::create(Color4B(0, 0, 0, 100), Color4B(15, 15, 15, 100));
-    _greyLayer->setContentSize(visibleSize);
-    addChild(_greyLayer, 3);
     
-    Node* animationNode = CSLoader::createNode("loading/animation_4.csb");
+    Node* animationNode = CSLoader::createNode("chimpleloading/chimpleloading.csb");
     animationNode->setPosition(Vec2(visibleSize.width/2, visibleSize.height/2));
     animationNode->setAnchorPoint(Vec2(0.5,0.5));
-    _greyLayer->addChild(animationNode,1);
+    this->addChild(animationNode,1);
     
-    cocostudio::timeline::ActionTimeline * _animationTimeLine = CSLoader::createTimeline("loading/animation_4.csb");
+    cocostudio::timeline::ActionTimeline * _animationTimeLine = CSLoader::createTimeline("chimpleloading/chimpleloading.csb");
     animationNode->runAction(_animationTimeLine);
     _animationTimeLine->gotoFrameAndPlay(0);
 
