@@ -1,4 +1,6 @@
 #include "AppDelegate.h"
+
+#include <time.h>
 #include "MapScene.h"
 #include "StartMenuScene.h"
 #include "ScrollableGameMapScene.hpp"
@@ -145,7 +147,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 #else
     glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::FIXED_HEIGHT);
 #endif
-
+    srand (time(NULL));
     std::vector<std::string> searchPaths;
     float scaleFactor = 1.0f;
     Size frameSize = glview->getFrameSize();
