@@ -336,6 +336,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClCompile Include="..\Classes\SkeletonConfiguration.cpp" />
     <ClCompile Include="..\Classes\SkeletonPosition.cpp" />
     <ClCompile Include="..\Classes\SpeechBubbleView.cpp" />
+    <ClCompile Include="..\Classes\SplashScene.cpp" />
     <ClCompile Include="..\Classes\sqlite3.c" />
     <ClCompile Include="..\Classes\Sqlite3Helper.cpp" />
     <ClCompile Include="..\Classes\StandingState.cpp" />
@@ -556,6 +557,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClInclude Include="..\Classes\SkeletonConfiguration.h" />
     <ClInclude Include="..\Classes\SkeletonPosition.h" />
     <ClInclude Include="..\Classes\SpeechBubbleView.hpp" />
+    <ClInclude Include="..\Classes\SplashScene.hpp" />
     <ClInclude Include="..\Classes\sqlite3.h" />
     <ClInclude Include="..\Classes\Sqlite3Helper.hpp" />
     <ClInclude Include="..\Classes\StandingState.h" />

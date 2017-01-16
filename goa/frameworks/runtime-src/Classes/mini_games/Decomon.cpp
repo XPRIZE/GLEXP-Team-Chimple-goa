@@ -106,11 +106,30 @@ bool Decomon::init()
 	listener->onTouchBegan = CC_CALLBACK_2(Decomon::onTouchBegan, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, bg->getChildByName("decomon_icon_camera"));
 
-	auto listener1 = EventListenerTouchOneByOne::create();
-	listener1->setSwallowTouches(true);
-	listener1->onTouchBegan = CC_CALLBACK_2(Decomon::onTouchBegan, this);
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, bg->getChildByName("decomon_icon_gallery"));
 
+	auto fullpath = FileUtils::sharedFileUtils()->getWritablePath() + "decomon.txt";
+
+	std::string contents = FileUtils::getInstance()->getStringFromFile(fullpath);
+
+	std::vector<std::string> imagePath;
+
+	std::stringstream ss;
+	ss.str(contents);
+	std::string item;
+	while (std::getline(ss, item, '%')) {
+		imagePath.push_back(item);
+	}
+
+	if (imagePath.size() != 0) {
+		auto listener1 = EventListenerTouchOneByOne::create();
+		listener1->setSwallowTouches(true);
+		listener1->onTouchBegan = CC_CALLBACK_2(Decomon::onTouchBegan, this);
+		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, bg->getChildByName("decomon_icon_gallery"));
+	}
+	else
+	{
+		bg->getChildByName("decomon_icon_gallery")->setVisible(false);
+	}
 	
 
 	_eyePath = { "decomon/decomon_eye_a.csb",
@@ -392,7 +411,16 @@ void Decomon::onTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event)
 void Decomon::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 {
 	auto target = event->getCurrentTarget();
-	_audioEffect->playEffect("sounds/sfx/drop.ogg");
+	if (menu->getCurrentLevel() > 52) {
+		_audioEffect->playEffect("sounds/sfx/drop.ogg");
+	}
+	else
+	{
+		auto character = tolower(_myChar.at(0));
+		std::string path = LangUtil::getInstance()->getAlphabetSoundFileName(character);
+		CCLOG("path = %s", path.c_str());
+		_audioEffect->playEffect(path.c_str());
+	}
 	if (!_colorPicked)
 	{
 		if (!(target->getBoundingBox().intersectsRect(_alphaNode->getBoundingBox()))) {

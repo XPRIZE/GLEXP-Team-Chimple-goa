@@ -26,7 +26,7 @@ protected:
 	MenuContext *_menu;
 	bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
 	cocos2d::ui::TabControl * _tab;
-	void objectsAddInTabContainer(cocos2d::Node * parent, std::string tile, std::map<std::string,int> rewardsInfo);
-	void rewardsBackground(cocos2d::Node * parent, std::string tile);
+	void objectsAddInTabContainer(cocos2d::Node * parent, std::string tile, std::map<std::string,int> rewardsInfo,cocos2d::Color3B color);
+	void rewardsBackground(cocos2d::Node * parent, std::string tile, cocos2d::Color3B color);
 };
 #endif

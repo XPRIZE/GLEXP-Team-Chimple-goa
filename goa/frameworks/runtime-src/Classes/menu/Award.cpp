@@ -130,57 +130,57 @@ static const std::string REWARD_BADGE = "b";
 */
 	auto it = rewards.find("b");
 	if (it != rewards.end()) {
-		objectsAddInTabContainer(container6, "tab/badges_tile.png", rewards.at("b"));
+		objectsAddInTabContainer(container6, "tab/badges_tile.png", rewards.at("b"), cocos2d::Color3B::WHITE);
 	}
 	else
 	{
-		rewardsBackground(container6, "tab/badges_tile.png");
+		rewardsBackground(container6, "tab/badges_tile.png", cocos2d::Color3B::WHITE);
 	}
 	
 
 	auto it1 = rewards.find("c");
 	if (it1 != rewards.end()) {
-		objectsAddInTabContainer(container5, "tab/candies_tile.png", rewards.at("c"));
+		objectsAddInTabContainer(container5, "tab/candies_tile.png", rewards.at("c"), cocos2d::Color3B::WHITE);
 	}
 	else
 	{
-		rewardsBackground(container5, "tab/candies_tile.png");
+		rewardsBackground(container5, "tab/candies_tile.png", cocos2d::Color3B::WHITE);
 	}
 	
 	auto it2 = rewards.find("g");
 	if (it2 != rewards.end()) {
-		objectsAddInTabContainer(container4, "tab/gem_tile.png", rewards.at("g"));
+		objectsAddInTabContainer(container4, "tab/gem_tile.png", rewards.at("g"), cocos2d::Color3B::WHITE);
 	}
 	else
 	{
-		rewardsBackground(container4, "tab/gem_tile.png");
+		rewardsBackground(container4, "tab/gem_tile.png", cocos2d::Color3B::WHITE);
 	}
 
 	auto it3 = rewards.find("m");
 	if (it3 != rewards.end()) {
-		objectsAddInTabContainer(container3, "tab/medal_tile.png", rewards.at("m"));
+		objectsAddInTabContainer(container3, "tab/medal_tile.png", rewards.at("m"), cocos2d::Color3B::WHITE);
 	}
 	else
 	{
-		rewardsBackground(container3, "tab/medal_tile.png");
+		rewardsBackground(container3, "tab/medal_tile.png", cocos2d::Color3B::WHITE);
 	}
 
 	auto it4 = rewards.find("p");
 	if (it4 != rewards.end()) {
-		objectsAddInTabContainer(container2, "tab/patch_tile.png", rewards.at("p"));
+		objectsAddInTabContainer(container2, "tab/patch_tile.png", rewards.at("p"), cocos2d::Color3B::WHITE);
 	}
 	else
 	{
-		rewardsBackground(container2, "tab/patch_tile.png");
+		rewardsBackground(container2, "tab/patch_tile.png",cocos2d::Color3B::WHITE);
 	}
 	
 	auto it5 = rewards.find("s");
 	if (it5 != rewards.end()) {
-		objectsAddInTabContainer(container1, "tab/stickers_tile.png", rewards.at("s"));
+		objectsAddInTabContainer(container1, "tab/stickers_tile.png", rewards.at("s"),cocos2d::Color3B::BLACK);
 	}
 	else
 	{
-		rewardsBackground(container1, "tab/stickers_tile.png");
+		rewardsBackground(container1, "tab/stickers_tile.png", cocos2d::Color3B::BLACK);
 	}
 	
 
@@ -212,7 +212,7 @@ bool Award::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 	return false;
 }
 
-void Award::objectsAddInTabContainer(cocos2d::Node * parent, std::string tile, std::map<std::string, int> rewardsInfo)
+void Award::objectsAddInTabContainer(cocos2d::Node * parent, std::string tile, std::map<std::string, int> rewardsInfo, cocos2d::Color3B color)
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto scrollView6 = ui::ScrollView::create();
@@ -239,6 +239,9 @@ void Award::objectsAddInTabContainer(cocos2d::Node * parent, std::string tile, s
 				if (numberOfRewards < imagePath.size()) {
 					float xx = visibleSize.width / 5;
 					std::string path = "rewards/" + imagePath.at(numberOfRewards) + ".png";
+					if (!FileUtils::getInstance()->isFileExist(path)) {
+						path = "menu/menu.png";
+					}
 					auto child = Sprite::create(path);
 					child->setPosition(Vec2((xx / 2 + (xx * i)) + (k * visibleSize.width), visibleSize.height * 0.1 + (yy * j)));
 					scrollView6->addChild(child);
@@ -251,15 +254,19 @@ void Award::objectsAddInTabContainer(cocos2d::Node * parent, std::string tile, s
 					ss << rewardsInfo.at(imagePath.at(numberOfRewards));
 					std::string mycharString = ss.str();
 
+					//number of times
+
 					auto targetLabel = Label::createWithTTF(mycharString, "fonts/Roboto-Regular.ttf", 30);
 					targetLabel->setColor(Color3B(0, 0, 0));
 					targetLabel->setPositionX(child->getContentSize().width);
 					targetLabel->setPositionY(child->getContentSize().height);
 					drawNode->addChild(targetLabel);
 
+					// reward name
+
 					std::replace(imagePath.at(numberOfRewards).begin(), imagePath.at(numberOfRewards).end(), '_', ' ');
 					auto rewardLabel = Label::createWithTTF(LangUtil::getInstance()->translateString(imagePath.at(numberOfRewards).substr(2)), "fonts/Roboto-Regular.ttf", 50);
-					rewardLabel->setColor(Color3B(0, 0, 0));
+					rewardLabel->setColor(color);
 					rewardLabel->setPositionX(child->getContentSize().width/2);
 					child->addChild(rewardLabel);
 					numberOfRewards++;
@@ -272,7 +279,7 @@ void Award::objectsAddInTabContainer(cocos2d::Node * parent, std::string tile, s
 
 }
 
-void Award::rewardsBackground(cocos2d::Node * parent, std::string tile)
+void Award::rewardsBackground(cocos2d::Node * parent, std::string tile, cocos2d::Color3B color)
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto scrollView6 = ui::ScrollView::create();
@@ -287,7 +294,7 @@ void Award::rewardsBackground(cocos2d::Node * parent, std::string tile)
 	scrollView6->setInnerContainerSize(Size(visibleSize.width, visibleSize.height* 0.8));
 	std::string headLabel = LangUtil::getInstance()->translateString("You have not yet earned any rewards");
 	auto targetLabel = Label::createWithTTF(headLabel, "fonts/Roboto-Regular.ttf", 150);
-	targetLabel->setColor(Color3B(255, 255, 255));
+	targetLabel->setColor(color);
 	targetLabel->setPositionX(visibleSize.width/2);
 	targetLabel->setPositionY(visibleSize.height/2);
 	parent->addChild(scrollView6);
