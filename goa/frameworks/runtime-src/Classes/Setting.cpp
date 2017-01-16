@@ -52,7 +52,7 @@ void Setting::onEnterTransitionDidFinish()
 		}
 	});
 
-    auto _label = LabelTTF::create(LangUtil::getInstance()->translateString("Enter secret code to unlock all levels"), "fonts/Roboto-Regular.ttf", 150);
+    auto _label = LabelTTF::create(LangUtil::getInstance()->translateString("Enter secret code to unlock all levels"), "fonts/Roboto-Regular.ttf", 100);
 	_label->setAnchorPoint(Vec2(.5, .5));
 	_label->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * .75));
 	_calcLayer->addChild(_label, 5);
@@ -76,7 +76,7 @@ bool Setting::init()
 
 void Setting::update(float d)
 {
-	if (_calculator->checkAnswer(1234))
+	if (_calculator->checkAnswer(2345))
 	{
 		this->removeChild(_calcLayer);
 		this->unscheduleUpdate();

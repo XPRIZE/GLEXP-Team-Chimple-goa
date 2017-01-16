@@ -199,7 +199,7 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
             rewardCard->addChild(unlockedGameButton);
             rewardCard->setScale(0.1);
             addChild(rewardCard);
-            auto jumpAction = JumpTo::create(1.0, Vec2(900, -800), 600, 2);
+            auto jumpAction = JumpTo::create(1.0, Vec2(850, -800), 600, 2);
             auto scaleAction = ScaleTo::create(1.0, 1.0);
             auto spawn = Spawn::create(jumpAction, scaleAction, NULL);
             actions.pushBack(TargetedAction::create(rewardCard, spawn));
@@ -232,7 +232,7 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
                     rewardCard->setScale(0.1);
                     addChild(rewardCard);
 
-                    auto finalPos = Vec2(-900, -800);
+                    auto finalPos = Vec2(-850, -800);
                     if(numRewards > 0) {
                         finalPos = Vec2(0, -800);
                     }
