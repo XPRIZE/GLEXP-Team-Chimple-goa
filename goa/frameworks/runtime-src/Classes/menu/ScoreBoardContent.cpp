@@ -540,7 +540,7 @@ void ScoreBoardContext::buttonClicked(Ref* pSender, ui::Widget::TouchEventType e
                         if(MapScene::levelToGameNameMap.count(currentLevel) == 1)
                         {
                             std::string gameName = MapScene::levelToGameNameMap.at(currentLevel);
-                            Director::getInstance()->replaceScene(TransitionFade::create(0.5, LevelHelpScene::createScene(gameName.c_str()), Color3B::BLACK));
+                            Director::getInstance()->replaceScene(LevelHelpScene::createScene(gameName.c_str()));
                         } else {
                             Director::getInstance()->replaceScene(MapScene::createScene());
                         }
