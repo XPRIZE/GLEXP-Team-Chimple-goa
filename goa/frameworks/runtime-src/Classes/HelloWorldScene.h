@@ -330,6 +330,8 @@ public:
     void onExitTransitionDidStart() override;
     void onEnterTransitionDidFinish() override;
     
+    void removeLoadedSearchPath();
+    
     void displayText(std::string word);
     void buildText(cocos2d::EventCustom * event);
     void removeDisplayText(float dt);

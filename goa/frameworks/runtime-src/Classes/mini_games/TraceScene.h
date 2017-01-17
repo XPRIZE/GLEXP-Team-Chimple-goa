@@ -36,6 +36,7 @@ CC_CONSTRUCTOR_ACCESS:
 	const wchar_t *_alpha;
 	HelpLayer * _help;
     static const char* classname() { return KUNG_FU_ALPHA.c_str();}
+    void onExitTransitionDidStart() override;
 protected:
     int _currentNodeIndex;
     int _currentStroke;

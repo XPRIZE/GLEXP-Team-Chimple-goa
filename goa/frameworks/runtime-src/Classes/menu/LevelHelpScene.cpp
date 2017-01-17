@@ -285,12 +285,17 @@ void LevelHelpScene::onEnterTransitionDidFinish() {
 void LevelHelpScene::videoEventCallback(Ref* sender, cocos2d::experimental::ui::VideoPlayer::EventType eventType) {
     switch (eventType) {
         case cocos2d::experimental::ui::VideoPlayer::EventType::PLAYING:
+            CCLOG("cocos2d::experimental::ui::VideoPlayer::EventType::PLAYING");
             break;
         case cocos2d::experimental::ui::VideoPlayer::EventType::PAUSED:
+            CCLOG("cocos2d::experimental::ui::VideoPlayer::EventType::PAUSED");
             break;
         case cocos2d::experimental::ui::VideoPlayer::EventType::STOPPED:
+            CCLOG("cocos2d::experimental::ui::VideoPlayer::EventType::STOPPPED");
+            _vp = NULL;
             break;
         case cocos2d::experimental::ui::VideoPlayer::EventType::COMPLETED:
+            CCLOG("cocos2d::experimental::ui::VideoPlayer::EventType::COMPLETED");
 			_resumeButton->setEnabled(true);
 			_resumeButton->setVisible(true);
 //			removeChild(getChildByName("bg")->getChildByName("screen_1")->getChildByName("video"));
@@ -307,12 +312,14 @@ void LevelHelpScene::videoPlayStart()
 {
     if(!_videos.empty() && FileUtils::getInstance()->isFileExist(LangUtil::getInstance()->getDir() + "/help/" + _videos[_currentVideo])) {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+        CCLOG("create new Video player");
         _vp = experimental::ui::VideoPlayer::create();
         _vp->setContentSize(cocos2d::Size(1280, 800));
         _vp->setFileName(LangUtil::getInstance()->getDir() + "/help/" + _videos[_currentVideo]);
         _vp->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
         _vp->play();
         _vp->setName("video");
+        
         auto bg = getChildByName("bg");
         auto screen_1 = bg->getChildByName("screen_1");
         screen_1->addChild(_vp, 2);
@@ -374,14 +381,15 @@ void LevelHelpScene::decideIndexOfVideo() {
 
 void LevelHelpScene::gotoGame(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
+        #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+            if(_vp != NULL && _vp->isPlaying()) {
+                _vp->stop();
+            }
+        #endif
+
         _currentVideo++;
         decideIndexOfVideo();
         if(_currentVideo < _videos.size()) {
-            #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-                if(_vp != NULL && _vp->isPlaying()) {
-                    _vp->stop();
-                }
-            #endif
             
             removeChild(getChildByName("bg")->getChildByName("screen_1")->getChildByName("video"));
             getChildByName("bg")->getChildByName("screen_1")->removeChild(_resumeButton);
@@ -390,15 +398,21 @@ void LevelHelpScene::gotoGame(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchE
             } else {
                 _text->setString(LangUtil::getInstance()->translateString(_videoNames[_currentVideo]));
             }
-            videoPlayStart();
+            this->scheduleOnce(schedule_selector(LevelHelpScene::playNextVideo), 1.0f);
+            
         } else {
             MenuContext::launchGameFinally(_gameName);
         }
     }
 }
 
+void LevelHelpScene::playNextVideo(float dt) {
+    videoPlayStart();
+}
+
 void LevelHelpScene::onExitTransitionDidStart() {
     Node::onExitTransitionDidStart();
+    CCLOG("in LevelHelpScene::onExitTransitionDidStart");
     #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
         if(_vp != NULL && _vp->isPlaying()) {
             _vp->stop();

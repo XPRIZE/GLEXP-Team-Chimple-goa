@@ -97,6 +97,7 @@ static const int MIN_STAR_TO_UNLOCK_NEXT_STORY = 1;
 static const int NUMBER_OF_TIMES_READ_STORY_TO_UNLOCK_NEXT_STORY = 2;
 static const int NUMBER_OF_STORIES_TO_BE_UNLOCKED = 1;
 bool MenuContext::_gameIsStatic = false;
+std::string MenuContext::_lastAudioId = "";
 
 MenuContext* MenuContext::create(Node* main, std::string gameName, bool launchCustomEventOnExit, std::string sceneName) {
     MenuContext* menuContext = new (std::nothrow) MenuContext();
@@ -235,6 +236,9 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                     _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png", 3 * POINTS_TO_LEFT);
                     _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
                 } else if(gameName == "levelMenu" || gameName == "story-catalogue" || gameName == "map") {
+                    _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
+                    _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
+                } else if(gameName == "ChooseCharacterScene") {
                     _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
                     _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
                 } else if(gameName == "Award") {
@@ -1391,12 +1395,17 @@ std::vector<std::vector<cocos2d::Point>> MenuContext::getTrianglePointsForSprite
 
 
 void MenuContext::pronounceWord(std::string word) {
+    if(!MenuContext::_lastAudioId.empty()) {
+        CCLOG("unloadEffect: %s", MenuContext::_lastAudioId.c_str());
+        CocosDenshion::SimpleAudioEngine::getInstance()->unloadEffect(MenuContext::_lastAudioId.c_str());
+    }
     std::replace(word.begin(), word.end(), '_', ' ');
     word = LangUtil::getInstance()->translateString(word);
     
     std::string fileName = LangUtil::getInstance()->getPronounciationFileNameForWord(word);
     if(FileUtils::getInstance()->isFileExist(fileName)) {
         CCLOG("fileName to pronounce %s", fileName.c_str());
+        MenuContext::_lastAudioId = fileName;
         auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
         audio->playEffect(fileName.c_str());
     }
@@ -1489,8 +1498,7 @@ MenuContext::MenuContext() :
     _helpMenu(nullptr),
 	_currentLevel(1),
 	_closeButton(nullptr),
-
-_maxPoints(MAX_POINTS_TO_SHOW)
+    _maxPoints(MAX_POINTS_TO_SHOW)
 {
     
 }

@@ -1,4 +1,6 @@
 #include "AppDelegate.h"
+
+#include <time.h>
 #include "MapScene.h"
 #include "StartMenuScene.h"
 #include "ScrollableGameMapScene.hpp"
@@ -131,7 +133,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     auto glview = director->getOpenGLView();
     if(!glview) {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-        glview = GLViewImpl::createWithRect("goa", cocos2d::Rect(0, 0, 960, 640));
+        glview = GLViewImpl::createWithRect("goa", cocos2d::Rect(0, 0, 960, 675));
 //        glview = GLViewImpl::createWithRect("goa", cocos2d::Rect(0, 0, 640, 450));
 #else
         glview = GLViewImpl::createWithRect("goa", cocos2d::Rect(0, 0, 640, 450));
@@ -145,7 +147,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 #else
     glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::FIXED_HEIGHT);
 #endif
-
+    srand (time(NULL));
     std::vector<std::string> searchPaths;
     float scaleFactor = 1.0f;
     Size frameSize = glview->getFrameSize();

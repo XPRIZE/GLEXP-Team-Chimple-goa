@@ -56,6 +56,7 @@ public:
     std::vector<std::vector<cocos2d::Point>> getTrianglePointsForSprite(cocos2d::Sprite* node, std::string fileName, float threshHold);
     
     static void pronounceWord(std::string word);
+    static std::string _lastAudioId;
     static bool isGameStatic();
 	void wordPairList(std::string question, std::string answer = "it is a word",bool isInitialSyllable = false);
 	void showAnswer(std::string, std::string header);
