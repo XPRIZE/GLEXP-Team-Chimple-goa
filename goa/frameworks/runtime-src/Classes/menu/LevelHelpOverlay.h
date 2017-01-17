@@ -18,6 +18,7 @@ CC_CONSTRUCTOR_ACCESS:
     LevelHelpOverlay();
     virtual ~LevelHelpOverlay();
     bool initWithGame(std::string gameName);
+    void onEnterTransitionDidFinish() override;
 protected:
     void gotoGame(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType) override;
     void decideIndexOfVideo() override;

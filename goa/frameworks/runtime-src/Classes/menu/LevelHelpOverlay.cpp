@@ -33,6 +33,12 @@ bool LevelHelpOverlay::initWithGame(std::string gameName) {
     if(!LevelHelpScene::initWithGame(gameName)) {
         return false;
     }
+
+    return true;
+}
+
+void LevelHelpOverlay::onEnterTransitionDidFinish() {
+    LevelHelpScene::onEnterTransitionDidFinish();
     Size visibleSize = Director::getInstance()->getVisibleSize();
     auto greyLayer = LayerColor::create(Color4B(128.0, 128.0, 128.0, 128.0));
     greyLayer->setContentSize(visibleSize);
@@ -48,8 +54,6 @@ bool LevelHelpOverlay::initWithGame(std::string gameName) {
         return true;
     };
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
-
-    return true;
 }
 
 void LevelHelpOverlay::gotoGame(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType) {

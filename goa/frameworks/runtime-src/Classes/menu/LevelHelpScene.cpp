@@ -22,7 +22,7 @@ static const std::string NUMERIC_WRITING = ".numeric";
 static const std::string UPPER_ALPHABET_WRITING = ".upper";
 static const std::string VIDEO_EXT = ".webm";
 static const std::string CONCEPTS_DIR = "concepts/";
-static const int MAX_VIEWS = 3;
+static const int MAX_VIEWS = 1;
 
 Scene *LevelHelpScene::createScene(std::string gameName) {
     auto layer = LevelHelpScene::create(gameName);
@@ -218,16 +218,19 @@ bool LevelHelpScene::initWithGame(std::string gameName) {
     }
     
     decideIndexOfVideo();
-    auto bg = CSLoader::createNode("template/video_screen.csb");
-    bg->setName("bg");
-    this->addChild(bg);
     
     return true;
 }
 
 void LevelHelpScene::onEnterTransitionDidFinish() {
+    if(_currentVideo >= _videos.size()) {
+        MenuContext::launchGameFinally(_gameName);
+        return;
+    }
     Node::onEnterTransitionDidFinish();
-    auto bg = getChildByName("bg");
+    auto bg = CSLoader::createNode("template/video_screen.csb");
+    bg->setName("bg");
+    this->addChild(bg);
     Size visibleSize = Director::getInstance()->getVisibleSize();
     if (visibleSize.width > 2560) {
         bg->setPositionX((visibleSize.width - 2560)/2);
@@ -363,7 +366,7 @@ void LevelHelpScene::videoPlayOverCallback() {
 }
 
 void LevelHelpScene::decideIndexOfVideo() {
-    while(_currentVideo + 1 < _videos.size()) {
+    while(_currentVideo < _videos.size()) {
         std::string currentVideoStr;
         int views = 0;
         localStorageGetItem(_videos[_currentVideo], &currentVideoStr);

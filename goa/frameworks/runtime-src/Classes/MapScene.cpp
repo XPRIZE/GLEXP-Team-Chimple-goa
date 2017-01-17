@@ -229,7 +229,7 @@ void MapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEventTyp
                 std::string level = gameNameToLevelMap.at(clickedButton->getName());
                 localStorageSetItem("map.currentLevel", level);
             }
-            Director::getInstance()->replaceScene(TransitionFade::create(0.5, LevelHelpScene::createScene(clickedButton->getName().c_str()), Color3B::BLACK));
+            Director::getInstance()->replaceScene(LevelHelpScene::createScene(clickedButton->getName().c_str()));
             break;
         }
             

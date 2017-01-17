@@ -463,7 +463,7 @@ void ScrollableGameMapScene::nagivateToGame(std::string gameName) {
     }
     else if(gameName == "story-catalogue")
     {
-        Director::getInstance()->replaceScene(TransitionFade::create(0.5, LevelHelpScene::createScene(gameName), Color3B::BLACK));
+        Director::getInstance()->replaceScene(LevelHelpScene::createScene(gameName));
     }
     else
     {
