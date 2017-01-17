@@ -34,7 +34,6 @@ _iterations(0)
 }
 
 Trace::~Trace() {
-
 }
 
 cocostudio::timeline::ActionTimeline *timeline;
@@ -72,11 +71,16 @@ bool Trace::init() {
 
 }
 
+void Trace::onExitTransitionDidStart() {
+    Node::onExitTransitionDidStart();
+    _eventDispatcher->removeCustomEventListeners("on_menu_exit");
+}
+
 
 void Trace::onEnterTransitionDidFinish() {
 	
 	//_language = LangUtil::getInstance()->getLang();
-	
+    Node::onEnterTransitionDidFinish();
 	
 	_alpha = LangUtil::getInstance()->getAllCharacters();
     
