@@ -1,1 +1,0 @@
-Put the original objects here in same directory hierarchy as res
