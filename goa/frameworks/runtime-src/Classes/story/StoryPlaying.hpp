@@ -12,11 +12,11 @@
 #include <stdio.h>
 
 #include <stdio.h>
-#include "menu/MenuContext.h"
+#include "../menu/MenuContext.h"
 #include "cocos2d.h"
 #include "RPGConfig.h"
-#include "menu/MenuContext.h"
-#include "lang/LangUtil.h"
+#include "../menu/MenuContext.h"
+#include "../lang/LangUtil.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "editor-support/cocostudio/ActionTimeline/CCFrame.h"
 #include "editor-support/cocostudio/CCComExtensionData.h"

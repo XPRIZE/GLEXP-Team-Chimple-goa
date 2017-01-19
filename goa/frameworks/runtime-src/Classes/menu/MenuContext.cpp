@@ -78,7 +78,7 @@
 #include "../Setting.h"
 #include "Award.h"
 #include "../ChooseCharacter.hpp"
-#include "../StoryCoverPage.hpp"
+#include "../story/StoryCoverPage.hpp"
 #include "../story/ScrollableCatalogue.hpp"
 
 USING_NS_CC;

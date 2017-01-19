@@ -200,8 +200,8 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/lang/SwahiliUtil.cpp \
 					../../Classes/CopyRight.cpp \
 					../../Classes/ChooseCharacter.cpp \
-					../../Classes/StoryPlaying.cpp \
-					../../Classes/StoryCoverPage.cpp \
+					../../Classes/Story/StoryPlaying.cpp \
+					../../Classes/Story/StoryCoverPage.cpp \
 					../../Classes/SplashScene.cpp	
 					
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes

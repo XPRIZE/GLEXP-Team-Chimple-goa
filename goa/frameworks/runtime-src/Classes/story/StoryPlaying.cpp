@@ -7,9 +7,9 @@
 //
 
 #include "StoryPlaying.hpp"
-#include "util/lib/LTKStringUtil.h"
-#include "lang/TextGenerator.h"
-#include "story/QuestionHandler.h"
+#include "../util/lib/LTKStringUtil.h"
+#include "../lang/TextGenerator.h"
+#include "QuestionHandler.h"
 
 static const std::string STORY_JSON = ".storyJSON";
 static const std::string SOUND_ENABLED_FOR_STORIES = ".soundEnabledForStories";
